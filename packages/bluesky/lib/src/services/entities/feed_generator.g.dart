@@ -17,8 +17,8 @@ _$FeedGeneratorImpl _$$FeedGeneratorImplFromJson(Map json) => $checkedCreate(
               'view',
               (v) => FeedGeneratorView.fromJson(
                   Map<String, Object?>.from(v as Map))),
-          isOnline: $checkedConvert('isOnline', (v) => v as bool),
-          isValid: $checkedConvert('isValid', (v) => v as bool),
+          isOnline: $checkedConvert('isOnline', (v) => v as bool? ?? false),
+          isValid: $checkedConvert('isValid', (v) => v as bool? ?? false),
         );
         return val;
       },

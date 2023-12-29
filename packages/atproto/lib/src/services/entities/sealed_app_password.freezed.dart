@@ -20,10 +20,7 @@ SealedAppPassword _$SealedAppPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SealedAppPassword {
-  /// The name of the application password.
   String get name => throw _privateConstructorUsedError;
-
-  /// The time when the application password was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,11 +113,8 @@ class _$SealedAppPasswordImpl implements _SealedAppPassword {
   factory _$SealedAppPasswordImpl.fromJson(Map<String, dynamic> json) =>
       _$$SealedAppPasswordImplFromJson(json);
 
-  /// The name of the application password.
   @override
   final String name;
-
-  /// The time when the application password was created.
   @override
   final DateTime createdAt;
 
@@ -167,12 +161,8 @@ abstract class _SealedAppPassword implements SealedAppPassword {
       _$SealedAppPasswordImpl.fromJson;
 
   @override
-
-  /// The name of the application password.
   String get name;
   @override
-
-  /// The time when the application password was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

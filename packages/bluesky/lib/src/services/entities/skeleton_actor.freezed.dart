@@ -20,7 +20,6 @@ SkeletonActor _$SkeletonActorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonActor {
-  /// The global id for an actor.
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +102,6 @@ class _$SkeletonActorImpl implements _SkeletonActor {
   factory _$SkeletonActorImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonActorImplFromJson(json);
 
-  /// The global id for an actor.
   @override
   final String did;
 
@@ -146,8 +144,6 @@ abstract class _SkeletonActor implements SkeletonActor {
       _$SkeletonActorImpl.fromJson;
 
   @override
-
-  /// The global id for an actor.
   String get did;
   @override
   @JsonKey(ignore: true)

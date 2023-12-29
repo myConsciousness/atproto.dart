@@ -20,14 +20,11 @@ SkeletonPostsByQuery _$SkeletonPostsByQueryFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonPostsByQuery {
-  /// The list of [Post] instances.
   List<SkeletonPost> get posts => throw _privateConstructorUsedError;
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
-
-  /// Pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,10 +132,7 @@ class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
   factory _$SkeletonPostsByQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonPostsByQueryImplFromJson(json);
 
-  /// The list of [Post] instances.
   final List<SkeletonPost> _posts;
-
-  /// The list of [Post] instances.
   @override
   List<SkeletonPost> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
@@ -151,8 +145,6 @@ class _$SkeletonPostsByQueryImpl implements _SkeletonPostsByQuery {
   @override
   @JsonKey()
   final int hitsTotal;
-
-  /// Pagination cursor.
   @override
   final String? cursor;
 
@@ -203,8 +195,6 @@ abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
       _$SkeletonPostsByQueryImpl.fromJson;
 
   @override
-
-  /// The list of [Post] instances.
   List<SkeletonPost> get posts;
   @override
 
@@ -212,8 +202,6 @@ abstract class _SkeletonPostsByQuery implements SkeletonPostsByQuery {
   /// and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
-
-  /// Pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

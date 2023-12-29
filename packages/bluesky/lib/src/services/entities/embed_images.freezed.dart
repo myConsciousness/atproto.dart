@@ -20,12 +20,8 @@ EmbedImages _$EmbedImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedImages {
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedImages].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// A list of [Image] objects that represent the images to be embedded.
   List<Image> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -121,16 +117,10 @@ class _$EmbedImagesImpl implements _EmbedImages {
   factory _$EmbedImagesImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedImagesImplFromJson(json);
 
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedImages].
   @override
   @typeKey
   final String type;
-
-  /// A list of [Image] objects that represent the images to be embedded.
   final List<Image> _images;
-
-  /// A list of [Image] objects that represent the images to be embedded.
   @override
   List<Image> get images {
     if (_images is EqualUnmodifiableListView) return _images;
@@ -180,14 +170,9 @@ abstract class _EmbedImages implements EmbedImages {
       _$EmbedImagesImpl.fromJson;
 
   @override
-
-  /// The type of the embedded content, defaulted to
-  /// [appBskyEmbedImages].
   @typeKey
   String get type;
   @override
-
-  /// A list of [Image] objects that represent the images to be embedded.
   List<Image> get images;
   @override
   @JsonKey(ignore: true)

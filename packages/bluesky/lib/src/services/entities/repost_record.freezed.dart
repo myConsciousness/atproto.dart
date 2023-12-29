@@ -20,15 +20,10 @@ RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostRecord {
-  /// The type of the repost record.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The reference to the subject of the repost.
   @JsonKey(name: 'subject')
   StrongRef get ref => throw _privateConstructorUsedError;
-
-  /// The timestamp of when the repost was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -154,17 +149,12 @@ class _$RepostRecordImpl implements _RepostRecord {
   factory _$RepostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepostRecordImplFromJson(json);
 
-  /// The type of the repost record.
   @override
   @typeKey
   final String type;
-
-  /// The reference to the subject of the repost.
   @override
   @JsonKey(name: 'subject')
   final StrongRef ref;
-
-  /// The timestamp of when the repost was created.
   @override
   final DateTime createdAt;
 
@@ -212,18 +202,12 @@ abstract class _RepostRecord implements RepostRecord {
       _$RepostRecordImpl.fromJson;
 
   @override
-
-  /// The type of the repost record.
   @typeKey
   String get type;
   @override
-
-  /// The reference to the subject of the repost.
   @JsonKey(name: 'subject')
   StrongRef get ref;
   @override
-
-  /// The timestamp of when the repost was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

@@ -20,7 +20,6 @@ RepoBlocks _$RepoBlocksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoBlocks {
-  /// The list of [RepoBlock] objects.
   List<RepoBlock> get blocks => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -104,10 +103,7 @@ class _$RepoBlocksImpl implements _RepoBlocks {
   factory _$RepoBlocksImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoBlocksImplFromJson(json);
 
-  /// The list of [RepoBlock] objects.
   final List<RepoBlock> _blocks;
-
-  /// The list of [RepoBlock] objects.
   @override
   List<RepoBlock> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
@@ -155,8 +151,6 @@ abstract class _RepoBlocks implements RepoBlocks {
       _$RepoBlocksImpl.fromJson;
 
   @override
-
-  /// The list of [RepoBlock] objects.
   List<RepoBlock> get blocks;
   @override
   @JsonKey(ignore: true)

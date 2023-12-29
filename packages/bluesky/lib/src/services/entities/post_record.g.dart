@@ -20,7 +20,7 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
               'reply',
               (v) => v == null
                   ? null
-                  : PostRef.fromJson(Map<String, Object?>.from(v as Map))),
+                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Embed>(

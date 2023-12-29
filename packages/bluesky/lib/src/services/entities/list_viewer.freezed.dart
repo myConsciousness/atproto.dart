@@ -20,11 +20,8 @@ ListViewer _$ListViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewer {
-  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
-
-  /// The URI of the list that the user is blocking.
   @atUriConverter
   AtUri? get blocked => throw _privateConstructorUsedError;
 
@@ -124,12 +121,9 @@ class _$ListViewerImpl extends _ListViewer {
   factory _$ListViewerImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewerImplFromJson(json);
 
-  /// Represents whether the viewer has muted the list.
   @override
   @JsonKey(name: 'muted')
   final bool isMuted;
-
-  /// The URI of the list that the user is blocking.
   @override
   @atUriConverter
   final AtUri? blocked;
@@ -176,13 +170,9 @@ abstract class _ListViewer extends ListViewer {
       _$ListViewerImpl.fromJson;
 
   @override
-
-  /// Represents whether the viewer has muted the list.
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override
-
-  /// The URI of the list that the user is blocking.
   @atUriConverter
   AtUri? get blocked;
   @override

@@ -14,6 +14,8 @@ _$EmbedViewExternalViewImpl _$$EmbedViewExternalViewImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$EmbedViewExternalViewImpl(
+          type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyEmbedExternalViewExternal),
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -21,12 +23,13 @@ _$EmbedViewExternalViewImpl _$$EmbedViewExternalViewImplFromJson(Map json) =>
         );
         return val;
       },
-      fieldKeyMap: const {'thumbnail': 'thumb'},
+      fieldKeyMap: const {'type': r'$type', 'thumbnail': 'thumb'},
     );
 
 Map<String, dynamic> _$$EmbedViewExternalViewImplToJson(
     _$EmbedViewExternalViewImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.type,
     'uri': instance.uri,
     'title': instance.title,
     'description': instance.description,

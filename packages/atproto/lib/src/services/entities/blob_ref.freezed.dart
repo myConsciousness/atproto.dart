@@ -20,7 +20,6 @@ BlobRef _$BlobRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlobRef {
-  /// The reference link to the blob data.
   @JsonKey(name: '\$link')
   String get link => throw _privateConstructorUsedError;
 
@@ -101,7 +100,6 @@ class _$BlobRefImpl implements _BlobRef {
   factory _$BlobRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlobRefImplFromJson(json);
 
-  /// The reference link to the blob data.
   @override
   @JsonKey(name: '\$link')
   final String link;
@@ -144,8 +142,6 @@ abstract class _BlobRef implements BlobRef {
   factory _BlobRef.fromJson(Map<String, dynamic> json) = _$BlobRefImpl.fromJson;
 
   @override
-
-  /// The reference link to the blob data.
   @JsonKey(name: '\$link')
   String get link;
   @override

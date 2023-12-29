@@ -20,11 +20,8 @@ DeleteAction _$DeleteActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeleteAction {
-  /// The type of the action.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The URI of the resource to be deleted.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -121,12 +118,9 @@ class _$DeleteActionImpl implements _DeleteAction {
   factory _$DeleteActionImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeleteActionImplFromJson(json);
 
-  /// The type of the action.
   @override
   @typeKey
   final String type;
-
-  /// The URI of the resource to be deleted.
   @override
   @atUriConverter
   final AtUri uri;
@@ -172,13 +166,9 @@ abstract class _DeleteAction implements DeleteAction {
       _$DeleteActionImpl.fromJson;
 
   @override
-
-  /// The type of the action.
   @typeKey
   String get type;
   @override
-
-  /// The URI of the resource to be deleted.
   @atUriConverter
   AtUri get uri;
   @override

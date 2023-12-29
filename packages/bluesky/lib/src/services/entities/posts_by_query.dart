@@ -8,31 +8,25 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'post.dart';
 
 part 'posts_by_query.freezed.dart';
 part 'posts_by_query.g.dart';
 
-/// Represents a list of [Post] instances.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchposts/#output
 @freezed
+@lex.appBskyFeedSearchPosts
 class PostsByQuery with _$PostsByQuery {
-  /// Creates a new instance of [PostsByQuery].
   const factory PostsByQuery({
-    /// The list of [Post] instances.
     required List<Post> posts,
 
-    /// Count of search hits. optional, may be rounded/truncated,
+    /// Count of search hits. Optional, may be rounded/truncated,
     /// and may not be possible to paginate through all hits.
     @Default(0) int hitsTotal,
-
-    /// Pagination cursor.
     String? cursor,
   }) = _PostsByQuery;
 
-  /// Creates a new instance of [PostsByQuery] from a map of [json] data.
-  ///
-  /// The [json] data must correspond to the structure of [PostsByQuery]
-  /// to properly convert.
   factory PostsByQuery.fromJson(Map<String, Object?> json) =>
       _$PostsByQueryFromJson(json);
 }

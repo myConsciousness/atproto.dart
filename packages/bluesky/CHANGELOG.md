@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.2
+
+- Minor improvement. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))
+
 ## v0.15.1
 
 - Exposed `RepoServiceExtension`. ([#1137](https://github.com/myConsciousness/atproto.dart/issues/1137))

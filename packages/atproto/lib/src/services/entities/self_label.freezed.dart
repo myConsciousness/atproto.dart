@@ -20,7 +20,6 @@ SelfLabel _$SelfLabelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SelfLabel {
-  /// [comAtprotoLabelDefsSelfLabel]
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
@@ -119,7 +118,6 @@ class _$SelfLabelImpl implements _SelfLabel {
   factory _$SelfLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfLabelImplFromJson(json);
 
-  /// [comAtprotoLabelDefsSelfLabel]
   @override
   @typeKey
   final String type;
@@ -170,8 +168,6 @@ abstract class _SelfLabel implements SelfLabel {
       _$SelfLabelImpl.fromJson;
 
   @override
-
-  /// [comAtprotoLabelDefsSelfLabel]
   @typeKey
   String get type;
   @override

@@ -20,10 +20,7 @@ SubscribedRepoInfo _$SubscribedRepoInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SubscribedRepoInfo {
-  /// The name of the subscribed repository.
   String get name => throw _privateConstructorUsedError;
-
-  /// An optional message related to the repository.
   String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -117,11 +114,8 @@ class _$SubscribedRepoInfoImpl implements _SubscribedRepoInfo {
   factory _$SubscribedRepoInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubscribedRepoInfoImplFromJson(json);
 
-  /// The name of the subscribed repository.
   @override
   final String name;
-
-  /// An optional message related to the repository.
   @override
   final String? message;
 
@@ -167,12 +161,8 @@ abstract class _SubscribedRepoInfo implements SubscribedRepoInfo {
       _$SubscribedRepoInfoImpl.fromJson;
 
   @override
-
-  /// The name of the subscribed repository.
   String get name;
   @override
-
-  /// An optional message related to the repository.
   String? get message;
   @override
   @JsonKey(ignore: true)

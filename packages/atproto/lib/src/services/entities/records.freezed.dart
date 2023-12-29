@@ -20,10 +20,7 @@ Records _$RecordsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Records {
-  /// The list of [Record] objects.
   List<Record> get records => throw _privateConstructorUsedError;
-
-  /// The pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,10 +111,7 @@ class _$RecordsImpl implements _Records {
   factory _$RecordsImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordsImplFromJson(json);
 
-  /// The list of [Record] objects.
   final List<Record> _records;
-
-  /// The list of [Record] objects.
   @override
   List<Record> get records {
     if (_records is EqualUnmodifiableListView) return _records;
@@ -125,7 +119,6 @@ class _$RecordsImpl implements _Records {
     return EqualUnmodifiableListView(_records);
   }
 
-  /// The pagination cursor.
   @override
   final String? cursor;
 
@@ -170,12 +163,8 @@ abstract class _Records implements Records {
   factory _Records.fromJson(Map<String, dynamic> json) = _$RecordsImpl.fromJson;
 
   @override
-
-  /// The list of [Record] objects.
   List<Record> get records;
   @override
-
-  /// The pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

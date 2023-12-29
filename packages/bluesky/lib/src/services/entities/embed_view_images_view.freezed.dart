@@ -20,16 +20,13 @@ EmbedViewImagesView _$EmbedViewImagesViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewImagesView {
-  /// A string that represents the URL of the thumbnail-sized version of
-  /// the image.
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'thumb')
   String get thumbnail => throw _privateConstructorUsedError;
-
-  /// A string that represents the URL of the full-sized version of the image.
   String get fullsize => throw _privateConstructorUsedError;
-
-  /// A string that serves as alternative text for the image.
   String get alt => throw _privateConstructorUsedError;
+  ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +41,13 @@ abstract class $EmbedViewImagesViewCopyWith<$Res> {
       _$EmbedViewImagesViewCopyWithImpl<$Res, EmbedViewImagesView>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'thumb') String thumbnail, String fullsize, String alt});
+      {@typeKey String type,
+      @JsonKey(name: 'thumb') String thumbnail,
+      String fullsize,
+      String alt,
+      ImageAspectRatio? aspectRatio});
+
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -60,11 +63,17 @@ class _$EmbedViewImagesViewCopyWithImpl<$Res, $Val extends EmbedViewImagesView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? thumbnail = null,
     Object? fullsize = null,
     Object? alt = null,
+    Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -77,7 +86,23 @@ class _$EmbedViewImagesViewCopyWithImpl<$Res, $Val extends EmbedViewImagesView>
           ? _value.alt
           : alt // ignore: cast_nullable_to_non_nullable
               as String,
+      aspectRatio: freezed == aspectRatio
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as ImageAspectRatio?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio {
+    if (_value.aspectRatio == null) {
+      return null;
+    }
+
+    return $ImageAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+      return _then(_value.copyWith(aspectRatio: value) as $Val);
+    });
   }
 }
 
@@ -90,7 +115,14 @@ abstract class _$$EmbedViewImagesViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'thumb') String thumbnail, String fullsize, String alt});
+      {@typeKey String type,
+      @JsonKey(name: 'thumb') String thumbnail,
+      String fullsize,
+      String alt,
+      ImageAspectRatio? aspectRatio});
+
+  @override
+  $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
@@ -104,11 +136,17 @@ class __$$EmbedViewImagesViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? thumbnail = null,
     Object? fullsize = null,
     Object? alt = null,
+    Object? aspectRatio = freezed,
   }) {
     return _then(_$EmbedViewImagesViewImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       thumbnail: null == thumbnail
           ? _value.thumbnail
           : thumbnail // ignore: cast_nullable_to_non_nullable
@@ -121,6 +159,10 @@ class __$$EmbedViewImagesViewImplCopyWithImpl<$Res>
           ? _value.alt
           : alt // ignore: cast_nullable_to_non_nullable
               as String,
+      aspectRatio: freezed == aspectRatio
+          ? _value.aspectRatio
+          : aspectRatio // ignore: cast_nullable_to_non_nullable
+              as ImageAspectRatio?,
     ));
   }
 }
@@ -129,30 +171,31 @@ class __$$EmbedViewImagesViewImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EmbedViewImagesViewImpl implements _EmbedViewImagesView {
   const _$EmbedViewImagesViewImpl(
-      {@JsonKey(name: 'thumb') required this.thumbnail,
+      {@typeKey this.type = appBskyEmbedImagesViewImage,
+      @JsonKey(name: 'thumb') required this.thumbnail,
       required this.fullsize,
-      required this.alt});
+      required this.alt,
+      this.aspectRatio});
 
   factory _$EmbedViewImagesViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedViewImagesViewImplFromJson(json);
 
-  /// A string that represents the URL of the thumbnail-sized version of
-  /// the image.
+  @override
+  @typeKey
+  final String type;
   @override
   @JsonKey(name: 'thumb')
   final String thumbnail;
-
-  /// A string that represents the URL of the full-sized version of the image.
   @override
   final String fullsize;
-
-  /// A string that serves as alternative text for the image.
   @override
   final String alt;
+  @override
+  final ImageAspectRatio? aspectRatio;
 
   @override
   String toString() {
-    return 'EmbedViewImagesView(thumbnail: $thumbnail, fullsize: $fullsize, alt: $alt)';
+    return 'EmbedViewImagesView(type: $type, thumbnail: $thumbnail, fullsize: $fullsize, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -160,16 +203,20 @@ class _$EmbedViewImagesViewImpl implements _EmbedViewImagesView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedViewImagesViewImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.thumbnail, thumbnail) ||
                 other.thumbnail == thumbnail) &&
             (identical(other.fullsize, fullsize) ||
                 other.fullsize == fullsize) &&
-            (identical(other.alt, alt) || other.alt == alt));
+            (identical(other.alt, alt) || other.alt == alt) &&
+            (identical(other.aspectRatio, aspectRatio) ||
+                other.aspectRatio == aspectRatio));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, thumbnail, fullsize, alt);
+  int get hashCode =>
+      Object.hash(runtimeType, type, thumbnail, fullsize, alt, aspectRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -188,27 +235,27 @@ class _$EmbedViewImagesViewImpl implements _EmbedViewImagesView {
 
 abstract class _EmbedViewImagesView implements EmbedViewImagesView {
   const factory _EmbedViewImagesView(
-      {@JsonKey(name: 'thumb') required final String thumbnail,
+      {@typeKey final String type,
+      @JsonKey(name: 'thumb') required final String thumbnail,
       required final String fullsize,
-      required final String alt}) = _$EmbedViewImagesViewImpl;
+      required final String alt,
+      final ImageAspectRatio? aspectRatio}) = _$EmbedViewImagesViewImpl;
 
   factory _EmbedViewImagesView.fromJson(Map<String, dynamic> json) =
       _$EmbedViewImagesViewImpl.fromJson;
 
   @override
-
-  /// A string that represents the URL of the thumbnail-sized version of
-  /// the image.
+  @typeKey
+  String get type;
+  @override
   @JsonKey(name: 'thumb')
   String get thumbnail;
   @override
-
-  /// A string that represents the URL of the full-sized version of the image.
   String get fullsize;
   @override
-
-  /// A string that serves as alternative text for the image.
   String get alt;
+  @override
+  ImageAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)
   _$$EmbedViewImagesViewImplCopyWith<_$EmbedViewImagesViewImpl> get copyWith =>

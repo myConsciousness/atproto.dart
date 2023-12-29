@@ -20,21 +20,12 @@ ThreadgateView _$ThreadgateViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadgateView {
-  /// The type of the threadgate view.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The uri of this threadgate.
   @atUriConverter
   AtUri? get uri => throw _privateConstructorUsedError;
-
-  /// The content id of this threadgate.
   String? get cid => throw _privateConstructorUsedError;
-
-  /// The detailed values of this threadgate.
   ThreadgateRecord? get record => throw _privateConstructorUsedError;
-
-  /// The related lists.
   List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -191,28 +182,17 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateViewImplFromJson(json);
 
-  /// The type of the threadgate view.
   @override
   @typeKey
   final String type;
-
-  /// The uri of this threadgate.
   @override
   @atUriConverter
   final AtUri? uri;
-
-  /// The content id of this threadgate.
   @override
   final String? cid;
-
-  /// The detailed values of this threadgate.
   @override
   final ThreadgateRecord? record;
-
-  /// The related lists.
   final List<ListViewBasic>? _lists;
-
-  /// The related lists.
   @override
   List<ListViewBasic>? get lists {
     final value = _lists;
@@ -271,26 +251,16 @@ abstract class _ThreadgateView implements ThreadgateView {
       _$ThreadgateViewImpl.fromJson;
 
   @override
-
-  /// The type of the threadgate view.
   @typeKey
   String get type;
   @override
-
-  /// The uri of this threadgate.
   @atUriConverter
   AtUri? get uri;
   @override
-
-  /// The content id of this threadgate.
   String? get cid;
   @override
-
-  /// The detailed values of this threadgate.
   ThreadgateRecord? get record;
   @override
-
-  /// The related lists.
   List<ListViewBasic>? get lists;
   @override
   @JsonKey(ignore: true)

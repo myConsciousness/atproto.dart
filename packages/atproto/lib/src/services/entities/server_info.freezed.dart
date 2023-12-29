@@ -20,14 +20,9 @@ ServerInfo _$ServerInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServerInfo {
-  /// List of user domains available in the server.
   List<String> get availableUserDomains => throw _privateConstructorUsedError;
-
-  /// Determines if an invite code is required for registration.
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired => throw _privateConstructorUsedError;
-
-  /// Links to the server's privacy policy and terms of service.
   ServerInfoLinks? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -151,17 +146,14 @@ class __$$ServerInfoImplCopyWithImpl<$Res>
 class _$ServerInfoImpl implements _ServerInfo {
   const _$ServerInfoImpl(
       {required final List<String> availableUserDomains,
-      @JsonKey(name: 'inviteCodeRequired') required this.isInviteCodeRequired,
+      @JsonKey(name: 'inviteCodeRequired') this.isInviteCodeRequired = false,
       this.links})
       : _availableUserDomains = availableUserDomains;
 
   factory _$ServerInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServerInfoImplFromJson(json);
 
-  /// List of user domains available in the server.
   final List<String> _availableUserDomains;
-
-  /// List of user domains available in the server.
   @override
   List<String> get availableUserDomains {
     if (_availableUserDomains is EqualUnmodifiableListView)
@@ -170,12 +162,9 @@ class _$ServerInfoImpl implements _ServerInfo {
     return EqualUnmodifiableListView(_availableUserDomains);
   }
 
-  /// Determines if an invite code is required for registration.
   @override
   @JsonKey(name: 'inviteCodeRequired')
   final bool isInviteCodeRequired;
-
-  /// Links to the server's privacy policy and terms of service.
   @override
   final ServerInfoLinks? links;
 
@@ -221,25 +210,18 @@ class _$ServerInfoImpl implements _ServerInfo {
 abstract class _ServerInfo implements ServerInfo {
   const factory _ServerInfo(
       {required final List<String> availableUserDomains,
-      @JsonKey(name: 'inviteCodeRequired')
-      required final bool isInviteCodeRequired,
+      @JsonKey(name: 'inviteCodeRequired') final bool isInviteCodeRequired,
       final ServerInfoLinks? links}) = _$ServerInfoImpl;
 
   factory _ServerInfo.fromJson(Map<String, dynamic> json) =
       _$ServerInfoImpl.fromJson;
 
   @override
-
-  /// List of user domains available in the server.
   List<String> get availableUserDomains;
   @override
-
-  /// Determines if an invite code is required for registration.
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired;
   @override
-
-  /// Links to the server's privacy policy and terms of service.
   ServerInfoLinks? get links;
   @override
   @JsonKey(ignore: true)

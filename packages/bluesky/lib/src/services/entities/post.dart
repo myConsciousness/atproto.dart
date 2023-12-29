@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
@@ -23,68 +24,30 @@ import 'threadgate_view.dart';
 part 'post.freezed.dart';
 part 'post.g.dart';
 
-/// Represents a social media post viewed by a user.
-///
-/// This class captures the details about a post, its author, viewer
-/// interactions, and more.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
+@lex.appBskyFeedDefsPostView
 class Post with _$Post {
   // ignore: unused_element
   const Post._();
 
-  /// Creates a new instance of [Post].
-  ///
-  /// Includes the [type] of the post, the [record] containing the content,
-  /// the [author] who created it, the [uri] of the post, its [cid] identifier,
-  /// [embed] if any embeddable content is associated, [replyCount],
-  /// [repostCount], [likeCount] showing user interactions, and the
-  /// [viewer] interaction details.
   @jsonSerializable
   const factory Post({
-    /// The type of the post.
     @typeKey @Default(appBskyFeedDefsPostView) String type,
-
-    /// The record containing the content of the post.
     @postRecordConverter required PostRecord record,
-
-    /// The author who created the post.
     required ActorBasic author,
-
-    /// The URI of the post.
     @atUriConverter required AtUri uri,
-
-    /// The unique identifier of the post.
     required String cid,
-
-    /// The embeddable content associated with the post, if any.
     @embedViewConverter EmbedView? embed,
-
-    /// The count of replies to the post.
     @Default(0) int replyCount,
-
-    /// The count of reposts of the post.
     @Default(0) int repostCount,
-
-    /// The count of likes of the post.
     @Default(0) int likeCount,
-
-    /// The interaction details of the viewer with the post.
     @Default(defaultPostViewer) PostViewer viewer,
-
-    /// The labels associated with the post, if any.
     List<Label>? labels,
-
-    /// The threadgate option.
     ThreadgateView? threadgate,
-
-    /// The date and time the post was indexed.
     required DateTime indexedAt,
   }) = _Post;
 
-  /// Creates a new instance of [Post] from a map of [json] data.
-  ///
-  /// The [json] data must correspond to the structure of [Post] to properly
-  /// convert.
   factory Post.fromJson(Map<String, Object?> json) => _$PostFromJson(json);
 
   /// Returns the [StrongRef] representation of this record.

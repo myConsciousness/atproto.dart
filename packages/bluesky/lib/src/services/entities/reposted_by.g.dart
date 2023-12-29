@@ -21,6 +21,7 @@ _$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
+          cid: $checkedConvert('cid', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
         return val;
@@ -31,5 +32,6 @@ Map<String, dynamic> _$$RepostedByImplToJson(_$RepostedByImpl instance) =>
     <String, dynamic>{
       'repostedBy': instance.repostedBy.map((e) => e.toJson()).toList(),
       'uri': atUriConverter.toJson(instance.uri),
+      'cid': instance.cid,
       'cursor': instance.cursor,
     };

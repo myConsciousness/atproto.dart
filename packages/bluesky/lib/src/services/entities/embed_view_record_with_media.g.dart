@@ -15,7 +15,8 @@ _$EmbedViewRecordWithMediaImpl _$$EmbedViewRecordWithMediaImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$EmbedViewRecordWithMediaImpl(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMediaView),
           record: $checkedConvert(
               'record',
               (v) => EmbedViewRecord.fromJson(

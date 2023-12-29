@@ -20,30 +20,15 @@ GeneratorRecord _$GeneratorRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorRecord {
-  /// The type of the generator. Defaults to [appBskyFeedGenerator].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The unique ID of the generator.
   String get did => throw _privateConstructorUsedError;
-
-  /// The display name of the generator.
   String get displayName => throw _privateConstructorUsedError;
-
-  /// The description of the generator. This is optional.
   String? get description => throw _privateConstructorUsedError;
-
-  /// The facets of the generator description. This is optional.
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
-
-  /// The avatar of the generator. This is optional.
   Blob? get avatar => throw _privateConstructorUsedError;
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-
-  /// The time of creation of the generator.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -254,27 +239,16 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   factory _$GeneratorRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorRecordImplFromJson(json);
 
-  /// The type of the generator. Defaults to [appBskyFeedGenerator].
   @override
   @typeKey
   final String type;
-
-  /// The unique ID of the generator.
   @override
   final String did;
-
-  /// The display name of the generator.
   @override
   final String displayName;
-
-  /// The description of the generator. This is optional.
   @override
   final String? description;
-
-  /// The facets of the generator description. This is optional.
   final List<Facet>? _descriptionFacets;
-
-  /// The facets of the generator description. This is optional.
   @override
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
@@ -285,16 +259,11 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  /// The avatar of the generator. This is optional.
   @override
   final Blob? avatar;
-
-  /// Attached labels.
   @override
   @labelsConverter
   final Labels? labels;
-
-  /// The time of creation of the generator.
   @override
   final DateTime createdAt;
 
@@ -365,38 +334,22 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       _$GeneratorRecordImpl.fromJson;
 
   @override
-
-  /// The type of the generator. Defaults to [appBskyFeedGenerator].
   @typeKey
   String get type;
   @override
-
-  /// The unique ID of the generator.
   String get did;
   @override
-
-  /// The display name of the generator.
   String get displayName;
   @override
-
-  /// The description of the generator. This is optional.
   String? get description;
   @override
-
-  /// The facets of the generator description. This is optional.
   List<Facet>? get descriptionFacets;
   @override
-
-  /// The avatar of the generator. This is optional.
   Blob? get avatar;
   @override
-
-  /// Attached labels.
   @labelsConverter
   Labels? get labels;
   @override
-
-  /// The time of creation of the generator.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

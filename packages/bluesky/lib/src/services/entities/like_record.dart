@@ -15,34 +15,19 @@ import '../../ids.g.dart';
 part 'like_record.freezed.dart';
 part 'like_record.g.dart';
 
-/// [LikeRecord] represents a 'like' activity in a social media context.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/like/#input
 ///
-/// This class includes the subject of the 'like', usually a reference to
-/// the content that was liked, and a timestamp indicating when the 'like'
-/// was created.
+/// An object representing the records in the created
+/// [appBskyFeedLike].
 @freezed
 class LikeRecord with _$LikeRecord {
-  /// Creates an instance of [LikeRecord].
-  ///
-  /// Both [ref] and [createdAt] are required. [type] defaults to
-  /// [appBskyFeedLike].
   @jsonSerializable
   const factory LikeRecord({
-    /// Type of the record, defaults to [appBskyFeedLike].
     @typeKey @Default(appBskyFeedLike) String type,
-
-    /// The subject of the 'like'. It's usually a reference to the content that
-    /// was liked.
     @JsonKey(name: 'subject') required StrongRef ref,
-
-    /// The timestamp indicating when the 'like' was created.
     required DateTime createdAt,
   }) = _LikeRecord;
 
-  /// Creates an instance of [LikeRecord] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory LikeRecord.fromJson(Map<String, Object?> json) =>
       _$LikeRecordFromJson(json);
 }

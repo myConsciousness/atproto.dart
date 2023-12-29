@@ -14,23 +14,15 @@ import 'label.dart';
 part 'labels_by_query.freezed.dart';
 part 'labels_by_query.g.dart';
 
-/// Represents a collection of queried labels.
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#output
 @freezed
 class LabelsByQuery with _$LabelsByQuery {
-  /// Constructs a [LabelsByQuery] instance.
   @jsonSerializable
   const factory LabelsByQuery({
-    /// A collection of queried labels.
     required List<Label> labels,
-
-    /// A pagination cursor.
     String? cursor,
   }) = _LabelsByQuery;
 
-  /// A factory method that creates a [LabelsByQuery] instance from a JSON map.
-  ///
-  /// [json] is a map in the JSON format, which the method converts into a
-  /// [LabelsByQuery] instance.
   factory LabelsByQuery.fromJson(Map<String, Object?> json) =>
       _$LabelsByQueryFromJson(json);
 }

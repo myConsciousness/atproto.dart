@@ -79,11 +79,11 @@ class _$LengthExceededEntityCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_LengthExceededEntityCopyWith<$Res>
+abstract class _$$LengthExceededEntityImplCopyWith<$Res>
     implements $LengthExceededEntityCopyWith<$Res> {
-  factory _$$_LengthExceededEntityCopyWith(_$_LengthExceededEntity value,
-          $Res Function(_$_LengthExceededEntity) then) =
-      __$$_LengthExceededEntityCopyWithImpl<$Res>;
+  factory _$$LengthExceededEntityImplCopyWith(_$LengthExceededEntityImpl value,
+          $Res Function(_$LengthExceededEntityImpl) then) =
+      __$$LengthExceededEntityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String value, ByteIndices indices});
@@ -93,11 +93,11 @@ abstract class _$$_LengthExceededEntityCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_LengthExceededEntityCopyWithImpl<$Res>
-    extends _$LengthExceededEntityCopyWithImpl<$Res, _$_LengthExceededEntity>
-    implements _$$_LengthExceededEntityCopyWith<$Res> {
-  __$$_LengthExceededEntityCopyWithImpl(_$_LengthExceededEntity _value,
-      $Res Function(_$_LengthExceededEntity) _then)
+class __$$LengthExceededEntityImplCopyWithImpl<$Res>
+    extends _$LengthExceededEntityCopyWithImpl<$Res, _$LengthExceededEntityImpl>
+    implements _$$LengthExceededEntityImplCopyWith<$Res> {
+  __$$LengthExceededEntityImplCopyWithImpl(_$LengthExceededEntityImpl _value,
+      $Res Function(_$LengthExceededEntityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +106,7 @@ class __$$_LengthExceededEntityCopyWithImpl<$Res>
     Object? value = null,
     Object? indices = null,
   }) {
-    return _then(_$_LengthExceededEntity(
+    return _then(_$LengthExceededEntityImpl(
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -121,11 +121,12 @@ class __$$_LengthExceededEntityCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_LengthExceededEntity implements _LengthExceededEntity {
-  const _$_LengthExceededEntity({required this.value, required this.indices});
+class _$LengthExceededEntityImpl implements _LengthExceededEntity {
+  const _$LengthExceededEntityImpl(
+      {required this.value, required this.indices});
 
-  factory _$_LengthExceededEntity.fromJson(Map<String, dynamic> json) =>
-      _$$_LengthExceededEntityFromJson(json);
+  factory _$LengthExceededEntityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LengthExceededEntityImplFromJson(json);
 
   @override
   final String value;
@@ -138,10 +139,10 @@ class _$_LengthExceededEntity implements _LengthExceededEntity {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_LengthExceededEntity &&
+            other is _$LengthExceededEntityImpl &&
             (identical(other.value, value) || other.value == value) &&
             (identical(other.indices, indices) || other.indices == indices));
   }
@@ -153,13 +154,14 @@ class _$_LengthExceededEntity implements _LengthExceededEntity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_LengthExceededEntityCopyWith<_$_LengthExceededEntity> get copyWith =>
-      __$$_LengthExceededEntityCopyWithImpl<_$_LengthExceededEntity>(
-          this, _$identity);
+  _$$LengthExceededEntityImplCopyWith<_$LengthExceededEntityImpl>
+      get copyWith =>
+          __$$LengthExceededEntityImplCopyWithImpl<_$LengthExceededEntityImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LengthExceededEntityToJson(
+    return _$$LengthExceededEntityImplToJson(
       this,
     );
   }
@@ -168,10 +170,10 @@ class _$_LengthExceededEntity implements _LengthExceededEntity {
 abstract class _LengthExceededEntity implements LengthExceededEntity {
   const factory _LengthExceededEntity(
       {required final String value,
-      required final ByteIndices indices}) = _$_LengthExceededEntity;
+      required final ByteIndices indices}) = _$LengthExceededEntityImpl;
 
   factory _LengthExceededEntity.fromJson(Map<String, dynamic> json) =
-      _$_LengthExceededEntity.fromJson;
+      _$LengthExceededEntityImpl.fromJson;
 
   @override
   String get value;
@@ -179,6 +181,6 @@ abstract class _LengthExceededEntity implements LengthExceededEntity {
   ByteIndices get indices;
   @override
   @JsonKey(ignore: true)
-  _$$_LengthExceededEntityCopyWith<_$_LengthExceededEntity> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$LengthExceededEntityImplCopyWith<_$LengthExceededEntityImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

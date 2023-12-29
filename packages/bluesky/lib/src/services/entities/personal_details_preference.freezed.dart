@@ -21,12 +21,8 @@ PersonalDetailsPreference _$PersonalDetailsPreferenceFromJson(
 
 /// @nodoc
 mixin _$PersonalDetailsPreference {
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsPersonalDetailsPref].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The birth date of the owner of the account.
   DateTime? get birthDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -126,13 +122,9 @@ class _$PersonalDetailsPreferenceImpl implements _PersonalDetailsPreference {
   factory _$PersonalDetailsPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$PersonalDetailsPreferenceImplFromJson(json);
 
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsPersonalDetailsPref].
   @override
   @typeKey
   final String type;
-
-  /// The birth date of the owner of the account.
   @override
   final DateTime? birthDate;
 
@@ -179,14 +171,9 @@ abstract class _PersonalDetailsPreference implements PersonalDetailsPreference {
       _$PersonalDetailsPreferenceImpl.fromJson;
 
   @override
-
-  /// A string that represents the type of the object.
-  /// By default, it is [appBskyActorDefsPersonalDetailsPref].
   @typeKey
   String get type;
   @override
-
-  /// The birth date of the owner of the account.
   DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)

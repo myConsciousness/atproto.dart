@@ -20,11 +20,8 @@ SelfLabels _$SelfLabelsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SelfLabels {
-  /// [comAtprotoLabelDefsSelfLabels]
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// A collection of [SelfLabel].
   List<SelfLabel> get values => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -120,15 +117,10 @@ class _$SelfLabelsImpl implements _SelfLabels {
   factory _$SelfLabelsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfLabelsImplFromJson(json);
 
-  /// [comAtprotoLabelDefsSelfLabels]
   @override
   @typeKey
   final String type;
-
-  /// A collection of [SelfLabel].
   final List<SelfLabel> _values;
-
-  /// A collection of [SelfLabel].
   @override
   List<SelfLabel> get values {
     if (_values is EqualUnmodifiableListView) return _values;
@@ -178,13 +170,9 @@ abstract class _SelfLabels implements SelfLabels {
       _$SelfLabelsImpl.fromJson;
 
   @override
-
-  /// [comAtprotoLabelDefsSelfLabels]
   @typeKey
   String get type;
   @override
-
-  /// A collection of [SelfLabel].
   List<SelfLabel> get values;
   @override
   @JsonKey(ignore: true)

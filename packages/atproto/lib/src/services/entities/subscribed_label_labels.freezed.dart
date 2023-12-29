@@ -21,11 +21,8 @@ SubscribedLabelLabels _$SubscribedLabelLabelsFromJson(
 
 /// @nodoc
 mixin _$SubscribedLabelLabels {
-  /// The revision.
   @JsonKey(name: 'seq')
   int get sequence => throw _privateConstructorUsedError;
-
-  /// The labels.
   List<Label> get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -125,15 +122,10 @@ class _$SubscribedLabelLabelsImpl implements _SubscribedLabelLabels {
   factory _$SubscribedLabelLabelsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SubscribedLabelLabelsImplFromJson(json);
 
-  /// The revision.
   @override
   @JsonKey(name: 'seq')
   final int sequence;
-
-  /// The labels.
   final List<Label> _labels;
-
-  /// The labels.
   @override
   List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -185,13 +177,9 @@ abstract class _SubscribedLabelLabels implements SubscribedLabelLabels {
       _$SubscribedLabelLabelsImpl.fromJson;
 
   @override
-
-  /// The revision.
   @JsonKey(name: 'seq')
   int get sequence;
   @override
-
-  /// The labels.
   List<Label> get labels;
   @override
   @JsonKey(ignore: true)

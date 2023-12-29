@@ -142,7 +142,7 @@ class _$ULexPrimitiveBooleanImpl extends ULexPrimitiveBoolean {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexPrimitiveBooleanImpl &&
@@ -302,7 +302,7 @@ class _$ULexPrimitiveIntegerImpl extends ULexPrimitiveInteger {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexPrimitiveIntegerImpl &&
@@ -462,7 +462,7 @@ class _$ULexPrimitiveStringImpl extends ULexPrimitiveString {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexPrimitiveStringImpl &&
@@ -621,7 +621,7 @@ class _$ULexPrimitiveUnknownImpl extends ULexPrimitiveUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexPrimitiveUnknownImpl &&

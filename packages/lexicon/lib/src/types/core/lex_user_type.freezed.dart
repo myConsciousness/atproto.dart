@@ -203,7 +203,7 @@ class _$ULexUserTypeRecordImpl extends ULexUserTypeRecord {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeRecordImpl &&
@@ -424,7 +424,7 @@ class _$ULexUserTypeXrpcQueryImpl extends ULexUserTypeXrpcQuery {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeXrpcQueryImpl &&
@@ -646,7 +646,7 @@ class _$ULexUserTypeXrpcProcedureImpl extends ULexUserTypeXrpcProcedure {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeXrpcProcedureImpl &&
@@ -868,7 +868,7 @@ class _$ULexUserTypeXrpcSubscriptionImpl extends ULexUserTypeXrpcSubscription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeXrpcSubscriptionImpl &&
@@ -1091,7 +1091,7 @@ class _$ULexUserTypeBlobImpl extends ULexUserTypeBlob {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeBlobImpl &&
@@ -1311,7 +1311,7 @@ class _$ULexUserTypeArrayImpl extends ULexUserTypeArray {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeArrayImpl &&
@@ -1531,7 +1531,7 @@ class _$ULexUserTypeTokenImpl extends ULexUserTypeToken {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeTokenImpl &&
@@ -1751,7 +1751,7 @@ class _$ULexUserTypeObjectImpl extends ULexUserTypeObject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeObjectImpl &&
@@ -1971,7 +1971,7 @@ class _$ULexUserTypeBooleanImpl extends ULexUserTypeBoolean {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeBooleanImpl &&
@@ -2191,7 +2191,7 @@ class _$ULexUserTypeIntegerImpl extends ULexUserTypeInteger {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeIntegerImpl &&
@@ -2411,7 +2411,7 @@ class _$ULexUserTypeStringImpl extends ULexUserTypeString {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeStringImpl &&
@@ -2631,7 +2631,7 @@ class _$ULexUserTypeBytesImpl extends ULexUserTypeBytes {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeBytesImpl &&
@@ -2851,7 +2851,7 @@ class _$ULexUserTypeCidLinkImpl extends ULexUserTypeCidLink {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeCidLinkImpl &&
@@ -3071,7 +3071,7 @@ class _$ULexUserTypeUnknownImpl extends ULexUserTypeUnknown {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexUserTypeUnknownImpl &&

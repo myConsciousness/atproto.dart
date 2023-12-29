@@ -20,8 +20,6 @@ EmailUpdate _$EmailUpdateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmailUpdate {
-  /// A flag indicating whether or not the issued token is required to update
-  /// the email address.
   @JsonKey(name: 'tokenRequired')
   bool get isTokenRequired => throw _privateConstructorUsedError;
 
@@ -106,8 +104,6 @@ class _$EmailUpdateImpl implements _EmailUpdate {
   factory _$EmailUpdateImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmailUpdateImplFromJson(json);
 
-  /// A flag indicating whether or not the issued token is required to update
-  /// the email address.
   @override
   @JsonKey(name: 'tokenRequired')
   final bool isTokenRequired;
@@ -153,9 +149,6 @@ abstract class _EmailUpdate implements EmailUpdate {
       _$EmailUpdateImpl.fromJson;
 
   @override
-
-  /// A flag indicating whether or not the issued token is required to update
-  /// the email address.
   @JsonKey(name: 'tokenRequired')
   bool get isTokenRequired;
   @override

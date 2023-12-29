@@ -15,42 +15,25 @@ import 'embed_view_record_with_media.dart';
 
 part 'embed_view.freezed.dart';
 
-/// `EmbedView` is a union type that describes the possible view types
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
 class EmbedView with _$EmbedView {
-  /// Constructs an `EmbedView` from a `EmbedViewRecord` type.
-  ///
-  /// The [data] parameter specifies the `EmbedViewRecord` that represents a
-  /// record embed view.
   const factory EmbedView.record({
     required EmbedViewRecord data,
   }) = UEmbedViewRecord;
 
-  /// Constructs an `EmbedView` from a `EmbedViewImages` type.
-  ///
-  /// The [data] parameter specifies the `EmbedViewImages` that represents
-  /// an images embed view.
   const factory EmbedView.images({
     required EmbedViewImages data,
   }) = UEmbedViewImages;
 
-  /// Constructs an `EmbedView` from a `EmbedViewExternal` type.
-  ///
-  /// The [data] parameter specifies the `EmbedViewExternal` that represents
-  /// an external embed view.
   const factory EmbedView.external({
     required EmbedViewExternal data,
   }) = UEmbedViewExternal;
 
-  /// Constructs an `EmbedView` from a `EmbedViewRecordWithMedia` type.
-  ///
-  /// The [data] parameter specifies the `EmbedViewRecordWithMedia` that
-  /// represents a record with media embed view.
   const factory EmbedView.recordWithMedia({
     required EmbedViewRecordWithMedia data,
   }) = UEmbedViewRecordWithMedia;
 
-  /// Constructs an `EmbedView` from an unknown feature.
   const factory EmbedView.unknown({
     required Map<String, dynamic> data,
   }) = UEmbedViewUnknown;

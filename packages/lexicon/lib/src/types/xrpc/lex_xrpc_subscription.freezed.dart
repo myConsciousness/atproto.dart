@@ -245,7 +245,7 @@ class _$LexXrpcSubscriptionImpl implements _LexXrpcSubscription {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LexXrpcSubscriptionImpl &&

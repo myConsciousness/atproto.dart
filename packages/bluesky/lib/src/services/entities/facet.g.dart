@@ -13,7 +13,8 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetImpl(
-          type: $checkedConvert(r'$type', (v) => v as String?),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacet),
           index: $checkedConvert('index',
               (v) => ByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
           features: $checkedConvert(
@@ -28,18 +29,9 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull(r'$type', instance.type);
-  val['index'] = instance.index.toJson();
-  val['features'] =
-      instance.features.map(facetFeatureConverter.toJson).toList();
-  return val;
-}
+Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.type,
+      'index': instance.index.toJson(),
+      'features': instance.features.map(facetFeatureConverter.toJson).toList(),
+    };

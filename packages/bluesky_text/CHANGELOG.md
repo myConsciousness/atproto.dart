@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.6.5
+
+- Upgraded `xrpc`.
+
 ## v0.6.4
 
 - Upgraded `xrpc`.

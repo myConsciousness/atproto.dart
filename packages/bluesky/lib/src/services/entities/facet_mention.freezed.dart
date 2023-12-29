@@ -20,12 +20,8 @@ FacetMention _$FacetMentionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetMention {
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetMention].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Represents the decentralized identifier (DID) of the mention facet.
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -119,13 +115,9 @@ class _$FacetMentionImpl implements _FacetMention {
   factory _$FacetMentionImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetMentionImplFromJson(json);
 
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetMention].
   @override
   @typeKey
   final String type;
-
-  /// Represents the decentralized identifier (DID) of the mention facet.
   @override
   final String did;
 
@@ -170,14 +162,9 @@ abstract class _FacetMention implements FacetMention {
       _$FacetMentionImpl.fromJson;
 
   @override
-
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetMention].
   @typeKey
   String get type;
   @override
-
-  /// Represents the decentralized identifier (DID) of the mention facet.
   String get did;
   @override
   @JsonKey(ignore: true)

@@ -344,7 +344,7 @@ void _writeObject(final StringBuffer matrix, final LexObject data) {
   final requiredProperties = data.requiredProperties ?? const [];
 
   final properties = data.properties;
-  if (properties != null) {
+  if (properties != null && properties.isNotEmpty) {
     matrix
       ..writeln()
       ..writeln(_tableHeader)

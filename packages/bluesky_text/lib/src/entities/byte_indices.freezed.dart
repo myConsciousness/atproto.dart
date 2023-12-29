@@ -68,22 +68,22 @@ class _$ByteIndicesCopyWithImpl<$Res, $Val extends ByteIndices>
 }
 
 /// @nodoc
-abstract class _$$_ByteIndicesCopyWith<$Res>
+abstract class _$$ByteIndicesImplCopyWith<$Res>
     implements $ByteIndicesCopyWith<$Res> {
-  factory _$$_ByteIndicesCopyWith(
-          _$_ByteIndices value, $Res Function(_$_ByteIndices) then) =
-      __$$_ByteIndicesCopyWithImpl<$Res>;
+  factory _$$ByteIndicesImplCopyWith(
+          _$ByteIndicesImpl value, $Res Function(_$ByteIndicesImpl) then) =
+      __$$ByteIndicesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int start, int end});
 }
 
 /// @nodoc
-class __$$_ByteIndicesCopyWithImpl<$Res>
-    extends _$ByteIndicesCopyWithImpl<$Res, _$_ByteIndices>
-    implements _$$_ByteIndicesCopyWith<$Res> {
-  __$$_ByteIndicesCopyWithImpl(
-      _$_ByteIndices _value, $Res Function(_$_ByteIndices) _then)
+class __$$ByteIndicesImplCopyWithImpl<$Res>
+    extends _$ByteIndicesCopyWithImpl<$Res, _$ByteIndicesImpl>
+    implements _$$ByteIndicesImplCopyWith<$Res> {
+  __$$ByteIndicesImplCopyWithImpl(
+      _$ByteIndicesImpl _value, $Res Function(_$ByteIndicesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ByteIndicesCopyWithImpl<$Res>
     Object? start = null,
     Object? end = null,
   }) {
-    return _then(_$_ByteIndices(
+    return _then(_$ByteIndicesImpl(
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_ByteIndicesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ByteIndices implements _ByteIndices {
-  const _$_ByteIndices({required this.start, required this.end});
+class _$ByteIndicesImpl implements _ByteIndices {
+  const _$ByteIndicesImpl({required this.start, required this.end});
 
-  factory _$_ByteIndices.fromJson(Map<String, dynamic> json) =>
-      _$$_ByteIndicesFromJson(json);
+  factory _$ByteIndicesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ByteIndicesImplFromJson(json);
 
   @override
   final int start;
@@ -124,10 +124,10 @@ class _$_ByteIndices implements _ByteIndices {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ByteIndices &&
+            other is _$ByteIndicesImpl &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end));
   }
@@ -139,12 +139,12 @@ class _$_ByteIndices implements _ByteIndices {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ByteIndicesCopyWith<_$_ByteIndices> get copyWith =>
-      __$$_ByteIndicesCopyWithImpl<_$_ByteIndices>(this, _$identity);
+  _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
+      __$$ByteIndicesImplCopyWithImpl<_$ByteIndicesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ByteIndicesToJson(
+    return _$$ByteIndicesImplToJson(
       this,
     );
   }
@@ -152,10 +152,10 @@ class _$_ByteIndices implements _ByteIndices {
 
 abstract class _ByteIndices implements ByteIndices {
   const factory _ByteIndices(
-      {required final int start, required final int end}) = _$_ByteIndices;
+      {required final int start, required final int end}) = _$ByteIndicesImpl;
 
   factory _ByteIndices.fromJson(Map<String, dynamic> json) =
-      _$_ByteIndices.fromJson;
+      _$ByteIndicesImpl.fromJson;
 
   @override
   int get start;
@@ -163,6 +163,6 @@ abstract class _ByteIndices implements ByteIndices {
   int get end;
   @override
   @JsonKey(ignore: true)
-  _$$_ByteIndicesCopyWith<_$_ByteIndices> get copyWith =>
+  _$$ByteIndicesImplCopyWith<_$ByteIndicesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -20,7 +20,6 @@ SigningKey _$SigningKeyFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SigningKey {
-  /// Public signing key in the form of a did:key.
   String get signingKey => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +102,6 @@ class _$SigningKeyImpl implements _SigningKey {
   factory _$SigningKeyImpl.fromJson(Map<String, dynamic> json) =>
       _$$SigningKeyImplFromJson(json);
 
-  /// Public signing key in the form of a did:key.
   @override
   final String signingKey;
 
@@ -147,8 +145,6 @@ abstract class _SigningKey implements SigningKey {
       _$SigningKeyImpl.fromJson;
 
   @override
-
-  /// Public signing key in the form of a did:key.
   String get signingKey;
   @override
   @JsonKey(ignore: true)

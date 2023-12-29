@@ -14,25 +14,19 @@ import '../../ids.g.dart';
 part 'block_list_record.freezed.dart';
 part 'block_list_record.g.dart';
 
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock/#input
+///
+/// An object representing the records in the created
+/// [appBskyGraphListblock].
 @freezed
 class BlockListRecord with _$BlockListRecord {
-  /// Creates an instance of [BlockListRecord].
   @jsonSerializable
   const factory BlockListRecord({
-    /// The type of the list, by default it is [appBskyGraphListblock].
     @typeKey @Default(appBskyGraphListblock) String type,
-
-    /// The uri of this block list.
     @atUriConverter required AtUri subject,
-
-    /// The date of the creation of the block list.
     required DateTime createdAt,
   }) = _BlockListRecord;
 
-  /// Creates an instance of [BlockListRecord] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory BlockListRecord.fromJson(Map<String, Object?> json) =>
       _$BlockListRecordFromJson(json);
 }

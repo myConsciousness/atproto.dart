@@ -20,10 +20,7 @@ InviteCodeUse _$InviteCodeUseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InviteCodeUse {
-  /// The user who used the invite code.
   String get usedBy => throw _privateConstructorUsedError;
-
-  /// The date time when the invite code was used.
   DateTime get usedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,11 +113,8 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
   factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
       _$$InviteCodeUseImplFromJson(json);
 
-  /// The user who used the invite code.
   @override
   final String usedBy;
-
-  /// The date time when the invite code was used.
   @override
   final DateTime usedAt;
 
@@ -165,12 +159,8 @@ abstract class _InviteCodeUse implements InviteCodeUse {
       _$InviteCodeUseImpl.fromJson;
 
   @override
-
-  /// The user who used the invite code.
   String get usedBy;
   @override
-
-  /// The date time when the invite code was used.
   DateTime get usedAt;
   @override
   @JsonKey(ignore: true)

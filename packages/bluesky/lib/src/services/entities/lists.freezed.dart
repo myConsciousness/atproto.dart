@@ -20,10 +20,7 @@ Lists _$ListsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Lists {
-  /// A required list of [ListView] objects.
   List<ListView> get lists => throw _privateConstructorUsedError;
-
-  /// An optional string that can be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,10 +113,7 @@ class _$ListsImpl extends _Lists {
   factory _$ListsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListsImplFromJson(json);
 
-  /// A required list of [ListView] objects.
   final List<ListView> _lists;
-
-  /// A required list of [ListView] objects.
   @override
   List<ListView> get lists {
     if (_lists is EqualUnmodifiableListView) return _lists;
@@ -127,7 +121,6 @@ class _$ListsImpl extends _Lists {
     return EqualUnmodifiableListView(_lists);
   }
 
-  /// An optional string that can be used for pagination purposes.
   @override
   final String? cursor;
 
@@ -173,12 +166,8 @@ abstract class _Lists extends Lists {
   factory _Lists.fromJson(Map<String, dynamic> json) = _$ListsImpl.fromJson;
 
   @override
-
-  /// A required list of [ListView] objects.
   List<ListView> get lists;
   @override
-
-  /// An optional string that can be used for pagination purposes.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -20,16 +20,10 @@ LikeRecord _$LikeRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LikeRecord {
-  /// Type of the record, defaults to [appBskyFeedLike].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The subject of the 'like'. It's usually a reference to the content that
-  /// was liked.
   @JsonKey(name: 'subject')
   StrongRef get ref => throw _privateConstructorUsedError;
-
-  /// The timestamp indicating when the 'like' was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -155,18 +149,12 @@ class _$LikeRecordImpl implements _LikeRecord {
   factory _$LikeRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikeRecordImplFromJson(json);
 
-  /// Type of the record, defaults to [appBskyFeedLike].
   @override
   @typeKey
   final String type;
-
-  /// The subject of the 'like'. It's usually a reference to the content that
-  /// was liked.
   @override
   @JsonKey(name: 'subject')
   final StrongRef ref;
-
-  /// The timestamp indicating when the 'like' was created.
   @override
   final DateTime createdAt;
 
@@ -214,19 +202,12 @@ abstract class _LikeRecord implements LikeRecord {
       _$LikeRecordImpl.fromJson;
 
   @override
-
-  /// Type of the record, defaults to [appBskyFeedLike].
   @typeKey
   String get type;
   @override
-
-  /// The subject of the 'like'. It's usually a reference to the content that
-  /// was liked.
   @JsonKey(name: 'subject')
   StrongRef get ref;
   @override
-
-  /// The timestamp indicating when the 'like' was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

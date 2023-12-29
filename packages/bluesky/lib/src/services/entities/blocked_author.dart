@@ -10,34 +10,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'actor_viewer.dart';
+import 'defaults.dart';
 
 part 'blocked_author.freezed.dart';
 part 'blocked_author.g.dart';
 
-/// [BlockedAuthor] represents an author that has been blocked.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedauthor
 @freezed
+@lex.appBskyFeedDefsBlockedAuthor
 class BlockedAuthor with _$BlockedAuthor {
-  /// Creates an instance of [BlockedAuthor].
   const factory BlockedAuthor({
-    /// The type of the record.
-    /// By default, it is [appBskyFeedDefsBlockedAuthor].
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,
-
-    /// The decentralized ID.
     required String did,
-
-    /// The viewer's (authenticated user's) relationship to this actor.
-    required ActorViewer viewer,
+    @Default(defaultActorViewer) ActorViewer viewer,
   }) = _BlockedAuthor;
 
-  /// Creates an instance of [BlockedAuthor] from a map of [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into a
-  /// [BlockedAuthor] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data. It should
-  /// include all the keys corresponding to the parameters of this class.
   factory BlockedAuthor.fromJson(Map<String, Object?> json) =>
       _$BlockedAuthorFromJson(json);
 }

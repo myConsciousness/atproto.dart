@@ -20,8 +20,6 @@ ActorProfiles _$ActorProfilesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorProfiles {
-  /// A list of [ActorProfile] objects representing the profiles of
-  /// different actors.
   List<ActorProfile> get profiles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -105,12 +103,7 @@ class _$ActorProfilesImpl implements _ActorProfiles {
   factory _$ActorProfilesImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorProfilesImplFromJson(json);
 
-  /// A list of [ActorProfile] objects representing the profiles of
-  /// different actors.
   final List<ActorProfile> _profiles;
-
-  /// A list of [ActorProfile] objects representing the profiles of
-  /// different actors.
   @override
   List<ActorProfile> get profiles {
     if (_profiles is EqualUnmodifiableListView) return _profiles;
@@ -158,9 +151,6 @@ abstract class _ActorProfiles implements ActorProfiles {
       _$ActorProfilesImpl.fromJson;
 
   @override
-
-  /// A list of [ActorProfile] objects representing the profiles of
-  /// different actors.
   List<ActorProfile> get profiles;
   @override
   @JsonKey(ignore: true)

@@ -14,7 +14,8 @@ _$EmbedViewImagesImpl _$$EmbedViewImagesImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$EmbedViewImagesImpl(
-          type: $checkedConvert(r'$type', (v) => v as String?),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesView),
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)

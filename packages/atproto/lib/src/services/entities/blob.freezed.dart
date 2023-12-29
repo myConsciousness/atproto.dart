@@ -20,17 +20,10 @@ Blob _$BlobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Blob {
-  /// The type of the blob. Default is [blob].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The MIME type of the blob.
   String get mimeType => throw _privateConstructorUsedError;
-
-  /// The size of the blob in bytes.
   int get size => throw _privateConstructorUsedError;
-
-  /// A reference to the blob data.
   BlobRef get ref => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -156,20 +149,13 @@ class _$BlobImpl implements _Blob {
   factory _$BlobImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlobImplFromJson(json);
 
-  /// The type of the blob. Default is [blob].
   @override
   @typeKey
   final String type;
-
-  /// The MIME type of the blob.
   @override
   final String mimeType;
-
-  /// The size of the blob in bytes.
   @override
   final int size;
-
-  /// A reference to the blob data.
   @override
   final BlobRef ref;
 
@@ -218,21 +204,13 @@ abstract class _Blob implements Blob {
   factory _Blob.fromJson(Map<String, dynamic> json) = _$BlobImpl.fromJson;
 
   @override
-
-  /// The type of the blob. Default is [blob].
   @typeKey
   String get type;
   @override
-
-  /// The MIME type of the blob.
   String get mimeType;
   @override
-
-  /// The size of the blob in bytes.
   int get size;
   @override
-
-  /// A reference to the blob data.
   BlobRef get ref;
   @override
   @JsonKey(ignore: true)

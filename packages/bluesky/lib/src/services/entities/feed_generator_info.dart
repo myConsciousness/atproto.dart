@@ -9,40 +9,24 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'generator_feed.dart';
 import 'generator_links.dart';
 
 part 'feed_generator_info.freezed.dart';
 part 'feed_generator_info.g.dart';
 
-/// [FeedGeneratorInfo] represents the generator's feed information in Bluesky.
-///
-/// This class is generated using the Freezed package.
-/// It is characterized by a decentralized identifier (DID), a list of feeds,
-/// and optionally, links.
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#output
 @freezed
+@lex.appBskyFeedDescribeFeedGenerator
 class FeedGeneratorInfo with _$FeedGeneratorInfo {
-  /// Creates an instance of [FeedGeneratorInfo].
-  ///
-  /// Requires [did] which is the decentralized identifier (DID) of the feed
-  /// generator and [feeds] which is a list of generator feeds. [links] is
-  /// optional.
   @jsonSerializable
   const factory FeedGeneratorInfo({
-    /// Represents the decentralized identifier (DID) of the feed generator.
     required String did,
-
-    /// Represents the list of generator feeds.
     required List<GeneratorFeed> feeds,
-
-    /// Represents the optional links of the feed generator.
     GeneratorLinks? links,
   }) = _FeedGeneratorInfo;
 
-  /// Creates an instance of [FeedGeneratorInfo] from a map [json].
-  ///
-  /// This map [json] should contain all the fields necessary to instantiate
-  /// the class.
   factory FeedGeneratorInfo.fromJson(Map<String, Object?> json) =>
       _$FeedGeneratorInfoFromJson(json);
 }

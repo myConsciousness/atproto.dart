@@ -14,7 +14,8 @@ _$EmbedViewExternalImpl _$$EmbedViewExternalImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$EmbedViewExternalImpl(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedExternalView),
           external: $checkedConvert(
               'external',
               (v) => EmbedViewExternalView.fromJson(

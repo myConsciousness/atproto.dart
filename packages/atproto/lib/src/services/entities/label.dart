@@ -8,17 +8,16 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'label.freezed.dart';
 part 'label.g.dart';
 
-/// [Label] is a class representing a label that can be applied to a resource.
-///
-/// This is an immutable class provided by the [Freezed] package.
-/// The immutability promotes better maintainability and reduces potential bugs
-/// in your code.
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
+@lex.comAtprotoLabelDefsLabel
 class Label with _$Label {
-  /// Constructs a [Label] instance.
   @jsonSerializable
   const factory Label({
     /// DID of the actor who created this label.
@@ -42,9 +41,5 @@ class Label with _$Label {
     @JsonKey(name: 'cts') required DateTime createdAt,
   }) = _Label;
 
-  /// A factory method that creates a [Label] instance from a JSON map.
-  ///
-  /// [json] is a map in the JSON format, which the method converts into a
-  /// [Label] instance.
   factory Label.fromJson(Map<String, Object?> json) => _$LabelFromJson(json);
 }

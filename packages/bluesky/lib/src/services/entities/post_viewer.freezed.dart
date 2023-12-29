@@ -20,15 +20,10 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostViewer {
-  /// May contain the URI of the repost by the authenticated user.
   @atUriConverter
   AtUri? get repost => throw _privateConstructorUsedError;
-
-  /// May contain the URI of the like by the authenticated user.
   @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
-
-  /// Is reply disabled?
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled => throw _privateConstructorUsedError;
 
@@ -143,17 +138,12 @@ class _$PostViewerImpl extends _PostViewer {
   factory _$PostViewerImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostViewerImplFromJson(json);
 
-  /// May contain the URI of the repost by the authenticated user.
   @override
   @atUriConverter
   final AtUri? repost;
-
-  /// May contain the URI of the like by the authenticated user.
   @override
   @atUriConverter
   final AtUri? like;
-
-  /// Is reply disabled?
   @override
   @JsonKey(name: 'replyDisabled')
   final bool isReplyDisabled;
@@ -204,18 +194,12 @@ abstract class _PostViewer extends PostViewer {
       _$PostViewerImpl.fromJson;
 
   @override
-
-  /// May contain the URI of the repost by the authenticated user.
   @atUriConverter
   AtUri? get repost;
   @override
-
-  /// May contain the URI of the like by the authenticated user.
   @atUriConverter
   AtUri? get like;
   @override
-
-  /// Is reply disabled?
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled;
   @override

@@ -212,7 +212,7 @@ class _$CreateOperationV1Impl implements _CreateOperationV1 {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateOperationV1Impl &&

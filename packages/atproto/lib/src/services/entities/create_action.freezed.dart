@@ -20,19 +20,11 @@ CreateAction _$CreateActionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CreateAction {
-  /// The type of the action. Default is
-  /// [comAtprotoRepoApplyWritesCreate].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The collection in which the record should be created.
   @nsidConverter
   NSID get collection => throw _privateConstructorUsedError;
-
-  /// The optional record key.
   String? get rkey => throw _privateConstructorUsedError;
-
-  /// The map of data that defines the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
 
@@ -160,25 +152,15 @@ class _$CreateActionImpl implements _CreateAction {
   factory _$CreateActionImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateActionImplFromJson(json);
 
-  /// The type of the action. Default is
-  /// [comAtprotoRepoApplyWritesCreate].
   @override
   @typeKey
   final String type;
-
-  /// The collection in which the record should be created.
   @override
   @nsidConverter
   final NSID collection;
-
-  /// The optional record key.
   @override
   final String? rkey;
-
-  /// The map of data that defines the record.
   final Map<String, dynamic> _record;
-
-  /// The map of data that defines the record.
   @override
   @JsonKey(name: 'value')
   Map<String, dynamic> get record {
@@ -235,23 +217,14 @@ abstract class _CreateAction implements CreateAction {
       _$CreateActionImpl.fromJson;
 
   @override
-
-  /// The type of the action. Default is
-  /// [comAtprotoRepoApplyWritesCreate].
   @typeKey
   String get type;
   @override
-
-  /// The collection in which the record should be created.
   @nsidConverter
   NSID get collection;
   @override
-
-  /// The optional record key.
   String? get rkey;
   @override
-
-  /// The map of data that defines the record.
   @JsonKey(name: 'value')
   Map<String, dynamic> get record;
   @override

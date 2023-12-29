@@ -9,38 +9,26 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'strong_ref.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
 
-/// Represents a record of an AtUri object, associated with a CID and a
-/// dynamic record.
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#record
 @freezed
+@lex.comAtprotoRepoListRecordsRecord
 class Record with _$Record {
   // ignore: unused_element
   const Record._();
 
-  /// Creates a new instance of [Record].
-  ///
-  /// The [uri] and [value] parameters are required, while the [cid] parameter
-  /// is optional.
   @jsonSerializable
   const factory Record({
-    /// The uri of the record.
     @atUriConverter required AtUri uri,
-
-    /// The CID (Content Identifier) associated with the record.
     String? cid,
-
-    /// The dynamic value associated with the record.
     required Map<String, dynamic> value,
   }) = _Record;
 
-  /// Creates a new instance of [Record] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can be used
-  /// to populate an instance of [Record].
   factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
 
   /// Returns true if this record has strong ref, otherwise false.

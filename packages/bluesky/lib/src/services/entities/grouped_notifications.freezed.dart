@@ -20,11 +20,8 @@ GroupedNotifications _$GroupedNotificationsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GroupedNotifications {
-  /// List of grouped notifications.
   List<GroupedNotification> get notifications =>
       throw _privateConstructorUsedError;
-
-  /// Might be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -120,10 +117,7 @@ class _$GroupedNotificationsImpl implements _GroupedNotifications {
   factory _$GroupedNotificationsImpl.fromJson(Map<String, dynamic> json) =>
       _$$GroupedNotificationsImplFromJson(json);
 
-  /// List of grouped notifications.
   final List<GroupedNotification> _notifications;
-
-  /// List of grouped notifications.
   @override
   List<GroupedNotification> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
@@ -131,7 +125,6 @@ class _$GroupedNotificationsImpl implements _GroupedNotifications {
     return EqualUnmodifiableListView(_notifications);
   }
 
-  /// Might be used for pagination purposes.
   @override
   final String? cursor;
 
@@ -180,12 +173,8 @@ abstract class _GroupedNotifications implements GroupedNotifications {
       _$GroupedNotificationsImpl.fromJson;
 
   @override
-
-  /// List of grouped notifications.
   List<GroupedNotification> get notifications;
   @override
-
-  /// Might be used for pagination purposes.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

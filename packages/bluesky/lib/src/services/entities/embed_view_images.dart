@@ -9,40 +9,22 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../ids.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'embed_view_images_view.dart';
 
 part 'embed_view_images.freezed.dart';
 part 'embed_view_images.g.dart';
 
-/// [EmbedViewImages] represents a list of embedded image views in your
-/// application. This could include multiple references to images that are
-/// displayed in different sizes or contexts.
-///
-/// This class has the following properties:
-/// - `type`: An optional string that represents the type of the embedded
-/// images view.
-/// - `images`: A list of `EmbedViewImagesView` instances.
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
+@lex.appBskyEmbedImagesView
 class EmbedViewImages with _$EmbedViewImages {
-  /// Creates an instance of [EmbedViewImages].
-  ///
-  /// This constructor takes an optional `type` that represents the type of
-  /// the embedded images view,
-  /// and a `images` list that includes instances of [EmbedViewImagesView].
   const factory EmbedViewImages({
-    /// An optional string that represents the type of the embedded images view.
-    @typeKey String? type,
-
-    /// A list of `EmbedViewImagesView` instances.
+    @typeKey @Default(appBskyEmbedImagesView) String type,
     required List<EmbedViewImagesView> images,
   }) = _EmbedViewImages;
 
-  /// Creates an instance of [EmbedViewImages] from a map of [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into an
-  /// [EmbedViewImages] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data.
   factory EmbedViewImages.fromJson(Map<String, Object?> json) =>
       _$EmbedViewImagesFromJson(json);
 }

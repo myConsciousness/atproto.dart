@@ -21,21 +21,12 @@ EmbedViewRecordViewBlocked _$EmbedViewRecordViewBlockedFromJson(
 
 /// @nodoc
 mixin _$EmbedViewRecordViewBlocked {
-  /// A string that represents the type of the blocked record view.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the blocked record.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Represents this view is blocked.
-  /// Always `true`.
   @JsonKey(name: 'blocked')
   bool get isBlocked => throw _privateConstructorUsedError;
-
-  /// The author of this blocked view record.
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -172,31 +163,22 @@ class _$EmbedViewRecordViewBlockedImpl implements _EmbedViewRecordViewBlocked {
   const _$EmbedViewRecordViewBlockedImpl(
       {@typeKey this.type = appBskyEmbedRecordViewBlocked,
       @atUriConverter required this.uri,
-      @JsonKey(name: 'blocked') required this.isBlocked,
+      @JsonKey(name: 'blocked') this.isBlocked = true,
       required this.author});
 
   factory _$EmbedViewRecordViewBlockedImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$EmbedViewRecordViewBlockedImplFromJson(json);
 
-  /// A string that represents the type of the blocked record view.
   @override
   @typeKey
   final String type;
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the blocked record.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// Represents this view is blocked.
-  /// Always `true`.
   @override
   @JsonKey(name: 'blocked')
   final bool isBlocked;
-
-  /// The author of this blocked view record.
   @override
   final BlockedAuthor author;
 
@@ -241,32 +223,22 @@ abstract class _EmbedViewRecordViewBlocked
   const factory _EmbedViewRecordViewBlocked(
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
-      @JsonKey(name: 'blocked') required final bool isBlocked,
+      @JsonKey(name: 'blocked') final bool isBlocked,
       required final BlockedAuthor author}) = _$EmbedViewRecordViewBlockedImpl;
 
   factory _EmbedViewRecordViewBlocked.fromJson(Map<String, dynamic> json) =
       _$EmbedViewRecordViewBlockedImpl.fromJson;
 
   @override
-
-  /// A string that represents the type of the blocked record view.
   @typeKey
   String get type;
   @override
-
-  /// An `AtUri` instance that contains the unique resource identifier (URI)
-  /// of the blocked record.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// Represents this view is blocked.
-  /// Always `true`.
   @JsonKey(name: 'blocked')
   bool get isBlocked;
   @override
-
-  /// The author of this blocked view record.
   BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)

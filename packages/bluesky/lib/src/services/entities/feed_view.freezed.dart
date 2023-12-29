@@ -20,13 +20,8 @@ FeedView _$FeedViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedView {
-  /// A post in the feed.
   Post get post => throw _privateConstructorUsedError;
-
-  /// A reply to the post. This is optional.
   Reply? get reply => throw _privateConstructorUsedError;
-
-  /// A reason for the post. This is optional.
   @reasonConverter
   Reason? get reason => throw _privateConstructorUsedError;
 
@@ -174,15 +169,10 @@ class _$FeedViewImpl implements _FeedView {
   factory _$FeedViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewImplFromJson(json);
 
-  /// A post in the feed.
   @override
   final Post post;
-
-  /// A reply to the post. This is optional.
   @override
   final Reply? reply;
-
-  /// A reason for the post. This is optional.
   @override
   @reasonConverter
   final Reason? reason;
@@ -230,16 +220,10 @@ abstract class _FeedView implements FeedView {
       _$FeedViewImpl.fromJson;
 
   @override
-
-  /// A post in the feed.
   Post get post;
   @override
-
-  /// A reply to the post. This is optional.
   Reply? get reply;
   @override
-
-  /// A reason for the post. This is optional.
   @reasonConverter
   Reason? get reason;
   @override

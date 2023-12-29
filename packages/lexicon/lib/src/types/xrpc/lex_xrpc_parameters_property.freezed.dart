@@ -140,7 +140,7 @@ class _$ULexXrpcParametersPropertyPrimitiveArrayImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexXrpcParametersPropertyPrimitiveArrayImpl &&
@@ -301,7 +301,7 @@ class _$ULexXrpcParametersPropertyPrimitiveImpl
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexXrpcParametersPropertyPrimitiveImpl &&

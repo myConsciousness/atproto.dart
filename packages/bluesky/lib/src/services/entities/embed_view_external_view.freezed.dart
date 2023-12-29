@@ -21,18 +21,11 @@ EmbedViewExternalView _$EmbedViewExternalViewFromJson(
 
 /// @nodoc
 mixin _$EmbedViewExternalView {
-  /// A string that represents the Uniform Resource Identifier (URI) of
-  /// the external content.
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
-
-  /// A string that represents the title of the external content.
   String get title => throw _privateConstructorUsedError;
-
-  /// A string that represents the description of the external content.
   String get description => throw _privateConstructorUsedError;
-
-  /// An optional string representing a thumbnail image for the external
-  /// content. May be null.
   @JsonKey(name: 'thumb')
   String? get thumbnail => throw _privateConstructorUsedError;
 
@@ -49,7 +42,8 @@ abstract class $EmbedViewExternalViewCopyWith<$Res> {
       _$EmbedViewExternalViewCopyWithImpl<$Res, EmbedViewExternalView>;
   @useResult
   $Res call(
-      {String uri,
+      {@typeKey String type,
+      String uri,
       String title,
       String description,
       @JsonKey(name: 'thumb') String? thumbnail});
@@ -69,12 +63,17 @@ class _$EmbedViewExternalViewCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumbnail = freezed,
   }) {
     return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -105,7 +104,8 @@ abstract class _$$EmbedViewExternalViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uri,
+      {@typeKey String type,
+      String uri,
       String title,
       String description,
       @JsonKey(name: 'thumb') String? thumbnail});
@@ -123,12 +123,17 @@ class __$$EmbedViewExternalViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumbnail = freezed,
   }) {
     return _then(_$EmbedViewExternalViewImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -154,7 +159,8 @@ class __$$EmbedViewExternalViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
   const _$EmbedViewExternalViewImpl(
-      {required this.uri,
+      {@typeKey this.type = appBskyEmbedExternalViewExternal,
+      required this.uri,
       required this.title,
       required this.description,
       @JsonKey(name: 'thumb') this.thumbnail});
@@ -162,28 +168,22 @@ class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
   factory _$EmbedViewExternalViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedViewExternalViewImplFromJson(json);
 
-  /// A string that represents the Uniform Resource Identifier (URI) of
-  /// the external content.
+  @override
+  @typeKey
+  final String type;
   @override
   final String uri;
-
-  /// A string that represents the title of the external content.
   @override
   final String title;
-
-  /// A string that represents the description of the external content.
   @override
   final String description;
-
-  /// An optional string representing a thumbnail image for the external
-  /// content. May be null.
   @override
   @JsonKey(name: 'thumb')
   final String? thumbnail;
 
   @override
   String toString() {
-    return 'EmbedViewExternalView(uri: $uri, title: $title, description: $description, thumbnail: $thumbnail)';
+    return 'EmbedViewExternalView(type: $type, uri: $uri, title: $title, description: $description, thumbnail: $thumbnail)';
   }
 
   @override
@@ -191,6 +191,7 @@ class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EmbedViewExternalViewImpl &&
+            (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -202,7 +203,7 @@ class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, uri, title, description, thumbnail);
+      Object.hash(runtimeType, type, uri, title, description, thumbnail);
 
   @JsonKey(ignore: true)
   @override
@@ -221,7 +222,8 @@ class _$EmbedViewExternalViewImpl implements _EmbedViewExternalView {
 
 abstract class _EmbedViewExternalView implements EmbedViewExternalView {
   const factory _EmbedViewExternalView(
-          {required final String uri,
+          {@typeKey final String type,
+          required final String uri,
           required final String title,
           required final String description,
           @JsonKey(name: 'thumb') final String? thumbnail}) =
@@ -231,22 +233,15 @@ abstract class _EmbedViewExternalView implements EmbedViewExternalView {
       _$EmbedViewExternalViewImpl.fromJson;
 
   @override
-
-  /// A string that represents the Uniform Resource Identifier (URI) of
-  /// the external content.
+  @typeKey
+  String get type;
+  @override
   String get uri;
   @override
-
-  /// A string that represents the title of the external content.
   String get title;
   @override
-
-  /// A string that represents the description of the external content.
   String get description;
   @override
-
-  /// An optional string representing a thumbnail image for the external
-  /// content. May be null.
   @JsonKey(name: 'thumb')
   String? get thumbnail;
   @override

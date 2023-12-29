@@ -20,19 +20,11 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedPost {
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedPost].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The URI of the post that has been blocked.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// Whether the post has been blocked.
   bool get blocked => throw _privateConstructorUsedError;
-
-  /// The author of this blocked post.
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -170,22 +162,14 @@ class _$BlockedPostImpl implements _BlockedPost {
   factory _$BlockedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedPostImplFromJson(json);
 
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedPost].
   @override
   @typeKey
   final String type;
-
-  /// The URI of the post that has been blocked.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// Whether the post has been blocked.
   @override
   final bool blocked;
-
-  /// The author of this blocked post.
   @override
   final BlockedAuthor author;
 
@@ -234,23 +218,14 @@ abstract class _BlockedPost implements BlockedPost {
       _$BlockedPostImpl.fromJson;
 
   @override
-
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedPost].
   @typeKey
   String get type;
   @override
-
-  /// The URI of the post that has been blocked.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// Whether the post has been blocked.
   bool get blocked;
   @override
-
-  /// The author of this blocked post.
   BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)

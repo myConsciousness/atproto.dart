@@ -20,7 +20,6 @@ Count _$CountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Count {
-  /// The count value.
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -95,13 +94,13 @@ class __$$CountImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$CountImpl implements _Count {
-  const _$CountImpl({required this.count});
+  const _$CountImpl({this.count = 0});
 
   factory _$CountImpl.fromJson(Map<String, dynamic> json) =>
       _$$CountImplFromJson(json);
 
-  /// The count value.
   @override
+  @JsonKey()
   final int count;
 
   @override
@@ -136,13 +135,11 @@ class _$CountImpl implements _Count {
 }
 
 abstract class _Count implements Count {
-  const factory _Count({required final int count}) = _$CountImpl;
+  const factory _Count({final int count}) = _$CountImpl;
 
   factory _Count.fromJson(Map<String, dynamic> json) = _$CountImpl.fromJson;
 
   @override
-
-  /// The count value.
   int get count;
   @override
   @JsonKey(ignore: true)

@@ -20,15 +20,9 @@ BlockedAuthor _$BlockedAuthorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedAuthor {
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedAuthor].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The decentralized ID.
   String get did => throw _privateConstructorUsedError;
-
-  /// The viewer's (authenticated user's) relationship to this actor.
   ActorViewer get viewer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -142,23 +136,18 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   const _$BlockedAuthorImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedAuthor,
       required this.did,
-      required this.viewer});
+      this.viewer = defaultActorViewer});
 
   factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedAuthorImplFromJson(json);
 
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedAuthor].
   @override
   @typeKey
   final String type;
-
-  /// The decentralized ID.
   @override
   final String did;
-
-  /// The viewer's (authenticated user's) relationship to this actor.
   @override
+  @JsonKey()
   final ActorViewer viewer;
 
   @override
@@ -198,24 +187,17 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
       {@typeKey final String type,
       required final String did,
-      required final ActorViewer viewer}) = _$BlockedAuthorImpl;
+      final ActorViewer viewer}) = _$BlockedAuthorImpl;
 
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
       _$BlockedAuthorImpl.fromJson;
 
   @override
-
-  /// The type of the record.
-  /// By default, it is [appBskyFeedDefsBlockedAuthor].
   @typeKey
   String get type;
   @override
-
-  /// The decentralized ID.
   String get did;
   @override
-
-  /// The viewer's (authenticated user's) relationship to this actor.
   ActorViewer get viewer;
   @override
   @JsonKey(ignore: true)

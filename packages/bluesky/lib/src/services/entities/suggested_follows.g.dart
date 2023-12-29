@@ -17,8 +17,8 @@ _$SuggestedFollowsImpl _$$SuggestedFollowsImplFromJson(Map json) =>
           suggestions: $checkedConvert(
               'suggestions',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorProfile.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;

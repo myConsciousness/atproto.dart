@@ -20,10 +20,7 @@ RepoCommit _$RepoCommitFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoCommit {
-  /// The Content Identifier (CID) of the commit.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The data of the commit.
   Map<String, dynamic> get commit => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -118,14 +115,9 @@ class _$RepoCommitImpl implements _RepoCommit {
   factory _$RepoCommitImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoCommitImplFromJson(json);
 
-  /// The Content Identifier (CID) of the commit.
   @override
   final String cid;
-
-  /// The data of the commit.
   final Map<String, dynamic> _commit;
-
-  /// The data of the commit.
   @override
   Map<String, dynamic> get commit {
     if (_commit is EqualUnmodifiableMapView) return _commit;
@@ -175,12 +167,8 @@ abstract class _RepoCommit implements RepoCommit {
       _$RepoCommitImpl.fromJson;
 
   @override
-
-  /// The Content Identifier (CID) of the commit.
   String get cid;
   @override
-
-  /// The data of the commit.
   Map<String, dynamic> get commit;
   @override
   @JsonKey(ignore: true)

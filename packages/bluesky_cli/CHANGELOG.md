@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.3
+
+- Upgraded dependencies. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))
+
 ## v0.4.2
 
 - Add `--reply` option on `post` command. Pass the AT URI of the post to which you are replying as an argument. ([#1144](https://github.com/myConsciousness/atproto.dart/issues/1144))

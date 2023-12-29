@@ -10,43 +10,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'converter/nsid_converter.dart';
 
 part 'create_action.freezed.dart';
 part 'create_action.g.dart';
 
-/// Represents a class [CreateAction] that defines actions for creating a
-/// record.
-///
-/// This class uses the [Freezed] package to offer immutability,
-/// promoting safer and more maintainable code.
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
+@lex.comAtprotoRepoApplyWritesCreate
 class CreateAction with _$CreateAction {
-  /// Creates an instance of [CreateAction] using a factory constructor.
-  ///
-  /// [type] represents the type of the action
-  /// (defaults to [comAtprotoRepoApplyWritesCreate]),
-  /// [collection] is the collection in which the record should be created,
-  /// [rkey] is the optional record key,
-  /// and [record] is the map of data that defines the record.
   @jsonSerializable
   const factory CreateAction({
-    /// The type of the action. Default is
-    /// [comAtprotoRepoApplyWritesCreate].
     @typeKey @Default(comAtprotoRepoApplyWritesCreate) String type,
-
-    /// The collection in which the record should be created.
     @nsidConverter required NSID collection,
-
-    /// The optional record key.
     String? rkey,
-
-    /// The map of data that defines the record.
     @JsonKey(name: 'value') required Map<String, dynamic> record,
   }) = _CreateAction;
 
-  /// A method fromJson that takes a map in JSON format as input,
-  /// and converts it into an instance of [CreateAction].
   factory CreateAction.fromJson(Map<String, Object?> json) =>
       _$CreateActionFromJson(json);
 }

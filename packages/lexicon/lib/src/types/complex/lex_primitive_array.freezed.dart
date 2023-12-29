@@ -195,7 +195,7 @@ class _$LexPrimitiveArrayImpl implements _LexPrimitiveArray {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LexPrimitiveArrayImpl &&

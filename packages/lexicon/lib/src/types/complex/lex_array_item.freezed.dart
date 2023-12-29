@@ -144,7 +144,7 @@ class _$ULexArrayItemPrimitiveImpl extends ULexArrayItemPrimitive {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexArrayItemPrimitiveImpl &&
@@ -303,7 +303,7 @@ class _$ULexArrayItemIpldImpl extends ULexArrayItemIpld {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexArrayItemIpldImpl &&
@@ -462,7 +462,7 @@ class _$ULexArrayItemBlobImpl extends ULexArrayItemBlob {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexArrayItemBlobImpl &&
@@ -621,7 +621,7 @@ class _$ULexArrayRefVariantImpl extends ULexArrayRefVariant {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexArrayRefVariantImpl &&

@@ -20,13 +20,8 @@ FeedGenerator _$FeedGeneratorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGenerator {
-  /// Represents the view of the feed generator.
   FeedGeneratorView get view => throw _privateConstructorUsedError;
-
-  /// Indicates whether the feed generator is currently online.
   bool get isOnline => throw _privateConstructorUsedError;
-
-  /// Indicates whether the feed generator is valid.
   bool get isValid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -139,21 +134,18 @@ class __$$FeedGeneratorImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$FeedGeneratorImpl implements _FeedGenerator {
   const _$FeedGeneratorImpl(
-      {required this.view, required this.isOnline, required this.isValid});
+      {required this.view, this.isOnline = false, this.isValid = false});
 
   factory _$FeedGeneratorImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorImplFromJson(json);
 
-  /// Represents the view of the feed generator.
   @override
   final FeedGeneratorView view;
-
-  /// Indicates whether the feed generator is currently online.
   @override
+  @JsonKey()
   final bool isOnline;
-
-  /// Indicates whether the feed generator is valid.
   @override
+  @JsonKey()
   final bool isValid;
 
   @override
@@ -193,23 +185,17 @@ class _$FeedGeneratorImpl implements _FeedGenerator {
 abstract class _FeedGenerator implements FeedGenerator {
   const factory _FeedGenerator(
       {required final FeedGeneratorView view,
-      required final bool isOnline,
-      required final bool isValid}) = _$FeedGeneratorImpl;
+      final bool isOnline,
+      final bool isValid}) = _$FeedGeneratorImpl;
 
   factory _FeedGenerator.fromJson(Map<String, dynamic> json) =
       _$FeedGeneratorImpl.fromJson;
 
   @override
-
-  /// Represents the view of the feed generator.
   FeedGeneratorView get view;
   @override
-
-  /// Indicates whether the feed generator is currently online.
   bool get isOnline;
   @override
-
-  /// Indicates whether the feed generator is valid.
   bool get isValid;
   @override
   @JsonKey(ignore: true)

@@ -75,10 +75,10 @@ class _$LexIpldCopyWithImpl<$Res, $Val extends LexIpld>
 }
 
 /// @nodoc
-abstract class _$$ULexIpldBytesCopyWith<$Res> {
-  factory _$$ULexIpldBytesCopyWith(
-          _$ULexIpldBytes value, $Res Function(_$ULexIpldBytes) then) =
-      __$$ULexIpldBytesCopyWithImpl<$Res>;
+abstract class _$$ULexIpldBytesImplCopyWith<$Res> {
+  factory _$$ULexIpldBytesImplCopyWith(
+          _$ULexIpldBytesImpl value, $Res Function(_$ULexIpldBytesImpl) then) =
+      __$$ULexIpldBytesImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexBytes data});
 
@@ -86,11 +86,11 @@ abstract class _$$ULexIpldBytesCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexIpldBytesCopyWithImpl<$Res>
-    extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldBytes>
-    implements _$$ULexIpldBytesCopyWith<$Res> {
-  __$$ULexIpldBytesCopyWithImpl(
-      _$ULexIpldBytes _value, $Res Function(_$ULexIpldBytes) _then)
+class __$$ULexIpldBytesImplCopyWithImpl<$Res>
+    extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldBytesImpl>
+    implements _$$ULexIpldBytesImplCopyWith<$Res> {
+  __$$ULexIpldBytesImplCopyWithImpl(
+      _$ULexIpldBytesImpl _value, $Res Function(_$ULexIpldBytesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ULexIpldBytesCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexIpldBytes(
+    return _then(_$ULexIpldBytesImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -117,8 +117,8 @@ class __$$ULexIpldBytesCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexIpldBytes extends ULexIpldBytes {
-  const _$ULexIpldBytes({required this.data}) : super._();
+class _$ULexIpldBytesImpl extends ULexIpldBytes {
+  const _$ULexIpldBytesImpl({required this.data}) : super._();
 
   @override
   final LexBytes data;
@@ -129,10 +129,10 @@ class _$ULexIpldBytes extends ULexIpldBytes {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexIpldBytes &&
+            other is _$ULexIpldBytesImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -142,8 +142,8 @@ class _$ULexIpldBytes extends ULexIpldBytes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexIpldBytesCopyWith<_$ULexIpldBytes> get copyWith =>
-      __$$ULexIpldBytesCopyWithImpl<_$ULexIpldBytes>(this, _$identity);
+  _$$ULexIpldBytesImplCopyWith<_$ULexIpldBytesImpl> get copyWith =>
+      __$$ULexIpldBytesImplCopyWithImpl<_$ULexIpldBytesImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -209,21 +209,22 @@ class _$ULexIpldBytes extends ULexIpldBytes {
 }
 
 abstract class ULexIpldBytes extends LexIpld {
-  const factory ULexIpldBytes({required final LexBytes data}) = _$ULexIpldBytes;
+  const factory ULexIpldBytes({required final LexBytes data}) =
+      _$ULexIpldBytesImpl;
   const ULexIpldBytes._() : super._();
 
   @override
   LexBytes get data;
   @JsonKey(ignore: true)
-  _$$ULexIpldBytesCopyWith<_$ULexIpldBytes> get copyWith =>
+  _$$ULexIpldBytesImplCopyWith<_$ULexIpldBytesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULexIpldCidLinkCopyWith<$Res> {
-  factory _$$ULexIpldCidLinkCopyWith(
-          _$ULexIpldCidLink value, $Res Function(_$ULexIpldCidLink) then) =
-      __$$ULexIpldCidLinkCopyWithImpl<$Res>;
+abstract class _$$ULexIpldCidLinkImplCopyWith<$Res> {
+  factory _$$ULexIpldCidLinkImplCopyWith(_$ULexIpldCidLinkImpl value,
+          $Res Function(_$ULexIpldCidLinkImpl) then) =
+      __$$ULexIpldCidLinkImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LexCidLink data});
 
@@ -231,11 +232,11 @@ abstract class _$$ULexIpldCidLinkCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULexIpldCidLinkCopyWithImpl<$Res>
-    extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldCidLink>
-    implements _$$ULexIpldCidLinkCopyWith<$Res> {
-  __$$ULexIpldCidLinkCopyWithImpl(
-      _$ULexIpldCidLink _value, $Res Function(_$ULexIpldCidLink) _then)
+class __$$ULexIpldCidLinkImplCopyWithImpl<$Res>
+    extends _$LexIpldCopyWithImpl<$Res, _$ULexIpldCidLinkImpl>
+    implements _$$ULexIpldCidLinkImplCopyWith<$Res> {
+  __$$ULexIpldCidLinkImplCopyWithImpl(
+      _$ULexIpldCidLinkImpl _value, $Res Function(_$ULexIpldCidLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -243,7 +244,7 @@ class __$$ULexIpldCidLinkCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULexIpldCidLink(
+    return _then(_$ULexIpldCidLinkImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -262,8 +263,8 @@ class __$$ULexIpldCidLinkCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ULexIpldCidLink extends ULexIpldCidLink {
-  const _$ULexIpldCidLink({required this.data}) : super._();
+class _$ULexIpldCidLinkImpl extends ULexIpldCidLink {
+  const _$ULexIpldCidLinkImpl({required this.data}) : super._();
 
   @override
   final LexCidLink data;
@@ -274,10 +275,10 @@ class _$ULexIpldCidLink extends ULexIpldCidLink {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULexIpldCidLink &&
+            other is _$ULexIpldCidLinkImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -287,8 +288,9 @@ class _$ULexIpldCidLink extends ULexIpldCidLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULexIpldCidLinkCopyWith<_$ULexIpldCidLink> get copyWith =>
-      __$$ULexIpldCidLinkCopyWithImpl<_$ULexIpldCidLink>(this, _$identity);
+  _$$ULexIpldCidLinkImplCopyWith<_$ULexIpldCidLinkImpl> get copyWith =>
+      __$$ULexIpldCidLinkImplCopyWithImpl<_$ULexIpldCidLinkImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -355,12 +357,12 @@ class _$ULexIpldCidLink extends ULexIpldCidLink {
 
 abstract class ULexIpldCidLink extends LexIpld {
   const factory ULexIpldCidLink({required final LexCidLink data}) =
-      _$ULexIpldCidLink;
+      _$ULexIpldCidLinkImpl;
   const ULexIpldCidLink._() : super._();
 
   @override
   LexCidLink get data;
   @JsonKey(ignore: true)
-  _$$ULexIpldCidLinkCopyWith<_$ULexIpldCidLink> get copyWith =>
+  _$$ULexIpldCidLinkImplCopyWith<_$ULexIpldCidLinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -132,7 +132,7 @@ class _$ULexXrpcSchemaRefVariantImpl extends ULexXrpcSchemaRefVariant {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexXrpcSchemaRefVariantImpl &&
@@ -279,7 +279,7 @@ class _$ULexXrpcSchemaObjectImpl extends ULexXrpcSchemaObject {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ULexXrpcSchemaObjectImpl &&

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.8
+
+- Upgraded `atproto_core`.
+
 ## v0.0.7
 
 - Upgraded `atproto_core`.

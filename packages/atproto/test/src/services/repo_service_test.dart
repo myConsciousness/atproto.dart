@@ -89,6 +89,7 @@ void main() {
     (m, s) => s.updateRecordInBulk(actions: [
       UpdateAction(
         collection: m.collection,
+        rkey: m.uri.rkey,
         record: {},
       ),
     ]),

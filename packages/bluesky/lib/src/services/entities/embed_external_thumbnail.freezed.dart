@@ -21,17 +21,9 @@ EmbedExternalThumbnail _$EmbedExternalThumbnailFromJson(
 
 /// @nodoc
 mixin _$EmbedExternalThumbnail {
-  /// The Uniform Resource Identifier (URI) of the external resource.
   String get uri => throw _privateConstructorUsedError;
-
-  /// The title of the external resource.
   String get title => throw _privateConstructorUsedError;
-
-  /// The description of the external resource.
   String get description => throw _privateConstructorUsedError;
-
-  /// The thumbnail of the external resource, represented as a `Blob`
-  /// instance.
   @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob => throw _privateConstructorUsedError;
@@ -180,20 +172,12 @@ class _$EmbedExternalThumbnailImpl implements _EmbedExternalThumbnail {
   factory _$EmbedExternalThumbnailImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedExternalThumbnailImplFromJson(json);
 
-  /// The Uniform Resource Identifier (URI) of the external resource.
   @override
   final String uri;
-
-  /// The title of the external resource.
   @override
   final String title;
-
-  /// The description of the external resource.
   @override
   final String description;
-
-  /// The thumbnail of the external resource, represented as a `Blob`
-  /// instance.
   @override
   @blobConverter
   @JsonKey(name: 'thumb')
@@ -247,21 +231,12 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
       _$EmbedExternalThumbnailImpl.fromJson;
 
   @override
-
-  /// The Uniform Resource Identifier (URI) of the external resource.
   String get uri;
   @override
-
-  /// The title of the external resource.
   String get title;
   @override
-
-  /// The description of the external resource.
   String get description;
   @override
-
-  /// The thumbnail of the external resource, represented as a `Blob`
-  /// instance.
   @blobConverter
   @JsonKey(name: 'thumb')
   Blob? get blob;

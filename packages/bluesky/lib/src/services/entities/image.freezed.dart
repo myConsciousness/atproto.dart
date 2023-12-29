@@ -20,14 +20,9 @@ Image _$ImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Image {
-  /// The alternative text for the image.
   String get alt => throw _privateConstructorUsedError;
-
-  /// The actual image data represented as a Blob.
   @blobConverter
   Blob get image => throw _privateConstructorUsedError;
-
-  /// The aspect ratio for this [image].
   ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -161,16 +156,11 @@ class _$ImageImpl implements _Image {
   factory _$ImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImageImplFromJson(json);
 
-  /// The alternative text for the image.
   @override
   final String alt;
-
-  /// The actual image data represented as a Blob.
   @override
   @blobConverter
   final Blob image;
-
-  /// The aspect ratio for this [image].
   @override
   final ImageAspectRatio? aspectRatio;
 
@@ -217,17 +207,11 @@ abstract class _Image implements Image {
   factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
 
   @override
-
-  /// The alternative text for the image.
   String get alt;
   @override
-
-  /// The actual image data represented as a Blob.
   @blobConverter
   Blob get image;
   @override
-
-  /// The aspect ratio for this [image].
   ImageAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)

@@ -14,19 +14,29 @@ _$EmbedViewImagesViewImpl _$$EmbedViewImagesViewImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$EmbedViewImagesViewImpl(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesViewImage),
           thumbnail: $checkedConvert('thumb', (v) => v as String),
           fullsize: $checkedConvert('fullsize', (v) => v as String),
           alt: $checkedConvert('alt', (v) => v as String),
+          aspectRatio: $checkedConvert(
+              'aspectRatio',
+              (v) => v == null
+                  ? null
+                  : ImageAspectRatio.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
-      fieldKeyMap: const {'thumbnail': 'thumb'},
+      fieldKeyMap: const {'type': r'$type', 'thumbnail': 'thumb'},
     );
 
 Map<String, dynamic> _$$EmbedViewImagesViewImplToJson(
         _$EmbedViewImagesViewImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.type,
       'thumb': instance.thumbnail,
       'fullsize': instance.fullsize,
       'alt': instance.alt,
+      'aspectRatio': instance.aspectRatio?.toJson(),
     };

@@ -20,14 +20,9 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  /// The uri of the record.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// The CID (Content Identifier) associated with the record.
   String? get cid => throw _privateConstructorUsedError;
-
-  /// The dynamic value associated with the record.
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -135,19 +130,12 @@ class _$RecordImpl extends _Record {
   factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordImplFromJson(json);
 
-  /// The uri of the record.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// The CID (Content Identifier) associated with the record.
   @override
   final String? cid;
-
-  /// The dynamic value associated with the record.
   final Map<String, dynamic> _value;
-
-  /// The dynamic value associated with the record.
   @override
   Map<String, dynamic> get value {
     if (_value is EqualUnmodifiableMapView) return _value;
@@ -199,17 +187,11 @@ abstract class _Record extends Record {
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
   @override
-
-  /// The uri of the record.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// The CID (Content Identifier) associated with the record.
   String? get cid;
   @override
-
-  /// The dynamic value associated with the record.
   Map<String, dynamic> get value;
   @override
   @JsonKey(ignore: true)

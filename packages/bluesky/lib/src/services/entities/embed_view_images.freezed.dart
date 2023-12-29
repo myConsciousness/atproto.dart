@@ -20,11 +20,8 @@ EmbedViewImages _$EmbedViewImagesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedViewImages {
-  /// An optional string that represents the type of the embedded images view.
   @typeKey
-  String? get type => throw _privateConstructorUsedError;
-
-  /// A list of `EmbedViewImagesView` instances.
+  String get type => throw _privateConstructorUsedError;
   List<EmbedViewImagesView> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +36,7 @@ abstract class $EmbedViewImagesCopyWith<$Res> {
           EmbedViewImages value, $Res Function(EmbedViewImages) then) =
       _$EmbedViewImagesCopyWithImpl<$Res, EmbedViewImages>;
   @useResult
-  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
+  $Res call({@typeKey String type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -55,14 +52,14 @@ class _$EmbedViewImagesCopyWithImpl<$Res, $Val extends EmbedViewImages>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
+    Object? type = null,
     Object? images = null,
   }) {
     return _then(_value.copyWith(
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -79,7 +76,7 @@ abstract class _$$EmbedViewImagesImplCopyWith<$Res>
       __$$EmbedViewImagesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String? type, List<EmbedViewImagesView> images});
+  $Res call({@typeKey String type, List<EmbedViewImagesView> images});
 }
 
 /// @nodoc
@@ -93,14 +90,14 @@ class __$$EmbedViewImagesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
+    Object? type = null,
     Object? images = null,
   }) {
     return _then(_$EmbedViewImagesImpl(
-      type: freezed == type
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -113,21 +110,17 @@ class __$$EmbedViewImagesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$EmbedViewImagesImpl implements _EmbedViewImages {
   const _$EmbedViewImagesImpl(
-      {@typeKey this.type, required final List<EmbedViewImagesView> images})
+      {@typeKey this.type = appBskyEmbedImagesView,
+      required final List<EmbedViewImagesView> images})
       : _images = images;
 
   factory _$EmbedViewImagesImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedViewImagesImplFromJson(json);
 
-  /// An optional string that represents the type of the embedded images view.
   @override
   @typeKey
-  final String? type;
-
-  /// A list of `EmbedViewImagesView` instances.
+  final String type;
   final List<EmbedViewImagesView> _images;
-
-  /// A list of `EmbedViewImagesView` instances.
   @override
   List<EmbedViewImagesView> get images {
     if (_images is EqualUnmodifiableListView) return _images;
@@ -171,20 +164,16 @@ class _$EmbedViewImagesImpl implements _EmbedViewImages {
 
 abstract class _EmbedViewImages implements EmbedViewImages {
   const factory _EmbedViewImages(
-      {@typeKey final String? type,
+      {@typeKey final String type,
       required final List<EmbedViewImagesView> images}) = _$EmbedViewImagesImpl;
 
   factory _EmbedViewImages.fromJson(Map<String, dynamic> json) =
       _$EmbedViewImagesImpl.fromJson;
 
   @override
-
-  /// An optional string that represents the type of the embedded images view.
   @typeKey
-  String? get type;
+  String get type;
   @override
-
-  /// A list of `EmbedViewImagesView` instances.
   List<EmbedViewImagesView> get images;
   @override
   @JsonKey(ignore: true)

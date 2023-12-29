@@ -20,12 +20,8 @@ FacetTag _$FacetTagFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetTag {
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetTag].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// Represents the tag string.
   String get tag => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -118,13 +114,9 @@ class _$FacetTagImpl implements _FacetTag {
   factory _$FacetTagImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetTagImplFromJson(json);
 
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetTag].
   @override
   @typeKey
   final String type;
-
-  /// Represents the tag string.
   @override
   final String tag;
 
@@ -168,14 +160,9 @@ abstract class _FacetTag implements FacetTag {
       _$FacetTagImpl.fromJson;
 
   @override
-
-  /// Specifies the type of facet. Defaults to
-  /// [appBskyRichtextFacetTag].
   @typeKey
   String get type;
   @override
-
-  /// Represents the tag string.
   String get tag;
   @override
   @JsonKey(ignore: true)

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.1
+
+- Upgrade dependencies. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))
+
 ## v0.9.0
 
 - Removed `base_xrpc_service`. ([#1127](https://github.com/myConsciousness/atproto.dart/issues/1127))

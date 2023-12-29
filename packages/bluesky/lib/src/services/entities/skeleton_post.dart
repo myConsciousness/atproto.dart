@@ -8,23 +8,20 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'skeleton_post.freezed.dart';
 part 'skeleton_post.g.dart';
 
-/// Represents a skeleton post.
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
+@lex.appBskyUnspeccedDefsSkeletonSearchPost
 class SkeletonPost with _$SkeletonPost {
-  /// Creates a new instance of [SkeletonPost].
   const factory SkeletonPost({
-    /// The post uri.
     @atUriConverter required AtUri uri,
   }) = _SkeletonPost;
 
-  /// Creates a new instance of [SkeletonPost] from a map of [json]
-  /// data.
-  ///
-  /// The [json] data must correspond to the structure of [SkeletonPost]
-  /// to properly convert.
   factory SkeletonPost.fromJson(Map<String, Object?> json) =>
       _$SkeletonPostFromJson(json);
 }

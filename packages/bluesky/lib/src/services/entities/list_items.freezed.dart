@@ -20,13 +20,8 @@ ListItems _$ListItemsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItems {
-  /// An instance of [ListView] which represents the list.
   ListView get list => throw _privateConstructorUsedError;
-
-  /// A list of [ListItem] which contains the items within the list.
   List<ListItem> get items => throw _privateConstructorUsedError;
-
-  /// An optional string used for fetching more items from the server.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -143,14 +138,9 @@ class _$ListItemsImpl implements _ListItems {
   factory _$ListItemsImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemsImplFromJson(json);
 
-  /// An instance of [ListView] which represents the list.
   @override
   final ListView list;
-
-  /// A list of [ListItem] which contains the items within the list.
   final List<ListItem> _items;
-
-  /// A list of [ListItem] which contains the items within the list.
   @override
   List<ListItem> get items {
     if (_items is EqualUnmodifiableListView) return _items;
@@ -158,7 +148,6 @@ class _$ListItemsImpl implements _ListItems {
     return EqualUnmodifiableListView(_items);
   }
 
-  /// An optional string used for fetching more items from the server.
   @override
   final String? cursor;
 
@@ -206,16 +195,10 @@ abstract class _ListItems implements ListItems {
       _$ListItemsImpl.fromJson;
 
   @override
-
-  /// An instance of [ListView] which represents the list.
   ListView get list;
   @override
-
-  /// A list of [ListItem] which contains the items within the list.
   List<ListItem> get items;
   @override
-
-  /// An optional string used for fetching more items from the server.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -16,7 +16,7 @@ _$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           isInviteCodeRequired:
-              $checkedConvert('inviteCodeRequired', (v) => v as bool),
+              $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
           links: $checkedConvert(
               'links',
               (v) => v == null

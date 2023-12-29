@@ -20,13 +20,8 @@ AppPassword _$AppPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppPassword {
-  /// The name of the application.
   String get name => throw _privateConstructorUsedError;
-
-  /// The password of the application.
   String get password => throw _privateConstructorUsedError;
-
-  /// The time when the password was created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -130,15 +125,10 @@ class _$AppPasswordImpl implements _AppPassword {
   factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppPasswordImplFromJson(json);
 
-  /// The name of the application.
   @override
   final String name;
-
-  /// The password of the application.
   @override
   final String password;
-
-  /// The time when the password was created.
   @override
   final DateTime createdAt;
 
@@ -187,16 +177,10 @@ abstract class _AppPassword implements AppPassword {
       _$AppPasswordImpl.fromJson;
 
   @override
-
-  /// The name of the application.
   String get name;
   @override
-
-  /// The password of the application.
   String get password;
   @override
-
-  /// The time when the password was created.
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)

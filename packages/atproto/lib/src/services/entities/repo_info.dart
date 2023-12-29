@@ -7,9 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import 'parsed_did_doc.dart';
-
 part 'repo_info.freezed.dart';
 part 'repo_info.g.dart';
 
@@ -27,13 +24,13 @@ class RepoInfo with _$RepoInfo {
     required String did,
 
     /// The parsed DID document.
-    required ParsedDidDoc didDoc,
+    required Map<String, dynamic> didDoc,
 
     /// A list of collections included in the repository.
     required List<String> collections,
 
     /// A boolean value indicating if the handle is correct.
-    @JsonKey(name: 'handleIsCorrect') required bool hasCorrectHandle,
+    @JsonKey(name: 'handleIsCorrect') @Default(false) bool hasCorrectHandle,
   }) = _RepoInfo;
 
   /// Creates a new instance of [RepoInfo] from a JSON object.

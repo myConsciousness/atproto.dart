@@ -67,21 +67,22 @@ class _$XRPCErrorCopyWithImpl<$Res, $Val extends XRPCError>
 }
 
 /// @nodoc
-abstract class _$$_XRPCErrorCopyWith<$Res> implements $XRPCErrorCopyWith<$Res> {
-  factory _$$_XRPCErrorCopyWith(
-          _$_XRPCError value, $Res Function(_$_XRPCError) then) =
-      __$$_XRPCErrorCopyWithImpl<$Res>;
+abstract class _$$XRPCErrorImplCopyWith<$Res>
+    implements $XRPCErrorCopyWith<$Res> {
+  factory _$$XRPCErrorImplCopyWith(
+          _$XRPCErrorImpl value, $Res Function(_$XRPCErrorImpl) then) =
+      __$$XRPCErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String error, String message});
 }
 
 /// @nodoc
-class __$$_XRPCErrorCopyWithImpl<$Res>
-    extends _$XRPCErrorCopyWithImpl<$Res, _$_XRPCError>
-    implements _$$_XRPCErrorCopyWith<$Res> {
-  __$$_XRPCErrorCopyWithImpl(
-      _$_XRPCError _value, $Res Function(_$_XRPCError) _then)
+class __$$XRPCErrorImplCopyWithImpl<$Res>
+    extends _$XRPCErrorCopyWithImpl<$Res, _$XRPCErrorImpl>
+    implements _$$XRPCErrorImplCopyWith<$Res> {
+  __$$XRPCErrorImplCopyWithImpl(
+      _$XRPCErrorImpl _value, $Res Function(_$XRPCErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +91,7 @@ class __$$_XRPCErrorCopyWithImpl<$Res>
     Object? error = null,
     Object? message = null,
   }) {
-    return _then(_$_XRPCError(
+    return _then(_$XRPCErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -105,11 +106,11 @@ class __$$_XRPCErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_XRPCError implements _XRPCError {
-  const _$_XRPCError({required this.error, required this.message});
+class _$XRPCErrorImpl implements _XRPCError {
+  const _$XRPCErrorImpl({required this.error, required this.message});
 
-  factory _$_XRPCError.fromJson(Map<String, dynamic> json) =>
-      _$$_XRPCErrorFromJson(json);
+  factory _$XRPCErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$XRPCErrorImplFromJson(json);
 
   @override
   final String error;
@@ -122,10 +123,10 @@ class _$_XRPCError implements _XRPCError {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_XRPCError &&
+            other is _$XRPCErrorImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -137,12 +138,12 @@ class _$_XRPCError implements _XRPCError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_XRPCErrorCopyWith<_$_XRPCError> get copyWith =>
-      __$$_XRPCErrorCopyWithImpl<_$_XRPCError>(this, _$identity);
+  _$$XRPCErrorImplCopyWith<_$XRPCErrorImpl> get copyWith =>
+      __$$XRPCErrorImplCopyWithImpl<_$XRPCErrorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_XRPCErrorToJson(
+    return _$$XRPCErrorImplToJson(
       this,
     );
   }
@@ -151,10 +152,10 @@ class _$_XRPCError implements _XRPCError {
 abstract class _XRPCError implements XRPCError {
   const factory _XRPCError(
       {required final String error,
-      required final String message}) = _$_XRPCError;
+      required final String message}) = _$XRPCErrorImpl;
 
   factory _XRPCError.fromJson(Map<String, dynamic> json) =
-      _$_XRPCError.fromJson;
+      _$XRPCErrorImpl.fromJson;
 
   @override
   String get error;
@@ -162,6 +163,6 @@ abstract class _XRPCError implements XRPCError {
   String get message;
   @override
   @JsonKey(ignore: true)
-  _$$_XRPCErrorCopyWith<_$_XRPCError> get copyWith =>
+  _$$XRPCErrorImplCopyWith<_$XRPCErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

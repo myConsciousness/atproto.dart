@@ -14,7 +14,8 @@ _$PostThreadViewRecordImpl _$$PostThreadViewRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$PostThreadViewRecordImpl(
-          type: $checkedConvert(r'$type', (v) => v as String),
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsThreadViewPost),
           post: $checkedConvert('post',
               (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert(

@@ -24,8 +24,8 @@ _$SubscribedRepoCommitImpl _$$SubscribedRepoCommitImplFromJson(Map json) =>
           cursor: $checkedConvert('seq', (v) => v as int),
           rev: $checkedConvert('rev', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String?),
-          isRebase: $checkedConvert('rebase', (v) => v as bool),
-          isTooBig: $checkedConvert('tooBig', (v) => v as bool),
+          isRebase: $checkedConvert('rebase', (v) => v as bool? ?? false),
+          isTooBig: $checkedConvert('tooBig', (v) => v as bool? ?? false),
           createdAt:
               $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );

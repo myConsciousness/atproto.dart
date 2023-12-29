@@ -21,14 +21,11 @@ SkeletonActorsByQuery _$SkeletonActorsByQueryFromJson(
 
 /// @nodoc
 mixin _$SkeletonActorsByQuery {
-  /// The list of [SkeletonActor] instances.
   List<SkeletonActor> get actors => throw _privateConstructorUsedError;
 
   /// Count of search hits. optional, may be rounded/truncated,
   /// and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
-
-  /// Pagination cursor.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -138,10 +135,7 @@ class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
   factory _$SkeletonActorsByQueryImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonActorsByQueryImplFromJson(json);
 
-  /// The list of [SkeletonActor] instances.
   final List<SkeletonActor> _actors;
-
-  /// The list of [SkeletonActor] instances.
   @override
   List<SkeletonActor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
@@ -154,8 +148,6 @@ class _$SkeletonActorsByQueryImpl implements _SkeletonActorsByQuery {
   @override
   @JsonKey()
   final int hitsTotal;
-
-  /// Pagination cursor.
   @override
   final String? cursor;
 
@@ -205,8 +197,6 @@ abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
       _$SkeletonActorsByQueryImpl.fromJson;
 
   @override
-
-  /// The list of [SkeletonActor] instances.
   List<SkeletonActor> get actors;
   @override
 
@@ -214,8 +204,6 @@ abstract class _SkeletonActorsByQuery implements SkeletonActorsByQuery {
   /// and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
-
-  /// Pagination cursor.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

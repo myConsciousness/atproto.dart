@@ -20,10 +20,7 @@ RepoLatestCommit _$RepoLatestCommitFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoLatestCommit {
-  /// The latest Content Identifier (CID) of the repository.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The revision.
   String get rev => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -116,11 +113,8 @@ class _$RepoLatestCommitImpl implements _RepoLatestCommit {
   factory _$RepoLatestCommitImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoLatestCommitImplFromJson(json);
 
-  /// The latest Content Identifier (CID) of the repository.
   @override
   final String cid;
-
-  /// The revision.
   @override
   final String rev;
 
@@ -166,12 +160,8 @@ abstract class _RepoLatestCommit implements RepoLatestCommit {
       _$RepoLatestCommitImpl.fromJson;
 
   @override
-
-  /// The latest Content Identifier (CID) of the repository.
   String get cid;
   @override
-
-  /// The revision.
   String get rev;
   @override
   @JsonKey(ignore: true)

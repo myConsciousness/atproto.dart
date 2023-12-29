@@ -20,31 +20,15 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewBasic {
-  /// The type of the list, by default it is
-  /// [appBskyGraphDefsListViewBasic].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose => throw _privateConstructorUsedError;
-
-  /// The URI of the list.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// The CID of the list.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The name of the list.
   String get name => throw _privateConstructorUsedError;
-
-  /// An optional avatar for the list.
   String? get avatar => throw _privateConstructorUsedError;
-
-  /// The viewer of the list.
   ListViewer get viewer => throw _privateConstructorUsedError;
-
-  /// The date of the indexing of the list.
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -236,40 +220,24 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   factory _$ListViewBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewBasicImplFromJson(json);
 
-  /// The type of the list, by default it is
-  /// [appBskyGraphDefsListViewBasic].
   @override
   @typeKey
   final String type;
-
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   @override
   @JsonKey()
   final String purpose;
-
-  /// The URI of the list.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// The CID of the list.
   @override
   final String cid;
-
-  /// The name of the list.
   @override
   final String name;
-
-  /// An optional avatar for the list.
   @override
   final String? avatar;
-
-  /// The viewer of the list.
   @override
   @JsonKey()
   final ListViewer viewer;
-
-  /// The date of the indexing of the list.
   @override
   final DateTime indexedAt;
 
@@ -329,39 +297,22 @@ abstract class _ListViewBasic extends ListViewBasic {
       _$ListViewBasicImpl.fromJson;
 
   @override
-
-  /// The type of the list, by default it is
-  /// [appBskyGraphDefsListViewBasic].
   @typeKey
   String get type;
   @override
-
-  /// The purpose of the list, by default it is [appBskyGraphDefsModlist].
   String get purpose;
   @override
-
-  /// The URI of the list.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// The CID of the list.
   String get cid;
   @override
-
-  /// The name of the list.
   String get name;
   @override
-
-  /// An optional avatar for the list.
   String? get avatar;
   @override
-
-  /// The viewer of the list.
   ListViewer get viewer;
   @override
-
-  /// The date of the indexing of the list.
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)

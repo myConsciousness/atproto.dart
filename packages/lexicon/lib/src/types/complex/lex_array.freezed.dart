@@ -194,7 +194,7 @@ class _$LexArrayImpl implements _LexArray {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LexArrayImpl &&

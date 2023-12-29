@@ -20,23 +20,11 @@ ActorBasic _$ActorBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorBasic {
-  /// The decentralized identifier of the actor.
   String get did => throw _privateConstructorUsedError;
-
-  /// The handle or username of the actor.
   String get handle => throw _privateConstructorUsedError;
-
-  /// The name that is displayed for the actor.
   String? get displayName => throw _privateConstructorUsedError;
-
-  /// The avatar image of the actor.
   String? get avatar => throw _privateConstructorUsedError;
-
-  /// The [ActorViewer] instance representing the authenticated user's
-  /// relationship with the actor.
   ActorViewer get viewer => throw _privateConstructorUsedError;
-
-  /// A list of labels associated with the actor.
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -203,32 +191,18 @@ class _$ActorBasicImpl extends _ActorBasic {
   factory _$ActorBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorBasicImplFromJson(json);
 
-  /// The decentralized identifier of the actor.
   @override
   final String did;
-
-  /// The handle or username of the actor.
   @override
   final String handle;
-
-  /// The name that is displayed for the actor.
   @override
   final String? displayName;
-
-  /// The avatar image of the actor.
   @override
   final String? avatar;
-
-  /// The [ActorViewer] instance representing the authenticated user's
-  /// relationship with the actor.
   @override
   @JsonKey()
   final ActorViewer viewer;
-
-  /// A list of labels associated with the actor.
   final List<Label>? _labels;
-
-  /// A list of labels associated with the actor.
   @override
   List<Label>? get labels {
     final value = _labels;
@@ -290,29 +264,16 @@ abstract class _ActorBasic extends ActorBasic {
       _$ActorBasicImpl.fromJson;
 
   @override
-
-  /// The decentralized identifier of the actor.
   String get did;
   @override
-
-  /// The handle or username of the actor.
   String get handle;
   @override
-
-  /// The name that is displayed for the actor.
   String? get displayName;
   @override
-
-  /// The avatar image of the actor.
   String? get avatar;
   @override
-
-  /// The [ActorViewer] instance representing the authenticated user's
-  /// relationship with the actor.
   ActorViewer get viewer;
   @override
-
-  /// A list of labels associated with the actor.
   List<Label>? get labels;
   @override
   @JsonKey(ignore: true)

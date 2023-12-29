@@ -5,27 +5,19 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
+
 part 'did.freezed.dart';
 part 'did.g.dart';
 
-/// [DID] is a class representing a Decentralized Identifier.
-///
-/// This is an immutable class provided by the [Freezed] package.
-/// The immutability promotes better maintainability and reduces potential
-/// bugs in your code.
+/// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#output
 @freezed
+@lex.comAtprotoIdentityResolveHandle
 class DID with _$DID {
-  /// Constructs a [DID] instance.
-  ///
-  /// [did] is a required parameter representing a Decentralized Identifier.
   const factory DID({
-    /// The Decentralized Identifier.
     required String did,
   }) = _DID;
 
-  /// A factory method that creates a [DID] instance from a JSON map.
-  ///
-  /// [json] is a map in the JSON format, which the method converts into a
-  /// [DID] instance.
   factory DID.fromJson(Map<String, Object?> json) => _$DIDFromJson(json);
 }

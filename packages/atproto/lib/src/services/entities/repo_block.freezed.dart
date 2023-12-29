@@ -20,10 +20,7 @@ RepoBlock _$RepoBlockFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoBlock {
-  /// The Content Identifier (CID) of the block.
   String get cid => throw _privateConstructorUsedError;
-
-  /// The CID of the commit related to the block.
   String get commitCid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -115,11 +112,8 @@ class _$RepoBlockImpl implements _RepoBlock {
   factory _$RepoBlockImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoBlockImplFromJson(json);
 
-  /// The Content Identifier (CID) of the block.
   @override
   final String cid;
-
-  /// The CID of the commit related to the block.
   @override
   final String commitCid;
 
@@ -165,12 +159,8 @@ abstract class _RepoBlock implements RepoBlock {
       _$RepoBlockImpl.fromJson;
 
   @override
-
-  /// The Content Identifier (CID) of the block.
   String get cid;
   @override
-
-  /// The CID of the commit related to the block.
   String get commitCid;
   @override
   @JsonKey(ignore: true)

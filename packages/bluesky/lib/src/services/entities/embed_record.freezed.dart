@@ -20,11 +20,8 @@ EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$EmbedRecord {
-  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// A [StrongRef] object that represents a strong reference to the record.
   @JsonKey(name: 'record')
   StrongRef get ref => throw _privateConstructorUsedError;
 
@@ -133,12 +130,9 @@ class _$EmbedRecordImpl implements _EmbedRecord {
   factory _$EmbedRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordImplFromJson(json);
 
-  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @override
   @typeKey
   final String type;
-
-  /// A [StrongRef] object that represents a strong reference to the record.
   @override
   @JsonKey(name: 'record')
   final StrongRef ref;
@@ -185,13 +179,9 @@ abstract class _EmbedRecord implements EmbedRecord {
       _$EmbedRecordImpl.fromJson;
 
   @override
-
-  /// The type of the embedded content, defaulted to [appBskyEmbedRecord].
   @typeKey
   String get type;
   @override
-
-  /// A [StrongRef] object that represents a strong reference to the record.
   @JsonKey(name: 'record')
   StrongRef get ref;
   @override

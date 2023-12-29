@@ -21,14 +21,9 @@ ContentLabelPreference _$ContentLabelPreferenceFromJson(
 
 /// @nodoc
 mixin _$ContentLabelPreference {
-  /// The content label.
   @typeKey
   String get type => throw _privateConstructorUsedError;
-
-  /// The content label.
   String get label => throw _privateConstructorUsedError;
-
-  /// The user's preference for visibility of content with this label.
   ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -141,16 +136,11 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
   factory _$ContentLabelPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContentLabelPreferenceImplFromJson(json);
 
-  /// The content label.
   @override
   @typeKey
   final String type;
-
-  /// The content label.
   @override
   final String label;
-
-  /// The user's preference for visibility of content with this label.
   @override
   final ContentLabelVisibility visibility;
 
@@ -200,17 +190,11 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
       _$ContentLabelPreferenceImpl.fromJson;
 
   @override
-
-  /// The content label.
   @typeKey
   String get type;
   @override
-
-  /// The content label.
   String get label;
   @override
-
-  /// The user's preference for visibility of content with this label.
   ContentLabelVisibility get visibility;
   @override
   @JsonKey(ignore: true)

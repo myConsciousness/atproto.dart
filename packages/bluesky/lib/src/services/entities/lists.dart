@@ -9,32 +9,25 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'list_view.dart';
 
 part 'lists.freezed.dart';
 part 'lists.g.dart';
 
-/// The [Lists] class represents a collection of [ListView] objects.
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
+@lex.appBskyGraphGetLists
 class Lists with _$Lists {
   // ignore: unused_element
   const Lists._();
 
-  /// Constructs an instance of [Lists].
-  ///
-  /// - [lists] argument must not be null and should contain a list of
-  /// [ListView] objects.
-  /// - [cursor] argument is optional and can be used for pagination purposes.
   @jsonSerializable
   const factory Lists({
-    /// A required list of [ListView] objects.
     required List<ListView> lists,
-
-    /// An optional string that can be used for pagination purposes.
     String? cursor,
   }) = _Lists;
 
-  /// Constructs an instance of [Lists] from a map of dynamic key-value pairs.
   factory Lists.fromJson(Map<String, Object?> json) => _$ListsFromJson(json);
 
   /// Returns only moderated lists.

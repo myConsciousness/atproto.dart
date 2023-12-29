@@ -8,42 +8,24 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import '../../lex_annotations.g.dart' as lex;
 import 'converter/nsid_converter.dart';
 
 part 'update_action.freezed.dart';
 part 'update_action.g.dart';
 
-/// Represents an action to update an entity in a collection.
-///
-/// This class encapsulates the collection, key, and record values required
-/// to perform an update operation.
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
+@lex.comAtprotoRepoApplyWritesUpdate
 class UpdateAction with _$UpdateAction {
-  /// Creates a new instance of [UpdateAction].
-  ///
-  /// The [collection] and [record] parameters are required. The
-  /// [type] parameter has a default value of
-  /// [comAtprotoRepoApplyWritesUpdate], and [rkey] is optional.
   @jsonSerializable
   const factory UpdateAction({
-    /// The type of action. It defaults to
-    /// [comAtprotoRepoApplyWritesUpdate].
     @typeKey @Default(comAtprotoRepoApplyWritesUpdate) String type,
-
-    /// The collection to which the record belongs.
     @nsidConverter required NSID collection,
-
-    /// The key of the record to be updated.
-    String? rkey,
-
-    /// The new values of the record.
+    required String rkey,
     @JsonKey(name: 'value') required Map<String, dynamic> record,
   }) = _UpdateAction;
 
-  /// Creates a new instance of [UpdateAction] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can be used
-  /// to populate an instance of [UpdateAction].
   factory UpdateAction.fromJson(Map<String, Object?> json) =>
       _$UpdateActionFromJson(json);
 }

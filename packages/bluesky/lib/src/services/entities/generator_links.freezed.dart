@@ -20,10 +20,7 @@ GeneratorLinks _$GeneratorLinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorLinks {
-  /// The link to the privacy policy of the generator.
   String? get privacyPolicy => throw _privateConstructorUsedError;
-
-  /// The link to the terms of service of the generator.
   String? get termsOfService => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -117,11 +114,8 @@ class _$GeneratorLinksImpl implements _GeneratorLinks {
   factory _$GeneratorLinksImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorLinksImplFromJson(json);
 
-  /// The link to the privacy policy of the generator.
   @override
   final String? privacyPolicy;
-
-  /// The link to the terms of service of the generator.
   @override
   final String? termsOfService;
 
@@ -169,12 +163,8 @@ abstract class _GeneratorLinks implements GeneratorLinks {
       _$GeneratorLinksImpl.fromJson;
 
   @override
-
-  /// The link to the privacy policy of the generator.
   String? get privacyPolicy;
   @override
-
-  /// The link to the terms of service of the generator.
   String? get termsOfService;
   @override
   @JsonKey(ignore: true)

@@ -20,14 +20,10 @@ Likes _$LikesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Likes {
-  /// The list of 'like' actions.
   List<Like> get likes => throw _privateConstructorUsedError;
-
-  /// The URI of the likes collection.
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-
-  /// The cursor used for pagination.
+  String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +36,11 @@ abstract class $LikesCopyWith<$Res> {
   factory $LikesCopyWith(Likes value, $Res Function(Likes) then) =
       _$LikesCopyWithImpl<$Res, Likes>;
   @useResult
-  $Res call({List<Like> likes, @atUriConverter AtUri uri, String? cursor});
+  $Res call(
+      {List<Like> likes,
+      @atUriConverter AtUri uri,
+      String? cid,
+      String? cursor});
 }
 
 /// @nodoc
@@ -58,6 +58,7 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
   $Res call({
     Object? likes = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? cursor = freezed,
   }) {
     return _then(_value.copyWith(
@@ -69,6 +70,10 @@ class _$LikesCopyWithImpl<$Res, $Val extends Likes>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -84,7 +89,11 @@ abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
       __$$LikesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Like> likes, @atUriConverter AtUri uri, String? cursor});
+  $Res call(
+      {List<Like> likes,
+      @atUriConverter AtUri uri,
+      String? cid,
+      String? cursor});
 }
 
 /// @nodoc
@@ -100,6 +109,7 @@ class __$$LikesImplCopyWithImpl<$Res>
   $Res call({
     Object? likes = null,
     Object? uri = null,
+    Object? cid = freezed,
     Object? cursor = freezed,
   }) {
     return _then(_$LikesImpl(
@@ -111,6 +121,10 @@ class __$$LikesImplCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      cid: freezed == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -125,16 +139,14 @@ class _$LikesImpl implements _Likes {
   const _$LikesImpl(
       {required final List<Like> likes,
       @atUriConverter required this.uri,
+      this.cid,
       this.cursor})
       : _likes = likes;
 
   factory _$LikesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikesImplFromJson(json);
 
-  /// The list of 'like' actions.
   final List<Like> _likes;
-
-  /// The list of 'like' actions.
   @override
   List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
@@ -142,18 +154,17 @@ class _$LikesImpl implements _Likes {
     return EqualUnmodifiableListView(_likes);
   }
 
-  /// The URI of the likes collection.
   @override
   @atUriConverter
   final AtUri uri;
-
-  /// The cursor used for pagination.
+  @override
+  final String? cid;
   @override
   final String? cursor;
 
   @override
   String toString() {
-    return 'Likes(likes: $likes, uri: $uri, cursor: $cursor)';
+    return 'Likes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 
   @override
@@ -163,13 +174,14 @@ class _$LikesImpl implements _Likes {
             other is _$LikesImpl &&
             const DeepCollectionEquality().equals(other._likes, _likes) &&
             (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_likes), uri, cursor);
+  int get hashCode => Object.hash(runtimeType,
+      const DeepCollectionEquality().hash(_likes), uri, cid, cursor);
 
   @JsonKey(ignore: true)
   @override
@@ -189,22 +201,19 @@ abstract class _Likes implements Likes {
   const factory _Likes(
       {required final List<Like> likes,
       @atUriConverter required final AtUri uri,
+      final String? cid,
       final String? cursor}) = _$LikesImpl;
 
   factory _Likes.fromJson(Map<String, dynamic> json) = _$LikesImpl.fromJson;
 
   @override
-
-  /// The list of 'like' actions.
   List<Like> get likes;
   @override
-
-  /// The URI of the likes collection.
   @atUriConverter
   AtUri get uri;
   @override
-
-  /// The cursor used for pagination.
+  String? get cid;
+  @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -10,71 +10,32 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'actor_viewer.dart';
 import 'defaults.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
 
-/// [Actor] represents an individual or organization in Bluesky.
-///
-/// The class holds information about the actor, such as their identifier
-/// (did), handle, display name, description, and avatar. It also includes
-/// the actor's status from the perspective of the authenticated user,
-/// represented by an [ActorViewer] instance.
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileview
 @freezed
+@lex.appBskyActorDefsProfileView
 class Actor with _$Actor {
   // ignore: unused_element
   const Actor._();
 
-  /// Creates an instance of [Actor].
-  ///
-  /// - `did`: The decentralized identifier of the actor.
-  /// - `handle`: The handle or username of the actor.
-  /// - `displayName`: The name that is displayed for the actor.
-  /// - `description`: A short description of the actor.
-  /// - `avatar`: The avatar image of the actor.
-  /// - `viewer`: The [ActorViewer] instance representing the
-  /// authenticated user's relationship with the actor.
-  /// - `labels`: A list of labels associated with the actor.
-  /// - `indexedAt`: The timestamp when the actor was last indexed.
   @jsonSerializable
   const factory Actor({
-    /// The decentralized identifier of the actor.
     required String did,
-
-    /// The handle or username of the actor.
     required String handle,
-
-    /// The name that is displayed for the actor.
     String? displayName,
-
-    /// A short description of the actor.
     String? description,
-
-    /// The avatar image of the actor.
     String? avatar,
-
-    /// The [ActorViewer] instance representing the authenticated user's
-    /// relationship with the actor.
     @Default(defaultActorViewer) ActorViewer viewer,
-
-    /// A list of labels associated with the actor.
     List<Label>? labels,
-
-    /// The timestamp when the actor was last indexed.
     DateTime? indexedAt,
   }) = _Actor;
 
-  /// Creates an instance of [Actor] from a map of [String, Object?].
-  ///
-  /// This factory constructor is used for deserializing JSON data into an
-  /// [Actor] object.
-  ///
-  /// The `json` parameter is a map containing the serialized data.
-  ///
-  /// It should include all the keys corresponding to the parameters of
-  /// this class.
   factory Actor.fromJson(Map<String, Object?> json) => _$ActorFromJson(json);
 
   /// Returns true if authenticated user has muted this actor,

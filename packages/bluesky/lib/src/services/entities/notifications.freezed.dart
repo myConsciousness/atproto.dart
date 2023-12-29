@@ -20,13 +20,8 @@ Notifications _$NotificationsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notifications {
-  /// List of notifications.
   List<Notification> get notifications => throw _privateConstructorUsedError;
-
-  /// Might be used for pagination purposes.
   String? get cursor => throw _privateConstructorUsedError;
-
-  /// The date and time the user saw this notification.
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -136,10 +131,7 @@ class _$NotificationsImpl extends _Notifications {
   factory _$NotificationsImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotificationsImplFromJson(json);
 
-  /// List of notifications.
   final List<Notification> _notifications;
-
-  /// List of notifications.
   @override
   List<Notification> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
@@ -147,11 +139,8 @@ class _$NotificationsImpl extends _Notifications {
     return EqualUnmodifiableListView(_notifications);
   }
 
-  /// Might be used for pagination purposes.
   @override
   final String? cursor;
-
-  /// The date and time the user saw this notification.
   @override
   final DateTime? seenAt;
 
@@ -201,16 +190,10 @@ abstract class _Notifications extends Notifications {
       _$NotificationsImpl.fromJson;
 
   @override
-
-  /// List of notifications.
   List<Notification> get notifications;
   @override
-
-  /// Might be used for pagination purposes.
   String? get cursor;
   @override
-
-  /// The date and time the user saw this notification.
   DateTime? get seenAt;
   @override
   @JsonKey(ignore: true)

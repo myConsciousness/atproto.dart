@@ -19,7 +19,7 @@ _$EmbedViewRecordViewBlockedImpl _$$EmbedViewRecordViewBlockedImplFromJson(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewBlocked),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
-          isBlocked: $checkedConvert('blocked', (v) => v as bool),
+          isBlocked: $checkedConvert('blocked', (v) => v as bool? ?? true),
           author: $checkedConvert(
               'author',
               (v) =>

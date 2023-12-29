@@ -20,10 +20,7 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Feed {
-  /// List of feed view objects.
   List<FeedView> get feed => throw _privateConstructorUsedError;
-
-  /// Cursor for pagination. This is optional.
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,10 +111,7 @@ class _$FeedImpl implements _Feed {
   factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedImplFromJson(json);
 
-  /// List of feed view objects.
   final List<FeedView> _feed;
-
-  /// List of feed view objects.
   @override
   List<FeedView> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
@@ -125,7 +119,6 @@ class _$FeedImpl implements _Feed {
     return EqualUnmodifiableListView(_feed);
   }
 
-  /// Cursor for pagination. This is optional.
   @override
   final String? cursor;
 
@@ -169,12 +162,8 @@ abstract class _Feed implements Feed {
   factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
   @override
-
-  /// List of feed view objects.
   List<FeedView> get feed;
   @override
-
-  /// Cursor for pagination. This is optional.
   String? get cursor;
   @override
   @JsonKey(ignore: true)

@@ -13,26 +13,17 @@ import 'embed_images.dart';
 
 part 'embed_media.freezed.dart';
 
-/// `EmbedMedia` is a union type that represents different kinds of
-/// media that can be embedded.
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
 class EmbedMedia with _$EmbedMedia {
-  /// Creates an instance of `EmbedMedia` that represents images.
-  ///
-  /// The [data] parameter is an `EmbedImages` object that contains the images.
   const factory EmbedMedia.images({
     required EmbedImages data,
   }) = UEmbedMediaImages;
 
-  /// Creates an instance of `EmbedMedia` that represents external media.
-  ///
-  /// The [data] parameter is an `EmbedExternal` object that contains the
-  /// external media.
   const factory EmbedMedia.external({
     required EmbedExternal data,
   }) = UEmbedMediaExternal;
 
-  /// Creates an instance of `EmbedMedia` that represents an unknown feature.
   const factory EmbedMedia.unknown({
     required Map<String, dynamic> data,
   }) = UEmbedMediaUnknown;
