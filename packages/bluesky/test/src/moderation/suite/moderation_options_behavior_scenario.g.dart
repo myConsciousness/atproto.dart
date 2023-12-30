@@ -21,8 +21,8 @@ _$ModerationOptionsBehaviorScenarioImpl
                   'labels',
                   (v) => (v as List<dynamic>?)
                       ?.map((e) =>
-                          ModerationOptionsBehaviorScenarioLabel.fromJson(
-                              Map<String, Object?>.from(e as Map)))
+                          moderationOptionsBehaviorScenarioLabelConverter
+                              .fromJson(e as Map<String, dynamic>))
                       .toList()),
               behaviors: $checkedConvert(
                   'behaviors',
@@ -46,7 +46,11 @@ Map<String, dynamic> _$$ModerationOptionsBehaviorScenarioImplToJson(
     }
   }
 
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'labels',
+      instance.labels
+          ?.map(moderationOptionsBehaviorScenarioLabelConverter.toJson)
+          .toList());
   val['behaviors'] = instance.behaviors.toJson();
   return val;
 }

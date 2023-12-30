@@ -9,6 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import 'converter/moderation_options_behavior_scenario_label_converter.dart';
 import 'moderation_options_behavior_scenario_behaviors.dart';
 import 'moderation_options_behavior_scenario_label.dart';
 
@@ -23,6 +24,7 @@ class ModerationOptionsBehaviorScenario
     @JsonKey(name: 'adultContentEnabled')
     @Default(false)
     bool isAdultContentEnabled,
+    @moderationOptionsBehaviorScenarioLabelConverter
     List<ModerationOptionsBehaviorScenarioLabel>? labels,
     required ModerationOptionsBehaviorScenarioBehaviors behaviors,
   }) = _ModerationOptionsBehaviorScenario;
