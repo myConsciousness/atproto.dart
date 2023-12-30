@@ -89,11 +89,6 @@ void main(List<String> args) {
   id3.authority; // => 'example.com'
   id3.name; // => '*'
   id3.toString(); // => 'com.example.*'
-
-  NSID.isValid('com.example.foo'); // => true
-  NSID.isValid('com.example.*'); // => true
-  NSID.isValid('example.com/foo'); // => false
-  NSID.isValid('foo'); // => false
 }
 ```
 

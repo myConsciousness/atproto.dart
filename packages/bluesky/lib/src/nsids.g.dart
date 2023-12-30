@@ -17,285 +17,279 @@ import 'package:atproto_core/atproto_core.dart';
 import 'ids.g.dart' as ids;
 
 /// `app.bsky.actor.getPreferences`
-const appBskyActorGetPreferences = NSID.of(ids.appBskyActorGetPreferences);
+const appBskyActorGetPreferences = NSID(ids.appBskyActorGetPreferences);
 
 /// `app.bsky.actor.getProfile`
-const appBskyActorGetProfile = NSID.of(ids.appBskyActorGetProfile);
+const appBskyActorGetProfile = NSID(ids.appBskyActorGetProfile);
 
 /// `app.bsky.actor.getProfiles`
-const appBskyActorGetProfiles = NSID.of(ids.appBskyActorGetProfiles);
+const appBskyActorGetProfiles = NSID(ids.appBskyActorGetProfiles);
 
 /// `app.bsky.actor.getSuggestions`
-const appBskyActorGetSuggestions = NSID.of(ids.appBskyActorGetSuggestions);
+const appBskyActorGetSuggestions = NSID(ids.appBskyActorGetSuggestions);
 
 /// `app.bsky.actor.profile`
-const appBskyActorProfile = NSID.of(ids.appBskyActorProfile);
+const appBskyActorProfile = NSID(ids.appBskyActorProfile);
 
 /// `app.bsky.actor.putPreferences`
-const appBskyActorPutPreferences = NSID.of(ids.appBskyActorPutPreferences);
+const appBskyActorPutPreferences = NSID(ids.appBskyActorPutPreferences);
 
 /// `app.bsky.actor.searchActors`
-const appBskyActorSearchActors = NSID.of(ids.appBskyActorSearchActors);
+const appBskyActorSearchActors = NSID(ids.appBskyActorSearchActors);
 
 /// `app.bsky.actor.searchActorsTypeahead`
 const appBskyActorSearchActorsTypeahead =
-    NSID.of(ids.appBskyActorSearchActorsTypeahead);
+    NSID(ids.appBskyActorSearchActorsTypeahead);
 
 /// `app.bsky.embed.external`
-const appBskyEmbedExternal = NSID.of(ids.appBskyEmbedExternal);
+const appBskyEmbedExternal = NSID(ids.appBskyEmbedExternal);
 
 /// `app.bsky.embed.external#external`
-const appBskyEmbedExternalExternal = NSID.of(ids.appBskyEmbedExternalExternal);
+const appBskyEmbedExternalExternal = NSID(ids.appBskyEmbedExternalExternal);
 
 /// `app.bsky.embed.external#view`
-const appBskyEmbedExternalView = NSID.of(ids.appBskyEmbedExternalView);
+const appBskyEmbedExternalView = NSID(ids.appBskyEmbedExternalView);
 
 /// `app.bsky.embed.external#viewExternal`
 const appBskyEmbedExternalViewExternal =
-    NSID.of(ids.appBskyEmbedExternalViewExternal);
+    NSID(ids.appBskyEmbedExternalViewExternal);
 
 /// `app.bsky.embed.images`
-const appBskyEmbedImages = NSID.of(ids.appBskyEmbedImages);
+const appBskyEmbedImages = NSID(ids.appBskyEmbedImages);
 
 /// `app.bsky.embed.images#aspectRatio`
-const appBskyEmbedImagesAspectRatio =
-    NSID.of(ids.appBskyEmbedImagesAspectRatio);
+const appBskyEmbedImagesAspectRatio = NSID(ids.appBskyEmbedImagesAspectRatio);
 
 /// `app.bsky.embed.images#image`
-const appBskyEmbedImagesImage = NSID.of(ids.appBskyEmbedImagesImage);
+const appBskyEmbedImagesImage = NSID(ids.appBskyEmbedImagesImage);
 
 /// `app.bsky.embed.images#view`
-const appBskyEmbedImagesView = NSID.of(ids.appBskyEmbedImagesView);
+const appBskyEmbedImagesView = NSID(ids.appBskyEmbedImagesView);
 
 /// `app.bsky.embed.images#viewImage`
-const appBskyEmbedImagesViewImage = NSID.of(ids.appBskyEmbedImagesViewImage);
+const appBskyEmbedImagesViewImage = NSID(ids.appBskyEmbedImagesViewImage);
 
 /// `app.bsky.embed.record`
-const appBskyEmbedRecord = NSID.of(ids.appBskyEmbedRecord);
+const appBskyEmbedRecord = NSID(ids.appBskyEmbedRecord);
 
 /// `app.bsky.embed.record#view`
-const appBskyEmbedRecordView = NSID.of(ids.appBskyEmbedRecordView);
+const appBskyEmbedRecordView = NSID(ids.appBskyEmbedRecordView);
 
 /// `app.bsky.embed.record#viewBlocked`
-const appBskyEmbedRecordViewBlocked =
-    NSID.of(ids.appBskyEmbedRecordViewBlocked);
+const appBskyEmbedRecordViewBlocked = NSID(ids.appBskyEmbedRecordViewBlocked);
 
 /// `app.bsky.embed.record#viewNotFound`
-const appBskyEmbedRecordViewNotFound =
-    NSID.of(ids.appBskyEmbedRecordViewNotFound);
+const appBskyEmbedRecordViewNotFound = NSID(ids.appBskyEmbedRecordViewNotFound);
 
 /// `app.bsky.embed.record#viewRecord`
-const appBskyEmbedRecordViewRecord = NSID.of(ids.appBskyEmbedRecordViewRecord);
+const appBskyEmbedRecordViewRecord = NSID(ids.appBskyEmbedRecordViewRecord);
 
 /// `app.bsky.embed.recordWithMedia`
-const appBskyEmbedRecordWithMedia = NSID.of(ids.appBskyEmbedRecordWithMedia);
+const appBskyEmbedRecordWithMedia = NSID(ids.appBskyEmbedRecordWithMedia);
 
 /// `app.bsky.embed.recordWithMedia#view`
 const appBskyEmbedRecordWithMediaView =
-    NSID.of(ids.appBskyEmbedRecordWithMediaView);
+    NSID(ids.appBskyEmbedRecordWithMediaView);
 
 /// `app.bsky.feed.describeFeedGenerator`
 const appBskyFeedDescribeFeedGenerator =
-    NSID.of(ids.appBskyFeedDescribeFeedGenerator);
+    NSID(ids.appBskyFeedDescribeFeedGenerator);
 
 /// `app.bsky.feed.describeFeedGenerator#feed`
 const appBskyFeedDescribeFeedGeneratorFeed =
-    NSID.of(ids.appBskyFeedDescribeFeedGeneratorFeed);
+    NSID(ids.appBskyFeedDescribeFeedGeneratorFeed);
 
 /// `app.bsky.feed.describeFeedGenerator#links`
 const appBskyFeedDescribeFeedGeneratorLinks =
-    NSID.of(ids.appBskyFeedDescribeFeedGeneratorLinks);
+    NSID(ids.appBskyFeedDescribeFeedGeneratorLinks);
 
 /// `app.bsky.feed.generator`
-const appBskyFeedGenerator = NSID.of(ids.appBskyFeedGenerator);
+const appBskyFeedGenerator = NSID(ids.appBskyFeedGenerator);
 
 /// `app.bsky.feed.getActorFeeds`
-const appBskyFeedGetActorFeeds = NSID.of(ids.appBskyFeedGetActorFeeds);
+const appBskyFeedGetActorFeeds = NSID(ids.appBskyFeedGetActorFeeds);
 
 /// `app.bsky.feed.getActorLikes`
-const appBskyFeedGetActorLikes = NSID.of(ids.appBskyFeedGetActorLikes);
+const appBskyFeedGetActorLikes = NSID(ids.appBskyFeedGetActorLikes);
 
 /// `app.bsky.feed.getAuthorFeed`
-const appBskyFeedGetAuthorFeed = NSID.of(ids.appBskyFeedGetAuthorFeed);
+const appBskyFeedGetAuthorFeed = NSID(ids.appBskyFeedGetAuthorFeed);
 
 /// `app.bsky.feed.getFeed`
-const appBskyFeedGetFeed = NSID.of(ids.appBskyFeedGetFeed);
+const appBskyFeedGetFeed = NSID(ids.appBskyFeedGetFeed);
 
 /// `app.bsky.feed.getFeedGenerator`
-const appBskyFeedGetFeedGenerator = NSID.of(ids.appBskyFeedGetFeedGenerator);
+const appBskyFeedGetFeedGenerator = NSID(ids.appBskyFeedGetFeedGenerator);
 
 /// `app.bsky.feed.getFeedGenerators`
-const appBskyFeedGetFeedGenerators = NSID.of(ids.appBskyFeedGetFeedGenerators);
+const appBskyFeedGetFeedGenerators = NSID(ids.appBskyFeedGetFeedGenerators);
 
 /// `app.bsky.feed.getFeedSkeleton`
-const appBskyFeedGetFeedSkeleton = NSID.of(ids.appBskyFeedGetFeedSkeleton);
+const appBskyFeedGetFeedSkeleton = NSID(ids.appBskyFeedGetFeedSkeleton);
 
 /// `app.bsky.feed.getLikes`
-const appBskyFeedGetLikes = NSID.of(ids.appBskyFeedGetLikes);
+const appBskyFeedGetLikes = NSID(ids.appBskyFeedGetLikes);
 
 /// `app.bsky.feed.getLikes#like`
-const appBskyFeedGetLikesLike = NSID.of(ids.appBskyFeedGetLikesLike);
+const appBskyFeedGetLikesLike = NSID(ids.appBskyFeedGetLikesLike);
 
 /// `app.bsky.feed.getListFeed`
-const appBskyFeedGetListFeed = NSID.of(ids.appBskyFeedGetListFeed);
+const appBskyFeedGetListFeed = NSID(ids.appBskyFeedGetListFeed);
 
 /// `app.bsky.feed.getPostThread`
-const appBskyFeedGetPostThread = NSID.of(ids.appBskyFeedGetPostThread);
+const appBskyFeedGetPostThread = NSID(ids.appBskyFeedGetPostThread);
 
 /// `app.bsky.feed.getPosts`
-const appBskyFeedGetPosts = NSID.of(ids.appBskyFeedGetPosts);
+const appBskyFeedGetPosts = NSID(ids.appBskyFeedGetPosts);
 
 /// `app.bsky.feed.getRepostedBy`
-const appBskyFeedGetRepostedBy = NSID.of(ids.appBskyFeedGetRepostedBy);
+const appBskyFeedGetRepostedBy = NSID(ids.appBskyFeedGetRepostedBy);
 
 /// `app.bsky.feed.getSuggestedFeeds`
-const appBskyFeedGetSuggestedFeeds = NSID.of(ids.appBskyFeedGetSuggestedFeeds);
+const appBskyFeedGetSuggestedFeeds = NSID(ids.appBskyFeedGetSuggestedFeeds);
 
 /// `app.bsky.feed.getTimeline`
-const appBskyFeedGetTimeline = NSID.of(ids.appBskyFeedGetTimeline);
+const appBskyFeedGetTimeline = NSID(ids.appBskyFeedGetTimeline);
 
 /// `app.bsky.feed.like`
-const appBskyFeedLike = NSID.of(ids.appBskyFeedLike);
+const appBskyFeedLike = NSID(ids.appBskyFeedLike);
 
 /// `app.bsky.feed.post`
-const appBskyFeedPost = NSID.of(ids.appBskyFeedPost);
+const appBskyFeedPost = NSID(ids.appBskyFeedPost);
 
 /// `app.bsky.feed.post#entity`
-const appBskyFeedPostEntity = NSID.of(ids.appBskyFeedPostEntity);
+const appBskyFeedPostEntity = NSID(ids.appBskyFeedPostEntity);
 
 /// `app.bsky.feed.post#replyRef`
-const appBskyFeedPostReplyRef = NSID.of(ids.appBskyFeedPostReplyRef);
+const appBskyFeedPostReplyRef = NSID(ids.appBskyFeedPostReplyRef);
 
 /// `app.bsky.feed.post#textSlice`
-const appBskyFeedPostTextSlice = NSID.of(ids.appBskyFeedPostTextSlice);
+const appBskyFeedPostTextSlice = NSID(ids.appBskyFeedPostTextSlice);
 
 /// `app.bsky.feed.repost`
-const appBskyFeedRepost = NSID.of(ids.appBskyFeedRepost);
+const appBskyFeedRepost = NSID(ids.appBskyFeedRepost);
 
 /// `app.bsky.feed.searchPosts`
-const appBskyFeedSearchPosts = NSID.of(ids.appBskyFeedSearchPosts);
+const appBskyFeedSearchPosts = NSID(ids.appBskyFeedSearchPosts);
 
 /// `app.bsky.feed.threadgate`
-const appBskyFeedThreadgate = NSID.of(ids.appBskyFeedThreadgate);
+const appBskyFeedThreadgate = NSID(ids.appBskyFeedThreadgate);
 
 /// `app.bsky.feed.threadgate#followingRule`
 const appBskyFeedThreadgateFollowingRule =
-    NSID.of(ids.appBskyFeedThreadgateFollowingRule);
+    NSID(ids.appBskyFeedThreadgateFollowingRule);
 
 /// `app.bsky.feed.threadgate#listRule`
-const appBskyFeedThreadgateListRule =
-    NSID.of(ids.appBskyFeedThreadgateListRule);
+const appBskyFeedThreadgateListRule = NSID(ids.appBskyFeedThreadgateListRule);
 
 /// `app.bsky.feed.threadgate#mentionRule`
 const appBskyFeedThreadgateMentionRule =
-    NSID.of(ids.appBskyFeedThreadgateMentionRule);
+    NSID(ids.appBskyFeedThreadgateMentionRule);
 
 /// `app.bsky.graph.block`
-const appBskyGraphBlock = NSID.of(ids.appBskyGraphBlock);
+const appBskyGraphBlock = NSID(ids.appBskyGraphBlock);
 
 /// `app.bsky.graph.follow`
-const appBskyGraphFollow = NSID.of(ids.appBskyGraphFollow);
+const appBskyGraphFollow = NSID(ids.appBskyGraphFollow);
 
 /// `app.bsky.graph.getBlocks`
-const appBskyGraphGetBlocks = NSID.of(ids.appBskyGraphGetBlocks);
+const appBskyGraphGetBlocks = NSID(ids.appBskyGraphGetBlocks);
 
 /// `app.bsky.graph.getFollowers`
-const appBskyGraphGetFollowers = NSID.of(ids.appBskyGraphGetFollowers);
+const appBskyGraphGetFollowers = NSID(ids.appBskyGraphGetFollowers);
 
 /// `app.bsky.graph.getFollows`
-const appBskyGraphGetFollows = NSID.of(ids.appBskyGraphGetFollows);
+const appBskyGraphGetFollows = NSID(ids.appBskyGraphGetFollows);
 
 /// `app.bsky.graph.getList`
-const appBskyGraphGetList = NSID.of(ids.appBskyGraphGetList);
+const appBskyGraphGetList = NSID(ids.appBskyGraphGetList);
 
 /// `app.bsky.graph.getListBlocks`
-const appBskyGraphGetListBlocks = NSID.of(ids.appBskyGraphGetListBlocks);
+const appBskyGraphGetListBlocks = NSID(ids.appBskyGraphGetListBlocks);
 
 /// `app.bsky.graph.getListMutes`
-const appBskyGraphGetListMutes = NSID.of(ids.appBskyGraphGetListMutes);
+const appBskyGraphGetListMutes = NSID(ids.appBskyGraphGetListMutes);
 
 /// `app.bsky.graph.getLists`
-const appBskyGraphGetLists = NSID.of(ids.appBskyGraphGetLists);
+const appBskyGraphGetLists = NSID(ids.appBskyGraphGetLists);
 
 /// `app.bsky.graph.getMutes`
-const appBskyGraphGetMutes = NSID.of(ids.appBskyGraphGetMutes);
+const appBskyGraphGetMutes = NSID(ids.appBskyGraphGetMutes);
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
-    NSID.of(ids.appBskyGraphGetSuggestedFollowsByActor);
+    NSID(ids.appBskyGraphGetSuggestedFollowsByActor);
 
 /// `app.bsky.graph.list`
-const appBskyGraphList = NSID.of(ids.appBskyGraphList);
+const appBskyGraphList = NSID(ids.appBskyGraphList);
 
 /// `app.bsky.graph.listblock`
-const appBskyGraphListblock = NSID.of(ids.appBskyGraphListblock);
+const appBskyGraphListblock = NSID(ids.appBskyGraphListblock);
 
 /// `app.bsky.graph.listitem`
-const appBskyGraphListitem = NSID.of(ids.appBskyGraphListitem);
+const appBskyGraphListitem = NSID(ids.appBskyGraphListitem);
 
 /// `app.bsky.graph.muteActor`
-const appBskyGraphMuteActor = NSID.of(ids.appBskyGraphMuteActor);
+const appBskyGraphMuteActor = NSID(ids.appBskyGraphMuteActor);
 
 /// `app.bsky.graph.muteActorList`
-const appBskyGraphMuteActorList = NSID.of(ids.appBskyGraphMuteActorList);
+const appBskyGraphMuteActorList = NSID(ids.appBskyGraphMuteActorList);
 
 /// `app.bsky.graph.unmuteActor`
-const appBskyGraphUnmuteActor = NSID.of(ids.appBskyGraphUnmuteActor);
+const appBskyGraphUnmuteActor = NSID(ids.appBskyGraphUnmuteActor);
 
 /// `app.bsky.graph.unmuteActorList`
-const appBskyGraphUnmuteActorList = NSID.of(ids.appBskyGraphUnmuteActorList);
+const appBskyGraphUnmuteActorList = NSID(ids.appBskyGraphUnmuteActorList);
 
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
-    NSID.of(ids.appBskyNotificationGetUnreadCount);
+    NSID(ids.appBskyNotificationGetUnreadCount);
 
 /// `app.bsky.notification.listNotifications`
 const appBskyNotificationListNotifications =
-    NSID.of(ids.appBskyNotificationListNotifications);
+    NSID(ids.appBskyNotificationListNotifications);
 
 /// `app.bsky.notification.listNotifications#notification`
 const appBskyNotificationListNotificationsNotification =
-    NSID.of(ids.appBskyNotificationListNotificationsNotification);
+    NSID(ids.appBskyNotificationListNotificationsNotification);
 
 /// `app.bsky.notification.registerPush`
 const appBskyNotificationRegisterPush =
-    NSID.of(ids.appBskyNotificationRegisterPush);
+    NSID(ids.appBskyNotificationRegisterPush);
 
 /// `app.bsky.notification.updateSeen`
-const appBskyNotificationUpdateSeen =
-    NSID.of(ids.appBskyNotificationUpdateSeen);
+const appBskyNotificationUpdateSeen = NSID(ids.appBskyNotificationUpdateSeen);
 
 /// `app.bsky.richtext.facet`
-const appBskyRichtextFacet = NSID.of(ids.appBskyRichtextFacet);
+const appBskyRichtextFacet = NSID(ids.appBskyRichtextFacet);
 
 /// `app.bsky.richtext.facet#byteSlice`
-const appBskyRichtextFacetByteSlice =
-    NSID.of(ids.appBskyRichtextFacetByteSlice);
+const appBskyRichtextFacetByteSlice = NSID(ids.appBskyRichtextFacetByteSlice);
 
 /// `app.bsky.richtext.facet#link`
-const appBskyRichtextFacetLink = NSID.of(ids.appBskyRichtextFacetLink);
+const appBskyRichtextFacetLink = NSID(ids.appBskyRichtextFacetLink);
 
 /// `app.bsky.richtext.facet#mention`
-const appBskyRichtextFacetMention = NSID.of(ids.appBskyRichtextFacetMention);
+const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 
 /// `app.bsky.richtext.facet#tag`
-const appBskyRichtextFacetTag = NSID.of(ids.appBskyRichtextFacetTag);
+const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
 /// `app.bsky.unspecced.getPopular`
-const appBskyUnspeccedGetPopular = NSID.of(ids.appBskyUnspeccedGetPopular);
+const appBskyUnspeccedGetPopular = NSID(ids.appBskyUnspeccedGetPopular);
 
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
-    NSID.of(ids.appBskyUnspeccedGetPopularFeedGenerators);
+    NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
 
 /// `app.bsky.unspecced.getTimelineSkeleton`
 const appBskyUnspeccedGetTimelineSkeleton =
-    NSID.of(ids.appBskyUnspeccedGetTimelineSkeleton);
+    NSID(ids.appBskyUnspeccedGetTimelineSkeleton);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
-    NSID.of(ids.appBskyUnspeccedSearchActorsSkeleton);
+    NSID(ids.appBskyUnspeccedSearchActorsSkeleton);
 
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton =
-    NSID.of(ids.appBskyUnspeccedSearchPostsSkeleton);
+    NSID(ids.appBskyUnspeccedSearchPostsSkeleton);

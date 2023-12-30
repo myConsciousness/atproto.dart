@@ -17,312 +17,299 @@ import 'package:atproto_core/atproto_core.dart';
 import 'ids.g.dart' as ids;
 
 /// `com.atproto.admin.deleteAccount`
-const comAtprotoAdminDeleteAccount = NSID.of(ids.comAtprotoAdminDeleteAccount);
+const comAtprotoAdminDeleteAccount = NSID(ids.comAtprotoAdminDeleteAccount);
 
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites =
-    NSID.of(ids.comAtprotoAdminDisableAccountInvites);
+    NSID(ids.comAtprotoAdminDisableAccountInvites);
 
 /// `com.atproto.admin.disableInviteCodes`
 const comAtprotoAdminDisableInviteCodes =
-    NSID.of(ids.comAtprotoAdminDisableInviteCodes);
+    NSID(ids.comAtprotoAdminDisableInviteCodes);
 
 /// `com.atproto.admin.emitModerationEvent`
 const comAtprotoAdminEmitModerationEvent =
-    NSID.of(ids.comAtprotoAdminEmitModerationEvent);
+    NSID(ids.comAtprotoAdminEmitModerationEvent);
 
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites =
-    NSID.of(ids.comAtprotoAdminEnableAccountInvites);
+    NSID(ids.comAtprotoAdminEnableAccountInvites);
 
 /// `com.atproto.admin.getAccountInfo`
-const comAtprotoAdminGetAccountInfo =
-    NSID.of(ids.comAtprotoAdminGetAccountInfo);
+const comAtprotoAdminGetAccountInfo = NSID(ids.comAtprotoAdminGetAccountInfo);
 
 /// `com.atproto.admin.getInviteCodes`
-const comAtprotoAdminGetInviteCodes =
-    NSID.of(ids.comAtprotoAdminGetInviteCodes);
+const comAtprotoAdminGetInviteCodes = NSID(ids.comAtprotoAdminGetInviteCodes);
 
 /// `com.atproto.admin.getModerationEvent`
 const comAtprotoAdminGetModerationEvent =
-    NSID.of(ids.comAtprotoAdminGetModerationEvent);
+    NSID(ids.comAtprotoAdminGetModerationEvent);
 
 /// `com.atproto.admin.getRecord`
-const comAtprotoAdminGetRecord = NSID.of(ids.comAtprotoAdminGetRecord);
+const comAtprotoAdminGetRecord = NSID(ids.comAtprotoAdminGetRecord);
 
 /// `com.atproto.admin.getRepo`
-const comAtprotoAdminGetRepo = NSID.of(ids.comAtprotoAdminGetRepo);
+const comAtprotoAdminGetRepo = NSID(ids.comAtprotoAdminGetRepo);
 
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus =
-    NSID.of(ids.comAtprotoAdminGetSubjectStatus);
+    NSID(ids.comAtprotoAdminGetSubjectStatus);
 
 /// `com.atproto.admin.queryModerationEvents`
 const comAtprotoAdminQueryModerationEvents =
-    NSID.of(ids.comAtprotoAdminQueryModerationEvents);
+    NSID(ids.comAtprotoAdminQueryModerationEvents);
 
 /// `com.atproto.admin.queryModerationStatuses`
 const comAtprotoAdminQueryModerationStatuses =
-    NSID.of(ids.comAtprotoAdminQueryModerationStatuses);
+    NSID(ids.comAtprotoAdminQueryModerationStatuses);
 
 /// `com.atproto.admin.searchRepos`
-const comAtprotoAdminSearchRepos = NSID.of(ids.comAtprotoAdminSearchRepos);
+const comAtprotoAdminSearchRepos = NSID(ids.comAtprotoAdminSearchRepos);
 
 /// `com.atproto.admin.sendEmail`
-const comAtprotoAdminSendEmail = NSID.of(ids.comAtprotoAdminSendEmail);
+const comAtprotoAdminSendEmail = NSID(ids.comAtprotoAdminSendEmail);
 
 /// `com.atproto.admin.updateAccountEmail`
 const comAtprotoAdminUpdateAccountEmail =
-    NSID.of(ids.comAtprotoAdminUpdateAccountEmail);
+    NSID(ids.comAtprotoAdminUpdateAccountEmail);
 
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle =
-    NSID.of(ids.comAtprotoAdminUpdateAccountHandle);
+    NSID(ids.comAtprotoAdminUpdateAccountHandle);
 
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
-    NSID.of(ids.comAtprotoAdminUpdateSubjectStatus);
+    NSID(ids.comAtprotoAdminUpdateSubjectStatus);
 
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle =
-    NSID.of(ids.comAtprotoIdentityResolveHandle);
+    NSID(ids.comAtprotoIdentityResolveHandle);
 
 /// `com.atproto.identity.updateHandle`
-const comAtprotoIdentityUpdateHandle =
-    NSID.of(ids.comAtprotoIdentityUpdateHandle);
+const comAtprotoIdentityUpdateHandle = NSID(ids.comAtprotoIdentityUpdateHandle);
 
 /// `com.atproto.label.queryLabels`
-const comAtprotoLabelQueryLabels = NSID.of(ids.comAtprotoLabelQueryLabels);
+const comAtprotoLabelQueryLabels = NSID(ids.comAtprotoLabelQueryLabels);
 
 /// `com.atproto.label.subscribeLabels`
-const comAtprotoLabelSubscribeLabels =
-    NSID.of(ids.comAtprotoLabelSubscribeLabels);
+const comAtprotoLabelSubscribeLabels = NSID(ids.comAtprotoLabelSubscribeLabels);
 
 /// `com.atproto.label.subscribeLabels#info`
 const comAtprotoLabelSubscribeLabelsInfo =
-    NSID.of(ids.comAtprotoLabelSubscribeLabelsInfo);
+    NSID(ids.comAtprotoLabelSubscribeLabelsInfo);
 
 /// `com.atproto.label.subscribeLabels#labels`
 const comAtprotoLabelSubscribeLabelsLabels =
-    NSID.of(ids.comAtprotoLabelSubscribeLabelsLabels);
+    NSID(ids.comAtprotoLabelSubscribeLabelsLabels);
 
 /// `com.atproto.moderation.createReport`
 const comAtprotoModerationCreateReport =
-    NSID.of(ids.comAtprotoModerationCreateReport);
+    NSID(ids.comAtprotoModerationCreateReport);
 
 /// `com.atproto.repo.applyWrites`
-const comAtprotoRepoApplyWrites = NSID.of(ids.comAtprotoRepoApplyWrites);
+const comAtprotoRepoApplyWrites = NSID(ids.comAtprotoRepoApplyWrites);
 
 /// `com.atproto.repo.applyWrites#create`
 const comAtprotoRepoApplyWritesCreate =
-    NSID.of(ids.comAtprotoRepoApplyWritesCreate);
+    NSID(ids.comAtprotoRepoApplyWritesCreate);
 
 /// `com.atproto.repo.applyWrites#delete`
 const comAtprotoRepoApplyWritesDelete =
-    NSID.of(ids.comAtprotoRepoApplyWritesDelete);
+    NSID(ids.comAtprotoRepoApplyWritesDelete);
 
 /// `com.atproto.repo.applyWrites#update`
 const comAtprotoRepoApplyWritesUpdate =
-    NSID.of(ids.comAtprotoRepoApplyWritesUpdate);
+    NSID(ids.comAtprotoRepoApplyWritesUpdate);
 
 /// `com.atproto.repo.createRecord`
-const comAtprotoRepoCreateRecord = NSID.of(ids.comAtprotoRepoCreateRecord);
+const comAtprotoRepoCreateRecord = NSID(ids.comAtprotoRepoCreateRecord);
 
 /// `com.atproto.repo.deleteRecord`
-const comAtprotoRepoDeleteRecord = NSID.of(ids.comAtprotoRepoDeleteRecord);
+const comAtprotoRepoDeleteRecord = NSID(ids.comAtprotoRepoDeleteRecord);
 
 /// `com.atproto.repo.describeRepo`
-const comAtprotoRepoDescribeRepo = NSID.of(ids.comAtprotoRepoDescribeRepo);
+const comAtprotoRepoDescribeRepo = NSID(ids.comAtprotoRepoDescribeRepo);
 
 /// `com.atproto.repo.getRecord`
-const comAtprotoRepoGetRecord = NSID.of(ids.comAtprotoRepoGetRecord);
+const comAtprotoRepoGetRecord = NSID(ids.comAtprotoRepoGetRecord);
 
 /// `com.atproto.repo.listRecords`
-const comAtprotoRepoListRecords = NSID.of(ids.comAtprotoRepoListRecords);
+const comAtprotoRepoListRecords = NSID(ids.comAtprotoRepoListRecords);
 
 /// `com.atproto.repo.listRecords#record`
 const comAtprotoRepoListRecordsRecord =
-    NSID.of(ids.comAtprotoRepoListRecordsRecord);
+    NSID(ids.comAtprotoRepoListRecordsRecord);
 
 /// `com.atproto.repo.putRecord`
-const comAtprotoRepoPutRecord = NSID.of(ids.comAtprotoRepoPutRecord);
+const comAtprotoRepoPutRecord = NSID(ids.comAtprotoRepoPutRecord);
 
 /// `com.atproto.repo.strongRef`
-const comAtprotoRepoStrongRef = NSID.of(ids.comAtprotoRepoStrongRef);
+const comAtprotoRepoStrongRef = NSID(ids.comAtprotoRepoStrongRef);
 
 /// `com.atproto.repo.uploadBlob`
-const comAtprotoRepoUploadBlob = NSID.of(ids.comAtprotoRepoUploadBlob);
+const comAtprotoRepoUploadBlob = NSID(ids.comAtprotoRepoUploadBlob);
 
 /// `com.atproto.server.confirmEmail`
-const comAtprotoServerConfirmEmail = NSID.of(ids.comAtprotoServerConfirmEmail);
+const comAtprotoServerConfirmEmail = NSID(ids.comAtprotoServerConfirmEmail);
 
 /// `com.atproto.server.createAccount`
-const comAtprotoServerCreateAccount =
-    NSID.of(ids.comAtprotoServerCreateAccount);
+const comAtprotoServerCreateAccount = NSID(ids.comAtprotoServerCreateAccount);
 
 /// `com.atproto.server.createAppPassword`
 const comAtprotoServerCreateAppPassword =
-    NSID.of(ids.comAtprotoServerCreateAppPassword);
+    NSID(ids.comAtprotoServerCreateAppPassword);
 
 /// `com.atproto.server.createAppPassword#appPassword`
 const comAtprotoServerCreateAppPasswordAppPassword =
-    NSID.of(ids.comAtprotoServerCreateAppPasswordAppPassword);
+    NSID(ids.comAtprotoServerCreateAppPasswordAppPassword);
 
 /// `com.atproto.server.createInviteCode`
 const comAtprotoServerCreateInviteCode =
-    NSID.of(ids.comAtprotoServerCreateInviteCode);
+    NSID(ids.comAtprotoServerCreateInviteCode);
 
 /// `com.atproto.server.createInviteCodes`
 const comAtprotoServerCreateInviteCodes =
-    NSID.of(ids.comAtprotoServerCreateInviteCodes);
+    NSID(ids.comAtprotoServerCreateInviteCodes);
 
 /// `com.atproto.server.createInviteCodes#accountCodes`
 const comAtprotoServerCreateInviteCodesAccountCodes =
-    NSID.of(ids.comAtprotoServerCreateInviteCodesAccountCodes);
+    NSID(ids.comAtprotoServerCreateInviteCodesAccountCodes);
 
 /// `com.atproto.server.createSession`
-const comAtprotoServerCreateSession =
-    NSID.of(ids.comAtprotoServerCreateSession);
+const comAtprotoServerCreateSession = NSID(ids.comAtprotoServerCreateSession);
 
 /// `com.atproto.server.deleteAccount`
-const comAtprotoServerDeleteAccount =
-    NSID.of(ids.comAtprotoServerDeleteAccount);
+const comAtprotoServerDeleteAccount = NSID(ids.comAtprotoServerDeleteAccount);
 
 /// `com.atproto.server.deleteSession`
-const comAtprotoServerDeleteSession =
-    NSID.of(ids.comAtprotoServerDeleteSession);
+const comAtprotoServerDeleteSession = NSID(ids.comAtprotoServerDeleteSession);
 
 /// `com.atproto.server.describeServer`
-const comAtprotoServerDescribeServer =
-    NSID.of(ids.comAtprotoServerDescribeServer);
+const comAtprotoServerDescribeServer = NSID(ids.comAtprotoServerDescribeServer);
 
 /// `com.atproto.server.describeServer#links`
 const comAtprotoServerDescribeServerLinks =
-    NSID.of(ids.comAtprotoServerDescribeServerLinks);
+    NSID(ids.comAtprotoServerDescribeServerLinks);
 
 /// `com.atproto.server.getAccountInviteCodes`
 const comAtprotoServerGetAccountInviteCodes =
-    NSID.of(ids.comAtprotoServerGetAccountInviteCodes);
+    NSID(ids.comAtprotoServerGetAccountInviteCodes);
 
 /// `com.atproto.server.getSession`
-const comAtprotoServerGetSession = NSID.of(ids.comAtprotoServerGetSession);
+const comAtprotoServerGetSession = NSID(ids.comAtprotoServerGetSession);
 
 /// `com.atproto.server.listAppPasswords`
 const comAtprotoServerListAppPasswords =
-    NSID.of(ids.comAtprotoServerListAppPasswords);
+    NSID(ids.comAtprotoServerListAppPasswords);
 
 /// `com.atproto.server.listAppPasswords#appPassword`
 const comAtprotoServerListAppPasswordsAppPassword =
-    NSID.of(ids.comAtprotoServerListAppPasswordsAppPassword);
+    NSID(ids.comAtprotoServerListAppPasswordsAppPassword);
 
 /// `com.atproto.server.refreshSession`
-const comAtprotoServerRefreshSession =
-    NSID.of(ids.comAtprotoServerRefreshSession);
+const comAtprotoServerRefreshSession = NSID(ids.comAtprotoServerRefreshSession);
 
 /// `com.atproto.server.requestAccountDelete`
 const comAtprotoServerRequestAccountDelete =
-    NSID.of(ids.comAtprotoServerRequestAccountDelete);
+    NSID(ids.comAtprotoServerRequestAccountDelete);
 
 /// `com.atproto.server.requestEmailConfirmation`
 const comAtprotoServerRequestEmailConfirmation =
-    NSID.of(ids.comAtprotoServerRequestEmailConfirmation);
+    NSID(ids.comAtprotoServerRequestEmailConfirmation);
 
 /// `com.atproto.server.requestEmailUpdate`
 const comAtprotoServerRequestEmailUpdate =
-    NSID.of(ids.comAtprotoServerRequestEmailUpdate);
+    NSID(ids.comAtprotoServerRequestEmailUpdate);
 
 /// `com.atproto.server.requestPasswordReset`
 const comAtprotoServerRequestPasswordReset =
-    NSID.of(ids.comAtprotoServerRequestPasswordReset);
+    NSID(ids.comAtprotoServerRequestPasswordReset);
 
 /// `com.atproto.server.reserveSigningKey`
 const comAtprotoServerReserveSigningKey =
-    NSID.of(ids.comAtprotoServerReserveSigningKey);
+    NSID(ids.comAtprotoServerReserveSigningKey);
 
 /// `com.atproto.server.resetPassword`
-const comAtprotoServerResetPassword =
-    NSID.of(ids.comAtprotoServerResetPassword);
+const comAtprotoServerResetPassword = NSID(ids.comAtprotoServerResetPassword);
 
 /// `com.atproto.server.revokeAppPassword`
 const comAtprotoServerRevokeAppPassword =
-    NSID.of(ids.comAtprotoServerRevokeAppPassword);
+    NSID(ids.comAtprotoServerRevokeAppPassword);
 
 /// `com.atproto.server.updateEmail`
-const comAtprotoServerUpdateEmail = NSID.of(ids.comAtprotoServerUpdateEmail);
+const comAtprotoServerUpdateEmail = NSID(ids.comAtprotoServerUpdateEmail);
 
 /// `com.atproto.sync.getBlob`
-const comAtprotoSyncGetBlob = NSID.of(ids.comAtprotoSyncGetBlob);
+const comAtprotoSyncGetBlob = NSID(ids.comAtprotoSyncGetBlob);
 
 /// `com.atproto.sync.getBlocks`
-const comAtprotoSyncGetBlocks = NSID.of(ids.comAtprotoSyncGetBlocks);
+const comAtprotoSyncGetBlocks = NSID(ids.comAtprotoSyncGetBlocks);
 
 /// `com.atproto.sync.getCheckout`
-const comAtprotoSyncGetCheckout = NSID.of(ids.comAtprotoSyncGetCheckout);
+const comAtprotoSyncGetCheckout = NSID(ids.comAtprotoSyncGetCheckout);
 
 /// `com.atproto.sync.getHead`
-const comAtprotoSyncGetHead = NSID.of(ids.comAtprotoSyncGetHead);
+const comAtprotoSyncGetHead = NSID(ids.comAtprotoSyncGetHead);
 
 /// `com.atproto.sync.getLatestCommit`
-const comAtprotoSyncGetLatestCommit =
-    NSID.of(ids.comAtprotoSyncGetLatestCommit);
+const comAtprotoSyncGetLatestCommit = NSID(ids.comAtprotoSyncGetLatestCommit);
 
 /// `com.atproto.sync.getRecord`
-const comAtprotoSyncGetRecord = NSID.of(ids.comAtprotoSyncGetRecord);
+const comAtprotoSyncGetRecord = NSID(ids.comAtprotoSyncGetRecord);
 
 /// `com.atproto.sync.getRepo`
-const comAtprotoSyncGetRepo = NSID.of(ids.comAtprotoSyncGetRepo);
+const comAtprotoSyncGetRepo = NSID(ids.comAtprotoSyncGetRepo);
 
 /// `com.atproto.sync.listBlobs`
-const comAtprotoSyncListBlobs = NSID.of(ids.comAtprotoSyncListBlobs);
+const comAtprotoSyncListBlobs = NSID(ids.comAtprotoSyncListBlobs);
 
 /// `com.atproto.sync.listRepos`
-const comAtprotoSyncListRepos = NSID.of(ids.comAtprotoSyncListRepos);
+const comAtprotoSyncListRepos = NSID(ids.comAtprotoSyncListRepos);
 
 /// `com.atproto.sync.listRepos#repo`
-const comAtprotoSyncListReposRepo = NSID.of(ids.comAtprotoSyncListReposRepo);
+const comAtprotoSyncListReposRepo = NSID(ids.comAtprotoSyncListReposRepo);
 
 /// `com.atproto.sync.notifyOfUpdate`
-const comAtprotoSyncNotifyOfUpdate = NSID.of(ids.comAtprotoSyncNotifyOfUpdate);
+const comAtprotoSyncNotifyOfUpdate = NSID(ids.comAtprotoSyncNotifyOfUpdate);
 
 /// `com.atproto.sync.requestCrawl`
-const comAtprotoSyncRequestCrawl = NSID.of(ids.comAtprotoSyncRequestCrawl);
+const comAtprotoSyncRequestCrawl = NSID(ids.comAtprotoSyncRequestCrawl);
 
 /// `com.atproto.sync.subscribeRepos`
-const comAtprotoSyncSubscribeRepos = NSID.of(ids.comAtprotoSyncSubscribeRepos);
+const comAtprotoSyncSubscribeRepos = NSID(ids.comAtprotoSyncSubscribeRepos);
 
 /// `com.atproto.sync.subscribeRepos#commit`
 const comAtprotoSyncSubscribeReposCommit =
-    NSID.of(ids.comAtprotoSyncSubscribeReposCommit);
+    NSID(ids.comAtprotoSyncSubscribeReposCommit);
 
 /// `com.atproto.sync.subscribeRepos#handle`
 const comAtprotoSyncSubscribeReposHandle =
-    NSID.of(ids.comAtprotoSyncSubscribeReposHandle);
+    NSID(ids.comAtprotoSyncSubscribeReposHandle);
 
 /// `com.atproto.sync.subscribeRepos#info`
 const comAtprotoSyncSubscribeReposInfo =
-    NSID.of(ids.comAtprotoSyncSubscribeReposInfo);
+    NSID(ids.comAtprotoSyncSubscribeReposInfo);
 
 /// `com.atproto.sync.subscribeRepos#migrate`
 const comAtprotoSyncSubscribeReposMigrate =
-    NSID.of(ids.comAtprotoSyncSubscribeReposMigrate);
+    NSID(ids.comAtprotoSyncSubscribeReposMigrate);
 
 /// `com.atproto.sync.subscribeRepos#repoOp`
 const comAtprotoSyncSubscribeReposRepoOp =
-    NSID.of(ids.comAtprotoSyncSubscribeReposRepoOp);
+    NSID(ids.comAtprotoSyncSubscribeReposRepoOp);
 
 /// `com.atproto.sync.subscribeRepos#tombstone`
 const comAtprotoSyncSubscribeReposTombstone =
-    NSID.of(ids.comAtprotoSyncSubscribeReposTombstone);
+    NSID(ids.comAtprotoSyncSubscribeReposTombstone);
 
 /// `com.atproto.temp.fetchLabels`
-const comAtprotoTempFetchLabels = NSID.of(ids.comAtprotoTempFetchLabels);
+const comAtprotoTempFetchLabels = NSID(ids.comAtprotoTempFetchLabels);
 
 /// `com.atproto.temp.importRepo`
-const comAtprotoTempImportRepo = NSID.of(ids.comAtprotoTempImportRepo);
+const comAtprotoTempImportRepo = NSID(ids.comAtprotoTempImportRepo);
 
 /// `com.atproto.temp.pushBlob`
-const comAtprotoTempPushBlob = NSID.of(ids.comAtprotoTempPushBlob);
+const comAtprotoTempPushBlob = NSID(ids.comAtprotoTempPushBlob);
 
 /// `com.atproto.temp.transferAccount`
-const comAtprotoTempTransferAccount =
-    NSID.of(ids.comAtprotoTempTransferAccount);
+const comAtprotoTempTransferAccount = NSID(ids.comAtprotoTempTransferAccount);

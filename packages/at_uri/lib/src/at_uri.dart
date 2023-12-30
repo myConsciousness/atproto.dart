@@ -196,10 +196,10 @@ final class UnparsedAtUri implements AtUri {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-    if (other is AtUri) return other.toString() == toString();
+    if (other is AtUri) return other.toString() == _uri;
     return false;
   }
 
   @override
-  int get hashCode => toString().hashCode;
+  int get hashCode => _uri.hashCode;
 }

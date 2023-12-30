@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.0
+
+- Removed `.of` factory and added a default constructor instead. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
+
 ## v0.3.0
 
 - Added `.of` constructor. It does not validate the given arguments and returns an immutable NSID object. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))

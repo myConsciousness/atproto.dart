@@ -45,7 +45,7 @@ void main() {
         nsids
           ..writeln()
           ..writeln('/// `${field.value}`')
-          ..writeln("const ${field.name} = NSID.of(ids.${field.name});");
+          ..writeln("const ${field.name} = NSID(ids.${field.name});");
       }
     }
 

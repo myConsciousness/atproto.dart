@@ -95,16 +95,16 @@ void main() {
 
   group('==', () {
     test('the same nsid', () {
-      final nsid1 = NSID.of('app.bsky.feed.post');
-      final nsid2 = NSID.of('app.bsky.feed.post');
+      final nsid1 = NSID('app.bsky.feed.post');
+      final nsid2 = NSID('app.bsky.feed.post');
 
       expect(nsid1 == nsid1, isTrue);
       expect(nsid1 == nsid2, isTrue);
     });
 
     test('not the same nsid', () {
-      final nsid1 = NSID.of('app.bsky.feed.post');
-      final nsid2 = NSID.of('app.bsky.feed.getPosts');
+      final nsid1 = NSID('app.bsky.feed.post');
+      final nsid2 = NSID('app.bsky.feed.getPosts');
 
       expect(nsid1 == nsid1, isTrue);
       expect(nsid1 == nsid2, isFalse);

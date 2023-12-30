@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.5
+
+- Upgraded `NSID`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
+
 ## v0.1.4
 
 - Upgraded `NSID`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))

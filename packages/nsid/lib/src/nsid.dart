@@ -17,51 +17,69 @@ import 'validation.dart';
 /// - name      = segment
 /// - nsid      = authority delim name
 /// - nsid-ns   = authority delim "*"
-final class NSID {
-  /// Validates the format of [nsid]
-  /// and returns a new [NSID] object if it is in NSID format.
-  /// Otherwise always throws InvalidNsidError.
-  factory NSID.parse(final String nsid) {
+sealed class NSID {
+  /// Returns the new instance of unparsed NSID.
+  const factory NSID(final String nsid) = UnparsedNSID;
+
+  /// Returns the new instance of parsed NSID.
+  factory NSID.parse(final String nsid) = ParsedNSID;
+
+  /// Returns the new instance of parsed NSID based on [authority] and [name].
+  factory NSID.create(final String authority, final String name) =>
+      ParsedNSID([...authority.split('.').reversed, name].join('.'));
+
+  /// Returns the authority of this nsid.
+  String get authority;
+
+  /// Returns the method name of this nsid.
+  String get name;
+}
+
+final class ParsedNSID implements NSID {
+  ParsedNSID(final String nsid) {
     ensureValidNsid(nsid);
 
-    return NSID._(nsid);
+    _segments = nsid.split('.');
   }
 
-  /// Returns a new [NSID] from [authority] and [name] after validation.
-  factory NSID.create(final String authority, final String name) {
-    final nsid = [...authority.split('.').reversed, name].join('.');
+  /// The nsid segments.
+  late List<String> _segments;
 
-    ensureValidNsid(nsid);
+  @override
+  String get authority =>
+      _segments.sublist(0, _segments.length - 1).reversed.join('.');
 
-    return NSID._(nsid);
+  @override
+  String get name => _segments[_segments.length - 1];
+
+  @override
+  String toString() => _segments.join('.');
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is! NSID) return false;
+
+    return toString() == other.toString();
   }
 
-  /// Returns an immutable [NSID] from the given [nsid].
-  const factory NSID.of(final String nsid) = NSID._;
+  @override
+  int get hashCode => toString().hashCode;
+}
 
-  /// Returns the new instance of [NSID] based on [nsid].
-  const NSID._(final String nsid) : _nsid = nsid;
+final class UnparsedNSID implements NSID {
+  const UnparsedNSID(this._nsid);
 
   final String _nsid;
 
-  /// Returns true if [nsid] could be parsed as NSID, otherwise false.
-  static bool isValid(String nsid) {
-    try {
-      NSID.parse(nsid);
-      return true;
-    } catch (e) {
-      return false;
-    }
-  }
-
-  /// Returns the authority of this nsid.
+  @override
   String get authority {
     final segments = _nsid.split('.');
 
     return segments.sublist(0, segments.length - 1).reversed.join('.');
   }
 
-  /// Returns the method name of this nsid.
+  @override
   String get name {
     final segments = _nsid.split('.');
 
@@ -76,7 +94,7 @@ final class NSID {
     if (identical(this, other)) return true;
     if (other is! NSID) return false;
 
-    return _nsid == other._nsid;
+    return _nsid == other.toString();
   }
 
   @override
