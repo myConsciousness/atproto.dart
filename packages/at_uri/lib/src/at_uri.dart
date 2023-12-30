@@ -2,6 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+final _atUriRegex = RegExp(
+  // ignore: lines_longer_than_80_chars
+  // proto-    --did--------------   --name-------------   --path----   --query--   --hash--
+  r'^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
+  caseSensitive: false,
+);
+
 /// This is the Dart implementation of AT Uri in AT Protocol.
 ///
 /// ## Grammar
@@ -11,79 +18,64 @@
 /// - path      = [ "/" coll-nsid [ "/" record-id ] ]
 /// - coll-nsid = nsid
 /// - record-id = 1*pchar
-final class AtUri {
-  /// Returns the new instance of [AtUri] based on raw [uri].
-  factory AtUri.parse(final String uri) => AtUri._(uri);
+sealed class AtUri {
+  /// Returns the new instance of unparsed AT URI.
+  const factory AtUri(final String uri) = UnparsedAtUri;
 
-  /// Returns the new instance of [AtUri] based on [handleOrDid],
+  /// Returns the new instance of parsed AT URI.
+  factory AtUri.parse(final String uri) = ParsedAtUri;
+
+  /// Returns the new instance of parsed AT URI based on [handleOrDid],
   /// and [collection] and [rkey] as optionals.
   factory AtUri.make(
     final String handleOrDid, [
     final String? collection,
     final String? rkey,
   ]) {
-    final buffer = StringBuffer();
-    buffer.write(handleOrDid);
+    final buffer = StringBuffer(handleOrDid);
+    if (collection != null) buffer.write('/$collection');
+    if (rkey != null) buffer.write('/$rkey');
 
-    if (collection != null) {
-      buffer.write('/$collection');
-    }
-
-    if (rkey != null) {
-      buffer.write('/$rkey');
-    }
-
-    return AtUri._(buffer.toString());
+    return ParsedAtUri(buffer.toString());
   }
 
-  /// Returns the new instance of [AtUri] based on [uri].
-  AtUri._(final String uri) {
-    final parsed = _parse(uri);
+  /// Returns the protocol.
+  String get protocol;
 
-    if (parsed == null) {
-      throw FormatException('Invalid at uri: $uri');
-    }
+  /// Returns the origin.
+  String get origin;
+
+  /// Returns the pathname.
+  String get pathname;
+
+  /// Returns the hostname.
+  String get hostname;
+
+  /// Returns the collection.
+  String get collection;
+
+  /// Returns the rkey.
+  String get rkey;
+
+  /// Returns the hash.
+  String get hash;
+
+  /// Returns the href.
+  String get href;
+}
+
+final class ParsedAtUri implements AtUri {
+  ParsedAtUri(final String uri) {
+    final parsed = _parse(uri);
+    if (parsed == null) throw FormatException('Invalid at uri: $uri');
 
     hash = parsed['hash'] ?? '';
     _host = parsed['host'] ?? '';
     pathname = parsed['pathname'] ?? '';
   }
 
-  late String hash;
-  late String pathname;
-  late String _host;
-
-  final _atpUriRegex = RegExp(
-    // ignore: lines_longer_than_80_chars
-    // proto-    --did--------------   --name-------------   --path----   --query--   --hash--
-    r'^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
-    caseSensitive: false,
-  );
-
-  /// Returns the protocol.
-  String get protocol => 'at:';
-
-  /// Returns the origin.
-  String get origin => 'at://$_host';
-
-  /// Returns the hostname.
-  String get hostname => _host;
-
-  /// Returns the collection.
-  String get collection =>
-      (pathname.split('/')..removeWhere((s) => s.isEmpty)).first;
-
-  /// Returns the rkey.
-  String get rkey =>
-      (pathname.split('/')..removeWhere((s) => s.isEmpty)).elementAt(1);
-
-  /// Returns the href.
-  String get href => toString();
-
-  /// Returns the parsed uri.
   Map<String, dynamic>? _parse(final String uri) {
-    final match = _atpUriRegex.firstMatch(uri);
-
+    final match = _atUriRegex.firstMatch(uri);
     return match == null
         ? null
         : {
@@ -93,11 +85,37 @@ final class AtUri {
           };
   }
 
+  late String _host;
+
+  @override
+  String get protocol => 'at:';
+
+  @override
+  String get origin => 'at://$_host';
+
+  @override
+  late String pathname;
+
+  @override
+  String get hostname => _host;
+
+  @override
+  String get collection =>
+      (pathname.split('/')..removeWhere((s) => s.isEmpty)).first;
+
+  @override
+  String get rkey =>
+      (pathname.split('/')..removeWhere((s) => s.isEmpty)).elementAt(1);
+
+  @override
+  late String hash;
+
+  @override
+  String get href => toString();
+
   @override
   String toString() {
-    final buffer = StringBuffer();
-    buffer.write('at://');
-    buffer.write(_host);
+    final buffer = StringBuffer('at://')..write(_host);
 
     if (!pathname.startsWith('/')) {
       buffer.write('/$pathname');
@@ -117,16 +135,71 @@ final class AtUri {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-
-    if (other is AtUri) {
-      return other.hash == hash &&
-          other.pathname == pathname &&
-          other._host == _host;
-    }
-
+    if (other is AtUri) return other.toString() == toString();
     return false;
   }
 
   @override
-  int get hashCode => hash.hashCode ^ pathname.hashCode ^ _host.hashCode;
+  int get hashCode => toString().hashCode;
+}
+
+final class UnparsedAtUri implements AtUri {
+  const UnparsedAtUri(this._uri);
+
+  /// Not parsed uri.
+  final String _uri;
+
+  @override
+  String get protocol => 'at:';
+
+  @override
+  String get origin => 'at://$hostname';
+
+  @override
+  String get pathname {
+    final match = _atUriRegex.firstMatch(_uri);
+    if (match == null) throw FormatException('Invalid at uri: $_uri');
+
+    return match.group(3) ?? '';
+  }
+
+  @override
+  String get hostname {
+    final match = _atUriRegex.firstMatch(_uri);
+    if (match == null) throw FormatException('Invalid at uri: $_uri');
+
+    return match.group(2) ?? '';
+  }
+
+  @override
+  String get collection =>
+      (pathname.split('/')..removeWhere((s) => s.isEmpty)).first;
+
+  @override
+  String get rkey =>
+      (pathname.split('/')..removeWhere((s) => s.isEmpty)).elementAt(1);
+
+  @override
+  String get hash {
+    final match = _atUriRegex.firstMatch(_uri);
+    if (match == null) throw FormatException('Invalid at uri: $_uri');
+
+    return match.group(5) ?? '';
+  }
+
+  @override
+  String get href => toString();
+
+  @override
+  String toString() => _uri;
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) return true;
+    if (other is AtUri) return other.toString() == toString();
+    return false;
+  }
+
+  @override
+  int get hashCode => toString().hashCode;
 }

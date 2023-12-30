@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.0
+
+- Added a default constructor that allows `const` to be specified. Instances created with this default constructor do not parse the given URI in advance, but parse it as needed. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
+
 ## v0.2.3
 
 - Upgraded `nsid`. ([#1112](https://github.com/myConsciousness/atproto.dart/issues/1112))
