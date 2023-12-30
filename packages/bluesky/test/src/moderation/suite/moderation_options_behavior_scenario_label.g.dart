@@ -31,7 +31,6 @@ Map<String, dynamic> _$$ModerationOptionsBehaviorScenarioLabelImplToJson(
     };
 
 const _$ContentLabelVisibilityEnumMap = {
-  ContentLabelVisibility.show: 'show',
   ContentLabelVisibility.ignore: 'ignore',
   ContentLabelVisibility.warn: 'warn',
   ContentLabelVisibility.hide: 'hide',

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.3
+
+- Removed `.show` element on `ContentLabelVisibility`. The value of `show` is internally converted to `ignore`. ([#1157](https://github.com/myConsciousness/atproto.dart/issues/1157))
+
 ## v0.15.2
 
 - Minor improvement. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))

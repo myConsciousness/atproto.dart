@@ -3,7 +3,7 @@
     {
       "$type": "app.bsky.actor.defs#contentLabelPref",
       "label": "nsfw",
-      "visibility": "warn"
+      "visibility": "ignore"
     },
     {
       "$type": "app.bsky.actor.defs#contentLabelPref",

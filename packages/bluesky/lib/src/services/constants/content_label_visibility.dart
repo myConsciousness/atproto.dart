@@ -6,10 +6,6 @@
 /// certain content label in the interface.
 enum ContentLabelVisibility {
   /// Indicates that the content with this label will be shown normally.
-  @Deprecated('Legacy element. Use "ignore" instead')
-  show,
-
-  /// Indicates that the content with this label will be shown normally.
   ignore,
 
   /// Indicates that the content with this label will be shown with a warning.

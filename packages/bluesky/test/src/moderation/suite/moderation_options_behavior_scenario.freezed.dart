@@ -23,6 +23,7 @@ ModerationOptionsBehaviorScenario _$ModerationOptionsBehaviorScenarioFromJson(
 mixin _$ModerationOptionsBehaviorScenario {
   @JsonKey(name: 'adultContentEnabled')
   bool get isAdultContentEnabled => throw _privateConstructorUsedError;
+  @moderationOptionsBehaviorScenarioLabelConverter
   List<ModerationOptionsBehaviorScenarioLabel>? get labels =>
       throw _privateConstructorUsedError;
   ModerationOptionsBehaviorScenarioBehaviors get behaviors =>
@@ -44,6 +45,7 @@ abstract class $ModerationOptionsBehaviorScenarioCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: 'adultContentEnabled') bool isAdultContentEnabled,
+      @moderationOptionsBehaviorScenarioLabelConverter
       List<ModerationOptionsBehaviorScenarioLabel>? labels,
       ModerationOptionsBehaviorScenarioBehaviors behaviors});
 
@@ -105,6 +107,7 @@ abstract class _$$ModerationOptionsBehaviorScenarioImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: 'adultContentEnabled') bool isAdultContentEnabled,
+      @moderationOptionsBehaviorScenarioLabelConverter
       List<ModerationOptionsBehaviorScenarioLabel>? labels,
       ModerationOptionsBehaviorScenarioBehaviors behaviors});
 
@@ -153,6 +156,7 @@ class _$ModerationOptionsBehaviorScenarioImpl
     implements _ModerationOptionsBehaviorScenario {
   const _$ModerationOptionsBehaviorScenarioImpl(
       {@JsonKey(name: 'adultContentEnabled') this.isAdultContentEnabled = false,
+      @moderationOptionsBehaviorScenarioLabelConverter
       final List<ModerationOptionsBehaviorScenarioLabel>? labels,
       required this.behaviors})
       : _labels = labels;
@@ -166,6 +170,7 @@ class _$ModerationOptionsBehaviorScenarioImpl
   final bool isAdultContentEnabled;
   final List<ModerationOptionsBehaviorScenarioLabel>? _labels;
   @override
+  @moderationOptionsBehaviorScenarioLabelConverter
   List<ModerationOptionsBehaviorScenarioLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -219,6 +224,7 @@ abstract class _ModerationOptionsBehaviorScenario
     implements ModerationOptionsBehaviorScenario {
   const factory _ModerationOptionsBehaviorScenario(
       {@JsonKey(name: 'adultContentEnabled') final bool isAdultContentEnabled,
+      @moderationOptionsBehaviorScenarioLabelConverter
       final List<ModerationOptionsBehaviorScenarioLabel>? labels,
       required final ModerationOptionsBehaviorScenarioBehaviors
           behaviors}) = _$ModerationOptionsBehaviorScenarioImpl;
@@ -231,6 +237,7 @@ abstract class _ModerationOptionsBehaviorScenario
   @JsonKey(name: 'adultContentEnabled')
   bool get isAdultContentEnabled;
   @override
+  @moderationOptionsBehaviorScenarioLabelConverter
   List<ModerationOptionsBehaviorScenarioLabel>? get labels;
   @override
   ModerationOptionsBehaviorScenarioBehaviors get behaviors;

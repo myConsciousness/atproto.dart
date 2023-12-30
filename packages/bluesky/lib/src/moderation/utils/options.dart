@@ -80,13 +80,7 @@ LabelPreference _getLabelPreference(
   final ContentLabelVisibility visibility,
 ) =>
     switch (visibility) {
-      // Content labels previously included 'show', which has been deprecated in
-      // favor of `ignore`. The API can return legacy data from the database,
-      // and we clean up the data.
-      // ignore: deprecated_member_use_from_same_package
-      ContentLabelVisibility.show ||
-      ContentLabelVisibility.ignore =>
-        LabelPreference.ignore,
+      ContentLabelVisibility.ignore => LabelPreference.ignore,
       ContentLabelVisibility.warn => LabelPreference.warn,
       ContentLabelVisibility.hide => LabelPreference.hide,
     };
