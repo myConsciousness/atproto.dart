@@ -13,7 +13,7 @@ final class _AtUriConverter implements JsonConverter<AtUri, String> {
   const _AtUriConverter();
 
   @override
-  AtUri fromJson(String json) => AtUri.parse(json);
+  AtUri fromJson(String json) => AtUri(json);
 
   @override
   String toJson(AtUri object) => object.toString();

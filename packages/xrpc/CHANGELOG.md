@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.5
+
+- Upgrade `NSID`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
+
 ## v0.4.4
 
 - Upgrade dependencies. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))

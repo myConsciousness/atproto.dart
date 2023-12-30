@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.2
+
+- Upgraded `atproto_core`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
+
 ## v0.11.1
 
 - Minor improvement. ([#1146](https://github.com/myConsciousness/atproto.dart/issues/1146))

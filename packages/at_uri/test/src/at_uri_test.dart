@@ -350,90 +350,141 @@ void main() {
     ];
 
     for (final $case in cases) {
-      final uri = AtUri.parse($case[0]);
+      final parsedUri = AtUri.parse($case[0]);
 
-      expect(uri.protocol, 'at:');
-      expect(uri.hostname, $case[1]);
-      expect(uri.origin, 'at://${$case[1]}');
-      expect(uri.pathname, $case[2]);
+      expect(parsedUri.protocol, 'at:');
+      expect(parsedUri.hostname, $case[1]);
+      expect(parsedUri.origin, 'at://${$case[1]}');
+      expect(parsedUri.pathname, $case[2]);
       // TODO: searchParams
-      expect(uri.hash, $case[4]);
+      expect(parsedUri.hash, $case[4]);
+
+      final unparsedUri = AtUri($case[0]);
+
+      expect(unparsedUri.protocol, 'at:');
+      expect(unparsedUri.hostname, $case[1]);
+      expect(unparsedUri.origin, 'at://${$case[1]}');
+      expect(unparsedUri.pathname, $case[2]);
+      // TODO: searchParams
+      expect(unparsedUri.hash, $case[4]);
     }
   });
 
   test('handles ATP-specific parsing', () {
-    final uri = AtUri.parse('at://foo.com/com.example.foo/123');
+    final parsedUri = AtUri.parse('at://foo.com/com.example.foo/123');
 
-    expect(uri.collection, 'com.example.foo');
-    expect(uri.rkey, '123');
+    expect(parsedUri.collection, 'com.example.foo');
+    expect(parsedUri.rkey, '123');
+
+    final unparsedUri = AtUri('at://foo.com/com.example.foo/123');
+
+    expect(unparsedUri.collection, 'com.example.foo');
+    expect(unparsedUri.rkey, '123');
   });
 
   test('.toString', () {
-    final actual = AtUri.parse(
+    final parsedUri = AtUri.parse(
+      'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+    );
+    expect(
+      parsedUri.toString(),
       'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
     );
 
+    final unparsedUri = AtUri(
+      'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
+    );
     expect(
-      actual.toString(),
+      unparsedUri.toString(),
       'at://did:plc:ohwup7m7r565tbdhulp77tkp/app.bsky.feed.post/3jqspl3hnee2a',
     );
   });
 
   group('==', () {
     test('case1', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      expect(parsedUri == parsedUri, isTrue);
 
-      expect(uri == uri, isTrue);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      expect(unparsedUri == unparsedUri, isTrue);
+
+      //* The same AT URI technically
+      expect(parsedUri == unparsedUri, isTrue);
     });
 
     test('case2', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://alice.com/com.example.post/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://alice.com/com.example.post/1234');
 
-      expect(uri == other, isFalse);
+      expect(parsedUri == parsedOther, isFalse);
+
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://alice.com/com.example.post/1234');
+
+      expect(unparsedUri == unparsedOther, isFalse);
     });
 
     test('case3', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://bob.com/com.example.like/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://bob.com/com.example.like/1234');
+      expect(parsedUri == parsedOther, isFalse);
 
-      expect(uri == other, isFalse);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://bob.com/com.example.like/1234');
+      expect(unparsedUri == unparsedOther, isFalse);
     });
 
     test('case4', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://bob.com/com.example.post/12345');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://bob.com/com.example.post/12345');
+      expect(parsedUri == parsedOther, isFalse);
 
-      expect(uri == other, isFalse);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://bob.com/com.example.post/12345');
+      expect(unparsedUri == unparsedOther, isFalse);
     });
   });
 
   group('.hashCode', () {
     test('case1', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      expect(parsedUri.hashCode == parsedUri.hashCode, isTrue);
 
-      expect(uri.hashCode == uri.hashCode, isTrue);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      expect(unparsedUri.hashCode == unparsedUri.hashCode, isTrue);
+
+      //* The same AT URI technically
+      expect(parsedUri.hashCode == unparsedUri.hashCode, isTrue);
     });
 
     test('case2', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://alice.com/com.example.post/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://alice.com/com.example.post/1234');
+      expect(parsedUri.hashCode == parsedOther.hashCode, isFalse);
 
-      expect(uri.hashCode == other.hashCode, isFalse);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://alice.com/com.example.post/1234');
+      expect(unparsedUri.hashCode == unparsedOther.hashCode, isFalse);
     });
 
     test('case3', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://bob.com/com.example.like/1234');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://bob.com/com.example.like/1234');
+      expect(parsedUri.hashCode == parsedOther.hashCode, isFalse);
 
-      expect(uri.hashCode == other.hashCode, isFalse);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://bob.com/com.example.like/1234');
+      expect(unparsedUri.hashCode == unparsedOther.hashCode, isFalse);
     });
 
     test('case4', () {
-      final uri = AtUri.parse('at://bob.com/com.example.post/1234');
-      final other = AtUri.parse('at://bob.com/com.example.post/12345');
+      final parsedUri = AtUri.parse('at://bob.com/com.example.post/1234');
+      final parsedOther = AtUri.parse('at://bob.com/com.example.post/12345');
+      expect(parsedUri.hashCode == parsedOther.hashCode, isFalse);
 
-      expect(uri.hashCode == other.hashCode, isFalse);
+      final unparsedUri = AtUri('at://bob.com/com.example.post/1234');
+      final unparsedOther = AtUri('at://bob.com/com.example.post/12345');
+      expect(unparsedUri.hashCode == unparsedOther.hashCode, isFalse);
     });
   });
 }

@@ -79,7 +79,7 @@ final class _Sessions {
     required String password,
   }) async =>
       await _ctx.post(
-        const xrpc.NSID.of('com.atproto.server.createSession'),
+        const xrpc.NSID('com.atproto.server.createSession'),
         body: {
           'identifier': identifier,
           'password': password,
@@ -91,7 +91,7 @@ final class _Sessions {
     required String refreshJwt,
   }) async =>
       await _ctx.post(
-        const xrpc.NSID.of('com.atproto.server.refreshSession'),
+        const xrpc.NSID('com.atproto.server.refreshSession'),
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
@@ -102,7 +102,7 @@ final class _Sessions {
     required String refreshJwt,
   }) async =>
       await _ctx.post(
-        const xrpc.NSID.of('com.atproto.server.deleteSession'),
+        const xrpc.NSID('com.atproto.server.deleteSession'),
         headers: {
           'Authorization': 'Bearer $refreshJwt',
         },
