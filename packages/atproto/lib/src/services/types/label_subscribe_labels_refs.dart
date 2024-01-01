@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'converter/subscribed_label_converter.dart';
+import 'converter/label_subscribe_labels_refs_converter.dart';
 import 'label_subscribe_labels_info.dart';
 import 'label_subscribe_labels_labels.dart';
 
