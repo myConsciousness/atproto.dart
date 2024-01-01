@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
+import 'sync_subscribe_repos_repo_op_action.dart';
 
 part 'sync_subscribe_repos_repo_op.freezed.dart';
 part 'sync_subscribe_repos_repo_op.g.dart';
@@ -27,10 +28,4 @@ class SyncSubscribeReposRepoOp with _$SyncSubscribeReposRepoOp {
 
   factory SyncSubscribeReposRepoOp.fromJson(Map<String, Object?> json) =>
       _$SyncSubscribeReposRepoOpFromJson(json);
-}
-
-enum SyncSubscribeReposRepoOpAction {
-  create,
-  update,
-  delete,
 }

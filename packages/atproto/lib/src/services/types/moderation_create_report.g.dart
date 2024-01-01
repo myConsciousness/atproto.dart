@@ -16,7 +16,7 @@ _$ModerationCreateReportImpl _$$ModerationCreateReportImplFromJson(Map json) =>
         final val = _$ModerationCreateReportImpl(
           id: $checkedConvert('id', (v) => v as int),
           reasonType: $checkedConvert('reasonType',
-              (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
+              (v) => $enumDecode(_$ModerationDefsReasonTypeEnumMap, v)),
           subject: $checkedConvert(
               'subject',
               (v) => moderationCreateReportSubjectRefsConverter
@@ -33,19 +33,20 @@ Map<String, dynamic> _$$ModerationCreateReportImplToJson(
         _$ModerationCreateReportImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'reasonType': _$ModerationReasonTypeEnumMap[instance.reasonType]!,
+      'reasonType': _$ModerationDefsReasonTypeEnumMap[instance.reasonType]!,
       'subject':
           moderationCreateReportSubjectRefsConverter.toJson(instance.subject),
       'reportedBy': instance.reportedBy,
       'createdAt': instance.createdAt.toIso8601String(),
     };
 
-const _$ModerationReasonTypeEnumMap = {
-  ModerationReasonType.spam: 'com.atproto.moderation.defs#reasonSpam',
-  ModerationReasonType.violation: 'com.atproto.moderation.defs#reasonViolation',
-  ModerationReasonType.misleading:
+const _$ModerationDefsReasonTypeEnumMap = {
+  ModerationDefsReasonType.spam: 'com.atproto.moderation.defs#reasonSpam',
+  ModerationDefsReasonType.violation:
+      'com.atproto.moderation.defs#reasonViolation',
+  ModerationDefsReasonType.misleading:
       'com.atproto.moderation.defs#reasonMisleading',
-  ModerationReasonType.sexual: 'com.atproto.moderation.defs#reasonSexual',
-  ModerationReasonType.rude: 'com.atproto.moderation.defs#reasonRude',
-  ModerationReasonType.other: 'com.atproto.moderation.defs#reasonOther',
+  ModerationDefsReasonType.sexual: 'com.atproto.moderation.defs#reasonSexual',
+  ModerationDefsReasonType.rude: 'com.atproto.moderation.defs#reasonRude',
+  ModerationDefsReasonType.other: 'com.atproto.moderation.defs#reasonOther',
 };

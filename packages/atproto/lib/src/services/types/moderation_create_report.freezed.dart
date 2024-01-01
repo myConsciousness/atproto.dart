@@ -22,7 +22,7 @@ ModerationCreateReport _$ModerationCreateReportFromJson(
 /// @nodoc
 mixin _$ModerationCreateReport {
   int get id => throw _privateConstructorUsedError;
-  ModerationReasonType get reasonType => throw _privateConstructorUsedError;
+  ModerationDefsReasonType get reasonType => throw _privateConstructorUsedError;
   @moderationCreateReportSubjectRefsConverter
   ModerationCreateReportSubjectRefs get subject =>
       throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $ModerationCreateReportCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      ModerationReasonType reasonType,
+      ModerationDefsReasonType reasonType,
       @moderationCreateReportSubjectRefsConverter
       ModerationCreateReportSubjectRefs subject,
       String reportedBy,
@@ -80,7 +80,7 @@ class _$ModerationCreateReportCopyWithImpl<$Res,
       reasonType: null == reasonType
           ? _value.reasonType
           : reasonType // ignore: cast_nullable_to_non_nullable
-              as ModerationReasonType,
+              as ModerationDefsReasonType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -117,7 +117,7 @@ abstract class _$$ModerationCreateReportImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      ModerationReasonType reasonType,
+      ModerationDefsReasonType reasonType,
       @moderationCreateReportSubjectRefsConverter
       ModerationCreateReportSubjectRefs subject,
       String reportedBy,
@@ -154,7 +154,7 @@ class __$$ModerationCreateReportImplCopyWithImpl<$Res>
       reasonType: null == reasonType
           ? _value.reasonType
           : reasonType // ignore: cast_nullable_to_non_nullable
-              as ModerationReasonType,
+              as ModerationDefsReasonType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -187,7 +187,7 @@ class _$ModerationCreateReportImpl implements _ModerationCreateReport {
   @override
   final int id;
   @override
-  final ModerationReasonType reasonType;
+  final ModerationDefsReasonType reasonType;
   @override
   @moderationCreateReportSubjectRefsConverter
   final ModerationCreateReportSubjectRefs subject;
@@ -239,7 +239,7 @@ class _$ModerationCreateReportImpl implements _ModerationCreateReport {
 abstract class _ModerationCreateReport implements ModerationCreateReport {
   const factory _ModerationCreateReport(
       {required final int id,
-      required final ModerationReasonType reasonType,
+      required final ModerationDefsReasonType reasonType,
       @moderationCreateReportSubjectRefsConverter
       required final ModerationCreateReportSubjectRefs subject,
       required final String reportedBy,
@@ -251,7 +251,7 @@ abstract class _ModerationCreateReport implements ModerationCreateReport {
   @override
   int get id;
   @override
-  ModerationReasonType get reasonType;
+  ModerationDefsReasonType get reasonType;
   @override
   @moderationCreateReportSubjectRefsConverter
   ModerationCreateReportSubjectRefs get subject;
