@@ -5,7 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-Map<String, dynamic> toRepoBlocks(
+Map<String, dynamic> toSyncGetBlocks(
   final dynamic data,
 ) {
   final blocks = <Map<String, dynamic>>[];

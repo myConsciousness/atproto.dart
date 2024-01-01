@@ -8,13 +8,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../label_subscribe_labels_info.dart';
 import '../label_subscribe_labels_labels.dart';
-import '../label_subscribe_labels_message.dart';
+import '../label_subscribe_labels_refs.dart';
 
-const subscribedLabelConverter = _SubscribedLabelConverter();
+const labelSubscribeLabelsRefsConverter = _LabelSubscribeLabelsRefsConverter();
 
-final class _SubscribedLabelConverter
+final class _LabelSubscribeLabelsRefsConverter
     implements JsonConverter<LabelSubscribeLabelsRefs, Map<String, dynamic>> {
-  const _SubscribedLabelConverter();
+  const _LabelSubscribeLabelsRefsConverter();
 
   @override
   LabelSubscribeLabelsRefs fromJson(Map<String, dynamic> json) {

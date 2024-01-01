@@ -2,18 +2,19 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'subscribed_repo.dart';
+part of 'sync_subscribe_repos_refs.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$USubscribedRepoCommitImpl _$$USubscribedRepoCommitImplFromJson(Map json) =>
+_$USyncSubscribeReposCommitImpl _$$USyncSubscribeReposCommitImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoCommitImpl',
+      r'_$USyncSubscribeReposCommitImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoCommitImpl(
+        final val = _$USyncSubscribeReposCommitImpl(
           data: $checkedConvert(
               'data',
               (v) => SyncSubscribeReposCommit.fromJson(
@@ -25,19 +26,20 @@ _$USubscribedRepoCommitImpl _$$USubscribedRepoCommitImplFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoCommitImplToJson(
-        _$USubscribedRepoCommitImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposCommitImplToJson(
+        _$USyncSubscribeReposCommitImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedRepoHandleImpl _$$USubscribedRepoHandleImplFromJson(Map json) =>
+_$USyncSubscribeReposHandleImpl _$$USyncSubscribeReposHandleImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoHandleImpl',
+      r'_$USyncSubscribeReposHandleImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoHandleImpl(
+        final val = _$USyncSubscribeReposHandleImpl(
           data: $checkedConvert(
               'data',
               (v) => SyncSubscribeReposHandle.fromJson(
@@ -49,19 +51,20 @@ _$USubscribedRepoHandleImpl _$$USubscribedRepoHandleImplFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoHandleImplToJson(
-        _$USubscribedRepoHandleImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposHandleImplToJson(
+        _$USyncSubscribeReposHandleImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedRepoMigrateImpl _$$USubscribedRepoMigrateImplFromJson(Map json) =>
+_$USyncSubscribeReposMigrateImpl _$$USyncSubscribeReposMigrateImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoMigrateImpl',
+      r'_$USyncSubscribeReposMigrateImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoMigrateImpl(
+        final val = _$USyncSubscribeReposMigrateImpl(
           data: $checkedConvert(
               'data',
               (v) => SyncSubscribeReposMigrate.fromJson(
@@ -73,20 +76,20 @@ _$USubscribedRepoMigrateImpl _$$USubscribedRepoMigrateImplFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoMigrateImplToJson(
-        _$USubscribedRepoMigrateImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposMigrateImplToJson(
+        _$USyncSubscribeReposMigrateImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedRepoTombstoneImpl _$$USubscribedRepoTombstoneImplFromJson(
+_$USyncSubscribeReposTombstoneImpl _$$USyncSubscribeReposTombstoneImplFromJson(
         Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoTombstoneImpl',
+      r'_$USyncSubscribeReposTombstoneImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoTombstoneImpl(
+        final val = _$USyncSubscribeReposTombstoneImpl(
           data: $checkedConvert(
               'data',
               (v) => SyncSubscribeReposTombstone.fromJson(
@@ -98,19 +101,20 @@ _$USubscribedRepoTombstoneImpl _$$USubscribedRepoTombstoneImplFromJson(
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoTombstoneImplToJson(
-        _$USubscribedRepoTombstoneImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposTombstoneImplToJson(
+        _$USyncSubscribeReposTombstoneImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedRepoInfoImpl _$$USubscribedRepoInfoImplFromJson(Map json) =>
+_$USyncSubscribeReposInfoImpl _$$USyncSubscribeReposInfoImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoInfoImpl',
+      r'_$USyncSubscribeReposInfoImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoInfoImpl(
+        final val = _$USyncSubscribeReposInfoImpl(
           data: $checkedConvert(
               'data',
               (v) => SyncSubscribeReposInfo.fromJson(
@@ -122,19 +126,20 @@ _$USubscribedRepoInfoImpl _$$USubscribedRepoInfoImplFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoInfoImplToJson(
-        _$USubscribedRepoInfoImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposInfoImplToJson(
+        _$USyncSubscribeReposInfoImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USubscribedRepoUnknownImpl _$$USubscribedRepoUnknownImplFromJson(Map json) =>
+_$USyncSubscribeReposUnknownImpl _$$USyncSubscribeReposUnknownImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$USubscribedRepoUnknownImpl',
+      r'_$USyncSubscribeReposUnknownImpl',
       json,
       ($checkedConvert) {
-        final val = _$USubscribedRepoUnknownImpl(
+        final val = _$USyncSubscribeReposUnknownImpl(
           data: $checkedConvert(
               'data', (v) => Map<String, dynamic>.from(v as Map)),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
@@ -144,8 +149,8 @@ _$USubscribedRepoUnknownImpl _$$USubscribedRepoUnknownImplFromJson(Map json) =>
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$USubscribedRepoUnknownImplToJson(
-        _$USubscribedRepoUnknownImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposUnknownImplToJson(
+        _$USyncSubscribeReposUnknownImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'runtimeType': instance.$type,

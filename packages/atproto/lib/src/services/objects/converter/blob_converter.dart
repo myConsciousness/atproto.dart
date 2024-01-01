@@ -15,11 +15,9 @@ final class _BlobConverter
     implements JsonConverter<Blob, Map<String, dynamic>> {
   const _BlobConverter();
 
-  static const adaptor = BlobAdaptor();
-
   @override
   Blob fromJson(Map<String, dynamic> json) =>
-      Blob.fromJson(adaptor.execute(json));
+      Blob.fromJson(toCompatibleBlob(json));
 
   @override
   Map<String, dynamic> toJson(Blob object) => object.toJson();

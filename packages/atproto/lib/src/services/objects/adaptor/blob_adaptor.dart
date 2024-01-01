@@ -8,21 +8,16 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 
-final class BlobAdaptor {
-  /// Returns the new instance of [BlobAdaptor].
-  const BlobAdaptor();
+Map<String, dynamic> toCompatibleBlob(final Map<String, dynamic> data) {
+  final type = data[core.objectType];
+  if (type == ids.blob) return data;
 
-  Map<String, dynamic> execute(final Map<String, dynamic> blob) {
-    final type = blob[core.objectType];
-    if (type == ids.blob) return blob;
-
-    return {
-      core.objectType: ids.blob,
-      'size': -1,
-      'mimeType': blob['mimeType'],
-      'ref': {
-        '\$link': blob['cid'],
-      }
-    };
-  }
+  return {
+    core.objectType: ids.blob,
+    'size': -1,
+    'mimeType': data['mimeType'],
+    'ref': {
+      '\$link': data['cid'],
+    }
+  };
 }

@@ -12,7 +12,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'cid_links.dart';
 
-Map<String, dynamic> toSubscribedRepo(final dynamic data) {
+Map<String, dynamic> toSyncSubscribeReposRefs(final dynamic data) {
   final cborData = core.cbor.decode([0x82] + data) as List;
 
   if (!_isRepoCommit(cborData.first)) {
@@ -37,7 +37,7 @@ Map<String, dynamic> toSubscribedRepo(final dynamic data) {
     final record = blocks[cid];
 
     if (record != null) {
-      op['record'] = convertCidLinks(
+      op['record'] = toCidLinks(
         jsonDecode(
           jsonEncode(
             core.cbor.decode(record),

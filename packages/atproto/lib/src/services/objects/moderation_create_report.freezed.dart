@@ -23,8 +23,9 @@ ModerationCreateReport _$ModerationCreateReportFromJson(
 mixin _$ModerationCreateReport {
   int get id => throw _privateConstructorUsedError;
   ModerationReasonType get reasonType => throw _privateConstructorUsedError;
-  @reportSubjectConverter
-  ReportSubject get subject => throw _privateConstructorUsedError;
+  @moderationCreateReportSubjectRefsConverter
+  ModerationCreateReportSubjectRefs get subject =>
+      throw _privateConstructorUsedError;
   String get reportedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -43,11 +44,12 @@ abstract class $ModerationCreateReportCopyWith<$Res> {
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @reportSubjectConverter ReportSubject subject,
+      @moderationCreateReportSubjectRefsConverter
+      ModerationCreateReportSubjectRefs subject,
       String reportedBy,
       DateTime createdAt});
 
-  $ReportSubjectCopyWith<$Res> get subject;
+  $ModerationCreateReportSubjectRefsCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -82,7 +84,7 @@ class _$ModerationCreateReportCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ReportSubject,
+              as ModerationCreateReportSubjectRefs,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -96,8 +98,9 @@ class _$ModerationCreateReportCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ReportSubjectCopyWith<$Res> get subject {
-    return $ReportSubjectCopyWith<$Res>(_value.subject, (value) {
+  $ModerationCreateReportSubjectRefsCopyWith<$Res> get subject {
+    return $ModerationCreateReportSubjectRefsCopyWith<$Res>(_value.subject,
+        (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -115,12 +118,13 @@ abstract class _$$ModerationCreateReportImplCopyWith<$Res>
   $Res call(
       {int id,
       ModerationReasonType reasonType,
-      @reportSubjectConverter ReportSubject subject,
+      @moderationCreateReportSubjectRefsConverter
+      ModerationCreateReportSubjectRefs subject,
       String reportedBy,
       DateTime createdAt});
 
   @override
-  $ReportSubjectCopyWith<$Res> get subject;
+  $ModerationCreateReportSubjectRefsCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -154,7 +158,7 @@ class __$$ModerationCreateReportImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ReportSubject,
+              as ModerationCreateReportSubjectRefs,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -173,7 +177,7 @@ class _$ModerationCreateReportImpl implements _ModerationCreateReport {
   const _$ModerationCreateReportImpl(
       {required this.id,
       required this.reasonType,
-      @reportSubjectConverter required this.subject,
+      @moderationCreateReportSubjectRefsConverter required this.subject,
       required this.reportedBy,
       required this.createdAt});
 
@@ -185,8 +189,8 @@ class _$ModerationCreateReportImpl implements _ModerationCreateReport {
   @override
   final ModerationReasonType reasonType;
   @override
-  @reportSubjectConverter
-  final ReportSubject subject;
+  @moderationCreateReportSubjectRefsConverter
+  final ModerationCreateReportSubjectRefs subject;
   @override
   final String reportedBy;
   @override
@@ -236,7 +240,8 @@ abstract class _ModerationCreateReport implements ModerationCreateReport {
   const factory _ModerationCreateReport(
       {required final int id,
       required final ModerationReasonType reasonType,
-      @reportSubjectConverter required final ReportSubject subject,
+      @moderationCreateReportSubjectRefsConverter
+      required final ModerationCreateReportSubjectRefs subject,
       required final String reportedBy,
       required final DateTime createdAt}) = _$ModerationCreateReportImpl;
 
@@ -248,8 +253,8 @@ abstract class _ModerationCreateReport implements ModerationCreateReport {
   @override
   ModerationReasonType get reasonType;
   @override
-  @reportSubjectConverter
-  ReportSubject get subject;
+  @moderationCreateReportSubjectRefsConverter
+  ModerationCreateReportSubjectRefs get subject;
   @override
   String get reportedBy;
   @override

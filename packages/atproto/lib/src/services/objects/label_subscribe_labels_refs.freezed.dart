@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'label_subscribe_labels_message.dart';
+part of 'label_subscribe_labels_refs.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -18,11 +18,11 @@ LabelSubscribeLabelsRefs _$LabelSubscribeLabelsRefsFromJson(
     Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'labels':
-      return ULabelSubscribeLabelsRefsLabels.fromJson(json);
+      return ULabelSubscribeLabelsLabels.fromJson(json);
     case 'info':
-      return ULabelSubscribeLabelsRefsInfo.fromJson(json);
+      return ULabelSubscribeLabelsInfo.fromJson(json);
     case 'unknown':
-      return ULabelSubscribeLabelsRefsUnknown.fromJson(json);
+      return ULabelSubscribeLabelsUnknown.fromJson(json);
 
     default:
       throw CheckedFromJsonException(
@@ -60,23 +60,23 @@ mixin _$LabelSubscribeLabelsRefs {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULabelSubscribeLabelsRefsLabels value) labels,
-    required TResult Function(ULabelSubscribeLabelsRefsInfo value) info,
-    required TResult Function(ULabelSubscribeLabelsRefsUnknown value) unknown,
+    required TResult Function(ULabelSubscribeLabelsLabels value) labels,
+    required TResult Function(ULabelSubscribeLabelsInfo value) info,
+    required TResult Function(ULabelSubscribeLabelsUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult? Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult? Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult? Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult? Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult? Function(ULabelSubscribeLabelsUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult Function(ULabelSubscribeLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -103,11 +103,11 @@ class _$LabelSubscribeLabelsRefsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith<$Res> {
-  factory _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith(
-          _$ULabelSubscribeLabelsRefsLabelsImpl value,
-          $Res Function(_$ULabelSubscribeLabelsRefsLabelsImpl) then) =
-      __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl<$Res>;
+abstract class _$$ULabelSubscribeLabelsLabelsImplCopyWith<$Res> {
+  factory _$$ULabelSubscribeLabelsLabelsImplCopyWith(
+          _$ULabelSubscribeLabelsLabelsImpl value,
+          $Res Function(_$ULabelSubscribeLabelsLabelsImpl) then) =
+      __$$ULabelSubscribeLabelsLabelsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelSubscribeLabelsLabels data});
 
@@ -115,13 +115,13 @@ abstract class _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl<$Res>
+class __$$ULabelSubscribeLabelsLabelsImplCopyWithImpl<$Res>
     extends _$LabelSubscribeLabelsRefsCopyWithImpl<$Res,
-        _$ULabelSubscribeLabelsRefsLabelsImpl>
-    implements _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith<$Res> {
-  __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl(
-      _$ULabelSubscribeLabelsRefsLabelsImpl _value,
-      $Res Function(_$ULabelSubscribeLabelsRefsLabelsImpl) _then)
+        _$ULabelSubscribeLabelsLabelsImpl>
+    implements _$$ULabelSubscribeLabelsLabelsImplCopyWith<$Res> {
+  __$$ULabelSubscribeLabelsLabelsImplCopyWithImpl(
+      _$ULabelSubscribeLabelsLabelsImpl _value,
+      $Res Function(_$ULabelSubscribeLabelsLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +129,7 @@ class __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelSubscribeLabelsRefsLabelsImpl(
+    return _then(_$ULabelSubscribeLabelsLabelsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -148,15 +148,14 @@ class __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ULabelSubscribeLabelsRefsLabelsImpl
-    implements ULabelSubscribeLabelsRefsLabels {
-  const _$ULabelSubscribeLabelsRefsLabelsImpl(
+class _$ULabelSubscribeLabelsLabelsImpl implements ULabelSubscribeLabelsLabels {
+  const _$ULabelSubscribeLabelsLabelsImpl(
       {required this.data, final String? $type})
       : $type = $type ?? 'labels';
 
-  factory _$ULabelSubscribeLabelsRefsLabelsImpl.fromJson(
+  factory _$ULabelSubscribeLabelsLabelsImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$ULabelSubscribeLabelsRefsLabelsImplFromJson(json);
+      _$$ULabelSubscribeLabelsLabelsImplFromJson(json);
 
   @override
   final LabelSubscribeLabelsLabels data;
@@ -173,7 +172,7 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelSubscribeLabelsRefsLabelsImpl &&
+            other is _$ULabelSubscribeLabelsLabelsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -184,10 +183,9 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith<
-          _$ULabelSubscribeLabelsRefsLabelsImpl>
-      get copyWith => __$$ULabelSubscribeLabelsRefsLabelsImplCopyWithImpl<
-          _$ULabelSubscribeLabelsRefsLabelsImpl>(this, _$identity);
+  _$$ULabelSubscribeLabelsLabelsImplCopyWith<_$ULabelSubscribeLabelsLabelsImpl>
+      get copyWith => __$$ULabelSubscribeLabelsLabelsImplCopyWithImpl<
+          _$ULabelSubscribeLabelsLabelsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -226,9 +224,9 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULabelSubscribeLabelsRefsLabels value) labels,
-    required TResult Function(ULabelSubscribeLabelsRefsInfo value) info,
-    required TResult Function(ULabelSubscribeLabelsRefsUnknown value) unknown,
+    required TResult Function(ULabelSubscribeLabelsLabels value) labels,
+    required TResult Function(ULabelSubscribeLabelsInfo value) info,
+    required TResult Function(ULabelSubscribeLabelsUnknown value) unknown,
   }) {
     return labels(this);
   }
@@ -236,9 +234,9 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult? Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult? Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult? Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult? Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult? Function(ULabelSubscribeLabelsUnknown value)? unknown,
   }) {
     return labels?.call(this);
   }
@@ -246,9 +244,9 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult Function(ULabelSubscribeLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labels != null) {
@@ -259,35 +257,33 @@ class _$ULabelSubscribeLabelsRefsLabelsImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ULabelSubscribeLabelsRefsLabelsImplToJson(
+    return _$$ULabelSubscribeLabelsLabelsImplToJson(
       this,
     );
   }
 }
 
-abstract class ULabelSubscribeLabelsRefsLabels
-    implements LabelSubscribeLabelsRefs {
-  const factory ULabelSubscribeLabelsRefsLabels(
+abstract class ULabelSubscribeLabelsLabels implements LabelSubscribeLabelsRefs {
+  const factory ULabelSubscribeLabelsLabels(
           {required final LabelSubscribeLabelsLabels data}) =
-      _$ULabelSubscribeLabelsRefsLabelsImpl;
+      _$ULabelSubscribeLabelsLabelsImpl;
 
-  factory ULabelSubscribeLabelsRefsLabels.fromJson(Map<String, dynamic> json) =
-      _$ULabelSubscribeLabelsRefsLabelsImpl.fromJson;
+  factory ULabelSubscribeLabelsLabels.fromJson(Map<String, dynamic> json) =
+      _$ULabelSubscribeLabelsLabelsImpl.fromJson;
 
   @override
   LabelSubscribeLabelsLabels get data;
   @JsonKey(ignore: true)
-  _$$ULabelSubscribeLabelsRefsLabelsImplCopyWith<
-          _$ULabelSubscribeLabelsRefsLabelsImpl>
+  _$$ULabelSubscribeLabelsLabelsImplCopyWith<_$ULabelSubscribeLabelsLabelsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULabelSubscribeLabelsRefsInfoImplCopyWith<$Res> {
-  factory _$$ULabelSubscribeLabelsRefsInfoImplCopyWith(
-          _$ULabelSubscribeLabelsRefsInfoImpl value,
-          $Res Function(_$ULabelSubscribeLabelsRefsInfoImpl) then) =
-      __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl<$Res>;
+abstract class _$$ULabelSubscribeLabelsInfoImplCopyWith<$Res> {
+  factory _$$ULabelSubscribeLabelsInfoImplCopyWith(
+          _$ULabelSubscribeLabelsInfoImpl value,
+          $Res Function(_$ULabelSubscribeLabelsInfoImpl) then) =
+      __$$ULabelSubscribeLabelsInfoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelSubscribeLabelsInfo data});
 
@@ -295,13 +291,13 @@ abstract class _$$ULabelSubscribeLabelsRefsInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl<$Res>
+class __$$ULabelSubscribeLabelsInfoImplCopyWithImpl<$Res>
     extends _$LabelSubscribeLabelsRefsCopyWithImpl<$Res,
-        _$ULabelSubscribeLabelsRefsInfoImpl>
-    implements _$$ULabelSubscribeLabelsRefsInfoImplCopyWith<$Res> {
-  __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl(
-      _$ULabelSubscribeLabelsRefsInfoImpl _value,
-      $Res Function(_$ULabelSubscribeLabelsRefsInfoImpl) _then)
+        _$ULabelSubscribeLabelsInfoImpl>
+    implements _$$ULabelSubscribeLabelsInfoImplCopyWith<$Res> {
+  __$$ULabelSubscribeLabelsInfoImplCopyWithImpl(
+      _$ULabelSubscribeLabelsInfoImpl _value,
+      $Res Function(_$ULabelSubscribeLabelsInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -309,7 +305,7 @@ class __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelSubscribeLabelsRefsInfoImpl(
+    return _then(_$ULabelSubscribeLabelsInfoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -328,15 +324,13 @@ class __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ULabelSubscribeLabelsRefsInfoImpl
-    implements ULabelSubscribeLabelsRefsInfo {
-  const _$ULabelSubscribeLabelsRefsInfoImpl(
+class _$ULabelSubscribeLabelsInfoImpl implements ULabelSubscribeLabelsInfo {
+  const _$ULabelSubscribeLabelsInfoImpl(
       {required this.data, final String? $type})
       : $type = $type ?? 'info';
 
-  factory _$ULabelSubscribeLabelsRefsInfoImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ULabelSubscribeLabelsRefsInfoImplFromJson(json);
+  factory _$ULabelSubscribeLabelsInfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ULabelSubscribeLabelsInfoImplFromJson(json);
 
   @override
   final LabelSubscribeLabelsInfo data;
@@ -353,7 +347,7 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelSubscribeLabelsRefsInfoImpl &&
+            other is _$ULabelSubscribeLabelsInfoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -364,10 +358,9 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULabelSubscribeLabelsRefsInfoImplCopyWith<
-          _$ULabelSubscribeLabelsRefsInfoImpl>
-      get copyWith => __$$ULabelSubscribeLabelsRefsInfoImplCopyWithImpl<
-          _$ULabelSubscribeLabelsRefsInfoImpl>(this, _$identity);
+  _$$ULabelSubscribeLabelsInfoImplCopyWith<_$ULabelSubscribeLabelsInfoImpl>
+      get copyWith => __$$ULabelSubscribeLabelsInfoImplCopyWithImpl<
+          _$ULabelSubscribeLabelsInfoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -406,9 +399,9 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULabelSubscribeLabelsRefsLabels value) labels,
-    required TResult Function(ULabelSubscribeLabelsRefsInfo value) info,
-    required TResult Function(ULabelSubscribeLabelsRefsUnknown value) unknown,
+    required TResult Function(ULabelSubscribeLabelsLabels value) labels,
+    required TResult Function(ULabelSubscribeLabelsInfo value) info,
+    required TResult Function(ULabelSubscribeLabelsUnknown value) unknown,
   }) {
     return info(this);
   }
@@ -416,9 +409,9 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult? Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult? Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult? Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult? Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult? Function(ULabelSubscribeLabelsUnknown value)? unknown,
   }) {
     return info?.call(this);
   }
@@ -426,9 +419,9 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult Function(ULabelSubscribeLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (info != null) {
@@ -439,47 +432,45 @@ class _$ULabelSubscribeLabelsRefsInfoImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ULabelSubscribeLabelsRefsInfoImplToJson(
+    return _$$ULabelSubscribeLabelsInfoImplToJson(
       this,
     );
   }
 }
 
-abstract class ULabelSubscribeLabelsRefsInfo
-    implements LabelSubscribeLabelsRefs {
-  const factory ULabelSubscribeLabelsRefsInfo(
+abstract class ULabelSubscribeLabelsInfo implements LabelSubscribeLabelsRefs {
+  const factory ULabelSubscribeLabelsInfo(
           {required final LabelSubscribeLabelsInfo data}) =
-      _$ULabelSubscribeLabelsRefsInfoImpl;
+      _$ULabelSubscribeLabelsInfoImpl;
 
-  factory ULabelSubscribeLabelsRefsInfo.fromJson(Map<String, dynamic> json) =
-      _$ULabelSubscribeLabelsRefsInfoImpl.fromJson;
+  factory ULabelSubscribeLabelsInfo.fromJson(Map<String, dynamic> json) =
+      _$ULabelSubscribeLabelsInfoImpl.fromJson;
 
   @override
   LabelSubscribeLabelsInfo get data;
   @JsonKey(ignore: true)
-  _$$ULabelSubscribeLabelsRefsInfoImplCopyWith<
-          _$ULabelSubscribeLabelsRefsInfoImpl>
+  _$$ULabelSubscribeLabelsInfoImplCopyWith<_$ULabelSubscribeLabelsInfoImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ULabelSubscribeLabelsRefsUnknownImplCopyWith<$Res> {
-  factory _$$ULabelSubscribeLabelsRefsUnknownImplCopyWith(
-          _$ULabelSubscribeLabelsRefsUnknownImpl value,
-          $Res Function(_$ULabelSubscribeLabelsRefsUnknownImpl) then) =
-      __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl<$Res>;
+abstract class _$$ULabelSubscribeLabelsUnknownImplCopyWith<$Res> {
+  factory _$$ULabelSubscribeLabelsUnknownImplCopyWith(
+          _$ULabelSubscribeLabelsUnknownImpl value,
+          $Res Function(_$ULabelSubscribeLabelsUnknownImpl) then) =
+      __$$ULabelSubscribeLabelsUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl<$Res>
+class __$$ULabelSubscribeLabelsUnknownImplCopyWithImpl<$Res>
     extends _$LabelSubscribeLabelsRefsCopyWithImpl<$Res,
-        _$ULabelSubscribeLabelsRefsUnknownImpl>
-    implements _$$ULabelSubscribeLabelsRefsUnknownImplCopyWith<$Res> {
-  __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl(
-      _$ULabelSubscribeLabelsRefsUnknownImpl _value,
-      $Res Function(_$ULabelSubscribeLabelsRefsUnknownImpl) _then)
+        _$ULabelSubscribeLabelsUnknownImpl>
+    implements _$$ULabelSubscribeLabelsUnknownImplCopyWith<$Res> {
+  __$$ULabelSubscribeLabelsUnknownImplCopyWithImpl(
+      _$ULabelSubscribeLabelsUnknownImpl _value,
+      $Res Function(_$ULabelSubscribeLabelsUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -487,7 +478,7 @@ class __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$ULabelSubscribeLabelsRefsUnknownImpl(
+    return _then(_$ULabelSubscribeLabelsUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -498,16 +489,16 @@ class __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ULabelSubscribeLabelsRefsUnknownImpl
-    implements ULabelSubscribeLabelsRefsUnknown {
-  const _$ULabelSubscribeLabelsRefsUnknownImpl(
+class _$ULabelSubscribeLabelsUnknownImpl
+    implements ULabelSubscribeLabelsUnknown {
+  const _$ULabelSubscribeLabelsUnknownImpl(
       {required final Map<String, dynamic> data, final String? $type})
       : _data = data,
         $type = $type ?? 'unknown';
 
-  factory _$ULabelSubscribeLabelsRefsUnknownImpl.fromJson(
+  factory _$ULabelSubscribeLabelsUnknownImpl.fromJson(
           Map<String, dynamic> json) =>
-      _$$ULabelSubscribeLabelsRefsUnknownImplFromJson(json);
+      _$$ULabelSubscribeLabelsUnknownImplFromJson(json);
 
   final Map<String, dynamic> _data;
   @override
@@ -529,7 +520,7 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ULabelSubscribeLabelsRefsUnknownImpl &&
+            other is _$ULabelSubscribeLabelsUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -541,10 +532,10 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ULabelSubscribeLabelsRefsUnknownImplCopyWith<
-          _$ULabelSubscribeLabelsRefsUnknownImpl>
-      get copyWith => __$$ULabelSubscribeLabelsRefsUnknownImplCopyWithImpl<
-          _$ULabelSubscribeLabelsRefsUnknownImpl>(this, _$identity);
+  _$$ULabelSubscribeLabelsUnknownImplCopyWith<
+          _$ULabelSubscribeLabelsUnknownImpl>
+      get copyWith => __$$ULabelSubscribeLabelsUnknownImplCopyWithImpl<
+          _$ULabelSubscribeLabelsUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -583,9 +574,9 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(ULabelSubscribeLabelsRefsLabels value) labels,
-    required TResult Function(ULabelSubscribeLabelsRefsInfo value) info,
-    required TResult Function(ULabelSubscribeLabelsRefsUnknown value) unknown,
+    required TResult Function(ULabelSubscribeLabelsLabels value) labels,
+    required TResult Function(ULabelSubscribeLabelsInfo value) info,
+    required TResult Function(ULabelSubscribeLabelsUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -593,9 +584,9 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult? Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult? Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult? Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult? Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult? Function(ULabelSubscribeLabelsUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -603,9 +594,9 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(ULabelSubscribeLabelsRefsLabels value)? labels,
-    TResult Function(ULabelSubscribeLabelsRefsInfo value)? info,
-    TResult Function(ULabelSubscribeLabelsRefsUnknown value)? unknown,
+    TResult Function(ULabelSubscribeLabelsLabels value)? labels,
+    TResult Function(ULabelSubscribeLabelsInfo value)? info,
+    TResult Function(ULabelSubscribeLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -616,25 +607,25 @@ class _$ULabelSubscribeLabelsRefsUnknownImpl
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ULabelSubscribeLabelsRefsUnknownImplToJson(
+    return _$$ULabelSubscribeLabelsUnknownImplToJson(
       this,
     );
   }
 }
 
-abstract class ULabelSubscribeLabelsRefsUnknown
+abstract class ULabelSubscribeLabelsUnknown
     implements LabelSubscribeLabelsRefs {
-  const factory ULabelSubscribeLabelsRefsUnknown(
+  const factory ULabelSubscribeLabelsUnknown(
           {required final Map<String, dynamic> data}) =
-      _$ULabelSubscribeLabelsRefsUnknownImpl;
+      _$ULabelSubscribeLabelsUnknownImpl;
 
-  factory ULabelSubscribeLabelsRefsUnknown.fromJson(Map<String, dynamic> json) =
-      _$ULabelSubscribeLabelsRefsUnknownImpl.fromJson;
+  factory ULabelSubscribeLabelsUnknown.fromJson(Map<String, dynamic> json) =
+      _$ULabelSubscribeLabelsUnknownImpl.fromJson;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$ULabelSubscribeLabelsRefsUnknownImplCopyWith<
-          _$ULabelSubscribeLabelsRefsUnknownImpl>
+  _$$ULabelSubscribeLabelsUnknownImplCopyWith<
+          _$ULabelSubscribeLabelsUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

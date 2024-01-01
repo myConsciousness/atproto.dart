@@ -8,43 +8,43 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'converter/subscribed_repo_converter.dart';
+import 'converter/sync_subscribe_repos_refs_converter.dart';
 import 'sync_subscribe_repos_commit.dart';
 import 'sync_subscribe_repos_handle.dart';
 import 'sync_subscribe_repos_info.dart';
 import 'sync_subscribe_repos_migrate.dart';
 import 'sync_subscribe_repos_tombstone.dart';
 
-part 'subscribed_repo.freezed.dart';
-part 'subscribed_repo.g.dart';
+part 'sync_subscribe_repos_refs.freezed.dart';
+part 'sync_subscribe_repos_refs.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#output
 @freezed
-class SubscribedRepo with _$SubscribedRepo {
-  const factory SubscribedRepo.commit({
+class SyncSubscribeReposRefs with _$SyncSubscribeReposRefs {
+  const factory SyncSubscribeReposRefs.commit({
     required SyncSubscribeReposCommit data,
-  }) = USubscribedRepoCommit;
+  }) = USyncSubscribeReposCommit;
 
-  const factory SubscribedRepo.handle({
+  const factory SyncSubscribeReposRefs.handle({
     required SyncSubscribeReposHandle data,
-  }) = USubscribedRepoHandle;
+  }) = USyncSubscribeReposHandle;
 
-  const factory SubscribedRepo.migrate({
+  const factory SyncSubscribeReposRefs.migrate({
     required SyncSubscribeReposMigrate data,
-  }) = USubscribedRepoMigrate;
+  }) = USyncSubscribeReposMigrate;
 
-  const factory SubscribedRepo.tombstone({
+  const factory SyncSubscribeReposRefs.tombstone({
     required SyncSubscribeReposTombstone data,
-  }) = USubscribedRepoTombstone;
+  }) = USyncSubscribeReposTombstone;
 
-  const factory SubscribedRepo.info({
+  const factory SyncSubscribeReposRefs.info({
     required SyncSubscribeReposInfo data,
-  }) = USubscribedRepoInfo;
+  }) = USyncSubscribeReposInfo;
 
-  const factory SubscribedRepo.unknown({
+  const factory SyncSubscribeReposRefs.unknown({
     required Map<String, dynamic> data,
-  }) = USubscribedRepoUnknown;
+  }) = USyncSubscribeReposUnknown;
 
-  factory SubscribedRepo.fromJson(Map<String, Object?> json) =>
-      subscribedRepoConverter.fromJson(json);
+  factory SyncSubscribeReposRefs.fromJson(Map<String, Object?> json) =>
+      syncSubscribeReposRefsConverter.fromJson(json);
 }

@@ -9,39 +9,41 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 import '../admin_defs_repo_ref.dart';
+import '../moderation_create_report_subject_refs.dart';
 import '../repo_strong_ref.dart';
-import '../report_subject.dart';
 
-const reportSubjectConverter = _ReportSubjectConverter();
+const moderationCreateReportSubjectRefsConverter =
+    _ModerationCreateReportSubjectRefsConverter();
 
-final class _ReportSubjectConverter
-    implements JsonConverter<ReportSubject, Map<String, dynamic>> {
-  /// Returns the new instance of [_ReportSubjectConverter].
-  const _ReportSubjectConverter();
+final class _ModerationCreateReportSubjectRefsConverter
+    implements
+        JsonConverter<ModerationCreateReportSubjectRefs, Map<String, dynamic>> {
+  const _ModerationCreateReportSubjectRefsConverter();
 
   @override
-  ReportSubject fromJson(Map<String, dynamic> json) {
+  ModerationCreateReportSubjectRefs fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.comAtprotoAdminDefsRepoRef) {
-        return ReportSubject.repoRef(
+        return ModerationCreateReportSubjectRefs.repoRef(
           data: AdminDefsRepoRef.fromJson(json),
         );
       } else if (type == ids.comAtprotoRepoStrongRef) {
-        return ReportSubject.strongRef(
+        return ModerationCreateReportSubjectRefs.strongRef(
           data: RepoStrongRef.fromJson(json),
         );
       }
 
-      return ReportSubject.unknown(data: json);
+      return ModerationCreateReportSubjectRefs.unknown(data: json);
     } catch (_) {
-      return ReportSubject.unknown(data: json);
+      return ModerationCreateReportSubjectRefs.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ReportSubject object) => object.when(
+  Map<String, dynamic> toJson(ModerationCreateReportSubjectRefs object) =>
+      object.when(
         repoRef: (data) => data.toJson(),
         strongRef: (data) => data.toJson(),
         unknown: (data) => data,

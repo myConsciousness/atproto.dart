@@ -12,7 +12,7 @@ final class _NsidConverter implements JsonConverter<core.NSID, String> {
   const _NsidConverter();
 
   @override
-  core.NSID fromJson(String json) => core.NSID.parse(json);
+  core.NSID fromJson(String json) => core.NSID(json);
 
   @override
   String toJson(core.NSID object) => object.toString();

@@ -9,28 +9,28 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'admin_defs_repo_ref.dart';
-import 'converter/report_subject_converter.dart';
+import 'converter/moderation_create_report_subject_refs_converter.dart';
 import 'repo_strong_ref.dart';
 
-part 'report_subject.freezed.dart';
+part 'moderation_create_report_subject_refs.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#input
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
-class ReportSubject with _$ReportSubject {
-  const ReportSubject._();
-
-  const factory ReportSubject.repoRef({
+class ModerationCreateReportSubjectRefs
+    with _$ModerationCreateReportSubjectRefs {
+  const factory ModerationCreateReportSubjectRefs.repoRef({
     required AdminDefsRepoRef data,
-  }) = UReportSubjectRepoRef;
+  }) = UModerationCreateReportSubjectRepoRef;
 
-  const factory ReportSubject.strongRef({
+  const factory ModerationCreateReportSubjectRefs.strongRef({
     required RepoStrongRef data,
-  }) = UReportSubjectStrongRef;
+  }) = UModerationCreateReportSubjectStrongRef;
 
-  const factory ReportSubject.unknown({
+  const factory ModerationCreateReportSubjectRefs.unknown({
     required Map<String, dynamic> data,
-  }) = UReportSubjectUnknown;
+  }) = UModerationCreateReportSubjectUnknown;
 
-  Map<String, dynamic> toJson() => reportSubjectConverter.toJson(this);
+  Map<String, dynamic> toJson() =>
+      moderationCreateReportSubjectRefsConverter.toJson(this);
 }

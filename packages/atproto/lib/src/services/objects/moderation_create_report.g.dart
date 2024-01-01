@@ -19,8 +19,8 @@ _$ModerationCreateReportImpl _$$ModerationCreateReportImplFromJson(Map json) =>
               (v) => $enumDecode(_$ModerationReasonTypeEnumMap, v)),
           subject: $checkedConvert(
               'subject',
-              (v) =>
-                  reportSubjectConverter.fromJson(v as Map<String, dynamic>)),
+              (v) => moderationCreateReportSubjectRefsConverter
+                  .fromJson(v as Map<String, dynamic>)),
           reportedBy: $checkedConvert('reportedBy', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -34,7 +34,8 @@ Map<String, dynamic> _$$ModerationCreateReportImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'reasonType': _$ModerationReasonTypeEnumMap[instance.reasonType]!,
-      'subject': reportSubjectConverter.toJson(instance.subject),
+      'subject':
+          moderationCreateReportSubjectRefsConverter.toJson(instance.subject),
       'reportedBy': instance.reportedBy,
       'createdAt': instance.createdAt.toIso8601String(),
     };

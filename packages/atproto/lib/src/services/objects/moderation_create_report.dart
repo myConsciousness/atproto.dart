@@ -8,8 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
 import '../constants/moderation_reason_type.dart';
-import 'converter/report_subject_converter.dart';
-import 'report_subject.dart';
+import 'converter/moderation_create_report_subject_refs_converter.dart';
+import 'moderation_create_report_subject_refs.dart';
 
 part 'moderation_create_report.freezed.dart';
 part 'moderation_create_report.g.dart';
@@ -21,7 +21,8 @@ class ModerationCreateReport with _$ModerationCreateReport {
   const factory ModerationCreateReport({
     required int id,
     required ModerationReasonType reasonType,
-    @reportSubjectConverter required ReportSubject subject,
+    @moderationCreateReportSubjectRefsConverter
+    required ModerationCreateReportSubjectRefs subject,
     required String reportedBy,
     required DateTime createdAt,
   }) = _ModerationCreateReport;

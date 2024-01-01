@@ -6,54 +6,54 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../subscribed_repo.dart';
 import '../sync_subscribe_repos_commit.dart';
 import '../sync_subscribe_repos_handle.dart';
 import '../sync_subscribe_repos_info.dart';
 import '../sync_subscribe_repos_migrate.dart';
+import '../sync_subscribe_repos_refs.dart';
 import '../sync_subscribe_repos_tombstone.dart';
 
-const subscribedRepoConverter = _SubscribedRepoConverter();
+const syncSubscribeReposRefsConverter = _SyncSubscribeReposRefsConverter();
 
-final class _SubscribedRepoConverter
-    implements JsonConverter<SubscribedRepo, Map<String, dynamic>> {
-  const _SubscribedRepoConverter();
+final class _SyncSubscribeReposRefsConverter
+    implements JsonConverter<SyncSubscribeReposRefs, Map<String, dynamic>> {
+  const _SyncSubscribeReposRefsConverter();
 
   @override
-  SubscribedRepo fromJson(Map<String, dynamic> json) {
+  SyncSubscribeReposRefs fromJson(Map<String, dynamic> json) {
     try {
       final String type = json['t'];
 
       if (type == '#commit') {
-        return SubscribedRepo.commit(
+        return SyncSubscribeReposRefs.commit(
           data: SyncSubscribeReposCommit.fromJson(json),
         );
       } else if (type == '#handle') {
-        return SubscribedRepo.handle(
+        return SyncSubscribeReposRefs.handle(
           data: SyncSubscribeReposHandle.fromJson(json),
         );
       } else if (type == '#migrate') {
-        return SubscribedRepo.migrate(
+        return SyncSubscribeReposRefs.migrate(
           data: SyncSubscribeReposMigrate.fromJson(json),
         );
       } else if (type == '#tombstone') {
-        return SubscribedRepo.tombstone(
+        return SyncSubscribeReposRefs.tombstone(
           data: SyncSubscribeReposTombstone.fromJson(json),
         );
       } else if (type == '#info') {
-        return SubscribedRepo.info(
+        return SyncSubscribeReposRefs.info(
           data: SyncSubscribeReposInfo.fromJson(json),
         );
       }
 
-      return SubscribedRepo.unknown(data: json);
+      return SyncSubscribeReposRefs.unknown(data: json);
     } catch (_) {
-      return SubscribedRepo.unknown(data: json);
+      return SyncSubscribeReposRefs.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(SubscribedRepo object) => object.when(
+  Map<String, dynamic> toJson(SyncSubscribeReposRefs object) => object.when(
         commit: (data) => data.toJson(),
         handle: (data) => data.toJson(),
         migrate: (data) => data.toJson(),

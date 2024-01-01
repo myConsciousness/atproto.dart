@@ -11,7 +11,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'cid_links.dart';
 
-Map<String, dynamic> toRepoCommits(
+Map<String, dynamic> toSyncGetRepoCommits(
   final dynamic data, [
   core.ProgressStatus? progress,
 ]) {
@@ -27,7 +27,7 @@ Map<String, dynamic> toRepoCommits(
     if (record.containsKey(r'$type')) {
       commits.add({
         'cid': key.toString(),
-        'commit': convertCidLinks(record),
+        'commit': toCidLinks(record),
       });
     }
   });
