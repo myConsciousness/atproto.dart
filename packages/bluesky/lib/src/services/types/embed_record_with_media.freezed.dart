@@ -23,8 +23,8 @@ mixin _$EmbedRecordWithMedia {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   EmbedRecord get record => throw _privateConstructorUsedError;
-  @embedMediaConverter
-  EmbedMedia get media => throw _privateConstructorUsedError;
+  @unionEmbedRecordWithMediaMedia
+  UEmbedRecordWithMediaMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,10 +41,10 @@ abstract class $EmbedRecordWithMediaCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       EmbedRecord record,
-      @embedMediaConverter EmbedMedia media});
+      @unionEmbedRecordWithMediaMedia UEmbedRecordWithMediaMedia media});
 
   $EmbedRecordCopyWith<$Res> get record;
-  $EmbedMediaCopyWith<$Res> get media;
+  $UEmbedRecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ class _$EmbedRecordWithMediaCopyWithImpl<$Res,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as EmbedMedia,
+              as UEmbedRecordWithMediaMedia,
     ) as $Val);
   }
 
@@ -91,8 +91,8 @@ class _$EmbedRecordWithMediaCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $EmbedMediaCopyWith<$Res> get media {
-    return $EmbedMediaCopyWith<$Res>(_value.media, (value) {
+  $UEmbedRecordWithMediaMediaCopyWith<$Res> get media {
+    return $UEmbedRecordWithMediaMediaCopyWith<$Res>(_value.media, (value) {
       return _then(_value.copyWith(media: value) as $Val);
     });
   }
@@ -109,12 +109,12 @@ abstract class _$$EmbedRecordWithMediaImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       EmbedRecord record,
-      @embedMediaConverter EmbedMedia media});
+      @unionEmbedRecordWithMediaMedia UEmbedRecordWithMediaMedia media});
 
   @override
   $EmbedRecordCopyWith<$Res> get record;
   @override
-  $EmbedMediaCopyWith<$Res> get media;
+  $UEmbedRecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$$EmbedRecordWithMediaImplCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as EmbedMedia,
+              as UEmbedRecordWithMediaMedia,
     ));
   }
 }
@@ -155,7 +155,7 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   const _$EmbedRecordWithMediaImpl(
       {@typeKey this.type = appBskyEmbedRecordWithMedia,
       required this.record,
-      @embedMediaConverter required this.media});
+      @unionEmbedRecordWithMediaMedia required this.media});
 
   factory _$EmbedRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordWithMediaImplFromJson(json);
@@ -166,8 +166,8 @@ class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
   @override
   final EmbedRecord record;
   @override
-  @embedMediaConverter
-  final EmbedMedia media;
+  @unionEmbedRecordWithMediaMedia
+  final UEmbedRecordWithMediaMedia media;
 
   @override
   String toString() {
@@ -208,7 +208,8 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   const factory _EmbedRecordWithMedia(
           {@typeKey final String type,
           required final EmbedRecord record,
-          @embedMediaConverter required final EmbedMedia media}) =
+          @unionEmbedRecordWithMediaMedia
+          required final UEmbedRecordWithMediaMedia media}) =
       _$EmbedRecordWithMediaImpl;
 
   factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =
@@ -220,8 +221,8 @@ abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
   @override
   EmbedRecord get record;
   @override
-  @embedMediaConverter
-  EmbedMedia get media;
+  @unionEmbedRecordWithMediaMedia
+  UEmbedRecordWithMediaMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$EmbedRecordWithMediaImplCopyWith<_$EmbedRecordWithMediaImpl>

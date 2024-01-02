@@ -12,53 +12,52 @@ import '../embed_external_view.dart';
 import '../embed_images_view.dart';
 import '../embed_record_view.dart';
 import '../embed_record_with_media_view.dart';
-import '../unions/embed_view.dart';
+import '../unions/union_feed_defs_post_view_embed.dart';
 
-const embedViewConverter = _EmbedViewConverter();
+const unionFeedDefsPostViewEmbed = _UFeedDefsPostViewEmbedConverter();
 
-final class _EmbedViewConverter
-    implements JsonConverter<EmbedView, Map<String, dynamic>> {
-  /// Returns the new instance of [_EmbedViewConverter].
-  const _EmbedViewConverter();
+final class _UFeedDefsPostViewEmbedConverter
+    implements JsonConverter<UFeedDefsPostViewEmbed, Map<String, dynamic>> {
+  const _UFeedDefsPostViewEmbedConverter();
 
   @override
-  EmbedView fromJson(Map<String, dynamic> json) {
+  UFeedDefsPostViewEmbed fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedRecordView) {
-        return EmbedView.record(
+        return UFeedDefsPostViewEmbed.embedRecordView(
           data: EmbedRecordView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImagesView) {
-        return EmbedView.images(
+        return UFeedDefsPostViewEmbed.embedImagesView(
           data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
-        return EmbedView.external(
+        return UFeedDefsPostViewEmbed.embedExternalView(
           data: EmbedExternalView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMediaView) {
-        return EmbedView.recordWithMedia(
+        return UFeedDefsPostViewEmbed.embedRecordWithMediaView(
           data: EmbedRecordWithMediaView.fromJson(json),
         );
       }
 
-      return EmbedView.unknown(data: json);
+      return UFeedDefsPostViewEmbed.unknown(data: json);
     } catch (_) {
-      return EmbedView.unknown(data: json);
+      return UFeedDefsPostViewEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(EmbedView object) => object.when(
-        record: (data) => data.toJson(),
-        images: (data) => data.toJson(),
-        external: (data) => data.toJson(),
-        recordWithMedia: (data) => data.toJson(),
+  Map<String, dynamic> toJson(UFeedDefsPostViewEmbed object) => object.when(
+        embedRecordView: (data) => data.toJson(),
+        embedImagesView: (data) => data.toJson(),
+        embedExternalView: (data) => data.toJson(),
+        embedRecordWithMediaView: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

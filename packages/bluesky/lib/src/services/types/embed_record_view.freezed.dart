@@ -22,8 +22,8 @@ EmbedRecordView _$EmbedRecordViewFromJson(Map<String, dynamic> json) {
 mixin _$EmbedRecordView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @embedViewRecordViewConverter
-  EmbedViewRecordView get record => throw _privateConstructorUsedError;
+  @unionEmbedRecordViewRecord
+  UEmbedRecordViewRecord get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +39,9 @@ abstract class $EmbedRecordViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @embedViewRecordViewConverter EmbedViewRecordView record});
+      @unionEmbedRecordViewRecord UEmbedRecordViewRecord record});
 
-  $EmbedViewRecordViewCopyWith<$Res> get record;
+  $UEmbedRecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -68,14 +68,14 @@ class _$EmbedRecordViewCopyWithImpl<$Res, $Val extends EmbedRecordView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as EmbedViewRecordView,
+              as UEmbedRecordViewRecord,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $EmbedViewRecordViewCopyWith<$Res> get record {
-    return $EmbedViewRecordViewCopyWith<$Res>(_value.record, (value) {
+  $UEmbedRecordViewRecordCopyWith<$Res> get record {
+    return $UEmbedRecordViewRecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -91,10 +91,10 @@ abstract class _$$EmbedRecordViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @embedViewRecordViewConverter EmbedViewRecordView record});
+      @unionEmbedRecordViewRecord UEmbedRecordViewRecord record});
 
   @override
-  $EmbedViewRecordViewCopyWith<$Res> get record;
+  $UEmbedRecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -119,7 +119,7 @@ class __$$EmbedRecordViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as EmbedViewRecordView,
+              as UEmbedRecordViewRecord,
     ));
   }
 }
@@ -129,7 +129,7 @@ class __$$EmbedRecordViewImplCopyWithImpl<$Res>
 class _$EmbedRecordViewImpl implements _EmbedRecordView {
   const _$EmbedRecordViewImpl(
       {@typeKey this.type = appBskyEmbedRecordView,
-      @embedViewRecordViewConverter required this.record});
+      @unionEmbedRecordViewRecord required this.record});
 
   factory _$EmbedRecordViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordViewImplFromJson(json);
@@ -138,8 +138,8 @@ class _$EmbedRecordViewImpl implements _EmbedRecordView {
   @typeKey
   final String type;
   @override
-  @embedViewRecordViewConverter
-  final EmbedViewRecordView record;
+  @unionEmbedRecordViewRecord
+  final UEmbedRecordViewRecord record;
 
   @override
   String toString() {
@@ -177,8 +177,8 @@ class _$EmbedRecordViewImpl implements _EmbedRecordView {
 abstract class _EmbedRecordView implements EmbedRecordView {
   const factory _EmbedRecordView(
       {@typeKey final String type,
-      @embedViewRecordViewConverter
-      required final EmbedViewRecordView record}) = _$EmbedRecordViewImpl;
+      @unionEmbedRecordViewRecord
+      required final UEmbedRecordViewRecord record}) = _$EmbedRecordViewImpl;
 
   factory _EmbedRecordView.fromJson(Map<String, dynamic> json) =
       _$EmbedRecordViewImpl.fromJson;
@@ -187,8 +187,8 @@ abstract class _EmbedRecordView implements EmbedRecordView {
   @typeKey
   String get type;
   @override
-  @embedViewRecordViewConverter
-  EmbedViewRecordView get record;
+  @unionEmbedRecordViewRecord
+  UEmbedRecordViewRecord get record;
   @override
   @JsonKey(ignore: true)
   _$$EmbedRecordViewImplCopyWith<_$EmbedRecordViewImpl> get copyWith =>

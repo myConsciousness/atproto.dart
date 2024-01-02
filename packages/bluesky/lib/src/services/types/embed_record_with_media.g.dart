@@ -18,8 +18,10 @@ _$EmbedRecordWithMediaImpl _$$EmbedRecordWithMediaImplFromJson(Map json) =>
               r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMedia),
           record: $checkedConvert('record',
               (v) => EmbedRecord.fromJson(Map<String, Object?>.from(v as Map))),
-          media: $checkedConvert('media',
-              (v) => embedMediaConverter.fromJson(v as Map<String, dynamic>)),
+          media: $checkedConvert(
+              'media',
+              (v) => unionEmbedRecordWithMediaMedia
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -31,5 +33,5 @@ Map<String, dynamic> _$$EmbedRecordWithMediaImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),
-      'media': embedMediaConverter.toJson(instance.media),
+      'media': unionEmbedRecordWithMediaMedia.toJson(instance.media),
     };

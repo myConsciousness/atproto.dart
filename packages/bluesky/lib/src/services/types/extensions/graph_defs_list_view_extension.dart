@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import '../../../ids.g.dart';
 import '../actor_defs_profile_view.dart';
 import '../graph_defs_list_view.dart';

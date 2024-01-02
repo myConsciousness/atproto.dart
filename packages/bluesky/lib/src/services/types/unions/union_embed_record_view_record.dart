@@ -8,38 +8,41 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../converters/embed_view_record_view_converter.dart';
 import '../embed_record_view_blocked.dart';
 import '../embed_record_view_not_found.dart';
 import '../embed_record_view_record.dart';
 import '../feed_defs_generator_view.dart';
 import '../graph_defs_list_view.dart';
 
-part 'embed_view_record_view.freezed.dart';
+part 'union_embed_record_view_record.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class EmbedViewRecordView with _$EmbedViewRecordView {
-  const factory EmbedViewRecordView.record({
+class UEmbedRecordViewRecord with _$UEmbedRecordViewRecord {
+  const factory UEmbedRecordViewRecord.viewRecord({
     required EmbedRecordViewRecord data,
-  }) = UEmbedViewRecordViewRecord;
+  }) = UEmbedRecordViewRecordViewRecord;
 
-  const factory EmbedViewRecordView.notFound({
+  const factory UEmbedRecordViewRecord.viewNotFound({
     required EmbedRecordViewNotFound data,
-  }) = UEmbedViewRecordViewNotFound;
+  }) = UEmbedRecordViewRecordViewNotFound;
 
-  const factory EmbedViewRecordView.blocked({
+  const factory UEmbedRecordViewRecord.viewBlocked({
     required EmbedRecordViewBlocked data,
-  }) = UEmbedViewRecordViewBlocked;
+  }) = UEmbedRecordViewRecordViewBlocked;
 
-  const factory EmbedViewRecordView.generatorView({
+  const factory UEmbedRecordViewRecord.feedDefsGeneratorView({
     required FeedDefsGeneratorView data,
-  }) = UEmbedViewRecordViewGeneratorView;
+  }) = UEmbedRecordViewRecordFeedDefsGeneratorView;
 
-  const factory EmbedViewRecordView.listView({
+  const factory UEmbedRecordViewRecord.graphDefsListView({
     required GraphDefsListView data,
-  }) = UEmbedViewRecordViewListView;
+  }) = UEmbedRecordViewRecordGraphDefsListView;
 
-  const factory EmbedViewRecordView.unknown({
+  const factory UEmbedRecordViewRecord.unknown({
     required Map<String, dynamic> data,
-  }) = UEmbedViewRecordViewUnknown;
+  }) = UEmbedRecordViewRecordUnknown;
+
+  Map<String, dynamic> toJson() => unionEmbedRecordViewRecord.toJson(this);
 }

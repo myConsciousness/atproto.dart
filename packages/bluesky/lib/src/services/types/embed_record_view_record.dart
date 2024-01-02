@@ -13,10 +13,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_defs_profile_view_basic.dart';
-import 'converters/embed_view_converter.dart';
+import 'converters/embed_record_view_record_embeds_converter.dart';
 import 'converters/post_record_converter.dart';
 import 'records/post_record.dart';
-import 'unions/embed_view.dart';
+import 'unions/union_embed_record_view_record_embeds.dart';
 
 part 'embed_record_view_record.freezed.dart';
 part 'embed_record_view_record.g.dart';
@@ -33,7 +33,8 @@ class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     required ActorDefsProfileViewBasic author,
     @postRecordConverter required PostRecord value,
     List<Label>? labels,
-    @embedViewConverter List<EmbedView>? embeds,
+    @unionEmbedRecordViewRecordEmbeds
+    List<UEmbedRecordViewRecordEmbeds>? embeds,
     required DateTime indexedAt,
   }) = _EmbedRecordViewRecord;
 

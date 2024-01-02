@@ -19,8 +19,6 @@ part 'embed.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
 class Embed with _$Embed {
-  const Embed._();
-
   const factory Embed.record({
     required EmbedRecord data,
   }) = UEmbedRecord;
@@ -41,6 +39,5 @@ class Embed with _$Embed {
     required Map<String, dynamic> data,
   }) = UEmbedUnknown;
 
-  /// Returns the JSON representation.
   Map<String, dynamic> toJson() => embedConverter.toJson(this);
 }

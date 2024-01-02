@@ -27,8 +27,9 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
           cid: $checkedConvert('cid', (v) => v as String),
           embed: $checkedConvert(
               'embed',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, EmbedView>(
-                  v, embedViewConverter.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedDefsPostViewEmbed>(
+                  v, unionFeedDefsPostViewEmbed.fromJson)),
           replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
           repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
           likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
@@ -76,8 +77,8 @@ Map<String, dynamic> _$$FeedDefsPostViewImplToJson(
 
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, EmbedView>(
-          instance.embed, embedViewConverter.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedDefsPostViewEmbed>(
+          instance.embed, unionFeedDefsPostViewEmbed.toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

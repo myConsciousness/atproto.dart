@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'converters/embed_view_record_view_converter.dart';
-import 'unions/embed_view_record_view.dart';
+import 'unions/union_embed_record_view_record.dart';
 
 part 'embed_record_view.freezed.dart';
 part 'embed_record_view.g.dart';
@@ -23,7 +23,7 @@ part 'embed_record_view.g.dart';
 class EmbedRecordView with _$EmbedRecordView {
   const factory EmbedRecordView({
     @typeKey @Default(appBskyEmbedRecordView) String type,
-    @embedViewRecordViewConverter required EmbedViewRecordView record,
+    @unionEmbedRecordViewRecord required UEmbedRecordViewRecord record,
   }) = _EmbedRecordView;
 
   factory EmbedRecordView.fromJson(Map<String, Object?> json) =>

@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 
+// 🌎 Project imports:
 import '../feed_defs_post_view.dart';
 import 'feed_defs_viewer_state_extension.dart';
 
