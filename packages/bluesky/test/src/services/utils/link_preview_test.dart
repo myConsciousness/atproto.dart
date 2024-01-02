@@ -8,8 +8,8 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
+import 'package:bluesky/src/cardyb/link_preview_service.dart';
 import 'package:bluesky/src/services/entities/link_preview.dart';
-import 'package:bluesky/src/services/utils/link_preview.dart';
 
 void main() {
   group('.findLinkPreview', () {

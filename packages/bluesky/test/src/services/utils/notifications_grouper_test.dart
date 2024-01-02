@@ -9,7 +9,7 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/types/notification_list_notifications.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 import 'package:bluesky/src/services/utils/notifications_grouper.dart';
 
@@ -18,7 +18,7 @@ const _grouper = NotificationsGrouper();
 void main() {
   group('.group', () {
     test('case1', () {
-      final grouped = _grouper.group(Notifications.fromJson({
+      final grouped = _grouper.group(NotificationListNotifications.fromJson({
         'notifications': [
           {
             'uri':
@@ -111,7 +111,7 @@ void main() {
     });
 
     test('case2', () {
-      final grouped = _grouper.group(Notifications.fromJson({
+      final grouped = _grouper.group(NotificationListNotifications.fromJson({
         'notifications': [
           {
             'uri':
@@ -244,7 +244,7 @@ void main() {
     });
 
     test('case3', () {
-      final grouped = _grouper.group(Notifications.fromJson({
+      final grouped = _grouper.group(NotificationListNotifications.fromJson({
         'notifications': [
           {
             'uri':
@@ -369,7 +369,7 @@ void main() {
 
     test('case4', () {
       final grouped = _grouper.group(
-        Notifications.fromJson({
+        NotificationListNotifications.fromJson({
           'notifications': [
             {
               'uri':
@@ -491,7 +491,7 @@ void main() {
 
     test('case5', () {
       final grouped = _grouper.group(
-        Notifications.fromJson({
+        NotificationListNotifications.fromJson({
           'notifications': [
             {
               'uri':
@@ -595,7 +595,7 @@ void main() {
 
   group('.groupByHour', () {
     test('case1', () {
-      final notifications = Notifications.fromJson({
+      final notifications = NotificationListNotifications.fromJson({
         'notifications': [
           {
             'uri':
@@ -690,7 +690,7 @@ void main() {
     });
 
     test('when hour is 0', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByHour(0),
@@ -699,7 +699,7 @@ void main() {
     });
 
     test('when hour is less than 0', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByHour(-1),
@@ -708,7 +708,7 @@ void main() {
     });
 
     test('when hour is 24', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByHour(24),
@@ -717,7 +717,7 @@ void main() {
     });
 
     test('when hour is greater than 24', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByHour(25),
@@ -728,7 +728,7 @@ void main() {
 
   group('.groupByMinute', () {
     test('case1', () {
-      final notifications = Notifications.fromJson({
+      final notifications = NotificationListNotifications.fromJson({
         'notifications': [
           {
             'uri':
@@ -825,7 +825,7 @@ void main() {
     });
 
     test('when minute is 0', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByMinute(0),
@@ -834,7 +834,7 @@ void main() {
     });
 
     test('when minute is less than 0', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByMinute(-1),
@@ -843,7 +843,7 @@ void main() {
     });
 
     test('when minute is 60', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByMinute(60),
@@ -852,7 +852,7 @@ void main() {
     });
 
     test('when minute is greater than 60', () {
-      final notifications = Notifications(notifications: []);
+      final notifications = NotificationListNotifications(notifications: []);
 
       expect(
         () => notifications.groupByHour(61),

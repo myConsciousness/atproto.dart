@@ -1,0 +1,74 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'feed_defs_threadgate_view.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$FeedDefsThreadgateViewImpl _$$FeedDefsThreadgateViewImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedDefsThreadgateViewImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$FeedDefsThreadgateViewImpl(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsThreadgateView),
+          uri: $checkedConvert(
+              'uri',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, atUriConverter.fromJson)),
+          cid: $checkedConvert('cid', (v) => v as String?),
+          record: $checkedConvert(
+              'record',
+              (v) => v == null
+                  ? null
+                  : ThreadgateRecord.fromJson(
+                      Map<String, Object?>.from(v as Map))),
+          lists: $checkedConvert(
+              'lists',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => GraphDefsListViewBasic.fromJson(
+                      Map<String, Object?>.from(e as Map)))
+                  .toList()),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'type': r'$type'},
+    );
+
+Map<String, dynamic> _$$FeedDefsThreadgateViewImplToJson(
+    _$FeedDefsThreadgateViewImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.type,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'uri',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.uri, atUriConverter.toJson));
+  writeNotNull('cid', instance.cid);
+  writeNotNull('record', instance.record?.toJson());
+  writeNotNull('lists', instance.lists?.map((e) => e.toJson()).toList());
+  return val;
+}
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

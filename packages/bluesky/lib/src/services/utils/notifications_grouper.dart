@@ -9,10 +9,10 @@ import 'package:atproto/atproto.dart' as atp;
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
-import '../entities/actor.dart';
-import '../entities/grouped_notifications.dart';
-import '../entities/notification.dart';
-import '../entities/notifications.dart';
+import '../types/actor_defs_profile_view.dart';
+import '../types/grouped_notifications.dart';
+import '../types/notification_list_notifications.dart';
+import '../types/notification_list_notifications_notification.dart';
 import 'group_by.dart';
 import 'notification_reason_filter.dart';
 
@@ -28,9 +28,10 @@ sealed class NotificationsGrouper {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [Notifications] object containing an array of individual
-  /// notification items, and groups them into related sets. A set is considered
-  /// "related" if they share the same `reason` and `reasonSubject`.
+  /// Takes a [NotificationListNotifications] object containing an array
+  /// of individual notification items, and groups them into related
+  /// sets. A set is considered "related" if they share the same
+  /// `reason` and `reasonSubject`.
   ///
   /// ## Notes
   /// - Notifications with the same `reason` and `reasonSubject` are
@@ -45,7 +46,7 @@ sealed class NotificationsGrouper {
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
   GroupedNotifications group(
-    final Notifications notifications, {
+    final NotificationListNotifications notifications, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   });
@@ -56,7 +57,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   @override
   GroupedNotifications group(
-    final Notifications data, {
+    final NotificationListNotifications data, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   }) {
@@ -127,7 +128,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   }
 
   Map<String, dynamic> _buildRelatedGroup(
-    final Notification notification,
+    final NotificationListNotificationsNotification notification,
     final String? reasonSubject,
   ) =>
       {
@@ -143,7 +144,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   void _updateRelatedGroup(
     final Map<String, dynamic> relatedGroup,
-    final Notification notification,
+    final NotificationListNotificationsNotification notification,
   ) {
     relatedGroup['uris'] = _mergeUris(
       relatedGroup['uris'],
@@ -177,7 +178,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeAuthors(
     final List<Map<String, dynamic>> relatedAuthors,
-    final Actor author,
+    final ActorDefsProfileView author,
   ) =>
       relatedAuthors
         //! Technically the same person could not appear on the same
@@ -260,9 +261,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         reasonSubject.contains(ids.appBskyFeedGenerator);
   }
 
-  List<List<Notification>> _groupBy(
+  List<List<NotificationListNotificationsNotification>> _groupBy(
     final GroupBy? by,
-    final Notifications data,
+    final NotificationListNotifications data,
   ) {
     if (by == null) {
       return [data.notifications];
@@ -271,9 +272,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return by.execute(data);
   }
 
-  Notifications _filterReason(
+  NotificationListNotifications _filterReason(
     NotificationReasonFilter? reasonFilter,
-    Notifications data,
+    NotificationListNotifications data,
   ) =>
       reasonFilter == null ? data : reasonFilter.execute(data);
 }

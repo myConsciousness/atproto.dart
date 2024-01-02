@@ -6,7 +6,7 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../entities/link_preview.dart';
+import 'link_preview.dart';
 
 /// Returns link preview information for a given [url].
 Future<core.Response<LinkPreview>> findLinkPreview(

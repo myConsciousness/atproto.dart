@@ -9,8 +9,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
-import '../entities/notification.dart';
-import '../entities/notifications.dart';
+import '../types/notification_list_notifications.dart';
+import '../types/notification_list_notifications_notification.dart';
 
 sealed class NotificationReasonFilter {
   // ignore: unused_element
@@ -25,7 +25,9 @@ sealed class NotificationReasonFilter {
   ) = NotificationReasonExcludeFilter;
 
   /// Returns a new [notifications] filtered based on reasons.
-  Notifications execute(final Notifications notifications);
+  NotificationListNotifications execute(
+    final NotificationListNotifications notifications,
+  );
 }
 
 /// Include strategy.
@@ -37,7 +39,10 @@ final class NotificationReasonIncludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(final Notifications data) => data.copyWith(
+  NotificationListNotifications execute(
+    final NotificationListNotifications data,
+  ) =>
+      data.copyWith(
         notifications:
             data.notifications.where((e) => _test(e, reasons)).toList(),
       );
@@ -52,14 +57,17 @@ final class NotificationReasonExcludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(final Notifications data) => data.copyWith(
+  NotificationListNotifications execute(
+    final NotificationListNotifications data,
+  ) =>
+      data.copyWith(
         notifications:
             data.notifications.where((e) => !_test(e, reasons)).toList(),
       );
 }
 
 bool _test(
-  final Notification e,
+  final NotificationListNotificationsNotification e,
   final List<GroupedNotificationReason> reasons,
 ) {
   if (_isCustomFeedLike(e.reason, e.reasonSubject)) {
