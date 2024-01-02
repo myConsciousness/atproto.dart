@@ -10,38 +10,38 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../ids.g.dart' as ids;
 import '../embed_external.dart';
 import '../embed_images.dart';
-import '../unions/union_embed_record_with_media_media.dart';
+import '../unions/union_embed_record_with_media.dart';
 
-const unionEmbedRecordWithMediaMedia = _EmbedRecordWithMediaMediaConverter();
+const unionEmbedRecordWithMedia = _EmbedRecordWithMediaConverter();
 
-final class _EmbedRecordWithMediaMediaConverter
-    implements JsonConverter<UEmbedRecordWithMediaMedia, Map<String, dynamic>> {
-  const _EmbedRecordWithMediaMediaConverter();
+final class _EmbedRecordWithMediaConverter
+    implements JsonConverter<UEmbedRecordWithMedia, Map<String, dynamic>> {
+  const _EmbedRecordWithMediaConverter();
 
   @override
-  UEmbedRecordWithMediaMedia fromJson(Map<String, dynamic> json) {
+  UEmbedRecordWithMedia fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedImages) {
-        return UEmbedRecordWithMediaMedia.embedImages(
+        return UEmbedRecordWithMedia.embedImages(
           data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
-        return UEmbedRecordWithMediaMedia.embedExternal(
+        return UEmbedRecordWithMedia.embedExternal(
           data: EmbedExternal.fromJson(json),
         );
       }
 
-      return UEmbedRecordWithMediaMedia.unknown(data: json);
+      return UEmbedRecordWithMedia.unknown(data: json);
     } catch (_) {
-      return UEmbedRecordWithMediaMedia.unknown(data: json);
+      return UEmbedRecordWithMedia.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbedRecordWithMediaMedia object) => object.when(
+  Map<String, dynamic> toJson(UEmbedRecordWithMedia object) => object.when(
         embedImages: (data) => data.toJson(),
         embedExternal: (data) => data.toJson(),
         unknown: (data) => data,

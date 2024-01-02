@@ -11,43 +11,43 @@ import '../../../ids.g.dart' as ids;
 import '../feed_threadgate_following_rule.dart';
 import '../feed_threadgate_list_rule.dart';
 import '../feed_threadgate_mention_rule.dart';
-import '../unions/thread_rule.dart';
+import '../unions/union_threadgate.dart';
 
-const threadRuleConverter = _ThreadRuleConverter();
+const unionThreadgate = _UThreadgateConverter();
 
-final class _ThreadRuleConverter
-    implements JsonConverter<ThreadRule, Map<String, dynamic>> {
-  const _ThreadRuleConverter();
+final class _UThreadgateConverter
+    implements JsonConverter<UThreadgate, Map<String, dynamic>> {
+  const _UThreadgateConverter();
 
   @override
-  ThreadRule fromJson(Map<String, dynamic> json) {
+  UThreadgate fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedThreadgateMentionRule) {
-        return ThreadRule.mention(
+        return UThreadgate.mention(
           data: FeedThreadgateMentionRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateFollowingRule) {
-        return ThreadRule.following(
+        return UThreadgate.following(
           data: FeedThreadgateFollowingRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateListRule) {
-        return ThreadRule.list(
+        return UThreadgate.list(
           data: FeedThreadgateListRule.fromJson(json),
         );
       }
 
-      return ThreadRule.unknown(data: json);
+      return UThreadgate.unknown(data: json);
     } catch (_) {
-      return ThreadRule.unknown(data: json);
+      return UThreadgate.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadRule object) => object.when(
+  Map<String, dynamic> toJson(UThreadgate object) => object.when(
         mention: (data) => data.toJson(),
         following: (data) => data.toJson(),
         list: (data) => data.toJson(),

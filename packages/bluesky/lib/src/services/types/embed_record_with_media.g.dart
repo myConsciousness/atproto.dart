@@ -20,7 +20,7 @@ _$EmbedRecordWithMediaImpl _$$EmbedRecordWithMediaImplFromJson(Map json) =>
               (v) => EmbedRecord.fromJson(Map<String, Object?>.from(v as Map))),
           media: $checkedConvert(
               'media',
-              (v) => unionEmbedRecordWithMediaMedia
+              (v) => unionEmbedRecordWithMedia
                   .fromJson(v as Map<String, dynamic>)),
         );
         return val;
@@ -33,5 +33,5 @@ Map<String, dynamic> _$$EmbedRecordWithMediaImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),
-      'media': unionEmbedRecordWithMediaMedia.toJson(instance.media),
+      'media': unionEmbedRecordWithMedia.toJson(instance.media),
     };

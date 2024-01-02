@@ -10,41 +10,38 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../ids.g.dart' as ids;
 import '../embed_external_view.dart';
 import '../embed_images_view.dart';
-import '../unions/union_embed_record_with_media_view_media.dart';
+import '../unions/union_embed_record_with_media_view.dart';
 
-const unionEmbedRecordWithMediaViewMedia =
-    _UEmbedRecordWithMediaViewMediaConverter();
+const unionEmbedRecordWithMediaView = _UEmbedRecordWithMediaViewConverter();
 
-final class _UEmbedRecordWithMediaViewMediaConverter
-    implements
-        JsonConverter<UEmbedRecordWithMediaViewMedia, Map<String, dynamic>> {
-  const _UEmbedRecordWithMediaViewMediaConverter();
+final class _UEmbedRecordWithMediaViewConverter
+    implements JsonConverter<UEmbedRecordWithMediaView, Map<String, dynamic>> {
+  const _UEmbedRecordWithMediaViewConverter();
 
   @override
-  UEmbedRecordWithMediaViewMedia fromJson(Map<String, dynamic> json) {
+  UEmbedRecordWithMediaView fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedImagesView) {
-        return UEmbedRecordWithMediaViewMedia.embedImagesView(
+        return UEmbedRecordWithMediaView.embedImagesView(
           data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
-        return UEmbedRecordWithMediaViewMedia.embedExternalView(
+        return UEmbedRecordWithMediaView.embedExternalView(
           data: EmbedExternalView.fromJson(json),
         );
       }
 
-      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
+      return UEmbedRecordWithMediaView.unknown(data: json);
     } catch (_) {
-      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
+      return UEmbedRecordWithMediaView.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbedRecordWithMediaViewMedia object) =>
-      object.when(
+  Map<String, dynamic> toJson(UEmbedRecordWithMediaView object) => object.when(
         embedImagesView: (data) => data.toJson(),
         embedExternalView: (data) => data.toJson(),
         unknown: (data) => data,

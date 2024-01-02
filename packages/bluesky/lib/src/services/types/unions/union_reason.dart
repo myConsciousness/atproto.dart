@@ -8,18 +8,21 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../converters/reason_converter.dart';
 import '../feed_defs_reason_repost.dart';
 
-part 'reason.freezed.dart';
+part 'union_reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
-class Reason with _$Reason {
-  factory Reason.repost({
+class UReason with _$UReason {
+  factory UReason.repost({
     required FeedDefsReasonRepost data,
   }) = UReasonRepost;
 
-  factory Reason.unknown({
+  factory UReason.unknown({
     required Map<String, dynamic> data,
   }) = UReasonUnknown;
+
+  Map<String, dynamic> toJson() => unionReason.toJson(this);
 }

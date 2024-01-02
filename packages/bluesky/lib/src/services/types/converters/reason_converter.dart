@@ -9,33 +9,33 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 import '../feed_defs_reason_repost.dart';
-import '../unions/reason.dart';
+import '../unions/union_reason.dart';
 
-const reasonConverter = _ReasonConverter();
+const unionReason = _UReasonConverter();
 
-final class _ReasonConverter
-    implements JsonConverter<Reason, Map<String, dynamic>> {
-  const _ReasonConverter();
+final class _UReasonConverter
+    implements JsonConverter<UReason, Map<String, dynamic>> {
+  const _UReasonConverter();
 
   @override
-  Reason fromJson(Map<String, dynamic> json) {
+  UReason fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsReasonRepost) {
-        return Reason.repost(
+        return UReason.repost(
           data: FeedDefsReasonRepost.fromJson(json),
         );
       }
 
-      return Reason.unknown(data: json);
+      return UReason.unknown(data: json);
     } catch (_) {
-      return Reason.unknown(data: json);
+      return UReason.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(Reason object) => object.when(
+  Map<String, dynamic> toJson(UReason object) => object.when(
         repost: (data) => data.toJson(),
         unknown: (data) => data,
       );

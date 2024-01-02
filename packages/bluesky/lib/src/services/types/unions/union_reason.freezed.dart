@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'reason.dart';
+part of 'union_reason.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$Reason {
+mixin _$UReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -58,15 +58,15 @@ mixin _$Reason {
 }
 
 /// @nodoc
-abstract class $ReasonCopyWith<$Res> {
-  factory $ReasonCopyWith(Reason value, $Res Function(Reason) then) =
-      _$ReasonCopyWithImpl<$Res, Reason>;
+abstract class $UReasonCopyWith<$Res> {
+  factory $UReasonCopyWith(UReason value, $Res Function(UReason) then) =
+      _$UReasonCopyWithImpl<$Res, UReason>;
 }
 
 /// @nodoc
-class _$ReasonCopyWithImpl<$Res, $Val extends Reason>
-    implements $ReasonCopyWith<$Res> {
-  _$ReasonCopyWithImpl(this._value, this._then);
+class _$UReasonCopyWithImpl<$Res, $Val extends UReason>
+    implements $UReasonCopyWith<$Res> {
+  _$UReasonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,7 +87,7 @@ abstract class _$$UReasonRepostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonRepostImpl>
+    extends _$UReasonCopyWithImpl<$Res, _$UReasonRepostImpl>
     implements _$$UReasonRepostImplCopyWith<$Res> {
   __$$UReasonRepostImplCopyWithImpl(
       _$UReasonRepostImpl _value, $Res Function(_$UReasonRepostImpl) _then)
@@ -125,7 +125,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
 
   @override
   String toString() {
-    return 'Reason.repost(data: $data)';
+    return 'UReason.repost(data: $data)';
   }
 
   @override
@@ -208,7 +208,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   }
 }
 
-abstract class UReasonRepost implements Reason {
+abstract class UReasonRepost implements UReason {
   factory UReasonRepost({required final FeedDefsReasonRepost data}) =
       _$UReasonRepostImpl;
 
@@ -230,7 +230,7 @@ abstract class _$$UReasonUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UReasonUnknownImplCopyWithImpl<$Res>
-    extends _$ReasonCopyWithImpl<$Res, _$UReasonUnknownImpl>
+    extends _$UReasonCopyWithImpl<$Res, _$UReasonUnknownImpl>
     implements _$$UReasonUnknownImplCopyWith<$Res> {
   __$$UReasonUnknownImplCopyWithImpl(
       _$UReasonUnknownImpl _value, $Res Function(_$UReasonUnknownImpl) _then)
@@ -266,7 +266,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
 
   @override
   String toString() {
-    return 'Reason.unknown(data: $data)';
+    return 'UReason.unknown(data: $data)';
   }
 
   @override
@@ -351,7 +351,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   }
 }
 
-abstract class UReasonUnknown implements Reason {
+abstract class UReasonUnknown implements UReason {
   factory UReasonUnknown({required final Map<String, dynamic> data}) =
       _$UReasonUnknownImpl;
 

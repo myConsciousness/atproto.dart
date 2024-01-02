@@ -10,8 +10,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart';
-import '../converters/thread_rule_converter.dart';
-import '../unions/thread_rule.dart';
+import '../converters/threadgate_converter.dart';
+import '../unions/union_threadgate.dart';
 
 part 'threadgate_record.freezed.dart';
 part 'threadgate_record.g.dart';
@@ -26,7 +26,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
   const factory ThreadgateRecord({
     @typeKey @Default(appBskyFeedThreadgate) String type,
     @atUriConverter @JsonKey(name: 'post') required AtUri postUri,
-    @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
+    @unionThreadgate @JsonKey(name: 'allow') List<UThreadgate>? allowRules,
     required DateTime createdAt,
   }) = _ThreadgateRecord;
 

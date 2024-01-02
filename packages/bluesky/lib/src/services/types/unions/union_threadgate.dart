@@ -6,34 +6,31 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../converters/thread_rule_converter.dart';
+import '../converters/threadgate_converter.dart';
 import '../feed_threadgate_following_rule.dart';
 import '../feed_threadgate_list_rule.dart';
 import '../feed_threadgate_mention_rule.dart';
 
-part 'thread_rule.freezed.dart';
+part 'union_threadgate.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
-class ThreadRule with _$ThreadRule {
-  // ignore: unused_element
-  const ThreadRule._();
-
-  const factory ThreadRule.mention({
+class UThreadgate with _$UThreadgate {
+  const factory UThreadgate.mention({
     required FeedThreadgateMentionRule data,
-  }) = UThreadRuleMention;
+  }) = UThreadgateMention;
 
-  const factory ThreadRule.following({
+  const factory UThreadgate.following({
     required FeedThreadgateFollowingRule data,
-  }) = UThreadRuleFollowing;
+  }) = UThreadgateFollowing;
 
-  const factory ThreadRule.list({
+  const factory UThreadgate.list({
     required FeedThreadgateListRule data,
-  }) = UThreadRuleList;
+  }) = UThreadgateList;
 
-  const factory ThreadRule.unknown({
+  const factory UThreadgate.unknown({
     required Map<String, dynamic> data,
-  }) = UThreadRuleUnknown;
+  }) = UThreadgateUnknown;
 
-  Map<String, dynamic> toJson() => threadRuleConverter.toJson(this);
+  Map<String, dynamic> toJson() => unionThreadgate.toJson(this);
 }

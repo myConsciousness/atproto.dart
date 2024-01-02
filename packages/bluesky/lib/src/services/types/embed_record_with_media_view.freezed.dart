@@ -24,9 +24,8 @@ mixin _$EmbedRecordWithMediaView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   EmbedRecordView get record => throw _privateConstructorUsedError;
-  @unionEmbedRecordWithMediaViewMedia
-  UEmbedRecordWithMediaViewMedia get media =>
-      throw _privateConstructorUsedError;
+  @unionEmbedRecordWithMediaView
+  UEmbedRecordWithMediaView get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,11 +42,10 @@ abstract class $EmbedRecordWithMediaViewCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       EmbedRecordView record,
-      @unionEmbedRecordWithMediaViewMedia
-      UEmbedRecordWithMediaViewMedia media});
+      @unionEmbedRecordWithMediaView UEmbedRecordWithMediaView media});
 
   $EmbedRecordViewCopyWith<$Res> get record;
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+  $UEmbedRecordWithMediaViewCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -80,7 +78,7 @@ class _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMediaViewMedia,
+              as UEmbedRecordWithMediaView,
     ) as $Val);
   }
 
@@ -94,8 +92,8 @@ class _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media {
-    return $UEmbedRecordWithMediaViewMediaCopyWith<$Res>(_value.media, (value) {
+  $UEmbedRecordWithMediaViewCopyWith<$Res> get media {
+    return $UEmbedRecordWithMediaViewCopyWith<$Res>(_value.media, (value) {
       return _then(_value.copyWith(media: value) as $Val);
     });
   }
@@ -113,13 +111,12 @@ abstract class _$$EmbedRecordWithMediaViewImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       EmbedRecordView record,
-      @unionEmbedRecordWithMediaViewMedia
-      UEmbedRecordWithMediaViewMedia media});
+      @unionEmbedRecordWithMediaView UEmbedRecordWithMediaView media});
 
   @override
   $EmbedRecordViewCopyWith<$Res> get record;
   @override
-  $UEmbedRecordWithMediaViewMediaCopyWith<$Res> get media;
+  $UEmbedRecordWithMediaViewCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -151,7 +148,7 @@ class __$$EmbedRecordWithMediaViewImplCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMediaViewMedia,
+              as UEmbedRecordWithMediaView,
     ));
   }
 }
@@ -162,7 +159,7 @@ class _$EmbedRecordWithMediaViewImpl implements _EmbedRecordWithMediaView {
   const _$EmbedRecordWithMediaViewImpl(
       {@typeKey this.type = appBskyEmbedRecordWithMediaView,
       required this.record,
-      @unionEmbedRecordWithMediaViewMedia required this.media});
+      @unionEmbedRecordWithMediaView required this.media});
 
   factory _$EmbedRecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordWithMediaViewImplFromJson(json);
@@ -173,8 +170,8 @@ class _$EmbedRecordWithMediaViewImpl implements _EmbedRecordWithMediaView {
   @override
   final EmbedRecordView record;
   @override
-  @unionEmbedRecordWithMediaViewMedia
-  final UEmbedRecordWithMediaViewMedia media;
+  @unionEmbedRecordWithMediaView
+  final UEmbedRecordWithMediaView media;
 
   @override
   String toString() {
@@ -214,8 +211,8 @@ abstract class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
   const factory _EmbedRecordWithMediaView(
           {@typeKey final String type,
           required final EmbedRecordView record,
-          @unionEmbedRecordWithMediaViewMedia
-          required final UEmbedRecordWithMediaViewMedia media}) =
+          @unionEmbedRecordWithMediaView
+          required final UEmbedRecordWithMediaView media}) =
       _$EmbedRecordWithMediaViewImpl;
 
   factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) =
@@ -227,8 +224,8 @@ abstract class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
   @override
   EmbedRecordView get record;
   @override
-  @unionEmbedRecordWithMediaViewMedia
-  UEmbedRecordWithMediaViewMedia get media;
+  @unionEmbedRecordWithMediaView
+  UEmbedRecordWithMediaView get media;
   @override
   @JsonKey(ignore: true)
   _$$EmbedRecordWithMediaViewImplCopyWith<_$EmbedRecordWithMediaViewImpl>

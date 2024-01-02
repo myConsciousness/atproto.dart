@@ -8,26 +8,26 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../converters/embed_record_with_media_media_converter.dart';
+import '../converters/embed_record_with_media_converter.dart';
 import '../embed_external.dart';
 import '../embed_images.dart';
 
-part 'union_embed_record_with_media_media.freezed.dart';
+part 'union_embed_record_with_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
-class UEmbedRecordWithMediaMedia with _$UEmbedRecordWithMediaMedia {
-  const factory UEmbedRecordWithMediaMedia.embedImages({
+class UEmbedRecordWithMedia with _$UEmbedRecordWithMedia {
+  const factory UEmbedRecordWithMedia.embedImages({
     required EmbedImages data,
-  }) = UEmbedRecordWithMediaMediaEmbedImages;
+  }) = UEmbedRecordWithMediaEmbedImages;
 
-  const factory UEmbedRecordWithMediaMedia.embedExternal({
+  const factory UEmbedRecordWithMedia.embedExternal({
     required EmbedExternal data,
-  }) = UEmbedRecordWithMediaMediaEmbedExternal;
+  }) = UEmbedRecordWithMediaEmbedExternal;
 
-  const factory UEmbedRecordWithMediaMedia.unknown({
+  const factory UEmbedRecordWithMedia.unknown({
     required Map<String, dynamic> data,
-  }) = UEmbedRecordWithMediaMediaUnknown;
+  }) = UEmbedRecordWithMediaUnknown;
 
-  Map<String, dynamic> toJson() => unionEmbedRecordWithMediaMedia.toJson(this);
+  Map<String, dynamic> toJson() => unionEmbedRecordWithMedia.toJson(this);
 }

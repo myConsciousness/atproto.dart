@@ -13,7 +13,7 @@ import '../../lex_annotations.g.dart' as lex;
 import 'converters/reason_converter.dart';
 import 'feed_defs_post_view.dart';
 import 'feed_defs_reply_ref.dart';
-import 'unions/reason.dart';
+import 'unions/union_reason.dart';
 
 part 'feed_defs_feed_view_post.freezed.dart';
 part 'feed_defs_feed_view_post.g.dart';
@@ -26,7 +26,7 @@ class FeedDefsFeedViewPost with _$FeedDefsFeedViewPost {
   const factory FeedDefsFeedViewPost({
     required FeedDefsPostView post,
     FeedDefsReplyRef? reply,
-    @reasonConverter Reason? reason,
+    @unionReason UReason? reason,
   }) = _FeedDefsFeedViewPost;
 
   factory FeedDefsFeedViewPost.fromJson(Map<String, Object?> json) =>
