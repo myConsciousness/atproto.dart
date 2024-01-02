@@ -11,45 +11,45 @@ import '../../../ids.g.dart' as ids;
 import '../feed_defs_blocked_post.dart';
 import '../feed_defs_not_found_post.dart';
 import '../feed_defs_post_view.dart';
-import '../unions/feed_defs_reply_ref_root_refs.dart';
+import '../unions/union_reply_ref.dart';
 
-const feedDefsReplyRefRootRefsConverter = _FeedDefsReplyRefRootRefsConverter();
+const unionReplyRef = _UReplyRefConverter();
 
-final class _FeedDefsReplyRefRootRefsConverter
-    implements JsonConverter<FeedDefsReplyRefRootRefs, Map<String, dynamic>> {
-  const _FeedDefsReplyRefRootRefsConverter();
+final class _UReplyRefConverter
+    implements JsonConverter<UReplyRef, Map<String, dynamic>> {
+  const _UReplyRefConverter();
 
   @override
-  FeedDefsReplyRefRootRefs fromJson(Map<String, dynamic> json) {
+  UReplyRef fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsPostView) {
-        return FeedDefsReplyRefRootRefs.postView(
+        return UReplyRef.postView(
           data: FeedDefsPostView.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return FeedDefsReplyRefRootRefs.notFoundPost(
+        return UReplyRef.notFoundPost(
           data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return FeedDefsReplyRefRootRefs.blockedPost(
+        return UReplyRef.blockedPost(
           data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
-      return FeedDefsReplyRefRootRefs.postView(
+      return UReplyRef.postView(
         data: FeedDefsPostView.fromJson(json),
       );
     } catch (_) {
-      return FeedDefsReplyRefRootRefs.unknown(data: json);
+      return UReplyRef.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(FeedDefsReplyRefRootRefs object) => object.when(
+  Map<String, dynamic> toJson(UReplyRef object) => object.when(
         postView: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

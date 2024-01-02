@@ -14,30 +14,30 @@ import '../embed_images.dart';
 import '../embed_record.dart';
 import '../embed_record_with_media.dart';
 
-part 'embed.freezed.dart';
+part 'union_embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
-class Embed with _$Embed {
-  const factory Embed.record({
+class UEmbed with _$UEmbed {
+  const factory UEmbed.embedRecord({
     required EmbedRecord data,
-  }) = UEmbedRecord;
+  }) = UEmbedEmbedRecord;
 
-  const factory Embed.images({
+  const factory UEmbed.embedImages({
     required EmbedImages data,
-  }) = UEmbedImages;
+  }) = UEmbedEmbedImages;
 
-  const factory Embed.external({
+  const factory UEmbed.embedExternal({
     required EmbedExternal data,
-  }) = UEmbedExternal;
+  }) = UEmbedEmbedExternal;
 
-  const factory Embed.recordWithMedia({
+  const factory UEmbed.embedRecordWithMedia({
     required EmbedRecordWithMedia data,
-  }) = UEmbedRecordWithMedia;
+  }) = UEmbedEmbedRecordWithMedia;
 
-  const factory Embed.unknown({
+  const factory UEmbed.unknown({
     required Map<String, dynamic> data,
   }) = UEmbedUnknown;
 
-  Map<String, dynamic> toJson() => embedConverter.toJson(this);
+  Map<String, dynamic> toJson() => unionEmbed.toJson(this);
 }

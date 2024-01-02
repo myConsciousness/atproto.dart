@@ -11,44 +11,43 @@ import '../../../ids.g.dart' as ids;
 import '../richtext_facet_link.dart';
 import '../richtext_facet_mention.dart';
 import '../richtext_facet_tag.dart';
-import '../unions/facet_feature.dart';
+import '../unions/union_facet_feature.dart';
 
-const facetFeatureConverter = _FacetFeatureConverter();
+const unionFacetFeature = _UFacetFeatureConverter();
 
-final class _FacetFeatureConverter
-    implements JsonConverter<FacetFeature, Map<String, dynamic>> {
-  /// Returns the new instance of [_FacetFeatureConverter].
-  const _FacetFeatureConverter();
+final class _UFacetFeatureConverter
+    implements JsonConverter<UFacetFeature, Map<String, dynamic>> {
+  const _UFacetFeatureConverter();
 
   @override
-  FacetFeature fromJson(Map<String, dynamic> json) {
+  UFacetFeature fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyRichtextFacetLink) {
-        return FacetFeature.link(
+        return UFacetFeature.link(
           data: RichtextFacetLink.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetMention) {
-        return FacetFeature.mention(
+        return UFacetFeature.mention(
           data: RichtextFacetMention.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetTag) {
-        return FacetFeature.tag(
+        return UFacetFeature.tag(
           data: RichtextFacetTag.fromJson(json),
         );
       }
 
-      return FacetFeature.unknown(data: json);
+      return UFacetFeature.unknown(data: json);
     } catch (_) {
-      return FacetFeature.unknown(data: json);
+      return UFacetFeature.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(FacetFeature object) => object.when(
+  Map<String, dynamic> toJson(UFacetFeature object) => object.when(
         mention: (data) => data.toJson(),
         link: (data) => data.toJson(),
         tag: (data) => data.toJson(),

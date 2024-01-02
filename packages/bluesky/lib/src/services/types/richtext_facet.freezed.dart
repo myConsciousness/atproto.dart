@@ -23,8 +23,8 @@ mixin _$RichtextFacet {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   RichtextFacetByteSlice get index => throw _privateConstructorUsedError;
-  @facetFeatureConverter
-  List<FacetFeature> get features => throw _privateConstructorUsedError;
+  @unionFacetFeature
+  List<UFacetFeature> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $RichtextFacetCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       RichtextFacetByteSlice index,
-      @facetFeatureConverter List<FacetFeature> features});
+      @unionFacetFeature List<UFacetFeature> features});
 
   $RichtextFacetByteSliceCopyWith<$Res> get index;
 }
@@ -75,7 +75,7 @@ class _$RichtextFacetCopyWithImpl<$Res, $Val extends RichtextFacet>
       features: null == features
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<FacetFeature>,
+              as List<UFacetFeature>,
     ) as $Val);
   }
 
@@ -99,7 +99,7 @@ abstract class _$$RichtextFacetImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       RichtextFacetByteSlice index,
-      @facetFeatureConverter List<FacetFeature> features});
+      @unionFacetFeature List<UFacetFeature> features});
 
   @override
   $RichtextFacetByteSliceCopyWith<$Res> get index;
@@ -132,7 +132,7 @@ class __$$RichtextFacetImplCopyWithImpl<$Res>
       features: null == features
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<FacetFeature>,
+              as List<UFacetFeature>,
     ));
   }
 }
@@ -144,7 +144,7 @@ class _$RichtextFacetImpl implements _RichtextFacet {
   const _$RichtextFacetImpl(
       {@typeKey this.type = appBskyRichtextFacet,
       required this.index,
-      @facetFeatureConverter required final List<FacetFeature> features})
+      @unionFacetFeature required final List<UFacetFeature> features})
       : _features = features;
 
   factory _$RichtextFacetImpl.fromJson(Map<String, dynamic> json) =>
@@ -155,10 +155,10 @@ class _$RichtextFacetImpl implements _RichtextFacet {
   final String type;
   @override
   final RichtextFacetByteSlice index;
-  final List<FacetFeature> _features;
+  final List<UFacetFeature> _features;
   @override
-  @facetFeatureConverter
-  List<FacetFeature> get features {
+  @unionFacetFeature
+  List<UFacetFeature> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_features);
@@ -202,7 +202,7 @@ abstract class _RichtextFacet implements RichtextFacet {
   const factory _RichtextFacet(
           {@typeKey final String type,
           required final RichtextFacetByteSlice index,
-          @facetFeatureConverter required final List<FacetFeature> features}) =
+          @unionFacetFeature required final List<UFacetFeature> features}) =
       _$RichtextFacetImpl;
 
   factory _RichtextFacet.fromJson(Map<String, dynamic> json) =
@@ -214,8 +214,8 @@ abstract class _RichtextFacet implements RichtextFacet {
   @override
   RichtextFacetByteSlice get index;
   @override
-  @facetFeatureConverter
-  List<FacetFeature> get features;
+  @unionFacetFeature
+  List<UFacetFeature> get features;
   @override
   @JsonKey(ignore: true)
   _$$RichtextFacetImplCopyWith<_$RichtextFacetImpl> get copyWith =>

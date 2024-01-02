@@ -20,10 +20,10 @@ FeedDefsReplyRef _$FeedDefsReplyRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedDefsReplyRef {
-  @feedDefsReplyRefRootRefsConverter
-  FeedDefsReplyRefRootRefs get root => throw _privateConstructorUsedError;
-  @feedDefsReplyRefParentRefsConverter
-  FeedDefsReplyRefParentRefs get parent => throw _privateConstructorUsedError;
+  @unionReplyRef
+  UReplyRef get root => throw _privateConstructorUsedError;
+  @unionReplyRef
+  UReplyRef get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,12 +37,10 @@ abstract class $FeedDefsReplyRefCopyWith<$Res> {
           FeedDefsReplyRef value, $Res Function(FeedDefsReplyRef) then) =
       _$FeedDefsReplyRefCopyWithImpl<$Res, FeedDefsReplyRef>;
   @useResult
-  $Res call(
-      {@feedDefsReplyRefRootRefsConverter FeedDefsReplyRefRootRefs root,
-      @feedDefsReplyRefParentRefsConverter FeedDefsReplyRefParentRefs parent});
+  $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
 
-  $FeedDefsReplyRefRootRefsCopyWith<$Res> get root;
-  $FeedDefsReplyRefParentRefsCopyWith<$Res> get parent;
+  $UReplyRefCopyWith<$Res> get root;
+  $UReplyRefCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -65,26 +63,26 @@ class _$FeedDefsReplyRefCopyWithImpl<$Res, $Val extends FeedDefsReplyRef>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRefRootRefs,
+              as UReplyRef,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRefParentRefs,
+              as UReplyRef,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsReplyRefRootRefsCopyWith<$Res> get root {
-    return $FeedDefsReplyRefRootRefsCopyWith<$Res>(_value.root, (value) {
+  $UReplyRefCopyWith<$Res> get root {
+    return $UReplyRefCopyWith<$Res>(_value.root, (value) {
       return _then(_value.copyWith(root: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsReplyRefParentRefsCopyWith<$Res> get parent {
-    return $FeedDefsReplyRefParentRefsCopyWith<$Res>(_value.parent, (value) {
+  $UReplyRefCopyWith<$Res> get parent {
+    return $UReplyRefCopyWith<$Res>(_value.parent, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -98,14 +96,12 @@ abstract class _$$FeedDefsReplyRefImplCopyWith<$Res>
       __$$FeedDefsReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@feedDefsReplyRefRootRefsConverter FeedDefsReplyRefRootRefs root,
-      @feedDefsReplyRefParentRefsConverter FeedDefsReplyRefParentRefs parent});
+  $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
 
   @override
-  $FeedDefsReplyRefRootRefsCopyWith<$Res> get root;
+  $UReplyRefCopyWith<$Res> get root;
   @override
-  $FeedDefsReplyRefParentRefsCopyWith<$Res> get parent;
+  $UReplyRefCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -126,11 +122,11 @@ class __$$FeedDefsReplyRefImplCopyWithImpl<$Res>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRefRootRefs,
+              as UReplyRef,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRefParentRefs,
+              as UReplyRef,
     ));
   }
 }
@@ -139,18 +135,17 @@ class __$$FeedDefsReplyRefImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FeedDefsReplyRefImpl implements _FeedDefsReplyRef {
   const _$FeedDefsReplyRefImpl(
-      {@feedDefsReplyRefRootRefsConverter required this.root,
-      @feedDefsReplyRefParentRefsConverter required this.parent});
+      {@unionReplyRef required this.root, @unionReplyRef required this.parent});
 
   factory _$FeedDefsReplyRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedDefsReplyRefImplFromJson(json);
 
   @override
-  @feedDefsReplyRefRootRefsConverter
-  final FeedDefsReplyRefRootRefs root;
+  @unionReplyRef
+  final UReplyRef root;
   @override
-  @feedDefsReplyRefParentRefsConverter
-  final FeedDefsReplyRefParentRefs parent;
+  @unionReplyRef
+  final UReplyRef parent;
 
   @override
   String toString() {
@@ -187,21 +182,18 @@ class _$FeedDefsReplyRefImpl implements _FeedDefsReplyRef {
 
 abstract class _FeedDefsReplyRef implements FeedDefsReplyRef {
   const factory _FeedDefsReplyRef(
-          {@feedDefsReplyRefRootRefsConverter
-          required final FeedDefsReplyRefRootRefs root,
-          @feedDefsReplyRefParentRefsConverter
-          required final FeedDefsReplyRefParentRefs parent}) =
-      _$FeedDefsReplyRefImpl;
+      {@unionReplyRef required final UReplyRef root,
+      @unionReplyRef required final UReplyRef parent}) = _$FeedDefsReplyRefImpl;
 
   factory _FeedDefsReplyRef.fromJson(Map<String, dynamic> json) =
       _$FeedDefsReplyRefImpl.fromJson;
 
   @override
-  @feedDefsReplyRefRootRefsConverter
-  FeedDefsReplyRefRootRefs get root;
+  @unionReplyRef
+  UReplyRef get root;
   @override
-  @feedDefsReplyRefParentRefsConverter
-  FeedDefsReplyRefParentRefs get parent;
+  @unionReplyRef
+  UReplyRef get parent;
   @override
   @JsonKey(ignore: true)
   _$$FeedDefsReplyRefImplCopyWith<_$FeedDefsReplyRefImpl> get copyWith =>

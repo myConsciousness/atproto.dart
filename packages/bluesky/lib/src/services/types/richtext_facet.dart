@@ -13,7 +13,7 @@ import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'converters/facet_feature_converter.dart';
 import 'richtext_facet_byte_slice.dart';
-import 'unions/facet_feature.dart';
+import 'unions/union_facet_feature.dart';
 
 part 'richtext_facet.freezed.dart';
 part 'richtext_facet.g.dart';
@@ -26,7 +26,7 @@ class RichtextFacet with _$RichtextFacet {
   const factory RichtextFacet({
     @typeKey @Default(appBskyRichtextFacet) String type,
     required RichtextFacetByteSlice index,
-    @facetFeatureConverter required List<FacetFeature> features,
+    @unionFacetFeature required List<UFacetFeature> features,
   }) = _RichtextFacet;
 
   factory RichtextFacet.fromJson(Map<String, Object?> json) =>

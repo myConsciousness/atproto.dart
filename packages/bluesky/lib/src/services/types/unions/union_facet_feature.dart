@@ -8,28 +8,31 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../converters/facet_feature_converter.dart';
 import '../richtext_facet_link.dart';
 import '../richtext_facet_mention.dart';
 import '../richtext_facet_tag.dart';
 
-part 'facet_feature.freezed.dart';
+part 'union_facet_feature.freezed.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
+/// https://atprotodart.com/docs/lexicons/app/bsky//facet#main
 @freezed
-class FacetFeature with _$FacetFeature {
-  const factory FacetFeature.mention({
+class UFacetFeature with _$UFacetFeature {
+  const factory UFacetFeature.mention({
     required RichtextFacetMention data,
   }) = UFacetFeatureMention;
 
-  const factory FacetFeature.link({
+  const factory UFacetFeature.link({
     required RichtextFacetLink data,
   }) = UFacetFeatureLink;
 
-  const factory FacetFeature.tag({
+  const factory UFacetFeature.tag({
     required RichtextFacetTag data,
   }) = UFacetFeatureTag;
 
-  const factory FacetFeature.unknown({
+  const factory UFacetFeature.unknown({
     required Map<String, dynamic> data,
   }) = UFacetFeatureUnknown;
+
+  Map<String, dynamic> toJson() => unionFacetFeature.toJson(this);
 }

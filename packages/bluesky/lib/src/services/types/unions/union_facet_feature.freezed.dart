@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'facet_feature.dart';
+part of 'union_facet_feature.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$FacetFeature {
+mixin _$UFacetFeature {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -70,16 +70,16 @@ mixin _$FacetFeature {
 }
 
 /// @nodoc
-abstract class $FacetFeatureCopyWith<$Res> {
-  factory $FacetFeatureCopyWith(
-          FacetFeature value, $Res Function(FacetFeature) then) =
-      _$FacetFeatureCopyWithImpl<$Res, FacetFeature>;
+abstract class $UFacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureCopyWith(
+          UFacetFeature value, $Res Function(UFacetFeature) then) =
+      _$UFacetFeatureCopyWithImpl<$Res, UFacetFeature>;
 }
 
 /// @nodoc
-class _$FacetFeatureCopyWithImpl<$Res, $Val extends FacetFeature>
-    implements $FacetFeatureCopyWith<$Res> {
-  _$FacetFeatureCopyWithImpl(this._value, this._then);
+class _$UFacetFeatureCopyWithImpl<$Res, $Val extends UFacetFeature>
+    implements $UFacetFeatureCopyWith<$Res> {
+  _$UFacetFeatureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -100,7 +100,7 @@ abstract class _$$UFacetFeatureMentionImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMentionImpl>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMentionImpl>
     implements _$$UFacetFeatureMentionImplCopyWith<$Res> {
   __$$UFacetFeatureMentionImplCopyWithImpl(_$UFacetFeatureMentionImpl _value,
       $Res Function(_$UFacetFeatureMentionImpl) _then)
@@ -138,7 +138,7 @@ class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
 
   @override
   String toString() {
-    return 'FacetFeature.mention(data: $data)';
+    return 'UFacetFeature.mention(data: $data)';
   }
 
   @override
@@ -235,7 +235,7 @@ class _$UFacetFeatureMentionImpl implements UFacetFeatureMention {
   }
 }
 
-abstract class UFacetFeatureMention implements FacetFeature {
+abstract class UFacetFeatureMention implements UFacetFeature {
   const factory UFacetFeatureMention(
       {required final RichtextFacetMention data}) = _$UFacetFeatureMentionImpl;
 
@@ -259,7 +259,7 @@ abstract class _$$UFacetFeatureLinkImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLinkImpl>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLinkImpl>
     implements _$$UFacetFeatureLinkImplCopyWith<$Res> {
   __$$UFacetFeatureLinkImplCopyWithImpl(_$UFacetFeatureLinkImpl _value,
       $Res Function(_$UFacetFeatureLinkImpl) _then)
@@ -297,7 +297,7 @@ class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
 
   @override
   String toString() {
-    return 'FacetFeature.link(data: $data)';
+    return 'UFacetFeature.link(data: $data)';
   }
 
   @override
@@ -393,7 +393,7 @@ class _$UFacetFeatureLinkImpl implements UFacetFeatureLink {
   }
 }
 
-abstract class UFacetFeatureLink implements FacetFeature {
+abstract class UFacetFeatureLink implements UFacetFeature {
   const factory UFacetFeatureLink({required final RichtextFacetLink data}) =
       _$UFacetFeatureLinkImpl;
 
@@ -417,7 +417,7 @@ abstract class _$$UFacetFeatureTagImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTagImpl>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTagImpl>
     implements _$$UFacetFeatureTagImplCopyWith<$Res> {
   __$$UFacetFeatureTagImplCopyWithImpl(_$UFacetFeatureTagImpl _value,
       $Res Function(_$UFacetFeatureTagImpl) _then)
@@ -455,7 +455,7 @@ class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
 
   @override
   String toString() {
-    return 'FacetFeature.tag(data: $data)';
+    return 'UFacetFeature.tag(data: $data)';
   }
 
   @override
@@ -551,7 +551,7 @@ class _$UFacetFeatureTagImpl implements UFacetFeatureTag {
   }
 }
 
-abstract class UFacetFeatureTag implements FacetFeature {
+abstract class UFacetFeatureTag implements UFacetFeature {
   const factory UFacetFeatureTag({required final RichtextFacetTag data}) =
       _$UFacetFeatureTagImpl;
 
@@ -573,7 +573,7 @@ abstract class _$$UFacetFeatureUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>
-    extends _$FacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknownImpl>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknownImpl>
     implements _$$UFacetFeatureUnknownImplCopyWith<$Res> {
   __$$UFacetFeatureUnknownImplCopyWithImpl(_$UFacetFeatureUnknownImpl _value,
       $Res Function(_$UFacetFeatureUnknownImpl) _then)
@@ -609,7 +609,7 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
 
   @override
   String toString() {
-    return 'FacetFeature.unknown(data: $data)';
+    return 'UFacetFeature.unknown(data: $data)';
   }
 
   @override
@@ -707,7 +707,7 @@ class _$UFacetFeatureUnknownImpl implements UFacetFeatureUnknown {
   }
 }
 
-abstract class UFacetFeatureUnknown implements FacetFeature {
+abstract class UFacetFeatureUnknown implements UFacetFeature {
   const factory UFacetFeatureUnknown(
       {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknownImpl;
 

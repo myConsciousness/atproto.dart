@@ -14,7 +14,7 @@ import '../../../ids.g.dart';
 import '../converters/embed_converter.dart';
 import '../feed_post_reply_ref.dart';
 import '../richtext_facet.dart';
-import '../unions/embed.dart';
+import '../unions/union_embed.dart';
 
 part 'post_record.freezed.dart';
 part 'post_record.g.dart';
@@ -30,7 +30,7 @@ class PostRecord with _$PostRecord {
     @typeKey @Default(appBskyFeedPost) String type,
     required String text,
     FeedPostReplyRef? reply,
-    @embedConverter Embed? embed,
+    @unionEmbed UEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
     List<RichtextFacet>? facets,

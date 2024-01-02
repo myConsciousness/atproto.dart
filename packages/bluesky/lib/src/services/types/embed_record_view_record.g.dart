@@ -34,8 +34,8 @@ _$EmbedRecordViewRecordImpl _$$EmbedRecordViewRecordImplFromJson(Map json) =>
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => unionEmbedRecordViewRecordEmbeds
-                      .fromJson(e as Map<String, dynamic>))
+                  ?.map(
+                      (e) => unionEmbedView.fromJson(e as Map<String, dynamic>))
                   .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -62,8 +62,7 @@ Map<String, dynamic> _$$EmbedRecordViewRecordImplToJson(
   }
 
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('embeds',
-      instance.embeds?.map(unionEmbedRecordViewRecordEmbeds.toJson).toList());
+  writeNotNull('embeds', instance.embeds?.map(unionEmbedView.toJson).toList());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

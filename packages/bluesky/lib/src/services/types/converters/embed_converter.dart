@@ -12,52 +12,52 @@ import '../embed_external.dart';
 import '../embed_images.dart';
 import '../embed_record.dart';
 import '../embed_record_with_media.dart';
-import '../unions/embed.dart';
+import '../unions/union_embed.dart';
 
-const embedConverter = _EmbedConverter();
+const unionEmbed = _UEmbedConverter();
 
-final class _EmbedConverter
-    implements JsonConverter<Embed, Map<String, dynamic>> {
-  const _EmbedConverter();
+final class _UEmbedConverter
+    implements JsonConverter<UEmbed, Map<String, dynamic>> {
+  const _UEmbedConverter();
 
   @override
-  Embed fromJson(Map<String, dynamic> json) {
+  UEmbed fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedRecord) {
-        return Embed.record(
+        return UEmbed.embedRecord(
           data: EmbedRecord.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImages) {
-        return Embed.images(
+        return UEmbed.embedImages(
           data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
-        return Embed.external(
+        return UEmbed.embedExternal(
           data: EmbedExternal.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMedia) {
-        return Embed.recordWithMedia(
+        return UEmbed.embedRecordWithMedia(
           data: EmbedRecordWithMedia.fromJson(json),
         );
       }
 
-      return Embed.unknown(data: json);
+      return UEmbed.unknown(data: json);
     } catch (_) {
-      return Embed.unknown(data: json);
+      return UEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(Embed object) => object.when(
-        record: (data) => data.toJson(),
-        images: (data) => data.toJson(),
-        external: (data) => data.toJson(),
-        recordWithMedia: (data) => data.toJson(),
+  Map<String, dynamic> toJson(UEmbed object) => object.when(
+        embedRecord: (data) => data.toJson(),
+        embedImages: (data) => data.toJson(),
+        embedExternal: (data) => data.toJson(),
+        embedRecordWithMedia: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

@@ -10,24 +10,24 @@ import '../feed_defs_blocked_post.dart';
 import '../feed_defs_not_found_post.dart';
 import '../feed_defs_post_view.dart';
 
-part 'feed_defs_reply_ref_parent_refs.freezed.dart';
+part 'union_reply_ref.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
-class FeedDefsReplyRefParentRefs with _$FeedDefsReplyRefParentRefs {
-  const factory FeedDefsReplyRefParentRefs.postView({
+class UReplyRef with _$UReplyRef {
+  const factory UReplyRef.postView({
     required FeedDefsPostView data,
-  }) = UFeedDefsReplyRefParentPostView;
+  }) = UReplyRefPostView;
 
-  const factory FeedDefsReplyRefParentRefs.notFoundPost({
+  const factory UReplyRef.notFoundPost({
     required FeedDefsNotFoundPost data,
-  }) = UFeedDefsReplyRefParentNotFoundPost;
+  }) = UReplyRefNotFoundPost;
 
-  const factory FeedDefsReplyRefParentRefs.blockedPost({
+  const factory UReplyRef.blockedPost({
     required FeedDefsBlockedPost data,
-  }) = UFeedDefsReplyRefParentBlockedPost;
+  }) = UReplyRefBlockedPost;
 
-  const factory FeedDefsReplyRefParentRefs.unknown({
+  const factory UReplyRef.unknown({
     required Map<String, dynamic> data,
-  }) = UFeedDefsReplyRefParentUnknown;
+  }) = UReplyRefUnknown;
 }

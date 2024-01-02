@@ -8,36 +8,36 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../converters/feed_defs_post_view_embed_converter.dart';
+import '../converters/embed_view_converter.dart';
 import '../embed_external_view.dart';
 import '../embed_images_view.dart';
 import '../embed_record_view.dart';
 import '../embed_record_with_media_view.dart';
 
-part 'union_feed_defs_post_view_embed.freezed.dart';
+part 'union_embed_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
-class UFeedDefsPostViewEmbed with _$UFeedDefsPostViewEmbed {
-  const factory UFeedDefsPostViewEmbed.embedRecordView({
+class UEmbedView with _$UEmbedView {
+  const factory UEmbedView.embedRecordView({
     required EmbedRecordView data,
-  }) = UFeedDefsPostViewEmbedEmbedRecordView;
+  }) = UEmbedViewEmbedRecordView;
 
-  const factory UFeedDefsPostViewEmbed.embedImagesView({
+  const factory UEmbedView.embedImagesView({
     required EmbedImagesView data,
-  }) = UFeedDefsPostViewEmbedEmbedImagesView;
+  }) = UEmbedViewEmbedImagesView;
 
-  const factory UFeedDefsPostViewEmbed.embedExternalView({
+  const factory UEmbedView.embedExternalView({
     required EmbedExternalView data,
-  }) = UFeedDefsPostViewEmbedEmbedExternalView;
+  }) = UEmbedViewEmbedExternalView;
 
-  const factory UFeedDefsPostViewEmbed.embedRecordWithMediaView({
+  const factory UEmbedView.embedRecordWithMediaView({
     required EmbedRecordWithMediaView data,
-  }) = UFeedDefsPostViewEmbedEmbedRecordWithMediaView;
+  }) = UEmbedViewEmbedRecordWithMediaView;
 
-  const factory UFeedDefsPostViewEmbed.unknown({
+  const factory UEmbedView.unknown({
     required Map<String, dynamic> data,
-  }) = UFeedDefsPostViewEmbedUnknown;
+  }) = UEmbedViewUnknown;
 
-  Map<String, dynamic> toJson() => unionFeedDefsPostViewEmbed.toJson(this);
+  Map<String, dynamic> toJson() => unionEmbedView.toJson(this);
 }

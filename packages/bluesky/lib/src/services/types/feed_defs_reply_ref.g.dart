@@ -15,13 +15,9 @@ _$FeedDefsReplyRefImpl _$$FeedDefsReplyRefImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$FeedDefsReplyRefImpl(
           root: $checkedConvert(
-              'root',
-              (v) => feedDefsReplyRefRootRefsConverter
-                  .fromJson(v as Map<String, dynamic>)),
-          parent: $checkedConvert(
-              'parent',
-              (v) => feedDefsReplyRefParentRefsConverter
-                  .fromJson(v as Map<String, dynamic>)),
+              'root', (v) => unionReplyRef.fromJson(v as Map<String, dynamic>)),
+          parent: $checkedConvert('parent',
+              (v) => unionReplyRef.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -30,6 +26,6 @@ _$FeedDefsReplyRefImpl _$$FeedDefsReplyRefImplFromJson(Map json) =>
 Map<String, dynamic> _$$FeedDefsReplyRefImplToJson(
         _$FeedDefsReplyRefImpl instance) =>
     <String, dynamic>{
-      'root': feedDefsReplyRefRootRefsConverter.toJson(instance.root),
-      'parent': feedDefsReplyRefParentRefsConverter.toJson(instance.parent),
+      'root': unionReplyRef.toJson(instance.root),
+      'parent': unionReplyRef.toJson(instance.parent),
     };
