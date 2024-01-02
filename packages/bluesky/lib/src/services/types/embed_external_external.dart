@@ -30,7 +30,3 @@ class EmbedExternalExternal with _$EmbedExternalExternal {
   factory EmbedExternalExternal.fromJson(Map<String, Object?> json) =>
       _$EmbedExternalExternalFromJson(json);
 }
-
-extension EmbedExternalExternalExtension on EmbedExternalExternal {
-  Blob? get blob => thumb;
-}

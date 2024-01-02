@@ -42,7 +42,3 @@ class FeedDefsGeneratorView with _$FeedDefsGeneratorView {
   factory FeedDefsGeneratorView.fromJson(Map<String, Object?> json) =>
       _$FeedDefsGeneratorViewFromJson(json);
 }
-
-extension FeedDefsGeneratorViewExtension on FeedDefsGeneratorView {
-  ActorDefsProfileView get createdBy => creator;
-}

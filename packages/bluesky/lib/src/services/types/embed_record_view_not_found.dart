@@ -28,7 +28,3 @@ class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
   factory EmbedRecordViewNotFound.fromJson(Map<String, Object?> json) =>
       _$EmbedRecordViewNotFoundFromJson(json);
 }
-
-extension EmbedRecordViewNotFoundExtension on EmbedRecordViewNotFound {
-  bool get isNotFound => notFound;
-}

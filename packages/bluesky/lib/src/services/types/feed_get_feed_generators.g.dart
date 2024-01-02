@@ -2,17 +2,18 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'feed_generators.dart';
+part of 'feed_get_feed_generators.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGeneratorsImpl _$$FeedGeneratorsImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedGeneratorsImpl',
+_$FeedGetFeedGeneratorsImpl _$$FeedGetFeedGeneratorsImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedGetFeedGeneratorsImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGeneratorsImpl(
+        final val = _$FeedGetFeedGeneratorsImpl(
           feeds: $checkedConvert(
               'feeds',
               (v) => (v as List<dynamic>)
@@ -25,8 +26,8 @@ _$FeedGeneratorsImpl _$$FeedGeneratorsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FeedGeneratorsImplToJson(
-    _$FeedGeneratorsImpl instance) {
+Map<String, dynamic> _$$FeedGetFeedGeneratorsImplToJson(
+    _$FeedGetFeedGeneratorsImpl instance) {
   final val = <String, dynamic>{
     'feeds': instance.feeds.map((e) => e.toJson()).toList(),
   };

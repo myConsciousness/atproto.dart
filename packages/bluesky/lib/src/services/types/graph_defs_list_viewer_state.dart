@@ -29,17 +29,3 @@ class GraphDefsListViewerState with _$GraphDefsListViewerState {
   factory GraphDefsListViewerState.fromJson(Map<String, Object?> json) =>
       _$GraphDefsListViewerStateFromJson(json);
 }
-
-extension GraphDefsListViewerStateExtension on GraphDefsListViewerState {
-  bool get isMuted => muted;
-
-  /// Returns true if authenticated user has not muted yet this actor,
-  /// otherwise false.
-  bool get isNotMuted => !isMuted;
-
-  /// Returns true if this list is blocked, otherwise false.
-  bool get isBlocked => blocked != null;
-
-  /// Returns true if this list is not blocked, otherwise false.
-  bool get isNotBlocked => !isBlocked;
-}

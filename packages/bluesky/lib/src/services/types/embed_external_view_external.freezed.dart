@@ -26,8 +26,7 @@ mixin _$EmbedExternalViewExternal {
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @JsonKey(name: 'thumb')
-  String? get thumbnail => throw _privateConstructorUsedError;
+  String? get thumb => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +45,7 @@ abstract class $EmbedExternalViewExternalCopyWith<$Res> {
       String uri,
       String title,
       String description,
-      @JsonKey(name: 'thumb') String? thumbnail});
+      String? thumb});
 }
 
 /// @nodoc
@@ -67,7 +66,7 @@ class _$EmbedExternalViewExternalCopyWithImpl<$Res,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
-    Object? thumbnail = freezed,
+    Object? thumb = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -86,9 +85,9 @@ class _$EmbedExternalViewExternalCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: freezed == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
+      thumb: freezed == thumb
+          ? _value.thumb
+          : thumb // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
   }
@@ -108,7 +107,7 @@ abstract class _$$EmbedExternalViewExternalImplCopyWith<$Res>
       String uri,
       String title,
       String description,
-      @JsonKey(name: 'thumb') String? thumbnail});
+      String? thumb});
 }
 
 /// @nodoc
@@ -128,7 +127,7 @@ class __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? title = null,
     Object? description = null,
-    Object? thumbnail = freezed,
+    Object? thumb = freezed,
   }) {
     return _then(_$EmbedExternalViewExternalImpl(
       type: null == type
@@ -147,9 +146,9 @@ class __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
-      thumbnail: freezed == thumbnail
-          ? _value.thumbnail
-          : thumbnail // ignore: cast_nullable_to_non_nullable
+      thumb: freezed == thumb
+          ? _value.thumb
+          : thumb // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -164,7 +163,7 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
       required this.uri,
       required this.title,
       required this.description,
-      @JsonKey(name: 'thumb') this.thumbnail});
+      this.thumb});
 
   factory _$EmbedExternalViewExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedExternalViewExternalImplFromJson(json);
@@ -179,12 +178,11 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
   @override
   final String description;
   @override
-  @JsonKey(name: 'thumb')
-  final String? thumbnail;
+  final String? thumb;
 
   @override
   String toString() {
-    return 'EmbedExternalViewExternal(type: $type, uri: $uri, title: $title, description: $description, thumbnail: $thumbnail)';
+    return 'EmbedExternalViewExternal(type: $type, uri: $uri, title: $title, description: $description, thumb: $thumb)';
   }
 
   @override
@@ -197,14 +195,13 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.thumbnail, thumbnail) ||
-                other.thumbnail == thumbnail));
+            (identical(other.thumb, thumb) || other.thumb == thumb));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, type, uri, title, description, thumbnail);
+      Object.hash(runtimeType, type, uri, title, description, thumb);
 
   @JsonKey(ignore: true)
   @override
@@ -223,12 +220,11 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
 
 abstract class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
   const factory _EmbedExternalViewExternal(
-          {@typeKey final String type,
-          required final String uri,
-          required final String title,
-          required final String description,
-          @JsonKey(name: 'thumb') final String? thumbnail}) =
-      _$EmbedExternalViewExternalImpl;
+      {@typeKey final String type,
+      required final String uri,
+      required final String title,
+      required final String description,
+      final String? thumb}) = _$EmbedExternalViewExternalImpl;
 
   factory _EmbedExternalViewExternal.fromJson(Map<String, dynamic> json) =
       _$EmbedExternalViewExternalImpl.fromJson;
@@ -243,8 +239,7 @@ abstract class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
   @override
   String get description;
   @override
-  @JsonKey(name: 'thumb')
-  String? get thumbnail;
+  String? get thumb;
   @override
   @JsonKey(ignore: true)
   _$$EmbedExternalViewExternalImplCopyWith<_$EmbedExternalViewExternalImpl>

@@ -40,33 +40,3 @@ class GraphDefsListView with _$GraphDefsListView {
   factory GraphDefsListView.fromJson(Map<String, Object?> json) =>
       _$GraphDefsListViewFromJson(json);
 }
-
-extension GraphDefsListViewExtension on GraphDefsListView {
-  ActorDefsProfileView get createdBy => creator;
-
-  /// Returns true if authenticated user has muted this actor,
-  /// otherwise false.
-  bool get isMuted => viewer.isMuted;
-
-  /// Returns true if authenticated user has not muted yet this actor,
-  /// otherwise false.
-  bool get isNotMuted => !isMuted;
-
-  /// Returns true if this list is blocked, otherwise false.
-  bool get isBlocked => viewer.isBlocked;
-
-  /// Returns true if this list is not blocked, otherwise false.
-  bool get isNotBlocked => !isBlocked;
-
-  /// Returns true if this list is for moderation purpose, otherwise false.
-  bool get isModerated => purpose == appBskyGraphDefsModlist;
-
-  /// Returns true if this list is not for moderation purpose, otherwise false.
-  bool get isNotModerated => !isModerated;
-
-  /// Returns true if this list is for curation purpose, otherwise false.
-  bool get isCurated => purpose == appBskyGraphDefsCuratelist;
-
-  /// Returns true if this list is not for curation purpose, otherwise false.
-  bool get isNotCurated => !isCurated;
-}

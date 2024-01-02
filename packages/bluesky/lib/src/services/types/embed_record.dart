@@ -28,7 +28,3 @@ class EmbedRecord with _$EmbedRecord {
   factory EmbedRecord.fromJson(Map<String, Object?> json) =>
       _$EmbedRecordFromJson(json);
 }
-
-extension EmbedRecordExtension on EmbedRecord {
-  StrongRef get ref => record;
-}

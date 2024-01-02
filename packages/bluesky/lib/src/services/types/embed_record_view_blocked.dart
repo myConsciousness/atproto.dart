@@ -30,7 +30,3 @@ class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
   factory EmbedRecordViewBlocked.fromJson(Map<String, Object?> json) =>
       _$EmbedRecordViewBlockedFromJson(json);
 }
-
-extension EmbedRecordViewBlockedExtension on EmbedRecordViewBlocked {
-  bool get isBlocked => blocked;
-}

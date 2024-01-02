@@ -12,19 +12,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'feed_defs_generator_view.dart';
 
-part 'feed_generators.freezed.dart';
-part 'feed_generators.g.dart';
+part 'feed_get_feed_generators.freezed.dart';
+part 'feed_get_feed_generators.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getfeedgenerators/#output
 @freezed
 @lex.appBskyFeedGetFeedGenerators
-class FeedGenerators with _$FeedGenerators {
+class FeedGetFeedGenerators with _$FeedGetFeedGenerators {
   @jsonSerializable
-  const factory FeedGenerators({
+  const factory FeedGetFeedGenerators({
     required List<FeedDefsGeneratorView> feeds,
     String? cursor,
-  }) = _FeedGenerators;
+  }) = _FeedGetFeedGenerators;
 
-  factory FeedGenerators.fromJson(Map<String, Object?> json) =>
-      _$FeedGeneratorsFromJson(json);
+  factory FeedGetFeedGenerators.fromJson(Map<String, Object?> json) =>
+      _$FeedGetFeedGeneratorsFromJson(json);
 }

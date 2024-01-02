@@ -28,7 +28,3 @@ class FeedDefsNotFoundPost with _$FeedDefsNotFoundPost {
   factory FeedDefsNotFoundPost.fromJson(Map<String, Object?> json) =>
       _$FeedDefsNotFoundPostFromJson(json);
 }
-
-extension FeedDefsNotFoundPostExtension on FeedDefsNotFoundPost {
-  bool get isNotFound => notFound;
-}

@@ -3,14 +3,9 @@
 // modification, are permitted provided the conditions.
 
 import '../actor_defs_profile_view.dart';
-import '../actor_defs_profile_view_basic.dart';
-import '../actor_defs_viewer_state.dart';
+import 'actor_defs_viewer_state_extension.dart';
 
-extension ActorDefsProfileViewBasicExtension on ActorDefsProfileViewBasic {
-  /// Returns the [ActorDefsProfileView] representation of this object.
-  ActorDefsProfileView toProfileView() =>
-      ActorDefsProfileView.fromJson(toJson());
-
+extension ActorDefsProfileViewExtension on ActorDefsProfileView {
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.
   bool get isMuted => viewer.isMuted;

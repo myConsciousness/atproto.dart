@@ -31,7 +31,3 @@ class EmbedImagesViewImage with _$EmbedImagesViewImage {
   factory EmbedImagesViewImage.fromJson(Map<String, Object?> json) =>
       _$EmbedImagesViewImageFromJson(json);
 }
-
-extension EmbedImagesViewImageExtension on EmbedImagesViewImage {
-  String get thumbnail => thumb;
-}

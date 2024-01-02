@@ -30,7 +30,3 @@ class ActorDefsThreadViewPref with _$ActorDefsThreadViewPref {
   factory ActorDefsThreadViewPref.fromJson(Map<String, Object?> json) =>
       _$ActorDefsThreadViewPrefFromJson(json);
 }
-
-extension ActorDefsThreadViewPrefExtension on ActorDefsThreadViewPref {
-  bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
-}

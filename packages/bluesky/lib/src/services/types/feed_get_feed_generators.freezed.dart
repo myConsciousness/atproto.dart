@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed_generators.dart';
+part of 'feed_get_feed_generators.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,34 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedGenerators _$FeedGeneratorsFromJson(Map<String, dynamic> json) {
-  return _FeedGenerators.fromJson(json);
+FeedGetFeedGenerators _$FeedGetFeedGeneratorsFromJson(
+    Map<String, dynamic> json) {
+  return _FeedGetFeedGenerators.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedGenerators {
+mixin _$FeedGetFeedGenerators {
   List<FeedDefsGeneratorView> get feeds => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedGeneratorsCopyWith<FeedGenerators> get copyWith =>
+  $FeedGetFeedGeneratorsCopyWith<FeedGetFeedGenerators> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedGeneratorsCopyWith<$Res> {
-  factory $FeedGeneratorsCopyWith(
-          FeedGenerators value, $Res Function(FeedGenerators) then) =
-      _$FeedGeneratorsCopyWithImpl<$Res, FeedGenerators>;
+abstract class $FeedGetFeedGeneratorsCopyWith<$Res> {
+  factory $FeedGetFeedGeneratorsCopyWith(FeedGetFeedGenerators value,
+          $Res Function(FeedGetFeedGenerators) then) =
+      _$FeedGetFeedGeneratorsCopyWithImpl<$Res, FeedGetFeedGenerators>;
   @useResult
   $Res call({List<FeedDefsGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class _$FeedGeneratorsCopyWithImpl<$Res, $Val extends FeedGenerators>
-    implements $FeedGeneratorsCopyWith<$Res> {
-  _$FeedGeneratorsCopyWithImpl(this._value, this._then);
+class _$FeedGetFeedGeneratorsCopyWithImpl<$Res,
+        $Val extends FeedGetFeedGenerators>
+    implements $FeedGetFeedGeneratorsCopyWith<$Res> {
+  _$FeedGetFeedGeneratorsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,22 +70,24 @@ class _$FeedGeneratorsCopyWithImpl<$Res, $Val extends FeedGenerators>
 }
 
 /// @nodoc
-abstract class _$$FeedGeneratorsImplCopyWith<$Res>
-    implements $FeedGeneratorsCopyWith<$Res> {
-  factory _$$FeedGeneratorsImplCopyWith(_$FeedGeneratorsImpl value,
-          $Res Function(_$FeedGeneratorsImpl) then) =
-      __$$FeedGeneratorsImplCopyWithImpl<$Res>;
+abstract class _$$FeedGetFeedGeneratorsImplCopyWith<$Res>
+    implements $FeedGetFeedGeneratorsCopyWith<$Res> {
+  factory _$$FeedGetFeedGeneratorsImplCopyWith(
+          _$FeedGetFeedGeneratorsImpl value,
+          $Res Function(_$FeedGetFeedGeneratorsImpl) then) =
+      __$$FeedGetFeedGeneratorsImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FeedDefsGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class __$$FeedGeneratorsImplCopyWithImpl<$Res>
-    extends _$FeedGeneratorsCopyWithImpl<$Res, _$FeedGeneratorsImpl>
-    implements _$$FeedGeneratorsImplCopyWith<$Res> {
-  __$$FeedGeneratorsImplCopyWithImpl(
-      _$FeedGeneratorsImpl _value, $Res Function(_$FeedGeneratorsImpl) _then)
+class __$$FeedGetFeedGeneratorsImplCopyWithImpl<$Res>
+    extends _$FeedGetFeedGeneratorsCopyWithImpl<$Res,
+        _$FeedGetFeedGeneratorsImpl>
+    implements _$$FeedGetFeedGeneratorsImplCopyWith<$Res> {
+  __$$FeedGetFeedGeneratorsImplCopyWithImpl(_$FeedGetFeedGeneratorsImpl _value,
+      $Res Function(_$FeedGetFeedGeneratorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +96,7 @@ class __$$FeedGeneratorsImplCopyWithImpl<$Res>
     Object? feeds = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$FeedGeneratorsImpl(
+    return _then(_$FeedGetFeedGeneratorsImpl(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
@@ -108,13 +112,13 @@ class __$$FeedGeneratorsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedGeneratorsImpl implements _FeedGenerators {
-  const _$FeedGeneratorsImpl(
+class _$FeedGetFeedGeneratorsImpl implements _FeedGetFeedGenerators {
+  const _$FeedGetFeedGeneratorsImpl(
       {required final List<FeedDefsGeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
-  factory _$FeedGeneratorsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGeneratorsImplFromJson(json);
+  factory _$FeedGetFeedGeneratorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGetFeedGeneratorsImplFromJson(json);
 
   final List<FeedDefsGeneratorView> _feeds;
   @override
@@ -129,14 +133,14 @@ class _$FeedGeneratorsImpl implements _FeedGenerators {
 
   @override
   String toString() {
-    return 'FeedGenerators(feeds: $feeds, cursor: $cursor)';
+    return 'FeedGetFeedGenerators(feeds: $feeds, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGeneratorsImpl &&
+            other is _$FeedGetFeedGeneratorsImpl &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,25 +153,25 @@ class _$FeedGeneratorsImpl implements _FeedGenerators {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedGeneratorsImplCopyWith<_$FeedGeneratorsImpl> get copyWith =>
-      __$$FeedGeneratorsImplCopyWithImpl<_$FeedGeneratorsImpl>(
-          this, _$identity);
+  _$$FeedGetFeedGeneratorsImplCopyWith<_$FeedGetFeedGeneratorsImpl>
+      get copyWith => __$$FeedGetFeedGeneratorsImplCopyWithImpl<
+          _$FeedGetFeedGeneratorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedGeneratorsImplToJson(
+    return _$$FeedGetFeedGeneratorsImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedGenerators implements FeedGenerators {
-  const factory _FeedGenerators(
+abstract class _FeedGetFeedGenerators implements FeedGetFeedGenerators {
+  const factory _FeedGetFeedGenerators(
       {required final List<FeedDefsGeneratorView> feeds,
-      final String? cursor}) = _$FeedGeneratorsImpl;
+      final String? cursor}) = _$FeedGetFeedGeneratorsImpl;
 
-  factory _FeedGenerators.fromJson(Map<String, dynamic> json) =
-      _$FeedGeneratorsImpl.fromJson;
+  factory _FeedGetFeedGenerators.fromJson(Map<String, dynamic> json) =
+      _$FeedGetFeedGeneratorsImpl.fromJson;
 
   @override
   List<FeedDefsGeneratorView> get feeds;
@@ -175,6 +179,6 @@ abstract class _FeedGenerators implements FeedGenerators {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$FeedGeneratorsImplCopyWith<_$FeedGeneratorsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedGetFeedGeneratorsImplCopyWith<_$FeedGetFeedGeneratorsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

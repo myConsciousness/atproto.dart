@@ -25,7 +25,7 @@ class EmbedExternalViewExternal with _$EmbedExternalViewExternal {
     required String uri,
     required String title,
     required String description,
-    @JsonKey(name: 'thumb') String? thumbnail,
+    String? thumb,
   }) = _EmbedExternalViewExternal;
 
   factory EmbedExternalViewExternal.fromJson(Map<String, Object?> json) =>

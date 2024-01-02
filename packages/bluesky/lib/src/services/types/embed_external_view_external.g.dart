@@ -20,11 +20,11 @@ _$EmbedExternalViewExternalImpl _$$EmbedExternalViewExternalImplFromJson(
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
-          thumbnail: $checkedConvert('thumb', (v) => v as String?),
+          thumb: $checkedConvert('thumb', (v) => v as String?),
         );
         return val;
       },
-      fieldKeyMap: const {'type': r'$type', 'thumbnail': 'thumb'},
+      fieldKeyMap: const {'type': r'$type'},
     );
 
 Map<String, dynamic> _$$EmbedExternalViewExternalImplToJson(
@@ -42,6 +42,6 @@ Map<String, dynamic> _$$EmbedExternalViewExternalImplToJson(
     }
   }
 
-  writeNotNull('thumb', instance.thumbnail);
+  writeNotNull('thumb', instance.thumb);
   return val;
 }

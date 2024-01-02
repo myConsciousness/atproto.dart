@@ -29,8 +29,3 @@ class ActorDefsSavedFeedsPref with _$ActorDefsSavedFeedsPref {
   factory ActorDefsSavedFeedsPref.fromJson(Map<String, Object?> json) =>
       _$ActorDefsSavedFeedsPrefFromJson(json);
 }
-
-extension ActorDefsSavedFeedsPrefExtension on ActorDefsSavedFeedsPref {
-  List<AtUri> get pinnedUris => pinned;
-  List<AtUri> get savedUris => saved;
-}

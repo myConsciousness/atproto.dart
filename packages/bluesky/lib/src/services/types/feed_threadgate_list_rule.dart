@@ -28,7 +28,3 @@ class FeedThreadgateListRule with _$FeedThreadgateListRule {
   factory FeedThreadgateListRule.fromJson(Map<String, Object?> json) =>
       _$FeedThreadgateListRuleFromJson(json);
 }
-
-extension FeedThreadgateListRuleExtension on FeedThreadgateListRule {
-  AtUri get listUri => list;
-}

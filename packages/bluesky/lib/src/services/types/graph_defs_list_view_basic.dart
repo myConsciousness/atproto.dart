@@ -35,19 +35,3 @@ class GraphDefsListViewBasic with _$GraphDefsListViewBasic {
   factory GraphDefsListViewBasic.fromJson(Map<String, Object?> json) =>
       _$GraphDefsListViewBasicFromJson(json);
 }
-
-extension GraphDefsListViewBasicExtension on GraphDefsListViewBasic {
-  /// Returns true if authenticated user has muted this actor,
-  /// otherwise false.
-  bool get isMuted => viewer.isMuted;
-
-  /// Returns true if authenticated user has not muted yet this actor,
-  /// otherwise false.
-  bool get isNotMuted => !isMuted;
-
-  /// Returns true if this list is blocked, otherwise false.
-  bool get isBlocked => viewer.isBlocked;
-
-  /// Returns true if this list is not blocked, otherwise false.
-  bool get isNotBlocked => !isBlocked;
-}

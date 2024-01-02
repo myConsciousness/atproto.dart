@@ -28,13 +28,3 @@ class GraphGetLists with _$GraphGetLists {
   factory GraphGetLists.fromJson(Map<String, Object?> json) =>
       _$GraphGetListsFromJson(json);
 }
-
-extension GraphGetListsExtension on GraphGetLists {
-  /// Returns only moderated lists.
-  List<GraphDefsListView> get moderatedLists =>
-      lists.where((element) => element.isModerated).toList();
-
-  /// Returns only curated lists.
-  List<GraphDefsListView> get curatedLists =>
-      lists.where((element) => element.isCurated).toList();
-}
