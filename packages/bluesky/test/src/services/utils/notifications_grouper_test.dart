@@ -13,7 +13,7 @@ import 'package:bluesky/src/services/types/extensions/notification_list_notifica
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 import 'package:bluesky/src/services/utils/notifications_grouper.dart';
 
-import 'package:bluesky/src/services/types/notification_list_notifications.dart'
+import 'package:bluesky/src/services/types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
 
 const _grouper = NotificationsGrouper();

@@ -3,23 +3,26 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'notification_list_notifications_notification.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view.dart';
 
-part 'notification_list_notifications.freezed.dart';
-part 'notification_list_notifications.g.dart';
+part 'feed_get_reposted_by.freezed.dart';
+part 'feed_get_reposted_by.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getrepostedby/#output
 @freezed
-@lex.appBskyNotificationListNotifications
+@lex.appBskyFeedGetRepostedBy
 class Output with _$Output {
+  @jsonSerializable
   const factory Output({
-    required List<Notification> notifications,
+    required List<ProfileView> repostedBy,
+    @atUriConverter required AtUri uri,
+    String? cid,
     String? cursor,
-    DateTime? seenAt,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

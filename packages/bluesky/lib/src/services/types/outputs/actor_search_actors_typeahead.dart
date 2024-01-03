@@ -6,8 +6,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'actor_defs_profile_view_basic.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view_basic.dart';
 
 part 'actor_search_actors_typeahead.freezed.dart';
 part 'actor_search_actors_typeahead.g.dart';

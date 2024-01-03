@@ -2,26 +2,25 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'actor_defs_profile_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../unspecced_defs_skeleton_search_actor.dart';
 
-part 'feed_get_reposted_by.freezed.dart';
-part 'feed_get_reposted_by.g.dart';
+part 'unspecced_search_actors_skeleton.freezed.dart';
+part 'unspecced_search_actors_skeleton.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getrepostedby/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchactorsskeleton/#output
 @freezed
-@lex.appBskyFeedGetRepostedBy
+@lex.appBskyUnspeccedSearchActorsSkeleton
 class Output with _$Output {
-  @jsonSerializable
   const factory Output({
-    required List<ProfileView> repostedBy,
-    @atUriConverter required AtUri uri,
-    String? cid,
+    required List<SkeletonSearchActor> actors,
+    @Default(0) int hitsTotal,
     String? cursor,
   }) = _Output;
 

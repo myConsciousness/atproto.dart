@@ -2,22 +2,27 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'actor_defs_profile_view_detailed.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../graph_defs_list_view.dart';
 
-part 'actor_get_profiles.freezed.dart';
-part 'actor_get_profiles.g.dart';
+part 'graph_get_lists.freezed.dart';
+part 'graph_get_lists.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofiles/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
-@lex.appBskyActorGetProfiles
+@lex.appBskyGraphGetLists
 class Output with _$Output {
+  @jsonSerializable
   const factory Output({
-    required List<ProfileViewDetailed> profiles,
+    required List<ListView> lists,
+    String? cursor,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

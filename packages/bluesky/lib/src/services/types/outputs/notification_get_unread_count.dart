@@ -2,27 +2,21 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'graph_defs_list_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
 
-part 'graph_get_lists.freezed.dart';
-part 'graph_get_lists.g.dart';
+part 'notification_get_unread_count.freezed.dart';
+part 'notification_get_unread_count.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/notification/getunreadcount/#output
 @freezed
-@lex.appBskyGraphGetLists
+@lex.appBskyNotificationGetUnreadCount
 class Output with _$Output {
-  @jsonSerializable
   const factory Output({
-    required List<ListView> lists,
-    String? cursor,
+    @Default(0) int count,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

@@ -8,19 +8,18 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'unspecced_defs_skeleton_search_post.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view.dart';
 
-part 'unspecced_search_posts_skeleton.freezed.dart';
-part 'unspecced_search_posts_skeleton.g.dart';
+part 'actor_search_actors.freezed.dart';
+part 'actor_search_actors.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchpostsskeleton/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#output
 @freezed
-@lex.appBskyUnspeccedSearchPostsSkeleton
+@lex.appBskyActorSearchActors
 class Output with _$Output {
   const factory Output({
-    required List<SkeletonSearchPost> posts,
-    @Default(0) int hitsTotal,
+    required List<ProfileView> actors,
     String? cursor,
   }) = _Output;
 

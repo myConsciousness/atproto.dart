@@ -2,26 +2,24 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'unspecced_defs_skeleton_search_actor.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../notification_list_notifications_notification.dart';
 
-part 'unspecced_search_actors_skeleton.freezed.dart';
-part 'unspecced_search_actors_skeleton.g.dart';
+part 'notification_list_notifications.freezed.dart';
+part 'notification_list_notifications.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchactorsskeleton/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
 @freezed
-@lex.appBskyUnspeccedSearchActorsSkeleton
+@lex.appBskyNotificationListNotifications
 class Output with _$Output {
   const factory Output({
-    required List<SkeletonSearchActor> actors,
-    @Default(0) int hitsTotal,
+    required List<Notification> notifications,
     String? cursor,
+    DateTime? seenAt,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

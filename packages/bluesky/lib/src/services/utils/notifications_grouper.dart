@@ -15,7 +15,7 @@ import '../types/notification_list_notifications_notification.dart';
 import 'group_by.dart';
 import 'notification_reason_filter.dart';
 
-import '../types/notification_list_notifications.dart'
+import '../types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
 
 const _groupableReasons = <NotificationReason>[

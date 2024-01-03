@@ -11,7 +11,7 @@ import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
 import '../types/notification_list_notifications_notification.dart';
 
-import '../types/notification_list_notifications.dart'
+import '../types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
 
 sealed class NotificationReasonFilter {

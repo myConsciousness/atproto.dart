@@ -9,20 +9,21 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_get_likes_like.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../graph_defs_list_item_view.dart';
+import '../graph_defs_list_view.dart';
 
-part 'feed_get_likes.freezed.dart';
-part 'feed_get_likes.g.dart';
+part 'graph_get_list.freezed.dart';
+part 'graph_get_list.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
-@lex.appBskyFeedGetLikes
+@lex.appBskyGraphGetList
 class Output with _$Output {
+  @jsonSerializable
   const factory Output({
-    required List<Like> likes,
-    @atUriConverter required AtUri uri,
-    String? cid,
+    required ListView list,
+    required List<ListItemView> items,
     String? cursor,
   }) = _Output;
 

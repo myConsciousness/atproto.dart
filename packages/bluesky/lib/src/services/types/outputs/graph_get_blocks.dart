@@ -9,19 +9,19 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_defs_generator_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view.dart';
 
-part 'feed_get_feed_generators.freezed.dart';
-part 'feed_get_feed_generators.g.dart';
+part 'graph_get_blocks.freezed.dart';
+part 'graph_get_blocks.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getfeedgenerators/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getblocks/#output
 @freezed
-@lex.appBskyFeedGetFeedGenerators
+@lex.appBskyGraphGetBlocks
 class Output with _$Output {
   @jsonSerializable
   const factory Output({
-    required List<GeneratorView> feeds,
+    required List<ProfileView> blocks,
     String? cursor,
   }) = _Output;
 

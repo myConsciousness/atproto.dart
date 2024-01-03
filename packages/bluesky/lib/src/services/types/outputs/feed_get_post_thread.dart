@@ -2,27 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_defs_generator_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../converters/post_thread_view_converter.dart';
+import '../unions/post_thread_view.dart';
 
-part 'feed_get_actor_feeds.freezed.dart';
-part 'feed_get_actor_feeds.g.dart';
+part 'feed_get_post_thread.freezed.dart';
+part 'feed_get_post_thread.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getactorfeeds/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
-@lex.appBskyFeedGetActorFeeds
+@lex.appBskyFeedGetPostThread
 class Output with _$Output {
-  @jsonSerializable
   const factory Output({
-    required List<GeneratorView> feeds,
-    String? cursor,
+    @postThreadViewConverter required PostThreadView thread,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

@@ -9,21 +9,20 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_defs_generator_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../feed_defs_skeleton_feed_post.dart';
 
-part 'feed_get_feed_generator.freezed.dart';
-part 'feed_get_feed_generator.g.dart';
+part 'unspecced_get_timeline_skeleton.freezed.dart';
+part 'unspecced_get_timeline_skeleton.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getfeedgenerator/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
 @freezed
-@lex.appBskyFeedGetFeedGenerator
+@lex.appBskyUnspeccedGetTimelineSkeleton
 class Output with _$Output {
   @jsonSerializable
   const factory Output({
-    required GeneratorView view,
-    @Default(false) bool isOnline,
-    @Default(false) bool isValid,
+    required List<SkeletonFeedPost> feed,
+    String? cursor,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

@@ -4,7 +4,7 @@
 
 // 🌎 Project imports:
 import '../graph_defs_list_view.dart';
-import '../graph_get_lists.dart' as graph_get_lists;
+import '../outputs/graph_get_lists.dart' as graph_get_lists;
 import 'graph_defs_list_view_extension.dart';
 
 extension OutputExtension on graph_get_lists.Output {

@@ -5,26 +5,21 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'graph_defs_list_item_view.dart';
-import 'graph_defs_list_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view.dart';
 
-part 'graph_get_list.freezed.dart';
-part 'graph_get_list.g.dart';
+part 'graph_get_suggested_follows_by_actor.freezed.dart';
+part 'graph_get_suggested_follows_by_actor.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getsuggestedfollowsbyactor/#output
 @freezed
-@lex.appBskyGraphGetList
+@lex.appBskyGraphGetSuggestedFollowsByActor
 class Output with _$Output {
-  @jsonSerializable
   const factory Output({
-    required ListView list,
-    required List<ListItemView> items,
-    String? cursor,
+    required List<ProfileView> suggestions,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

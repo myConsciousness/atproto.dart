@@ -5,22 +5,24 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'converters/preference_converter.dart';
-import 'unions/preference.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../feed_defs_feed_view_post.dart';
 
-part 'actor_get_preferences.freezed.dart';
-part 'actor_get_preferences.g.dart';
+part 'feed_get_author_feed.freezed.dart';
+part 'feed_get_author_feed.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
-@lex.appBskyActorGetPreferences
+@lex.appBskyFeedGetAuthorFeed
 class Output with _$Output {
+  @jsonSerializable
   const factory Output({
-    @preferenceConverter required List<Preference> preferences,
+    required List<FeedViewPost> feed,
+    String? cursor,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../types/notification_list_notifications.dart'
+import '../types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
 
 // 🌎 Project imports:

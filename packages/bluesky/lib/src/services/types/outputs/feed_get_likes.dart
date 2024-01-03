@@ -2,21 +2,28 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: invalid_annotation_target
+
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
+import '../../../lex_annotations.g.dart' as lex;
+import 'feed_get_likes_like.dart';
 
-part 'notification_get_unread_count.freezed.dart';
-part 'notification_get_unread_count.g.dart';
+part 'feed_get_likes.freezed.dart';
+part 'feed_get_likes.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/notification/getunreadcount/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
 @freezed
-@lex.appBskyNotificationGetUnreadCount
+@lex.appBskyFeedGetLikes
 class Output with _$Output {
   const factory Output({
-    @Default(0) int count,
+    required List<Like> likes,
+    @atUriConverter required AtUri uri,
+    String? cid,
+    String? cursor,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

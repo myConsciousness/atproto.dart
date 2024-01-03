@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_defs_viewer_state.dart';
-import 'actor_get_profile.dart' as actor_get_profile;
+import 'outputs/actor_get_profile.dart' as actor_get_profile;
 
 part 'actor_defs_profile_view_detailed.freezed.dart';
 part 'actor_defs_profile_view_detailed.g.dart';

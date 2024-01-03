@@ -13,7 +13,7 @@ import 'package:bluesky/src/services/types/actor_defs_profile_view.dart';
 import 'package:bluesky/src/services/types/notification_list_notifications_notification.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 
-import 'package:bluesky/src/services/types/notification_list_notifications.dart'
+import 'package:bluesky/src/services/types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
 
 final _baseNotification = Notification(

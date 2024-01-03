@@ -9,19 +9,20 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_defs_skeleton_feed_post.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../feed_defs_post_view.dart';
 
-part 'unspecced_get_timeline_skeleton.freezed.dart';
-part 'unspecced_get_timeline_skeleton.g.dart';
+part 'feed_search_posts.freezed.dart';
+part 'feed_search_posts.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchposts/#output
 @freezed
-@lex.appBskyUnspeccedGetTimelineSkeleton
+@lex.appBskyFeedSearchPosts
 class Output with _$Output {
   @jsonSerializable
   const factory Output({
-    required List<SkeletonFeedPost> feed,
+    required List<PostView> posts,
+    @Default(0) int hitsTotal,
     String? cursor,
   }) = _Output;
 

@@ -5,21 +5,25 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-import 'feed_defs_post_view.dart';
+import '../../../lex_annotations.g.dart' as lex;
+import '../actor_defs_profile_view.dart';
 
-part 'feed_get_posts.freezed.dart';
-part 'feed_get_posts.g.dart';
+part 'graph_get_follows.freezed.dart';
+part 'graph_get_follows.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getposts/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollows/#output
 @freezed
-@lex.appBskyFeedGetPosts
+@lex.appBskyGraphGetFollows
 class Output with _$Output {
+  @jsonSerializable
   const factory Output({
-    required List<PostView> posts,
+    required ProfileView subject,
+    required List<ProfileView> follows,
+    String? cursor,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
