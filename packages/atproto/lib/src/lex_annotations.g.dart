@@ -393,6 +393,10 @@ const comAtprotoAdminDefsModEventTakedown =
 const comAtprotoAdminDefsModEventReverseTakedown =
     LexObject(ids.comAtprotoAdminDefsModEventReverseTakedown);
 
+/// `com.atproto.admin.defs#modEventResolveAppeal`
+const comAtprotoAdminDefsModEventResolveAppeal =
+    LexObject(ids.comAtprotoAdminDefsModEventResolveAppeal);
+
 /// `com.atproto.admin.defs#modEventComment`
 const comAtprotoAdminDefsModEventComment =
     LexObject(ids.comAtprotoAdminDefsModEventComment);

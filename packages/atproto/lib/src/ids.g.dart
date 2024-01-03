@@ -47,6 +47,10 @@ const comAtprotoAdminDefsModEventMute = 'com.atproto.admin.defs#modEventMute';
 const comAtprotoAdminDefsModEventReport =
     'com.atproto.admin.defs#modEventReport';
 
+/// `com.atproto.admin.defs#modEventResolveAppeal`
+const comAtprotoAdminDefsModEventResolveAppeal =
+    'com.atproto.admin.defs#modEventResolveAppeal';
+
 /// `com.atproto.admin.defs#modEventReverseTakedown`
 const comAtprotoAdminDefsModEventReverseTakedown =
     'com.atproto.admin.defs#modEventReverseTakedown';
@@ -233,6 +237,10 @@ const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
 
 /// `com.atproto.moderation.defs`
 const comAtprotoModerationDefs = 'com.atproto.moderation.defs';
+
+/// `com.atproto.moderation.defs#reasonAppeal`
+const comAtprotoModerationDefsReasonAppeal =
+    'com.atproto.moderation.defs#reasonAppeal';
 
 /// `com.atproto.moderation.defs#reasonMisleading`
 const comAtprotoModerationDefsReasonMisleading =

@@ -33,4 +33,4 @@ description: app.bsky.embed.external
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
-| **thumb** | string | - | ❌ | - |
+| **thumb** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
