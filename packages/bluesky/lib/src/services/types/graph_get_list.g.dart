@@ -8,11 +8,11 @@ part of 'graph_get_list.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListOutputImpl _$$ListOutputImplFromJson(Map json) => $checkedCreate(
-      r'_$ListOutputImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ListOutputImpl(
+        final val = _$OutputImpl(
           list: $checkedConvert('list',
               (v) => ListView.fromJson(Map<String, Object?>.from(v as Map))),
           items: $checkedConvert(
@@ -27,7 +27,7 @@ _$ListOutputImpl _$$ListOutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ListOutputImplToJson(_$ListOutputImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'list': instance.list.toJson(),
     'items': instance.items.map((e) => e.toJson()).toList(),

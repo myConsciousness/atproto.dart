@@ -14,35 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PostsSkeleton _$PostsSkeletonFromJson(Map<String, dynamic> json) {
-  return _PostsSkeleton.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PostsSkeleton {
+mixin _$Output {
   List<SkeletonSearchPost> get posts => throw _privateConstructorUsedError;
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PostsSkeletonCopyWith<PostsSkeleton> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PostsSkeletonCopyWith<$Res> {
-  factory $PostsSkeletonCopyWith(
-          PostsSkeleton value, $Res Function(PostsSkeleton) then) =
-      _$PostsSkeletonCopyWithImpl<$Res, PostsSkeleton>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<SkeletonSearchPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class _$PostsSkeletonCopyWithImpl<$Res, $Val extends PostsSkeleton>
-    implements $PostsSkeletonCopyWith<$Res> {
-  _$PostsSkeletonCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -74,22 +72,21 @@ class _$PostsSkeletonCopyWithImpl<$Res, $Val extends PostsSkeleton>
 }
 
 /// @nodoc
-abstract class _$$PostsSkeletonImplCopyWith<$Res>
-    implements $PostsSkeletonCopyWith<$Res> {
-  factory _$$PostsSkeletonImplCopyWith(
-          _$PostsSkeletonImpl value, $Res Function(_$PostsSkeletonImpl) then) =
-      __$$PostsSkeletonImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<SkeletonSearchPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$PostsSkeletonImplCopyWithImpl<$Res>
-    extends _$PostsSkeletonCopyWithImpl<$Res, _$PostsSkeletonImpl>
-    implements _$$PostsSkeletonImplCopyWith<$Res> {
-  __$$PostsSkeletonImplCopyWithImpl(
-      _$PostsSkeletonImpl _value, $Res Function(_$PostsSkeletonImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +96,7 @@ class __$$PostsSkeletonImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$PostsSkeletonImpl(
+    return _then(_$OutputImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -118,15 +115,15 @@ class __$$PostsSkeletonImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PostsSkeletonImpl implements _PostsSkeleton {
-  const _$PostsSkeletonImpl(
+class _$OutputImpl implements _Output {
+  const _$OutputImpl(
       {required final List<SkeletonSearchPost> posts,
       this.hitsTotal = 0,
       this.cursor})
       : _posts = posts;
 
-  factory _$PostsSkeletonImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PostsSkeletonImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<SkeletonSearchPost> _posts;
   @override
@@ -144,14 +141,14 @@ class _$PostsSkeletonImpl implements _PostsSkeleton {
 
   @override
   String toString() {
-    return 'PostsSkeleton(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
+    return 'Output(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PostsSkeletonImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -166,25 +163,24 @@ class _$PostsSkeletonImpl implements _PostsSkeleton {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PostsSkeletonImplCopyWith<_$PostsSkeletonImpl> get copyWith =>
-      __$$PostsSkeletonImplCopyWithImpl<_$PostsSkeletonImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PostsSkeletonImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _PostsSkeleton implements PostsSkeleton {
-  const factory _PostsSkeleton(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final List<SkeletonSearchPost> posts,
       final int hitsTotal,
-      final String? cursor}) = _$PostsSkeletonImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _PostsSkeleton.fromJson(Map<String, dynamic> json) =
-      _$PostsSkeletonImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<SkeletonSearchPost> get posts;
@@ -194,6 +190,6 @@ abstract class _PostsSkeleton implements PostsSkeleton {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$PostsSkeletonImplCopyWith<_$PostsSkeletonImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -31,7 +31,7 @@ class GeneratorView with _$GeneratorView {
     required ProfileView creator,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    List<Main>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
     @Default(defaultFeedDefsGeneratorViewerState) GeneratorViewerState viewer,

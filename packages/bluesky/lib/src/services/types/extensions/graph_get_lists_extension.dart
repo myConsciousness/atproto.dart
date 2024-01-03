@@ -4,10 +4,10 @@
 
 // 🌎 Project imports:
 import '../graph_defs_list_view.dart';
-import '../graph_get_lists.dart';
+import '../graph_get_lists.dart' as graph_get_lists;
 import 'graph_defs_list_view_extension.dart';
 
-extension ListsExtension on Lists {
+extension OutputExtension on graph_get_lists.Output {
   /// Returns only moderated lists.
   List<ListView> get moderatedLists =>
       lists.where((element) => element.isModerated).toList();

@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Mutes _$MutesFromJson(Map<String, dynamic> json) {
-  return _Mutes.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Mutes {
+mixin _$Output {
   List<ProfileView> get mutes => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MutesCopyWith<Mutes> get copyWith => throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MutesCopyWith<$Res> {
-  factory $MutesCopyWith(Mutes value, $Res Function(Mutes) then) =
-      _$MutesCopyWithImpl<$Res, Mutes>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
-class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
-    implements $MutesCopyWith<$Res> {
-  _$MutesCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,21 +66,21 @@ class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
 }
 
 /// @nodoc
-abstract class _$$MutesImplCopyWith<$Res> implements $MutesCopyWith<$Res> {
-  factory _$$MutesImplCopyWith(
-          _$MutesImpl value, $Res Function(_$MutesImpl) then) =
-      __$$MutesImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
-class __$$MutesImplCopyWithImpl<$Res>
-    extends _$MutesCopyWithImpl<$Res, _$MutesImpl>
-    implements _$$MutesImplCopyWith<$Res> {
-  __$$MutesImplCopyWithImpl(
-      _$MutesImpl _value, $Res Function(_$MutesImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class __$$MutesImplCopyWithImpl<$Res>
     Object? mutes = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$MutesImpl(
+    return _then(_$OutputImpl(
       mutes: null == mutes
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
@@ -105,12 +105,12 @@ class __$$MutesImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$MutesImpl implements _Mutes {
-  const _$MutesImpl({required final List<ProfileView> mutes, this.cursor})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<ProfileView> mutes, this.cursor})
       : _mutes = mutes;
 
-  factory _$MutesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MutesImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<ProfileView> _mutes;
   @override
@@ -125,14 +125,14 @@ class _$MutesImpl implements _Mutes {
 
   @override
   String toString() {
-    return 'Mutes(mutes: $mutes, cursor: $cursor)';
+    return 'Output(mutes: $mutes, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MutesImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._mutes, _mutes) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -145,23 +145,23 @@ class _$MutesImpl implements _Mutes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
-      __$$MutesImplCopyWithImpl<_$MutesImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MutesImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Mutes implements Mutes {
-  const factory _Mutes(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final List<ProfileView> mutes,
-      final String? cursor}) = _$MutesImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _Mutes.fromJson(Map<String, dynamic> json) = _$MutesImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<ProfileView> get mutes;
@@ -169,6 +169,6 @@ abstract class _Mutes implements Mutes {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

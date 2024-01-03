@@ -14,27 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedGenerator _$FeedGeneratorFromJson(Map<String, dynamic> json) {
-  return _FeedGenerator.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _FOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedGenerator {
+mixin _$Output {
   String get did => throw _privateConstructorUsedError;
   List<Feed> get feeds => throw _privateConstructorUsedError;
   Links? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedGeneratorCopyWith<FeedGenerator> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedGeneratorCopyWith<$Res> {
-  factory $FeedGeneratorCopyWith(
-          FeedGenerator value, $Res Function(FeedGenerator) then) =
-      _$FeedGeneratorCopyWithImpl<$Res, FeedGenerator>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({String did, List<Feed> feeds, Links? links});
 
@@ -42,9 +40,9 @@ abstract class $FeedGeneratorCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FeedGeneratorCopyWithImpl<$Res, $Val extends FeedGenerator>
-    implements $FeedGeneratorCopyWith<$Res> {
-  _$FeedGeneratorCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,11 +86,10 @@ class _$FeedGeneratorCopyWithImpl<$Res, $Val extends FeedGenerator>
 }
 
 /// @nodoc
-abstract class _$$FeedGeneratorImplCopyWith<$Res>
-    implements $FeedGeneratorCopyWith<$Res> {
-  factory _$$FeedGeneratorImplCopyWith(
-          _$FeedGeneratorImpl value, $Res Function(_$FeedGeneratorImpl) then) =
-      __$$FeedGeneratorImplCopyWithImpl<$Res>;
+abstract class _$$FOutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$FOutputImplCopyWith(
+          _$FOutputImpl value, $Res Function(_$FOutputImpl) then) =
+      __$$FOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, List<Feed> feeds, Links? links});
@@ -102,11 +99,11 @@ abstract class _$$FeedGeneratorImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FeedGeneratorImplCopyWithImpl<$Res>
-    extends _$FeedGeneratorCopyWithImpl<$Res, _$FeedGeneratorImpl>
-    implements _$$FeedGeneratorImplCopyWith<$Res> {
-  __$$FeedGeneratorImplCopyWithImpl(
-      _$FeedGeneratorImpl _value, $Res Function(_$FeedGeneratorImpl) _then)
+class __$$FOutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$FOutputImpl>
+    implements _$$FOutputImplCopyWith<$Res> {
+  __$$FOutputImplCopyWithImpl(
+      _$FOutputImpl _value, $Res Function(_$FOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +113,7 @@ class __$$FeedGeneratorImplCopyWithImpl<$Res>
     Object? feeds = null,
     Object? links = freezed,
   }) {
-    return _then(_$FeedGeneratorImpl(
+    return _then(_$FOutputImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -136,13 +133,13 @@ class __$$FeedGeneratorImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedGeneratorImpl implements _FeedGenerator {
-  const _$FeedGeneratorImpl(
+class _$FOutputImpl implements _FOutput {
+  const _$FOutputImpl(
       {required this.did, required final List<Feed> feeds, this.links})
       : _feeds = feeds;
 
-  factory _$FeedGeneratorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGeneratorImplFromJson(json);
+  factory _$FOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FOutputImplFromJson(json);
 
   @override
   final String did;
@@ -159,14 +156,14 @@ class _$FeedGeneratorImpl implements _FeedGenerator {
 
   @override
   String toString() {
-    return 'FeedGenerator(did: $did, feeds: $feeds, links: $links)';
+    return 'Output(did: $did, feeds: $feeds, links: $links)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGeneratorImpl &&
+            other is _$FOutputImpl &&
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.links, links) || other.links == links));
@@ -180,25 +177,24 @@ class _$FeedGeneratorImpl implements _FeedGenerator {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
-      __$$FeedGeneratorImplCopyWithImpl<_$FeedGeneratorImpl>(this, _$identity);
+  _$$FOutputImplCopyWith<_$FOutputImpl> get copyWith =>
+      __$$FOutputImplCopyWithImpl<_$FOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedGeneratorImplToJson(
+    return _$$FOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedGenerator implements FeedGenerator {
-  const factory _FeedGenerator(
+abstract class _FOutput implements Output {
+  const factory _FOutput(
       {required final String did,
       required final List<Feed> feeds,
-      final Links? links}) = _$FeedGeneratorImpl;
+      final Links? links}) = _$FOutputImpl;
 
-  factory _FeedGenerator.fromJson(Map<String, dynamic> json) =
-      _$FeedGeneratorImpl.fromJson;
+  factory _FOutput.fromJson(Map<String, dynamic> json) = _$FOutputImpl.fromJson;
 
   @override
   String get did;
@@ -208,6 +204,6 @@ abstract class _FeedGenerator implements FeedGenerator {
   Links? get links;
   @override
   @JsonKey(ignore: true)
-  _$$FeedGeneratorImplCopyWith<_$FeedGeneratorImpl> get copyWith =>
+  _$$FOutputImplCopyWith<_$FOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

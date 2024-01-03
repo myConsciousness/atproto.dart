@@ -9,10 +9,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../converters/embed_converter.dart';
-import '../embed_external.dart';
-import '../embed_images.dart';
-import '../embed_record.dart';
-import '../embed_record_with_media.dart';
+import '../embed_external.dart' as embed_external;
+import '../embed_images.dart' as embed_images;
+import '../embed_record.dart' as embed_record;
+import '../embed_record_with_media.dart' as embed_record_with_media;
 
 part 'union_embed.freezed.dart';
 
@@ -20,19 +20,19 @@ part 'union_embed.freezed.dart';
 @freezed
 class UEmbed with _$UEmbed {
   const factory UEmbed.embedRecord({
-    required EmbedRecord data,
+    required embed_record.Main data,
   }) = UEmbedEmbedRecord;
 
   const factory UEmbed.embedImages({
-    required Images data,
+    required embed_images.Main data,
   }) = UEmbedEmbedImages;
 
   const factory UEmbed.embedExternal({
-    required External data,
+    required embed_external.Main data,
   }) = UEmbedEmbedExternal;
 
   const factory UEmbed.embedRecordWithMedia({
-    required RecordWithMedia data,
+    required embed_record_with_media.Main data,
   }) = UEmbedEmbedRecordWithMedia;
 
   const factory UEmbed.unknown({

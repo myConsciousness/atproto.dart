@@ -8,11 +8,11 @@ part of 'notification_list_notifications.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationsImpl _$$NotificationsImplFromJson(Map json) => $checkedCreate(
-      r'_$NotificationsImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$NotificationsImpl(
+        final val = _$OutputImpl(
           notifications: $checkedConvert(
               'notifications',
               (v) => (v as List<dynamic>)
@@ -27,7 +27,7 @@ _$NotificationsImpl _$$NotificationsImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$NotificationsImplToJson(_$NotificationsImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'notifications': instance.notifications.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

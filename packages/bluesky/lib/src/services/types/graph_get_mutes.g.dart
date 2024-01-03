@@ -8,11 +8,11 @@ part of 'graph_get_mutes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MutesImpl _$$MutesImplFromJson(Map json) => $checkedCreate(
-      r'_$MutesImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$MutesImpl(
+        final val = _$OutputImpl(
           mutes: $checkedConvert(
               'mutes',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$MutesImpl _$$MutesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$MutesImplToJson(_$MutesImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'mutes': instance.mutes.map((e) => e.toJson()).toList(),
   };

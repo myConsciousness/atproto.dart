@@ -14,32 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Profiles _$ProfilesFromJson(Map<String, dynamic> json) {
-  return _Profiles.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Profiles {
+mixin _$Output {
   List<ProfileViewDetailed> get profiles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ProfilesCopyWith<Profiles> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ProfilesCopyWith<$Res> {
-  factory $ProfilesCopyWith(Profiles value, $Res Function(Profiles) then) =
-      _$ProfilesCopyWithImpl<$Res, Profiles>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<ProfileViewDetailed> profiles});
 }
 
 /// @nodoc
-class _$ProfilesCopyWithImpl<$Res, $Val extends Profiles>
-    implements $ProfilesCopyWith<$Res> {
-  _$ProfilesCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -61,22 +60,21 @@ class _$ProfilesCopyWithImpl<$Res, $Val extends Profiles>
 }
 
 /// @nodoc
-abstract class _$$ProfilesImplCopyWith<$Res>
-    implements $ProfilesCopyWith<$Res> {
-  factory _$$ProfilesImplCopyWith(
-          _$ProfilesImpl value, $Res Function(_$ProfilesImpl) then) =
-      __$$ProfilesImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ProfileViewDetailed> profiles});
 }
 
 /// @nodoc
-class __$$ProfilesImplCopyWithImpl<$Res>
-    extends _$ProfilesCopyWithImpl<$Res, _$ProfilesImpl>
-    implements _$$ProfilesImplCopyWith<$Res> {
-  __$$ProfilesImplCopyWithImpl(
-      _$ProfilesImpl _value, $Res Function(_$ProfilesImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -84,7 +82,7 @@ class __$$ProfilesImplCopyWithImpl<$Res>
   $Res call({
     Object? profiles = null,
   }) {
-    return _then(_$ProfilesImpl(
+    return _then(_$OutputImpl(
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
@@ -95,12 +93,12 @@ class __$$ProfilesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ProfilesImpl implements _Profiles {
-  const _$ProfilesImpl({required final List<ProfileViewDetailed> profiles})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<ProfileViewDetailed> profiles})
       : _profiles = profiles;
 
-  factory _$ProfilesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ProfilesImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<ProfileViewDetailed> _profiles;
   @override
@@ -112,14 +110,14 @@ class _$ProfilesImpl implements _Profiles {
 
   @override
   String toString() {
-    return 'Profiles(profiles: $profiles)';
+    return 'Output(profiles: $profiles)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ProfilesImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._profiles, _profiles));
   }
 
@@ -131,28 +129,27 @@ class _$ProfilesImpl implements _Profiles {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ProfilesImplCopyWith<_$ProfilesImpl> get copyWith =>
-      __$$ProfilesImplCopyWithImpl<_$ProfilesImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ProfilesImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Profiles implements Profiles {
-  const factory _Profiles({required final List<ProfileViewDetailed> profiles}) =
-      _$ProfilesImpl;
+abstract class _Output implements Output {
+  const factory _Output({required final List<ProfileViewDetailed> profiles}) =
+      _$OutputImpl;
 
-  factory _Profiles.fromJson(Map<String, dynamic> json) =
-      _$ProfilesImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<ProfileViewDetailed> get profiles;
   @override
   @JsonKey(ignore: true)
-  _$$ProfilesImplCopyWith<_$ProfilesImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

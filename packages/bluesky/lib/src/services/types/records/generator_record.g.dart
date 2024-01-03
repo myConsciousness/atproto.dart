@@ -22,8 +22,8 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map(
+                      (e) => Main.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert(
               'avatar',

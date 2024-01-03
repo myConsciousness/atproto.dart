@@ -11,10 +11,12 @@ import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
 import '../types/actor_defs_profile_view.dart';
 import '../types/grouped_notifications.dart';
-import '../types/notification_list_notifications.dart';
 import '../types/notification_list_notifications_notification.dart';
 import 'group_by.dart';
 import 'notification_reason_filter.dart';
+
+import '../types/notification_list_notifications.dart'
+    as notification_list_notifications;
 
 const _groupableReasons = <NotificationReason>[
   NotificationReason.like,
@@ -28,10 +30,10 @@ sealed class NotificationsGrouper {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [Notifications] object containing an array
-  /// of individual notification items, and groups them into related
-  /// sets. A set is considered "related" if they share the same
-  /// `reason` and `reasonSubject`.
+  /// Takes a [notification_list_notifications.Output]
+  /// object containing an array of individual notification items,
+  /// and groups them into related sets. A set is considered "related"
+  /// if they share the same `reason` and `reasonSubject`.
   ///
   /// ## Notes
   /// - Notifications with the same `reason` and `reasonSubject` are
@@ -46,7 +48,7 @@ sealed class NotificationsGrouper {
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
   GroupedNotifications group(
-    final Notifications notifications, {
+    final notification_list_notifications.Output notifications, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   });
@@ -57,7 +59,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   @override
   GroupedNotifications group(
-    final Notifications data, {
+    final notification_list_notifications.Output data, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   }) {
@@ -263,7 +265,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<List<Notification>> _groupBy(
     final GroupBy? by,
-    final Notifications data,
+    final notification_list_notifications.Output data,
   ) {
     if (by == null) {
       return [data.notifications];
@@ -272,9 +274,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return by.execute(data);
   }
 
-  Notifications _filterReason(
+  notification_list_notifications.Output _filterReason(
     NotificationReasonFilter? reasonFilter,
-    Notifications data,
+    notification_list_notifications.Output data,
   ) =>
       reasonFilter == null ? data : reasonFilter.execute(data);
 }

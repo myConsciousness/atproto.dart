@@ -8,11 +8,11 @@ part of 'richtext_facet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
-      r'_$FacetImpl',
+_$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
+      r'_$MainImpl',
       json,
       ($checkedConvert) {
-        final val = _$FacetImpl(
+        final val = _$MainImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyRichtextFacet),
           index: $checkedConvert('index',
@@ -29,7 +29,7 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
+Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'index': instance.index.toJson(),

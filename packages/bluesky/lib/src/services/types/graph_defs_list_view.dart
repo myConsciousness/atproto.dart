@@ -30,7 +30,7 @@ class ListView with _$ListView {
     required String cid,
     required String name,
     String? description,
-    List<Facet>? descriptionFacets,
+    List<Main>? descriptionFacets,
     String? avatar,
     required ProfileView creator,
     @Default(defaultGraphDefsListViewerState) ListViewerState viewer,

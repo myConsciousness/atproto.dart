@@ -8,11 +8,11 @@ part of 'unspecced_search_posts_skeleton.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PostsSkeletonImpl _$$PostsSkeletonImplFromJson(Map json) => $checkedCreate(
-      r'_$PostsSkeletonImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$PostsSkeletonImpl(
+        final val = _$OutputImpl(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
@@ -26,7 +26,7 @@ _$PostsSkeletonImpl _$$PostsSkeletonImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$PostsSkeletonImplToJson(_$PostsSkeletonImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

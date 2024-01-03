@@ -8,13 +8,11 @@ part of 'graph_get_suggested_follows_by_actor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SuggestedFollowsByActorImpl _$$SuggestedFollowsByActorImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SuggestedFollowsByActorImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$SuggestedFollowsByActorImpl(
+        final val = _$OutputImpl(
           suggestions: $checkedConvert(
               'suggestions',
               (v) => (v as List<dynamic>)
@@ -26,8 +24,7 @@ _$SuggestedFollowsByActorImpl _$$SuggestedFollowsByActorImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$SuggestedFollowsByActorImplToJson(
-        _$SuggestedFollowsByActorImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
     };

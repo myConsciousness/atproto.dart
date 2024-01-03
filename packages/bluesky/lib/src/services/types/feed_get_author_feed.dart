@@ -18,13 +18,12 @@ part 'feed_get_author_feed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
 @lex.appBskyFeedGetAuthorFeed
-class AuthorFeed with _$AuthorFeed {
+class Output with _$Output {
   @jsonSerializable
-  const factory AuthorFeed({
+  const factory Output({
     required List<FeedViewPost> feed,
     String? cursor,
-  }) = _AuthorFeed;
+  }) = _Output;
 
-  factory AuthorFeed.fromJson(Map<String, Object?> json) =>
-      _$AuthorFeedFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

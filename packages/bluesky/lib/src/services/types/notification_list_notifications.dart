@@ -15,13 +15,12 @@ part 'notification_list_notifications.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
 @freezed
 @lex.appBskyNotificationListNotifications
-class Notifications with _$Notifications {
-  const factory Notifications({
+class Output with _$Output {
+  const factory Output({
     required List<Notification> notifications,
     String? cursor,
     DateTime? seenAt,
-  }) = _Notifications;
+  }) = _Output;
 
-  factory Notifications.fromJson(Map<String, Object?> json) =>
-      _$NotificationsFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

@@ -8,11 +8,11 @@ part of 'graph_get_blocks.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$BlocksImpl _$$BlocksImplFromJson(Map json) => $checkedCreate(
-      r'_$BlocksImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$BlocksImpl(
+        final val = _$OutputImpl(
           blocks: $checkedConvert(
               'blocks',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$BlocksImpl _$$BlocksImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$BlocksImplToJson(_$BlocksImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'blocks': instance.blocks.map((e) => e.toJson()).toList(),
   };

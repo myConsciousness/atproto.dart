@@ -7,16 +7,20 @@ import '../../utils/group_by.dart';
 import '../../utils/notification_reason_filter.dart';
 import '../../utils/notifications_grouper.dart';
 import '../grouped_notifications.dart';
-import '../notification_list_notifications.dart';
+
+import '../notification_list_notifications.dart'
+    as notification_list_notifications;
 
 final _grouper = const NotificationsGrouper();
 
-extension NotificationsExtension on Notifications {
+extension OutputExtension on notification_list_notifications.Output {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [Notifications] object containing an array of
-  /// individual notification items, and groups them into related sets.
+  /// Takes a [notification_list_notifications.Output] object containing
+  /// an array of individual notification items, and groups them into
+  /// related sets.
+  ///
   /// A set is considered "related" if they share the same `reason`
   /// and `reasonSubject`.
   ///

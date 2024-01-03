@@ -8,11 +8,11 @@ part of 'embed_images.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ImagesImpl _$$ImagesImplFromJson(Map json) => $checkedCreate(
-      r'_$ImagesImpl',
+_$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
+      r'_$MainImpl',
       json,
       ($checkedConvert) {
-        final val = _$ImagesImpl(
+        final val = _$MainImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedImages),
           images: $checkedConvert(
@@ -27,7 +27,7 @@ _$ImagesImpl _$$ImagesImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ImagesImplToJson(_$ImagesImpl instance) =>
+Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'images': instance.images.map((e) => e.toJson()).toList(),

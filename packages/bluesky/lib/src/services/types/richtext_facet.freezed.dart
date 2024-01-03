@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Facet _$FacetFromJson(Map<String, dynamic> json) {
-  return _Facet.fromJson(json);
+Main _$MainFromJson(Map<String, dynamic> json) {
+  return _Main.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Facet {
+mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   ByteSlice get index => throw _privateConstructorUsedError;
@@ -28,13 +28,13 @@ mixin _$Facet {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FacetCopyWith<Facet> get copyWith => throw _privateConstructorUsedError;
+  $MainCopyWith<Main> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FacetCopyWith<$Res> {
-  factory $FacetCopyWith(Facet value, $Res Function(Facet) then) =
-      _$FacetCopyWithImpl<$Res, Facet>;
+abstract class $MainCopyWith<$Res> {
+  factory $MainCopyWith(Main value, $Res Function(Main) then) =
+      _$MainCopyWithImpl<$Res, Main>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -45,9 +45,9 @@ abstract class $FacetCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FacetCopyWithImpl<$Res, $Val extends Facet>
-    implements $FacetCopyWith<$Res> {
-  _$FacetCopyWithImpl(this._value, this._then);
+class _$MainCopyWithImpl<$Res, $Val extends Main>
+    implements $MainCopyWith<$Res> {
+  _$MainCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,10 +87,10 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
 }
 
 /// @nodoc
-abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
-  factory _$$FacetImplCopyWith(
-          _$FacetImpl value, $Res Function(_$FacetImpl) then) =
-      __$$FacetImplCopyWithImpl<$Res>;
+abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
+  factory _$$MainImplCopyWith(
+          _$MainImpl value, $Res Function(_$MainImpl) then) =
+      __$$MainImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -103,11 +103,10 @@ abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$FacetImplCopyWithImpl<$Res>
-    extends _$FacetCopyWithImpl<$Res, _$FacetImpl>
-    implements _$$FacetImplCopyWith<$Res> {
-  __$$FacetImplCopyWithImpl(
-      _$FacetImpl _value, $Res Function(_$FacetImpl) _then)
+class __$$MainImplCopyWithImpl<$Res>
+    extends _$MainCopyWithImpl<$Res, _$MainImpl>
+    implements _$$MainImplCopyWith<$Res> {
+  __$$MainImplCopyWithImpl(_$MainImpl _value, $Res Function(_$MainImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +116,7 @@ class __$$FacetImplCopyWithImpl<$Res>
     Object? index = null,
     Object? features = null,
   }) {
-    return _then(_$FacetImpl(
+    return _then(_$MainImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -137,15 +136,15 @@ class __$$FacetImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FacetImpl implements _Facet {
-  const _$FacetImpl(
+class _$MainImpl implements _Main {
+  const _$MainImpl(
       {@typeKey this.type = appBskyRichtextFacet,
       required this.index,
       @unionFacetFeature required final List<UFacetFeature> features})
       : _features = features;
 
-  factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FacetImplFromJson(json);
+  factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MainImplFromJson(json);
 
   @override
   @typeKey
@@ -163,14 +162,14 @@ class _$FacetImpl implements _Facet {
 
   @override
   String toString() {
-    return 'Facet(type: $type, index: $index, features: $features)';
+    return 'Main(type: $type, index: $index, features: $features)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FacetImpl &&
+            other is _$MainImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._features, _features));
@@ -184,25 +183,25 @@ class _$FacetImpl implements _Facet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
-      __$$FacetImplCopyWithImpl<_$FacetImpl>(this, _$identity);
+  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
+      __$$MainImplCopyWithImpl<_$MainImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FacetImplToJson(
+    return _$$MainImplToJson(
       this,
     );
   }
 }
 
-abstract class _Facet implements Facet {
-  const factory _Facet(
+abstract class _Main implements Main {
+  const factory _Main(
           {@typeKey final String type,
           required final ByteSlice index,
           @unionFacetFeature required final List<UFacetFeature> features}) =
-      _$FacetImpl;
+      _$MainImpl;
 
-  factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
+  factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
   @override
   @typeKey
@@ -214,6 +213,6 @@ abstract class _Facet implements Facet {
   List<UFacetFeature> get features;
   @override
   @JsonKey(ignore: true)
-  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
+  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

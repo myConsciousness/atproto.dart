@@ -14,27 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
-  return _EmbedRecord.fromJson(json);
+Main _$MainFromJson(Map<String, dynamic> json) {
+  return _Main.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EmbedRecord {
+mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   StrongRef get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmbedRecordCopyWith<EmbedRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MainCopyWith<Main> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmbedRecordCopyWith<$Res> {
-  factory $EmbedRecordCopyWith(
-          EmbedRecord value, $Res Function(EmbedRecord) then) =
-      _$EmbedRecordCopyWithImpl<$Res, EmbedRecord>;
+abstract class $MainCopyWith<$Res> {
+  factory $MainCopyWith(Main value, $Res Function(Main) then) =
+      _$MainCopyWithImpl<$Res, Main>;
   @useResult
   $Res call({@typeKey String type, StrongRef record});
 
@@ -42,9 +40,9 @@ abstract class $EmbedRecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmbedRecordCopyWithImpl<$Res, $Val extends EmbedRecord>
-    implements $EmbedRecordCopyWith<$Res> {
-  _$EmbedRecordCopyWithImpl(this._value, this._then);
+class _$MainCopyWithImpl<$Res, $Val extends Main>
+    implements $MainCopyWith<$Res> {
+  _$MainCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -79,11 +77,10 @@ class _$EmbedRecordCopyWithImpl<$Res, $Val extends EmbedRecord>
 }
 
 /// @nodoc
-abstract class _$$EmbedRecordImplCopyWith<$Res>
-    implements $EmbedRecordCopyWith<$Res> {
-  factory _$$EmbedRecordImplCopyWith(
-          _$EmbedRecordImpl value, $Res Function(_$EmbedRecordImpl) then) =
-      __$$EmbedRecordImplCopyWithImpl<$Res>;
+abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
+  factory _$$MainImplCopyWith(
+          _$MainImpl value, $Res Function(_$MainImpl) then) =
+      __$$MainImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, StrongRef record});
@@ -93,11 +90,10 @@ abstract class _$$EmbedRecordImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EmbedRecordImplCopyWithImpl<$Res>
-    extends _$EmbedRecordCopyWithImpl<$Res, _$EmbedRecordImpl>
-    implements _$$EmbedRecordImplCopyWith<$Res> {
-  __$$EmbedRecordImplCopyWithImpl(
-      _$EmbedRecordImpl _value, $Res Function(_$EmbedRecordImpl) _then)
+class __$$MainImplCopyWithImpl<$Res>
+    extends _$MainCopyWithImpl<$Res, _$MainImpl>
+    implements _$$MainImplCopyWith<$Res> {
+  __$$MainImplCopyWithImpl(_$MainImpl _value, $Res Function(_$MainImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +102,7 @@ class __$$EmbedRecordImplCopyWithImpl<$Res>
     Object? type = null,
     Object? record = null,
   }) {
-    return _then(_$EmbedRecordImpl(
+    return _then(_$MainImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -121,12 +117,12 @@ class __$$EmbedRecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedRecordImpl implements _EmbedRecord {
-  const _$EmbedRecordImpl(
+class _$MainImpl implements _Main {
+  const _$MainImpl(
       {@typeKey this.type = appBskyEmbedRecord, required this.record});
 
-  factory _$EmbedRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedRecordImplFromJson(json);
+  factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MainImplFromJson(json);
 
   @override
   @typeKey
@@ -136,14 +132,14 @@ class _$EmbedRecordImpl implements _EmbedRecord {
 
   @override
   String toString() {
-    return 'EmbedRecord(type: $type, record: $record)';
+    return 'Main(type: $type, record: $record)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedRecordImpl &&
+            other is _$MainImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record));
   }
@@ -155,24 +151,23 @@ class _$EmbedRecordImpl implements _EmbedRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedRecordImplCopyWith<_$EmbedRecordImpl> get copyWith =>
-      __$$EmbedRecordImplCopyWithImpl<_$EmbedRecordImpl>(this, _$identity);
+  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
+      __$$MainImplCopyWithImpl<_$MainImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedRecordImplToJson(
+    return _$$MainImplToJson(
       this,
     );
   }
 }
 
-abstract class _EmbedRecord implements EmbedRecord {
-  const factory _EmbedRecord(
+abstract class _Main implements Main {
+  const factory _Main(
       {@typeKey final String type,
-      required final StrongRef record}) = _$EmbedRecordImpl;
+      required final StrongRef record}) = _$MainImpl;
 
-  factory _EmbedRecord.fromJson(Map<String, dynamic> json) =
-      _$EmbedRecordImpl.fromJson;
+  factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
   @override
   @typeKey
@@ -181,6 +176,6 @@ abstract class _EmbedRecord implements EmbedRecord {
   StrongRef get record;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedRecordImplCopyWith<_$EmbedRecordImpl> get copyWith =>
+  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

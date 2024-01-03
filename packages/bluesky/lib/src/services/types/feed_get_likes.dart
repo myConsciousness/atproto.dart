@@ -18,13 +18,13 @@ part 'feed_get_likes.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
 @freezed
 @lex.appBskyFeedGetLikes
-class Likes with _$Likes {
-  const factory Likes({
+class Output with _$Output {
+  const factory Output({
     required List<Like> likes,
     @atUriConverter required AtUri uri,
     String? cid,
     String? cursor,
-  }) = _Likes;
+  }) = _Output;
 
-  factory Likes.fromJson(Map<String, Object?> json) => _$LikesFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

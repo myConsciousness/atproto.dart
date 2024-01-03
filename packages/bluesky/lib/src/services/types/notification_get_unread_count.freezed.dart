@@ -14,33 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UnreadCount _$UnreadCountFromJson(Map<String, dynamic> json) {
-  return _UnreadCount.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnreadCount {
+mixin _$Output {
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnreadCountCopyWith<UnreadCount> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnreadCountCopyWith<$Res> {
-  factory $UnreadCountCopyWith(
-          UnreadCount value, $Res Function(UnreadCount) then) =
-      _$UnreadCountCopyWithImpl<$Res, UnreadCount>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class _$UnreadCountCopyWithImpl<$Res, $Val extends UnreadCount>
-    implements $UnreadCountCopyWith<$Res> {
-  _$UnreadCountCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,22 +60,21 @@ class _$UnreadCountCopyWithImpl<$Res, $Val extends UnreadCount>
 }
 
 /// @nodoc
-abstract class _$$UnreadCountImplCopyWith<$Res>
-    implements $UnreadCountCopyWith<$Res> {
-  factory _$$UnreadCountImplCopyWith(
-          _$UnreadCountImpl value, $Res Function(_$UnreadCountImpl) then) =
-      __$$UnreadCountImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$UnreadCountImplCopyWithImpl<$Res>
-    extends _$UnreadCountCopyWithImpl<$Res, _$UnreadCountImpl>
-    implements _$$UnreadCountImplCopyWith<$Res> {
-  __$$UnreadCountImplCopyWithImpl(
-      _$UnreadCountImpl _value, $Res Function(_$UnreadCountImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +82,7 @@ class __$$UnreadCountImplCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$UnreadCountImpl(
+    return _then(_$OutputImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -96,11 +93,11 @@ class __$$UnreadCountImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UnreadCountImpl implements _UnreadCount {
-  const _$UnreadCountImpl({this.count = 0});
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({this.count = 0});
 
-  factory _$UnreadCountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$UnreadCountImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   @override
   @JsonKey()
@@ -108,14 +105,14 @@ class _$UnreadCountImpl implements _UnreadCount {
 
   @override
   String toString() {
-    return 'UnreadCount(count: $count)';
+    return 'Output(count: $count)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnreadCountImpl &&
+            other is _$OutputImpl &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -126,27 +123,26 @@ class _$UnreadCountImpl implements _UnreadCount {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnreadCountImplCopyWith<_$UnreadCountImpl> get copyWith =>
-      __$$UnreadCountImplCopyWithImpl<_$UnreadCountImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnreadCountImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnreadCount implements UnreadCount {
-  const factory _UnreadCount({final int count}) = _$UnreadCountImpl;
+abstract class _Output implements Output {
+  const factory _Output({final int count}) = _$OutputImpl;
 
-  factory _UnreadCount.fromJson(Map<String, dynamic> json) =
-      _$UnreadCountImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   int get count;
   @override
   @JsonKey(ignore: true)
-  _$$UnreadCountImplCopyWith<_$UnreadCountImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

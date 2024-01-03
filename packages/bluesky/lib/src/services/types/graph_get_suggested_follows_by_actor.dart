@@ -17,11 +17,10 @@ part 'graph_get_suggested_follows_by_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getsuggestedfollowsbyactor/#output
 @freezed
 @lex.appBskyGraphGetSuggestedFollowsByActor
-class SuggestedFollowsByActor with _$SuggestedFollowsByActor {
-  const factory SuggestedFollowsByActor({
+class Output with _$Output {
+  const factory Output({
     required List<ProfileView> suggestions,
-  }) = _SuggestedFollowsByActor;
+  }) = _Output;
 
-  factory SuggestedFollowsByActor.fromJson(Map<String, Object?> json) =>
-      _$SuggestedFollowsByActorFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

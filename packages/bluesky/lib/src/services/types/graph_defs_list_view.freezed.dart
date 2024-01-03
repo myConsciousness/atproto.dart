@@ -28,7 +28,7 @@ mixin _$ListView {
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  List<Main>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
   ListViewerState get viewer => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $ListViewCopyWith<$Res> {
       String cid,
       String name,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       String? avatar,
       ProfileView creator,
       ListViewerState viewer,
@@ -115,7 +115,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -167,7 +167,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String cid,
       String name,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       String? avatar,
       ProfileView creator,
       ListViewerState viewer,
@@ -230,7 +230,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -262,7 +262,7 @@ class _$ListViewImpl implements _ListView {
       required this.cid,
       required this.name,
       this.description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       this.avatar,
       required this.creator,
       this.viewer = defaultGraphDefsListViewerState,
@@ -286,9 +286,9 @@ class _$ListViewImpl implements _ListView {
   final String name;
   @override
   final String? description;
-  final List<Facet>? _descriptionFacets;
+  final List<Main>? _descriptionFacets;
   @override
-  List<Facet>? get descriptionFacets {
+  List<Main>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -371,7 +371,7 @@ abstract class _ListView implements ListView {
       required final String cid,
       required final String name,
       final String? description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       final String? avatar,
       required final ProfileView creator,
       final ListViewerState viewer,
@@ -395,7 +395,7 @@ abstract class _ListView implements ListView {
   @override
   String? get description;
   @override
-  List<Facet>? get descriptionFacets;
+  List<Main>? get descriptionFacets;
   @override
   String? get avatar;
   @override

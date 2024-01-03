@@ -25,7 +25,7 @@ mixin _$GeneratorRecord {
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  List<Main>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       String did,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       Blob? avatar,
       @labelsConverter Labels? labels,
       DateTime createdAt});
@@ -99,7 +99,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       String did,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       Blob? avatar,
       @labelsConverter Labels? labels,
       DateTime createdAt});
@@ -204,7 +204,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       required this.did,
       required this.displayName,
       this.description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       this.avatar,
       @labelsConverter this.labels,
       required this.createdAt})
@@ -248,9 +248,9 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   final String displayName;
   @override
   final String? description;
-  final List<Facet>? _descriptionFacets;
+  final List<Main>? _descriptionFacets;
   @override
-  List<Facet>? get descriptionFacets {
+  List<Main>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -325,7 +325,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       required final String did,
       required final String displayName,
       final String? description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       final Blob? avatar,
       @labelsConverter final Labels? labels,
       required final DateTime createdAt}) = _$GeneratorRecordImpl;
@@ -343,7 +343,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
   String? get description;
   @override
-  List<Facet>? get descriptionFacets;
+  List<Main>? get descriptionFacets;
   @override
   Blob? get avatar;
   @override

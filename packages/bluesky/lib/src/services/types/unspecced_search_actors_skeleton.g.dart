@@ -8,11 +8,11 @@ part of 'unspecced_search_actors_skeleton.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorsSkeletonImpl _$$ActorsSkeletonImplFromJson(Map json) => $checkedCreate(
-      r'_$ActorsSkeletonImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorsSkeletonImpl(
+        final val = _$OutputImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -26,8 +26,7 @@ _$ActorsSkeletonImpl _$$ActorsSkeletonImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ActorsSkeletonImplToJson(
-        _$ActorsSkeletonImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

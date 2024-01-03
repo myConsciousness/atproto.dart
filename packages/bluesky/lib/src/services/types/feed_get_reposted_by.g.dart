@@ -8,11 +8,11 @@ part of 'feed_get_reposted_by.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
-      r'_$RepostedByImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$RepostedByImpl(
+        final val = _$OutputImpl(
           repostedBy: $checkedConvert(
               'repostedBy',
               (v) => (v as List<dynamic>)
@@ -28,7 +28,7 @@ _$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RepostedByImplToJson(_$RepostedByImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'repostedBy': instance.repostedBy.map((e) => e.toJson()).toList(),
     'uri': atUriConverter.toJson(instance.uri),

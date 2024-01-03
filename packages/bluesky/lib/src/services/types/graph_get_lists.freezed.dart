@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Lists _$ListsFromJson(Map<String, dynamic> json) {
-  return _Lists.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Lists {
+mixin _$Output {
   List<ListView> get lists => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListsCopyWith<Lists> get copyWith => throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListsCopyWith<$Res> {
-  factory $ListsCopyWith(Lists value, $Res Function(Lists) then) =
-      _$ListsCopyWithImpl<$Res, Lists>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class _$ListsCopyWithImpl<$Res, $Val extends Lists>
-    implements $ListsCopyWith<$Res> {
-  _$ListsCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,21 +66,21 @@ class _$ListsCopyWithImpl<$Res, $Val extends Lists>
 }
 
 /// @nodoc
-abstract class _$$ListsImplCopyWith<$Res> implements $ListsCopyWith<$Res> {
-  factory _$$ListsImplCopyWith(
-          _$ListsImpl value, $Res Function(_$ListsImpl) then) =
-      __$$ListsImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class __$$ListsImplCopyWithImpl<$Res>
-    extends _$ListsCopyWithImpl<$Res, _$ListsImpl>
-    implements _$$ListsImplCopyWith<$Res> {
-  __$$ListsImplCopyWithImpl(
-      _$ListsImpl _value, $Res Function(_$ListsImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +89,7 @@ class __$$ListsImplCopyWithImpl<$Res>
     Object? lists = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ListsImpl(
+    return _then(_$OutputImpl(
       lists: null == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -105,12 +105,12 @@ class __$$ListsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListsImpl implements _Lists {
-  const _$ListsImpl({required final List<ListView> lists, this.cursor})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<ListView> lists, this.cursor})
       : _lists = lists;
 
-  factory _$ListsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListsImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<ListView> _lists;
   @override
@@ -125,14 +125,14 @@ class _$ListsImpl implements _Lists {
 
   @override
   String toString() {
-    return 'Lists(lists: $lists, cursor: $cursor)';
+    return 'Output(lists: $lists, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListsImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._lists, _lists) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -145,23 +145,23 @@ class _$ListsImpl implements _Lists {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
-      __$$ListsImplCopyWithImpl<_$ListsImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ListsImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Lists implements Lists {
-  const factory _Lists(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final List<ListView> lists,
-      final String? cursor}) = _$ListsImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _Lists.fromJson(Map<String, dynamic> json) = _$ListsImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<ListView> get lists;
@@ -169,6 +169,6 @@ abstract class _Lists implements Lists {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

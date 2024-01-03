@@ -29,7 +29,7 @@ mixin _$PostRecord {
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-  List<Facet>? get facets => throw _privateConstructorUsedError;
+  List<Main>? get facets => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -52,7 +52,7 @@ abstract class $PostRecordCopyWith<$Res> {
       @unionEmbed UEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<Facet>? facets,
+      List<Main>? facets,
       List<String>? tags,
       DateTime createdAt});
 
@@ -112,7 +112,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -176,7 +176,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       @unionEmbed UEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<Facet>? facets,
+      List<Main>? facets,
       List<String>? tags,
       DateTime createdAt});
 
@@ -237,7 +237,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -261,7 +261,7 @@ class _$PostRecordImpl implements _PostRecord {
       @unionEmbed this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
-      final List<Facet>? facets,
+      final List<Main>? facets,
       final List<String>? tags,
       required this.createdAt})
       : _langs = langs,
@@ -294,9 +294,9 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   @labelsConverter
   final Labels? labels;
-  final List<Facet>? _facets;
+  final List<Main>? _facets;
   @override
-  List<Facet>? get facets {
+  List<Main>? get facets {
     final value = _facets;
     if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
@@ -375,7 +375,7 @@ abstract class _PostRecord implements PostRecord {
       @unionEmbed final UEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
-      final List<Facet>? facets,
+      final List<Main>? facets,
       final List<String>? tags,
       required final DateTime createdAt}) = _$PostRecordImpl;
 
@@ -398,7 +398,7 @@ abstract class _PostRecord implements PostRecord {
   @labelsConverter
   Labels? get labels;
   @override
-  List<Facet>? get facets;
+  List<Main>? get facets;
   @override
   List<String>? get tags;
   @override

@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'converters/embed_record_with_media_converter.dart';
-import 'embed_record.dart';
+import 'embed_record.dart' as embed_record;
 import 'unions/union_embed_record_with_media.dart';
 
 part 'embed_record_with_media.freezed.dart';
@@ -21,13 +21,12 @@ part 'embed_record_with_media.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
 @lex.appBskyEmbedRecordWithMedia
-class RecordWithMedia with _$RecordWithMedia {
-  const factory RecordWithMedia({
+class Main with _$Main {
+  const factory Main({
     @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
-    required EmbedRecord record,
+    required embed_record.Main record,
     @unionEmbedRecordWithMedia required UEmbedRecordWithMedia media,
-  }) = _RecordWithMedia;
+  }) = _Main;
 
-  factory RecordWithMedia.fromJson(Map<String, Object?> json) =>
-      _$RecordWithMediaFromJson(json);
+  factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
 }

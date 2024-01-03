@@ -14,26 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Followers _$FollowersFromJson(Map<String, dynamic> json) {
-  return _Followers.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Followers {
+mixin _$Output {
   ProfileView get subject => throw _privateConstructorUsedError;
   List<ProfileView> get followers => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FollowersCopyWith<Followers> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FollowersCopyWith<$Res> {
-  factory $FollowersCopyWith(Followers value, $Res Function(Followers) then) =
-      _$FollowersCopyWithImpl<$Res, Followers>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({ProfileView subject, List<ProfileView> followers, String? cursor});
 
@@ -41,9 +40,9 @@ abstract class $FollowersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
-    implements $FollowersCopyWith<$Res> {
-  _$FollowersCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -83,11 +82,10 @@ class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
 }
 
 /// @nodoc
-abstract class _$$FollowersImplCopyWith<$Res>
-    implements $FollowersCopyWith<$Res> {
-  factory _$$FollowersImplCopyWith(
-          _$FollowersImpl value, $Res Function(_$FollowersImpl) then) =
-      __$$FollowersImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ProfileView subject, List<ProfileView> followers, String? cursor});
@@ -97,11 +95,11 @@ abstract class _$$FollowersImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FollowersImplCopyWithImpl<$Res>
-    extends _$FollowersCopyWithImpl<$Res, _$FollowersImpl>
-    implements _$$FollowersImplCopyWith<$Res> {
-  __$$FollowersImplCopyWithImpl(
-      _$FollowersImpl _value, $Res Function(_$FollowersImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +109,7 @@ class __$$FollowersImplCopyWithImpl<$Res>
     Object? followers = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$FollowersImpl(
+    return _then(_$OutputImpl(
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -131,15 +129,15 @@ class __$$FollowersImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FollowersImpl implements _Followers {
-  const _$FollowersImpl(
+class _$OutputImpl implements _Output {
+  const _$OutputImpl(
       {required this.subject,
       required final List<ProfileView> followers,
       this.cursor})
       : _followers = followers;
 
-  factory _$FollowersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FollowersImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   @override
   final ProfileView subject;
@@ -156,14 +154,14 @@ class _$FollowersImpl implements _Followers {
 
   @override
   String toString() {
-    return 'Followers(subject: $subject, followers: $followers, cursor: $cursor)';
+    return 'Output(subject: $subject, followers: $followers, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FollowersImpl &&
+            other is _$OutputImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             const DeepCollectionEquality()
                 .equals(other._followers, _followers) &&
@@ -178,25 +176,24 @@ class _$FollowersImpl implements _Followers {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
-      __$$FollowersImplCopyWithImpl<_$FollowersImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FollowersImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Followers implements Followers {
-  const factory _Followers(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final ProfileView subject,
       required final List<ProfileView> followers,
-      final String? cursor}) = _$FollowersImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _Followers.fromJson(Map<String, dynamic> json) =
-      _$FollowersImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   ProfileView get subject;
@@ -206,6 +203,6 @@ abstract class _Followers implements Followers {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

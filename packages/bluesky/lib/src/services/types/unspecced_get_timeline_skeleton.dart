@@ -18,13 +18,12 @@ part 'unspecced_get_timeline_skeleton.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
 @freezed
 @lex.appBskyUnspeccedGetTimelineSkeleton
-class TimelineSkeleton with _$TimelineSkeleton {
+class Output with _$Output {
   @jsonSerializable
-  const factory TimelineSkeleton({
+  const factory Output({
     required List<SkeletonFeedPost> feed,
     String? cursor,
-  }) = _TimelineSkeleton;
+  }) = _Output;
 
-  factory TimelineSkeleton.fromJson(Map<String, Object?> json) =>
-      _$TimelineSkeletonFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

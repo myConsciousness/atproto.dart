@@ -28,7 +28,7 @@ class GeneratorRecord with _$GeneratorRecord {
     required String did,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    List<Main>? descriptionFacets,
     Blob? avatar,
     @labelsConverter Labels? labels,
     required DateTime createdAt,

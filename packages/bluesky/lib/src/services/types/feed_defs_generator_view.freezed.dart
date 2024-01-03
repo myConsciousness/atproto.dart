@@ -29,7 +29,7 @@ mixin _$GeneratorView {
   ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  List<Main>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   GeneratorViewerState get viewer => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $GeneratorViewCopyWith<$Res> {
       ProfileView creator,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       String? avatar,
       int likeCount,
       GeneratorViewerState viewer,
@@ -123,7 +123,7 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -176,7 +176,7 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
       ProfileView creator,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       String? avatar,
       int likeCount,
       GeneratorViewerState viewer,
@@ -244,7 +244,7 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -277,7 +277,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
       required this.creator,
       required this.displayName,
       this.description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
       this.viewer = defaultFeedDefsGeneratorViewerState,
@@ -303,9 +303,9 @@ class _$GeneratorViewImpl implements _GeneratorView {
   final String displayName;
   @override
   final String? description;
-  final List<Facet>? _descriptionFacets;
+  final List<Main>? _descriptionFacets;
   @override
-  List<Facet>? get descriptionFacets {
+  List<Main>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -394,7 +394,7 @@ abstract class _GeneratorView implements GeneratorView {
       required final ProfileView creator,
       required final String displayName,
       final String? description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       final String? avatar,
       final int likeCount,
       final GeneratorViewerState viewer,
@@ -420,7 +420,7 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   String? get description;
   @override
-  List<Facet>? get descriptionFacets;
+  List<Main>? get descriptionFacets;
   @override
   String? get avatar;
   @override

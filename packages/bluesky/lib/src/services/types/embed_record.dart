@@ -19,12 +19,11 @@ part 'embed_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
 @lex.appBskyEmbedRecord
-class EmbedRecord with _$EmbedRecord {
-  const factory EmbedRecord({
+class Main with _$Main {
+  const factory Main({
     @typeKey @Default(appBskyEmbedRecord) String type,
     required StrongRef record,
-  }) = _EmbedRecord;
+  }) = _Main;
 
-  factory EmbedRecord.fromJson(Map<String, Object?> json) =>
-      _$EmbedRecordFromJson(json);
+  factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
 }

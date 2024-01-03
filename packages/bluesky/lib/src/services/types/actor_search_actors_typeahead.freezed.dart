@@ -14,33 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorsTypeahead _$ActorsTypeaheadFromJson(Map<String, dynamic> json) {
-  return _ActorsTypeahead.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorsTypeahead {
+mixin _$Output {
   List<ProfileViewBasic> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorsTypeaheadCopyWith<ActorsTypeahead> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorsTypeaheadCopyWith<$Res> {
-  factory $ActorsTypeaheadCopyWith(
-          ActorsTypeahead value, $Res Function(ActorsTypeahead) then) =
-      _$ActorsTypeaheadCopyWithImpl<$Res, ActorsTypeahead>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<ProfileViewBasic> actors});
 }
 
 /// @nodoc
-class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
-    implements $ActorsTypeaheadCopyWith<$Res> {
-  _$ActorsTypeaheadCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,22 +60,21 @@ class _$ActorsTypeaheadCopyWithImpl<$Res, $Val extends ActorsTypeahead>
 }
 
 /// @nodoc
-abstract class _$$ActorsTypeaheadImplCopyWith<$Res>
-    implements $ActorsTypeaheadCopyWith<$Res> {
-  factory _$$ActorsTypeaheadImplCopyWith(_$ActorsTypeaheadImpl value,
-          $Res Function(_$ActorsTypeaheadImpl) then) =
-      __$$ActorsTypeaheadImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<ProfileViewBasic> actors});
 }
 
 /// @nodoc
-class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
-    extends _$ActorsTypeaheadCopyWithImpl<$Res, _$ActorsTypeaheadImpl>
-    implements _$$ActorsTypeaheadImplCopyWith<$Res> {
-  __$$ActorsTypeaheadImplCopyWithImpl(
-      _$ActorsTypeaheadImpl _value, $Res Function(_$ActorsTypeaheadImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +82,7 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$ActorsTypeaheadImpl(
+    return _then(_$OutputImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
@@ -96,12 +93,12 @@ class __$$ActorsTypeaheadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
-  const _$ActorsTypeaheadImpl({required final List<ProfileViewBasic> actors})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<ProfileViewBasic> actors})
       : _actors = actors;
 
-  factory _$ActorsTypeaheadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorsTypeaheadImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<ProfileViewBasic> _actors;
   @override
@@ -113,14 +110,14 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
 
   @override
   String toString() {
-    return 'ActorsTypeahead(actors: $actors)';
+    return 'Output(actors: $actors)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorsTypeaheadImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -132,29 +129,27 @@ class _$ActorsTypeaheadImpl implements _ActorsTypeahead {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
-      __$$ActorsTypeaheadImplCopyWithImpl<_$ActorsTypeaheadImpl>(
-          this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorsTypeaheadImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorsTypeahead implements ActorsTypeahead {
-  const factory _ActorsTypeahead(
-      {required final List<ProfileViewBasic> actors}) = _$ActorsTypeaheadImpl;
+abstract class _Output implements Output {
+  const factory _Output({required final List<ProfileViewBasic> actors}) =
+      _$OutputImpl;
 
-  factory _ActorsTypeahead.fromJson(Map<String, dynamic> json) =
-      _$ActorsTypeaheadImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<ProfileViewBasic> get actors;
   @override
   @JsonKey(ignore: true)
-  _$$ActorsTypeaheadImplCopyWith<_$ActorsTypeaheadImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

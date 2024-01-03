@@ -33,7 +33,7 @@ class PostRecord with _$PostRecord {
     @unionEmbed UEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
-    List<Facet>? facets,
+    List<Main>? facets,
     List<String>? tags,
     required DateTime createdAt,
   }) = _PostRecord;

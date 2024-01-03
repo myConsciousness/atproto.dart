@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'embed_external_external.dart' as embed_external;
+import 'embed_external_external.dart';
 
 part 'embed_external.freezed.dart';
 part 'embed_external.g.dart';
@@ -19,12 +19,11 @@ part 'embed_external.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#main
 @freezed
 @lex.appBskyEmbedExternal
-class External with _$External {
-  const factory External({
+class Main with _$Main {
+  const factory Main({
     @typeKey @Default(appBskyEmbedExternal) String type,
-    required embed_external.External external,
-  }) = _External;
+    required External external,
+  }) = _Main;
 
-  factory External.fromJson(Map<String, Object?> json) =>
-      _$ExternalFromJson(json);
+  factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
 }

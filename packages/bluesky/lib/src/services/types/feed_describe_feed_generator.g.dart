@@ -8,11 +8,11 @@ part of 'feed_describe_feed_generator.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGeneratorImpl _$$FeedGeneratorImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedGeneratorImpl',
+_$FOutputImpl _$$FOutputImplFromJson(Map json) => $checkedCreate(
+      r'_$FOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGeneratorImpl(
+        final val = _$FOutputImpl(
           did: $checkedConvert('did', (v) => v as String),
           feeds: $checkedConvert(
               'feeds',
@@ -30,7 +30,7 @@ _$FeedGeneratorImpl _$$FeedGeneratorImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FeedGeneratorImplToJson(_$FeedGeneratorImpl instance) {
+Map<String, dynamic> _$$FOutputImplToJson(_$FOutputImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'feeds': instance.feeds.map((e) => e.toJson()).toList(),

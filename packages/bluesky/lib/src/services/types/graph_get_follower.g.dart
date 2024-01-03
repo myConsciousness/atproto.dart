@@ -8,11 +8,11 @@ part of 'graph_get_follower.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FollowersImpl _$$FollowersImplFromJson(Map json) => $checkedCreate(
-      r'_$FollowersImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$FollowersImpl(
+        final val = _$OutputImpl(
           subject: $checkedConvert('subject',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           followers: $checkedConvert(
@@ -27,7 +27,7 @@ _$FollowersImpl _$$FollowersImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FollowersImplToJson(_$FollowersImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'subject': instance.subject.toJson(),
     'followers': instance.followers.map((e) => e.toJson()).toList(),

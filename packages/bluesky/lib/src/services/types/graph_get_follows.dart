@@ -18,14 +18,13 @@ part 'graph_get_follows.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollows/#output
 @freezed
 @lex.appBskyGraphGetFollows
-class Follows with _$Follows {
+class Output with _$Output {
   @jsonSerializable
-  const factory Follows({
+  const factory Output({
     required ProfileView subject,
     required List<ProfileView> follows,
     String? cursor,
-  }) = _Follows;
+  }) = _Output;
 
-  factory Follows.fromJson(Map<String, Object?> json) =>
-      _$FollowsFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

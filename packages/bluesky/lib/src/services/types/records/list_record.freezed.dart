@@ -25,7 +25,7 @@ mixin _$ListRecord {
   String get name => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  List<Main>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $ListRecordCopyWith<$Res> {
       String name,
       String purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       Blob? avatar,
       @labelsConverter Labels? labels,
       DateTime createdAt});
@@ -99,7 +99,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       String name,
       String purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Main>? descriptionFacets,
       Blob? avatar,
       @labelsConverter Labels? labels,
       DateTime createdAt});
@@ -204,7 +204,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Main>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -230,7 +230,7 @@ class _$ListRecordImpl implements _ListRecord {
       required this.name,
       required this.purpose,
       this.description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       this.avatar,
       @labelsConverter this.labels,
       required this.createdAt})
@@ -248,9 +248,9 @@ class _$ListRecordImpl implements _ListRecord {
   final String purpose;
   @override
   final String? description;
-  final List<Facet>? _descriptionFacets;
+  final List<Main>? _descriptionFacets;
   @override
-  List<Facet>? get descriptionFacets {
+  List<Main>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -323,7 +323,7 @@ abstract class _ListRecord implements ListRecord {
       required final String name,
       required final String purpose,
       final String? description,
-      final List<Facet>? descriptionFacets,
+      final List<Main>? descriptionFacets,
       final Blob? avatar,
       @labelsConverter final Labels? labels,
       required final DateTime createdAt}) = _$ListRecordImpl;
@@ -341,7 +341,7 @@ abstract class _ListRecord implements ListRecord {
   @override
   String? get description;
   @override
-  List<Facet>? get descriptionFacets;
+  List<Main>? get descriptionFacets;
   @override
   Blob? get avatar;
   @override

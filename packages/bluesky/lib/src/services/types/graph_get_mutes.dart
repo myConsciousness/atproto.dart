@@ -16,12 +16,12 @@ part 'graph_get_mutes.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getmutes/#output
 @freezed
 @lex.appBskyGraphGetMutes
-class Mutes with _$Mutes {
+class Output with _$Output {
   @jsonSerializable
-  const factory Mutes({
+  const factory Output({
     required List<ProfileView> mutes,
     String? cursor,
-  }) = _Mutes;
+  }) = _Output;
 
-  factory Mutes.fromJson(Map<String, Object?> json) => _$MutesFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

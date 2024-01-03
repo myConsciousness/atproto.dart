@@ -8,11 +8,11 @@ part of 'actor_get_profiles.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ProfilesImpl _$$ProfilesImplFromJson(Map json) => $checkedCreate(
-      r'_$ProfilesImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ProfilesImpl(
+        final val = _$OutputImpl(
           profiles: $checkedConvert(
               'profiles',
               (v) => (v as List<dynamic>)
@@ -24,7 +24,7 @@ _$ProfilesImpl _$$ProfilesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ProfilesImplToJson(_$ProfilesImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'profiles': instance.profiles.map((e) => e.toJson()).toList(),
     };

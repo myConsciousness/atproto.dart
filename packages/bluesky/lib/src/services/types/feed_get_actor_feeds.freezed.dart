@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorFeeds _$ActorFeedsFromJson(Map<String, dynamic> json) {
-  return _ActorFeeds.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorFeeds {
+mixin _$Output {
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorFeedsCopyWith<ActorFeeds> get copyWith =>
-      throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorFeedsCopyWith<$Res> {
-  factory $ActorFeedsCopyWith(
-          ActorFeeds value, $Res Function(ActorFeeds) then) =
-      _$ActorFeedsCopyWithImpl<$Res, ActorFeeds>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<GeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class _$ActorFeedsCopyWithImpl<$Res, $Val extends ActorFeeds>
-    implements $ActorFeedsCopyWith<$Res> {
-  _$ActorFeedsCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,22 +66,21 @@ class _$ActorFeedsCopyWithImpl<$Res, $Val extends ActorFeeds>
 }
 
 /// @nodoc
-abstract class _$$ActorFeedsImplCopyWith<$Res>
-    implements $ActorFeedsCopyWith<$Res> {
-  factory _$$ActorFeedsImplCopyWith(
-          _$ActorFeedsImpl value, $Res Function(_$ActorFeedsImpl) then) =
-      __$$ActorFeedsImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<GeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class __$$ActorFeedsImplCopyWithImpl<$Res>
-    extends _$ActorFeedsCopyWithImpl<$Res, _$ActorFeedsImpl>
-    implements _$$ActorFeedsImplCopyWith<$Res> {
-  __$$ActorFeedsImplCopyWithImpl(
-      _$ActorFeedsImpl _value, $Res Function(_$ActorFeedsImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +89,7 @@ class __$$ActorFeedsImplCopyWithImpl<$Res>
     Object? feeds = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ActorFeedsImpl(
+    return _then(_$OutputImpl(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
@@ -108,13 +105,12 @@ class __$$ActorFeedsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorFeedsImpl implements _ActorFeeds {
-  const _$ActorFeedsImpl(
-      {required final List<GeneratorView> feeds, this.cursor})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<GeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
-  factory _$ActorFeedsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorFeedsImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<GeneratorView> _feeds;
   @override
@@ -129,14 +125,14 @@ class _$ActorFeedsImpl implements _ActorFeeds {
 
   @override
   String toString() {
-    return 'ActorFeeds(feeds: $feeds, cursor: $cursor)';
+    return 'Output(feeds: $feeds, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorFeedsImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,24 +145,23 @@ class _$ActorFeedsImpl implements _ActorFeeds {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorFeedsImplCopyWith<_$ActorFeedsImpl> get copyWith =>
-      __$$ActorFeedsImplCopyWithImpl<_$ActorFeedsImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorFeedsImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorFeeds implements ActorFeeds {
-  const factory _ActorFeeds(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final List<GeneratorView> feeds,
-      final String? cursor}) = _$ActorFeedsImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _ActorFeeds.fromJson(Map<String, dynamic> json) =
-      _$ActorFeedsImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<GeneratorView> get feeds;
@@ -174,6 +169,6 @@ abstract class _ActorFeeds implements ActorFeeds {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$ActorFeedsImplCopyWith<_$ActorFeedsImpl> get copyWith =>
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -9,8 +9,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
-import '../types/notification_list_notifications.dart';
 import '../types/notification_list_notifications_notification.dart';
+
+import '../types/notification_list_notifications.dart'
+    as notification_list_notifications;
 
 sealed class NotificationReasonFilter {
   // ignore: unused_element
@@ -25,8 +27,8 @@ sealed class NotificationReasonFilter {
   ) = NotificationReasonExcludeFilter;
 
   /// Returns a new [notifications] filtered based on reasons.
-  Notifications execute(
-    final Notifications notifications,
+  notification_list_notifications.Output execute(
+    final notification_list_notifications.Output notifications,
   );
 }
 
@@ -39,8 +41,8 @@ final class NotificationReasonIncludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(
-    final Notifications data,
+  notification_list_notifications.Output execute(
+    final notification_list_notifications.Output data,
   ) =>
       data.copyWith(
         notifications:
@@ -57,8 +59,8 @@ final class NotificationReasonExcludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(
-    final Notifications data,
+  notification_list_notifications.Output execute(
+    final notification_list_notifications.Output data,
   ) =>
       data.copyWith(
         notifications:

@@ -8,18 +8,18 @@ part of 'notification_get_unread_count.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnreadCountImpl _$$UnreadCountImplFromJson(Map json) => $checkedCreate(
-      r'_$UnreadCountImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$UnreadCountImpl(
+        final val = _$OutputImpl(
           count: $checkedConvert('count', (v) => v as int? ?? 0),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$UnreadCountImplToJson(_$UnreadCountImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
     };

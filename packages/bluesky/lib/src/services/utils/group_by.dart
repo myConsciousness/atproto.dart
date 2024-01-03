@@ -3,7 +3,10 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../types/notification_list_notifications.dart';
+import '../types/notification_list_notifications.dart'
+    as notification_list_notifications;
+
+// 🌎 Project imports:
 import '../types/notification_list_notifications_notification.dart';
 
 sealed class GroupBy {
@@ -14,7 +17,7 @@ sealed class GroupBy {
   const factory GroupBy.minute(final int minute) = Minute;
 
   List<List<Notification>> execute(
-    final Notifications data,
+    final notification_list_notifications.Output data,
   );
 }
 
@@ -25,7 +28,7 @@ final class Hour implements GroupBy {
 
   @override
   List<List<Notification>> execute(
-    Notifications data,
+    notification_list_notifications.Output data,
   ) {
     return _buildChunks(
       _groupBy(
@@ -49,7 +52,7 @@ final class Minute implements GroupBy {
 
   @override
   List<List<Notification>> execute(
-    Notifications data,
+    notification_list_notifications.Output data,
   ) {
     return _buildChunks(
       _groupBy(
