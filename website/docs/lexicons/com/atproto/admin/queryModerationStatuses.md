@@ -26,6 +26,7 @@ View moderation statuses of subjects (record or repo).
 | **sortField** | string | - | ❌ | - |
 | **sortDirection** | string | - | ❌ | - |
 | **takendown** | boolean | - | ❌ | Get subjects that were taken down |
+| **appealed** | boolean | - | ❌ | Get subjects in unresolved appealed status |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

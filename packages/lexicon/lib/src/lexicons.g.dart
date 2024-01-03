@@ -23,7 +23,8 @@ const comAtprotoModerationDefs = <String, dynamic>{
         "com.atproto.moderation.defs#reasonMisleading",
         "com.atproto.moderation.defs#reasonSexual",
         "com.atproto.moderation.defs#reasonRude",
-        "com.atproto.moderation.defs#reasonOther"
+        "com.atproto.moderation.defs#reasonOther",
+        "com.atproto.moderation.defs#reasonAppeal"
       ]
     },
     "reasonSpam": {
@@ -50,6 +51,10 @@ const comAtprotoModerationDefs = <String, dynamic>{
     "reasonOther": {
       "type": "token",
       "description": "Other: reports not falling under another report category"
+    },
+    "reasonAppeal": {
+      "type": "token",
+      "description": "Appeal: appeal a previously taken moderation action"
     }
   }
 };
@@ -2271,6 +2276,10 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
             "type": "boolean",
             "description": "Get subjects that were taken down"
           },
+          "appealed": {
+            "type": "boolean",
+            "description": "Get subjects in unresolved appealed status"
+          },
           "limit": {
             "type": "integer",
             "default": 50,
@@ -2516,7 +2525,8 @@ const comAtprotoAdminDefs = <String, dynamic>{
             "#modEventLabel",
             "#modEventAcknowledge",
             "#modEventEscalate",
-            "#modEventMute"
+            "#modEventMute",
+            "#modEventResolveAppeal"
           ]
         },
         "subject": {
@@ -2601,7 +2611,18 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "lastReviewedBy": {"type": "string", "format": "did"},
         "lastReviewedAt": {"type": "string", "format": "datetime"},
         "lastReportedAt": {"type": "string", "format": "datetime"},
+        "lastAppealedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Timestamp referencing when the author of the subject appealed a moderation action"
+        },
         "takendown": {"type": "boolean"},
+        "appealed": {
+          "type": "boolean",
+          "description":
+              "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
+        },
         "suspendUntil": {"type": "string", "format": "datetime"}
       }
     },
@@ -2892,6 +2913,13 @@ const comAtprotoAdminDefs = <String, dynamic>{
           "type": "string",
           "description": "Describe reasoning behind the reversal."
         }
+      }
+    },
+    "modEventResolveAppeal": {
+      "type": "object",
+      "description": "Resolve appeal on a subject",
+      "properties": {
+        "comment": {"type": "string", "description": "Describe resolution."}
       }
     },
     "modEventComment": {
@@ -6191,8 +6219,12 @@ const appBskyEmbedExternal = <String, dynamic>{
       "required": ["uri", "title", "description"],
       "properties": {
         "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string"},
-        "description": {"type": "string"},
+        "title": {"type": "string", "maxLength": 3000, "maxGraphemes": 300},
+        "description": {
+          "type": "string",
+          "maxLength": 10000,
+          "maxGraphemes": 1000
+        },
         "thumb": {
           "type": "blob",
           "accept": ["image/*"],
@@ -6212,9 +6244,13 @@ const appBskyEmbedExternal = <String, dynamic>{
       "required": ["uri", "title", "description"],
       "properties": {
         "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string"},
-        "description": {"type": "string"},
-        "thumb": {"type": "string"}
+        "title": {"type": "string", "maxLength": 3000, "maxGraphemes": 300},
+        "description": {
+          "type": "string",
+          "maxLength": 10000,
+          "maxGraphemes": 1000
+        },
+        "thumb": {"type": "string", "format": "uri"}
       }
     }
   }
@@ -6278,7 +6314,7 @@ const appBskyEmbedImages = <String, dynamic>{
           "accept": ["image/*"],
           "maxSize": 1000000
         },
-        "alt": {"type": "string"},
+        "alt": {"type": "string", "maxLength": 50000, "maxGraphemes": 5000},
         "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     },
@@ -6307,9 +6343,9 @@ const appBskyEmbedImages = <String, dynamic>{
       "type": "object",
       "required": ["thumb", "fullsize", "alt"],
       "properties": {
-        "thumb": {"type": "string"},
-        "fullsize": {"type": "string"},
-        "alt": {"type": "string"},
+        "thumb": {"type": "string", "format": "uri"},
+        "fullsize": {"type": "string", "format": "uri"},
+        "alt": {"type": "string", "maxLength": 50000, "maxGraphemes": 5000},
         "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     }
