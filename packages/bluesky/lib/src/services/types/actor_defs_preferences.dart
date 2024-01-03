@@ -9,7 +9,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/preferences_preferences_converter.dart';
 import 'outputs/actor_get_preferences.dart' as actor_get_preferences;
 import 'unions/actor_defs_preferences_preferences.dart';
 
