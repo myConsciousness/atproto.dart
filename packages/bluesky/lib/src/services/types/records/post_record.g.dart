@@ -20,8 +20,7 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
               'reply',
               (v) => v == null
                   ? null
-                  : FeedPostReplyRef.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
@@ -35,8 +34,8 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => RichtextFacet.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),

@@ -8,17 +8,16 @@ part of 'feed_search_posts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedSearchPostsImpl _$$FeedSearchPostsImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedSearchPostsImpl',
+_$PostsImpl _$$PostsImplFromJson(Map json) => $checkedCreate(
+      r'_$PostsImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedSearchPostsImpl(
+        final val = _$PostsImpl(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedDefsPostView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      PostView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           hitsTotal: $checkedConvert('hitsTotal', (v) => v as int? ?? 0),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -27,8 +26,7 @@ _$FeedSearchPostsImpl _$$FeedSearchPostsImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedSearchPostsImplToJson(
-    _$FeedSearchPostsImpl instance) {
+Map<String, dynamic> _$$PostsImplToJson(_$PostsImpl instance) {
   final val = <String, dynamic>{
     'posts': instance.posts.map((e) => e.toJson()).toList(),
     'hitsTotal': instance.hitsTotal,

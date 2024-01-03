@@ -17,13 +17,13 @@ part 'unspecced_search_posts_skeleton.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchpostsskeleton/#output
 @freezed
 @lex.appBskyUnspeccedSearchPostsSkeleton
-class UnspeccedSearchPostsSkeleton with _$UnspeccedSearchPostsSkeleton {
-  const factory UnspeccedSearchPostsSkeleton({
-    required List<UnspeccedDefsSkeletonSearchPost> posts,
+class PostsSkeleton with _$PostsSkeleton {
+  const factory PostsSkeleton({
+    required List<SkeletonSearchPost> posts,
     @Default(0) int hitsTotal,
     String? cursor,
-  }) = _UnspeccedSearchPostsSkeleton;
+  }) = _PostsSkeleton;
 
-  factory UnspeccedSearchPostsSkeleton.fromJson(Map<String, Object?> json) =>
-      _$UnspeccedSearchPostsSkeletonFromJson(json);
+  factory PostsSkeleton.fromJson(Map<String, Object?> json) =>
+      _$PostsSkeletonFromJson(json);
 }

@@ -19,14 +19,13 @@ part 'embed_images_image.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#image
 @freezed
 @lex.appBskyEmbedImagesImage
-class EmbedImagesImage with _$EmbedImagesImage {
+class Image with _$Image {
   @jsonSerializable
-  const factory EmbedImagesImage({
+  const factory Image({
     required String alt,
     @blobConverter required Blob image,
-    EmbedImagesAspectRatio? aspectRatio,
-  }) = _EmbedImagesImage;
+    AspectRatio? aspectRatio,
+  }) = _Image;
 
-  factory EmbedImagesImage.fromJson(Map<String, Object?> json) =>
-      _$EmbedImagesImageFromJson(json);
+  factory Image.fromJson(Map<String, Object?> json) => _$ImageFromJson(json);
 }

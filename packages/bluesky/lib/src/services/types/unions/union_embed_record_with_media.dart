@@ -18,11 +18,11 @@ part 'union_embed_record_with_media.freezed.dart';
 @freezed
 class UEmbedRecordWithMedia with _$UEmbedRecordWithMedia {
   const factory UEmbedRecordWithMedia.embedImages({
-    required EmbedImages data,
+    required Images data,
   }) = UEmbedRecordWithMediaEmbedImages;
 
   const factory UEmbedRecordWithMedia.embedExternal({
-    required EmbedExternal data,
+    required External data,
   }) = UEmbedRecordWithMediaEmbedExternal;
 
   const factory UEmbedRecordWithMedia.unknown({

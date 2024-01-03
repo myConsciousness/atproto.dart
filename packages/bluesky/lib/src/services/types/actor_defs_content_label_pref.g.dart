@@ -8,13 +8,12 @@ part of 'actor_defs_content_label_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsContentLabelPrefImpl _$$ActorDefsContentLabelPrefImplFromJson(
-        Map json) =>
+_$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorDefsContentLabelPrefImpl',
+      r'_$ContentLabelPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsContentLabelPrefImpl(
+        final val = _$ContentLabelPrefImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           label: $checkedConvert('label', (v) => v as String),
@@ -26,8 +25,8 @@ _$ActorDefsContentLabelPrefImpl _$$ActorDefsContentLabelPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsContentLabelPrefImplToJson(
-        _$ActorDefsContentLabelPrefImpl instance) =>
+Map<String, dynamic> _$$ContentLabelPrefImplToJson(
+        _$ContentLabelPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'label': instance.label,

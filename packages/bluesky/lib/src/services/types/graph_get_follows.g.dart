@@ -8,21 +8,18 @@ part of 'graph_get_follows.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetFollowsImpl _$$GraphGetFollowsImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GraphGetFollowsImpl',
+_$FollowsImpl _$$FollowsImplFromJson(Map json) => $checkedCreate(
+      r'_$FollowsImpl',
       json,
       ($checkedConvert) {
-        final val = _$GraphGetFollowsImpl(
-          subject: $checkedConvert(
-              'subject',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+        final val = _$FollowsImpl(
+          subject: $checkedConvert('subject',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           follows: $checkedConvert(
               'follows',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -30,8 +27,7 @@ _$GraphGetFollowsImpl _$$GraphGetFollowsImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$GraphGetFollowsImplToJson(
-    _$GraphGetFollowsImpl instance) {
+Map<String, dynamic> _$$FollowsImplToJson(_$FollowsImpl instance) {
   final val = <String, dynamic>{
     'subject': instance.subject.toJson(),
     'follows': instance.follows.map((e) => e.toJson()).toList(),

@@ -26,17 +26,17 @@ final class _PostThreadViewConverter
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
         return PostThreadView.record(
-          data: FeedDefsThreadViewPost.fromJson(json),
+          data: ThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return PostThreadView.notFound(
-          data: FeedDefsNotFoundPost.fromJson(json),
+          data: NotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return PostThreadView.blocked(
-          data: FeedDefsBlockedPost.fromJson(json),
+          data: BlockedPost.fromJson(json),
         );
       }
 

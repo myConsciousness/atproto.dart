@@ -8,16 +8,16 @@ part of 'graph_get_mutes.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetMutesImpl _$$GraphGetMutesImplFromJson(Map json) => $checkedCreate(
-      r'_$GraphGetMutesImpl',
+_$MutesImpl _$$MutesImplFromJson(Map json) => $checkedCreate(
+      r'_$MutesImpl',
       json,
       ($checkedConvert) {
-        final val = _$GraphGetMutesImpl(
+        final val = _$MutesImpl(
           mutes: $checkedConvert(
               'mutes',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -25,7 +25,7 @@ _$GraphGetMutesImpl _$$GraphGetMutesImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$GraphGetMutesImplToJson(_$GraphGetMutesImpl instance) {
+Map<String, dynamic> _$$MutesImplToJson(_$MutesImpl instance) {
   final val = <String, dynamic>{
     'mutes': instance.mutes.map((e) => e.toJson()).toList(),
   };

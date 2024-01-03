@@ -14,40 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsBlockedAuthor _$FeedDefsBlockedAuthorFromJson(
-    Map<String, dynamic> json) {
-  return _FeedDefsBlockedAuthor.fromJson(json);
+BlockedAuthor _$BlockedAuthorFromJson(Map<String, dynamic> json) {
+  return _BlockedAuthor.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsBlockedAuthor {
+mixin _$BlockedAuthor {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsBlockedAuthorCopyWith<FeedDefsBlockedAuthor> get copyWith =>
+  $BlockedAuthorCopyWith<BlockedAuthor> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsBlockedAuthorCopyWith<$Res> {
-  factory $FeedDefsBlockedAuthorCopyWith(FeedDefsBlockedAuthor value,
-          $Res Function(FeedDefsBlockedAuthor) then) =
-      _$FeedDefsBlockedAuthorCopyWithImpl<$Res, FeedDefsBlockedAuthor>;
+abstract class $BlockedAuthorCopyWith<$Res> {
+  factory $BlockedAuthorCopyWith(
+          BlockedAuthor value, $Res Function(BlockedAuthor) then) =
+      _$BlockedAuthorCopyWithImpl<$Res, BlockedAuthor>;
   @useResult
-  $Res call({@typeKey String type, String did, ActorDefsViewerState viewer});
+  $Res call({@typeKey String type, String did, ViewerState viewer});
 
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class _$FeedDefsBlockedAuthorCopyWithImpl<$Res,
-        $Val extends FeedDefsBlockedAuthor>
-    implements $FeedDefsBlockedAuthorCopyWith<$Res> {
-  _$FeedDefsBlockedAuthorCopyWithImpl(this._value, this._then);
+class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
+    implements $BlockedAuthorCopyWith<$Res> {
+  _$BlockedAuthorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,41 +71,39 @@ class _$FeedDefsBlockedAuthorCopyWithImpl<$Res,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsViewerStateCopyWith<$Res> get viewer {
-    return $ActorDefsViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$FeedDefsBlockedAuthorImplCopyWith<$Res>
-    implements $FeedDefsBlockedAuthorCopyWith<$Res> {
-  factory _$$FeedDefsBlockedAuthorImplCopyWith(
-          _$FeedDefsBlockedAuthorImpl value,
-          $Res Function(_$FeedDefsBlockedAuthorImpl) then) =
-      __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>;
+abstract class _$$BlockedAuthorImplCopyWith<$Res>
+    implements $BlockedAuthorCopyWith<$Res> {
+  factory _$$BlockedAuthorImplCopyWith(
+          _$BlockedAuthorImpl value, $Res Function(_$BlockedAuthorImpl) then) =
+      __$$BlockedAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, String did, ActorDefsViewerState viewer});
+  $Res call({@typeKey String type, String did, ViewerState viewer});
 
   @override
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>
-    extends _$FeedDefsBlockedAuthorCopyWithImpl<$Res,
-        _$FeedDefsBlockedAuthorImpl>
-    implements _$$FeedDefsBlockedAuthorImplCopyWith<$Res> {
-  __$$FeedDefsBlockedAuthorImplCopyWithImpl(_$FeedDefsBlockedAuthorImpl _value,
-      $Res Function(_$FeedDefsBlockedAuthorImpl) _then)
+class __$$BlockedAuthorImplCopyWithImpl<$Res>
+    extends _$BlockedAuthorCopyWithImpl<$Res, _$BlockedAuthorImpl>
+    implements _$$BlockedAuthorImplCopyWith<$Res> {
+  __$$BlockedAuthorImplCopyWithImpl(
+      _$BlockedAuthorImpl _value, $Res Function(_$BlockedAuthorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -117,7 +113,7 @@ class __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>
     Object? did = null,
     Object? viewer = null,
   }) {
-    return _then(_$FeedDefsBlockedAuthorImpl(
+    return _then(_$BlockedAuthorImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -129,21 +125,21 @@ class __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedDefsBlockedAuthorImpl implements _FeedDefsBlockedAuthor {
-  const _$FeedDefsBlockedAuthorImpl(
+class _$BlockedAuthorImpl implements _BlockedAuthor {
+  const _$BlockedAuthorImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedAuthor,
       required this.did,
       this.viewer = defaultActorDefsViewerState});
 
-  factory _$FeedDefsBlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsBlockedAuthorImplFromJson(json);
+  factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlockedAuthorImplFromJson(json);
 
   @override
   @typeKey
@@ -152,18 +148,18 @@ class _$FeedDefsBlockedAuthorImpl implements _FeedDefsBlockedAuthor {
   final String did;
   @override
   @JsonKey()
-  final ActorDefsViewerState viewer;
+  final ViewerState viewer;
 
   @override
   String toString() {
-    return 'FeedDefsBlockedAuthor(type: $type, did: $did, viewer: $viewer)';
+    return 'BlockedAuthor(type: $type, did: $did, viewer: $viewer)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsBlockedAuthorImpl &&
+            other is _$BlockedAuthorImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.viewer, viewer) || other.viewer == viewer));
@@ -176,26 +172,25 @@ class _$FeedDefsBlockedAuthorImpl implements _FeedDefsBlockedAuthor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsBlockedAuthorImplCopyWith<_$FeedDefsBlockedAuthorImpl>
-      get copyWith => __$$FeedDefsBlockedAuthorImplCopyWithImpl<
-          _$FeedDefsBlockedAuthorImpl>(this, _$identity);
+  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
+      __$$BlockedAuthorImplCopyWithImpl<_$BlockedAuthorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsBlockedAuthorImplToJson(
+    return _$$BlockedAuthorImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsBlockedAuthor implements FeedDefsBlockedAuthor {
-  const factory _FeedDefsBlockedAuthor(
+abstract class _BlockedAuthor implements BlockedAuthor {
+  const factory _BlockedAuthor(
       {@typeKey final String type,
       required final String did,
-      final ActorDefsViewerState viewer}) = _$FeedDefsBlockedAuthorImpl;
+      final ViewerState viewer}) = _$BlockedAuthorImpl;
 
-  factory _FeedDefsBlockedAuthor.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsBlockedAuthorImpl.fromJson;
+  factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
+      _$BlockedAuthorImpl.fromJson;
 
   @override
   @typeKey
@@ -203,9 +198,9 @@ abstract class _FeedDefsBlockedAuthor implements FeedDefsBlockedAuthor {
   @override
   String get did;
   @override
-  ActorDefsViewerState get viewer;
+  ViewerState get viewer;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsBlockedAuthorImplCopyWith<_$FeedDefsBlockedAuthorImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -17,7 +17,7 @@ part 'union_reason.freezed.dart';
 @freezed
 class UReason with _$UReason {
   factory UReason.repost({
-    required FeedDefsReasonRepost data,
+    required ReasonRepost data,
   }) = UReasonRepost;
 
   factory UReason.unknown({

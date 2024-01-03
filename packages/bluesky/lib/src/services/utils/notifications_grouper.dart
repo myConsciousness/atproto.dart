@@ -28,7 +28,7 @@ sealed class NotificationsGrouper {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [NotificationListNotifications] object containing an array
+  /// Takes a [Notifications] object containing an array
   /// of individual notification items, and groups them into related
   /// sets. A set is considered "related" if they share the same
   /// `reason` and `reasonSubject`.
@@ -46,7 +46,7 @@ sealed class NotificationsGrouper {
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
   GroupedNotifications group(
-    final NotificationListNotifications notifications, {
+    final Notifications notifications, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   });
@@ -57,7 +57,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   @override
   GroupedNotifications group(
-    final NotificationListNotifications data, {
+    final Notifications data, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   }) {
@@ -128,7 +128,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   }
 
   Map<String, dynamic> _buildRelatedGroup(
-    final NotificationListNotificationsNotification notification,
+    final Notification notification,
     final String? reasonSubject,
   ) =>
       {
@@ -144,7 +144,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   void _updateRelatedGroup(
     final Map<String, dynamic> relatedGroup,
-    final NotificationListNotificationsNotification notification,
+    final Notification notification,
   ) {
     relatedGroup['uris'] = _mergeUris(
       relatedGroup['uris'],
@@ -178,7 +178,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeAuthors(
     final List<Map<String, dynamic>> relatedAuthors,
-    final ActorDefsProfileView author,
+    final ProfileView author,
   ) =>
       relatedAuthors
         //! Technically the same person could not appear on the same
@@ -261,9 +261,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
         reasonSubject.contains(ids.appBskyFeedGenerator);
   }
 
-  List<List<NotificationListNotificationsNotification>> _groupBy(
+  List<List<Notification>> _groupBy(
     final GroupBy? by,
-    final NotificationListNotifications data,
+    final Notifications data,
   ) {
     if (by == null) {
       return [data.notifications];
@@ -272,9 +272,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return by.execute(data);
   }
 
-  NotificationListNotifications _filterReason(
+  Notifications _filterReason(
     NotificationReasonFilter? reasonFilter,
-    NotificationListNotifications data,
+    Notifications data,
   ) =>
       reasonFilter == null ? data : reasonFilter.execute(data);
 }

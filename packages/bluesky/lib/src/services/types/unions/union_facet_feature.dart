@@ -19,15 +19,15 @@ part 'union_facet_feature.freezed.dart';
 @freezed
 class UFacetFeature with _$UFacetFeature {
   const factory UFacetFeature.mention({
-    required RichtextFacetMention data,
+    required Mention data,
   }) = UFacetFeatureMention;
 
   const factory UFacetFeature.link({
-    required RichtextFacetLink data,
+    required Link data,
   }) = UFacetFeatureLink;
 
   const factory UFacetFeature.tag({
-    required RichtextFacetTag data,
+    required Tag data,
   }) = UFacetFeatureTag;
 
   const factory UFacetFeature.unknown({

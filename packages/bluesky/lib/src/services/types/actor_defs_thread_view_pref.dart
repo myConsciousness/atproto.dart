@@ -19,14 +19,14 @@ part 'actor_defs_thread_view_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#threadviewpref
 @freezed
 @lex.appBskyActorDefsThreadViewPref
-class ActorDefsThreadViewPref with _$ActorDefsThreadViewPref {
+class ThreadViewPref with _$ThreadViewPref {
   @jsonSerializable
-  const factory ActorDefsThreadViewPref({
+  const factory ThreadViewPref({
     @typeKey @Default(appBskyActorDefsThreadViewPref) String type,
-    ActorDefsThreadViewPrefSort? sort,
+    ThreadViewPrefSort? sort,
     @Default(false) bool prioritizeFollowedUsers,
-  }) = _ActorDefsThreadViewPref;
+  }) = _ThreadViewPref;
 
-  factory ActorDefsThreadViewPref.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsThreadViewPrefFromJson(json);
+  factory ThreadViewPref.fromJson(Map<String, Object?> json) =>
+      _$ThreadViewPrefFromJson(json);
 }

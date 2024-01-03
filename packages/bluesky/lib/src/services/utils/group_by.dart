@@ -13,8 +13,8 @@ sealed class GroupBy {
   const factory GroupBy.hour(final int hour) = Hour;
   const factory GroupBy.minute(final int minute) = Minute;
 
-  List<List<NotificationListNotificationsNotification>> execute(
-    final NotificationListNotifications data,
+  List<List<Notification>> execute(
+    final Notifications data,
   );
 }
 
@@ -24,8 +24,8 @@ final class Hour implements GroupBy {
   final int hour;
 
   @override
-  List<List<NotificationListNotificationsNotification>> execute(
-    NotificationListNotifications data,
+  List<List<Notification>> execute(
+    Notifications data,
   ) {
     return _buildChunks(
       _groupBy(
@@ -48,8 +48,8 @@ final class Minute implements GroupBy {
   final int minute;
 
   @override
-  List<List<NotificationListNotificationsNotification>> execute(
-    NotificationListNotifications data,
+  List<List<Notification>> execute(
+    Notifications data,
   ) {
     return _buildChunks(
       _groupBy(
@@ -76,10 +76,10 @@ Map<T, List<S>> _groupBy<S, T>(Iterable<S> values, T Function(S) key) {
   return map;
 }
 
-List<List<NotificationListNotificationsNotification>> _buildChunks(
-  final Map<DateTime, List<NotificationListNotificationsNotification>> grouped,
+List<List<Notification>> _buildChunks(
+  final Map<DateTime, List<Notification>> grouped,
 ) {
-  final chunks = <List<NotificationListNotificationsNotification>>[];
+  final chunks = <List<Notification>>[];
 
   for (final notifications in grouped.values) {
     chunks.add(notifications);

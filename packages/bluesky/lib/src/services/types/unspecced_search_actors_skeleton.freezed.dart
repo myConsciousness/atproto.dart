@@ -14,43 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UnspeccedSearchActorsSkeleton _$UnspeccedSearchActorsSkeletonFromJson(
-    Map<String, dynamic> json) {
-  return _UnspeccedSearchActorsSkeleton.fromJson(json);
+ActorsSkeleton _$ActorsSkeletonFromJson(Map<String, dynamic> json) {
+  return _ActorsSkeleton.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnspeccedSearchActorsSkeleton {
-  List<UnspeccedDefsSkeletonSearchActor> get actors =>
-      throw _privateConstructorUsedError;
+mixin _$ActorsSkeleton {
+  List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnspeccedSearchActorsSkeletonCopyWith<UnspeccedSearchActorsSkeleton>
-      get copyWith => throw _privateConstructorUsedError;
+  $ActorsSkeletonCopyWith<ActorsSkeleton> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnspeccedSearchActorsSkeletonCopyWith<$Res> {
-  factory $UnspeccedSearchActorsSkeletonCopyWith(
-          UnspeccedSearchActorsSkeleton value,
-          $Res Function(UnspeccedSearchActorsSkeleton) then) =
-      _$UnspeccedSearchActorsSkeletonCopyWithImpl<$Res,
-          UnspeccedSearchActorsSkeleton>;
+abstract class $ActorsSkeletonCopyWith<$Res> {
+  factory $ActorsSkeletonCopyWith(
+          ActorsSkeleton value, $Res Function(ActorsSkeleton) then) =
+      _$ActorsSkeletonCopyWithImpl<$Res, ActorsSkeleton>;
   @useResult
-  $Res call(
-      {List<UnspeccedDefsSkeletonSearchActor> actors,
-      int hitsTotal,
-      String? cursor});
+  $Res call({List<SkeletonSearchActor> actors, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class _$UnspeccedSearchActorsSkeletonCopyWithImpl<$Res,
-        $Val extends UnspeccedSearchActorsSkeleton>
-    implements $UnspeccedSearchActorsSkeletonCopyWith<$Res> {
-  _$UnspeccedSearchActorsSkeletonCopyWithImpl(this._value, this._then);
+class _$ActorsSkeletonCopyWithImpl<$Res, $Val extends ActorsSkeleton>
+    implements $ActorsSkeletonCopyWith<$Res> {
+  _$ActorsSkeletonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,7 +60,7 @@ class _$UnspeccedSearchActorsSkeletonCopyWithImpl<$Res,
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedDefsSkeletonSearchActor>,
+              as List<SkeletonSearchActor>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -82,28 +74,22 @@ class _$UnspeccedSearchActorsSkeletonCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UnspeccedSearchActorsSkeletonImplCopyWith<$Res>
-    implements $UnspeccedSearchActorsSkeletonCopyWith<$Res> {
-  factory _$$UnspeccedSearchActorsSkeletonImplCopyWith(
-          _$UnspeccedSearchActorsSkeletonImpl value,
-          $Res Function(_$UnspeccedSearchActorsSkeletonImpl) then) =
-      __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl<$Res>;
+abstract class _$$ActorsSkeletonImplCopyWith<$Res>
+    implements $ActorsSkeletonCopyWith<$Res> {
+  factory _$$ActorsSkeletonImplCopyWith(_$ActorsSkeletonImpl value,
+          $Res Function(_$ActorsSkeletonImpl) then) =
+      __$$ActorsSkeletonImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<UnspeccedDefsSkeletonSearchActor> actors,
-      int hitsTotal,
-      String? cursor});
+  $Res call({List<SkeletonSearchActor> actors, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl<$Res>
-    extends _$UnspeccedSearchActorsSkeletonCopyWithImpl<$Res,
-        _$UnspeccedSearchActorsSkeletonImpl>
-    implements _$$UnspeccedSearchActorsSkeletonImplCopyWith<$Res> {
-  __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl(
-      _$UnspeccedSearchActorsSkeletonImpl _value,
-      $Res Function(_$UnspeccedSearchActorsSkeletonImpl) _then)
+class __$$ActorsSkeletonImplCopyWithImpl<$Res>
+    extends _$ActorsSkeletonCopyWithImpl<$Res, _$ActorsSkeletonImpl>
+    implements _$$ActorsSkeletonImplCopyWith<$Res> {
+  __$$ActorsSkeletonImplCopyWithImpl(
+      _$ActorsSkeletonImpl _value, $Res Function(_$ActorsSkeletonImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,11 +99,11 @@ class __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$UnspeccedSearchActorsSkeletonImpl(
+    return _then(_$ActorsSkeletonImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedDefsSkeletonSearchActor>,
+              as List<SkeletonSearchActor>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -132,21 +118,19 @@ class __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UnspeccedSearchActorsSkeletonImpl
-    implements _UnspeccedSearchActorsSkeleton {
-  const _$UnspeccedSearchActorsSkeletonImpl(
-      {required final List<UnspeccedDefsSkeletonSearchActor> actors,
+class _$ActorsSkeletonImpl implements _ActorsSkeleton {
+  const _$ActorsSkeletonImpl(
+      {required final List<SkeletonSearchActor> actors,
       this.hitsTotal = 0,
       this.cursor})
       : _actors = actors;
 
-  factory _$UnspeccedSearchActorsSkeletonImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedSearchActorsSkeletonImplFromJson(json);
+  factory _$ActorsSkeletonImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorsSkeletonImplFromJson(json);
 
-  final List<UnspeccedDefsSkeletonSearchActor> _actors;
+  final List<SkeletonSearchActor> _actors;
   @override
-  List<UnspeccedDefsSkeletonSearchActor> get actors {
+  List<SkeletonSearchActor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -160,14 +144,14 @@ class _$UnspeccedSearchActorsSkeletonImpl
 
   @override
   String toString() {
-    return 'UnspeccedSearchActorsSkeleton(actors: $actors, hitsTotal: $hitsTotal, cursor: $cursor)';
+    return 'ActorsSkeleton(actors: $actors, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnspeccedSearchActorsSkeletonImpl &&
+            other is _$ActorsSkeletonImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -182,38 +166,35 @@ class _$UnspeccedSearchActorsSkeletonImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnspeccedSearchActorsSkeletonImplCopyWith<
-          _$UnspeccedSearchActorsSkeletonImpl>
-      get copyWith => __$$UnspeccedSearchActorsSkeletonImplCopyWithImpl<
-          _$UnspeccedSearchActorsSkeletonImpl>(this, _$identity);
+  _$$ActorsSkeletonImplCopyWith<_$ActorsSkeletonImpl> get copyWith =>
+      __$$ActorsSkeletonImplCopyWithImpl<_$ActorsSkeletonImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnspeccedSearchActorsSkeletonImplToJson(
+    return _$$ActorsSkeletonImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnspeccedSearchActorsSkeleton
-    implements UnspeccedSearchActorsSkeleton {
-  const factory _UnspeccedSearchActorsSkeleton(
-      {required final List<UnspeccedDefsSkeletonSearchActor> actors,
+abstract class _ActorsSkeleton implements ActorsSkeleton {
+  const factory _ActorsSkeleton(
+      {required final List<SkeletonSearchActor> actors,
       final int hitsTotal,
-      final String? cursor}) = _$UnspeccedSearchActorsSkeletonImpl;
+      final String? cursor}) = _$ActorsSkeletonImpl;
 
-  factory _UnspeccedSearchActorsSkeleton.fromJson(Map<String, dynamic> json) =
-      _$UnspeccedSearchActorsSkeletonImpl.fromJson;
+  factory _ActorsSkeleton.fromJson(Map<String, dynamic> json) =
+      _$ActorsSkeletonImpl.fromJson;
 
   @override
-  List<UnspeccedDefsSkeletonSearchActor> get actors;
+  List<SkeletonSearchActor> get actors;
   @override
   int get hitsTotal;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$UnspeccedSearchActorsSkeletonImplCopyWith<
-          _$UnspeccedSearchActorsSkeletonImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ActorsSkeletonImplCopyWith<_$ActorsSkeletonImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

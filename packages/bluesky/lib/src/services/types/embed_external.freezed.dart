@@ -14,37 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EmbedExternal _$EmbedExternalFromJson(Map<String, dynamic> json) {
-  return _EmbedExternal.fromJson(json);
+External _$ExternalFromJson(Map<String, dynamic> json) {
+  return _External.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EmbedExternal {
+mixin _$External {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  EmbedExternalExternal get external => throw _privateConstructorUsedError;
+  embed_external.External get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmbedExternalCopyWith<EmbedExternal> get copyWith =>
+  $ExternalCopyWith<External> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmbedExternalCopyWith<$Res> {
-  factory $EmbedExternalCopyWith(
-          EmbedExternal value, $Res Function(EmbedExternal) then) =
-      _$EmbedExternalCopyWithImpl<$Res, EmbedExternal>;
+abstract class $ExternalCopyWith<$Res> {
+  factory $ExternalCopyWith(External value, $Res Function(External) then) =
+      _$ExternalCopyWithImpl<$Res, External>;
   @useResult
-  $Res call({@typeKey String type, EmbedExternalExternal external});
+  $Res call({@typeKey String type, embed_external.External external});
 
-  $EmbedExternalExternalCopyWith<$Res> get external;
+  $ExternalCopyWith<$Res> get external;
 }
 
 /// @nodoc
-class _$EmbedExternalCopyWithImpl<$Res, $Val extends EmbedExternal>
-    implements $EmbedExternalCopyWith<$Res> {
-  _$EmbedExternalCopyWithImpl(this._value, this._then);
+class _$ExternalCopyWithImpl<$Res, $Val extends External>
+    implements $ExternalCopyWith<$Res> {
+  _$ExternalCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -65,39 +64,39 @@ class _$EmbedExternalCopyWithImpl<$Res, $Val extends EmbedExternal>
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
-              as EmbedExternalExternal,
+              as embed_external.External,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $EmbedExternalExternalCopyWith<$Res> get external {
-    return $EmbedExternalExternalCopyWith<$Res>(_value.external, (value) {
+  $ExternalCopyWith<$Res> get external {
+    return $ExternalCopyWith<$Res>(_value.external, (value) {
       return _then(_value.copyWith(external: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$EmbedExternalImplCopyWith<$Res>
-    implements $EmbedExternalCopyWith<$Res> {
-  factory _$$EmbedExternalImplCopyWith(
-          _$EmbedExternalImpl value, $Res Function(_$EmbedExternalImpl) then) =
-      __$$EmbedExternalImplCopyWithImpl<$Res>;
+abstract class _$$ExternalImplCopyWith<$Res>
+    implements $ExternalCopyWith<$Res> {
+  factory _$$ExternalImplCopyWith(
+          _$ExternalImpl value, $Res Function(_$ExternalImpl) then) =
+      __$$ExternalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, EmbedExternalExternal external});
+  $Res call({@typeKey String type, embed_external.External external});
 
   @override
-  $EmbedExternalExternalCopyWith<$Res> get external;
+  $ExternalCopyWith<$Res> get external;
 }
 
 /// @nodoc
-class __$$EmbedExternalImplCopyWithImpl<$Res>
-    extends _$EmbedExternalCopyWithImpl<$Res, _$EmbedExternalImpl>
-    implements _$$EmbedExternalImplCopyWith<$Res> {
-  __$$EmbedExternalImplCopyWithImpl(
-      _$EmbedExternalImpl _value, $Res Function(_$EmbedExternalImpl) _then)
+class __$$ExternalImplCopyWithImpl<$Res>
+    extends _$ExternalCopyWithImpl<$Res, _$ExternalImpl>
+    implements _$$ExternalImplCopyWith<$Res> {
+  __$$ExternalImplCopyWithImpl(
+      _$ExternalImpl _value, $Res Function(_$ExternalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +105,7 @@ class __$$EmbedExternalImplCopyWithImpl<$Res>
     Object? type = null,
     Object? external = null,
   }) {
-    return _then(_$EmbedExternalImpl(
+    return _then(_$ExternalImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -114,36 +113,36 @@ class __$$EmbedExternalImplCopyWithImpl<$Res>
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
-              as EmbedExternalExternal,
+              as embed_external.External,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedExternalImpl implements _EmbedExternal {
-  const _$EmbedExternalImpl(
+class _$ExternalImpl implements _External {
+  const _$ExternalImpl(
       {@typeKey this.type = appBskyEmbedExternal, required this.external});
 
-  factory _$EmbedExternalImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedExternalImplFromJson(json);
+  factory _$ExternalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ExternalImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final EmbedExternalExternal external;
+  final embed_external.External external;
 
   @override
   String toString() {
-    return 'EmbedExternal(type: $type, external: $external)';
+    return 'External(type: $type, external: $external)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedExternalImpl &&
+            other is _$ExternalImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.external, external) ||
                 other.external == external));
@@ -156,32 +155,32 @@ class _$EmbedExternalImpl implements _EmbedExternal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
-      __$$EmbedExternalImplCopyWithImpl<_$EmbedExternalImpl>(this, _$identity);
+  _$$ExternalImplCopyWith<_$ExternalImpl> get copyWith =>
+      __$$ExternalImplCopyWithImpl<_$ExternalImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedExternalImplToJson(
+    return _$$ExternalImplToJson(
       this,
     );
   }
 }
 
-abstract class _EmbedExternal implements EmbedExternal {
-  const factory _EmbedExternal(
+abstract class _External implements External {
+  const factory _External(
       {@typeKey final String type,
-      required final EmbedExternalExternal external}) = _$EmbedExternalImpl;
+      required final embed_external.External external}) = _$ExternalImpl;
 
-  factory _EmbedExternal.fromJson(Map<String, dynamic> json) =
-      _$EmbedExternalImpl.fromJson;
+  factory _External.fromJson(Map<String, dynamic> json) =
+      _$ExternalImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  EmbedExternalExternal get external;
+  embed_external.External get external;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedExternalImplCopyWith<_$EmbedExternalImpl> get copyWith =>
+  _$$ExternalImplCopyWith<_$ExternalImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

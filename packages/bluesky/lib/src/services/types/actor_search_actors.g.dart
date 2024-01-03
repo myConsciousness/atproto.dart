@@ -8,17 +8,16 @@ part of 'actor_search_actors.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorSearchActorsImpl _$$ActorSearchActorsImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorSearchActorsImpl',
+_$ActorsImpl _$$ActorsImplFromJson(Map json) => $checkedCreate(
+      r'_$ActorsImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorSearchActorsImpl(
+        final val = _$ActorsImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -26,8 +25,7 @@ _$ActorSearchActorsImpl _$$ActorSearchActorsImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ActorSearchActorsImplToJson(
-        _$ActorSearchActorsImpl instance) =>
+Map<String, dynamic> _$$ActorsImplToJson(_$ActorsImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

@@ -19,19 +19,19 @@ part 'graph_defs_list_view_basic.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewbasic
 @freezed
 @lex.appBskyGraphDefsListViewBasic
-class GraphDefsListViewBasic with _$GraphDefsListViewBasic {
+class ListViewBasic with _$ListViewBasic {
   @jsonSerializable
-  const factory GraphDefsListViewBasic({
+  const factory ListViewBasic({
     @typeKey @Default(appBskyGraphDefsListViewBasic) String type,
     @Default(appBskyGraphDefsModlist) String purpose,
     @atUriConverter required AtUri uri,
     required String cid,
     required String name,
     String? avatar,
-    @Default(defaultGraphDefsListViewerState) GraphDefsListViewerState viewer,
+    @Default(defaultGraphDefsListViewerState) ListViewerState viewer,
     required DateTime indexedAt,
   }) = _GraphDefsListViewBasic;
 
-  factory GraphDefsListViewBasic.fromJson(Map<String, Object?> json) =>
-      _$GraphDefsListViewBasicFromJson(json);
+  factory ListViewBasic.fromJson(Map<String, Object?> json) =>
+      _$ListViewBasicFromJson(json);
 }

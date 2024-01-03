@@ -8,12 +8,11 @@ part of 'feed_defs_threadgate_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsThreadgateViewImpl _$$FeedDefsThreadgateViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedDefsThreadgateViewImpl',
+_$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
+      r'_$ThreadgateViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsThreadgateViewImpl(
+        final val = _$ThreadgateViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsThreadgateView),
           uri: $checkedConvert(
@@ -30,7 +29,7 @@ _$FeedDefsThreadgateViewImpl _$$FeedDefsThreadgateViewImplFromJson(Map json) =>
           lists: $checkedConvert(
               'lists',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => GraphDefsListViewBasic.fromJson(
+                  ?.map((e) => ListViewBasic.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
@@ -39,8 +38,8 @@ _$FeedDefsThreadgateViewImpl _$$FeedDefsThreadgateViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedDefsThreadgateViewImplToJson(
-    _$FeedDefsThreadgateViewImpl instance) {
+Map<String, dynamic> _$$ThreadgateViewImplToJson(
+    _$ThreadgateViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

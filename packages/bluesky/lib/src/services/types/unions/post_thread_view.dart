@@ -18,15 +18,15 @@ part 'post_thread_view.freezed.dart';
 @freezed
 class PostThreadView with _$PostThreadView {
   const factory PostThreadView.record({
-    required FeedDefsThreadViewPost data,
+    required ThreadViewPost data,
   }) = UPostThreadViewRecord;
 
   const factory PostThreadView.notFound({
-    required FeedDefsNotFoundPost data,
+    required NotFoundPost data,
   }) = UPostThreadViewNotFound;
 
   const factory PostThreadView.blocked({
-    required FeedDefsBlockedPost data,
+    required BlockedPost data,
   }) = UPostThreadViewBlocked;
 
   const factory PostThreadView.unknown({

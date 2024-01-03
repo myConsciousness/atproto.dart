@@ -8,23 +8,20 @@ part of 'feed_describe_feed_generator_links.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDescribeFeedGeneratorLinksImpl
-    _$$FeedDescribeFeedGeneratorLinksImplFromJson(Map json) => $checkedCreate(
-          r'_$FeedDescribeFeedGeneratorLinksImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$FeedDescribeFeedGeneratorLinksImpl(
-              privacyPolicy:
-                  $checkedConvert('privacyPolicy', (v) => v as String?),
-              termsOfService:
-                  $checkedConvert('termsOfService', (v) => v as String?),
-            );
-            return val;
-          },
+_$LinksImpl _$$LinksImplFromJson(Map json) => $checkedCreate(
+      r'_$LinksImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$LinksImpl(
+          privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
+          termsOfService:
+              $checkedConvert('termsOfService', (v) => v as String?),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$FeedDescribeFeedGeneratorLinksImplToJson(
-    _$FeedDescribeFeedGeneratorLinksImpl instance) {
+Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

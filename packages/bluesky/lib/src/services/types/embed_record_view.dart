@@ -20,12 +20,11 @@ part 'embed_record_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
 @lex.appBskyEmbedRecordView
-class EmbedRecordView with _$EmbedRecordView {
-  const factory EmbedRecordView({
+class View with _$View {
+  const factory View({
     @typeKey @Default(appBskyEmbedRecordView) String type,
     @unionEmbedRecordViewRecord required UEmbedRecordViewRecord record,
-  }) = _EmbedRecordView;
+  }) = _View;
 
-  factory EmbedRecordView.fromJson(Map<String, Object?> json) =>
-      _$EmbedRecordViewFromJson(json);
+  factory View.fromJson(Map<String, Object?> json) => _$ViewFromJson(json);
 }

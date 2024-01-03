@@ -6,6 +6,6 @@
 import '../actor_defs_profile_view.dart';
 import '../feed_defs_generator_view.dart';
 
-extension FeedDefsGeneratorViewExtension on FeedDefsGeneratorView {
-  ActorDefsProfileView get createdBy => creator;
+extension GeneratorViewExtension on GeneratorView {
+  ProfileView get createdBy => creator;
 }

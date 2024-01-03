@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import '../graph_defs_list_viewer_state.dart';
 
-extension GraphDefsListViewerStateExtension on GraphDefsListViewerState {
+extension ListViewerStateExtension on ListViewerState {
   bool get isMuted => muted;
 
   /// Returns true if authenticated user has not muted yet this actor,

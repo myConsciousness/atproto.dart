@@ -20,27 +20,27 @@ part 'preference.freezed.dart';
 @freezed
 class Preference with _$Preference {
   const factory Preference.adultContent({
-    required ActorDefsAdultContentPref data,
+    required AdultContentPref data,
   }) = UPreferenceAdultContent;
 
   const factory Preference.contentLabel({
-    required ActorDefsContentLabelPref data,
+    required ContentLabelPref data,
   }) = UPreferenceContentLabel;
 
   const factory Preference.savedFeeds({
-    required ActorDefsSavedFeedsPref data,
+    required SavedFeedsPref data,
   }) = UPreferenceSavedFeeds;
 
   const factory Preference.personalDetails({
-    required ActorDefsPersonalDetailsPref data,
+    required PersonalDetailsPref data,
   }) = UPreferencePersonalDetails;
 
   const factory Preference.feedView({
-    required ActorDefsFeedViewPref data,
+    required FeedViewPref data,
   }) = UPreferenceFeedView;
 
   const factory Preference.threadView({
-    required ActorDefsThreadViewPref data,
+    required ThreadViewPref data,
   }) = UPreferenceThreadView;
 
   const factory Preference.unknown({

@@ -8,17 +8,16 @@ part of 'feed_get_reposted_by.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetRepostedByImpl _$$FeedGetRepostedByImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGetRepostedByImpl',
+_$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
+      r'_$RepostedByImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGetRepostedByImpl(
+        final val = _$RepostedByImpl(
           repostedBy: $checkedConvert(
               'repostedBy',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
@@ -29,8 +28,7 @@ _$FeedGetRepostedByImpl _$$FeedGetRepostedByImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedGetRepostedByImplToJson(
-    _$FeedGetRepostedByImpl instance) {
+Map<String, dynamic> _$$RepostedByImplToJson(_$RepostedByImpl instance) {
   final val = <String, dynamic>{
     'repostedBy': instance.repostedBy.map((e) => e.toJson()).toList(),
     'uri': atUriConverter.toJson(instance.uri),

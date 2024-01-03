@@ -29,32 +29,32 @@ final class _PreferenceConverter
 
       if (type == ids.appBskyActorDefsAdultContentPref) {
         return Preference.adultContent(
-          data: ActorDefsAdultContentPref.fromJson(json),
+          data: AdultContentPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsContentLabelPref) {
         return Preference.contentLabel(
-          data: actorDefsContentLabelPrefConverter.fromJson(json),
+          data: contentLabelPrefConverter.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsSavedFeedsPref) {
         return Preference.savedFeeds(
-          data: ActorDefsSavedFeedsPref.fromJson(json),
+          data: SavedFeedsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsPersonalDetailsPref) {
         return Preference.personalDetails(
-          data: ActorDefsPersonalDetailsPref.fromJson(json),
+          data: PersonalDetailsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsFeedViewPref) {
         return Preference.feedView(
-          data: ActorDefsFeedViewPref.fromJson(json),
+          data: FeedViewPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsThreadViewPref) {
         return Preference.threadView(
-          data: ActorDefsThreadViewPref.fromJson(json),
+          data: ThreadViewPref.fromJson(json),
         );
       }
 

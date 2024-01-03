@@ -25,8 +25,8 @@ sealed class NotificationReasonFilter {
   ) = NotificationReasonExcludeFilter;
 
   /// Returns a new [notifications] filtered based on reasons.
-  NotificationListNotifications execute(
-    final NotificationListNotifications notifications,
+  Notifications execute(
+    final Notifications notifications,
   );
 }
 
@@ -39,8 +39,8 @@ final class NotificationReasonIncludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  NotificationListNotifications execute(
-    final NotificationListNotifications data,
+  Notifications execute(
+    final Notifications data,
   ) =>
       data.copyWith(
         notifications:
@@ -57,8 +57,8 @@ final class NotificationReasonExcludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  NotificationListNotifications execute(
-    final NotificationListNotifications data,
+  Notifications execute(
+    final Notifications data,
   ) =>
       data.copyWith(
         notifications:
@@ -67,7 +67,7 @@ final class NotificationReasonExcludeFilter
 }
 
 bool _test(
-  final NotificationListNotificationsNotification e,
+  final Notification e,
   final List<GroupedNotificationReason> reasons,
 ) {
   if (_isCustomFeedLike(e.reason, e.reasonSubject)) {

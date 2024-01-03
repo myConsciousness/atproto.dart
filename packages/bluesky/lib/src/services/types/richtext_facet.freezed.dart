@@ -14,42 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RichtextFacet _$RichtextFacetFromJson(Map<String, dynamic> json) {
-  return _RichtextFacet.fromJson(json);
+Facet _$FacetFromJson(Map<String, dynamic> json) {
+  return _Facet.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RichtextFacet {
+mixin _$Facet {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  RichtextFacetByteSlice get index => throw _privateConstructorUsedError;
+  ByteSlice get index => throw _privateConstructorUsedError;
   @unionFacetFeature
   List<UFacetFeature> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RichtextFacetCopyWith<RichtextFacet> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FacetCopyWith<Facet> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RichtextFacetCopyWith<$Res> {
-  factory $RichtextFacetCopyWith(
-          RichtextFacet value, $Res Function(RichtextFacet) then) =
-      _$RichtextFacetCopyWithImpl<$Res, RichtextFacet>;
+abstract class $FacetCopyWith<$Res> {
+  factory $FacetCopyWith(Facet value, $Res Function(Facet) then) =
+      _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
   $Res call(
       {@typeKey String type,
-      RichtextFacetByteSlice index,
+      ByteSlice index,
       @unionFacetFeature List<UFacetFeature> features});
 
-  $RichtextFacetByteSliceCopyWith<$Res> get index;
+  $ByteSliceCopyWith<$Res> get index;
 }
 
 /// @nodoc
-class _$RichtextFacetCopyWithImpl<$Res, $Val extends RichtextFacet>
-    implements $RichtextFacetCopyWith<$Res> {
-  _$RichtextFacetCopyWithImpl(this._value, this._then);
+class _$FacetCopyWithImpl<$Res, $Val extends Facet>
+    implements $FacetCopyWith<$Res> {
+  _$FacetCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -71,7 +69,7 @@ class _$RichtextFacetCopyWithImpl<$Res, $Val extends RichtextFacet>
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetByteSlice,
+              as ByteSlice,
       features: null == features
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
@@ -81,36 +79,35 @@ class _$RichtextFacetCopyWithImpl<$Res, $Val extends RichtextFacet>
 
   @override
   @pragma('vm:prefer-inline')
-  $RichtextFacetByteSliceCopyWith<$Res> get index {
-    return $RichtextFacetByteSliceCopyWith<$Res>(_value.index, (value) {
+  $ByteSliceCopyWith<$Res> get index {
+    return $ByteSliceCopyWith<$Res>(_value.index, (value) {
       return _then(_value.copyWith(index: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$RichtextFacetImplCopyWith<$Res>
-    implements $RichtextFacetCopyWith<$Res> {
-  factory _$$RichtextFacetImplCopyWith(
-          _$RichtextFacetImpl value, $Res Function(_$RichtextFacetImpl) then) =
-      __$$RichtextFacetImplCopyWithImpl<$Res>;
+abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
+  factory _$$FacetImplCopyWith(
+          _$FacetImpl value, $Res Function(_$FacetImpl) then) =
+      __$$FacetImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
-      RichtextFacetByteSlice index,
+      ByteSlice index,
       @unionFacetFeature List<UFacetFeature> features});
 
   @override
-  $RichtextFacetByteSliceCopyWith<$Res> get index;
+  $ByteSliceCopyWith<$Res> get index;
 }
 
 /// @nodoc
-class __$$RichtextFacetImplCopyWithImpl<$Res>
-    extends _$RichtextFacetCopyWithImpl<$Res, _$RichtextFacetImpl>
-    implements _$$RichtextFacetImplCopyWith<$Res> {
-  __$$RichtextFacetImplCopyWithImpl(
-      _$RichtextFacetImpl _value, $Res Function(_$RichtextFacetImpl) _then)
+class __$$FacetImplCopyWithImpl<$Res>
+    extends _$FacetCopyWithImpl<$Res, _$FacetImpl>
+    implements _$$FacetImplCopyWith<$Res> {
+  __$$FacetImplCopyWithImpl(
+      _$FacetImpl _value, $Res Function(_$FacetImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +117,7 @@ class __$$RichtextFacetImplCopyWithImpl<$Res>
     Object? index = null,
     Object? features = null,
   }) {
-    return _then(_$RichtextFacetImpl(
+    return _then(_$FacetImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,7 +125,7 @@ class __$$RichtextFacetImplCopyWithImpl<$Res>
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetByteSlice,
+              as ByteSlice,
       features: null == features
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
@@ -140,21 +137,21 @@ class __$$RichtextFacetImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$RichtextFacetImpl implements _RichtextFacet {
-  const _$RichtextFacetImpl(
+class _$FacetImpl implements _Facet {
+  const _$FacetImpl(
       {@typeKey this.type = appBskyRichtextFacet,
       required this.index,
       @unionFacetFeature required final List<UFacetFeature> features})
       : _features = features;
 
-  factory _$RichtextFacetImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RichtextFacetImplFromJson(json);
+  factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FacetImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final RichtextFacetByteSlice index;
+  final ByteSlice index;
   final List<UFacetFeature> _features;
   @override
   @unionFacetFeature
@@ -166,14 +163,14 @@ class _$RichtextFacetImpl implements _RichtextFacet {
 
   @override
   String toString() {
-    return 'RichtextFacet(type: $type, index: $index, features: $features)';
+    return 'Facet(type: $type, index: $index, features: $features)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RichtextFacetImpl &&
+            other is _$FacetImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._features, _features));
@@ -187,37 +184,36 @@ class _$RichtextFacetImpl implements _RichtextFacet {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RichtextFacetImplCopyWith<_$RichtextFacetImpl> get copyWith =>
-      __$$RichtextFacetImplCopyWithImpl<_$RichtextFacetImpl>(this, _$identity);
+  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
+      __$$FacetImplCopyWithImpl<_$FacetImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RichtextFacetImplToJson(
+    return _$$FacetImplToJson(
       this,
     );
   }
 }
 
-abstract class _RichtextFacet implements RichtextFacet {
-  const factory _RichtextFacet(
+abstract class _Facet implements Facet {
+  const factory _Facet(
           {@typeKey final String type,
-          required final RichtextFacetByteSlice index,
+          required final ByteSlice index,
           @unionFacetFeature required final List<UFacetFeature> features}) =
-      _$RichtextFacetImpl;
+      _$FacetImpl;
 
-  factory _RichtextFacet.fromJson(Map<String, dynamic> json) =
-      _$RichtextFacetImpl.fromJson;
+  factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  RichtextFacetByteSlice get index;
+  ByteSlice get index;
   @override
   @unionFacetFeature
   List<UFacetFeature> get features;
   @override
   @JsonKey(ignore: true)
-  _$$RichtextFacetImplCopyWith<_$RichtextFacetImpl> get copyWith =>
+  _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

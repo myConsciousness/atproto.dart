@@ -14,38 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsGeneratorViewerState _$FeedDefsGeneratorViewerStateFromJson(
-    Map<String, dynamic> json) {
-  return _FeedDefsGeneratorViewerState.fromJson(json);
+GeneratorViewerState _$GeneratorViewerStateFromJson(Map<String, dynamic> json) {
+  return _GeneratorViewerState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsGeneratorViewerState {
+mixin _$GeneratorViewerState {
   @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsGeneratorViewerStateCopyWith<FeedDefsGeneratorViewerState>
-      get copyWith => throw _privateConstructorUsedError;
+  $GeneratorViewerStateCopyWith<GeneratorViewerState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsGeneratorViewerStateCopyWith<$Res> {
-  factory $FeedDefsGeneratorViewerStateCopyWith(
-          FeedDefsGeneratorViewerState value,
-          $Res Function(FeedDefsGeneratorViewerState) then) =
-      _$FeedDefsGeneratorViewerStateCopyWithImpl<$Res,
-          FeedDefsGeneratorViewerState>;
+abstract class $GeneratorViewerStateCopyWith<$Res> {
+  factory $GeneratorViewerStateCopyWith(GeneratorViewerState value,
+          $Res Function(GeneratorViewerState) then) =
+      _$GeneratorViewerStateCopyWithImpl<$Res, GeneratorViewerState>;
   @useResult
   $Res call({@atUriConverter AtUri? like});
 }
 
 /// @nodoc
-class _$FeedDefsGeneratorViewerStateCopyWithImpl<$Res,
-        $Val extends FeedDefsGeneratorViewerState>
-    implements $FeedDefsGeneratorViewerStateCopyWith<$Res> {
-  _$FeedDefsGeneratorViewerStateCopyWithImpl(this._value, this._then);
+class _$GeneratorViewerStateCopyWithImpl<$Res,
+        $Val extends GeneratorViewerState>
+    implements $GeneratorViewerStateCopyWith<$Res> {
+  _$GeneratorViewerStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,25 +64,22 @@ class _$FeedDefsGeneratorViewerStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FeedDefsGeneratorViewerStateImplCopyWith<$Res>
-    implements $FeedDefsGeneratorViewerStateCopyWith<$Res> {
-  factory _$$FeedDefsGeneratorViewerStateImplCopyWith(
-          _$FeedDefsGeneratorViewerStateImpl value,
-          $Res Function(_$FeedDefsGeneratorViewerStateImpl) then) =
-      __$$FeedDefsGeneratorViewerStateImplCopyWithImpl<$Res>;
+abstract class _$$GeneratorViewerStateImplCopyWith<$Res>
+    implements $GeneratorViewerStateCopyWith<$Res> {
+  factory _$$GeneratorViewerStateImplCopyWith(_$GeneratorViewerStateImpl value,
+          $Res Function(_$GeneratorViewerStateImpl) then) =
+      __$$GeneratorViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@atUriConverter AtUri? like});
 }
 
 /// @nodoc
-class __$$FeedDefsGeneratorViewerStateImplCopyWithImpl<$Res>
-    extends _$FeedDefsGeneratorViewerStateCopyWithImpl<$Res,
-        _$FeedDefsGeneratorViewerStateImpl>
-    implements _$$FeedDefsGeneratorViewerStateImplCopyWith<$Res> {
-  __$$FeedDefsGeneratorViewerStateImplCopyWithImpl(
-      _$FeedDefsGeneratorViewerStateImpl _value,
-      $Res Function(_$FeedDefsGeneratorViewerStateImpl) _then)
+class __$$GeneratorViewerStateImplCopyWithImpl<$Res>
+    extends _$GeneratorViewerStateCopyWithImpl<$Res, _$GeneratorViewerStateImpl>
+    implements _$$GeneratorViewerStateImplCopyWith<$Res> {
+  __$$GeneratorViewerStateImplCopyWithImpl(_$GeneratorViewerStateImpl _value,
+      $Res Function(_$GeneratorViewerStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +87,7 @@ class __$$FeedDefsGeneratorViewerStateImplCopyWithImpl<$Res>
   $Res call({
     Object? like = freezed,
   }) {
-    return _then(_$FeedDefsGeneratorViewerStateImpl(
+    return _then(_$GeneratorViewerStateImpl(
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -105,13 +99,11 @@ class __$$FeedDefsGeneratorViewerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedDefsGeneratorViewerStateImpl
-    implements _FeedDefsGeneratorViewerState {
-  const _$FeedDefsGeneratorViewerStateImpl({@atUriConverter this.like});
+class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
+  const _$GeneratorViewerStateImpl({@atUriConverter this.like});
 
-  factory _$FeedDefsGeneratorViewerStateImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$FeedDefsGeneratorViewerStateImplFromJson(json);
+  factory _$GeneratorViewerStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorViewerStateImplFromJson(json);
 
   @override
   @atUriConverter
@@ -119,14 +111,14 @@ class _$FeedDefsGeneratorViewerStateImpl
 
   @override
   String toString() {
-    return 'FeedDefsGeneratorViewerState(like: $like)';
+    return 'GeneratorViewerState(like: $like)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsGeneratorViewerStateImpl &&
+            other is _$GeneratorViewerStateImpl &&
             (identical(other.like, like) || other.like == like));
   }
 
@@ -137,33 +129,31 @@ class _$FeedDefsGeneratorViewerStateImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsGeneratorViewerStateImplCopyWith<
-          _$FeedDefsGeneratorViewerStateImpl>
-      get copyWith => __$$FeedDefsGeneratorViewerStateImplCopyWithImpl<
-          _$FeedDefsGeneratorViewerStateImpl>(this, _$identity);
+  _$$GeneratorViewerStateImplCopyWith<_$GeneratorViewerStateImpl>
+      get copyWith =>
+          __$$GeneratorViewerStateImplCopyWithImpl<_$GeneratorViewerStateImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsGeneratorViewerStateImplToJson(
+    return _$$GeneratorViewerStateImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsGeneratorViewerState
-    implements FeedDefsGeneratorViewerState {
-  const factory _FeedDefsGeneratorViewerState(
-      {@atUriConverter final AtUri? like}) = _$FeedDefsGeneratorViewerStateImpl;
+abstract class _GeneratorViewerState implements GeneratorViewerState {
+  const factory _GeneratorViewerState({@atUriConverter final AtUri? like}) =
+      _$GeneratorViewerStateImpl;
 
-  factory _FeedDefsGeneratorViewerState.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsGeneratorViewerStateImpl.fromJson;
+  factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) =
+      _$GeneratorViewerStateImpl.fromJson;
 
   @override
   @atUriConverter
   AtUri? get like;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsGeneratorViewerStateImplCopyWith<
-          _$FeedDefsGeneratorViewerStateImpl>
+  _$$GeneratorViewerStateImplCopyWith<_$GeneratorViewerStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

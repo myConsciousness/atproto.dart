@@ -21,23 +21,23 @@ part 'union_embed_record_view_record.freezed.dart';
 @freezed
 class UEmbedRecordViewRecord with _$UEmbedRecordViewRecord {
   const factory UEmbedRecordViewRecord.viewRecord({
-    required EmbedRecordViewRecord data,
+    required ViewRecord data,
   }) = UEmbedRecordViewRecordViewRecord;
 
   const factory UEmbedRecordViewRecord.viewNotFound({
-    required EmbedRecordViewNotFound data,
+    required ViewNotFound data,
   }) = UEmbedRecordViewRecordViewNotFound;
 
   const factory UEmbedRecordViewRecord.viewBlocked({
-    required EmbedRecordViewBlocked data,
+    required ViewBlocked data,
   }) = UEmbedRecordViewRecordViewBlocked;
 
   const factory UEmbedRecordViewRecord.feedDefsGeneratorView({
-    required FeedDefsGeneratorView data,
+    required GeneratorView data,
   }) = UEmbedRecordViewRecordFeedDefsGeneratorView;
 
   const factory UEmbedRecordViewRecord.graphDefsListView({
-    required GraphDefsListView data,
+    required ListView data,
   }) = UEmbedRecordViewRecordGraphDefsListView;
 
   const factory UEmbedRecordViewRecord.unknown({

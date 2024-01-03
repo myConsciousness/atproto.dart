@@ -18,11 +18,11 @@ part 'actor_get_preferences.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
 @freezed
 @lex.appBskyActorGetPreferences
-class ActorGetPreferences with _$ActorGetPreferences {
-  const factory ActorGetPreferences({
+class Preferences with _$Preferences {
+  const factory Preferences({
     @preferenceConverter required List<Preference> preferences,
-  }) = _ActorGetPreferences;
+  }) = _Preferences;
 
-  factory ActorGetPreferences.fromJson(Map<String, Object?> json) =>
-      _$ActorGetPreferencesFromJson(json);
+  factory Preferences.fromJson(Map<String, Object?> json) =>
+      _$PreferencesFromJson(json);
 }

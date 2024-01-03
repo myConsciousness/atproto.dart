@@ -8,16 +8,16 @@ part of 'graph_get_blocks.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphGetBlocksImpl _$$GraphGetBlocksImplFromJson(Map json) => $checkedCreate(
-      r'_$GraphGetBlocksImpl',
+_$BlocksImpl _$$BlocksImplFromJson(Map json) => $checkedCreate(
+      r'_$BlocksImpl',
       json,
       ($checkedConvert) {
-        final val = _$GraphGetBlocksImpl(
+        final val = _$BlocksImpl(
           blocks: $checkedConvert(
               'blocks',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -25,8 +25,7 @@ _$GraphGetBlocksImpl _$$GraphGetBlocksImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$GraphGetBlocksImplToJson(
-    _$GraphGetBlocksImpl instance) {
+Map<String, dynamic> _$$BlocksImplToJson(_$BlocksImpl instance) {
   final val = <String, dynamic>{
     'blocks': instance.blocks.map((e) => e.toJson()).toList(),
   };

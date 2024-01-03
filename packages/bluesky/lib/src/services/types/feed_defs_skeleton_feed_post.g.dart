@@ -8,13 +8,12 @@ part of 'feed_defs_skeleton_feed_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsSkeletonFeedPostImpl _$$FeedDefsSkeletonFeedPostImplFromJson(
-        Map json) =>
+_$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$FeedDefsSkeletonFeedPostImpl',
+      r'_$SkeletonFeedPostImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsSkeletonFeedPostImpl(
+        final val = _$SkeletonFeedPostImpl(
           post: $checkedConvert(
               'post', (v) => atUriConverter.fromJson(v as String)),
           reason: $checkedConvert(
@@ -27,8 +26,8 @@ _$FeedDefsSkeletonFeedPostImpl _$$FeedDefsSkeletonFeedPostImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$FeedDefsSkeletonFeedPostImplToJson(
-    _$FeedDefsSkeletonFeedPostImpl instance) {
+Map<String, dynamic> _$$SkeletonFeedPostImplToJson(
+    _$SkeletonFeedPostImpl instance) {
   final val = <String, dynamic>{
     'post': atUriConverter.toJson(instance.post),
   };

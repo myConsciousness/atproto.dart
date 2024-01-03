@@ -14,18 +14,16 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-NotificationListNotificationsNotification
-    _$NotificationListNotificationsNotificationFromJson(
-        Map<String, dynamic> json) {
-  return _NotificationListNotificationsNotification.fromJson(json);
+Notification _$NotificationFromJson(Map<String, dynamic> json) {
+  return _Notification.fromJson(json);
 }
 
 /// @nodoc
-mixin _$NotificationListNotificationsNotification {
+mixin _$Notification {
   String get cid => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-  ActorDefsProfileView get author => throw _privateConstructorUsedError;
+  ProfileView get author => throw _privateConstructorUsedError;
   NotificationReason get reason => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
@@ -36,23 +34,20 @@ mixin _$NotificationListNotificationsNotification {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NotificationListNotificationsNotificationCopyWith<
-          NotificationListNotificationsNotification>
-      get copyWith => throw _privateConstructorUsedError;
+  $NotificationCopyWith<Notification> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NotificationListNotificationsNotificationCopyWith<$Res> {
-  factory $NotificationListNotificationsNotificationCopyWith(
-          NotificationListNotificationsNotification value,
-          $Res Function(NotificationListNotificationsNotification) then) =
-      _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
-          NotificationListNotificationsNotification>;
+abstract class $NotificationCopyWith<$Res> {
+  factory $NotificationCopyWith(
+          Notification value, $Res Function(Notification) then) =
+      _$NotificationCopyWithImpl<$Res, Notification>;
   @useResult
   $Res call(
       {String cid,
       @atUriConverter AtUri uri,
-      ActorDefsProfileView author,
+      ProfileView author,
       NotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -60,15 +55,13 @@ abstract class $NotificationListNotificationsNotificationCopyWith<$Res> {
       List<Label>? labels,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get author;
+  $ProfileViewCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
-        $Val extends NotificationListNotificationsNotification>
-    implements $NotificationListNotificationsNotificationCopyWith<$Res> {
-  _$NotificationListNotificationsNotificationCopyWithImpl(
-      this._value, this._then);
+class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
+    implements $NotificationCopyWith<$Res> {
+  _$NotificationCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -100,7 +93,7 @@ class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -130,26 +123,25 @@ class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get author {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.author, (value) {
+  $ProfileViewCopyWith<$Res> get author {
+    return $ProfileViewCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$NotificationListNotificationsNotificationImplCopyWith<$Res>
-    implements $NotificationListNotificationsNotificationCopyWith<$Res> {
-  factory _$$NotificationListNotificationsNotificationImplCopyWith(
-          _$NotificationListNotificationsNotificationImpl value,
-          $Res Function(_$NotificationListNotificationsNotificationImpl) then) =
-      __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>;
+abstract class _$$NotificationImplCopyWith<$Res>
+    implements $NotificationCopyWith<$Res> {
+  factory _$$NotificationImplCopyWith(
+          _$NotificationImpl value, $Res Function(_$NotificationImpl) then) =
+      __$$NotificationImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {String cid,
       @atUriConverter AtUri uri,
-      ActorDefsProfileView author,
+      ProfileView author,
       NotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -158,17 +150,15 @@ abstract class _$$NotificationListNotificationsNotificationImplCopyWith<$Res>
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get author;
+  $ProfileViewCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
-    extends _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
-        _$NotificationListNotificationsNotificationImpl>
-    implements _$$NotificationListNotificationsNotificationImplCopyWith<$Res> {
-  __$$NotificationListNotificationsNotificationImplCopyWithImpl(
-      _$NotificationListNotificationsNotificationImpl _value,
-      $Res Function(_$NotificationListNotificationsNotificationImpl) _then)
+class __$$NotificationImplCopyWithImpl<$Res>
+    extends _$NotificationCopyWithImpl<$Res, _$NotificationImpl>
+    implements _$$NotificationImplCopyWith<$Res> {
+  __$$NotificationImplCopyWithImpl(
+      _$NotificationImpl _value, $Res Function(_$NotificationImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -184,7 +174,7 @@ class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$NotificationListNotificationsNotificationImpl(
+    return _then(_$NotificationImpl(
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -196,7 +186,7 @@ class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -228,9 +218,8 @@ class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$NotificationListNotificationsNotificationImpl
-    implements _NotificationListNotificationsNotification {
-  const _$NotificationListNotificationsNotificationImpl(
+class _$NotificationImpl implements _Notification {
+  const _$NotificationImpl(
       {required this.cid,
       @atUriConverter required this.uri,
       required this.author,
@@ -243,9 +232,8 @@ class _$NotificationListNotificationsNotificationImpl
       : _record = record,
         _labels = labels;
 
-  factory _$NotificationListNotificationsNotificationImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$NotificationListNotificationsNotificationImplFromJson(json);
+  factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
+      _$$NotificationImplFromJson(json);
 
   @override
   final String cid;
@@ -253,7 +241,7 @@ class _$NotificationListNotificationsNotificationImpl
   @atUriConverter
   final AtUri uri;
   @override
-  final ActorDefsProfileView author;
+  final ProfileView author;
   @override
   final NotificationReason reason;
   @override
@@ -287,14 +275,14 @@ class _$NotificationListNotificationsNotificationImpl
 
   @override
   String toString() {
-    return 'NotificationListNotificationsNotification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
+    return 'Notification(cid: $cid, uri: $uri, author: $author, reason: $reason, reasonSubject: $reasonSubject, isRead: $isRead, record: $record, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationListNotificationsNotificationImpl &&
+            other is _$NotificationImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.author, author) || other.author == author) &&
@@ -325,38 +313,31 @@ class _$NotificationListNotificationsNotificationImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NotificationListNotificationsNotificationImplCopyWith<
-          _$NotificationListNotificationsNotificationImpl>
-      get copyWith =>
-          __$$NotificationListNotificationsNotificationImplCopyWithImpl<
-                  _$NotificationListNotificationsNotificationImpl>(
-              this, _$identity);
+  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
+      __$$NotificationImplCopyWithImpl<_$NotificationImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NotificationListNotificationsNotificationImplToJson(
+    return _$$NotificationImplToJson(
       this,
     );
   }
 }
 
-abstract class _NotificationListNotificationsNotification
-    implements NotificationListNotificationsNotification {
-  const factory _NotificationListNotificationsNotification(
-          {required final String cid,
-          @atUriConverter required final AtUri uri,
-          required final ActorDefsProfileView author,
-          required final NotificationReason reason,
-          @atUriConverter final AtUri? reasonSubject,
-          final bool isRead,
-          final Map<String, dynamic>? record,
-          final List<Label>? labels,
-          required final DateTime indexedAt}) =
-      _$NotificationListNotificationsNotificationImpl;
+abstract class _Notification implements Notification {
+  const factory _Notification(
+      {required final String cid,
+      @atUriConverter required final AtUri uri,
+      required final ProfileView author,
+      required final NotificationReason reason,
+      @atUriConverter final AtUri? reasonSubject,
+      final bool isRead,
+      final Map<String, dynamic>? record,
+      final List<Label>? labels,
+      required final DateTime indexedAt}) = _$NotificationImpl;
 
-  factory _NotificationListNotificationsNotification.fromJson(
-          Map<String, dynamic> json) =
-      _$NotificationListNotificationsNotificationImpl.fromJson;
+  factory _Notification.fromJson(Map<String, dynamic> json) =
+      _$NotificationImpl.fromJson;
 
   @override
   String get cid;
@@ -364,7 +345,7 @@ abstract class _NotificationListNotificationsNotification
   @atUriConverter
   AtUri get uri;
   @override
-  ActorDefsProfileView get author;
+  ProfileView get author;
   @override
   NotificationReason get reason;
   @override
@@ -380,7 +361,6 @@ abstract class _NotificationListNotificationsNotification
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$NotificationListNotificationsNotificationImplCopyWith<
-          _$NotificationListNotificationsNotificationImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -26,22 +26,22 @@ final class _UReplyRefConverter
 
       if (type == ids.appBskyFeedDefsPostView) {
         return UReplyRef.postView(
-          data: FeedDefsPostView.fromJson(json),
+          data: PostView.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return UReplyRef.notFoundPost(
-          data: FeedDefsNotFoundPost.fromJson(json),
+          data: NotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return UReplyRef.blockedPost(
-          data: FeedDefsBlockedPost.fromJson(json),
+          data: BlockedPost.fromJson(json),
         );
       }
 
       return UReplyRef.postView(
-        data: FeedDefsPostView.fromJson(json),
+        data: PostView.fromJson(json),
       );
     } catch (_) {
       return UReplyRef.unknown(data: json);

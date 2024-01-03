@@ -15,11 +15,11 @@ part 'actor_get_profiles.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofiles/#output
 @freezed
 @lex.appBskyActorGetProfiles
-class ActorGetProfiles with _$ActorGetProfiles {
-  const factory ActorGetProfiles({
-    required List<ActorDefsProfileViewDetailed> profiles,
-  }) = _ActorGetProfiles;
+class Profiles with _$Profiles {
+  const factory Profiles({
+    required List<ProfileViewDetailed> profiles,
+  }) = _Profiles;
 
-  factory ActorGetProfiles.fromJson(Map<String, Object?> json) =>
-      _$ActorGetProfilesFromJson(json);
+  factory Profiles.fromJson(Map<String, Object?> json) =>
+      _$ProfilesFromJson(json);
 }

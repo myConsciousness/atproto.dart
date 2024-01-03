@@ -31,7 +31,7 @@ mixin _$GroupedNotification {
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
-  List<ActorDefsProfileView> get authors => throw _privateConstructorUsedError;
+  List<ProfileView> get authors => throw _privateConstructorUsedError;
 
   /// Specifies the reason for the notification.
   GroupedNotificationReason get reason => throw _privateConstructorUsedError;
@@ -66,7 +66,7 @@ abstract class $GroupedNotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {@atUriConverter List<AtUri> uris,
-      List<ActorDefsProfileView> authors,
+      List<ProfileView> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -105,7 +105,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
       authors: null == authors
           ? _value.authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ abstract class _$$GroupedNotificationImplCopyWith<$Res>
   @useResult
   $Res call(
       {@atUriConverter List<AtUri> uris,
-      List<ActorDefsProfileView> authors,
+      List<ProfileView> authors,
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -181,7 +181,7 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
       authors: null == authors
           ? _value._authors
           : authors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -216,7 +216,7 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
 class _$GroupedNotificationImpl implements _GroupedNotification {
   const _$GroupedNotificationImpl(
       {@atUriConverter required final List<AtUri> uris,
-      required final List<ActorDefsProfileView> authors,
+      required final List<ProfileView> authors,
       required this.reason,
       @atUriConverter this.reasonSubject,
       required this.isRead,
@@ -253,14 +253,14 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
-  final List<ActorDefsProfileView> _authors;
+  final List<ProfileView> _authors;
 
   /// The collection of authors causing the notification.
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
   @override
-  List<ActorDefsProfileView> get authors {
+  List<ProfileView> get authors {
     if (_authors is EqualUnmodifiableListView) return _authors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_authors);
@@ -360,7 +360,7 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
       {@atUriConverter required final List<AtUri> uris,
-      required final List<ActorDefsProfileView> authors,
+      required final List<ProfileView> authors,
       required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
@@ -385,7 +385,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   ///
   /// This list is set in chronological order, with the author of the
   /// most recent notification at the top.
-  List<ActorDefsProfileView> get authors;
+  List<ProfileView> get authors;
   @override
 
   /// Specifies the reason for the notification.

@@ -17,13 +17,12 @@ part 'feed_describe_feed_generator_links.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
 @lex.appBskyFeedDescribeFeedGeneratorLinks
-class FeedDescribeFeedGeneratorLinks with _$FeedDescribeFeedGeneratorLinks {
+class Links with _$Links {
   @jsonSerializable
-  const factory FeedDescribeFeedGeneratorLinks({
+  const factory Links({
     String? privacyPolicy,
     String? termsOfService,
-  }) = _FeedDescribeFeedGeneratorLinks;
+  }) = _Links;
 
-  factory FeedDescribeFeedGeneratorLinks.fromJson(Map<String, Object?> json) =>
-      _$FeedDescribeFeedGeneratorLinksFromJson(json);
+  factory Links.fromJson(Map<String, Object?> json) => _$LinksFromJson(json);
 }

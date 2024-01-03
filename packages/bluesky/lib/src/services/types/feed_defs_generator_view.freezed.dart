@@ -14,64 +14,61 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsGeneratorView _$FeedDefsGeneratorViewFromJson(
-    Map<String, dynamic> json) {
-  return _FeedDefsGeneratorView.fromJson(json);
+GeneratorView _$GeneratorViewFromJson(Map<String, dynamic> json) {
+  return _GeneratorView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsGeneratorView {
+mixin _$GeneratorView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String? get did => throw _privateConstructorUsedError;
-  ActorDefsProfileView get creator => throw _privateConstructorUsedError;
+  ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
-  FeedDefsGeneratorViewerState get viewer => throw _privateConstructorUsedError;
+  GeneratorViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsGeneratorViewCopyWith<FeedDefsGeneratorView> get copyWith =>
+  $GeneratorViewCopyWith<GeneratorView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsGeneratorViewCopyWith<$Res> {
-  factory $FeedDefsGeneratorViewCopyWith(FeedDefsGeneratorView value,
-          $Res Function(FeedDefsGeneratorView) then) =
-      _$FeedDefsGeneratorViewCopyWithImpl<$Res, FeedDefsGeneratorView>;
+abstract class $GeneratorViewCopyWith<$Res> {
+  factory $GeneratorViewCopyWith(
+          GeneratorView value, $Res Function(GeneratorView) then) =
+      _$GeneratorViewCopyWithImpl<$Res, GeneratorView>;
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
       String cid,
       String? did,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
-      FeedDefsGeneratorViewerState viewer,
+      GeneratorViewerState viewer,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
-  $FeedDefsGeneratorViewerStateCopyWith<$Res> get viewer;
+  $ProfileViewCopyWith<$Res> get creator;
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
-        $Val extends FeedDefsGeneratorView>
-    implements $FeedDefsGeneratorViewCopyWith<$Res> {
-  _$FeedDefsGeneratorViewCopyWithImpl(this._value, this._then);
+class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
+    implements $GeneratorViewCopyWith<$Res> {
+  _$GeneratorViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -114,7 +111,7 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -126,7 +123,7 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -138,7 +135,7 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as FeedDefsGeneratorViewerState,
+              as GeneratorViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -148,28 +145,27 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get creator {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.creator, (value) {
+  $ProfileViewCopyWith<$Res> get creator {
+    return $ProfileViewCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsGeneratorViewerStateCopyWith<$Res> get viewer {
-    return $FeedDefsGeneratorViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $GeneratorViewerStateCopyWith<$Res> get viewer {
+    return $GeneratorViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$FeedDefsGeneratorViewImplCopyWith<$Res>
-    implements $FeedDefsGeneratorViewCopyWith<$Res> {
-  factory _$$FeedDefsGeneratorViewImplCopyWith(
-          _$FeedDefsGeneratorViewImpl value,
-          $Res Function(_$FeedDefsGeneratorViewImpl) then) =
-      __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>;
+abstract class _$$GeneratorViewImplCopyWith<$Res>
+    implements $GeneratorViewCopyWith<$Res> {
+  factory _$$GeneratorViewImplCopyWith(
+          _$GeneratorViewImpl value, $Res Function(_$GeneratorViewImpl) then) =
+      __$$GeneratorViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -177,28 +173,27 @@ abstract class _$$FeedDefsGeneratorViewImplCopyWith<$Res>
       @atUriConverter AtUri uri,
       String cid,
       String? did,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
-      FeedDefsGeneratorViewerState viewer,
+      GeneratorViewerState viewer,
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   @override
-  $FeedDefsGeneratorViewerStateCopyWith<$Res> get viewer;
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
-    extends _$FeedDefsGeneratorViewCopyWithImpl<$Res,
-        _$FeedDefsGeneratorViewImpl>
-    implements _$$FeedDefsGeneratorViewImplCopyWith<$Res> {
-  __$$FeedDefsGeneratorViewImplCopyWithImpl(_$FeedDefsGeneratorViewImpl _value,
-      $Res Function(_$FeedDefsGeneratorViewImpl) _then)
+class __$$GeneratorViewImplCopyWithImpl<$Res>
+    extends _$GeneratorViewCopyWithImpl<$Res, _$GeneratorViewImpl>
+    implements _$$GeneratorViewImplCopyWith<$Res> {
+  __$$GeneratorViewImplCopyWithImpl(
+      _$GeneratorViewImpl _value, $Res Function(_$GeneratorViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -217,7 +212,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$FeedDefsGeneratorViewImpl(
+    return _then(_$GeneratorViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -237,7 +232,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -249,7 +244,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -261,7 +256,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as FeedDefsGeneratorViewerState,
+              as GeneratorViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -273,8 +268,8 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
-  const _$FeedDefsGeneratorViewImpl(
+class _$GeneratorViewImpl implements _GeneratorView {
+  const _$GeneratorViewImpl(
       {@typeKey this.type = appBskyFeedDefsGeneratorView,
       @atUriConverter required this.uri,
       required this.cid,
@@ -282,15 +277,15 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
       required this.creator,
       required this.displayName,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
       this.viewer = defaultFeedDefsGeneratorViewerState,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets;
 
-  factory _$FeedDefsGeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsGeneratorViewImplFromJson(json);
+  factory _$GeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorViewImplFromJson(json);
 
   @override
   @typeKey
@@ -303,14 +298,14 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
   @override
   final String? did;
   @override
-  final ActorDefsProfileView creator;
+  final ProfileView creator;
   @override
   final String displayName;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -326,20 +321,20 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
   final int likeCount;
   @override
   @JsonKey()
-  final FeedDefsGeneratorViewerState viewer;
+  final GeneratorViewerState viewer;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'FeedDefsGeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, creator: $creator, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'GeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, creator: $creator, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsGeneratorViewImpl &&
+            other is _$GeneratorViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -379,35 +374,34 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsGeneratorViewImplCopyWith<_$FeedDefsGeneratorViewImpl>
-      get copyWith => __$$FeedDefsGeneratorViewImplCopyWithImpl<
-          _$FeedDefsGeneratorViewImpl>(this, _$identity);
+  _$$GeneratorViewImplCopyWith<_$GeneratorViewImpl> get copyWith =>
+      __$$GeneratorViewImplCopyWithImpl<_$GeneratorViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsGeneratorViewImplToJson(
+    return _$$GeneratorViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
-  const factory _FeedDefsGeneratorView(
+abstract class _GeneratorView implements GeneratorView {
+  const factory _GeneratorView(
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final String cid,
       final String? did,
-      required final ActorDefsProfileView creator,
+      required final ProfileView creator,
       required final String displayName,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final String? avatar,
       final int likeCount,
-      final FeedDefsGeneratorViewerState viewer,
-      required final DateTime indexedAt}) = _$FeedDefsGeneratorViewImpl;
+      final GeneratorViewerState viewer,
+      required final DateTime indexedAt}) = _$GeneratorViewImpl;
 
-  factory _FeedDefsGeneratorView.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsGeneratorViewImpl.fromJson;
+  factory _GeneratorView.fromJson(Map<String, dynamic> json) =
+      _$GeneratorViewImpl.fromJson;
 
   @override
   @typeKey
@@ -420,23 +414,23 @@ abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
   @override
   String? get did;
   @override
-  ActorDefsProfileView get creator;
+  ProfileView get creator;
   @override
   String get displayName;
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override
   int get likeCount;
   @override
-  FeedDefsGeneratorViewerState get viewer;
+  GeneratorViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsGeneratorViewImplCopyWith<_$FeedDefsGeneratorViewImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$GeneratorViewImplCopyWith<_$GeneratorViewImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -6,7 +6,7 @@
 import '../graph_defs_list_view_basic.dart';
 import 'graph_defs_list_viewer_state_extension.dart';
 
-extension GraphDefsListViewBasicExtension on GraphDefsListViewBasic {
+extension ListViewBasicExtension on ListViewBasic {
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.
   bool get isMuted => viewer.isMuted;

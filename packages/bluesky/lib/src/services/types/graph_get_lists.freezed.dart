@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GraphGetLists _$GraphGetListsFromJson(Map<String, dynamic> json) {
-  return _GraphGetLists.fromJson(json);
+Lists _$ListsFromJson(Map<String, dynamic> json) {
+  return _Lists.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GraphGetLists {
-  List<GraphDefsListView> get lists => throw _privateConstructorUsedError;
+mixin _$Lists {
+  List<ListView> get lists => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GraphGetListsCopyWith<GraphGetLists> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ListsCopyWith<Lists> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GraphGetListsCopyWith<$Res> {
-  factory $GraphGetListsCopyWith(
-          GraphGetLists value, $Res Function(GraphGetLists) then) =
-      _$GraphGetListsCopyWithImpl<$Res, GraphGetLists>;
+abstract class $ListsCopyWith<$Res> {
+  factory $ListsCopyWith(Lists value, $Res Function(Lists) then) =
+      _$ListsCopyWithImpl<$Res, Lists>;
   @useResult
-  $Res call({List<GraphDefsListView> lists, String? cursor});
+  $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class _$GraphGetListsCopyWithImpl<$Res, $Val extends GraphGetLists>
-    implements $GraphGetListsCopyWith<$Res> {
-  _$GraphGetListsCopyWithImpl(this._value, this._then);
+class _$ListsCopyWithImpl<$Res, $Val extends Lists>
+    implements $ListsCopyWith<$Res> {
+  _$ListsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,7 +56,7 @@ class _$GraphGetListsCopyWithImpl<$Res, $Val extends GraphGetLists>
       lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as List<GraphDefsListView>,
+              as List<ListView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -68,22 +66,21 @@ class _$GraphGetListsCopyWithImpl<$Res, $Val extends GraphGetLists>
 }
 
 /// @nodoc
-abstract class _$$GraphGetListsImplCopyWith<$Res>
-    implements $GraphGetListsCopyWith<$Res> {
-  factory _$$GraphGetListsImplCopyWith(
-          _$GraphGetListsImpl value, $Res Function(_$GraphGetListsImpl) then) =
-      __$$GraphGetListsImplCopyWithImpl<$Res>;
+abstract class _$$ListsImplCopyWith<$Res> implements $ListsCopyWith<$Res> {
+  factory _$$ListsImplCopyWith(
+          _$ListsImpl value, $Res Function(_$ListsImpl) then) =
+      __$$ListsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<GraphDefsListView> lists, String? cursor});
+  $Res call({List<ListView> lists, String? cursor});
 }
 
 /// @nodoc
-class __$$GraphGetListsImplCopyWithImpl<$Res>
-    extends _$GraphGetListsCopyWithImpl<$Res, _$GraphGetListsImpl>
-    implements _$$GraphGetListsImplCopyWith<$Res> {
-  __$$GraphGetListsImplCopyWithImpl(
-      _$GraphGetListsImpl _value, $Res Function(_$GraphGetListsImpl) _then)
+class __$$ListsImplCopyWithImpl<$Res>
+    extends _$ListsCopyWithImpl<$Res, _$ListsImpl>
+    implements _$$ListsImplCopyWith<$Res> {
+  __$$ListsImplCopyWithImpl(
+      _$ListsImpl _value, $Res Function(_$ListsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,11 +89,11 @@ class __$$GraphGetListsImplCopyWithImpl<$Res>
     Object? lists = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GraphGetListsImpl(
+    return _then(_$ListsImpl(
       lists: null == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as List<GraphDefsListView>,
+              as List<ListView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,17 +105,16 @@ class __$$GraphGetListsImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GraphGetListsImpl implements _GraphGetLists {
-  const _$GraphGetListsImpl(
-      {required final List<GraphDefsListView> lists, this.cursor})
+class _$ListsImpl implements _Lists {
+  const _$ListsImpl({required final List<ListView> lists, this.cursor})
       : _lists = lists;
 
-  factory _$GraphGetListsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphGetListsImplFromJson(json);
+  factory _$ListsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListsImplFromJson(json);
 
-  final List<GraphDefsListView> _lists;
+  final List<ListView> _lists;
   @override
-  List<GraphDefsListView> get lists {
+  List<ListView> get lists {
     if (_lists is EqualUnmodifiableListView) return _lists;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_lists);
@@ -129,14 +125,14 @@ class _$GraphGetListsImpl implements _GraphGetLists {
 
   @override
   String toString() {
-    return 'GraphGetLists(lists: $lists, cursor: $cursor)';
+    return 'Lists(lists: $lists, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphGetListsImpl &&
+            other is _$ListsImpl &&
             const DeepCollectionEquality().equals(other._lists, _lists) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,31 +145,30 @@ class _$GraphGetListsImpl implements _GraphGetLists {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphGetListsImplCopyWith<_$GraphGetListsImpl> get copyWith =>
-      __$$GraphGetListsImplCopyWithImpl<_$GraphGetListsImpl>(this, _$identity);
+  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
+      __$$ListsImplCopyWithImpl<_$ListsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GraphGetListsImplToJson(
+    return _$$ListsImplToJson(
       this,
     );
   }
 }
 
-abstract class _GraphGetLists implements GraphGetLists {
-  const factory _GraphGetLists(
-      {required final List<GraphDefsListView> lists,
-      final String? cursor}) = _$GraphGetListsImpl;
+abstract class _Lists implements Lists {
+  const factory _Lists(
+      {required final List<ListView> lists,
+      final String? cursor}) = _$ListsImpl;
 
-  factory _GraphGetLists.fromJson(Map<String, dynamic> json) =
-      _$GraphGetListsImpl.fromJson;
+  factory _Lists.fromJson(Map<String, dynamic> json) = _$ListsImpl.fromJson;
 
   @override
-  List<GraphDefsListView> get lists;
+  List<ListView> get lists;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$GraphGetListsImplCopyWith<_$GraphGetListsImpl> get copyWith =>
+  _$$ListsImplCopyWith<_$ListsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

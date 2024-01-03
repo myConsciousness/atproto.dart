@@ -9,28 +9,26 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../constants/content_label_visibility.dart';
 import '../actor_defs_content_label_pref.dart';
 
-const actorDefsContentLabelPrefConverter =
-    _ActorDefsContentLabelPrefConverter();
+const contentLabelPrefConverter = _ContentLabelPrefConverter();
 
-final class _ActorDefsContentLabelPrefConverter
-    implements JsonConverter<ActorDefsContentLabelPref, Map<String, dynamic>> {
-  const _ActorDefsContentLabelPrefConverter();
+final class _ContentLabelPrefConverter
+    implements JsonConverter<ContentLabelPref, Map<String, dynamic>> {
+  const _ContentLabelPrefConverter();
 
   @override
-  ActorDefsContentLabelPref fromJson(Map<String, dynamic> json) {
+  ContentLabelPref fromJson(Map<String, dynamic> json) {
     try {
       //* Legacy element.
       if (json['visibility'] == 'show') {
         json['visibility'] = ContentLabelVisibility.ignore.name;
       }
 
-      return ActorDefsContentLabelPref.fromJson(json);
+      return ContentLabelPref.fromJson(json);
     } catch (_) {
-      return ActorDefsContentLabelPref.fromJson(json);
+      return ContentLabelPref.fromJson(json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ActorDefsContentLabelPref object) =>
-      object.toJson();
+  Map<String, dynamic> toJson(ContentLabelPref object) => object.toJson();
 }

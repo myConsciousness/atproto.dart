@@ -8,12 +8,11 @@ part of 'embed_images_aspect_ratio.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedImagesAspectRatioImpl _$$EmbedImagesAspectRatioImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedImagesAspectRatioImpl',
+_$AspectRatioImpl _$$AspectRatioImplFromJson(Map json) => $checkedCreate(
+      r'_$AspectRatioImpl',
       json,
       ($checkedConvert) {
-        final val = _$EmbedImagesAspectRatioImpl(
+        final val = _$AspectRatioImpl(
           width: $checkedConvert('width', (v) => v as int),
           height: $checkedConvert('height', (v) => v as int),
         );
@@ -21,8 +20,7 @@ _$EmbedImagesAspectRatioImpl _$$EmbedImagesAspectRatioImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$EmbedImagesAspectRatioImplToJson(
-        _$EmbedImagesAspectRatioImpl instance) =>
+Map<String, dynamic> _$$AspectRatioImplToJson(_$AspectRatioImpl instance) =>
     <String, dynamic>{
       'width': instance.width,
       'height': instance.height,

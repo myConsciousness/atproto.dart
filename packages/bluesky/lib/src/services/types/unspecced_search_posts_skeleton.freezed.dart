@@ -14,43 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-UnspeccedSearchPostsSkeleton _$UnspeccedSearchPostsSkeletonFromJson(
-    Map<String, dynamic> json) {
-  return _UnspeccedSearchPostsSkeleton.fromJson(json);
+PostsSkeleton _$PostsSkeletonFromJson(Map<String, dynamic> json) {
+  return _PostsSkeleton.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnspeccedSearchPostsSkeleton {
-  List<UnspeccedDefsSkeletonSearchPost> get posts =>
-      throw _privateConstructorUsedError;
+mixin _$PostsSkeleton {
+  List<SkeletonSearchPost> get posts => throw _privateConstructorUsedError;
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnspeccedSearchPostsSkeletonCopyWith<UnspeccedSearchPostsSkeleton>
-      get copyWith => throw _privateConstructorUsedError;
+  $PostsSkeletonCopyWith<PostsSkeleton> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnspeccedSearchPostsSkeletonCopyWith<$Res> {
-  factory $UnspeccedSearchPostsSkeletonCopyWith(
-          UnspeccedSearchPostsSkeleton value,
-          $Res Function(UnspeccedSearchPostsSkeleton) then) =
-      _$UnspeccedSearchPostsSkeletonCopyWithImpl<$Res,
-          UnspeccedSearchPostsSkeleton>;
+abstract class $PostsSkeletonCopyWith<$Res> {
+  factory $PostsSkeletonCopyWith(
+          PostsSkeleton value, $Res Function(PostsSkeleton) then) =
+      _$PostsSkeletonCopyWithImpl<$Res, PostsSkeleton>;
   @useResult
-  $Res call(
-      {List<UnspeccedDefsSkeletonSearchPost> posts,
-      int hitsTotal,
-      String? cursor});
+  $Res call({List<SkeletonSearchPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class _$UnspeccedSearchPostsSkeletonCopyWithImpl<$Res,
-        $Val extends UnspeccedSearchPostsSkeleton>
-    implements $UnspeccedSearchPostsSkeletonCopyWith<$Res> {
-  _$UnspeccedSearchPostsSkeletonCopyWithImpl(this._value, this._then);
+class _$PostsSkeletonCopyWithImpl<$Res, $Val extends PostsSkeleton>
+    implements $PostsSkeletonCopyWith<$Res> {
+  _$PostsSkeletonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,7 +60,7 @@ class _$UnspeccedSearchPostsSkeletonCopyWithImpl<$Res,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedDefsSkeletonSearchPost>,
+              as List<SkeletonSearchPost>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -82,28 +74,22 @@ class _$UnspeccedSearchPostsSkeletonCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UnspeccedSearchPostsSkeletonImplCopyWith<$Res>
-    implements $UnspeccedSearchPostsSkeletonCopyWith<$Res> {
-  factory _$$UnspeccedSearchPostsSkeletonImplCopyWith(
-          _$UnspeccedSearchPostsSkeletonImpl value,
-          $Res Function(_$UnspeccedSearchPostsSkeletonImpl) then) =
-      __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl<$Res>;
+abstract class _$$PostsSkeletonImplCopyWith<$Res>
+    implements $PostsSkeletonCopyWith<$Res> {
+  factory _$$PostsSkeletonImplCopyWith(
+          _$PostsSkeletonImpl value, $Res Function(_$PostsSkeletonImpl) then) =
+      __$$PostsSkeletonImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {List<UnspeccedDefsSkeletonSearchPost> posts,
-      int hitsTotal,
-      String? cursor});
+  $Res call({List<SkeletonSearchPost> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl<$Res>
-    extends _$UnspeccedSearchPostsSkeletonCopyWithImpl<$Res,
-        _$UnspeccedSearchPostsSkeletonImpl>
-    implements _$$UnspeccedSearchPostsSkeletonImplCopyWith<$Res> {
-  __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl(
-      _$UnspeccedSearchPostsSkeletonImpl _value,
-      $Res Function(_$UnspeccedSearchPostsSkeletonImpl) _then)
+class __$$PostsSkeletonImplCopyWithImpl<$Res>
+    extends _$PostsSkeletonCopyWithImpl<$Res, _$PostsSkeletonImpl>
+    implements _$$PostsSkeletonImplCopyWith<$Res> {
+  __$$PostsSkeletonImplCopyWithImpl(
+      _$PostsSkeletonImpl _value, $Res Function(_$PostsSkeletonImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,11 +99,11 @@ class __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$UnspeccedSearchPostsSkeletonImpl(
+    return _then(_$PostsSkeletonImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedDefsSkeletonSearchPost>,
+              as List<SkeletonSearchPost>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -132,21 +118,19 @@ class __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UnspeccedSearchPostsSkeletonImpl
-    implements _UnspeccedSearchPostsSkeleton {
-  const _$UnspeccedSearchPostsSkeletonImpl(
-      {required final List<UnspeccedDefsSkeletonSearchPost> posts,
+class _$PostsSkeletonImpl implements _PostsSkeleton {
+  const _$PostsSkeletonImpl(
+      {required final List<SkeletonSearchPost> posts,
       this.hitsTotal = 0,
       this.cursor})
       : _posts = posts;
 
-  factory _$UnspeccedSearchPostsSkeletonImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedSearchPostsSkeletonImplFromJson(json);
+  factory _$PostsSkeletonImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostsSkeletonImplFromJson(json);
 
-  final List<UnspeccedDefsSkeletonSearchPost> _posts;
+  final List<SkeletonSearchPost> _posts;
   @override
-  List<UnspeccedDefsSkeletonSearchPost> get posts {
+  List<SkeletonSearchPost> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_posts);
@@ -160,14 +144,14 @@ class _$UnspeccedSearchPostsSkeletonImpl
 
   @override
   String toString() {
-    return 'UnspeccedSearchPostsSkeleton(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
+    return 'PostsSkeleton(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnspeccedSearchPostsSkeletonImpl &&
+            other is _$PostsSkeletonImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -182,38 +166,34 @@ class _$UnspeccedSearchPostsSkeletonImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnspeccedSearchPostsSkeletonImplCopyWith<
-          _$UnspeccedSearchPostsSkeletonImpl>
-      get copyWith => __$$UnspeccedSearchPostsSkeletonImplCopyWithImpl<
-          _$UnspeccedSearchPostsSkeletonImpl>(this, _$identity);
+  _$$PostsSkeletonImplCopyWith<_$PostsSkeletonImpl> get copyWith =>
+      __$$PostsSkeletonImplCopyWithImpl<_$PostsSkeletonImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnspeccedSearchPostsSkeletonImplToJson(
+    return _$$PostsSkeletonImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnspeccedSearchPostsSkeleton
-    implements UnspeccedSearchPostsSkeleton {
-  const factory _UnspeccedSearchPostsSkeleton(
-      {required final List<UnspeccedDefsSkeletonSearchPost> posts,
+abstract class _PostsSkeleton implements PostsSkeleton {
+  const factory _PostsSkeleton(
+      {required final List<SkeletonSearchPost> posts,
       final int hitsTotal,
-      final String? cursor}) = _$UnspeccedSearchPostsSkeletonImpl;
+      final String? cursor}) = _$PostsSkeletonImpl;
 
-  factory _UnspeccedSearchPostsSkeleton.fromJson(Map<String, dynamic> json) =
-      _$UnspeccedSearchPostsSkeletonImpl.fromJson;
+  factory _PostsSkeleton.fromJson(Map<String, dynamic> json) =
+      _$PostsSkeletonImpl.fromJson;
 
   @override
-  List<UnspeccedDefsSkeletonSearchPost> get posts;
+  List<SkeletonSearchPost> get posts;
   @override
   int get hitsTotal;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$UnspeccedSearchPostsSkeletonImplCopyWith<
-          _$UnspeccedSearchPostsSkeletonImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$PostsSkeletonImplCopyWith<_$PostsSkeletonImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

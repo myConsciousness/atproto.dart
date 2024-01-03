@@ -16,7 +16,7 @@ part 'skeleton_reason.freezed.dart';
 @freezed
 class SkeletonReason with _$SkeletonReason {
   factory SkeletonReason.repost({
-    required FeedDefsSkeletonReasonRepost data,
+    required SkeletonReasonRepost data,
   }) = USkeletonReasonRepost;
 
   factory SkeletonReason.unknown({

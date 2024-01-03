@@ -8,12 +8,11 @@ part of 'graph_defs_list_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$GraphDefsListViewImpl _$$GraphDefsListViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$GraphDefsListViewImpl',
+_$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
+      r'_$ListViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$GraphDefsListViewImpl(
+        final val = _$ListViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphDefsListView),
           purpose: $checkedConvert('purpose', (v) => v as String),
@@ -25,19 +24,17 @@ _$GraphDefsListViewImpl _$$GraphDefsListViewImplFromJson(Map json) =>
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => RichtextFacet.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          creator: $checkedConvert(
-              'creator',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert('creator',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? defaultGraphDefsListViewerState
-                  : GraphDefsListViewerState.fromJson(
+                  : ListViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -47,8 +44,7 @@ _$GraphDefsListViewImpl _$$GraphDefsListViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$GraphDefsListViewImplToJson(
-    _$GraphDefsListViewImpl instance) {
+Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'purpose': instance.purpose,

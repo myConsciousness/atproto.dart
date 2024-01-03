@@ -28,7 +28,7 @@ class ListRecord with _$ListRecord {
     required String name,
     required String purpose,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     Blob? avatar,
     @labelsConverter Labels? labels,
     required DateTime createdAt,

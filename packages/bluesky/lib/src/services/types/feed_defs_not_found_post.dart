@@ -18,13 +18,13 @@ part 'feed_defs_not_found_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#notfoundpost
 @freezed
 @lex.appBskyFeedDefsNotFoundPost
-class FeedDefsNotFoundPost with _$FeedDefsNotFoundPost {
-  const factory FeedDefsNotFoundPost({
+class NotFoundPost with _$NotFoundPost {
+  const factory NotFoundPost({
     @typeKey @Default(appBskyFeedDefsNotFoundPost) String type,
     @atUriConverter required AtUri uri,
     @Default(true) bool notFound,
-  }) = _FeedDefsNotFoundPost;
+  }) = _NotFoundPost;
 
-  factory FeedDefsNotFoundPost.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsNotFoundPostFromJson(json);
+  factory NotFoundPost.fromJson(Map<String, Object?> json) =>
+      _$NotFoundPostFromJson(json);
 }

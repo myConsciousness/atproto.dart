@@ -8,17 +8,16 @@ part of 'unspecced_get_timeline_skeleton.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetTimelineSkeletonImpl _$$UnspeccedGetTimelineSkeletonImplFromJson(
-        Map json) =>
+_$TimelineSkeletonImpl _$$TimelineSkeletonImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$UnspeccedGetTimelineSkeletonImpl',
+      r'_$TimelineSkeletonImpl',
       json,
       ($checkedConvert) {
-        final val = _$UnspeccedGetTimelineSkeletonImpl(
+        final val = _$TimelineSkeletonImpl(
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedDefsSkeletonFeedPost.fromJson(
+                  .map((e) => SkeletonFeedPost.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -27,8 +26,8 @@ _$UnspeccedGetTimelineSkeletonImpl _$$UnspeccedGetTimelineSkeletonImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$UnspeccedGetTimelineSkeletonImplToJson(
-    _$UnspeccedGetTimelineSkeletonImpl instance) {
+Map<String, dynamic> _$$TimelineSkeletonImplToJson(
+    _$TimelineSkeletonImpl instance) {
   final val = <String, dynamic>{
     'feed': instance.feed.map((e) => e.toJson()).toList(),
   };

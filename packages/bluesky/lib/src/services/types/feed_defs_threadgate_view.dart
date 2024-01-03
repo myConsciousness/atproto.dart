@@ -20,16 +20,16 @@ part 'feed_defs_threadgate_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
 @lex.appBskyFeedDefsThreadgateView
-class FeedDefsThreadgateView with _$FeedDefsThreadgateView {
+class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
-  const factory FeedDefsThreadgateView({
+  const factory ThreadgateView({
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,
     @atUriConverter AtUri? uri,
     String? cid,
     ThreadgateRecord? record,
-    List<GraphDefsListViewBasic>? lists,
-  }) = _FeedDefsThreadgateView;
+    List<ListViewBasic>? lists,
+  }) = _ThreadgateView;
 
-  factory FeedDefsThreadgateView.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsThreadgateViewFromJson(json);
+  factory ThreadgateView.fromJson(Map<String, Object?> json) =>
+      _$ThreadgateViewFromJson(json);
 }

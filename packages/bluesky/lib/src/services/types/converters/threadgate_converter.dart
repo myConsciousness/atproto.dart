@@ -26,17 +26,17 @@ final class _UThreadgateConverter
 
       if (type == ids.appBskyFeedThreadgateMentionRule) {
         return UThreadgate.mention(
-          data: FeedThreadgateMentionRule.fromJson(json),
+          data: MentionRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateFollowingRule) {
         return UThreadgate.following(
-          data: FeedThreadgateFollowingRule.fromJson(json),
+          data: FollowingRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateListRule) {
         return UThreadgate.list(
-          data: FeedThreadgateListRule.fromJson(json),
+          data: ListRule.fromJson(json),
         );
       }
 

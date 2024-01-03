@@ -14,38 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedGetLikesLike _$FeedGetLikesLikeFromJson(Map<String, dynamic> json) {
-  return _FeedGetLikesLike.fromJson(json);
+Like _$LikeFromJson(Map<String, dynamic> json) {
+  return _Like.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedGetLikesLike {
-  ActorDefsProfileView get actor => throw _privateConstructorUsedError;
+mixin _$Like {
+  ProfileView get actor => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedGetLikesLikeCopyWith<FeedGetLikesLike> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LikeCopyWith<Like> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedGetLikesLikeCopyWith<$Res> {
-  factory $FeedGetLikesLikeCopyWith(
-          FeedGetLikesLike value, $Res Function(FeedGetLikesLike) then) =
-      _$FeedGetLikesLikeCopyWithImpl<$Res, FeedGetLikesLike>;
+abstract class $LikeCopyWith<$Res> {
+  factory $LikeCopyWith(Like value, $Res Function(Like) then) =
+      _$LikeCopyWithImpl<$Res, Like>;
   @useResult
-  $Res call(
-      {ActorDefsProfileView actor, DateTime createdAt, DateTime indexedAt});
+  $Res call({ProfileView actor, DateTime createdAt, DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get actor;
+  $ProfileViewCopyWith<$Res> get actor;
 }
 
 /// @nodoc
-class _$FeedGetLikesLikeCopyWithImpl<$Res, $Val extends FeedGetLikesLike>
-    implements $FeedGetLikesLikeCopyWith<$Res> {
-  _$FeedGetLikesLikeCopyWithImpl(this._value, this._then);
+class _$LikeCopyWithImpl<$Res, $Val extends Like>
+    implements $LikeCopyWith<$Res> {
+  _$LikeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,7 +60,7 @@ class _$FeedGetLikesLikeCopyWithImpl<$Res, $Val extends FeedGetLikesLike>
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -77,34 +74,31 @@ class _$FeedGetLikesLikeCopyWithImpl<$Res, $Val extends FeedGetLikesLike>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get actor {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.actor, (value) {
+  $ProfileViewCopyWith<$Res> get actor {
+    return $ProfileViewCopyWith<$Res>(_value.actor, (value) {
       return _then(_value.copyWith(actor: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$FeedGetLikesLikeImplCopyWith<$Res>
-    implements $FeedGetLikesLikeCopyWith<$Res> {
-  factory _$$FeedGetLikesLikeImplCopyWith(_$FeedGetLikesLikeImpl value,
-          $Res Function(_$FeedGetLikesLikeImpl) then) =
-      __$$FeedGetLikesLikeImplCopyWithImpl<$Res>;
+abstract class _$$LikeImplCopyWith<$Res> implements $LikeCopyWith<$Res> {
+  factory _$$LikeImplCopyWith(
+          _$LikeImpl value, $Res Function(_$LikeImpl) then) =
+      __$$LikeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ActorDefsProfileView actor, DateTime createdAt, DateTime indexedAt});
+  $Res call({ProfileView actor, DateTime createdAt, DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get actor;
+  $ProfileViewCopyWith<$Res> get actor;
 }
 
 /// @nodoc
-class __$$FeedGetLikesLikeImplCopyWithImpl<$Res>
-    extends _$FeedGetLikesLikeCopyWithImpl<$Res, _$FeedGetLikesLikeImpl>
-    implements _$$FeedGetLikesLikeImplCopyWith<$Res> {
-  __$$FeedGetLikesLikeImplCopyWithImpl(_$FeedGetLikesLikeImpl _value,
-      $Res Function(_$FeedGetLikesLikeImpl) _then)
+class __$$LikeImplCopyWithImpl<$Res>
+    extends _$LikeCopyWithImpl<$Res, _$LikeImpl>
+    implements _$$LikeImplCopyWith<$Res> {
+  __$$LikeImplCopyWithImpl(_$LikeImpl _value, $Res Function(_$LikeImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,11 +108,11 @@ class __$$FeedGetLikesLikeImplCopyWithImpl<$Res>
     Object? createdAt = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$FeedGetLikesLikeImpl(
+    return _then(_$LikeImpl(
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -133,15 +127,15 @@ class __$$FeedGetLikesLikeImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedGetLikesLikeImpl implements _FeedGetLikesLike {
-  const _$FeedGetLikesLikeImpl(
+class _$LikeImpl implements _Like {
+  const _$LikeImpl(
       {required this.actor, required this.createdAt, required this.indexedAt});
 
-  factory _$FeedGetLikesLikeImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGetLikesLikeImplFromJson(json);
+  factory _$LikeImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikeImplFromJson(json);
 
   @override
-  final ActorDefsProfileView actor;
+  final ProfileView actor;
   @override
   final DateTime createdAt;
   @override
@@ -149,14 +143,14 @@ class _$FeedGetLikesLikeImpl implements _FeedGetLikesLike {
 
   @override
   String toString() {
-    return 'FeedGetLikesLike(actor: $actor, createdAt: $createdAt, indexedAt: $indexedAt)';
+    return 'Like(actor: $actor, createdAt: $createdAt, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGetLikesLikeImpl &&
+            other is _$LikeImpl &&
             (identical(other.actor, actor) || other.actor == actor) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -171,35 +165,33 @@ class _$FeedGetLikesLikeImpl implements _FeedGetLikesLike {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedGetLikesLikeImplCopyWith<_$FeedGetLikesLikeImpl> get copyWith =>
-      __$$FeedGetLikesLikeImplCopyWithImpl<_$FeedGetLikesLikeImpl>(
-          this, _$identity);
+  _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
+      __$$LikeImplCopyWithImpl<_$LikeImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedGetLikesLikeImplToJson(
+    return _$$LikeImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedGetLikesLike implements FeedGetLikesLike {
-  const factory _FeedGetLikesLike(
-      {required final ActorDefsProfileView actor,
+abstract class _Like implements Like {
+  const factory _Like(
+      {required final ProfileView actor,
       required final DateTime createdAt,
-      required final DateTime indexedAt}) = _$FeedGetLikesLikeImpl;
+      required final DateTime indexedAt}) = _$LikeImpl;
 
-  factory _FeedGetLikesLike.fromJson(Map<String, dynamic> json) =
-      _$FeedGetLikesLikeImpl.fromJson;
+  factory _Like.fromJson(Map<String, dynamic> json) = _$LikeImpl.fromJson;
 
   @override
-  ActorDefsProfileView get actor;
+  ProfileView get actor;
   @override
   DateTime get createdAt;
   @override
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$FeedGetLikesLikeImplCopyWith<_$FeedGetLikesLikeImpl> get copyWith =>
+  _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

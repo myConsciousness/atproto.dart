@@ -15,12 +15,12 @@ part 'feed_post_reply_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#replyref
 @freezed
 @lex.appBskyFeedPostReplyRef
-class FeedPostReplyRef with _$FeedPostReplyRef {
-  const factory FeedPostReplyRef({
+class ReplyRef with _$ReplyRef {
+  const factory ReplyRef({
     required StrongRef root,
     required StrongRef parent,
-  }) = _FeedPostReplyRef;
+  }) = _ReplyRef;
 
-  factory FeedPostReplyRef.fromJson(Map<String, Object?> json) =>
-      _$FeedPostReplyRefFromJson(json);
+  factory ReplyRef.fromJson(Map<String, Object?> json) =>
+      _$ReplyRefFromJson(json);
 }

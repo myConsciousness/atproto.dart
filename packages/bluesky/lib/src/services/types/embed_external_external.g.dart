@@ -8,12 +8,11 @@ part of 'embed_external_external.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedExternalExternalImpl _$$EmbedExternalExternalImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedExternalExternalImpl',
+_$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
+      r'_$ExternalImpl',
       json,
       ($checkedConvert) {
-        final val = _$EmbedExternalExternalImpl(
+        final val = _$ExternalImpl(
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -26,8 +25,7 @@ _$EmbedExternalExternalImpl _$$EmbedExternalExternalImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$EmbedExternalExternalImplToJson(
-    _$EmbedExternalExternalImpl instance) {
+Map<String, dynamic> _$$ExternalImplToJson(_$ExternalImpl instance) {
   final val = <String, dynamic>{
     'uri': instance.uri,
     'title': instance.title,

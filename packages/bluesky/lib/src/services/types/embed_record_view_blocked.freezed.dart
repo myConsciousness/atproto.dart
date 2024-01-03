@@ -14,46 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EmbedRecordViewBlocked _$EmbedRecordViewBlockedFromJson(
-    Map<String, dynamic> json) {
-  return _EmbedRecordViewBlocked.fromJson(json);
+ViewBlocked _$ViewBlockedFromJson(Map<String, dynamic> json) {
+  return _ViewBlocked.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EmbedRecordViewBlocked {
+mixin _$ViewBlocked {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
-  FeedDefsBlockedAuthor get author => throw _privateConstructorUsedError;
+  BlockedAuthor get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmbedRecordViewBlockedCopyWith<EmbedRecordViewBlocked> get copyWith =>
+  $ViewBlockedCopyWith<ViewBlocked> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmbedRecordViewBlockedCopyWith<$Res> {
-  factory $EmbedRecordViewBlockedCopyWith(EmbedRecordViewBlocked value,
-          $Res Function(EmbedRecordViewBlocked) then) =
-      _$EmbedRecordViewBlockedCopyWithImpl<$Res, EmbedRecordViewBlocked>;
+abstract class $ViewBlockedCopyWith<$Res> {
+  factory $ViewBlockedCopyWith(
+          ViewBlocked value, $Res Function(ViewBlocked) then) =
+      _$ViewBlockedCopyWithImpl<$Res, ViewBlocked>;
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
       bool blocked,
-      FeedDefsBlockedAuthor author});
+      BlockedAuthor author});
 
-  $FeedDefsBlockedAuthorCopyWith<$Res> get author;
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class _$EmbedRecordViewBlockedCopyWithImpl<$Res,
-        $Val extends EmbedRecordViewBlocked>
-    implements $EmbedRecordViewBlockedCopyWith<$Res> {
-  _$EmbedRecordViewBlockedCopyWithImpl(this._value, this._then);
+class _$ViewBlockedCopyWithImpl<$Res, $Val extends ViewBlocked>
+    implements $ViewBlockedCopyWith<$Res> {
+  _$ViewBlockedCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -84,46 +82,43 @@ class _$EmbedRecordViewBlockedCopyWithImpl<$Res,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as FeedDefsBlockedAuthor,
+              as BlockedAuthor,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsBlockedAuthorCopyWith<$Res> get author {
-    return $FeedDefsBlockedAuthorCopyWith<$Res>(_value.author, (value) {
+  $BlockedAuthorCopyWith<$Res> get author {
+    return $BlockedAuthorCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$EmbedRecordViewBlockedImplCopyWith<$Res>
-    implements $EmbedRecordViewBlockedCopyWith<$Res> {
-  factory _$$EmbedRecordViewBlockedImplCopyWith(
-          _$EmbedRecordViewBlockedImpl value,
-          $Res Function(_$EmbedRecordViewBlockedImpl) then) =
-      __$$EmbedRecordViewBlockedImplCopyWithImpl<$Res>;
+abstract class _$$ViewBlockedImplCopyWith<$Res>
+    implements $ViewBlockedCopyWith<$Res> {
+  factory _$$ViewBlockedImplCopyWith(
+          _$ViewBlockedImpl value, $Res Function(_$ViewBlockedImpl) then) =
+      __$$ViewBlockedImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
       bool blocked,
-      FeedDefsBlockedAuthor author});
+      BlockedAuthor author});
 
   @override
-  $FeedDefsBlockedAuthorCopyWith<$Res> get author;
+  $BlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class __$$EmbedRecordViewBlockedImplCopyWithImpl<$Res>
-    extends _$EmbedRecordViewBlockedCopyWithImpl<$Res,
-        _$EmbedRecordViewBlockedImpl>
-    implements _$$EmbedRecordViewBlockedImplCopyWith<$Res> {
-  __$$EmbedRecordViewBlockedImplCopyWithImpl(
-      _$EmbedRecordViewBlockedImpl _value,
-      $Res Function(_$EmbedRecordViewBlockedImpl) _then)
+class __$$ViewBlockedImplCopyWithImpl<$Res>
+    extends _$ViewBlockedCopyWithImpl<$Res, _$ViewBlockedImpl>
+    implements _$$ViewBlockedImplCopyWith<$Res> {
+  __$$ViewBlockedImplCopyWithImpl(
+      _$ViewBlockedImpl _value, $Res Function(_$ViewBlockedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -134,7 +129,7 @@ class __$$EmbedRecordViewBlockedImplCopyWithImpl<$Res>
     Object? blocked = null,
     Object? author = null,
   }) {
-    return _then(_$EmbedRecordViewBlockedImpl(
+    return _then(_$ViewBlockedImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -150,22 +145,22 @@ class __$$EmbedRecordViewBlockedImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as FeedDefsBlockedAuthor,
+              as BlockedAuthor,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedRecordViewBlockedImpl implements _EmbedRecordViewBlocked {
-  const _$EmbedRecordViewBlockedImpl(
+class _$ViewBlockedImpl implements _ViewBlocked {
+  const _$ViewBlockedImpl(
       {@typeKey this.type = appBskyEmbedRecordViewBlocked,
       @atUriConverter required this.uri,
       this.blocked = true,
       required this.author});
 
-  factory _$EmbedRecordViewBlockedImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedRecordViewBlockedImplFromJson(json);
+  factory _$ViewBlockedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ViewBlockedImplFromJson(json);
 
   @override
   @typeKey
@@ -177,18 +172,18 @@ class _$EmbedRecordViewBlockedImpl implements _EmbedRecordViewBlocked {
   @JsonKey()
   final bool blocked;
   @override
-  final FeedDefsBlockedAuthor author;
+  final BlockedAuthor author;
 
   @override
   String toString() {
-    return 'EmbedRecordViewBlocked(type: $type, uri: $uri, blocked: $blocked, author: $author)';
+    return 'ViewBlocked(type: $type, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedRecordViewBlockedImpl &&
+            other is _$ViewBlockedImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
@@ -202,28 +197,26 @@ class _$EmbedRecordViewBlockedImpl implements _EmbedRecordViewBlocked {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedRecordViewBlockedImplCopyWith<_$EmbedRecordViewBlockedImpl>
-      get copyWith => __$$EmbedRecordViewBlockedImplCopyWithImpl<
-          _$EmbedRecordViewBlockedImpl>(this, _$identity);
+  _$$ViewBlockedImplCopyWith<_$ViewBlockedImpl> get copyWith =>
+      __$$ViewBlockedImplCopyWithImpl<_$ViewBlockedImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedRecordViewBlockedImplToJson(
+    return _$$ViewBlockedImplToJson(
       this,
     );
   }
 }
 
-abstract class _EmbedRecordViewBlocked implements EmbedRecordViewBlocked {
-  const factory _EmbedRecordViewBlocked(
-          {@typeKey final String type,
-          @atUriConverter required final AtUri uri,
-          final bool blocked,
-          required final FeedDefsBlockedAuthor author}) =
-      _$EmbedRecordViewBlockedImpl;
+abstract class _ViewBlocked implements ViewBlocked {
+  const factory _ViewBlocked(
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
+      final bool blocked,
+      required final BlockedAuthor author}) = _$ViewBlockedImpl;
 
-  factory _EmbedRecordViewBlocked.fromJson(Map<String, dynamic> json) =
-      _$EmbedRecordViewBlockedImpl.fromJson;
+  factory _ViewBlocked.fromJson(Map<String, dynamic> json) =
+      _$ViewBlockedImpl.fromJson;
 
   @override
   @typeKey
@@ -234,9 +227,9 @@ abstract class _EmbedRecordViewBlocked implements EmbedRecordViewBlocked {
   @override
   bool get blocked;
   @override
-  FeedDefsBlockedAuthor get author;
+  BlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedRecordViewBlockedImplCopyWith<_$EmbedRecordViewBlockedImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ViewBlockedImplCopyWith<_$ViewBlockedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

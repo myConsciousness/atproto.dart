@@ -32,17 +32,17 @@ final class _UEmbedConverter
       }
       if (type == ids.appBskyEmbedImages) {
         return UEmbed.embedImages(
-          data: EmbedImages.fromJson(json),
+          data: Images.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return UEmbed.embedExternal(
-          data: EmbedExternal.fromJson(json),
+          data: External.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMedia) {
         return UEmbed.embedRecordWithMedia(
-          data: EmbedRecordWithMedia.fromJson(json),
+          data: RecordWithMedia.fromJson(json),
         );
       }
 

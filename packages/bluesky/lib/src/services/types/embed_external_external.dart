@@ -15,18 +15,18 @@ import '../../lex_annotations.g.dart' as lex;
 part 'embed_external_external.freezed.dart';
 part 'embed_external_external.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#viewexternal
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#external
 @freezed
 @lex.appBskyEmbedExternalExternal
-class EmbedExternalExternal with _$EmbedExternalExternal {
+class External with _$External {
   @jsonSerializable
-  const factory EmbedExternalExternal({
+  const factory External({
     required String uri,
     required String title,
     required String description,
     @blobConverter Blob? thumb,
-  }) = _EmbedExternalExternal;
+  }) = _External;
 
-  factory EmbedExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$EmbedExternalExternalFromJson(json);
+  factory External.fromJson(Map<String, Object?> json) =>
+      _$ExternalFromJson(json);
 }

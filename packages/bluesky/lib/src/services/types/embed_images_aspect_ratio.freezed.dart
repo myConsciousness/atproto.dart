@@ -14,36 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EmbedImagesAspectRatio _$EmbedImagesAspectRatioFromJson(
-    Map<String, dynamic> json) {
-  return _EmbedImagesAspectRatio.fromJson(json);
+AspectRatio _$AspectRatioFromJson(Map<String, dynamic> json) {
+  return _AspectRatio.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EmbedImagesAspectRatio {
+mixin _$AspectRatio {
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmbedImagesAspectRatioCopyWith<EmbedImagesAspectRatio> get copyWith =>
+  $AspectRatioCopyWith<AspectRatio> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmbedImagesAspectRatioCopyWith<$Res> {
-  factory $EmbedImagesAspectRatioCopyWith(EmbedImagesAspectRatio value,
-          $Res Function(EmbedImagesAspectRatio) then) =
-      _$EmbedImagesAspectRatioCopyWithImpl<$Res, EmbedImagesAspectRatio>;
+abstract class $AspectRatioCopyWith<$Res> {
+  factory $AspectRatioCopyWith(
+          AspectRatio value, $Res Function(AspectRatio) then) =
+      _$AspectRatioCopyWithImpl<$Res, AspectRatio>;
   @useResult
   $Res call({int width, int height});
 }
 
 /// @nodoc
-class _$EmbedImagesAspectRatioCopyWithImpl<$Res,
-        $Val extends EmbedImagesAspectRatio>
-    implements $EmbedImagesAspectRatioCopyWith<$Res> {
-  _$EmbedImagesAspectRatioCopyWithImpl(this._value, this._then);
+class _$AspectRatioCopyWithImpl<$Res, $Val extends AspectRatio>
+    implements $AspectRatioCopyWith<$Res> {
+  _$AspectRatioCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,25 +68,22 @@ class _$EmbedImagesAspectRatioCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EmbedImagesAspectRatioImplCopyWith<$Res>
-    implements $EmbedImagesAspectRatioCopyWith<$Res> {
-  factory _$$EmbedImagesAspectRatioImplCopyWith(
-          _$EmbedImagesAspectRatioImpl value,
-          $Res Function(_$EmbedImagesAspectRatioImpl) then) =
-      __$$EmbedImagesAspectRatioImplCopyWithImpl<$Res>;
+abstract class _$$AspectRatioImplCopyWith<$Res>
+    implements $AspectRatioCopyWith<$Res> {
+  factory _$$AspectRatioImplCopyWith(
+          _$AspectRatioImpl value, $Res Function(_$AspectRatioImpl) then) =
+      __$$AspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int width, int height});
 }
 
 /// @nodoc
-class __$$EmbedImagesAspectRatioImplCopyWithImpl<$Res>
-    extends _$EmbedImagesAspectRatioCopyWithImpl<$Res,
-        _$EmbedImagesAspectRatioImpl>
-    implements _$$EmbedImagesAspectRatioImplCopyWith<$Res> {
-  __$$EmbedImagesAspectRatioImplCopyWithImpl(
-      _$EmbedImagesAspectRatioImpl _value,
-      $Res Function(_$EmbedImagesAspectRatioImpl) _then)
+class __$$AspectRatioImplCopyWithImpl<$Res>
+    extends _$AspectRatioCopyWithImpl<$Res, _$AspectRatioImpl>
+    implements _$$AspectRatioImplCopyWith<$Res> {
+  __$$AspectRatioImplCopyWithImpl(
+      _$AspectRatioImpl _value, $Res Function(_$AspectRatioImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +92,7 @@ class __$$EmbedImagesAspectRatioImplCopyWithImpl<$Res>
     Object? width = null,
     Object? height = null,
   }) {
-    return _then(_$EmbedImagesAspectRatioImpl(
+    return _then(_$AspectRatioImpl(
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -112,12 +107,11 @@ class __$$EmbedImagesAspectRatioImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$EmbedImagesAspectRatioImpl implements _EmbedImagesAspectRatio {
-  const _$EmbedImagesAspectRatioImpl(
-      {required this.width, required this.height});
+class _$AspectRatioImpl implements _AspectRatio {
+  const _$AspectRatioImpl({required this.width, required this.height});
 
-  factory _$EmbedImagesAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedImagesAspectRatioImplFromJson(json);
+  factory _$AspectRatioImpl.fromJson(Map<String, dynamic> json) =>
+      _$$AspectRatioImplFromJson(json);
 
   @override
   final int width;
@@ -126,14 +120,14 @@ class _$EmbedImagesAspectRatioImpl implements _EmbedImagesAspectRatio {
 
   @override
   String toString() {
-    return 'EmbedImagesAspectRatio(width: $width, height: $height)';
+    return 'AspectRatio(width: $width, height: $height)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedImagesAspectRatioImpl &&
+            other is _$AspectRatioImpl &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
   }
@@ -145,25 +139,24 @@ class _$EmbedImagesAspectRatioImpl implements _EmbedImagesAspectRatio {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedImagesAspectRatioImplCopyWith<_$EmbedImagesAspectRatioImpl>
-      get copyWith => __$$EmbedImagesAspectRatioImplCopyWithImpl<
-          _$EmbedImagesAspectRatioImpl>(this, _$identity);
+  _$$AspectRatioImplCopyWith<_$AspectRatioImpl> get copyWith =>
+      __$$AspectRatioImplCopyWithImpl<_$AspectRatioImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedImagesAspectRatioImplToJson(
+    return _$$AspectRatioImplToJson(
       this,
     );
   }
 }
 
-abstract class _EmbedImagesAspectRatio implements EmbedImagesAspectRatio {
-  const factory _EmbedImagesAspectRatio(
+abstract class _AspectRatio implements AspectRatio {
+  const factory _AspectRatio(
       {required final int width,
-      required final int height}) = _$EmbedImagesAspectRatioImpl;
+      required final int height}) = _$AspectRatioImpl;
 
-  factory _EmbedImagesAspectRatio.fromJson(Map<String, dynamic> json) =
-      _$EmbedImagesAspectRatioImpl.fromJson;
+  factory _AspectRatio.fromJson(Map<String, dynamic> json) =
+      _$AspectRatioImpl.fromJson;
 
   @override
   int get width;
@@ -171,6 +164,6 @@ abstract class _EmbedImagesAspectRatio implements EmbedImagesAspectRatio {
   int get height;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedImagesAspectRatioImplCopyWith<_$EmbedImagesAspectRatioImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$AspectRatioImplCopyWith<_$AspectRatioImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

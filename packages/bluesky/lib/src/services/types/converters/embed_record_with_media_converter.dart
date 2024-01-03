@@ -25,12 +25,12 @@ final class _EmbedRecordWithMediaConverter
 
       if (type == ids.appBskyEmbedImages) {
         return UEmbedRecordWithMedia.embedImages(
-          data: EmbedImages.fromJson(json),
+          data: Images.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return UEmbedRecordWithMedia.embedExternal(
-          data: EmbedExternal.fromJson(json),
+          data: External.fromJson(json),
         );
       }
 

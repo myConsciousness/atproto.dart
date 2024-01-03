@@ -17,15 +17,15 @@ part 'union_threadgate.freezed.dart';
 @freezed
 class UThreadgate with _$UThreadgate {
   const factory UThreadgate.mention({
-    required FeedThreadgateMentionRule data,
+    required MentionRule data,
   }) = UThreadgateMention;
 
   const factory UThreadgate.following({
-    required FeedThreadgateFollowingRule data,
+    required FollowingRule data,
   }) = UThreadgateFollowing;
 
   const factory UThreadgate.list({
-    required FeedThreadgateListRule data,
+    required ListRule data,
   }) = UThreadgateList;
 
   const factory UThreadgate.unknown({

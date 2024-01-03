@@ -8,17 +8,16 @@ part of 'actor_search_actors_typeahead.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorSearchActorsTypeaheadImpl _$$ActorSearchActorsTypeaheadImplFromJson(
-        Map json) =>
+_$ActorsTypeaheadImpl _$$ActorsTypeaheadImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorSearchActorsTypeaheadImpl',
+      r'_$ActorsTypeaheadImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorSearchActorsTypeaheadImpl(
+        final val = _$ActorsTypeaheadImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileViewBasic.fromJson(
+                  .map((e) => ProfileViewBasic.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
@@ -26,8 +25,8 @@ _$ActorSearchActorsTypeaheadImpl _$$ActorSearchActorsTypeaheadImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ActorSearchActorsTypeaheadImplToJson(
-        _$ActorSearchActorsTypeaheadImpl instance) =>
+Map<String, dynamic> _$$ActorsTypeaheadImplToJson(
+        _$ActorsTypeaheadImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
     };

@@ -14,17 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsPostView _$FeedDefsPostViewFromJson(Map<String, dynamic> json) {
-  return _FeedDefsPostView.fromJson(json);
+PostView _$PostViewFromJson(Map<String, dynamic> json) {
+  return _PostView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsPostView {
+mixin _$PostView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @postRecordConverter
   PostRecord get record => throw _privateConstructorUsedError;
-  ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
+  ProfileViewBasic get author => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -33,49 +33,48 @@ mixin _$FeedDefsPostView {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
-  FeedDefsViewerState get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  FeedDefsThreadgateView? get threadgate => throw _privateConstructorUsedError;
+  ThreadgateView? get threadgate => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsPostViewCopyWith<FeedDefsPostView> get copyWith =>
+  $PostViewCopyWith<PostView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsPostViewCopyWith<$Res> {
-  factory $FeedDefsPostViewCopyWith(
-          FeedDefsPostView value, $Res Function(FeedDefsPostView) then) =
-      _$FeedDefsPostViewCopyWithImpl<$Res, FeedDefsPostView>;
+abstract class $PostViewCopyWith<$Res> {
+  factory $PostViewCopyWith(PostView value, $Res Function(PostView) then) =
+      _$PostViewCopyWithImpl<$Res, PostView>;
   @useResult
   $Res call(
       {@typeKey String type,
       @postRecordConverter PostRecord record,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @unionEmbedView UEmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
-      FeedDefsViewerState viewer,
+      ViewerState viewer,
       List<Label>? labels,
-      FeedDefsThreadgateView? threadgate,
+      ThreadgateView? threadgate,
       DateTime indexedAt});
 
   $PostRecordCopyWith<$Res> get record;
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   $UEmbedViewCopyWith<$Res>? get embed;
-  $FeedDefsViewerStateCopyWith<$Res> get viewer;
-  $FeedDefsThreadgateViewCopyWith<$Res>? get threadgate;
+  $ViewerStateCopyWith<$Res> get viewer;
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
-class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
-    implements $FeedDefsPostViewCopyWith<$Res> {
-  _$FeedDefsPostViewCopyWithImpl(this._value, this._then);
+class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
+    implements $PostViewCopyWith<$Res> {
+  _$PostViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -111,7 +110,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -139,7 +138,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as FeedDefsViewerState,
+              as ViewerState,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -147,7 +146,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       threadgate: freezed == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
-              as FeedDefsThreadgateView?,
+              as ThreadgateView?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -165,8 +164,8 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author {
-    return $ActorDefsProfileViewBasicCopyWith<$Res>(_value.author, (value) {
+  $ProfileViewBasicCopyWith<$Res> get author {
+    return $ProfileViewBasicCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -185,66 +184,66 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsViewerStateCopyWith<$Res> get viewer {
-    return $FeedDefsViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsThreadgateViewCopyWith<$Res>? get threadgate {
+  $ThreadgateViewCopyWith<$Res>? get threadgate {
     if (_value.threadgate == null) {
       return null;
     }
 
-    return $FeedDefsThreadgateViewCopyWith<$Res>(_value.threadgate!, (value) {
+    return $ThreadgateViewCopyWith<$Res>(_value.threadgate!, (value) {
       return _then(_value.copyWith(threadgate: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
-    implements $FeedDefsPostViewCopyWith<$Res> {
-  factory _$$FeedDefsPostViewImplCopyWith(_$FeedDefsPostViewImpl value,
-          $Res Function(_$FeedDefsPostViewImpl) then) =
-      __$$FeedDefsPostViewImplCopyWithImpl<$Res>;
+abstract class _$$PostViewImplCopyWith<$Res>
+    implements $PostViewCopyWith<$Res> {
+  factory _$$PostViewImplCopyWith(
+          _$PostViewImpl value, $Res Function(_$PostViewImpl) then) =
+      __$$PostViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       @postRecordConverter PostRecord record,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @unionEmbedView UEmbedView? embed,
       int replyCount,
       int repostCount,
       int likeCount,
-      FeedDefsViewerState viewer,
+      ViewerState viewer,
       List<Label>? labels,
-      FeedDefsThreadgateView? threadgate,
+      ThreadgateView? threadgate,
       DateTime indexedAt});
 
   @override
   $PostRecordCopyWith<$Res> get record;
   @override
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   @override
   $UEmbedViewCopyWith<$Res>? get embed;
   @override
-  $FeedDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
   @override
-  $FeedDefsThreadgateViewCopyWith<$Res>? get threadgate;
+  $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
 
 /// @nodoc
-class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
-    extends _$FeedDefsPostViewCopyWithImpl<$Res, _$FeedDefsPostViewImpl>
-    implements _$$FeedDefsPostViewImplCopyWith<$Res> {
-  __$$FeedDefsPostViewImplCopyWithImpl(_$FeedDefsPostViewImpl _value,
-      $Res Function(_$FeedDefsPostViewImpl) _then)
+class __$$PostViewImplCopyWithImpl<$Res>
+    extends _$PostViewCopyWithImpl<$Res, _$PostViewImpl>
+    implements _$$PostViewImplCopyWith<$Res> {
+  __$$PostViewImplCopyWithImpl(
+      _$PostViewImpl _value, $Res Function(_$PostViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -264,7 +263,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
     Object? threadgate = freezed,
     Object? indexedAt = null,
   }) {
-    return _then(_$FeedDefsPostViewImpl(
+    return _then(_$PostViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -276,7 +275,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -304,7 +303,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as FeedDefsViewerState,
+              as ViewerState,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -312,7 +311,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       threadgate: freezed == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
-              as FeedDefsThreadgateView?,
+              as ThreadgateView?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -324,8 +323,8 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
-  const _$FeedDefsPostViewImpl(
+class _$PostViewImpl implements _PostView {
+  const _$PostViewImpl(
       {@typeKey this.type = appBskyFeedDefsPostView,
       @postRecordConverter required this.record,
       required this.author,
@@ -341,8 +340,8 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
       required this.indexedAt})
       : _labels = labels;
 
-  factory _$FeedDefsPostViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsPostViewImplFromJson(json);
+  factory _$PostViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostViewImplFromJson(json);
 
   @override
   @typeKey
@@ -351,7 +350,7 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @postRecordConverter
   final PostRecord record;
   @override
-  final ActorDefsProfileViewBasic author;
+  final ProfileViewBasic author;
   @override
   @atUriConverter
   final AtUri uri;
@@ -371,7 +370,7 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   final int likeCount;
   @override
   @JsonKey()
-  final FeedDefsViewerState viewer;
+  final ViewerState viewer;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -383,20 +382,20 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   }
 
   @override
-  final FeedDefsThreadgateView? threadgate;
+  final ThreadgateView? threadgate;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'FeedDefsPostView(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
+    return 'PostView(type: $type, record: $record, author: $author, uri: $uri, cid: $cid, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, viewer: $viewer, labels: $labels, threadgate: $threadgate, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsPostViewImpl &&
+            other is _$PostViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.author, author) || other.author == author) &&
@@ -438,36 +437,35 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsPostViewImplCopyWith<_$FeedDefsPostViewImpl> get copyWith =>
-      __$$FeedDefsPostViewImplCopyWithImpl<_$FeedDefsPostViewImpl>(
-          this, _$identity);
+  _$$PostViewImplCopyWith<_$PostViewImpl> get copyWith =>
+      __$$PostViewImplCopyWithImpl<_$PostViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsPostViewImplToJson(
+    return _$$PostViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsPostView implements FeedDefsPostView {
-  const factory _FeedDefsPostView(
+abstract class _PostView implements PostView {
+  const factory _PostView(
       {@typeKey final String type,
       @postRecordConverter required final PostRecord record,
-      required final ActorDefsProfileViewBasic author,
+      required final ProfileViewBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
       @unionEmbedView final UEmbedView? embed,
       final int replyCount,
       final int repostCount,
       final int likeCount,
-      final FeedDefsViewerState viewer,
+      final ViewerState viewer,
       final List<Label>? labels,
-      final FeedDefsThreadgateView? threadgate,
-      required final DateTime indexedAt}) = _$FeedDefsPostViewImpl;
+      final ThreadgateView? threadgate,
+      required final DateTime indexedAt}) = _$PostViewImpl;
 
-  factory _FeedDefsPostView.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsPostViewImpl.fromJson;
+  factory _PostView.fromJson(Map<String, dynamic> json) =
+      _$PostViewImpl.fromJson;
 
   @override
   @typeKey
@@ -476,7 +474,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @postRecordConverter
   PostRecord get record;
   @override
-  ActorDefsProfileViewBasic get author;
+  ProfileViewBasic get author;
   @override
   @atUriConverter
   AtUri get uri;
@@ -492,15 +490,15 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @override
   int get likeCount;
   @override
-  FeedDefsViewerState get viewer;
+  ViewerState get viewer;
   @override
   List<Label>? get labels;
   @override
-  FeedDefsThreadgateView? get threadgate;
+  ThreadgateView? get threadgate;
   @override
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsPostViewImplCopyWith<_$FeedDefsPostViewImpl> get copyWith =>
+  _$$PostViewImplCopyWith<_$PostViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

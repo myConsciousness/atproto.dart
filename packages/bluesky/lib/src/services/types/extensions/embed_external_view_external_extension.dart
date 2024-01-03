@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../embed_external_view_external.dart';
 
-extension EmbedExternalViewExternalExtension on EmbedExternalViewExternal {
+extension ViewExternalExtension on ViewExternal {
   String? get thumbnail => thumb;
 }

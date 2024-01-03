@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../feed_defs_not_found_post.dart';
 
-extension FeedDefsNotFoundPostExtension on FeedDefsNotFoundPost {
+extension NotFoundPostExtension on NotFoundPost {
   bool get isNotFound => notFound;
 }

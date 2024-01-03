@@ -14,13 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedGetLikes _$FeedGetLikesFromJson(Map<String, dynamic> json) {
-  return _FeedGetLikes.fromJson(json);
+Likes _$LikesFromJson(Map<String, dynamic> json) {
+  return _Likes.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedGetLikes {
-  List<FeedGetLikesLike> get likes => throw _privateConstructorUsedError;
+mixin _$Likes {
+  List<Like> get likes => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
@@ -28,27 +28,25 @@ mixin _$FeedGetLikes {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedGetLikesCopyWith<FeedGetLikes> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LikesCopyWith<Likes> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedGetLikesCopyWith<$Res> {
-  factory $FeedGetLikesCopyWith(
-          FeedGetLikes value, $Res Function(FeedGetLikes) then) =
-      _$FeedGetLikesCopyWithImpl<$Res, FeedGetLikes>;
+abstract class $LikesCopyWith<$Res> {
+  factory $LikesCopyWith(Likes value, $Res Function(Likes) then) =
+      _$LikesCopyWithImpl<$Res, Likes>;
   @useResult
   $Res call(
-      {List<FeedGetLikesLike> likes,
+      {List<Like> likes,
       @atUriConverter AtUri uri,
       String? cid,
       String? cursor});
 }
 
 /// @nodoc
-class _$FeedGetLikesCopyWithImpl<$Res, $Val extends FeedGetLikes>
-    implements $FeedGetLikesCopyWith<$Res> {
-  _$FeedGetLikesCopyWithImpl(this._value, this._then);
+class _$LikesCopyWithImpl<$Res, $Val extends Likes>
+    implements $LikesCopyWith<$Res> {
+  _$LikesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,7 +65,7 @@ class _$FeedGetLikesCopyWithImpl<$Res, $Val extends FeedGetLikes>
       likes: null == likes
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
-              as List<FeedGetLikesLike>,
+              as List<Like>,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -85,26 +83,25 @@ class _$FeedGetLikesCopyWithImpl<$Res, $Val extends FeedGetLikes>
 }
 
 /// @nodoc
-abstract class _$$FeedGetLikesImplCopyWith<$Res>
-    implements $FeedGetLikesCopyWith<$Res> {
-  factory _$$FeedGetLikesImplCopyWith(
-          _$FeedGetLikesImpl value, $Res Function(_$FeedGetLikesImpl) then) =
-      __$$FeedGetLikesImplCopyWithImpl<$Res>;
+abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
+  factory _$$LikesImplCopyWith(
+          _$LikesImpl value, $Res Function(_$LikesImpl) then) =
+      __$$LikesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {List<FeedGetLikesLike> likes,
+      {List<Like> likes,
       @atUriConverter AtUri uri,
       String? cid,
       String? cursor});
 }
 
 /// @nodoc
-class __$$FeedGetLikesImplCopyWithImpl<$Res>
-    extends _$FeedGetLikesCopyWithImpl<$Res, _$FeedGetLikesImpl>
-    implements _$$FeedGetLikesImplCopyWith<$Res> {
-  __$$FeedGetLikesImplCopyWithImpl(
-      _$FeedGetLikesImpl _value, $Res Function(_$FeedGetLikesImpl) _then)
+class __$$LikesImplCopyWithImpl<$Res>
+    extends _$LikesCopyWithImpl<$Res, _$LikesImpl>
+    implements _$$LikesImplCopyWith<$Res> {
+  __$$LikesImplCopyWithImpl(
+      _$LikesImpl _value, $Res Function(_$LikesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,11 +112,11 @@ class __$$FeedGetLikesImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
   }) {
-    return _then(_$FeedGetLikesImpl(
+    return _then(_$LikesImpl(
       likes: null == likes
           ? _value._likes
           : likes // ignore: cast_nullable_to_non_nullable
-              as List<FeedGetLikesLike>,
+              as List<Like>,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -138,20 +135,20 @@ class __$$FeedGetLikesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedGetLikesImpl implements _FeedGetLikes {
-  const _$FeedGetLikesImpl(
-      {required final List<FeedGetLikesLike> likes,
+class _$LikesImpl implements _Likes {
+  const _$LikesImpl(
+      {required final List<Like> likes,
       @atUriConverter required this.uri,
       this.cid,
       this.cursor})
       : _likes = likes;
 
-  factory _$FeedGetLikesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGetLikesImplFromJson(json);
+  factory _$LikesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LikesImplFromJson(json);
 
-  final List<FeedGetLikesLike> _likes;
+  final List<Like> _likes;
   @override
-  List<FeedGetLikesLike> get likes {
+  List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_likes);
@@ -167,14 +164,14 @@ class _$FeedGetLikesImpl implements _FeedGetLikes {
 
   @override
   String toString() {
-    return 'FeedGetLikes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
+    return 'Likes(likes: $likes, uri: $uri, cid: $cid, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGetLikesImpl &&
+            other is _$LikesImpl &&
             const DeepCollectionEquality().equals(other._likes, _likes) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -189,29 +186,28 @@ class _$FeedGetLikesImpl implements _FeedGetLikes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedGetLikesImplCopyWith<_$FeedGetLikesImpl> get copyWith =>
-      __$$FeedGetLikesImplCopyWithImpl<_$FeedGetLikesImpl>(this, _$identity);
+  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
+      __$$LikesImplCopyWithImpl<_$LikesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedGetLikesImplToJson(
+    return _$$LikesImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedGetLikes implements FeedGetLikes {
-  const factory _FeedGetLikes(
-      {required final List<FeedGetLikesLike> likes,
+abstract class _Likes implements Likes {
+  const factory _Likes(
+      {required final List<Like> likes,
       @atUriConverter required final AtUri uri,
       final String? cid,
-      final String? cursor}) = _$FeedGetLikesImpl;
+      final String? cursor}) = _$LikesImpl;
 
-  factory _FeedGetLikes.fromJson(Map<String, dynamic> json) =
-      _$FeedGetLikesImpl.fromJson;
+  factory _Likes.fromJson(Map<String, dynamic> json) = _$LikesImpl.fromJson;
 
   @override
-  List<FeedGetLikesLike> get likes;
+  List<Like> get likes;
   @override
   @atUriConverter
   AtUri get uri;
@@ -221,6 +217,6 @@ abstract class _FeedGetLikes implements FeedGetLikes {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$FeedGetLikesImplCopyWith<_$FeedGetLikesImpl> get copyWith =>
+  _$$LikesImplCopyWith<_$LikesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

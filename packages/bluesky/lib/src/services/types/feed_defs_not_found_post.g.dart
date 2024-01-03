@@ -8,12 +8,11 @@ part of 'feed_defs_not_found_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsNotFoundPostImpl _$$FeedDefsNotFoundPostImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedDefsNotFoundPostImpl',
+_$NotFoundPostImpl _$$NotFoundPostImplFromJson(Map json) => $checkedCreate(
+      r'_$NotFoundPostImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsNotFoundPostImpl(
+        final val = _$NotFoundPostImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsNotFoundPost),
           uri: $checkedConvert(
@@ -25,8 +24,7 @@ _$FeedDefsNotFoundPostImpl _$$FeedDefsNotFoundPostImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedDefsNotFoundPostImplToJson(
-        _$FeedDefsNotFoundPostImpl instance) =>
+Map<String, dynamic> _$$NotFoundPostImplToJson(_$NotFoundPostImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'uri': atUriConverter.toJson(instance.uri),

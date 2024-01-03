@@ -8,23 +8,23 @@ part of 'feed_get_posts.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetPostsImpl _$$FeedGetPostsImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedGetPostsImpl',
+_$PostsImpl _$$PostsImplFromJson(Map json) => $checkedCreate(
+      r'_$PostsImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGetPostsImpl(
+        final val = _$PostsImpl(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedDefsPostView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      PostView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$FeedGetPostsImplToJson(_$FeedGetPostsImpl instance) =>
+Map<String, dynamic> _$$PostsImplToJson(_$PostsImpl instance) =>
     <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
     };

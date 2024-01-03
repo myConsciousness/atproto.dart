@@ -14,44 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsFeedViewPost _$FeedDefsFeedViewPostFromJson(Map<String, dynamic> json) {
-  return _FeedDefsFeedViewPost.fromJson(json);
+FeedViewPost _$FeedViewPostFromJson(Map<String, dynamic> json) {
+  return _FeedViewPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsFeedViewPost {
-  FeedDefsPostView get post => throw _privateConstructorUsedError;
-  FeedDefsReplyRef? get reply => throw _privateConstructorUsedError;
+mixin _$FeedViewPost {
+  PostView get post => throw _privateConstructorUsedError;
+  ReplyRef? get reply => throw _privateConstructorUsedError;
   @unionReason
   UReason? get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsFeedViewPostCopyWith<FeedDefsFeedViewPost> get copyWith =>
+  $FeedViewPostCopyWith<FeedViewPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsFeedViewPostCopyWith<$Res> {
-  factory $FeedDefsFeedViewPostCopyWith(FeedDefsFeedViewPost value,
-          $Res Function(FeedDefsFeedViewPost) then) =
-      _$FeedDefsFeedViewPostCopyWithImpl<$Res, FeedDefsFeedViewPost>;
+abstract class $FeedViewPostCopyWith<$Res> {
+  factory $FeedViewPostCopyWith(
+          FeedViewPost value, $Res Function(FeedViewPost) then) =
+      _$FeedViewPostCopyWithImpl<$Res, FeedViewPost>;
   @useResult
-  $Res call(
-      {FeedDefsPostView post,
-      FeedDefsReplyRef? reply,
-      @unionReason UReason? reason});
+  $Res call({PostView post, ReplyRef? reply, @unionReason UReason? reason});
 
-  $FeedDefsPostViewCopyWith<$Res> get post;
-  $FeedDefsReplyRefCopyWith<$Res>? get reply;
+  $PostViewCopyWith<$Res> get post;
+  $ReplyRefCopyWith<$Res>? get reply;
   $UReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
-class _$FeedDefsFeedViewPostCopyWithImpl<$Res,
-        $Val extends FeedDefsFeedViewPost>
-    implements $FeedDefsFeedViewPostCopyWith<$Res> {
-  _$FeedDefsFeedViewPostCopyWithImpl(this._value, this._then);
+class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
+    implements $FeedViewPostCopyWith<$Res> {
+  _$FeedViewPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,11 +65,11 @@ class _$FeedDefsFeedViewPostCopyWithImpl<$Res,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
-              as FeedDefsPostView,
+              as PostView,
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRef?,
+              as ReplyRef?,
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -83,20 +79,20 @@ class _$FeedDefsFeedViewPostCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsPostViewCopyWith<$Res> get post {
-    return $FeedDefsPostViewCopyWith<$Res>(_value.post, (value) {
+  $PostViewCopyWith<$Res> get post {
+    return $PostViewCopyWith<$Res>(_value.post, (value) {
       return _then(_value.copyWith(post: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsReplyRefCopyWith<$Res>? get reply {
+  $ReplyRefCopyWith<$Res>? get reply {
     if (_value.reply == null) {
       return null;
     }
 
-    return $FeedDefsReplyRefCopyWith<$Res>(_value.reply!, (value) {
+    return $ReplyRefCopyWith<$Res>(_value.reply!, (value) {
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
@@ -115,32 +111,29 @@ class _$FeedDefsFeedViewPostCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FeedDefsFeedViewPostImplCopyWith<$Res>
-    implements $FeedDefsFeedViewPostCopyWith<$Res> {
-  factory _$$FeedDefsFeedViewPostImplCopyWith(_$FeedDefsFeedViewPostImpl value,
-          $Res Function(_$FeedDefsFeedViewPostImpl) then) =
-      __$$FeedDefsFeedViewPostImplCopyWithImpl<$Res>;
+abstract class _$$FeedViewPostImplCopyWith<$Res>
+    implements $FeedViewPostCopyWith<$Res> {
+  factory _$$FeedViewPostImplCopyWith(
+          _$FeedViewPostImpl value, $Res Function(_$FeedViewPostImpl) then) =
+      __$$FeedViewPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {FeedDefsPostView post,
-      FeedDefsReplyRef? reply,
-      @unionReason UReason? reason});
+  $Res call({PostView post, ReplyRef? reply, @unionReason UReason? reason});
 
   @override
-  $FeedDefsPostViewCopyWith<$Res> get post;
+  $PostViewCopyWith<$Res> get post;
   @override
-  $FeedDefsReplyRefCopyWith<$Res>? get reply;
+  $ReplyRefCopyWith<$Res>? get reply;
   @override
   $UReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
-class __$$FeedDefsFeedViewPostImplCopyWithImpl<$Res>
-    extends _$FeedDefsFeedViewPostCopyWithImpl<$Res, _$FeedDefsFeedViewPostImpl>
-    implements _$$FeedDefsFeedViewPostImplCopyWith<$Res> {
-  __$$FeedDefsFeedViewPostImplCopyWithImpl(_$FeedDefsFeedViewPostImpl _value,
-      $Res Function(_$FeedDefsFeedViewPostImpl) _then)
+class __$$FeedViewPostImplCopyWithImpl<$Res>
+    extends _$FeedViewPostCopyWithImpl<$Res, _$FeedViewPostImpl>
+    implements _$$FeedViewPostImplCopyWith<$Res> {
+  __$$FeedViewPostImplCopyWithImpl(
+      _$FeedViewPostImpl _value, $Res Function(_$FeedViewPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,15 +143,15 @@ class __$$FeedDefsFeedViewPostImplCopyWithImpl<$Res>
     Object? reply = freezed,
     Object? reason = freezed,
   }) {
-    return _then(_$FeedDefsFeedViewPostImpl(
+    return _then(_$FeedViewPostImpl(
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
-              as FeedDefsPostView,
+              as PostView,
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReplyRef?,
+              as ReplyRef?,
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -170,31 +163,31 @@ class __$$FeedDefsFeedViewPostImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedDefsFeedViewPostImpl implements _FeedDefsFeedViewPost {
-  const _$FeedDefsFeedViewPostImpl(
+class _$FeedViewPostImpl implements _FeedViewPost {
+  const _$FeedViewPostImpl(
       {required this.post, this.reply, @unionReason this.reason});
 
-  factory _$FeedDefsFeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsFeedViewPostImplFromJson(json);
+  factory _$FeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedViewPostImplFromJson(json);
 
   @override
-  final FeedDefsPostView post;
+  final PostView post;
   @override
-  final FeedDefsReplyRef? reply;
+  final ReplyRef? reply;
   @override
   @unionReason
   final UReason? reason;
 
   @override
   String toString() {
-    return 'FeedDefsFeedViewPost(post: $post, reply: $reply, reason: $reason)';
+    return 'FeedViewPost(post: $post, reply: $reply, reason: $reason)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsFeedViewPostImpl &&
+            other is _$FeedViewPostImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.reason, reason) || other.reason == reason));
@@ -207,37 +200,35 @@ class _$FeedDefsFeedViewPostImpl implements _FeedDefsFeedViewPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsFeedViewPostImplCopyWith<_$FeedDefsFeedViewPostImpl>
-      get copyWith =>
-          __$$FeedDefsFeedViewPostImplCopyWithImpl<_$FeedDefsFeedViewPostImpl>(
-              this, _$identity);
+  _$$FeedViewPostImplCopyWith<_$FeedViewPostImpl> get copyWith =>
+      __$$FeedViewPostImplCopyWithImpl<_$FeedViewPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsFeedViewPostImplToJson(
+    return _$$FeedViewPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsFeedViewPost implements FeedDefsFeedViewPost {
-  const factory _FeedDefsFeedViewPost(
-      {required final FeedDefsPostView post,
-      final FeedDefsReplyRef? reply,
-      @unionReason final UReason? reason}) = _$FeedDefsFeedViewPostImpl;
+abstract class _FeedViewPost implements FeedViewPost {
+  const factory _FeedViewPost(
+      {required final PostView post,
+      final ReplyRef? reply,
+      @unionReason final UReason? reason}) = _$FeedViewPostImpl;
 
-  factory _FeedDefsFeedViewPost.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsFeedViewPostImpl.fromJson;
+  factory _FeedViewPost.fromJson(Map<String, dynamic> json) =
+      _$FeedViewPostImpl.fromJson;
 
   @override
-  FeedDefsPostView get post;
+  PostView get post;
   @override
-  FeedDefsReplyRef? get reply;
+  ReplyRef? get reply;
   @override
   @unionReason
   UReason? get reason;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsFeedViewPostImplCopyWith<_$FeedDefsFeedViewPostImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$FeedViewPostImplCopyWith<_$FeedViewPostImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

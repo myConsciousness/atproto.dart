@@ -18,14 +18,14 @@ part 'graph_get_follower.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollowers/#output
 @freezed
 @lex.appBskyGraphGetFollowers
-class GraphGetFollowers with _$GraphGetFollowers {
+class Followers with _$Followers {
   @jsonSerializable
-  const factory GraphGetFollowers({
-    required ActorDefsProfileView subject,
-    required List<ActorDefsProfileView> followers,
+  const factory Followers({
+    required ProfileView subject,
+    required List<ProfileView> followers,
     String? cursor,
-  }) = _GraphGetFollowers;
+  }) = _Followers;
 
-  factory GraphGetFollowers.fromJson(Map<String, Object?> json) =>
-      _$GraphGetFollowersFromJson(json);
+  factory Followers.fromJson(Map<String, Object?> json) =>
+      _$FollowersFromJson(json);
 }

@@ -17,12 +17,11 @@ part 'actor_search_actors.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#output
 @freezed
 @lex.appBskyActorSearchActors
-class ActorSearchActors with _$ActorSearchActors {
-  const factory ActorSearchActors({
-    required List<ActorDefsProfileView> actors,
+class Actors with _$Actors {
+  const factory Actors({
+    required List<ProfileView> actors,
     String? cursor,
-  }) = _ActorSearchActors;
+  }) = _Actors;
 
-  factory ActorSearchActors.fromJson(Map<String, Object?> json) =>
-      _$ActorSearchActorsFromJson(json);
+  factory Actors.fromJson(Map<String, Object?> json) => _$ActorsFromJson(json);
 }

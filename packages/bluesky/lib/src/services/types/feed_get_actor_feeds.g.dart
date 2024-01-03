@@ -8,16 +8,15 @@ part of 'feed_get_actor_feeds.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetActorFeedsImpl _$$FeedGetActorFeedsImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGetActorFeedsImpl',
+_$ActorFeedsImpl _$$ActorFeedsImplFromJson(Map json) => $checkedCreate(
+      r'_$ActorFeedsImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGetActorFeedsImpl(
+        final val = _$ActorFeedsImpl(
           feeds: $checkedConvert(
               'feeds',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedDefsGeneratorView.fromJson(
+                  .map((e) => GeneratorView.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -26,8 +25,7 @@ _$FeedGetActorFeedsImpl _$$FeedGetActorFeedsImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedGetActorFeedsImplToJson(
-    _$FeedGetActorFeedsImpl instance) {
+Map<String, dynamic> _$$ActorFeedsImplToJson(_$ActorFeedsImpl instance) {
   final val = <String, dynamic>{
     'feeds': instance.feeds.map((e) => e.toJson()).toList(),
   };

@@ -23,13 +23,13 @@ mixin _$PostRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
-  FeedPostReplyRef? get reply => throw _privateConstructorUsedError;
+  ReplyRef? get reply => throw _privateConstructorUsedError;
   @unionEmbed
   UEmbed? get embed => throw _privateConstructorUsedError;
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get facets => throw _privateConstructorUsedError;
+  List<Facet>? get facets => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -48,15 +48,15 @@ abstract class $PostRecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String text,
-      FeedPostReplyRef? reply,
+      ReplyRef? reply,
       @unionEmbed UEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<RichtextFacet>? facets,
+      List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt});
 
-  $FeedPostReplyRefCopyWith<$Res>? get reply;
+  $ReplyRefCopyWith<$Res>? get reply;
   $UEmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
@@ -96,7 +96,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as FeedPostReplyRef?,
+              as ReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -126,12 +126,12 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedPostReplyRefCopyWith<$Res>? get reply {
+  $ReplyRefCopyWith<$Res>? get reply {
     if (_value.reply == null) {
       return null;
     }
 
-    return $FeedPostReplyRefCopyWith<$Res>(_value.reply!, (value) {
+    return $ReplyRefCopyWith<$Res>(_value.reply!, (value) {
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
@@ -172,16 +172,16 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String text,
-      FeedPostReplyRef? reply,
+      ReplyRef? reply,
       @unionEmbed UEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<RichtextFacet>? facets,
+      List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt});
 
   @override
-  $FeedPostReplyRefCopyWith<$Res>? get reply;
+  $ReplyRefCopyWith<$Res>? get reply;
   @override
   $UEmbedCopyWith<$Res>? get embed;
   @override
@@ -221,7 +221,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as FeedPostReplyRef?,
+              as ReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -237,7 +237,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -261,7 +261,7 @@ class _$PostRecordImpl implements _PostRecord {
       @unionEmbed this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
-      final List<RichtextFacet>? facets,
+      final List<Facet>? facets,
       final List<String>? tags,
       required this.createdAt})
       : _langs = langs,
@@ -277,7 +277,7 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   final String text;
   @override
-  final FeedPostReplyRef? reply;
+  final ReplyRef? reply;
   @override
   @unionEmbed
   final UEmbed? embed;
@@ -294,9 +294,9 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   @labelsConverter
   final Labels? labels;
-  final List<RichtextFacet>? _facets;
+  final List<Facet>? _facets;
   @override
-  List<RichtextFacet>? get facets {
+  List<Facet>? get facets {
     final value = _facets;
     if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
@@ -371,11 +371,11 @@ abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
       {@typeKey final String type,
       required final String text,
-      final FeedPostReplyRef? reply,
+      final ReplyRef? reply,
       @unionEmbed final UEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
-      final List<RichtextFacet>? facets,
+      final List<Facet>? facets,
       final List<String>? tags,
       required final DateTime createdAt}) = _$PostRecordImpl;
 
@@ -388,7 +388,7 @@ abstract class _PostRecord implements PostRecord {
   @override
   String get text;
   @override
-  FeedPostReplyRef? get reply;
+  ReplyRef? get reply;
   @override
   @unionEmbed
   UEmbed? get embed;
@@ -398,7 +398,7 @@ abstract class _PostRecord implements PostRecord {
   @labelsConverter
   Labels? get labels;
   @override
-  List<RichtextFacet>? get facets;
+  List<Facet>? get facets;
   @override
   List<String>? get tags;
   @override

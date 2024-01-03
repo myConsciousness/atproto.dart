@@ -14,41 +14,39 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorDefsThreadViewPref _$ActorDefsThreadViewPrefFromJson(
-    Map<String, dynamic> json) {
-  return _ActorDefsThreadViewPref.fromJson(json);
+ThreadViewPref _$ThreadViewPrefFromJson(Map<String, dynamic> json) {
+  return _ThreadViewPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorDefsThreadViewPref {
+mixin _$ThreadViewPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  ActorDefsThreadViewPrefSort? get sort => throw _privateConstructorUsedError;
+  ThreadViewPrefSort? get sort => throw _privateConstructorUsedError;
   bool get prioritizeFollowedUsers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorDefsThreadViewPrefCopyWith<ActorDefsThreadViewPref> get copyWith =>
+  $ThreadViewPrefCopyWith<ThreadViewPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorDefsThreadViewPrefCopyWith<$Res> {
-  factory $ActorDefsThreadViewPrefCopyWith(ActorDefsThreadViewPref value,
-          $Res Function(ActorDefsThreadViewPref) then) =
-      _$ActorDefsThreadViewPrefCopyWithImpl<$Res, ActorDefsThreadViewPref>;
+abstract class $ThreadViewPrefCopyWith<$Res> {
+  factory $ThreadViewPrefCopyWith(
+          ThreadViewPref value, $Res Function(ThreadViewPref) then) =
+      _$ThreadViewPrefCopyWithImpl<$Res, ThreadViewPref>;
   @useResult
   $Res call(
       {@typeKey String type,
-      ActorDefsThreadViewPrefSort? sort,
+      ThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers});
 }
 
 /// @nodoc
-class _$ActorDefsThreadViewPrefCopyWithImpl<$Res,
-        $Val extends ActorDefsThreadViewPref>
-    implements $ActorDefsThreadViewPrefCopyWith<$Res> {
-  _$ActorDefsThreadViewPrefCopyWithImpl(this._value, this._then);
+class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
+    implements $ThreadViewPrefCopyWith<$Res> {
+  _$ThreadViewPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,7 +68,7 @@ class _$ActorDefsThreadViewPrefCopyWithImpl<$Res,
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as ActorDefsThreadViewPrefSort?,
+              as ThreadViewPrefSort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -80,28 +78,25 @@ class _$ActorDefsThreadViewPrefCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorDefsThreadViewPrefImplCopyWith<$Res>
-    implements $ActorDefsThreadViewPrefCopyWith<$Res> {
-  factory _$$ActorDefsThreadViewPrefImplCopyWith(
-          _$ActorDefsThreadViewPrefImpl value,
-          $Res Function(_$ActorDefsThreadViewPrefImpl) then) =
-      __$$ActorDefsThreadViewPrefImplCopyWithImpl<$Res>;
+abstract class _$$ThreadViewPrefImplCopyWith<$Res>
+    implements $ThreadViewPrefCopyWith<$Res> {
+  factory _$$ThreadViewPrefImplCopyWith(_$ThreadViewPrefImpl value,
+          $Res Function(_$ThreadViewPrefImpl) then) =
+      __$$ThreadViewPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
-      ActorDefsThreadViewPrefSort? sort,
+      ThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers});
 }
 
 /// @nodoc
-class __$$ActorDefsThreadViewPrefImplCopyWithImpl<$Res>
-    extends _$ActorDefsThreadViewPrefCopyWithImpl<$Res,
-        _$ActorDefsThreadViewPrefImpl>
-    implements _$$ActorDefsThreadViewPrefImplCopyWith<$Res> {
-  __$$ActorDefsThreadViewPrefImplCopyWithImpl(
-      _$ActorDefsThreadViewPrefImpl _value,
-      $Res Function(_$ActorDefsThreadViewPrefImpl) _then)
+class __$$ThreadViewPrefImplCopyWithImpl<$Res>
+    extends _$ThreadViewPrefCopyWithImpl<$Res, _$ThreadViewPrefImpl>
+    implements _$$ThreadViewPrefImplCopyWith<$Res> {
+  __$$ThreadViewPrefImplCopyWithImpl(
+      _$ThreadViewPrefImpl _value, $Res Function(_$ThreadViewPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -111,7 +106,7 @@ class __$$ActorDefsThreadViewPrefImplCopyWithImpl<$Res>
     Object? sort = freezed,
     Object? prioritizeFollowedUsers = null,
   }) {
-    return _then(_$ActorDefsThreadViewPrefImpl(
+    return _then(_$ThreadViewPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,7 +114,7 @@ class __$$ActorDefsThreadViewPrefImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as ActorDefsThreadViewPrefSort?,
+              as ThreadViewPrefSort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -131,34 +126,34 @@ class __$$ActorDefsThreadViewPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorDefsThreadViewPrefImpl implements _ActorDefsThreadViewPref {
-  const _$ActorDefsThreadViewPrefImpl(
+class _$ThreadViewPrefImpl implements _ThreadViewPref {
+  const _$ThreadViewPrefImpl(
       {@typeKey this.type = appBskyActorDefsThreadViewPref,
       this.sort,
       this.prioritizeFollowedUsers = false});
 
-  factory _$ActorDefsThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorDefsThreadViewPrefImplFromJson(json);
+  factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadViewPrefImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final ActorDefsThreadViewPrefSort? sort;
+  final ThreadViewPrefSort? sort;
   @override
   @JsonKey()
   final bool prioritizeFollowedUsers;
 
   @override
   String toString() {
-    return 'ActorDefsThreadViewPref(type: $type, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers)';
+    return 'ThreadViewPref(type: $type, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorDefsThreadViewPrefImpl &&
+            other is _$ThreadViewPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.sort, sort) || other.sort == sort) &&
             (identical(
@@ -174,36 +169,36 @@ class _$ActorDefsThreadViewPrefImpl implements _ActorDefsThreadViewPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorDefsThreadViewPrefImplCopyWith<_$ActorDefsThreadViewPrefImpl>
-      get copyWith => __$$ActorDefsThreadViewPrefImplCopyWithImpl<
-          _$ActorDefsThreadViewPrefImpl>(this, _$identity);
+  _$$ThreadViewPrefImplCopyWith<_$ThreadViewPrefImpl> get copyWith =>
+      __$$ThreadViewPrefImplCopyWithImpl<_$ThreadViewPrefImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorDefsThreadViewPrefImplToJson(
+    return _$$ThreadViewPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorDefsThreadViewPref implements ActorDefsThreadViewPref {
-  const factory _ActorDefsThreadViewPref(
+abstract class _ThreadViewPref implements ThreadViewPref {
+  const factory _ThreadViewPref(
       {@typeKey final String type,
-      final ActorDefsThreadViewPrefSort? sort,
-      final bool prioritizeFollowedUsers}) = _$ActorDefsThreadViewPrefImpl;
+      final ThreadViewPrefSort? sort,
+      final bool prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
 
-  factory _ActorDefsThreadViewPref.fromJson(Map<String, dynamic> json) =
-      _$ActorDefsThreadViewPrefImpl.fromJson;
+  factory _ThreadViewPref.fromJson(Map<String, dynamic> json) =
+      _$ThreadViewPrefImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  ActorDefsThreadViewPrefSort? get sort;
+  ThreadViewPrefSort? get sort;
   @override
   bool get prioritizeFollowedUsers;
   @override
   @JsonKey(ignore: true)
-  _$$ActorDefsThreadViewPrefImplCopyWith<_$ActorDefsThreadViewPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ThreadViewPrefImplCopyWith<_$ThreadViewPrefImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

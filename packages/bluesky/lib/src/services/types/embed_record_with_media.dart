@@ -21,13 +21,13 @@ part 'embed_record_with_media.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
 @lex.appBskyEmbedRecordWithMedia
-class EmbedRecordWithMedia with _$EmbedRecordWithMedia {
-  const factory EmbedRecordWithMedia({
+class RecordWithMedia with _$RecordWithMedia {
+  const factory RecordWithMedia({
     @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
     required EmbedRecord record,
     @unionEmbedRecordWithMedia required UEmbedRecordWithMedia media,
-  }) = _EmbedRecordWithMedia;
+  }) = _RecordWithMedia;
 
-  factory EmbedRecordWithMedia.fromJson(Map<String, Object?> json) =>
-      _$EmbedRecordWithMediaFromJson(json);
+  factory RecordWithMedia.fromJson(Map<String, Object?> json) =>
+      _$RecordWithMediaFromJson(json);
 }

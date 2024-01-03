@@ -21,14 +21,14 @@ part 'feed_defs_thread_view_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
 @lex.appBskyFeedDefsThreadViewPost
-class FeedDefsThreadViewPost with _$FeedDefsThreadViewPost {
-  const factory FeedDefsThreadViewPost({
+class ThreadViewPost with _$ThreadViewPost {
+  const factory ThreadViewPost({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,
-    required FeedDefsPostView post,
+    required PostView post,
     @postThreadViewConverter PostThreadView? parent,
     @postThreadViewConverter List<PostThreadView>? replies,
-  }) = _FeedDefsThreadViewPost;
+  }) = _ThreadViewPost;
 
-  factory FeedDefsThreadViewPost.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsThreadViewPostFromJson(json);
+  factory ThreadViewPost.fromJson(Map<String, Object?> json) =>
+      _$ThreadViewPostFromJson(json);
 }

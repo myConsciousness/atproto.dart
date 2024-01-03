@@ -8,13 +8,11 @@ part of 'actor_defs_saved_feeds_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsSavedFeedsPrefImpl _$$ActorDefsSavedFeedsPrefImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ActorDefsSavedFeedsPrefImpl',
+_$SavedFeedsPrefImpl _$$SavedFeedsPrefImplFromJson(Map json) => $checkedCreate(
+      r'_$SavedFeedsPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsSavedFeedsPrefImpl(
+        final val = _$SavedFeedsPrefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeedsPref),
           pinned: $checkedConvert(
@@ -33,8 +31,8 @@ _$ActorDefsSavedFeedsPrefImpl _$$ActorDefsSavedFeedsPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsSavedFeedsPrefImplToJson(
-        _$ActorDefsSavedFeedsPrefImpl instance) =>
+Map<String, dynamic> _$$SavedFeedsPrefImplToJson(
+        _$SavedFeedsPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'pinned': instance.pinned.map(atUriConverter.toJson).toList(),

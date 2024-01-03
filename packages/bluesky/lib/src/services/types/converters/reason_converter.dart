@@ -24,7 +24,7 @@ final class _UReasonConverter
 
       if (type == ids.appBskyFeedDefsReasonRepost) {
         return UReason.repost(
-          data: FeedDefsReasonRepost.fromJson(json),
+          data: ReasonRepost.fromJson(json),
         );
       }
 

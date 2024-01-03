@@ -8,17 +8,15 @@ part of 'richtext_facet.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RichtextFacetImpl _$$RichtextFacetImplFromJson(Map json) => $checkedCreate(
-      r'_$RichtextFacetImpl',
+_$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
+      r'_$FacetImpl',
       json,
       ($checkedConvert) {
-        final val = _$RichtextFacetImpl(
+        final val = _$FacetImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyRichtextFacet),
-          index: $checkedConvert(
-              'index',
-              (v) => RichtextFacetByteSlice.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          index: $checkedConvert('index',
+              (v) => ByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
           features: $checkedConvert(
               'features',
               (v) => (v as List<dynamic>)
@@ -31,7 +29,7 @@ _$RichtextFacetImpl _$$RichtextFacetImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$RichtextFacetImplToJson(_$RichtextFacetImpl instance) =>
+Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'index': instance.index.toJson(),

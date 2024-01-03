@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../embed_images_view_image.dart';
 
-extension EmbedImagesViewImageExtension on EmbedImagesViewImage {
+extension ViewImageExtension on ViewImage {
   String get thumbnail => thumb;
 }

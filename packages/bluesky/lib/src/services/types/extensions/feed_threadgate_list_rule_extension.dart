@@ -8,6 +8,6 @@ import 'package:atproto/atproto.dart';
 // 🌎 Project imports:
 import '../feed_threadgate_list_rule.dart';
 
-extension FeedThreadgateListRuleExtension on FeedThreadgateListRule {
+extension ListRuleExtension on ListRule {
   AtUri get listUri => list;
 }

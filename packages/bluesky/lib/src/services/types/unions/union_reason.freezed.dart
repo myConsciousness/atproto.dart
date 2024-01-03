@@ -19,19 +19,19 @@ mixin _$UReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeedDefsReasonRepost data) repost,
+    required TResult Function(ReasonRepost data) repost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FeedDefsReasonRepost data)? repost,
+    TResult? Function(ReasonRepost data)? repost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeedDefsReasonRepost data)? repost,
+    TResult Function(ReasonRepost data)? repost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -80,9 +80,9 @@ abstract class _$$UReasonRepostImplCopyWith<$Res> {
           _$UReasonRepostImpl value, $Res Function(_$UReasonRepostImpl) then) =
       __$$UReasonRepostImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({FeedDefsReasonRepost data});
+  $Res call({ReasonRepost data});
 
-  $FeedDefsReasonRepostCopyWith<$Res> get data;
+  $ReasonRepostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -102,14 +102,14 @@ class __$$UReasonRepostImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FeedDefsReasonRepost,
+              as ReasonRepost,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsReasonRepostCopyWith<$Res> get data {
-    return $FeedDefsReasonRepostCopyWith<$Res>(_value.data, (value) {
+  $ReasonRepostCopyWith<$Res> get data {
+    return $ReasonRepostCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -121,7 +121,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   _$UReasonRepostImpl({required this.data});
 
   @override
-  final FeedDefsReasonRepost data;
+  final ReasonRepost data;
 
   @override
   String toString() {
@@ -148,7 +148,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeedDefsReasonRepost data) repost,
+    required TResult Function(ReasonRepost data) repost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return repost(data);
@@ -157,7 +157,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FeedDefsReasonRepost data)? repost,
+    TResult? Function(ReasonRepost data)? repost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return repost?.call(data);
@@ -166,7 +166,7 @@ class _$UReasonRepostImpl implements UReasonRepost {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeedDefsReasonRepost data)? repost,
+    TResult Function(ReasonRepost data)? repost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -209,11 +209,11 @@ class _$UReasonRepostImpl implements UReasonRepost {
 }
 
 abstract class UReasonRepost implements UReason {
-  factory UReasonRepost({required final FeedDefsReasonRepost data}) =
+  factory UReasonRepost({required final ReasonRepost data}) =
       _$UReasonRepostImpl;
 
   @override
-  FeedDefsReasonRepost get data;
+  ReasonRepost get data;
   @JsonKey(ignore: true)
   _$$UReasonRepostImplCopyWith<_$UReasonRepostImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -291,7 +291,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(FeedDefsReasonRepost data) repost,
+    required TResult Function(ReasonRepost data) repost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -300,7 +300,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(FeedDefsReasonRepost data)? repost,
+    TResult? Function(ReasonRepost data)? repost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -309,7 +309,7 @@ class _$UReasonUnknownImpl implements UReasonUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(FeedDefsReasonRepost data)? repost,
+    TResult Function(ReasonRepost data)? repost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {

@@ -29,11 +29,11 @@ class PostRecord with _$PostRecord {
   const factory PostRecord({
     @typeKey @Default(appBskyFeedPost) String type,
     required String text,
-    FeedPostReplyRef? reply,
+    ReplyRef? reply,
     @unionEmbed UEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
-    List<RichtextFacet>? facets,
+    List<Facet>? facets,
     List<String>? tags,
     required DateTime createdAt,
   }) = _PostRecord;

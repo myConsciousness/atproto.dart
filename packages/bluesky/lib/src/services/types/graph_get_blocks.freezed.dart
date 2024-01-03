@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GraphGetBlocks _$GraphGetBlocksFromJson(Map<String, dynamic> json) {
-  return _GraphGetBlocks.fromJson(json);
+Blocks _$BlocksFromJson(Map<String, dynamic> json) {
+  return _Blocks.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GraphGetBlocks {
-  List<ActorDefsProfileView> get blocks => throw _privateConstructorUsedError;
+mixin _$Blocks {
+  List<ProfileView> get blocks => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GraphGetBlocksCopyWith<GraphGetBlocks> get copyWith =>
-      throw _privateConstructorUsedError;
+  $BlocksCopyWith<Blocks> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GraphGetBlocksCopyWith<$Res> {
-  factory $GraphGetBlocksCopyWith(
-          GraphGetBlocks value, $Res Function(GraphGetBlocks) then) =
-      _$GraphGetBlocksCopyWithImpl<$Res, GraphGetBlocks>;
+abstract class $BlocksCopyWith<$Res> {
+  factory $BlocksCopyWith(Blocks value, $Res Function(Blocks) then) =
+      _$BlocksCopyWithImpl<$Res, Blocks>;
   @useResult
-  $Res call({List<ActorDefsProfileView> blocks, String? cursor});
+  $Res call({List<ProfileView> blocks, String? cursor});
 }
 
 /// @nodoc
-class _$GraphGetBlocksCopyWithImpl<$Res, $Val extends GraphGetBlocks>
-    implements $GraphGetBlocksCopyWith<$Res> {
-  _$GraphGetBlocksCopyWithImpl(this._value, this._then);
+class _$BlocksCopyWithImpl<$Res, $Val extends Blocks>
+    implements $BlocksCopyWith<$Res> {
+  _$BlocksCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,7 +56,7 @@ class _$GraphGetBlocksCopyWithImpl<$Res, $Val extends GraphGetBlocks>
       blocks: null == blocks
           ? _value.blocks
           : blocks // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -68,22 +66,21 @@ class _$GraphGetBlocksCopyWithImpl<$Res, $Val extends GraphGetBlocks>
 }
 
 /// @nodoc
-abstract class _$$GraphGetBlocksImplCopyWith<$Res>
-    implements $GraphGetBlocksCopyWith<$Res> {
-  factory _$$GraphGetBlocksImplCopyWith(_$GraphGetBlocksImpl value,
-          $Res Function(_$GraphGetBlocksImpl) then) =
-      __$$GraphGetBlocksImplCopyWithImpl<$Res>;
+abstract class _$$BlocksImplCopyWith<$Res> implements $BlocksCopyWith<$Res> {
+  factory _$$BlocksImplCopyWith(
+          _$BlocksImpl value, $Res Function(_$BlocksImpl) then) =
+      __$$BlocksImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> blocks, String? cursor});
+  $Res call({List<ProfileView> blocks, String? cursor});
 }
 
 /// @nodoc
-class __$$GraphGetBlocksImplCopyWithImpl<$Res>
-    extends _$GraphGetBlocksCopyWithImpl<$Res, _$GraphGetBlocksImpl>
-    implements _$$GraphGetBlocksImplCopyWith<$Res> {
-  __$$GraphGetBlocksImplCopyWithImpl(
-      _$GraphGetBlocksImpl _value, $Res Function(_$GraphGetBlocksImpl) _then)
+class __$$BlocksImplCopyWithImpl<$Res>
+    extends _$BlocksCopyWithImpl<$Res, _$BlocksImpl>
+    implements _$$BlocksImplCopyWith<$Res> {
+  __$$BlocksImplCopyWithImpl(
+      _$BlocksImpl _value, $Res Function(_$BlocksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,11 +89,11 @@ class __$$GraphGetBlocksImplCopyWithImpl<$Res>
     Object? blocks = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GraphGetBlocksImpl(
+    return _then(_$BlocksImpl(
       blocks: null == blocks
           ? _value._blocks
           : blocks // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,17 +105,16 @@ class __$$GraphGetBlocksImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GraphGetBlocksImpl implements _GraphGetBlocks {
-  const _$GraphGetBlocksImpl(
-      {required final List<ActorDefsProfileView> blocks, this.cursor})
+class _$BlocksImpl implements _Blocks {
+  const _$BlocksImpl({required final List<ProfileView> blocks, this.cursor})
       : _blocks = blocks;
 
-  factory _$GraphGetBlocksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphGetBlocksImplFromJson(json);
+  factory _$BlocksImpl.fromJson(Map<String, dynamic> json) =>
+      _$$BlocksImplFromJson(json);
 
-  final List<ActorDefsProfileView> _blocks;
+  final List<ProfileView> _blocks;
   @override
-  List<ActorDefsProfileView> get blocks {
+  List<ProfileView> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_blocks);
@@ -129,14 +125,14 @@ class _$GraphGetBlocksImpl implements _GraphGetBlocks {
 
   @override
   String toString() {
-    return 'GraphGetBlocks(blocks: $blocks, cursor: $cursor)';
+    return 'Blocks(blocks: $blocks, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphGetBlocksImpl &&
+            other is _$BlocksImpl &&
             const DeepCollectionEquality().equals(other._blocks, _blocks) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,32 +145,30 @@ class _$GraphGetBlocksImpl implements _GraphGetBlocks {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphGetBlocksImplCopyWith<_$GraphGetBlocksImpl> get copyWith =>
-      __$$GraphGetBlocksImplCopyWithImpl<_$GraphGetBlocksImpl>(
-          this, _$identity);
+  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
+      __$$BlocksImplCopyWithImpl<_$BlocksImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GraphGetBlocksImplToJson(
+    return _$$BlocksImplToJson(
       this,
     );
   }
 }
 
-abstract class _GraphGetBlocks implements GraphGetBlocks {
-  const factory _GraphGetBlocks(
-      {required final List<ActorDefsProfileView> blocks,
-      final String? cursor}) = _$GraphGetBlocksImpl;
+abstract class _Blocks implements Blocks {
+  const factory _Blocks(
+      {required final List<ProfileView> blocks,
+      final String? cursor}) = _$BlocksImpl;
 
-  factory _GraphGetBlocks.fromJson(Map<String, dynamic> json) =
-      _$GraphGetBlocksImpl.fromJson;
+  factory _Blocks.fromJson(Map<String, dynamic> json) = _$BlocksImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get blocks;
+  List<ProfileView> get blocks;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$GraphGetBlocksImplCopyWith<_$GraphGetBlocksImpl> get copyWith =>
+  _$$BlocksImplCopyWith<_$BlocksImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

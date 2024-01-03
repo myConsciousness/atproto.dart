@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import '../feed_defs_viewer_state.dart';
 
-extension FeedDefsViewerStateExtension on FeedDefsViewerState {
+extension ViewerStateExtension on ViewerState {
   bool get isReplyDisabled => replyDisabled;
 
   /// Returns true if the authenticated user has already reposted this record,

@@ -14,15 +14,14 @@ import '../../lex_annotations.g.dart' as lex;
 part 'feed_describe_feed_generator_feed.freezed.dart';
 part 'feed_describe_feed_generator_feed.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#feed
 @freezed
 @lex.appBskyFeedDescribeFeedGeneratorFeed
-class FeedDescribeFeedGeneratorFeed with _$FeedDescribeFeedGeneratorFeed {
+class Feed with _$Feed {
   @jsonSerializable
-  const factory FeedDescribeFeedGeneratorFeed({
+  const factory Feed({
     @atUriConverter required AtUri uri,
-  }) = _FeedDescribeFeedGeneratorFeed;
+  }) = _Feed;
 
-  factory FeedDescribeFeedGeneratorFeed.fromJson(Map<String, Object?> json) =>
-      _$FeedDescribeFeedGeneratorFeedFromJson(json);
+  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
 }

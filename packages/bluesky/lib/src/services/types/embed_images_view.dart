@@ -19,12 +19,11 @@ part 'embed_images_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
 @lex.appBskyEmbedImagesView
-class EmbedImagesView with _$EmbedImagesView {
-  const factory EmbedImagesView({
+class View with _$View {
+  const factory View({
     @typeKey @Default(appBskyEmbedImagesView) String type,
-    required List<EmbedImagesViewImage> images,
-  }) = _EmbedImagesView;
+    required List<ViewImage> images,
+  }) = _View;
 
-  factory EmbedImagesView.fromJson(Map<String, Object?> json) =>
-      _$EmbedImagesViewFromJson(json);
+  factory View.fromJson(Map<String, Object?> json) => _$ViewFromJson(json);
 }

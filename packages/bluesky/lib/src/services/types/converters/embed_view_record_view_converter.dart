@@ -28,27 +28,27 @@ final class _UEmbedRecordViewRecordConverter
 
       if (type == ids.appBskyEmbedRecordViewRecord) {
         return UEmbedRecordViewRecord.viewRecord(
-          data: EmbedRecordViewRecord.fromJson(json),
+          data: ViewRecord.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordViewNotFound) {
         return UEmbedRecordViewRecord.viewNotFound(
-          data: EmbedRecordViewNotFound.fromJson(json),
+          data: ViewNotFound.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordViewBlocked) {
         return UEmbedRecordViewRecord.viewBlocked(
-          data: EmbedRecordViewBlocked.fromJson(json),
+          data: ViewBlocked.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsGeneratorView) {
         return UEmbedRecordViewRecord.feedDefsGeneratorView(
-          data: FeedDefsGeneratorView.fromJson(json),
+          data: GeneratorView.fromJson(json),
         );
       }
       if (type == ids.appBskyGraphDefsListView) {
         return UEmbedRecordViewRecord.graphDefsListView(
-          data: GraphDefsListView.fromJson(json),
+          data: ListView.fromJson(json),
         );
       }
 

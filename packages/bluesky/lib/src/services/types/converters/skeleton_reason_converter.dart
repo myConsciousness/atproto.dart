@@ -24,7 +24,7 @@ final class _SkeletonReasonConverter
 
       if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
         return SkeletonReason.repost(
-          data: FeedDefsSkeletonReasonRepost.fromJson(json),
+          data: SkeletonReasonRepost.fromJson(json),
         );
       }
 

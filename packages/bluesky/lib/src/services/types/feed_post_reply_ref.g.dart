@@ -8,12 +8,11 @@ part of 'feed_post_reply_ref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedPostReplyRefImpl _$$FeedPostReplyRefImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedPostReplyRefImpl',
+_$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
+      r'_$ReplyRefImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedPostReplyRefImpl(
+        final val = _$ReplyRefImpl(
           root: $checkedConvert('root',
               (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert('parent',
@@ -23,8 +22,7 @@ _$FeedPostReplyRefImpl _$$FeedPostReplyRefImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedPostReplyRefImplToJson(
-        _$FeedPostReplyRefImpl instance) =>
+Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) =>
     <String, dynamic>{
       'root': instance.root.toJson(),
       'parent': instance.parent.toJson(),

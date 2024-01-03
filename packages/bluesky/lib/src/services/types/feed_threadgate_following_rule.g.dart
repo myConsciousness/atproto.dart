@@ -8,13 +8,11 @@ part of 'feed_threadgate_following_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedThreadgateFollowingRuleImpl _$$FeedThreadgateFollowingRuleImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$FeedThreadgateFollowingRuleImpl',
+_$FollowingRuleImpl _$$FollowingRuleImplFromJson(Map json) => $checkedCreate(
+      r'_$FollowingRuleImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedThreadgateFollowingRuleImpl(
+        final val = _$FollowingRuleImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedThreadgateFollowingRule),
         );
@@ -23,8 +21,7 @@ _$FeedThreadgateFollowingRuleImpl _$$FeedThreadgateFollowingRuleImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedThreadgateFollowingRuleImplToJson(
-        _$FeedThreadgateFollowingRuleImpl instance) =>
+Map<String, dynamic> _$$FollowingRuleImplToJson(_$FollowingRuleImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ActorSearchActors _$ActorSearchActorsFromJson(Map<String, dynamic> json) {
-  return _ActorSearchActors.fromJson(json);
+Actors _$ActorsFromJson(Map<String, dynamic> json) {
+  return _Actors.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorSearchActors {
-  List<ActorDefsProfileView> get actors => throw _privateConstructorUsedError;
+mixin _$Actors {
+  List<ProfileView> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorSearchActorsCopyWith<ActorSearchActors> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ActorsCopyWith<Actors> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorSearchActorsCopyWith<$Res> {
-  factory $ActorSearchActorsCopyWith(
-          ActorSearchActors value, $Res Function(ActorSearchActors) then) =
-      _$ActorSearchActorsCopyWithImpl<$Res, ActorSearchActors>;
+abstract class $ActorsCopyWith<$Res> {
+  factory $ActorsCopyWith(Actors value, $Res Function(Actors) then) =
+      _$ActorsCopyWithImpl<$Res, Actors>;
   @useResult
-  $Res call({List<ActorDefsProfileView> actors, String? cursor});
+  $Res call({List<ProfileView> actors, String? cursor});
 }
 
 /// @nodoc
-class _$ActorSearchActorsCopyWithImpl<$Res, $Val extends ActorSearchActors>
-    implements $ActorSearchActorsCopyWith<$Res> {
-  _$ActorSearchActorsCopyWithImpl(this._value, this._then);
+class _$ActorsCopyWithImpl<$Res, $Val extends Actors>
+    implements $ActorsCopyWith<$Res> {
+  _$ActorsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,7 +56,7 @@ class _$ActorSearchActorsCopyWithImpl<$Res, $Val extends ActorSearchActors>
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -68,22 +66,21 @@ class _$ActorSearchActorsCopyWithImpl<$Res, $Val extends ActorSearchActors>
 }
 
 /// @nodoc
-abstract class _$$ActorSearchActorsImplCopyWith<$Res>
-    implements $ActorSearchActorsCopyWith<$Res> {
-  factory _$$ActorSearchActorsImplCopyWith(_$ActorSearchActorsImpl value,
-          $Res Function(_$ActorSearchActorsImpl) then) =
-      __$$ActorSearchActorsImplCopyWithImpl<$Res>;
+abstract class _$$ActorsImplCopyWith<$Res> implements $ActorsCopyWith<$Res> {
+  factory _$$ActorsImplCopyWith(
+          _$ActorsImpl value, $Res Function(_$ActorsImpl) then) =
+      __$$ActorsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> actors, String? cursor});
+  $Res call({List<ProfileView> actors, String? cursor});
 }
 
 /// @nodoc
-class __$$ActorSearchActorsImplCopyWithImpl<$Res>
-    extends _$ActorSearchActorsCopyWithImpl<$Res, _$ActorSearchActorsImpl>
-    implements _$$ActorSearchActorsImplCopyWith<$Res> {
-  __$$ActorSearchActorsImplCopyWithImpl(_$ActorSearchActorsImpl _value,
-      $Res Function(_$ActorSearchActorsImpl) _then)
+class __$$ActorsImplCopyWithImpl<$Res>
+    extends _$ActorsCopyWithImpl<$Res, _$ActorsImpl>
+    implements _$$ActorsImplCopyWith<$Res> {
+  __$$ActorsImplCopyWithImpl(
+      _$ActorsImpl _value, $Res Function(_$ActorsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,11 +89,11 @@ class __$$ActorSearchActorsImplCopyWithImpl<$Res>
     Object? actors = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ActorSearchActorsImpl(
+    return _then(_$ActorsImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -107,17 +104,16 @@ class __$$ActorSearchActorsImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorSearchActorsImpl implements _ActorSearchActors {
-  const _$ActorSearchActorsImpl(
-      {required final List<ActorDefsProfileView> actors, this.cursor})
+class _$ActorsImpl implements _Actors {
+  const _$ActorsImpl({required final List<ProfileView> actors, this.cursor})
       : _actors = actors;
 
-  factory _$ActorSearchActorsImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorSearchActorsImplFromJson(json);
+  factory _$ActorsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorsImplFromJson(json);
 
-  final List<ActorDefsProfileView> _actors;
+  final List<ProfileView> _actors;
   @override
-  List<ActorDefsProfileView> get actors {
+  List<ProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -128,14 +124,14 @@ class _$ActorSearchActorsImpl implements _ActorSearchActors {
 
   @override
   String toString() {
-    return 'ActorSearchActors(actors: $actors, cursor: $cursor)';
+    return 'Actors(actors: $actors, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorSearchActorsImpl &&
+            other is _$ActorsImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -148,32 +144,30 @@ class _$ActorSearchActorsImpl implements _ActorSearchActors {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorSearchActorsImplCopyWith<_$ActorSearchActorsImpl> get copyWith =>
-      __$$ActorSearchActorsImplCopyWithImpl<_$ActorSearchActorsImpl>(
-          this, _$identity);
+  _$$ActorsImplCopyWith<_$ActorsImpl> get copyWith =>
+      __$$ActorsImplCopyWithImpl<_$ActorsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorSearchActorsImplToJson(
+    return _$$ActorsImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorSearchActors implements ActorSearchActors {
-  const factory _ActorSearchActors(
-      {required final List<ActorDefsProfileView> actors,
-      final String? cursor}) = _$ActorSearchActorsImpl;
+abstract class _Actors implements Actors {
+  const factory _Actors(
+      {required final List<ProfileView> actors,
+      final String? cursor}) = _$ActorsImpl;
 
-  factory _ActorSearchActors.fromJson(Map<String, dynamic> json) =
-      _$ActorSearchActorsImpl.fromJson;
+  factory _Actors.fromJson(Map<String, dynamic> json) = _$ActorsImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get actors;
+  List<ProfileView> get actors;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$ActorSearchActorsImplCopyWith<_$ActorSearchActorsImpl> get copyWith =>
+  _$$ActorsImplCopyWith<_$ActorsImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

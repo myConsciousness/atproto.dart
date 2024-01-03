@@ -19,14 +19,14 @@ part 'feed_defs_blocked_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedpost
 @freezed
 @lex.appBskyFeedDefsBlockedPost
-class FeedDefsBlockedPost with _$FeedDefsBlockedPost {
-  const factory FeedDefsBlockedPost({
+class BlockedPost with _$BlockedPost {
+  const factory BlockedPost({
     @typeKey @Default(appBskyFeedDefsBlockedPost) String type,
     @atUriConverter required AtUri uri,
     required bool blocked,
-    required FeedDefsBlockedAuthor author,
-  }) = _FeedDefsBlockedPost;
+    required BlockedAuthor author,
+  }) = _BlockedPost;
 
-  factory FeedDefsBlockedPost.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsBlockedPostFromJson(json);
+  factory BlockedPost.fromJson(Map<String, Object?> json) =>
+      _$BlockedPostFromJson(json);
 }

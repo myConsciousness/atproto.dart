@@ -8,29 +8,26 @@ part of 'notification_list_notifications.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationListNotificationsImpl
-    _$$NotificationListNotificationsImplFromJson(Map json) => $checkedCreate(
-          r'_$NotificationListNotificationsImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$NotificationListNotificationsImpl(
-              notifications: $checkedConvert(
-                  'notifications',
-                  (v) => (v as List<dynamic>)
-                      .map((e) =>
-                          NotificationListNotificationsNotification.fromJson(
-                              Map<String, Object?>.from(e as Map)))
-                      .toList()),
-              cursor: $checkedConvert('cursor', (v) => v as String?),
-              seenAt: $checkedConvert('seenAt',
-                  (v) => v == null ? null : DateTime.parse(v as String)),
-            );
-            return val;
-          },
+_$NotificationsImpl _$$NotificationsImplFromJson(Map json) => $checkedCreate(
+      r'_$NotificationsImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$NotificationsImpl(
+          notifications: $checkedConvert(
+              'notifications',
+              (v) => (v as List<dynamic>)
+                  .map((e) => Notification.fromJson(
+                      Map<String, Object?>.from(e as Map)))
+                  .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
+          seenAt: $checkedConvert(
+              'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$NotificationListNotificationsImplToJson(
-        _$NotificationListNotificationsImpl instance) =>
+Map<String, dynamic> _$$NotificationsImplToJson(_$NotificationsImpl instance) =>
     <String, dynamic>{
       'notifications': instance.notifications.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

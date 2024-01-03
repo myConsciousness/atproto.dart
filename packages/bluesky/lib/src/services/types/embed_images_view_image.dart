@@ -19,15 +19,15 @@ part 'embed_images_view_image.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#viewimage
 @freezed
 @lex.appBskyEmbedImagesViewImage
-class EmbedImagesViewImage with _$EmbedImagesViewImage {
-  const factory EmbedImagesViewImage({
+class ViewImage with _$ViewImage {
+  const factory ViewImage({
     @typeKey @Default(appBskyEmbedImagesViewImage) String type,
     required String thumb,
     required String fullsize,
     required String alt,
-    EmbedImagesAspectRatio? aspectRatio,
-  }) = _EmbedImagesViewImage;
+    AspectRatio? aspectRatio,
+  }) = _ViewImage;
 
-  factory EmbedImagesViewImage.fromJson(Map<String, Object?> json) =>
-      _$EmbedImagesViewImageFromJson(json);
+  factory ViewImage.fromJson(Map<String, Object?> json) =>
+      _$ViewImageFromJson(json);
 }

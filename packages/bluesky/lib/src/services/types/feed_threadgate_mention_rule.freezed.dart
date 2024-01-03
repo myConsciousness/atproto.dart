@@ -14,36 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedThreadgateMentionRule _$FeedThreadgateMentionRuleFromJson(
-    Map<String, dynamic> json) {
-  return _FeedThreadgateMentionRule.fromJson(json);
+MentionRule _$MentionRuleFromJson(Map<String, dynamic> json) {
+  return _MentionRule.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedThreadgateMentionRule {
+mixin _$MentionRule {
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedThreadgateMentionRuleCopyWith<FeedThreadgateMentionRule> get copyWith =>
+  $MentionRuleCopyWith<MentionRule> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedThreadgateMentionRuleCopyWith<$Res> {
-  factory $FeedThreadgateMentionRuleCopyWith(FeedThreadgateMentionRule value,
-          $Res Function(FeedThreadgateMentionRule) then) =
-      _$FeedThreadgateMentionRuleCopyWithImpl<$Res, FeedThreadgateMentionRule>;
+abstract class $MentionRuleCopyWith<$Res> {
+  factory $MentionRuleCopyWith(
+          MentionRule value, $Res Function(MentionRule) then) =
+      _$MentionRuleCopyWithImpl<$Res, MentionRule>;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class _$FeedThreadgateMentionRuleCopyWithImpl<$Res,
-        $Val extends FeedThreadgateMentionRule>
-    implements $FeedThreadgateMentionRuleCopyWith<$Res> {
-  _$FeedThreadgateMentionRuleCopyWithImpl(this._value, this._then);
+class _$MentionRuleCopyWithImpl<$Res, $Val extends MentionRule>
+    implements $MentionRuleCopyWith<$Res> {
+  _$MentionRuleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -65,25 +63,22 @@ class _$FeedThreadgateMentionRuleCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FeedThreadgateMentionRuleImplCopyWith<$Res>
-    implements $FeedThreadgateMentionRuleCopyWith<$Res> {
-  factory _$$FeedThreadgateMentionRuleImplCopyWith(
-          _$FeedThreadgateMentionRuleImpl value,
-          $Res Function(_$FeedThreadgateMentionRuleImpl) then) =
-      __$$FeedThreadgateMentionRuleImplCopyWithImpl<$Res>;
+abstract class _$$MentionRuleImplCopyWith<$Res>
+    implements $MentionRuleCopyWith<$Res> {
+  factory _$$MentionRuleImplCopyWith(
+          _$MentionRuleImpl value, $Res Function(_$MentionRuleImpl) then) =
+      __$$MentionRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$FeedThreadgateMentionRuleImplCopyWithImpl<$Res>
-    extends _$FeedThreadgateMentionRuleCopyWithImpl<$Res,
-        _$FeedThreadgateMentionRuleImpl>
-    implements _$$FeedThreadgateMentionRuleImplCopyWith<$Res> {
-  __$$FeedThreadgateMentionRuleImplCopyWithImpl(
-      _$FeedThreadgateMentionRuleImpl _value,
-      $Res Function(_$FeedThreadgateMentionRuleImpl) _then)
+class __$$MentionRuleImplCopyWithImpl<$Res>
+    extends _$MentionRuleCopyWithImpl<$Res, _$MentionRuleImpl>
+    implements _$$MentionRuleImplCopyWith<$Res> {
+  __$$MentionRuleImplCopyWithImpl(
+      _$MentionRuleImpl _value, $Res Function(_$MentionRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +86,7 @@ class __$$FeedThreadgateMentionRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$FeedThreadgateMentionRuleImpl(
+    return _then(_$MentionRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -103,12 +98,12 @@ class __$$FeedThreadgateMentionRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedThreadgateMentionRuleImpl implements _FeedThreadgateMentionRule {
-  const _$FeedThreadgateMentionRuleImpl(
+class _$MentionRuleImpl implements _MentionRule {
+  const _$MentionRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateMentionRule});
 
-  factory _$FeedThreadgateMentionRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedThreadgateMentionRuleImplFromJson(json);
+  factory _$MentionRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MentionRuleImplFromJson(json);
 
   @override
   @typeKey
@@ -116,14 +111,14 @@ class _$FeedThreadgateMentionRuleImpl implements _FeedThreadgateMentionRule {
 
   @override
   String toString() {
-    return 'FeedThreadgateMentionRule(type: $type)';
+    return 'MentionRule(type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedThreadgateMentionRuleImpl &&
+            other is _$MentionRuleImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -134,30 +129,28 @@ class _$FeedThreadgateMentionRuleImpl implements _FeedThreadgateMentionRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedThreadgateMentionRuleImplCopyWith<_$FeedThreadgateMentionRuleImpl>
-      get copyWith => __$$FeedThreadgateMentionRuleImplCopyWithImpl<
-          _$FeedThreadgateMentionRuleImpl>(this, _$identity);
+  _$$MentionRuleImplCopyWith<_$MentionRuleImpl> get copyWith =>
+      __$$MentionRuleImplCopyWithImpl<_$MentionRuleImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedThreadgateMentionRuleImplToJson(
+    return _$$MentionRuleImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedThreadgateMentionRule implements FeedThreadgateMentionRule {
-  const factory _FeedThreadgateMentionRule({@typeKey final String type}) =
-      _$FeedThreadgateMentionRuleImpl;
+abstract class _MentionRule implements MentionRule {
+  const factory _MentionRule({@typeKey final String type}) = _$MentionRuleImpl;
 
-  factory _FeedThreadgateMentionRule.fromJson(Map<String, dynamic> json) =
-      _$FeedThreadgateMentionRuleImpl.fromJson;
+  factory _MentionRule.fromJson(Map<String, dynamic> json) =
+      _$MentionRuleImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$FeedThreadgateMentionRuleImplCopyWith<_$FeedThreadgateMentionRuleImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$MentionRuleImplCopyWith<_$MentionRuleImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

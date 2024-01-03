@@ -24,15 +24,15 @@ class UEmbed with _$UEmbed {
   }) = UEmbedEmbedRecord;
 
   const factory UEmbed.embedImages({
-    required EmbedImages data,
+    required Images data,
   }) = UEmbedEmbedImages;
 
   const factory UEmbed.embedExternal({
-    required EmbedExternal data,
+    required External data,
   }) = UEmbedEmbedExternal;
 
   const factory UEmbed.embedRecordWithMedia({
-    required EmbedRecordWithMedia data,
+    required RecordWithMedia data,
   }) = UEmbedEmbedRecordWithMedia;
 
   const factory UEmbed.unknown({

@@ -18,13 +18,13 @@ part 'feed_get_actor_feeds.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getactorfeeds/#output
 @freezed
 @lex.appBskyFeedGetActorFeeds
-class FeedGetActorFeeds with _$FeedGetActorFeeds {
+class ActorFeeds with _$ActorFeeds {
   @jsonSerializable
-  const factory FeedGetActorFeeds({
-    required List<FeedDefsGeneratorView> feeds,
+  const factory ActorFeeds({
+    required List<GeneratorView> feeds,
     String? cursor,
-  }) = _FeedGetActorFeeds;
+  }) = _ActorFeeds;
 
-  factory FeedGetActorFeeds.fromJson(Map<String, Object?> json) =>
-      _$FeedGetActorFeedsFromJson(json);
+  factory ActorFeeds.fromJson(Map<String, Object?> json) =>
+      _$ActorFeedsFromJson(json);
 }

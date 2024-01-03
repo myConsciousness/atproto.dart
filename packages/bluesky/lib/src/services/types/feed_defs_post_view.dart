@@ -26,24 +26,24 @@ part 'feed_defs_post_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
 @lex.appBskyFeedDefsPostView
-class FeedDefsPostView with _$FeedDefsPostView {
+class PostView with _$PostView {
   @jsonSerializable
-  const factory FeedDefsPostView({
+  const factory PostView({
     @typeKey @Default(appBskyFeedDefsPostView) String type,
     @postRecordConverter required PostRecord record,
-    required ActorDefsProfileViewBasic author,
+    required ProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,
     @unionEmbedView UEmbedView? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
-    @Default(defaultFeedDefsViewerState) FeedDefsViewerState viewer,
+    @Default(defaultFeedDefsViewerState) ViewerState viewer,
     List<Label>? labels,
-    FeedDefsThreadgateView? threadgate,
+    ThreadgateView? threadgate,
     required DateTime indexedAt,
-  }) = _FeedDefsPostView;
+  }) = _PostView;
 
-  factory FeedDefsPostView.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsPostViewFromJson(json);
+  factory PostView.fromJson(Map<String, Object?> json) =>
+      _$PostViewFromJson(json);
 }

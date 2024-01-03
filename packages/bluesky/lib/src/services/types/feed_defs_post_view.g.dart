@@ -8,19 +8,18 @@ part of 'feed_defs_post_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedDefsPostViewImpl',
+_$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
+      r'_$PostViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsPostViewImpl(
+        final val = _$PostViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           record: $checkedConvert('record',
               (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert(
               'author',
-              (v) => ActorDefsProfileViewBasic.fromJson(
+              (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
@@ -36,8 +35,7 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
               'viewer',
               (v) => v == null
                   ? defaultFeedDefsViewerState
-                  : FeedDefsViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -48,7 +46,7 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
               'threadgate',
               (v) => v == null
                   ? null
-                  : FeedDefsThreadgateView.fromJson(
+                  : ThreadgateView.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -58,8 +56,7 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedDefsPostViewImplToJson(
-    _$FeedDefsPostViewImpl instance) {
+Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'record': postRecordConverter.toJson(instance.record),

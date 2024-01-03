@@ -18,13 +18,13 @@ part 'actor_defs_adult_content_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#adultcontentpref
 @freezed
 @lex.appBskyActorDefsAdultContentPref
-class ActorDefsAdultContentPref with _$ActorDefsAdultContentPref {
+class AdultContentPref with _$AdultContentPref {
   @jsonSerializable
-  const factory ActorDefsAdultContentPref({
+  const factory AdultContentPref({
     @typeKey @Default(appBskyActorDefsAdultContentPref) String type,
     @Default(false) bool enabled,
-  }) = _ActorDefsAdultContentPref;
+  }) = _AdultContentPref;
 
-  factory ActorDefsAdultContentPref.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsAdultContentPrefFromJson(json);
+  factory AdultContentPref.fromJson(Map<String, Object?> json) =>
+      _$AdultContentPrefFromJson(json);
 }

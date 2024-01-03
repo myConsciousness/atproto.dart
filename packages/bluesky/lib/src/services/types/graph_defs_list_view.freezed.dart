@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GraphDefsListView _$GraphDefsListViewFromJson(Map<String, dynamic> json) {
-  return _GraphDefsListView.fromJson(json);
+ListView _$ListViewFromJson(Map<String, dynamic> json) {
+  return _ListView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GraphDefsListView {
+mixin _$ListView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
@@ -28,24 +28,22 @@ mixin _$GraphDefsListView {
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  ActorDefsProfileView get creator => throw _privateConstructorUsedError;
-  GraphDefsListViewerState get viewer => throw _privateConstructorUsedError;
+  ProfileView get creator => throw _privateConstructorUsedError;
+  ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GraphDefsListViewCopyWith<GraphDefsListView> get copyWith =>
+  $ListViewCopyWith<ListView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GraphDefsListViewCopyWith<$Res> {
-  factory $GraphDefsListViewCopyWith(
-          GraphDefsListView value, $Res Function(GraphDefsListView) then) =
-      _$GraphDefsListViewCopyWithImpl<$Res, GraphDefsListView>;
+abstract class $ListViewCopyWith<$Res> {
+  factory $ListViewCopyWith(ListView value, $Res Function(ListView) then) =
+      _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -54,20 +52,20 @@ abstract class $GraphDefsListViewCopyWith<$Res> {
       String cid,
       String name,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
-      ActorDefsProfileView creator,
-      GraphDefsListViewerState viewer,
+      ProfileView creator,
+      ListViewerState viewer,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
-  $GraphDefsListViewerStateCopyWith<$Res> get viewer;
+  $ProfileViewCopyWith<$Res> get creator;
+  $ListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
-    implements $GraphDefsListViewCopyWith<$Res> {
-  _$GraphDefsListViewCopyWithImpl(this._value, this._then);
+class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
+    implements $ListViewCopyWith<$Res> {
+  _$ListViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -117,7 +115,7 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -125,11 +123,11 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as GraphDefsListViewerState,
+              as ListViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -139,27 +137,27 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get creator {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.creator, (value) {
+  $ProfileViewCopyWith<$Res> get creator {
+    return $ProfileViewCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $GraphDefsListViewerStateCopyWith<$Res> get viewer {
-    return $GraphDefsListViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ListViewerStateCopyWith<$Res> get viewer {
+    return $ListViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$GraphDefsListViewImplCopyWith<$Res>
-    implements $GraphDefsListViewCopyWith<$Res> {
-  factory _$$GraphDefsListViewImplCopyWith(_$GraphDefsListViewImpl value,
-          $Res Function(_$GraphDefsListViewImpl) then) =
-      __$$GraphDefsListViewImplCopyWithImpl<$Res>;
+abstract class _$$ListViewImplCopyWith<$Res>
+    implements $ListViewCopyWith<$Res> {
+  factory _$$ListViewImplCopyWith(
+          _$ListViewImpl value, $Res Function(_$ListViewImpl) then) =
+      __$$ListViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -169,24 +167,24 @@ abstract class _$$GraphDefsListViewImplCopyWith<$Res>
       String cid,
       String name,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
-      ActorDefsProfileView creator,
-      GraphDefsListViewerState viewer,
+      ProfileView creator,
+      ListViewerState viewer,
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   @override
-  $GraphDefsListViewerStateCopyWith<$Res> get viewer;
+  $ListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class __$$GraphDefsListViewImplCopyWithImpl<$Res>
-    extends _$GraphDefsListViewCopyWithImpl<$Res, _$GraphDefsListViewImpl>
-    implements _$$GraphDefsListViewImplCopyWith<$Res> {
-  __$$GraphDefsListViewImplCopyWithImpl(_$GraphDefsListViewImpl _value,
-      $Res Function(_$GraphDefsListViewImpl) _then)
+class __$$ListViewImplCopyWithImpl<$Res>
+    extends _$ListViewCopyWithImpl<$Res, _$ListViewImpl>
+    implements _$$ListViewImplCopyWith<$Res> {
+  __$$ListViewImplCopyWithImpl(
+      _$ListViewImpl _value, $Res Function(_$ListViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -204,7 +202,7 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$GraphDefsListViewImpl(
+    return _then(_$ListViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -232,7 +230,7 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -240,11 +238,11 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as GraphDefsListViewerState,
+              as ListViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -256,23 +254,23 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GraphDefsListViewImpl implements _GraphDefsListView {
-  const _$GraphDefsListViewImpl(
+class _$ListViewImpl implements _ListView {
+  const _$ListViewImpl(
       {@typeKey this.type = appBskyGraphDefsListView,
       required this.purpose,
       @atUriConverter required this.uri,
       required this.cid,
       required this.name,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       required this.creator,
       this.viewer = defaultGraphDefsListViewerState,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets;
 
-  factory _$GraphDefsListViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphDefsListViewImplFromJson(json);
+  factory _$ListViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ListViewImplFromJson(json);
 
   @override
   @typeKey
@@ -288,9 +286,9 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
   final String name;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -302,23 +300,23 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
   @override
   final String? avatar;
   @override
-  final ActorDefsProfileView creator;
+  final ProfileView creator;
   @override
   @JsonKey()
-  final GraphDefsListViewerState viewer;
+  final ListViewerState viewer;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'GraphDefsListView(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, creator: $creator, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListView(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, creator: $creator, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphDefsListViewImpl &&
+            other is _$ListViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -354,34 +352,33 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphDefsListViewImplCopyWith<_$GraphDefsListViewImpl> get copyWith =>
-      __$$GraphDefsListViewImplCopyWithImpl<_$GraphDefsListViewImpl>(
-          this, _$identity);
+  _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
+      __$$ListViewImplCopyWithImpl<_$ListViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GraphDefsListViewImplToJson(
+    return _$$ListViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _GraphDefsListView implements GraphDefsListView {
-  const factory _GraphDefsListView(
+abstract class _ListView implements ListView {
+  const factory _ListView(
       {@typeKey final String type,
       required final String purpose,
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final String name,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final String? avatar,
-      required final ActorDefsProfileView creator,
-      final GraphDefsListViewerState viewer,
-      required final DateTime indexedAt}) = _$GraphDefsListViewImpl;
+      required final ProfileView creator,
+      final ListViewerState viewer,
+      required final DateTime indexedAt}) = _$ListViewImpl;
 
-  factory _GraphDefsListView.fromJson(Map<String, dynamic> json) =
-      _$GraphDefsListViewImpl.fromJson;
+  factory _ListView.fromJson(Map<String, dynamic> json) =
+      _$ListViewImpl.fromJson;
 
   @override
   @typeKey
@@ -398,17 +395,17 @@ abstract class _GraphDefsListView implements GraphDefsListView {
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override
-  ActorDefsProfileView get creator;
+  ProfileView get creator;
   @override
-  GraphDefsListViewerState get viewer;
+  ListViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$GraphDefsListViewImplCopyWith<_$GraphDefsListViewImpl> get copyWith =>
+  _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

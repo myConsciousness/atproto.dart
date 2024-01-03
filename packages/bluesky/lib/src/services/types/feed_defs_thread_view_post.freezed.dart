@@ -14,16 +14,15 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsThreadViewPost _$FeedDefsThreadViewPostFromJson(
-    Map<String, dynamic> json) {
-  return _FeedDefsThreadViewPost.fromJson(json);
+ThreadViewPost _$ThreadViewPostFromJson(Map<String, dynamic> json) {
+  return _ThreadViewPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsThreadViewPost {
+mixin _$ThreadViewPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  FeedDefsPostView get post => throw _privateConstructorUsedError;
+  PostView get post => throw _privateConstructorUsedError;
   @postThreadViewConverter
   PostThreadView? get parent => throw _privateConstructorUsedError;
   @postThreadViewConverter
@@ -31,31 +30,30 @@ mixin _$FeedDefsThreadViewPost {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsThreadViewPostCopyWith<FeedDefsThreadViewPost> get copyWith =>
+  $ThreadViewPostCopyWith<ThreadViewPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsThreadViewPostCopyWith<$Res> {
-  factory $FeedDefsThreadViewPostCopyWith(FeedDefsThreadViewPost value,
-          $Res Function(FeedDefsThreadViewPost) then) =
-      _$FeedDefsThreadViewPostCopyWithImpl<$Res, FeedDefsThreadViewPost>;
+abstract class $ThreadViewPostCopyWith<$Res> {
+  factory $ThreadViewPostCopyWith(
+          ThreadViewPost value, $Res Function(ThreadViewPost) then) =
+      _$ThreadViewPostCopyWithImpl<$Res, ThreadViewPost>;
   @useResult
   $Res call(
       {@typeKey String type,
-      FeedDefsPostView post,
+      PostView post,
       @postThreadViewConverter PostThreadView? parent,
       @postThreadViewConverter List<PostThreadView>? replies});
 
-  $FeedDefsPostViewCopyWith<$Res> get post;
+  $PostViewCopyWith<$Res> get post;
   $PostThreadViewCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
-class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
-        $Val extends FeedDefsThreadViewPost>
-    implements $FeedDefsThreadViewPostCopyWith<$Res> {
-  _$FeedDefsThreadViewPostCopyWithImpl(this._value, this._then);
+class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
+    implements $ThreadViewPostCopyWith<$Res> {
+  _$ThreadViewPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,7 +76,7 @@ class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
-              as FeedDefsPostView,
+              as PostView,
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
@@ -92,8 +90,8 @@ class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedDefsPostViewCopyWith<$Res> get post {
-    return $FeedDefsPostViewCopyWith<$Res>(_value.post, (value) {
+  $PostViewCopyWith<$Res> get post {
+    return $PostViewCopyWith<$Res>(_value.post, (value) {
       return _then(_value.copyWith(post: value) as $Val);
     });
   }
@@ -112,34 +110,31 @@ class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$FeedDefsThreadViewPostImplCopyWith<$Res>
-    implements $FeedDefsThreadViewPostCopyWith<$Res> {
-  factory _$$FeedDefsThreadViewPostImplCopyWith(
-          _$FeedDefsThreadViewPostImpl value,
-          $Res Function(_$FeedDefsThreadViewPostImpl) then) =
-      __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>;
+abstract class _$$ThreadViewPostImplCopyWith<$Res>
+    implements $ThreadViewPostCopyWith<$Res> {
+  factory _$$ThreadViewPostImplCopyWith(_$ThreadViewPostImpl value,
+          $Res Function(_$ThreadViewPostImpl) then) =
+      __$$ThreadViewPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
-      FeedDefsPostView post,
+      PostView post,
       @postThreadViewConverter PostThreadView? parent,
       @postThreadViewConverter List<PostThreadView>? replies});
 
   @override
-  $FeedDefsPostViewCopyWith<$Res> get post;
+  $PostViewCopyWith<$Res> get post;
   @override
   $PostThreadViewCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
-class __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>
-    extends _$FeedDefsThreadViewPostCopyWithImpl<$Res,
-        _$FeedDefsThreadViewPostImpl>
-    implements _$$FeedDefsThreadViewPostImplCopyWith<$Res> {
-  __$$FeedDefsThreadViewPostImplCopyWithImpl(
-      _$FeedDefsThreadViewPostImpl _value,
-      $Res Function(_$FeedDefsThreadViewPostImpl) _then)
+class __$$ThreadViewPostImplCopyWithImpl<$Res>
+    extends _$ThreadViewPostCopyWithImpl<$Res, _$ThreadViewPostImpl>
+    implements _$$ThreadViewPostImplCopyWith<$Res> {
+  __$$ThreadViewPostImplCopyWithImpl(
+      _$ThreadViewPostImpl _value, $Res Function(_$ThreadViewPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -150,7 +145,7 @@ class __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>
     Object? parent = freezed,
     Object? replies = freezed,
   }) {
-    return _then(_$FeedDefsThreadViewPostImpl(
+    return _then(_$ThreadViewPostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -158,7 +153,7 @@ class __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
-              as FeedDefsPostView,
+              as PostView,
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
@@ -173,22 +168,22 @@ class __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedDefsThreadViewPostImpl implements _FeedDefsThreadViewPost {
-  const _$FeedDefsThreadViewPostImpl(
+class _$ThreadViewPostImpl implements _ThreadViewPost {
+  const _$ThreadViewPostImpl(
       {@typeKey this.type = appBskyFeedDefsThreadViewPost,
       required this.post,
       @postThreadViewConverter this.parent,
       @postThreadViewConverter final List<PostThreadView>? replies})
       : _replies = replies;
 
-  factory _$FeedDefsThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsThreadViewPostImplFromJson(json);
+  factory _$ThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadViewPostImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final FeedDefsPostView post;
+  final PostView post;
   @override
   @postThreadViewConverter
   final PostThreadView? parent;
@@ -205,14 +200,14 @@ class _$FeedDefsThreadViewPostImpl implements _FeedDefsThreadViewPost {
 
   @override
   String toString() {
-    return 'FeedDefsThreadViewPost(type: $type, post: $post, parent: $parent, replies: $replies)';
+    return 'ThreadViewPost(type: $type, post: $post, parent: $parent, replies: $replies)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsThreadViewPostImpl &&
+            other is _$ThreadViewPostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.parent, parent) || other.parent == parent) &&
@@ -227,34 +222,34 @@ class _$FeedDefsThreadViewPostImpl implements _FeedDefsThreadViewPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsThreadViewPostImplCopyWith<_$FeedDefsThreadViewPostImpl>
-      get copyWith => __$$FeedDefsThreadViewPostImplCopyWithImpl<
-          _$FeedDefsThreadViewPostImpl>(this, _$identity);
+  _$$ThreadViewPostImplCopyWith<_$ThreadViewPostImpl> get copyWith =>
+      __$$ThreadViewPostImplCopyWithImpl<_$ThreadViewPostImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsThreadViewPostImplToJson(
+    return _$$ThreadViewPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsThreadViewPost implements FeedDefsThreadViewPost {
-  const factory _FeedDefsThreadViewPost(
+abstract class _ThreadViewPost implements ThreadViewPost {
+  const factory _ThreadViewPost(
           {@typeKey final String type,
-          required final FeedDefsPostView post,
+          required final PostView post,
           @postThreadViewConverter final PostThreadView? parent,
           @postThreadViewConverter final List<PostThreadView>? replies}) =
-      _$FeedDefsThreadViewPostImpl;
+      _$ThreadViewPostImpl;
 
-  factory _FeedDefsThreadViewPost.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsThreadViewPostImpl.fromJson;
+  factory _ThreadViewPost.fromJson(Map<String, dynamic> json) =
+      _$ThreadViewPostImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  FeedDefsPostView get post;
+  PostView get post;
   @override
   @postThreadViewConverter
   PostThreadView? get parent;
@@ -263,6 +258,6 @@ abstract class _FeedDefsThreadViewPost implements FeedDefsThreadViewPost {
   List<PostThreadView>? get replies;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsThreadViewPostImplCopyWith<_$FeedDefsThreadViewPostImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ThreadViewPostImplCopyWith<_$ThreadViewPostImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

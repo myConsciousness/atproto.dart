@@ -8,29 +8,26 @@ part of 'feed_defs_generator_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsGeneratorViewImpl _$$FeedDefsGeneratorViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedDefsGeneratorViewImpl',
+_$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
+      r'_$GeneratorViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsGeneratorViewImpl(
+        final val = _$GeneratorViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsGeneratorView),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String?),
-          creator: $checkedConvert(
-              'creator',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert('creator',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           displayName: $checkedConvert('displayName', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => RichtextFacet.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
@@ -38,7 +35,7 @@ _$FeedDefsGeneratorViewImpl _$$FeedDefsGeneratorViewImplFromJson(Map json) =>
               'viewer',
               (v) => v == null
                   ? defaultFeedDefsGeneratorViewerState
-                  : FeedDefsGeneratorViewerState.fromJson(
+                  : GeneratorViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -48,8 +45,7 @@ _$FeedDefsGeneratorViewImpl _$$FeedDefsGeneratorViewImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedDefsGeneratorViewImplToJson(
-    _$FeedDefsGeneratorViewImpl instance) {
+Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'uri': atUriConverter.toJson(instance.uri),

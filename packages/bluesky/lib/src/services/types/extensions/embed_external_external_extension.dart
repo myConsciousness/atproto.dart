@@ -8,6 +8,6 @@ import 'package:atproto/atproto.dart';
 // 🌎 Project imports:
 import '../embed_external_external.dart';
 
-extension EmbedExternalExternalExtension on EmbedExternalExternal {
+extension ExternalExtension on External {
   Blob? get blob => thumb;
 }

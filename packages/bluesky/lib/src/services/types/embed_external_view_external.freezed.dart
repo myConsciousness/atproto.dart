@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-EmbedExternalViewExternal _$EmbedExternalViewExternalFromJson(
-    Map<String, dynamic> json) {
-  return _EmbedExternalViewExternal.fromJson(json);
+ViewExternal _$ViewExternalFromJson(Map<String, dynamic> json) {
+  return _ViewExternal.fromJson(json);
 }
 
 /// @nodoc
-mixin _$EmbedExternalViewExternal {
+mixin _$ViewExternal {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
@@ -30,15 +29,15 @@ mixin _$EmbedExternalViewExternal {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $EmbedExternalViewExternalCopyWith<EmbedExternalViewExternal> get copyWith =>
+  $ViewExternalCopyWith<ViewExternal> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $EmbedExternalViewExternalCopyWith<$Res> {
-  factory $EmbedExternalViewExternalCopyWith(EmbedExternalViewExternal value,
-          $Res Function(EmbedExternalViewExternal) then) =
-      _$EmbedExternalViewExternalCopyWithImpl<$Res, EmbedExternalViewExternal>;
+abstract class $ViewExternalCopyWith<$Res> {
+  factory $ViewExternalCopyWith(
+          ViewExternal value, $Res Function(ViewExternal) then) =
+      _$ViewExternalCopyWithImpl<$Res, ViewExternal>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -49,10 +48,9 @@ abstract class $EmbedExternalViewExternalCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$EmbedExternalViewExternalCopyWithImpl<$Res,
-        $Val extends EmbedExternalViewExternal>
-    implements $EmbedExternalViewExternalCopyWith<$Res> {
-  _$EmbedExternalViewExternalCopyWithImpl(this._value, this._then);
+class _$ViewExternalCopyWithImpl<$Res, $Val extends ViewExternal>
+    implements $ViewExternalCopyWith<$Res> {
+  _$ViewExternalCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,12 +92,11 @@ class _$EmbedExternalViewExternalCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$EmbedExternalViewExternalImplCopyWith<$Res>
-    implements $EmbedExternalViewExternalCopyWith<$Res> {
-  factory _$$EmbedExternalViewExternalImplCopyWith(
-          _$EmbedExternalViewExternalImpl value,
-          $Res Function(_$EmbedExternalViewExternalImpl) then) =
-      __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>;
+abstract class _$$ViewExternalImplCopyWith<$Res>
+    implements $ViewExternalCopyWith<$Res> {
+  factory _$$ViewExternalImplCopyWith(
+          _$ViewExternalImpl value, $Res Function(_$ViewExternalImpl) then) =
+      __$$ViewExternalImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -111,13 +108,11 @@ abstract class _$$EmbedExternalViewExternalImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>
-    extends _$EmbedExternalViewExternalCopyWithImpl<$Res,
-        _$EmbedExternalViewExternalImpl>
-    implements _$$EmbedExternalViewExternalImplCopyWith<$Res> {
-  __$$EmbedExternalViewExternalImplCopyWithImpl(
-      _$EmbedExternalViewExternalImpl _value,
-      $Res Function(_$EmbedExternalViewExternalImpl) _then)
+class __$$ViewExternalImplCopyWithImpl<$Res>
+    extends _$ViewExternalCopyWithImpl<$Res, _$ViewExternalImpl>
+    implements _$$ViewExternalImplCopyWith<$Res> {
+  __$$ViewExternalImplCopyWithImpl(
+      _$ViewExternalImpl _value, $Res Function(_$ViewExternalImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +124,7 @@ class __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>
     Object? description = null,
     Object? thumb = freezed,
   }) {
-    return _then(_$EmbedExternalViewExternalImpl(
+    return _then(_$ViewExternalImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -157,16 +152,16 @@ class __$$EmbedExternalViewExternalImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
-  const _$EmbedExternalViewExternalImpl(
+class _$ViewExternalImpl implements _ViewExternal {
+  const _$ViewExternalImpl(
       {@typeKey this.type = appBskyEmbedExternalViewExternal,
       required this.uri,
       required this.title,
       required this.description,
       this.thumb});
 
-  factory _$EmbedExternalViewExternalImpl.fromJson(Map<String, dynamic> json) =>
-      _$$EmbedExternalViewExternalImplFromJson(json);
+  factory _$ViewExternalImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ViewExternalImplFromJson(json);
 
   @override
   @typeKey
@@ -182,14 +177,14 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
 
   @override
   String toString() {
-    return 'EmbedExternalViewExternal(type: $type, uri: $uri, title: $title, description: $description, thumb: $thumb)';
+    return 'ViewExternal(type: $type, uri: $uri, title: $title, description: $description, thumb: $thumb)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$EmbedExternalViewExternalImpl &&
+            other is _$ViewExternalImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
@@ -206,28 +201,27 @@ class _$EmbedExternalViewExternalImpl implements _EmbedExternalViewExternal {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$EmbedExternalViewExternalImplCopyWith<_$EmbedExternalViewExternalImpl>
-      get copyWith => __$$EmbedExternalViewExternalImplCopyWithImpl<
-          _$EmbedExternalViewExternalImpl>(this, _$identity);
+  _$$ViewExternalImplCopyWith<_$ViewExternalImpl> get copyWith =>
+      __$$ViewExternalImplCopyWithImpl<_$ViewExternalImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$EmbedExternalViewExternalImplToJson(
+    return _$$ViewExternalImplToJson(
       this,
     );
   }
 }
 
-abstract class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
-  const factory _EmbedExternalViewExternal(
+abstract class _ViewExternal implements ViewExternal {
+  const factory _ViewExternal(
       {@typeKey final String type,
       required final String uri,
       required final String title,
       required final String description,
-      final String? thumb}) = _$EmbedExternalViewExternalImpl;
+      final String? thumb}) = _$ViewExternalImpl;
 
-  factory _EmbedExternalViewExternal.fromJson(Map<String, dynamic> json) =
-      _$EmbedExternalViewExternalImpl.fromJson;
+  factory _ViewExternal.fromJson(Map<String, dynamic> json) =
+      _$ViewExternalImpl.fromJson;
 
   @override
   @typeKey
@@ -242,6 +236,6 @@ abstract class _EmbedExternalViewExternal implements EmbedExternalViewExternal {
   String? get thumb;
   @override
   @JsonKey(ignore: true)
-  _$$EmbedExternalViewExternalImplCopyWith<_$EmbedExternalViewExternalImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ViewExternalImplCopyWith<_$ViewExternalImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

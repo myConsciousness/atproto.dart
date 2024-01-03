@@ -19,12 +19,11 @@ part 'embed_external_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#view
 @freezed
 @lex.appBskyEmbedExternalView
-class EmbedExternalView with _$EmbedExternalView {
-  const factory EmbedExternalView({
+class View with _$View {
+  const factory View({
     @typeKey @Default(appBskyEmbedExternalView) String type,
-    required EmbedExternalViewExternal external,
-  }) = _EmbedExternalView;
+    required ViewExternal external,
+  }) = _View;
 
-  factory EmbedExternalView.fromJson(Map<String, Object?> json) =>
-      _$EmbedExternalViewFromJson(json);
+  factory View.fromJson(Map<String, Object?> json) => _$ViewFromJson(json);
 }

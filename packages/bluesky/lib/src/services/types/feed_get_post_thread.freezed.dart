@@ -14,26 +14,26 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedGetPostThread _$FeedGetPostThreadFromJson(Map<String, dynamic> json) {
-  return _FeedGetPostThread.fromJson(json);
+PostThread _$PostThreadFromJson(Map<String, dynamic> json) {
+  return _PostThread.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedGetPostThread {
+mixin _$PostThread {
   @postThreadViewConverter
   PostThreadView get thread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedGetPostThreadCopyWith<FeedGetPostThread> get copyWith =>
+  $PostThreadCopyWith<PostThread> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedGetPostThreadCopyWith<$Res> {
-  factory $FeedGetPostThreadCopyWith(
-          FeedGetPostThread value, $Res Function(FeedGetPostThread) then) =
-      _$FeedGetPostThreadCopyWithImpl<$Res, FeedGetPostThread>;
+abstract class $PostThreadCopyWith<$Res> {
+  factory $PostThreadCopyWith(
+          PostThread value, $Res Function(PostThread) then) =
+      _$PostThreadCopyWithImpl<$Res, PostThread>;
   @useResult
   $Res call({@postThreadViewConverter PostThreadView thread});
 
@@ -41,9 +41,9 @@ abstract class $FeedGetPostThreadCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FeedGetPostThreadCopyWithImpl<$Res, $Val extends FeedGetPostThread>
-    implements $FeedGetPostThreadCopyWith<$Res> {
-  _$FeedGetPostThreadCopyWithImpl(this._value, this._then);
+class _$PostThreadCopyWithImpl<$Res, $Val extends PostThread>
+    implements $PostThreadCopyWith<$Res> {
+  _$PostThreadCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,11 +73,11 @@ class _$FeedGetPostThreadCopyWithImpl<$Res, $Val extends FeedGetPostThread>
 }
 
 /// @nodoc
-abstract class _$$FeedGetPostThreadImplCopyWith<$Res>
-    implements $FeedGetPostThreadCopyWith<$Res> {
-  factory _$$FeedGetPostThreadImplCopyWith(_$FeedGetPostThreadImpl value,
-          $Res Function(_$FeedGetPostThreadImpl) then) =
-      __$$FeedGetPostThreadImplCopyWithImpl<$Res>;
+abstract class _$$PostThreadImplCopyWith<$Res>
+    implements $PostThreadCopyWith<$Res> {
+  factory _$$PostThreadImplCopyWith(
+          _$PostThreadImpl value, $Res Function(_$PostThreadImpl) then) =
+      __$$PostThreadImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@postThreadViewConverter PostThreadView thread});
@@ -87,11 +87,11 @@ abstract class _$$FeedGetPostThreadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FeedGetPostThreadImplCopyWithImpl<$Res>
-    extends _$FeedGetPostThreadCopyWithImpl<$Res, _$FeedGetPostThreadImpl>
-    implements _$$FeedGetPostThreadImplCopyWith<$Res> {
-  __$$FeedGetPostThreadImplCopyWithImpl(_$FeedGetPostThreadImpl _value,
-      $Res Function(_$FeedGetPostThreadImpl) _then)
+class __$$PostThreadImplCopyWithImpl<$Res>
+    extends _$PostThreadCopyWithImpl<$Res, _$PostThreadImpl>
+    implements _$$PostThreadImplCopyWith<$Res> {
+  __$$PostThreadImplCopyWithImpl(
+      _$PostThreadImpl _value, $Res Function(_$PostThreadImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$FeedGetPostThreadImplCopyWithImpl<$Res>
   $Res call({
     Object? thread = null,
   }) {
-    return _then(_$FeedGetPostThreadImpl(
+    return _then(_$PostThreadImpl(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
@@ -110,12 +110,11 @@ class __$$FeedGetPostThreadImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedGetPostThreadImpl implements _FeedGetPostThread {
-  const _$FeedGetPostThreadImpl(
-      {@postThreadViewConverter required this.thread});
+class _$PostThreadImpl implements _PostThread {
+  const _$PostThreadImpl({@postThreadViewConverter required this.thread});
 
-  factory _$FeedGetPostThreadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedGetPostThreadImplFromJson(json);
+  factory _$PostThreadImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PostThreadImplFromJson(json);
 
   @override
   @postThreadViewConverter
@@ -123,14 +122,14 @@ class _$FeedGetPostThreadImpl implements _FeedGetPostThread {
 
   @override
   String toString() {
-    return 'FeedGetPostThread(thread: $thread)';
+    return 'PostThread(thread: $thread)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedGetPostThreadImpl &&
+            other is _$PostThreadImpl &&
             (identical(other.thread, thread) || other.thread == thread));
   }
 
@@ -141,31 +140,30 @@ class _$FeedGetPostThreadImpl implements _FeedGetPostThread {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedGetPostThreadImplCopyWith<_$FeedGetPostThreadImpl> get copyWith =>
-      __$$FeedGetPostThreadImplCopyWithImpl<_$FeedGetPostThreadImpl>(
-          this, _$identity);
+  _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
+      __$$PostThreadImplCopyWithImpl<_$PostThreadImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedGetPostThreadImplToJson(
+    return _$$PostThreadImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedGetPostThread implements FeedGetPostThread {
-  const factory _FeedGetPostThread(
+abstract class _PostThread implements PostThread {
+  const factory _PostThread(
           {@postThreadViewConverter required final PostThreadView thread}) =
-      _$FeedGetPostThreadImpl;
+      _$PostThreadImpl;
 
-  factory _FeedGetPostThread.fromJson(Map<String, dynamic> json) =
-      _$FeedGetPostThreadImpl.fromJson;
+  factory _PostThread.fromJson(Map<String, dynamic> json) =
+      _$PostThreadImpl.fromJson;
 
   @override
   @postThreadViewConverter
   PostThreadView get thread;
   @override
   @JsonKey(ignore: true)
-  _$$FeedGetPostThreadImplCopyWith<_$FeedGetPostThreadImpl> get copyWith =>
+  _$$PostThreadImplCopyWith<_$PostThreadImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

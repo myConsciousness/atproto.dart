@@ -21,24 +21,23 @@ part 'feed_defs_generator_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorview
 @freezed
 @lex.appBskyFeedDefsGeneratorView
-class FeedDefsGeneratorView with _$FeedDefsGeneratorView {
+class GeneratorView with _$GeneratorView {
   @jsonSerializable
-  const factory FeedDefsGeneratorView({
+  const factory GeneratorView({
     @typeKey @Default(appBskyFeedDefsGeneratorView) String type,
     @atUriConverter required AtUri uri,
     required String cid,
     String? did,
-    required ActorDefsProfileView creator,
+    required ProfileView creator,
     required String displayName,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
-    @Default(defaultFeedDefsGeneratorViewerState)
-    FeedDefsGeneratorViewerState viewer,
+    @Default(defaultFeedDefsGeneratorViewerState) GeneratorViewerState viewer,
     required DateTime indexedAt,
-  }) = _FeedDefsGeneratorView;
+  }) = _GeneratorView;
 
-  factory FeedDefsGeneratorView.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsGeneratorViewFromJson(json);
+  factory GeneratorView.fromJson(Map<String, Object?> json) =>
+      _$GeneratorViewFromJson(json);
 }

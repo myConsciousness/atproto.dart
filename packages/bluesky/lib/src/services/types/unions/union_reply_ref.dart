@@ -16,15 +16,15 @@ part 'union_reply_ref.freezed.dart';
 @freezed
 class UReplyRef with _$UReplyRef {
   const factory UReplyRef.postView({
-    required FeedDefsPostView data,
+    required PostView data,
   }) = UReplyRefPostView;
 
   const factory UReplyRef.notFoundPost({
-    required FeedDefsNotFoundPost data,
+    required NotFoundPost data,
   }) = UReplyRefNotFoundPost;
 
   const factory UReplyRef.blockedPost({
-    required FeedDefsBlockedPost data,
+    required BlockedPost data,
   }) = UReplyRefBlockedPost;
 
   const factory UReplyRef.unknown({

@@ -14,41 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GraphGetFollowers _$GraphGetFollowersFromJson(Map<String, dynamic> json) {
-  return _GraphGetFollowers.fromJson(json);
+Followers _$FollowersFromJson(Map<String, dynamic> json) {
+  return _Followers.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GraphGetFollowers {
-  ActorDefsProfileView get subject => throw _privateConstructorUsedError;
-  List<ActorDefsProfileView> get followers =>
-      throw _privateConstructorUsedError;
+mixin _$Followers {
+  ProfileView get subject => throw _privateConstructorUsedError;
+  List<ProfileView> get followers => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GraphGetFollowersCopyWith<GraphGetFollowers> get copyWith =>
+  $FollowersCopyWith<Followers> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GraphGetFollowersCopyWith<$Res> {
-  factory $GraphGetFollowersCopyWith(
-          GraphGetFollowers value, $Res Function(GraphGetFollowers) then) =
-      _$GraphGetFollowersCopyWithImpl<$Res, GraphGetFollowers>;
+abstract class $FollowersCopyWith<$Res> {
+  factory $FollowersCopyWith(Followers value, $Res Function(Followers) then) =
+      _$FollowersCopyWithImpl<$Res, Followers>;
   @useResult
-  $Res call(
-      {ActorDefsProfileView subject,
-      List<ActorDefsProfileView> followers,
-      String? cursor});
+  $Res call({ProfileView subject, List<ProfileView> followers, String? cursor});
 
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
-class _$GraphGetFollowersCopyWithImpl<$Res, $Val extends GraphGetFollowers>
-    implements $GraphGetFollowersCopyWith<$Res> {
-  _$GraphGetFollowersCopyWithImpl(this._value, this._then);
+class _$FollowersCopyWithImpl<$Res, $Val extends Followers>
+    implements $FollowersCopyWith<$Res> {
+  _$FollowersCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,11 +61,11 @@ class _$GraphGetFollowersCopyWithImpl<$Res, $Val extends GraphGetFollowers>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       followers: null == followers
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -80,36 +75,33 @@ class _$GraphGetFollowersCopyWithImpl<$Res, $Val extends GraphGetFollowers>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get subject {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.subject, (value) {
+  $ProfileViewCopyWith<$Res> get subject {
+    return $ProfileViewCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$GraphGetFollowersImplCopyWith<$Res>
-    implements $GraphGetFollowersCopyWith<$Res> {
-  factory _$$GraphGetFollowersImplCopyWith(_$GraphGetFollowersImpl value,
-          $Res Function(_$GraphGetFollowersImpl) then) =
-      __$$GraphGetFollowersImplCopyWithImpl<$Res>;
+abstract class _$$FollowersImplCopyWith<$Res>
+    implements $FollowersCopyWith<$Res> {
+  factory _$$FollowersImplCopyWith(
+          _$FollowersImpl value, $Res Function(_$FollowersImpl) then) =
+      __$$FollowersImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ActorDefsProfileView subject,
-      List<ActorDefsProfileView> followers,
-      String? cursor});
+  $Res call({ProfileView subject, List<ProfileView> followers, String? cursor});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
-class __$$GraphGetFollowersImplCopyWithImpl<$Res>
-    extends _$GraphGetFollowersCopyWithImpl<$Res, _$GraphGetFollowersImpl>
-    implements _$$GraphGetFollowersImplCopyWith<$Res> {
-  __$$GraphGetFollowersImplCopyWithImpl(_$GraphGetFollowersImpl _value,
-      $Res Function(_$GraphGetFollowersImpl) _then)
+class __$$FollowersImplCopyWithImpl<$Res>
+    extends _$FollowersCopyWithImpl<$Res, _$FollowersImpl>
+    implements _$$FollowersImplCopyWith<$Res> {
+  __$$FollowersImplCopyWithImpl(
+      _$FollowersImpl _value, $Res Function(_$FollowersImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,15 +111,15 @@ class __$$GraphGetFollowersImplCopyWithImpl<$Res>
     Object? followers = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GraphGetFollowersImpl(
+    return _then(_$FollowersImpl(
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       followers: null == followers
           ? _value._followers
           : followers // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -139,21 +131,21 @@ class __$$GraphGetFollowersImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GraphGetFollowersImpl implements _GraphGetFollowers {
-  const _$GraphGetFollowersImpl(
+class _$FollowersImpl implements _Followers {
+  const _$FollowersImpl(
       {required this.subject,
-      required final List<ActorDefsProfileView> followers,
+      required final List<ProfileView> followers,
       this.cursor})
       : _followers = followers;
 
-  factory _$GraphGetFollowersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphGetFollowersImplFromJson(json);
+  factory _$FollowersImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FollowersImplFromJson(json);
 
   @override
-  final ActorDefsProfileView subject;
-  final List<ActorDefsProfileView> _followers;
+  final ProfileView subject;
+  final List<ProfileView> _followers;
   @override
-  List<ActorDefsProfileView> get followers {
+  List<ProfileView> get followers {
     if (_followers is EqualUnmodifiableListView) return _followers;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_followers);
@@ -164,14 +156,14 @@ class _$GraphGetFollowersImpl implements _GraphGetFollowers {
 
   @override
   String toString() {
-    return 'GraphGetFollowers(subject: $subject, followers: $followers, cursor: $cursor)';
+    return 'Followers(subject: $subject, followers: $followers, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphGetFollowersImpl &&
+            other is _$FollowersImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             const DeepCollectionEquality()
                 .equals(other._followers, _followers) &&
@@ -186,35 +178,34 @@ class _$GraphGetFollowersImpl implements _GraphGetFollowers {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphGetFollowersImplCopyWith<_$GraphGetFollowersImpl> get copyWith =>
-      __$$GraphGetFollowersImplCopyWithImpl<_$GraphGetFollowersImpl>(
-          this, _$identity);
+  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
+      __$$FollowersImplCopyWithImpl<_$FollowersImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GraphGetFollowersImplToJson(
+    return _$$FollowersImplToJson(
       this,
     );
   }
 }
 
-abstract class _GraphGetFollowers implements GraphGetFollowers {
-  const factory _GraphGetFollowers(
-      {required final ActorDefsProfileView subject,
-      required final List<ActorDefsProfileView> followers,
-      final String? cursor}) = _$GraphGetFollowersImpl;
+abstract class _Followers implements Followers {
+  const factory _Followers(
+      {required final ProfileView subject,
+      required final List<ProfileView> followers,
+      final String? cursor}) = _$FollowersImpl;
 
-  factory _GraphGetFollowers.fromJson(Map<String, dynamic> json) =
-      _$GraphGetFollowersImpl.fromJson;
+  factory _Followers.fromJson(Map<String, dynamic> json) =
+      _$FollowersImpl.fromJson;
 
   @override
-  ActorDefsProfileView get subject;
+  ProfileView get subject;
   @override
-  List<ActorDefsProfileView> get followers;
+  List<ProfileView> get followers;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$GraphGetFollowersImplCopyWith<_$GraphGetFollowersImpl> get copyWith =>
+  _$$FollowersImplCopyWith<_$FollowersImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

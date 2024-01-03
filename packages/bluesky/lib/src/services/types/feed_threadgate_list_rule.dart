@@ -18,13 +18,13 @@ part 'feed_threadgate_list_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#listrule
 @freezed
 @lex.appBskyFeedThreadgateListRule
-class FeedThreadgateListRule with _$FeedThreadgateListRule {
+class ListRule with _$ListRule {
   @jsonSerializable
-  const factory FeedThreadgateListRule({
+  const factory ListRule({
     @typeKey @Default(appBskyFeedThreadgateListRule) String type,
     @atUriConverter required AtUri list,
-  }) = _FeedThreadgateListRule;
+  }) = _ListRule;
 
-  factory FeedThreadgateListRule.fromJson(Map<String, Object?> json) =>
-      _$FeedThreadgateListRuleFromJson(json);
+  factory ListRule.fromJson(Map<String, Object?> json) =>
+      _$ListRuleFromJson(json);
 }

@@ -24,19 +24,19 @@ part 'embed_record_view_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
 @lex.appBskyEmbedRecordViewRecord
-class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
+class ViewRecord with _$ViewRecord {
   @jsonSerializable
-  const factory EmbedRecordViewRecord({
+  const factory ViewRecord({
     @typeKey @Default(appBskyEmbedRecordViewRecord) String type,
     @atUriConverter required AtUri uri,
     required String cid,
-    required ActorDefsProfileViewBasic author,
+    required ProfileViewBasic author,
     @postRecordConverter required PostRecord value,
     List<Label>? labels,
     @unionEmbedView List<UEmbedView>? embeds,
     required DateTime indexedAt,
-  }) = _EmbedRecordViewRecord;
+  }) = _ViewRecord;
 
-  factory EmbedRecordViewRecord.fromJson(Map<String, Object?> json) =>
-      _$EmbedRecordViewRecordFromJson(json);
+  factory ViewRecord.fromJson(Map<String, Object?> json) =>
+      _$ViewRecordFromJson(json);
 }

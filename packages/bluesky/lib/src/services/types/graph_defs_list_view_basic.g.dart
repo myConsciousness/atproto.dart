@@ -27,7 +27,7 @@ _$GraphDefsListViewBasicImpl _$$GraphDefsListViewBasicImplFromJson(Map json) =>
               'viewer',
               (v) => v == null
                   ? defaultGraphDefsListViewerState
-                  : GraphDefsListViewerState.fromJson(
+                  : ListViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),

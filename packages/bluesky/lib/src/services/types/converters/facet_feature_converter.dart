@@ -26,17 +26,17 @@ final class _UFacetFeatureConverter
 
       if (type == ids.appBskyRichtextFacetLink) {
         return UFacetFeature.link(
-          data: RichtextFacetLink.fromJson(json),
+          data: Link.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetMention) {
         return UFacetFeature.mention(
-          data: RichtextFacetMention.fromJson(json),
+          data: Mention.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetTag) {
         return UFacetFeature.tag(
-          data: RichtextFacetTag.fromJson(json),
+          data: Tag.fromJson(json),
         );
       }
 

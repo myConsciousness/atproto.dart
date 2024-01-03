@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../embed_record_view_blocked.dart';
 
-extension EmbedRecordViewBlockedExtension on EmbedRecordViewBlocked {
+extension ViewBlockedExtension on ViewBlocked {
   bool get isBlocked => blocked;
 }

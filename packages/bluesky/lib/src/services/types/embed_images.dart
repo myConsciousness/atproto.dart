@@ -19,12 +19,11 @@ part 'embed_images.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#main
 @freezed
 @lex.appBskyEmbedImages
-class EmbedImages with _$EmbedImages {
-  const factory EmbedImages({
+class Images with _$Images {
+  const factory Images({
     @typeKey @Default(appBskyEmbedImages) String type,
-    required List<EmbedImagesImage> images,
-  }) = _EmbedImages;
+    required List<Image> images,
+  }) = _Images;
 
-  factory EmbedImages.fromJson(Map<String, Object?> json) =>
-      _$EmbedImagesFromJson(json);
+  factory Images.fromJson(Map<String, Object?> json) => _$ImagesFromJson(json);
 }

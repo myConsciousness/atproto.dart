@@ -8,13 +8,11 @@ part of 'feed_threadgate_mention_rule.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedThreadgateMentionRuleImpl _$$FeedThreadgateMentionRuleImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$FeedThreadgateMentionRuleImpl',
+_$MentionRuleImpl _$$MentionRuleImplFromJson(Map json) => $checkedCreate(
+      r'_$MentionRuleImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedThreadgateMentionRuleImpl(
+        final val = _$MentionRuleImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyFeedThreadgateMentionRule),
         );
@@ -23,8 +21,7 @@ _$FeedThreadgateMentionRuleImpl _$$FeedThreadgateMentionRuleImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedThreadgateMentionRuleImplToJson(
-        _$FeedThreadgateMentionRuleImpl instance) =>
+Map<String, dynamic> _$$MentionRuleImplToJson(_$MentionRuleImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
     };

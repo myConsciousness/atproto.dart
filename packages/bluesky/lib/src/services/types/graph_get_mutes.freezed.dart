@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-GraphGetMutes _$GraphGetMutesFromJson(Map<String, dynamic> json) {
-  return _GraphGetMutes.fromJson(json);
+Mutes _$MutesFromJson(Map<String, dynamic> json) {
+  return _Mutes.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GraphGetMutes {
-  List<ActorDefsProfileView> get mutes => throw _privateConstructorUsedError;
+mixin _$Mutes {
+  List<ProfileView> get mutes => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GraphGetMutesCopyWith<GraphGetMutes> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MutesCopyWith<Mutes> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GraphGetMutesCopyWith<$Res> {
-  factory $GraphGetMutesCopyWith(
-          GraphGetMutes value, $Res Function(GraphGetMutes) then) =
-      _$GraphGetMutesCopyWithImpl<$Res, GraphGetMutes>;
+abstract class $MutesCopyWith<$Res> {
+  factory $MutesCopyWith(Mutes value, $Res Function(Mutes) then) =
+      _$MutesCopyWithImpl<$Res, Mutes>;
   @useResult
-  $Res call({List<ActorDefsProfileView> mutes, String? cursor});
+  $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
-class _$GraphGetMutesCopyWithImpl<$Res, $Val extends GraphGetMutes>
-    implements $GraphGetMutesCopyWith<$Res> {
-  _$GraphGetMutesCopyWithImpl(this._value, this._then);
+class _$MutesCopyWithImpl<$Res, $Val extends Mutes>
+    implements $MutesCopyWith<$Res> {
+  _$MutesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,7 +56,7 @@ class _$GraphGetMutesCopyWithImpl<$Res, $Val extends GraphGetMutes>
       mutes: null == mutes
           ? _value.mutes
           : mutes // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -68,22 +66,21 @@ class _$GraphGetMutesCopyWithImpl<$Res, $Val extends GraphGetMutes>
 }
 
 /// @nodoc
-abstract class _$$GraphGetMutesImplCopyWith<$Res>
-    implements $GraphGetMutesCopyWith<$Res> {
-  factory _$$GraphGetMutesImplCopyWith(
-          _$GraphGetMutesImpl value, $Res Function(_$GraphGetMutesImpl) then) =
-      __$$GraphGetMutesImplCopyWithImpl<$Res>;
+abstract class _$$MutesImplCopyWith<$Res> implements $MutesCopyWith<$Res> {
+  factory _$$MutesImplCopyWith(
+          _$MutesImpl value, $Res Function(_$MutesImpl) then) =
+      __$$MutesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> mutes, String? cursor});
+  $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
-class __$$GraphGetMutesImplCopyWithImpl<$Res>
-    extends _$GraphGetMutesCopyWithImpl<$Res, _$GraphGetMutesImpl>
-    implements _$$GraphGetMutesImplCopyWith<$Res> {
-  __$$GraphGetMutesImplCopyWithImpl(
-      _$GraphGetMutesImpl _value, $Res Function(_$GraphGetMutesImpl) _then)
+class __$$MutesImplCopyWithImpl<$Res>
+    extends _$MutesCopyWithImpl<$Res, _$MutesImpl>
+    implements _$$MutesImplCopyWith<$Res> {
+  __$$MutesImplCopyWithImpl(
+      _$MutesImpl _value, $Res Function(_$MutesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,11 +89,11 @@ class __$$GraphGetMutesImplCopyWithImpl<$Res>
     Object? mutes = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$GraphGetMutesImpl(
+    return _then(_$MutesImpl(
       mutes: null == mutes
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,17 +105,16 @@ class __$$GraphGetMutesImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$GraphGetMutesImpl implements _GraphGetMutes {
-  const _$GraphGetMutesImpl(
-      {required final List<ActorDefsProfileView> mutes, this.cursor})
+class _$MutesImpl implements _Mutes {
+  const _$MutesImpl({required final List<ProfileView> mutes, this.cursor})
       : _mutes = mutes;
 
-  factory _$GraphGetMutesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GraphGetMutesImplFromJson(json);
+  factory _$MutesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MutesImplFromJson(json);
 
-  final List<ActorDefsProfileView> _mutes;
+  final List<ProfileView> _mutes;
   @override
-  List<ActorDefsProfileView> get mutes {
+  List<ProfileView> get mutes {
     if (_mutes is EqualUnmodifiableListView) return _mutes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_mutes);
@@ -129,14 +125,14 @@ class _$GraphGetMutesImpl implements _GraphGetMutes {
 
   @override
   String toString() {
-    return 'GraphGetMutes(mutes: $mutes, cursor: $cursor)';
+    return 'Mutes(mutes: $mutes, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GraphGetMutesImpl &&
+            other is _$MutesImpl &&
             const DeepCollectionEquality().equals(other._mutes, _mutes) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -149,31 +145,30 @@ class _$GraphGetMutesImpl implements _GraphGetMutes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GraphGetMutesImplCopyWith<_$GraphGetMutesImpl> get copyWith =>
-      __$$GraphGetMutesImplCopyWithImpl<_$GraphGetMutesImpl>(this, _$identity);
+  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
+      __$$MutesImplCopyWithImpl<_$MutesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GraphGetMutesImplToJson(
+    return _$$MutesImplToJson(
       this,
     );
   }
 }
 
-abstract class _GraphGetMutes implements GraphGetMutes {
-  const factory _GraphGetMutes(
-      {required final List<ActorDefsProfileView> mutes,
-      final String? cursor}) = _$GraphGetMutesImpl;
+abstract class _Mutes implements Mutes {
+  const factory _Mutes(
+      {required final List<ProfileView> mutes,
+      final String? cursor}) = _$MutesImpl;
 
-  factory _GraphGetMutes.fromJson(Map<String, dynamic> json) =
-      _$GraphGetMutesImpl.fromJson;
+  factory _Mutes.fromJson(Map<String, dynamic> json) = _$MutesImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get mutes;
+  List<ProfileView> get mutes;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$GraphGetMutesImplCopyWith<_$GraphGetMutesImpl> get copyWith =>
+  _$$MutesImplCopyWith<_$MutesImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

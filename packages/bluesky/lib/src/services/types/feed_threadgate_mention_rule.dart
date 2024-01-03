@@ -18,12 +18,12 @@ part 'feed_threadgate_mention_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#mentionrule
 @freezed
 @lex.appBskyFeedThreadgateMentionRule
-class FeedThreadgateMentionRule with _$FeedThreadgateMentionRule {
+class MentionRule with _$MentionRule {
   @jsonSerializable
-  const factory FeedThreadgateMentionRule({
+  const factory MentionRule({
     @typeKey @Default(appBskyFeedThreadgateMentionRule) String type,
-  }) = _FeedThreadgateMentionRule;
+  }) = _MentionRule;
 
-  factory FeedThreadgateMentionRule.fromJson(Map<String, Object?> json) =>
-      _$FeedThreadgateMentionRuleFromJson(json);
+  factory MentionRule.fromJson(Map<String, Object?> json) =>
+      _$MentionRuleFromJson(json);
 }

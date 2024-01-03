@@ -32,7 +32,7 @@ class GroupedNotification with _$GroupedNotification {
     ///
     /// This list is set in chronological order, with the author of the
     /// most recent notification at the top.
-    required List<ActorDefsProfileView> authors,
+    required List<ProfileView> authors,
 
     /// Specifies the reason for the notification.
     required GroupedNotificationReason reason,

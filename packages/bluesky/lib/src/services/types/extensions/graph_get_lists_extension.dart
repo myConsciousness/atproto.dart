@@ -7,12 +7,12 @@ import '../graph_defs_list_view.dart';
 import '../graph_get_lists.dart';
 import 'graph_defs_list_view_extension.dart';
 
-extension GraphGetListsExtension on GraphGetLists {
+extension ListsExtension on Lists {
   /// Returns only moderated lists.
-  List<GraphDefsListView> get moderatedLists =>
+  List<ListView> get moderatedLists =>
       lists.where((element) => element.isModerated).toList();
 
   /// Returns only curated lists.
-  List<GraphDefsListView> get curatedLists =>
+  List<ListView> get curatedLists =>
       lists.where((element) => element.isCurated).toList();
 }

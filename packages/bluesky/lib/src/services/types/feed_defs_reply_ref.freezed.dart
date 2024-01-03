@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedDefsReplyRef _$FeedDefsReplyRefFromJson(Map<String, dynamic> json) {
-  return _FeedDefsReplyRef.fromJson(json);
+ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
+  return _ReplyRef.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedDefsReplyRef {
+mixin _$ReplyRef {
   @unionReplyRef
   UReplyRef get root => throw _privateConstructorUsedError;
   @unionReplyRef
@@ -27,15 +27,14 @@ mixin _$FeedDefsReplyRef {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedDefsReplyRefCopyWith<FeedDefsReplyRef> get copyWith =>
+  $ReplyRefCopyWith<ReplyRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedDefsReplyRefCopyWith<$Res> {
-  factory $FeedDefsReplyRefCopyWith(
-          FeedDefsReplyRef value, $Res Function(FeedDefsReplyRef) then) =
-      _$FeedDefsReplyRefCopyWithImpl<$Res, FeedDefsReplyRef>;
+abstract class $ReplyRefCopyWith<$Res> {
+  factory $ReplyRefCopyWith(ReplyRef value, $Res Function(ReplyRef) then) =
+      _$ReplyRefCopyWithImpl<$Res, ReplyRef>;
   @useResult
   $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
 
@@ -44,9 +43,9 @@ abstract class $FeedDefsReplyRefCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FeedDefsReplyRefCopyWithImpl<$Res, $Val extends FeedDefsReplyRef>
-    implements $FeedDefsReplyRefCopyWith<$Res> {
-  _$FeedDefsReplyRefCopyWithImpl(this._value, this._then);
+class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
+    implements $ReplyRefCopyWith<$Res> {
+  _$ReplyRefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,11 +88,11 @@ class _$FeedDefsReplyRefCopyWithImpl<$Res, $Val extends FeedDefsReplyRef>
 }
 
 /// @nodoc
-abstract class _$$FeedDefsReplyRefImplCopyWith<$Res>
-    implements $FeedDefsReplyRefCopyWith<$Res> {
-  factory _$$FeedDefsReplyRefImplCopyWith(_$FeedDefsReplyRefImpl value,
-          $Res Function(_$FeedDefsReplyRefImpl) then) =
-      __$$FeedDefsReplyRefImplCopyWithImpl<$Res>;
+abstract class _$$ReplyRefImplCopyWith<$Res>
+    implements $ReplyRefCopyWith<$Res> {
+  factory _$$ReplyRefImplCopyWith(
+          _$ReplyRefImpl value, $Res Function(_$ReplyRefImpl) then) =
+      __$$ReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
@@ -105,11 +104,11 @@ abstract class _$$FeedDefsReplyRefImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FeedDefsReplyRefImplCopyWithImpl<$Res>
-    extends _$FeedDefsReplyRefCopyWithImpl<$Res, _$FeedDefsReplyRefImpl>
-    implements _$$FeedDefsReplyRefImplCopyWith<$Res> {
-  __$$FeedDefsReplyRefImplCopyWithImpl(_$FeedDefsReplyRefImpl _value,
-      $Res Function(_$FeedDefsReplyRefImpl) _then)
+class __$$ReplyRefImplCopyWithImpl<$Res>
+    extends _$ReplyRefCopyWithImpl<$Res, _$ReplyRefImpl>
+    implements _$$ReplyRefImplCopyWith<$Res> {
+  __$$ReplyRefImplCopyWithImpl(
+      _$ReplyRefImpl _value, $Res Function(_$ReplyRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -118,7 +117,7 @@ class __$$FeedDefsReplyRefImplCopyWithImpl<$Res>
     Object? root = null,
     Object? parent = null,
   }) {
-    return _then(_$FeedDefsReplyRefImpl(
+    return _then(_$ReplyRefImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -133,12 +132,12 @@ class __$$FeedDefsReplyRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$FeedDefsReplyRefImpl implements _FeedDefsReplyRef {
-  const _$FeedDefsReplyRefImpl(
+class _$ReplyRefImpl implements _ReplyRef {
+  const _$ReplyRefImpl(
       {@unionReplyRef required this.root, @unionReplyRef required this.parent});
 
-  factory _$FeedDefsReplyRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedDefsReplyRefImplFromJson(json);
+  factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ReplyRefImplFromJson(json);
 
   @override
   @unionReplyRef
@@ -149,14 +148,14 @@ class _$FeedDefsReplyRefImpl implements _FeedDefsReplyRef {
 
   @override
   String toString() {
-    return 'FeedDefsReplyRef(root: $root, parent: $parent)';
+    return 'ReplyRef(root: $root, parent: $parent)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedDefsReplyRefImpl &&
+            other is _$ReplyRefImpl &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
@@ -168,25 +167,24 @@ class _$FeedDefsReplyRefImpl implements _FeedDefsReplyRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedDefsReplyRefImplCopyWith<_$FeedDefsReplyRefImpl> get copyWith =>
-      __$$FeedDefsReplyRefImplCopyWithImpl<_$FeedDefsReplyRefImpl>(
-          this, _$identity);
+  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
+      __$$ReplyRefImplCopyWithImpl<_$ReplyRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedDefsReplyRefImplToJson(
+    return _$$ReplyRefImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedDefsReplyRef implements FeedDefsReplyRef {
-  const factory _FeedDefsReplyRef(
+abstract class _ReplyRef implements ReplyRef {
+  const factory _ReplyRef(
       {@unionReplyRef required final UReplyRef root,
-      @unionReplyRef required final UReplyRef parent}) = _$FeedDefsReplyRefImpl;
+      @unionReplyRef required final UReplyRef parent}) = _$ReplyRefImpl;
 
-  factory _FeedDefsReplyRef.fromJson(Map<String, dynamic> json) =
-      _$FeedDefsReplyRefImpl.fromJson;
+  factory _ReplyRef.fromJson(Map<String, dynamic> json) =
+      _$ReplyRefImpl.fromJson;
 
   @override
   @unionReplyRef
@@ -196,6 +194,6 @@ abstract class _FeedDefsReplyRef implements FeedDefsReplyRef {
   UReplyRef get parent;
   @override
   @JsonKey(ignore: true)
-  _$$FeedDefsReplyRefImplCopyWith<_$FeedDefsReplyRefImpl> get copyWith =>
+  _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

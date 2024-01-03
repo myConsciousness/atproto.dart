@@ -18,12 +18,12 @@ part 'feed_threadgate_following_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#followingrule
 @freezed
 @lex.appBskyFeedThreadgateFollowingRule
-class FeedThreadgateFollowingRule with _$FeedThreadgateFollowingRule {
+class FollowingRule with _$FollowingRule {
   @jsonSerializable
-  const factory FeedThreadgateFollowingRule({
+  const factory FollowingRule({
     @typeKey @Default(appBskyFeedThreadgateFollowingRule) String type,
-  }) = _FeedThreadgateFollowingRule;
+  }) = _FollowingRule;
 
-  factory FeedThreadgateFollowingRule.fromJson(Map<String, Object?> json) =>
-      _$FeedThreadgateFollowingRuleFromJson(json);
+  factory FollowingRule.fromJson(Map<String, Object?> json) =>
+      _$FollowingRuleFromJson(json);
 }

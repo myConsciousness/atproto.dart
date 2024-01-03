@@ -14,19 +14,19 @@ import '../../lex_annotations.g.dart' as lex;
 part 'feed_defs_viewer_state.freezed.dart';
 part 'feed_defs_viewer_state.g.dart';
 
-const defaultFeedDefsViewerState = FeedDefsViewerState();
+const defaultFeedDefsViewerState = ViewerState();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#viewerstate
 @freezed
 @lex.appBskyFeedDefsViewerState
-class FeedDefsViewerState with _$FeedDefsViewerState {
+class ViewerState with _$ViewerState {
   @jsonSerializable
-  const factory FeedDefsViewerState({
+  const factory ViewerState({
     @atUriConverter AtUri? repost,
     @atUriConverter AtUri? like,
     @Default(false) bool replyDisabled,
-  }) = _FeedDefsViewerState;
+  }) = _ViewerState;
 
-  factory FeedDefsViewerState.fromJson(Map<String, Object?> json) =>
-      _$FeedDefsViewerStateFromJson(json);
+  factory ViewerState.fromJson(Map<String, Object?> json) =>
+      _$ViewerStateFromJson(json);
 }

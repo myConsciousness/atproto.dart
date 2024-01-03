@@ -14,36 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-RichtextFacetMention _$RichtextFacetMentionFromJson(Map<String, dynamic> json) {
-  return _RichtextFacetMention.fromJson(json);
+Mention _$MentionFromJson(Map<String, dynamic> json) {
+  return _Mention.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RichtextFacetMention {
+mixin _$Mention {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RichtextFacetMentionCopyWith<RichtextFacetMention> get copyWith =>
-      throw _privateConstructorUsedError;
+  $MentionCopyWith<Mention> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RichtextFacetMentionCopyWith<$Res> {
-  factory $RichtextFacetMentionCopyWith(RichtextFacetMention value,
-          $Res Function(RichtextFacetMention) then) =
-      _$RichtextFacetMentionCopyWithImpl<$Res, RichtextFacetMention>;
+abstract class $MentionCopyWith<$Res> {
+  factory $MentionCopyWith(Mention value, $Res Function(Mention) then) =
+      _$MentionCopyWithImpl<$Res, Mention>;
   @useResult
   $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
-class _$RichtextFacetMentionCopyWithImpl<$Res,
-        $Val extends RichtextFacetMention>
-    implements $RichtextFacetMentionCopyWith<$Res> {
-  _$RichtextFacetMentionCopyWithImpl(this._value, this._then);
+class _$MentionCopyWithImpl<$Res, $Val extends Mention>
+    implements $MentionCopyWith<$Res> {
+  _$MentionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,22 +67,21 @@ class _$RichtextFacetMentionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$RichtextFacetMentionImplCopyWith<$Res>
-    implements $RichtextFacetMentionCopyWith<$Res> {
-  factory _$$RichtextFacetMentionImplCopyWith(_$RichtextFacetMentionImpl value,
-          $Res Function(_$RichtextFacetMentionImpl) then) =
-      __$$RichtextFacetMentionImplCopyWithImpl<$Res>;
+abstract class _$$MentionImplCopyWith<$Res> implements $MentionCopyWith<$Res> {
+  factory _$$MentionImplCopyWith(
+          _$MentionImpl value, $Res Function(_$MentionImpl) then) =
+      __$$MentionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String did});
 }
 
 /// @nodoc
-class __$$RichtextFacetMentionImplCopyWithImpl<$Res>
-    extends _$RichtextFacetMentionCopyWithImpl<$Res, _$RichtextFacetMentionImpl>
-    implements _$$RichtextFacetMentionImplCopyWith<$Res> {
-  __$$RichtextFacetMentionImplCopyWithImpl(_$RichtextFacetMentionImpl _value,
-      $Res Function(_$RichtextFacetMentionImpl) _then)
+class __$$MentionImplCopyWithImpl<$Res>
+    extends _$MentionCopyWithImpl<$Res, _$MentionImpl>
+    implements _$$MentionImplCopyWith<$Res> {
+  __$$MentionImplCopyWithImpl(
+      _$MentionImpl _value, $Res Function(_$MentionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,7 +90,7 @@ class __$$RichtextFacetMentionImplCopyWithImpl<$Res>
     Object? type = null,
     Object? did = null,
   }) {
-    return _then(_$RichtextFacetMentionImpl(
+    return _then(_$MentionImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -109,12 +105,12 @@ class __$$RichtextFacetMentionImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RichtextFacetMentionImpl implements _RichtextFacetMention {
-  const _$RichtextFacetMentionImpl(
+class _$MentionImpl implements _Mention {
+  const _$MentionImpl(
       {@typeKey this.type = appBskyRichtextFacetMention, required this.did});
 
-  factory _$RichtextFacetMentionImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RichtextFacetMentionImplFromJson(json);
+  factory _$MentionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MentionImplFromJson(json);
 
   @override
   @typeKey
@@ -124,14 +120,14 @@ class _$RichtextFacetMentionImpl implements _RichtextFacetMention {
 
   @override
   String toString() {
-    return 'RichtextFacetMention(type: $type, did: $did)';
+    return 'Mention(type: $type, did: $did)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RichtextFacetMentionImpl &&
+            other is _$MentionImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.did, did) || other.did == did));
   }
@@ -143,26 +139,22 @@ class _$RichtextFacetMentionImpl implements _RichtextFacetMention {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RichtextFacetMentionImplCopyWith<_$RichtextFacetMentionImpl>
-      get copyWith =>
-          __$$RichtextFacetMentionImplCopyWithImpl<_$RichtextFacetMentionImpl>(
-              this, _$identity);
+  _$$MentionImplCopyWith<_$MentionImpl> get copyWith =>
+      __$$MentionImplCopyWithImpl<_$MentionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RichtextFacetMentionImplToJson(
+    return _$$MentionImplToJson(
       this,
     );
   }
 }
 
-abstract class _RichtextFacetMention implements RichtextFacetMention {
-  const factory _RichtextFacetMention(
-      {@typeKey final String type,
-      required final String did}) = _$RichtextFacetMentionImpl;
+abstract class _Mention implements Mention {
+  const factory _Mention(
+      {@typeKey final String type, required final String did}) = _$MentionImpl;
 
-  factory _RichtextFacetMention.fromJson(Map<String, dynamic> json) =
-      _$RichtextFacetMentionImpl.fromJson;
+  factory _Mention.fromJson(Map<String, dynamic> json) = _$MentionImpl.fromJson;
 
   @override
   @typeKey
@@ -171,6 +163,6 @@ abstract class _RichtextFacetMention implements RichtextFacetMention {
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$RichtextFacetMentionImplCopyWith<_$RichtextFacetMentionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$MentionImplCopyWith<_$MentionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

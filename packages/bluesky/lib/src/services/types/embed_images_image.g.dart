@@ -8,12 +8,11 @@ part of 'embed_images_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$EmbedImagesImageImpl _$$EmbedImagesImageImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$EmbedImagesImageImpl',
+_$ImageImpl _$$ImageImplFromJson(Map json) => $checkedCreate(
+      r'_$ImageImpl',
       json,
       ($checkedConvert) {
-        final val = _$EmbedImagesImageImpl(
+        final val = _$ImageImpl(
           alt: $checkedConvert('alt', (v) => v as String),
           image: $checkedConvert('image',
               (v) => blobConverter.fromJson(v as Map<String, dynamic>)),
@@ -21,15 +20,13 @@ _$EmbedImagesImageImpl _$$EmbedImagesImageImplFromJson(Map json) =>
               'aspectRatio',
               (v) => v == null
                   ? null
-                  : EmbedImagesAspectRatio.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : AspectRatio.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$EmbedImagesImageImplToJson(
-    _$EmbedImagesImageImpl instance) {
+Map<String, dynamic> _$$ImageImplToJson(_$ImageImpl instance) {
   final val = <String, dynamic>{
     'alt': instance.alt,
     'image': blobConverter.toJson(instance.image),

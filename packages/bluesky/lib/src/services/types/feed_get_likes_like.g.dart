@@ -8,16 +8,13 @@ part of 'feed_get_likes_like.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedGetLikesLikeImpl _$$FeedGetLikesLikeImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$FeedGetLikesLikeImpl',
+_$LikeImpl _$$LikeImplFromJson(Map json) => $checkedCreate(
+      r'_$LikeImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedGetLikesLikeImpl(
-          actor: $checkedConvert(
-              'actor',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+        final val = _$LikeImpl(
+          actor: $checkedConvert('actor',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           indexedAt:
@@ -27,8 +24,7 @@ _$FeedGetLikesLikeImpl _$$FeedGetLikesLikeImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$FeedGetLikesLikeImplToJson(
-        _$FeedGetLikesLikeImpl instance) =>
+Map<String, dynamic> _$$LikeImplToJson(_$LikeImpl instance) =>
     <String, dynamic>{
       'actor': instance.actor.toJson(),
       'createdAt': instance.createdAt.toIso8601String(),

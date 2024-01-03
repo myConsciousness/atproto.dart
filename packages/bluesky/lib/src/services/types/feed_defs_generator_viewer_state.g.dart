@@ -8,13 +8,12 @@ part of 'feed_defs_generator_viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedDefsGeneratorViewerStateImpl _$$FeedDefsGeneratorViewerStateImplFromJson(
-        Map json) =>
+_$GeneratorViewerStateImpl _$$GeneratorViewerStateImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$FeedDefsGeneratorViewerStateImpl',
+      r'_$GeneratorViewerStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedDefsGeneratorViewerStateImpl(
+        final val = _$GeneratorViewerStateImpl(
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -24,8 +23,8 @@ _$FeedDefsGeneratorViewerStateImpl _$$FeedDefsGeneratorViewerStateImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$FeedDefsGeneratorViewerStateImplToJson(
-    _$FeedDefsGeneratorViewerStateImpl instance) {
+Map<String, dynamic> _$$GeneratorViewerStateImplToJson(
+    _$GeneratorViewerStateImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
