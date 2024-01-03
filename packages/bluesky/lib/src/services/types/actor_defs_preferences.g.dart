@@ -2,30 +2,30 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'actor_get_preferences.dart';
+part of 'actor_defs_preferences.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$PreferencesImpl _$$PreferencesImplFromJson(Map json) => $checkedCreate(
+      r'_$PreferencesImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$PreferencesImpl(
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      preferenceConverter.fromJson(e as Map<String, dynamic>))
+                  .map((e) => unionPreferencesPreferences
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$PreferencesImplToJson(_$PreferencesImpl instance) =>
     <String, dynamic>{
       'preferences':
-          instance.preferences.map(preferenceConverter.toJson).toList(),
+          instance.preferences.map(unionPreferencesPreferences.toJson).toList(),
     };

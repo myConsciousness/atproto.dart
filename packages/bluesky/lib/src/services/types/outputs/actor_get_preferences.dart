@@ -4,24 +4,16 @@
 
 // ignore_for_file: invalid_annotation_target
 
-// 📦 Package imports:
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../converters/preference_converter.dart';
-import '../unions/preference.dart';
-
-part 'actor_get_preferences.freezed.dart';
-part 'actor_get_preferences.g.dart';
+import '../actor_defs_preferences.dart';
+import '../unions/actor_defs_preferences_preferences.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
-@freezed
 @lex.appBskyActorGetPreferences
-class Output with _$Output {
-  const factory Output({
-    @preferenceConverter required List<Preference> preferences,
-  }) = _Output;
+abstract class Output {
+  List<PreferencesPreferences> get preferences;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) =>
+      Preferences.fromJson(json);
 }
