@@ -8,10 +8,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../embed_external.dart' as embed_external;
-import '../embed_images.dart' as embed_images;
-import '../embed_record.dart' as embed_record;
-import '../embed_record_with_media.dart' as embed_record_with_media;
+import '../embed_external_main.dart' as embed_external_main;
+import '../embed_images_main.dart' as embed_images_main;
+import '../embed_record_main.dart' as embed_record_main;
+import '../embed_record_with_media_main.dart' as embed_record_with_media_main;
 import '../unions/union_embed.dart';
 
 const unionEmbed = _UEmbedConverter();
@@ -27,22 +27,22 @@ final class _UEmbedConverter
 
       if (type == ids.appBskyEmbedRecord) {
         return UEmbed.embedRecord(
-          data: embed_record.Main.fromJson(json),
+          data: embed_record_main.Main.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImages) {
         return UEmbed.embedImages(
-          data: embed_images.Main.fromJson(json),
+          data: embed_images_main.Main.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return UEmbed.embedExternal(
-          data: embed_external.Main.fromJson(json),
+          data: embed_external_main.Main.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMedia) {
         return UEmbed.embedRecordWithMedia(
-          data: embed_record_with_media.Main.fromJson(json),
+          data: embed_record_with_media_main.Main.fromJson(json),
         );
       }
 

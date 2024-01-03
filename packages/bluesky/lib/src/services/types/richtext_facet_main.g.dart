@@ -2,7 +2,7 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'richtext_facet.dart';
+part of 'richtext_facet_main.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -21,7 +21,7 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
               'features',
               (v) => (v as List<dynamic>)
                   .map((e) =>
-                      unionFacetFeature.fromJson(e as Map<String, dynamic>))
+                      unionMainFeatures.fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
@@ -33,5 +33,5 @@ Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'index': instance.index.toJson(),
-      'features': instance.features.map(unionFacetFeature.toJson).toList(),
+      'features': instance.features.map(unionMainFeatures.toJson).toList(),
     };

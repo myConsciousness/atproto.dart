@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import '../embed_record.dart' as embed_record;
+import '../embed_record_main.dart' as embed_record;
 
 extension MainExtension on embed_record.Main {
   StrongRef get ref => record;

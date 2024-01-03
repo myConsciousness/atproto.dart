@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'embed_record.dart';
+part of 'embed_external_main.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,7 +22,7 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  StrongRef get record => throw _privateConstructorUsedError;
+  External get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +34,9 @@ abstract class $MainCopyWith<$Res> {
   factory $MainCopyWith(Main value, $Res Function(Main) then) =
       _$MainCopyWithImpl<$Res, Main>;
   @useResult
-  $Res call({@typeKey String type, StrongRef record});
+  $Res call({@typeKey String type, External external});
 
-  $StrongRefCopyWith<$Res> get record;
+  $ExternalCopyWith<$Res> get external;
 }
 
 /// @nodoc
@@ -53,25 +53,25 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
   @override
   $Res call({
     Object? type = null,
-    Object? record = null,
+    Object? external = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+      external: null == external
+          ? _value.external
+          : external // ignore: cast_nullable_to_non_nullable
+              as External,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get record {
-    return $StrongRefCopyWith<$Res>(_value.record, (value) {
-      return _then(_value.copyWith(record: value) as $Val);
+  $ExternalCopyWith<$Res> get external {
+    return $ExternalCopyWith<$Res>(_value.external, (value) {
+      return _then(_value.copyWith(external: value) as $Val);
     });
   }
 }
@@ -83,10 +83,10 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
       __$$MainImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, StrongRef record});
+  $Res call({@typeKey String type, External external});
 
   @override
-  $StrongRefCopyWith<$Res> get record;
+  $ExternalCopyWith<$Res> get external;
 }
 
 /// @nodoc
@@ -100,17 +100,17 @@ class __$$MainImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? record = null,
+    Object? external = null,
   }) {
     return _then(_$MainImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      record: null == record
-          ? _value.record
-          : record // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+      external: null == external
+          ? _value.external
+          : external // ignore: cast_nullable_to_non_nullable
+              as External,
     ));
   }
 }
@@ -119,7 +119,7 @@ class __$$MainImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MainImpl implements _Main {
   const _$MainImpl(
-      {@typeKey this.type = appBskyEmbedRecord, required this.record});
+      {@typeKey this.type = appBskyEmbedExternal, required this.external});
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainImplFromJson(json);
@@ -128,11 +128,11 @@ class _$MainImpl implements _Main {
   @typeKey
   final String type;
   @override
-  final StrongRef record;
+  final External external;
 
   @override
   String toString() {
-    return 'Main(type: $type, record: $record)';
+    return 'Main(type: $type, external: $external)';
   }
 
   @override
@@ -141,12 +141,13 @@ class _$MainImpl implements _Main {
         (other.runtimeType == runtimeType &&
             other is _$MainImpl &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.record, record) || other.record == record));
+            (identical(other.external, external) ||
+                other.external == external));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, record);
+  int get hashCode => Object.hash(runtimeType, type, external);
 
   @JsonKey(ignore: true)
   @override
@@ -165,7 +166,7 @@ class _$MainImpl implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {@typeKey final String type,
-      required final StrongRef record}) = _$MainImpl;
+      required final External external}) = _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
@@ -173,7 +174,7 @@ abstract class _Main implements Main {
   @typeKey
   String get type;
   @override
-  StrongRef get record;
+  External get external;
   @override
   @JsonKey(ignore: true)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>

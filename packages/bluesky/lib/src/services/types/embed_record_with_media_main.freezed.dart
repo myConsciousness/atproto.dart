@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'richtext_facet.dart';
+part of 'embed_record_with_media_main.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,9 +22,9 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  ByteSlice get index => throw _privateConstructorUsedError;
-  @unionFacetFeature
-  List<UFacetFeature> get features => throw _privateConstructorUsedError;
+  embed_record_main.Main get record => throw _privateConstructorUsedError;
+  @unionEmbedRecordWithMedia
+  UEmbedRecordWithMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,10 +38,11 @@ abstract class $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      ByteSlice index,
-      @unionFacetFeature List<UFacetFeature> features});
+      embed_record_main.Main record,
+      @unionEmbedRecordWithMedia UEmbedRecordWithMedia media});
 
-  $ByteSliceCopyWith<$Res> get index;
+  $MainCopyWith<$Res> get record;
+  $UEmbedRecordWithMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -58,30 +59,38 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
   @override
   $Res call({
     Object? type = null,
-    Object? index = null,
-    Object? features = null,
+    Object? record = null,
+    Object? media = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as ByteSlice,
-      features: null == features
-          ? _value.features
-          : features // ignore: cast_nullable_to_non_nullable
-              as List<UFacetFeature>,
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as embed_record_main.Main,
+      media: null == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as UEmbedRecordWithMedia,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ByteSliceCopyWith<$Res> get index {
-    return $ByteSliceCopyWith<$Res>(_value.index, (value) {
-      return _then(_value.copyWith(index: value) as $Val);
+  $MainCopyWith<$Res> get record {
+    return $MainCopyWith<$Res>(_value.record, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UEmbedRecordWithMediaCopyWith<$Res> get media {
+    return $UEmbedRecordWithMediaCopyWith<$Res>(_value.media, (value) {
+      return _then(_value.copyWith(media: value) as $Val);
     });
   }
 }
@@ -95,11 +104,13 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      ByteSlice index,
-      @unionFacetFeature List<UFacetFeature> features});
+      embed_record_main.Main record,
+      @unionEmbedRecordWithMedia UEmbedRecordWithMedia media});
 
   @override
-  $ByteSliceCopyWith<$Res> get index;
+  $MainCopyWith<$Res> get record;
+  @override
+  $UEmbedRecordWithMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -113,35 +124,33 @@ class __$$MainImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? index = null,
-    Object? features = null,
+    Object? record = null,
+    Object? media = null,
   }) {
     return _then(_$MainImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      index: null == index
-          ? _value.index
-          : index // ignore: cast_nullable_to_non_nullable
-              as ByteSlice,
-      features: null == features
-          ? _value._features
-          : features // ignore: cast_nullable_to_non_nullable
-              as List<UFacetFeature>,
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as embed_record_main.Main,
+      media: null == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as UEmbedRecordWithMedia,
     ));
   }
 }
 
 /// @nodoc
-
-@jsonSerializable
+@JsonSerializable()
 class _$MainImpl implements _Main {
   const _$MainImpl(
-      {@typeKey this.type = appBskyRichtextFacet,
-      required this.index,
-      @unionFacetFeature required final List<UFacetFeature> features})
-      : _features = features;
+      {@typeKey this.type = appBskyEmbedRecordWithMedia,
+      required this.record,
+      @unionEmbedRecordWithMedia required this.media});
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainImplFromJson(json);
@@ -150,19 +159,14 @@ class _$MainImpl implements _Main {
   @typeKey
   final String type;
   @override
-  final ByteSlice index;
-  final List<UFacetFeature> _features;
+  final embed_record_main.Main record;
   @override
-  @unionFacetFeature
-  List<UFacetFeature> get features {
-    if (_features is EqualUnmodifiableListView) return _features;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_features);
-  }
+  @unionEmbedRecordWithMedia
+  final UEmbedRecordWithMedia media;
 
   @override
   String toString() {
-    return 'Main(type: $type, index: $index, features: $features)';
+    return 'Main(type: $type, record: $record, media: $media)';
   }
 
   @override
@@ -171,14 +175,13 @@ class _$MainImpl implements _Main {
         (other.runtimeType == runtimeType &&
             other is _$MainImpl &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.index, index) || other.index == index) &&
-            const DeepCollectionEquality().equals(other._features, _features));
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.media, media) || other.media == media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, index, const DeepCollectionEquality().hash(_features));
+  int get hashCode => Object.hash(runtimeType, type, record, media);
 
   @JsonKey(ignore: true)
   @override
@@ -196,10 +199,10 @@ class _$MainImpl implements _Main {
 
 abstract class _Main implements Main {
   const factory _Main(
-          {@typeKey final String type,
-          required final ByteSlice index,
-          @unionFacetFeature required final List<UFacetFeature> features}) =
-      _$MainImpl;
+      {@typeKey final String type,
+      required final embed_record_main.Main record,
+      @unionEmbedRecordWithMedia
+      required final UEmbedRecordWithMedia media}) = _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
@@ -207,10 +210,10 @@ abstract class _Main implements Main {
   @typeKey
   String get type;
   @override
-  ByteSlice get index;
+  embed_record_main.Main get record;
   @override
-  @unionFacetFeature
-  List<UFacetFeature> get features;
+  @unionEmbedRecordWithMedia
+  UEmbedRecordWithMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>

@@ -2,7 +2,7 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'embed_external.dart';
+part of 'embed_record_with_media_main.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
@@ -14,9 +14,13 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$MainImpl(
           type: $checkedConvert(
-              r'$type', (v) => v as String? ?? appBskyEmbedExternal),
-          external: $checkedConvert('external',
-              (v) => External.fromJson(Map<String, Object?>.from(v as Map))),
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMedia),
+          record: $checkedConvert('record',
+              (v) => Main.fromJson(Map<String, Object?>.from(v as Map))),
+          media: $checkedConvert(
+              'media',
+              (v) => unionEmbedRecordWithMedia
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -26,5 +30,6 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'external': instance.external.toJson(),
+      'record': instance.record.toJson(),
+      'media': unionEmbedRecordWithMedia.toJson(instance.media),
     };

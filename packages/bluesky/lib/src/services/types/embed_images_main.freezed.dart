@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'embed_external.dart';
+part of 'embed_images_main.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -22,7 +22,7 @@ Main _$MainFromJson(Map<String, dynamic> json) {
 mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  External get external => throw _privateConstructorUsedError;
+  List<Image> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,9 +34,7 @@ abstract class $MainCopyWith<$Res> {
   factory $MainCopyWith(Main value, $Res Function(Main) then) =
       _$MainCopyWithImpl<$Res, Main>;
   @useResult
-  $Res call({@typeKey String type, External external});
-
-  $ExternalCopyWith<$Res> get external;
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -53,26 +51,18 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
   @override
   $Res call({
     Object? type = null,
-    Object? external = null,
+    Object? images = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      external: null == external
-          ? _value.external
-          : external // ignore: cast_nullable_to_non_nullable
-              as External,
+      images: null == images
+          ? _value.images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<Image>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ExternalCopyWith<$Res> get external {
-    return $ExternalCopyWith<$Res>(_value.external, (value) {
-      return _then(_value.copyWith(external: value) as $Val);
-    });
   }
 }
 
@@ -83,10 +73,7 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
       __$$MainImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, External external});
-
-  @override
-  $ExternalCopyWith<$Res> get external;
+  $Res call({@typeKey String type, List<Image> images});
 }
 
 /// @nodoc
@@ -100,17 +87,17 @@ class __$$MainImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? type = null,
-    Object? external = null,
+    Object? images = null,
   }) {
     return _then(_$MainImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      external: null == external
-          ? _value.external
-          : external // ignore: cast_nullable_to_non_nullable
-              as External,
+      images: null == images
+          ? _value._images
+          : images // ignore: cast_nullable_to_non_nullable
+              as List<Image>,
     ));
   }
 }
@@ -119,7 +106,9 @@ class __$$MainImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MainImpl implements _Main {
   const _$MainImpl(
-      {@typeKey this.type = appBskyEmbedExternal, required this.external});
+      {@typeKey this.type = appBskyEmbedImages,
+      required final List<Image> images})
+      : _images = images;
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainImplFromJson(json);
@@ -127,12 +116,17 @@ class _$MainImpl implements _Main {
   @override
   @typeKey
   final String type;
+  final List<Image> _images;
   @override
-  final External external;
+  List<Image> get images {
+    if (_images is EqualUnmodifiableListView) return _images;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_images);
+  }
 
   @override
   String toString() {
-    return 'Main(type: $type, external: $external)';
+    return 'Main(type: $type, images: $images)';
   }
 
   @override
@@ -141,13 +135,13 @@ class _$MainImpl implements _Main {
         (other.runtimeType == runtimeType &&
             other is _$MainImpl &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.external, external) ||
-                other.external == external));
+            const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, external);
+  int get hashCode => Object.hash(
+      runtimeType, type, const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -166,7 +160,7 @@ class _$MainImpl implements _Main {
 abstract class _Main implements Main {
   const factory _Main(
       {@typeKey final String type,
-      required final External external}) = _$MainImpl;
+      required final List<Image> images}) = _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
@@ -174,7 +168,7 @@ abstract class _Main implements Main {
   @typeKey
   String get type;
   @override
-  External get external;
+  List<Image> get images;
   @override
   @JsonKey(ignore: true)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>

@@ -13,7 +13,7 @@ import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_defs_profile_view.dart';
 import 'feed_defs_generator_viewer_state.dart';
-import 'richtext_facet.dart';
+import 'richtext_facet_main.dart';
 
 part 'feed_defs_generator_view.freezed.dart';
 part 'feed_defs_generator_view.g.dart';

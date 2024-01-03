@@ -11,22 +11,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/facet_feature_converter.dart';
-import 'richtext_facet_byte_slice.dart';
-import 'unions/union_facet_feature.dart';
+import 'embed_images_image.dart';
 
-part 'richtext_facet.freezed.dart';
-part 'richtext_facet.g.dart';
+part 'embed_images_main.freezed.dart';
+part 'embed_images_main.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#main
 @freezed
-@lex.appBskyRichtextFacet
+@lex.appBskyEmbedImages
 class Main with _$Main {
-  @jsonSerializable
   const factory Main({
-    @typeKey @Default(appBskyRichtextFacet) String type,
-    required ByteSlice index,
-    @unionFacetFeature required List<UFacetFeature> features,
+    @typeKey @Default(appBskyEmbedImages) String type,
+    required List<Image> images,
   }) = _Main;
 
   factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);

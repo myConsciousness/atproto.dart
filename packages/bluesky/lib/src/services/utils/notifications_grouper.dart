@@ -10,9 +10,9 @@ import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
 import '../types/actor_defs_profile_view.dart';
-import '../types/grouped_notifications.dart';
 import '../types/notification_list_notifications_notification.dart';
 import 'group_by.dart';
+import 'grouped_notifications.dart';
 import 'notification_reason_filter.dart';
 
 import '../types/outputs/notification_list_notifications.dart'

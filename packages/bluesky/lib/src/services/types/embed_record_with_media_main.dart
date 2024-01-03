@@ -12,11 +12,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'converters/embed_record_with_media_converter.dart';
-import 'embed_record.dart' as embed_record;
+import 'embed_record_main.dart' as embed_record_main;
 import 'unions/union_embed_record_with_media.dart';
 
-part 'embed_record_with_media.freezed.dart';
-part 'embed_record_with_media.g.dart';
+part 'embed_record_with_media_main.freezed.dart';
+part 'embed_record_with_media_main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
@@ -24,7 +24,7 @@ part 'embed_record_with_media.g.dart';
 class Main with _$Main {
   const factory Main({
     @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
-    required embed_record.Main record,
+    required embed_record_main.Main record,
     @unionEmbedRecordWithMedia required UEmbedRecordWithMedia media,
   }) = _Main;
 

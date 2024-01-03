@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart';
-import '../richtext_facet.dart';
+import '../richtext_facet_main.dart';
 
 part 'generator_record.freezed.dart';
 part 'generator_record.g.dart';

@@ -8,8 +8,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../embed_external.dart' as embed_external;
-import '../embed_images.dart' as embed_images;
+import '../embed_external_main.dart' as embed_external_main;
+import '../embed_images_main.dart' as embed_images_main;
 import '../unions/union_embed_record_with_media.dart';
 
 const unionEmbedRecordWithMedia = _EmbedRecordWithMediaConverter();
@@ -25,12 +25,12 @@ final class _EmbedRecordWithMediaConverter
 
       if (type == ids.appBskyEmbedImages) {
         return UEmbedRecordWithMedia.embedImages(
-          data: embed_images.Main.fromJson(json),
+          data: embed_images_main.Main.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return UEmbedRecordWithMedia.embedExternal(
-          data: embed_external.Main.fromJson(json),
+          data: embed_external_main.Main.fromJson(json),
         );
       }
 

@@ -13,8 +13,8 @@ import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'embed_external_external.dart';
 
-part 'embed_external.freezed.dart';
-part 'embed_external.g.dart';
+part 'embed_external_main.freezed.dart';
+part 'embed_external_main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#main
 @freezed

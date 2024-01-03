@@ -13,7 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../ids.g.dart';
 import '../converters/embed_converter.dart';
 import '../feed_post_reply_ref.dart';
-import '../richtext_facet.dart';
+import '../richtext_facet_main.dart';
 import '../unions/union_embed.dart';
 
 part 'post_record.freezed.dart';
