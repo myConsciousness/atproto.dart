@@ -19,13 +19,12 @@ _$ThreadViewPostImpl _$$ThreadViewPostImplFromJson(Map json) => $checkedCreate(
               (v) => PostView.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert(
               'parent',
-              (v) =>
-                  _$JsonConverterFromJson<Map<String, dynamic>, PostThreadView>(
-                      v, postThreadViewConverter.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                  ThreadViewPostParent>(v, unionThreadViewPostParent.fromJson)),
           replies: $checkedConvert(
               'replies',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => postThreadViewConverter
+                  ?.map((e) => unionThreadViewPostReplies
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
@@ -39,9 +38,11 @@ Map<String, dynamic> _$$ThreadViewPostImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'post': instance.post.toJson(),
-      'parent': _$JsonConverterToJson<Map<String, dynamic>, PostThreadView>(
-          instance.parent, postThreadViewConverter.toJson),
-      'replies': instance.replies?.map(postThreadViewConverter.toJson).toList(),
+      'parent':
+          _$JsonConverterToJson<Map<String, dynamic>, ThreadViewPostParent>(
+              instance.parent, unionThreadViewPostParent.toJson),
+      'replies':
+          instance.replies?.map(unionThreadViewPostReplies.toJson).toList(),
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

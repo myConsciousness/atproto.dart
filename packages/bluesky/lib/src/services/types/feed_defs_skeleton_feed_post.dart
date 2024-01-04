@@ -10,8 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/skeleton_reason_converter.dart';
-import 'unions/skeleton_reason.dart';
+import 'unions/feed_defs_skeleton_feed_post_reason.dart';
 
 part 'feed_defs_skeleton_feed_post.freezed.dart';
 part 'feed_defs_skeleton_feed_post.g.dart';
@@ -23,7 +22,7 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
   @jsonSerializable
   const factory SkeletonFeedPost({
     @atUriConverter required AtUri post,
-    @skeletonReasonConverter SkeletonReason? reason,
+    @unionSkeletonFeedPostReason SkeletonFeedPostReason? reason,
   }) = _SkeletonFeedPost;
 
   factory SkeletonFeedPost.fromJson(Map<String, Object?> json) =>

@@ -11,9 +11,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/post_thread_view_converter.dart';
 import 'feed_defs_post_view.dart';
-import 'unions/post_thread_view.dart';
+import 'unions/feed_defs_thread_view_post_parent.dart';
+import 'unions/feed_defs_thread_view_post_replies.dart';
 
 part 'feed_defs_thread_view_post.freezed.dart';
 part 'feed_defs_thread_view_post.g.dart';
@@ -25,8 +25,8 @@ class ThreadViewPost with _$ThreadViewPost {
   const factory ThreadViewPost({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,
     required PostView post,
-    @postThreadViewConverter PostThreadView? parent,
-    @postThreadViewConverter List<PostThreadView>? replies,
+    @unionThreadViewPostParent ThreadViewPostParent? parent,
+    @unionThreadViewPostReplies List<ThreadViewPostReplies>? replies,
   }) = _ThreadViewPost;
 
   factory ThreadViewPost.fromJson(Map<String, Object?> json) =>

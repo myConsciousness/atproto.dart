@@ -13,10 +13,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$OutputImpl(
-          thread: $checkedConvert(
-              'thread',
-              (v) =>
-                  postThreadViewConverter.fromJson(v as Map<String, dynamic>)),
+          thread: $checkedConvert('thread',
+              (v) => unionOutputThread.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -24,5 +22,5 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
-      'thread': postThreadViewConverter.toJson(instance.thread),
+      'thread': unionOutputThread.toJson(instance.thread),
     };

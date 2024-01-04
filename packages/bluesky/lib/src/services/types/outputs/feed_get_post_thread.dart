@@ -7,8 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../converters/post_thread_view_converter.dart';
-import '../unions/post_thread_view.dart';
+import '../unions/feed_get_post_thread_thread.dart';
 
 part 'feed_get_post_thread.freezed.dart';
 part 'feed_get_post_thread.g.dart';
@@ -18,7 +17,7 @@ part 'feed_get_post_thread.g.dart';
 @lex.appBskyFeedGetPostThread
 class Output with _$Output {
   const factory Output({
-    @postThreadViewConverter required PostThreadView thread,
+    @unionOutputThread required OutputThread thread,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);

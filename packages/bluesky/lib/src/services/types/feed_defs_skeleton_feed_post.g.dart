@@ -18,9 +18,9 @@ _$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
               'post', (v) => atUriConverter.fromJson(v as String)),
           reason: $checkedConvert(
               'reason',
-              (v) =>
-                  _$JsonConverterFromJson<Map<String, dynamic>, SkeletonReason>(
-                      v, skeletonReasonConverter.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      SkeletonFeedPostReason>(
+                  v, unionSkeletonFeedPostReason.fromJson)),
         );
         return val;
       },
@@ -40,8 +40,8 @@ Map<String, dynamic> _$$SkeletonFeedPostImplToJson(
 
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, SkeletonReason>(
-          instance.reason, skeletonReasonConverter.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, SkeletonFeedPostReason>(
+          instance.reason, unionSkeletonFeedPostReason.toJson));
   return val;
 }
 

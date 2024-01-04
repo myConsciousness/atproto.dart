@@ -20,8 +20,8 @@ Output _$OutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Output {
-  @postThreadViewConverter
-  PostThreadView get thread => throw _privateConstructorUsedError;
+  @unionOutputThread
+  OutputThread get thread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,9 +33,9 @@ abstract class $OutputCopyWith<$Res> {
   factory $OutputCopyWith(Output value, $Res Function(Output) then) =
       _$OutputCopyWithImpl<$Res, Output>;
   @useResult
-  $Res call({@postThreadViewConverter PostThreadView thread});
+  $Res call({@unionOutputThread OutputThread thread});
 
-  $PostThreadViewCopyWith<$Res> get thread;
+  $OutputThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -57,14 +57,14 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as PostThreadView,
+              as OutputThread,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostThreadViewCopyWith<$Res> get thread {
-    return $PostThreadViewCopyWith<$Res>(_value.thread, (value) {
+  $OutputThreadCopyWith<$Res> get thread {
+    return $OutputThreadCopyWith<$Res>(_value.thread, (value) {
       return _then(_value.copyWith(thread: value) as $Val);
     });
   }
@@ -77,10 +77,10 @@ abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
       __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@postThreadViewConverter PostThreadView thread});
+  $Res call({@unionOutputThread OutputThread thread});
 
   @override
-  $PostThreadViewCopyWith<$Res> get thread;
+  $OutputThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -100,7 +100,7 @@ class __$$OutputImplCopyWithImpl<$Res>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as PostThreadView,
+              as OutputThread,
     ));
   }
 }
@@ -108,14 +108,14 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$OutputImpl implements _Output {
-  const _$OutputImpl({@postThreadViewConverter required this.thread});
+  const _$OutputImpl({@unionOutputThread required this.thread});
 
   factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$OutputImplFromJson(json);
 
   @override
-  @postThreadViewConverter
-  final PostThreadView thread;
+  @unionOutputThread
+  final OutputThread thread;
 
   @override
   String toString() {
@@ -150,14 +150,13 @@ class _$OutputImpl implements _Output {
 
 abstract class _Output implements Output {
   const factory _Output(
-          {@postThreadViewConverter required final PostThreadView thread}) =
-      _$OutputImpl;
+      {@unionOutputThread required final OutputThread thread}) = _$OutputImpl;
 
   factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
-  @postThreadViewConverter
-  PostThreadView get thread;
+  @unionOutputThread
+  OutputThread get thread;
   @override
   @JsonKey(ignore: true)
   _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
