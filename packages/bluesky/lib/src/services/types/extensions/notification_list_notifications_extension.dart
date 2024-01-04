@@ -6,7 +6,7 @@
 import '../../utils/group_by.dart';
 import '../../utils/notification_reason_filter.dart';
 import '../../utils/notifications_grouper.dart';
-import '../grouped_notifications.dart';
+import '../../utils/grouped_notifications.dart';
 
 import '../outputs/notification_list_notifications.dart'
     as notification_list_notifications;
