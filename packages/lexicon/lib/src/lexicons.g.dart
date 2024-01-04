@@ -6219,12 +6219,8 @@ const appBskyEmbedExternal = <String, dynamic>{
       "required": ["uri", "title", "description"],
       "properties": {
         "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string", "maxLength": 3000, "maxGraphemes": 300},
-        "description": {
-          "type": "string",
-          "maxLength": 10000,
-          "maxGraphemes": 1000
-        },
+        "title": {"type": "string"},
+        "description": {"type": "string"},
         "thumb": {
           "type": "blob",
           "accept": ["image/*"],
@@ -6244,13 +6240,9 @@ const appBskyEmbedExternal = <String, dynamic>{
       "required": ["uri", "title", "description"],
       "properties": {
         "uri": {"type": "string", "format": "uri"},
-        "title": {"type": "string", "maxLength": 3000, "maxGraphemes": 300},
-        "description": {
-          "type": "string",
-          "maxLength": 10000,
-          "maxGraphemes": 1000
-        },
-        "thumb": {"type": "string", "format": "uri"}
+        "title": {"type": "string"},
+        "description": {"type": "string"},
+        "thumb": {"type": "string"}
       }
     }
   }
@@ -6314,7 +6306,7 @@ const appBskyEmbedImages = <String, dynamic>{
           "accept": ["image/*"],
           "maxSize": 1000000
         },
-        "alt": {"type": "string", "maxLength": 50000, "maxGraphemes": 5000},
+        "alt": {"type": "string"},
         "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     },
@@ -6343,9 +6335,9 @@ const appBskyEmbedImages = <String, dynamic>{
       "type": "object",
       "required": ["thumb", "fullsize", "alt"],
       "properties": {
-        "thumb": {"type": "string", "format": "uri"},
-        "fullsize": {"type": "string", "format": "uri"},
-        "alt": {"type": "string", "maxLength": 50000, "maxGraphemes": 5000},
+        "thumb": {"type": "string"},
+        "fullsize": {"type": "string"},
+        "alt": {"type": "string"},
         "aspectRatio": {"type": "ref", "ref": "#aspectRatio"}
       }
     }

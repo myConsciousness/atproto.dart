@@ -38,7 +38,7 @@ width:height represents an aspect ratio. It may be approximate, and may not corr
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **thumb** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
-| **fullsize** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
+| **thumb** | string | - | ✅ | - |
+| **fullsize** | string | - | ✅ | - |
 | **alt** | string | - | ✅ | - |
 | **aspectRatio** | [#aspectRatio](#aspectratio) | - | ❌ | - |
