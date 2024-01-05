@@ -26,8 +26,8 @@ mixin _$ViewRecord {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
-  @postRecordConverter
-  PostRecord get value => throw _privateConstructorUsedError;
+  @recordConverter
+  feed_post.Record get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   @unionViewRecordEmbeds
   List<UViewRecordEmbeds>? get embeds => throw _privateConstructorUsedError;
@@ -50,13 +50,13 @@ abstract class $ViewRecordCopyWith<$Res> {
       @atUriConverter AtUri uri,
       String cid,
       ProfileViewBasic author,
-      @postRecordConverter PostRecord value,
+      @recordConverter feed_post.Record value,
       List<Label>? labels,
       @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
   $ProfileViewBasicCopyWith<$Res> get author;
-  $PostRecordCopyWith<$Res> get value;
+  $RecordCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class _$ViewRecordCopyWithImpl<$Res, $Val extends ViewRecord>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as PostRecord,
+              as feed_post.Record,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -127,8 +127,8 @@ class _$ViewRecordCopyWithImpl<$Res, $Val extends ViewRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $PostRecordCopyWith<$Res> get value {
-    return $PostRecordCopyWith<$Res>(_value.value, (value) {
+  $RecordCopyWith<$Res> get value {
+    return $RecordCopyWith<$Res>(_value.value, (value) {
       return _then(_value.copyWith(value: value) as $Val);
     });
   }
@@ -147,7 +147,7 @@ abstract class _$$ViewRecordImplCopyWith<$Res>
       @atUriConverter AtUri uri,
       String cid,
       ProfileViewBasic author,
-      @postRecordConverter PostRecord value,
+      @recordConverter feed_post.Record value,
       List<Label>? labels,
       @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
       DateTime indexedAt});
@@ -155,7 +155,7 @@ abstract class _$$ViewRecordImplCopyWith<$Res>
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
   @override
-  $PostRecordCopyWith<$Res> get value;
+  $RecordCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -198,7 +198,7 @@ class __$$ViewRecordImplCopyWithImpl<$Res>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as PostRecord,
+              as feed_post.Record,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -224,7 +224,7 @@ class _$ViewRecordImpl implements _ViewRecord {
       @atUriConverter required this.uri,
       required this.cid,
       required this.author,
-      @postRecordConverter required this.value,
+      @recordConverter required this.value,
       final List<Label>? labels,
       @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
       required this.indexedAt})
@@ -245,8 +245,8 @@ class _$ViewRecordImpl implements _ViewRecord {
   @override
   final ProfileViewBasic author;
   @override
-  @postRecordConverter
-  final PostRecord value;
+  @recordConverter
+  final feed_post.Record value;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -325,7 +325,7 @@ abstract class _ViewRecord implements ViewRecord {
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final ProfileViewBasic author,
-      @postRecordConverter required final PostRecord value,
+      @recordConverter required final feed_post.Record value,
       final List<Label>? labels,
       @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
       required final DateTime indexedAt}) = _$ViewRecordImpl;
@@ -344,8 +344,8 @@ abstract class _ViewRecord implements ViewRecord {
   @override
   ProfileViewBasic get author;
   @override
-  @postRecordConverter
-  PostRecord get value;
+  @recordConverter
+  feed_post.Record get value;
   @override
   List<Label>? get labels;
   @override

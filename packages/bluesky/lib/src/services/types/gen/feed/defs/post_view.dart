@@ -12,10 +12,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../converters/post_record_converter.dart';
-import '../../../records/post_record.dart';
 import '../../../unions/feed_defs_post_view_embed.dart';
 import '../../actor/defs/profile_view_basic.dart';
+import '../post/converter/record_converter.dart';
+import '../post/record.dart' as feed_post;
 import 'threadgate_view.dart';
 import 'viewer_state.dart';
 
@@ -29,7 +29,7 @@ class PostView with _$PostView {
   @jsonSerializable
   const factory PostView({
     @typeKey @Default(appBskyFeedDefsPostView) String type,
-    @postRecordConverter required PostRecord record,
+    @recordConverter required feed_post.Record record,
     required ProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,

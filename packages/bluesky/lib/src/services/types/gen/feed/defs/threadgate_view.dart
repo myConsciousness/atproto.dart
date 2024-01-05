@@ -11,8 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../records/threadgate_record.dart';
 import '../../graph/defs/list_view_basic.dart';
+import '../threadgate/record.dart' as feed_threadgate;
 
 part 'threadgate_view.freezed.dart';
 part 'threadgate_view.g.dart';
@@ -26,7 +26,7 @@ class ThreadgateView with _$ThreadgateView {
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,
     @atUriConverter AtUri? uri,
     String? cid,
-    ThreadgateRecord? record,
+    feed_threadgate.Record? record,
     List<ListViewBasic>? lists,
   }) = _ThreadgateView;
 

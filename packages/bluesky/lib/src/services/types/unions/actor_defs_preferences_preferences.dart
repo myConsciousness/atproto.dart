@@ -8,9 +8,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../converters/actor_defs_content_label_pref_converter.dart';
 import '../gen/actor/defs/adult_content_pref.dart';
 import '../gen/actor/defs/content_label_pref.dart';
+import '../gen/actor/defs/converters/content_label_pref_converter.dart';
 import '../gen/actor/defs/feed_view_pref.dart';
 import '../gen/actor/defs/personal_details_pref.dart';
 import '../gen/actor/defs/saved_feeds_pref.dart';

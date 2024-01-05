@@ -23,7 +23,7 @@ _$ViewRecordImpl _$$ViewRecordImplFromJson(Map json) => $checkedCreate(
               (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           value: $checkedConvert('value',
-              (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
+              (v) => recordConverter.fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$ViewRecordImplToJson(_$ViewRecordImpl instance) {
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
-    'value': postRecordConverter.toJson(instance.value),
+    'value': recordConverter.toJson(instance.value),
   };
 
   void writeNotNull(String key, dynamic value) {

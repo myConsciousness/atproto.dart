@@ -25,7 +25,7 @@ mixin _$ThreadgateView {
   @atUriConverter
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
-  ThreadgateRecord? get record => throw _privateConstructorUsedError;
+  feed_threadgate.Record? get record => throw _privateConstructorUsedError;
   List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,10 +44,10 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       {@typeKey String type,
       @atUriConverter AtUri? uri,
       String? cid,
-      ThreadgateRecord? record,
+      feed_threadgate.Record? record,
       List<ListViewBasic>? lists});
 
-  $ThreadgateRecordCopyWith<$Res>? get record;
+  $RecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as ThreadgateRecord?,
+              as feed_threadgate.Record?,
       lists: freezed == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -95,12 +95,12 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ThreadgateRecordCopyWith<$Res>? get record {
+  $RecordCopyWith<$Res>? get record {
     if (_value.record == null) {
       return null;
     }
 
-    return $ThreadgateRecordCopyWith<$Res>(_value.record!, (value) {
+    return $RecordCopyWith<$Res>(_value.record!, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -118,11 +118,11 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
       {@typeKey String type,
       @atUriConverter AtUri? uri,
       String? cid,
-      ThreadgateRecord? record,
+      feed_threadgate.Record? record,
       List<ListViewBasic>? lists});
 
   @override
-  $ThreadgateRecordCopyWith<$Res>? get record;
+  $RecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
@@ -158,7 +158,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as ThreadgateRecord?,
+              as feed_threadgate.Record?,
       lists: freezed == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @override
   final String? cid;
   @override
-  final ThreadgateRecord? record;
+  final feed_threadgate.Record? record;
   final List<ListViewBasic>? _lists;
   @override
   List<ListViewBasic>? get lists {
@@ -244,7 +244,7 @@ abstract class _ThreadgateView implements ThreadgateView {
       {@typeKey final String type,
       @atUriConverter final AtUri? uri,
       final String? cid,
-      final ThreadgateRecord? record,
+      final feed_threadgate.Record? record,
       final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
 
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
@@ -259,7 +259,7 @@ abstract class _ThreadgateView implements ThreadgateView {
   @override
   String? get cid;
   @override
-  ThreadgateRecord? get record;
+  feed_threadgate.Record? get record;
   @override
   List<ListViewBasic>? get lists;
   @override

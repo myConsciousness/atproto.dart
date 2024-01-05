@@ -12,10 +12,10 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../converters/post_record_converter.dart';
-import '../../../records/post_record.dart';
 import '../../../unions/embed_record_view_record_embeds.dart';
 import '../../actor/defs/profile_view_basic.dart';
+import '../../feed/post/converter/record_converter.dart';
+import '../../feed/post/record.dart' as feed_post;
 
 part 'view_record.freezed.dart';
 part 'view_record.g.dart';
@@ -30,7 +30,7 @@ class ViewRecord with _$ViewRecord {
     @atUriConverter required AtUri uri,
     required String cid,
     required ProfileViewBasic author,
-    @postRecordConverter required PostRecord value,
+    @recordConverter required feed_post.Record value,
     List<Label>? labels,
     @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
     required DateTime indexedAt,

@@ -16,7 +16,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           record: $checkedConvert('record',
-              (v) => postRecordConverter.fromJson(v as Map<String, dynamic>)),
+              (v) => recordConverter.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert(
               'author',
               (v) => ProfileViewBasic.fromJson(
@@ -60,7 +60,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'record': postRecordConverter.toJson(instance.record),
+    'record': recordConverter.toJson(instance.record),
     'author': instance.author.toJson(),
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,

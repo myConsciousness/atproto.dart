@@ -22,8 +22,8 @@ PostView _$PostViewFromJson(Map<String, dynamic> json) {
 mixin _$PostView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @postRecordConverter
-  PostRecord get record => throw _privateConstructorUsedError;
+  @recordConverter
+  feed_post.Record get record => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $PostViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @postRecordConverter PostRecord record,
+      @recordConverter feed_post.Record record,
       ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
@@ -64,7 +64,7 @@ abstract class $PostViewCopyWith<$Res> {
       ThreadgateView? threadgate,
       DateTime indexedAt});
 
-  $PostRecordCopyWith<$Res> get record;
+  $RecordCopyWith<$Res> get record;
   $ProfileViewBasicCopyWith<$Res> get author;
   $UPostViewEmbedCopyWith<$Res>? get embed;
   $ViewerStateCopyWith<$Res> get viewer;
@@ -106,7 +106,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as PostRecord,
+              as feed_post.Record,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -156,8 +156,8 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $PostRecordCopyWith<$Res> get record {
-    return $PostRecordCopyWith<$Res>(_value.record, (value) {
+  $RecordCopyWith<$Res> get record {
+    return $RecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -213,7 +213,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @postRecordConverter PostRecord record,
+      @recordConverter feed_post.Record record,
       ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
@@ -227,7 +227,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       DateTime indexedAt});
 
   @override
-  $PostRecordCopyWith<$Res> get record;
+  $RecordCopyWith<$Res> get record;
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
   @override
@@ -271,7 +271,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as PostRecord,
+              as feed_post.Record,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
@@ -326,7 +326,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
 class _$PostViewImpl implements _PostView {
   const _$PostViewImpl(
       {@typeKey this.type = appBskyFeedDefsPostView,
-      @postRecordConverter required this.record,
+      @recordConverter required this.record,
       required this.author,
       @atUriConverter required this.uri,
       required this.cid,
@@ -347,8 +347,8 @@ class _$PostViewImpl implements _PostView {
   @typeKey
   final String type;
   @override
-  @postRecordConverter
-  final PostRecord record;
+  @recordConverter
+  final feed_post.Record record;
   @override
   final ProfileViewBasic author;
   @override
@@ -451,7 +451,7 @@ class _$PostViewImpl implements _PostView {
 abstract class _PostView implements PostView {
   const factory _PostView(
       {@typeKey final String type,
-      @postRecordConverter required final PostRecord record,
+      @recordConverter required final feed_post.Record record,
       required final ProfileViewBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
@@ -471,8 +471,8 @@ abstract class _PostView implements PostView {
   @typeKey
   String get type;
   @override
-  @postRecordConverter
-  PostRecord get record;
+  @recordConverter
+  feed_post.Record get record;
   @override
   ProfileViewBasic get author;
   @override

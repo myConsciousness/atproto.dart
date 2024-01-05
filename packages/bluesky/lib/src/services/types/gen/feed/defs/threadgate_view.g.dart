@@ -24,8 +24,7 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
               'record',
               (v) => v == null
                   ? null
-                  : ThreadgateRecord.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : Record.fromJson(Map<String, Object?>.from(v as Map))),
           lists: $checkedConvert(
               'lists',
               (v) => (v as List<dynamic>?)
