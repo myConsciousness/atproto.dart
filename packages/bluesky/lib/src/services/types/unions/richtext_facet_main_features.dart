@@ -10,9 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../gen/richtext/facet/richtext_facet_link.dart';
-import '../gen/richtext/facet/richtext_facet_mention.dart';
-import '../gen/richtext/facet/richtext_facet_tag.dart';
+import '../gen/richtext/facet/link.dart';
+import '../gen/richtext/facet/mention.dart';
+import '../gen/richtext/facet/tag.dart';
 
 part 'richtext_facet_main_features.freezed.dart';
 

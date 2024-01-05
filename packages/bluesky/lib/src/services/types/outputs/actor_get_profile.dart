@@ -7,8 +7,8 @@ import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../gen/actor/defs/actor_defs_profile_view_detailed.dart';
-import '../gen/actor/defs/actor_defs_viewer_state.dart';
+import '../gen/actor/defs/profile_view_detailed.dart';
+import '../gen/actor/defs/viewer_state.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofile/#output
 @lex.appBskyActorGetProfile

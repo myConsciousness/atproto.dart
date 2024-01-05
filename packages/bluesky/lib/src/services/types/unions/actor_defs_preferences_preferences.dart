@@ -9,12 +9,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 import '../converters/actor_defs_content_label_pref_converter.dart';
-import '../gen/actor/defs/actor_defs_adult_content_pref.dart';
-import '../gen/actor/defs/actor_defs_content_label_pref.dart';
-import '../gen/actor/defs/actor_defs_feed_view_pref.dart';
-import '../gen/actor/defs/actor_defs_personal_details_pref.dart';
-import '../gen/actor/defs/actor_defs_saved_feeds_pref.dart';
-import '../gen/actor/defs/actor_defs_thread_view_pref.dart';
+import '../gen/actor/defs/adult_content_pref.dart';
+import '../gen/actor/defs/content_label_pref.dart';
+import '../gen/actor/defs/feed_view_pref.dart';
+import '../gen/actor/defs/personal_details_pref.dart';
+import '../gen/actor/defs/saved_feeds_pref.dart';
+import '../gen/actor/defs/thread_view_pref.dart';
 
 part 'actor_defs_preferences_preferences.freezed.dart';
 

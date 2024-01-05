@@ -1,0 +1,436 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'generator_view.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+
+GeneratorView _$GeneratorViewFromJson(Map<String, dynamic> json) {
+  return _GeneratorView.fromJson(json);
+}
+
+/// @nodoc
+mixin _$GeneratorView {
+  @typeKey
+  String get type => throw _privateConstructorUsedError;
+  @atUriConverter
+  AtUri get uri => throw _privateConstructorUsedError;
+  String get cid => throw _privateConstructorUsedError;
+  String? get did => throw _privateConstructorUsedError;
+  ProfileView get creator => throw _privateConstructorUsedError;
+  String get displayName => throw _privateConstructorUsedError;
+  String? get description => throw _privateConstructorUsedError;
+  List<Main>? get descriptionFacets => throw _privateConstructorUsedError;
+  String? get avatar => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
+  GeneratorViewerState get viewer => throw _privateConstructorUsedError;
+  DateTime get indexedAt => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $GeneratorViewCopyWith<GeneratorView> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $GeneratorViewCopyWith<$Res> {
+  factory $GeneratorViewCopyWith(
+          GeneratorView value, $Res Function(GeneratorView) then) =
+      _$GeneratorViewCopyWithImpl<$Res, GeneratorView>;
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      String cid,
+      String? did,
+      ProfileView creator,
+      String displayName,
+      String? description,
+      List<Main>? descriptionFacets,
+      String? avatar,
+      int likeCount,
+      GeneratorViewerState viewer,
+      DateTime indexedAt});
+
+  $ProfileViewCopyWith<$Res> get creator;
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
+}
+
+/// @nodoc
+class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
+    implements $GeneratorViewCopyWith<$Res> {
+  _$GeneratorViewCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? cid = null,
+    Object? did = freezed,
+    Object? creator = null,
+    Object? displayName = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? avatar = freezed,
+    Object? likeCount = null,
+    Object? viewer = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_value.copyWith(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: freezed == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String?,
+      creator: null == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as ProfileView,
+      displayName: null == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _value.descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Main>?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as GeneratorViewerState,
+      indexedAt: null == indexedAt
+          ? _value.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileViewCopyWith<$Res> get creator {
+    return $ProfileViewCopyWith<$Res>(_value.creator, (value) {
+      return _then(_value.copyWith(creator: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $GeneratorViewerStateCopyWith<$Res> get viewer {
+    return $GeneratorViewerStateCopyWith<$Res>(_value.viewer, (value) {
+      return _then(_value.copyWith(viewer: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$GeneratorViewImplCopyWith<$Res>
+    implements $GeneratorViewCopyWith<$Res> {
+  factory _$$GeneratorViewImplCopyWith(
+          _$GeneratorViewImpl value, $Res Function(_$GeneratorViewImpl) then) =
+      __$$GeneratorViewImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@typeKey String type,
+      @atUriConverter AtUri uri,
+      String cid,
+      String? did,
+      ProfileView creator,
+      String displayName,
+      String? description,
+      List<Main>? descriptionFacets,
+      String? avatar,
+      int likeCount,
+      GeneratorViewerState viewer,
+      DateTime indexedAt});
+
+  @override
+  $ProfileViewCopyWith<$Res> get creator;
+  @override
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
+}
+
+/// @nodoc
+class __$$GeneratorViewImplCopyWithImpl<$Res>
+    extends _$GeneratorViewCopyWithImpl<$Res, _$GeneratorViewImpl>
+    implements _$$GeneratorViewImplCopyWith<$Res> {
+  __$$GeneratorViewImplCopyWithImpl(
+      _$GeneratorViewImpl _value, $Res Function(_$GeneratorViewImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? type = null,
+    Object? uri = null,
+    Object? cid = null,
+    Object? did = freezed,
+    Object? creator = null,
+    Object? displayName = null,
+    Object? description = freezed,
+    Object? descriptionFacets = freezed,
+    Object? avatar = freezed,
+    Object? likeCount = null,
+    Object? viewer = null,
+    Object? indexedAt = null,
+  }) {
+    return _then(_$GeneratorViewImpl(
+      type: null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+      uri: null == uri
+          ? _value.uri
+          : uri // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      cid: null == cid
+          ? _value.cid
+          : cid // ignore: cast_nullable_to_non_nullable
+              as String,
+      did: freezed == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String?,
+      creator: null == creator
+          ? _value.creator
+          : creator // ignore: cast_nullable_to_non_nullable
+              as ProfileView,
+      displayName: null == displayName
+          ? _value.displayName
+          : displayName // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: freezed == description
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String?,
+      descriptionFacets: freezed == descriptionFacets
+          ? _value._descriptionFacets
+          : descriptionFacets // ignore: cast_nullable_to_non_nullable
+              as List<Main>?,
+      avatar: freezed == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as String?,
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      viewer: null == viewer
+          ? _value.viewer
+          : viewer // ignore: cast_nullable_to_non_nullable
+              as GeneratorViewerState,
+      indexedAt: null == indexedAt
+          ? _value.indexedAt
+          : indexedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _$GeneratorViewImpl implements _GeneratorView {
+  const _$GeneratorViewImpl(
+      {@typeKey this.type = appBskyFeedDefsGeneratorView,
+      @atUriConverter required this.uri,
+      required this.cid,
+      this.did,
+      required this.creator,
+      required this.displayName,
+      this.description,
+      final List<Main>? descriptionFacets,
+      this.avatar,
+      this.likeCount = 0,
+      this.viewer = defaultFeedDefsGeneratorViewerState,
+      required this.indexedAt})
+      : _descriptionFacets = descriptionFacets;
+
+  factory _$GeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GeneratorViewImplFromJson(json);
+
+  @override
+  @typeKey
+  final String type;
+  @override
+  @atUriConverter
+  final AtUri uri;
+  @override
+  final String cid;
+  @override
+  final String? did;
+  @override
+  final ProfileView creator;
+  @override
+  final String displayName;
+  @override
+  final String? description;
+  final List<Main>? _descriptionFacets;
+  @override
+  List<Main>? get descriptionFacets {
+    final value = _descriptionFacets;
+    if (value == null) return null;
+    if (_descriptionFacets is EqualUnmodifiableListView)
+      return _descriptionFacets;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
+  @override
+  final String? avatar;
+  @override
+  @JsonKey()
+  final int likeCount;
+  @override
+  @JsonKey()
+  final GeneratorViewerState viewer;
+  @override
+  final DateTime indexedAt;
+
+  @override
+  String toString() {
+    return 'GeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, creator: $creator, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GeneratorViewImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.uri, uri) || other.uri == uri) &&
+            (identical(other.cid, cid) || other.cid == cid) &&
+            (identical(other.did, did) || other.did == did) &&
+            (identical(other.creator, creator) || other.creator == creator) &&
+            (identical(other.displayName, displayName) ||
+                other.displayName == displayName) &&
+            (identical(other.description, description) ||
+                other.description == description) &&
+            const DeepCollectionEquality()
+                .equals(other._descriptionFacets, _descriptionFacets) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            (identical(other.indexedAt, indexedAt) ||
+                other.indexedAt == indexedAt));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      uri,
+      cid,
+      did,
+      creator,
+      displayName,
+      description,
+      const DeepCollectionEquality().hash(_descriptionFacets),
+      avatar,
+      likeCount,
+      viewer,
+      indexedAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GeneratorViewImplCopyWith<_$GeneratorViewImpl> get copyWith =>
+      __$$GeneratorViewImplCopyWithImpl<_$GeneratorViewImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$GeneratorViewImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _GeneratorView implements GeneratorView {
+  const factory _GeneratorView(
+      {@typeKey final String type,
+      @atUriConverter required final AtUri uri,
+      required final String cid,
+      final String? did,
+      required final ProfileView creator,
+      required final String displayName,
+      final String? description,
+      final List<Main>? descriptionFacets,
+      final String? avatar,
+      final int likeCount,
+      final GeneratorViewerState viewer,
+      required final DateTime indexedAt}) = _$GeneratorViewImpl;
+
+  factory _GeneratorView.fromJson(Map<String, dynamic> json) =
+      _$GeneratorViewImpl.fromJson;
+
+  @override
+  @typeKey
+  String get type;
+  @override
+  @atUriConverter
+  AtUri get uri;
+  @override
+  String get cid;
+  @override
+  String? get did;
+  @override
+  ProfileView get creator;
+  @override
+  String get displayName;
+  @override
+  String? get description;
+  @override
+  List<Main>? get descriptionFacets;
+  @override
+  String? get avatar;
+  @override
+  int get likeCount;
+  @override
+  GeneratorViewerState get viewer;
+  @override
+  DateTime get indexedAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$GeneratorViewImplCopyWith<_$GeneratorViewImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

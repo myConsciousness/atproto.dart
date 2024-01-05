@@ -8,7 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../gen/actor/defs/actor_defs_profile_view.dart';
+import '../gen/actor/defs/profile_view.dart';
 
 part 'feed_get_reposted_by.freezed.dart';
 part 'feed_get_reposted_by.g.dart';

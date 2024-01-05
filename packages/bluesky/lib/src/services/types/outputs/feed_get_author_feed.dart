@@ -10,7 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../gen/feed/defs/feed_defs_feed_view_post.dart';
+import '../gen/feed/defs/feed_view_post.dart';
 
 part 'feed_get_author_feed.freezed.dart';
 part 'feed_get_author_feed.g.dart';

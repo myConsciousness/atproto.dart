@@ -11,8 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart';
-import '../gen/feed/post/feed_post_reply_ref.dart';
-import '../gen/richtext/facet/richtext_facet_main.dart';
+import '../gen/feed/post/reply_ref.dart';
+import '../gen/richtext/facet/main.dart';
 import '../unions/feed_post_input_embed.dart';
 
 part 'post_record.freezed.dart';

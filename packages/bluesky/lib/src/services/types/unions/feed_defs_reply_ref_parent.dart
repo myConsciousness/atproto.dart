@@ -8,9 +8,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../gen/feed/defs/feed_defs_blocked_post.dart';
-import '../gen/feed/defs/feed_defs_not_found_post.dart';
-import '../gen/feed/defs/feed_defs_post_view.dart';
+import '../gen/feed/defs/blocked_post.dart';
+import '../gen/feed/defs/not_found_post.dart';
+import '../gen/feed/defs/post_view.dart';
 
 part 'feed_defs_reply_ref_parent.freezed.dart';
 

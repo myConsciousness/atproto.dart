@@ -8,9 +8,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../gen/feed/threadgate/feed_threadgate_following_rule.dart';
-import '../gen/feed/threadgate/feed_threadgate_list_rule.dart';
-import '../gen/feed/threadgate/feed_threadgate_mention_rule.dart';
+import '../gen/feed/threadgate/following_rule.dart';
+import '../gen/feed/threadgate/list_rule.dart';
+import '../gen/feed/threadgate/mention_rule.dart';
 
 part 'feed_threadgate_input_allow.freezed.dart';
 
