@@ -25,8 +25,8 @@ class ThreadViewPost with _$ThreadViewPost {
   const factory ThreadViewPost({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,
     required PostView post,
-    @unionThreadViewPostParent ThreadViewPostParent? parent,
-    @unionThreadViewPostReplies List<ThreadViewPostReplies>? replies,
+    @unionThreadViewPostParent UThreadViewPostParent? parent,
+    @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies,
   }) = _ThreadViewPost;
 
   factory ThreadViewPost.fromJson(Map<String, Object?> json) =>

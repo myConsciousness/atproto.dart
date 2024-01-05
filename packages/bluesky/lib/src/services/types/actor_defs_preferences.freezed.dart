@@ -21,7 +21,7 @@ Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Preferences {
   @unionPreferencesPreferences
-  List<PreferencesPreferences> get preferences =>
+  List<UPreferencesPreferences> get preferences =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $PreferencesCopyWith<$Res> {
       _$PreferencesCopyWithImpl<$Res, Preferences>;
   @useResult
   $Res call(
-      {@unionPreferencesPreferences List<PreferencesPreferences> preferences});
+      {@unionPreferencesPreferences List<UPreferencesPreferences> preferences});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
       preferences: null == preferences
           ? _value.preferences
           : preferences // ignore: cast_nullable_to_non_nullable
-              as List<PreferencesPreferences>,
+              as List<UPreferencesPreferences>,
     ) as $Val);
   }
 }
@@ -73,7 +73,7 @@ abstract class _$$PreferencesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@unionPreferencesPreferences List<PreferencesPreferences> preferences});
+      {@unionPreferencesPreferences List<UPreferencesPreferences> preferences});
 }
 
 /// @nodoc
@@ -93,7 +93,7 @@ class __$$PreferencesImplCopyWithImpl<$Res>
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
-              as List<PreferencesPreferences>,
+              as List<UPreferencesPreferences>,
     ));
   }
 }
@@ -103,16 +103,16 @@ class __$$PreferencesImplCopyWithImpl<$Res>
 class _$PreferencesImpl implements _Preferences {
   const _$PreferencesImpl(
       {@unionPreferencesPreferences
-      required final List<PreferencesPreferences> preferences})
+      required final List<UPreferencesPreferences> preferences})
       : _preferences = preferences;
 
   factory _$PreferencesImpl.fromJson(Map<String, dynamic> json) =>
       _$$PreferencesImplFromJson(json);
 
-  final List<PreferencesPreferences> _preferences;
+  final List<UPreferencesPreferences> _preferences;
   @override
   @unionPreferencesPreferences
-  List<PreferencesPreferences> get preferences {
+  List<UPreferencesPreferences> get preferences {
     if (_preferences is EqualUnmodifiableListView) return _preferences;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_preferences);
@@ -154,7 +154,7 @@ class _$PreferencesImpl implements _Preferences {
 abstract class _Preferences implements Preferences {
   const factory _Preferences(
           {@unionPreferencesPreferences
-          required final List<PreferencesPreferences> preferences}) =
+          required final List<UPreferencesPreferences> preferences}) =
       _$PreferencesImpl;
 
   factory _Preferences.fromJson(Map<String, dynamic> json) =
@@ -162,7 +162,7 @@ abstract class _Preferences implements Preferences {
 
   @override
   @unionPreferencesPreferences
-  List<PreferencesPreferences> get preferences;
+  List<UPreferencesPreferences> get preferences;
   @override
   @JsonKey(ignore: true)
   _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>

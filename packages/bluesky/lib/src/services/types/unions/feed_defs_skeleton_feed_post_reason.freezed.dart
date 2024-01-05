@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$SkeletonFeedPostReason {
+mixin _$USkeletonFeedPostReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -61,17 +61,17 @@ mixin _$SkeletonFeedPostReason {
 }
 
 /// @nodoc
-abstract class $SkeletonFeedPostReasonCopyWith<$Res> {
-  factory $SkeletonFeedPostReasonCopyWith(SkeletonFeedPostReason value,
-          $Res Function(SkeletonFeedPostReason) then) =
-      _$SkeletonFeedPostReasonCopyWithImpl<$Res, SkeletonFeedPostReason>;
+abstract class $USkeletonFeedPostReasonCopyWith<$Res> {
+  factory $USkeletonFeedPostReasonCopyWith(USkeletonFeedPostReason value,
+          $Res Function(USkeletonFeedPostReason) then) =
+      _$USkeletonFeedPostReasonCopyWithImpl<$Res, USkeletonFeedPostReason>;
 }
 
 /// @nodoc
-class _$SkeletonFeedPostReasonCopyWithImpl<$Res,
-        $Val extends SkeletonFeedPostReason>
-    implements $SkeletonFeedPostReasonCopyWith<$Res> {
-  _$SkeletonFeedPostReasonCopyWithImpl(this._value, this._then);
+class _$USkeletonFeedPostReasonCopyWithImpl<$Res,
+        $Val extends USkeletonFeedPostReason>
+    implements $USkeletonFeedPostReasonCopyWith<$Res> {
+  _$USkeletonFeedPostReasonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -95,7 +95,7 @@ abstract class _$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWith<
 
 /// @nodoc
 class __$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWithImpl<$Res>
-    extends _$SkeletonFeedPostReasonCopyWithImpl<$Res,
+    extends _$USkeletonFeedPostReasonCopyWithImpl<$Res,
         _$USkeletonFeedPostReasonSkeletonReasonRepostImpl>
     implements
         _$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWith<$Res> {
@@ -137,7 +137,7 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
 
   @override
   String toString() {
-    return 'SkeletonFeedPostReason.skeletonReasonRepost(data: $data)';
+    return 'USkeletonFeedPostReason.skeletonReasonRepost(data: $data)';
   }
 
   @override
@@ -228,7 +228,7 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
 }
 
 abstract class USkeletonFeedPostReasonSkeletonReasonRepost
-    implements SkeletonFeedPostReason {
+    implements USkeletonFeedPostReason {
   factory USkeletonFeedPostReasonSkeletonReasonRepost(
           {required final SkeletonReasonRepost data}) =
       _$USkeletonFeedPostReasonSkeletonReasonRepostImpl;
@@ -253,7 +253,7 @@ abstract class _$$USkeletonFeedPostReasonUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$USkeletonFeedPostReasonUnknownImplCopyWithImpl<$Res>
-    extends _$SkeletonFeedPostReasonCopyWithImpl<$Res,
+    extends _$USkeletonFeedPostReasonCopyWithImpl<$Res,
         _$USkeletonFeedPostReasonUnknownImpl>
     implements _$$USkeletonFeedPostReasonUnknownImplCopyWith<$Res> {
   __$$USkeletonFeedPostReasonUnknownImplCopyWithImpl(
@@ -293,7 +293,7 @@ class _$USkeletonFeedPostReasonUnknownImpl
 
   @override
   String toString() {
-    return 'SkeletonFeedPostReason.unknown(data: $data)';
+    return 'USkeletonFeedPostReason.unknown(data: $data)';
   }
 
   @override
@@ -383,7 +383,7 @@ class _$USkeletonFeedPostReasonUnknownImpl
 }
 
 abstract class USkeletonFeedPostReasonUnknown
-    implements SkeletonFeedPostReason {
+    implements USkeletonFeedPostReason {
   factory USkeletonFeedPostReasonUnknown(
           {required final Map<String, dynamic> data}) =
       _$USkeletonFeedPostReasonUnknownImpl;

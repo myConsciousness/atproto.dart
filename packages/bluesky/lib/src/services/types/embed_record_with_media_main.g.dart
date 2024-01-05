@@ -17,10 +17,8 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMedia),
           record: $checkedConvert('record',
               (v) => Main.fromJson(Map<String, Object?>.from(v as Map))),
-          media: $checkedConvert(
-              'media',
-              (v) => unionEmbedRecordWithMedia
-                  .fromJson(v as Map<String, dynamic>)),
+          media: $checkedConvert('media',
+              (v) => unionMainMedia.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -31,5 +29,5 @@ Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),
-      'media': unionEmbedRecordWithMedia.toJson(instance.media),
+      'media': unionMainMedia.toJson(instance.media),
     };

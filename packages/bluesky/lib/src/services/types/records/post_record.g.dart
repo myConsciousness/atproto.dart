@@ -23,8 +23,8 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
                   : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
-                  v, unionEmbed.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UInputEmbed>(
+                  v, unionInputEmbed.fromJson)),
           langs: $checkedConvert('langs',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           labels: $checkedConvert(
@@ -62,8 +62,8 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
   writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
-          instance.embed, unionEmbed.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UInputEmbed>(
+          instance.embed, unionInputEmbed.toJson));
   writeNotNull('langs', instance.langs);
   writeNotNull(
       'labels',

@@ -20,10 +20,10 @@ ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReplyRef {
-  @unionReplyRef
-  UReplyRef get root => throw _privateConstructorUsedError;
-  @unionReplyRef
-  UReplyRef get parent => throw _privateConstructorUsedError;
+  @unionReplyRefRoot
+  UReplyRefRoot get root => throw _privateConstructorUsedError;
+  @unionReplyRefParent
+  UReplyRefParent get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,10 +36,12 @@ abstract class $ReplyRefCopyWith<$Res> {
   factory $ReplyRefCopyWith(ReplyRef value, $Res Function(ReplyRef) then) =
       _$ReplyRefCopyWithImpl<$Res, ReplyRef>;
   @useResult
-  $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
+  $Res call(
+      {@unionReplyRefRoot UReplyRefRoot root,
+      @unionReplyRefParent UReplyRefParent parent});
 
-  $UReplyRefCopyWith<$Res> get root;
-  $UReplyRefCopyWith<$Res> get parent;
+  $UReplyRefRootCopyWith<$Res> get root;
+  $UReplyRefParentCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -62,26 +64,26 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as UReplyRef,
+              as UReplyRefRoot,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UReplyRef,
+              as UReplyRefParent,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UReplyRefCopyWith<$Res> get root {
-    return $UReplyRefCopyWith<$Res>(_value.root, (value) {
+  $UReplyRefRootCopyWith<$Res> get root {
+    return $UReplyRefRootCopyWith<$Res>(_value.root, (value) {
       return _then(_value.copyWith(root: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UReplyRefCopyWith<$Res> get parent {
-    return $UReplyRefCopyWith<$Res>(_value.parent, (value) {
+  $UReplyRefParentCopyWith<$Res> get parent {
+    return $UReplyRefParentCopyWith<$Res>(_value.parent, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -95,12 +97,14 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
       __$$ReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@unionReplyRef UReplyRef root, @unionReplyRef UReplyRef parent});
+  $Res call(
+      {@unionReplyRefRoot UReplyRefRoot root,
+      @unionReplyRefParent UReplyRefParent parent});
 
   @override
-  $UReplyRefCopyWith<$Res> get root;
+  $UReplyRefRootCopyWith<$Res> get root;
   @override
-  $UReplyRefCopyWith<$Res> get parent;
+  $UReplyRefParentCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -121,11 +125,11 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as UReplyRef,
+              as UReplyRefRoot,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UReplyRef,
+              as UReplyRefParent,
     ));
   }
 }
@@ -134,17 +138,18 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ReplyRefImpl implements _ReplyRef {
   const _$ReplyRefImpl(
-      {@unionReplyRef required this.root, @unionReplyRef required this.parent});
+      {@unionReplyRefRoot required this.root,
+      @unionReplyRefParent required this.parent});
 
   factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReplyRefImplFromJson(json);
 
   @override
-  @unionReplyRef
-  final UReplyRef root;
+  @unionReplyRefRoot
+  final UReplyRefRoot root;
   @override
-  @unionReplyRef
-  final UReplyRef parent;
+  @unionReplyRefParent
+  final UReplyRefParent parent;
 
   @override
   String toString() {
@@ -180,18 +185,19 @@ class _$ReplyRefImpl implements _ReplyRef {
 
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
-      {@unionReplyRef required final UReplyRef root,
-      @unionReplyRef required final UReplyRef parent}) = _$ReplyRefImpl;
+          {@unionReplyRefRoot required final UReplyRefRoot root,
+          @unionReplyRefParent required final UReplyRefParent parent}) =
+      _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
       _$ReplyRefImpl.fromJson;
 
   @override
-  @unionReplyRef
-  UReplyRef get root;
+  @unionReplyRefRoot
+  UReplyRefRoot get root;
   @override
-  @unionReplyRef
-  UReplyRef get parent;
+  @unionReplyRefParent
+  UReplyRefParent get parent;
   @override
   @JsonKey(ignore: true)
   _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>

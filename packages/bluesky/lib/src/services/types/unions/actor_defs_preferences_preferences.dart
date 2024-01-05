@@ -20,88 +20,88 @@ part 'actor_defs_preferences_preferences.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
-class PreferencesPreferences with _$PreferencesPreferences {
-  const factory PreferencesPreferences.adultContentPref({
+class UPreferencesPreferences with _$UPreferencesPreferences {
+  const factory UPreferencesPreferences.adultContentPref({
     required AdultContentPref data,
   }) = UPreferencesPreferencesAdultContentPref;
 
-  const factory PreferencesPreferences.contentLabelPref({
+  const factory UPreferencesPreferences.contentLabelPref({
     required ContentLabelPref data,
   }) = UPreferencesPreferencesContentLabelPref;
 
-  const factory PreferencesPreferences.savedFeedsPref({
+  const factory UPreferencesPreferences.savedFeedsPref({
     required SavedFeedsPref data,
   }) = UPreferencesPreferencesSavedFeedsPref;
 
-  const factory PreferencesPreferences.personalDetailsPref({
+  const factory UPreferencesPreferences.personalDetailsPref({
     required PersonalDetailsPref data,
   }) = UPreferencesPreferencesPersonalDetailsPref;
 
-  const factory PreferencesPreferences.feedViewPref({
+  const factory UPreferencesPreferences.feedViewPref({
     required FeedViewPref data,
   }) = UPreferencesPreferencesFeedViewPref;
 
-  const factory PreferencesPreferences.threadViewPref({
+  const factory UPreferencesPreferences.threadViewPref({
     required ThreadViewPref data,
   }) = UPreferencesPreferencesThreadViewPref;
 
-  const factory PreferencesPreferences.unknown({
+  const factory UPreferencesPreferences.unknown({
     required Map<String, dynamic> data,
   }) = UPreferencesPreferencesUnknown;
 
   Map<String, dynamic> toJson() => unionPreferencesPreferences.toJson(this);
 }
 
-const unionPreferencesPreferences = _PreferencesPreferencesConverter();
+const unionPreferencesPreferences = _UPreferencesPreferencesConverter();
 
-final class _PreferencesPreferencesConverter
-    implements JsonConverter<PreferencesPreferences, Map<String, dynamic>> {
-  const _PreferencesPreferencesConverter();
+final class _UPreferencesPreferencesConverter
+    implements JsonConverter<UPreferencesPreferences, Map<String, dynamic>> {
+  const _UPreferencesPreferencesConverter();
 
   @override
-  PreferencesPreferences fromJson(Map<String, dynamic> json) {
+  UPreferencesPreferences fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyActorDefsAdultContentPref) {
-        return PreferencesPreferences.adultContentPref(
+        return UPreferencesPreferences.adultContentPref(
           data: AdultContentPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsContentLabelPref) {
-        return PreferencesPreferences.contentLabelPref(
+        return UPreferencesPreferences.contentLabelPref(
           data: contentLabelPrefConverter.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsSavedFeedsPref) {
-        return PreferencesPreferences.savedFeedsPref(
+        return UPreferencesPreferences.savedFeedsPref(
           data: SavedFeedsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsPersonalDetailsPref) {
-        return PreferencesPreferences.personalDetailsPref(
+        return UPreferencesPreferences.personalDetailsPref(
           data: PersonalDetailsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsFeedViewPref) {
-        return PreferencesPreferences.feedViewPref(
+        return UPreferencesPreferences.feedViewPref(
           data: FeedViewPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsThreadViewPref) {
-        return PreferencesPreferences.threadViewPref(
+        return UPreferencesPreferences.threadViewPref(
           data: ThreadViewPref.fromJson(json),
         );
       }
 
-      return PreferencesPreferences.unknown(data: json);
+      return UPreferencesPreferences.unknown(data: json);
     } catch (_) {
-      return PreferencesPreferences.unknown(data: json);
+      return UPreferencesPreferences.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(PreferencesPreferences object) => object.when(
+  Map<String, dynamic> toJson(UPreferencesPreferences object) => object.when(
         adultContentPref: (data) => data.toJson(),
         contentLabelPref: (data) => data.toJson(),
         savedFeedsPref: (data) => data.toJson(),

@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ThreadViewPostReplies {
+mixin _$UThreadViewPostReplies {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -75,17 +75,17 @@ mixin _$ThreadViewPostReplies {
 }
 
 /// @nodoc
-abstract class $ThreadViewPostRepliesCopyWith<$Res> {
-  factory $ThreadViewPostRepliesCopyWith(ThreadViewPostReplies value,
-          $Res Function(ThreadViewPostReplies) then) =
-      _$ThreadViewPostRepliesCopyWithImpl<$Res, ThreadViewPostReplies>;
+abstract class $UThreadViewPostRepliesCopyWith<$Res> {
+  factory $UThreadViewPostRepliesCopyWith(UThreadViewPostReplies value,
+          $Res Function(UThreadViewPostReplies) then) =
+      _$UThreadViewPostRepliesCopyWithImpl<$Res, UThreadViewPostReplies>;
 }
 
 /// @nodoc
-class _$ThreadViewPostRepliesCopyWithImpl<$Res,
-        $Val extends ThreadViewPostReplies>
-    implements $ThreadViewPostRepliesCopyWith<$Res> {
-  _$ThreadViewPostRepliesCopyWithImpl(this._value, this._then);
+class _$UThreadViewPostRepliesCopyWithImpl<$Res,
+        $Val extends UThreadViewPostReplies>
+    implements $UThreadViewPostRepliesCopyWith<$Res> {
+  _$UThreadViewPostRepliesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -107,7 +107,7 @@ abstract class _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostRepliesCopyWithImpl<$Res,
+    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
         _$UThreadViewPostRepliesThreadViewPostImpl>
     implements _$$UThreadViewPostRepliesThreadViewPostImplCopyWith<$Res> {
   __$$UThreadViewPostRepliesThreadViewPostImplCopyWithImpl(
@@ -148,7 +148,7 @@ class _$UThreadViewPostRepliesThreadViewPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostReplies.threadViewPost(data: $data)';
+    return 'UThreadViewPostReplies.threadViewPost(data: $data)';
   }
 
   @override
@@ -251,7 +251,7 @@ class _$UThreadViewPostRepliesThreadViewPostImpl
 }
 
 abstract class UThreadViewPostRepliesThreadViewPost
-    implements ThreadViewPostReplies {
+    implements UThreadViewPostReplies {
   const factory UThreadViewPostRepliesThreadViewPost(
           {required final ThreadViewPost data}) =
       _$UThreadViewPostRepliesThreadViewPostImpl;
@@ -278,7 +278,7 @@ abstract class _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostRepliesCopyWithImpl<$Res,
+    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
         _$UThreadViewPostRepliesNotFoundPostImpl>
     implements _$$UThreadViewPostRepliesNotFoundPostImplCopyWith<$Res> {
   __$$UThreadViewPostRepliesNotFoundPostImplCopyWithImpl(
@@ -319,7 +319,7 @@ class _$UThreadViewPostRepliesNotFoundPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostReplies.notFoundPost(data: $data)';
+    return 'UThreadViewPostReplies.notFoundPost(data: $data)';
   }
 
   @override
@@ -422,7 +422,7 @@ class _$UThreadViewPostRepliesNotFoundPostImpl
 }
 
 abstract class UThreadViewPostRepliesNotFoundPost
-    implements ThreadViewPostReplies {
+    implements UThreadViewPostReplies {
   const factory UThreadViewPostRepliesNotFoundPost(
           {required final NotFoundPost data}) =
       _$UThreadViewPostRepliesNotFoundPostImpl;
@@ -449,7 +449,7 @@ abstract class _$$UThreadViewPostRepliesBlockedPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostRepliesCopyWithImpl<$Res,
+    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
         _$UThreadViewPostRepliesBlockedPostImpl>
     implements _$$UThreadViewPostRepliesBlockedPostImplCopyWith<$Res> {
   __$$UThreadViewPostRepliesBlockedPostImplCopyWithImpl(
@@ -490,7 +490,7 @@ class _$UThreadViewPostRepliesBlockedPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostReplies.blockedPost(data: $data)';
+    return 'UThreadViewPostReplies.blockedPost(data: $data)';
   }
 
   @override
@@ -593,7 +593,7 @@ class _$UThreadViewPostRepliesBlockedPostImpl
 }
 
 abstract class UThreadViewPostRepliesBlockedPost
-    implements ThreadViewPostReplies {
+    implements UThreadViewPostReplies {
   const factory UThreadViewPostRepliesBlockedPost(
           {required final BlockedPost data}) =
       _$UThreadViewPostRepliesBlockedPostImpl;
@@ -618,7 +618,7 @@ abstract class _$$UThreadViewPostRepliesUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostRepliesUnknownImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostRepliesCopyWithImpl<$Res,
+    extends _$UThreadViewPostRepliesCopyWithImpl<$Res,
         _$UThreadViewPostRepliesUnknownImpl>
     implements _$$UThreadViewPostRepliesUnknownImplCopyWith<$Res> {
   __$$UThreadViewPostRepliesUnknownImplCopyWithImpl(
@@ -658,7 +658,7 @@ class _$UThreadViewPostRepliesUnknownImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostReplies.unknown(data: $data)';
+    return 'UThreadViewPostReplies.unknown(data: $data)';
   }
 
   @override
@@ -761,7 +761,7 @@ class _$UThreadViewPostRepliesUnknownImpl
   }
 }
 
-abstract class UThreadViewPostRepliesUnknown implements ThreadViewPostReplies {
+abstract class UThreadViewPostRepliesUnknown implements UThreadViewPostReplies {
   const factory UThreadViewPostRepliesUnknown(
           {required final Map<String, dynamic> data}) =
       _$UThreadViewPostRepliesUnknownImpl;

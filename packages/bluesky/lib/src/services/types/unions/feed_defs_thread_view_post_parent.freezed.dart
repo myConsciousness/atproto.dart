@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$ThreadViewPostParent {
+mixin _$UThreadViewPostParent {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -74,17 +74,17 @@ mixin _$ThreadViewPostParent {
 }
 
 /// @nodoc
-abstract class $ThreadViewPostParentCopyWith<$Res> {
-  factory $ThreadViewPostParentCopyWith(ThreadViewPostParent value,
-          $Res Function(ThreadViewPostParent) then) =
-      _$ThreadViewPostParentCopyWithImpl<$Res, ThreadViewPostParent>;
+abstract class $UThreadViewPostParentCopyWith<$Res> {
+  factory $UThreadViewPostParentCopyWith(UThreadViewPostParent value,
+          $Res Function(UThreadViewPostParent) then) =
+      _$UThreadViewPostParentCopyWithImpl<$Res, UThreadViewPostParent>;
 }
 
 /// @nodoc
-class _$ThreadViewPostParentCopyWithImpl<$Res,
-        $Val extends ThreadViewPostParent>
-    implements $ThreadViewPostParentCopyWith<$Res> {
-  _$ThreadViewPostParentCopyWithImpl(this._value, this._then);
+class _$UThreadViewPostParentCopyWithImpl<$Res,
+        $Val extends UThreadViewPostParent>
+    implements $UThreadViewPostParentCopyWith<$Res> {
+  _$UThreadViewPostParentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -106,7 +106,7 @@ abstract class _$$UThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostParentCopyWithImpl<$Res,
+    extends _$UThreadViewPostParentCopyWithImpl<$Res,
         _$UThreadViewPostParentThreadViewPostImpl>
     implements _$$UThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
   __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl(
@@ -147,7 +147,7 @@ class _$UThreadViewPostParentThreadViewPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostParent.threadViewPost(data: $data)';
+    return 'UThreadViewPostParent.threadViewPost(data: $data)';
   }
 
   @override
@@ -249,7 +249,7 @@ class _$UThreadViewPostParentThreadViewPostImpl
 }
 
 abstract class UThreadViewPostParentThreadViewPost
-    implements ThreadViewPostParent {
+    implements UThreadViewPostParent {
   const factory UThreadViewPostParentThreadViewPost(
           {required final ThreadViewPost data}) =
       _$UThreadViewPostParentThreadViewPostImpl;
@@ -276,7 +276,7 @@ abstract class _$$UThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostParentCopyWithImpl<$Res,
+    extends _$UThreadViewPostParentCopyWithImpl<$Res,
         _$UThreadViewPostParentNotFoundPostImpl>
     implements _$$UThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
   __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl(
@@ -317,7 +317,7 @@ class _$UThreadViewPostParentNotFoundPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostParent.notFoundPost(data: $data)';
+    return 'UThreadViewPostParent.notFoundPost(data: $data)';
   }
 
   @override
@@ -419,7 +419,7 @@ class _$UThreadViewPostParentNotFoundPostImpl
 }
 
 abstract class UThreadViewPostParentNotFoundPost
-    implements ThreadViewPostParent {
+    implements UThreadViewPostParent {
   const factory UThreadViewPostParentNotFoundPost(
           {required final NotFoundPost data}) =
       _$UThreadViewPostParentNotFoundPostImpl;
@@ -446,7 +446,7 @@ abstract class _$$UThreadViewPostParentBlockedPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostParentCopyWithImpl<$Res,
+    extends _$UThreadViewPostParentCopyWithImpl<$Res,
         _$UThreadViewPostParentBlockedPostImpl>
     implements _$$UThreadViewPostParentBlockedPostImplCopyWith<$Res> {
   __$$UThreadViewPostParentBlockedPostImplCopyWithImpl(
@@ -487,7 +487,7 @@ class _$UThreadViewPostParentBlockedPostImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostParent.blockedPost(data: $data)';
+    return 'UThreadViewPostParent.blockedPost(data: $data)';
   }
 
   @override
@@ -589,7 +589,7 @@ class _$UThreadViewPostParentBlockedPostImpl
 }
 
 abstract class UThreadViewPostParentBlockedPost
-    implements ThreadViewPostParent {
+    implements UThreadViewPostParent {
   const factory UThreadViewPostParentBlockedPost(
           {required final BlockedPost data}) =
       _$UThreadViewPostParentBlockedPostImpl;
@@ -614,7 +614,7 @@ abstract class _$$UThreadViewPostParentUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UThreadViewPostParentUnknownImplCopyWithImpl<$Res>
-    extends _$ThreadViewPostParentCopyWithImpl<$Res,
+    extends _$UThreadViewPostParentCopyWithImpl<$Res,
         _$UThreadViewPostParentUnknownImpl>
     implements _$$UThreadViewPostParentUnknownImplCopyWith<$Res> {
   __$$UThreadViewPostParentUnknownImplCopyWithImpl(
@@ -654,7 +654,7 @@ class _$UThreadViewPostParentUnknownImpl
 
   @override
   String toString() {
-    return 'ThreadViewPostParent.unknown(data: $data)';
+    return 'UThreadViewPostParent.unknown(data: $data)';
   }
 
   @override
@@ -756,7 +756,7 @@ class _$UThreadViewPostParentUnknownImpl
   }
 }
 
-abstract class UThreadViewPostParentUnknown implements ThreadViewPostParent {
+abstract class UThreadViewPostParentUnknown implements UThreadViewPostParent {
   const factory UThreadViewPostParentUnknown(
           {required final Map<String, dynamic> data}) =
       _$UThreadViewPostParentUnknownImpl;

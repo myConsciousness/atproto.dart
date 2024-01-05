@@ -22,8 +22,8 @@ FeedViewPost _$FeedViewPostFromJson(Map<String, dynamic> json) {
 mixin _$FeedViewPost {
   PostView get post => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  @unionReason
-  UReason? get reason => throw _privateConstructorUsedError;
+  @unionFeedViewPostReason
+  UFeedViewPostReason? get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,11 +37,14 @@ abstract class $FeedViewPostCopyWith<$Res> {
           FeedViewPost value, $Res Function(FeedViewPost) then) =
       _$FeedViewPostCopyWithImpl<$Res, FeedViewPost>;
   @useResult
-  $Res call({PostView post, ReplyRef? reply, @unionReason UReason? reason});
+  $Res call(
+      {PostView post,
+      ReplyRef? reply,
+      @unionFeedViewPostReason UFeedViewPostReason? reason});
 
   $PostViewCopyWith<$Res> get post;
   $ReplyRefCopyWith<$Res>? get reply;
-  $UReasonCopyWith<$Res>? get reason;
+  $UFeedViewPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -73,7 +76,7 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as UFeedViewPostReason?,
     ) as $Val);
   }
 
@@ -99,12 +102,12 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
 
   @override
   @pragma('vm:prefer-inline')
-  $UReasonCopyWith<$Res>? get reason {
+  $UFeedViewPostReasonCopyWith<$Res>? get reason {
     if (_value.reason == null) {
       return null;
     }
 
-    return $UReasonCopyWith<$Res>(_value.reason!, (value) {
+    return $UFeedViewPostReasonCopyWith<$Res>(_value.reason!, (value) {
       return _then(_value.copyWith(reason: value) as $Val);
     });
   }
@@ -118,14 +121,17 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
       __$$FeedViewPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PostView post, ReplyRef? reply, @unionReason UReason? reason});
+  $Res call(
+      {PostView post,
+      ReplyRef? reply,
+      @unionFeedViewPostReason UFeedViewPostReason? reason});
 
   @override
   $PostViewCopyWith<$Res> get post;
   @override
   $ReplyRefCopyWith<$Res>? get reply;
   @override
-  $UReasonCopyWith<$Res>? get reason;
+  $UFeedViewPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -155,7 +161,7 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as UReason?,
+              as UFeedViewPostReason?,
     ));
   }
 }
@@ -165,7 +171,7 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$FeedViewPostImpl implements _FeedViewPost {
   const _$FeedViewPostImpl(
-      {required this.post, this.reply, @unionReason this.reason});
+      {required this.post, this.reply, @unionFeedViewPostReason this.reason});
 
   factory _$FeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPostImplFromJson(json);
@@ -175,8 +181,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @override
   final ReplyRef? reply;
   @override
-  @unionReason
-  final UReason? reason;
+  @unionFeedViewPostReason
+  final UFeedViewPostReason? reason;
 
   @override
   String toString() {
@@ -213,9 +219,10 @@ class _$FeedViewPostImpl implements _FeedViewPost {
 
 abstract class _FeedViewPost implements FeedViewPost {
   const factory _FeedViewPost(
-      {required final PostView post,
-      final ReplyRef? reply,
-      @unionReason final UReason? reason}) = _$FeedViewPostImpl;
+          {required final PostView post,
+          final ReplyRef? reply,
+          @unionFeedViewPostReason final UFeedViewPostReason? reason}) =
+      _$FeedViewPostImpl;
 
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) =
       _$FeedViewPostImpl.fromJson;
@@ -225,8 +232,8 @@ abstract class _FeedViewPost implements FeedViewPost {
   @override
   ReplyRef? get reply;
   @override
-  @unionReason
-  UReason? get reason;
+  @unionFeedViewPostReason
+  UFeedViewPostReason? get reason;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewPostImplCopyWith<_$FeedViewPostImpl> get copyWith =>

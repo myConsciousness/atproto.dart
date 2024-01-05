@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-
 import '../feed_defs_blocked_post.dart';
 import '../feed_defs_not_found_post.dart';
 import '../feed_defs_thread_view_post.dart';
@@ -17,59 +16,59 @@ part 'feed_defs_thread_view_post_parent.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class ThreadViewPostParent with _$ThreadViewPostParent {
-  const factory ThreadViewPostParent.threadViewPost({
+class UThreadViewPostParent with _$UThreadViewPostParent {
+  const factory UThreadViewPostParent.threadViewPost({
     required ThreadViewPost data,
   }) = UThreadViewPostParentThreadViewPost;
 
-  const factory ThreadViewPostParent.notFoundPost({
+  const factory UThreadViewPostParent.notFoundPost({
     required NotFoundPost data,
   }) = UThreadViewPostParentNotFoundPost;
 
-  const factory ThreadViewPostParent.blockedPost({
+  const factory UThreadViewPostParent.blockedPost({
     required BlockedPost data,
   }) = UThreadViewPostParentBlockedPost;
 
-  const factory ThreadViewPostParent.unknown({
+  const factory UThreadViewPostParent.unknown({
     required Map<String, dynamic> data,
   }) = UThreadViewPostParentUnknown;
 }
 
-const unionThreadViewPostParent = _ThreadViewPostParentConverter();
+const unionThreadViewPostParent = _UThreadViewPostParentConverter();
 
-final class _ThreadViewPostParentConverter
-    implements JsonConverter<ThreadViewPostParent, Map<String, dynamic>> {
-  const _ThreadViewPostParentConverter();
+final class _UThreadViewPostParentConverter
+    implements JsonConverter<UThreadViewPostParent, Map<String, dynamic>> {
+  const _UThreadViewPostParentConverter();
 
   @override
-  ThreadViewPostParent fromJson(Map<String, dynamic> json) {
+  UThreadViewPostParent fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
-        return ThreadViewPostParent.threadViewPost(
+        return UThreadViewPostParent.threadViewPost(
           data: ThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return ThreadViewPostParent.notFoundPost(
+        return UThreadViewPostParent.notFoundPost(
           data: NotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return ThreadViewPostParent.blockedPost(
+        return UThreadViewPostParent.blockedPost(
           data: BlockedPost.fromJson(json),
         );
       }
 
-      return ThreadViewPostParent.unknown(data: json);
+      return UThreadViewPostParent.unknown(data: json);
     } catch (_) {
-      return ThreadViewPostParent.unknown(data: json);
+      return UThreadViewPostParent.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadViewPostParent object) => object.when(
+  Map<String, dynamic> toJson(UThreadViewPostParent object) => object.when(
         threadViewPost: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

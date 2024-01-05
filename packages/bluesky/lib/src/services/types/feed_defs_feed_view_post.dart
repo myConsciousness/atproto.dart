@@ -10,10 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/reason_converter.dart';
 import 'feed_defs_post_view.dart';
 import 'feed_defs_reply_ref.dart';
-import 'unions/union_reason.dart';
+import 'unions/feed_defs_feed_view_post_reason.dart';
 
 part 'feed_defs_feed_view_post.freezed.dart';
 part 'feed_defs_feed_view_post.g.dart';
@@ -26,7 +25,7 @@ class FeedViewPost with _$FeedViewPost {
   const factory FeedViewPost({
     required PostView post,
     ReplyRef? reply,
-    @unionReason UReason? reason,
+    @unionFeedViewPostReason UFeedViewPostReason? reason,
   }) = _FeedViewPost;
 
   factory FeedViewPost.fromJson(Map<String, Object?> json) =>

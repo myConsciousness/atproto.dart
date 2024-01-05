@@ -24,8 +24,8 @@ mixin _$PostRecord {
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  @unionEmbed
-  UEmbed? get embed => throw _privateConstructorUsedError;
+  @unionInputEmbed
+  UInputEmbed? get embed => throw _privateConstructorUsedError;
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $PostRecordCopyWith<$Res> {
       {@typeKey String type,
       String text,
       ReplyRef? reply,
-      @unionEmbed UEmbed? embed,
+      @unionInputEmbed UInputEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Main>? facets,
@@ -57,7 +57,7 @@ abstract class $PostRecordCopyWith<$Res> {
       DateTime createdAt});
 
   $ReplyRefCopyWith<$Res>? get reply;
-  $UEmbedCopyWith<$Res>? get embed;
+  $UInputEmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
 
@@ -100,7 +100,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UInputEmbed?,
       langs: freezed == langs
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -138,12 +138,12 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedCopyWith<$Res>? get embed {
+  $UInputEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UInputEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -173,7 +173,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       {@typeKey String type,
       String text,
       ReplyRef? reply,
-      @unionEmbed UEmbed? embed,
+      @unionInputEmbed UInputEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Main>? facets,
@@ -183,7 +183,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @override
   $ReplyRefCopyWith<$Res>? get reply;
   @override
-  $UEmbedCopyWith<$Res>? get embed;
+  $UInputEmbedCopyWith<$Res>? get embed;
   @override
   $LabelsCopyWith<$Res>? get labels;
 }
@@ -225,7 +225,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UInputEmbed?,
       langs: freezed == langs
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -258,7 +258,7 @@ class _$PostRecordImpl implements _PostRecord {
       {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
-      @unionEmbed this.embed,
+      @unionInputEmbed this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
       final List<Main>? facets,
@@ -279,8 +279,8 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   final ReplyRef? reply;
   @override
-  @unionEmbed
-  final UEmbed? embed;
+  @unionInputEmbed
+  final UInputEmbed? embed;
   final List<String>? _langs;
   @override
   List<String>? get langs {
@@ -372,7 +372,7 @@ abstract class _PostRecord implements PostRecord {
       {@typeKey final String type,
       required final String text,
       final ReplyRef? reply,
-      @unionEmbed final UEmbed? embed,
+      @unionInputEmbed final UInputEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
       final List<Main>? facets,
@@ -390,8 +390,8 @@ abstract class _PostRecord implements PostRecord {
   @override
   ReplyRef? get reply;
   @override
-  @unionEmbed
-  UEmbed? get embed;
+  @unionInputEmbed
+  UInputEmbed? get embed;
   @override
   List<String>? get langs;
   @override

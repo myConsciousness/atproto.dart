@@ -4,6 +4,7 @@
 
 // ignore_for_file: invalid_annotation_target
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -15,43 +16,43 @@ part 'feed_defs_skeleton_feed_post_reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
-class SkeletonFeedPostReason with _$SkeletonFeedPostReason {
-  factory SkeletonFeedPostReason.skeletonReasonRepost({
+class USkeletonFeedPostReason with _$USkeletonFeedPostReason {
+  factory USkeletonFeedPostReason.skeletonReasonRepost({
     required SkeletonReasonRepost data,
   }) = USkeletonFeedPostReasonSkeletonReasonRepost;
 
-  factory SkeletonFeedPostReason.unknown({
+  factory USkeletonFeedPostReason.unknown({
     required Map<String, dynamic> data,
   }) = USkeletonFeedPostReasonUnknown;
 
   Map<String, dynamic> toJson() => unionSkeletonFeedPostReason.toJson(this);
 }
 
-const unionSkeletonFeedPostReason = _SkeletonFeedPostReasonConverter();
+const unionSkeletonFeedPostReason = _USkeletonFeedPostReasonConverter();
 
-final class _SkeletonFeedPostReasonConverter
-    implements JsonConverter<SkeletonFeedPostReason, Map<String, dynamic>> {
-  const _SkeletonFeedPostReasonConverter();
+final class _USkeletonFeedPostReasonConverter
+    implements JsonConverter<USkeletonFeedPostReason, Map<String, dynamic>> {
+  const _USkeletonFeedPostReasonConverter();
 
   @override
-  SkeletonFeedPostReason fromJson(Map<String, dynamic> json) {
+  USkeletonFeedPostReason fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
-        return SkeletonFeedPostReason.skeletonReasonRepost(
+        return USkeletonFeedPostReason.skeletonReasonRepost(
           data: SkeletonReasonRepost.fromJson(json),
         );
       }
 
-      return SkeletonFeedPostReason.unknown(data: json);
+      return USkeletonFeedPostReason.unknown(data: json);
     } catch (_) {
-      return SkeletonFeedPostReason.unknown(data: json);
+      return USkeletonFeedPostReason.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(SkeletonFeedPostReason object) => object.when(
+  Map<String, dynamic> toJson(USkeletonFeedPostReason object) => object.when(
         skeletonReasonRepost: (data) => data.toJson(),
         unknown: (data) => data,
       );

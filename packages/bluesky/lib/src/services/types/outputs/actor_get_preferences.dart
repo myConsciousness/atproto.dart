@@ -12,7 +12,7 @@ import '../unions/actor_defs_preferences_preferences.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
 @lex.appBskyActorGetPreferences
 abstract class Output {
-  List<PreferencesPreferences> get preferences;
+  List<UPreferencesPreferences> get preferences;
 
   factory Output.fromJson(Map<String, Object?> json) =>
       Preferences.fromJson(json);

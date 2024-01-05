@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$PreferencesPreferences {
+mixin _$UPreferencesPreferences {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -104,17 +104,17 @@ mixin _$PreferencesPreferences {
 }
 
 /// @nodoc
-abstract class $PreferencesPreferencesCopyWith<$Res> {
-  factory $PreferencesPreferencesCopyWith(PreferencesPreferences value,
-          $Res Function(PreferencesPreferences) then) =
-      _$PreferencesPreferencesCopyWithImpl<$Res, PreferencesPreferences>;
+abstract class $UPreferencesPreferencesCopyWith<$Res> {
+  factory $UPreferencesPreferencesCopyWith(UPreferencesPreferences value,
+          $Res Function(UPreferencesPreferences) then) =
+      _$UPreferencesPreferencesCopyWithImpl<$Res, UPreferencesPreferences>;
 }
 
 /// @nodoc
-class _$PreferencesPreferencesCopyWithImpl<$Res,
-        $Val extends PreferencesPreferences>
-    implements $PreferencesPreferencesCopyWith<$Res> {
-  _$PreferencesPreferencesCopyWithImpl(this._value, this._then);
+class _$UPreferencesPreferencesCopyWithImpl<$Res,
+        $Val extends UPreferencesPreferences>
+    implements $UPreferencesPreferencesCopyWith<$Res> {
+  _$UPreferencesPreferencesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -136,7 +136,7 @@ abstract class _$$UPreferencesPreferencesAdultContentPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesAdultContentPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesAdultContentPrefImpl>
     implements _$$UPreferencesPreferencesAdultContentPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesAdultContentPrefImplCopyWithImpl(
@@ -177,7 +177,7 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.adultContentPref(data: $data)';
+    return 'UPreferencesPreferences.adultContentPref(data: $data)';
   }
 
   @override
@@ -310,7 +310,7 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
 }
 
 abstract class UPreferencesPreferencesAdultContentPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesAdultContentPref(
           {required final AdultContentPref data}) =
       _$UPreferencesPreferencesAdultContentPrefImpl;
@@ -337,7 +337,7 @@ abstract class _$$UPreferencesPreferencesContentLabelPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesContentLabelPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesContentLabelPrefImpl>
     implements _$$UPreferencesPreferencesContentLabelPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesContentLabelPrefImplCopyWithImpl(
@@ -378,7 +378,7 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.contentLabelPref(data: $data)';
+    return 'UPreferencesPreferences.contentLabelPref(data: $data)';
   }
 
   @override
@@ -511,7 +511,7 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
 }
 
 abstract class UPreferencesPreferencesContentLabelPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesContentLabelPref(
           {required final ContentLabelPref data}) =
       _$UPreferencesPreferencesContentLabelPrefImpl;
@@ -538,7 +538,7 @@ abstract class _$$UPreferencesPreferencesSavedFeedsPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesSavedFeedsPrefImpl>
     implements _$$UPreferencesPreferencesSavedFeedsPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesSavedFeedsPrefImplCopyWithImpl(
@@ -579,7 +579,7 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.savedFeedsPref(data: $data)';
+    return 'UPreferencesPreferences.savedFeedsPref(data: $data)';
   }
 
   @override
@@ -711,7 +711,7 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
 }
 
 abstract class UPreferencesPreferencesSavedFeedsPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesSavedFeedsPref(
           {required final SavedFeedsPref data}) =
       _$UPreferencesPreferencesSavedFeedsPrefImpl;
@@ -739,7 +739,7 @@ abstract class _$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesPersonalDetailsPrefImpl>
     implements _$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWithImpl(
@@ -780,7 +780,7 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.personalDetailsPref(data: $data)';
+    return 'UPreferencesPreferences.personalDetailsPref(data: $data)';
   }
 
   @override
@@ -914,7 +914,7 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
 }
 
 abstract class UPreferencesPreferencesPersonalDetailsPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesPersonalDetailsPref(
           {required final PersonalDetailsPref data}) =
       _$UPreferencesPreferencesPersonalDetailsPrefImpl;
@@ -941,7 +941,7 @@ abstract class _$$UPreferencesPreferencesFeedViewPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesFeedViewPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesFeedViewPrefImpl>
     implements _$$UPreferencesPreferencesFeedViewPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesFeedViewPrefImplCopyWithImpl(
@@ -982,7 +982,7 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.feedViewPref(data: $data)';
+    return 'UPreferencesPreferences.feedViewPref(data: $data)';
   }
 
   @override
@@ -1114,7 +1114,7 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
 }
 
 abstract class UPreferencesPreferencesFeedViewPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesFeedViewPref(
           {required final FeedViewPref data}) =
       _$UPreferencesPreferencesFeedViewPrefImpl;
@@ -1141,7 +1141,7 @@ abstract class _$$UPreferencesPreferencesThreadViewPrefImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesThreadViewPrefImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesThreadViewPrefImpl>
     implements _$$UPreferencesPreferencesThreadViewPrefImplCopyWith<$Res> {
   __$$UPreferencesPreferencesThreadViewPrefImplCopyWithImpl(
@@ -1182,7 +1182,7 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.threadViewPref(data: $data)';
+    return 'UPreferencesPreferences.threadViewPref(data: $data)';
   }
 
   @override
@@ -1314,7 +1314,7 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
 }
 
 abstract class UPreferencesPreferencesThreadViewPref
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesThreadViewPref(
           {required final ThreadViewPref data}) =
       _$UPreferencesPreferencesThreadViewPrefImpl;
@@ -1339,7 +1339,7 @@ abstract class _$$UPreferencesPreferencesUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UPreferencesPreferencesUnknownImplCopyWithImpl<$Res>
-    extends _$PreferencesPreferencesCopyWithImpl<$Res,
+    extends _$UPreferencesPreferencesCopyWithImpl<$Res,
         _$UPreferencesPreferencesUnknownImpl>
     implements _$$UPreferencesPreferencesUnknownImplCopyWith<$Res> {
   __$$UPreferencesPreferencesUnknownImplCopyWithImpl(
@@ -1379,7 +1379,7 @@ class _$UPreferencesPreferencesUnknownImpl
 
   @override
   String toString() {
-    return 'PreferencesPreferences.unknown(data: $data)';
+    return 'UPreferencesPreferences.unknown(data: $data)';
   }
 
   @override
@@ -1512,7 +1512,7 @@ class _$UPreferencesPreferencesUnknownImpl
 }
 
 abstract class UPreferencesPreferencesUnknown
-    implements PreferencesPreferences {
+    implements UPreferencesPreferences {
   const factory UPreferencesPreferencesUnknown(
           {required final Map<String, dynamic> data}) =
       _$UPreferencesPreferencesUnknownImpl;

@@ -29,8 +29,8 @@ mixin _$ViewRecord {
   @postRecordConverter
   PostRecord get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  @unionEmbedView
-  List<UEmbedView>? get embeds => throw _privateConstructorUsedError;
+  @unionViewRecordEmbeds
+  List<UViewRecordEmbeds>? get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $ViewRecordCopyWith<$Res> {
       ProfileViewBasic author,
       @postRecordConverter PostRecord value,
       List<Label>? labels,
-      @unionEmbedView List<UEmbedView>? embeds,
+      @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -109,7 +109,7 @@ class _$ViewRecordCopyWithImpl<$Res, $Val extends ViewRecord>
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<UEmbedView>?,
+              as List<UViewRecordEmbeds>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -149,7 +149,7 @@ abstract class _$$ViewRecordImplCopyWith<$Res>
       ProfileViewBasic author,
       @postRecordConverter PostRecord value,
       List<Label>? labels,
-      @unionEmbedView List<UEmbedView>? embeds,
+      @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
   @override
@@ -206,7 +206,7 @@ class __$$ViewRecordImplCopyWithImpl<$Res>
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<UEmbedView>?,
+              as List<UViewRecordEmbeds>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -226,7 +226,7 @@ class _$ViewRecordImpl implements _ViewRecord {
       required this.author,
       @postRecordConverter required this.value,
       final List<Label>? labels,
-      @unionEmbedView final List<UEmbedView>? embeds,
+      @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
       required this.indexedAt})
       : _labels = labels,
         _embeds = embeds;
@@ -257,10 +257,10 @@ class _$ViewRecordImpl implements _ViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<UEmbedView>? _embeds;
+  final List<UViewRecordEmbeds>? _embeds;
   @override
-  @unionEmbedView
-  List<UEmbedView>? get embeds {
+  @unionViewRecordEmbeds
+  List<UViewRecordEmbeds>? get embeds {
     final value = _embeds;
     if (value == null) return null;
     if (_embeds is EqualUnmodifiableListView) return _embeds;
@@ -327,7 +327,7 @@ abstract class _ViewRecord implements ViewRecord {
       required final ProfileViewBasic author,
       @postRecordConverter required final PostRecord value,
       final List<Label>? labels,
-      @unionEmbedView final List<UEmbedView>? embeds,
+      @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
       required final DateTime indexedAt}) = _$ViewRecordImpl;
 
   factory _ViewRecord.fromJson(Map<String, dynamic> json) =
@@ -349,8 +349,8 @@ abstract class _ViewRecord implements ViewRecord {
   @override
   List<Label>? get labels;
   @override
-  @unionEmbedView
-  List<UEmbedView>? get embeds;
+  @unionViewRecordEmbeds
+  List<UViewRecordEmbeds>? get embeds;
   @override
   DateTime get indexedAt;
   @override

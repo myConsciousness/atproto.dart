@@ -11,9 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/embed_record_with_media_converter.dart';
 import 'embed_record_main.dart' as embed_record_main;
-import 'unions/union_embed_record_with_media.dart';
+import 'unions/embed_record_with_media_main_media.dart';
 
 part 'embed_record_with_media_main.freezed.dart';
 part 'embed_record_with_media_main.g.dart';
@@ -25,7 +24,7 @@ class Main with _$Main {
   const factory Main({
     @typeKey @Default(appBskyEmbedRecordWithMedia) String type,
     required embed_record_main.Main record,
-    @unionEmbedRecordWithMedia required UEmbedRecordWithMedia media,
+    @unionMainMedia required UMainMedia media,
   }) = _Main;
 
   factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);

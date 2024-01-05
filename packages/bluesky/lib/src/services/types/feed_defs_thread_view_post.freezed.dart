@@ -24,9 +24,9 @@ mixin _$ThreadViewPost {
   String get type => throw _privateConstructorUsedError;
   PostView get post => throw _privateConstructorUsedError;
   @unionThreadViewPostParent
-  ThreadViewPostParent? get parent => throw _privateConstructorUsedError;
+  UThreadViewPostParent? get parent => throw _privateConstructorUsedError;
   @unionThreadViewPostReplies
-  List<ThreadViewPostReplies>? get replies =>
+  List<UThreadViewPostReplies>? get replies =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,11 +44,11 @@ abstract class $ThreadViewPostCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       PostView post,
-      @unionThreadViewPostParent ThreadViewPostParent? parent,
-      @unionThreadViewPostReplies List<ThreadViewPostReplies>? replies});
+      @unionThreadViewPostParent UThreadViewPostParent? parent,
+      @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies});
 
   $PostViewCopyWith<$Res> get post;
-  $ThreadViewPostParentCopyWith<$Res>? get parent;
+  $UThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -81,11 +81,11 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPostParent?,
+              as UThreadViewPostParent?,
       replies: freezed == replies
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<ThreadViewPostReplies>?,
+              as List<UThreadViewPostReplies>?,
     ) as $Val);
   }
 
@@ -99,12 +99,12 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
 
   @override
   @pragma('vm:prefer-inline')
-  $ThreadViewPostParentCopyWith<$Res>? get parent {
+  $UThreadViewPostParentCopyWith<$Res>? get parent {
     if (_value.parent == null) {
       return null;
     }
 
-    return $ThreadViewPostParentCopyWith<$Res>(_value.parent!, (value) {
+    return $UThreadViewPostParentCopyWith<$Res>(_value.parent!, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -121,13 +121,13 @@ abstract class _$$ThreadViewPostImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       PostView post,
-      @unionThreadViewPostParent ThreadViewPostParent? parent,
-      @unionThreadViewPostReplies List<ThreadViewPostReplies>? replies});
+      @unionThreadViewPostParent UThreadViewPostParent? parent,
+      @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies});
 
   @override
   $PostViewCopyWith<$Res> get post;
   @override
-  $ThreadViewPostParentCopyWith<$Res>? get parent;
+  $UThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -158,11 +158,11 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPostParent?,
+              as UThreadViewPostParent?,
       replies: freezed == replies
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<ThreadViewPostReplies>?,
+              as List<UThreadViewPostReplies>?,
     ));
   }
 }
@@ -174,7 +174,7 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
       {@typeKey this.type = appBskyFeedDefsThreadViewPost,
       required this.post,
       @unionThreadViewPostParent this.parent,
-      @unionThreadViewPostReplies final List<ThreadViewPostReplies>? replies})
+      @unionThreadViewPostReplies final List<UThreadViewPostReplies>? replies})
       : _replies = replies;
 
   factory _$ThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
@@ -187,11 +187,11 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
   final PostView post;
   @override
   @unionThreadViewPostParent
-  final ThreadViewPostParent? parent;
-  final List<ThreadViewPostReplies>? _replies;
+  final UThreadViewPostParent? parent;
+  final List<UThreadViewPostReplies>? _replies;
   @override
   @unionThreadViewPostReplies
-  List<ThreadViewPostReplies>? get replies {
+  List<UThreadViewPostReplies>? get replies {
     final value = _replies;
     if (value == null) return null;
     if (_replies is EqualUnmodifiableListView) return _replies;
@@ -239,9 +239,9 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   const factory _ThreadViewPost(
       {@typeKey final String type,
       required final PostView post,
-      @unionThreadViewPostParent final ThreadViewPostParent? parent,
+      @unionThreadViewPostParent final UThreadViewPostParent? parent,
       @unionThreadViewPostReplies
-      final List<ThreadViewPostReplies>? replies}) = _$ThreadViewPostImpl;
+      final List<UThreadViewPostReplies>? replies}) = _$ThreadViewPostImpl;
 
   factory _ThreadViewPost.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPostImpl.fromJson;
@@ -253,10 +253,10 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   PostView get post;
   @override
   @unionThreadViewPostParent
-  ThreadViewPostParent? get parent;
+  UThreadViewPostParent? get parent;
   @override
   @unionThreadViewPostReplies
-  List<ThreadViewPostReplies>? get replies;
+  List<UThreadViewPostReplies>? get replies;
   @override
   @JsonKey(ignore: true)
   _$$ThreadViewPostImplCopyWith<_$ThreadViewPostImpl> get copyWith =>

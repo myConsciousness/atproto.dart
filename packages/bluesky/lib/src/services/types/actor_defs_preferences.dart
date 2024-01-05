@@ -21,7 +21,7 @@ part 'actor_defs_preferences.g.dart';
 class Preferences with _$Preferences implements actor_get_preferences.Output {
   const factory Preferences({
     @unionPreferencesPreferences
-    required List<PreferencesPreferences> preferences,
+    required List<UPreferencesPreferences> preferences,
   }) = _Preferences;
 
   factory Preferences.fromJson(Map<String, Object?> json) =>

@@ -22,8 +22,8 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
                   : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
               'reason',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UReason>(
-                  v, unionReason.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                  UFeedViewPostReason>(v, unionFeedViewPostReason.fromJson)),
         );
         return val;
       },
@@ -43,8 +43,8 @@ Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
   writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, UReason>(
-          instance.reason, unionReason.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
+          instance.reason, unionFeedViewPostReason.toJson));
   return val;
 }
 

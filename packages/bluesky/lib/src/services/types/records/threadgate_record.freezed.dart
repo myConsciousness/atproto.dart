@@ -25,9 +25,9 @@ mixin _$ThreadgateRecord {
   @atUriConverter
   @JsonKey(name: 'post')
   AtUri get postUri => throw _privateConstructorUsedError;
-  @unionThreadgate
+  @unionInputAllow
   @JsonKey(name: 'allow')
-  List<UThreadgate>? get allowRules => throw _privateConstructorUsedError;
+  List<UInputAllow>? get allowRules => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter @JsonKey(name: 'post') AtUri postUri,
-      @unionThreadgate @JsonKey(name: 'allow') List<UThreadgate>? allowRules,
+      @unionInputAllow @JsonKey(name: 'allow') List<UInputAllow>? allowRules,
       DateTime createdAt});
 }
 
@@ -79,7 +79,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
       allowRules: freezed == allowRules
           ? _value.allowRules
           : allowRules // ignore: cast_nullable_to_non_nullable
-              as List<UThreadgate>?,
+              as List<UInputAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @atUriConverter @JsonKey(name: 'post') AtUri postUri,
-      @unionThreadgate @JsonKey(name: 'allow') List<UThreadgate>? allowRules,
+      @unionInputAllow @JsonKey(name: 'allow') List<UInputAllow>? allowRules,
       DateTime createdAt});
 }
 
@@ -131,7 +131,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
       allowRules: freezed == allowRules
           ? _value._allowRules
           : allowRules // ignore: cast_nullable_to_non_nullable
-              as List<UThreadgate>?,
+              as List<UInputAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -147,9 +147,9 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   const _$ThreadgateRecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
       @atUriConverter @JsonKey(name: 'post') required this.postUri,
-      @unionThreadgate
+      @unionInputAllow
       @JsonKey(name: 'allow')
-      final List<UThreadgate>? allowRules,
+      final List<UInputAllow>? allowRules,
       required this.createdAt})
       : _allowRules = allowRules;
 
@@ -163,11 +163,11 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   @atUriConverter
   @JsonKey(name: 'post')
   final AtUri postUri;
-  final List<UThreadgate>? _allowRules;
+  final List<UInputAllow>? _allowRules;
   @override
-  @unionThreadgate
+  @unionInputAllow
   @JsonKey(name: 'allow')
-  List<UThreadgate>? get allowRules {
+  List<UInputAllow>? get allowRules {
     final value = _allowRules;
     if (value == null) return null;
     if (_allowRules is EqualUnmodifiableListView) return _allowRules;
@@ -220,9 +220,9 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
       {@typeKey final String type,
       @atUriConverter @JsonKey(name: 'post') required final AtUri postUri,
-      @unionThreadgate
+      @unionInputAllow
       @JsonKey(name: 'allow')
-      final List<UThreadgate>? allowRules,
+      final List<UInputAllow>? allowRules,
       required final DateTime createdAt}) = _$ThreadgateRecordImpl;
 
   factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
@@ -236,9 +236,9 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   @JsonKey(name: 'post')
   AtUri get postUri;
   @override
-  @unionThreadgate
+  @unionInputAllow
   @JsonKey(name: 'allow')
-  List<UThreadgate>? get allowRules;
+  List<UInputAllow>? get allowRules;
   @override
   DateTime get createdAt;
   @override

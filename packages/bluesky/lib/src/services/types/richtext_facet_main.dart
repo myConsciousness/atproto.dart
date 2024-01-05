@@ -25,7 +25,7 @@ class Main with _$Main {
   const factory Main({
     @typeKey @Default(appBskyRichtextFacet) String type,
     required ByteSlice index,
-    @unionMainFeatures required List<MainFeatures> features,
+    @unionMainFeatures required List<UMainFeatures> features,
   }) = _Main;
 
   factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);

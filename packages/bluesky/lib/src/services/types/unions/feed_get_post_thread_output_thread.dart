@@ -8,68 +8,67 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-
 import '../feed_defs_blocked_post.dart';
 import '../feed_defs_not_found_post.dart';
 import '../feed_defs_thread_view_post.dart';
 
-part 'feed_get_post_thread_thread.freezed.dart';
+part 'feed_get_post_thread_output_thread.freezed.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
-class OutputThread with _$OutputThread {
-  const factory OutputThread.threadViewPost({
+class UOutputThread with _$UOutputThread {
+  const factory UOutputThread.threadViewPost({
     required ThreadViewPost data,
   }) = UOutputThreadThreadViewPost;
 
-  const factory OutputThread.notFoundPost({
+  const factory UOutputThread.notFoundPost({
     required NotFoundPost data,
   }) = UOutputThreadNotFoundPost;
 
-  const factory OutputThread.blockedPost({
+  const factory UOutputThread.blockedPost({
     required BlockedPost data,
   }) = UOutputThreadBlockedPost;
 
-  const factory OutputThread.unknown({
+  const factory UOutputThread.unknown({
     required Map<String, dynamic> data,
   }) = UOutputThreadUnknown;
 }
 
-const unionOutputThread = _OutputThreadConverter();
+const unionOutputThread = _UOutputThreadConverter();
 
-final class _OutputThreadConverter
-    implements JsonConverter<OutputThread, Map<String, dynamic>> {
-  const _OutputThreadConverter();
+final class _UOutputThreadConverter
+    implements JsonConverter<UOutputThread, Map<String, dynamic>> {
+  const _UOutputThreadConverter();
 
   @override
-  OutputThread fromJson(Map<String, dynamic> json) {
+  UOutputThread fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
-        return OutputThread.threadViewPost(
+        return UOutputThread.threadViewPost(
           data: ThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return OutputThread.notFoundPost(
+        return UOutputThread.notFoundPost(
           data: NotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return OutputThread.blockedPost(
+        return UOutputThread.blockedPost(
           data: BlockedPost.fromJson(json),
         );
       }
 
-      return OutputThread.unknown(data: json);
+      return UOutputThread.unknown(data: json);
     } catch (_) {
-      return OutputThread.unknown(data: json);
+      return UOutputThread.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(OutputThread object) => object.when(
+  Map<String, dynamic> toJson(UOutputThread object) => object.when(
         threadViewPost: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

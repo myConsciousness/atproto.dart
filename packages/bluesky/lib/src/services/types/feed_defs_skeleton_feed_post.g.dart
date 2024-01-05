@@ -19,7 +19,7 @@ _$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
           reason: $checkedConvert(
               'reason',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      SkeletonFeedPostReason>(
+                      USkeletonFeedPostReason>(
                   v, unionSkeletonFeedPostReason.fromJson)),
         );
         return val;
@@ -40,7 +40,7 @@ Map<String, dynamic> _$$SkeletonFeedPostImplToJson(
 
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, SkeletonFeedPostReason>(
+      _$JsonConverterToJson<Map<String, dynamic>, USkeletonFeedPostReason>(
           instance.reason, unionSkeletonFeedPostReason.toJson));
   return val;
 }

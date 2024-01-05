@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-
 import '../feed_defs_blocked_post.dart';
 import '../feed_defs_not_found_post.dart';
 import '../feed_defs_thread_view_post.dart';
@@ -17,59 +16,59 @@ part 'feed_defs_thread_view_post_replies.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class ThreadViewPostReplies with _$ThreadViewPostReplies {
-  const factory ThreadViewPostReplies.threadViewPost({
+class UThreadViewPostReplies with _$UThreadViewPostReplies {
+  const factory UThreadViewPostReplies.threadViewPost({
     required ThreadViewPost data,
   }) = UThreadViewPostRepliesThreadViewPost;
 
-  const factory ThreadViewPostReplies.notFoundPost({
+  const factory UThreadViewPostReplies.notFoundPost({
     required NotFoundPost data,
   }) = UThreadViewPostRepliesNotFoundPost;
 
-  const factory ThreadViewPostReplies.blockedPost({
+  const factory UThreadViewPostReplies.blockedPost({
     required BlockedPost data,
   }) = UThreadViewPostRepliesBlockedPost;
 
-  const factory ThreadViewPostReplies.unknown({
+  const factory UThreadViewPostReplies.unknown({
     required Map<String, dynamic> data,
   }) = UThreadViewPostRepliesUnknown;
 }
 
-const unionThreadViewPostReplies = _ThreadViewPostRepliesConverter();
+const unionThreadViewPostReplies = _UThreadViewPostRepliesConverter();
 
-final class _ThreadViewPostRepliesConverter
-    implements JsonConverter<ThreadViewPostReplies, Map<String, dynamic>> {
-  const _ThreadViewPostRepliesConverter();
+final class _UThreadViewPostRepliesConverter
+    implements JsonConverter<UThreadViewPostReplies, Map<String, dynamic>> {
+  const _UThreadViewPostRepliesConverter();
 
   @override
-  ThreadViewPostReplies fromJson(Map<String, dynamic> json) {
+  UThreadViewPostReplies fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
-        return ThreadViewPostReplies.threadViewPost(
+        return UThreadViewPostReplies.threadViewPost(
           data: ThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return ThreadViewPostReplies.notFoundPost(
+        return UThreadViewPostReplies.notFoundPost(
           data: NotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return ThreadViewPostReplies.blockedPost(
+        return UThreadViewPostReplies.blockedPost(
           data: BlockedPost.fromJson(json),
         );
       }
 
-      return ThreadViewPostReplies.unknown(data: json);
+      return UThreadViewPostReplies.unknown(data: json);
     } catch (_) {
-      return ThreadViewPostReplies.unknown(data: json);
+      return UThreadViewPostReplies.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ThreadViewPostReplies object) => object.when(
+  Map<String, dynamic> toJson(UThreadViewPostReplies object) => object.when(
         threadViewPost: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

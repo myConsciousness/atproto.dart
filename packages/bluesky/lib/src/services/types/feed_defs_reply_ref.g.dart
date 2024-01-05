@@ -13,10 +13,10 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ReplyRefImpl(
-          root: $checkedConvert(
-              'root', (v) => unionReplyRef.fromJson(v as Map<String, dynamic>)),
+          root: $checkedConvert('root',
+              (v) => unionReplyRefRoot.fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert('parent',
-              (v) => unionReplyRef.fromJson(v as Map<String, dynamic>)),
+              (v) => unionReplyRefParent.fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -24,6 +24,6 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) =>
     <String, dynamic>{
-      'root': unionReplyRef.toJson(instance.root),
-      'parent': unionReplyRef.toJson(instance.parent),
+      'root': unionReplyRefRoot.toJson(instance.root),
+      'parent': unionReplyRefParent.toJson(instance.parent),
     };

@@ -23,8 +23,8 @@ mixin _$Main {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   embed_record_main.Main get record => throw _privateConstructorUsedError;
-  @unionEmbedRecordWithMedia
-  UEmbedRecordWithMedia get media => throw _privateConstructorUsedError;
+  @unionMainMedia
+  UMainMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,10 +39,10 @@ abstract class $MainCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       embed_record_main.Main record,
-      @unionEmbedRecordWithMedia UEmbedRecordWithMedia media});
+      @unionMainMedia UMainMedia media});
 
   $MainCopyWith<$Res> get record;
-  $UEmbedRecordWithMediaCopyWith<$Res> get media;
+  $UMainMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMedia,
+              as UMainMedia,
     ) as $Val);
   }
 
@@ -88,8 +88,8 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedRecordWithMediaCopyWith<$Res> get media {
-    return $UEmbedRecordWithMediaCopyWith<$Res>(_value.media, (value) {
+  $UMainMediaCopyWith<$Res> get media {
+    return $UMainMediaCopyWith<$Res>(_value.media, (value) {
       return _then(_value.copyWith(media: value) as $Val);
     });
   }
@@ -105,12 +105,12 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       embed_record_main.Main record,
-      @unionEmbedRecordWithMedia UEmbedRecordWithMedia media});
+      @unionMainMedia UMainMedia media});
 
   @override
   $MainCopyWith<$Res> get record;
   @override
-  $UEmbedRecordWithMediaCopyWith<$Res> get media;
+  $UMainMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$MainImplCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as UEmbedRecordWithMedia,
+              as UMainMedia,
     ));
   }
 }
@@ -150,7 +150,7 @@ class _$MainImpl implements _Main {
   const _$MainImpl(
       {@typeKey this.type = appBskyEmbedRecordWithMedia,
       required this.record,
-      @unionEmbedRecordWithMedia required this.media});
+      @unionMainMedia required this.media});
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
       _$$MainImplFromJson(json);
@@ -161,8 +161,8 @@ class _$MainImpl implements _Main {
   @override
   final embed_record_main.Main record;
   @override
-  @unionEmbedRecordWithMedia
-  final UEmbedRecordWithMedia media;
+  @unionMainMedia
+  final UMainMedia media;
 
   @override
   String toString() {
@@ -201,8 +201,7 @@ abstract class _Main implements Main {
   const factory _Main(
       {@typeKey final String type,
       required final embed_record_main.Main record,
-      @unionEmbedRecordWithMedia
-      required final UEmbedRecordWithMedia media}) = _$MainImpl;
+      @unionMainMedia required final UMainMedia media}) = _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
 
@@ -212,8 +211,8 @@ abstract class _Main implements Main {
   @override
   embed_record_main.Main get record;
   @override
-  @unionEmbedRecordWithMedia
-  UEmbedRecordWithMedia get media;
+  @unionMainMedia
+  UMainMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>

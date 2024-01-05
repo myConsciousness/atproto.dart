@@ -11,8 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/embed_view_record_view_converter.dart';
-import 'unions/union_embed_record_view_record.dart';
+import 'unions/embed_record_view_record.dart';
 
 part 'embed_record_view.freezed.dart';
 part 'embed_record_view.g.dart';
@@ -23,7 +22,7 @@ part 'embed_record_view.g.dart';
 class View with _$View {
   const factory View({
     @typeKey @Default(appBskyEmbedRecordView) String type,
-    @unionEmbedRecordViewRecord required UEmbedRecordViewRecord record,
+    @unionViewRecord required UViewRecord record,
   }) = _View;
 
   factory View.fromJson(Map<String, Object?> json) => _$ViewFromJson(json);

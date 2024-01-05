@@ -7,8 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
-import 'converters/reply_ref_converter.dart';
-import 'unions/union_reply_ref.dart';
+import 'unions/feed_defs_reply_ref_parent.dart';
+import 'unions/feed_defs_reply_ref_root.dart';
 
 part 'feed_defs_reply_ref.freezed.dart';
 part 'feed_defs_reply_ref.g.dart';
@@ -18,8 +18,8 @@ part 'feed_defs_reply_ref.g.dart';
 @lex.appBskyFeedDefsReplyRef
 class ReplyRef with _$ReplyRef {
   const factory ReplyRef({
-    @unionReplyRef required UReplyRef root,
-    @unionReplyRef required UReplyRef parent,
+    @unionReplyRefRoot required UReplyRefRoot root,
+    @unionReplyRefParent required UReplyRefParent parent,
   }) = _ReplyRef;
 
   factory ReplyRef.fromJson(Map<String, Object?> json) =>

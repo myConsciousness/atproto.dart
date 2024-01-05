@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'feed_get_post_thread_thread.dart';
+part of 'feed_get_post_thread_output_thread.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$OutputThread {
+mixin _$UOutputThread {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -70,16 +70,16 @@ mixin _$OutputThread {
 }
 
 /// @nodoc
-abstract class $OutputThreadCopyWith<$Res> {
-  factory $OutputThreadCopyWith(
-          OutputThread value, $Res Function(OutputThread) then) =
-      _$OutputThreadCopyWithImpl<$Res, OutputThread>;
+abstract class $UOutputThreadCopyWith<$Res> {
+  factory $UOutputThreadCopyWith(
+          UOutputThread value, $Res Function(UOutputThread) then) =
+      _$UOutputThreadCopyWithImpl<$Res, UOutputThread>;
 }
 
 /// @nodoc
-class _$OutputThreadCopyWithImpl<$Res, $Val extends OutputThread>
-    implements $OutputThreadCopyWith<$Res> {
-  _$OutputThreadCopyWithImpl(this._value, this._then);
+class _$UOutputThreadCopyWithImpl<$Res, $Val extends UOutputThread>
+    implements $UOutputThreadCopyWith<$Res> {
+  _$UOutputThreadCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -101,7 +101,7 @@ abstract class _$$UOutputThreadThreadViewPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UOutputThreadThreadViewPostImplCopyWithImpl<$Res>
-    extends _$OutputThreadCopyWithImpl<$Res, _$UOutputThreadThreadViewPostImpl>
+    extends _$UOutputThreadCopyWithImpl<$Res, _$UOutputThreadThreadViewPostImpl>
     implements _$$UOutputThreadThreadViewPostImplCopyWith<$Res> {
   __$$UOutputThreadThreadViewPostImplCopyWithImpl(
       _$UOutputThreadThreadViewPostImpl _value,
@@ -140,7 +140,7 @@ class _$UOutputThreadThreadViewPostImpl implements UOutputThreadThreadViewPost {
 
   @override
   String toString() {
-    return 'OutputThread.threadViewPost(data: $data)';
+    return 'UOutputThread.threadViewPost(data: $data)';
   }
 
   @override
@@ -236,7 +236,7 @@ class _$UOutputThreadThreadViewPostImpl implements UOutputThreadThreadViewPost {
   }
 }
 
-abstract class UOutputThreadThreadViewPost implements OutputThread {
+abstract class UOutputThreadThreadViewPost implements UOutputThread {
   const factory UOutputThreadThreadViewPost(
       {required final ThreadViewPost data}) = _$UOutputThreadThreadViewPostImpl;
 
@@ -261,7 +261,7 @@ abstract class _$$UOutputThreadNotFoundPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UOutputThreadNotFoundPostImplCopyWithImpl<$Res>
-    extends _$OutputThreadCopyWithImpl<$Res, _$UOutputThreadNotFoundPostImpl>
+    extends _$UOutputThreadCopyWithImpl<$Res, _$UOutputThreadNotFoundPostImpl>
     implements _$$UOutputThreadNotFoundPostImplCopyWith<$Res> {
   __$$UOutputThreadNotFoundPostImplCopyWithImpl(
       _$UOutputThreadNotFoundPostImpl _value,
@@ -300,7 +300,7 @@ class _$UOutputThreadNotFoundPostImpl implements UOutputThreadNotFoundPost {
 
   @override
   String toString() {
-    return 'OutputThread.notFoundPost(data: $data)';
+    return 'UOutputThread.notFoundPost(data: $data)';
   }
 
   @override
@@ -396,7 +396,7 @@ class _$UOutputThreadNotFoundPostImpl implements UOutputThreadNotFoundPost {
   }
 }
 
-abstract class UOutputThreadNotFoundPost implements OutputThread {
+abstract class UOutputThreadNotFoundPost implements UOutputThread {
   const factory UOutputThreadNotFoundPost({required final NotFoundPost data}) =
       _$UOutputThreadNotFoundPostImpl;
 
@@ -421,7 +421,7 @@ abstract class _$$UOutputThreadBlockedPostImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UOutputThreadBlockedPostImplCopyWithImpl<$Res>
-    extends _$OutputThreadCopyWithImpl<$Res, _$UOutputThreadBlockedPostImpl>
+    extends _$UOutputThreadCopyWithImpl<$Res, _$UOutputThreadBlockedPostImpl>
     implements _$$UOutputThreadBlockedPostImplCopyWith<$Res> {
   __$$UOutputThreadBlockedPostImplCopyWithImpl(
       _$UOutputThreadBlockedPostImpl _value,
@@ -460,7 +460,7 @@ class _$UOutputThreadBlockedPostImpl implements UOutputThreadBlockedPost {
 
   @override
   String toString() {
-    return 'OutputThread.blockedPost(data: $data)';
+    return 'UOutputThread.blockedPost(data: $data)';
   }
 
   @override
@@ -556,7 +556,7 @@ class _$UOutputThreadBlockedPostImpl implements UOutputThreadBlockedPost {
   }
 }
 
-abstract class UOutputThreadBlockedPost implements OutputThread {
+abstract class UOutputThreadBlockedPost implements UOutputThread {
   const factory UOutputThreadBlockedPost({required final BlockedPost data}) =
       _$UOutputThreadBlockedPostImpl;
 
@@ -578,7 +578,7 @@ abstract class _$$UOutputThreadUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UOutputThreadUnknownImplCopyWithImpl<$Res>
-    extends _$OutputThreadCopyWithImpl<$Res, _$UOutputThreadUnknownImpl>
+    extends _$UOutputThreadCopyWithImpl<$Res, _$UOutputThreadUnknownImpl>
     implements _$$UOutputThreadUnknownImplCopyWith<$Res> {
   __$$UOutputThreadUnknownImplCopyWithImpl(_$UOutputThreadUnknownImpl _value,
       $Res Function(_$UOutputThreadUnknownImpl) _then)
@@ -614,7 +614,7 @@ class _$UOutputThreadUnknownImpl implements UOutputThreadUnknown {
 
   @override
   String toString() {
-    return 'OutputThread.unknown(data: $data)';
+    return 'UOutputThread.unknown(data: $data)';
   }
 
   @override
@@ -712,7 +712,7 @@ class _$UOutputThreadUnknownImpl implements UOutputThreadUnknown {
   }
 }
 
-abstract class UOutputThreadUnknown implements OutputThread {
+abstract class UOutputThreadUnknown implements UOutputThread {
   const factory UOutputThreadUnknown(
       {required final Map<String, dynamic> data}) = _$UOutputThreadUnknownImpl;
 

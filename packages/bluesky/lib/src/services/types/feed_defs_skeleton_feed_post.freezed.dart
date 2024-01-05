@@ -23,7 +23,7 @@ mixin _$SkeletonFeedPost {
   @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
   @unionSkeletonFeedPostReason
-  SkeletonFeedPostReason? get reason => throw _privateConstructorUsedError;
+  USkeletonFeedPostReason? get reason => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +39,9 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@atUriConverter AtUri post,
-      @unionSkeletonFeedPostReason SkeletonFeedPostReason? reason});
+      @unionSkeletonFeedPostReason USkeletonFeedPostReason? reason});
 
-  $SkeletonFeedPostReasonCopyWith<$Res>? get reason;
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -68,18 +68,18 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as SkeletonFeedPostReason?,
+              as USkeletonFeedPostReason?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SkeletonFeedPostReasonCopyWith<$Res>? get reason {
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason {
     if (_value.reason == null) {
       return null;
     }
 
-    return $SkeletonFeedPostReasonCopyWith<$Res>(_value.reason!, (value) {
+    return $USkeletonFeedPostReasonCopyWith<$Res>(_value.reason!, (value) {
       return _then(_value.copyWith(reason: value) as $Val);
     });
   }
@@ -95,10 +95,10 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@atUriConverter AtUri post,
-      @unionSkeletonFeedPostReason SkeletonFeedPostReason? reason});
+      @unionSkeletonFeedPostReason USkeletonFeedPostReason? reason});
 
   @override
-  $SkeletonFeedPostReasonCopyWith<$Res>? get reason;
+  $USkeletonFeedPostReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as SkeletonFeedPostReason?,
+              as USkeletonFeedPostReason?,
     ));
   }
 }
@@ -144,7 +144,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   final AtUri post;
   @override
   @unionSkeletonFeedPostReason
-  final SkeletonFeedPostReason? reason;
+  final USkeletonFeedPostReason? reason;
 
   @override
   String toString() {
@@ -182,7 +182,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   const factory _SkeletonFeedPost(
           {@atUriConverter required final AtUri post,
-          @unionSkeletonFeedPostReason final SkeletonFeedPostReason? reason}) =
+          @unionSkeletonFeedPostReason final USkeletonFeedPostReason? reason}) =
       _$SkeletonFeedPostImpl;
 
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) =
@@ -193,7 +193,7 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   AtUri get post;
   @override
   @unionSkeletonFeedPostReason
-  SkeletonFeedPostReason? get reason;
+  USkeletonFeedPostReason? get reason;
   @override
   @JsonKey(ignore: true)
   _$$SkeletonFeedPostImplCopyWith<_$SkeletonFeedPostImpl> get copyWith =>

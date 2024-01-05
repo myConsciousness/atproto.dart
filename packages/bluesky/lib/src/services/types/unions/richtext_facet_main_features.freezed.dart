@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$MainFeatures {
+mixin _$UMainFeatures {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -70,16 +70,16 @@ mixin _$MainFeatures {
 }
 
 /// @nodoc
-abstract class $MainFeaturesCopyWith<$Res> {
-  factory $MainFeaturesCopyWith(
-          MainFeatures value, $Res Function(MainFeatures) then) =
-      _$MainFeaturesCopyWithImpl<$Res, MainFeatures>;
+abstract class $UMainFeaturesCopyWith<$Res> {
+  factory $UMainFeaturesCopyWith(
+          UMainFeatures value, $Res Function(UMainFeatures) then) =
+      _$UMainFeaturesCopyWithImpl<$Res, UMainFeatures>;
 }
 
 /// @nodoc
-class _$MainFeaturesCopyWithImpl<$Res, $Val extends MainFeatures>
-    implements $MainFeaturesCopyWith<$Res> {
-  _$MainFeaturesCopyWithImpl(this._value, this._then);
+class _$UMainFeaturesCopyWithImpl<$Res, $Val extends UMainFeatures>
+    implements $UMainFeaturesCopyWith<$Res> {
+  _$UMainFeaturesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -100,7 +100,7 @@ abstract class _$$UMainFeaturesMentionImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UMainFeaturesMentionImplCopyWithImpl<$Res>
-    extends _$MainFeaturesCopyWithImpl<$Res, _$UMainFeaturesMentionImpl>
+    extends _$UMainFeaturesCopyWithImpl<$Res, _$UMainFeaturesMentionImpl>
     implements _$$UMainFeaturesMentionImplCopyWith<$Res> {
   __$$UMainFeaturesMentionImplCopyWithImpl(_$UMainFeaturesMentionImpl _value,
       $Res Function(_$UMainFeaturesMentionImpl) _then)
@@ -138,7 +138,7 @@ class _$UMainFeaturesMentionImpl implements UMainFeaturesMention {
 
   @override
   String toString() {
-    return 'MainFeatures.mention(data: $data)';
+    return 'UMainFeatures.mention(data: $data)';
   }
 
   @override
@@ -235,7 +235,7 @@ class _$UMainFeaturesMentionImpl implements UMainFeaturesMention {
   }
 }
 
-abstract class UMainFeaturesMention implements MainFeatures {
+abstract class UMainFeaturesMention implements UMainFeatures {
   const factory UMainFeaturesMention({required final Mention data}) =
       _$UMainFeaturesMentionImpl;
 
@@ -259,7 +259,7 @@ abstract class _$$UMainFeaturesLinkImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UMainFeaturesLinkImplCopyWithImpl<$Res>
-    extends _$MainFeaturesCopyWithImpl<$Res, _$UMainFeaturesLinkImpl>
+    extends _$UMainFeaturesCopyWithImpl<$Res, _$UMainFeaturesLinkImpl>
     implements _$$UMainFeaturesLinkImplCopyWith<$Res> {
   __$$UMainFeaturesLinkImplCopyWithImpl(_$UMainFeaturesLinkImpl _value,
       $Res Function(_$UMainFeaturesLinkImpl) _then)
@@ -297,7 +297,7 @@ class _$UMainFeaturesLinkImpl implements UMainFeaturesLink {
 
   @override
   String toString() {
-    return 'MainFeatures.link(data: $data)';
+    return 'UMainFeatures.link(data: $data)';
   }
 
   @override
@@ -393,7 +393,7 @@ class _$UMainFeaturesLinkImpl implements UMainFeaturesLink {
   }
 }
 
-abstract class UMainFeaturesLink implements MainFeatures {
+abstract class UMainFeaturesLink implements UMainFeatures {
   const factory UMainFeaturesLink({required final Link data}) =
       _$UMainFeaturesLinkImpl;
 
@@ -417,7 +417,7 @@ abstract class _$$UMainFeaturesTagImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UMainFeaturesTagImplCopyWithImpl<$Res>
-    extends _$MainFeaturesCopyWithImpl<$Res, _$UMainFeaturesTagImpl>
+    extends _$UMainFeaturesCopyWithImpl<$Res, _$UMainFeaturesTagImpl>
     implements _$$UMainFeaturesTagImplCopyWith<$Res> {
   __$$UMainFeaturesTagImplCopyWithImpl(_$UMainFeaturesTagImpl _value,
       $Res Function(_$UMainFeaturesTagImpl) _then)
@@ -455,7 +455,7 @@ class _$UMainFeaturesTagImpl implements UMainFeaturesTag {
 
   @override
   String toString() {
-    return 'MainFeatures.tag(data: $data)';
+    return 'UMainFeatures.tag(data: $data)';
   }
 
   @override
@@ -551,7 +551,7 @@ class _$UMainFeaturesTagImpl implements UMainFeaturesTag {
   }
 }
 
-abstract class UMainFeaturesTag implements MainFeatures {
+abstract class UMainFeaturesTag implements UMainFeatures {
   const factory UMainFeaturesTag({required final Tag data}) =
       _$UMainFeaturesTagImpl;
 
@@ -573,7 +573,7 @@ abstract class _$$UMainFeaturesUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UMainFeaturesUnknownImplCopyWithImpl<$Res>
-    extends _$MainFeaturesCopyWithImpl<$Res, _$UMainFeaturesUnknownImpl>
+    extends _$UMainFeaturesCopyWithImpl<$Res, _$UMainFeaturesUnknownImpl>
     implements _$$UMainFeaturesUnknownImplCopyWith<$Res> {
   __$$UMainFeaturesUnknownImplCopyWithImpl(_$UMainFeaturesUnknownImpl _value,
       $Res Function(_$UMainFeaturesUnknownImpl) _then)
@@ -609,7 +609,7 @@ class _$UMainFeaturesUnknownImpl implements UMainFeaturesUnknown {
 
   @override
   String toString() {
-    return 'MainFeatures.unknown(data: $data)';
+    return 'UMainFeatures.unknown(data: $data)';
   }
 
   @override
@@ -707,7 +707,7 @@ class _$UMainFeaturesUnknownImpl implements UMainFeaturesUnknown {
   }
 }
 
-abstract class UMainFeaturesUnknown implements MainFeatures {
+abstract class UMainFeaturesUnknown implements UMainFeatures {
   const factory UMainFeaturesUnknown(
       {required final Map<String, dynamic> data}) = _$UMainFeaturesUnknownImpl;
 

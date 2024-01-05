@@ -22,7 +22,7 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
               'allow',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      unionThreadgate.fromJson(e as Map<String, dynamic>))
+                      unionInputAllow.fromJson(e as Map<String, dynamic>))
                   .toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
   }
 
   writeNotNull(
-      'allow', instance.allowRules?.map(unionThreadgate.toJson).toList());
+      'allow', instance.allowRules?.map(unionInputAllow.toJson).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

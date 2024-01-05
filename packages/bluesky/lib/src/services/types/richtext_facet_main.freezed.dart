@@ -24,7 +24,7 @@ mixin _$Main {
   String get type => throw _privateConstructorUsedError;
   ByteSlice get index => throw _privateConstructorUsedError;
   @unionMainFeatures
-  List<MainFeatures> get features => throw _privateConstructorUsedError;
+  List<UMainFeatures> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +39,7 @@ abstract class $MainCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       ByteSlice index,
-      @unionMainFeatures List<MainFeatures> features});
+      @unionMainFeatures List<UMainFeatures> features});
 
   $ByteSliceCopyWith<$Res> get index;
 }
@@ -73,7 +73,7 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
       features: null == features
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<MainFeatures>,
+              as List<UMainFeatures>,
     ) as $Val);
   }
 
@@ -96,7 +96,7 @@ abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       ByteSlice index,
-      @unionMainFeatures List<MainFeatures> features});
+      @unionMainFeatures List<UMainFeatures> features});
 
   @override
   $ByteSliceCopyWith<$Res> get index;
@@ -128,7 +128,7 @@ class __$$MainImplCopyWithImpl<$Res>
       features: null == features
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<MainFeatures>,
+              as List<UMainFeatures>,
     ));
   }
 }
@@ -140,7 +140,7 @@ class _$MainImpl implements _Main {
   const _$MainImpl(
       {@typeKey this.type = appBskyRichtextFacet,
       required this.index,
-      @unionMainFeatures required final List<MainFeatures> features})
+      @unionMainFeatures required final List<UMainFeatures> features})
       : _features = features;
 
   factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
@@ -151,10 +151,10 @@ class _$MainImpl implements _Main {
   final String type;
   @override
   final ByteSlice index;
-  final List<MainFeatures> _features;
+  final List<UMainFeatures> _features;
   @override
   @unionMainFeatures
-  List<MainFeatures> get features {
+  List<UMainFeatures> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_features);
@@ -198,7 +198,7 @@ abstract class _Main implements Main {
   const factory _Main(
           {@typeKey final String type,
           required final ByteSlice index,
-          @unionMainFeatures required final List<MainFeatures> features}) =
+          @unionMainFeatures required final List<UMainFeatures> features}) =
       _$MainImpl;
 
   factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
@@ -210,7 +210,7 @@ abstract class _Main implements Main {
   ByteSlice get index;
   @override
   @unionMainFeatures
-  List<MainFeatures> get features;
+  List<UMainFeatures> get features;
   @override
   @JsonKey(ignore: true)
   _$$MainImplCopyWith<_$MainImpl> get copyWith =>

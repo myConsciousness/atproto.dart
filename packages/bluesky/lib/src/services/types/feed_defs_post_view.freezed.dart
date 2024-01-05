@@ -28,8 +28,8 @@ mixin _$PostView {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
-  @unionEmbedView
-  UEmbedView? get embed => throw _privateConstructorUsedError;
+  @unionPostViewEmbed
+  UPostViewEmbed? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
@@ -55,7 +55,7 @@ abstract class $PostViewCopyWith<$Res> {
       ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
-      @unionEmbedView UEmbedView? embed,
+      @unionPostViewEmbed UPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -66,7 +66,7 @@ abstract class $PostViewCopyWith<$Res> {
 
   $PostRecordCopyWith<$Res> get record;
   $ProfileViewBasicCopyWith<$Res> get author;
-  $UEmbedViewCopyWith<$Res>? get embed;
+  $UPostViewEmbedCopyWith<$Res>? get embed;
   $ViewerStateCopyWith<$Res> get viewer;
   $ThreadgateViewCopyWith<$Res>? get threadgate;
 }
@@ -122,7 +122,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbedView?,
+              as UPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -172,12 +172,12 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedViewCopyWith<$Res>? get embed {
+  $UPostViewEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedViewCopyWith<$Res>(_value.embed!, (value) {
+    return $UPostViewEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -217,7 +217,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
-      @unionEmbedView UEmbedView? embed,
+      @unionPostViewEmbed UPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -231,7 +231,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
   @override
-  $UEmbedViewCopyWith<$Res>? get embed;
+  $UPostViewEmbedCopyWith<$Res>? get embed;
   @override
   $ViewerStateCopyWith<$Res> get viewer;
   @override
@@ -287,7 +287,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbedView?,
+              as UPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -330,7 +330,7 @@ class _$PostViewImpl implements _PostView {
       required this.author,
       @atUriConverter required this.uri,
       required this.cid,
-      @unionEmbedView this.embed,
+      @unionPostViewEmbed this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
@@ -357,8 +357,8 @@ class _$PostViewImpl implements _PostView {
   @override
   final String cid;
   @override
-  @unionEmbedView
-  final UEmbedView? embed;
+  @unionPostViewEmbed
+  final UPostViewEmbed? embed;
   @override
   @JsonKey()
   final int replyCount;
@@ -455,7 +455,7 @@ abstract class _PostView implements PostView {
       required final ProfileViewBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
-      @unionEmbedView final UEmbedView? embed,
+      @unionPostViewEmbed final UPostViewEmbed? embed,
       final int replyCount,
       final int repostCount,
       final int likeCount,
@@ -481,8 +481,8 @@ abstract class _PostView implements PostView {
   @override
   String get cid;
   @override
-  @unionEmbedView
-  UEmbedView? get embed;
+  @unionPostViewEmbed
+  UPostViewEmbed? get embed;
   @override
   int get replyCount;
   @override

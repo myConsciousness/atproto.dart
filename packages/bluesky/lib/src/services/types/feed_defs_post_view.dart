@@ -13,12 +13,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_defs_profile_view_basic.dart';
-import 'converters/embed_view_converter.dart';
 import 'converters/post_record_converter.dart';
 import 'feed_defs_threadgate_view.dart';
 import 'feed_defs_viewer_state.dart';
 import 'records/post_record.dart';
-import 'unions/union_embed_view.dart';
+import 'unions/feed_defs_post_view_embed.dart';
 
 part 'feed_defs_post_view.freezed.dart';
 part 'feed_defs_post_view.g.dart';
@@ -34,7 +33,7 @@ class PostView with _$PostView {
     required ProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,
-    @unionEmbedView UEmbedView? embed,
+    @unionPostViewEmbed UPostViewEmbed? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
