@@ -3,11 +3,9 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import '../types/gen/notification/list_notifications/notification_list_notifications_notification.dart';
 import '../types/outputs/notification_list_notifications.dart'
     as notification_list_notifications;
-
-// 🌎 Project imports:
-import '../types/notification_list_notifications_notification.dart';
 
 sealed class GroupBy {
   // ignore: unused_element

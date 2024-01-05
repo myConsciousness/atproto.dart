@@ -6,7 +6,7 @@
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../actor_defs_preferences.dart';
+import '../gen/actor/defs/actor_defs_preferences.dart';
 import '../unions/actor_defs_preferences_preferences.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output

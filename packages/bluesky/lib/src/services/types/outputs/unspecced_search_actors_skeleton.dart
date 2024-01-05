@@ -9,7 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../unspecced_defs_skeleton_search_actor.dart';
+import '../gen/unspecced/defs/unspecced_defs_skeleton_search_actor.dart';
 
 part 'unspecced_search_actors_skeleton.freezed.dart';
 part 'unspecced_search_actors_skeleton.g.dart';

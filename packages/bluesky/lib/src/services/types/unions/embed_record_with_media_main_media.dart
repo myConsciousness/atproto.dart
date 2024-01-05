@@ -10,8 +10,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../embed_external_main.dart' as embed_external_main;
-import '../embed_images_main.dart' as embed_images_main;
+import '../gen/embed/external/embed_external_main.dart' as embed_external_main;
+import '../gen/embed/images/embed_images_main.dart' as embed_images_main;
 
 part 'embed_record_with_media_main_media.freezed.dart';
 

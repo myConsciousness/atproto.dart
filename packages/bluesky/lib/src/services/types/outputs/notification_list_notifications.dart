@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../notification_list_notifications_notification.dart';
+import '../gen/notification/list_notifications/notification_list_notifications_notification.dart';
 
 part 'notification_list_notifications.freezed.dart';
 part 'notification_list_notifications.g.dart';

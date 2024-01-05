@@ -10,10 +10,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
-import '../embed_external_view.dart' as embed_external_view;
-import '../embed_images_view.dart' as embed_images_view;
-import '../embed_record_view.dart' as embed_record_view;
-import '../embed_record_with_media_view.dart' as embed_record_with_media_view;
+import '../gen/embed/external/embed_external_view.dart' as embed_external_view;
+import '../gen/embed/images/embed_images_view.dart' as embed_images_view;
+import '../gen/embed/record/embed_record_view.dart' as embed_record_view;
+import '../gen/embed/record_with_media/embed_record_with_media_view.dart'
+    as embed_record_with_media_view;
 
 part 'embed_record_view_record_embeds.freezed.dart';
 

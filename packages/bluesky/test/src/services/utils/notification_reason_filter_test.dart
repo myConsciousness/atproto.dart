@@ -4,13 +4,13 @@
 
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
+import 'package:bluesky/src/services/types/gen/actor/defs/actor_defs_profile_view.dart';
+import 'package:bluesky/src/services/types/gen/notification/list_notifications/notification_list_notifications_notification.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/constants/notification_reason.dart';
-import 'package:bluesky/src/services/types/actor_defs_profile_view.dart';
-import 'package:bluesky/src/services/types/notification_list_notifications_notification.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 
 import 'package:bluesky/src/services/types/outputs/notification_list_notifications.dart'

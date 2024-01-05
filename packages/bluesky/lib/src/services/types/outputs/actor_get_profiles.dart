@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../lex_annotations.g.dart' as lex;
-import '../actor_defs_profile_view_detailed.dart';
+import '../gen/actor/defs/actor_defs_profile_view_detailed.dart';
 
 part 'actor_get_profiles.freezed.dart';
 part 'actor_get_profiles.g.dart';
