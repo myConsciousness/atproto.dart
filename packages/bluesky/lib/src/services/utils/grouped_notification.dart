@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../constants/grouped_notification_reason.dart';
-import '../types/gen/actor/defs/profile_view.dart';
+import '../types/actor/defs/profile_view.dart';
 
 part 'grouped_notification.freezed.dart';
 part 'grouped_notification.g.dart';

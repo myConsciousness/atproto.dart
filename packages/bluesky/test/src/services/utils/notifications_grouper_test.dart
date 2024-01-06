@@ -9,11 +9,11 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/types/gen/notification/list_notifications/extensions/output_extension.dart';
+import 'package:bluesky/src/services/types/notification/list_notifications/extensions/output_extension.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 import 'package:bluesky/src/services/utils/notifications_grouper.dart';
 
-import 'package:bluesky/src/services/types/gen/notification/list_notifications/output.dart'
+import 'package:bluesky/src/services/types/notification/list_notifications/output.dart'
     as notification_list_notifications;
 
 const _grouper = NotificationsGrouper();

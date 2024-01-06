@@ -9,9 +9,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
-import '../types/gen/notification/list_notifications/notification.dart';
+import '../types/notification/list_notifications/notification.dart';
 
-import '../types/gen/notification/list_notifications/output.dart'
+import '../types/notification/list_notifications/output.dart'
     as notification_list_notifications;
 
 sealed class NotificationReasonFilter {

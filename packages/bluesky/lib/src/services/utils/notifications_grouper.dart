@@ -9,13 +9,13 @@ import 'package:atproto/atproto.dart' as atp;
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
 import '../constants/notification_reason.dart';
-import '../types/gen/actor/defs/profile_view.dart';
-import '../types/gen/notification/list_notifications/notification.dart';
+import '../types/actor/defs/profile_view.dart';
+import '../types/notification/list_notifications/notification.dart';
 import 'group_by.dart';
 import 'grouped_notifications.dart';
 import 'notification_reason_filter.dart';
 
-import '../types/gen/notification/list_notifications/output.dart'
+import '../types/notification/list_notifications/output.dart'
     as notification_list_notifications;
 
 const _groupableReasons = <NotificationReason>[
