@@ -2,8 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
@@ -11,17 +9,18 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../lex_annotations.g.dart' as lex;
-import 'viewer_state.dart';
+import '../defs/profile_view_detailed.dart';
+import '../defs/viewer_state.dart';
 
-part 'profile_view_detailed.freezed.dart';
-part 'profile_view_detailed.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewdetailed
 @freezed
 @lex.appBskyActorDefsProfileViewDetailed
-class ProfileViewDetailed with _$ProfileViewDetailed {
+class Output with _$Output {
   @jsonSerializable
-  const factory ProfileViewDetailed({
+  const factory Output({
     required String did,
     required String handle,
     String? displayName,
@@ -34,8 +33,12 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
     @Default(defaultActorDefsViewerState) ViewerState viewer,
     List<Label>? labels,
     DateTime? indexedAt,
-  }) = _ProfileViewDetailed;
+  }) = _Output;
 
-  factory ProfileViewDetailed.fromJson(Map<String, Object?> json) =>
-      _$ProfileViewDetailedFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+}
+
+extension $OutputExtension on Output {
+  ProfileViewDetailed get asProfileViewDetailed =>
+      ProfileViewDetailed.fromJson(toJson());
 }
