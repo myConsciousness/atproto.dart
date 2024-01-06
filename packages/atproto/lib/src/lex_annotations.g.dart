@@ -316,6 +316,14 @@ const comAtprotoServerDescribeServerLinks =
 const comAtprotoServerConfirmEmail =
     LexObject(ids.comAtprotoServerConfirmEmail);
 
+/// `com.atproto.admin.getAccountInfos#main`
+const comAtprotoAdminGetAccountInfos =
+    LexObject(ids.comAtprotoAdminGetAccountInfos);
+
+/// `com.atproto.admin.emitModerationEvent#main`
+const comAtprotoAdminEmitModerationEvent =
+    LexObject(ids.comAtprotoAdminEmitModerationEvent);
+
 /// `com.atproto.server.getSession#main`
 const comAtprotoServerGetSession = LexObject(ids.comAtprotoServerGetSession);
 
@@ -407,6 +415,13 @@ const comAtprotoSyncSubscribeReposRepoOp =
 
 /// `com.atproto.sync.getRecord#main`
 const comAtprotoSyncGetRecord = LexObject(ids.comAtprotoSyncGetRecord);
+
+/// `com.atproto.admin.defs#modEventResolveAppeal`
+const comAtprotoAdminDefsModEventResolveAppeal =
+    LexObject(ids.comAtprotoAdminDefsModEventResolveAppeal);
+
+const comAtprotoAdminDefsModEventComment =
+    LexObject(ids.comAtprotoAdminDefsModEventComment);
 
 /// `com.atproto.sync.listRepos#main`
 const comAtprotoSyncListRepos = LexObject(ids.comAtprotoSyncListRepos);

@@ -47,6 +47,10 @@ const comAtprotoAdminDefsModEventMute = 'com.atproto.admin.defs#modEventMute';
 const comAtprotoAdminDefsModEventReport =
     'com.atproto.admin.defs#modEventReport';
 
+/// `com.atproto.admin.defs#modEventResolveAppeal`
+const comAtprotoAdminDefsModEventResolveAppeal =
+    'com.atproto.admin.defs#modEventResolveAppeal';
+
 /// `com.atproto.admin.defs#modEventReverseTakedown`
 const comAtprotoAdminDefsModEventReverseTakedown =
     'com.atproto.admin.defs#modEventReverseTakedown';
@@ -154,6 +158,9 @@ const comAtprotoAdminEnableAccountInvites =
 /// `com.atproto.admin.getAccountInfo`
 const comAtprotoAdminGetAccountInfo = 'com.atproto.admin.getAccountInfo';
 
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = 'com.atproto.admin.getAccountInfos';
+
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
 
@@ -233,6 +240,10 @@ const comAtprotoModerationCreateReport = 'com.atproto.moderation.createReport';
 
 /// `com.atproto.moderation.defs`
 const comAtprotoModerationDefs = 'com.atproto.moderation.defs';
+
+/// `com.atproto.moderation.defs#reasonAppeal`
+const comAtprotoModerationDefsReasonAppeal =
+    'com.atproto.moderation.defs#reasonAppeal';
 
 /// `com.atproto.moderation.defs#reasonMisleading`
 const comAtprotoModerationDefsReasonMisleading =
