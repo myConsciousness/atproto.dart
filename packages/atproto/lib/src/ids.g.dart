@@ -158,6 +158,9 @@ const comAtprotoAdminEnableAccountInvites =
 /// `com.atproto.admin.getAccountInfo`
 const comAtprotoAdminGetAccountInfo = 'com.atproto.admin.getAccountInfo';
 
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = 'com.atproto.admin.getAccountInfos';
+
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
 

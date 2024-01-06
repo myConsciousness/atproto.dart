@@ -2333,6 +2333,44 @@ const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
   }
 };
 
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getAccountInfos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["infos"],
+          "properties": {
+            "infos": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `com.atproto.admin.emitModerationEvent`
 const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
   "lexicon": 1,
@@ -2734,6 +2772,10 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "did": {"type": "string", "format": "did"},
         "handle": {"type": "string", "format": "handle"},
         "email": {"type": "string"},
+        "relatedRecords": {
+          "type": "array",
+          "items": {"type": "unknown"}
+        },
         "indexedAt": {"type": "string", "format": "datetime"},
         "invitedBy": {
           "type": "ref",
@@ -6404,6 +6446,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoAdminGetRecord,
   comAtprotoAdminQueryModerationStatuses,
   comAtprotoAdminUpdateAccountHandle,
+  comAtprotoAdminGetAccountInfos,
   comAtprotoAdminEmitModerationEvent,
   comAtprotoAdminDeleteAccount,
   comAtprotoAdminSendEmail,

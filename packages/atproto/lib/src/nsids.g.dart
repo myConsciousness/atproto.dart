@@ -38,6 +38,9 @@ const comAtprotoAdminEnableAccountInvites =
 /// `com.atproto.admin.getAccountInfo`
 const comAtprotoAdminGetAccountInfo = NSID(ids.comAtprotoAdminGetAccountInfo);
 
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = NSID(ids.comAtprotoAdminGetAccountInfos);
+
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = NSID(ids.comAtprotoAdminGetInviteCodes);
 
