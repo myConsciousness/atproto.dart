@@ -12,11 +12,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../unions/feed_defs_post_view_embed.dart';
 import '../../actor/defs/profile_view_basic.dart';
 import '../post/converter/record_converter.dart';
 import '../post/record.dart' as feed_post;
 import 'threadgate_view.dart';
+import 'unions/post_view_embed.dart';
 import 'viewer_state.dart';
 
 part 'post_view.freezed.dart';

@@ -7,8 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../unions/feed_defs_reply_ref_parent.dart';
-import '../../../unions/feed_defs_reply_ref_root.dart';
+import 'unions/reply_ref_parent.dart';
+import 'unions/reply_ref_root.dart';
 
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';

@@ -24,8 +24,8 @@ mixin _$Record {
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
-  @unionInputAllow
-  List<UInputAllow>? get allow => throw _privateConstructorUsedError;
+  @unionRecordAllow
+  List<URecordAllow>? get allow => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $RecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri post,
-      @unionInputAllow List<UInputAllow>? allow,
+      @unionRecordAllow List<URecordAllow>? allow,
       DateTime createdAt});
 }
 
@@ -75,7 +75,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       allow: freezed == allow
           ? _value.allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<UInputAllow>?,
+              as List<URecordAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -94,7 +94,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri post,
-      @unionInputAllow List<UInputAllow>? allow,
+      @unionRecordAllow List<URecordAllow>? allow,
       DateTime createdAt});
 }
 
@@ -126,7 +126,7 @@ class __$$RecordImplCopyWithImpl<$Res>
       allow: freezed == allow
           ? _value._allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<UInputAllow>?,
+              as List<URecordAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class _$RecordImpl implements _Record {
   const _$RecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
       @atUriConverter required this.post,
-      @unionInputAllow final List<UInputAllow>? allow,
+      @unionRecordAllow final List<URecordAllow>? allow,
       required this.createdAt})
       : _allow = allow;
 
@@ -155,10 +155,10 @@ class _$RecordImpl implements _Record {
   @override
   @atUriConverter
   final AtUri post;
-  final List<UInputAllow>? _allow;
+  final List<URecordAllow>? _allow;
   @override
-  @unionInputAllow
-  List<UInputAllow>? get allow {
+  @unionRecordAllow
+  List<URecordAllow>? get allow {
     final value = _allow;
     if (value == null) return null;
     if (_allow is EqualUnmodifiableListView) return _allow;
@@ -209,7 +209,7 @@ abstract class _Record implements Record {
   const factory _Record(
       {@typeKey final String type,
       @atUriConverter required final AtUri post,
-      @unionInputAllow final List<UInputAllow>? allow,
+      @unionRecordAllow final List<URecordAllow>? allow,
       required final DateTime createdAt}) = _$RecordImpl;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
@@ -221,8 +221,8 @@ abstract class _Record implements Record {
   @atUriConverter
   AtUri get post;
   @override
-  @unionInputAllow
-  List<UInputAllow>? get allow;
+  @unionRecordAllow
+  List<URecordAllow>? get allow;
   @override
   DateTime get createdAt;
   @override

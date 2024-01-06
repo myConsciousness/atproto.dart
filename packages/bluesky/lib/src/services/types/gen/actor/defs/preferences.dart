@@ -9,7 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../unions/actor_defs_preferences_preferences.dart';
+import 'unions/preferences_preferences.dart';
 
 part 'preferences.freezed.dart';
 part 'preferences.g.dart';

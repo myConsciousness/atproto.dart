@@ -7,7 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as lex;
-import '../../../unions/feed_get_post_thread_output_thread.dart';
+import 'unions/output_thread.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

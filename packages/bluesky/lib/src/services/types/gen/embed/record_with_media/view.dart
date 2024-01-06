@@ -11,8 +11,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
 import '../../../../../lex_annotations.g.dart' as lex;
-import '../../../unions/embed_record_with_media_view_media.dart';
 import '../record/view.dart' as embed_record_view;
+import 'unions/view_media.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';

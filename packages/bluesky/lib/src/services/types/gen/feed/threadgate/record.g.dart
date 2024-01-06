@@ -21,7 +21,7 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
               'allow',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      unionInputAllow.fromJson(e as Map<String, dynamic>))
+                      unionRecordAllow.fromJson(e as Map<String, dynamic>))
                   .toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
     }
   }
 
-  writeNotNull('allow', instance.allow?.map(unionInputAllow.toJson).toList());
+  writeNotNull('allow', instance.allow?.map(unionRecordAllow.toJson).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

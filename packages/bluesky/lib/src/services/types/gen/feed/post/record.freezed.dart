@@ -24,8 +24,8 @@ mixin _$Record {
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  @unionInputEmbed
-  UInputEmbed? get embed => throw _privateConstructorUsedError;
+  @unionRecordEmbed
+  URecordEmbed? get embed => throw _privateConstructorUsedError;
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $RecordCopyWith<$Res> {
       {@typeKey String type,
       String text,
       ReplyRef? reply,
-      @unionInputEmbed UInputEmbed? embed,
+      @unionRecordEmbed URecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Main>? facets,
@@ -55,7 +55,7 @@ abstract class $RecordCopyWith<$Res> {
       DateTime createdAt});
 
   $ReplyRefCopyWith<$Res>? get reply;
-  $UInputEmbedCopyWith<$Res>? get embed;
+  $URecordEmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
 
@@ -98,7 +98,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UInputEmbed?,
+              as URecordEmbed?,
       langs: freezed == langs
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -136,12 +136,12 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 
   @override
   @pragma('vm:prefer-inline')
-  $UInputEmbedCopyWith<$Res>? get embed {
+  $URecordEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UInputEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $URecordEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -170,7 +170,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
       {@typeKey String type,
       String text,
       ReplyRef? reply,
-      @unionInputEmbed UInputEmbed? embed,
+      @unionRecordEmbed URecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<Main>? facets,
@@ -180,7 +180,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   $ReplyRefCopyWith<$Res>? get reply;
   @override
-  $UInputEmbedCopyWith<$Res>? get embed;
+  $URecordEmbedCopyWith<$Res>? get embed;
   @override
   $LabelsCopyWith<$Res>? get labels;
 }
@@ -222,7 +222,7 @@ class __$$RecordImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UInputEmbed?,
+              as URecordEmbed?,
       langs: freezed == langs
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -255,7 +255,7 @@ class _$RecordImpl implements _Record {
       {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
-      @unionInputEmbed this.embed,
+      @unionRecordEmbed this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
       final List<Main>? facets,
@@ -276,8 +276,8 @@ class _$RecordImpl implements _Record {
   @override
   final ReplyRef? reply;
   @override
-  @unionInputEmbed
-  final UInputEmbed? embed;
+  @unionRecordEmbed
+  final URecordEmbed? embed;
   final List<String>? _langs;
   @override
   List<String>? get langs {
@@ -369,7 +369,7 @@ abstract class _Record implements Record {
       {@typeKey final String type,
       required final String text,
       final ReplyRef? reply,
-      @unionInputEmbed final UInputEmbed? embed,
+      @unionRecordEmbed final URecordEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
       final List<Main>? facets,
@@ -386,8 +386,8 @@ abstract class _Record implements Record {
   @override
   ReplyRef? get reply;
   @override
-  @unionInputEmbed
-  UInputEmbed? get embed;
+  @unionRecordEmbed
+  URecordEmbed? get embed;
   @override
   List<String>? get langs;
   @override

@@ -11,9 +11,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart';
-import '../../../unions/feed_post_input_embed.dart';
 import '../../richtext/facet/main.dart';
 import 'reply_ref.dart';
+import 'unions/record_embed.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -29,7 +29,7 @@ class Record with _$Record {
     @typeKey @Default(appBskyFeedPost) String type,
     required String text,
     ReplyRef? reply,
-    @unionInputEmbed UInputEmbed? embed,
+    @unionRecordEmbed URecordEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
     List<Main>? facets,
