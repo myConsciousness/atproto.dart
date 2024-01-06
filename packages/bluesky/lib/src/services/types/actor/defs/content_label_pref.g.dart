@@ -18,7 +18,7 @@ _$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
               (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           label: $checkedConvert('label', (v) => v as String),
           visibility: $checkedConvert('visibility',
-              (v) => $enumDecode(_$ContentLabelVisibilityEnumMap, v)),
+              (v) => $enumDecode(_$ContentLabelPrefVisibilityEnumMap, v)),
         );
         return val;
       },
@@ -30,11 +30,11 @@ Map<String, dynamic> _$$ContentLabelPrefImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'label': instance.label,
-      'visibility': _$ContentLabelVisibilityEnumMap[instance.visibility]!,
+      'visibility': _$ContentLabelPrefVisibilityEnumMap[instance.visibility]!,
     };
 
-const _$ContentLabelVisibilityEnumMap = {
-  ContentLabelVisibility.ignore: 'ignore',
-  ContentLabelVisibility.warn: 'warn',
-  ContentLabelVisibility.hide: 'hide',
+const _$ContentLabelPrefVisibilityEnumMap = {
+  ContentLabelPrefVisibility.ignore: 'ignore',
+  ContentLabelPrefVisibility.warn: 'warn',
+  ContentLabelPrefVisibility.hide: 'hide',
 };

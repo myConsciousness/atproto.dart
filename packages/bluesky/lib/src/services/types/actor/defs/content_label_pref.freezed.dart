@@ -23,7 +23,8 @@ mixin _$ContentLabelPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
+  ContentLabelPrefVisibility get visibility =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,9 @@ abstract class $ContentLabelPrefCopyWith<$Res> {
       _$ContentLabelPrefCopyWithImpl<$Res, ContentLabelPref>;
   @useResult
   $Res call(
-      {@typeKey String type, String label, ContentLabelVisibility visibility});
+      {@typeKey String type,
+      String label,
+      ContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
@@ -70,7 +73,7 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
+              as ContentLabelPrefVisibility,
     ) as $Val);
   }
 }
@@ -84,7 +87,9 @@ abstract class _$$ContentLabelPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@typeKey String type, String label, ContentLabelVisibility visibility});
+      {@typeKey String type,
+      String label,
+      ContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
@@ -114,7 +119,7 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
+              as ContentLabelPrefVisibility,
     ));
   }
 }
@@ -137,7 +142,7 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @override
   final String label;
   @override
-  final ContentLabelVisibility visibility;
+  final ContentLabelPrefVisibility visibility;
 
   @override
   String toString() {
@@ -178,7 +183,7 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   const factory _ContentLabelPref(
           {@typeKey final String type,
           required final String label,
-          required final ContentLabelVisibility visibility}) =
+          required final ContentLabelPrefVisibility visibility}) =
       _$ContentLabelPrefImpl;
 
   factory _ContentLabelPref.fromJson(Map<String, dynamic> json) =
@@ -190,7 +195,7 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   @override
   String get label;
   @override
-  ContentLabelVisibility get visibility;
+  ContentLabelPrefVisibility get visibility;
   @override
   @JsonKey(ignore: true)
   _$$ContentLabelPrefImplCopyWith<_$ContentLabelPrefImpl> get copyWith =>

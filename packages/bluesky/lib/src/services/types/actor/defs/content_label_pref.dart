@@ -11,7 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
-import '../../../constants/content_label_visibility.dart';
+import 'constants/content_label_pref_visibility.dart';
 
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
@@ -24,7 +24,7 @@ class ContentLabelPref with _$ContentLabelPref {
   const factory ContentLabelPref({
     @typeKey @Default(appBskyActorDefsContentLabelPref) String type,
     required String label,
-    required ContentLabelVisibility visibility,
+    required ContentLabelPrefVisibility visibility,
   }) = _ContentLabelPref;
 
   factory ContentLabelPref.fromJson(Map<String, Object?> json) =>

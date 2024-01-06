@@ -8,8 +8,8 @@ import 'package:atproto/atproto.dart' as atp;
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
-import '../constants/notification_reason.dart';
 import '../types/actor/defs/profile_view.dart';
+import '../types/notification/list_notifications/constants/notification_reason.dart';
 import '../types/notification/list_notifications/notification.dart';
 import 'group_by.dart';
 import 'grouped_notifications.dart';

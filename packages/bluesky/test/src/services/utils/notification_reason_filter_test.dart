@@ -8,8 +8,9 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/constants/notification_reason.dart';
 import 'package:bluesky/src/services/types/actor/defs/profile_view.dart';
+import 'package:bluesky/src/services/types/notification/list_notifications/constants/notification_reason.dart';
+import 'package:bluesky/src/services/types/notification/list_notifications/extensions/notification_reason_extension.dart';
 import 'package:bluesky/src/services/types/notification/list_notifications/notification.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 

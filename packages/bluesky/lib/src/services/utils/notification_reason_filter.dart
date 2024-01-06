@@ -8,7 +8,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
 import '../constants/grouped_notification_reason.dart';
-import '../constants/notification_reason.dart';
+import '../types/notification/list_notifications/constants/notification_reason.dart';
+import '../types/notification/list_notifications/extensions/notification_reason_extension.dart';
 import '../types/notification/list_notifications/notification.dart';
 
 import '../types/notification/list_notifications/output.dart'
