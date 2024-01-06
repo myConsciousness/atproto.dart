@@ -121,6 +121,7 @@ description: com.atproto.admin.defs
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **email** | string | - | ❌ | - |
+| **relatedRecords** | array of unknown | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 | **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../lexicons/com/atproto/server/defs.md#invitecode) | - | ❌ | - |
 | **invites** | array of [com.atproto.server.defs#inviteCode](../../../../lexicons/com/atproto/server/defs.md#invitecode) | - | ❌ | - |

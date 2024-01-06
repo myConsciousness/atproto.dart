@@ -297,6 +297,10 @@ const comAtprotoAdminQueryModerationStatuses =
 const comAtprotoAdminUpdateAccountHandle =
     LexObject(ids.comAtprotoAdminUpdateAccountHandle);
 
+/// `com.atproto.admin.getAccountInfos#main`
+const comAtprotoAdminGetAccountInfos =
+    LexObject(ids.comAtprotoAdminGetAccountInfos);
+
 /// `com.atproto.admin.emitModerationEvent#main`
 const comAtprotoAdminEmitModerationEvent =
     LexObject(ids.comAtprotoAdminEmitModerationEvent);
