@@ -4254,46 +4254,6 @@ const appBskyUnspeccedGetPopularFeedGenerators = <String, dynamic>{
   }
 };
 
-/// `app.bsky.unspecced.getPopular`
-const appBskyUnspeccedGetPopular = <String, dynamic>{
-  "lexicon": 1,
-  "id": "app.bsky.unspecced.getPopular",
-  "defs": {
-    "main": {
-      "type": "query",
-      "description":
-          "DEPRECATED: will be removed soon. Use a feed generator alternative.",
-      "parameters": {
-        "type": "params",
-        "properties": {
-          "includeNsfw": {"type": "boolean", "default": false},
-          "limit": {
-            "type": "integer",
-            "default": 50,
-            "minimum": 1,
-            "maximum": 100
-          },
-          "cursor": {"type": "string"}
-        }
-      },
-      "output": {
-        "encoding": "application/json",
-        "schema": {
-          "type": "object",
-          "required": ["feed"],
-          "properties": {
-            "cursor": {"type": "string"},
-            "feed": {
-              "type": "array",
-              "items": {"type": "ref", "ref": "app.bsky.feed.defs#feedViewPost"}
-            }
-          }
-        }
-      }
-    }
-  }
-};
-
 /// `app.bsky.unspecced.searchPostsSkeleton`
 const appBskyUnspeccedSearchPostsSkeleton = <String, dynamic>{
   "lexicon": 1,
@@ -6479,7 +6439,6 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedGetTimelineSkeleton,
   appBskyUnspeccedDefs,
   appBskyUnspeccedGetPopularFeedGenerators,
-  appBskyUnspeccedGetPopular,
   appBskyUnspeccedSearchPostsSkeleton,
   appBskyRichtextFacet,
   appBskyFeedDescribeFeedGenerator,
