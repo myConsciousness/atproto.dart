@@ -2,31 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// ignore_for_file: invalid_annotation_target
-
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../lex_annotations.g.dart' as lex;
-import '../../actor/defs/preferences.dart';
-import '../defs/unions/preferences_preferences.dart';
+import '../defs/profile_view.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getsuggestions/#output
 @freezed
-@lex.appBskyActorGetPreferences
+@lex.appBskyActorGetSuggestions
 class Output with _$Output {
   const factory Output({
-    @unionPreferencesPreferences
-    required List<UPreferencesPreferences> preferences,
+    required List<ProfileView> actors,
   }) = _Output;
 
   factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
-}
-
-extension $OutputExtension on Output {
-  Preferences get asPreferences => Preferences.fromJson(toJson());
 }

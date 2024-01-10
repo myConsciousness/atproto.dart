@@ -17,6 +17,8 @@ const pubspecFileName = 'pubspec.yaml';
 /// The path to `lexicons` directory.
 const lexiconsPath = './lexicons';
 
+const lexGenFileExtension = '.lex.dart';
+
 const moderationResourcesPath =
     'packages/bluesky/test/src/moderation/suite/data';
 const moderationDefinitionsPath =
@@ -78,3 +80,8 @@ String getFileHeader(final String label) =>
 // **************************************************************************
 // $label
 // **************************************************************************''';
+
+String camelCaseToSnakeCase(final String str) => str.replaceAllMapped(
+      RegExp(r'[A-Z]'),
+      (match) => '_${match.group(0)!.toLowerCase()}',
+    );
