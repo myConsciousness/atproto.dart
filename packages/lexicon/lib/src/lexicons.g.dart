@@ -23,7 +23,8 @@ const comAtprotoModerationDefs = <String, dynamic>{
         "com.atproto.moderation.defs#reasonMisleading",
         "com.atproto.moderation.defs#reasonSexual",
         "com.atproto.moderation.defs#reasonRude",
-        "com.atproto.moderation.defs#reasonOther"
+        "com.atproto.moderation.defs#reasonOther",
+        "com.atproto.moderation.defs#reasonAppeal"
       ]
     },
     "reasonSpam": {
@@ -50,6 +51,10 @@ const comAtprotoModerationDefs = <String, dynamic>{
     "reasonOther": {
       "type": "token",
       "description": "Other: reports not falling under another report category"
+    },
+    "reasonAppeal": {
+      "type": "token",
+      "description": "Appeal: appeal a previously taken moderation action"
     }
   }
 };
@@ -2271,6 +2276,10 @@ const comAtprotoAdminQueryModerationStatuses = <String, dynamic>{
             "type": "boolean",
             "description": "Get subjects that were taken down"
           },
+          "appealed": {
+            "type": "boolean",
+            "description": "Get subjects in unresolved appealed status"
+          },
           "limit": {
             "type": "integer",
             "default": 50,
@@ -2317,6 +2326,44 @@ const comAtprotoAdminUpdateAccountHandle = <String, dynamic>{
           "properties": {
             "did": {"type": "string", "format": "did"},
             "handle": {"type": "string", "format": "handle"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `com.atproto.admin.getAccountInfos`
+const comAtprotoAdminGetAccountInfos = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.getAccountInfos",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about some accounts.",
+      "parameters": {
+        "type": "params",
+        "required": ["dids"],
+        "properties": {
+          "dids": {
+            "type": "array",
+            "items": {"type": "string", "format": "did"}
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["infos"],
+          "properties": {
+            "infos": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#accountView"
+              }
+            }
           }
         }
       }
@@ -2516,7 +2563,8 @@ const comAtprotoAdminDefs = <String, dynamic>{
             "#modEventLabel",
             "#modEventAcknowledge",
             "#modEventEscalate",
-            "#modEventMute"
+            "#modEventMute",
+            "#modEventResolveAppeal"
           ]
         },
         "subject": {
@@ -2601,7 +2649,18 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "lastReviewedBy": {"type": "string", "format": "did"},
         "lastReviewedAt": {"type": "string", "format": "datetime"},
         "lastReportedAt": {"type": "string", "format": "datetime"},
+        "lastAppealedAt": {
+          "type": "string",
+          "format": "datetime",
+          "description":
+              "Timestamp referencing when the author of the subject appealed a moderation action"
+        },
         "takendown": {"type": "boolean"},
+        "appealed": {
+          "type": "boolean",
+          "description":
+              "True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators."
+        },
         "suspendUntil": {"type": "string", "format": "datetime"}
       }
     },
@@ -2713,6 +2772,10 @@ const comAtprotoAdminDefs = <String, dynamic>{
         "did": {"type": "string", "format": "did"},
         "handle": {"type": "string", "format": "handle"},
         "email": {"type": "string"},
+        "relatedRecords": {
+          "type": "array",
+          "items": {"type": "unknown"}
+        },
         "indexedAt": {"type": "string", "format": "datetime"},
         "invitedBy": {
           "type": "ref",
@@ -2892,6 +2955,13 @@ const comAtprotoAdminDefs = <String, dynamic>{
           "type": "string",
           "description": "Describe reasoning behind the reversal."
         }
+      }
+    },
+    "modEventResolveAppeal": {
+      "type": "object",
+      "description": "Resolve appeal on a subject",
+      "properties": {
+        "comment": {"type": "string", "description": "Describe resolution."}
       }
     },
     "modEventComment": {
@@ -6376,6 +6446,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoAdminGetRecord,
   comAtprotoAdminQueryModerationStatuses,
   comAtprotoAdminUpdateAccountHandle,
+  comAtprotoAdminGetAccountInfos,
   comAtprotoAdminEmitModerationEvent,
   comAtprotoAdminDeleteAccount,
   comAtprotoAdminSendEmail,
