@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:convert';
 import 'dart:io';
 
 import 'package:lexicon/lexicon.dart';
@@ -33,9 +34,12 @@ void main(List<String> args) => _writeFiles(utils.lexiconDocs);
 void _writeFiles(final List<LexiconDoc> lexiconDocs) {
   final objects = _getLexObjects(lexiconDocs);
 
+  Directory(_matrixRoot).deleteSync(recursive: true);
+
   objects.forEach((nsid, defs) {
     final main = nsid.split('.').last;
     final path = nsid.split('.').sublist(0, 3).join('/');
+
     final matrix = StringBuffer()
       ..writeln('---')
       ..writeln('title: $main')
@@ -89,6 +93,14 @@ void _writeFiles(final List<LexiconDoc> lexiconDocs) {
       ..createSync(recursive: true)
       ..writeAsStringSync(matrix.toString());
   });
+
+  File('$_matrixRoot/_category_.json')
+    ..createSync(recursive: true)
+    ..writeAsStringSync(JsonEncoder.withIndent('  ').convert({
+      'label': 'Lexicons Matrix',
+      'position': 5,
+      'link': {'type': 'generated-index'}
+    }));
 }
 
 void _writeRecord(
