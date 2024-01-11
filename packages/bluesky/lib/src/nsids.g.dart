@@ -275,9 +275,6 @@ const appBskyRichtextFacetMention = NSID(ids.appBskyRichtextFacetMention);
 /// `app.bsky.richtext.facet#tag`
 const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 
-/// `app.bsky.unspecced.getPopular`
-const appBskyUnspeccedGetPopular = NSID(ids.appBskyUnspeccedGetPopular);
-
 /// `app.bsky.unspecced.getPopularFeedGenerators`
 const appBskyUnspeccedGetPopularFeedGenerators =
     NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
