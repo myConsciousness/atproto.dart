@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.0
+
+- Removed unsupported `.getPopular` from `UnspeccedService`.
+
 ## v0.15.4
 
 - Upgraded `atproto_core`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
