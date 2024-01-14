@@ -15,9 +15,9 @@ import '../defs/viewer_state.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewdetailed
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofile/#outout
 @freezed
-@lex.appBskyActorDefsProfileViewDetailed
+@lex.appBskyActorGetProfile
 class Output with _$Output {
   @jsonSerializable
   const factory Output({

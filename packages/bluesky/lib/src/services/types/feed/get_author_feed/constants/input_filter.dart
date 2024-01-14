@@ -5,7 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
-enum Filter implements Serializable {
+enum InputFilter implements Serializable {
   /// `posts_with_replies`
   postsWithReplies('posts_with_replies'),
 
@@ -21,5 +21,5 @@ enum Filter implements Serializable {
   @override
   final String value;
 
-  const Filter(this.value);
+  const InputFilter(this.value);
 }
