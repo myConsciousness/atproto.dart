@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UFeedViewPostReason {
+mixin _$UFeedDefsFeedViewPostReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -38,36 +38,40 @@ mixin _$UFeedViewPostReason {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UFeedViewPostReasonRepost value) reasonRepost,
-    required TResult Function(UFeedViewPostReasonUnknown value) unknown,
+    required TResult Function(UFeedDefsFeedViewPostReasonRepost value)
+        reasonRepost,
+    required TResult Function(UFeedDefsFeedViewPostReasonUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult? Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult? Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult? Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UFeedViewPostReasonCopyWith<$Res> {
-  factory $UFeedViewPostReasonCopyWith(
-          UFeedViewPostReason value, $Res Function(UFeedViewPostReason) then) =
-      _$UFeedViewPostReasonCopyWithImpl<$Res, UFeedViewPostReason>;
+abstract class $UFeedDefsFeedViewPostReasonCopyWith<$Res> {
+  factory $UFeedDefsFeedViewPostReasonCopyWith(
+          UFeedDefsFeedViewPostReason value,
+          $Res Function(UFeedDefsFeedViewPostReason) then) =
+      _$UFeedDefsFeedViewPostReasonCopyWithImpl<$Res,
+          UFeedDefsFeedViewPostReason>;
 }
 
 /// @nodoc
-class _$UFeedViewPostReasonCopyWithImpl<$Res, $Val extends UFeedViewPostReason>
-    implements $UFeedViewPostReasonCopyWith<$Res> {
-  _$UFeedViewPostReasonCopyWithImpl(this._value, this._then);
+class _$UFeedDefsFeedViewPostReasonCopyWithImpl<$Res,
+        $Val extends UFeedDefsFeedViewPostReason>
+    implements $UFeedDefsFeedViewPostReasonCopyWith<$Res> {
+  _$UFeedDefsFeedViewPostReasonCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,11 +80,11 @@ class _$UFeedViewPostReasonCopyWithImpl<$Res, $Val extends UFeedViewPostReason>
 }
 
 /// @nodoc
-abstract class _$$UFeedViewPostReasonRepostImplCopyWith<$Res> {
-  factory _$$UFeedViewPostReasonRepostImplCopyWith(
-          _$UFeedViewPostReasonRepostImpl value,
-          $Res Function(_$UFeedViewPostReasonRepostImpl) then) =
-      __$$UFeedViewPostReasonRepostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsFeedViewPostReasonRepostImplCopyWith<$Res> {
+  factory _$$UFeedDefsFeedViewPostReasonRepostImplCopyWith(
+          _$UFeedDefsFeedViewPostReasonRepostImpl value,
+          $Res Function(_$UFeedDefsFeedViewPostReasonRepostImpl) then) =
+      __$$UFeedDefsFeedViewPostReasonRepostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsReasonRepost data});
 
@@ -88,13 +92,13 @@ abstract class _$$UFeedViewPostReasonRepostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UFeedViewPostReasonRepostImplCopyWithImpl<$Res>
-    extends _$UFeedViewPostReasonCopyWithImpl<$Res,
-        _$UFeedViewPostReasonRepostImpl>
-    implements _$$UFeedViewPostReasonRepostImplCopyWith<$Res> {
-  __$$UFeedViewPostReasonRepostImplCopyWithImpl(
-      _$UFeedViewPostReasonRepostImpl _value,
-      $Res Function(_$UFeedViewPostReasonRepostImpl) _then)
+class __$$UFeedDefsFeedViewPostReasonRepostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsFeedViewPostReasonCopyWithImpl<$Res,
+        _$UFeedDefsFeedViewPostReasonRepostImpl>
+    implements _$$UFeedDefsFeedViewPostReasonRepostImplCopyWith<$Res> {
+  __$$UFeedDefsFeedViewPostReasonRepostImplCopyWithImpl(
+      _$UFeedDefsFeedViewPostReasonRepostImpl _value,
+      $Res Function(_$UFeedDefsFeedViewPostReasonRepostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +106,7 @@ class __$$UFeedViewPostReasonRepostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFeedViewPostReasonRepostImpl(
+    return _then(_$UFeedDefsFeedViewPostReasonRepostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -121,22 +125,23 @@ class __$$UFeedViewPostReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
-  _$UFeedViewPostReasonRepostImpl({required this.data}) : super._();
+class _$UFeedDefsFeedViewPostReasonRepostImpl
+    extends UFeedDefsFeedViewPostReasonRepost {
+  _$UFeedDefsFeedViewPostReasonRepostImpl({required this.data}) : super._();
 
   @override
   final FeedDefsReasonRepost data;
 
   @override
   String toString() {
-    return 'UFeedViewPostReason.reasonRepost(data: $data)';
+    return 'UFeedDefsFeedViewPostReason.reasonRepost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFeedViewPostReasonRepostImpl &&
+            other is _$UFeedDefsFeedViewPostReasonRepostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -146,9 +151,10 @@ class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFeedViewPostReasonRepostImplCopyWith<_$UFeedViewPostReasonRepostImpl>
-      get copyWith => __$$UFeedViewPostReasonRepostImplCopyWithImpl<
-          _$UFeedViewPostReasonRepostImpl>(this, _$identity);
+  _$$UFeedDefsFeedViewPostReasonRepostImplCopyWith<
+          _$UFeedDefsFeedViewPostReasonRepostImpl>
+      get copyWith => __$$UFeedDefsFeedViewPostReasonRepostImplCopyWithImpl<
+          _$UFeedDefsFeedViewPostReasonRepostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -184,8 +190,9 @@ class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UFeedViewPostReasonRepost value) reasonRepost,
-    required TResult Function(UFeedViewPostReasonUnknown value) unknown,
+    required TResult Function(UFeedDefsFeedViewPostReasonRepost value)
+        reasonRepost,
+    required TResult Function(UFeedDefsFeedViewPostReasonUnknown value) unknown,
   }) {
     return reasonRepost(this);
   }
@@ -193,8 +200,8 @@ class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult? Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult? Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult? Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
   }) {
     return reasonRepost?.call(this);
   }
@@ -202,8 +209,8 @@ class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (reasonRepost != null) {
@@ -213,37 +220,39 @@ class _$UFeedViewPostReasonRepostImpl extends UFeedViewPostReasonRepost {
   }
 }
 
-abstract class UFeedViewPostReasonRepost extends UFeedViewPostReason {
-  factory UFeedViewPostReasonRepost(
+abstract class UFeedDefsFeedViewPostReasonRepost
+    extends UFeedDefsFeedViewPostReason {
+  factory UFeedDefsFeedViewPostReasonRepost(
           {required final FeedDefsReasonRepost data}) =
-      _$UFeedViewPostReasonRepostImpl;
-  UFeedViewPostReasonRepost._() : super._();
+      _$UFeedDefsFeedViewPostReasonRepostImpl;
+  UFeedDefsFeedViewPostReasonRepost._() : super._();
 
   @override
   FeedDefsReasonRepost get data;
   @JsonKey(ignore: true)
-  _$$UFeedViewPostReasonRepostImplCopyWith<_$UFeedViewPostReasonRepostImpl>
+  _$$UFeedDefsFeedViewPostReasonRepostImplCopyWith<
+          _$UFeedDefsFeedViewPostReasonRepostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UFeedViewPostReasonUnknownImplCopyWith<$Res> {
-  factory _$$UFeedViewPostReasonUnknownImplCopyWith(
-          _$UFeedViewPostReasonUnknownImpl value,
-          $Res Function(_$UFeedViewPostReasonUnknownImpl) then) =
-      __$$UFeedViewPostReasonUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsFeedViewPostReasonUnknownImplCopyWith<$Res> {
+  factory _$$UFeedDefsFeedViewPostReasonUnknownImplCopyWith(
+          _$UFeedDefsFeedViewPostReasonUnknownImpl value,
+          $Res Function(_$UFeedDefsFeedViewPostReasonUnknownImpl) then) =
+      __$$UFeedDefsFeedViewPostReasonUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UFeedViewPostReasonUnknownImplCopyWithImpl<$Res>
-    extends _$UFeedViewPostReasonCopyWithImpl<$Res,
-        _$UFeedViewPostReasonUnknownImpl>
-    implements _$$UFeedViewPostReasonUnknownImplCopyWith<$Res> {
-  __$$UFeedViewPostReasonUnknownImplCopyWithImpl(
-      _$UFeedViewPostReasonUnknownImpl _value,
-      $Res Function(_$UFeedViewPostReasonUnknownImpl) _then)
+class __$$UFeedDefsFeedViewPostReasonUnknownImplCopyWithImpl<$Res>
+    extends _$UFeedDefsFeedViewPostReasonCopyWithImpl<$Res,
+        _$UFeedDefsFeedViewPostReasonUnknownImpl>
+    implements _$$UFeedDefsFeedViewPostReasonUnknownImplCopyWith<$Res> {
+  __$$UFeedDefsFeedViewPostReasonUnknownImplCopyWithImpl(
+      _$UFeedDefsFeedViewPostReasonUnknownImpl _value,
+      $Res Function(_$UFeedDefsFeedViewPostReasonUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -251,7 +260,7 @@ class __$$UFeedViewPostReasonUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UFeedViewPostReasonUnknownImpl(
+    return _then(_$UFeedDefsFeedViewPostReasonUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -262,8 +271,10 @@ class __$$UFeedViewPostReasonUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
-  _$UFeedViewPostReasonUnknownImpl({required final Map<String, dynamic> data})
+class _$UFeedDefsFeedViewPostReasonUnknownImpl
+    extends UFeedDefsFeedViewPostReasonUnknown {
+  _$UFeedDefsFeedViewPostReasonUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -277,14 +288,14 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
 
   @override
   String toString() {
-    return 'UFeedViewPostReason.unknown(data: $data)';
+    return 'UFeedDefsFeedViewPostReason.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UFeedViewPostReasonUnknownImpl &&
+            other is _$UFeedDefsFeedViewPostReasonUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -295,9 +306,10 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UFeedViewPostReasonUnknownImplCopyWith<_$UFeedViewPostReasonUnknownImpl>
-      get copyWith => __$$UFeedViewPostReasonUnknownImplCopyWithImpl<
-          _$UFeedViewPostReasonUnknownImpl>(this, _$identity);
+  _$$UFeedDefsFeedViewPostReasonUnknownImplCopyWith<
+          _$UFeedDefsFeedViewPostReasonUnknownImpl>
+      get copyWith => __$$UFeedDefsFeedViewPostReasonUnknownImplCopyWithImpl<
+          _$UFeedDefsFeedViewPostReasonUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -333,8 +345,9 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UFeedViewPostReasonRepost value) reasonRepost,
-    required TResult Function(UFeedViewPostReasonUnknown value) unknown,
+    required TResult Function(UFeedDefsFeedViewPostReasonRepost value)
+        reasonRepost,
+    required TResult Function(UFeedDefsFeedViewPostReasonUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -342,8 +355,8 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult? Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult? Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult? Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -351,8 +364,8 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UFeedViewPostReasonRepost value)? reasonRepost,
-    TResult Function(UFeedViewPostReasonUnknown value)? unknown,
+    TResult Function(UFeedDefsFeedViewPostReasonRepost value)? reasonRepost,
+    TResult Function(UFeedDefsFeedViewPostReasonUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -362,15 +375,17 @@ class _$UFeedViewPostReasonUnknownImpl extends UFeedViewPostReasonUnknown {
   }
 }
 
-abstract class UFeedViewPostReasonUnknown extends UFeedViewPostReason {
-  factory UFeedViewPostReasonUnknown(
+abstract class UFeedDefsFeedViewPostReasonUnknown
+    extends UFeedDefsFeedViewPostReason {
+  factory UFeedDefsFeedViewPostReasonUnknown(
           {required final Map<String, dynamic> data}) =
-      _$UFeedViewPostReasonUnknownImpl;
-  UFeedViewPostReasonUnknown._() : super._();
+      _$UFeedDefsFeedViewPostReasonUnknownImpl;
+  UFeedDefsFeedViewPostReasonUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UFeedViewPostReasonUnknownImplCopyWith<_$UFeedViewPostReasonUnknownImpl>
+  _$$UFeedDefsFeedViewPostReasonUnknownImplCopyWith<
+          _$UFeedDefsFeedViewPostReasonUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

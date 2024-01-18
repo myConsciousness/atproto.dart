@@ -5,7 +5,7 @@
 export 'record.dart';
 export 'reply_ref.dart';
 
-export 'converter/record_converter.dart';
+export 'converters/record_converter.dart';
 
 export 'extensions/blob_extension.dart';
 export 'extensions/strong_ref_extension.dart';

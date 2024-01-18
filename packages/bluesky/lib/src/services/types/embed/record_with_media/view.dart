@@ -24,7 +24,8 @@ class EmbedRecordWithMediaView with _$EmbedRecordWithMediaView {
   const factory EmbedRecordWithMediaView({
     @typeKey @Default(appBskyEmbedRecordWithMediaView) String type,
     required EmbedRecordView record,
-    @unionViewMedia required UViewMedia media,
+    @unionEmbedRecordWithMediaViewMediaConverter
+    required UEmbedRecordWithMediaViewMedia media,
   }) = _EmbedRecordWithMediaView;
 
   factory EmbedRecordWithMediaView.fromJson(Map<String, Object?> json) =>

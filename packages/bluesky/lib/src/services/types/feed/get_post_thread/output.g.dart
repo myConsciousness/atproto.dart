@@ -15,8 +15,10 @@ _$FeedGetPostThreadOutputImpl _$$FeedGetPostThreadOutputImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$FeedGetPostThreadOutputImpl(
-          thread: $checkedConvert('thread',
-              (v) => unionOutputThread.fromJson(v as Map<String, dynamic>)),
+          thread: $checkedConvert(
+              'thread',
+              (v) => unionFeedGetPostThreadOutputThreadConverter
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -25,5 +27,6 @@ _$FeedGetPostThreadOutputImpl _$$FeedGetPostThreadOutputImplFromJson(
 Map<String, dynamic> _$$FeedGetPostThreadOutputImplToJson(
         _$FeedGetPostThreadOutputImpl instance) =>
     <String, dynamic>{
-      'thread': unionOutputThread.toJson(instance.thread),
+      'thread':
+          unionFeedGetPostThreadOutputThreadConverter.toJson(instance.thread),
     };

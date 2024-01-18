@@ -24,9 +24,9 @@ _$FeedPostRecordImpl _$$FeedPostRecordImplFromJson(Map json) => $checkedCreate(
                       Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
-              (v) =>
-                  _$JsonConverterFromJson<Map<String, dynamic>, URecordEmbed>(
-                      v, unionRecordEmbed.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedPostRecordEmbed>(
+                  v, unionFeedPostRecordEmbedConverter.fromJson)),
           langs: $checkedConvert('langs',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           labels: $checkedConvert(
@@ -65,8 +65,8 @@ Map<String, dynamic> _$$FeedPostRecordImplToJson(
   writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, URecordEmbed>(
-          instance.embed, unionRecordEmbed.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedPostRecordEmbed>(
+          instance.embed, unionFeedPostRecordEmbedConverter.toJson));
   writeNotNull('langs', instance.langs);
   writeNotNull(
       'labels',

@@ -19,73 +19,74 @@ part 'record_embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
-class URecordEmbed with _$URecordEmbed {
+class UFeedPostRecordEmbed with _$UFeedPostRecordEmbed {
   // ignore: unused_element
-  const URecordEmbed._();
+  const UFeedPostRecordEmbed._();
 
-  const factory URecordEmbed.embedRecord({
+  const factory UFeedPostRecordEmbed.embedRecord({
     required EmbedRecord data,
-  }) = URecordEmbedEmbedRecord;
+  }) = UFeedPostRecordEmbedEmbedRecord;
 
-  const factory URecordEmbed.embedImages({
+  const factory UFeedPostRecordEmbed.embedImages({
     required EmbedImages data,
-  }) = URecordEmbedEmbedImages;
+  }) = UFeedPostRecordEmbedEmbedImages;
 
-  const factory URecordEmbed.embedExternal({
+  const factory UFeedPostRecordEmbed.embedExternal({
     required EmbedExternal data,
-  }) = URecordEmbedEmbedExternal;
+  }) = UFeedPostRecordEmbedEmbedExternal;
 
-  const factory URecordEmbed.embedRecordWithMedia({
+  const factory UFeedPostRecordEmbed.embedRecordWithMedia({
     required EmbedRecordWithMedia data,
-  }) = URecordEmbedEmbedRecordWithMedia;
+  }) = UFeedPostRecordEmbedEmbedRecordWithMedia;
 
-  const factory URecordEmbed.unknown({
+  const factory UFeedPostRecordEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = URecordEmbedUnknown;
+  }) = UFeedPostRecordEmbedUnknown;
 
-  Map<String, dynamic> toJson() => unionRecordEmbed.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionFeedPostRecordEmbedConverter.toJson(this);
 }
 
-const unionRecordEmbed = _URecordEmbedConverter();
+const unionFeedPostRecordEmbedConverter = _UFeedPostRecordEmbedConverter();
 
-final class _URecordEmbedConverter
-    implements JsonConverter<URecordEmbed, Map<String, dynamic>> {
-  const _URecordEmbedConverter();
+final class _UFeedPostRecordEmbedConverter
+    implements JsonConverter<UFeedPostRecordEmbed, Map<String, dynamic>> {
+  const _UFeedPostRecordEmbedConverter();
 
   @override
-  URecordEmbed fromJson(Map<String, dynamic> json) {
+  UFeedPostRecordEmbed fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedRecord) {
-        return URecordEmbed.embedRecord(
+        return UFeedPostRecordEmbed.embedRecord(
           data: EmbedRecord.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImages) {
-        return URecordEmbed.embedImages(
+        return UFeedPostRecordEmbed.embedImages(
           data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
-        return URecordEmbed.embedExternal(
+        return UFeedPostRecordEmbed.embedExternal(
           data: EmbedExternal.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMedia) {
-        return URecordEmbed.embedRecordWithMedia(
+        return UFeedPostRecordEmbed.embedRecordWithMedia(
           data: EmbedRecordWithMedia.fromJson(json),
         );
       }
 
-      return URecordEmbed.unknown(data: json);
+      return UFeedPostRecordEmbed.unknown(data: json);
     } catch (_) {
-      return URecordEmbed.unknown(data: json);
+      return UFeedPostRecordEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URecordEmbed object) => object.when(
+  Map<String, dynamic> toJson(UFeedPostRecordEmbed object) => object.when(
         embedRecord: (data) => data.toJson(),
         embedImages: (data) => data.toJson(),
         embedExternal: (data) => data.toJson(),

@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UThreadViewPostParent {
+mixin _$UFeedDefsThreadViewPostParent {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,47 +44,55 @@ mixin _$UThreadViewPostParent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostParentThreadViewPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)
         threadViewPost,
-    required TResult Function(UThreadViewPostParentNotFoundPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)
         notFoundPost,
-    required TResult Function(UThreadViewPostParentBlockedPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)
         blockedPost,
-    required TResult Function(UThreadViewPostParentUnknown value) unknown,
+    required TResult Function(UFeedDefsThreadViewPostParentUnknown value)
+        unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostParentThreadViewPost value)?
+    TResult? Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
         threadViewPost,
-    TResult? Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult? Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult? Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostParentThreadViewPost value)? threadViewPost,
-    TResult Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
+        threadViewPost,
+    TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UThreadViewPostParentCopyWith<$Res> {
-  factory $UThreadViewPostParentCopyWith(UThreadViewPostParent value,
-          $Res Function(UThreadViewPostParent) then) =
-      _$UThreadViewPostParentCopyWithImpl<$Res, UThreadViewPostParent>;
+abstract class $UFeedDefsThreadViewPostParentCopyWith<$Res> {
+  factory $UFeedDefsThreadViewPostParentCopyWith(
+          UFeedDefsThreadViewPostParent value,
+          $Res Function(UFeedDefsThreadViewPostParent) then) =
+      _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+          UFeedDefsThreadViewPostParent>;
 }
 
 /// @nodoc
-class _$UThreadViewPostParentCopyWithImpl<$Res,
-        $Val extends UThreadViewPostParent>
-    implements $UThreadViewPostParentCopyWith<$Res> {
-  _$UThreadViewPostParentCopyWithImpl(this._value, this._then);
+class _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+        $Val extends UFeedDefsThreadViewPostParent>
+    implements $UFeedDefsThreadViewPostParentCopyWith<$Res> {
+  _$UFeedDefsThreadViewPostParentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -93,11 +101,13 @@ class _$UThreadViewPostParentCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostParentThreadViewPostImplCopyWith(
-          _$UThreadViewPostParentThreadViewPostImpl value,
-          $Res Function(_$UThreadViewPostParentThreadViewPostImpl) then) =
-      __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWith<
+    $Res> {
+  factory _$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWith(
+          _$UFeedDefsThreadViewPostParentThreadViewPostImpl value,
+          $Res Function(_$UFeedDefsThreadViewPostParentThreadViewPostImpl)
+              then) =
+      __$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsThreadViewPost data});
 
@@ -105,13 +115,14 @@ abstract class _$$UThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostParentCopyWithImpl<$Res,
-        _$UThreadViewPostParentThreadViewPostImpl>
-    implements _$$UThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
-  __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl(
-      _$UThreadViewPostParentThreadViewPostImpl _value,
-      $Res Function(_$UThreadViewPostParentThreadViewPostImpl) _then)
+class __$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+        _$UFeedDefsThreadViewPostParentThreadViewPostImpl>
+    implements
+        _$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWith<$Res> {
+  __$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWithImpl(
+      _$UFeedDefsThreadViewPostParentThreadViewPostImpl _value,
+      $Res Function(_$UFeedDefsThreadViewPostParentThreadViewPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -119,7 +130,7 @@ class __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadViewPostParentThreadViewPostImpl(
+    return _then(_$UFeedDefsThreadViewPostParentThreadViewPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -138,9 +149,9 @@ class __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadViewPostParentThreadViewPostImpl
-    extends UThreadViewPostParentThreadViewPost {
-  const _$UThreadViewPostParentThreadViewPostImpl({required this.data})
+class _$UFeedDefsThreadViewPostParentThreadViewPostImpl
+    extends UFeedDefsThreadViewPostParentThreadViewPost {
+  const _$UFeedDefsThreadViewPostParentThreadViewPostImpl({required this.data})
       : super._();
 
   @override
@@ -148,14 +159,14 @@ class _$UThreadViewPostParentThreadViewPostImpl
 
   @override
   String toString() {
-    return 'UThreadViewPostParent.threadViewPost(data: $data)';
+    return 'UFeedDefsThreadViewPostParent.threadViewPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostParentThreadViewPostImpl &&
+            other is _$UFeedDefsThreadViewPostParentThreadViewPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -165,10 +176,12 @@ class _$UThreadViewPostParentThreadViewPostImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadViewPostParentThreadViewPostImplCopyWith<
-          _$UThreadViewPostParentThreadViewPostImpl>
-      get copyWith => __$$UThreadViewPostParentThreadViewPostImplCopyWithImpl<
-          _$UThreadViewPostParentThreadViewPostImpl>(this, _$identity);
+  _$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentThreadViewPostImpl>
+      get copyWith =>
+          __$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWithImpl<
+                  _$UFeedDefsThreadViewPostParentThreadViewPostImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -210,13 +223,14 @@ class _$UThreadViewPostParentThreadViewPostImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostParentThreadViewPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)
         threadViewPost,
-    required TResult Function(UThreadViewPostParentNotFoundPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)
         notFoundPost,
-    required TResult Function(UThreadViewPostParentBlockedPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)
         blockedPost,
-    required TResult Function(UThreadViewPostParentUnknown value) unknown,
+    required TResult Function(UFeedDefsThreadViewPostParentUnknown value)
+        unknown,
   }) {
     return threadViewPost(this);
   }
@@ -224,11 +238,13 @@ class _$UThreadViewPostParentThreadViewPostImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostParentThreadViewPost value)?
+    TResult? Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
         threadViewPost,
-    TResult? Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult? Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult? Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
   }) {
     return threadViewPost?.call(this);
   }
@@ -236,10 +252,13 @@ class _$UThreadViewPostParentThreadViewPostImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostParentThreadViewPost value)? threadViewPost,
-    TResult Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
+        threadViewPost,
+    TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (threadViewPost != null) {
@@ -249,27 +268,27 @@ class _$UThreadViewPostParentThreadViewPostImpl
   }
 }
 
-abstract class UThreadViewPostParentThreadViewPost
-    extends UThreadViewPostParent {
-  const factory UThreadViewPostParentThreadViewPost(
+abstract class UFeedDefsThreadViewPostParentThreadViewPost
+    extends UFeedDefsThreadViewPostParent {
+  const factory UFeedDefsThreadViewPostParentThreadViewPost(
           {required final FeedDefsThreadViewPost data}) =
-      _$UThreadViewPostParentThreadViewPostImpl;
-  const UThreadViewPostParentThreadViewPost._() : super._();
+      _$UFeedDefsThreadViewPostParentThreadViewPostImpl;
+  const UFeedDefsThreadViewPostParentThreadViewPost._() : super._();
 
   @override
   FeedDefsThreadViewPost get data;
   @JsonKey(ignore: true)
-  _$$UThreadViewPostParentThreadViewPostImplCopyWith<
-          _$UThreadViewPostParentThreadViewPostImpl>
+  _$$UFeedDefsThreadViewPostParentThreadViewPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentThreadViewPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostParentNotFoundPostImplCopyWith(
-          _$UThreadViewPostParentNotFoundPostImpl value,
-          $Res Function(_$UThreadViewPostParentNotFoundPostImpl) then) =
-      __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
+  factory _$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWith(
+          _$UFeedDefsThreadViewPostParentNotFoundPostImpl value,
+          $Res Function(_$UFeedDefsThreadViewPostParentNotFoundPostImpl) then) =
+      __$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsNotFoundPost data});
 
@@ -277,13 +296,13 @@ abstract class _$$UThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostParentCopyWithImpl<$Res,
-        _$UThreadViewPostParentNotFoundPostImpl>
-    implements _$$UThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
-  __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl(
-      _$UThreadViewPostParentNotFoundPostImpl _value,
-      $Res Function(_$UThreadViewPostParentNotFoundPostImpl) _then)
+class __$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+        _$UFeedDefsThreadViewPostParentNotFoundPostImpl>
+    implements _$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWith<$Res> {
+  __$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWithImpl(
+      _$UFeedDefsThreadViewPostParentNotFoundPostImpl _value,
+      $Res Function(_$UFeedDefsThreadViewPostParentNotFoundPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -291,7 +310,7 @@ class __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadViewPostParentNotFoundPostImpl(
+    return _then(_$UFeedDefsThreadViewPostParentNotFoundPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -310,9 +329,9 @@ class __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadViewPostParentNotFoundPostImpl
-    extends UThreadViewPostParentNotFoundPost {
-  const _$UThreadViewPostParentNotFoundPostImpl({required this.data})
+class _$UFeedDefsThreadViewPostParentNotFoundPostImpl
+    extends UFeedDefsThreadViewPostParentNotFoundPost {
+  const _$UFeedDefsThreadViewPostParentNotFoundPostImpl({required this.data})
       : super._();
 
   @override
@@ -320,14 +339,14 @@ class _$UThreadViewPostParentNotFoundPostImpl
 
   @override
   String toString() {
-    return 'UThreadViewPostParent.notFoundPost(data: $data)';
+    return 'UFeedDefsThreadViewPostParent.notFoundPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostParentNotFoundPostImpl &&
+            other is _$UFeedDefsThreadViewPostParentNotFoundPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -337,10 +356,12 @@ class _$UThreadViewPostParentNotFoundPostImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadViewPostParentNotFoundPostImplCopyWith<
-          _$UThreadViewPostParentNotFoundPostImpl>
-      get copyWith => __$$UThreadViewPostParentNotFoundPostImplCopyWithImpl<
-          _$UThreadViewPostParentNotFoundPostImpl>(this, _$identity);
+  _$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentNotFoundPostImpl>
+      get copyWith =>
+          __$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWithImpl<
+                  _$UFeedDefsThreadViewPostParentNotFoundPostImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -382,13 +403,14 @@ class _$UThreadViewPostParentNotFoundPostImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostParentThreadViewPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)
         threadViewPost,
-    required TResult Function(UThreadViewPostParentNotFoundPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)
         notFoundPost,
-    required TResult Function(UThreadViewPostParentBlockedPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)
         blockedPost,
-    required TResult Function(UThreadViewPostParentUnknown value) unknown,
+    required TResult Function(UFeedDefsThreadViewPostParentUnknown value)
+        unknown,
   }) {
     return notFoundPost(this);
   }
@@ -396,11 +418,13 @@ class _$UThreadViewPostParentNotFoundPostImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostParentThreadViewPost value)?
+    TResult? Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
         threadViewPost,
-    TResult? Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult? Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult? Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
   }) {
     return notFoundPost?.call(this);
   }
@@ -408,10 +432,13 @@ class _$UThreadViewPostParentNotFoundPostImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostParentThreadViewPost value)? threadViewPost,
-    TResult Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
+        threadViewPost,
+    TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (notFoundPost != null) {
@@ -421,26 +448,27 @@ class _$UThreadViewPostParentNotFoundPostImpl
   }
 }
 
-abstract class UThreadViewPostParentNotFoundPost extends UThreadViewPostParent {
-  const factory UThreadViewPostParentNotFoundPost(
+abstract class UFeedDefsThreadViewPostParentNotFoundPost
+    extends UFeedDefsThreadViewPostParent {
+  const factory UFeedDefsThreadViewPostParentNotFoundPost(
           {required final FeedDefsNotFoundPost data}) =
-      _$UThreadViewPostParentNotFoundPostImpl;
-  const UThreadViewPostParentNotFoundPost._() : super._();
+      _$UFeedDefsThreadViewPostParentNotFoundPostImpl;
+  const UFeedDefsThreadViewPostParentNotFoundPost._() : super._();
 
   @override
   FeedDefsNotFoundPost get data;
   @JsonKey(ignore: true)
-  _$$UThreadViewPostParentNotFoundPostImplCopyWith<
-          _$UThreadViewPostParentNotFoundPostImpl>
+  _$$UFeedDefsThreadViewPostParentNotFoundPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentNotFoundPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostParentBlockedPostImplCopyWith<$Res> {
-  factory _$$UThreadViewPostParentBlockedPostImplCopyWith(
-          _$UThreadViewPostParentBlockedPostImpl value,
-          $Res Function(_$UThreadViewPostParentBlockedPostImpl) then) =
-      __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWith<$Res> {
+  factory _$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWith(
+          _$UFeedDefsThreadViewPostParentBlockedPostImpl value,
+          $Res Function(_$UFeedDefsThreadViewPostParentBlockedPostImpl) then) =
+      __$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsBlockedPost data});
 
@@ -448,13 +476,13 @@ abstract class _$$UThreadViewPostParentBlockedPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostParentCopyWithImpl<$Res,
-        _$UThreadViewPostParentBlockedPostImpl>
-    implements _$$UThreadViewPostParentBlockedPostImplCopyWith<$Res> {
-  __$$UThreadViewPostParentBlockedPostImplCopyWithImpl(
-      _$UThreadViewPostParentBlockedPostImpl _value,
-      $Res Function(_$UThreadViewPostParentBlockedPostImpl) _then)
+class __$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+        _$UFeedDefsThreadViewPostParentBlockedPostImpl>
+    implements _$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWith<$Res> {
+  __$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWithImpl(
+      _$UFeedDefsThreadViewPostParentBlockedPostImpl _value,
+      $Res Function(_$UFeedDefsThreadViewPostParentBlockedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -462,7 +490,7 @@ class __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadViewPostParentBlockedPostImpl(
+    return _then(_$UFeedDefsThreadViewPostParentBlockedPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -481,9 +509,9 @@ class __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadViewPostParentBlockedPostImpl
-    extends UThreadViewPostParentBlockedPost {
-  const _$UThreadViewPostParentBlockedPostImpl({required this.data})
+class _$UFeedDefsThreadViewPostParentBlockedPostImpl
+    extends UFeedDefsThreadViewPostParentBlockedPost {
+  const _$UFeedDefsThreadViewPostParentBlockedPostImpl({required this.data})
       : super._();
 
   @override
@@ -491,14 +519,14 @@ class _$UThreadViewPostParentBlockedPostImpl
 
   @override
   String toString() {
-    return 'UThreadViewPostParent.blockedPost(data: $data)';
+    return 'UFeedDefsThreadViewPostParent.blockedPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostParentBlockedPostImpl &&
+            other is _$UFeedDefsThreadViewPostParentBlockedPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -508,10 +536,11 @@ class _$UThreadViewPostParentBlockedPostImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadViewPostParentBlockedPostImplCopyWith<
-          _$UThreadViewPostParentBlockedPostImpl>
-      get copyWith => __$$UThreadViewPostParentBlockedPostImplCopyWithImpl<
-          _$UThreadViewPostParentBlockedPostImpl>(this, _$identity);
+  _$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentBlockedPostImpl>
+      get copyWith =>
+          __$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWithImpl<
+              _$UFeedDefsThreadViewPostParentBlockedPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -553,13 +582,14 @@ class _$UThreadViewPostParentBlockedPostImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostParentThreadViewPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)
         threadViewPost,
-    required TResult Function(UThreadViewPostParentNotFoundPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)
         notFoundPost,
-    required TResult Function(UThreadViewPostParentBlockedPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)
         blockedPost,
-    required TResult Function(UThreadViewPostParentUnknown value) unknown,
+    required TResult Function(UFeedDefsThreadViewPostParentUnknown value)
+        unknown,
   }) {
     return blockedPost(this);
   }
@@ -567,11 +597,13 @@ class _$UThreadViewPostParentBlockedPostImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostParentThreadViewPost value)?
+    TResult? Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
         threadViewPost,
-    TResult? Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult? Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult? Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
   }) {
     return blockedPost?.call(this);
   }
@@ -579,10 +611,13 @@ class _$UThreadViewPostParentBlockedPostImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostParentThreadViewPost value)? threadViewPost,
-    TResult Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
+        threadViewPost,
+    TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (blockedPost != null) {
@@ -592,38 +627,39 @@ class _$UThreadViewPostParentBlockedPostImpl
   }
 }
 
-abstract class UThreadViewPostParentBlockedPost extends UThreadViewPostParent {
-  const factory UThreadViewPostParentBlockedPost(
+abstract class UFeedDefsThreadViewPostParentBlockedPost
+    extends UFeedDefsThreadViewPostParent {
+  const factory UFeedDefsThreadViewPostParentBlockedPost(
           {required final FeedDefsBlockedPost data}) =
-      _$UThreadViewPostParentBlockedPostImpl;
-  const UThreadViewPostParentBlockedPost._() : super._();
+      _$UFeedDefsThreadViewPostParentBlockedPostImpl;
+  const UFeedDefsThreadViewPostParentBlockedPost._() : super._();
 
   @override
   FeedDefsBlockedPost get data;
   @JsonKey(ignore: true)
-  _$$UThreadViewPostParentBlockedPostImplCopyWith<
-          _$UThreadViewPostParentBlockedPostImpl>
+  _$$UFeedDefsThreadViewPostParentBlockedPostImplCopyWith<
+          _$UFeedDefsThreadViewPostParentBlockedPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UThreadViewPostParentUnknownImplCopyWith<$Res> {
-  factory _$$UThreadViewPostParentUnknownImplCopyWith(
-          _$UThreadViewPostParentUnknownImpl value,
-          $Res Function(_$UThreadViewPostParentUnknownImpl) then) =
-      __$$UThreadViewPostParentUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsThreadViewPostParentUnknownImplCopyWith<$Res> {
+  factory _$$UFeedDefsThreadViewPostParentUnknownImplCopyWith(
+          _$UFeedDefsThreadViewPostParentUnknownImpl value,
+          $Res Function(_$UFeedDefsThreadViewPostParentUnknownImpl) then) =
+      __$$UFeedDefsThreadViewPostParentUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UThreadViewPostParentUnknownImplCopyWithImpl<$Res>
-    extends _$UThreadViewPostParentCopyWithImpl<$Res,
-        _$UThreadViewPostParentUnknownImpl>
-    implements _$$UThreadViewPostParentUnknownImplCopyWith<$Res> {
-  __$$UThreadViewPostParentUnknownImplCopyWithImpl(
-      _$UThreadViewPostParentUnknownImpl _value,
-      $Res Function(_$UThreadViewPostParentUnknownImpl) _then)
+class __$$UFeedDefsThreadViewPostParentUnknownImplCopyWithImpl<$Res>
+    extends _$UFeedDefsThreadViewPostParentCopyWithImpl<$Res,
+        _$UFeedDefsThreadViewPostParentUnknownImpl>
+    implements _$$UFeedDefsThreadViewPostParentUnknownImplCopyWith<$Res> {
+  __$$UFeedDefsThreadViewPostParentUnknownImplCopyWithImpl(
+      _$UFeedDefsThreadViewPostParentUnknownImpl _value,
+      $Res Function(_$UFeedDefsThreadViewPostParentUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -631,7 +667,7 @@ class __$$UThreadViewPostParentUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UThreadViewPostParentUnknownImpl(
+    return _then(_$UFeedDefsThreadViewPostParentUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -642,8 +678,9 @@ class __$$UThreadViewPostParentUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
-  const _$UThreadViewPostParentUnknownImpl(
+class _$UFeedDefsThreadViewPostParentUnknownImpl
+    extends UFeedDefsThreadViewPostParentUnknown {
+  const _$UFeedDefsThreadViewPostParentUnknownImpl(
       {required final Map<String, dynamic> data})
       : _data = data,
         super._();
@@ -658,14 +695,14 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
 
   @override
   String toString() {
-    return 'UThreadViewPostParent.unknown(data: $data)';
+    return 'UFeedDefsThreadViewPostParent.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UThreadViewPostParentUnknownImpl &&
+            other is _$UFeedDefsThreadViewPostParentUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -676,10 +713,10 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UThreadViewPostParentUnknownImplCopyWith<
-          _$UThreadViewPostParentUnknownImpl>
-      get copyWith => __$$UThreadViewPostParentUnknownImplCopyWithImpl<
-          _$UThreadViewPostParentUnknownImpl>(this, _$identity);
+  _$$UFeedDefsThreadViewPostParentUnknownImplCopyWith<
+          _$UFeedDefsThreadViewPostParentUnknownImpl>
+      get copyWith => __$$UFeedDefsThreadViewPostParentUnknownImplCopyWithImpl<
+          _$UFeedDefsThreadViewPostParentUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -721,13 +758,14 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UThreadViewPostParentThreadViewPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)
         threadViewPost,
-    required TResult Function(UThreadViewPostParentNotFoundPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)
         notFoundPost,
-    required TResult Function(UThreadViewPostParentBlockedPost value)
+    required TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)
         blockedPost,
-    required TResult Function(UThreadViewPostParentUnknown value) unknown,
+    required TResult Function(UFeedDefsThreadViewPostParentUnknown value)
+        unknown,
   }) {
     return unknown(this);
   }
@@ -735,11 +773,13 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UThreadViewPostParentThreadViewPost value)?
+    TResult? Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
         threadViewPost,
-    TResult? Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult? Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult? Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult? Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -747,10 +787,13 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UThreadViewPostParentThreadViewPost value)? threadViewPost,
-    TResult Function(UThreadViewPostParentNotFoundPost value)? notFoundPost,
-    TResult Function(UThreadViewPostParentBlockedPost value)? blockedPost,
-    TResult Function(UThreadViewPostParentUnknown value)? unknown,
+    TResult Function(UFeedDefsThreadViewPostParentThreadViewPost value)?
+        threadViewPost,
+    TResult Function(UFeedDefsThreadViewPostParentNotFoundPost value)?
+        notFoundPost,
+    TResult Function(UFeedDefsThreadViewPostParentBlockedPost value)?
+        blockedPost,
+    TResult Function(UFeedDefsThreadViewPostParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -760,16 +803,17 @@ class _$UThreadViewPostParentUnknownImpl extends UThreadViewPostParentUnknown {
   }
 }
 
-abstract class UThreadViewPostParentUnknown extends UThreadViewPostParent {
-  const factory UThreadViewPostParentUnknown(
+abstract class UFeedDefsThreadViewPostParentUnknown
+    extends UFeedDefsThreadViewPostParent {
+  const factory UFeedDefsThreadViewPostParentUnknown(
           {required final Map<String, dynamic> data}) =
-      _$UThreadViewPostParentUnknownImpl;
-  const UThreadViewPostParentUnknown._() : super._();
+      _$UFeedDefsThreadViewPostParentUnknownImpl;
+  const UFeedDefsThreadViewPostParentUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UThreadViewPostParentUnknownImplCopyWith<
-          _$UThreadViewPostParentUnknownImpl>
+  _$$UFeedDefsThreadViewPostParentUnknownImplCopyWith<
+          _$UFeedDefsThreadViewPostParentUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

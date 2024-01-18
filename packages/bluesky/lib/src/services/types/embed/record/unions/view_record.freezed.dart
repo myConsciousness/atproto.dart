@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UViewRecord {
+mixin _$UEmbedRecordViewRecord {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -86,16 +86,17 @@ mixin _$UViewRecord {
 }
 
 /// @nodoc
-abstract class $UViewRecordCopyWith<$Res> {
-  factory $UViewRecordCopyWith(
-          UViewRecord value, $Res Function(UViewRecord) then) =
-      _$UViewRecordCopyWithImpl<$Res, UViewRecord>;
+abstract class $UEmbedRecordViewRecordCopyWith<$Res> {
+  factory $UEmbedRecordViewRecordCopyWith(UEmbedRecordViewRecord value,
+          $Res Function(UEmbedRecordViewRecord) then) =
+      _$UEmbedRecordViewRecordCopyWithImpl<$Res, UEmbedRecordViewRecord>;
 }
 
 /// @nodoc
-class _$UViewRecordCopyWithImpl<$Res, $Val extends UViewRecord>
-    implements $UViewRecordCopyWith<$Res> {
-  _$UViewRecordCopyWithImpl(this._value, this._then);
+class _$UEmbedRecordViewRecordCopyWithImpl<$Res,
+        $Val extends UEmbedRecordViewRecord>
+    implements $UEmbedRecordViewRecordCopyWith<$Res> {
+  _$UEmbedRecordViewRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -117,7 +118,8 @@ abstract class _$$UViewRecordViewRecordImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordViewRecordImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res, _$UViewRecordViewRecordImpl>
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res,
+        _$UViewRecordViewRecordImpl>
     implements _$$UViewRecordViewRecordImplCopyWith<$Res> {
   __$$UViewRecordViewRecordImplCopyWithImpl(_$UViewRecordViewRecordImpl _value,
       $Res Function(_$UViewRecordViewRecordImpl) _then)
@@ -155,7 +157,7 @@ class _$UViewRecordViewRecordImpl extends UViewRecordViewRecord {
 
   @override
   String toString() {
-    return 'UViewRecord.viewRecord(data: $data)';
+    return 'UEmbedRecordViewRecord.viewRecord(data: $data)';
   }
 
   @override
@@ -267,7 +269,7 @@ class _$UViewRecordViewRecordImpl extends UViewRecordViewRecord {
   }
 }
 
-abstract class UViewRecordViewRecord extends UViewRecord {
+abstract class UViewRecordViewRecord extends UEmbedRecordViewRecord {
   const factory UViewRecordViewRecord(
           {required final EmbedRecordViewRecord data}) =
       _$UViewRecordViewRecordImpl;
@@ -294,7 +296,8 @@ abstract class _$$UViewRecordViewNotFoundImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordViewNotFoundImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res, _$UViewRecordViewNotFoundImpl>
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res,
+        _$UViewRecordViewNotFoundImpl>
     implements _$$UViewRecordViewNotFoundImplCopyWith<$Res> {
   __$$UViewRecordViewNotFoundImplCopyWithImpl(
       _$UViewRecordViewNotFoundImpl _value,
@@ -333,7 +336,7 @@ class _$UViewRecordViewNotFoundImpl extends UViewRecordViewNotFound {
 
   @override
   String toString() {
-    return 'UViewRecord.viewNotFound(data: $data)';
+    return 'UEmbedRecordViewRecord.viewNotFound(data: $data)';
   }
 
   @override
@@ -445,7 +448,7 @@ class _$UViewRecordViewNotFoundImpl extends UViewRecordViewNotFound {
   }
 }
 
-abstract class UViewRecordViewNotFound extends UViewRecord {
+abstract class UViewRecordViewNotFound extends UEmbedRecordViewRecord {
   const factory UViewRecordViewNotFound(
           {required final EmbedRecordViewNotFound data}) =
       _$UViewRecordViewNotFoundImpl;
@@ -472,7 +475,8 @@ abstract class _$$UViewRecordViewBlockedImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordViewBlockedImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res, _$UViewRecordViewBlockedImpl>
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res,
+        _$UViewRecordViewBlockedImpl>
     implements _$$UViewRecordViewBlockedImplCopyWith<$Res> {
   __$$UViewRecordViewBlockedImplCopyWithImpl(
       _$UViewRecordViewBlockedImpl _value,
@@ -511,7 +515,7 @@ class _$UViewRecordViewBlockedImpl extends UViewRecordViewBlocked {
 
   @override
   String toString() {
-    return 'UViewRecord.viewBlocked(data: $data)';
+    return 'UEmbedRecordViewRecord.viewBlocked(data: $data)';
   }
 
   @override
@@ -623,7 +627,7 @@ class _$UViewRecordViewBlockedImpl extends UViewRecordViewBlocked {
   }
 }
 
-abstract class UViewRecordViewBlocked extends UViewRecord {
+abstract class UViewRecordViewBlocked extends UEmbedRecordViewRecord {
   const factory UViewRecordViewBlocked(
           {required final EmbedRecordViewBlocked data}) =
       _$UViewRecordViewBlockedImpl;
@@ -650,7 +654,7 @@ abstract class _$$UViewRecordFeedDefsGeneratorViewImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordFeedDefsGeneratorViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res,
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res,
         _$UViewRecordFeedDefsGeneratorViewImpl>
     implements _$$UViewRecordFeedDefsGeneratorViewImplCopyWith<$Res> {
   __$$UViewRecordFeedDefsGeneratorViewImplCopyWithImpl(
@@ -692,7 +696,7 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
 
   @override
   String toString() {
-    return 'UViewRecord.feedDefsGeneratorView(data: $data)';
+    return 'UEmbedRecordViewRecord.feedDefsGeneratorView(data: $data)';
   }
 
   @override
@@ -805,7 +809,7 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
   }
 }
 
-abstract class UViewRecordFeedDefsGeneratorView extends UViewRecord {
+abstract class UViewRecordFeedDefsGeneratorView extends UEmbedRecordViewRecord {
   const factory UViewRecordFeedDefsGeneratorView(
           {required final FeedDefsGeneratorView data}) =
       _$UViewRecordFeedDefsGeneratorViewImpl;
@@ -833,7 +837,8 @@ abstract class _$$UViewRecordGraphDefsListViewImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordGraphDefsListViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res, _$UViewRecordGraphDefsListViewImpl>
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res,
+        _$UViewRecordGraphDefsListViewImpl>
     implements _$$UViewRecordGraphDefsListViewImplCopyWith<$Res> {
   __$$UViewRecordGraphDefsListViewImplCopyWithImpl(
       _$UViewRecordGraphDefsListViewImpl _value,
@@ -872,7 +877,7 @@ class _$UViewRecordGraphDefsListViewImpl extends UViewRecordGraphDefsListView {
 
   @override
   String toString() {
-    return 'UViewRecord.graphDefsListView(data: $data)';
+    return 'UEmbedRecordViewRecord.graphDefsListView(data: $data)';
   }
 
   @override
@@ -985,7 +990,7 @@ class _$UViewRecordGraphDefsListViewImpl extends UViewRecordGraphDefsListView {
   }
 }
 
-abstract class UViewRecordGraphDefsListView extends UViewRecord {
+abstract class UViewRecordGraphDefsListView extends UEmbedRecordViewRecord {
   const factory UViewRecordGraphDefsListView(
           {required final GraphDefsListView data}) =
       _$UViewRecordGraphDefsListViewImpl;
@@ -1010,7 +1015,7 @@ abstract class _$$UViewRecordUnknownImplCopyWith<$Res> {
 
 /// @nodoc
 class __$$UViewRecordUnknownImplCopyWithImpl<$Res>
-    extends _$UViewRecordCopyWithImpl<$Res, _$UViewRecordUnknownImpl>
+    extends _$UEmbedRecordViewRecordCopyWithImpl<$Res, _$UViewRecordUnknownImpl>
     implements _$$UViewRecordUnknownImplCopyWith<$Res> {
   __$$UViewRecordUnknownImplCopyWithImpl(_$UViewRecordUnknownImpl _value,
       $Res Function(_$UViewRecordUnknownImpl) _then)
@@ -1047,7 +1052,7 @@ class _$UViewRecordUnknownImpl extends UViewRecordUnknown {
 
   @override
   String toString() {
-    return 'UViewRecord.unknown(data: $data)';
+    return 'UEmbedRecordViewRecord.unknown(data: $data)';
   }
 
   @override
@@ -1160,7 +1165,7 @@ class _$UViewRecordUnknownImpl extends UViewRecordUnknown {
   }
 }
 
-abstract class UViewRecordUnknown extends UViewRecord {
+abstract class UViewRecordUnknown extends UEmbedRecordViewRecord {
   const factory UViewRecordUnknown({required final Map<String, dynamic> data}) =
       _$UViewRecordUnknownImpl;
   const UViewRecordUnknown._() : super._();

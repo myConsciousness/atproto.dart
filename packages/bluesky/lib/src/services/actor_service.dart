@@ -103,7 +103,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<core.XRPCResponse<core.EmptyData>> putPreferences(
-    List<UPreferencesPreferences> preferences,
+    List<UActorDefsPreferencesPreferences> preferences,
   ) async =>
       // ignore: deprecated_member_use_from_same_package
       await updatePreferences(
@@ -187,7 +187,7 @@ final class ActorService {
 
   @Deprecated('Use .putPreferences instead. Will be removed')
   Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(
-    List<UPreferencesPreferences> preferences,
+    List<UActorDefsPreferencesPreferences> preferences,
   ) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,

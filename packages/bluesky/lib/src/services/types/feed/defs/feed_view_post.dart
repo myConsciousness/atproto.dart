@@ -25,7 +25,8 @@ class FeedDefsFeedViewPost with _$FeedDefsFeedViewPost {
   const factory FeedDefsFeedViewPost({
     required FeedDefsPostView post,
     FeedDefsReplyRef? reply,
-    @unionFeedViewPostReason UFeedViewPostReason? reason,
+    @unionFeedDefsFeedViewPostReasonConverter
+    UFeedDefsFeedViewPostReason? reason,
   }) = _FeedDefsFeedViewPost;
 
   factory FeedDefsFeedViewPost.fromJson(Map<String, Object?> json) =>

@@ -16,8 +16,10 @@ _$EmbedRecordViewImpl _$$EmbedRecordViewImplFromJson(Map json) =>
         final val = _$EmbedRecordViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordView),
-          record: $checkedConvert('record',
-              (v) => unionViewRecord.fromJson(v as Map<String, dynamic>)),
+          record: $checkedConvert(
+              'record',
+              (v) => unionEmbedRecordViewRecordConverter
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -28,5 +30,5 @@ Map<String, dynamic> _$$EmbedRecordViewImplToJson(
         _$EmbedRecordViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'record': unionViewRecord.toJson(instance.record),
+      'record': unionEmbedRecordViewRecordConverter.toJson(instance.record),
     };

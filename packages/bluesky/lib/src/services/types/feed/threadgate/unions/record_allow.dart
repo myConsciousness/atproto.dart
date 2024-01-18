@@ -16,64 +16,66 @@ part 'record_allow.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
-class URecordAllow with _$URecordAllow {
+class UFeedThreadgateRecordAllow with _$UFeedThreadgateRecordAllow {
   // ignore: unused_element
-  const URecordAllow._();
+  const UFeedThreadgateRecordAllow._();
 
-  const factory URecordAllow.mentionRule({
+  const factory UFeedThreadgateRecordAllow.mentionRule({
     required FeedThreadgateMentionRule data,
-  }) = URecordAllowMentionRule;
+  }) = UFeedThreadgateRecordAllowMentionRule;
 
-  const factory URecordAllow.followingRule({
+  const factory UFeedThreadgateRecordAllow.followingRule({
     required FeedThreadgateFollowingRule data,
-  }) = URecordAllowFollowingRule;
+  }) = UFeedThreadgateRecordAllowFollowingRule;
 
-  const factory URecordAllow.listRule({
+  const factory UFeedThreadgateRecordAllow.listRule({
     required FeedThreadgateListRule data,
-  }) = URecordAllowlistRule;
+  }) = UFeedThreadgateRecordAllowlistRule;
 
-  const factory URecordAllow.unknown({
+  const factory UFeedThreadgateRecordAllow.unknown({
     required Map<String, dynamic> data,
-  }) = URecordAllowUnknown;
+  }) = UFeedThreadgateRecordAllowUnknown;
 
-  Map<String, dynamic> toJson() => unionRecordAllow.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionFeedThreadgateRecordAllowConverter.toJson(this);
 }
 
-const unionRecordAllow = _URecordAllowConverter();
+const unionFeedThreadgateRecordAllowConverter =
+    _UFeedThreadgateRecordAllowConverter();
 
-final class _URecordAllowConverter
-    implements JsonConverter<URecordAllow, Map<String, dynamic>> {
-  const _URecordAllowConverter();
+final class _UFeedThreadgateRecordAllowConverter
+    implements JsonConverter<UFeedThreadgateRecordAllow, Map<String, dynamic>> {
+  const _UFeedThreadgateRecordAllowConverter();
 
   @override
-  URecordAllow fromJson(Map<String, dynamic> json) {
+  UFeedThreadgateRecordAllow fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedThreadgateMentionRule) {
-        return URecordAllow.mentionRule(
+        return UFeedThreadgateRecordAllow.mentionRule(
           data: FeedThreadgateMentionRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateFollowingRule) {
-        return URecordAllow.followingRule(
+        return UFeedThreadgateRecordAllow.followingRule(
           data: FeedThreadgateFollowingRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateListRule) {
-        return URecordAllow.listRule(
+        return UFeedThreadgateRecordAllow.listRule(
           data: FeedThreadgateListRule.fromJson(json),
         );
       }
 
-      return URecordAllow.unknown(data: json);
+      return UFeedThreadgateRecordAllow.unknown(data: json);
     } catch (_) {
-      return URecordAllow.unknown(data: json);
+      return UFeedThreadgateRecordAllow.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(URecordAllow object) => object.when(
+  Map<String, dynamic> toJson(UFeedThreadgateRecordAllow object) => object.when(
         mentionRule: (data) => data.toJson(),
         followingRule: (data) => data.toJson(),
         listRule: (data) => data.toJson(),

@@ -19,8 +19,8 @@ part 'preferences.g.dart';
 @lex.appBskyActorDefsPreferences
 class ActorDefsPreferences with _$ActorDefsPreferences {
   const factory ActorDefsPreferences({
-    @unionPreferencesPreferences
-    required List<UPreferencesPreferences> preferences,
+    @unionActorDefsPreferencesPreferencesConverter
+    required List<UActorDefsPreferencesPreferences> preferences,
   }) = _ActorDefsPreferences;
 
   factory ActorDefsPreferences.fromJson(Map<String, Object?> json) =>

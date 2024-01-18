@@ -22,8 +22,8 @@ EmbedRecordView _$EmbedRecordViewFromJson(Map<String, dynamic> json) {
 mixin _$EmbedRecordView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @unionViewRecord
-  UViewRecord get record => throw _privateConstructorUsedError;
+  @unionEmbedRecordViewRecordConverter
+  UEmbedRecordViewRecord get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,11 @@ abstract class $EmbedRecordViewCopyWith<$Res> {
           EmbedRecordView value, $Res Function(EmbedRecordView) then) =
       _$EmbedRecordViewCopyWithImpl<$Res, EmbedRecordView>;
   @useResult
-  $Res call({@typeKey String type, @unionViewRecord UViewRecord record});
+  $Res call(
+      {@typeKey String type,
+      @unionEmbedRecordViewRecordConverter UEmbedRecordViewRecord record});
 
-  $UViewRecordCopyWith<$Res> get record;
+  $UEmbedRecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -66,14 +68,14 @@ class _$EmbedRecordViewCopyWithImpl<$Res, $Val extends EmbedRecordView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as UViewRecord,
+              as UEmbedRecordViewRecord,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UViewRecordCopyWith<$Res> get record {
-    return $UViewRecordCopyWith<$Res>(_value.record, (value) {
+  $UEmbedRecordViewRecordCopyWith<$Res> get record {
+    return $UEmbedRecordViewRecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -87,10 +89,12 @@ abstract class _$$EmbedRecordViewImplCopyWith<$Res>
       __$$EmbedRecordViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @unionViewRecord UViewRecord record});
+  $Res call(
+      {@typeKey String type,
+      @unionEmbedRecordViewRecordConverter UEmbedRecordViewRecord record});
 
   @override
-  $UViewRecordCopyWith<$Res> get record;
+  $UEmbedRecordViewRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -115,7 +119,7 @@ class __$$EmbedRecordViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as UViewRecord,
+              as UEmbedRecordViewRecord,
     ));
   }
 }
@@ -125,7 +129,7 @@ class __$$EmbedRecordViewImplCopyWithImpl<$Res>
 class _$EmbedRecordViewImpl implements _EmbedRecordView {
   const _$EmbedRecordViewImpl(
       {@typeKey this.type = appBskyEmbedRecordView,
-      @unionViewRecord required this.record});
+      @unionEmbedRecordViewRecordConverter required this.record});
 
   factory _$EmbedRecordViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedRecordViewImplFromJson(json);
@@ -134,8 +138,8 @@ class _$EmbedRecordViewImpl implements _EmbedRecordView {
   @typeKey
   final String type;
   @override
-  @unionViewRecord
-  final UViewRecord record;
+  @unionEmbedRecordViewRecordConverter
+  final UEmbedRecordViewRecord record;
 
   @override
   String toString() {
@@ -172,9 +176,9 @@ class _$EmbedRecordViewImpl implements _EmbedRecordView {
 
 abstract class _EmbedRecordView implements EmbedRecordView {
   const factory _EmbedRecordView(
-          {@typeKey final String type,
-          @unionViewRecord required final UViewRecord record}) =
-      _$EmbedRecordViewImpl;
+      {@typeKey final String type,
+      @unionEmbedRecordViewRecordConverter
+      required final UEmbedRecordViewRecord record}) = _$EmbedRecordViewImpl;
 
   factory _EmbedRecordView.fromJson(Map<String, dynamic> json) =
       _$EmbedRecordViewImpl.fromJson;
@@ -183,8 +187,8 @@ abstract class _EmbedRecordView implements EmbedRecordView {
   @typeKey
   String get type;
   @override
-  @unionViewRecord
-  UViewRecord get record;
+  @unionEmbedRecordViewRecordConverter
+  UEmbedRecordViewRecord get record;
   @override
   @JsonKey(ignore: true)
   _$$EmbedRecordViewImplCopyWith<_$EmbedRecordViewImpl> get copyWith =>

@@ -20,91 +20,95 @@ part 'preferences_preferences.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
-class UPreferencesPreferences with _$UPreferencesPreferences {
+class UActorDefsPreferencesPreferences with _$UActorDefsPreferencesPreferences {
   // ignore: unused_element
-  const UPreferencesPreferences._();
+  const UActorDefsPreferencesPreferences._();
 
-  const factory UPreferencesPreferences.adultContentPref({
+  const factory UActorDefsPreferencesPreferences.adultContentPref({
     required ActorDefsAdultContentPref data,
-  }) = UPreferencesPreferencesAdultContentPref;
+  }) = UActorDefsPreferencesPreferencesAdultContentPref;
 
-  const factory UPreferencesPreferences.contentLabelPref({
+  const factory UActorDefsPreferencesPreferences.contentLabelPref({
     required ActorDefsContentLabelPref data,
-  }) = UPreferencesPreferencesContentLabelPref;
+  }) = UActorDefsPreferencesPreferencesContentLabelPref;
 
-  const factory UPreferencesPreferences.savedFeedsPref({
+  const factory UActorDefsPreferencesPreferences.savedFeedsPref({
     required ActorDefsSavedFeedsPref data,
-  }) = UPreferencesPreferencesSavedFeedsPref;
+  }) = UActorDefsPreferencesPreferencesSavedFeedsPref;
 
-  const factory UPreferencesPreferences.personalDetailsPref({
+  const factory UActorDefsPreferencesPreferences.personalDetailsPref({
     required ActorDefsPersonalDetailsPref data,
-  }) = UPreferencesPreferencesPersonalDetailsPref;
+  }) = UActorDefsPreferencesPreferencesPersonalDetailsPref;
 
-  const factory UPreferencesPreferences.feedViewPref({
+  const factory UActorDefsPreferencesPreferences.feedViewPref({
     required ActorDefsFeedViewPref data,
-  }) = UPreferencesPreferencesFeedViewPref;
+  }) = UActorDefsPreferencesPreferencesFeedViewPref;
 
-  const factory UPreferencesPreferences.threadViewPref({
+  const factory UActorDefsPreferencesPreferences.threadViewPref({
     required ActorDefsThreadViewPref data,
-  }) = UPreferencesPreferencesThreadViewPref;
+  }) = UActorDefsPreferencesPreferencesThreadViewPref;
 
-  const factory UPreferencesPreferences.unknown({
+  const factory UActorDefsPreferencesPreferences.unknown({
     required Map<String, dynamic> data,
-  }) = UPreferencesPreferencesUnknown;
+  }) = UActorDefsPreferencesPreferencesUnknown;
 
-  Map<String, dynamic> toJson() => unionPreferencesPreferences.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionActorDefsPreferencesPreferencesConverter.toJson(this);
 }
 
-const unionPreferencesPreferences = _UPreferencesPreferencesConverter();
+const unionActorDefsPreferencesPreferencesConverter =
+    UActorDefsPreferencesPreferencesConverter();
 
-final class _UPreferencesPreferencesConverter
-    implements JsonConverter<UPreferencesPreferences, Map<String, dynamic>> {
-  const _UPreferencesPreferencesConverter();
+final class UActorDefsPreferencesPreferencesConverter
+    implements
+        JsonConverter<UActorDefsPreferencesPreferences, Map<String, dynamic>> {
+  const UActorDefsPreferencesPreferencesConverter();
 
   @override
-  UPreferencesPreferences fromJson(Map<String, dynamic> json) {
+  UActorDefsPreferencesPreferences fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyActorDefsAdultContentPref) {
-        return UPreferencesPreferences.adultContentPref(
+        return UActorDefsPreferencesPreferences.adultContentPref(
           data: ActorDefsAdultContentPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsContentLabelPref) {
-        return UPreferencesPreferences.contentLabelPref(
+        return UActorDefsPreferencesPreferences.contentLabelPref(
           data: actorDefsContentLabelPrefConverter.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsSavedFeedsPref) {
-        return UPreferencesPreferences.savedFeedsPref(
+        return UActorDefsPreferencesPreferences.savedFeedsPref(
           data: ActorDefsSavedFeedsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsPersonalDetailsPref) {
-        return UPreferencesPreferences.personalDetailsPref(
+        return UActorDefsPreferencesPreferences.personalDetailsPref(
           data: ActorDefsPersonalDetailsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsFeedViewPref) {
-        return UPreferencesPreferences.feedViewPref(
+        return UActorDefsPreferencesPreferences.feedViewPref(
           data: ActorDefsFeedViewPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsThreadViewPref) {
-        return UPreferencesPreferences.threadViewPref(
+        return UActorDefsPreferencesPreferences.threadViewPref(
           data: ActorDefsThreadViewPref.fromJson(json),
         );
       }
 
-      return UPreferencesPreferences.unknown(data: json);
+      return UActorDefsPreferencesPreferences.unknown(data: json);
     } catch (_) {
-      return UPreferencesPreferences.unknown(data: json);
+      return UActorDefsPreferencesPreferences.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UPreferencesPreferences object) => object.when(
+  Map<String, dynamic> toJson(UActorDefsPreferencesPreferences object) =>
+      object.when(
         adultContentPref: (data) => data.toJson(),
         contentLabelPref: (data) => data.toJson(),
         savedFeedsPref: (data) => data.toJson(),

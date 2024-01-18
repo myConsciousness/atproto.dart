@@ -27,7 +27,8 @@ _$FeedDefsFeedViewPostImpl _$$FeedDefsFeedViewPostImplFromJson(Map json) =>
           reason: $checkedConvert(
               'reason',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                  UFeedViewPostReason>(v, unionFeedViewPostReason.fromJson)),
+                      UFeedDefsFeedViewPostReason>(
+                  v, unionFeedDefsFeedViewPostReasonConverter.fromJson)),
         );
         return val;
       },
@@ -48,8 +49,8 @@ Map<String, dynamic> _$$FeedDefsFeedViewPostImplToJson(
   writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
       'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, UFeedViewPostReason>(
-          instance.reason, unionFeedViewPostReason.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedDefsFeedViewPostReason>(
+          instance.reason, unionFeedDefsFeedViewPostReasonConverter.toJson));
   return val;
 }
 

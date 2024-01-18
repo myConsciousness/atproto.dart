@@ -11,5 +11,5 @@ import '../unions/record_allow.dart';
 
 extension FeedThreadgateRecordExtension on FeedThreadgateRecord {
   AtUri get postUri => post;
-  List<URecordAllow>? get allowRules => allow;
+  List<UFeedThreadgateRecordAllow>? get allowRules => allow;
 }

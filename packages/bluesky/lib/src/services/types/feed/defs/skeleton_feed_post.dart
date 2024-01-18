@@ -22,7 +22,8 @@ class FeedDefsSkeletonFeedPost with _$FeedDefsSkeletonFeedPost {
   @jsonSerializable
   const factory FeedDefsSkeletonFeedPost({
     @atUriConverter required AtUri post,
-    @unionSkeletonFeedPostReason USkeletonFeedPostReason? reason,
+    @unionFeedDefsSkeletonFeedPostReasonConverter
+    UFeedDefsSkeletonFeedPostReason? reason,
   }) = _FeedDefsSkeletonFeedPost;
 
   factory FeedDefsSkeletonFeedPost.fromJson(Map<String, Object?> json) =>

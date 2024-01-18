@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UReplyRefParent {
+mixin _$UFeedDefsReplyRefParent {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,42 +44,45 @@ mixin _$UReplyRefParent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UReplyRefParentPostView value) postView,
-    required TResult Function(UReplyRefParentNotFoundPost value) notFoundPost,
-    required TResult Function(UReplyRefParentBlockedPost value) blockedPost,
-    required TResult Function(UReplyRefParentUnknown value) unknown,
+    required TResult Function(UFeedDefsReplyRefParentPostView value) postView,
+    required TResult Function(UFeedDefsReplyRefParentNotFoundPost value)
+        notFoundPost,
+    required TResult Function(UFeedDefsReplyRefParentBlockedPost value)
+        blockedPost,
+    required TResult Function(UFeedDefsReplyRefParentUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyRefParentPostView value)? postView,
-    TResult? Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult? Function(UReplyRefParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult? Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult? Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult? Function(UFeedDefsReplyRefParentUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyRefParentPostView value)? postView,
-    TResult Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult Function(UReplyRefParentUnknown value)? unknown,
+    TResult Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult Function(UFeedDefsReplyRefParentUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UReplyRefParentCopyWith<$Res> {
-  factory $UReplyRefParentCopyWith(
-          UReplyRefParent value, $Res Function(UReplyRefParent) then) =
-      _$UReplyRefParentCopyWithImpl<$Res, UReplyRefParent>;
+abstract class $UFeedDefsReplyRefParentCopyWith<$Res> {
+  factory $UFeedDefsReplyRefParentCopyWith(UFeedDefsReplyRefParent value,
+          $Res Function(UFeedDefsReplyRefParent) then) =
+      _$UFeedDefsReplyRefParentCopyWithImpl<$Res, UFeedDefsReplyRefParent>;
 }
 
 /// @nodoc
-class _$UReplyRefParentCopyWithImpl<$Res, $Val extends UReplyRefParent>
-    implements $UReplyRefParentCopyWith<$Res> {
-  _$UReplyRefParentCopyWithImpl(this._value, this._then);
+class _$UFeedDefsReplyRefParentCopyWithImpl<$Res,
+        $Val extends UFeedDefsReplyRefParent>
+    implements $UFeedDefsReplyRefParentCopyWith<$Res> {
+  _$UFeedDefsReplyRefParentCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -88,11 +91,11 @@ class _$UReplyRefParentCopyWithImpl<$Res, $Val extends UReplyRefParent>
 }
 
 /// @nodoc
-abstract class _$$UReplyRefParentPostViewImplCopyWith<$Res> {
-  factory _$$UReplyRefParentPostViewImplCopyWith(
-          _$UReplyRefParentPostViewImpl value,
-          $Res Function(_$UReplyRefParentPostViewImpl) then) =
-      __$$UReplyRefParentPostViewImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsReplyRefParentPostViewImplCopyWith<$Res> {
+  factory _$$UFeedDefsReplyRefParentPostViewImplCopyWith(
+          _$UFeedDefsReplyRefParentPostViewImpl value,
+          $Res Function(_$UFeedDefsReplyRefParentPostViewImpl) then) =
+      __$$UFeedDefsReplyRefParentPostViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsPostView data});
 
@@ -100,12 +103,13 @@ abstract class _$$UReplyRefParentPostViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyRefParentPostViewImplCopyWithImpl<$Res>
-    extends _$UReplyRefParentCopyWithImpl<$Res, _$UReplyRefParentPostViewImpl>
-    implements _$$UReplyRefParentPostViewImplCopyWith<$Res> {
-  __$$UReplyRefParentPostViewImplCopyWithImpl(
-      _$UReplyRefParentPostViewImpl _value,
-      $Res Function(_$UReplyRefParentPostViewImpl) _then)
+class __$$UFeedDefsReplyRefParentPostViewImplCopyWithImpl<$Res>
+    extends _$UFeedDefsReplyRefParentCopyWithImpl<$Res,
+        _$UFeedDefsReplyRefParentPostViewImpl>
+    implements _$$UFeedDefsReplyRefParentPostViewImplCopyWith<$Res> {
+  __$$UFeedDefsReplyRefParentPostViewImplCopyWithImpl(
+      _$UFeedDefsReplyRefParentPostViewImpl _value,
+      $Res Function(_$UFeedDefsReplyRefParentPostViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +117,7 @@ class __$$UReplyRefParentPostViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyRefParentPostViewImpl(
+    return _then(_$UFeedDefsReplyRefParentPostViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -132,22 +136,23 @@ class __$$UReplyRefParentPostViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
-  const _$UReplyRefParentPostViewImpl({required this.data}) : super._();
+class _$UFeedDefsReplyRefParentPostViewImpl
+    extends UFeedDefsReplyRefParentPostView {
+  const _$UFeedDefsReplyRefParentPostViewImpl({required this.data}) : super._();
 
   @override
   final FeedDefsPostView data;
 
   @override
   String toString() {
-    return 'UReplyRefParent.postView(data: $data)';
+    return 'UFeedDefsReplyRefParent.postView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyRefParentPostViewImpl &&
+            other is _$UFeedDefsReplyRefParentPostViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -157,9 +162,10 @@ class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyRefParentPostViewImplCopyWith<_$UReplyRefParentPostViewImpl>
-      get copyWith => __$$UReplyRefParentPostViewImplCopyWithImpl<
-          _$UReplyRefParentPostViewImpl>(this, _$identity);
+  _$$UFeedDefsReplyRefParentPostViewImplCopyWith<
+          _$UFeedDefsReplyRefParentPostViewImpl>
+      get copyWith => __$$UFeedDefsReplyRefParentPostViewImplCopyWithImpl<
+          _$UFeedDefsReplyRefParentPostViewImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -201,10 +207,12 @@ class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UReplyRefParentPostView value) postView,
-    required TResult Function(UReplyRefParentNotFoundPost value) notFoundPost,
-    required TResult Function(UReplyRefParentBlockedPost value) blockedPost,
-    required TResult Function(UReplyRefParentUnknown value) unknown,
+    required TResult Function(UFeedDefsReplyRefParentPostView value) postView,
+    required TResult Function(UFeedDefsReplyRefParentNotFoundPost value)
+        notFoundPost,
+    required TResult Function(UFeedDefsReplyRefParentBlockedPost value)
+        blockedPost,
+    required TResult Function(UFeedDefsReplyRefParentUnknown value) unknown,
   }) {
     return postView(this);
   }
@@ -212,10 +220,10 @@ class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyRefParentPostView value)? postView,
-    TResult? Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult? Function(UReplyRefParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult? Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult? Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult? Function(UFeedDefsReplyRefParentUnknown value)? unknown,
   }) {
     return postView?.call(this);
   }
@@ -223,10 +231,10 @@ class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyRefParentPostView value)? postView,
-    TResult Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult Function(UReplyRefParentUnknown value)? unknown,
+    TResult Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult Function(UFeedDefsReplyRefParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (postView != null) {
@@ -236,24 +244,26 @@ class _$UReplyRefParentPostViewImpl extends UReplyRefParentPostView {
   }
 }
 
-abstract class UReplyRefParentPostView extends UReplyRefParent {
-  const factory UReplyRefParentPostView(
-      {required final FeedDefsPostView data}) = _$UReplyRefParentPostViewImpl;
-  const UReplyRefParentPostView._() : super._();
+abstract class UFeedDefsReplyRefParentPostView extends UFeedDefsReplyRefParent {
+  const factory UFeedDefsReplyRefParentPostView(
+          {required final FeedDefsPostView data}) =
+      _$UFeedDefsReplyRefParentPostViewImpl;
+  const UFeedDefsReplyRefParentPostView._() : super._();
 
   @override
   FeedDefsPostView get data;
   @JsonKey(ignore: true)
-  _$$UReplyRefParentPostViewImplCopyWith<_$UReplyRefParentPostViewImpl>
+  _$$UFeedDefsReplyRefParentPostViewImplCopyWith<
+          _$UFeedDefsReplyRefParentPostViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyRefParentNotFoundPostImplCopyWith<$Res> {
-  factory _$$UReplyRefParentNotFoundPostImplCopyWith(
-          _$UReplyRefParentNotFoundPostImpl value,
-          $Res Function(_$UReplyRefParentNotFoundPostImpl) then) =
-      __$$UReplyRefParentNotFoundPostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsReplyRefParentNotFoundPostImplCopyWith<$Res> {
+  factory _$$UFeedDefsReplyRefParentNotFoundPostImplCopyWith(
+          _$UFeedDefsReplyRefParentNotFoundPostImpl value,
+          $Res Function(_$UFeedDefsReplyRefParentNotFoundPostImpl) then) =
+      __$$UFeedDefsReplyRefParentNotFoundPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsNotFoundPost data});
 
@@ -261,13 +271,13 @@ abstract class _$$UReplyRefParentNotFoundPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyRefParentNotFoundPostImplCopyWithImpl<$Res>
-    extends _$UReplyRefParentCopyWithImpl<$Res,
-        _$UReplyRefParentNotFoundPostImpl>
-    implements _$$UReplyRefParentNotFoundPostImplCopyWith<$Res> {
-  __$$UReplyRefParentNotFoundPostImplCopyWithImpl(
-      _$UReplyRefParentNotFoundPostImpl _value,
-      $Res Function(_$UReplyRefParentNotFoundPostImpl) _then)
+class __$$UFeedDefsReplyRefParentNotFoundPostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsReplyRefParentCopyWithImpl<$Res,
+        _$UFeedDefsReplyRefParentNotFoundPostImpl>
+    implements _$$UFeedDefsReplyRefParentNotFoundPostImplCopyWith<$Res> {
+  __$$UFeedDefsReplyRefParentNotFoundPostImplCopyWithImpl(
+      _$UFeedDefsReplyRefParentNotFoundPostImpl _value,
+      $Res Function(_$UFeedDefsReplyRefParentNotFoundPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -275,7 +285,7 @@ class __$$UReplyRefParentNotFoundPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyRefParentNotFoundPostImpl(
+    return _then(_$UFeedDefsReplyRefParentNotFoundPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -294,22 +304,24 @@ class __$$UReplyRefParentNotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
-  const _$UReplyRefParentNotFoundPostImpl({required this.data}) : super._();
+class _$UFeedDefsReplyRefParentNotFoundPostImpl
+    extends UFeedDefsReplyRefParentNotFoundPost {
+  const _$UFeedDefsReplyRefParentNotFoundPostImpl({required this.data})
+      : super._();
 
   @override
   final FeedDefsNotFoundPost data;
 
   @override
   String toString() {
-    return 'UReplyRefParent.notFoundPost(data: $data)';
+    return 'UFeedDefsReplyRefParent.notFoundPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyRefParentNotFoundPostImpl &&
+            other is _$UFeedDefsReplyRefParentNotFoundPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -319,9 +331,10 @@ class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyRefParentNotFoundPostImplCopyWith<_$UReplyRefParentNotFoundPostImpl>
-      get copyWith => __$$UReplyRefParentNotFoundPostImplCopyWithImpl<
-          _$UReplyRefParentNotFoundPostImpl>(this, _$identity);
+  _$$UFeedDefsReplyRefParentNotFoundPostImplCopyWith<
+          _$UFeedDefsReplyRefParentNotFoundPostImpl>
+      get copyWith => __$$UFeedDefsReplyRefParentNotFoundPostImplCopyWithImpl<
+          _$UFeedDefsReplyRefParentNotFoundPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -363,10 +376,12 @@ class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UReplyRefParentPostView value) postView,
-    required TResult Function(UReplyRefParentNotFoundPost value) notFoundPost,
-    required TResult Function(UReplyRefParentBlockedPost value) blockedPost,
-    required TResult Function(UReplyRefParentUnknown value) unknown,
+    required TResult Function(UFeedDefsReplyRefParentPostView value) postView,
+    required TResult Function(UFeedDefsReplyRefParentNotFoundPost value)
+        notFoundPost,
+    required TResult Function(UFeedDefsReplyRefParentBlockedPost value)
+        blockedPost,
+    required TResult Function(UFeedDefsReplyRefParentUnknown value) unknown,
   }) {
     return notFoundPost(this);
   }
@@ -374,10 +389,10 @@ class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyRefParentPostView value)? postView,
-    TResult? Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult? Function(UReplyRefParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult? Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult? Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult? Function(UFeedDefsReplyRefParentUnknown value)? unknown,
   }) {
     return notFoundPost?.call(this);
   }
@@ -385,10 +400,10 @@ class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyRefParentPostView value)? postView,
-    TResult Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult Function(UReplyRefParentUnknown value)? unknown,
+    TResult Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult Function(UFeedDefsReplyRefParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (notFoundPost != null) {
@@ -398,25 +413,27 @@ class _$UReplyRefParentNotFoundPostImpl extends UReplyRefParentNotFoundPost {
   }
 }
 
-abstract class UReplyRefParentNotFoundPost extends UReplyRefParent {
-  const factory UReplyRefParentNotFoundPost(
+abstract class UFeedDefsReplyRefParentNotFoundPost
+    extends UFeedDefsReplyRefParent {
+  const factory UFeedDefsReplyRefParentNotFoundPost(
           {required final FeedDefsNotFoundPost data}) =
-      _$UReplyRefParentNotFoundPostImpl;
-  const UReplyRefParentNotFoundPost._() : super._();
+      _$UFeedDefsReplyRefParentNotFoundPostImpl;
+  const UFeedDefsReplyRefParentNotFoundPost._() : super._();
 
   @override
   FeedDefsNotFoundPost get data;
   @JsonKey(ignore: true)
-  _$$UReplyRefParentNotFoundPostImplCopyWith<_$UReplyRefParentNotFoundPostImpl>
+  _$$UFeedDefsReplyRefParentNotFoundPostImplCopyWith<
+          _$UFeedDefsReplyRefParentNotFoundPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyRefParentBlockedPostImplCopyWith<$Res> {
-  factory _$$UReplyRefParentBlockedPostImplCopyWith(
-          _$UReplyRefParentBlockedPostImpl value,
-          $Res Function(_$UReplyRefParentBlockedPostImpl) then) =
-      __$$UReplyRefParentBlockedPostImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsReplyRefParentBlockedPostImplCopyWith<$Res> {
+  factory _$$UFeedDefsReplyRefParentBlockedPostImplCopyWith(
+          _$UFeedDefsReplyRefParentBlockedPostImpl value,
+          $Res Function(_$UFeedDefsReplyRefParentBlockedPostImpl) then) =
+      __$$UFeedDefsReplyRefParentBlockedPostImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FeedDefsBlockedPost data});
 
@@ -424,13 +441,13 @@ abstract class _$$UReplyRefParentBlockedPostImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UReplyRefParentBlockedPostImplCopyWithImpl<$Res>
-    extends _$UReplyRefParentCopyWithImpl<$Res,
-        _$UReplyRefParentBlockedPostImpl>
-    implements _$$UReplyRefParentBlockedPostImplCopyWith<$Res> {
-  __$$UReplyRefParentBlockedPostImplCopyWithImpl(
-      _$UReplyRefParentBlockedPostImpl _value,
-      $Res Function(_$UReplyRefParentBlockedPostImpl) _then)
+class __$$UFeedDefsReplyRefParentBlockedPostImplCopyWithImpl<$Res>
+    extends _$UFeedDefsReplyRefParentCopyWithImpl<$Res,
+        _$UFeedDefsReplyRefParentBlockedPostImpl>
+    implements _$$UFeedDefsReplyRefParentBlockedPostImplCopyWith<$Res> {
+  __$$UFeedDefsReplyRefParentBlockedPostImplCopyWithImpl(
+      _$UFeedDefsReplyRefParentBlockedPostImpl _value,
+      $Res Function(_$UFeedDefsReplyRefParentBlockedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -438,7 +455,7 @@ class __$$UReplyRefParentBlockedPostImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyRefParentBlockedPostImpl(
+    return _then(_$UFeedDefsReplyRefParentBlockedPostImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -457,22 +474,24 @@ class __$$UReplyRefParentBlockedPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
-  const _$UReplyRefParentBlockedPostImpl({required this.data}) : super._();
+class _$UFeedDefsReplyRefParentBlockedPostImpl
+    extends UFeedDefsReplyRefParentBlockedPost {
+  const _$UFeedDefsReplyRefParentBlockedPostImpl({required this.data})
+      : super._();
 
   @override
   final FeedDefsBlockedPost data;
 
   @override
   String toString() {
-    return 'UReplyRefParent.blockedPost(data: $data)';
+    return 'UFeedDefsReplyRefParent.blockedPost(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyRefParentBlockedPostImpl &&
+            other is _$UFeedDefsReplyRefParentBlockedPostImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -482,9 +501,10 @@ class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyRefParentBlockedPostImplCopyWith<_$UReplyRefParentBlockedPostImpl>
-      get copyWith => __$$UReplyRefParentBlockedPostImplCopyWithImpl<
-          _$UReplyRefParentBlockedPostImpl>(this, _$identity);
+  _$$UFeedDefsReplyRefParentBlockedPostImplCopyWith<
+          _$UFeedDefsReplyRefParentBlockedPostImpl>
+      get copyWith => __$$UFeedDefsReplyRefParentBlockedPostImplCopyWithImpl<
+          _$UFeedDefsReplyRefParentBlockedPostImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -526,10 +546,12 @@ class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UReplyRefParentPostView value) postView,
-    required TResult Function(UReplyRefParentNotFoundPost value) notFoundPost,
-    required TResult Function(UReplyRefParentBlockedPost value) blockedPost,
-    required TResult Function(UReplyRefParentUnknown value) unknown,
+    required TResult Function(UFeedDefsReplyRefParentPostView value) postView,
+    required TResult Function(UFeedDefsReplyRefParentNotFoundPost value)
+        notFoundPost,
+    required TResult Function(UFeedDefsReplyRefParentBlockedPost value)
+        blockedPost,
+    required TResult Function(UFeedDefsReplyRefParentUnknown value) unknown,
   }) {
     return blockedPost(this);
   }
@@ -537,10 +559,10 @@ class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyRefParentPostView value)? postView,
-    TResult? Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult? Function(UReplyRefParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult? Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult? Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult? Function(UFeedDefsReplyRefParentUnknown value)? unknown,
   }) {
     return blockedPost?.call(this);
   }
@@ -548,10 +570,10 @@ class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyRefParentPostView value)? postView,
-    TResult Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult Function(UReplyRefParentUnknown value)? unknown,
+    TResult Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult Function(UFeedDefsReplyRefParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (blockedPost != null) {
@@ -561,36 +583,39 @@ class _$UReplyRefParentBlockedPostImpl extends UReplyRefParentBlockedPost {
   }
 }
 
-abstract class UReplyRefParentBlockedPost extends UReplyRefParent {
-  const factory UReplyRefParentBlockedPost(
+abstract class UFeedDefsReplyRefParentBlockedPost
+    extends UFeedDefsReplyRefParent {
+  const factory UFeedDefsReplyRefParentBlockedPost(
           {required final FeedDefsBlockedPost data}) =
-      _$UReplyRefParentBlockedPostImpl;
-  const UReplyRefParentBlockedPost._() : super._();
+      _$UFeedDefsReplyRefParentBlockedPostImpl;
+  const UFeedDefsReplyRefParentBlockedPost._() : super._();
 
   @override
   FeedDefsBlockedPost get data;
   @JsonKey(ignore: true)
-  _$$UReplyRefParentBlockedPostImplCopyWith<_$UReplyRefParentBlockedPostImpl>
+  _$$UFeedDefsReplyRefParentBlockedPostImplCopyWith<
+          _$UFeedDefsReplyRefParentBlockedPostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UReplyRefParentUnknownImplCopyWith<$Res> {
-  factory _$$UReplyRefParentUnknownImplCopyWith(
-          _$UReplyRefParentUnknownImpl value,
-          $Res Function(_$UReplyRefParentUnknownImpl) then) =
-      __$$UReplyRefParentUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UFeedDefsReplyRefParentUnknownImplCopyWith<$Res> {
+  factory _$$UFeedDefsReplyRefParentUnknownImplCopyWith(
+          _$UFeedDefsReplyRefParentUnknownImpl value,
+          $Res Function(_$UFeedDefsReplyRefParentUnknownImpl) then) =
+      __$$UFeedDefsReplyRefParentUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UReplyRefParentUnknownImplCopyWithImpl<$Res>
-    extends _$UReplyRefParentCopyWithImpl<$Res, _$UReplyRefParentUnknownImpl>
-    implements _$$UReplyRefParentUnknownImplCopyWith<$Res> {
-  __$$UReplyRefParentUnknownImplCopyWithImpl(
-      _$UReplyRefParentUnknownImpl _value,
-      $Res Function(_$UReplyRefParentUnknownImpl) _then)
+class __$$UFeedDefsReplyRefParentUnknownImplCopyWithImpl<$Res>
+    extends _$UFeedDefsReplyRefParentCopyWithImpl<$Res,
+        _$UFeedDefsReplyRefParentUnknownImpl>
+    implements _$$UFeedDefsReplyRefParentUnknownImplCopyWith<$Res> {
+  __$$UFeedDefsReplyRefParentUnknownImplCopyWithImpl(
+      _$UFeedDefsReplyRefParentUnknownImpl _value,
+      $Res Function(_$UFeedDefsReplyRefParentUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -598,7 +623,7 @@ class __$$UReplyRefParentUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UReplyRefParentUnknownImpl(
+    return _then(_$UFeedDefsReplyRefParentUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -609,8 +634,10 @@ class __$$UReplyRefParentUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
-  const _$UReplyRefParentUnknownImpl({required final Map<String, dynamic> data})
+class _$UFeedDefsReplyRefParentUnknownImpl
+    extends UFeedDefsReplyRefParentUnknown {
+  const _$UFeedDefsReplyRefParentUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -624,14 +651,14 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
 
   @override
   String toString() {
-    return 'UReplyRefParent.unknown(data: $data)';
+    return 'UFeedDefsReplyRefParent.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UReplyRefParentUnknownImpl &&
+            other is _$UFeedDefsReplyRefParentUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -642,9 +669,10 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UReplyRefParentUnknownImplCopyWith<_$UReplyRefParentUnknownImpl>
-      get copyWith => __$$UReplyRefParentUnknownImplCopyWithImpl<
-          _$UReplyRefParentUnknownImpl>(this, _$identity);
+  _$$UFeedDefsReplyRefParentUnknownImplCopyWith<
+          _$UFeedDefsReplyRefParentUnknownImpl>
+      get copyWith => __$$UFeedDefsReplyRefParentUnknownImplCopyWithImpl<
+          _$UFeedDefsReplyRefParentUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -686,10 +714,12 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UReplyRefParentPostView value) postView,
-    required TResult Function(UReplyRefParentNotFoundPost value) notFoundPost,
-    required TResult Function(UReplyRefParentBlockedPost value) blockedPost,
-    required TResult Function(UReplyRefParentUnknown value) unknown,
+    required TResult Function(UFeedDefsReplyRefParentPostView value) postView,
+    required TResult Function(UFeedDefsReplyRefParentNotFoundPost value)
+        notFoundPost,
+    required TResult Function(UFeedDefsReplyRefParentBlockedPost value)
+        blockedPost,
+    required TResult Function(UFeedDefsReplyRefParentUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -697,10 +727,10 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UReplyRefParentPostView value)? postView,
-    TResult? Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult? Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult? Function(UReplyRefParentUnknown value)? unknown,
+    TResult? Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult? Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult? Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult? Function(UFeedDefsReplyRefParentUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -708,10 +738,10 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UReplyRefParentPostView value)? postView,
-    TResult Function(UReplyRefParentNotFoundPost value)? notFoundPost,
-    TResult Function(UReplyRefParentBlockedPost value)? blockedPost,
-    TResult Function(UReplyRefParentUnknown value)? unknown,
+    TResult Function(UFeedDefsReplyRefParentPostView value)? postView,
+    TResult Function(UFeedDefsReplyRefParentNotFoundPost value)? notFoundPost,
+    TResult Function(UFeedDefsReplyRefParentBlockedPost value)? blockedPost,
+    TResult Function(UFeedDefsReplyRefParentUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -721,15 +751,16 @@ class _$UReplyRefParentUnknownImpl extends UReplyRefParentUnknown {
   }
 }
 
-abstract class UReplyRefParentUnknown extends UReplyRefParent {
-  const factory UReplyRefParentUnknown(
+abstract class UFeedDefsReplyRefParentUnknown extends UFeedDefsReplyRefParent {
+  const factory UFeedDefsReplyRefParentUnknown(
           {required final Map<String, dynamic> data}) =
-      _$UReplyRefParentUnknownImpl;
-  const UReplyRefParentUnknown._() : super._();
+      _$UFeedDefsReplyRefParentUnknownImpl;
+  const UFeedDefsReplyRefParentUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UReplyRefParentUnknownImplCopyWith<_$UReplyRefParentUnknownImpl>
+  _$$UFeedDefsReplyRefParentUnknownImplCopyWith<
+          _$UFeedDefsReplyRefParentUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

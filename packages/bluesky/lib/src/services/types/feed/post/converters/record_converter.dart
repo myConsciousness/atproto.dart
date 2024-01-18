@@ -12,11 +12,11 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../ids.g.dart' as ids;
 import '../record.dart';
 
-const recordConverter = _RecordConverter();
+const feedPostRecordConverter = _FeedPostRecordConverter();
 
-final class _RecordConverter
+final class _FeedPostRecordConverter
     implements JsonConverter<FeedPostRecord, Map<String, dynamic>> {
-  const _RecordConverter();
+  const _FeedPostRecordConverter();
 
   @override
   FeedPostRecord fromJson(Map<String, dynamic> json) {

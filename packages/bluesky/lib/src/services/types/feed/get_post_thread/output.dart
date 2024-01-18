@@ -17,7 +17,8 @@ part 'output.g.dart';
 @lex.appBskyFeedGetPostThread
 class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
   const factory FeedGetPostThreadOutput({
-    @unionOutputThread required UOutputThread thread,
+    @unionFeedGetPostThreadOutputThreadConverter
+    required UFeedGetPostThreadOutputThread thread,
   }) = _FeedGetPostThreadOutput;
 
   factory FeedGetPostThreadOutput.fromJson(Map<String, Object?> json) =>

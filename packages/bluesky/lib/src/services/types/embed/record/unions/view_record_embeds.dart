@@ -19,73 +19,77 @@ part 'view_record_embeds.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
-class UViewRecordEmbeds with _$UViewRecordEmbeds {
+class UEmbedRecordViewRecordEmbeds with _$UEmbedRecordViewRecordEmbeds {
   // ignore: unused_element
-  const UViewRecordEmbeds._();
+  const UEmbedRecordViewRecordEmbeds._();
 
-  const factory UViewRecordEmbeds.embedRecordView({
+  const factory UEmbedRecordViewRecordEmbeds.embedRecordView({
     required EmbedRecordView data,
-  }) = UViewRecordEmbedsEmbedRecordView;
+  }) = UEmbedRecordViewRecordEmbedsEmbedRecordView;
 
-  const factory UViewRecordEmbeds.embedImagesView({
+  const factory UEmbedRecordViewRecordEmbeds.embedImagesView({
     required EmbedImagesView data,
-  }) = UViewRecordEmbedsEmbedImagesView;
+  }) = UEmbedRecordViewRecordEmbedsEmbedImagesView;
 
-  const factory UViewRecordEmbeds.embedExternalView({
+  const factory UEmbedRecordViewRecordEmbeds.embedExternalView({
     required EmbedExternalView data,
-  }) = UViewRecordEmbedsEmbedExternalView;
+  }) = UEmbedRecordViewRecordEmbedsEmbedExternalView;
 
-  const factory UViewRecordEmbeds.embedRecordWithMediaView({
+  const factory UEmbedRecordViewRecordEmbeds.embedRecordWithMediaView({
     required EmbedRecordWithMediaView data,
-  }) = UViewRecordEmbedsEmbedRecordWithMediaView;
+  }) = UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView;
 
-  const factory UViewRecordEmbeds.unknown({
+  const factory UEmbedRecordViewRecordEmbeds.unknown({
     required Map<String, dynamic> data,
-  }) = UViewRecordEmbedsUnknown;
+  }) = UEmbedRecordViewRecordEmbedsUnknown;
 
-  Map<String, dynamic> toJson() => unionViewRecordEmbeds.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionEmbedRecordViewRecordEmbedsConverter.toJson(this);
 }
 
-const unionViewRecordEmbeds = _UViewRecordEmbedsConverter();
+const unionEmbedRecordViewRecordEmbedsConverter =
+    _UEmbedRecordViewRecordEmbedsConverter();
 
-final class _UViewRecordEmbedsConverter
-    implements JsonConverter<UViewRecordEmbeds, Map<String, dynamic>> {
-  const _UViewRecordEmbedsConverter();
+final class _UEmbedRecordViewRecordEmbedsConverter
+    implements
+        JsonConverter<UEmbedRecordViewRecordEmbeds, Map<String, dynamic>> {
+  const _UEmbedRecordViewRecordEmbedsConverter();
 
   @override
-  UViewRecordEmbeds fromJson(Map<String, dynamic> json) {
+  UEmbedRecordViewRecordEmbeds fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedRecordView) {
-        return UViewRecordEmbeds.embedRecordView(
+        return UEmbedRecordViewRecordEmbeds.embedRecordView(
           data: EmbedRecordView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImagesView) {
-        return UViewRecordEmbeds.embedImagesView(
+        return UEmbedRecordViewRecordEmbeds.embedImagesView(
           data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
-        return UViewRecordEmbeds.embedExternalView(
+        return UEmbedRecordViewRecordEmbeds.embedExternalView(
           data: EmbedExternalView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMediaView) {
-        return UViewRecordEmbeds.embedRecordWithMediaView(
+        return UEmbedRecordViewRecordEmbeds.embedRecordWithMediaView(
           data: EmbedRecordWithMediaView.fromJson(json),
         );
       }
 
-      return UViewRecordEmbeds.unknown(data: json);
+      return UEmbedRecordViewRecordEmbeds.unknown(data: json);
     } catch (_) {
-      return UViewRecordEmbeds.unknown(data: json);
+      return UEmbedRecordViewRecordEmbeds.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UViewRecordEmbeds object) => object.when(
+  Map<String, dynamic> toJson(UEmbedRecordViewRecordEmbeds object) =>
+      object.when(
         embedRecordView: (data) => data.toJson(),
         embedImagesView: (data) => data.toJson(),
         embedExternalView: (data) => data.toJson(),

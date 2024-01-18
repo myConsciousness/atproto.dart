@@ -22,11 +22,11 @@ extension BlobExtension on Blob {
       );
 
   @Deprecated('Use .toPostRecordEmbedImages instead. Will be removed')
-  URecordEmbed toEmbedImage({
+  UFeedPostRecordEmbed toEmbedImage({
     required String alt,
     EmbedImagesAspectRatio? aspectRatio,
   }) =>
-      URecordEmbed.embedImages(
+      UFeedPostRecordEmbed.embedImages(
         data: EmbedImages(
           images: [
             toEmbedImagesImage(
@@ -48,13 +48,13 @@ extension BlobExtension on Blob {
         aspectRatio: aspectRatio,
       );
 
-  /// Returns the single [URecordEmbed] image representation of this
+  /// Returns the single [UFeedPostRecordEmbed] image representation of this
   /// blob.
-  URecordEmbed toPostRecordEmbedImages({
+  UFeedPostRecordEmbed toPostRecordEmbedImages({
     required String alt,
     EmbedImagesAspectRatio? aspectRatio,
   }) =>
-      URecordEmbed.embedImages(
+      UFeedPostRecordEmbed.embedImages(
         data: EmbedImages(
           images: [
             toEmbedImagesImage(

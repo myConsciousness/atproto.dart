@@ -13,7 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../actor/defs/profile_view_basic.dart';
-import '../post/converter/record_converter.dart';
+import '../post/converters/record_converter.dart';
 import '../post/record.dart';
 import 'threadgate_view.dart';
 import 'unions/post_view_embed.dart';
@@ -29,11 +29,11 @@ class FeedDefsPostView with _$FeedDefsPostView {
   @jsonSerializable
   const factory FeedDefsPostView({
     @typeKey @Default(appBskyFeedDefsPostView) String type,
-    @recordConverter required FeedPostRecord record,
+    @feedPostRecordConverter required FeedPostRecord record,
     required ActorDefsProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,
-    @unionPostViewEmbed UPostViewEmbed? embed,
+    @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,

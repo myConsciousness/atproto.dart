@@ -27,11 +27,12 @@ mixin _$EmbedRecordViewRecord {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
-  @recordConverter
+  @feedPostRecordConverter
   FeedPostRecord get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  @unionViewRecordEmbeds
-  List<UViewRecordEmbeds>? get embeds => throw _privateConstructorUsedError;
+  @unionEmbedRecordViewRecordEmbedsConverter
+  List<UEmbedRecordViewRecordEmbeds>? get embeds =>
+      throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,9 +52,10 @@ abstract class $EmbedRecordViewRecordCopyWith<$Res> {
       @atUriConverter AtUri uri,
       String cid,
       ActorDefsProfileViewBasic author,
-      @recordConverter FeedPostRecord value,
+      @feedPostRecordConverter FeedPostRecord value,
       List<Label>? labels,
-      @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
+      @unionEmbedRecordViewRecordEmbedsConverter
+      List<UEmbedRecordViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
   $ActorDefsProfileViewBasicCopyWith<$Res> get author;
@@ -111,7 +113,7 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res,
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<UViewRecordEmbeds>?,
+              as List<UEmbedRecordViewRecordEmbeds>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -150,9 +152,10 @@ abstract class _$$EmbedRecordViewRecordImplCopyWith<$Res>
       @atUriConverter AtUri uri,
       String cid,
       ActorDefsProfileViewBasic author,
-      @recordConverter FeedPostRecord value,
+      @feedPostRecordConverter FeedPostRecord value,
       List<Label>? labels,
-      @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
+      @unionEmbedRecordViewRecordEmbedsConverter
+      List<UEmbedRecordViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
   @override
@@ -210,7 +213,7 @@ class __$$EmbedRecordViewRecordImplCopyWithImpl<$Res>
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<UViewRecordEmbeds>?,
+              as List<UEmbedRecordViewRecordEmbeds>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -228,9 +231,10 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
       @atUriConverter required this.uri,
       required this.cid,
       required this.author,
-      @recordConverter required this.value,
+      @feedPostRecordConverter required this.value,
       final List<Label>? labels,
-      @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
+      @unionEmbedRecordViewRecordEmbedsConverter
+      final List<UEmbedRecordViewRecordEmbeds>? embeds,
       required this.indexedAt})
       : _labels = labels,
         _embeds = embeds;
@@ -249,7 +253,7 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
   @override
   final ActorDefsProfileViewBasic author;
   @override
-  @recordConverter
+  @feedPostRecordConverter
   final FeedPostRecord value;
   final List<Label>? _labels;
   @override
@@ -261,10 +265,10 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
-  final List<UViewRecordEmbeds>? _embeds;
+  final List<UEmbedRecordViewRecordEmbeds>? _embeds;
   @override
-  @unionViewRecordEmbeds
-  List<UViewRecordEmbeds>? get embeds {
+  @unionEmbedRecordViewRecordEmbedsConverter
+  List<UEmbedRecordViewRecordEmbeds>? get embeds {
     final value = _embeds;
     if (value == null) return null;
     if (_embeds is EqualUnmodifiableListView) return _embeds;
@@ -330,9 +334,10 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
       @atUriConverter required final AtUri uri,
       required final String cid,
       required final ActorDefsProfileViewBasic author,
-      @recordConverter required final FeedPostRecord value,
+      @feedPostRecordConverter required final FeedPostRecord value,
       final List<Label>? labels,
-      @unionViewRecordEmbeds final List<UViewRecordEmbeds>? embeds,
+      @unionEmbedRecordViewRecordEmbedsConverter
+      final List<UEmbedRecordViewRecordEmbeds>? embeds,
       required final DateTime indexedAt}) = _$EmbedRecordViewRecordImpl;
 
   factory _EmbedRecordViewRecord.fromJson(Map<String, dynamic> json) =
@@ -349,13 +354,13 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
   @override
   ActorDefsProfileViewBasic get author;
   @override
-  @recordConverter
+  @feedPostRecordConverter
   FeedPostRecord get value;
   @override
   List<Label>? get labels;
   @override
-  @unionViewRecordEmbeds
-  List<UViewRecordEmbeds>? get embeds;
+  @unionEmbedRecordViewRecordEmbedsConverter
+  List<UEmbedRecordViewRecordEmbeds>? get embeds;
   @override
   DateTime get indexedAt;
   @override

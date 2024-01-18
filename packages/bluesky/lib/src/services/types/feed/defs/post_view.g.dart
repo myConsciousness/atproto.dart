@@ -16,8 +16,10 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
         final val = _$FeedDefsPostViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
-          record: $checkedConvert('record',
-              (v) => recordConverter.fromJson(v as Map<String, dynamic>)),
+          record: $checkedConvert(
+              'record',
+              (v) =>
+                  feedPostRecordConverter.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert(
               'author',
               (v) => ActorDefsProfileViewBasic.fromJson(
@@ -27,9 +29,9 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
           cid: $checkedConvert('cid', (v) => v as String),
           embed: $checkedConvert(
               'embed',
-              (v) =>
-                  _$JsonConverterFromJson<Map<String, dynamic>, UPostViewEmbed>(
-                      v, unionPostViewEmbed.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedDefsPostViewEmbed>(
+                  v, unionFeedDefsPostViewEmbedConverter.fromJson)),
           replyCount: $checkedConvert('replyCount', (v) => v as int? ?? 0),
           repostCount: $checkedConvert('repostCount', (v) => v as int? ?? 0),
           likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
@@ -63,7 +65,7 @@ Map<String, dynamic> _$$FeedDefsPostViewImplToJson(
     _$FeedDefsPostViewImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'record': recordConverter.toJson(instance.record),
+    'record': feedPostRecordConverter.toJson(instance.record),
     'author': instance.author.toJson(),
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
@@ -77,8 +79,8 @@ Map<String, dynamic> _$$FeedDefsPostViewImplToJson(
 
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UPostViewEmbed>(
-          instance.embed, unionPostViewEmbed.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedDefsPostViewEmbed>(
+          instance.embed, unionFeedDefsPostViewEmbedConverter.toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

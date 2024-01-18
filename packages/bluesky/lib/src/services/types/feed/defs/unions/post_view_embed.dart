@@ -19,73 +19,74 @@ part 'post_view_embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
-class UPostViewEmbed with _$UPostViewEmbed {
+class UFeedDefsPostViewEmbed with _$UFeedDefsPostViewEmbed {
   // ignore: unused_element
-  const UPostViewEmbed._();
+  const UFeedDefsPostViewEmbed._();
 
-  const factory UPostViewEmbed.embedRecordView({
+  const factory UFeedDefsPostViewEmbed.embedRecordView({
     required EmbedRecordView data,
-  }) = UPostViewEmbedEmbedRecordView;
+  }) = UFeedDefsPostViewEmbedEmbedRecordView;
 
-  const factory UPostViewEmbed.embedImagesView({
+  const factory UFeedDefsPostViewEmbed.embedImagesView({
     required EmbedImagesView data,
-  }) = UPostViewEmbedEmbedImagesView;
+  }) = UFeedDefsPostViewEmbedEmbedImagesView;
 
-  const factory UPostViewEmbed.embedExternalView({
+  const factory UFeedDefsPostViewEmbed.embedExternalView({
     required EmbedExternalView data,
-  }) = UPostViewEmbedEmbedExternalView;
+  }) = UFeedDefsPostViewEmbedEmbedExternalView;
 
-  const factory UPostViewEmbed.embedRecordWithMediaView({
+  const factory UFeedDefsPostViewEmbed.embedRecordWithMediaView({
     required EmbedRecordWithMediaView data,
-  }) = UPostViewEmbedEmbedRecordWithMediaView;
+  }) = UFeedDefsPostViewEmbedEmbedRecordWithMediaView;
 
-  const factory UPostViewEmbed.unknown({
+  const factory UFeedDefsPostViewEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = UPostViewEmbedUnknown;
+  }) = UFeedDefsPostViewEmbedUnknown;
 
-  Map<String, dynamic> toJson() => unionPostViewEmbed.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionFeedDefsPostViewEmbedConverter.toJson(this);
 }
 
-const unionPostViewEmbed = _UPostViewEmbedConverter();
+const unionFeedDefsPostViewEmbedConverter = _UFeedDefsPostViewEmbedConverter();
 
-final class _UPostViewEmbedConverter
-    implements JsonConverter<UPostViewEmbed, Map<String, dynamic>> {
-  const _UPostViewEmbedConverter();
+final class _UFeedDefsPostViewEmbedConverter
+    implements JsonConverter<UFeedDefsPostViewEmbed, Map<String, dynamic>> {
+  const _UFeedDefsPostViewEmbedConverter();
 
   @override
-  UPostViewEmbed fromJson(Map<String, dynamic> json) {
+  UFeedDefsPostViewEmbed fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedRecordView) {
-        return UPostViewEmbed.embedRecordView(
+        return UFeedDefsPostViewEmbed.embedRecordView(
           data: EmbedRecordView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImagesView) {
-        return UPostViewEmbed.embedImagesView(
+        return UFeedDefsPostViewEmbed.embedImagesView(
           data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
-        return UPostViewEmbed.embedExternalView(
+        return UFeedDefsPostViewEmbed.embedExternalView(
           data: EmbedExternalView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMediaView) {
-        return UPostViewEmbed.embedRecordWithMediaView(
+        return UFeedDefsPostViewEmbed.embedRecordWithMediaView(
           data: EmbedRecordWithMediaView.fromJson(json),
         );
       }
 
-      return UPostViewEmbed.unknown(data: json);
+      return UFeedDefsPostViewEmbed.unknown(data: json);
     } catch (_) {
-      return UPostViewEmbed.unknown(data: json);
+      return UFeedDefsPostViewEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UPostViewEmbed object) => object.when(
+  Map<String, dynamic> toJson(UFeedDefsPostViewEmbed object) => object.when(
         embedRecordView: (data) => data.toJson(),
         embedImagesView: (data) => data.toJson(),
         embedExternalView: (data) => data.toJson(),

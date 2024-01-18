@@ -22,14 +22,14 @@ FeedDefsPostView _$FeedDefsPostViewFromJson(Map<String, dynamic> json) {
 mixin _$FeedDefsPostView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @recordConverter
+  @feedPostRecordConverter
   FeedPostRecord get record => throw _privateConstructorUsedError;
   ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
-  @unionPostViewEmbed
-  UPostViewEmbed? get embed => throw _privateConstructorUsedError;
+  @unionFeedDefsPostViewEmbedConverter
+  UFeedDefsPostViewEmbed? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
@@ -52,11 +52,11 @@ abstract class $FeedDefsPostViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @recordConverter FeedPostRecord record,
+      @feedPostRecordConverter FeedPostRecord record,
       ActorDefsProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
-      @unionPostViewEmbed UPostViewEmbed? embed,
+      @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -67,7 +67,7 @@ abstract class $FeedDefsPostViewCopyWith<$Res> {
 
   $FeedPostRecordCopyWith<$Res> get record;
   $ActorDefsProfileViewBasicCopyWith<$Res> get author;
-  $UPostViewEmbedCopyWith<$Res>? get embed;
+  $UFeedDefsPostViewEmbedCopyWith<$Res>? get embed;
   $FeedDefsViewerStateCopyWith<$Res> get viewer;
   $FeedDefsThreadgateViewCopyWith<$Res>? get threadgate;
 }
@@ -123,7 +123,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UPostViewEmbed?,
+              as UFeedDefsPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -173,12 +173,12 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $UPostViewEmbedCopyWith<$Res>? get embed {
+  $UFeedDefsPostViewEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UPostViewEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UFeedDefsPostViewEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -214,11 +214,11 @@ abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @recordConverter FeedPostRecord record,
+      @feedPostRecordConverter FeedPostRecord record,
       ActorDefsProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
-      @unionPostViewEmbed UPostViewEmbed? embed,
+      @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -232,7 +232,7 @@ abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
   @override
   $ActorDefsProfileViewBasicCopyWith<$Res> get author;
   @override
-  $UPostViewEmbedCopyWith<$Res>? get embed;
+  $UFeedDefsPostViewEmbedCopyWith<$Res>? get embed;
   @override
   $FeedDefsViewerStateCopyWith<$Res> get viewer;
   @override
@@ -288,7 +288,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UPostViewEmbed?,
+              as UFeedDefsPostViewEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -327,11 +327,11 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
 class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   const _$FeedDefsPostViewImpl(
       {@typeKey this.type = appBskyFeedDefsPostView,
-      @recordConverter required this.record,
+      @feedPostRecordConverter required this.record,
       required this.author,
       @atUriConverter required this.uri,
       required this.cid,
-      @unionPostViewEmbed this.embed,
+      @unionFeedDefsPostViewEmbedConverter this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
@@ -348,7 +348,7 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @typeKey
   final String type;
   @override
-  @recordConverter
+  @feedPostRecordConverter
   final FeedPostRecord record;
   @override
   final ActorDefsProfileViewBasic author;
@@ -358,8 +358,8 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @override
   final String cid;
   @override
-  @unionPostViewEmbed
-  final UPostViewEmbed? embed;
+  @unionFeedDefsPostViewEmbedConverter
+  final UFeedDefsPostViewEmbed? embed;
   @override
   @JsonKey()
   final int replyCount;
@@ -453,11 +453,11 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
 abstract class _FeedDefsPostView implements FeedDefsPostView {
   const factory _FeedDefsPostView(
       {@typeKey final String type,
-      @recordConverter required final FeedPostRecord record,
+      @feedPostRecordConverter required final FeedPostRecord record,
       required final ActorDefsProfileViewBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
-      @unionPostViewEmbed final UPostViewEmbed? embed,
+      @unionFeedDefsPostViewEmbedConverter final UFeedDefsPostViewEmbed? embed,
       final int replyCount,
       final int repostCount,
       final int likeCount,
@@ -473,7 +473,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @typeKey
   String get type;
   @override
-  @recordConverter
+  @feedPostRecordConverter
   FeedPostRecord get record;
   @override
   ActorDefsProfileViewBasic get author;
@@ -483,8 +483,8 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @override
   String get cid;
   @override
-  @unionPostViewEmbed
-  UPostViewEmbed? get embed;
+  @unionFeedDefsPostViewEmbedConverter
+  UFeedDefsPostViewEmbed? get embed;
   @override
   int get replyCount;
   @override

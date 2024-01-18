@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
 /// @nodoc
-mixin _$UViewRecordEmbeds {
+mixin _$UEmbedRecordViewRecordEmbeds {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -48,53 +48,65 @@ mixin _$UViewRecordEmbeds {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UViewRecordEmbedsCopyWith<$Res> {
-  factory $UViewRecordEmbedsCopyWith(
-          UViewRecordEmbeds value, $Res Function(UViewRecordEmbeds) then) =
-      _$UViewRecordEmbedsCopyWithImpl<$Res, UViewRecordEmbeds>;
+abstract class $UEmbedRecordViewRecordEmbedsCopyWith<$Res> {
+  factory $UEmbedRecordViewRecordEmbedsCopyWith(
+          UEmbedRecordViewRecordEmbeds value,
+          $Res Function(UEmbedRecordViewRecordEmbeds) then) =
+      _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+          UEmbedRecordViewRecordEmbeds>;
 }
 
 /// @nodoc
-class _$UViewRecordEmbedsCopyWithImpl<$Res, $Val extends UViewRecordEmbeds>
-    implements $UViewRecordEmbedsCopyWith<$Res> {
-  _$UViewRecordEmbedsCopyWithImpl(this._value, this._then);
+class _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        $Val extends UEmbedRecordViewRecordEmbeds>
+    implements $UEmbedRecordViewRecordEmbedsCopyWith<$Res> {
+  _$UEmbedRecordViewRecordEmbedsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -103,11 +115,13 @@ class _$UViewRecordEmbedsCopyWithImpl<$Res, $Val extends UViewRecordEmbeds>
 }
 
 /// @nodoc
-abstract class _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith<$Res> {
-  factory _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith(
-          _$UViewRecordEmbedsEmbedRecordViewImpl value,
-          $Res Function(_$UViewRecordEmbedsEmbedRecordViewImpl) then) =
-      __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWith<
+    $Res> {
+  factory _$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWith(
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl value,
+          $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl)
+              then) =
+      __$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedRecordView data});
 
@@ -115,13 +129,14 @@ abstract class _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordEmbedsCopyWithImpl<$Res,
-        _$UViewRecordEmbedsEmbedRecordViewImpl>
-    implements _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith<$Res> {
-  __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl(
-      _$UViewRecordEmbedsEmbedRecordViewImpl _value,
-      $Res Function(_$UViewRecordEmbedsEmbedRecordViewImpl) _then)
+class __$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>
+    extends _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl>
+    implements
+        _$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWith<$Res> {
+  __$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWithImpl(
+      _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl _value,
+      $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +144,7 @@ class __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewRecordEmbedsEmbedRecordViewImpl(
+    return _then(_$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -148,9 +163,9 @@ class __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordEmbedsEmbedRecordViewImpl
-    extends UViewRecordEmbedsEmbedRecordView {
-  const _$UViewRecordEmbedsEmbedRecordViewImpl({required this.data})
+class _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl
+    extends UEmbedRecordViewRecordEmbedsEmbedRecordView {
+  const _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl({required this.data})
       : super._();
 
   @override
@@ -158,14 +173,14 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
 
   @override
   String toString() {
-    return 'UViewRecordEmbeds.embedRecordView(data: $data)';
+    return 'UEmbedRecordViewRecordEmbeds.embedRecordView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewRecordEmbedsEmbedRecordViewImpl &&
+            other is _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -175,10 +190,12 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedRecordViewImpl>
-      get copyWith => __$$UViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<
-          _$UViewRecordEmbedsEmbedRecordViewImpl>(this, _$identity);
+  _$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl>
+      get copyWith =>
+          __$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWithImpl<
+                  _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -224,15 +241,18 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) {
     return embedRecordView(this);
   }
@@ -240,13 +260,16 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) {
     return embedRecordView?.call(this);
   }
@@ -254,13 +277,16 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (embedRecordView != null) {
@@ -270,26 +296,29 @@ class _$UViewRecordEmbedsEmbedRecordViewImpl
   }
 }
 
-abstract class UViewRecordEmbedsEmbedRecordView extends UViewRecordEmbeds {
-  const factory UViewRecordEmbedsEmbedRecordView(
+abstract class UEmbedRecordViewRecordEmbedsEmbedRecordView
+    extends UEmbedRecordViewRecordEmbeds {
+  const factory UEmbedRecordViewRecordEmbedsEmbedRecordView(
           {required final EmbedRecordView data}) =
-      _$UViewRecordEmbedsEmbedRecordViewImpl;
-  const UViewRecordEmbedsEmbedRecordView._() : super._();
+      _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl;
+  const UEmbedRecordViewRecordEmbedsEmbedRecordView._() : super._();
 
   @override
   EmbedRecordView get data;
   @JsonKey(ignore: true)
-  _$$UViewRecordEmbedsEmbedRecordViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedRecordViewImpl>
+  _$$UEmbedRecordViewRecordEmbedsEmbedRecordViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith<$Res> {
-  factory _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith(
-          _$UViewRecordEmbedsEmbedImagesViewImpl value,
-          $Res Function(_$UViewRecordEmbedsEmbedImagesViewImpl) then) =
-      __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWith<
+    $Res> {
+  factory _$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWith(
+          _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl value,
+          $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl)
+              then) =
+      __$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedImagesView data});
 
@@ -297,13 +326,14 @@ abstract class _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordEmbedsCopyWithImpl<$Res,
-        _$UViewRecordEmbedsEmbedImagesViewImpl>
-    implements _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith<$Res> {
-  __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl(
-      _$UViewRecordEmbedsEmbedImagesViewImpl _value,
-      $Res Function(_$UViewRecordEmbedsEmbedImagesViewImpl) _then)
+class __$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>
+    extends _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl>
+    implements
+        _$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWith<$Res> {
+  __$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWithImpl(
+      _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl _value,
+      $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -311,7 +341,7 @@ class __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewRecordEmbedsEmbedImagesViewImpl(
+    return _then(_$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -330,9 +360,9 @@ class __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordEmbedsEmbedImagesViewImpl
-    extends UViewRecordEmbedsEmbedImagesView {
-  const _$UViewRecordEmbedsEmbedImagesViewImpl({required this.data})
+class _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl
+    extends UEmbedRecordViewRecordEmbedsEmbedImagesView {
+  const _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl({required this.data})
       : super._();
 
   @override
@@ -340,14 +370,14 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
 
   @override
   String toString() {
-    return 'UViewRecordEmbeds.embedImagesView(data: $data)';
+    return 'UEmbedRecordViewRecordEmbeds.embedImagesView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewRecordEmbedsEmbedImagesViewImpl &&
+            other is _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -357,10 +387,12 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedImagesViewImpl>
-      get copyWith => __$$UViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<
-          _$UViewRecordEmbedsEmbedImagesViewImpl>(this, _$identity);
+  _$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl>
+      get copyWith =>
+          __$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWithImpl<
+                  _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -406,15 +438,18 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) {
     return embedImagesView(this);
   }
@@ -422,13 +457,16 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) {
     return embedImagesView?.call(this);
   }
@@ -436,13 +474,16 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (embedImagesView != null) {
@@ -452,26 +493,29 @@ class _$UViewRecordEmbedsEmbedImagesViewImpl
   }
 }
 
-abstract class UViewRecordEmbedsEmbedImagesView extends UViewRecordEmbeds {
-  const factory UViewRecordEmbedsEmbedImagesView(
+abstract class UEmbedRecordViewRecordEmbedsEmbedImagesView
+    extends UEmbedRecordViewRecordEmbeds {
+  const factory UEmbedRecordViewRecordEmbedsEmbedImagesView(
           {required final EmbedImagesView data}) =
-      _$UViewRecordEmbedsEmbedImagesViewImpl;
-  const UViewRecordEmbedsEmbedImagesView._() : super._();
+      _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl;
+  const UEmbedRecordViewRecordEmbedsEmbedImagesView._() : super._();
 
   @override
   EmbedImagesView get data;
   @JsonKey(ignore: true)
-  _$$UViewRecordEmbedsEmbedImagesViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedImagesViewImpl>
+  _$$UEmbedRecordViewRecordEmbedsEmbedImagesViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedImagesViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith<$Res> {
-  factory _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith(
-          _$UViewRecordEmbedsEmbedExternalViewImpl value,
-          $Res Function(_$UViewRecordEmbedsEmbedExternalViewImpl) then) =
-      __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWith<
+    $Res> {
+  factory _$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWith(
+          _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl value,
+          $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl)
+              then) =
+      __$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>;
   @useResult
   $Res call({EmbedExternalView data});
 
@@ -479,13 +523,14 @@ abstract class _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordEmbedsCopyWithImpl<$Res,
-        _$UViewRecordEmbedsEmbedExternalViewImpl>
-    implements _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith<$Res> {
-  __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl(
-      _$UViewRecordEmbedsEmbedExternalViewImpl _value,
-      $Res Function(_$UViewRecordEmbedsEmbedExternalViewImpl) _then)
+class __$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>
+    extends _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl>
+    implements
+        _$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWith<$Res> {
+  __$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWithImpl(
+      _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl _value,
+      $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -493,7 +538,7 @@ class __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewRecordEmbedsEmbedExternalViewImpl(
+    return _then(_$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -512,9 +557,10 @@ class __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordEmbedsEmbedExternalViewImpl
-    extends UViewRecordEmbedsEmbedExternalView {
-  const _$UViewRecordEmbedsEmbedExternalViewImpl({required this.data})
+class _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl
+    extends UEmbedRecordViewRecordEmbedsEmbedExternalView {
+  const _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl(
+      {required this.data})
       : super._();
 
   @override
@@ -522,14 +568,14 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
 
   @override
   String toString() {
-    return 'UViewRecordEmbeds.embedExternalView(data: $data)';
+    return 'UEmbedRecordViewRecordEmbeds.embedExternalView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewRecordEmbedsEmbedExternalViewImpl &&
+            other is _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -539,10 +585,12 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedExternalViewImpl>
-      get copyWith => __$$UViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<
-          _$UViewRecordEmbedsEmbedExternalViewImpl>(this, _$identity);
+  _$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl>
+      get copyWith =>
+          __$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWithImpl<
+                  _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -588,15 +636,18 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) {
     return embedExternalView(this);
   }
@@ -604,13 +655,16 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) {
     return embedExternalView?.call(this);
   }
@@ -618,13 +672,16 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (embedExternalView != null) {
@@ -634,26 +691,31 @@ class _$UViewRecordEmbedsEmbedExternalViewImpl
   }
 }
 
-abstract class UViewRecordEmbedsEmbedExternalView extends UViewRecordEmbeds {
-  const factory UViewRecordEmbedsEmbedExternalView(
+abstract class UEmbedRecordViewRecordEmbedsEmbedExternalView
+    extends UEmbedRecordViewRecordEmbeds {
+  const factory UEmbedRecordViewRecordEmbedsEmbedExternalView(
           {required final EmbedExternalView data}) =
-      _$UViewRecordEmbedsEmbedExternalViewImpl;
-  const UViewRecordEmbedsEmbedExternalView._() : super._();
+      _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl;
+  const UEmbedRecordViewRecordEmbedsEmbedExternalView._() : super._();
 
   @override
   EmbedExternalView get data;
   @JsonKey(ignore: true)
-  _$$UViewRecordEmbedsEmbedExternalViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedExternalViewImpl>
+  _$$UEmbedRecordViewRecordEmbedsEmbedExternalViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedExternalViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<$Res> {
-  factory _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith(
-          _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl value,
-          $Res Function(_$UViewRecordEmbedsEmbedRecordWithMediaViewImpl) then) =
-      __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
+    $Res> {
+  factory _$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith(
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl value,
+          $Res Function(
+                  _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl)
+              then) =
+      __$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<
+          $Res>;
   @useResult
   $Res call({EmbedRecordWithMediaView data});
 
@@ -661,13 +723,17 @@ abstract class _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
-    extends _$UViewRecordEmbedsCopyWithImpl<$Res,
-        _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl>
-    implements _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<$Res> {
-  __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl(
-      _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl _value,
-      $Res Function(_$UViewRecordEmbedsEmbedRecordWithMediaViewImpl) _then)
+class __$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<
+        $Res>
+    extends _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl>
+    implements
+        _$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
+            $Res> {
+  __$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl(
+      _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl _value,
+      $Res Function(_$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl)
+          _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -675,7 +741,7 @@ class __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewRecordEmbedsEmbedRecordWithMediaViewImpl(
+    return _then(_$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -694,9 +760,10 @@ class __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
-    extends UViewRecordEmbedsEmbedRecordWithMediaView {
-  const _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl({required this.data})
+class _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl
+    extends UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView {
+  const _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl(
+      {required this.data})
       : super._();
 
   @override
@@ -704,14 +771,15 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
 
   @override
   String toString() {
-    return 'UViewRecordEmbeds.embedRecordWithMediaView(data: $data)';
+    return 'UEmbedRecordViewRecordEmbeds.embedRecordWithMediaView(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl &&
+            other
+                is _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -721,11 +789,11 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl>
+  _$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl>
       get copyWith =>
-          __$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<
-                  _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl>(
+          __$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWithImpl<
+                  _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl>(
               this, _$identity);
 
   @override
@@ -772,15 +840,18 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) {
     return embedRecordWithMediaView(this);
   }
@@ -788,13 +859,16 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) {
     return embedRecordWithMediaView?.call(this);
   }
@@ -802,13 +876,16 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (embedRecordWithMediaView != null) {
@@ -818,39 +895,39 @@ class _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl
   }
 }
 
-abstract class UViewRecordEmbedsEmbedRecordWithMediaView
-    extends UViewRecordEmbeds {
-  const factory UViewRecordEmbedsEmbedRecordWithMediaView(
+abstract class UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView
+    extends UEmbedRecordViewRecordEmbeds {
+  const factory UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView(
           {required final EmbedRecordWithMediaView data}) =
-      _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl;
-  const UViewRecordEmbedsEmbedRecordWithMediaView._() : super._();
+      _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl;
+  const UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView._() : super._();
 
   @override
   EmbedRecordWithMediaView get data;
   @JsonKey(ignore: true)
-  _$$UViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
-          _$UViewRecordEmbedsEmbedRecordWithMediaViewImpl>
+  _$$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaViewImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UViewRecordEmbedsUnknownImplCopyWith<$Res> {
-  factory _$$UViewRecordEmbedsUnknownImplCopyWith(
-          _$UViewRecordEmbedsUnknownImpl value,
-          $Res Function(_$UViewRecordEmbedsUnknownImpl) then) =
-      __$$UViewRecordEmbedsUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWith<$Res> {
+  factory _$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWith(
+          _$UEmbedRecordViewRecordEmbedsUnknownImpl value,
+          $Res Function(_$UEmbedRecordViewRecordEmbedsUnknownImpl) then) =
+      __$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UViewRecordEmbedsUnknownImplCopyWithImpl<$Res>
-    extends _$UViewRecordEmbedsCopyWithImpl<$Res,
-        _$UViewRecordEmbedsUnknownImpl>
-    implements _$$UViewRecordEmbedsUnknownImplCopyWith<$Res> {
-  __$$UViewRecordEmbedsUnknownImplCopyWithImpl(
-      _$UViewRecordEmbedsUnknownImpl _value,
-      $Res Function(_$UViewRecordEmbedsUnknownImpl) _then)
+class __$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWithImpl<$Res>
+    extends _$UEmbedRecordViewRecordEmbedsCopyWithImpl<$Res,
+        _$UEmbedRecordViewRecordEmbedsUnknownImpl>
+    implements _$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWith<$Res> {
+  __$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWithImpl(
+      _$UEmbedRecordViewRecordEmbedsUnknownImpl _value,
+      $Res Function(_$UEmbedRecordViewRecordEmbedsUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -858,7 +935,7 @@ class __$$UViewRecordEmbedsUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UViewRecordEmbedsUnknownImpl(
+    return _then(_$UEmbedRecordViewRecordEmbedsUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -869,8 +946,9 @@ class __$$UViewRecordEmbedsUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
-  const _$UViewRecordEmbedsUnknownImpl(
+class _$UEmbedRecordViewRecordEmbedsUnknownImpl
+    extends UEmbedRecordViewRecordEmbedsUnknown {
+  const _$UEmbedRecordViewRecordEmbedsUnknownImpl(
       {required final Map<String, dynamic> data})
       : _data = data,
         super._();
@@ -885,14 +963,14 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
 
   @override
   String toString() {
-    return 'UViewRecordEmbeds.unknown(data: $data)';
+    return 'UEmbedRecordViewRecordEmbeds.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UViewRecordEmbedsUnknownImpl &&
+            other is _$UEmbedRecordViewRecordEmbedsUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -903,9 +981,10 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UViewRecordEmbedsUnknownImplCopyWith<_$UViewRecordEmbedsUnknownImpl>
-      get copyWith => __$$UViewRecordEmbedsUnknownImplCopyWithImpl<
-          _$UViewRecordEmbedsUnknownImpl>(this, _$identity);
+  _$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsUnknownImpl>
+      get copyWith => __$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWithImpl<
+          _$UEmbedRecordViewRecordEmbedsUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -951,15 +1030,18 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UViewRecordEmbedsEmbedRecordView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)
         embedRecordView,
-    required TResult Function(UViewRecordEmbedsEmbedImagesView value)
+    required TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)
         embedImagesView,
-    required TResult Function(UViewRecordEmbedsEmbedExternalView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedExternalView value)
         embedExternalView,
-    required TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)
+    required TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)
         embedRecordWithMediaView,
-    required TResult Function(UViewRecordEmbedsUnknown value) unknown,
+    required TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)
+        unknown,
   }) {
     return unknown(this);
   }
@@ -967,13 +1049,16 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult? Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult? Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult? Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult? Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult? Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult? Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult? Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -981,13 +1066,16 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UViewRecordEmbedsEmbedRecordView value)? embedRecordView,
-    TResult Function(UViewRecordEmbedsEmbedImagesView value)? embedImagesView,
-    TResult Function(UViewRecordEmbedsEmbedExternalView value)?
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedRecordView value)?
+        embedRecordView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedImagesView value)?
+        embedImagesView,
+    TResult Function(UEmbedRecordViewRecordEmbedsEmbedExternalView value)?
         embedExternalView,
-    TResult Function(UViewRecordEmbedsEmbedRecordWithMediaView value)?
+    TResult Function(
+            UEmbedRecordViewRecordEmbedsEmbedRecordWithMediaView value)?
         embedRecordWithMediaView,
-    TResult Function(UViewRecordEmbedsUnknown value)? unknown,
+    TResult Function(UEmbedRecordViewRecordEmbedsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -997,15 +1085,17 @@ class _$UViewRecordEmbedsUnknownImpl extends UViewRecordEmbedsUnknown {
   }
 }
 
-abstract class UViewRecordEmbedsUnknown extends UViewRecordEmbeds {
-  const factory UViewRecordEmbedsUnknown(
+abstract class UEmbedRecordViewRecordEmbedsUnknown
+    extends UEmbedRecordViewRecordEmbeds {
+  const factory UEmbedRecordViewRecordEmbedsUnknown(
           {required final Map<String, dynamic> data}) =
-      _$UViewRecordEmbedsUnknownImpl;
-  const UViewRecordEmbedsUnknown._() : super._();
+      _$UEmbedRecordViewRecordEmbedsUnknownImpl;
+  const UEmbedRecordViewRecordEmbedsUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UViewRecordEmbedsUnknownImplCopyWith<_$UViewRecordEmbedsUnknownImpl>
+  _$$UEmbedRecordViewRecordEmbedsUnknownImplCopyWith<
+          _$UEmbedRecordViewRecordEmbedsUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

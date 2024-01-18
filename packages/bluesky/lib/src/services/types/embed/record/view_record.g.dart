@@ -23,8 +23,10 @@ _$EmbedRecordViewRecordImpl _$$EmbedRecordViewRecordImplFromJson(Map json) =>
               'author',
               (v) => ActorDefsProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
-          value: $checkedConvert('value',
-              (v) => recordConverter.fromJson(v as Map<String, dynamic>)),
+          value: $checkedConvert(
+              'value',
+              (v) =>
+                  feedPostRecordConverter.fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -34,8 +36,8 @@ _$EmbedRecordViewRecordImpl _$$EmbedRecordViewRecordImplFromJson(Map json) =>
           embeds: $checkedConvert(
               'embeds',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      unionViewRecordEmbeds.fromJson(e as Map<String, dynamic>))
+                  ?.map((e) => unionEmbedRecordViewRecordEmbedsConverter
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -52,7 +54,7 @@ Map<String, dynamic> _$$EmbedRecordViewRecordImplToJson(
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
-    'value': recordConverter.toJson(instance.value),
+    'value': feedPostRecordConverter.toJson(instance.value),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -63,7 +65,10 @@ Map<String, dynamic> _$$EmbedRecordViewRecordImplToJson(
 
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull(
-      'embeds', instance.embeds?.map(unionViewRecordEmbeds.toJson).toList());
+      'embeds',
+      instance.embeds
+          ?.map(unionEmbedRecordViewRecordEmbedsConverter.toJson)
+          .toList());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

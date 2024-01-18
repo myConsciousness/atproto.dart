@@ -18,8 +18,9 @@ part 'reply_ref.g.dart';
 @lex.appBskyFeedDefsReplyRef
 class FeedDefsReplyRef with _$FeedDefsReplyRef {
   const factory FeedDefsReplyRef({
-    @unionReplyRefRoot required UReplyRefRoot root,
-    @unionReplyRefParent required UReplyRefParent parent,
+    @unionFeedDefsReplyRefRootConverter required UFeedDefsReplyRefRoot root,
+    @unionFeedDefsReplyRefParentConverter
+    required UFeedDefsReplyRefParent parent,
   }) = _FeedDefsReplyRef;
 
   factory FeedDefsReplyRef.fromJson(Map<String, Object?> json) =>

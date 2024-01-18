@@ -13,7 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../actor/defs/profile_view_basic.dart';
-import '../../feed/post/converter/record_converter.dart';
+import '../../feed/post/converters/record_converter.dart';
 import '../../feed/post/record.dart';
 import 'unions/view_record_embeds.dart';
 
@@ -30,9 +30,10 @@ class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     @atUriConverter required AtUri uri,
     required String cid,
     required ActorDefsProfileViewBasic author,
-    @recordConverter required FeedPostRecord value,
+    @feedPostRecordConverter required FeedPostRecord value,
     List<Label>? labels,
-    @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
+    @unionEmbedRecordViewRecordEmbedsConverter
+    List<UEmbedRecordViewRecordEmbeds>? embeds,
     required DateTime indexedAt,
   }) = _EmbedRecordViewRecord;
 

@@ -25,7 +25,8 @@ class RichtextFacet with _$RichtextFacet {
   const factory RichtextFacet({
     @typeKey @Default(appBskyRichtextFacet) String type,
     required RichtextFacetByteSlice index,
-    @unionMainFeatures required List<UMainFeatures> features,
+    @unionRichtextFacetFeaturesConverter
+    required List<URichtextFacetFeatures> features,
   }) = _RichtextFacet;
 
   factory RichtextFacet.fromJson(Map<String, Object?> json) =>

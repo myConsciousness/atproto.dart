@@ -29,7 +29,7 @@ class FeedPostRecord with _$FeedPostRecord {
     @typeKey @Default(appBskyFeedPost) String type,
     required String text,
     FeedPostReplyRef? reply,
-    @unionRecordEmbed URecordEmbed? embed,
+    @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
     List<RichtextFacet>? facets,

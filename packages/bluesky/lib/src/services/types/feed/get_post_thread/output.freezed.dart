@@ -21,8 +21,9 @@ FeedGetPostThreadOutput _$FeedGetPostThreadOutputFromJson(
 
 /// @nodoc
 mixin _$FeedGetPostThreadOutput {
-  @unionOutputThread
-  UOutputThread get thread => throw _privateConstructorUsedError;
+  @unionFeedGetPostThreadOutputThreadConverter
+  UFeedGetPostThreadOutputThread get thread =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +37,11 @@ abstract class $FeedGetPostThreadOutputCopyWith<$Res> {
           $Res Function(FeedGetPostThreadOutput) then) =
       _$FeedGetPostThreadOutputCopyWithImpl<$Res, FeedGetPostThreadOutput>;
   @useResult
-  $Res call({@unionOutputThread UOutputThread thread});
+  $Res call(
+      {@unionFeedGetPostThreadOutputThreadConverter
+      UFeedGetPostThreadOutputThread thread});
 
-  $UOutputThreadCopyWith<$Res> get thread;
+  $UFeedGetPostThreadOutputThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -61,14 +64,15 @@ class _$FeedGetPostThreadOutputCopyWithImpl<$Res,
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as UOutputThread,
+              as UFeedGetPostThreadOutputThread,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UOutputThreadCopyWith<$Res> get thread {
-    return $UOutputThreadCopyWith<$Res>(_value.thread, (value) {
+  $UFeedGetPostThreadOutputThreadCopyWith<$Res> get thread {
+    return $UFeedGetPostThreadOutputThreadCopyWith<$Res>(_value.thread,
+        (value) {
       return _then(_value.copyWith(thread: value) as $Val);
     });
   }
@@ -83,10 +87,12 @@ abstract class _$$FeedGetPostThreadOutputImplCopyWith<$Res>
       __$$FeedGetPostThreadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@unionOutputThread UOutputThread thread});
+  $Res call(
+      {@unionFeedGetPostThreadOutputThreadConverter
+      UFeedGetPostThreadOutputThread thread});
 
   @override
-  $UOutputThreadCopyWith<$Res> get thread;
+  $UFeedGetPostThreadOutputThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -108,7 +114,7 @@ class __$$FeedGetPostThreadOutputImplCopyWithImpl<$Res>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as UOutputThread,
+              as UFeedGetPostThreadOutputThread,
     ));
   }
 }
@@ -117,14 +123,14 @@ class __$$FeedGetPostThreadOutputImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$FeedGetPostThreadOutputImpl implements _FeedGetPostThreadOutput {
   const _$FeedGetPostThreadOutputImpl(
-      {@unionOutputThread required this.thread});
+      {@unionFeedGetPostThreadOutputThreadConverter required this.thread});
 
   factory _$FeedGetPostThreadOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGetPostThreadOutputImplFromJson(json);
 
   @override
-  @unionOutputThread
-  final UOutputThread thread;
+  @unionFeedGetPostThreadOutputThreadConverter
+  final UFeedGetPostThreadOutputThread thread;
 
   @override
   String toString() {
@@ -160,15 +166,16 @@ class _$FeedGetPostThreadOutputImpl implements _FeedGetPostThreadOutput {
 
 abstract class _FeedGetPostThreadOutput implements FeedGetPostThreadOutput {
   const factory _FeedGetPostThreadOutput(
-          {@unionOutputThread required final UOutputThread thread}) =
+          {@unionFeedGetPostThreadOutputThreadConverter
+          required final UFeedGetPostThreadOutputThread thread}) =
       _$FeedGetPostThreadOutputImpl;
 
   factory _FeedGetPostThreadOutput.fromJson(Map<String, dynamic> json) =
       _$FeedGetPostThreadOutputImpl.fromJson;
 
   @override
-  @unionOutputThread
-  UOutputThread get thread;
+  @unionFeedGetPostThreadOutputThreadConverter
+  UFeedGetPostThreadOutputThread get thread;
   @override
   @JsonKey(ignore: true)
   _$$FeedGetPostThreadOutputImplCopyWith<_$FeedGetPostThreadOutputImpl>

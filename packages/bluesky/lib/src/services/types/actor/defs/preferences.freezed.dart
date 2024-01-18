@@ -20,8 +20,8 @@ ActorDefsPreferences _$ActorDefsPreferencesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ActorDefsPreferences {
-  @unionPreferencesPreferences
-  List<UPreferencesPreferences> get preferences =>
+  @unionActorDefsPreferencesPreferencesConverter
+  List<UActorDefsPreferencesPreferences> get preferences =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,8 @@ abstract class $ActorDefsPreferencesCopyWith<$Res> {
       _$ActorDefsPreferencesCopyWithImpl<$Res, ActorDefsPreferences>;
   @useResult
   $Res call(
-      {@unionPreferencesPreferences List<UPreferencesPreferences> preferences});
+      {@unionActorDefsPreferencesPreferencesConverter
+      List<UActorDefsPreferencesPreferences> preferences});
 }
 
 /// @nodoc
@@ -60,7 +61,7 @@ class _$ActorDefsPreferencesCopyWithImpl<$Res,
       preferences: null == preferences
           ? _value.preferences
           : preferences // ignore: cast_nullable_to_non_nullable
-              as List<UPreferencesPreferences>,
+              as List<UActorDefsPreferencesPreferences>,
     ) as $Val);
   }
 }
@@ -74,7 +75,8 @@ abstract class _$$ActorDefsPreferencesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@unionPreferencesPreferences List<UPreferencesPreferences> preferences});
+      {@unionActorDefsPreferencesPreferencesConverter
+      List<UActorDefsPreferencesPreferences> preferences});
 }
 
 /// @nodoc
@@ -94,7 +96,7 @@ class __$$ActorDefsPreferencesImplCopyWithImpl<$Res>
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
-              as List<UPreferencesPreferences>,
+              as List<UActorDefsPreferencesPreferences>,
     ));
   }
 }
@@ -103,17 +105,17 @@ class __$$ActorDefsPreferencesImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ActorDefsPreferencesImpl implements _ActorDefsPreferences {
   const _$ActorDefsPreferencesImpl(
-      {@unionPreferencesPreferences
-      required final List<UPreferencesPreferences> preferences})
+      {@unionActorDefsPreferencesPreferencesConverter
+      required final List<UActorDefsPreferencesPreferences> preferences})
       : _preferences = preferences;
 
   factory _$ActorDefsPreferencesImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorDefsPreferencesImplFromJson(json);
 
-  final List<UPreferencesPreferences> _preferences;
+  final List<UActorDefsPreferencesPreferences> _preferences;
   @override
-  @unionPreferencesPreferences
-  List<UPreferencesPreferences> get preferences {
+  @unionActorDefsPreferencesPreferencesConverter
+  List<UActorDefsPreferencesPreferences> get preferences {
     if (_preferences is EqualUnmodifiableListView) return _preferences;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_preferences);
@@ -156,16 +158,16 @@ class _$ActorDefsPreferencesImpl implements _ActorDefsPreferences {
 
 abstract class _ActorDefsPreferences implements ActorDefsPreferences {
   const factory _ActorDefsPreferences(
-          {@unionPreferencesPreferences
-          required final List<UPreferencesPreferences> preferences}) =
+          {@unionActorDefsPreferencesPreferencesConverter
+          required final List<UActorDefsPreferencesPreferences> preferences}) =
       _$ActorDefsPreferencesImpl;
 
   factory _ActorDefsPreferences.fromJson(Map<String, dynamic> json) =
       _$ActorDefsPreferencesImpl.fromJson;
 
   @override
-  @unionPreferencesPreferences
-  List<UPreferencesPreferences> get preferences;
+  @unionActorDefsPreferencesPreferencesConverter
+  List<UActorDefsPreferencesPreferences> get preferences;
   @override
   @JsonKey(ignore: true)
   _$$ActorDefsPreferencesImplCopyWith<_$ActorDefsPreferencesImpl>

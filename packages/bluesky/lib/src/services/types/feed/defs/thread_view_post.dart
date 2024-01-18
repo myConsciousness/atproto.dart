@@ -25,8 +25,10 @@ class FeedDefsThreadViewPost with _$FeedDefsThreadViewPost {
   const factory FeedDefsThreadViewPost({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,
     required FeedDefsPostView post,
-    @unionThreadViewPostParent UThreadViewPostParent? parent,
-    @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies,
+    @unionFeedDefsThreadViewPostParentConverter
+    UFeedDefsThreadViewPostParent? parent,
+    @unionFeedDefsThreadViewPostRepliesConverter
+    List<UFeedDefsThreadViewPostReplies>? replies,
   }) = _FeedDefsThreadViewPost;
 
   factory FeedDefsThreadViewPost.fromJson(Map<String, Object?> json) =>

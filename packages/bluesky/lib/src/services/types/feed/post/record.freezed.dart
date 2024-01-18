@@ -24,8 +24,8 @@ mixin _$FeedPostRecord {
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   FeedPostReplyRef? get reply => throw _privateConstructorUsedError;
-  @unionRecordEmbed
-  URecordEmbed? get embed => throw _privateConstructorUsedError;
+  @unionFeedPostRecordEmbedConverter
+  UFeedPostRecordEmbed? get embed => throw _privateConstructorUsedError;
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $FeedPostRecordCopyWith<$Res> {
       {@typeKey String type,
       String text,
       FeedPostReplyRef? reply,
-      @unionRecordEmbed URecordEmbed? embed,
+      @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<RichtextFacet>? facets,
@@ -57,7 +57,7 @@ abstract class $FeedPostRecordCopyWith<$Res> {
       DateTime createdAt});
 
   $FeedPostReplyRefCopyWith<$Res>? get reply;
-  $URecordEmbedCopyWith<$Res>? get embed;
+  $UFeedPostRecordEmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
 
@@ -100,7 +100,7 @@ class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as URecordEmbed?,
+              as UFeedPostRecordEmbed?,
       langs: freezed == langs
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -138,12 +138,12 @@ class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $URecordEmbedCopyWith<$Res>? get embed {
+  $UFeedPostRecordEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $URecordEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UFeedPostRecordEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
@@ -173,7 +173,7 @@ abstract class _$$FeedPostRecordImplCopyWith<$Res>
       {@typeKey String type,
       String text,
       FeedPostReplyRef? reply,
-      @unionRecordEmbed URecordEmbed? embed,
+      @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
       List<RichtextFacet>? facets,
@@ -183,7 +183,7 @@ abstract class _$$FeedPostRecordImplCopyWith<$Res>
   @override
   $FeedPostReplyRefCopyWith<$Res>? get reply;
   @override
-  $URecordEmbedCopyWith<$Res>? get embed;
+  $UFeedPostRecordEmbedCopyWith<$Res>? get embed;
   @override
   $LabelsCopyWith<$Res>? get labels;
 }
@@ -225,7 +225,7 @@ class __$$FeedPostRecordImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as URecordEmbed?,
+              as UFeedPostRecordEmbed?,
       langs: freezed == langs
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -258,7 +258,7 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
       {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
-      @unionRecordEmbed this.embed,
+      @unionFeedPostRecordEmbedConverter this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
       final List<RichtextFacet>? facets,
@@ -279,8 +279,8 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
   @override
   final FeedPostReplyRef? reply;
   @override
-  @unionRecordEmbed
-  final URecordEmbed? embed;
+  @unionFeedPostRecordEmbedConverter
+  final UFeedPostRecordEmbed? embed;
   final List<String>? _langs;
   @override
   List<String>? get langs {
@@ -373,7 +373,7 @@ abstract class _FeedPostRecord implements FeedPostRecord {
       {@typeKey final String type,
       required final String text,
       final FeedPostReplyRef? reply,
-      @unionRecordEmbed final URecordEmbed? embed,
+      @unionFeedPostRecordEmbedConverter final UFeedPostRecordEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
       final List<RichtextFacet>? facets,
@@ -391,8 +391,8 @@ abstract class _FeedPostRecord implements FeedPostRecord {
   @override
   FeedPostReplyRef? get reply;
   @override
-  @unionRecordEmbed
-  URecordEmbed? get embed;
+  @unionFeedPostRecordEmbedConverter
+  UFeedPostRecordEmbed? get embed;
   @override
   List<String>? get langs;
   @override

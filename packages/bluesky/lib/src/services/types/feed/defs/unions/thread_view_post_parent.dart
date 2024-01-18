@@ -16,62 +16,65 @@ part 'thread_view_post_parent.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class UThreadViewPostParent with _$UThreadViewPostParent {
+class UFeedDefsThreadViewPostParent with _$UFeedDefsThreadViewPostParent {
   // ignore: unused_element
-  const UThreadViewPostParent._();
+  const UFeedDefsThreadViewPostParent._();
 
-  const factory UThreadViewPostParent.threadViewPost({
+  const factory UFeedDefsThreadViewPostParent.threadViewPost({
     required FeedDefsThreadViewPost data,
-  }) = UThreadViewPostParentThreadViewPost;
+  }) = UFeedDefsThreadViewPostParentThreadViewPost;
 
-  const factory UThreadViewPostParent.notFoundPost({
+  const factory UFeedDefsThreadViewPostParent.notFoundPost({
     required FeedDefsNotFoundPost data,
-  }) = UThreadViewPostParentNotFoundPost;
+  }) = UFeedDefsThreadViewPostParentNotFoundPost;
 
-  const factory UThreadViewPostParent.blockedPost({
+  const factory UFeedDefsThreadViewPostParent.blockedPost({
     required FeedDefsBlockedPost data,
-  }) = UThreadViewPostParentBlockedPost;
+  }) = UFeedDefsThreadViewPostParentBlockedPost;
 
-  const factory UThreadViewPostParent.unknown({
+  const factory UFeedDefsThreadViewPostParent.unknown({
     required Map<String, dynamic> data,
-  }) = UThreadViewPostParentUnknown;
+  }) = UFeedDefsThreadViewPostParentUnknown;
 }
 
-const unionThreadViewPostParent = _UThreadViewPostParentConverter();
+const unionFeedDefsThreadViewPostParentConverter =
+    _UFeedDefsThreadViewPostParentConverter();
 
-final class _UThreadViewPostParentConverter
-    implements JsonConverter<UThreadViewPostParent, Map<String, dynamic>> {
-  const _UThreadViewPostParentConverter();
+final class _UFeedDefsThreadViewPostParentConverter
+    implements
+        JsonConverter<UFeedDefsThreadViewPostParent, Map<String, dynamic>> {
+  const _UFeedDefsThreadViewPostParentConverter();
 
   @override
-  UThreadViewPostParent fromJson(Map<String, dynamic> json) {
+  UFeedDefsThreadViewPostParent fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
-        return UThreadViewPostParent.threadViewPost(
+        return UFeedDefsThreadViewPostParent.threadViewPost(
           data: FeedDefsThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return UThreadViewPostParent.notFoundPost(
+        return UFeedDefsThreadViewPostParent.notFoundPost(
           data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return UThreadViewPostParent.blockedPost(
+        return UFeedDefsThreadViewPostParent.blockedPost(
           data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
-      return UThreadViewPostParent.unknown(data: json);
+      return UFeedDefsThreadViewPostParent.unknown(data: json);
     } catch (_) {
-      return UThreadViewPostParent.unknown(data: json);
+      return UFeedDefsThreadViewPostParent.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UThreadViewPostParent object) => object.when(
+  Map<String, dynamic> toJson(UFeedDefsThreadViewPostParent object) =>
+      object.when(
         threadViewPost: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

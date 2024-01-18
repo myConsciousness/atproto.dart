@@ -24,8 +24,9 @@ mixin _$FeedThreadgateRecord {
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
-  @unionRecordAllow
-  List<URecordAllow>? get allow => throw _privateConstructorUsedError;
+  @unionFeedThreadgateRecordAllowConverter
+  List<UFeedThreadgateRecordAllow>? get allow =>
+      throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,7 +44,8 @@ abstract class $FeedThreadgateRecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri post,
-      @unionRecordAllow List<URecordAllow>? allow,
+      @unionFeedThreadgateRecordAllowConverter
+      List<UFeedThreadgateRecordAllow>? allow,
       DateTime createdAt});
 }
 
@@ -78,7 +80,7 @@ class _$FeedThreadgateRecordCopyWithImpl<$Res,
       allow: freezed == allow
           ? _value.allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<URecordAllow>?,
+              as List<UFeedThreadgateRecordAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -98,7 +100,8 @@ abstract class _$$FeedThreadgateRecordImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri post,
-      @unionRecordAllow List<URecordAllow>? allow,
+      @unionFeedThreadgateRecordAllowConverter
+      List<UFeedThreadgateRecordAllow>? allow,
       DateTime createdAt});
 }
 
@@ -130,7 +133,7 @@ class __$$FeedThreadgateRecordImplCopyWithImpl<$Res>
       allow: freezed == allow
           ? _value._allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<URecordAllow>?,
+              as List<UFeedThreadgateRecordAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -146,7 +149,8 @@ class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
   const _$FeedThreadgateRecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
       @atUriConverter required this.post,
-      @unionRecordAllow final List<URecordAllow>? allow,
+      @unionFeedThreadgateRecordAllowConverter
+      final List<UFeedThreadgateRecordAllow>? allow,
       required this.createdAt})
       : _allow = allow;
 
@@ -159,10 +163,10 @@ class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
   @override
   @atUriConverter
   final AtUri post;
-  final List<URecordAllow>? _allow;
+  final List<UFeedThreadgateRecordAllow>? _allow;
   @override
-  @unionRecordAllow
-  List<URecordAllow>? get allow {
+  @unionFeedThreadgateRecordAllowConverter
+  List<UFeedThreadgateRecordAllow>? get allow {
     final value = _allow;
     if (value == null) return null;
     if (_allow is EqualUnmodifiableListView) return _allow;
@@ -215,7 +219,8 @@ abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
   const factory _FeedThreadgateRecord(
       {@typeKey final String type,
       @atUriConverter required final AtUri post,
-      @unionRecordAllow final List<URecordAllow>? allow,
+      @unionFeedThreadgateRecordAllowConverter
+      final List<UFeedThreadgateRecordAllow>? allow,
       required final DateTime createdAt}) = _$FeedThreadgateRecordImpl;
 
   factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) =
@@ -228,8 +233,8 @@ abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
   @atUriConverter
   AtUri get post;
   @override
-  @unionRecordAllow
-  List<URecordAllow>? get allow;
+  @unionFeedThreadgateRecordAllowConverter
+  List<UFeedThreadgateRecordAllow>? get allow;
   @override
   DateTime get createdAt;
   @override

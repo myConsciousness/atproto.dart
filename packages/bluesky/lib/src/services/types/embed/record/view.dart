@@ -22,7 +22,7 @@ part 'view.g.dart';
 class EmbedRecordView with _$EmbedRecordView {
   const factory EmbedRecordView({
     @typeKey @Default(appBskyEmbedRecordView) String type,
-    @unionViewRecord required UViewRecord record,
+    @unionEmbedRecordViewRecordConverter required UEmbedRecordViewRecord record,
   }) = _EmbedRecordView;
 
   factory EmbedRecordView.fromJson(Map<String, Object?> json) =>

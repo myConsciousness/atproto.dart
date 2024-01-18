@@ -18,64 +18,65 @@ part 'main_features.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-class UMainFeatures with _$UMainFeatures {
+class URichtextFacetFeatures with _$URichtextFacetFeatures {
   // ignore: unused_element
-  const UMainFeatures._();
+  const URichtextFacetFeatures._();
 
-  const factory UMainFeatures.mention({
+  const factory URichtextFacetFeatures.mention({
     required RichtextFacetMention data,
-  }) = UMainFeaturesMention;
+  }) = URichtextFacetFeaturesMention;
 
-  const factory UMainFeatures.link({
+  const factory URichtextFacetFeatures.link({
     required RichtextFacetLink data,
-  }) = UMainFeaturesLink;
+  }) = URichtextFacetFeaturesLink;
 
-  const factory UMainFeatures.tag({
+  const factory URichtextFacetFeatures.tag({
     required RichtextFacetTag data,
-  }) = UMainFeaturesTag;
+  }) = URichtextFacetFeaturesTag;
 
-  const factory UMainFeatures.unknown({
+  const factory URichtextFacetFeatures.unknown({
     required Map<String, dynamic> data,
-  }) = UMainFeaturesUnknown;
+  }) = URichtextFacetFeaturesUnknown;
 
-  Map<String, dynamic> toJson() => unionMainFeatures.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionRichtextFacetFeaturesConverter.toJson(this);
 }
 
-const unionMainFeatures = _UMainFeaturesConverter();
+const unionRichtextFacetFeaturesConverter = _URichtextFacetFeaturesConverter();
 
-final class _UMainFeaturesConverter
-    implements JsonConverter<UMainFeatures, Map<String, dynamic>> {
-  const _UMainFeaturesConverter();
+final class _URichtextFacetFeaturesConverter
+    implements JsonConverter<URichtextFacetFeatures, Map<String, dynamic>> {
+  const _URichtextFacetFeaturesConverter();
 
   @override
-  UMainFeatures fromJson(Map<String, dynamic> json) {
+  URichtextFacetFeatures fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyRichtextFacetLink) {
-        return UMainFeatures.link(
+        return URichtextFacetFeatures.link(
           data: RichtextFacetLink.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetMention) {
-        return UMainFeatures.mention(
+        return URichtextFacetFeatures.mention(
           data: RichtextFacetMention.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetTag) {
-        return UMainFeatures.tag(
+        return URichtextFacetFeatures.tag(
           data: RichtextFacetTag.fromJson(json),
         );
       }
 
-      return UMainFeatures.unknown(data: json);
+      return URichtextFacetFeatures.unknown(data: json);
     } catch (_) {
-      return UMainFeatures.unknown(data: json);
+      return URichtextFacetFeatures.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UMainFeatures object) => object.when(
+  Map<String, dynamic> toJson(URichtextFacetFeatures object) => object.when(
         mention: (data) => data.toJson(),
         link: (data) => data.toJson(),
         tag: (data) => data.toJson(),

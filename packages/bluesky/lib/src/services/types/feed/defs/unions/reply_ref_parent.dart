@@ -16,66 +16,68 @@ part 'reply_ref_parent.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
-class UReplyRefParent with _$UReplyRefParent {
+class UFeedDefsReplyRefParent with _$UFeedDefsReplyRefParent {
   // ignore: unused_element
-  const UReplyRefParent._();
+  const UFeedDefsReplyRefParent._();
 
-  const factory UReplyRefParent.postView({
+  const factory UFeedDefsReplyRefParent.postView({
     required FeedDefsPostView data,
-  }) = UReplyRefParentPostView;
+  }) = UFeedDefsReplyRefParentPostView;
 
-  const factory UReplyRefParent.notFoundPost({
+  const factory UFeedDefsReplyRefParent.notFoundPost({
     required FeedDefsNotFoundPost data,
-  }) = UReplyRefParentNotFoundPost;
+  }) = UFeedDefsReplyRefParentNotFoundPost;
 
-  const factory UReplyRefParent.blockedPost({
+  const factory UFeedDefsReplyRefParent.blockedPost({
     required FeedDefsBlockedPost data,
-  }) = UReplyRefParentBlockedPost;
+  }) = UFeedDefsReplyRefParentBlockedPost;
 
-  const factory UReplyRefParent.unknown({
+  const factory UFeedDefsReplyRefParent.unknown({
     required Map<String, dynamic> data,
-  }) = UReplyRefParentUnknown;
+  }) = UFeedDefsReplyRefParentUnknown;
 
-  Map<String, dynamic> toJson() => unionReplyRefParent.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionFeedDefsReplyRefParentConverter.toJson(this);
 }
 
-const unionReplyRefParent = _UReplyRefParentConverter();
+const unionFeedDefsReplyRefParentConverter =
+    _UFeedDefsReplyRefParentConverter();
 
-final class _UReplyRefParentConverter
-    implements JsonConverter<UReplyRefParent, Map<String, dynamic>> {
-  const _UReplyRefParentConverter();
+final class _UFeedDefsReplyRefParentConverter
+    implements JsonConverter<UFeedDefsReplyRefParent, Map<String, dynamic>> {
+  const _UFeedDefsReplyRefParentConverter();
 
   @override
-  UReplyRefParent fromJson(Map<String, dynamic> json) {
+  UFeedDefsReplyRefParent fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsPostView) {
-        return UReplyRefParent.postView(
+        return UFeedDefsReplyRefParent.postView(
           data: FeedDefsPostView.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return UReplyRefParent.notFoundPost(
+        return UFeedDefsReplyRefParent.notFoundPost(
           data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return UReplyRefParent.blockedPost(
+        return UFeedDefsReplyRefParent.blockedPost(
           data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
-      return UReplyRefParent.postView(
+      return UFeedDefsReplyRefParent.postView(
         data: FeedDefsPostView.fromJson(json),
       );
     } catch (_) {
-      return UReplyRefParent.unknown(data: json);
+      return UFeedDefsReplyRefParent.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UReplyRefParent object) => object.when(
+  Map<String, dynamic> toJson(UFeedDefsReplyRefParent object) => object.when(
         postView: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

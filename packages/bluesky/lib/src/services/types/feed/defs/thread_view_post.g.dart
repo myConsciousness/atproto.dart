@@ -23,12 +23,12 @@ _$FeedDefsThreadViewPostImpl _$$FeedDefsThreadViewPostImplFromJson(Map json) =>
           parent: $checkedConvert(
               'parent',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UThreadViewPostParent>(
-                  v, unionThreadViewPostParent.fromJson)),
+                      UFeedDefsThreadViewPostParent>(
+                  v, unionFeedDefsThreadViewPostParentConverter.fromJson)),
           replies: $checkedConvert(
               'replies',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => unionThreadViewPostReplies
+                  ?.map((e) => unionFeedDefsThreadViewPostRepliesConverter
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
@@ -42,11 +42,12 @@ Map<String, dynamic> _$$FeedDefsThreadViewPostImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'post': instance.post.toJson(),
-      'parent':
-          _$JsonConverterToJson<Map<String, dynamic>, UThreadViewPostParent>(
-              instance.parent, unionThreadViewPostParent.toJson),
-      'replies':
-          instance.replies?.map(unionThreadViewPostReplies.toJson).toList(),
+      'parent': _$JsonConverterToJson<Map<String, dynamic>,
+              UFeedDefsThreadViewPostParent>(
+          instance.parent, unionFeedDefsThreadViewPostParentConverter.toJson),
+      'replies': instance.replies
+          ?.map(unionFeedDefsThreadViewPostRepliesConverter.toJson)
+          .toList(),
     };
 
 Value? _$JsonConverterFromJson<Json, Value>(

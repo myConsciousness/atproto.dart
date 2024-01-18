@@ -44,7 +44,7 @@ final class FeedService {
     required String text,
     FeedPostReplyRef? reply,
     List<RichtextFacet>? facets,
-    URecordEmbed? embed,
+    UFeedPostRecordEmbed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
     List<String>? tags,
@@ -294,7 +294,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
   Future<core.XRPCResponse<atp.StrongRef>> threadgate({
     required core.AtUri postUri,
-    List<URecordAllow>? allowRules,
+    List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -324,7 +324,7 @@ final class FeedService {
     required String text,
     FeedPostReplyRef? reply,
     List<RichtextFacet>? facets,
-    URecordEmbed? embed,
+    UFeedPostRecordEmbed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
     List<String>? tags,
@@ -710,7 +710,7 @@ final class FeedService {
   @Deprecated('Use .threadgate instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
-    List<URecordAllow>? allowRules,
+    List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>

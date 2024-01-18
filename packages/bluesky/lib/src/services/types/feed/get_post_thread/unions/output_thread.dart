@@ -16,62 +16,68 @@ part 'output_thread.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
-class UOutputThread with _$UOutputThread {
+class UFeedGetPostThreadOutputThread with _$UFeedGetPostThreadOutputThread {
   // ignore: unused_element
-  const UOutputThread._();
+  const UFeedGetPostThreadOutputThread._();
 
-  const factory UOutputThread.threadViewPost({
+  const factory UFeedGetPostThreadOutputThread.threadViewPost({
     required FeedDefsThreadViewPost data,
-  }) = UOutputThreadThreadViewPost;
+  }) = UFeedGetPostThreadOutputThreadThreadViewPost;
 
-  const factory UOutputThread.notFoundPost({
+  const factory UFeedGetPostThreadOutputThread.notFoundPost({
     required FeedDefsNotFoundPost data,
-  }) = UOutputThreadNotFoundPost;
+  }) = UFeedGetPostThreadOutputThreadNotFoundPost;
 
-  const factory UOutputThread.blockedPost({
+  const factory UFeedGetPostThreadOutputThread.blockedPost({
     required FeedDefsBlockedPost data,
-  }) = UOutputThreadBlockedPost;
+  }) = UFeedGetPostThreadOutputThreadBlockedPost;
 
-  const factory UOutputThread.unknown({
+  const factory UFeedGetPostThreadOutputThread.unknown({
     required Map<String, dynamic> data,
-  }) = UOutputThreadUnknown;
+  }) = UFeedGetPostThreadOutputThreadUnknown;
+
+  Map<String, dynamic> toJson() =>
+      unionFeedGetPostThreadOutputThreadConverter.toJson(this);
 }
 
-const unionOutputThread = _UOutputThreadConverter();
+const unionFeedGetPostThreadOutputThreadConverter =
+    _UFeedGetPostThreadOutputThreadConverter();
 
-final class _UOutputThreadConverter
-    implements JsonConverter<UOutputThread, Map<String, dynamic>> {
-  const _UOutputThreadConverter();
+final class _UFeedGetPostThreadOutputThreadConverter
+    implements
+        JsonConverter<UFeedGetPostThreadOutputThread, Map<String, dynamic>> {
+  const _UFeedGetPostThreadOutputThreadConverter();
 
   @override
-  UOutputThread fromJson(Map<String, dynamic> json) {
+  UFeedGetPostThreadOutputThread fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
-        return UOutputThread.threadViewPost(
+        return UFeedGetPostThreadOutputThread.threadViewPost(
           data: FeedDefsThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
-        return UOutputThread.notFoundPost(
+        return UFeedGetPostThreadOutputThread.notFoundPost(
           data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
-        return UOutputThread.blockedPost(
+        return UFeedGetPostThreadOutputThread.blockedPost(
           data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
-      return UOutputThread.unknown(data: json);
+      return UFeedGetPostThreadOutputThread.unknown(data: json);
     } catch (_) {
-      return UOutputThread.unknown(data: json);
+      return UFeedGetPostThreadOutputThread.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UOutputThread object) => object.when(
+  Map<String, dynamic> toJson(UFeedGetPostThreadOutputThread object) =>
+      object.when(
         threadViewPost: (data) => data.toJson(),
         notFoundPost: (data) => data.toJson(),
         blockedPost: (data) => data.toJson(),

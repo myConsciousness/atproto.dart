@@ -142,7 +142,7 @@ final class RepoCommitAdaptor {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<FeedPostRecord>(
-          record: recordConverter.fromJson(
+          record: feedPostRecordConverter.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -377,7 +377,7 @@ final class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
-    } else if (op.uri.isGraphListItem) {
+    } else if (op.uri.isGraphListitem) {
       await _onDeleteListItem?.call(
         RepoCommitDelete(
           uri: op.uri,
@@ -386,7 +386,7 @@ final class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
-    } else if (op.uri.isGraphBlockList) {
+    } else if (op.uri.isGraphListblock) {
       await _onDeleteBlockList?.call(
         RepoCommitDelete(
           uri: op.uri,

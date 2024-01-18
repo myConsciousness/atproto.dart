@@ -17,55 +17,59 @@ part 'view_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
-class UViewMedia with _$UViewMedia {
+class UEmbedRecordWithMediaViewMedia with _$UEmbedRecordWithMediaViewMedia {
   // ignore: unused_element
-  const UViewMedia._();
+  const UEmbedRecordWithMediaViewMedia._();
 
-  const factory UViewMedia.embedImagesView({
+  const factory UEmbedRecordWithMediaViewMedia.embedImagesView({
     required EmbedImagesView data,
-  }) = UViewMediaEmbedImagesView;
+  }) = UEmbedRecordWithMediaViewMediaEmbedImagesView;
 
-  const factory UViewMedia.embedExternalView({
+  const factory UEmbedRecordWithMediaViewMedia.embedExternalView({
     required EmbedExternalView data,
-  }) = UViewMediaEmbedExternalView;
+  }) = UEmbedRecordWithMediaViewMediaEmbedExternalView;
 
-  const factory UViewMedia.unknown({
+  const factory UEmbedRecordWithMediaViewMedia.unknown({
     required Map<String, dynamic> data,
-  }) = UViewMediaUnknown;
+  }) = UEmbedRecordWithMediaViewMediaUnknown;
 
-  Map<String, dynamic> toJson() => unionViewMedia.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionEmbedRecordWithMediaViewMediaConverter.toJson(this);
 }
 
-const unionViewMedia = _UViewMediaConverter();
+const unionEmbedRecordWithMediaViewMediaConverter =
+    _UEmbedRecordWithMediaViewMediaConverter();
 
-final class _UViewMediaConverter
-    implements JsonConverter<UViewMedia, Map<String, dynamic>> {
-  const _UViewMediaConverter();
+final class _UEmbedRecordWithMediaViewMediaConverter
+    implements
+        JsonConverter<UEmbedRecordWithMediaViewMedia, Map<String, dynamic>> {
+  const _UEmbedRecordWithMediaViewMediaConverter();
 
   @override
-  UViewMedia fromJson(Map<String, dynamic> json) {
+  UEmbedRecordWithMediaViewMedia fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedImagesView) {
-        return UViewMedia.embedImagesView(
+        return UEmbedRecordWithMediaViewMedia.embedImagesView(
           data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
-        return UViewMedia.embedExternalView(
+        return UEmbedRecordWithMediaViewMedia.embedExternalView(
           data: EmbedExternalView.fromJson(json),
         );
       }
 
-      return UViewMedia.unknown(data: json);
+      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
     } catch (_) {
-      return UViewMedia.unknown(data: json);
+      return UEmbedRecordWithMediaViewMedia.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UViewMedia object) => object.when(
+  Map<String, dynamic> toJson(UEmbedRecordWithMediaViewMedia object) =>
+      object.when(
         embedImagesView: (data) => data.toJson(),
         embedExternalView: (data) => data.toJson(),
         unknown: (data) => data,

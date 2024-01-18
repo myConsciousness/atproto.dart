@@ -24,10 +24,11 @@ mixin _$FeedDefsThreadViewPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   FeedDefsPostView get post => throw _privateConstructorUsedError;
-  @unionThreadViewPostParent
-  UThreadViewPostParent? get parent => throw _privateConstructorUsedError;
-  @unionThreadViewPostReplies
-  List<UThreadViewPostReplies>? get replies =>
+  @unionFeedDefsThreadViewPostParentConverter
+  UFeedDefsThreadViewPostParent? get parent =>
+      throw _privateConstructorUsedError;
+  @unionFeedDefsThreadViewPostRepliesConverter
+  List<UFeedDefsThreadViewPostReplies>? get replies =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,11 +46,13 @@ abstract class $FeedDefsThreadViewPostCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       FeedDefsPostView post,
-      @unionThreadViewPostParent UThreadViewPostParent? parent,
-      @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies});
+      @unionFeedDefsThreadViewPostParentConverter
+      UFeedDefsThreadViewPostParent? parent,
+      @unionFeedDefsThreadViewPostRepliesConverter
+      List<UFeedDefsThreadViewPostReplies>? replies});
 
   $FeedDefsPostViewCopyWith<$Res> get post;
-  $UThreadViewPostParentCopyWith<$Res>? get parent;
+  $UFeedDefsThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -83,11 +86,11 @@ class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UThreadViewPostParent?,
+              as UFeedDefsThreadViewPostParent?,
       replies: freezed == replies
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<UThreadViewPostReplies>?,
+              as List<UFeedDefsThreadViewPostReplies>?,
     ) as $Val);
   }
 
@@ -101,12 +104,13 @@ class _$FeedDefsThreadViewPostCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $UThreadViewPostParentCopyWith<$Res>? get parent {
+  $UFeedDefsThreadViewPostParentCopyWith<$Res>? get parent {
     if (_value.parent == null) {
       return null;
     }
 
-    return $UThreadViewPostParentCopyWith<$Res>(_value.parent!, (value) {
+    return $UFeedDefsThreadViewPostParentCopyWith<$Res>(_value.parent!,
+        (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -124,13 +128,15 @@ abstract class _$$FeedDefsThreadViewPostImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       FeedDefsPostView post,
-      @unionThreadViewPostParent UThreadViewPostParent? parent,
-      @unionThreadViewPostReplies List<UThreadViewPostReplies>? replies});
+      @unionFeedDefsThreadViewPostParentConverter
+      UFeedDefsThreadViewPostParent? parent,
+      @unionFeedDefsThreadViewPostRepliesConverter
+      List<UFeedDefsThreadViewPostReplies>? replies});
 
   @override
   $FeedDefsPostViewCopyWith<$Res> get post;
   @override
-  $UThreadViewPostParentCopyWith<$Res>? get parent;
+  $UFeedDefsThreadViewPostParentCopyWith<$Res>? get parent;
 }
 
 /// @nodoc
@@ -163,11 +169,11 @@ class __$$FeedDefsThreadViewPostImplCopyWithImpl<$Res>
       parent: freezed == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as UThreadViewPostParent?,
+              as UFeedDefsThreadViewPostParent?,
       replies: freezed == replies
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
-              as List<UThreadViewPostReplies>?,
+              as List<UFeedDefsThreadViewPostReplies>?,
     ));
   }
 }
@@ -178,8 +184,9 @@ class _$FeedDefsThreadViewPostImpl implements _FeedDefsThreadViewPost {
   const _$FeedDefsThreadViewPostImpl(
       {@typeKey this.type = appBskyFeedDefsThreadViewPost,
       required this.post,
-      @unionThreadViewPostParent this.parent,
-      @unionThreadViewPostReplies final List<UThreadViewPostReplies>? replies})
+      @unionFeedDefsThreadViewPostParentConverter this.parent,
+      @unionFeedDefsThreadViewPostRepliesConverter
+      final List<UFeedDefsThreadViewPostReplies>? replies})
       : _replies = replies;
 
   factory _$FeedDefsThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
@@ -191,12 +198,12 @@ class _$FeedDefsThreadViewPostImpl implements _FeedDefsThreadViewPost {
   @override
   final FeedDefsPostView post;
   @override
-  @unionThreadViewPostParent
-  final UThreadViewPostParent? parent;
-  final List<UThreadViewPostReplies>? _replies;
+  @unionFeedDefsThreadViewPostParentConverter
+  final UFeedDefsThreadViewPostParent? parent;
+  final List<UFeedDefsThreadViewPostReplies>? _replies;
   @override
-  @unionThreadViewPostReplies
-  List<UThreadViewPostReplies>? get replies {
+  @unionFeedDefsThreadViewPostRepliesConverter
+  List<UFeedDefsThreadViewPostReplies>? get replies {
     final value = _replies;
     if (value == null) return null;
     if (_replies is EqualUnmodifiableListView) return _replies;
@@ -244,9 +251,10 @@ abstract class _FeedDefsThreadViewPost implements FeedDefsThreadViewPost {
   const factory _FeedDefsThreadViewPost(
           {@typeKey final String type,
           required final FeedDefsPostView post,
-          @unionThreadViewPostParent final UThreadViewPostParent? parent,
-          @unionThreadViewPostReplies
-          final List<UThreadViewPostReplies>? replies}) =
+          @unionFeedDefsThreadViewPostParentConverter
+          final UFeedDefsThreadViewPostParent? parent,
+          @unionFeedDefsThreadViewPostRepliesConverter
+          final List<UFeedDefsThreadViewPostReplies>? replies}) =
       _$FeedDefsThreadViewPostImpl;
 
   factory _FeedDefsThreadViewPost.fromJson(Map<String, dynamic> json) =
@@ -258,11 +266,11 @@ abstract class _FeedDefsThreadViewPost implements FeedDefsThreadViewPost {
   @override
   FeedDefsPostView get post;
   @override
-  @unionThreadViewPostParent
-  UThreadViewPostParent? get parent;
+  @unionFeedDefsThreadViewPostParentConverter
+  UFeedDefsThreadViewPostParent? get parent;
   @override
-  @unionThreadViewPostReplies
-  List<UThreadViewPostReplies>? get replies;
+  @unionFeedDefsThreadViewPostRepliesConverter
+  List<UFeedDefsThreadViewPostReplies>? get replies;
   @override
   @JsonKey(ignore: true)
   _$$FeedDefsThreadViewPostImplCopyWith<_$FeedDefsThreadViewPostImpl>

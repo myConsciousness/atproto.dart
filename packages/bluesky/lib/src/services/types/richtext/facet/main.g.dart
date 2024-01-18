@@ -22,8 +22,8 @@ _$RichtextFacetImpl _$$RichtextFacetImplFromJson(Map json) => $checkedCreate(
           features: $checkedConvert(
               'features',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      unionMainFeatures.fromJson(e as Map<String, dynamic>))
+                  .map((e) => unionRichtextFacetFeaturesConverter
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
         return val;
@@ -35,5 +35,7 @@ Map<String, dynamic> _$$RichtextFacetImplToJson(_$RichtextFacetImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'index': instance.index.toJson(),
-      'features': instance.features.map(unionMainFeatures.toJson).toList(),
+      'features': instance.features
+          .map(unionRichtextFacetFeaturesConverter.toJson)
+          .toList(),
     };

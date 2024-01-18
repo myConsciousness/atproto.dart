@@ -17,7 +17,7 @@ _$ActorDefsPreferencesImpl _$$ActorDefsPreferencesImplFromJson(Map json) =>
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
-                  .map((e) => unionPreferencesPreferences
+                  .map((e) => unionActorDefsPreferencesPreferencesConverter
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
@@ -28,6 +28,7 @@ _$ActorDefsPreferencesImpl _$$ActorDefsPreferencesImplFromJson(Map json) =>
 Map<String, dynamic> _$$ActorDefsPreferencesImplToJson(
         _$ActorDefsPreferencesImpl instance) =>
     <String, dynamic>{
-      'preferences':
-          instance.preferences.map(unionPreferencesPreferences.toJson).toList(),
+      'preferences': instance.preferences
+          .map(unionActorDefsPreferencesPreferencesConverter.toJson)
+          .toList(),
     };

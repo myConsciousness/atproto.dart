@@ -25,7 +25,8 @@ class FeedThreadgateRecord with _$FeedThreadgateRecord {
   const factory FeedThreadgateRecord({
     @typeKey @Default(appBskyFeedThreadgate) String type,
     @atUriConverter required AtUri post,
-    @unionRecordAllow List<URecordAllow>? allow,
+    @unionFeedThreadgateRecordAllowConverter
+    List<UFeedThreadgateRecordAllow>? allow,
     required DateTime createdAt,
   }) = _FeedThreadgateRecord;
 

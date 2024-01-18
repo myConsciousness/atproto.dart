@@ -17,55 +17,57 @@ part 'main_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
-class UMainMedia with _$UMainMedia {
+class UEmbedRecordWithMediaMedia with _$UEmbedRecordWithMediaMedia {
   // ignore: unused_element
-  const UMainMedia._();
+  const UEmbedRecordWithMediaMedia._();
 
-  const factory UMainMedia.embedImages({
+  const factory UEmbedRecordWithMediaMedia.embedImages({
     required EmbedImages data,
-  }) = UMainMediaEmbedImages;
+  }) = UEmbedRecordWithMediaMediaEmbedImages;
 
-  const factory UMainMedia.embedExternal({
+  const factory UEmbedRecordWithMediaMedia.embedExternal({
     required EmbedExternal data,
-  }) = UMainMediaEmbedExternal;
+  }) = UEmbedRecordWithMediaMediaEmbedExternal;
 
-  const factory UMainMedia.unknown({
+  const factory UEmbedRecordWithMediaMedia.unknown({
     required Map<String, dynamic> data,
-  }) = UMainMediaUnknown;
+  }) = UEmbedRecordWithMediaMediaUnknown;
 
-  Map<String, dynamic> toJson() => unionMainMedia.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionEmbedRecordWithMediaMediaConverter.toJson(this);
 }
 
-const unionMainMedia = _UMainMediaConverter();
+const unionEmbedRecordWithMediaMediaConverter =
+    _UEmbedRecordWithMediaMediaConverter();
 
-final class _UMainMediaConverter
-    implements JsonConverter<UMainMedia, Map<String, dynamic>> {
-  const _UMainMediaConverter();
+final class _UEmbedRecordWithMediaMediaConverter
+    implements JsonConverter<UEmbedRecordWithMediaMedia, Map<String, dynamic>> {
+  const _UEmbedRecordWithMediaMediaConverter();
 
   @override
-  UMainMedia fromJson(Map<String, dynamic> json) {
+  UEmbedRecordWithMediaMedia fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyEmbedImages) {
-        return UMainMedia.embedImages(
+        return UEmbedRecordWithMediaMedia.embedImages(
           data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
-        return UMainMedia.embedExternal(
+        return UEmbedRecordWithMediaMedia.embedExternal(
           data: EmbedExternal.fromJson(json),
         );
       }
 
-      return UMainMedia.unknown(data: json);
+      return UEmbedRecordWithMediaMedia.unknown(data: json);
     } catch (_) {
-      return UMainMedia.unknown(data: json);
+      return UEmbedRecordWithMediaMedia.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UMainMedia object) => object.when(
+  Map<String, dynamic> toJson(UEmbedRecordWithMediaMedia object) => object.when(
         embedImages: (data) => data.toJson(),
         embedExternal: (data) => data.toJson(),
         unknown: (data) => data,

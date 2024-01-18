@@ -20,8 +20,8 @@ part 'output.g.dart';
 @lex.appBskyActorGetPreferences
 class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
   const factory ActorGetPreferencesOutput({
-    @unionPreferencesPreferences
-    required List<UPreferencesPreferences> preferences,
+    @unionActorDefsPreferencesPreferencesConverter
+    required List<UActorDefsPreferencesPreferences> preferences,
   }) = _ActorGetPreferencesOutput;
 
   factory ActorGetPreferencesOutput.fromJson(Map<String, Object?> json) =>

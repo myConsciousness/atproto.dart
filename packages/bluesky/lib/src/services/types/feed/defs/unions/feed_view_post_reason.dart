@@ -16,46 +16,50 @@ part 'feed_view_post_reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
-class UFeedViewPostReason with _$UFeedViewPostReason {
+class UFeedDefsFeedViewPostReason with _$UFeedDefsFeedViewPostReason {
   // ignore: unused_element
-  const UFeedViewPostReason._();
+  const UFeedDefsFeedViewPostReason._();
 
-  factory UFeedViewPostReason.reasonRepost({
+  factory UFeedDefsFeedViewPostReason.reasonRepost({
     required FeedDefsReasonRepost data,
-  }) = UFeedViewPostReasonRepost;
+  }) = UFeedDefsFeedViewPostReasonRepost;
 
-  factory UFeedViewPostReason.unknown({
+  factory UFeedDefsFeedViewPostReason.unknown({
     required Map<String, dynamic> data,
-  }) = UFeedViewPostReasonUnknown;
+  }) = UFeedDefsFeedViewPostReasonUnknown;
 
-  Map<String, dynamic> toJson() => unionFeedViewPostReason.toJson(this);
+  Map<String, dynamic> toJson() =>
+      unionFeedDefsFeedViewPostReasonConverter.toJson(this);
 }
 
-const unionFeedViewPostReason = _UFeedViewPostReasonConverter();
+const unionFeedDefsFeedViewPostReasonConverter =
+    _UFeedDefsFeedViewPostReasonConverter();
 
-final class _UFeedViewPostReasonConverter
-    implements JsonConverter<UFeedViewPostReason, Map<String, dynamic>> {
-  const _UFeedViewPostReasonConverter();
+final class _UFeedDefsFeedViewPostReasonConverter
+    implements
+        JsonConverter<UFeedDefsFeedViewPostReason, Map<String, dynamic>> {
+  const _UFeedDefsFeedViewPostReasonConverter();
 
   @override
-  UFeedViewPostReason fromJson(Map<String, dynamic> json) {
+  UFeedDefsFeedViewPostReason fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.appBskyFeedDefsReasonRepost) {
-        return UFeedViewPostReason.reasonRepost(
+        return UFeedDefsFeedViewPostReason.reasonRepost(
           data: FeedDefsReasonRepost.fromJson(json),
         );
       }
 
-      return UFeedViewPostReason.unknown(data: json);
+      return UFeedDefsFeedViewPostReason.unknown(data: json);
     } catch (_) {
-      return UFeedViewPostReason.unknown(data: json);
+      return UFeedDefsFeedViewPostReason.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UFeedViewPostReason object) => object.when(
+  Map<String, dynamic> toJson(UFeedDefsFeedViewPostReason object) =>
+      object.when(
         reasonRepost: (data) => data.toJson(),
         unknown: (data) => data,
       );
