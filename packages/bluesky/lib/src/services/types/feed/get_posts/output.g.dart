@@ -8,23 +8,25 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$FeedGetPostsOutputImpl _$$FeedGetPostsOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedGetPostsOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$FeedGetPostsOutputImpl(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      PostView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => FeedDefsPostView.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$FeedGetPostsOutputImplToJson(
+        _$FeedGetPostsOutputImpl instance) =>
     <String, dynamic>{
       'posts': instance.posts.map((e) => e.toJson()).toList(),
     };

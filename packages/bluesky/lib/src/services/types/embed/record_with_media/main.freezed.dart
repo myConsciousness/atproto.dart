@@ -14,41 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Main _$MainFromJson(Map<String, dynamic> json) {
-  return _Main.fromJson(json);
+EmbedRecordWithMedia _$EmbedRecordWithMediaFromJson(Map<String, dynamic> json) {
+  return _EmbedRecordWithMedia.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Main {
+mixin _$EmbedRecordWithMedia {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  embed_record_main.Main get record => throw _privateConstructorUsedError;
+  EmbedRecord get record => throw _privateConstructorUsedError;
   @unionMainMedia
   UMainMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $MainCopyWith<Main> get copyWith => throw _privateConstructorUsedError;
+  $EmbedRecordWithMediaCopyWith<EmbedRecordWithMedia> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $MainCopyWith<$Res> {
-  factory $MainCopyWith(Main value, $Res Function(Main) then) =
-      _$MainCopyWithImpl<$Res, Main>;
+abstract class $EmbedRecordWithMediaCopyWith<$Res> {
+  factory $EmbedRecordWithMediaCopyWith(EmbedRecordWithMedia value,
+          $Res Function(EmbedRecordWithMedia) then) =
+      _$EmbedRecordWithMediaCopyWithImpl<$Res, EmbedRecordWithMedia>;
   @useResult
   $Res call(
       {@typeKey String type,
-      embed_record_main.Main record,
+      EmbedRecord record,
       @unionMainMedia UMainMedia media});
 
-  $MainCopyWith<$Res> get record;
+  $EmbedRecordCopyWith<$Res> get record;
   $UMainMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class _$MainCopyWithImpl<$Res, $Val extends Main>
-    implements $MainCopyWith<$Res> {
-  _$MainCopyWithImpl(this._value, this._then);
+class _$EmbedRecordWithMediaCopyWithImpl<$Res,
+        $Val extends EmbedRecordWithMedia>
+    implements $EmbedRecordWithMediaCopyWith<$Res> {
+  _$EmbedRecordWithMediaCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,7 +73,7 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as embed_record_main.Main,
+              as EmbedRecord,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -80,8 +83,8 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
 
   @override
   @pragma('vm:prefer-inline')
-  $MainCopyWith<$Res> get record {
-    return $MainCopyWith<$Res>(_value.record, (value) {
+  $EmbedRecordCopyWith<$Res> get record {
+    return $EmbedRecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -96,28 +99,30 @@ class _$MainCopyWithImpl<$Res, $Val extends Main>
 }
 
 /// @nodoc
-abstract class _$$MainImplCopyWith<$Res> implements $MainCopyWith<$Res> {
-  factory _$$MainImplCopyWith(
-          _$MainImpl value, $Res Function(_$MainImpl) then) =
-      __$$MainImplCopyWithImpl<$Res>;
+abstract class _$$EmbedRecordWithMediaImplCopyWith<$Res>
+    implements $EmbedRecordWithMediaCopyWith<$Res> {
+  factory _$$EmbedRecordWithMediaImplCopyWith(_$EmbedRecordWithMediaImpl value,
+          $Res Function(_$EmbedRecordWithMediaImpl) then) =
+      __$$EmbedRecordWithMediaImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
-      embed_record_main.Main record,
+      EmbedRecord record,
       @unionMainMedia UMainMedia media});
 
   @override
-  $MainCopyWith<$Res> get record;
+  $EmbedRecordCopyWith<$Res> get record;
   @override
   $UMainMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class __$$MainImplCopyWithImpl<$Res>
-    extends _$MainCopyWithImpl<$Res, _$MainImpl>
-    implements _$$MainImplCopyWith<$Res> {
-  __$$MainImplCopyWithImpl(_$MainImpl _value, $Res Function(_$MainImpl) _then)
+class __$$EmbedRecordWithMediaImplCopyWithImpl<$Res>
+    extends _$EmbedRecordWithMediaCopyWithImpl<$Res, _$EmbedRecordWithMediaImpl>
+    implements _$$EmbedRecordWithMediaImplCopyWith<$Res> {
+  __$$EmbedRecordWithMediaImplCopyWithImpl(_$EmbedRecordWithMediaImpl _value,
+      $Res Function(_$EmbedRecordWithMediaImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +132,7 @@ class __$$MainImplCopyWithImpl<$Res>
     Object? record = null,
     Object? media = null,
   }) {
-    return _then(_$MainImpl(
+    return _then(_$EmbedRecordWithMediaImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -135,7 +140,7 @@ class __$$MainImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as embed_record_main.Main,
+              as EmbedRecord,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -146,34 +151,34 @@ class __$$MainImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$MainImpl implements _Main {
-  const _$MainImpl(
+class _$EmbedRecordWithMediaImpl implements _EmbedRecordWithMedia {
+  const _$EmbedRecordWithMediaImpl(
       {@typeKey this.type = appBskyEmbedRecordWithMedia,
       required this.record,
       @unionMainMedia required this.media});
 
-  factory _$MainImpl.fromJson(Map<String, dynamic> json) =>
-      _$$MainImplFromJson(json);
+  factory _$EmbedRecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedRecordWithMediaImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final embed_record_main.Main record;
+  final EmbedRecord record;
   @override
   @unionMainMedia
   final UMainMedia media;
 
   @override
   String toString() {
-    return 'Main(type: $type, record: $record, media: $media)';
+    return 'EmbedRecordWithMedia(type: $type, record: $record, media: $media)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$MainImpl &&
+            other is _$EmbedRecordWithMediaImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
@@ -186,35 +191,39 @@ class _$MainImpl implements _Main {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
-      __$$MainImplCopyWithImpl<_$MainImpl>(this, _$identity);
+  _$$EmbedRecordWithMediaImplCopyWith<_$EmbedRecordWithMediaImpl>
+      get copyWith =>
+          __$$EmbedRecordWithMediaImplCopyWithImpl<_$EmbedRecordWithMediaImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$MainImplToJson(
+    return _$$EmbedRecordWithMediaImplToJson(
       this,
     );
   }
 }
 
-abstract class _Main implements Main {
-  const factory _Main(
-      {@typeKey final String type,
-      required final embed_record_main.Main record,
-      @unionMainMedia required final UMainMedia media}) = _$MainImpl;
+abstract class _EmbedRecordWithMedia implements EmbedRecordWithMedia {
+  const factory _EmbedRecordWithMedia(
+          {@typeKey final String type,
+          required final EmbedRecord record,
+          @unionMainMedia required final UMainMedia media}) =
+      _$EmbedRecordWithMediaImpl;
 
-  factory _Main.fromJson(Map<String, dynamic> json) = _$MainImpl.fromJson;
+  factory _EmbedRecordWithMedia.fromJson(Map<String, dynamic> json) =
+      _$EmbedRecordWithMediaImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  embed_record_main.Main get record;
+  EmbedRecord get record;
   @override
   @unionMainMedia
   UMainMedia get media;
   @override
   @JsonKey(ignore: true)
-  _$$MainImplCopyWith<_$MainImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedRecordWithMediaImplCopyWith<_$EmbedRecordWithMediaImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

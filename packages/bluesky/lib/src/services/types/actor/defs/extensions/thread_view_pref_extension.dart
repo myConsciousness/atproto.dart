@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../thread_view_pref.dart';
 
-extension ThreadViewPrefExtension on ThreadViewPref {
+extension ActorDefsThreadViewPrefExtension on ActorDefsThreadViewPref {
   bool get isPrioritizeFollowedUsers => prioritizeFollowedUsers;
 }

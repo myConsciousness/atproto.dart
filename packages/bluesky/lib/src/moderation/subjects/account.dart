@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
-import '../../services/entities/actor_viewer.dart';
+import '../../services/types/actor/defs/_z.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
@@ -46,13 +46,13 @@ ModerationDecision decideAccount(
   return accumulator.finalizeDecision(options);
 }
 
-(String, ActorViewer, List<atp.Label>?) _getDecisionFactors(
+(String, ActorDefsViewerState, List<atp.Label>?) _getDecisionFactors(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
-      actorBasic: (data) => (data.did, data.viewer, data.labels),
-      actor: (data) => (data.did, data.viewer, data.labels),
-      actorProfile: (data) => (data.did, data.viewer, data.labels),
+      profileViewBasic: (data) => (data.did, data.viewer, data.labels),
+      profileView: (data) => (data.did, data.viewer, data.labels),
+      profileViewDetailed: (data) => (data.did, data.viewer, data.labels),
     );
 
 List<atp.Label> _filterProfileLabels(

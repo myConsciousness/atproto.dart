@@ -14,18 +14,18 @@ import '../../../../lex_annotations.g.dart' as lex;
 part 'list_viewer_state.freezed.dart';
 part 'list_viewer_state.g.dart';
 
-const defaultGraphDefsListViewerState = ListViewerState();
+const defaultGraphDefsListViewerState = GraphDefsListViewerState();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewerstate
 @freezed
 @lex.appBskyGraphDefsListViewerState
-class ListViewerState with _$ListViewerState {
+class GraphDefsListViewerState with _$GraphDefsListViewerState {
   @jsonSerializable
-  const factory ListViewerState({
+  const factory GraphDefsListViewerState({
     @Default(false) bool muted,
     @atUriConverter AtUri? blocked,
-  }) = _ListViewerState;
+  }) = _GraphDefsListViewerState;
 
-  factory ListViewerState.fromJson(Map<String, Object?> json) =>
-      _$ListViewerStateFromJson(json);
+  factory GraphDefsListViewerState.fromJson(Map<String, Object?> json) =>
+      _$GraphDefsListViewerStateFromJson(json);
 }

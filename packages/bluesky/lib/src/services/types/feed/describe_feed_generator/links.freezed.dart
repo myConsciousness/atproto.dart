@@ -14,32 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Links _$LinksFromJson(Map<String, dynamic> json) {
-  return _Links.fromJson(json);
+FeedDescribeFeedGeneratorLinks _$FeedDescribeFeedGeneratorLinksFromJson(
+    Map<String, dynamic> json) {
+  return _FeedDescribeFeedGeneratorLinks.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Links {
+mixin _$FeedDescribeFeedGeneratorLinks {
   String? get privacyPolicy => throw _privateConstructorUsedError;
   String? get termsOfService => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
+  $FeedDescribeFeedGeneratorLinksCopyWith<FeedDescribeFeedGeneratorLinks>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $LinksCopyWith<$Res> {
-  factory $LinksCopyWith(Links value, $Res Function(Links) then) =
-      _$LinksCopyWithImpl<$Res, Links>;
+abstract class $FeedDescribeFeedGeneratorLinksCopyWith<$Res> {
+  factory $FeedDescribeFeedGeneratorLinksCopyWith(
+          FeedDescribeFeedGeneratorLinks value,
+          $Res Function(FeedDescribeFeedGeneratorLinks) then) =
+      _$FeedDescribeFeedGeneratorLinksCopyWithImpl<$Res,
+          FeedDescribeFeedGeneratorLinks>;
   @useResult
   $Res call({String? privacyPolicy, String? termsOfService});
 }
 
 /// @nodoc
-class _$LinksCopyWithImpl<$Res, $Val extends Links>
-    implements $LinksCopyWith<$Res> {
-  _$LinksCopyWithImpl(this._value, this._then);
+class _$FeedDescribeFeedGeneratorLinksCopyWithImpl<$Res,
+        $Val extends FeedDescribeFeedGeneratorLinks>
+    implements $FeedDescribeFeedGeneratorLinksCopyWith<$Res> {
+  _$FeedDescribeFeedGeneratorLinksCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,21 +72,25 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
 }
 
 /// @nodoc
-abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
-  factory _$$LinksImplCopyWith(
-          _$LinksImpl value, $Res Function(_$LinksImpl) then) =
-      __$$LinksImplCopyWithImpl<$Res>;
+abstract class _$$FeedDescribeFeedGeneratorLinksImplCopyWith<$Res>
+    implements $FeedDescribeFeedGeneratorLinksCopyWith<$Res> {
+  factory _$$FeedDescribeFeedGeneratorLinksImplCopyWith(
+          _$FeedDescribeFeedGeneratorLinksImpl value,
+          $Res Function(_$FeedDescribeFeedGeneratorLinksImpl) then) =
+      __$$FeedDescribeFeedGeneratorLinksImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String? privacyPolicy, String? termsOfService});
 }
 
 /// @nodoc
-class __$$LinksImplCopyWithImpl<$Res>
-    extends _$LinksCopyWithImpl<$Res, _$LinksImpl>
-    implements _$$LinksImplCopyWith<$Res> {
-  __$$LinksImplCopyWithImpl(
-      _$LinksImpl _value, $Res Function(_$LinksImpl) _then)
+class __$$FeedDescribeFeedGeneratorLinksImplCopyWithImpl<$Res>
+    extends _$FeedDescribeFeedGeneratorLinksCopyWithImpl<$Res,
+        _$FeedDescribeFeedGeneratorLinksImpl>
+    implements _$$FeedDescribeFeedGeneratorLinksImplCopyWith<$Res> {
+  __$$FeedDescribeFeedGeneratorLinksImplCopyWithImpl(
+      _$FeedDescribeFeedGeneratorLinksImpl _value,
+      $Res Function(_$FeedDescribeFeedGeneratorLinksImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +99,7 @@ class __$$LinksImplCopyWithImpl<$Res>
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
   }) {
-    return _then(_$LinksImpl(
+    return _then(_$FeedDescribeFeedGeneratorLinksImpl(
       privacyPolicy: freezed == privacyPolicy
           ? _value.privacyPolicy
           : privacyPolicy // ignore: cast_nullable_to_non_nullable
@@ -105,11 +115,14 @@ class __$$LinksImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$LinksImpl implements _Links {
-  const _$LinksImpl({this.privacyPolicy, this.termsOfService});
+class _$FeedDescribeFeedGeneratorLinksImpl
+    implements _FeedDescribeFeedGeneratorLinks {
+  const _$FeedDescribeFeedGeneratorLinksImpl(
+      {this.privacyPolicy, this.termsOfService});
 
-  factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
-      _$$LinksImplFromJson(json);
+  factory _$FeedDescribeFeedGeneratorLinksImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$FeedDescribeFeedGeneratorLinksImplFromJson(json);
 
   @override
   final String? privacyPolicy;
@@ -118,14 +131,14 @@ class _$LinksImpl implements _Links {
 
   @override
   String toString() {
-    return 'Links(privacyPolicy: $privacyPolicy, termsOfService: $termsOfService)';
+    return 'FeedDescribeFeedGeneratorLinks(privacyPolicy: $privacyPolicy, termsOfService: $termsOfService)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$LinksImpl &&
+            other is _$FeedDescribeFeedGeneratorLinksImpl &&
             (identical(other.privacyPolicy, privacyPolicy) ||
                 other.privacyPolicy == privacyPolicy) &&
             (identical(other.termsOfService, termsOfService) ||
@@ -139,23 +152,27 @@ class _$LinksImpl implements _Links {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      __$$LinksImplCopyWithImpl<_$LinksImpl>(this, _$identity);
+  _$$FeedDescribeFeedGeneratorLinksImplCopyWith<
+          _$FeedDescribeFeedGeneratorLinksImpl>
+      get copyWith => __$$FeedDescribeFeedGeneratorLinksImplCopyWithImpl<
+          _$FeedDescribeFeedGeneratorLinksImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$LinksImplToJson(
+    return _$$FeedDescribeFeedGeneratorLinksImplToJson(
       this,
     );
   }
 }
 
-abstract class _Links implements Links {
-  const factory _Links(
+abstract class _FeedDescribeFeedGeneratorLinks
+    implements FeedDescribeFeedGeneratorLinks {
+  const factory _FeedDescribeFeedGeneratorLinks(
       {final String? privacyPolicy,
-      final String? termsOfService}) = _$LinksImpl;
+      final String? termsOfService}) = _$FeedDescribeFeedGeneratorLinksImpl;
 
-  factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
+  factory _FeedDescribeFeedGeneratorLinks.fromJson(Map<String, dynamic> json) =
+      _$FeedDescribeFeedGeneratorLinksImpl.fromJson;
 
   @override
   String? get privacyPolicy;
@@ -163,6 +180,7 @@ abstract class _Links implements Links {
   String? get termsOfService;
   @override
   @JsonKey(ignore: true)
-  _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedDescribeFeedGeneratorLinksImplCopyWith<
+          _$FeedDescribeFeedGeneratorLinksImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -8,11 +8,12 @@ part of 'viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
-      r'_$ViewerStateImpl',
+_$FeedDefsViewerStateImpl _$$FeedDefsViewerStateImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedDefsViewerStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$ViewerStateImpl(
+        final val = _$FeedDefsViewerStateImpl(
           repost: $checkedConvert(
               'repost',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -28,7 +29,8 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
+Map<String, dynamic> _$$FeedDefsViewerStateImplToJson(
+    _$FeedDefsViewerStateImpl instance) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

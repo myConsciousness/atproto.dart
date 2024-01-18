@@ -8,24 +8,25 @@ part of 'viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
-      r'_$ViewerStateImpl',
+_$ActorDefsViewerStateImpl _$$ActorDefsViewerStateImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ActorDefsViewerStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$ViewerStateImpl(
+        final val = _$ActorDefsViewerStateImpl(
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
               'mutedByList',
               (v) => v == null
                   ? null
-                  : ListViewBasic.fromJson(
+                  : GraphDefsListViewBasic.fromJson(
                       Map<String, Object?>.from(v as Map))),
           blockingByList: $checkedConvert(
               'blockingByList',
               (v) => v == null
                   ? null
-                  : ListViewBasic.fromJson(
+                  : GraphDefsListViewBasic.fromJson(
                       Map<String, Object?>.from(v as Map))),
           blocking: $checkedConvert(
               'blocking',
@@ -44,7 +45,8 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
+Map<String, dynamic> _$$ActorDefsViewerStateImplToJson(
+    _$ActorDefsViewerStateImpl instance) {
   final val = <String, dynamic>{
     'muted': instance.muted,
     'blockedBy': instance.blockedBy,

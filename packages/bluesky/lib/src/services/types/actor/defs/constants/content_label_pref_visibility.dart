@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum ContentLabelPrefVisibility {
+enum ActorDefsContentLabelPrefVisibility {
   ignore,
   warn,
   hide,

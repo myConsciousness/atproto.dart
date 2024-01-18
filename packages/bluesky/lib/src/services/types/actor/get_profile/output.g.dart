@@ -8,11 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$ActorGetProfileOutputImpl _$$ActorGetProfileOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ActorGetProfileOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$ActorGetProfileOutputImpl(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -27,7 +28,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
               'viewer',
               (v) => v == null
                   ? defaultActorDefsViewerState
-                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
+                  : ActorDefsViewerState.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -41,7 +43,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
+Map<String, dynamic> _$$ActorGetProfileOutputImplToJson(
+    _$ActorGetProfileOutputImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'handle': instance.handle,

@@ -8,17 +8,20 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$GraphGetListOutputImpl _$$GraphGetListOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$GraphGetListOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
-          list: $checkedConvert('list',
-              (v) => ListView.fromJson(Map<String, Object?>.from(v as Map))),
+        final val = _$GraphGetListOutputImpl(
+          list: $checkedConvert(
+              'list',
+              (v) => GraphDefsListView.fromJson(
+                  Map<String, Object?>.from(v as Map))),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
-                  .map((e) => ListItemView.fromJson(
+                  .map((e) => GraphDefsListItemView.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -27,7 +30,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
+Map<String, dynamic> _$$GraphGetListOutputImplToJson(
+    _$GraphGetListOutputImpl instance) {
   final val = <String, dynamic>{
     'list': instance.list.toJson(),
     'items': instance.items.map((e) => e.toJson()).toList(),

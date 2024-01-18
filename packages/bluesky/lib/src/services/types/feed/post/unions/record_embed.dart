@@ -10,32 +10,33 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-import '../../../embed/external/main.dart' as embed_external_main;
-import '../../../embed/images/main.dart' as embed_images_main;
-import '../../../embed/record/main.dart' as embed_record_main;
-
-import '../../../embed/record_with_media/main.dart'
-    as embed_record_with_media_main;
+import '../../../embed/external/_z.dart';
+import '../../../embed/images/_z.dart';
+import '../../../embed/record/_z.dart';
+import '../../../embed/record_with_media/_z.dart';
 
 part 'record_embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#input
 @freezed
 class URecordEmbed with _$URecordEmbed {
+  // ignore: unused_element
+  const URecordEmbed._();
+
   const factory URecordEmbed.embedRecord({
-    required embed_record_main.Main data,
+    required EmbedRecord data,
   }) = URecordEmbedEmbedRecord;
 
   const factory URecordEmbed.embedImages({
-    required embed_images_main.Main data,
+    required EmbedImages data,
   }) = URecordEmbedEmbedImages;
 
   const factory URecordEmbed.embedExternal({
-    required embed_external_main.Main data,
+    required EmbedExternal data,
   }) = URecordEmbedEmbedExternal;
 
   const factory URecordEmbed.embedRecordWithMedia({
-    required embed_record_with_media_main.Main data,
+    required EmbedRecordWithMedia data,
   }) = URecordEmbedEmbedRecordWithMedia;
 
   const factory URecordEmbed.unknown({
@@ -58,22 +59,22 @@ final class _URecordEmbedConverter
 
       if (type == ids.appBskyEmbedRecord) {
         return URecordEmbed.embedRecord(
-          data: embed_record_main.Main.fromJson(json),
+          data: EmbedRecord.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImages) {
         return URecordEmbed.embedImages(
-          data: embed_images_main.Main.fromJson(json),
+          data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return URecordEmbed.embedExternal(
-          data: embed_external_main.Main.fromJson(json),
+          data: EmbedExternal.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMedia) {
         return URecordEmbed.embedRecordWithMedia(
-          data: embed_record_with_media_main.Main.fromJson(json),
+          data: EmbedRecordWithMedia.fromJson(json),
         );
       }
 

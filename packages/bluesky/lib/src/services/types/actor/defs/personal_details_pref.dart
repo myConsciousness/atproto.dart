@@ -18,13 +18,13 @@ part 'personal_details_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#personaldetailspref
 @freezed
 @lex.appBskyActorDefsPersonalDetailsPref
-class PersonalDetailsPref with _$PersonalDetailsPref {
+class ActorDefsPersonalDetailsPref with _$ActorDefsPersonalDetailsPref {
   @jsonSerializable
-  const factory PersonalDetailsPref({
+  const factory ActorDefsPersonalDetailsPref({
     @typeKey @Default(appBskyActorDefsPersonalDetailsPref) String type,
     DateTime? birthDate,
-  }) = _PersonalDetailsPref;
+  }) = _ActorDefsPersonalDetailsPref;
 
-  factory PersonalDetailsPref.fromJson(Map<String, Object?> json) =>
-      _$PersonalDetailsPrefFromJson(json);
+  factory ActorDefsPersonalDetailsPref.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsPersonalDetailsPrefFromJson(json);
 }

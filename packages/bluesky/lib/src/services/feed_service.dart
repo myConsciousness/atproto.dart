@@ -9,27 +9,29 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'constants/feed_filter.dart';
-import 'entities/actor_feeds.dart';
-import 'entities/embed.dart';
-import 'entities/facet.dart';
-import 'entities/feed.dart';
-import 'entities/feed_generator.dart';
-import 'entities/feed_generator_info.dart';
-import 'entities/feed_generators.dart';
-import 'entities/likes.dart';
-import 'entities/post_thread.dart';
-import 'entities/posts.dart';
-import 'entities/posts_by_query.dart';
-import 'entities/reply_ref.dart';
-import 'entities/reposted_by.dart';
-import 'entities/skeleton_feed.dart';
-import 'entities/thread_rule.dart';
-import 'params/generator_param.dart';
-import 'params/post_param.dart';
-import 'params/strong_ref_param.dart';
-import 'params/thread_param.dart';
 import 'service_context.dart';
+import 'types/feed/describe_feed_generator/_z.dart';
+import 'types/feed/generator/_z.dart';
+import 'types/feed/get_actor_feeds/_z.dart';
+import 'types/feed/get_actor_likes/_z.dart';
+import 'types/feed/get_author_feed/_z.dart';
+import 'types/feed/get_feed/_z.dart';
+import 'types/feed/get_feed_generator/_z.dart';
+import 'types/feed/get_feed_generators/_z.dart';
+import 'types/feed/get_feed_skeleton/_z.dart';
+import 'types/feed/get_likes/_z.dart';
+import 'types/feed/get_list_feed/_z.dart';
+import 'types/feed/get_post_thread/_z.dart';
+import 'types/feed/get_posts/_z.dart';
+import 'types/feed/get_reposted_by/_z.dart';
+import 'types/feed/get_suggested_feeds/_z.dart';
+import 'types/feed/get_timeline/_z.dart';
+import 'types/feed/like/_z.dart';
+import 'types/feed/post/_z.dart';
+import 'types/feed/repost/_z.dart';
+import 'types/feed/search_posts/_z.dart';
+import 'types/feed/threadgate/_z.dart';
+import 'types/richtext/facet/_z.dart';
 
 /// Represents `app.bsky.feed.*` service.
 final class FeedService {
@@ -40,9 +42,9 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
   Future<core.XRPCResponse<atp.StrongRef>> post({
     required String text,
-    ReplyRef? reply,
-    List<Facet>? facets,
-    Embed? embed,
+    FeedPostReplyRef? reply,
+    List<RichtextFacet>? facets,
+    URecordEmbed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
     List<String>? tags,
@@ -78,7 +80,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
-  Future<core.XRPCResponse<Feed>> getTimeline({
+  Future<core.XRPCResponse<FeedGetTimelineOutput>> getTimeline({
     String? algorithm,
     int? limit,
     String? cursor,
@@ -106,11 +108,11 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
-  Future<core.XRPCResponse<Feed>> getAuthorFeed({
+  Future<core.XRPCResponse<FeedGetAuthorFeedOutput>> getAuthorFeed({
     required String actor,
     int? limit,
     String? cursor,
-    FeedFilter? filter,
+    FeedGetAuthorFeedInputFilter? filter,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findFeed(
@@ -121,7 +123,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeed
-  Future<core.XRPCResponse<Feed>> getFeed({
+  Future<core.XRPCResponse<FeedGetFeedOutput>> getFeed({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -134,7 +136,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton
-  Future<core.XRPCResponse<SkeletonFeed>> getFeedSkeleton({
+  Future<core.XRPCResponse<FeedGetFeedSkeletonOutput>> getFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -147,7 +149,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorFeeds
-  Future<core.XRPCResponse<ActorFeeds>> getActorFeeds({
+  Future<core.XRPCResponse<FeedGetActorFeedsOutput>> getActorFeeds({
     required String actor,
     int? limit,
     String? cursor,
@@ -160,7 +162,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes
-  Future<core.XRPCResponse<Likes>> getLikes({
+  Future<core.XRPCResponse<FeedGetLikesOutput>> getLikes({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -175,7 +177,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy
-  Future<core.XRPCResponse<RepostedBy>> getRepostedBy({
+  Future<core.XRPCResponse<FeedGetRepostedByOutput>> getRepostedBy({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -190,7 +192,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPostThread
-  Future<core.XRPCResponse<PostThread>> getPostThread({
+  Future<core.XRPCResponse<FeedGetPostThreadOutput>> getPostThread({
     required core.AtUri uri,
     int? depth,
     int? parentHeight,
@@ -203,7 +205,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
-  Future<core.XRPCResponse<Posts>> getPosts({
+  Future<core.XRPCResponse<FeedGetPostsOutput>> getPosts({
     required List<core.AtUri> uris,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -214,7 +216,7 @@ final class FeedService {
     required String did,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    List<RichtextFacet>? descriptionFacets,
     atp.Blob? avatar,
     atp.Labels? labels,
     DateTime? createdAt,
@@ -233,26 +235,27 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
-  Future<core.XRPCResponse<FeedGenerator>> getFeedGenerator({
+  Future<core.XRPCResponse<FeedGetFeedGeneratorOutput>> getFeedGenerator({
     required core.AtUri uri,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findGenerator(uri: uri);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
-  Future<core.XRPCResponse<FeedGenerators>> getFeedGenerators({
+  Future<core.XRPCResponse<FeedGetFeedGeneratorsOutput>> getFeedGenerators({
     required List<core.AtUri> uris,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findGenerators(uris: uris);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
-  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findGeneratorInfo();
+  Future<core.XRPCResponse<FeedDescribeFeedGeneratorOutput>>
+      describeFeedGenerator() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await findGeneratorInfo();
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes
-  Future<core.XRPCResponse<Feed>> getActorLikes({
+  Future<core.XRPCResponse<FeedGetActorLikesOutput>> getActorLikes({
     required String actor,
     int? limit,
     String? cursor,
@@ -265,7 +268,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds
-  Future<core.XRPCResponse<FeedGenerators>> getSuggestedFeeds({
+  Future<core.XRPCResponse<FeedGetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
   }) async =>
@@ -276,7 +279,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed
-  Future<core.XRPCResponse<Feed>> getListFeed({
+  Future<core.XRPCResponse<FeedGetListFeedOutput>> getListFeed({
     required core.AtUri list,
     int? limit,
     String? cursor,
@@ -291,7 +294,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
   Future<core.XRPCResponse<atp.StrongRef>> threadgate({
     required core.AtUri postUri,
-    List<ThreadRule>? allowRules,
+    List<URecordAllow>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -304,7 +307,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
-  Future<core.XRPCResponse<PostsByQuery>> searchPosts(
+  Future<core.XRPCResponse<FeedSearchPostsOutput>> searchPosts(
     final String query, {
     int? limit,
     String? cursor,
@@ -319,9 +322,9 @@ final class FeedService {
   @Deprecated('Use .post instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createPost({
     required String text,
-    ReplyRef? reply,
-    List<Facet>? facets,
-    Embed? embed,
+    FeedPostReplyRef? reply,
+    List<RichtextFacet>? facets,
+    URecordEmbed? embed,
     List<String>? languageTags,
     atp.Labels? labels,
     List<String>? tags,
@@ -345,7 +348,7 @@ final class FeedService {
 
   @Deprecated('Use .postInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createPosts(
-    List<PostParam> params,
+    List<FeedPostRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
@@ -357,11 +360,10 @@ final class FeedService {
                   'reply': e.reply?.toJson(),
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
-                  'langs': e.languageTags,
+                  'langs': e.langs,
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -370,7 +372,7 @@ final class FeedService {
 
   @Deprecated('Use .thread instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createThread(
-    List<ThreadParam> params,
+    List<FeedPostRecord> params,
   ) async {
     if (params.isEmpty) {
       throw ArgumentError.value(
@@ -385,11 +387,10 @@ final class FeedService {
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
-      languageTags: rootParam.languageTags,
+      languageTags: rootParam.langs,
       labels: rootParam.labels,
       tags: rootParam.tags,
       createdAt: rootParam.createdAt,
-      unspecced: rootParam.unspecced,
     );
 
     final rootRef = rootRecord.data;
@@ -398,17 +399,16 @@ final class FeedService {
     for (final param in params) {
       parentRef = (await post(
         text: param.text,
-        reply: ReplyRef(
+        reply: FeedPostReplyRef(
           root: rootRef,
           parent: parentRef,
         ),
         facets: param.facets,
         embed: param.embed,
-        languageTags: param.languageTags,
+        languageTags: param.langs,
         labels: param.labels,
         tags: param.tags,
         createdAt: param.createdAt,
-        unspecced: param.unspecced,
       ))
           .data;
     }
@@ -417,7 +417,7 @@ final class FeedService {
   }
 
   @Deprecated('Use .getTimeline instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findTimeline({
+  Future<core.XRPCResponse<FeedGetTimelineOutput>> findTimeline({
     String? algorithm,
     int? limit,
     String? cursor,
@@ -426,7 +426,7 @@ final class FeedService {
         algorithm: algorithm,
         limit: limit,
         cursor: cursor,
-        to: Feed.fromJson,
+        to: FeedGetTimelineOutput.fromJson,
       );
 
   @Deprecated('Use .repost instead. Will be removed')
@@ -450,7 +450,7 @@ final class FeedService {
 
   @Deprecated('Use .repostInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createReposts(
-    List<StrongRefParam> params,
+    List<FeedRepostRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
@@ -458,12 +458,8 @@ final class FeedService {
               (e) => atp.CreateAction(
                 collection: ns.appBskyFeedRepost,
                 record: {
-                  'subject': {
-                    'cid': e.cid,
-                    'uri': e.uri.toString(),
-                  },
+                  'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -491,7 +487,7 @@ final class FeedService {
 
   @Deprecated('Use .likeInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createLikes(
-    List<StrongRefParam> params,
+    List<FeedLikeRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
@@ -499,12 +495,8 @@ final class FeedService {
               (e) => atp.CreateAction(
                 collection: ns.appBskyFeedLike,
                 record: {
-                  'subject': {
-                    'cid': e.cid,
-                    'uri': e.uri.toString(),
-                  },
+                  'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -512,22 +504,22 @@ final class FeedService {
       );
 
   @Deprecated('Use .getAuthorFeed instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findFeed({
+  Future<core.XRPCResponse<FeedGetAuthorFeedOutput>> findFeed({
     required String actor,
     int? limit,
     String? cursor,
-    FeedFilter? filter,
+    FeedGetAuthorFeedInputFilter? filter,
   }) async =>
       await _findFeed(
         actor: actor,
         limit: limit,
         cursor: cursor,
         filter: filter,
-        to: Feed.fromJson,
+        to: FeedGetAuthorFeedOutput.fromJson,
       );
 
   @Deprecated('Use .getFeed instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findCustomFeed({
+  Future<core.XRPCResponse<FeedGetFeedOutput>> findCustomFeed({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -536,11 +528,11 @@ final class FeedService {
         generatorUri: generatorUri,
         limit: limit,
         cursor: cursor,
-        to: Feed.fromJson,
+        to: FeedGetFeedOutput.fromJson,
       );
 
   @Deprecated('Use .getFeedSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<SkeletonFeed>> findFeedSkeleton({
+  Future<core.XRPCResponse<FeedGetFeedSkeletonOutput>> findFeedSkeleton({
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
@@ -549,11 +541,11 @@ final class FeedService {
         generatorUri: generatorUri,
         limit: limit,
         cursor: cursor,
-        to: SkeletonFeed.fromJson,
+        to: FeedGetFeedSkeletonOutput.fromJson,
       );
 
   @Deprecated('Use .getActorFeeds instead. Will be removed')
-  Future<core.XRPCResponse<ActorFeeds>> findActorFeeds({
+  Future<core.XRPCResponse<FeedGetActorFeedsOutput>> findActorFeeds({
     required String actor,
     int? limit,
     String? cursor,
@@ -562,11 +554,11 @@ final class FeedService {
         actor: actor,
         limit: limit,
         cursor: cursor,
-        to: ActorFeeds.fromJson,
+        to: FeedGetActorFeedsOutput.fromJson,
       );
 
   @Deprecated('Use .getLikes instead. Will be removed')
-  Future<core.XRPCResponse<Likes>> findLikes({
+  Future<core.XRPCResponse<FeedGetLikesOutput>> findLikes({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -577,11 +569,11 @@ final class FeedService {
         cid: cid,
         limit: limit,
         cursor: cursor,
-        to: Likes.fromJson,
+        to: FeedGetLikesOutput.fromJson,
       );
 
   @Deprecated('Use .getRepostedBy instead. Will be removed')
-  Future<core.XRPCResponse<RepostedBy>> findRepostedBy({
+  Future<core.XRPCResponse<FeedGetRepostedByOutput>> findRepostedBy({
     required core.AtUri uri,
     String? cid,
     int? limit,
@@ -592,11 +584,11 @@ final class FeedService {
         cid: cid,
         limit: limit,
         cursor: cursor,
-        to: RepostedBy.fromJson,
+        to: FeedGetRepostedByOutput.fromJson,
       );
 
   @Deprecated('Use .getPostThread instead. Will be removed')
-  Future<core.XRPCResponse<PostThread>> findPostThread({
+  Future<core.XRPCResponse<FeedGetPostThreadOutput>> findPostThread({
     required core.AtUri uri,
     int? depth,
     int? parentHeight,
@@ -605,16 +597,16 @@ final class FeedService {
         uri: uri,
         depth: depth,
         parentHeight: parentHeight,
-        to: PostThread.fromJson,
+        to: FeedGetPostThreadOutput.fromJson,
       );
 
   @Deprecated('Use .getPosts instead. Will be removed')
-  Future<core.XRPCResponse<Posts>> findPosts({
+  Future<core.XRPCResponse<FeedGetPostsOutput>> findPosts({
     required List<core.AtUri> uris,
   }) async =>
       await _findPosts(
         uris: uris,
-        to: Posts.fromJson,
+        to: FeedGetPostsOutput.fromJson,
       );
 
   @Deprecated('Use .generator instead. Will be removed')
@@ -622,7 +614,7 @@ final class FeedService {
     required String did,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    List<RichtextFacet>? descriptionFacets,
     atp.Blob? avatar,
     atp.Labels? labels,
     DateTime? createdAt,
@@ -645,7 +637,7 @@ final class FeedService {
 
   @Deprecated('Use .generatorInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
-    List<GeneratorParam> params,
+    List<FeedGeneratorRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
@@ -661,7 +653,6 @@ final class FeedService {
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -669,29 +660,31 @@ final class FeedService {
       );
 
   @Deprecated('Use .getFeedGenerator instead. Will be removed')
-  Future<core.XRPCResponse<FeedGenerator>> findGenerator({
+  Future<core.XRPCResponse<FeedGetFeedGeneratorOutput>> findGenerator({
     required core.AtUri uri,
   }) async =>
       await _findGenerator(
         uri: uri,
-        to: FeedGenerator.fromJson,
+        to: FeedGetFeedGeneratorOutput.fromJson,
       );
 
   @Deprecated('Use .getFeedGenerators instead. Will be removed')
-  Future<core.XRPCResponse<FeedGenerators>> findGenerators({
+  Future<core.XRPCResponse<FeedGetFeedGeneratorsOutput>> findGenerators({
     required List<core.AtUri> uris,
   }) async =>
       await _findGenerators(
         uris: uris,
-        to: FeedGenerators.fromJson,
+        to: FeedGetFeedGeneratorsOutput.fromJson,
       );
 
   @Deprecated('Use .describeFeedGenerator instead. Will be removed')
-  Future<core.XRPCResponse<FeedGeneratorInfo>> findGeneratorInfo() async =>
-      await _findGeneratorInfo(to: FeedGeneratorInfo.fromJson);
+  Future<core.XRPCResponse<FeedDescribeFeedGeneratorOutput>>
+      findGeneratorInfo() async => await _findGeneratorInfo(
+            to: FeedDescribeFeedGeneratorOutput.fromJson,
+          );
 
   @Deprecated('Use .getActorLikes instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findActorLikes({
+  Future<core.XRPCResponse<FeedGetActorLikesOutput>> findActorLikes({
     required String actor,
     int? limit,
     String? cursor,
@@ -700,24 +693,24 @@ final class FeedService {
         actor: actor,
         limit: limit,
         cursor: cursor,
-        to: Feed.fromJson,
+        to: FeedGetActorLikesOutput.fromJson,
       );
 
   @Deprecated('Use .getSuggestedFeeds instead. Will be removed')
-  Future<core.XRPCResponse<FeedGenerators>> findSuggestedFeeds({
+  Future<core.XRPCResponse<FeedGetSuggestedFeedsOutput>> findSuggestedFeeds({
     int? limit,
     String? cursor,
   }) async =>
       await _findSuggestedFeeds(
         limit: limit,
         cursor: cursor,
-        to: FeedGenerators.fromJson,
+        to: FeedGetSuggestedFeedsOutput.fromJson,
       );
 
   @Deprecated('Use .threadgate instead. Will be removed')
   Future<core.XRPCResponse<atp.StrongRef>> createThreadgate({
     required core.AtUri postUri,
-    List<ThreadRule>? allowRules,
+    List<URecordAllow>? allowRules,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -734,7 +727,7 @@ final class FeedService {
       );
 
   @Deprecated('Use .getListFeed instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findListFeed({
+  Future<core.XRPCResponse<FeedGetListFeedOutput>> findListFeed({
     required core.AtUri list,
     int? limit,
     String? cursor,
@@ -743,11 +736,11 @@ final class FeedService {
         list: list,
         limit: limit,
         cursor: cursor,
-        to: Feed.fromJson,
+        to: FeedGetListFeedOutput.fromJson,
       );
 
   @Deprecated('Use .searchPosts instead. Will be removed')
-  Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
+  Future<core.XRPCResponse<FeedSearchPostsOutput>> searchPostsByQuery(
     final String query, {
     int? limit,
     String? cursor,
@@ -756,7 +749,7 @@ final class FeedService {
         query: query,
         limit: limit,
         cursor: cursor,
-        to: PostsByQuery.fromJson,
+        to: FeedSearchPostsOutput.fromJson,
       );
 
   Future<core.XRPCResponse<T>> _findListFeed<T>({
@@ -795,7 +788,7 @@ final class FeedService {
     required String actor,
     required int? limit,
     required String? cursor,
-    required FeedFilter? filter,
+    required FeedGetAuthorFeedInputFilter? filter,
     core.To<T>? to,
   }) async =>
       await _ctx.get(
@@ -1014,7 +1007,7 @@ final class FeedService {
     required String actor,
     required int? limit,
     required String? cursor,
-    required FeedFilter? filter,
+    required FeedGetAuthorFeedInputFilter? filter,
   }) =>
       {
         'actor': actor,
@@ -1127,7 +1120,7 @@ final class FeedService {
 
 extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<atp.StrongRef>> thread(
-    final List<ThreadParam> params,
+    final List<FeedPostRecord> params,
   ) async {
     if (params.isEmpty) {
       throw ArgumentError.value(params, 'params', 'must not be empty');
@@ -1138,11 +1131,10 @@ extension FeedServiceExtension on FeedService {
       text: rootParam.text,
       facets: rootParam.facets,
       embed: rootParam.embed,
-      languageTags: rootParam.languageTags,
+      languageTags: rootParam.langs,
       labels: rootParam.labels,
       tags: rootParam.tags,
       createdAt: rootParam.createdAt,
-      unspecced: rootParam.unspecced,
     );
 
     final rootRef = rootRecord.data;
@@ -1151,17 +1143,16 @@ extension FeedServiceExtension on FeedService {
     for (final param in params) {
       parentRef = (await post(
         text: param.text,
-        reply: ReplyRef(
+        reply: FeedPostReplyRef(
           root: rootRef,
           parent: parentRef,
         ),
         facets: param.facets,
         embed: param.embed,
-        languageTags: param.languageTags,
+        languageTags: param.langs,
         labels: param.labels,
         tags: param.tags,
         createdAt: param.createdAt,
-        unspecced: param.unspecced,
       ))
           .data;
     }
@@ -1170,7 +1161,7 @@ extension FeedServiceExtension on FeedService {
   }
 
   Future<core.XRPCResponse<core.EmptyData>> postInBulk(
-    final List<PostParam> params,
+    final List<FeedPostRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
@@ -1182,11 +1173,10 @@ extension FeedServiceExtension on FeedService {
                   'reply': e.reply?.toJson(),
                   'facets': e.facets?.map((e) => e.toJson()).toList(),
                   'embed': e.embed?.toJson(),
-                  'langs': e.languageTags,
+                  'langs': e.langs,
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -1194,7 +1184,7 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> repostInBulk(
-    final List<StrongRefParam> params,
+    final List<FeedRepostRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
@@ -1202,12 +1192,8 @@ extension FeedServiceExtension on FeedService {
               (e) => atp.CreateAction(
                 collection: ns.appBskyFeedRepost,
                 record: {
-                  'subject': {
-                    'cid': e.cid,
-                    'uri': e.uri.toString(),
-                  },
+                  'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -1215,7 +1201,7 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> likeInBulk(
-    final List<StrongRefParam> params,
+    final List<FeedLikeRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
@@ -1223,12 +1209,8 @@ extension FeedServiceExtension on FeedService {
               (e) => atp.CreateAction(
                 collection: ns.appBskyFeedLike,
                 record: {
-                  'subject': {
-                    'cid': e.cid,
-                    'uri': e.uri.toString(),
-                  },
+                  'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )
@@ -1236,7 +1218,7 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> generatorInBulk(
-    final List<GeneratorParam> params,
+    final List<FeedGeneratorRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
@@ -1252,7 +1234,6 @@ extension FeedServiceExtension on FeedService {
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
                 },
               ),
             )

@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
+GraphDefsListViewBasic _$GraphDefsListViewBasicFromJson(
+    Map<String, dynamic> json) {
   return _GraphDefsListViewBasic.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ListViewBasic {
+mixin _$GraphDefsListViewBasic {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
@@ -28,20 +29,20 @@ mixin _$ListViewBasic {
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  ListViewerState get viewer => throw _privateConstructorUsedError;
+  GraphDefsListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListViewBasicCopyWith<ListViewBasic> get copyWith =>
+  $GraphDefsListViewBasicCopyWith<GraphDefsListViewBasic> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListViewBasicCopyWith<$Res> {
-  factory $ListViewBasicCopyWith(
-          ListViewBasic value, $Res Function(ListViewBasic) then) =
-      _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
+abstract class $GraphDefsListViewBasicCopyWith<$Res> {
+  factory $GraphDefsListViewBasicCopyWith(GraphDefsListViewBasic value,
+          $Res Function(GraphDefsListViewBasic) then) =
+      _$GraphDefsListViewBasicCopyWithImpl<$Res, GraphDefsListViewBasic>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -50,16 +51,17 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String cid,
       String name,
       String? avatar,
-      ListViewerState viewer,
+      GraphDefsListViewerState viewer,
       DateTime indexedAt});
 
-  $ListViewerStateCopyWith<$Res> get viewer;
+  $GraphDefsListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
-    implements $ListViewBasicCopyWith<$Res> {
-  _$ListViewBasicCopyWithImpl(this._value, this._then);
+class _$GraphDefsListViewBasicCopyWithImpl<$Res,
+        $Val extends GraphDefsListViewBasic>
+    implements $GraphDefsListViewBasicCopyWith<$Res> {
+  _$GraphDefsListViewBasicCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -106,7 +108,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ListViewerState,
+              as GraphDefsListViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -116,8 +118,8 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
 
   @override
   @pragma('vm:prefer-inline')
-  $ListViewerStateCopyWith<$Res> get viewer {
-    return $ListViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $GraphDefsListViewerStateCopyWith<$Res> get viewer {
+    return $GraphDefsListViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -125,7 +127,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
 
 /// @nodoc
 abstract class _$$GraphDefsListViewBasicImplCopyWith<$Res>
-    implements $ListViewBasicCopyWith<$Res> {
+    implements $GraphDefsListViewBasicCopyWith<$Res> {
   factory _$$GraphDefsListViewBasicImplCopyWith(
           _$GraphDefsListViewBasicImpl value,
           $Res Function(_$GraphDefsListViewBasicImpl) then) =
@@ -139,16 +141,17 @@ abstract class _$$GraphDefsListViewBasicImplCopyWith<$Res>
       String cid,
       String name,
       String? avatar,
-      ListViewerState viewer,
+      GraphDefsListViewerState viewer,
       DateTime indexedAt});
 
   @override
-  $ListViewerStateCopyWith<$Res> get viewer;
+  $GraphDefsListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
 class __$$GraphDefsListViewBasicImplCopyWithImpl<$Res>
-    extends _$ListViewBasicCopyWithImpl<$Res, _$GraphDefsListViewBasicImpl>
+    extends _$GraphDefsListViewBasicCopyWithImpl<$Res,
+        _$GraphDefsListViewBasicImpl>
     implements _$$GraphDefsListViewBasicImplCopyWith<$Res> {
   __$$GraphDefsListViewBasicImplCopyWithImpl(
       _$GraphDefsListViewBasicImpl _value,
@@ -195,7 +198,7 @@ class __$$GraphDefsListViewBasicImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ListViewerState,
+              as GraphDefsListViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -238,13 +241,13 @@ class _$GraphDefsListViewBasicImpl implements _GraphDefsListViewBasic {
   final String? avatar;
   @override
   @JsonKey()
-  final ListViewerState viewer;
+  final GraphDefsListViewerState viewer;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'GraphDefsListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -283,7 +286,7 @@ class _$GraphDefsListViewBasicImpl implements _GraphDefsListViewBasic {
   }
 }
 
-abstract class _GraphDefsListViewBasic implements ListViewBasic {
+abstract class _GraphDefsListViewBasic implements GraphDefsListViewBasic {
   const factory _GraphDefsListViewBasic(
       {@typeKey final String type,
       final String purpose,
@@ -291,7 +294,7 @@ abstract class _GraphDefsListViewBasic implements ListViewBasic {
       required final String cid,
       required final String name,
       final String? avatar,
-      final ListViewerState viewer,
+      final GraphDefsListViewerState viewer,
       required final DateTime indexedAt}) = _$GraphDefsListViewBasicImpl;
 
   factory _GraphDefsListViewBasic.fromJson(Map<String, dynamic> json) =
@@ -312,7 +315,7 @@ abstract class _GraphDefsListViewBasic implements ListViewBasic {
   @override
   String? get avatar;
   @override
-  ListViewerState get viewer;
+  GraphDefsListViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override

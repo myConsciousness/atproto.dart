@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../graph/defs/list_view_basic.dart';
-import '../threadgate/record.dart' as feed_threadgate;
+import '../threadgate/record.dart';
 
 part 'threadgate_view.freezed.dart';
 part 'threadgate_view.g.dart';
@@ -20,16 +20,16 @@ part 'threadgate_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
 @lex.appBskyFeedDefsThreadgateView
-class ThreadgateView with _$ThreadgateView {
+class FeedDefsThreadgateView with _$FeedDefsThreadgateView {
   @jsonSerializable
-  const factory ThreadgateView({
+  const factory FeedDefsThreadgateView({
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,
     @atUriConverter AtUri? uri,
     String? cid,
-    feed_threadgate.Record? record,
-    List<ListViewBasic>? lists,
-  }) = _ThreadgateView;
+    FeedThreadgateRecord? record,
+    List<GraphDefsListViewBasic>? lists,
+  }) = _FeedDefsThreadgateView;
 
-  factory ThreadgateView.fromJson(Map<String, Object?> json) =>
-      _$ThreadgateViewFromJson(json);
+  factory FeedDefsThreadgateView.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsThreadgateViewFromJson(json);
 }

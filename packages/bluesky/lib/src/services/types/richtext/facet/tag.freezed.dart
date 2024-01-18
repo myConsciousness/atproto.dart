@@ -14,32 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Tag _$TagFromJson(Map<String, dynamic> json) {
-  return _Tag.fromJson(json);
+RichtextFacetTag _$RichtextFacetTagFromJson(Map<String, dynamic> json) {
+  return _RichtextFacetTag.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Tag {
+mixin _$RichtextFacetTag {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $TagCopyWith<Tag> get copyWith => throw _privateConstructorUsedError;
+  $RichtextFacetTagCopyWith<RichtextFacetTag> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $TagCopyWith<$Res> {
-  factory $TagCopyWith(Tag value, $Res Function(Tag) then) =
-      _$TagCopyWithImpl<$Res, Tag>;
+abstract class $RichtextFacetTagCopyWith<$Res> {
+  factory $RichtextFacetTagCopyWith(
+          RichtextFacetTag value, $Res Function(RichtextFacetTag) then) =
+      _$RichtextFacetTagCopyWithImpl<$Res, RichtextFacetTag>;
   @useResult
   $Res call({@typeKey String type, String tag});
 }
 
 /// @nodoc
-class _$TagCopyWithImpl<$Res, $Val extends Tag> implements $TagCopyWith<$Res> {
-  _$TagCopyWithImpl(this._value, this._then);
+class _$RichtextFacetTagCopyWithImpl<$Res, $Val extends RichtextFacetTag>
+    implements $RichtextFacetTagCopyWith<$Res> {
+  _$RichtextFacetTagCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,18 +69,22 @@ class _$TagCopyWithImpl<$Res, $Val extends Tag> implements $TagCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$$TagImplCopyWith<$Res> implements $TagCopyWith<$Res> {
-  factory _$$TagImplCopyWith(_$TagImpl value, $Res Function(_$TagImpl) then) =
-      __$$TagImplCopyWithImpl<$Res>;
+abstract class _$$RichtextFacetTagImplCopyWith<$Res>
+    implements $RichtextFacetTagCopyWith<$Res> {
+  factory _$$RichtextFacetTagImplCopyWith(_$RichtextFacetTagImpl value,
+          $Res Function(_$RichtextFacetTagImpl) then) =
+      __$$RichtextFacetTagImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String tag});
 }
 
 /// @nodoc
-class __$$TagImplCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$TagImpl>
-    implements _$$TagImplCopyWith<$Res> {
-  __$$TagImplCopyWithImpl(_$TagImpl _value, $Res Function(_$TagImpl) _then)
+class __$$RichtextFacetTagImplCopyWithImpl<$Res>
+    extends _$RichtextFacetTagCopyWithImpl<$Res, _$RichtextFacetTagImpl>
+    implements _$$RichtextFacetTagImplCopyWith<$Res> {
+  __$$RichtextFacetTagImplCopyWithImpl(_$RichtextFacetTagImpl _value,
+      $Res Function(_$RichtextFacetTagImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +93,7 @@ class __$$TagImplCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$TagImpl>
     Object? type = null,
     Object? tag = null,
   }) {
-    return _then(_$TagImpl(
+    return _then(_$RichtextFacetTagImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -101,12 +108,12 @@ class __$$TagImplCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$TagImpl>
 
 /// @nodoc
 @JsonSerializable()
-class _$TagImpl implements _Tag {
-  const _$TagImpl(
+class _$RichtextFacetTagImpl implements _RichtextFacetTag {
+  const _$RichtextFacetTagImpl(
       {@typeKey this.type = appBskyRichtextFacetTag, required this.tag});
 
-  factory _$TagImpl.fromJson(Map<String, dynamic> json) =>
-      _$$TagImplFromJson(json);
+  factory _$RichtextFacetTagImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RichtextFacetTagImplFromJson(json);
 
   @override
   @typeKey
@@ -116,14 +123,14 @@ class _$TagImpl implements _Tag {
 
   @override
   String toString() {
-    return 'Tag(type: $type, tag: $tag)';
+    return 'RichtextFacetTag(type: $type, tag: $tag)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$TagImpl &&
+            other is _$RichtextFacetTagImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.tag, tag) || other.tag == tag));
   }
@@ -135,22 +142,25 @@ class _$TagImpl implements _Tag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$TagImplCopyWith<_$TagImpl> get copyWith =>
-      __$$TagImplCopyWithImpl<_$TagImpl>(this, _$identity);
+  _$$RichtextFacetTagImplCopyWith<_$RichtextFacetTagImpl> get copyWith =>
+      __$$RichtextFacetTagImplCopyWithImpl<_$RichtextFacetTagImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$TagImplToJson(
+    return _$$RichtextFacetTagImplToJson(
       this,
     );
   }
 }
 
-abstract class _Tag implements Tag {
-  const factory _Tag({@typeKey final String type, required final String tag}) =
-      _$TagImpl;
+abstract class _RichtextFacetTag implements RichtextFacetTag {
+  const factory _RichtextFacetTag(
+      {@typeKey final String type,
+      required final String tag}) = _$RichtextFacetTagImpl;
 
-  factory _Tag.fromJson(Map<String, dynamic> json) = _$TagImpl.fromJson;
+  factory _RichtextFacetTag.fromJson(Map<String, dynamic> json) =
+      _$RichtextFacetTagImpl.fromJson;
 
   @override
   @typeKey
@@ -159,6 +169,6 @@ abstract class _Tag implements Tag {
   String get tag;
   @override
   @JsonKey(ignore: true)
-  _$$TagImplCopyWith<_$TagImpl> get copyWith =>
+  _$$RichtextFacetTagImplCopyWith<_$RichtextFacetTagImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

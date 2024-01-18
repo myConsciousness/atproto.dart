@@ -20,13 +20,14 @@ part 'record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedRepost].
 @freezed
-class Record with _$Record {
+class FeedRepostRecord with _$FeedRepostRecord {
   @jsonSerializable
-  const factory Record({
+  const factory FeedRepostRecord({
     @typeKey @Default(appBskyFeedRepost) String type,
     required StrongRef subject,
     required DateTime createdAt,
-  }) = _Record;
+  }) = _FeedRepostRecord;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+  factory FeedRepostRecord.fromJson(Map<String, Object?> json) =>
+      _$FeedRepostRecordFromJson(json);
 }

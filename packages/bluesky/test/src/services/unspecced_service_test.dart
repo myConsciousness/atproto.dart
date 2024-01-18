@@ -4,29 +4,29 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/feed_generators.dart';
-import 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
-import 'package:bluesky/src/services/entities/skeleton_feed.dart';
-import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
+import 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
+import 'package:bluesky/src/services/types/unspecced/get_timeline_skeleton/_z.dart';
+import 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
+import 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testUnspecced<FeedGenerators>(
+  testUnspecced<UnspeccedGetPopularFeedGeneratorsOutput>(
     (m, s) => s.getPopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
   );
 
-  testUnspecced<SkeletonFeed>(
+  testUnspecced<UnspeccedGetTimelineSkeletonOutput>(
     (m, s) => s.getTimelineSkeleton(),
     id: appBskyUnspeccedGetTimelineSkeleton,
   );
 
-  testUnspecced<SkeletonPostsByQuery>(
+  testUnspecced<UnspeccedSearchPostsSkeletonOutput>(
     (m, s) => s.searchPostsSkeleton(m.query),
     id: appBskyUnspeccedSearchPostsSkeleton,
   );
 
-  testUnspecced<SkeletonActorsByQuery>(
+  testUnspecced<UnspeccedSearchActorsSkeletonOutput>(
     (m, s) => s.searchActorsSkeleton(m.query),
     id: appBskyUnspeccedSearchActorsSkeleton,
   );

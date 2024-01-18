@@ -14,40 +14,42 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ContentLabelPref _$ContentLabelPrefFromJson(Map<String, dynamic> json) {
-  return _ContentLabelPref.fromJson(json);
+ActorDefsContentLabelPref _$ActorDefsContentLabelPrefFromJson(
+    Map<String, dynamic> json) {
+  return _ActorDefsContentLabelPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ContentLabelPref {
+mixin _$ActorDefsContentLabelPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  ContentLabelPrefVisibility get visibility =>
+  ActorDefsContentLabelPrefVisibility get visibility =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ContentLabelPrefCopyWith<ContentLabelPref> get copyWith =>
+  $ActorDefsContentLabelPrefCopyWith<ActorDefsContentLabelPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ContentLabelPrefCopyWith<$Res> {
-  factory $ContentLabelPrefCopyWith(
-          ContentLabelPref value, $Res Function(ContentLabelPref) then) =
-      _$ContentLabelPrefCopyWithImpl<$Res, ContentLabelPref>;
+abstract class $ActorDefsContentLabelPrefCopyWith<$Res> {
+  factory $ActorDefsContentLabelPrefCopyWith(ActorDefsContentLabelPref value,
+          $Res Function(ActorDefsContentLabelPref) then) =
+      _$ActorDefsContentLabelPrefCopyWithImpl<$Res, ActorDefsContentLabelPref>;
   @useResult
   $Res call(
       {@typeKey String type,
       String label,
-      ContentLabelPrefVisibility visibility});
+      ActorDefsContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
-class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
-    implements $ContentLabelPrefCopyWith<$Res> {
-  _$ContentLabelPrefCopyWithImpl(this._value, this._then);
+class _$ActorDefsContentLabelPrefCopyWithImpl<$Res,
+        $Val extends ActorDefsContentLabelPref>
+    implements $ActorDefsContentLabelPrefCopyWith<$Res> {
+  _$ActorDefsContentLabelPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,31 +75,34 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelPrefVisibility,
+              as ActorDefsContentLabelPrefVisibility,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ContentLabelPrefImplCopyWith<$Res>
-    implements $ContentLabelPrefCopyWith<$Res> {
-  factory _$$ContentLabelPrefImplCopyWith(_$ContentLabelPrefImpl value,
-          $Res Function(_$ContentLabelPrefImpl) then) =
-      __$$ContentLabelPrefImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsContentLabelPrefImplCopyWith<$Res>
+    implements $ActorDefsContentLabelPrefCopyWith<$Res> {
+  factory _$$ActorDefsContentLabelPrefImplCopyWith(
+          _$ActorDefsContentLabelPrefImpl value,
+          $Res Function(_$ActorDefsContentLabelPrefImpl) then) =
+      __$$ActorDefsContentLabelPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       String label,
-      ContentLabelPrefVisibility visibility});
+      ActorDefsContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
-class __$$ContentLabelPrefImplCopyWithImpl<$Res>
-    extends _$ContentLabelPrefCopyWithImpl<$Res, _$ContentLabelPrefImpl>
-    implements _$$ContentLabelPrefImplCopyWith<$Res> {
-  __$$ContentLabelPrefImplCopyWithImpl(_$ContentLabelPrefImpl _value,
-      $Res Function(_$ContentLabelPrefImpl) _then)
+class __$$ActorDefsContentLabelPrefImplCopyWithImpl<$Res>
+    extends _$ActorDefsContentLabelPrefCopyWithImpl<$Res,
+        _$ActorDefsContentLabelPrefImpl>
+    implements _$$ActorDefsContentLabelPrefImplCopyWith<$Res> {
+  __$$ActorDefsContentLabelPrefImplCopyWithImpl(
+      _$ActorDefsContentLabelPrefImpl _value,
+      $Res Function(_$ActorDefsContentLabelPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +112,7 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
     Object? label = null,
     Object? visibility = null,
   }) {
-    return _then(_$ContentLabelPrefImpl(
+    return _then(_$ActorDefsContentLabelPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -119,7 +124,7 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelPrefVisibility,
+              as ActorDefsContentLabelPrefVisibility,
     ));
   }
 }
@@ -127,14 +132,14 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ContentLabelPrefImpl implements _ContentLabelPref {
-  const _$ContentLabelPrefImpl(
+class _$ActorDefsContentLabelPrefImpl implements _ActorDefsContentLabelPref {
+  const _$ActorDefsContentLabelPrefImpl(
       {@typeKey this.type = appBskyActorDefsContentLabelPref,
       required this.label,
       required this.visibility});
 
-  factory _$ContentLabelPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ContentLabelPrefImplFromJson(json);
+  factory _$ActorDefsContentLabelPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorDefsContentLabelPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -142,18 +147,18 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @override
   final String label;
   @override
-  final ContentLabelPrefVisibility visibility;
+  final ActorDefsContentLabelPrefVisibility visibility;
 
   @override
   String toString() {
-    return 'ContentLabelPref(type: $type, label: $label, visibility: $visibility)';
+    return 'ActorDefsContentLabelPref(type: $type, label: $label, visibility: $visibility)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ContentLabelPrefImpl &&
+            other is _$ActorDefsContentLabelPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.label, label) || other.label == label) &&
             (identical(other.visibility, visibility) ||
@@ -167,27 +172,27 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ContentLabelPrefImplCopyWith<_$ContentLabelPrefImpl> get copyWith =>
-      __$$ContentLabelPrefImplCopyWithImpl<_$ContentLabelPrefImpl>(
-          this, _$identity);
+  _$$ActorDefsContentLabelPrefImplCopyWith<_$ActorDefsContentLabelPrefImpl>
+      get copyWith => __$$ActorDefsContentLabelPrefImplCopyWithImpl<
+          _$ActorDefsContentLabelPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ContentLabelPrefImplToJson(
+    return _$$ActorDefsContentLabelPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ContentLabelPref implements ContentLabelPref {
-  const factory _ContentLabelPref(
+abstract class _ActorDefsContentLabelPref implements ActorDefsContentLabelPref {
+  const factory _ActorDefsContentLabelPref(
           {@typeKey final String type,
           required final String label,
-          required final ContentLabelPrefVisibility visibility}) =
-      _$ContentLabelPrefImpl;
+          required final ActorDefsContentLabelPrefVisibility visibility}) =
+      _$ActorDefsContentLabelPrefImpl;
 
-  factory _ContentLabelPref.fromJson(Map<String, dynamic> json) =
-      _$ContentLabelPrefImpl.fromJson;
+  factory _ActorDefsContentLabelPref.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsContentLabelPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -195,9 +200,9 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   @override
   String get label;
   @override
-  ContentLabelPrefVisibility get visibility;
+  ActorDefsContentLabelPrefVisibility get visibility;
   @override
   @JsonKey(ignore: true)
-  _$$ContentLabelPrefImplCopyWith<_$ContentLabelPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsContentLabelPrefImplCopyWith<_$ActorDefsContentLabelPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

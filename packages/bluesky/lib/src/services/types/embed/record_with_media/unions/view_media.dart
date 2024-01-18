@@ -10,20 +10,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-import '../../external/view.dart' as embed_external_view;
-import '../../images/view.dart' as embed_images_view;
+import '../../external/view.dart';
+import '../../images/view.dart';
 
 part 'view_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
 class UViewMedia with _$UViewMedia {
+  // ignore: unused_element
+  const UViewMedia._();
+
   const factory UViewMedia.embedImagesView({
-    required embed_images_view.View data,
+    required EmbedImagesView data,
   }) = UViewMediaEmbedImagesView;
 
   const factory UViewMedia.embedExternalView({
-    required embed_external_view.View data,
+    required EmbedExternalView data,
   }) = UViewMediaEmbedExternalView;
 
   const factory UViewMedia.unknown({
@@ -46,12 +49,12 @@ final class _UViewMediaConverter
 
       if (type == ids.appBskyEmbedImagesView) {
         return UViewMedia.embedImagesView(
-          data: embed_images_view.View.fromJson(json),
+          data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
         return UViewMedia.embedExternalView(
-          data: embed_external_view.View.fromJson(json),
+          data: EmbedExternalView.fromJson(json),
         );
       }
 

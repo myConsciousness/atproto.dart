@@ -8,15 +8,19 @@ part of 'view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ViewImpl _$$ViewImplFromJson(Map json) => $checkedCreate(
-      r'_$ViewImpl',
+_$EmbedRecordWithMediaViewImpl _$$EmbedRecordWithMediaViewImplFromJson(
+        Map json) =>
+    $checkedCreate(
+      r'_$EmbedRecordWithMediaViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$ViewImpl(
+        final val = _$EmbedRecordWithMediaViewImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordWithMediaView),
-          record: $checkedConvert('record',
-              (v) => View.fromJson(Map<String, Object?>.from(v as Map))),
+          record: $checkedConvert(
+              'record',
+              (v) => EmbedRecordView.fromJson(
+                  Map<String, Object?>.from(v as Map))),
           media: $checkedConvert('media',
               (v) => unionViewMedia.fromJson(v as Map<String, dynamic>)),
         );
@@ -25,7 +29,8 @@ _$ViewImpl _$$ViewImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ViewImplToJson(_$ViewImpl instance) =>
+Map<String, dynamic> _$$EmbedRecordWithMediaViewImplToJson(
+        _$EmbedRecordWithMediaViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),

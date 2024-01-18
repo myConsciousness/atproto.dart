@@ -15,10 +15,11 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
 @lex.appBskyFeedGetPostThread
-class Output with _$Output {
-  const factory Output({
+class FeedGetPostThreadOutput with _$FeedGetPostThreadOutput {
+  const factory FeedGetPostThreadOutput({
     @unionOutputThread required UOutputThread thread,
-  }) = _Output;
+  }) = _FeedGetPostThreadOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory FeedGetPostThreadOutput.fromJson(Map<String, Object?> json) =>
+      _$FeedGetPostThreadOutputFromJson(json);
 }

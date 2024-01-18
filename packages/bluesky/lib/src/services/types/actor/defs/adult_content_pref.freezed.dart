@@ -14,35 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-AdultContentPref _$AdultContentPrefFromJson(Map<String, dynamic> json) {
-  return _AdultContentPref.fromJson(json);
+ActorDefsAdultContentPref _$ActorDefsAdultContentPrefFromJson(
+    Map<String, dynamic> json) {
+  return _ActorDefsAdultContentPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$AdultContentPref {
+mixin _$ActorDefsAdultContentPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   bool get enabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AdultContentPrefCopyWith<AdultContentPref> get copyWith =>
+  $ActorDefsAdultContentPrefCopyWith<ActorDefsAdultContentPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AdultContentPrefCopyWith<$Res> {
-  factory $AdultContentPrefCopyWith(
-          AdultContentPref value, $Res Function(AdultContentPref) then) =
-      _$AdultContentPrefCopyWithImpl<$Res, AdultContentPref>;
+abstract class $ActorDefsAdultContentPrefCopyWith<$Res> {
+  factory $ActorDefsAdultContentPrefCopyWith(ActorDefsAdultContentPref value,
+          $Res Function(ActorDefsAdultContentPref) then) =
+      _$ActorDefsAdultContentPrefCopyWithImpl<$Res, ActorDefsAdultContentPref>;
   @useResult
   $Res call({@typeKey String type, bool enabled});
 }
 
 /// @nodoc
-class _$AdultContentPrefCopyWithImpl<$Res, $Val extends AdultContentPref>
-    implements $AdultContentPrefCopyWith<$Res> {
-  _$AdultContentPrefCopyWithImpl(this._value, this._then);
+class _$ActorDefsAdultContentPrefCopyWithImpl<$Res,
+        $Val extends ActorDefsAdultContentPref>
+    implements $ActorDefsAdultContentPrefCopyWith<$Res> {
+  _$ActorDefsAdultContentPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +71,25 @@ class _$AdultContentPrefCopyWithImpl<$Res, $Val extends AdultContentPref>
 }
 
 /// @nodoc
-abstract class _$$AdultContentPrefImplCopyWith<$Res>
-    implements $AdultContentPrefCopyWith<$Res> {
-  factory _$$AdultContentPrefImplCopyWith(_$AdultContentPrefImpl value,
-          $Res Function(_$AdultContentPrefImpl) then) =
-      __$$AdultContentPrefImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsAdultContentPrefImplCopyWith<$Res>
+    implements $ActorDefsAdultContentPrefCopyWith<$Res> {
+  factory _$$ActorDefsAdultContentPrefImplCopyWith(
+          _$ActorDefsAdultContentPrefImpl value,
+          $Res Function(_$ActorDefsAdultContentPrefImpl) then) =
+      __$$ActorDefsAdultContentPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, bool enabled});
 }
 
 /// @nodoc
-class __$$AdultContentPrefImplCopyWithImpl<$Res>
-    extends _$AdultContentPrefCopyWithImpl<$Res, _$AdultContentPrefImpl>
-    implements _$$AdultContentPrefImplCopyWith<$Res> {
-  __$$AdultContentPrefImplCopyWithImpl(_$AdultContentPrefImpl _value,
-      $Res Function(_$AdultContentPrefImpl) _then)
+class __$$ActorDefsAdultContentPrefImplCopyWithImpl<$Res>
+    extends _$ActorDefsAdultContentPrefCopyWithImpl<$Res,
+        _$ActorDefsAdultContentPrefImpl>
+    implements _$$ActorDefsAdultContentPrefImplCopyWith<$Res> {
+  __$$ActorDefsAdultContentPrefImplCopyWithImpl(
+      _$ActorDefsAdultContentPrefImpl _value,
+      $Res Function(_$ActorDefsAdultContentPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +98,7 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? enabled = null,
   }) {
-    return _then(_$AdultContentPrefImpl(
+    return _then(_$ActorDefsAdultContentPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -109,13 +114,13 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$AdultContentPrefImpl implements _AdultContentPref {
-  const _$AdultContentPrefImpl(
+class _$ActorDefsAdultContentPrefImpl implements _ActorDefsAdultContentPref {
+  const _$ActorDefsAdultContentPrefImpl(
       {@typeKey this.type = appBskyActorDefsAdultContentPref,
       this.enabled = false});
 
-  factory _$AdultContentPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AdultContentPrefImplFromJson(json);
+  factory _$ActorDefsAdultContentPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorDefsAdultContentPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -126,14 +131,14 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
 
   @override
   String toString() {
-    return 'AdultContentPref(type: $type, enabled: $enabled)';
+    return 'ActorDefsAdultContentPref(type: $type, enabled: $enabled)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AdultContentPrefImpl &&
+            other is _$ActorDefsAdultContentPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.enabled, enabled) || other.enabled == enabled));
   }
@@ -145,25 +150,25 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AdultContentPrefImplCopyWith<_$AdultContentPrefImpl> get copyWith =>
-      __$$AdultContentPrefImplCopyWithImpl<_$AdultContentPrefImpl>(
-          this, _$identity);
+  _$$ActorDefsAdultContentPrefImplCopyWith<_$ActorDefsAdultContentPrefImpl>
+      get copyWith => __$$ActorDefsAdultContentPrefImplCopyWithImpl<
+          _$ActorDefsAdultContentPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AdultContentPrefImplToJson(
+    return _$$ActorDefsAdultContentPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _AdultContentPref implements AdultContentPref {
-  const factory _AdultContentPref(
+abstract class _ActorDefsAdultContentPref implements ActorDefsAdultContentPref {
+  const factory _ActorDefsAdultContentPref(
       {@typeKey final String type,
-      final bool enabled}) = _$AdultContentPrefImpl;
+      final bool enabled}) = _$ActorDefsAdultContentPrefImpl;
 
-  factory _AdultContentPref.fromJson(Map<String, dynamic> json) =
-      _$AdultContentPrefImpl.fromJson;
+  factory _ActorDefsAdultContentPref.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsAdultContentPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -172,6 +177,6 @@ abstract class _AdultContentPref implements AdultContentPref {
   bool get enabled;
   @override
   @JsonKey(ignore: true)
-  _$$AdultContentPrefImplCopyWith<_$AdultContentPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsAdultContentPrefImplCopyWith<_$ActorDefsAdultContentPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

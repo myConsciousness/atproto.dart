@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+ActorGetProfileOutput _$ActorGetProfileOutputFromJson(
+    Map<String, dynamic> json) {
+  return _ActorGetProfileOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
+mixin _$ActorGetProfileOutput {
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
@@ -29,19 +30,21 @@ mixin _$Output {
   int get followsCount => throw _privateConstructorUsedError;
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
-  ViewerState get viewer => throw _privateConstructorUsedError;
+  ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $ActorGetProfileOutputCopyWith<ActorGetProfileOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $ActorGetProfileOutputCopyWith<$Res> {
+  factory $ActorGetProfileOutputCopyWith(ActorGetProfileOutput value,
+          $Res Function(ActorGetProfileOutput) then) =
+      _$ActorGetProfileOutputCopyWithImpl<$Res, ActorGetProfileOutput>;
   @useResult
   $Res call(
       {String did,
@@ -53,17 +56,18 @@ abstract class $OutputCopyWith<$Res> {
       int followsCount,
       int followersCount,
       int postsCount,
-      ViewerState viewer,
+      ActorDefsViewerState viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
-  $ViewerStateCopyWith<$Res> get viewer;
+  $ActorDefsViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$ActorGetProfileOutputCopyWithImpl<$Res,
+        $Val extends ActorGetProfileOutput>
+    implements $ActorGetProfileOutputCopyWith<$Res> {
+  _$ActorGetProfileOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -126,7 +130,7 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState,
+              as ActorDefsViewerState,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -140,18 +144,20 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewerStateCopyWith<$Res> get viewer {
-    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ActorDefsViewerStateCopyWith<$Res> get viewer {
+    return $ActorDefsViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$ActorGetProfileOutputImplCopyWith<$Res>
+    implements $ActorGetProfileOutputCopyWith<$Res> {
+  factory _$$ActorGetProfileOutputImplCopyWith(
+          _$ActorGetProfileOutputImpl value,
+          $Res Function(_$ActorGetProfileOutputImpl) then) =
+      __$$ActorGetProfileOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -164,20 +170,21 @@ abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
       int followsCount,
       int followersCount,
       int postsCount,
-      ViewerState viewer,
+      ActorDefsViewerState viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
   @override
-  $ViewerStateCopyWith<$Res> get viewer;
+  $ActorDefsViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$ActorGetProfileOutputImplCopyWithImpl<$Res>
+    extends _$ActorGetProfileOutputCopyWithImpl<$Res,
+        _$ActorGetProfileOutputImpl>
+    implements _$$ActorGetProfileOutputImplCopyWith<$Res> {
+  __$$ActorGetProfileOutputImplCopyWithImpl(_$ActorGetProfileOutputImpl _value,
+      $Res Function(_$ActorGetProfileOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -196,7 +203,7 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? indexedAt = freezed,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$ActorGetProfileOutputImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -236,7 +243,7 @@ class __$$OutputImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState,
+              as ActorDefsViewerState,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -252,8 +259,8 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OutputImpl implements _Output {
-  const _$OutputImpl(
+class _$ActorGetProfileOutputImpl implements _ActorGetProfileOutput {
+  const _$ActorGetProfileOutputImpl(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -268,8 +275,8 @@ class _$OutputImpl implements _Output {
       this.indexedAt})
       : _labels = labels;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$ActorGetProfileOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorGetProfileOutputImplFromJson(json);
 
   @override
   final String did;
@@ -294,7 +301,7 @@ class _$OutputImpl implements _Output {
   final int postsCount;
   @override
   @JsonKey()
-  final ViewerState viewer;
+  final ActorDefsViewerState viewer;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -310,14 +317,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'ActorGetProfileOutput(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$ActorGetProfileOutputImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -358,19 +365,20 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$ActorGetProfileOutputImplCopyWith<_$ActorGetProfileOutputImpl>
+      get copyWith => __$$ActorGetProfileOutputImplCopyWithImpl<
+          _$ActorGetProfileOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$ActorGetProfileOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
+abstract class _ActorGetProfileOutput implements ActorGetProfileOutput {
+  const factory _ActorGetProfileOutput(
       {required final String did,
       required final String handle,
       final String? displayName,
@@ -380,11 +388,12 @@ abstract class _Output implements Output {
       final int followsCount,
       final int followersCount,
       final int postsCount,
-      final ViewerState viewer,
+      final ActorDefsViewerState viewer,
       final List<Label>? labels,
-      final DateTime? indexedAt}) = _$OutputImpl;
+      final DateTime? indexedAt}) = _$ActorGetProfileOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _ActorGetProfileOutput.fromJson(Map<String, dynamic> json) =
+      _$ActorGetProfileOutputImpl.fromJson;
 
   @override
   String get did;
@@ -405,13 +414,13 @@ abstract class _Output implements Output {
   @override
   int get postsCount;
   @override
-  ViewerState get viewer;
+  ActorDefsViewerState get viewer;
   @override
   List<Label>? get labels;
   @override
   DateTime? get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorGetProfileOutputImplCopyWith<_$ActorGetProfileOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

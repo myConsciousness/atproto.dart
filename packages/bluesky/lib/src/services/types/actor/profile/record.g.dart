@@ -8,11 +8,12 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordImpl',
+_$ActorProfileRecordImpl _$$ActorProfileRecordImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ActorProfileRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$RecordImpl(
+        final val = _$ActorProfileRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorProfile),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -37,7 +38,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
+Map<String, dynamic> _$$ActorProfileRecordImplToJson(
+    _$ActorProfileRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

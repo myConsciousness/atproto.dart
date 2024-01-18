@@ -19,13 +19,13 @@ part 'blocked_author.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedauthor
 @freezed
 @lex.appBskyFeedDefsBlockedAuthor
-class BlockedAuthor with _$BlockedAuthor {
-  const factory BlockedAuthor({
+class FeedDefsBlockedAuthor with _$FeedDefsBlockedAuthor {
+  const factory FeedDefsBlockedAuthor({
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,
     required String did,
-    @Default(defaultActorDefsViewerState) ViewerState viewer,
-  }) = _BlockedAuthor;
+    @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
+  }) = _FeedDefsBlockedAuthor;
 
-  factory BlockedAuthor.fromJson(Map<String, Object?> json) =>
-      _$BlockedAuthorFromJson(json);
+  factory FeedDefsBlockedAuthor.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsBlockedAuthorFromJson(json);
 }

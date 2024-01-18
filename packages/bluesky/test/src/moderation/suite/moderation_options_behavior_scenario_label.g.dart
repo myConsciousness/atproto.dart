@@ -16,8 +16,10 @@ _$ModerationOptionsBehaviorScenarioLabelImpl
           ($checkedConvert) {
             final val = _$ModerationOptionsBehaviorScenarioLabelImpl(
               label: $checkedConvert('label', (v) => v as String),
-              visibility: $checkedConvert('visibility',
-                  (v) => $enumDecode(_$ContentLabelVisibilityEnumMap, v)),
+              visibility: $checkedConvert(
+                  'visibility',
+                  (v) => $enumDecode(
+                      _$ActorDefsContentLabelPrefVisibilityEnumMap, v)),
             );
             return val;
           },
@@ -27,11 +29,12 @@ Map<String, dynamic> _$$ModerationOptionsBehaviorScenarioLabelImplToJson(
         _$ModerationOptionsBehaviorScenarioLabelImpl instance) =>
     <String, dynamic>{
       'label': instance.label,
-      'visibility': _$ContentLabelVisibilityEnumMap[instance.visibility]!,
+      'visibility':
+          _$ActorDefsContentLabelPrefVisibilityEnumMap[instance.visibility]!,
     };
 
-const _$ContentLabelVisibilityEnumMap = {
-  ContentLabelVisibility.ignore: 'ignore',
-  ContentLabelVisibility.warn: 'warn',
-  ContentLabelVisibility.hide: 'hide',
+const _$ActorDefsContentLabelPrefVisibilityEnumMap = {
+  ActorDefsContentLabelPrefVisibility.ignore: 'ignore',
+  ActorDefsContentLabelPrefVisibility.warn: 'warn',
+  ActorDefsContentLabelPrefVisibility.hide: 'hide',
 };

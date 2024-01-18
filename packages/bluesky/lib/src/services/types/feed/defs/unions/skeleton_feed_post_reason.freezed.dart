@@ -19,19 +19,20 @@ mixin _$USkeletonFeedPostReason {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SkeletonReasonRepost data) skeletonReasonRepost,
+    required TResult Function(FeedDefsSkeletonReasonRepost data)
+        skeletonReasonRepost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult? Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -88,9 +89,9 @@ abstract class _$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWith<
               then) =
       __$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({SkeletonReasonRepost data});
+  $Res call({FeedDefsSkeletonReasonRepost data});
 
-  $SkeletonReasonRepostCopyWith<$Res> get data;
+  $FeedDefsSkeletonReasonRepostCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -113,14 +114,14 @@ class __$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as SkeletonReasonRepost,
+              as FeedDefsSkeletonReasonRepost,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SkeletonReasonRepostCopyWith<$Res> get data {
-    return $SkeletonReasonRepostCopyWith<$Res>(_value.data, (value) {
+  $FeedDefsSkeletonReasonRepostCopyWith<$Res> get data {
+    return $FeedDefsSkeletonReasonRepostCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -129,11 +130,12 @@ class __$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
-    implements USkeletonFeedPostReasonSkeletonReasonRepost {
-  _$USkeletonFeedPostReasonSkeletonReasonRepostImpl({required this.data});
+    extends USkeletonFeedPostReasonSkeletonReasonRepost {
+  _$USkeletonFeedPostReasonSkeletonReasonRepostImpl({required this.data})
+      : super._();
 
   @override
-  final SkeletonReasonRepost data;
+  final FeedDefsSkeletonReasonRepost data;
 
   @override
   String toString() {
@@ -164,7 +166,8 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SkeletonReasonRepost data) skeletonReasonRepost,
+    required TResult Function(FeedDefsSkeletonReasonRepost data)
+        skeletonReasonRepost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return skeletonReasonRepost(data);
@@ -173,7 +176,7 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult? Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return skeletonReasonRepost?.call(data);
@@ -182,7 +185,7 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -228,13 +231,14 @@ class _$USkeletonFeedPostReasonSkeletonReasonRepostImpl
 }
 
 abstract class USkeletonFeedPostReasonSkeletonReasonRepost
-    implements USkeletonFeedPostReason {
+    extends USkeletonFeedPostReason {
   factory USkeletonFeedPostReasonSkeletonReasonRepost(
-          {required final SkeletonReasonRepost data}) =
+          {required final FeedDefsSkeletonReasonRepost data}) =
       _$USkeletonFeedPostReasonSkeletonReasonRepostImpl;
+  USkeletonFeedPostReasonSkeletonReasonRepost._() : super._();
 
   @override
-  SkeletonReasonRepost get data;
+  FeedDefsSkeletonReasonRepost get data;
   @JsonKey(ignore: true)
   _$$USkeletonFeedPostReasonSkeletonReasonRepostImplCopyWith<
           _$USkeletonFeedPostReasonSkeletonReasonRepostImpl>
@@ -278,10 +282,11 @@ class __$$USkeletonFeedPostReasonUnknownImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$USkeletonFeedPostReasonUnknownImpl
-    implements USkeletonFeedPostReasonUnknown {
+    extends USkeletonFeedPostReasonUnknown {
   _$USkeletonFeedPostReasonUnknownImpl(
       {required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -319,7 +324,8 @@ class _$USkeletonFeedPostReasonUnknownImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(SkeletonReasonRepost data) skeletonReasonRepost,
+    required TResult Function(FeedDefsSkeletonReasonRepost data)
+        skeletonReasonRepost,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -328,7 +334,7 @@ class _$USkeletonFeedPostReasonUnknownImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult? Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -337,7 +343,7 @@ class _$USkeletonFeedPostReasonUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(SkeletonReasonRepost data)? skeletonReasonRepost,
+    TResult Function(FeedDefsSkeletonReasonRepost data)? skeletonReasonRepost,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -382,11 +388,11 @@ class _$USkeletonFeedPostReasonUnknownImpl
   }
 }
 
-abstract class USkeletonFeedPostReasonUnknown
-    implements USkeletonFeedPostReason {
+abstract class USkeletonFeedPostReasonUnknown extends USkeletonFeedPostReason {
   factory USkeletonFeedPostReasonUnknown(
           {required final Map<String, dynamic> data}) =
       _$USkeletonFeedPostReasonUnknownImpl;
+  USkeletonFeedPostReasonUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

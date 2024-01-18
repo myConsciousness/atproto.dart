@@ -17,10 +17,11 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getposts/#output
 @freezed
 @lex.appBskyFeedGetPosts
-class Output with _$Output {
-  const factory Output({
-    required List<PostView> posts,
-  }) = _Output;
+class FeedGetPostsOutput with _$FeedGetPostsOutput {
+  const factory FeedGetPostsOutput({
+    required List<FeedDefsPostView> posts,
+  }) = _FeedGetPostsOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory FeedGetPostsOutput.fromJson(Map<String, Object?> json) =>
+      _$FeedGetPostsOutputFromJson(json);
 }

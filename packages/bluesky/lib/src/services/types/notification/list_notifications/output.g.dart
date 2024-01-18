@@ -8,26 +8,30 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$OutputImpl(
-          notifications: $checkedConvert(
-              'notifications',
-              (v) => (v as List<dynamic>)
-                  .map((e) => Notification.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
-          seenAt: $checkedConvert(
-              'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),
+_$NotificationListNotificationsOutputImpl
+    _$$NotificationListNotificationsOutputImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$NotificationListNotificationsOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$NotificationListNotificationsOutputImpl(
+              notifications: $checkedConvert(
+                  'notifications',
+                  (v) => (v as List<dynamic>)
+                      .map((e) =>
+                          NotificationListNotificationsNotification.fromJson(
+                              Map<String, Object?>.from(e as Map)))
+                      .toList()),
+              cursor: $checkedConvert('cursor', (v) => v as String?),
+              seenAt: $checkedConvert('seenAt',
+                  (v) => v == null ? null : DateTime.parse(v as String)),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$NotificationListNotificationsOutputImplToJson(
+        _$NotificationListNotificationsOutputImpl instance) =>
     <String, dynamic>{
       'notifications': instance.notifications.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

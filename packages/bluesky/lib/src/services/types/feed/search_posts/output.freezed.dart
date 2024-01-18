@@ -14,33 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+FeedSearchPostsOutput _$FeedSearchPostsOutputFromJson(
+    Map<String, dynamic> json) {
+  return _FeedSearchPostsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<PostView> get posts => throw _privateConstructorUsedError;
+mixin _$FeedSearchPostsOutput {
+  List<FeedDefsPostView> get posts => throw _privateConstructorUsedError;
   int get hitsTotal => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $FeedSearchPostsOutputCopyWith<FeedSearchPostsOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $FeedSearchPostsOutputCopyWith<$Res> {
+  factory $FeedSearchPostsOutputCopyWith(FeedSearchPostsOutput value,
+          $Res Function(FeedSearchPostsOutput) then) =
+      _$FeedSearchPostsOutputCopyWithImpl<$Res, FeedSearchPostsOutput>;
   @useResult
-  $Res call({List<PostView> posts, int hitsTotal, String? cursor});
+  $Res call({List<FeedDefsPostView> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$FeedSearchPostsOutputCopyWithImpl<$Res,
+        $Val extends FeedSearchPostsOutput>
+    implements $FeedSearchPostsOutputCopyWith<$Res> {
+  _$FeedSearchPostsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,7 +62,7 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostView>,
+              as List<FeedDefsPostView>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -72,21 +76,24 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$FeedSearchPostsOutputImplCopyWith<$Res>
+    implements $FeedSearchPostsOutputCopyWith<$Res> {
+  factory _$$FeedSearchPostsOutputImplCopyWith(
+          _$FeedSearchPostsOutputImpl value,
+          $Res Function(_$FeedSearchPostsOutputImpl) then) =
+      __$$FeedSearchPostsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PostView> posts, int hitsTotal, String? cursor});
+  $Res call({List<FeedDefsPostView> posts, int hitsTotal, String? cursor});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$FeedSearchPostsOutputImplCopyWithImpl<$Res>
+    extends _$FeedSearchPostsOutputCopyWithImpl<$Res,
+        _$FeedSearchPostsOutputImpl>
+    implements _$$FeedSearchPostsOutputImplCopyWith<$Res> {
+  __$$FeedSearchPostsOutputImplCopyWithImpl(_$FeedSearchPostsOutputImpl _value,
+      $Res Function(_$FeedSearchPostsOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,11 +103,11 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? hitsTotal = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$FeedSearchPostsOutputImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostView>,
+              as List<FeedDefsPostView>,
       hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
@@ -116,17 +123,19 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OutputImpl implements _Output {
-  const _$OutputImpl(
-      {required final List<PostView> posts, this.hitsTotal = 0, this.cursor})
+class _$FeedSearchPostsOutputImpl implements _FeedSearchPostsOutput {
+  const _$FeedSearchPostsOutputImpl(
+      {required final List<FeedDefsPostView> posts,
+      this.hitsTotal = 0,
+      this.cursor})
       : _posts = posts;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$FeedSearchPostsOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedSearchPostsOutputImplFromJson(json);
 
-  final List<PostView> _posts;
+  final List<FeedDefsPostView> _posts;
   @override
-  List<PostView> get posts {
+  List<FeedDefsPostView> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_posts);
@@ -140,14 +149,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
+    return 'FeedSearchPostsOutput(posts: $posts, hitsTotal: $hitsTotal, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$FeedSearchPostsOutputImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
@@ -162,33 +171,35 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$FeedSearchPostsOutputImplCopyWith<_$FeedSearchPostsOutputImpl>
+      get copyWith => __$$FeedSearchPostsOutputImplCopyWithImpl<
+          _$FeedSearchPostsOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$FeedSearchPostsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
-      {required final List<PostView> posts,
+abstract class _FeedSearchPostsOutput implements FeedSearchPostsOutput {
+  const factory _FeedSearchPostsOutput(
+      {required final List<FeedDefsPostView> posts,
       final int hitsTotal,
-      final String? cursor}) = _$OutputImpl;
+      final String? cursor}) = _$FeedSearchPostsOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _FeedSearchPostsOutput.fromJson(Map<String, dynamic> json) =
+      _$FeedSearchPostsOutputImpl.fromJson;
 
   @override
-  List<PostView> get posts;
+  List<FeedDefsPostView> get posts;
   @override
   int get hitsTotal;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedSearchPostsOutputImplCopyWith<_$FeedSearchPostsOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

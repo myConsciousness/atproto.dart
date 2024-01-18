@@ -18,13 +18,13 @@ part 'view_not_found.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
 @lex.appBskyEmbedRecordViewNotFound
-class ViewNotFound with _$ViewNotFound {
-  const factory ViewNotFound({
+class EmbedRecordViewNotFound with _$EmbedRecordViewNotFound {
+  const factory EmbedRecordViewNotFound({
     @typeKey @Default(appBskyEmbedRecordViewNotFound) String type,
     @atUriConverter required AtUri uri,
     @Default(true) bool notFound,
-  }) = _ViewNotFound;
+  }) = _EmbedRecordViewNotFound;
 
-  factory ViewNotFound.fromJson(Map<String, Object?> json) =>
-      _$ViewNotFoundFromJson(json);
+  factory EmbedRecordViewNotFound.fromJson(Map<String, Object?> json) =>
+      _$EmbedRecordViewNotFoundFromJson(json);
 }

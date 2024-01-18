@@ -16,14 +16,15 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getrepostedby/#output
 @freezed
 @lex.appBskyFeedGetRepostedBy
-class Output with _$Output {
+class FeedGetRepostedByOutput with _$FeedGetRepostedByOutput {
   @jsonSerializable
-  const factory Output({
-    required List<ProfileView> repostedBy,
+  const factory FeedGetRepostedByOutput({
+    required List<ActorDefsProfileView> repostedBy,
     @atUriConverter required AtUri uri,
     String? cid,
     String? cursor,
-  }) = _Output;
+  }) = _FeedGetRepostedByOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory FeedGetRepostedByOutput.fromJson(Map<String, Object?> json) =>
+      _$FeedGetRepostedByOutputFromJson(json);
 }

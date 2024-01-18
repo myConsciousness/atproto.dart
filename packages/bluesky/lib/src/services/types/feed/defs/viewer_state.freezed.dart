@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
-  return _ViewerState.fromJson(json);
+FeedDefsViewerState _$FeedDefsViewerStateFromJson(Map<String, dynamic> json) {
+  return _FeedDefsViewerState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ViewerState {
+mixin _$FeedDefsViewerState {
   @atUriConverter
   AtUri? get repost => throw _privateConstructorUsedError;
   @atUriConverter
@@ -28,15 +28,15 @@ mixin _$ViewerState {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewerStateCopyWith<ViewerState> get copyWith =>
+  $FeedDefsViewerStateCopyWith<FeedDefsViewerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewerStateCopyWith<$Res> {
-  factory $ViewerStateCopyWith(
-          ViewerState value, $Res Function(ViewerState) then) =
-      _$ViewerStateCopyWithImpl<$Res, ViewerState>;
+abstract class $FeedDefsViewerStateCopyWith<$Res> {
+  factory $FeedDefsViewerStateCopyWith(
+          FeedDefsViewerState value, $Res Function(FeedDefsViewerState) then) =
+      _$FeedDefsViewerStateCopyWithImpl<$Res, FeedDefsViewerState>;
   @useResult
   $Res call(
       {@atUriConverter AtUri? repost,
@@ -45,9 +45,9 @@ abstract class $ViewerStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
-    implements $ViewerStateCopyWith<$Res> {
-  _$ViewerStateCopyWithImpl(this._value, this._then);
+class _$FeedDefsViewerStateCopyWithImpl<$Res, $Val extends FeedDefsViewerState>
+    implements $FeedDefsViewerStateCopyWith<$Res> {
+  _$FeedDefsViewerStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -79,11 +79,11 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
 }
 
 /// @nodoc
-abstract class _$$ViewerStateImplCopyWith<$Res>
-    implements $ViewerStateCopyWith<$Res> {
-  factory _$$ViewerStateImplCopyWith(
-          _$ViewerStateImpl value, $Res Function(_$ViewerStateImpl) then) =
-      __$$ViewerStateImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsViewerStateImplCopyWith<$Res>
+    implements $FeedDefsViewerStateCopyWith<$Res> {
+  factory _$$FeedDefsViewerStateImplCopyWith(_$FeedDefsViewerStateImpl value,
+          $Res Function(_$FeedDefsViewerStateImpl) then) =
+      __$$FeedDefsViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -93,11 +93,11 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ViewerStateImplCopyWithImpl<$Res>
-    extends _$ViewerStateCopyWithImpl<$Res, _$ViewerStateImpl>
-    implements _$$ViewerStateImplCopyWith<$Res> {
-  __$$ViewerStateImplCopyWithImpl(
-      _$ViewerStateImpl _value, $Res Function(_$ViewerStateImpl) _then)
+class __$$FeedDefsViewerStateImplCopyWithImpl<$Res>
+    extends _$FeedDefsViewerStateCopyWithImpl<$Res, _$FeedDefsViewerStateImpl>
+    implements _$$FeedDefsViewerStateImplCopyWith<$Res> {
+  __$$FeedDefsViewerStateImplCopyWithImpl(_$FeedDefsViewerStateImpl _value,
+      $Res Function(_$FeedDefsViewerStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -107,7 +107,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? like = freezed,
     Object? replyDisabled = null,
   }) {
-    return _then(_$ViewerStateImpl(
+    return _then(_$FeedDefsViewerStateImpl(
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -127,14 +127,14 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ViewerStateImpl implements _ViewerState {
-  const _$ViewerStateImpl(
+class _$FeedDefsViewerStateImpl implements _FeedDefsViewerState {
+  const _$FeedDefsViewerStateImpl(
       {@atUriConverter this.repost,
       @atUriConverter this.like,
       this.replyDisabled = false});
 
-  factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewerStateImplFromJson(json);
+  factory _$FeedDefsViewerStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsViewerStateImplFromJson(json);
 
   @override
   @atUriConverter
@@ -148,14 +148,14 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @override
   String toString() {
-    return 'ViewerState(repost: $repost, like: $like, replyDisabled: $replyDisabled)';
+    return 'FeedDefsViewerState(repost: $repost, like: $like, replyDisabled: $replyDisabled)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewerStateImpl &&
+            other is _$FeedDefsViewerStateImpl &&
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.replyDisabled, replyDisabled) ||
@@ -169,25 +169,26 @@ class _$ViewerStateImpl implements _ViewerState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>
-      __$$ViewerStateImplCopyWithImpl<_$ViewerStateImpl>(this, _$identity);
+  _$$FeedDefsViewerStateImplCopyWith<_$FeedDefsViewerStateImpl> get copyWith =>
+      __$$FeedDefsViewerStateImplCopyWithImpl<_$FeedDefsViewerStateImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewerStateImplToJson(
+    return _$$FeedDefsViewerStateImplToJson(
       this,
     );
   }
 }
 
-abstract class _ViewerState implements ViewerState {
-  const factory _ViewerState(
+abstract class _FeedDefsViewerState implements FeedDefsViewerState {
+  const factory _FeedDefsViewerState(
       {@atUriConverter final AtUri? repost,
       @atUriConverter final AtUri? like,
-      final bool replyDisabled}) = _$ViewerStateImpl;
+      final bool replyDisabled}) = _$FeedDefsViewerStateImpl;
 
-  factory _ViewerState.fromJson(Map<String, dynamic> json) =
-      _$ViewerStateImpl.fromJson;
+  factory _FeedDefsViewerState.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsViewerStateImpl.fromJson;
 
   @override
   @atUriConverter
@@ -199,6 +200,6 @@ abstract class _ViewerState implements ViewerState {
   bool get replyDisabled;
   @override
   @JsonKey(ignore: true)
-  _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>
+  _$$FeedDefsViewerStateImplCopyWith<_$FeedDefsViewerStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

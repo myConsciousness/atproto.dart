@@ -23,21 +23,22 @@ part 'record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedPost].
 @freezed
-class Record with _$Record {
+class FeedPostRecord with _$FeedPostRecord {
   @jsonSerializable
-  const factory Record({
+  const factory FeedPostRecord({
     @typeKey @Default(appBskyFeedPost) String type,
     required String text,
-    ReplyRef? reply,
+    FeedPostReplyRef? reply,
     @unionRecordEmbed URecordEmbed? embed,
     List<String>? langs,
     @labelsConverter Labels? labels,
-    List<Main>? facets,
+    List<RichtextFacet>? facets,
     List<String>? tags,
     required DateTime createdAt,
-  }) = _Record;
+  }) = _FeedPostRecord;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson({
+  factory FeedPostRecord.fromJson(Map<String, Object?> json) =>
+      _$FeedPostRecordFromJson({
         ...json,
         'facets': _orderByByteStart(json['facets']),
       });

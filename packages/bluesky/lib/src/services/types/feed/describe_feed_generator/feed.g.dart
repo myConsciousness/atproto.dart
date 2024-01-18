@@ -8,19 +8,21 @@ part of 'feed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedImpl _$$FeedImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$FeedImpl(
-          uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+_$FeedDescribeFeedGeneratorFeedImpl
+    _$$FeedDescribeFeedGeneratorFeedImplFromJson(Map json) => $checkedCreate(
+          r'_$FeedDescribeFeedGeneratorFeedImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$FeedDescribeFeedGeneratorFeedImpl(
+              uri: $checkedConvert(
+                  'uri', (v) => atUriConverter.fromJson(v as String)),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$FeedImplToJson(_$FeedImpl instance) =>
+Map<String, dynamic> _$$FeedDescribeFeedGeneratorFeedImplToJson(
+        _$FeedDescribeFeedGeneratorFeedImpl instance) =>
     <String, dynamic>{
       'uri': atUriConverter.toJson(instance.uri),
     };

@@ -14,35 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ListViewerState _$ListViewerStateFromJson(Map<String, dynamic> json) {
-  return _ListViewerState.fromJson(json);
+GraphDefsListViewerState _$GraphDefsListViewerStateFromJson(
+    Map<String, dynamic> json) {
+  return _GraphDefsListViewerState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ListViewerState {
+mixin _$GraphDefsListViewerState {
   bool get muted => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get blocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListViewerStateCopyWith<ListViewerState> get copyWith =>
+  $GraphDefsListViewerStateCopyWith<GraphDefsListViewerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListViewerStateCopyWith<$Res> {
-  factory $ListViewerStateCopyWith(
-          ListViewerState value, $Res Function(ListViewerState) then) =
-      _$ListViewerStateCopyWithImpl<$Res, ListViewerState>;
+abstract class $GraphDefsListViewerStateCopyWith<$Res> {
+  factory $GraphDefsListViewerStateCopyWith(GraphDefsListViewerState value,
+          $Res Function(GraphDefsListViewerState) then) =
+      _$GraphDefsListViewerStateCopyWithImpl<$Res, GraphDefsListViewerState>;
   @useResult
   $Res call({bool muted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
-class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
-    implements $ListViewerStateCopyWith<$Res> {
-  _$ListViewerStateCopyWithImpl(this._value, this._then);
+class _$GraphDefsListViewerStateCopyWithImpl<$Res,
+        $Val extends GraphDefsListViewerState>
+    implements $GraphDefsListViewerStateCopyWith<$Res> {
+  _$GraphDefsListViewerStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +71,25 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
 }
 
 /// @nodoc
-abstract class _$$ListViewerStateImplCopyWith<$Res>
-    implements $ListViewerStateCopyWith<$Res> {
-  factory _$$ListViewerStateImplCopyWith(_$ListViewerStateImpl value,
-          $Res Function(_$ListViewerStateImpl) then) =
-      __$$ListViewerStateImplCopyWithImpl<$Res>;
+abstract class _$$GraphDefsListViewerStateImplCopyWith<$Res>
+    implements $GraphDefsListViewerStateCopyWith<$Res> {
+  factory _$$GraphDefsListViewerStateImplCopyWith(
+          _$GraphDefsListViewerStateImpl value,
+          $Res Function(_$GraphDefsListViewerStateImpl) then) =
+      __$$GraphDefsListViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({bool muted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
-class __$$ListViewerStateImplCopyWithImpl<$Res>
-    extends _$ListViewerStateCopyWithImpl<$Res, _$ListViewerStateImpl>
-    implements _$$ListViewerStateImplCopyWith<$Res> {
-  __$$ListViewerStateImplCopyWithImpl(
-      _$ListViewerStateImpl _value, $Res Function(_$ListViewerStateImpl) _then)
+class __$$GraphDefsListViewerStateImplCopyWithImpl<$Res>
+    extends _$GraphDefsListViewerStateCopyWithImpl<$Res,
+        _$GraphDefsListViewerStateImpl>
+    implements _$$GraphDefsListViewerStateImplCopyWith<$Res> {
+  __$$GraphDefsListViewerStateImplCopyWithImpl(
+      _$GraphDefsListViewerStateImpl _value,
+      $Res Function(_$GraphDefsListViewerStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +98,7 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
     Object? muted = null,
     Object? blocked = freezed,
   }) {
-    return _then(_$ListViewerStateImpl(
+    return _then(_$GraphDefsListViewerStateImpl(
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -109,12 +114,12 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListViewerStateImpl implements _ListViewerState {
-  const _$ListViewerStateImpl(
+class _$GraphDefsListViewerStateImpl implements _GraphDefsListViewerState {
+  const _$GraphDefsListViewerStateImpl(
       {this.muted = false, @atUriConverter this.blocked});
 
-  factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListViewerStateImplFromJson(json);
+  factory _$GraphDefsListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GraphDefsListViewerStateImplFromJson(json);
 
   @override
   @JsonKey()
@@ -125,14 +130,14 @@ class _$ListViewerStateImpl implements _ListViewerState {
 
   @override
   String toString() {
-    return 'ListViewerState(muted: $muted, blocked: $blocked)';
+    return 'GraphDefsListViewerState(muted: $muted, blocked: $blocked)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListViewerStateImpl &&
+            other is _$GraphDefsListViewerStateImpl &&
             (identical(other.muted, muted) || other.muted == muted) &&
             (identical(other.blocked, blocked) || other.blocked == blocked));
   }
@@ -144,25 +149,25 @@ class _$ListViewerStateImpl implements _ListViewerState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ListViewerStateImplCopyWith<_$ListViewerStateImpl> get copyWith =>
-      __$$ListViewerStateImplCopyWithImpl<_$ListViewerStateImpl>(
-          this, _$identity);
+  _$$GraphDefsListViewerStateImplCopyWith<_$GraphDefsListViewerStateImpl>
+      get copyWith => __$$GraphDefsListViewerStateImplCopyWithImpl<
+          _$GraphDefsListViewerStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ListViewerStateImplToJson(
+    return _$$GraphDefsListViewerStateImplToJson(
       this,
     );
   }
 }
 
-abstract class _ListViewerState implements ListViewerState {
-  const factory _ListViewerState(
+abstract class _GraphDefsListViewerState implements GraphDefsListViewerState {
+  const factory _GraphDefsListViewerState(
       {final bool muted,
-      @atUriConverter final AtUri? blocked}) = _$ListViewerStateImpl;
+      @atUriConverter final AtUri? blocked}) = _$GraphDefsListViewerStateImpl;
 
-  factory _ListViewerState.fromJson(Map<String, dynamic> json) =
-      _$ListViewerStateImpl.fromJson;
+  factory _GraphDefsListViewerState.fromJson(Map<String, dynamic> json) =
+      _$GraphDefsListViewerStateImpl.fromJson;
 
   @override
   bool get muted;
@@ -171,6 +176,6 @@ abstract class _ListViewerState implements ListViewerState {
   AtUri? get blocked;
   @override
   @JsonKey(ignore: true)
-  _$$ListViewerStateImplCopyWith<_$ListViewerStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GraphDefsListViewerStateImplCopyWith<_$GraphDefsListViewerStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

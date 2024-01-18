@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FeedViewPref _$FeedViewPrefFromJson(Map<String, dynamic> json) {
-  return _FeedViewPref.fromJson(json);
+ActorDefsFeedViewPref _$ActorDefsFeedViewPrefFromJson(
+    Map<String, dynamic> json) {
+  return _ActorDefsFeedViewPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FeedViewPref {
+mixin _$ActorDefsFeedViewPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get feed => throw _privateConstructorUsedError;
@@ -31,15 +32,15 @@ mixin _$FeedViewPref {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FeedViewPrefCopyWith<FeedViewPref> get copyWith =>
+  $ActorDefsFeedViewPrefCopyWith<ActorDefsFeedViewPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FeedViewPrefCopyWith<$Res> {
-  factory $FeedViewPrefCopyWith(
-          FeedViewPref value, $Res Function(FeedViewPref) then) =
-      _$FeedViewPrefCopyWithImpl<$Res, FeedViewPref>;
+abstract class $ActorDefsFeedViewPrefCopyWith<$Res> {
+  factory $ActorDefsFeedViewPrefCopyWith(ActorDefsFeedViewPref value,
+          $Res Function(ActorDefsFeedViewPref) then) =
+      _$ActorDefsFeedViewPrefCopyWithImpl<$Res, ActorDefsFeedViewPref>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -52,9 +53,10 @@ abstract class $FeedViewPrefCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
-    implements $FeedViewPrefCopyWith<$Res> {
-  _$FeedViewPrefCopyWithImpl(this._value, this._then);
+class _$ActorDefsFeedViewPrefCopyWithImpl<$Res,
+        $Val extends ActorDefsFeedViewPref>
+    implements $ActorDefsFeedViewPrefCopyWith<$Res> {
+  _$ActorDefsFeedViewPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -106,11 +108,12 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
 }
 
 /// @nodoc
-abstract class _$$FeedViewPrefImplCopyWith<$Res>
-    implements $FeedViewPrefCopyWith<$Res> {
-  factory _$$FeedViewPrefImplCopyWith(
-          _$FeedViewPrefImpl value, $Res Function(_$FeedViewPrefImpl) then) =
-      __$$FeedViewPrefImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsFeedViewPrefImplCopyWith<$Res>
+    implements $ActorDefsFeedViewPrefCopyWith<$Res> {
+  factory _$$ActorDefsFeedViewPrefImplCopyWith(
+          _$ActorDefsFeedViewPrefImpl value,
+          $Res Function(_$ActorDefsFeedViewPrefImpl) then) =
+      __$$ActorDefsFeedViewPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -124,11 +127,12 @@ abstract class _$$FeedViewPrefImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$FeedViewPrefImplCopyWithImpl<$Res>
-    extends _$FeedViewPrefCopyWithImpl<$Res, _$FeedViewPrefImpl>
-    implements _$$FeedViewPrefImplCopyWith<$Res> {
-  __$$FeedViewPrefImplCopyWithImpl(
-      _$FeedViewPrefImpl _value, $Res Function(_$FeedViewPrefImpl) _then)
+class __$$ActorDefsFeedViewPrefImplCopyWithImpl<$Res>
+    extends _$ActorDefsFeedViewPrefCopyWithImpl<$Res,
+        _$ActorDefsFeedViewPrefImpl>
+    implements _$$ActorDefsFeedViewPrefImplCopyWith<$Res> {
+  __$$ActorDefsFeedViewPrefImplCopyWithImpl(_$ActorDefsFeedViewPrefImpl _value,
+      $Res Function(_$ActorDefsFeedViewPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -142,7 +146,7 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
     Object? hideReposts = null,
     Object? hideQuotePosts = null,
   }) {
-    return _then(_$FeedViewPrefImpl(
+    return _then(_$ActorDefsFeedViewPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -178,8 +182,8 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FeedViewPrefImpl implements _FeedViewPref {
-  const _$FeedViewPrefImpl(
+class _$ActorDefsFeedViewPrefImpl implements _ActorDefsFeedViewPref {
+  const _$ActorDefsFeedViewPrefImpl(
       {@typeKey this.type = appBskyActorDefsFeedViewPref,
       required this.feed,
       this.hideReplies = false,
@@ -188,8 +192,8 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
       this.hideReposts = false,
       this.hideQuotePosts = false});
 
-  factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FeedViewPrefImplFromJson(json);
+  factory _$ActorDefsFeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorDefsFeedViewPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -214,14 +218,14 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
   @override
   String toString() {
-    return 'FeedViewPref(type: $type, feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts)';
+    return 'ActorDefsFeedViewPref(type: $type, feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FeedViewPrefImpl &&
+            other is _$ActorDefsFeedViewPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.feed, feed) || other.feed == feed) &&
             (identical(other.hideReplies, hideReplies) ||
@@ -252,29 +256,30 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FeedViewPrefImplCopyWith<_$FeedViewPrefImpl> get copyWith =>
-      __$$FeedViewPrefImplCopyWithImpl<_$FeedViewPrefImpl>(this, _$identity);
+  _$$ActorDefsFeedViewPrefImplCopyWith<_$ActorDefsFeedViewPrefImpl>
+      get copyWith => __$$ActorDefsFeedViewPrefImplCopyWithImpl<
+          _$ActorDefsFeedViewPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FeedViewPrefImplToJson(
+    return _$$ActorDefsFeedViewPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _FeedViewPref implements FeedViewPref {
-  const factory _FeedViewPref(
+abstract class _ActorDefsFeedViewPref implements ActorDefsFeedViewPref {
+  const factory _ActorDefsFeedViewPref(
       {@typeKey final String type,
       required final String feed,
       final bool hideReplies,
       final bool hideRepliesByUnfollowed,
       final int hideRepliesByLikeCount,
       final bool hideReposts,
-      final bool hideQuotePosts}) = _$FeedViewPrefImpl;
+      final bool hideQuotePosts}) = _$ActorDefsFeedViewPrefImpl;
 
-  factory _FeedViewPref.fromJson(Map<String, dynamic> json) =
-      _$FeedViewPrefImpl.fromJson;
+  factory _ActorDefsFeedViewPref.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsFeedViewPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -293,6 +298,6 @@ abstract class _FeedViewPref implements FeedViewPref {
   bool get hideQuotePosts;
   @override
   @JsonKey(ignore: true)
-  _$$FeedViewPrefImplCopyWith<_$FeedViewPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsFeedViewPrefImplCopyWith<_$ActorDefsFeedViewPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

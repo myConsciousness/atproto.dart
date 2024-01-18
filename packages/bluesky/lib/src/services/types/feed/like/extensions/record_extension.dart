@@ -6,8 +6,8 @@
 import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import '../record.dart' as feed_like;
+import '../record.dart';
 
-extension RecordExtension on feed_like.Record {
+extension FeedLikeRecordExtension on FeedLikeRecord {
   StrongRef get ref => subject;
 }

@@ -14,33 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-View _$ViewFromJson(Map<String, dynamic> json) {
-  return _View.fromJson(json);
+EmbedImagesView _$EmbedImagesViewFromJson(Map<String, dynamic> json) {
+  return _EmbedImagesView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$View {
+mixin _$EmbedImagesView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  List<ViewImage> get images => throw _privateConstructorUsedError;
+  List<EmbedImagesViewImage> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewCopyWith<View> get copyWith => throw _privateConstructorUsedError;
+  $EmbedImagesViewCopyWith<EmbedImagesView> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewCopyWith<$Res> {
-  factory $ViewCopyWith(View value, $Res Function(View) then) =
-      _$ViewCopyWithImpl<$Res, View>;
+abstract class $EmbedImagesViewCopyWith<$Res> {
+  factory $EmbedImagesViewCopyWith(
+          EmbedImagesView value, $Res Function(EmbedImagesView) then) =
+      _$EmbedImagesViewCopyWithImpl<$Res, EmbedImagesView>;
   @useResult
-  $Res call({@typeKey String type, List<ViewImage> images});
+  $Res call({@typeKey String type, List<EmbedImagesViewImage> images});
 }
 
 /// @nodoc
-class _$ViewCopyWithImpl<$Res, $Val extends View>
-    implements $ViewCopyWith<$Res> {
-  _$ViewCopyWithImpl(this._value, this._then);
+class _$EmbedImagesViewCopyWithImpl<$Res, $Val extends EmbedImagesView>
+    implements $EmbedImagesViewCopyWith<$Res> {
+  _$EmbedImagesViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -61,26 +63,28 @@ class _$ViewCopyWithImpl<$Res, $Val extends View>
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<ViewImage>,
+              as List<EmbedImagesViewImage>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ViewImplCopyWith<$Res> implements $ViewCopyWith<$Res> {
-  factory _$$ViewImplCopyWith(
-          _$ViewImpl value, $Res Function(_$ViewImpl) then) =
-      __$$ViewImplCopyWithImpl<$Res>;
+abstract class _$$EmbedImagesViewImplCopyWith<$Res>
+    implements $EmbedImagesViewCopyWith<$Res> {
+  factory _$$EmbedImagesViewImplCopyWith(_$EmbedImagesViewImpl value,
+          $Res Function(_$EmbedImagesViewImpl) then) =
+      __$$EmbedImagesViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, List<ViewImage> images});
+  $Res call({@typeKey String type, List<EmbedImagesViewImage> images});
 }
 
 /// @nodoc
-class __$$ViewImplCopyWithImpl<$Res>
-    extends _$ViewCopyWithImpl<$Res, _$ViewImpl>
-    implements _$$ViewImplCopyWith<$Res> {
-  __$$ViewImplCopyWithImpl(_$ViewImpl _value, $Res Function(_$ViewImpl) _then)
+class __$$EmbedImagesViewImplCopyWithImpl<$Res>
+    extends _$EmbedImagesViewCopyWithImpl<$Res, _$EmbedImagesViewImpl>
+    implements _$$EmbedImagesViewImplCopyWith<$Res> {
+  __$$EmbedImagesViewImplCopyWithImpl(
+      _$EmbedImagesViewImpl _value, $Res Function(_$EmbedImagesViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +93,7 @@ class __$$ViewImplCopyWithImpl<$Res>
     Object? type = null,
     Object? images = null,
   }) {
-    return _then(_$ViewImpl(
+    return _then(_$EmbedImagesViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -97,28 +101,28 @@ class __$$ViewImplCopyWithImpl<$Res>
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
-              as List<ViewImage>,
+              as List<EmbedImagesViewImage>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ViewImpl implements _View {
-  const _$ViewImpl(
+class _$EmbedImagesViewImpl implements _EmbedImagesView {
+  const _$EmbedImagesViewImpl(
       {@typeKey this.type = appBskyEmbedImagesView,
-      required final List<ViewImage> images})
+      required final List<EmbedImagesViewImage> images})
       : _images = images;
 
-  factory _$ViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewImplFromJson(json);
+  factory _$EmbedImagesViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedImagesViewImplFromJson(json);
 
   @override
   @typeKey
   final String type;
-  final List<ViewImage> _images;
+  final List<EmbedImagesViewImage> _images;
   @override
-  List<ViewImage> get images {
+  List<EmbedImagesViewImage> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_images);
@@ -126,14 +130,14 @@ class _$ViewImpl implements _View {
 
   @override
   String toString() {
-    return 'View(type: $type, images: $images)';
+    return 'EmbedImagesView(type: $type, images: $images)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewImpl &&
+            other is _$EmbedImagesViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
@@ -146,31 +150,34 @@ class _$ViewImpl implements _View {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
-      __$$ViewImplCopyWithImpl<_$ViewImpl>(this, _$identity);
+  _$$EmbedImagesViewImplCopyWith<_$EmbedImagesViewImpl> get copyWith =>
+      __$$EmbedImagesViewImplCopyWithImpl<_$EmbedImagesViewImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewImplToJson(
+    return _$$EmbedImagesViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _View implements View {
-  const factory _View(
-      {@typeKey final String type,
-      required final List<ViewImage> images}) = _$ViewImpl;
+abstract class _EmbedImagesView implements EmbedImagesView {
+  const factory _EmbedImagesView(
+          {@typeKey final String type,
+          required final List<EmbedImagesViewImage> images}) =
+      _$EmbedImagesViewImpl;
 
-  factory _View.fromJson(Map<String, dynamic> json) = _$ViewImpl.fromJson;
+  factory _EmbedImagesView.fromJson(Map<String, dynamic> json) =
+      _$EmbedImagesViewImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  List<ViewImage> get images;
+  List<EmbedImagesViewImage> get images;
   @override
   @JsonKey(ignore: true)
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
+  _$$EmbedImagesViewImplCopyWith<_$EmbedImagesViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

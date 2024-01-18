@@ -14,34 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-FollowingRule _$FollowingRuleFromJson(Map<String, dynamic> json) {
-  return _FollowingRule.fromJson(json);
+FeedThreadgateFollowingRule _$FeedThreadgateFollowingRuleFromJson(
+    Map<String, dynamic> json) {
+  return _FeedThreadgateFollowingRule.fromJson(json);
 }
 
 /// @nodoc
-mixin _$FollowingRule {
+mixin _$FeedThreadgateFollowingRule {
   @typeKey
   String get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $FollowingRuleCopyWith<FollowingRule> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FeedThreadgateFollowingRuleCopyWith<FeedThreadgateFollowingRule>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $FollowingRuleCopyWith<$Res> {
-  factory $FollowingRuleCopyWith(
-          FollowingRule value, $Res Function(FollowingRule) then) =
-      _$FollowingRuleCopyWithImpl<$Res, FollowingRule>;
+abstract class $FeedThreadgateFollowingRuleCopyWith<$Res> {
+  factory $FeedThreadgateFollowingRuleCopyWith(
+          FeedThreadgateFollowingRule value,
+          $Res Function(FeedThreadgateFollowingRule) then) =
+      _$FeedThreadgateFollowingRuleCopyWithImpl<$Res,
+          FeedThreadgateFollowingRule>;
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class _$FollowingRuleCopyWithImpl<$Res, $Val extends FollowingRule>
-    implements $FollowingRuleCopyWith<$Res> {
-  _$FollowingRuleCopyWithImpl(this._value, this._then);
+class _$FeedThreadgateFollowingRuleCopyWithImpl<$Res,
+        $Val extends FeedThreadgateFollowingRule>
+    implements $FeedThreadgateFollowingRuleCopyWith<$Res> {
+  _$FeedThreadgateFollowingRuleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +67,25 @@ class _$FollowingRuleCopyWithImpl<$Res, $Val extends FollowingRule>
 }
 
 /// @nodoc
-abstract class _$$FollowingRuleImplCopyWith<$Res>
-    implements $FollowingRuleCopyWith<$Res> {
-  factory _$$FollowingRuleImplCopyWith(
-          _$FollowingRuleImpl value, $Res Function(_$FollowingRuleImpl) then) =
-      __$$FollowingRuleImplCopyWithImpl<$Res>;
+abstract class _$$FeedThreadgateFollowingRuleImplCopyWith<$Res>
+    implements $FeedThreadgateFollowingRuleCopyWith<$Res> {
+  factory _$$FeedThreadgateFollowingRuleImplCopyWith(
+          _$FeedThreadgateFollowingRuleImpl value,
+          $Res Function(_$FeedThreadgateFollowingRuleImpl) then) =
+      __$$FeedThreadgateFollowingRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type});
 }
 
 /// @nodoc
-class __$$FollowingRuleImplCopyWithImpl<$Res>
-    extends _$FollowingRuleCopyWithImpl<$Res, _$FollowingRuleImpl>
-    implements _$$FollowingRuleImplCopyWith<$Res> {
-  __$$FollowingRuleImplCopyWithImpl(
-      _$FollowingRuleImpl _value, $Res Function(_$FollowingRuleImpl) _then)
+class __$$FeedThreadgateFollowingRuleImplCopyWithImpl<$Res>
+    extends _$FeedThreadgateFollowingRuleCopyWithImpl<$Res,
+        _$FeedThreadgateFollowingRuleImpl>
+    implements _$$FeedThreadgateFollowingRuleImplCopyWith<$Res> {
+  __$$FeedThreadgateFollowingRuleImplCopyWithImpl(
+      _$FeedThreadgateFollowingRuleImpl _value,
+      $Res Function(_$FeedThreadgateFollowingRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +93,7 @@ class __$$FollowingRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
   }) {
-    return _then(_$FollowingRuleImpl(
+    return _then(_$FeedThreadgateFollowingRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -98,12 +105,14 @@ class __$$FollowingRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$FollowingRuleImpl implements _FollowingRule {
-  const _$FollowingRuleImpl(
+class _$FeedThreadgateFollowingRuleImpl
+    implements _FeedThreadgateFollowingRule {
+  const _$FeedThreadgateFollowingRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateFollowingRule});
 
-  factory _$FollowingRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$FollowingRuleImplFromJson(json);
+  factory _$FeedThreadgateFollowingRuleImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$FeedThreadgateFollowingRuleImplFromJson(json);
 
   @override
   @typeKey
@@ -111,14 +120,14 @@ class _$FollowingRuleImpl implements _FollowingRule {
 
   @override
   String toString() {
-    return 'FollowingRule(type: $type)';
+    return 'FeedThreadgateFollowingRule(type: $type)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FollowingRuleImpl &&
+            other is _$FeedThreadgateFollowingRuleImpl &&
             (identical(other.type, type) || other.type == type));
   }
 
@@ -129,29 +138,31 @@ class _$FollowingRuleImpl implements _FollowingRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$FollowingRuleImplCopyWith<_$FollowingRuleImpl> get copyWith =>
-      __$$FollowingRuleImplCopyWithImpl<_$FollowingRuleImpl>(this, _$identity);
+  _$$FeedThreadgateFollowingRuleImplCopyWith<_$FeedThreadgateFollowingRuleImpl>
+      get copyWith => __$$FeedThreadgateFollowingRuleImplCopyWithImpl<
+          _$FeedThreadgateFollowingRuleImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$FollowingRuleImplToJson(
+    return _$$FeedThreadgateFollowingRuleImplToJson(
       this,
     );
   }
 }
 
-abstract class _FollowingRule implements FollowingRule {
-  const factory _FollowingRule({@typeKey final String type}) =
-      _$FollowingRuleImpl;
+abstract class _FeedThreadgateFollowingRule
+    implements FeedThreadgateFollowingRule {
+  const factory _FeedThreadgateFollowingRule({@typeKey final String type}) =
+      _$FeedThreadgateFollowingRuleImpl;
 
-  factory _FollowingRule.fromJson(Map<String, dynamic> json) =
-      _$FollowingRuleImpl.fromJson;
+  factory _FeedThreadgateFollowingRule.fromJson(Map<String, dynamic> json) =
+      _$FeedThreadgateFollowingRuleImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
   @JsonKey(ignore: true)
-  _$$FollowingRuleImplCopyWith<_$FollowingRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedThreadgateFollowingRuleImplCopyWith<_$FeedThreadgateFollowingRuleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

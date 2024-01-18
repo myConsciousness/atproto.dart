@@ -18,12 +18,13 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getblocks/#output
 @freezed
 @lex.appBskyGraphGetBlocks
-class Output with _$Output {
+class GraphGetBlocksOutput with _$GraphGetBlocksOutput {
   @jsonSerializable
-  const factory Output({
-    required List<ProfileView> blocks,
+  const factory GraphGetBlocksOutput({
+    required List<ActorDefsProfileView> blocks,
     String? cursor,
-  }) = _Output;
+  }) = _GraphGetBlocksOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory GraphGetBlocksOutput.fromJson(Map<String, Object?> json) =>
+      _$GraphGetBlocksOutputFromJson(json);
 }

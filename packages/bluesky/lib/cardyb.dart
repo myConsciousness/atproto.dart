@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:bluesky/src/services/entities/link_preview.dart';
+export 'package:bluesky/src/cardyb/link_preview.dart';
 export 'package:bluesky/src/cardyb/link_preview_service.dart'
     show findLinkPreview;
 

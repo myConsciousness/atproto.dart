@@ -10,8 +10,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../constants/grouped_notification_reason.dart';
-import '../types/actor/defs/profile_view.dart';
+import '../types/actor/defs/_z.dart';
+import 'grouped_notification_reason.dart';
 
 part 'grouped_notification.freezed.dart';
 part 'grouped_notification.g.dart';
@@ -32,7 +32,7 @@ class GroupedNotification with _$GroupedNotification {
     ///
     /// This list is set in chronological order, with the author of the
     /// most recent notification at the top.
-    required List<ProfileView> authors,
+    required List<ActorDefsProfileView> authors,
 
     /// Specifies the reason for the notification.
     required GroupedNotificationReason reason,

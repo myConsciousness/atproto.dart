@@ -4,9 +4,7 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/moderation.dart';
-import 'package:bluesky/src/services/entities/adult_content_preference.dart';
-import 'package:bluesky/src/services/entities/content_label_preference.dart';
-import 'package:bluesky/src/services/entities/preference.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
 import '../moderation_options_behavior_scenario.dart';
 import '../moderation_options_behavior_scenario_label.dart';
 import '../moderation_options_behaviors.dart';
@@ -21,7 +19,7 @@ final class ModerationOptionsBehaviorsSuiteRunner {
   ) =>
       scenario.isAdultContentEnabled;
 
-  List<Preference> getContentLabelPreferences(
+  List<UPreferencesPreferences> getContentLabelPreferences(
     final ModerationOptionsBehaviorScenario scenario,
   ) =>
       [
@@ -42,20 +40,20 @@ final class ModerationOptionsBehaviorsSuiteRunner {
         ),
       ];
 
-  Preference _getContentLabelPreference(
+  UPreferencesPreferences _getContentLabelPreference(
     final ModerationOptionsBehaviorScenarioLabel label,
   ) =>
-      Preference.contentLabel(
-        data: ContentLabelPreference(
+      UPreferencesPreferences.contentLabelPref(
+        data: ActorDefsContentLabelPref(
           label: label.label,
           visibility: label.visibility,
         ),
       );
 
-  Preference _getAdultContentPreference(final bool isEnabled) =>
-      Preference.adultContent(
-        data: AdultContentPreference(
-          isEnabled: isEnabled,
+  UPreferencesPreferences _getAdultContentPreference(final bool isEnabled) =>
+      UPreferencesPreferences.adultContentPref(
+        data: ActorDefsAdultContentPref(
+          enabled: isEnabled,
         ),
       );
 }

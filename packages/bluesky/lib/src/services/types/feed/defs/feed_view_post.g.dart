@@ -8,18 +8,22 @@ part of 'feed_view_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedViewPostImpl',
+_$FeedDefsFeedViewPostImpl _$$FeedDefsFeedViewPostImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedDefsFeedViewPostImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedViewPostImpl(
-          post: $checkedConvert('post',
-              (v) => PostView.fromJson(Map<String, Object?>.from(v as Map))),
+        final val = _$FeedDefsFeedViewPostImpl(
+          post: $checkedConvert(
+              'post',
+              (v) => FeedDefsPostView.fromJson(
+                  Map<String, Object?>.from(v as Map))),
           reply: $checkedConvert(
               'reply',
               (v) => v == null
                   ? null
-                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
+                  : FeedDefsReplyRef.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
               'reason',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>,
@@ -29,7 +33,8 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
+Map<String, dynamic> _$$FeedDefsFeedViewPostImplToJson(
+    _$FeedDefsFeedViewPostImpl instance) {
   final val = <String, dynamic>{
     'post': instance.post.toJson(),
   };

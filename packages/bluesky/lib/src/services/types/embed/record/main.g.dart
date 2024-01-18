@@ -8,11 +8,11 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
-      r'_$MainImpl',
+_$EmbedRecordImpl _$$EmbedRecordImplFromJson(Map json) => $checkedCreate(
+      r'_$EmbedRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$MainImpl(
+        final val = _$EmbedRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecord),
           record: $checkedConvert('record',
@@ -23,7 +23,7 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
+Map<String, dynamic> _$$EmbedRecordImplToJson(_$EmbedRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'record': instance.record.toJson(),

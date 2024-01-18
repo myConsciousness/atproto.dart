@@ -19,22 +19,22 @@ mixin _$UMainMedia {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(embed_images_main.Main data) embedImages,
-    required TResult Function(embed_external_main.Main data) embedExternal,
+    required TResult Function(EmbedImages data) embedImages,
+    required TResult Function(EmbedExternal data) embedExternal,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(embed_images_main.Main data)? embedImages,
-    TResult? Function(embed_external_main.Main data)? embedExternal,
+    TResult? Function(EmbedImages data)? embedImages,
+    TResult? Function(EmbedExternal data)? embedExternal,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(embed_images_main.Main data)? embedImages,
-    TResult Function(embed_external_main.Main data)? embedExternal,
+    TResult Function(EmbedImages data)? embedImages,
+    TResult Function(EmbedExternal data)? embedExternal,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -88,9 +88,9 @@ abstract class _$$UMainMediaEmbedImagesImplCopyWith<$Res> {
           $Res Function(_$UMainMediaEmbedImagesImpl) then) =
       __$$UMainMediaEmbedImagesImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({embed_images_main.Main data});
+  $Res call({EmbedImages data});
 
-  $MainCopyWith<$Res> get data;
+  $EmbedImagesCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -110,14 +110,14 @@ class __$$UMainMediaEmbedImagesImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as embed_images_main.Main,
+              as EmbedImages,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MainCopyWith<$Res> get data {
-    return $MainCopyWith<$Res>(_value.data, (value) {
+  $EmbedImagesCopyWith<$Res> get data {
+    return $EmbedImagesCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -125,11 +125,11 @@ class __$$UMainMediaEmbedImagesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMainMediaEmbedImagesImpl implements UMainMediaEmbedImages {
-  const _$UMainMediaEmbedImagesImpl({required this.data});
+class _$UMainMediaEmbedImagesImpl extends UMainMediaEmbedImages {
+  const _$UMainMediaEmbedImagesImpl({required this.data}) : super._();
 
   @override
-  final embed_images_main.Main data;
+  final EmbedImages data;
 
   @override
   String toString() {
@@ -157,8 +157,8 @@ class _$UMainMediaEmbedImagesImpl implements UMainMediaEmbedImages {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(embed_images_main.Main data) embedImages,
-    required TResult Function(embed_external_main.Main data) embedExternal,
+    required TResult Function(EmbedImages data) embedImages,
+    required TResult Function(EmbedExternal data) embedExternal,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return embedImages(data);
@@ -167,8 +167,8 @@ class _$UMainMediaEmbedImagesImpl implements UMainMediaEmbedImages {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(embed_images_main.Main data)? embedImages,
-    TResult? Function(embed_external_main.Main data)? embedExternal,
+    TResult? Function(EmbedImages data)? embedImages,
+    TResult? Function(EmbedExternal data)? embedExternal,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return embedImages?.call(data);
@@ -177,8 +177,8 @@ class _$UMainMediaEmbedImagesImpl implements UMainMediaEmbedImages {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(embed_images_main.Main data)? embedImages,
-    TResult Function(embed_external_main.Main data)? embedExternal,
+    TResult Function(EmbedImages data)? embedImages,
+    TResult Function(EmbedExternal data)? embedExternal,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -223,13 +223,13 @@ class _$UMainMediaEmbedImagesImpl implements UMainMediaEmbedImages {
   }
 }
 
-abstract class UMainMediaEmbedImages implements UMainMedia {
-  const factory UMainMediaEmbedImages(
-          {required final embed_images_main.Main data}) =
+abstract class UMainMediaEmbedImages extends UMainMedia {
+  const factory UMainMediaEmbedImages({required final EmbedImages data}) =
       _$UMainMediaEmbedImagesImpl;
+  const UMainMediaEmbedImages._() : super._();
 
   @override
-  embed_images_main.Main get data;
+  EmbedImages get data;
   @JsonKey(ignore: true)
   _$$UMainMediaEmbedImagesImplCopyWith<_$UMainMediaEmbedImagesImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -242,9 +242,9 @@ abstract class _$$UMainMediaEmbedExternalImplCopyWith<$Res> {
           $Res Function(_$UMainMediaEmbedExternalImpl) then) =
       __$$UMainMediaEmbedExternalImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({embed_external_main.Main data});
+  $Res call({EmbedExternal data});
 
-  $MainCopyWith<$Res> get data;
+  $EmbedExternalCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -265,14 +265,14 @@ class __$$UMainMediaEmbedExternalImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as embed_external_main.Main,
+              as EmbedExternal,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MainCopyWith<$Res> get data {
-    return $MainCopyWith<$Res>(_value.data, (value) {
+  $EmbedExternalCopyWith<$Res> get data {
+    return $EmbedExternalCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -280,11 +280,11 @@ class __$$UMainMediaEmbedExternalImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMainMediaEmbedExternalImpl implements UMainMediaEmbedExternal {
-  const _$UMainMediaEmbedExternalImpl({required this.data});
+class _$UMainMediaEmbedExternalImpl extends UMainMediaEmbedExternal {
+  const _$UMainMediaEmbedExternalImpl({required this.data}) : super._();
 
   @override
-  final embed_external_main.Main data;
+  final EmbedExternal data;
 
   @override
   String toString() {
@@ -312,8 +312,8 @@ class _$UMainMediaEmbedExternalImpl implements UMainMediaEmbedExternal {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(embed_images_main.Main data) embedImages,
-    required TResult Function(embed_external_main.Main data) embedExternal,
+    required TResult Function(EmbedImages data) embedImages,
+    required TResult Function(EmbedExternal data) embedExternal,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return embedExternal(data);
@@ -322,8 +322,8 @@ class _$UMainMediaEmbedExternalImpl implements UMainMediaEmbedExternal {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(embed_images_main.Main data)? embedImages,
-    TResult? Function(embed_external_main.Main data)? embedExternal,
+    TResult? Function(EmbedImages data)? embedImages,
+    TResult? Function(EmbedExternal data)? embedExternal,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return embedExternal?.call(data);
@@ -332,8 +332,8 @@ class _$UMainMediaEmbedExternalImpl implements UMainMediaEmbedExternal {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(embed_images_main.Main data)? embedImages,
-    TResult Function(embed_external_main.Main data)? embedExternal,
+    TResult Function(EmbedImages data)? embedImages,
+    TResult Function(EmbedExternal data)? embedExternal,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -378,13 +378,13 @@ class _$UMainMediaEmbedExternalImpl implements UMainMediaEmbedExternal {
   }
 }
 
-abstract class UMainMediaEmbedExternal implements UMainMedia {
-  const factory UMainMediaEmbedExternal(
-          {required final embed_external_main.Main data}) =
+abstract class UMainMediaEmbedExternal extends UMainMedia {
+  const factory UMainMediaEmbedExternal({required final EmbedExternal data}) =
       _$UMainMediaEmbedExternalImpl;
+  const UMainMediaEmbedExternal._() : super._();
 
   @override
-  embed_external_main.Main get data;
+  EmbedExternal get data;
   @JsonKey(ignore: true)
   _$$UMainMediaEmbedExternalImplCopyWith<_$UMainMediaEmbedExternalImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -423,9 +423,10 @@ class __$$UMainMediaUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMainMediaUnknownImpl implements UMainMediaUnknown {
+class _$UMainMediaUnknownImpl extends UMainMediaUnknown {
   const _$UMainMediaUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -462,8 +463,8 @@ class _$UMainMediaUnknownImpl implements UMainMediaUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(embed_images_main.Main data) embedImages,
-    required TResult Function(embed_external_main.Main data) embedExternal,
+    required TResult Function(EmbedImages data) embedImages,
+    required TResult Function(EmbedExternal data) embedExternal,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -472,8 +473,8 @@ class _$UMainMediaUnknownImpl implements UMainMediaUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(embed_images_main.Main data)? embedImages,
-    TResult? Function(embed_external_main.Main data)? embedExternal,
+    TResult? Function(EmbedImages data)? embedImages,
+    TResult? Function(EmbedExternal data)? embedExternal,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -482,8 +483,8 @@ class _$UMainMediaUnknownImpl implements UMainMediaUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(embed_images_main.Main data)? embedImages,
-    TResult Function(embed_external_main.Main data)? embedExternal,
+    TResult Function(EmbedImages data)? embedImages,
+    TResult Function(EmbedExternal data)? embedExternal,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -528,9 +529,10 @@ class _$UMainMediaUnknownImpl implements UMainMediaUnknown {
   }
 }
 
-abstract class UMainMediaUnknown implements UMainMedia {
+abstract class UMainMediaUnknown extends UMainMedia {
   const factory UMainMediaUnknown({required final Map<String, dynamic> data}) =
       _$UMainMediaUnknownImpl;
+  const UMainMediaUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

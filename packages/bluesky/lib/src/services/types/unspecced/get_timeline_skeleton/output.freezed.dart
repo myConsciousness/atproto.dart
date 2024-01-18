@@ -14,32 +14,39 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+UnspeccedGetTimelineSkeletonOutput _$UnspeccedGetTimelineSkeletonOutputFromJson(
+    Map<String, dynamic> json) {
+  return _UnspeccedGetTimelineSkeletonOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<SkeletonFeedPost> get feed => throw _privateConstructorUsedError;
+mixin _$UnspeccedGetTimelineSkeletonOutput {
+  List<FeedDefsSkeletonFeedPost> get feed => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $UnspeccedGetTimelineSkeletonOutputCopyWith<
+          UnspeccedGetTimelineSkeletonOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $UnspeccedGetTimelineSkeletonOutputCopyWith<$Res> {
+  factory $UnspeccedGetTimelineSkeletonOutputCopyWith(
+          UnspeccedGetTimelineSkeletonOutput value,
+          $Res Function(UnspeccedGetTimelineSkeletonOutput) then) =
+      _$UnspeccedGetTimelineSkeletonOutputCopyWithImpl<$Res,
+          UnspeccedGetTimelineSkeletonOutput>;
   @useResult
-  $Res call({List<SkeletonFeedPost> feed, String? cursor});
+  $Res call({List<FeedDefsSkeletonFeedPost> feed, String? cursor});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$UnspeccedGetTimelineSkeletonOutputCopyWithImpl<$Res,
+        $Val extends UnspeccedGetTimelineSkeletonOutput>
+    implements $UnspeccedGetTimelineSkeletonOutputCopyWith<$Res> {
+  _$UnspeccedGetTimelineSkeletonOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -56,7 +63,7 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonFeedPost>,
+              as List<FeedDefsSkeletonFeedPost>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -66,21 +73,25 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$UnspeccedGetTimelineSkeletonOutputImplCopyWith<$Res>
+    implements $UnspeccedGetTimelineSkeletonOutputCopyWith<$Res> {
+  factory _$$UnspeccedGetTimelineSkeletonOutputImplCopyWith(
+          _$UnspeccedGetTimelineSkeletonOutputImpl value,
+          $Res Function(_$UnspeccedGetTimelineSkeletonOutputImpl) then) =
+      __$$UnspeccedGetTimelineSkeletonOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<SkeletonFeedPost> feed, String? cursor});
+  $Res call({List<FeedDefsSkeletonFeedPost> feed, String? cursor});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$UnspeccedGetTimelineSkeletonOutputImplCopyWithImpl<$Res>
+    extends _$UnspeccedGetTimelineSkeletonOutputCopyWithImpl<$Res,
+        _$UnspeccedGetTimelineSkeletonOutputImpl>
+    implements _$$UnspeccedGetTimelineSkeletonOutputImplCopyWith<$Res> {
+  __$$UnspeccedGetTimelineSkeletonOutputImplCopyWithImpl(
+      _$UnspeccedGetTimelineSkeletonOutputImpl _value,
+      $Res Function(_$UnspeccedGetTimelineSkeletonOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,11 +100,11 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? feed = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$UnspeccedGetTimelineSkeletonOutputImpl(
       feed: null == feed
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
-              as List<SkeletonFeedPost>,
+              as List<FeedDefsSkeletonFeedPost>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -105,16 +116,19 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OutputImpl implements _Output {
-  const _$OutputImpl({required final List<SkeletonFeedPost> feed, this.cursor})
+class _$UnspeccedGetTimelineSkeletonOutputImpl
+    implements _UnspeccedGetTimelineSkeletonOutput {
+  const _$UnspeccedGetTimelineSkeletonOutputImpl(
+      {required final List<FeedDefsSkeletonFeedPost> feed, this.cursor})
       : _feed = feed;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$UnspeccedGetTimelineSkeletonOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$UnspeccedGetTimelineSkeletonOutputImplFromJson(json);
 
-  final List<SkeletonFeedPost> _feed;
+  final List<FeedDefsSkeletonFeedPost> _feed;
   @override
-  List<SkeletonFeedPost> get feed {
+  List<FeedDefsSkeletonFeedPost> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_feed);
@@ -125,14 +139,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(feed: $feed, cursor: $cursor)';
+    return 'UnspeccedGetTimelineSkeletonOutput(feed: $feed, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$UnspeccedGetTimelineSkeletonOutputImpl &&
             const DeepCollectionEquality().equals(other._feed, _feed) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -145,30 +159,36 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$UnspeccedGetTimelineSkeletonOutputImplCopyWith<
+          _$UnspeccedGetTimelineSkeletonOutputImpl>
+      get copyWith => __$$UnspeccedGetTimelineSkeletonOutputImplCopyWithImpl<
+          _$UnspeccedGetTimelineSkeletonOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$UnspeccedGetTimelineSkeletonOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
-      {required final List<SkeletonFeedPost> feed,
-      final String? cursor}) = _$OutputImpl;
+abstract class _UnspeccedGetTimelineSkeletonOutput
+    implements UnspeccedGetTimelineSkeletonOutput {
+  const factory _UnspeccedGetTimelineSkeletonOutput(
+      {required final List<FeedDefsSkeletonFeedPost> feed,
+      final String? cursor}) = _$UnspeccedGetTimelineSkeletonOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _UnspeccedGetTimelineSkeletonOutput.fromJson(
+          Map<String, dynamic> json) =
+      _$UnspeccedGetTimelineSkeletonOutputImpl.fromJson;
 
   @override
-  List<SkeletonFeedPost> get feed;
+  List<FeedDefsSkeletonFeedPost> get feed;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UnspeccedGetTimelineSkeletonOutputImplCopyWith<
+          _$UnspeccedGetTimelineSkeletonOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

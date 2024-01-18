@@ -8,11 +8,12 @@ part of 'view_image.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ViewImageImpl _$$ViewImageImplFromJson(Map json) => $checkedCreate(
-      r'_$ViewImageImpl',
+_$EmbedImagesViewImageImpl _$$EmbedImagesViewImageImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$EmbedImagesViewImageImpl',
       json,
       ($checkedConvert) {
-        final val = _$ViewImageImpl(
+        final val = _$EmbedImagesViewImageImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedImagesViewImage),
           thumb: $checkedConvert('thumb', (v) => v as String),
@@ -22,14 +23,16 @@ _$ViewImageImpl _$$ViewImageImplFromJson(Map json) => $checkedCreate(
               'aspectRatio',
               (v) => v == null
                   ? null
-                  : AspectRatio.fromJson(Map<String, Object?>.from(v as Map))),
+                  : EmbedImagesAspectRatio.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ViewImageImplToJson(_$ViewImageImpl instance) =>
+Map<String, dynamic> _$$EmbedImagesViewImageImplToJson(
+        _$EmbedImagesViewImageImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'thumb': instance.thumb,

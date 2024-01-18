@@ -22,7 +22,7 @@ import 'package:bluesky/src/moderation/entities/moderation_cause_source_labeler.
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_list.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_user.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
-import 'package:bluesky/src/services/entities/list_view_basic.dart';
+import 'package:bluesky/src/services/types/graph/defs/_z.dart';
 
 void main() {
   group('.did', () {
@@ -58,7 +58,7 @@ void main() {
   });
 
   test('.addBlockingByList', () {
-    final list = ListViewBasic(
+    final list = GraphDefsListViewBasic(
       uri: AtUri.parse(
         'at://did:plc:k7i7bl3s5oda3xx3oicuh5pw/app.bsky.feed.post/3kfrqxhntqs2e',
       ),
@@ -481,7 +481,7 @@ void main() {
   });
 
   test('.addMutedByList', () {
-    final list = ListViewBasic(
+    final list = GraphDefsListViewBasic(
       uri: AtUri.parse(
         'at://did:plc:k7i7bl3s5oda3xx3oicuh5pw/app.bsky.feed.post/3kfrqxhntqs2e',
       ),

@@ -17,16 +17,19 @@ part 'reply_ref_root.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
 class UReplyRefRoot with _$UReplyRefRoot {
+  // ignore: unused_element
+  const UReplyRefRoot._();
+
   const factory UReplyRefRoot.postView({
-    required PostView data,
+    required FeedDefsPostView data,
   }) = UReplyRefRootPostView;
 
   const factory UReplyRefRoot.notFoundPost({
-    required NotFoundPost data,
+    required FeedDefsNotFoundPost data,
   }) = UReplyRefRootNotFoundPost;
 
   const factory UReplyRefRoot.blockedPost({
-    required BlockedPost data,
+    required FeedDefsBlockedPost data,
   }) = UReplyRefRootBlockedPost;
 
   const factory UReplyRefRoot.unknown({
@@ -49,22 +52,22 @@ final class _UReplyRefRootConverter
 
       if (type == ids.appBskyFeedDefsPostView) {
         return UReplyRefRoot.postView(
-          data: PostView.fromJson(json),
+          data: FeedDefsPostView.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return UReplyRefRoot.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return UReplyRefRoot.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
       return UReplyRefRoot.postView(
-        data: PostView.fromJson(json),
+        data: FeedDefsPostView.fromJson(json),
       );
     } catch (_) {
       return UReplyRefRoot.unknown(data: json);

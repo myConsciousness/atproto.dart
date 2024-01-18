@@ -128,9 +128,8 @@ class __$$URepoApplyWritesWritesCreateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesCreateImpl
-    implements URepoApplyWritesWritesCreate {
-  const _$URepoApplyWritesWritesCreateImpl({required this.data});
+class _$URepoApplyWritesWritesCreateImpl extends URepoApplyWritesWritesCreate {
+  const _$URepoApplyWritesWritesCreateImpl({required this.data}) : super._();
 
   @override
   final RepoApplyWritesCreate data;
@@ -228,10 +227,11 @@ class _$URepoApplyWritesWritesCreateImpl
   }
 }
 
-abstract class URepoApplyWritesWritesCreate implements RepoApplyWritesWrites {
+abstract class URepoApplyWritesWritesCreate extends RepoApplyWritesWrites {
   const factory URepoApplyWritesWritesCreate(
           {required final RepoApplyWritesCreate data}) =
       _$URepoApplyWritesWritesCreateImpl;
+  const URepoApplyWritesWritesCreate._() : super._();
 
   @override
   RepoApplyWritesCreate get data;
@@ -287,9 +287,8 @@ class __$$URepoApplyWritesWritesUpdateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesUpdateImpl
-    implements URepoApplyWritesWritesUpdate {
-  const _$URepoApplyWritesWritesUpdateImpl({required this.data});
+class _$URepoApplyWritesWritesUpdateImpl extends URepoApplyWritesWritesUpdate {
+  const _$URepoApplyWritesWritesUpdateImpl({required this.data}) : super._();
 
   @override
   final RepoApplyWritesUpdate data;
@@ -387,10 +386,11 @@ class _$URepoApplyWritesWritesUpdateImpl
   }
 }
 
-abstract class URepoApplyWritesWritesUpdate implements RepoApplyWritesWrites {
+abstract class URepoApplyWritesWritesUpdate extends RepoApplyWritesWrites {
   const factory URepoApplyWritesWritesUpdate(
           {required final RepoApplyWritesUpdate data}) =
       _$URepoApplyWritesWritesUpdateImpl;
+  const URepoApplyWritesWritesUpdate._() : super._();
 
   @override
   RepoApplyWritesUpdate get data;
@@ -446,9 +446,8 @@ class __$$URepoApplyWritesWritesDeleteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URepoApplyWritesWritesDeleteImpl
-    implements URepoApplyWritesWritesDelete {
-  const _$URepoApplyWritesWritesDeleteImpl({required this.data});
+class _$URepoApplyWritesWritesDeleteImpl extends URepoApplyWritesWritesDelete {
+  const _$URepoApplyWritesWritesDeleteImpl({required this.data}) : super._();
 
   @override
   final RepoApplyWritesDelete data;
@@ -546,10 +545,11 @@ class _$URepoApplyWritesWritesDeleteImpl
   }
 }
 
-abstract class URepoApplyWritesWritesDelete implements RepoApplyWritesWrites {
+abstract class URepoApplyWritesWritesDelete extends RepoApplyWritesWrites {
   const factory URepoApplyWritesWritesDelete(
           {required final RepoApplyWritesDelete data}) =
       _$URepoApplyWritesWritesDeleteImpl;
+  const URepoApplyWritesWritesDelete._() : super._();
 
   @override
   RepoApplyWritesDelete get data;

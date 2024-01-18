@@ -19,25 +19,25 @@ mixin _$URecordAllow {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MentionRule data) mentionRule,
-    required TResult Function(FollowingRule data) followingRule,
-    required TResult Function(ListRule data) listRule,
+    required TResult Function(FeedThreadgateMentionRule data) mentionRule,
+    required TResult Function(FeedThreadgateFollowingRule data) followingRule,
+    required TResult Function(FeedThreadgateListRule data) listRule,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MentionRule data)? mentionRule,
-    TResult? Function(FollowingRule data)? followingRule,
-    TResult? Function(ListRule data)? listRule,
+    TResult? Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult? Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult? Function(FeedThreadgateListRule data)? listRule,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MentionRule data)? mentionRule,
-    TResult Function(FollowingRule data)? followingRule,
-    TResult Function(ListRule data)? listRule,
+    TResult Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult Function(FeedThreadgateListRule data)? listRule,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -94,9 +94,9 @@ abstract class _$$URecordAllowMentionRuleImplCopyWith<$Res> {
           $Res Function(_$URecordAllowMentionRuleImpl) then) =
       __$$URecordAllowMentionRuleImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({MentionRule data});
+  $Res call({FeedThreadgateMentionRule data});
 
-  $MentionRuleCopyWith<$Res> get data;
+  $FeedThreadgateMentionRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -117,14 +117,14 @@ class __$$URecordAllowMentionRuleImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as MentionRule,
+              as FeedThreadgateMentionRule,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MentionRuleCopyWith<$Res> get data {
-    return $MentionRuleCopyWith<$Res>(_value.data, (value) {
+  $FeedThreadgateMentionRuleCopyWith<$Res> get data {
+    return $FeedThreadgateMentionRuleCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -132,11 +132,11 @@ class __$$URecordAllowMentionRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordAllowMentionRuleImpl implements URecordAllowMentionRule {
-  const _$URecordAllowMentionRuleImpl({required this.data});
+class _$URecordAllowMentionRuleImpl extends URecordAllowMentionRule {
+  const _$URecordAllowMentionRuleImpl({required this.data}) : super._();
 
   @override
-  final MentionRule data;
+  final FeedThreadgateMentionRule data;
 
   @override
   String toString() {
@@ -164,9 +164,9 @@ class _$URecordAllowMentionRuleImpl implements URecordAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MentionRule data) mentionRule,
-    required TResult Function(FollowingRule data) followingRule,
-    required TResult Function(ListRule data) listRule,
+    required TResult Function(FeedThreadgateMentionRule data) mentionRule,
+    required TResult Function(FeedThreadgateFollowingRule data) followingRule,
+    required TResult Function(FeedThreadgateListRule data) listRule,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mentionRule(data);
@@ -175,9 +175,9 @@ class _$URecordAllowMentionRuleImpl implements URecordAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MentionRule data)? mentionRule,
-    TResult? Function(FollowingRule data)? followingRule,
-    TResult? Function(ListRule data)? listRule,
+    TResult? Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult? Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult? Function(FeedThreadgateListRule data)? listRule,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mentionRule?.call(data);
@@ -186,9 +186,9 @@ class _$URecordAllowMentionRuleImpl implements URecordAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MentionRule data)? mentionRule,
-    TResult Function(FollowingRule data)? followingRule,
-    TResult Function(ListRule data)? listRule,
+    TResult Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult Function(FeedThreadgateListRule data)? listRule,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -236,12 +236,14 @@ class _$URecordAllowMentionRuleImpl implements URecordAllowMentionRule {
   }
 }
 
-abstract class URecordAllowMentionRule implements URecordAllow {
-  const factory URecordAllowMentionRule({required final MentionRule data}) =
+abstract class URecordAllowMentionRule extends URecordAllow {
+  const factory URecordAllowMentionRule(
+          {required final FeedThreadgateMentionRule data}) =
       _$URecordAllowMentionRuleImpl;
+  const URecordAllowMentionRule._() : super._();
 
   @override
-  MentionRule get data;
+  FeedThreadgateMentionRule get data;
   @JsonKey(ignore: true)
   _$$URecordAllowMentionRuleImplCopyWith<_$URecordAllowMentionRuleImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -254,9 +256,9 @@ abstract class _$$URecordAllowFollowingRuleImplCopyWith<$Res> {
           $Res Function(_$URecordAllowFollowingRuleImpl) then) =
       __$$URecordAllowFollowingRuleImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({FollowingRule data});
+  $Res call({FeedThreadgateFollowingRule data});
 
-  $FollowingRuleCopyWith<$Res> get data;
+  $FeedThreadgateFollowingRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -277,14 +279,14 @@ class __$$URecordAllowFollowingRuleImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FollowingRule,
+              as FeedThreadgateFollowingRule,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FollowingRuleCopyWith<$Res> get data {
-    return $FollowingRuleCopyWith<$Res>(_value.data, (value) {
+  $FeedThreadgateFollowingRuleCopyWith<$Res> get data {
+    return $FeedThreadgateFollowingRuleCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -292,11 +294,11 @@ class __$$URecordAllowFollowingRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordAllowFollowingRuleImpl implements URecordAllowFollowingRule {
-  const _$URecordAllowFollowingRuleImpl({required this.data});
+class _$URecordAllowFollowingRuleImpl extends URecordAllowFollowingRule {
+  const _$URecordAllowFollowingRuleImpl({required this.data}) : super._();
 
   @override
-  final FollowingRule data;
+  final FeedThreadgateFollowingRule data;
 
   @override
   String toString() {
@@ -324,9 +326,9 @@ class _$URecordAllowFollowingRuleImpl implements URecordAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MentionRule data) mentionRule,
-    required TResult Function(FollowingRule data) followingRule,
-    required TResult Function(ListRule data) listRule,
+    required TResult Function(FeedThreadgateMentionRule data) mentionRule,
+    required TResult Function(FeedThreadgateFollowingRule data) followingRule,
+    required TResult Function(FeedThreadgateListRule data) listRule,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return followingRule(data);
@@ -335,9 +337,9 @@ class _$URecordAllowFollowingRuleImpl implements URecordAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MentionRule data)? mentionRule,
-    TResult? Function(FollowingRule data)? followingRule,
-    TResult? Function(ListRule data)? listRule,
+    TResult? Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult? Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult? Function(FeedThreadgateListRule data)? listRule,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return followingRule?.call(data);
@@ -346,9 +348,9 @@ class _$URecordAllowFollowingRuleImpl implements URecordAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MentionRule data)? mentionRule,
-    TResult Function(FollowingRule data)? followingRule,
-    TResult Function(ListRule data)? listRule,
+    TResult Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult Function(FeedThreadgateListRule data)? listRule,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -396,12 +398,14 @@ class _$URecordAllowFollowingRuleImpl implements URecordAllowFollowingRule {
   }
 }
 
-abstract class URecordAllowFollowingRule implements URecordAllow {
-  const factory URecordAllowFollowingRule({required final FollowingRule data}) =
+abstract class URecordAllowFollowingRule extends URecordAllow {
+  const factory URecordAllowFollowingRule(
+          {required final FeedThreadgateFollowingRule data}) =
       _$URecordAllowFollowingRuleImpl;
+  const URecordAllowFollowingRule._() : super._();
 
   @override
-  FollowingRule get data;
+  FeedThreadgateFollowingRule get data;
   @JsonKey(ignore: true)
   _$$URecordAllowFollowingRuleImplCopyWith<_$URecordAllowFollowingRuleImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -413,9 +417,9 @@ abstract class _$$URecordAllowlistRuleImplCopyWith<$Res> {
           $Res Function(_$URecordAllowlistRuleImpl) then) =
       __$$URecordAllowlistRuleImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ListRule data});
+  $Res call({FeedThreadgateListRule data});
 
-  $ListRuleCopyWith<$Res> get data;
+  $FeedThreadgateListRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -435,14 +439,14 @@ class __$$URecordAllowlistRuleImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ListRule,
+              as FeedThreadgateListRule,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ListRuleCopyWith<$Res> get data {
-    return $ListRuleCopyWith<$Res>(_value.data, (value) {
+  $FeedThreadgateListRuleCopyWith<$Res> get data {
+    return $FeedThreadgateListRuleCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -450,11 +454,11 @@ class __$$URecordAllowlistRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordAllowlistRuleImpl implements URecordAllowlistRule {
-  const _$URecordAllowlistRuleImpl({required this.data});
+class _$URecordAllowlistRuleImpl extends URecordAllowlistRule {
+  const _$URecordAllowlistRuleImpl({required this.data}) : super._();
 
   @override
-  final ListRule data;
+  final FeedThreadgateListRule data;
 
   @override
   String toString() {
@@ -483,9 +487,9 @@ class _$URecordAllowlistRuleImpl implements URecordAllowlistRule {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MentionRule data) mentionRule,
-    required TResult Function(FollowingRule data) followingRule,
-    required TResult Function(ListRule data) listRule,
+    required TResult Function(FeedThreadgateMentionRule data) mentionRule,
+    required TResult Function(FeedThreadgateFollowingRule data) followingRule,
+    required TResult Function(FeedThreadgateListRule data) listRule,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return listRule(data);
@@ -494,9 +498,9 @@ class _$URecordAllowlistRuleImpl implements URecordAllowlistRule {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MentionRule data)? mentionRule,
-    TResult? Function(FollowingRule data)? followingRule,
-    TResult? Function(ListRule data)? listRule,
+    TResult? Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult? Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult? Function(FeedThreadgateListRule data)? listRule,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return listRule?.call(data);
@@ -505,9 +509,9 @@ class _$URecordAllowlistRuleImpl implements URecordAllowlistRule {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MentionRule data)? mentionRule,
-    TResult Function(FollowingRule data)? followingRule,
-    TResult Function(ListRule data)? listRule,
+    TResult Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult Function(FeedThreadgateListRule data)? listRule,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -555,12 +559,14 @@ class _$URecordAllowlistRuleImpl implements URecordAllowlistRule {
   }
 }
 
-abstract class URecordAllowlistRule implements URecordAllow {
-  const factory URecordAllowlistRule({required final ListRule data}) =
+abstract class URecordAllowlistRule extends URecordAllow {
+  const factory URecordAllowlistRule(
+          {required final FeedThreadgateListRule data}) =
       _$URecordAllowlistRuleImpl;
+  const URecordAllowlistRule._() : super._();
 
   @override
-  ListRule get data;
+  FeedThreadgateListRule get data;
   @JsonKey(ignore: true)
   _$$URecordAllowlistRuleImplCopyWith<_$URecordAllowlistRuleImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -599,9 +605,10 @@ class __$$URecordAllowUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URecordAllowUnknownImpl implements URecordAllowUnknown {
+class _$URecordAllowUnknownImpl extends URecordAllowUnknown {
   const _$URecordAllowUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -638,9 +645,9 @@ class _$URecordAllowUnknownImpl implements URecordAllowUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(MentionRule data) mentionRule,
-    required TResult Function(FollowingRule data) followingRule,
-    required TResult Function(ListRule data) listRule,
+    required TResult Function(FeedThreadgateMentionRule data) mentionRule,
+    required TResult Function(FeedThreadgateFollowingRule data) followingRule,
+    required TResult Function(FeedThreadgateListRule data) listRule,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -649,9 +656,9 @@ class _$URecordAllowUnknownImpl implements URecordAllowUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(MentionRule data)? mentionRule,
-    TResult? Function(FollowingRule data)? followingRule,
-    TResult? Function(ListRule data)? listRule,
+    TResult? Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult? Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult? Function(FeedThreadgateListRule data)? listRule,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -660,9 +667,9 @@ class _$URecordAllowUnknownImpl implements URecordAllowUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(MentionRule data)? mentionRule,
-    TResult Function(FollowingRule data)? followingRule,
-    TResult Function(ListRule data)? listRule,
+    TResult Function(FeedThreadgateMentionRule data)? mentionRule,
+    TResult Function(FeedThreadgateFollowingRule data)? followingRule,
+    TResult Function(FeedThreadgateListRule data)? listRule,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -710,9 +717,10 @@ class _$URecordAllowUnknownImpl implements URecordAllowUnknown {
   }
 }
 
-abstract class URecordAllowUnknown implements URecordAllow {
+abstract class URecordAllowUnknown extends URecordAllow {
   const factory URecordAllowUnknown(
       {required final Map<String, dynamic> data}) = _$URecordAllowUnknownImpl;
+  const URecordAllowUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

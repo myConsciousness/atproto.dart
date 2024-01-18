@@ -19,31 +19,31 @@ mixin _$UViewRecord {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -110,9 +110,9 @@ abstract class _$$UViewRecordViewRecordImplCopyWith<$Res> {
           $Res Function(_$UViewRecordViewRecordImpl) then) =
       __$$UViewRecordViewRecordImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ViewRecord data});
+  $Res call({EmbedRecordViewRecord data});
 
-  $ViewRecordCopyWith<$Res> get data;
+  $EmbedRecordViewRecordCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -132,14 +132,14 @@ class __$$UViewRecordViewRecordImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ViewRecord,
+              as EmbedRecordViewRecord,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewRecordCopyWith<$Res> get data {
-    return $ViewRecordCopyWith<$Res>(_value.data, (value) {
+  $EmbedRecordViewRecordCopyWith<$Res> get data {
+    return $EmbedRecordViewRecordCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -147,11 +147,11 @@ class __$$UViewRecordViewRecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordViewRecordImpl implements UViewRecordViewRecord {
-  const _$UViewRecordViewRecordImpl({required this.data});
+class _$UViewRecordViewRecordImpl extends UViewRecordViewRecord {
+  const _$UViewRecordViewRecordImpl({required this.data}) : super._();
 
   @override
-  final ViewRecord data;
+  final EmbedRecordViewRecord data;
 
   @override
   String toString() {
@@ -179,11 +179,11 @@ class _$UViewRecordViewRecordImpl implements UViewRecordViewRecord {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return viewRecord(data);
@@ -192,11 +192,11 @@ class _$UViewRecordViewRecordImpl implements UViewRecordViewRecord {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return viewRecord?.call(data);
@@ -205,11 +205,11 @@ class _$UViewRecordViewRecordImpl implements UViewRecordViewRecord {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -267,12 +267,14 @@ class _$UViewRecordViewRecordImpl implements UViewRecordViewRecord {
   }
 }
 
-abstract class UViewRecordViewRecord implements UViewRecord {
-  const factory UViewRecordViewRecord({required final ViewRecord data}) =
+abstract class UViewRecordViewRecord extends UViewRecord {
+  const factory UViewRecordViewRecord(
+          {required final EmbedRecordViewRecord data}) =
       _$UViewRecordViewRecordImpl;
+  const UViewRecordViewRecord._() : super._();
 
   @override
-  ViewRecord get data;
+  EmbedRecordViewRecord get data;
   @JsonKey(ignore: true)
   _$$UViewRecordViewRecordImplCopyWith<_$UViewRecordViewRecordImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -285,9 +287,9 @@ abstract class _$$UViewRecordViewNotFoundImplCopyWith<$Res> {
           $Res Function(_$UViewRecordViewNotFoundImpl) then) =
       __$$UViewRecordViewNotFoundImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ViewNotFound data});
+  $Res call({EmbedRecordViewNotFound data});
 
-  $ViewNotFoundCopyWith<$Res> get data;
+  $EmbedRecordViewNotFoundCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -308,14 +310,14 @@ class __$$UViewRecordViewNotFoundImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ViewNotFound,
+              as EmbedRecordViewNotFound,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewNotFoundCopyWith<$Res> get data {
-    return $ViewNotFoundCopyWith<$Res>(_value.data, (value) {
+  $EmbedRecordViewNotFoundCopyWith<$Res> get data {
+    return $EmbedRecordViewNotFoundCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -323,11 +325,11 @@ class __$$UViewRecordViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordViewNotFoundImpl implements UViewRecordViewNotFound {
-  const _$UViewRecordViewNotFoundImpl({required this.data});
+class _$UViewRecordViewNotFoundImpl extends UViewRecordViewNotFound {
+  const _$UViewRecordViewNotFoundImpl({required this.data}) : super._();
 
   @override
-  final ViewNotFound data;
+  final EmbedRecordViewNotFound data;
 
   @override
   String toString() {
@@ -355,11 +357,11 @@ class _$UViewRecordViewNotFoundImpl implements UViewRecordViewNotFound {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return viewNotFound(data);
@@ -368,11 +370,11 @@ class _$UViewRecordViewNotFoundImpl implements UViewRecordViewNotFound {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return viewNotFound?.call(data);
@@ -381,11 +383,11 @@ class _$UViewRecordViewNotFoundImpl implements UViewRecordViewNotFound {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -443,12 +445,14 @@ class _$UViewRecordViewNotFoundImpl implements UViewRecordViewNotFound {
   }
 }
 
-abstract class UViewRecordViewNotFound implements UViewRecord {
-  const factory UViewRecordViewNotFound({required final ViewNotFound data}) =
+abstract class UViewRecordViewNotFound extends UViewRecord {
+  const factory UViewRecordViewNotFound(
+          {required final EmbedRecordViewNotFound data}) =
       _$UViewRecordViewNotFoundImpl;
+  const UViewRecordViewNotFound._() : super._();
 
   @override
-  ViewNotFound get data;
+  EmbedRecordViewNotFound get data;
   @JsonKey(ignore: true)
   _$$UViewRecordViewNotFoundImplCopyWith<_$UViewRecordViewNotFoundImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -461,9 +465,9 @@ abstract class _$$UViewRecordViewBlockedImplCopyWith<$Res> {
           $Res Function(_$UViewRecordViewBlockedImpl) then) =
       __$$UViewRecordViewBlockedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ViewBlocked data});
+  $Res call({EmbedRecordViewBlocked data});
 
-  $ViewBlockedCopyWith<$Res> get data;
+  $EmbedRecordViewBlockedCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -484,14 +488,14 @@ class __$$UViewRecordViewBlockedImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ViewBlocked,
+              as EmbedRecordViewBlocked,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewBlockedCopyWith<$Res> get data {
-    return $ViewBlockedCopyWith<$Res>(_value.data, (value) {
+  $EmbedRecordViewBlockedCopyWith<$Res> get data {
+    return $EmbedRecordViewBlockedCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -499,11 +503,11 @@ class __$$UViewRecordViewBlockedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordViewBlockedImpl implements UViewRecordViewBlocked {
-  const _$UViewRecordViewBlockedImpl({required this.data});
+class _$UViewRecordViewBlockedImpl extends UViewRecordViewBlocked {
+  const _$UViewRecordViewBlockedImpl({required this.data}) : super._();
 
   @override
-  final ViewBlocked data;
+  final EmbedRecordViewBlocked data;
 
   @override
   String toString() {
@@ -531,11 +535,11 @@ class _$UViewRecordViewBlockedImpl implements UViewRecordViewBlocked {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return viewBlocked(data);
@@ -544,11 +548,11 @@ class _$UViewRecordViewBlockedImpl implements UViewRecordViewBlocked {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return viewBlocked?.call(data);
@@ -557,11 +561,11 @@ class _$UViewRecordViewBlockedImpl implements UViewRecordViewBlocked {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -619,12 +623,14 @@ class _$UViewRecordViewBlockedImpl implements UViewRecordViewBlocked {
   }
 }
 
-abstract class UViewRecordViewBlocked implements UViewRecord {
-  const factory UViewRecordViewBlocked({required final ViewBlocked data}) =
+abstract class UViewRecordViewBlocked extends UViewRecord {
+  const factory UViewRecordViewBlocked(
+          {required final EmbedRecordViewBlocked data}) =
       _$UViewRecordViewBlockedImpl;
+  const UViewRecordViewBlocked._() : super._();
 
   @override
-  ViewBlocked get data;
+  EmbedRecordViewBlocked get data;
   @JsonKey(ignore: true)
   _$$UViewRecordViewBlockedImplCopyWith<_$UViewRecordViewBlockedImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -637,9 +643,9 @@ abstract class _$$UViewRecordFeedDefsGeneratorViewImplCopyWith<$Res> {
           $Res Function(_$UViewRecordFeedDefsGeneratorViewImpl) then) =
       __$$UViewRecordFeedDefsGeneratorViewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({GeneratorView data});
+  $Res call({FeedDefsGeneratorView data});
 
-  $GeneratorViewCopyWith<$Res> get data;
+  $FeedDefsGeneratorViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -661,14 +667,14 @@ class __$$UViewRecordFeedDefsGeneratorViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as GeneratorView,
+              as FeedDefsGeneratorView,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $GeneratorViewCopyWith<$Res> get data {
-    return $GeneratorViewCopyWith<$Res>(_value.data, (value) {
+  $FeedDefsGeneratorViewCopyWith<$Res> get data {
+    return $FeedDefsGeneratorViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -677,11 +683,12 @@ class __$$UViewRecordFeedDefsGeneratorViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UViewRecordFeedDefsGeneratorViewImpl
-    implements UViewRecordFeedDefsGeneratorView {
-  const _$UViewRecordFeedDefsGeneratorViewImpl({required this.data});
+    extends UViewRecordFeedDefsGeneratorView {
+  const _$UViewRecordFeedDefsGeneratorViewImpl({required this.data})
+      : super._();
 
   @override
-  final GeneratorView data;
+  final FeedDefsGeneratorView data;
 
   @override
   String toString() {
@@ -710,11 +717,11 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedDefsGeneratorView(data);
@@ -723,11 +730,11 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedDefsGeneratorView?.call(data);
@@ -736,11 +743,11 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -798,13 +805,14 @@ class _$UViewRecordFeedDefsGeneratorViewImpl
   }
 }
 
-abstract class UViewRecordFeedDefsGeneratorView implements UViewRecord {
+abstract class UViewRecordFeedDefsGeneratorView extends UViewRecord {
   const factory UViewRecordFeedDefsGeneratorView(
-          {required final GeneratorView data}) =
+          {required final FeedDefsGeneratorView data}) =
       _$UViewRecordFeedDefsGeneratorViewImpl;
+  const UViewRecordFeedDefsGeneratorView._() : super._();
 
   @override
-  GeneratorView get data;
+  FeedDefsGeneratorView get data;
   @JsonKey(ignore: true)
   _$$UViewRecordFeedDefsGeneratorViewImplCopyWith<
           _$UViewRecordFeedDefsGeneratorViewImpl>
@@ -818,9 +826,9 @@ abstract class _$$UViewRecordGraphDefsListViewImplCopyWith<$Res> {
           $Res Function(_$UViewRecordGraphDefsListViewImpl) then) =
       __$$UViewRecordGraphDefsListViewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ListView data});
+  $Res call({GraphDefsListView data});
 
-  $ListViewCopyWith<$Res> get data;
+  $GraphDefsListViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -841,14 +849,14 @@ class __$$UViewRecordGraphDefsListViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ListView,
+              as GraphDefsListView,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ListViewCopyWith<$Res> get data {
-    return $ListViewCopyWith<$Res>(_value.data, (value) {
+  $GraphDefsListViewCopyWith<$Res> get data {
+    return $GraphDefsListViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -856,12 +864,11 @@ class __$$UViewRecordGraphDefsListViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordGraphDefsListViewImpl
-    implements UViewRecordGraphDefsListView {
-  const _$UViewRecordGraphDefsListViewImpl({required this.data});
+class _$UViewRecordGraphDefsListViewImpl extends UViewRecordGraphDefsListView {
+  const _$UViewRecordGraphDefsListViewImpl({required this.data}) : super._();
 
   @override
-  final ListView data;
+  final GraphDefsListView data;
 
   @override
   String toString() {
@@ -890,11 +897,11 @@ class _$UViewRecordGraphDefsListViewImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return graphDefsListView(data);
@@ -903,11 +910,11 @@ class _$UViewRecordGraphDefsListViewImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return graphDefsListView?.call(data);
@@ -916,11 +923,11 @@ class _$UViewRecordGraphDefsListViewImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -978,12 +985,14 @@ class _$UViewRecordGraphDefsListViewImpl
   }
 }
 
-abstract class UViewRecordGraphDefsListView implements UViewRecord {
-  const factory UViewRecordGraphDefsListView({required final ListView data}) =
+abstract class UViewRecordGraphDefsListView extends UViewRecord {
+  const factory UViewRecordGraphDefsListView(
+          {required final GraphDefsListView data}) =
       _$UViewRecordGraphDefsListViewImpl;
+  const UViewRecordGraphDefsListView._() : super._();
 
   @override
-  ListView get data;
+  GraphDefsListView get data;
   @JsonKey(ignore: true)
   _$$UViewRecordGraphDefsListViewImplCopyWith<
           _$UViewRecordGraphDefsListViewImpl>
@@ -1023,9 +1032,10 @@ class __$$UViewRecordUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UViewRecordUnknownImpl implements UViewRecordUnknown {
+class _$UViewRecordUnknownImpl extends UViewRecordUnknown {
   const _$UViewRecordUnknownImpl({required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -1062,11 +1072,11 @@ class _$UViewRecordUnknownImpl implements UViewRecordUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ViewRecord data) viewRecord,
-    required TResult Function(ViewNotFound data) viewNotFound,
-    required TResult Function(ViewBlocked data) viewBlocked,
-    required TResult Function(GeneratorView data) feedDefsGeneratorView,
-    required TResult Function(ListView data) graphDefsListView,
+    required TResult Function(EmbedRecordViewRecord data) viewRecord,
+    required TResult Function(EmbedRecordViewNotFound data) viewNotFound,
+    required TResult Function(EmbedRecordViewBlocked data) viewBlocked,
+    required TResult Function(FeedDefsGeneratorView data) feedDefsGeneratorView,
+    required TResult Function(GraphDefsListView data) graphDefsListView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1075,11 +1085,11 @@ class _$UViewRecordUnknownImpl implements UViewRecordUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ViewRecord data)? viewRecord,
-    TResult? Function(ViewNotFound data)? viewNotFound,
-    TResult? Function(ViewBlocked data)? viewBlocked,
-    TResult? Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult? Function(ListView data)? graphDefsListView,
+    TResult? Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult? Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult? Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult? Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult? Function(GraphDefsListView data)? graphDefsListView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1088,11 +1098,11 @@ class _$UViewRecordUnknownImpl implements UViewRecordUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ViewRecord data)? viewRecord,
-    TResult Function(ViewNotFound data)? viewNotFound,
-    TResult Function(ViewBlocked data)? viewBlocked,
-    TResult Function(GeneratorView data)? feedDefsGeneratorView,
-    TResult Function(ListView data)? graphDefsListView,
+    TResult Function(EmbedRecordViewRecord data)? viewRecord,
+    TResult Function(EmbedRecordViewNotFound data)? viewNotFound,
+    TResult Function(EmbedRecordViewBlocked data)? viewBlocked,
+    TResult Function(FeedDefsGeneratorView data)? feedDefsGeneratorView,
+    TResult Function(GraphDefsListView data)? graphDefsListView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1150,9 +1160,10 @@ class _$UViewRecordUnknownImpl implements UViewRecordUnknown {
   }
 }
 
-abstract class UViewRecordUnknown implements UViewRecord {
+abstract class UViewRecordUnknown extends UViewRecord {
   const factory UViewRecordUnknown({required final Map<String, dynamic> data}) =
       _$UViewRecordUnknownImpl;
+  const UViewRecordUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

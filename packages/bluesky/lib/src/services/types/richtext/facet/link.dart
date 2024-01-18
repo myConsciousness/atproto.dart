@@ -18,11 +18,12 @@ part 'link.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
 @lex.appBskyRichtextFacetLink
-class Link with _$Link {
-  const factory Link({
+class RichtextFacetLink with _$RichtextFacetLink {
+  const factory RichtextFacetLink({
     @typeKey @Default(appBskyRichtextFacetLink) String type,
     required String uri,
-  }) = _Link;
+  }) = _RichtextFacetLink;
 
-  factory Link.fromJson(Map<String, Object?> json) => _$LinkFromJson(json);
+  factory RichtextFacetLink.fromJson(Map<String, Object?> json) =>
+      _$RichtextFacetLinkFromJson(json);
 }

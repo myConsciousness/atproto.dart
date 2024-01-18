@@ -14,34 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+NotificationListNotificationsOutput
+    _$NotificationListNotificationsOutputFromJson(Map<String, dynamic> json) {
+  return _NotificationListNotificationsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<Notification> get notifications => throw _privateConstructorUsedError;
+mixin _$NotificationListNotificationsOutput {
+  List<NotificationListNotificationsNotification> get notifications =>
+      throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $NotificationListNotificationsOutputCopyWith<
+          NotificationListNotificationsOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $NotificationListNotificationsOutputCopyWith<$Res> {
+  factory $NotificationListNotificationsOutputCopyWith(
+          NotificationListNotificationsOutput value,
+          $Res Function(NotificationListNotificationsOutput) then) =
+      _$NotificationListNotificationsOutputCopyWithImpl<$Res,
+          NotificationListNotificationsOutput>;
   @useResult
   $Res call(
-      {List<Notification> notifications, String? cursor, DateTime? seenAt});
+      {List<NotificationListNotificationsNotification> notifications,
+      String? cursor,
+      DateTime? seenAt});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$NotificationListNotificationsOutputCopyWithImpl<$Res,
+        $Val extends NotificationListNotificationsOutput>
+    implements $NotificationListNotificationsOutputCopyWith<$Res> {
+  _$NotificationListNotificationsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -59,7 +69,7 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       notifications: null == notifications
           ? _value.notifications
           : notifications // ignore: cast_nullable_to_non_nullable
-              as List<Notification>,
+              as List<NotificationListNotificationsNotification>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -73,22 +83,28 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$NotificationListNotificationsOutputImplCopyWith<$Res>
+    implements $NotificationListNotificationsOutputCopyWith<$Res> {
+  factory _$$NotificationListNotificationsOutputImplCopyWith(
+          _$NotificationListNotificationsOutputImpl value,
+          $Res Function(_$NotificationListNotificationsOutputImpl) then) =
+      __$$NotificationListNotificationsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {List<Notification> notifications, String? cursor, DateTime? seenAt});
+      {List<NotificationListNotificationsNotification> notifications,
+      String? cursor,
+      DateTime? seenAt});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$NotificationListNotificationsOutputImplCopyWithImpl<$Res>
+    extends _$NotificationListNotificationsOutputCopyWithImpl<$Res,
+        _$NotificationListNotificationsOutputImpl>
+    implements _$$NotificationListNotificationsOutputImplCopyWith<$Res> {
+  __$$NotificationListNotificationsOutputImplCopyWithImpl(
+      _$NotificationListNotificationsOutputImpl _value,
+      $Res Function(_$NotificationListNotificationsOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,11 +114,11 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? seenAt = freezed,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$NotificationListNotificationsOutputImpl(
       notifications: null == notifications
           ? _value._notifications
           : notifications // ignore: cast_nullable_to_non_nullable
-              as List<Notification>,
+              as List<NotificationListNotificationsNotification>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -117,19 +133,22 @@ class __$$OutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$OutputImpl implements _Output {
-  const _$OutputImpl(
-      {required final List<Notification> notifications,
+class _$NotificationListNotificationsOutputImpl
+    implements _NotificationListNotificationsOutput {
+  const _$NotificationListNotificationsOutputImpl(
+      {required final List<NotificationListNotificationsNotification>
+          notifications,
       this.cursor,
       this.seenAt})
       : _notifications = notifications;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$NotificationListNotificationsOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$NotificationListNotificationsOutputImplFromJson(json);
 
-  final List<Notification> _notifications;
+  final List<NotificationListNotificationsNotification> _notifications;
   @override
-  List<Notification> get notifications {
+  List<NotificationListNotificationsNotification> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_notifications);
@@ -142,14 +161,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(notifications: $notifications, cursor: $cursor, seenAt: $seenAt)';
+    return 'NotificationListNotificationsOutput(notifications: $notifications, cursor: $cursor, seenAt: $seenAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$NotificationListNotificationsOutputImpl &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
@@ -164,33 +183,40 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$NotificationListNotificationsOutputImplCopyWith<
+          _$NotificationListNotificationsOutputImpl>
+      get copyWith => __$$NotificationListNotificationsOutputImplCopyWithImpl<
+          _$NotificationListNotificationsOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$NotificationListNotificationsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
-      {required final List<Notification> notifications,
+abstract class _NotificationListNotificationsOutput
+    implements NotificationListNotificationsOutput {
+  const factory _NotificationListNotificationsOutput(
+      {required final List<NotificationListNotificationsNotification>
+          notifications,
       final String? cursor,
-      final DateTime? seenAt}) = _$OutputImpl;
+      final DateTime? seenAt}) = _$NotificationListNotificationsOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _NotificationListNotificationsOutput.fromJson(
+          Map<String, dynamic> json) =
+      _$NotificationListNotificationsOutputImpl.fromJson;
 
   @override
-  List<Notification> get notifications;
+  List<NotificationListNotificationsNotification> get notifications;
   @override
   String? get cursor;
   @override
   DateTime? get seenAt;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$NotificationListNotificationsOutputImplCopyWith<
+          _$NotificationListNotificationsOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

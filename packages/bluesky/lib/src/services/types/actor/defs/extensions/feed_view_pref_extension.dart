@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import '../feed_view_pref.dart';
 
-extension FeedViewPrefExtension on FeedViewPref {
+extension ActorDefsFeedViewPrefExtension on ActorDefsFeedViewPref {
   bool get isHideReplies => hideReplies;
   bool get isHideRepliesByUnfollowed => hideRepliesByUnfollowed;
   bool get isHideReposts => hideReposts;

@@ -14,44 +14,44 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
-  return _BlockedPost.fromJson(json);
+FeedDefsBlockedPost _$FeedDefsBlockedPostFromJson(Map<String, dynamic> json) {
+  return _FeedDefsBlockedPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$BlockedPost {
+mixin _$FeedDefsBlockedPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
-  BlockedAuthor get author => throw _privateConstructorUsedError;
+  FeedDefsBlockedAuthor get author => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $BlockedPostCopyWith<BlockedPost> get copyWith =>
+  $FeedDefsBlockedPostCopyWith<FeedDefsBlockedPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $BlockedPostCopyWith<$Res> {
-  factory $BlockedPostCopyWith(
-          BlockedPost value, $Res Function(BlockedPost) then) =
-      _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
+abstract class $FeedDefsBlockedPostCopyWith<$Res> {
+  factory $FeedDefsBlockedPostCopyWith(
+          FeedDefsBlockedPost value, $Res Function(FeedDefsBlockedPost) then) =
+      _$FeedDefsBlockedPostCopyWithImpl<$Res, FeedDefsBlockedPost>;
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      FeedDefsBlockedAuthor author});
 
-  $BlockedAuthorCopyWith<$Res> get author;
+  $FeedDefsBlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
-    implements $BlockedPostCopyWith<$Res> {
-  _$BlockedPostCopyWithImpl(this._value, this._then);
+class _$FeedDefsBlockedPostCopyWithImpl<$Res, $Val extends FeedDefsBlockedPost>
+    implements $FeedDefsBlockedPostCopyWith<$Res> {
+  _$FeedDefsBlockedPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -82,43 +82,43 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as BlockedAuthor,
+              as FeedDefsBlockedAuthor,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $BlockedAuthorCopyWith<$Res> get author {
-    return $BlockedAuthorCopyWith<$Res>(_value.author, (value) {
+  $FeedDefsBlockedAuthorCopyWith<$Res> get author {
+    return $FeedDefsBlockedAuthorCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$BlockedPostImplCopyWith<$Res>
-    implements $BlockedPostCopyWith<$Res> {
-  factory _$$BlockedPostImplCopyWith(
-          _$BlockedPostImpl value, $Res Function(_$BlockedPostImpl) then) =
-      __$$BlockedPostImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsBlockedPostImplCopyWith<$Res>
+    implements $FeedDefsBlockedPostCopyWith<$Res> {
+  factory _$$FeedDefsBlockedPostImplCopyWith(_$FeedDefsBlockedPostImpl value,
+          $Res Function(_$FeedDefsBlockedPostImpl) then) =
+      __$$FeedDefsBlockedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      FeedDefsBlockedAuthor author});
 
   @override
-  $BlockedAuthorCopyWith<$Res> get author;
+  $FeedDefsBlockedAuthorCopyWith<$Res> get author;
 }
 
 /// @nodoc
-class __$$BlockedPostImplCopyWithImpl<$Res>
-    extends _$BlockedPostCopyWithImpl<$Res, _$BlockedPostImpl>
-    implements _$$BlockedPostImplCopyWith<$Res> {
-  __$$BlockedPostImplCopyWithImpl(
-      _$BlockedPostImpl _value, $Res Function(_$BlockedPostImpl) _then)
+class __$$FeedDefsBlockedPostImplCopyWithImpl<$Res>
+    extends _$FeedDefsBlockedPostCopyWithImpl<$Res, _$FeedDefsBlockedPostImpl>
+    implements _$$FeedDefsBlockedPostImplCopyWith<$Res> {
+  __$$FeedDefsBlockedPostImplCopyWithImpl(_$FeedDefsBlockedPostImpl _value,
+      $Res Function(_$FeedDefsBlockedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -129,7 +129,7 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
     Object? blocked = null,
     Object? author = null,
   }) {
-    return _then(_$BlockedPostImpl(
+    return _then(_$FeedDefsBlockedPostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -145,22 +145,22 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as BlockedAuthor,
+              as FeedDefsBlockedAuthor,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$BlockedPostImpl implements _BlockedPost {
-  const _$BlockedPostImpl(
+class _$FeedDefsBlockedPostImpl implements _FeedDefsBlockedPost {
+  const _$FeedDefsBlockedPostImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedPost,
       @atUriConverter required this.uri,
       required this.blocked,
       required this.author});
 
-  factory _$BlockedPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$BlockedPostImplFromJson(json);
+  factory _$FeedDefsBlockedPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsBlockedPostImplFromJson(json);
 
   @override
   @typeKey
@@ -171,18 +171,18 @@ class _$BlockedPostImpl implements _BlockedPost {
   @override
   final bool blocked;
   @override
-  final BlockedAuthor author;
+  final FeedDefsBlockedAuthor author;
 
   @override
   String toString() {
-    return 'BlockedPost(type: $type, uri: $uri, blocked: $blocked, author: $author)';
+    return 'FeedDefsBlockedPost(type: $type, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$BlockedPostImpl &&
+            other is _$FeedDefsBlockedPostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
@@ -196,26 +196,27 @@ class _$BlockedPostImpl implements _BlockedPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
-      __$$BlockedPostImplCopyWithImpl<_$BlockedPostImpl>(this, _$identity);
+  _$$FeedDefsBlockedPostImplCopyWith<_$FeedDefsBlockedPostImpl> get copyWith =>
+      __$$FeedDefsBlockedPostImplCopyWithImpl<_$FeedDefsBlockedPostImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$BlockedPostImplToJson(
+    return _$$FeedDefsBlockedPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _BlockedPost implements BlockedPost {
-  const factory _BlockedPost(
+abstract class _FeedDefsBlockedPost implements FeedDefsBlockedPost {
+  const factory _FeedDefsBlockedPost(
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final bool blocked,
-      required final BlockedAuthor author}) = _$BlockedPostImpl;
+      required final FeedDefsBlockedAuthor author}) = _$FeedDefsBlockedPostImpl;
 
-  factory _BlockedPost.fromJson(Map<String, dynamic> json) =
-      _$BlockedPostImpl.fromJson;
+  factory _FeedDefsBlockedPost.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsBlockedPostImpl.fromJson;
 
   @override
   @typeKey
@@ -226,9 +227,9 @@ abstract class _BlockedPost implements BlockedPost {
   @override
   bool get blocked;
   @override
-  BlockedAuthor get author;
+  FeedDefsBlockedAuthor get author;
   @override
   @JsonKey(ignore: true)
-  _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>
+  _$$FeedDefsBlockedPostImplCopyWith<_$FeedDefsBlockedPostImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

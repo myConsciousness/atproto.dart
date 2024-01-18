@@ -17,11 +17,12 @@ part 'feed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#feed
 @freezed
 @lex.appBskyFeedDescribeFeedGeneratorFeed
-class Feed with _$Feed {
+class FeedDescribeFeedGeneratorFeed with _$FeedDescribeFeedGeneratorFeed {
   @jsonSerializable
-  const factory Feed({
+  const factory FeedDescribeFeedGeneratorFeed({
     @atUriConverter required AtUri uri,
-  }) = _Feed;
+  }) = _FeedDescribeFeedGeneratorFeed;
 
-  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
+  factory FeedDescribeFeedGeneratorFeed.fromJson(Map<String, Object?> json) =>
+      _$FeedDescribeFeedGeneratorFeedFromJson(json);
 }

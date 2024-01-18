@@ -14,33 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SkeletonSearchActor _$SkeletonSearchActorFromJson(Map<String, dynamic> json) {
-  return _SkeletonSearchActor.fromJson(json);
+UnspeccedDefsSkeletonSearchActor _$UnspeccedDefsSkeletonSearchActorFromJson(
+    Map<String, dynamic> json) {
+  return _UnspeccedDefsSkeletonSearchActor.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SkeletonSearchActor {
+mixin _$UnspeccedDefsSkeletonSearchActor {
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SkeletonSearchActorCopyWith<SkeletonSearchActor> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UnspeccedDefsSkeletonSearchActorCopyWith<UnspeccedDefsSkeletonSearchActor>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SkeletonSearchActorCopyWith<$Res> {
-  factory $SkeletonSearchActorCopyWith(
-          SkeletonSearchActor value, $Res Function(SkeletonSearchActor) then) =
-      _$SkeletonSearchActorCopyWithImpl<$Res, SkeletonSearchActor>;
+abstract class $UnspeccedDefsSkeletonSearchActorCopyWith<$Res> {
+  factory $UnspeccedDefsSkeletonSearchActorCopyWith(
+          UnspeccedDefsSkeletonSearchActor value,
+          $Res Function(UnspeccedDefsSkeletonSearchActor) then) =
+      _$UnspeccedDefsSkeletonSearchActorCopyWithImpl<$Res,
+          UnspeccedDefsSkeletonSearchActor>;
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class _$SkeletonSearchActorCopyWithImpl<$Res, $Val extends SkeletonSearchActor>
-    implements $SkeletonSearchActorCopyWith<$Res> {
-  _$SkeletonSearchActorCopyWithImpl(this._value, this._then);
+class _$UnspeccedDefsSkeletonSearchActorCopyWithImpl<$Res,
+        $Val extends UnspeccedDefsSkeletonSearchActor>
+    implements $UnspeccedDefsSkeletonSearchActorCopyWith<$Res> {
+  _$UnspeccedDefsSkeletonSearchActorCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,22 +66,25 @@ class _$SkeletonSearchActorCopyWithImpl<$Res, $Val extends SkeletonSearchActor>
 }
 
 /// @nodoc
-abstract class _$$SkeletonSearchActorImplCopyWith<$Res>
-    implements $SkeletonSearchActorCopyWith<$Res> {
-  factory _$$SkeletonSearchActorImplCopyWith(_$SkeletonSearchActorImpl value,
-          $Res Function(_$SkeletonSearchActorImpl) then) =
-      __$$SkeletonSearchActorImplCopyWithImpl<$Res>;
+abstract class _$$UnspeccedDefsSkeletonSearchActorImplCopyWith<$Res>
+    implements $UnspeccedDefsSkeletonSearchActorCopyWith<$Res> {
+  factory _$$UnspeccedDefsSkeletonSearchActorImplCopyWith(
+          _$UnspeccedDefsSkeletonSearchActorImpl value,
+          $Res Function(_$UnspeccedDefsSkeletonSearchActorImpl) then) =
+      __$$UnspeccedDefsSkeletonSearchActorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
-    extends _$SkeletonSearchActorCopyWithImpl<$Res, _$SkeletonSearchActorImpl>
-    implements _$$SkeletonSearchActorImplCopyWith<$Res> {
-  __$$SkeletonSearchActorImplCopyWithImpl(_$SkeletonSearchActorImpl _value,
-      $Res Function(_$SkeletonSearchActorImpl) _then)
+class __$$UnspeccedDefsSkeletonSearchActorImplCopyWithImpl<$Res>
+    extends _$UnspeccedDefsSkeletonSearchActorCopyWithImpl<$Res,
+        _$UnspeccedDefsSkeletonSearchActorImpl>
+    implements _$$UnspeccedDefsSkeletonSearchActorImplCopyWith<$Res> {
+  __$$UnspeccedDefsSkeletonSearchActorImplCopyWithImpl(
+      _$UnspeccedDefsSkeletonSearchActorImpl _value,
+      $Res Function(_$UnspeccedDefsSkeletonSearchActorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -85,7 +92,7 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$SkeletonSearchActorImpl(
+    return _then(_$UnspeccedDefsSkeletonSearchActorImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -96,25 +103,27 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
-  const _$SkeletonSearchActorImpl({required this.did});
+class _$UnspeccedDefsSkeletonSearchActorImpl
+    implements _UnspeccedDefsSkeletonSearchActor {
+  const _$UnspeccedDefsSkeletonSearchActorImpl({required this.did});
 
-  factory _$SkeletonSearchActorImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonSearchActorImplFromJson(json);
+  factory _$UnspeccedDefsSkeletonSearchActorImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$UnspeccedDefsSkeletonSearchActorImplFromJson(json);
 
   @override
   final String did;
 
   @override
   String toString() {
-    return 'SkeletonSearchActor(did: $did)';
+    return 'UnspeccedDefsSkeletonSearchActor(did: $did)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonSearchActorImpl &&
+            other is _$UnspeccedDefsSkeletonSearchActorImpl &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -125,29 +134,33 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SkeletonSearchActorImplCopyWith<_$SkeletonSearchActorImpl> get copyWith =>
-      __$$SkeletonSearchActorImplCopyWithImpl<_$SkeletonSearchActorImpl>(
-          this, _$identity);
+  _$$UnspeccedDefsSkeletonSearchActorImplCopyWith<
+          _$UnspeccedDefsSkeletonSearchActorImpl>
+      get copyWith => __$$UnspeccedDefsSkeletonSearchActorImplCopyWithImpl<
+          _$UnspeccedDefsSkeletonSearchActorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SkeletonSearchActorImplToJson(
+    return _$$UnspeccedDefsSkeletonSearchActorImplToJson(
       this,
     );
   }
 }
 
-abstract class _SkeletonSearchActor implements SkeletonSearchActor {
-  const factory _SkeletonSearchActor({required final String did}) =
-      _$SkeletonSearchActorImpl;
+abstract class _UnspeccedDefsSkeletonSearchActor
+    implements UnspeccedDefsSkeletonSearchActor {
+  const factory _UnspeccedDefsSkeletonSearchActor({required final String did}) =
+      _$UnspeccedDefsSkeletonSearchActorImpl;
 
-  factory _SkeletonSearchActor.fromJson(Map<String, dynamic> json) =
-      _$SkeletonSearchActorImpl.fromJson;
+  factory _UnspeccedDefsSkeletonSearchActor.fromJson(
+          Map<String, dynamic> json) =
+      _$UnspeccedDefsSkeletonSearchActorImpl.fromJson;
 
   @override
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$SkeletonSearchActorImplCopyWith<_$SkeletonSearchActorImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UnspeccedDefsSkeletonSearchActorImplCopyWith<
+          _$UnspeccedDefsSkeletonSearchActorImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

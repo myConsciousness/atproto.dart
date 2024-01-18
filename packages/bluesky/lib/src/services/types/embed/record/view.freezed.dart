@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-View _$ViewFromJson(Map<String, dynamic> json) {
-  return _View.fromJson(json);
+EmbedRecordView _$EmbedRecordViewFromJson(Map<String, dynamic> json) {
+  return _EmbedRecordView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$View {
+mixin _$EmbedRecordView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @unionViewRecord
@@ -27,13 +27,15 @@ mixin _$View {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewCopyWith<View> get copyWith => throw _privateConstructorUsedError;
+  $EmbedRecordViewCopyWith<EmbedRecordView> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewCopyWith<$Res> {
-  factory $ViewCopyWith(View value, $Res Function(View) then) =
-      _$ViewCopyWithImpl<$Res, View>;
+abstract class $EmbedRecordViewCopyWith<$Res> {
+  factory $EmbedRecordViewCopyWith(
+          EmbedRecordView value, $Res Function(EmbedRecordView) then) =
+      _$EmbedRecordViewCopyWithImpl<$Res, EmbedRecordView>;
   @useResult
   $Res call({@typeKey String type, @unionViewRecord UViewRecord record});
 
@@ -41,9 +43,9 @@ abstract class $ViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ViewCopyWithImpl<$Res, $Val extends View>
-    implements $ViewCopyWith<$Res> {
-  _$ViewCopyWithImpl(this._value, this._then);
+class _$EmbedRecordViewCopyWithImpl<$Res, $Val extends EmbedRecordView>
+    implements $EmbedRecordViewCopyWith<$Res> {
+  _$EmbedRecordViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,10 +80,11 @@ class _$ViewCopyWithImpl<$Res, $Val extends View>
 }
 
 /// @nodoc
-abstract class _$$ViewImplCopyWith<$Res> implements $ViewCopyWith<$Res> {
-  factory _$$ViewImplCopyWith(
-          _$ViewImpl value, $Res Function(_$ViewImpl) then) =
-      __$$ViewImplCopyWithImpl<$Res>;
+abstract class _$$EmbedRecordViewImplCopyWith<$Res>
+    implements $EmbedRecordViewCopyWith<$Res> {
+  factory _$$EmbedRecordViewImplCopyWith(_$EmbedRecordViewImpl value,
+          $Res Function(_$EmbedRecordViewImpl) then) =
+      __$$EmbedRecordViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @unionViewRecord UViewRecord record});
@@ -91,10 +94,11 @@ abstract class _$$ViewImplCopyWith<$Res> implements $ViewCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$ViewImplCopyWithImpl<$Res>
-    extends _$ViewCopyWithImpl<$Res, _$ViewImpl>
-    implements _$$ViewImplCopyWith<$Res> {
-  __$$ViewImplCopyWithImpl(_$ViewImpl _value, $Res Function(_$ViewImpl) _then)
+class __$$EmbedRecordViewImplCopyWithImpl<$Res>
+    extends _$EmbedRecordViewCopyWithImpl<$Res, _$EmbedRecordViewImpl>
+    implements _$$EmbedRecordViewImplCopyWith<$Res> {
+  __$$EmbedRecordViewImplCopyWithImpl(
+      _$EmbedRecordViewImpl _value, $Res Function(_$EmbedRecordViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +107,7 @@ class __$$ViewImplCopyWithImpl<$Res>
     Object? type = null,
     Object? record = null,
   }) {
-    return _then(_$ViewImpl(
+    return _then(_$EmbedRecordViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -118,13 +122,13 @@ class __$$ViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ViewImpl implements _View {
-  const _$ViewImpl(
+class _$EmbedRecordViewImpl implements _EmbedRecordView {
+  const _$EmbedRecordViewImpl(
       {@typeKey this.type = appBskyEmbedRecordView,
       @unionViewRecord required this.record});
 
-  factory _$ViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewImplFromJson(json);
+  factory _$EmbedRecordViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedRecordViewImplFromJson(json);
 
   @override
   @typeKey
@@ -135,14 +139,14 @@ class _$ViewImpl implements _View {
 
   @override
   String toString() {
-    return 'View(type: $type, record: $record)';
+    return 'EmbedRecordView(type: $type, record: $record)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewImpl &&
+            other is _$EmbedRecordViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record));
   }
@@ -154,23 +158,26 @@ class _$ViewImpl implements _View {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
-      __$$ViewImplCopyWithImpl<_$ViewImpl>(this, _$identity);
+  _$$EmbedRecordViewImplCopyWith<_$EmbedRecordViewImpl> get copyWith =>
+      __$$EmbedRecordViewImplCopyWithImpl<_$EmbedRecordViewImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewImplToJson(
+    return _$$EmbedRecordViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _View implements View {
-  const factory _View(
-      {@typeKey final String type,
-      @unionViewRecord required final UViewRecord record}) = _$ViewImpl;
+abstract class _EmbedRecordView implements EmbedRecordView {
+  const factory _EmbedRecordView(
+          {@typeKey final String type,
+          @unionViewRecord required final UViewRecord record}) =
+      _$EmbedRecordViewImpl;
 
-  factory _View.fromJson(Map<String, dynamic> json) = _$ViewImpl.fromJson;
+  factory _EmbedRecordView.fromJson(Map<String, dynamic> json) =
+      _$EmbedRecordViewImpl.fromJson;
 
   @override
   @typeKey
@@ -180,6 +187,6 @@ abstract class _View implements View {
   UViewRecord get record;
   @override
   @JsonKey(ignore: true)
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
+  _$$EmbedRecordViewImplCopyWith<_$EmbedRecordViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -23,7 +23,8 @@ ModerationOptionsBehaviorScenarioLabel
 /// @nodoc
 mixin _$ModerationOptionsBehaviorScenarioLabel {
   String get label => throw _privateConstructorUsedError;
-  ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
+  ActorDefsContentLabelPrefVisibility get visibility =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -40,7 +41,7 @@ abstract class $ModerationOptionsBehaviorScenarioLabelCopyWith<$Res> {
       _$ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res,
           ModerationOptionsBehaviorScenarioLabel>;
   @useResult
-  $Res call({String label, ContentLabelVisibility visibility});
+  $Res call({String label, ActorDefsContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
@@ -68,7 +69,7 @@ class _$ModerationOptionsBehaviorScenarioLabelCopyWithImpl<$Res,
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
+              as ActorDefsContentLabelPrefVisibility,
     ) as $Val);
   }
 }
@@ -82,7 +83,7 @@ abstract class _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<$Res>
       __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String label, ContentLabelVisibility visibility});
+  $Res call({String label, ActorDefsContentLabelPrefVisibility visibility});
 }
 
 /// @nodoc
@@ -109,7 +110,7 @@ class __$$ModerationOptionsBehaviorScenarioLabelImplCopyWithImpl<$Res>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as ContentLabelVisibility,
+              as ActorDefsContentLabelPrefVisibility,
     ));
   }
 }
@@ -129,7 +130,7 @@ class _$ModerationOptionsBehaviorScenarioLabelImpl
   @override
   final String label;
   @override
-  final ContentLabelVisibility visibility;
+  final ActorDefsContentLabelPrefVisibility visibility;
 
   @override
   String toString() {
@@ -171,7 +172,7 @@ abstract class _ModerationOptionsBehaviorScenarioLabel
     implements ModerationOptionsBehaviorScenarioLabel {
   const factory _ModerationOptionsBehaviorScenarioLabel(
           {required final String label,
-          required final ContentLabelVisibility visibility}) =
+          required final ActorDefsContentLabelPrefVisibility visibility}) =
       _$ModerationOptionsBehaviorScenarioLabelImpl;
 
   factory _ModerationOptionsBehaviorScenarioLabel.fromJson(
@@ -181,7 +182,7 @@ abstract class _ModerationOptionsBehaviorScenarioLabel
   @override
   String get label;
   @override
-  ContentLabelVisibility get visibility;
+  ActorDefsContentLabelPrefVisibility get visibility;
   @override
   @JsonKey(ignore: true)
   _$$ModerationOptionsBehaviorScenarioLabelImplCopyWith<

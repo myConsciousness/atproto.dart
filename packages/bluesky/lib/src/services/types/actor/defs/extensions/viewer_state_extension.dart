@@ -5,7 +5,7 @@
 // 🌎 Project imports:
 import '../viewer_state.dart';
 
-extension ViewerStateExtension on ViewerState {
+extension ActorDefsViewerStateExtension on ActorDefsViewerState {
   bool get isMuted => muted;
   bool get isBlockedBy => blockedBy;
 

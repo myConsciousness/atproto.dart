@@ -16,12 +16,12 @@ part 'aspect_ratio.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#aspectratio
 @freezed
 @lex.appBskyEmbedImagesAspectRatio
-class AspectRatio with _$AspectRatio {
-  const factory AspectRatio({
+class EmbedImagesAspectRatio with _$EmbedImagesAspectRatio {
+  const factory EmbedImagesAspectRatio({
     required int width,
     required int height,
-  }) = _AspectRatio;
+  }) = _EmbedImagesAspectRatio;
 
-  factory AspectRatio.fromJson(Map<String, Object?> json) =>
-      _$AspectRatioFromJson(json);
+  factory EmbedImagesAspectRatio.fromJson(Map<String, Object?> json) =>
+      _$EmbedImagesAspectRatioFromJson(json);
 }

@@ -14,35 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+GraphGetListOutput _$GraphGetListOutputFromJson(Map<String, dynamic> json) {
+  return _GraphGetListOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  ListView get list => throw _privateConstructorUsedError;
-  List<ListItemView> get items => throw _privateConstructorUsedError;
+mixin _$GraphGetListOutput {
+  GraphDefsListView get list => throw _privateConstructorUsedError;
+  List<GraphDefsListItemView> get items => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $GraphGetListOutputCopyWith<GraphGetListOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $GraphGetListOutputCopyWith<$Res> {
+  factory $GraphGetListOutputCopyWith(
+          GraphGetListOutput value, $Res Function(GraphGetListOutput) then) =
+      _$GraphGetListOutputCopyWithImpl<$Res, GraphGetListOutput>;
   @useResult
-  $Res call({ListView list, List<ListItemView> items, String? cursor});
+  $Res call(
+      {GraphDefsListView list,
+      List<GraphDefsListItemView> items,
+      String? cursor});
 
-  $ListViewCopyWith<$Res> get list;
+  $GraphDefsListViewCopyWith<$Res> get list;
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$GraphGetListOutputCopyWithImpl<$Res, $Val extends GraphGetListOutput>
+    implements $GraphGetListOutputCopyWith<$Res> {
+  _$GraphGetListOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -60,11 +65,11 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as ListView,
+              as GraphDefsListView,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<ListItemView>,
+              as List<GraphDefsListItemView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -74,32 +79,36 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 
   @override
   @pragma('vm:prefer-inline')
-  $ListViewCopyWith<$Res> get list {
-    return $ListViewCopyWith<$Res>(_value.list, (value) {
+  $GraphDefsListViewCopyWith<$Res> get list {
+    return $GraphDefsListViewCopyWith<$Res>(_value.list, (value) {
       return _then(_value.copyWith(list: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$GraphGetListOutputImplCopyWith<$Res>
+    implements $GraphGetListOutputCopyWith<$Res> {
+  factory _$$GraphGetListOutputImplCopyWith(_$GraphGetListOutputImpl value,
+          $Res Function(_$GraphGetListOutputImpl) then) =
+      __$$GraphGetListOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ListView list, List<ListItemView> items, String? cursor});
+  $Res call(
+      {GraphDefsListView list,
+      List<GraphDefsListItemView> items,
+      String? cursor});
 
   @override
-  $ListViewCopyWith<$Res> get list;
+  $GraphDefsListViewCopyWith<$Res> get list;
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$GraphGetListOutputImplCopyWithImpl<$Res>
+    extends _$GraphGetListOutputCopyWithImpl<$Res, _$GraphGetListOutputImpl>
+    implements _$$GraphGetListOutputImplCopyWith<$Res> {
+  __$$GraphGetListOutputImplCopyWithImpl(_$GraphGetListOutputImpl _value,
+      $Res Function(_$GraphGetListOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,15 +118,15 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? items = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$GraphGetListOutputImpl(
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as ListView,
+              as GraphDefsListView,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<ListItemView>,
+              as List<GraphDefsListItemView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -129,21 +138,21 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OutputImpl implements _Output {
-  const _$OutputImpl(
+class _$GraphGetListOutputImpl implements _GraphGetListOutput {
+  const _$GraphGetListOutputImpl(
       {required this.list,
-      required final List<ListItemView> items,
+      required final List<GraphDefsListItemView> items,
       this.cursor})
       : _items = items;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$GraphGetListOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GraphGetListOutputImplFromJson(json);
 
   @override
-  final ListView list;
-  final List<ListItemView> _items;
+  final GraphDefsListView list;
+  final List<GraphDefsListItemView> _items;
   @override
-  List<ListItemView> get items {
+  List<GraphDefsListItemView> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_items);
@@ -154,14 +163,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(list: $list, items: $items, cursor: $cursor)';
+    return 'GraphGetListOutput(list: $list, items: $items, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$GraphGetListOutputImpl &&
             (identical(other.list, list) || other.list == list) &&
             const DeepCollectionEquality().equals(other._items, _items) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
@@ -175,33 +184,35 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$GraphGetListOutputImplCopyWith<_$GraphGetListOutputImpl> get copyWith =>
+      __$$GraphGetListOutputImplCopyWithImpl<_$GraphGetListOutputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$GraphGetListOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
-      {required final ListView list,
-      required final List<ListItemView> items,
-      final String? cursor}) = _$OutputImpl;
+abstract class _GraphGetListOutput implements GraphGetListOutput {
+  const factory _GraphGetListOutput(
+      {required final GraphDefsListView list,
+      required final List<GraphDefsListItemView> items,
+      final String? cursor}) = _$GraphGetListOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _GraphGetListOutput.fromJson(Map<String, dynamic> json) =
+      _$GraphGetListOutputImpl.fromJson;
 
   @override
-  ListView get list;
+  GraphDefsListView get list;
   @override
-  List<ListItemView> get items;
+  List<GraphDefsListItemView> get items;
   @override
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+  _$$GraphGetListOutputImplCopyWith<_$GraphGetListOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

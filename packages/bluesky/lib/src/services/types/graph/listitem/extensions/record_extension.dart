@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../record.dart' as graph_listitem;
+import '../record.dart';
 
-extension RecordExtension on graph_listitem.Record {
+extension GraphListitemRecordExtension on GraphListitemRecord {
   String get did => subject;
 }

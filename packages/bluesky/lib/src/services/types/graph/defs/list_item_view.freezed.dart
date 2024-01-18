@@ -14,37 +14,39 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ListItemView _$ListItemViewFromJson(Map<String, dynamic> json) {
-  return _ListItemView.fromJson(json);
+GraphDefsListItemView _$GraphDefsListItemViewFromJson(
+    Map<String, dynamic> json) {
+  return _GraphDefsListItemView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ListItemView {
+mixin _$GraphDefsListItemView {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-  ProfileView get subject => throw _privateConstructorUsedError;
+  ActorDefsProfileView get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListItemViewCopyWith<ListItemView> get copyWith =>
+  $GraphDefsListItemViewCopyWith<GraphDefsListItemView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListItemViewCopyWith<$Res> {
-  factory $ListItemViewCopyWith(
-          ListItemView value, $Res Function(ListItemView) then) =
-      _$ListItemViewCopyWithImpl<$Res, ListItemView>;
+abstract class $GraphDefsListItemViewCopyWith<$Res> {
+  factory $GraphDefsListItemViewCopyWith(GraphDefsListItemView value,
+          $Res Function(GraphDefsListItemView) then) =
+      _$GraphDefsListItemViewCopyWithImpl<$Res, GraphDefsListItemView>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, ProfileView subject});
+  $Res call({@atUriConverter AtUri uri, ActorDefsProfileView subject});
 
-  $ProfileViewCopyWith<$Res> get subject;
+  $ActorDefsProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
-class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
-    implements $ListItemViewCopyWith<$Res> {
-  _$ListItemViewCopyWithImpl(this._value, this._then);
+class _$GraphDefsListItemViewCopyWithImpl<$Res,
+        $Val extends GraphDefsListItemView>
+    implements $GraphDefsListItemViewCopyWith<$Res> {
+  _$GraphDefsListItemViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -65,39 +67,41 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ProfileView,
+              as ActorDefsProfileView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileViewCopyWith<$Res> get subject {
-    return $ProfileViewCopyWith<$Res>(_value.subject, (value) {
+  $ActorDefsProfileViewCopyWith<$Res> get subject {
+    return $ActorDefsProfileViewCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ListItemViewImplCopyWith<$Res>
-    implements $ListItemViewCopyWith<$Res> {
-  factory _$$ListItemViewImplCopyWith(
-          _$ListItemViewImpl value, $Res Function(_$ListItemViewImpl) then) =
-      __$$ListItemViewImplCopyWithImpl<$Res>;
+abstract class _$$GraphDefsListItemViewImplCopyWith<$Res>
+    implements $GraphDefsListItemViewCopyWith<$Res> {
+  factory _$$GraphDefsListItemViewImplCopyWith(
+          _$GraphDefsListItemViewImpl value,
+          $Res Function(_$GraphDefsListItemViewImpl) then) =
+      __$$GraphDefsListItemViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, ProfileView subject});
+  $Res call({@atUriConverter AtUri uri, ActorDefsProfileView subject});
 
   @override
-  $ProfileViewCopyWith<$Res> get subject;
+  $ActorDefsProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
-class __$$ListItemViewImplCopyWithImpl<$Res>
-    extends _$ListItemViewCopyWithImpl<$Res, _$ListItemViewImpl>
-    implements _$$ListItemViewImplCopyWith<$Res> {
-  __$$ListItemViewImplCopyWithImpl(
-      _$ListItemViewImpl _value, $Res Function(_$ListItemViewImpl) _then)
+class __$$GraphDefsListItemViewImplCopyWithImpl<$Res>
+    extends _$GraphDefsListItemViewCopyWithImpl<$Res,
+        _$GraphDefsListItemViewImpl>
+    implements _$$GraphDefsListItemViewImplCopyWith<$Res> {
+  __$$GraphDefsListItemViewImplCopyWithImpl(_$GraphDefsListItemViewImpl _value,
+      $Res Function(_$GraphDefsListItemViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -106,7 +110,7 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? subject = null,
   }) {
-    return _then(_$ListItemViewImpl(
+    return _then(_$GraphDefsListItemViewImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -114,36 +118,36 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ProfileView,
+              as ActorDefsProfileView,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ListItemViewImpl implements _ListItemView {
-  const _$ListItemViewImpl(
+class _$GraphDefsListItemViewImpl implements _GraphDefsListItemView {
+  const _$GraphDefsListItemViewImpl(
       {@atUriConverter required this.uri, required this.subject});
 
-  factory _$ListItemViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListItemViewImplFromJson(json);
+  factory _$GraphDefsListItemViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GraphDefsListItemViewImplFromJson(json);
 
   @override
   @atUriConverter
   final AtUri uri;
   @override
-  final ProfileView subject;
+  final ActorDefsProfileView subject;
 
   @override
   String toString() {
-    return 'ListItemView(uri: $uri, subject: $subject)';
+    return 'GraphDefsListItemView(uri: $uri, subject: $subject)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListItemViewImpl &&
+            other is _$GraphDefsListItemViewImpl &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.subject, subject) || other.subject == subject));
   }
@@ -155,32 +159,34 @@ class _$ListItemViewImpl implements _ListItemView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ListItemViewImplCopyWith<_$ListItemViewImpl> get copyWith =>
-      __$$ListItemViewImplCopyWithImpl<_$ListItemViewImpl>(this, _$identity);
+  _$$GraphDefsListItemViewImplCopyWith<_$GraphDefsListItemViewImpl>
+      get copyWith => __$$GraphDefsListItemViewImplCopyWithImpl<
+          _$GraphDefsListItemViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ListItemViewImplToJson(
+    return _$$GraphDefsListItemViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _ListItemView implements ListItemView {
-  const factory _ListItemView(
-      {@atUriConverter required final AtUri uri,
-      required final ProfileView subject}) = _$ListItemViewImpl;
+abstract class _GraphDefsListItemView implements GraphDefsListItemView {
+  const factory _GraphDefsListItemView(
+          {@atUriConverter required final AtUri uri,
+          required final ActorDefsProfileView subject}) =
+      _$GraphDefsListItemViewImpl;
 
-  factory _ListItemView.fromJson(Map<String, dynamic> json) =
-      _$ListItemViewImpl.fromJson;
+  factory _GraphDefsListItemView.fromJson(Map<String, dynamic> json) =
+      _$GraphDefsListItemViewImpl.fromJson;
 
   @override
   @atUriConverter
   AtUri get uri;
   @override
-  ProfileView get subject;
+  ActorDefsProfileView get subject;
   @override
   @JsonKey(ignore: true)
-  _$$ListItemViewImplCopyWith<_$ListItemViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GraphDefsListItemViewImplCopyWith<_$GraphDefsListItemViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -16,11 +16,12 @@ part 'skeleton_search_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
 @lex.appBskyUnspeccedDefsSkeletonSearchActor
-class SkeletonSearchActor with _$SkeletonSearchActor {
-  const factory SkeletonSearchActor({
+class UnspeccedDefsSkeletonSearchActor with _$UnspeccedDefsSkeletonSearchActor {
+  const factory UnspeccedDefsSkeletonSearchActor({
     required String did,
-  }) = _SkeletonSearchActor;
+  }) = _UnspeccedDefsSkeletonSearchActor;
 
-  factory SkeletonSearchActor.fromJson(Map<String, Object?> json) =>
-      _$SkeletonSearchActorFromJson(json);
+  factory UnspeccedDefsSkeletonSearchActor.fromJson(
+          Map<String, Object?> json) =>
+      _$UnspeccedDefsSkeletonSearchActorFromJson(json);
 }

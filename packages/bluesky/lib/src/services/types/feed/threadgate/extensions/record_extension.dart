@@ -6,10 +6,10 @@
 import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import '../record.dart' as feed_threadgate;
+import '../record.dart';
 import '../unions/record_allow.dart';
 
-extension RecordExtension on feed_threadgate.Record {
+extension FeedThreadgateRecordExtension on FeedThreadgateRecord {
   AtUri get postUri => post;
   List<URecordAllow>? get allowRules => allow;
 }

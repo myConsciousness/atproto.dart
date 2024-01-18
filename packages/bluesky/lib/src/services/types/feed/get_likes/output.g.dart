@@ -8,16 +8,17 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$FeedGetLikesOutputImpl _$$FeedGetLikesOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedGetLikesOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$FeedGetLikesOutputImpl(
           likes: $checkedConvert(
               'likes',
               (v) => (v as List<dynamic>)
-                  .map(
-                      (e) => Like.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => FeedGetLikesLike.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
@@ -28,7 +29,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$FeedGetLikesOutputImplToJson(
+        _$FeedGetLikesOutputImpl instance) =>
     <String, dynamic>{
       'likes': instance.likes.map((e) => e.toJson()).toList(),
       'uri': atUriConverter.toJson(instance.uri),

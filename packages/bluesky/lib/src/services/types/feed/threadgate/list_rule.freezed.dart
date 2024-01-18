@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ListRule _$ListRuleFromJson(Map<String, dynamic> json) {
-  return _ListRule.fromJson(json);
+FeedThreadgateListRule _$FeedThreadgateListRuleFromJson(
+    Map<String, dynamic> json) {
+  return _FeedThreadgateListRule.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ListRule {
+mixin _$FeedThreadgateListRule {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -27,22 +28,24 @@ mixin _$ListRule {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ListRuleCopyWith<ListRule> get copyWith =>
+  $FeedThreadgateListRuleCopyWith<FeedThreadgateListRule> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ListRuleCopyWith<$Res> {
-  factory $ListRuleCopyWith(ListRule value, $Res Function(ListRule) then) =
-      _$ListRuleCopyWithImpl<$Res, ListRule>;
+abstract class $FeedThreadgateListRuleCopyWith<$Res> {
+  factory $FeedThreadgateListRuleCopyWith(FeedThreadgateListRule value,
+          $Res Function(FeedThreadgateListRule) then) =
+      _$FeedThreadgateListRuleCopyWithImpl<$Res, FeedThreadgateListRule>;
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri list});
 }
 
 /// @nodoc
-class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
-    implements $ListRuleCopyWith<$Res> {
-  _$ListRuleCopyWithImpl(this._value, this._then);
+class _$FeedThreadgateListRuleCopyWithImpl<$Res,
+        $Val extends FeedThreadgateListRule>
+    implements $FeedThreadgateListRuleCopyWith<$Res> {
+  _$FeedThreadgateListRuleCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +72,25 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
 }
 
 /// @nodoc
-abstract class _$$ListRuleImplCopyWith<$Res>
-    implements $ListRuleCopyWith<$Res> {
-  factory _$$ListRuleImplCopyWith(
-          _$ListRuleImpl value, $Res Function(_$ListRuleImpl) then) =
-      __$$ListRuleImplCopyWithImpl<$Res>;
+abstract class _$$FeedThreadgateListRuleImplCopyWith<$Res>
+    implements $FeedThreadgateListRuleCopyWith<$Res> {
+  factory _$$FeedThreadgateListRuleImplCopyWith(
+          _$FeedThreadgateListRuleImpl value,
+          $Res Function(_$FeedThreadgateListRuleImpl) then) =
+      __$$FeedThreadgateListRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri list});
 }
 
 /// @nodoc
-class __$$ListRuleImplCopyWithImpl<$Res>
-    extends _$ListRuleCopyWithImpl<$Res, _$ListRuleImpl>
-    implements _$$ListRuleImplCopyWith<$Res> {
-  __$$ListRuleImplCopyWithImpl(
-      _$ListRuleImpl _value, $Res Function(_$ListRuleImpl) _then)
+class __$$FeedThreadgateListRuleImplCopyWithImpl<$Res>
+    extends _$FeedThreadgateListRuleCopyWithImpl<$Res,
+        _$FeedThreadgateListRuleImpl>
+    implements _$$FeedThreadgateListRuleImplCopyWith<$Res> {
+  __$$FeedThreadgateListRuleImplCopyWithImpl(
+      _$FeedThreadgateListRuleImpl _value,
+      $Res Function(_$FeedThreadgateListRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +99,7 @@ class __$$ListRuleImplCopyWithImpl<$Res>
     Object? type = null,
     Object? list = null,
   }) {
-    return _then(_$ListRuleImpl(
+    return _then(_$FeedThreadgateListRuleImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -109,13 +115,13 @@ class __$$ListRuleImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ListRuleImpl implements _ListRule {
-  const _$ListRuleImpl(
+class _$FeedThreadgateListRuleImpl implements _FeedThreadgateListRule {
+  const _$FeedThreadgateListRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateListRule,
       @atUriConverter required this.list});
 
-  factory _$ListRuleImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ListRuleImplFromJson(json);
+  factory _$FeedThreadgateListRuleImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedThreadgateListRuleImplFromJson(json);
 
   @override
   @typeKey
@@ -126,14 +132,14 @@ class _$ListRuleImpl implements _ListRule {
 
   @override
   String toString() {
-    return 'ListRule(type: $type, list: $list)';
+    return 'FeedThreadgateListRule(type: $type, list: $list)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ListRuleImpl &&
+            other is _$FeedThreadgateListRuleImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.list, list) || other.list == list));
   }
@@ -145,24 +151,26 @@ class _$ListRuleImpl implements _ListRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ListRuleImplCopyWith<_$ListRuleImpl> get copyWith =>
-      __$$ListRuleImplCopyWithImpl<_$ListRuleImpl>(this, _$identity);
+  _$$FeedThreadgateListRuleImplCopyWith<_$FeedThreadgateListRuleImpl>
+      get copyWith => __$$FeedThreadgateListRuleImplCopyWithImpl<
+          _$FeedThreadgateListRuleImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ListRuleImplToJson(
+    return _$$FeedThreadgateListRuleImplToJson(
       this,
     );
   }
 }
 
-abstract class _ListRule implements ListRule {
-  const factory _ListRule(
-      {@typeKey final String type,
-      @atUriConverter required final AtUri list}) = _$ListRuleImpl;
+abstract class _FeedThreadgateListRule implements FeedThreadgateListRule {
+  const factory _FeedThreadgateListRule(
+          {@typeKey final String type,
+          @atUriConverter required final AtUri list}) =
+      _$FeedThreadgateListRuleImpl;
 
-  factory _ListRule.fromJson(Map<String, dynamic> json) =
-      _$ListRuleImpl.fromJson;
+  factory _FeedThreadgateListRule.fromJson(Map<String, dynamic> json) =
+      _$FeedThreadgateListRuleImpl.fromJson;
 
   @override
   @typeKey
@@ -172,6 +180,6 @@ abstract class _ListRule implements ListRule {
   AtUri get list;
   @override
   @JsonKey(ignore: true)
-  _$$ListRuleImplCopyWith<_$ListRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedThreadgateListRuleImplCopyWith<_$FeedThreadgateListRuleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

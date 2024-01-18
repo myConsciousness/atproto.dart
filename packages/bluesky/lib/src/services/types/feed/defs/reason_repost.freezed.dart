@@ -14,38 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
-  return _ReasonRepost.fromJson(json);
+FeedDefsReasonRepost _$FeedDefsReasonRepostFromJson(Map<String, dynamic> json) {
+  return _FeedDefsReasonRepost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ReasonRepost {
+mixin _$FeedDefsReasonRepost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  ProfileViewBasic get by => throw _privateConstructorUsedError;
+  ActorDefsProfileViewBasic get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ReasonRepostCopyWith<ReasonRepost> get copyWith =>
+  $FeedDefsReasonRepostCopyWith<FeedDefsReasonRepost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ReasonRepostCopyWith<$Res> {
-  factory $ReasonRepostCopyWith(
-          ReasonRepost value, $Res Function(ReasonRepost) then) =
-      _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
+abstract class $FeedDefsReasonRepostCopyWith<$Res> {
+  factory $FeedDefsReasonRepostCopyWith(FeedDefsReasonRepost value,
+          $Res Function(FeedDefsReasonRepost) then) =
+      _$FeedDefsReasonRepostCopyWithImpl<$Res, FeedDefsReasonRepost>;
   @useResult
-  $Res call({@typeKey String type, ProfileViewBasic by, DateTime indexedAt});
+  $Res call(
+      {@typeKey String type, ActorDefsProfileViewBasic by, DateTime indexedAt});
 
-  $ProfileViewBasicCopyWith<$Res> get by;
+  $ActorDefsProfileViewBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
-class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
-    implements $ReasonRepostCopyWith<$Res> {
-  _$ReasonRepostCopyWithImpl(this._value, this._then);
+class _$FeedDefsReasonRepostCopyWithImpl<$Res,
+        $Val extends FeedDefsReasonRepost>
+    implements $FeedDefsReasonRepostCopyWith<$Res> {
+  _$FeedDefsReasonRepostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,7 +69,7 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as ProfileViewBasic,
+              as ActorDefsProfileViewBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -77,33 +79,34 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileViewBasicCopyWith<$Res> get by {
-    return $ProfileViewBasicCopyWith<$Res>(_value.by, (value) {
+  $ActorDefsProfileViewBasicCopyWith<$Res> get by {
+    return $ActorDefsProfileViewBasicCopyWith<$Res>(_value.by, (value) {
       return _then(_value.copyWith(by: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ReasonRepostImplCopyWith<$Res>
-    implements $ReasonRepostCopyWith<$Res> {
-  factory _$$ReasonRepostImplCopyWith(
-          _$ReasonRepostImpl value, $Res Function(_$ReasonRepostImpl) then) =
-      __$$ReasonRepostImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsReasonRepostImplCopyWith<$Res>
+    implements $FeedDefsReasonRepostCopyWith<$Res> {
+  factory _$$FeedDefsReasonRepostImplCopyWith(_$FeedDefsReasonRepostImpl value,
+          $Res Function(_$FeedDefsReasonRepostImpl) then) =
+      __$$FeedDefsReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, ProfileViewBasic by, DateTime indexedAt});
+  $Res call(
+      {@typeKey String type, ActorDefsProfileViewBasic by, DateTime indexedAt});
 
   @override
-  $ProfileViewBasicCopyWith<$Res> get by;
+  $ActorDefsProfileViewBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
-class __$$ReasonRepostImplCopyWithImpl<$Res>
-    extends _$ReasonRepostCopyWithImpl<$Res, _$ReasonRepostImpl>
-    implements _$$ReasonRepostImplCopyWith<$Res> {
-  __$$ReasonRepostImplCopyWithImpl(
-      _$ReasonRepostImpl _value, $Res Function(_$ReasonRepostImpl) _then)
+class __$$FeedDefsReasonRepostImplCopyWithImpl<$Res>
+    extends _$FeedDefsReasonRepostCopyWithImpl<$Res, _$FeedDefsReasonRepostImpl>
+    implements _$$FeedDefsReasonRepostImplCopyWith<$Res> {
+  __$$FeedDefsReasonRepostImplCopyWithImpl(_$FeedDefsReasonRepostImpl _value,
+      $Res Function(_$FeedDefsReasonRepostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -113,7 +116,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
     Object? by = null,
     Object? indexedAt = null,
   }) {
-    return _then(_$ReasonRepostImpl(
+    return _then(_$FeedDefsReasonRepostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -121,7 +124,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as ProfileViewBasic,
+              as ActorDefsProfileViewBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -132,33 +135,33 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ReasonRepostImpl implements _ReasonRepost {
-  const _$ReasonRepostImpl(
+class _$FeedDefsReasonRepostImpl implements _FeedDefsReasonRepost {
+  const _$FeedDefsReasonRepostImpl(
       {@typeKey this.type = appBskyFeedDefsReasonRepost,
       required this.by,
       required this.indexedAt});
 
-  factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ReasonRepostImplFromJson(json);
+  factory _$FeedDefsReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsReasonRepostImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final ProfileViewBasic by;
+  final ActorDefsProfileViewBasic by;
   @override
   final DateTime indexedAt;
 
   @override
   String toString() {
-    return 'ReasonRepost(type: $type, by: $by, indexedAt: $indexedAt)';
+    return 'FeedDefsReasonRepost(type: $type, by: $by, indexedAt: $indexedAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ReasonRepostImpl &&
+            other is _$FeedDefsReasonRepostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.by, by) || other.by == by) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -172,35 +175,37 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
-      __$$ReasonRepostImplCopyWithImpl<_$ReasonRepostImpl>(this, _$identity);
+  _$$FeedDefsReasonRepostImplCopyWith<_$FeedDefsReasonRepostImpl>
+      get copyWith =>
+          __$$FeedDefsReasonRepostImplCopyWithImpl<_$FeedDefsReasonRepostImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ReasonRepostImplToJson(
+    return _$$FeedDefsReasonRepostImplToJson(
       this,
     );
   }
 }
 
-abstract class _ReasonRepost implements ReasonRepost {
-  const factory _ReasonRepost(
+abstract class _FeedDefsReasonRepost implements FeedDefsReasonRepost {
+  const factory _FeedDefsReasonRepost(
       {@typeKey final String type,
-      required final ProfileViewBasic by,
-      required final DateTime indexedAt}) = _$ReasonRepostImpl;
+      required final ActorDefsProfileViewBasic by,
+      required final DateTime indexedAt}) = _$FeedDefsReasonRepostImpl;
 
-  factory _ReasonRepost.fromJson(Map<String, dynamic> json) =
-      _$ReasonRepostImpl.fromJson;
+  factory _FeedDefsReasonRepost.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsReasonRepostImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  ProfileViewBasic get by;
+  ActorDefsProfileViewBasic get by;
   @override
   DateTime get indexedAt;
   @override
   @JsonKey(ignore: true)
-  _$$ReasonRepostImplCopyWith<_$ReasonRepostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedDefsReasonRepostImplCopyWith<_$FeedDefsReasonRepostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

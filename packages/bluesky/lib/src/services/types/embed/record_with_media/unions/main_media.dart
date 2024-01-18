@@ -10,20 +10,23 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-import '../../external/main.dart' as embed_external_main;
-import '../../images/main.dart' as embed_images_main;
+import '../../external/main.dart';
+import '../../images/main.dart';
 
 part 'main_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
 class UMainMedia with _$UMainMedia {
+  // ignore: unused_element
+  const UMainMedia._();
+
   const factory UMainMedia.embedImages({
-    required embed_images_main.Main data,
+    required EmbedImages data,
   }) = UMainMediaEmbedImages;
 
   const factory UMainMedia.embedExternal({
-    required embed_external_main.Main data,
+    required EmbedExternal data,
   }) = UMainMediaEmbedExternal;
 
   const factory UMainMedia.unknown({
@@ -46,12 +49,12 @@ final class _UMainMediaConverter
 
       if (type == ids.appBskyEmbedImages) {
         return UMainMedia.embedImages(
-          data: embed_images_main.Main.fromJson(json),
+          data: EmbedImages.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternal) {
         return UMainMedia.embedExternal(
-          data: embed_external_main.Main.fromJson(json),
+          data: EmbedExternal.fromJson(json),
         );
       }
 

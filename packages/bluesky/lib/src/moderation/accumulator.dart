@@ -6,7 +6,7 @@
 import 'package:atproto/atproto.dart' as atp;
 
 // 🌎 Project imports:
-import '../services/entities/list_view_basic.dart';
+import '../services/types/graph/defs/_z.dart';
 import 'definitions/known_label.g.dart';
 import 'definitions/label_definition_flag.g.dart';
 import 'definitions/label_definition_on_warn_behavior.g.dart';
@@ -43,7 +43,7 @@ sealed class ModerationCauseAccumulator {
   List<ModerationCause> get causes;
 
   void addBlocking();
-  void addBlockingByList(final ListViewBasic blockingByList);
+  void addBlockingByList(final GraphDefsListViewBasic blockingByList);
   void addBlockedBy();
   void addBlockOther();
   void addLabel(
@@ -51,7 +51,7 @@ sealed class ModerationCauseAccumulator {
     final ModerationOptions options,
   );
   void addMuted();
-  void addMutedByList(final ListViewBasic mutedByList);
+  void addMutedByList(final GraphDefsListViewBasic mutedByList);
 
   ModerationDecision finalizeDecision(final ModerationOptions options);
 }
@@ -75,7 +75,8 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
       );
 
   @override
-  void addBlockingByList(final ListViewBasic blockingByList) => causes.add(
+  void addBlockingByList(final GraphDefsListViewBasic blockingByList) =>
+      causes.add(
         ModerationCause.blocking(
           data: ModerationCauseBlocking(
             source: ModerationCauseSource.list(
@@ -195,7 +196,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
       );
 
   @override
-  void addMutedByList(final ListViewBasic mutedByList) => causes.add(
+  void addMutedByList(final GraphDefsListViewBasic mutedByList) => causes.add(
         ModerationCause.muted(
           data: ModerationCauseMuted(
             source: ModerationCauseSource.list(

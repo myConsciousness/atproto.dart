@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SavedFeedsPref _$SavedFeedsPrefFromJson(Map<String, dynamic> json) {
-  return _SavedFeedsPref.fromJson(json);
+ActorDefsSavedFeedsPref _$ActorDefsSavedFeedsPrefFromJson(
+    Map<String, dynamic> json) {
+  return _ActorDefsSavedFeedsPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SavedFeedsPref {
+mixin _$ActorDefsSavedFeedsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -29,15 +30,15 @@ mixin _$SavedFeedsPref {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SavedFeedsPrefCopyWith<SavedFeedsPref> get copyWith =>
+  $ActorDefsSavedFeedsPrefCopyWith<ActorDefsSavedFeedsPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SavedFeedsPrefCopyWith<$Res> {
-  factory $SavedFeedsPrefCopyWith(
-          SavedFeedsPref value, $Res Function(SavedFeedsPref) then) =
-      _$SavedFeedsPrefCopyWithImpl<$Res, SavedFeedsPref>;
+abstract class $ActorDefsSavedFeedsPrefCopyWith<$Res> {
+  factory $ActorDefsSavedFeedsPrefCopyWith(ActorDefsSavedFeedsPref value,
+          $Res Function(ActorDefsSavedFeedsPref) then) =
+      _$ActorDefsSavedFeedsPrefCopyWithImpl<$Res, ActorDefsSavedFeedsPref>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -46,9 +47,10 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
-    implements $SavedFeedsPrefCopyWith<$Res> {
-  _$SavedFeedsPrefCopyWithImpl(this._value, this._then);
+class _$ActorDefsSavedFeedsPrefCopyWithImpl<$Res,
+        $Val extends ActorDefsSavedFeedsPref>
+    implements $ActorDefsSavedFeedsPrefCopyWith<$Res> {
+  _$ActorDefsSavedFeedsPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -80,11 +82,12 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
 }
 
 /// @nodoc
-abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
-    implements $SavedFeedsPrefCopyWith<$Res> {
-  factory _$$SavedFeedsPrefImplCopyWith(_$SavedFeedsPrefImpl value,
-          $Res Function(_$SavedFeedsPrefImpl) then) =
-      __$$SavedFeedsPrefImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsSavedFeedsPrefImplCopyWith<$Res>
+    implements $ActorDefsSavedFeedsPrefCopyWith<$Res> {
+  factory _$$ActorDefsSavedFeedsPrefImplCopyWith(
+          _$ActorDefsSavedFeedsPrefImpl value,
+          $Res Function(_$ActorDefsSavedFeedsPrefImpl) then) =
+      __$$ActorDefsSavedFeedsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -94,11 +97,13 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
-    extends _$SavedFeedsPrefCopyWithImpl<$Res, _$SavedFeedsPrefImpl>
-    implements _$$SavedFeedsPrefImplCopyWith<$Res> {
-  __$$SavedFeedsPrefImplCopyWithImpl(
-      _$SavedFeedsPrefImpl _value, $Res Function(_$SavedFeedsPrefImpl) _then)
+class __$$ActorDefsSavedFeedsPrefImplCopyWithImpl<$Res>
+    extends _$ActorDefsSavedFeedsPrefCopyWithImpl<$Res,
+        _$ActorDefsSavedFeedsPrefImpl>
+    implements _$$ActorDefsSavedFeedsPrefImplCopyWith<$Res> {
+  __$$ActorDefsSavedFeedsPrefImplCopyWithImpl(
+      _$ActorDefsSavedFeedsPrefImpl _value,
+      $Res Function(_$ActorDefsSavedFeedsPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -108,7 +113,7 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
     Object? pinned = null,
     Object? saved = null,
   }) {
-    return _then(_$SavedFeedsPrefImpl(
+    return _then(_$ActorDefsSavedFeedsPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -128,16 +133,16 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
-  const _$SavedFeedsPrefImpl(
+class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
+  const _$ActorDefsSavedFeedsPrefImpl(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @atUriConverter required final List<AtUri> pinned,
       @atUriConverter required final List<AtUri> saved})
       : _pinned = pinned,
         _saved = saved;
 
-  factory _$SavedFeedsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SavedFeedsPrefImplFromJson(json);
+  factory _$ActorDefsSavedFeedsPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorDefsSavedFeedsPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -162,14 +167,14 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
   @override
   String toString() {
-    return 'SavedFeedsPref(type: $type, pinned: $pinned, saved: $saved)';
+    return 'ActorDefsSavedFeedsPref(type: $type, pinned: $pinned, saved: $saved)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SavedFeedsPrefImpl &&
+            other is _$ActorDefsSavedFeedsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._pinned, _pinned) &&
             const DeepCollectionEquality().equals(other._saved, _saved));
@@ -186,26 +191,27 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SavedFeedsPrefImplCopyWith<_$SavedFeedsPrefImpl> get copyWith =>
-      __$$SavedFeedsPrefImplCopyWithImpl<_$SavedFeedsPrefImpl>(
-          this, _$identity);
+  _$$ActorDefsSavedFeedsPrefImplCopyWith<_$ActorDefsSavedFeedsPrefImpl>
+      get copyWith => __$$ActorDefsSavedFeedsPrefImplCopyWithImpl<
+          _$ActorDefsSavedFeedsPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SavedFeedsPrefImplToJson(
+    return _$$ActorDefsSavedFeedsPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _SavedFeedsPref implements SavedFeedsPref {
-  const factory _SavedFeedsPref(
-      {@typeKey final String type,
-      @atUriConverter required final List<AtUri> pinned,
-      @atUriConverter required final List<AtUri> saved}) = _$SavedFeedsPrefImpl;
+abstract class _ActorDefsSavedFeedsPref implements ActorDefsSavedFeedsPref {
+  const factory _ActorDefsSavedFeedsPref(
+          {@typeKey final String type,
+          @atUriConverter required final List<AtUri> pinned,
+          @atUriConverter required final List<AtUri> saved}) =
+      _$ActorDefsSavedFeedsPrefImpl;
 
-  factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
-      _$SavedFeedsPrefImpl.fromJson;
+  factory _ActorDefsSavedFeedsPref.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsSavedFeedsPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -218,6 +224,6 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
   List<AtUri> get saved;
   @override
   @JsonKey(ignore: true)
-  _$$SavedFeedsPrefImplCopyWith<_$SavedFeedsPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsSavedFeedsPrefImplCopyWith<_$ActorDefsSavedFeedsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

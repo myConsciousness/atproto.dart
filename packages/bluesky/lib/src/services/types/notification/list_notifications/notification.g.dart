@@ -8,47 +8,56 @@ part of 'notification.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
-      r'_$NotificationImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$NotificationImpl(
-          cid: $checkedConvert('cid', (v) => v as String),
-          uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
-          author: $checkedConvert('author',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
-          reason: $checkedConvert(
-              'reason', (v) => $enumDecode(_$NotificationReasonEnumMap, v)),
-          reasonSubject: $checkedConvert(
-              'reasonSubject',
-              (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
-          isRead: $checkedConvert('isRead', (v) => v as bool? ?? false),
-          record: $checkedConvert(
-              'record',
-              (v) => (v as Map?)?.map(
-                    (k, e) => MapEntry(k as String, e),
-                  )),
-          labels: $checkedConvert(
-              'labels',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          indexedAt:
-              $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
+_$NotificationListNotificationsNotificationImpl
+    _$$NotificationListNotificationsNotificationImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$NotificationListNotificationsNotificationImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$NotificationListNotificationsNotificationImpl(
+              cid: $checkedConvert('cid', (v) => v as String),
+              uri: $checkedConvert(
+                  'uri', (v) => atUriConverter.fromJson(v as String)),
+              author: $checkedConvert(
+                  'author',
+                  (v) => ActorDefsProfileView.fromJson(
+                      Map<String, Object?>.from(v as Map))),
+              reason: $checkedConvert(
+                  'reason',
+                  (v) => $enumDecode(
+                      _$NotificationListNotificationsNotificationReasonEnumMap,
+                      v)),
+              reasonSubject: $checkedConvert(
+                  'reasonSubject',
+                  (v) => _$JsonConverterFromJson<String, AtUri>(
+                      v, atUriConverter.fromJson)),
+              isRead: $checkedConvert('isRead', (v) => v as bool? ?? false),
+              record: $checkedConvert(
+                  'record',
+                  (v) => (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      )),
+              labels: $checkedConvert(
+                  'labels',
+                  (v) => (v as List<dynamic>?)
+                      ?.map((e) =>
+                          Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      .toList()),
+              indexedAt: $checkedConvert(
+                  'indexedAt', (v) => DateTime.parse(v as String)),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
+Map<String, dynamic> _$$NotificationListNotificationsNotificationImplToJson(
+    _$NotificationListNotificationsNotificationImpl instance) {
   final val = <String, dynamic>{
     'cid': instance.cid,
     'uri': atUriConverter.toJson(instance.uri),
     'author': instance.author.toJson(),
-    'reason': _$NotificationReasonEnumMap[instance.reason]!,
+    'reason': _$NotificationListNotificationsNotificationReasonEnumMap[
+        instance.reason]!,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -68,13 +77,13 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   return val;
 }
 
-const _$NotificationReasonEnumMap = {
-  NotificationReason.like: 'like',
-  NotificationReason.repost: 'repost',
-  NotificationReason.follow: 'follow',
-  NotificationReason.mention: 'mention',
-  NotificationReason.reply: 'reply',
-  NotificationReason.quote: 'quote',
+const _$NotificationListNotificationsNotificationReasonEnumMap = {
+  NotificationListNotificationsNotificationReason.like: 'like',
+  NotificationListNotificationsNotificationReason.repost: 'repost',
+  NotificationListNotificationsNotificationReason.follow: 'follow',
+  NotificationListNotificationsNotificationReason.mention: 'mention',
+  NotificationListNotificationsNotificationReason.reply: 'reply',
+  NotificationListNotificationsNotificationReason.quote: 'quote',
 };
 
 Value? _$JsonConverterFromJson<Json, Value>(

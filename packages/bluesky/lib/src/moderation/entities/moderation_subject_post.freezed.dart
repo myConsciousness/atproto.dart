@@ -16,36 +16,36 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ModerationSubjectPost {
-  Post get data => throw _privateConstructorUsedError;
+  FeedDefsPostView get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Post data) post,
+    required TResult Function(FeedDefsPostView data) postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? post,
+    TResult? Function(FeedDefsPostView data)? postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? post,
+    TResult Function(FeedDefsPostView data)? postView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectPostPost value) post,
+    required TResult Function(UModerationSubjectPostPost value) postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectPostPost value)? post,
+    TResult? Function(UModerationSubjectPostPost value)? postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectPostPost value)? post,
+    TResult Function(UModerationSubjectPostPost value)? postView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,9 +61,9 @@ abstract class $ModerationSubjectPostCopyWith<$Res> {
           $Res Function(ModerationSubjectPost) then) =
       _$ModerationSubjectPostCopyWithImpl<$Res, ModerationSubjectPost>;
   @useResult
-  $Res call({Post data});
+  $Res call({FeedDefsPostView data});
 
-  $PostCopyWith<$Res> get data;
+  $FeedDefsPostViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -86,14 +86,14 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as FeedDefsPostView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get data {
-    return $PostCopyWith<$Res>(_value.data, (value) {
+  $FeedDefsPostViewCopyWith<$Res> get data {
+    return $FeedDefsPostViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
@@ -108,10 +108,10 @@ abstract class _$$UModerationSubjectPostPostImplCopyWith<$Res>
       __$$UModerationSubjectPostPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post data});
+  $Res call({FeedDefsPostView data});
 
   @override
-  $PostCopyWith<$Res> get data;
+  $FeedDefsPostViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -133,7 +133,7 @@ class __$$UModerationSubjectPostPostImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as FeedDefsPostView,
     ));
   }
 }
@@ -144,11 +144,11 @@ class _$UModerationSubjectPostPostImpl implements UModerationSubjectPostPost {
   const _$UModerationSubjectPostPostImpl({required this.data});
 
   @override
-  final Post data;
+  final FeedDefsPostView data;
 
   @override
   String toString() {
-    return 'ModerationSubjectPost.post(data: $data)';
+    return 'ModerationSubjectPost.postView(data: $data)';
   }
 
   @override
@@ -172,27 +172,27 @@ class _$UModerationSubjectPostPostImpl implements UModerationSubjectPostPost {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Post data) post,
+    required TResult Function(FeedDefsPostView data) postView,
   }) {
-    return post(data);
+    return postView(data);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? post,
+    TResult? Function(FeedDefsPostView data)? postView,
   }) {
-    return post?.call(data);
+    return postView?.call(data);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? post,
+    TResult Function(FeedDefsPostView data)? postView,
     required TResult orElse(),
   }) {
-    if (post != null) {
-      return post(data);
+    if (postView != null) {
+      return postView(data);
     }
     return orElse();
   }
@@ -200,38 +200,39 @@ class _$UModerationSubjectPostPostImpl implements UModerationSubjectPostPost {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UModerationSubjectPostPost value) post,
+    required TResult Function(UModerationSubjectPostPost value) postView,
   }) {
-    return post(this);
+    return postView(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UModerationSubjectPostPost value)? post,
+    TResult? Function(UModerationSubjectPostPost value)? postView,
   }) {
-    return post?.call(this);
+    return postView?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UModerationSubjectPostPost value)? post,
+    TResult Function(UModerationSubjectPostPost value)? postView,
     required TResult orElse(),
   }) {
-    if (post != null) {
-      return post(this);
+    if (postView != null) {
+      return postView(this);
     }
     return orElse();
   }
 }
 
 abstract class UModerationSubjectPostPost implements ModerationSubjectPost {
-  const factory UModerationSubjectPostPost({required final Post data}) =
+  const factory UModerationSubjectPostPost(
+          {required final FeedDefsPostView data}) =
       _$UModerationSubjectPostPostImpl;
 
   @override
-  Post get data;
+  FeedDefsPostView get data;
   @override
   @JsonKey(ignore: true)
   _$$UModerationSubjectPostPostImplCopyWith<_$UModerationSubjectPostPostImpl>

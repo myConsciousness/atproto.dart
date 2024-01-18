@@ -19,13 +19,14 @@ part 'record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphFollow].
 @freezed
-class Record with _$Record {
+class GraphFollowRecord with _$GraphFollowRecord {
   @jsonSerializable
-  const factory Record({
+  const factory GraphFollowRecord({
     @typeKey @Default(appBskyGraphFollow) String type,
     required String subject,
     required DateTime createdAt,
-  }) = _Record;
+  }) = _GraphFollowRecord;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+  factory GraphFollowRecord.fromJson(Map<String, Object?> json) =>
+      _$GraphFollowRecordFromJson(json);
 }

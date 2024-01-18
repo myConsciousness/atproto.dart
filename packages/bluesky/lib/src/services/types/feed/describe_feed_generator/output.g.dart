@@ -8,29 +8,32 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$OutputImpl(
-          did: $checkedConvert('did', (v) => v as String),
-          feeds: $checkedConvert(
-              'feeds',
-              (v) => (v as List<dynamic>)
-                  .map(
-                      (e) => Feed.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          links: $checkedConvert(
-              'links',
-              (v) => v == null
-                  ? null
-                  : Links.fromJson(Map<String, Object?>.from(v as Map))),
+_$FeedDescribeFeedGeneratorOutputImpl
+    _$$FeedDescribeFeedGeneratorOutputImplFromJson(Map json) => $checkedCreate(
+          r'_$FeedDescribeFeedGeneratorOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$FeedDescribeFeedGeneratorOutputImpl(
+              did: $checkedConvert('did', (v) => v as String),
+              feeds: $checkedConvert(
+                  'feeds',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => FeedDescribeFeedGeneratorFeed.fromJson(
+                          Map<String, Object?>.from(e as Map)))
+                      .toList()),
+              links: $checkedConvert(
+                  'links',
+                  (v) => v == null
+                      ? null
+                      : FeedDescribeFeedGeneratorLinks.fromJson(
+                          Map<String, Object?>.from(v as Map))),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
+Map<String, dynamic> _$$FeedDescribeFeedGeneratorOutputImplToJson(
+    _$FeedDescribeFeedGeneratorOutputImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'feeds': instance.feeds.map((e) => e.toJson()).toList(),

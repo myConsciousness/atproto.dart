@@ -10,32 +10,33 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-import '../../../embed/external/view.dart' as embed_external_view;
-import '../../../embed/images/view.dart' as embed_images_view;
-import '../../../embed/record/view.dart' as embed_record_view;
-
-import '../../../embed/record_with_media/view.dart'
-    as embed_record_with_media_view;
+import '../../../embed/external/view.dart';
+import '../../../embed/images/view.dart';
+import '../../../embed/record/view.dart';
+import '../../../embed/record_with_media/view.dart';
 
 part 'post_view_embed.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#postview
 @freezed
 class UPostViewEmbed with _$UPostViewEmbed {
+  // ignore: unused_element
+  const UPostViewEmbed._();
+
   const factory UPostViewEmbed.embedRecordView({
-    required embed_record_view.View data,
+    required EmbedRecordView data,
   }) = UPostViewEmbedEmbedRecordView;
 
   const factory UPostViewEmbed.embedImagesView({
-    required embed_images_view.View data,
+    required EmbedImagesView data,
   }) = UPostViewEmbedEmbedImagesView;
 
   const factory UPostViewEmbed.embedExternalView({
-    required embed_external_view.View data,
+    required EmbedExternalView data,
   }) = UPostViewEmbedEmbedExternalView;
 
   const factory UPostViewEmbed.embedRecordWithMediaView({
-    required embed_record_with_media_view.View data,
+    required EmbedRecordWithMediaView data,
   }) = UPostViewEmbedEmbedRecordWithMediaView;
 
   const factory UPostViewEmbed.unknown({
@@ -58,22 +59,22 @@ final class _UPostViewEmbedConverter
 
       if (type == ids.appBskyEmbedRecordView) {
         return UPostViewEmbed.embedRecordView(
-          data: embed_record_view.View.fromJson(json),
+          data: EmbedRecordView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedImagesView) {
         return UPostViewEmbed.embedImagesView(
-          data: embed_images_view.View.fromJson(json),
+          data: EmbedImagesView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedExternalView) {
         return UPostViewEmbed.embedExternalView(
-          data: embed_external_view.View.fromJson(json),
+          data: EmbedExternalView.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordWithMediaView) {
         return UPostViewEmbed.embedRecordWithMediaView(
-          data: embed_record_with_media_view.View.fromJson(json),
+          data: EmbedRecordWithMediaView.fromJson(json),
         );
       }
 

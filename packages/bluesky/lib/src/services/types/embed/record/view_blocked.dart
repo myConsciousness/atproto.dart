@@ -19,14 +19,14 @@ part 'view_blocked.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
 @lex.appBskyEmbedRecordViewBlocked
-class ViewBlocked with _$ViewBlocked {
-  const factory ViewBlocked({
+class EmbedRecordViewBlocked with _$EmbedRecordViewBlocked {
+  const factory EmbedRecordViewBlocked({
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,
     @atUriConverter required AtUri uri,
     @Default(true) bool blocked,
-    required BlockedAuthor author,
-  }) = _ViewBlocked;
+    required FeedDefsBlockedAuthor author,
+  }) = _EmbedRecordViewBlocked;
 
-  factory ViewBlocked.fromJson(Map<String, Object?> json) =>
-      _$ViewBlockedFromJson(json);
+  factory EmbedRecordViewBlocked.fromJson(Map<String, Object?> json) =>
+      _$EmbedRecordViewBlockedFromJson(json);
 }

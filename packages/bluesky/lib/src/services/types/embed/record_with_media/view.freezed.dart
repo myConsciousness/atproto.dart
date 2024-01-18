@@ -14,41 +14,45 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-View _$ViewFromJson(Map<String, dynamic> json) {
-  return _View.fromJson(json);
+EmbedRecordWithMediaView _$EmbedRecordWithMediaViewFromJson(
+    Map<String, dynamic> json) {
+  return _EmbedRecordWithMediaView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$View {
+mixin _$EmbedRecordWithMediaView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  embed_record_view.View get record => throw _privateConstructorUsedError;
+  EmbedRecordView get record => throw _privateConstructorUsedError;
   @unionViewMedia
   UViewMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewCopyWith<View> get copyWith => throw _privateConstructorUsedError;
+  $EmbedRecordWithMediaViewCopyWith<EmbedRecordWithMediaView> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewCopyWith<$Res> {
-  factory $ViewCopyWith(View value, $Res Function(View) then) =
-      _$ViewCopyWithImpl<$Res, View>;
+abstract class $EmbedRecordWithMediaViewCopyWith<$Res> {
+  factory $EmbedRecordWithMediaViewCopyWith(EmbedRecordWithMediaView value,
+          $Res Function(EmbedRecordWithMediaView) then) =
+      _$EmbedRecordWithMediaViewCopyWithImpl<$Res, EmbedRecordWithMediaView>;
   @useResult
   $Res call(
       {@typeKey String type,
-      embed_record_view.View record,
+      EmbedRecordView record,
       @unionViewMedia UViewMedia media});
 
-  $ViewCopyWith<$Res> get record;
+  $EmbedRecordViewCopyWith<$Res> get record;
   $UViewMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class _$ViewCopyWithImpl<$Res, $Val extends View>
-    implements $ViewCopyWith<$Res> {
-  _$ViewCopyWithImpl(this._value, this._then);
+class _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
+        $Val extends EmbedRecordWithMediaView>
+    implements $EmbedRecordWithMediaViewCopyWith<$Res> {
+  _$EmbedRecordWithMediaViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,7 +74,7 @@ class _$ViewCopyWithImpl<$Res, $Val extends View>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as embed_record_view.View,
+              as EmbedRecordView,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -80,8 +84,8 @@ class _$ViewCopyWithImpl<$Res, $Val extends View>
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewCopyWith<$Res> get record {
-    return $ViewCopyWith<$Res>(_value.record, (value) {
+  $EmbedRecordViewCopyWith<$Res> get record {
+    return $EmbedRecordViewCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -96,28 +100,33 @@ class _$ViewCopyWithImpl<$Res, $Val extends View>
 }
 
 /// @nodoc
-abstract class _$$ViewImplCopyWith<$Res> implements $ViewCopyWith<$Res> {
-  factory _$$ViewImplCopyWith(
-          _$ViewImpl value, $Res Function(_$ViewImpl) then) =
-      __$$ViewImplCopyWithImpl<$Res>;
+abstract class _$$EmbedRecordWithMediaViewImplCopyWith<$Res>
+    implements $EmbedRecordWithMediaViewCopyWith<$Res> {
+  factory _$$EmbedRecordWithMediaViewImplCopyWith(
+          _$EmbedRecordWithMediaViewImpl value,
+          $Res Function(_$EmbedRecordWithMediaViewImpl) then) =
+      __$$EmbedRecordWithMediaViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
-      embed_record_view.View record,
+      EmbedRecordView record,
       @unionViewMedia UViewMedia media});
 
   @override
-  $ViewCopyWith<$Res> get record;
+  $EmbedRecordViewCopyWith<$Res> get record;
   @override
   $UViewMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
-class __$$ViewImplCopyWithImpl<$Res>
-    extends _$ViewCopyWithImpl<$Res, _$ViewImpl>
-    implements _$$ViewImplCopyWith<$Res> {
-  __$$ViewImplCopyWithImpl(_$ViewImpl _value, $Res Function(_$ViewImpl) _then)
+class __$$EmbedRecordWithMediaViewImplCopyWithImpl<$Res>
+    extends _$EmbedRecordWithMediaViewCopyWithImpl<$Res,
+        _$EmbedRecordWithMediaViewImpl>
+    implements _$$EmbedRecordWithMediaViewImplCopyWith<$Res> {
+  __$$EmbedRecordWithMediaViewImplCopyWithImpl(
+      _$EmbedRecordWithMediaViewImpl _value,
+      $Res Function(_$EmbedRecordWithMediaViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -127,7 +136,7 @@ class __$$ViewImplCopyWithImpl<$Res>
     Object? record = null,
     Object? media = null,
   }) {
-    return _then(_$ViewImpl(
+    return _then(_$EmbedRecordWithMediaViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -135,7 +144,7 @@ class __$$ViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as embed_record_view.View,
+              as EmbedRecordView,
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
@@ -146,34 +155,34 @@ class __$$ViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ViewImpl implements _View {
-  const _$ViewImpl(
+class _$EmbedRecordWithMediaViewImpl implements _EmbedRecordWithMediaView {
+  const _$EmbedRecordWithMediaViewImpl(
       {@typeKey this.type = appBskyEmbedRecordWithMediaView,
       required this.record,
       @unionViewMedia required this.media});
 
-  factory _$ViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewImplFromJson(json);
+  factory _$EmbedRecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedRecordWithMediaViewImplFromJson(json);
 
   @override
   @typeKey
   final String type;
   @override
-  final embed_record_view.View record;
+  final EmbedRecordView record;
   @override
   @unionViewMedia
   final UViewMedia media;
 
   @override
   String toString() {
-    return 'View(type: $type, record: $record, media: $media)';
+    return 'EmbedRecordWithMediaView(type: $type, record: $record, media: $media)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewImpl &&
+            other is _$EmbedRecordWithMediaViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
@@ -186,35 +195,38 @@ class _$ViewImpl implements _View {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
-      __$$ViewImplCopyWithImpl<_$ViewImpl>(this, _$identity);
+  _$$EmbedRecordWithMediaViewImplCopyWith<_$EmbedRecordWithMediaViewImpl>
+      get copyWith => __$$EmbedRecordWithMediaViewImplCopyWithImpl<
+          _$EmbedRecordWithMediaViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewImplToJson(
+    return _$$EmbedRecordWithMediaViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _View implements View {
-  const factory _View(
-      {@typeKey final String type,
-      required final embed_record_view.View record,
-      @unionViewMedia required final UViewMedia media}) = _$ViewImpl;
+abstract class _EmbedRecordWithMediaView implements EmbedRecordWithMediaView {
+  const factory _EmbedRecordWithMediaView(
+          {@typeKey final String type,
+          required final EmbedRecordView record,
+          @unionViewMedia required final UViewMedia media}) =
+      _$EmbedRecordWithMediaViewImpl;
 
-  factory _View.fromJson(Map<String, dynamic> json) = _$ViewImpl.fromJson;
+  factory _EmbedRecordWithMediaView.fromJson(Map<String, dynamic> json) =
+      _$EmbedRecordWithMediaViewImpl.fromJson;
 
   @override
   @typeKey
   String get type;
   @override
-  embed_record_view.View get record;
+  EmbedRecordView get record;
   @override
   @unionViewMedia
   UViewMedia get media;
   @override
   @JsonKey(ignore: true)
-  _$$ViewImplCopyWith<_$ViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedRecordWithMediaViewImplCopyWith<_$EmbedRecordWithMediaViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

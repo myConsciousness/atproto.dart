@@ -3,8 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../services/constants/content_label_visibility.dart';
-import '../../services/entities/preference.dart';
+import '../../services/types/actor/defs/_z.dart';
 import '../definitions/label_preference.g.dart';
 import '../entities/label_preferences.dart';
 import '../entities/labeler.dart';
@@ -23,7 +22,7 @@ const _defaultLabeler = <LabelerSettings>[
 
 ModerationOptions getModerationOptions({
   required String userDid,
-  required List<Preference> preferences,
+  required List<UPreferencesPreferences> preferences,
   List<LabelerSettings>? labelers,
 }) =>
     ModerationOptions(
@@ -34,7 +33,7 @@ ModerationOptions getModerationOptions({
     );
 
 Map<String, LabelPreference> _getLabels(
-  final List<Preference> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   final labelPreferences = _getLabelPreferences(preferences);
 
@@ -60,13 +59,13 @@ Map<String, LabelPreference> _getLabels(
 }
 
 LabelPreferences _getLabelPreferences(
-  final List<Preference> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   if (preferences.isEmpty) return const LabelPreferences();
 
   final labelPreferences = <String, dynamic>{};
   for (final preference in preferences) {
-    if (preference is UPreferenceContentLabel) {
+    if (preference is UPreferencesPreferencesContentLabelPref) {
       labelPreferences[preference.data.label] = _getLabelPreference(
         preference.data.visibility,
       ).name;
@@ -77,21 +76,21 @@ LabelPreferences _getLabelPreferences(
 }
 
 LabelPreference _getLabelPreference(
-  final ContentLabelVisibility visibility,
+  final ActorDefsContentLabelPrefVisibility visibility,
 ) =>
     switch (visibility) {
-      ContentLabelVisibility.ignore => LabelPreference.ignore,
-      ContentLabelVisibility.warn => LabelPreference.warn,
-      ContentLabelVisibility.hide => LabelPreference.hide,
+      ActorDefsContentLabelPrefVisibility.ignore => LabelPreference.ignore,
+      ActorDefsContentLabelPrefVisibility.warn => LabelPreference.warn,
+      ActorDefsContentLabelPrefVisibility.hide => LabelPreference.hide,
     };
 
 bool _isAdultContentEnabled(
-  final List<Preference> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   if (preferences.isEmpty) return false;
 
   for (final preference in preferences) {
-    if (preference is UPreferenceAdultContent) {
+    if (preference is UPreferencesPreferencesAdultContentPref) {
       return preference.data.isEnabled;
     }
   }

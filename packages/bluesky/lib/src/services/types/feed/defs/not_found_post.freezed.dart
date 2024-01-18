@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
-  return _NotFoundPost.fromJson(json);
+FeedDefsNotFoundPost _$FeedDefsNotFoundPostFromJson(Map<String, dynamic> json) {
+  return _FeedDefsNotFoundPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$NotFoundPost {
+mixin _$FeedDefsNotFoundPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -28,23 +28,24 @@ mixin _$NotFoundPost {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NotFoundPostCopyWith<NotFoundPost> get copyWith =>
+  $FeedDefsNotFoundPostCopyWith<FeedDefsNotFoundPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NotFoundPostCopyWith<$Res> {
-  factory $NotFoundPostCopyWith(
-          NotFoundPost value, $Res Function(NotFoundPost) then) =
-      _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
+abstract class $FeedDefsNotFoundPostCopyWith<$Res> {
+  factory $FeedDefsNotFoundPostCopyWith(FeedDefsNotFoundPost value,
+          $Res Function(FeedDefsNotFoundPost) then) =
+      _$FeedDefsNotFoundPostCopyWithImpl<$Res, FeedDefsNotFoundPost>;
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
-class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
-    implements $NotFoundPostCopyWith<$Res> {
-  _$NotFoundPostCopyWithImpl(this._value, this._then);
+class _$FeedDefsNotFoundPostCopyWithImpl<$Res,
+        $Val extends FeedDefsNotFoundPost>
+    implements $FeedDefsNotFoundPostCopyWith<$Res> {
+  _$FeedDefsNotFoundPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,22 +77,22 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
 }
 
 /// @nodoc
-abstract class _$$NotFoundPostImplCopyWith<$Res>
-    implements $NotFoundPostCopyWith<$Res> {
-  factory _$$NotFoundPostImplCopyWith(
-          _$NotFoundPostImpl value, $Res Function(_$NotFoundPostImpl) then) =
-      __$$NotFoundPostImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsNotFoundPostImplCopyWith<$Res>
+    implements $FeedDefsNotFoundPostCopyWith<$Res> {
+  factory _$$FeedDefsNotFoundPostImplCopyWith(_$FeedDefsNotFoundPostImpl value,
+          $Res Function(_$FeedDefsNotFoundPostImpl) then) =
+      __$$FeedDefsNotFoundPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
-class __$$NotFoundPostImplCopyWithImpl<$Res>
-    extends _$NotFoundPostCopyWithImpl<$Res, _$NotFoundPostImpl>
-    implements _$$NotFoundPostImplCopyWith<$Res> {
-  __$$NotFoundPostImplCopyWithImpl(
-      _$NotFoundPostImpl _value, $Res Function(_$NotFoundPostImpl) _then)
+class __$$FeedDefsNotFoundPostImplCopyWithImpl<$Res>
+    extends _$FeedDefsNotFoundPostCopyWithImpl<$Res, _$FeedDefsNotFoundPostImpl>
+    implements _$$FeedDefsNotFoundPostImplCopyWith<$Res> {
+  __$$FeedDefsNotFoundPostImplCopyWithImpl(_$FeedDefsNotFoundPostImpl _value,
+      $Res Function(_$FeedDefsNotFoundPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +102,7 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? notFound = null,
   }) {
-    return _then(_$NotFoundPostImpl(
+    return _then(_$FeedDefsNotFoundPostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -120,14 +121,14 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotFoundPostImpl implements _NotFoundPost {
-  const _$NotFoundPostImpl(
+class _$FeedDefsNotFoundPostImpl implements _FeedDefsNotFoundPost {
+  const _$FeedDefsNotFoundPostImpl(
       {@typeKey this.type = appBskyFeedDefsNotFoundPost,
       @atUriConverter required this.uri,
       this.notFound = true});
 
-  factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$NotFoundPostImplFromJson(json);
+  factory _$FeedDefsNotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsNotFoundPostImplFromJson(json);
 
   @override
   @typeKey
@@ -141,14 +142,14 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
   @override
   String toString() {
-    return 'NotFoundPost(type: $type, uri: $uri, notFound: $notFound)';
+    return 'FeedDefsNotFoundPost(type: $type, uri: $uri, notFound: $notFound)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotFoundPostImpl &&
+            other is _$FeedDefsNotFoundPostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.notFound, notFound) ||
@@ -162,25 +163,27 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
-      __$$NotFoundPostImplCopyWithImpl<_$NotFoundPostImpl>(this, _$identity);
+  _$$FeedDefsNotFoundPostImplCopyWith<_$FeedDefsNotFoundPostImpl>
+      get copyWith =>
+          __$$FeedDefsNotFoundPostImplCopyWithImpl<_$FeedDefsNotFoundPostImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NotFoundPostImplToJson(
+    return _$$FeedDefsNotFoundPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _NotFoundPost implements NotFoundPost {
-  const factory _NotFoundPost(
+abstract class _FeedDefsNotFoundPost implements FeedDefsNotFoundPost {
+  const factory _FeedDefsNotFoundPost(
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
-      final bool notFound}) = _$NotFoundPostImpl;
+      final bool notFound}) = _$FeedDefsNotFoundPostImpl;
 
-  factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
-      _$NotFoundPostImpl.fromJson;
+  factory _FeedDefsNotFoundPost.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsNotFoundPostImpl.fromJson;
 
   @override
   @typeKey
@@ -192,6 +195,6 @@ abstract class _NotFoundPost implements NotFoundPost {
   bool get notFound;
   @override
   @JsonKey(ignore: true)
-  _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedDefsNotFoundPostImplCopyWith<_$FeedDefsNotFoundPostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

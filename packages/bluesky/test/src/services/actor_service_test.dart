@@ -8,35 +8,36 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_profile.dart';
-import 'package:bluesky/src/services/entities/actor_profiles.dart';
-import 'package:bluesky/src/services/entities/actors.dart';
-import 'package:bluesky/src/services/entities/actors_typeahead.dart';
-import 'package:bluesky/src/services/entities/preferences.dart';
+import 'package:bluesky/src/services/types/actor/get_preferences/_z.dart';
+import 'package:bluesky/src/services/types/actor/get_profile/_z.dart';
+import 'package:bluesky/src/services/types/actor/get_profiles/_z.dart';
+import 'package:bluesky/src/services/types/actor/get_suggestions/_z.dart';
+import 'package:bluesky/src/services/types/actor/search_actors/_z.dart';
+import 'package:bluesky/src/services/types/actor/search_actors_typeahead/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testActor<Actors>(
+  testActor<ActorSearchActorsOutput>(
     (m, s) => s.searchActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
-  testActor<ActorProfile>(
+  testActor<ActorGetProfileOutput>(
     (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
 
-  testActor<ActorProfiles>(
+  testActor<ActorGetProfilesOutput>(
     (m, s) => s.getProfiles(actors: [m.actor]),
     id: appBskyActorGetProfiles,
   );
 
-  testActor<Actors>(
+  testActor<ActorGetSuggestionsOutput>(
     (m, s) => s.getSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
-  testActor<ActorsTypeahead>(
+  testActor<ActorSearchActorsTypeaheadOutput>(
     (m, s) => s.searchActorsTypeahead(term: m.query),
     id: appBskyActorSearchActorsTypeahead,
   );
@@ -46,7 +47,7 @@ void main() {
     id: appBskyActorProfile,
   );
 
-  testActor<Preferences>(
+  testActor<ActorGetPreferencesOutput>(
     (m, s) => s.getPreferences(),
     id: appBskyActorGetPreferences,
   );

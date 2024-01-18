@@ -14,12 +14,12 @@ part 'byte_slice.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet/#byteslice
 @freezed
 @lex.appBskyRichtextFacetByteSlice
-class ByteSlice with _$ByteSlice {
-  const factory ByteSlice({
+class RichtextFacetByteSlice with _$RichtextFacetByteSlice {
+  const factory RichtextFacetByteSlice({
     required int byteStart,
     required int byteEnd,
-  }) = _ByteSlice;
+  }) = _RichtextFacetByteSlice;
 
-  factory ByteSlice.fromJson(Map<String, Object?> json) =>
-      _$ByteSliceFromJson(json);
+  factory RichtextFacetByteSlice.fromJson(Map<String, Object?> json) =>
+      _$RichtextFacetByteSliceFromJson(json);
 }

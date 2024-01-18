@@ -17,8 +17,11 @@ part 'feed_view_post_reason.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
 class UFeedViewPostReason with _$UFeedViewPostReason {
+  // ignore: unused_element
+  const UFeedViewPostReason._();
+
   factory UFeedViewPostReason.reasonRepost({
-    required ReasonRepost data,
+    required FeedDefsReasonRepost data,
   }) = UFeedViewPostReasonRepost;
 
   factory UFeedViewPostReason.unknown({
@@ -41,7 +44,7 @@ final class _UFeedViewPostReasonConverter
 
       if (type == ids.appBskyFeedDefsReasonRepost) {
         return UFeedViewPostReason.reasonRepost(
-          data: ReasonRepost.fromJson(json),
+          data: FeedDefsReasonRepost.fromJson(json),
         );
       }
 

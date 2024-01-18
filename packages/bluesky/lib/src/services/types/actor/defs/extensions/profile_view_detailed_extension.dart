@@ -6,7 +6,8 @@
 import '../profile_view_detailed.dart';
 import 'viewer_state_extension.dart';
 
-extension ProfileViewDetailedExtension on ProfileViewDetailed {
+extension ActorDefsProfileViewDetailedExtension
+    on ActorDefsProfileViewDetailed {
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.
   bool get isMuted => viewer.isMuted;

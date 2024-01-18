@@ -6,8 +6,8 @@
 import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import '../record.dart' as feed_repost;
+import '../record.dart';
 
-extension RecordExtension on feed_repost.Record {
+extension FeedRepostRecordExtension on FeedRepostRecord {
   StrongRef get ref => subject;
 }

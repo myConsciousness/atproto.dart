@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Record _$RecordFromJson(Map<String, dynamic> json) {
-  return _Record.fromJson(json);
+GraphListblockRecord _$GraphListblockRecordFromJson(Map<String, dynamic> json) {
+  return _GraphListblockRecord.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Record {
+mixin _$GraphListblockRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -28,13 +28,15 @@ mixin _$Record {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
+  $GraphListblockRecordCopyWith<GraphListblockRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecordCopyWith<$Res> {
-  factory $RecordCopyWith(Record value, $Res Function(Record) then) =
-      _$RecordCopyWithImpl<$Res, Record>;
+abstract class $GraphListblockRecordCopyWith<$Res> {
+  factory $GraphListblockRecordCopyWith(GraphListblockRecord value,
+          $Res Function(GraphListblockRecord) then) =
+      _$GraphListblockRecordCopyWithImpl<$Res, GraphListblockRecord>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -43,9 +45,10 @@ abstract class $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecordCopyWithImpl<$Res, $Val extends Record>
-    implements $RecordCopyWith<$Res> {
-  _$RecordCopyWithImpl(this._value, this._then);
+class _$GraphListblockRecordCopyWithImpl<$Res,
+        $Val extends GraphListblockRecord>
+    implements $GraphListblockRecordCopyWith<$Res> {
+  _$GraphListblockRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -77,10 +80,11 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 }
 
 /// @nodoc
-abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
-  factory _$$RecordImplCopyWith(
-          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
-      __$$RecordImplCopyWithImpl<$Res>;
+abstract class _$$GraphListblockRecordImplCopyWith<$Res>
+    implements $GraphListblockRecordCopyWith<$Res> {
+  factory _$$GraphListblockRecordImplCopyWith(_$GraphListblockRecordImpl value,
+          $Res Function(_$GraphListblockRecordImpl) then) =
+      __$$GraphListblockRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -90,11 +94,11 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RecordImplCopyWithImpl<$Res>
-    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
-    implements _$$RecordImplCopyWith<$Res> {
-  __$$RecordImplCopyWithImpl(
-      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
+class __$$GraphListblockRecordImplCopyWithImpl<$Res>
+    extends _$GraphListblockRecordCopyWithImpl<$Res, _$GraphListblockRecordImpl>
+    implements _$$GraphListblockRecordImplCopyWith<$Res> {
+  __$$GraphListblockRecordImplCopyWithImpl(_$GraphListblockRecordImpl _value,
+      $Res Function(_$GraphListblockRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +108,7 @@ class __$$RecordImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? createdAt = null,
   }) {
-    return _then(_$RecordImpl(
+    return _then(_$GraphListblockRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -124,14 +128,14 @@ class __$$RecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$RecordImpl implements _Record {
-  const _$RecordImpl(
+class _$GraphListblockRecordImpl implements _GraphListblockRecord {
+  const _$GraphListblockRecordImpl(
       {@typeKey this.type = appBskyGraphListblock,
       @atUriConverter required this.subject,
       required this.createdAt});
 
-  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordImplFromJson(json);
+  factory _$GraphListblockRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GraphListblockRecordImplFromJson(json);
 
   @override
   @typeKey
@@ -144,14 +148,14 @@ class _$RecordImpl implements _Record {
 
   @override
   String toString() {
-    return 'Record(type: $type, subject: $subject, createdAt: $createdAt)';
+    return 'GraphListblockRecord(type: $type, subject: $subject, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordImpl &&
+            other is _$GraphListblockRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
@@ -165,24 +169,27 @@ class _$RecordImpl implements _Record {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
+  _$$GraphListblockRecordImplCopyWith<_$GraphListblockRecordImpl>
+      get copyWith =>
+          __$$GraphListblockRecordImplCopyWithImpl<_$GraphListblockRecordImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RecordImplToJson(
+    return _$$GraphListblockRecordImplToJson(
       this,
     );
   }
 }
 
-abstract class _Record implements Record {
-  const factory _Record(
+abstract class _GraphListblockRecord implements GraphListblockRecord {
+  const factory _GraphListblockRecord(
       {@typeKey final String type,
       @atUriConverter required final AtUri subject,
-      required final DateTime createdAt}) = _$RecordImpl;
+      required final DateTime createdAt}) = _$GraphListblockRecordImpl;
 
-  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
+  factory _GraphListblockRecord.fromJson(Map<String, dynamic> json) =
+      _$GraphListblockRecordImpl.fromJson;
 
   @override
   @typeKey
@@ -194,6 +201,6 @@ abstract class _Record implements Record {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$GraphListblockRecordImplCopyWith<_$GraphListblockRecordImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

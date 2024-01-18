@@ -18,12 +18,12 @@ part 'list_item_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
 @lex.appBskyGraphDefsListItemView
-class ListItemView with _$ListItemView {
-  const factory ListItemView({
+class GraphDefsListItemView with _$GraphDefsListItemView {
+  const factory GraphDefsListItemView({
     @atUriConverter required AtUri uri,
-    required ProfileView subject,
-  }) = _ListItemView;
+    required ActorDefsProfileView subject,
+  }) = _GraphDefsListItemView;
 
-  factory ListItemView.fromJson(Map<String, Object?> json) =>
-      _$ListItemViewFromJson(json);
+  factory GraphDefsListItemView.fromJson(Map<String, Object?> json) =>
+      _$GraphDefsListItemViewFromJson(json);
 }

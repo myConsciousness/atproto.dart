@@ -10,22 +10,22 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-import '../record.dart' as feed_post;
+import '../record.dart';
 
 const recordConverter = _RecordConverter();
 
 final class _RecordConverter
-    implements JsonConverter<feed_post.Record, Map<String, dynamic>> {
+    implements JsonConverter<FeedPostRecord, Map<String, dynamic>> {
   const _RecordConverter();
 
   @override
-  feed_post.Record fromJson(Map<String, dynamic> json) {
+  FeedPostRecord fromJson(Map<String, dynamic> json) {
     if (!json.containsKey('entities') && !json.containsKey('facets')) {
-      return feed_post.Record.fromJson(json); //* No facets.
+      return FeedPostRecord.fromJson(json); //* No facets.
     }
 
     if (!json.containsKey('entities')) {
-      return feed_post.Record.fromJson(json); //* No need to convert.
+      return FeedPostRecord.fromJson(json); //* No need to convert.
     }
 
     try {
@@ -69,7 +69,7 @@ final class _RecordConverter
         }
       }
 
-      return feed_post.Record.fromJson({
+      return FeedPostRecord.fromJson({
         ...json,
         //* Override facets and merge with facets from entities.
         'facets': [
@@ -78,12 +78,12 @@ final class _RecordConverter
         ],
       });
     } catch (_) {
-      return feed_post.Record.fromJson(json);
+      return FeedPostRecord.fromJson(json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(feed_post.Record object) => object.toJson();
+  Map<String, dynamic> toJson(FeedPostRecord object) => object.toJson();
 }
 
 extension _UnicodeString on String {

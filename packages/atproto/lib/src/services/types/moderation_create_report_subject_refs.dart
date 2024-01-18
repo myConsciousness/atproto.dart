@@ -19,6 +19,9 @@ part 'moderation_create_report_subject_refs.freezed.dart';
 @freezed
 class ModerationCreateReportSubjectRefs
     with _$ModerationCreateReportSubjectRefs {
+  // ignore: unused_element
+  const ModerationCreateReportSubjectRefs._();
+
   const factory ModerationCreateReportSubjectRefs.repoRef({
     required AdminDefsRepoRef data,
   }) = UModerationCreateReportSubjectRepoRef;

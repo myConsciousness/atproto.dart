@@ -8,11 +8,12 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordImpl',
+_$FeedRepostRecordImpl _$$FeedRepostRecordImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedRepostRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$RecordImpl(
+        final val = _$FeedRepostRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedRepost),
           subject: $checkedConvert('subject',
@@ -25,7 +26,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) =>
+Map<String, dynamic> _$$FeedRepostRecordImplToJson(
+        _$FeedRepostRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'subject': instance.subject.toJson(),

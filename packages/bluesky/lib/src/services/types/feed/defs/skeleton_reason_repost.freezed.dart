@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
-  return _SkeletonReasonRepost.fromJson(json);
+FeedDefsSkeletonReasonRepost _$FeedDefsSkeletonReasonRepostFromJson(
+    Map<String, dynamic> json) {
+  return _FeedDefsSkeletonReasonRepost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SkeletonReasonRepost {
+mixin _$FeedDefsSkeletonReasonRepost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -27,24 +28,26 @@ mixin _$SkeletonReasonRepost {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SkeletonReasonRepostCopyWith<SkeletonReasonRepost> get copyWith =>
-      throw _privateConstructorUsedError;
+  $FeedDefsSkeletonReasonRepostCopyWith<FeedDefsSkeletonReasonRepost>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SkeletonReasonRepostCopyWith<$Res> {
-  factory $SkeletonReasonRepostCopyWith(SkeletonReasonRepost value,
-          $Res Function(SkeletonReasonRepost) then) =
-      _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
+abstract class $FeedDefsSkeletonReasonRepostCopyWith<$Res> {
+  factory $FeedDefsSkeletonReasonRepostCopyWith(
+          FeedDefsSkeletonReasonRepost value,
+          $Res Function(FeedDefsSkeletonReasonRepost) then) =
+      _$FeedDefsSkeletonReasonRepostCopyWithImpl<$Res,
+          FeedDefsSkeletonReasonRepost>;
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
-class _$SkeletonReasonRepostCopyWithImpl<$Res,
-        $Val extends SkeletonReasonRepost>
-    implements $SkeletonReasonRepostCopyWith<$Res> {
-  _$SkeletonReasonRepostCopyWithImpl(this._value, this._then);
+class _$FeedDefsSkeletonReasonRepostCopyWithImpl<$Res,
+        $Val extends FeedDefsSkeletonReasonRepost>
+    implements $FeedDefsSkeletonReasonRepostCopyWith<$Res> {
+  _$FeedDefsSkeletonReasonRepostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -71,22 +74,25 @@ class _$SkeletonReasonRepostCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
-    implements $SkeletonReasonRepostCopyWith<$Res> {
-  factory _$$SkeletonReasonRepostImplCopyWith(_$SkeletonReasonRepostImpl value,
-          $Res Function(_$SkeletonReasonRepostImpl) then) =
-      __$$SkeletonReasonRepostImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsSkeletonReasonRepostImplCopyWith<$Res>
+    implements $FeedDefsSkeletonReasonRepostCopyWith<$Res> {
+  factory _$$FeedDefsSkeletonReasonRepostImplCopyWith(
+          _$FeedDefsSkeletonReasonRepostImpl value,
+          $Res Function(_$FeedDefsSkeletonReasonRepostImpl) then) =
+      __$$FeedDefsSkeletonReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri repost});
 }
 
 /// @nodoc
-class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
-    extends _$SkeletonReasonRepostCopyWithImpl<$Res, _$SkeletonReasonRepostImpl>
-    implements _$$SkeletonReasonRepostImplCopyWith<$Res> {
-  __$$SkeletonReasonRepostImplCopyWithImpl(_$SkeletonReasonRepostImpl _value,
-      $Res Function(_$SkeletonReasonRepostImpl) _then)
+class __$$FeedDefsSkeletonReasonRepostImplCopyWithImpl<$Res>
+    extends _$FeedDefsSkeletonReasonRepostCopyWithImpl<$Res,
+        _$FeedDefsSkeletonReasonRepostImpl>
+    implements _$$FeedDefsSkeletonReasonRepostImplCopyWith<$Res> {
+  __$$FeedDefsSkeletonReasonRepostImplCopyWithImpl(
+      _$FeedDefsSkeletonReasonRepostImpl _value,
+      $Res Function(_$FeedDefsSkeletonReasonRepostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -95,7 +101,7 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
     Object? type = null,
     Object? repost = null,
   }) {
-    return _then(_$SkeletonReasonRepostImpl(
+    return _then(_$FeedDefsSkeletonReasonRepostImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -110,13 +116,15 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
-  const _$SkeletonReasonRepostImpl(
+class _$FeedDefsSkeletonReasonRepostImpl
+    implements _FeedDefsSkeletonReasonRepost {
+  const _$FeedDefsSkeletonReasonRepostImpl(
       {@typeKey this.type = appBskyFeedDefsSkeletonReasonRepost,
       @atUriConverter required this.repost});
 
-  factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonReasonRepostImplFromJson(json);
+  factory _$FeedDefsSkeletonReasonRepostImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$FeedDefsSkeletonReasonRepostImplFromJson(json);
 
   @override
   @typeKey
@@ -127,14 +135,14 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
 
   @override
   String toString() {
-    return 'SkeletonReasonRepost(type: $type, repost: $repost)';
+    return 'FeedDefsSkeletonReasonRepost(type: $type, repost: $repost)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonReasonRepostImpl &&
+            other is _$FeedDefsSkeletonReasonRepostImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.repost, repost) || other.repost == repost));
   }
@@ -146,27 +154,28 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SkeletonReasonRepostImplCopyWith<_$SkeletonReasonRepostImpl>
-      get copyWith =>
-          __$$SkeletonReasonRepostImplCopyWithImpl<_$SkeletonReasonRepostImpl>(
-              this, _$identity);
+  _$$FeedDefsSkeletonReasonRepostImplCopyWith<
+          _$FeedDefsSkeletonReasonRepostImpl>
+      get copyWith => __$$FeedDefsSkeletonReasonRepostImplCopyWithImpl<
+          _$FeedDefsSkeletonReasonRepostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SkeletonReasonRepostImplToJson(
+    return _$$FeedDefsSkeletonReasonRepostImplToJson(
       this,
     );
   }
 }
 
-abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
-  const factory _SkeletonReasonRepost(
+abstract class _FeedDefsSkeletonReasonRepost
+    implements FeedDefsSkeletonReasonRepost {
+  const factory _FeedDefsSkeletonReasonRepost(
           {@typeKey final String type,
           @atUriConverter required final AtUri repost}) =
-      _$SkeletonReasonRepostImpl;
+      _$FeedDefsSkeletonReasonRepostImpl;
 
-  factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
-      _$SkeletonReasonRepostImpl.fromJson;
+  factory _FeedDefsSkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsSkeletonReasonRepostImpl.fromJson;
 
   @override
   @typeKey
@@ -176,6 +185,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   AtUri get repost;
   @override
   @JsonKey(ignore: true)
-  _$$SkeletonReasonRepostImplCopyWith<_$SkeletonReasonRepostImpl>
+  _$$FeedDefsSkeletonReasonRepostImplCopyWith<
+          _$FeedDefsSkeletonReasonRepostImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

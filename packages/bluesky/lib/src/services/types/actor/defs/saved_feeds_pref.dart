@@ -18,14 +18,14 @@ part 'saved_feeds_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeedspref
 @freezed
 @lex.appBskyActorDefsSavedFeedsPref
-class SavedFeedsPref with _$SavedFeedsPref {
+class ActorDefsSavedFeedsPref with _$ActorDefsSavedFeedsPref {
   @jsonSerializable
-  const factory SavedFeedsPref({
+  const factory ActorDefsSavedFeedsPref({
     @typeKey @Default(appBskyActorDefsSavedFeedsPref) String type,
     @atUriConverter required List<AtUri> pinned,
     @atUriConverter required List<AtUri> saved,
-  }) = _SavedFeedsPref;
+  }) = _ActorDefsSavedFeedsPref;
 
-  factory SavedFeedsPref.fromJson(Map<String, Object?> json) =>
-      _$SavedFeedsPrefFromJson(json);
+  factory ActorDefsSavedFeedsPref.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsSavedFeedsPrefFromJson(json);
 }

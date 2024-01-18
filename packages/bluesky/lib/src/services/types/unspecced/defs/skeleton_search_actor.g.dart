@@ -8,20 +8,20 @@ part of 'skeleton_search_actor.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonSearchActorImpl _$$SkeletonSearchActorImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SkeletonSearchActorImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SkeletonSearchActorImpl(
-          did: $checkedConvert('did', (v) => v as String),
+_$UnspeccedDefsSkeletonSearchActorImpl
+    _$$UnspeccedDefsSkeletonSearchActorImplFromJson(Map json) => $checkedCreate(
+          r'_$UnspeccedDefsSkeletonSearchActorImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$UnspeccedDefsSkeletonSearchActorImpl(
+              did: $checkedConvert('did', (v) => v as String),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$SkeletonSearchActorImplToJson(
-        _$SkeletonSearchActorImpl instance) =>
+Map<String, dynamic> _$$UnspeccedDefsSkeletonSearchActorImplToJson(
+        _$UnspeccedDefsSkeletonSearchActorImpl instance) =>
     <String, dynamic>{
       'did': instance.did,
     };

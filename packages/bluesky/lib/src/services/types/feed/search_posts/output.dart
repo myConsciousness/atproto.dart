@@ -18,13 +18,14 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchposts/#output
 @freezed
 @lex.appBskyFeedSearchPosts
-class Output with _$Output {
+class FeedSearchPostsOutput with _$FeedSearchPostsOutput {
   @jsonSerializable
-  const factory Output({
-    required List<PostView> posts,
+  const factory FeedSearchPostsOutput({
+    required List<FeedDefsPostView> posts,
     @Default(0) int hitsTotal,
     String? cursor,
-  }) = _Output;
+  }) = _FeedSearchPostsOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory FeedSearchPostsOutput.fromJson(Map<String, Object?> json) =>
+      _$FeedSearchPostsOutputFromJson(json);
 }

@@ -20,14 +20,15 @@ part 'record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedThreadgate].
 @freezed
-class Record with _$Record {
+class FeedThreadgateRecord with _$FeedThreadgateRecord {
   @jsonSerializable
-  const factory Record({
+  const factory FeedThreadgateRecord({
     @typeKey @Default(appBskyFeedThreadgate) String type,
     @atUriConverter required AtUri post,
     @unionRecordAllow List<URecordAllow>? allow,
     required DateTime createdAt,
-  }) = _Record;
+  }) = _FeedThreadgateRecord;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+  factory FeedThreadgateRecord.fromJson(Map<String, Object?> json) =>
+      _$FeedThreadgateRecordFromJson(json);
 }

@@ -19,13 +19,14 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
 @lex.appBskyGraphGetList
-class Output with _$Output {
+class GraphGetListOutput with _$GraphGetListOutput {
   @jsonSerializable
-  const factory Output({
-    required ListView list,
-    required List<ListItemView> items,
+  const factory GraphGetListOutput({
+    required GraphDefsListView list,
+    required List<GraphDefsListItemView> items,
     String? cursor,
-  }) = _Output;
+  }) = _GraphGetListOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory GraphGetListOutput.fromJson(Map<String, Object?> json) =>
+      _$GraphGetListOutputFromJson(json);
 }

@@ -8,21 +8,25 @@ part of 'list_item_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
-      r'_$ListItemViewImpl',
+_$GraphDefsListItemViewImpl _$$GraphDefsListItemViewImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$GraphDefsListItemViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$ListItemViewImpl(
+        final val = _$GraphDefsListItemViewImpl(
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
-          subject: $checkedConvert('subject',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert(
+              'subject',
+              (v) => ActorDefsProfileView.fromJson(
+                  Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ListItemViewImplToJson(_$ListItemViewImpl instance) =>
+Map<String, dynamic> _$$GraphDefsListItemViewImplToJson(
+        _$GraphDefsListItemViewImpl instance) =>
     <String, dynamic>{
       'uri': atUriConverter.toJson(instance.uri),
       'subject': instance.subject.toJson(),

@@ -18,13 +18,14 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getfeedgenerator/#output
 @freezed
 @lex.appBskyFeedGetFeedGenerator
-class Output with _$Output {
+class FeedGetFeedGeneratorOutput with _$FeedGetFeedGeneratorOutput {
   @jsonSerializable
-  const factory Output({
-    required GeneratorView view,
+  const factory FeedGetFeedGeneratorOutput({
+    required FeedDefsGeneratorView view,
     @Default(false) bool isOnline,
     @Default(false) bool isValid,
-  }) = _Output;
+  }) = _FeedGetFeedGeneratorOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory FeedGetFeedGeneratorOutput.fromJson(Map<String, Object?> json) =>
+      _$FeedGetFeedGeneratorOutputFromJson(json);
 }

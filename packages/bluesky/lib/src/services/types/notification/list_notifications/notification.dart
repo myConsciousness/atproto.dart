@@ -20,20 +20,22 @@ part 'notification.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#notification
 @freezed
 @lex.appBskyNotificationListNotificationsNotification
-class Notification with _$Notification {
+class NotificationListNotificationsNotification
+    with _$NotificationListNotificationsNotification {
   @jsonSerializable
-  const factory Notification({
+  const factory NotificationListNotificationsNotification({
     required String cid,
     @atUriConverter required AtUri uri,
-    required ProfileView author,
-    required NotificationReason reason,
+    required ActorDefsProfileView author,
+    required NotificationListNotificationsNotificationReason reason,
     @atUriConverter AtUri? reasonSubject,
     @Default(false) bool isRead,
     Map<String, dynamic>? record,
     List<Label>? labels,
     required DateTime indexedAt,
-  }) = _Notification;
+  }) = _NotificationListNotificationsNotification;
 
-  factory Notification.fromJson(Map<String, Object?> json) =>
-      _$NotificationFromJson(json);
+  factory NotificationListNotificationsNotification.fromJson(
+          Map<String, Object?> json) =>
+      _$NotificationListNotificationsNotificationFromJson(json);
 }

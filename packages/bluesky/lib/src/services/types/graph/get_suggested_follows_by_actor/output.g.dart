@@ -8,23 +8,26 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$OutputImpl(
-          suggestions: $checkedConvert(
-              'suggestions',
-              (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
+_$GraphGetSuggestedFollowsByActorOutputImpl
+    _$$GraphGetSuggestedFollowsByActorOutputImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$GraphGetSuggestedFollowsByActorOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$GraphGetSuggestedFollowsByActorOutputImpl(
+              suggestions: $checkedConvert(
+                  'suggestions',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => ActorDefsProfileView.fromJson(
+                          Map<String, Object?>.from(e as Map)))
+                      .toList()),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$GraphGetSuggestedFollowsByActorOutputImplToJson(
+        _$GraphGetSuggestedFollowsByActorOutputImpl instance) =>
     <String, dynamic>{
       'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
     };

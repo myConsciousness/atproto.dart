@@ -8,12 +8,13 @@ part of 'list_viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
+_$GraphDefsListViewerStateImpl _$$GraphDefsListViewerStateImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$ListViewerStateImpl',
+      r'_$GraphDefsListViewerStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$ListViewerStateImpl(
+        final val = _$GraphDefsListViewerStateImpl(
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blocked: $checkedConvert(
               'blocked',
@@ -24,8 +25,8 @@ _$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ListViewerStateImplToJson(
-    _$ListViewerStateImpl instance) {
+Map<String, dynamic> _$$GraphDefsListViewerStateImplToJson(
+    _$GraphDefsListViewerStateImpl instance) {
   final val = <String, dynamic>{
     'muted': instance.muted,
   };

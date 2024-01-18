@@ -14,31 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+ActorGetProfilesOutput _$ActorGetProfilesOutputFromJson(
+    Map<String, dynamic> json) {
+  return _ActorGetProfilesOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<ProfileViewDetailed> get profiles => throw _privateConstructorUsedError;
+mixin _$ActorGetProfilesOutput {
+  List<ActorDefsProfileViewDetailed> get profiles =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $ActorGetProfilesOutputCopyWith<ActorGetProfilesOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $ActorGetProfilesOutputCopyWith<$Res> {
+  factory $ActorGetProfilesOutputCopyWith(ActorGetProfilesOutput value,
+          $Res Function(ActorGetProfilesOutput) then) =
+      _$ActorGetProfilesOutputCopyWithImpl<$Res, ActorGetProfilesOutput>;
   @useResult
-  $Res call({List<ProfileViewDetailed> profiles});
+  $Res call({List<ActorDefsProfileViewDetailed> profiles});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$ActorGetProfilesOutputCopyWithImpl<$Res,
+        $Val extends ActorGetProfilesOutput>
+    implements $ActorGetProfilesOutputCopyWith<$Res> {
+  _$ActorGetProfilesOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,27 +59,31 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       profiles: null == profiles
           ? _value.profiles
           : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ProfileViewDetailed>,
+              as List<ActorDefsProfileViewDetailed>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$ActorGetProfilesOutputImplCopyWith<$Res>
+    implements $ActorGetProfilesOutputCopyWith<$Res> {
+  factory _$$ActorGetProfilesOutputImplCopyWith(
+          _$ActorGetProfilesOutputImpl value,
+          $Res Function(_$ActorGetProfilesOutputImpl) then) =
+      __$$ActorGetProfilesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ProfileViewDetailed> profiles});
+  $Res call({List<ActorDefsProfileViewDetailed> profiles});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$ActorGetProfilesOutputImplCopyWithImpl<$Res>
+    extends _$ActorGetProfilesOutputCopyWithImpl<$Res,
+        _$ActorGetProfilesOutputImpl>
+    implements _$$ActorGetProfilesOutputImplCopyWith<$Res> {
+  __$$ActorGetProfilesOutputImplCopyWithImpl(
+      _$ActorGetProfilesOutputImpl _value,
+      $Res Function(_$ActorGetProfilesOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -82,27 +91,28 @@ class __$$OutputImplCopyWithImpl<$Res>
   $Res call({
     Object? profiles = null,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$ActorGetProfilesOutputImpl(
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ProfileViewDetailed>,
+              as List<ActorDefsProfileViewDetailed>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OutputImpl implements _Output {
-  const _$OutputImpl({required final List<ProfileViewDetailed> profiles})
+class _$ActorGetProfilesOutputImpl implements _ActorGetProfilesOutput {
+  const _$ActorGetProfilesOutputImpl(
+      {required final List<ActorDefsProfileViewDetailed> profiles})
       : _profiles = profiles;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$ActorGetProfilesOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorGetProfilesOutputImplFromJson(json);
 
-  final List<ProfileViewDetailed> _profiles;
+  final List<ActorDefsProfileViewDetailed> _profiles;
   @override
-  List<ProfileViewDetailed> get profiles {
+  List<ActorDefsProfileViewDetailed> get profiles {
     if (_profiles is EqualUnmodifiableListView) return _profiles;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_profiles);
@@ -110,14 +120,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(profiles: $profiles)';
+    return 'ActorGetProfilesOutput(profiles: $profiles)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$ActorGetProfilesOutputImpl &&
             const DeepCollectionEquality().equals(other._profiles, _profiles));
   }
 
@@ -129,27 +139,30 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$ActorGetProfilesOutputImplCopyWith<_$ActorGetProfilesOutputImpl>
+      get copyWith => __$$ActorGetProfilesOutputImplCopyWithImpl<
+          _$ActorGetProfilesOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$ActorGetProfilesOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output({required final List<ProfileViewDetailed> profiles}) =
-      _$OutputImpl;
+abstract class _ActorGetProfilesOutput implements ActorGetProfilesOutput {
+  const factory _ActorGetProfilesOutput(
+          {required final List<ActorDefsProfileViewDetailed> profiles}) =
+      _$ActorGetProfilesOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _ActorGetProfilesOutput.fromJson(Map<String, dynamic> json) =
+      _$ActorGetProfilesOutputImpl.fromJson;
 
   @override
-  List<ProfileViewDetailed> get profiles;
+  List<ActorDefsProfileViewDetailed> get profiles;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorGetProfilesOutputImplCopyWith<_$ActorGetProfilesOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

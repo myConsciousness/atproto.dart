@@ -14,33 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ByteSlice _$ByteSliceFromJson(Map<String, dynamic> json) {
-  return _ByteSlice.fromJson(json);
+RichtextFacetByteSlice _$RichtextFacetByteSliceFromJson(
+    Map<String, dynamic> json) {
+  return _RichtextFacetByteSlice.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ByteSlice {
+mixin _$RichtextFacetByteSlice {
   int get byteStart => throw _privateConstructorUsedError;
   int get byteEnd => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ByteSliceCopyWith<ByteSlice> get copyWith =>
+  $RichtextFacetByteSliceCopyWith<RichtextFacetByteSlice> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ByteSliceCopyWith<$Res> {
-  factory $ByteSliceCopyWith(ByteSlice value, $Res Function(ByteSlice) then) =
-      _$ByteSliceCopyWithImpl<$Res, ByteSlice>;
+abstract class $RichtextFacetByteSliceCopyWith<$Res> {
+  factory $RichtextFacetByteSliceCopyWith(RichtextFacetByteSlice value,
+          $Res Function(RichtextFacetByteSlice) then) =
+      _$RichtextFacetByteSliceCopyWithImpl<$Res, RichtextFacetByteSlice>;
   @useResult
   $Res call({int byteStart, int byteEnd});
 }
 
 /// @nodoc
-class _$ByteSliceCopyWithImpl<$Res, $Val extends ByteSlice>
-    implements $ByteSliceCopyWith<$Res> {
-  _$ByteSliceCopyWithImpl(this._value, this._then);
+class _$RichtextFacetByteSliceCopyWithImpl<$Res,
+        $Val extends RichtextFacetByteSlice>
+    implements $RichtextFacetByteSliceCopyWith<$Res> {
+  _$RichtextFacetByteSliceCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,22 +70,25 @@ class _$ByteSliceCopyWithImpl<$Res, $Val extends ByteSlice>
 }
 
 /// @nodoc
-abstract class _$$ByteSliceImplCopyWith<$Res>
-    implements $ByteSliceCopyWith<$Res> {
-  factory _$$ByteSliceImplCopyWith(
-          _$ByteSliceImpl value, $Res Function(_$ByteSliceImpl) then) =
-      __$$ByteSliceImplCopyWithImpl<$Res>;
+abstract class _$$RichtextFacetByteSliceImplCopyWith<$Res>
+    implements $RichtextFacetByteSliceCopyWith<$Res> {
+  factory _$$RichtextFacetByteSliceImplCopyWith(
+          _$RichtextFacetByteSliceImpl value,
+          $Res Function(_$RichtextFacetByteSliceImpl) then) =
+      __$$RichtextFacetByteSliceImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int byteStart, int byteEnd});
 }
 
 /// @nodoc
-class __$$ByteSliceImplCopyWithImpl<$Res>
-    extends _$ByteSliceCopyWithImpl<$Res, _$ByteSliceImpl>
-    implements _$$ByteSliceImplCopyWith<$Res> {
-  __$$ByteSliceImplCopyWithImpl(
-      _$ByteSliceImpl _value, $Res Function(_$ByteSliceImpl) _then)
+class __$$RichtextFacetByteSliceImplCopyWithImpl<$Res>
+    extends _$RichtextFacetByteSliceCopyWithImpl<$Res,
+        _$RichtextFacetByteSliceImpl>
+    implements _$$RichtextFacetByteSliceImplCopyWith<$Res> {
+  __$$RichtextFacetByteSliceImplCopyWithImpl(
+      _$RichtextFacetByteSliceImpl _value,
+      $Res Function(_$RichtextFacetByteSliceImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -91,7 +97,7 @@ class __$$ByteSliceImplCopyWithImpl<$Res>
     Object? byteStart = null,
     Object? byteEnd = null,
   }) {
-    return _then(_$ByteSliceImpl(
+    return _then(_$RichtextFacetByteSliceImpl(
       byteStart: null == byteStart
           ? _value.byteStart
           : byteStart // ignore: cast_nullable_to_non_nullable
@@ -106,11 +112,12 @@ class __$$ByteSliceImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ByteSliceImpl implements _ByteSlice {
-  const _$ByteSliceImpl({required this.byteStart, required this.byteEnd});
+class _$RichtextFacetByteSliceImpl implements _RichtextFacetByteSlice {
+  const _$RichtextFacetByteSliceImpl(
+      {required this.byteStart, required this.byteEnd});
 
-  factory _$ByteSliceImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ByteSliceImplFromJson(json);
+  factory _$RichtextFacetByteSliceImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RichtextFacetByteSliceImplFromJson(json);
 
   @override
   final int byteStart;
@@ -119,14 +126,14 @@ class _$ByteSliceImpl implements _ByteSlice {
 
   @override
   String toString() {
-    return 'ByteSlice(byteStart: $byteStart, byteEnd: $byteEnd)';
+    return 'RichtextFacetByteSlice(byteStart: $byteStart, byteEnd: $byteEnd)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ByteSliceImpl &&
+            other is _$RichtextFacetByteSliceImpl &&
             (identical(other.byteStart, byteStart) ||
                 other.byteStart == byteStart) &&
             (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd));
@@ -139,24 +146,25 @@ class _$ByteSliceImpl implements _ByteSlice {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ByteSliceImplCopyWith<_$ByteSliceImpl> get copyWith =>
-      __$$ByteSliceImplCopyWithImpl<_$ByteSliceImpl>(this, _$identity);
+  _$$RichtextFacetByteSliceImplCopyWith<_$RichtextFacetByteSliceImpl>
+      get copyWith => __$$RichtextFacetByteSliceImplCopyWithImpl<
+          _$RichtextFacetByteSliceImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ByteSliceImplToJson(
+    return _$$RichtextFacetByteSliceImplToJson(
       this,
     );
   }
 }
 
-abstract class _ByteSlice implements ByteSlice {
-  const factory _ByteSlice(
+abstract class _RichtextFacetByteSlice implements RichtextFacetByteSlice {
+  const factory _RichtextFacetByteSlice(
       {required final int byteStart,
-      required final int byteEnd}) = _$ByteSliceImpl;
+      required final int byteEnd}) = _$RichtextFacetByteSliceImpl;
 
-  factory _ByteSlice.fromJson(Map<String, dynamic> json) =
-      _$ByteSliceImpl.fromJson;
+  factory _RichtextFacetByteSlice.fromJson(Map<String, dynamic> json) =
+      _$RichtextFacetByteSliceImpl.fromJson;
 
   @override
   int get byteStart;
@@ -164,6 +172,6 @@ abstract class _ByteSlice implements ByteSlice {
   int get byteEnd;
   @override
   @JsonKey(ignore: true)
-  _$$ByteSliceImplCopyWith<_$ByteSliceImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$RichtextFacetByteSliceImplCopyWith<_$RichtextFacetByteSliceImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

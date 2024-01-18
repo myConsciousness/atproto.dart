@@ -5,14 +5,14 @@
 // 🌎 Project imports:
 import '../../defs/extensions/list_view_extension.dart';
 import '../../defs/list_view.dart';
-import '../output.dart' as graph_get_lists;
+import '../output.dart';
 
-extension OutputExtension on graph_get_lists.Output {
+extension GraphGetListsOutputExtension on GraphGetListsOutput {
   /// Returns only moderated lists.
-  List<ListView> get moderatedLists =>
+  List<GraphDefsListView> get moderatedLists =>
       lists.where((element) => element.isModerated).toList();
 
   /// Returns only curated lists.
-  List<ListView> get curatedLists =>
+  List<GraphDefsListView> get curatedLists =>
       lists.where((element) => element.isCurated).toList();
 }

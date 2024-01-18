@@ -18,12 +18,12 @@ part 'mention.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
 @lex.appBskyRichtextFacetMention
-class Mention with _$Mention {
-  const factory Mention({
+class RichtextFacetMention with _$RichtextFacetMention {
+  const factory RichtextFacetMention({
     @typeKey @Default(appBskyRichtextFacetMention) String type,
     required String did,
-  }) = _Mention;
+  }) = _RichtextFacetMention;
 
-  factory Mention.fromJson(Map<String, Object?> json) =>
-      _$MentionFromJson(json);
+  factory RichtextFacetMention.fromJson(Map<String, Object?> json) =>
+      _$RichtextFacetMentionFromJson(json);
 }

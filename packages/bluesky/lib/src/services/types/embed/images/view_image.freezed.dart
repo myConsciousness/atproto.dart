@@ -14,44 +14,46 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ViewImage _$ViewImageFromJson(Map<String, dynamic> json) {
-  return _ViewImage.fromJson(json);
+EmbedImagesViewImage _$EmbedImagesViewImageFromJson(Map<String, dynamic> json) {
+  return _EmbedImagesViewImage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ViewImage {
+mixin _$EmbedImagesViewImage {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get thumb => throw _privateConstructorUsedError;
   String get fullsize => throw _privateConstructorUsedError;
   String get alt => throw _privateConstructorUsedError;
-  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  EmbedImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewImageCopyWith<ViewImage> get copyWith =>
+  $EmbedImagesViewImageCopyWith<EmbedImagesViewImage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewImageCopyWith<$Res> {
-  factory $ViewImageCopyWith(ViewImage value, $Res Function(ViewImage) then) =
-      _$ViewImageCopyWithImpl<$Res, ViewImage>;
+abstract class $EmbedImagesViewImageCopyWith<$Res> {
+  factory $EmbedImagesViewImageCopyWith(EmbedImagesViewImage value,
+          $Res Function(EmbedImagesViewImage) then) =
+      _$EmbedImagesViewImageCopyWithImpl<$Res, EmbedImagesViewImage>;
   @useResult
   $Res call(
       {@typeKey String type,
       String thumb,
       String fullsize,
       String alt,
-      AspectRatio? aspectRatio});
+      EmbedImagesAspectRatio? aspectRatio});
 
-  $AspectRatioCopyWith<$Res>? get aspectRatio;
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
-class _$ViewImageCopyWithImpl<$Res, $Val extends ViewImage>
-    implements $ViewImageCopyWith<$Res> {
-  _$ViewImageCopyWithImpl(this._value, this._then);
+class _$EmbedImagesViewImageCopyWithImpl<$Res,
+        $Val extends EmbedImagesViewImage>
+    implements $EmbedImagesViewImageCopyWith<$Res> {
+  _$EmbedImagesViewImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,29 +89,29 @@ class _$ViewImageCopyWithImpl<$Res, $Val extends ViewImage>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as AspectRatio?,
+              as EmbedImagesAspectRatio?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $AspectRatioCopyWith<$Res>? get aspectRatio {
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $EmbedImagesAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ViewImageImplCopyWith<$Res>
-    implements $ViewImageCopyWith<$Res> {
-  factory _$$ViewImageImplCopyWith(
-          _$ViewImageImpl value, $Res Function(_$ViewImageImpl) then) =
-      __$$ViewImageImplCopyWithImpl<$Res>;
+abstract class _$$EmbedImagesViewImageImplCopyWith<$Res>
+    implements $EmbedImagesViewImageCopyWith<$Res> {
+  factory _$$EmbedImagesViewImageImplCopyWith(_$EmbedImagesViewImageImpl value,
+          $Res Function(_$EmbedImagesViewImageImpl) then) =
+      __$$EmbedImagesViewImageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -117,18 +119,18 @@ abstract class _$$ViewImageImplCopyWith<$Res>
       String thumb,
       String fullsize,
       String alt,
-      AspectRatio? aspectRatio});
+      EmbedImagesAspectRatio? aspectRatio});
 
   @override
-  $AspectRatioCopyWith<$Res>? get aspectRatio;
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
-class __$$ViewImageImplCopyWithImpl<$Res>
-    extends _$ViewImageCopyWithImpl<$Res, _$ViewImageImpl>
-    implements _$$ViewImageImplCopyWith<$Res> {
-  __$$ViewImageImplCopyWithImpl(
-      _$ViewImageImpl _value, $Res Function(_$ViewImageImpl) _then)
+class __$$EmbedImagesViewImageImplCopyWithImpl<$Res>
+    extends _$EmbedImagesViewImageCopyWithImpl<$Res, _$EmbedImagesViewImageImpl>
+    implements _$$EmbedImagesViewImageImplCopyWith<$Res> {
+  __$$EmbedImagesViewImageImplCopyWithImpl(_$EmbedImagesViewImageImpl _value,
+      $Res Function(_$EmbedImagesViewImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -140,7 +142,7 @@ class __$$ViewImageImplCopyWithImpl<$Res>
     Object? alt = null,
     Object? aspectRatio = freezed,
   }) {
-    return _then(_$ViewImageImpl(
+    return _then(_$EmbedImagesViewImageImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -160,23 +162,23 @@ class __$$ViewImageImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as AspectRatio?,
+              as EmbedImagesAspectRatio?,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$ViewImageImpl implements _ViewImage {
-  const _$ViewImageImpl(
+class _$EmbedImagesViewImageImpl implements _EmbedImagesViewImage {
+  const _$EmbedImagesViewImageImpl(
       {@typeKey this.type = appBskyEmbedImagesViewImage,
       required this.thumb,
       required this.fullsize,
       required this.alt,
       this.aspectRatio});
 
-  factory _$ViewImageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewImageImplFromJson(json);
+  factory _$EmbedImagesViewImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedImagesViewImageImplFromJson(json);
 
   @override
   @typeKey
@@ -188,18 +190,18 @@ class _$ViewImageImpl implements _ViewImage {
   @override
   final String alt;
   @override
-  final AspectRatio? aspectRatio;
+  final EmbedImagesAspectRatio? aspectRatio;
 
   @override
   String toString() {
-    return 'ViewImage(type: $type, thumb: $thumb, fullsize: $fullsize, alt: $alt, aspectRatio: $aspectRatio)';
+    return 'EmbedImagesViewImage(type: $type, thumb: $thumb, fullsize: $fullsize, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewImageImpl &&
+            other is _$EmbedImagesViewImageImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.thumb, thumb) || other.thumb == thumb) &&
             (identical(other.fullsize, fullsize) ||
@@ -217,27 +219,29 @@ class _$ViewImageImpl implements _ViewImage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewImageImplCopyWith<_$ViewImageImpl> get copyWith =>
-      __$$ViewImageImplCopyWithImpl<_$ViewImageImpl>(this, _$identity);
+  _$$EmbedImagesViewImageImplCopyWith<_$EmbedImagesViewImageImpl>
+      get copyWith =>
+          __$$EmbedImagesViewImageImplCopyWithImpl<_$EmbedImagesViewImageImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewImageImplToJson(
+    return _$$EmbedImagesViewImageImplToJson(
       this,
     );
   }
 }
 
-abstract class _ViewImage implements ViewImage {
-  const factory _ViewImage(
+abstract class _EmbedImagesViewImage implements EmbedImagesViewImage {
+  const factory _EmbedImagesViewImage(
       {@typeKey final String type,
       required final String thumb,
       required final String fullsize,
       required final String alt,
-      final AspectRatio? aspectRatio}) = _$ViewImageImpl;
+      final EmbedImagesAspectRatio? aspectRatio}) = _$EmbedImagesViewImageImpl;
 
-  factory _ViewImage.fromJson(Map<String, dynamic> json) =
-      _$ViewImageImpl.fromJson;
+  factory _EmbedImagesViewImage.fromJson(Map<String, dynamic> json) =
+      _$EmbedImagesViewImageImpl.fromJson;
 
   @override
   @typeKey
@@ -249,9 +253,9 @@ abstract class _ViewImage implements ViewImage {
   @override
   String get alt;
   @override
-  AspectRatio? get aspectRatio;
+  EmbedImagesAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)
-  _$$ViewImageImplCopyWith<_$ViewImageImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedImagesViewImageImplCopyWith<_$EmbedImagesViewImageImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

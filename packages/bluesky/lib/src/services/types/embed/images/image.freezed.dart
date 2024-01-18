@@ -14,37 +14,42 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Image _$ImageFromJson(Map<String, dynamic> json) {
-  return _Image.fromJson(json);
+EmbedImagesImage _$EmbedImagesImageFromJson(Map<String, dynamic> json) {
+  return _EmbedImagesImage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Image {
+mixin _$EmbedImagesImage {
   String get alt => throw _privateConstructorUsedError;
   @blobConverter
   Blob get image => throw _privateConstructorUsedError;
-  AspectRatio? get aspectRatio => throw _privateConstructorUsedError;
+  EmbedImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ImageCopyWith<Image> get copyWith => throw _privateConstructorUsedError;
+  $EmbedImagesImageCopyWith<EmbedImagesImage> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ImageCopyWith<$Res> {
-  factory $ImageCopyWith(Image value, $Res Function(Image) then) =
-      _$ImageCopyWithImpl<$Res, Image>;
+abstract class $EmbedImagesImageCopyWith<$Res> {
+  factory $EmbedImagesImageCopyWith(
+          EmbedImagesImage value, $Res Function(EmbedImagesImage) then) =
+      _$EmbedImagesImageCopyWithImpl<$Res, EmbedImagesImage>;
   @useResult
-  $Res call({String alt, @blobConverter Blob image, AspectRatio? aspectRatio});
+  $Res call(
+      {String alt,
+      @blobConverter Blob image,
+      EmbedImagesAspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get image;
-  $AspectRatioCopyWith<$Res>? get aspectRatio;
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
-class _$ImageCopyWithImpl<$Res, $Val extends Image>
-    implements $ImageCopyWith<$Res> {
-  _$ImageCopyWithImpl(this._value, this._then);
+class _$EmbedImagesImageCopyWithImpl<$Res, $Val extends EmbedImagesImage>
+    implements $EmbedImagesImageCopyWith<$Res> {
+  _$EmbedImagesImageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -70,7 +75,7 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as AspectRatio?,
+              as EmbedImagesAspectRatio?,
     ) as $Val);
   }
 
@@ -84,38 +89,42 @@ class _$ImageCopyWithImpl<$Res, $Val extends Image>
 
   @override
   @pragma('vm:prefer-inline')
-  $AspectRatioCopyWith<$Res>? get aspectRatio {
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio {
     if (_value.aspectRatio == null) {
       return null;
     }
 
-    return $AspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
+    return $EmbedImagesAspectRatioCopyWith<$Res>(_value.aspectRatio!, (value) {
       return _then(_value.copyWith(aspectRatio: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ImageImplCopyWith<$Res> implements $ImageCopyWith<$Res> {
-  factory _$$ImageImplCopyWith(
-          _$ImageImpl value, $Res Function(_$ImageImpl) then) =
-      __$$ImageImplCopyWithImpl<$Res>;
+abstract class _$$EmbedImagesImageImplCopyWith<$Res>
+    implements $EmbedImagesImageCopyWith<$Res> {
+  factory _$$EmbedImagesImageImplCopyWith(_$EmbedImagesImageImpl value,
+          $Res Function(_$EmbedImagesImageImpl) then) =
+      __$$EmbedImagesImageImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String alt, @blobConverter Blob image, AspectRatio? aspectRatio});
+  $Res call(
+      {String alt,
+      @blobConverter Blob image,
+      EmbedImagesAspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get image;
   @override
-  $AspectRatioCopyWith<$Res>? get aspectRatio;
+  $EmbedImagesAspectRatioCopyWith<$Res>? get aspectRatio;
 }
 
 /// @nodoc
-class __$$ImageImplCopyWithImpl<$Res>
-    extends _$ImageCopyWithImpl<$Res, _$ImageImpl>
-    implements _$$ImageImplCopyWith<$Res> {
-  __$$ImageImplCopyWithImpl(
-      _$ImageImpl _value, $Res Function(_$ImageImpl) _then)
+class __$$EmbedImagesImageImplCopyWithImpl<$Res>
+    extends _$EmbedImagesImageCopyWithImpl<$Res, _$EmbedImagesImageImpl>
+    implements _$$EmbedImagesImageImplCopyWith<$Res> {
+  __$$EmbedImagesImageImplCopyWithImpl(_$EmbedImagesImageImpl _value,
+      $Res Function(_$EmbedImagesImageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -125,7 +134,7 @@ class __$$ImageImplCopyWithImpl<$Res>
     Object? image = null,
     Object? aspectRatio = freezed,
   }) {
-    return _then(_$ImageImpl(
+    return _then(_$EmbedImagesImageImpl(
       alt: null == alt
           ? _value.alt
           : alt // ignore: cast_nullable_to_non_nullable
@@ -137,7 +146,7 @@ class __$$ImageImplCopyWithImpl<$Res>
       aspectRatio: freezed == aspectRatio
           ? _value.aspectRatio
           : aspectRatio // ignore: cast_nullable_to_non_nullable
-              as AspectRatio?,
+              as EmbedImagesAspectRatio?,
     ));
   }
 }
@@ -145,14 +154,14 @@ class __$$ImageImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ImageImpl implements _Image {
-  const _$ImageImpl(
+class _$EmbedImagesImageImpl implements _EmbedImagesImage {
+  const _$EmbedImagesImageImpl(
       {required this.alt,
       @blobConverter required this.image,
       this.aspectRatio});
 
-  factory _$ImageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ImageImplFromJson(json);
+  factory _$EmbedImagesImageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedImagesImageImplFromJson(json);
 
   @override
   final String alt;
@@ -160,18 +169,18 @@ class _$ImageImpl implements _Image {
   @blobConverter
   final Blob image;
   @override
-  final AspectRatio? aspectRatio;
+  final EmbedImagesAspectRatio? aspectRatio;
 
   @override
   String toString() {
-    return 'Image(alt: $alt, image: $image, aspectRatio: $aspectRatio)';
+    return 'EmbedImagesImage(alt: $alt, image: $image, aspectRatio: $aspectRatio)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ImageImpl &&
+            other is _$EmbedImagesImageImpl &&
             (identical(other.alt, alt) || other.alt == alt) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.aspectRatio, aspectRatio) ||
@@ -185,24 +194,26 @@ class _$ImageImpl implements _Image {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
-      __$$ImageImplCopyWithImpl<_$ImageImpl>(this, _$identity);
+  _$$EmbedImagesImageImplCopyWith<_$EmbedImagesImageImpl> get copyWith =>
+      __$$EmbedImagesImageImplCopyWithImpl<_$EmbedImagesImageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ImageImplToJson(
+    return _$$EmbedImagesImageImplToJson(
       this,
     );
   }
 }
 
-abstract class _Image implements Image {
-  const factory _Image(
+abstract class _EmbedImagesImage implements EmbedImagesImage {
+  const factory _EmbedImagesImage(
       {required final String alt,
       @blobConverter required final Blob image,
-      final AspectRatio? aspectRatio}) = _$ImageImpl;
+      final EmbedImagesAspectRatio? aspectRatio}) = _$EmbedImagesImageImpl;
 
-  factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
+  factory _EmbedImagesImage.fromJson(Map<String, dynamic> json) =
+      _$EmbedImagesImageImpl.fromJson;
 
   @override
   String get alt;
@@ -210,9 +221,9 @@ abstract class _Image implements Image {
   @blobConverter
   Blob get image;
   @override
-  AspectRatio? get aspectRatio;
+  EmbedImagesAspectRatio? get aspectRatio;
   @override
   @JsonKey(ignore: true)
-  _$$ImageImplCopyWith<_$ImageImpl> get copyWith =>
+  _$$EmbedImagesImageImplCopyWith<_$EmbedImagesImageImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

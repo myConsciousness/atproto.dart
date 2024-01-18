@@ -8,15 +8,19 @@ part of 'thread_view_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
-      r'_$ThreadViewPrefImpl',
+_$ActorDefsThreadViewPrefImpl _$$ActorDefsThreadViewPrefImplFromJson(
+        Map json) =>
+    $checkedCreate(
+      r'_$ActorDefsThreadViewPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ThreadViewPrefImpl(
+        final val = _$ActorDefsThreadViewPrefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsThreadViewPref),
-          sort: $checkedConvert('sort',
-              (v) => $enumDecodeNullable(_$ThreadViewPrefSortEnumMap, v)),
+          sort: $checkedConvert(
+              'sort',
+              (v) =>
+                  $enumDecodeNullable(_$ActorDefsThreadViewPrefSortEnumMap, v)),
           prioritizeFollowedUsers: $checkedConvert(
               'prioritizeFollowedUsers', (v) => v as bool? ?? false),
         );
@@ -25,8 +29,8 @@ _$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ThreadViewPrefImplToJson(
-    _$ThreadViewPrefImpl instance) {
+Map<String, dynamic> _$$ActorDefsThreadViewPrefImplToJson(
+    _$ActorDefsThreadViewPrefImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };
@@ -37,14 +41,14 @@ Map<String, dynamic> _$$ThreadViewPrefImplToJson(
     }
   }
 
-  writeNotNull('sort', _$ThreadViewPrefSortEnumMap[instance.sort]);
+  writeNotNull('sort', _$ActorDefsThreadViewPrefSortEnumMap[instance.sort]);
   val['prioritizeFollowedUsers'] = instance.prioritizeFollowedUsers;
   return val;
 }
 
-const _$ThreadViewPrefSortEnumMap = {
-  ThreadViewPrefSort.oldest: 'oldest',
-  ThreadViewPrefSort.newest: 'newest',
-  ThreadViewPrefSort.mostLikes: 'most-likes',
-  ThreadViewPrefSort.random: 'random',
+const _$ActorDefsThreadViewPrefSortEnumMap = {
+  ActorDefsThreadViewPrefSort.oldest: 'oldest',
+  ActorDefsThreadViewPrefSort.newest: 'newest',
+  ActorDefsThreadViewPrefSort.mostLikes: 'most-likes',
+  ActorDefsThreadViewPrefSort.random: 'random',
 };

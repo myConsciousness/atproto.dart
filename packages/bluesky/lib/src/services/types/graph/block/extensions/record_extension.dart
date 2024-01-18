@@ -3,8 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../record.dart' as graph_block;
+import '../record.dart';
 
-extension RecordExtension on graph_block.Record {
+extension GraphBlockRecordExtension on GraphBlockRecord {
   String get did => subject;
 }

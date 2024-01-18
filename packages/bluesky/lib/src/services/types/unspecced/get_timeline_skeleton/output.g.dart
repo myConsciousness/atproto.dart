@@ -8,24 +8,27 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$OutputImpl(
-          feed: $checkedConvert(
-              'feed',
-              (v) => (v as List<dynamic>)
-                  .map((e) => SkeletonFeedPost.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
-          cursor: $checkedConvert('cursor', (v) => v as String?),
+_$UnspeccedGetTimelineSkeletonOutputImpl
+    _$$UnspeccedGetTimelineSkeletonOutputImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$UnspeccedGetTimelineSkeletonOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$UnspeccedGetTimelineSkeletonOutputImpl(
+              feed: $checkedConvert(
+                  'feed',
+                  (v) => (v as List<dynamic>)
+                      .map((e) => FeedDefsSkeletonFeedPost.fromJson(
+                          Map<String, Object?>.from(e as Map)))
+                      .toList()),
+              cursor: $checkedConvert('cursor', (v) => v as String?),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
+Map<String, dynamic> _$$UnspeccedGetTimelineSkeletonOutputImplToJson(
+    _$UnspeccedGetTimelineSkeletonOutputImpl instance) {
   final val = <String, dynamic>{
     'feed': instance.feed.map((e) => e.toJson()).toList(),
   };

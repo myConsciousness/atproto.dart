@@ -8,15 +8,17 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$FeedGetAuthorFeedOutputImpl _$$FeedGetAuthorFeedOutputImplFromJson(
+        Map json) =>
+    $checkedCreate(
+      r'_$FeedGetAuthorFeedOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$FeedGetAuthorFeedOutputImpl(
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedViewPost.fromJson(
+                  .map((e) => FeedDefsFeedViewPost.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
@@ -25,7 +27,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
+Map<String, dynamic> _$$FeedGetAuthorFeedOutputImplToJson(
+    _$FeedGetAuthorFeedOutputImpl instance) {
   final val = <String, dynamic>{
     'feed': instance.feed.map((e) => e.toJson()).toList(),
   };

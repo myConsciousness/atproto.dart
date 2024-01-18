@@ -6,14 +6,14 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../services/entities/post.dart';
+import '../../services/types/feed/defs/_z.dart';
 import 'moderation_object.dart';
 
 part 'moderation_subject_post.freezed.dart';
 
 @moderationObject
 class ModerationSubjectPost with _$ModerationSubjectPost {
-  const factory ModerationSubjectPost.post({
-    required Post data,
+  const factory ModerationSubjectPost.postView({
+    required FeedDefsPostView data,
   }) = UModerationSubjectPostPost;
 }

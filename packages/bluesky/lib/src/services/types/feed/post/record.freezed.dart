@@ -14,55 +14,57 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Record _$RecordFromJson(Map<String, dynamic> json) {
-  return _Record.fromJson(json);
+FeedPostRecord _$FeedPostRecordFromJson(Map<String, dynamic> json) {
+  return _FeedPostRecord.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Record {
+mixin _$FeedPostRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
-  ReplyRef? get reply => throw _privateConstructorUsedError;
+  FeedPostReplyRef? get reply => throw _privateConstructorUsedError;
   @unionRecordEmbed
   URecordEmbed? get embed => throw _privateConstructorUsedError;
   List<String>? get langs => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
-  List<Main>? get facets => throw _privateConstructorUsedError;
+  List<RichtextFacet>? get facets => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
+  $FeedPostRecordCopyWith<FeedPostRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecordCopyWith<$Res> {
-  factory $RecordCopyWith(Record value, $Res Function(Record) then) =
-      _$RecordCopyWithImpl<$Res, Record>;
+abstract class $FeedPostRecordCopyWith<$Res> {
+  factory $FeedPostRecordCopyWith(
+          FeedPostRecord value, $Res Function(FeedPostRecord) then) =
+      _$FeedPostRecordCopyWithImpl<$Res, FeedPostRecord>;
   @useResult
   $Res call(
       {@typeKey String type,
       String text,
-      ReplyRef? reply,
+      FeedPostReplyRef? reply,
       @unionRecordEmbed URecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<Main>? facets,
+      List<RichtextFacet>? facets,
       List<String>? tags,
       DateTime createdAt});
 
-  $ReplyRefCopyWith<$Res>? get reply;
+  $FeedPostReplyRefCopyWith<$Res>? get reply;
   $URecordEmbedCopyWith<$Res>? get embed;
   $LabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
-class _$RecordCopyWithImpl<$Res, $Val extends Record>
-    implements $RecordCopyWith<$Res> {
-  _$RecordCopyWithImpl(this._value, this._then);
+class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
+    implements $FeedPostRecordCopyWith<$Res> {
+  _$FeedPostRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -94,7 +96,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as ReplyRef?,
+              as FeedPostReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -110,7 +112,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Main>?,
+              as List<RichtextFacet>?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -124,12 +126,12 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 
   @override
   @pragma('vm:prefer-inline')
-  $ReplyRefCopyWith<$Res>? get reply {
+  $FeedPostReplyRefCopyWith<$Res>? get reply {
     if (_value.reply == null) {
       return null;
     }
 
-    return $ReplyRefCopyWith<$Res>(_value.reply!, (value) {
+    return $FeedPostReplyRefCopyWith<$Res>(_value.reply!, (value) {
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
@@ -160,25 +162,26 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 }
 
 /// @nodoc
-abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
-  factory _$$RecordImplCopyWith(
-          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
-      __$$RecordImplCopyWithImpl<$Res>;
+abstract class _$$FeedPostRecordImplCopyWith<$Res>
+    implements $FeedPostRecordCopyWith<$Res> {
+  factory _$$FeedPostRecordImplCopyWith(_$FeedPostRecordImpl value,
+          $Res Function(_$FeedPostRecordImpl) then) =
+      __$$FeedPostRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       String text,
-      ReplyRef? reply,
+      FeedPostReplyRef? reply,
       @unionRecordEmbed URecordEmbed? embed,
       List<String>? langs,
       @labelsConverter Labels? labels,
-      List<Main>? facets,
+      List<RichtextFacet>? facets,
       List<String>? tags,
       DateTime createdAt});
 
   @override
-  $ReplyRefCopyWith<$Res>? get reply;
+  $FeedPostReplyRefCopyWith<$Res>? get reply;
   @override
   $URecordEmbedCopyWith<$Res>? get embed;
   @override
@@ -186,11 +189,11 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RecordImplCopyWithImpl<$Res>
-    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
-    implements _$$RecordImplCopyWith<$Res> {
-  __$$RecordImplCopyWithImpl(
-      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
+class __$$FeedPostRecordImplCopyWithImpl<$Res>
+    extends _$FeedPostRecordCopyWithImpl<$Res, _$FeedPostRecordImpl>
+    implements _$$FeedPostRecordImplCopyWith<$Res> {
+  __$$FeedPostRecordImplCopyWithImpl(
+      _$FeedPostRecordImpl _value, $Res Function(_$FeedPostRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -206,7 +209,7 @@ class __$$RecordImplCopyWithImpl<$Res>
     Object? tags = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$RecordImpl(
+    return _then(_$FeedPostRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -218,7 +221,7 @@ class __$$RecordImplCopyWithImpl<$Res>
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
-              as ReplyRef?,
+              as FeedPostReplyRef?,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -234,7 +237,7 @@ class __$$RecordImplCopyWithImpl<$Res>
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Main>?,
+              as List<RichtextFacet>?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -250,23 +253,23 @@ class __$$RecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$RecordImpl implements _Record {
-  const _$RecordImpl(
+class _$FeedPostRecordImpl implements _FeedPostRecord {
+  const _$FeedPostRecordImpl(
       {@typeKey this.type = appBskyFeedPost,
       required this.text,
       this.reply,
       @unionRecordEmbed this.embed,
       final List<String>? langs,
       @labelsConverter this.labels,
-      final List<Main>? facets,
+      final List<RichtextFacet>? facets,
       final List<String>? tags,
       required this.createdAt})
       : _langs = langs,
         _facets = facets,
         _tags = tags;
 
-  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordImplFromJson(json);
+  factory _$FeedPostRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedPostRecordImplFromJson(json);
 
   @override
   @typeKey
@@ -274,7 +277,7 @@ class _$RecordImpl implements _Record {
   @override
   final String text;
   @override
-  final ReplyRef? reply;
+  final FeedPostReplyRef? reply;
   @override
   @unionRecordEmbed
   final URecordEmbed? embed;
@@ -291,9 +294,9 @@ class _$RecordImpl implements _Record {
   @override
   @labelsConverter
   final Labels? labels;
-  final List<Main>? _facets;
+  final List<RichtextFacet>? _facets;
   @override
-  List<Main>? get facets {
+  List<RichtextFacet>? get facets {
     final value = _facets;
     if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
@@ -316,14 +319,14 @@ class _$RecordImpl implements _Record {
 
   @override
   String toString() {
-    return 'Record(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt)';
+    return 'FeedPostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordImpl &&
+            other is _$FeedPostRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.text, text) || other.text == text) &&
             (identical(other.reply, reply) || other.reply == reply) &&
@@ -353,30 +356,32 @@ class _$RecordImpl implements _Record {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
+  _$$FeedPostRecordImplCopyWith<_$FeedPostRecordImpl> get copyWith =>
+      __$$FeedPostRecordImplCopyWithImpl<_$FeedPostRecordImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RecordImplToJson(
+    return _$$FeedPostRecordImplToJson(
       this,
     );
   }
 }
 
-abstract class _Record implements Record {
-  const factory _Record(
+abstract class _FeedPostRecord implements FeedPostRecord {
+  const factory _FeedPostRecord(
       {@typeKey final String type,
       required final String text,
-      final ReplyRef? reply,
+      final FeedPostReplyRef? reply,
       @unionRecordEmbed final URecordEmbed? embed,
       final List<String>? langs,
       @labelsConverter final Labels? labels,
-      final List<Main>? facets,
+      final List<RichtextFacet>? facets,
       final List<String>? tags,
-      required final DateTime createdAt}) = _$RecordImpl;
+      required final DateTime createdAt}) = _$FeedPostRecordImpl;
 
-  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
+  factory _FeedPostRecord.fromJson(Map<String, dynamic> json) =
+      _$FeedPostRecordImpl.fromJson;
 
   @override
   @typeKey
@@ -384,7 +389,7 @@ abstract class _Record implements Record {
   @override
   String get text;
   @override
-  ReplyRef? get reply;
+  FeedPostReplyRef? get reply;
   @override
   @unionRecordEmbed
   URecordEmbed? get embed;
@@ -394,13 +399,13 @@ abstract class _Record implements Record {
   @labelsConverter
   Labels? get labels;
   @override
-  List<Main>? get facets;
+  List<RichtextFacet>? get facets;
   @override
   List<String>? get tags;
   @override
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
+  _$$FeedPostRecordImplCopyWith<_$FeedPostRecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

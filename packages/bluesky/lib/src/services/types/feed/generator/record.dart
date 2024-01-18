@@ -21,18 +21,19 @@ part 'record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedGenerator].
 @freezed
-class Record with _$Record {
+class FeedGeneratorRecord with _$FeedGeneratorRecord {
   @jsonSerializable
-  const factory Record({
+  const factory FeedGeneratorRecord({
     @typeKey @Default(appBskyFeedGenerator) String type,
     required String did,
     required String displayName,
     String? description,
-    List<Main>? descriptionFacets,
+    List<RichtextFacet>? descriptionFacets,
     Blob? avatar,
     @labelsConverter Labels? labels,
     required DateTime createdAt,
-  }) = _Record;
+  }) = _FeedGeneratorRecord;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+  factory FeedGeneratorRecord.fromJson(Map<String, Object?> json) =>
+      _$FeedGeneratorRecordFromJson(json);
 }

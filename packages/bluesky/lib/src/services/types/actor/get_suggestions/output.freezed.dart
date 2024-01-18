@@ -14,31 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+ActorGetSuggestionsOutput _$ActorGetSuggestionsOutputFromJson(
+    Map<String, dynamic> json) {
+  return _ActorGetSuggestionsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<ProfileView> get actors => throw _privateConstructorUsedError;
+mixin _$ActorGetSuggestionsOutput {
+  List<ActorDefsProfileView> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $ActorGetSuggestionsOutputCopyWith<ActorGetSuggestionsOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $ActorGetSuggestionsOutputCopyWith<$Res> {
+  factory $ActorGetSuggestionsOutputCopyWith(ActorGetSuggestionsOutput value,
+          $Res Function(ActorGetSuggestionsOutput) then) =
+      _$ActorGetSuggestionsOutputCopyWithImpl<$Res, ActorGetSuggestionsOutput>;
   @useResult
-  $Res call({List<ProfileView> actors});
+  $Res call({List<ActorDefsProfileView> actors});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$ActorGetSuggestionsOutputCopyWithImpl<$Res,
+        $Val extends ActorGetSuggestionsOutput>
+    implements $ActorGetSuggestionsOutputCopyWith<$Res> {
+  _$ActorGetSuggestionsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,27 +58,31 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ProfileView>,
+              as List<ActorDefsProfileView>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$ActorGetSuggestionsOutputImplCopyWith<$Res>
+    implements $ActorGetSuggestionsOutputCopyWith<$Res> {
+  factory _$$ActorGetSuggestionsOutputImplCopyWith(
+          _$ActorGetSuggestionsOutputImpl value,
+          $Res Function(_$ActorGetSuggestionsOutputImpl) then) =
+      __$$ActorGetSuggestionsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ProfileView> actors});
+  $Res call({List<ActorDefsProfileView> actors});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$ActorGetSuggestionsOutputImplCopyWithImpl<$Res>
+    extends _$ActorGetSuggestionsOutputCopyWithImpl<$Res,
+        _$ActorGetSuggestionsOutputImpl>
+    implements _$$ActorGetSuggestionsOutputImplCopyWith<$Res> {
+  __$$ActorGetSuggestionsOutputImplCopyWithImpl(
+      _$ActorGetSuggestionsOutputImpl _value,
+      $Res Function(_$ActorGetSuggestionsOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -82,27 +90,28 @@ class __$$OutputImplCopyWithImpl<$Res>
   $Res call({
     Object? actors = null,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$ActorGetSuggestionsOutputImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ProfileView>,
+              as List<ActorDefsProfileView>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OutputImpl implements _Output {
-  const _$OutputImpl({required final List<ProfileView> actors})
+class _$ActorGetSuggestionsOutputImpl implements _ActorGetSuggestionsOutput {
+  const _$ActorGetSuggestionsOutputImpl(
+      {required final List<ActorDefsProfileView> actors})
       : _actors = actors;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$ActorGetSuggestionsOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorGetSuggestionsOutputImplFromJson(json);
 
-  final List<ProfileView> _actors;
+  final List<ActorDefsProfileView> _actors;
   @override
-  List<ProfileView> get actors {
+  List<ActorDefsProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -110,14 +119,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(actors: $actors)';
+    return 'ActorGetSuggestionsOutput(actors: $actors)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$ActorGetSuggestionsOutputImpl &&
             const DeepCollectionEquality().equals(other._actors, _actors));
   }
 
@@ -129,27 +138,30 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$ActorGetSuggestionsOutputImplCopyWith<_$ActorGetSuggestionsOutputImpl>
+      get copyWith => __$$ActorGetSuggestionsOutputImplCopyWithImpl<
+          _$ActorGetSuggestionsOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$ActorGetSuggestionsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output({required final List<ProfileView> actors}) =
-      _$OutputImpl;
+abstract class _ActorGetSuggestionsOutput implements ActorGetSuggestionsOutput {
+  const factory _ActorGetSuggestionsOutput(
+          {required final List<ActorDefsProfileView> actors}) =
+      _$ActorGetSuggestionsOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _ActorGetSuggestionsOutput.fromJson(Map<String, dynamic> json) =
+      _$ActorGetSuggestionsOutputImpl.fromJson;
 
   @override
-  List<ProfileView> get actors;
+  List<ActorDefsProfileView> get actors;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorGetSuggestionsOutputImplCopyWith<_$ActorGetSuggestionsOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

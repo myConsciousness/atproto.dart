@@ -8,18 +8,18 @@ part of 'main.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
-      r'_$MainImpl',
+_$EmbedImagesImpl _$$EmbedImagesImplFromJson(Map json) => $checkedCreate(
+      r'_$EmbedImagesImpl',
       json,
       ($checkedConvert) {
-        final val = _$MainImpl(
+        final val = _$EmbedImagesImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedImages),
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Image.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => EmbedImagesImage.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;
@@ -27,7 +27,7 @@ _$MainImpl _$$MainImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$MainImplToJson(_$MainImpl instance) =>
+Map<String, dynamic> _$$EmbedImagesImplToJson(_$EmbedImagesImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'images': instance.images.map((e) => e.toJson()).toList(),

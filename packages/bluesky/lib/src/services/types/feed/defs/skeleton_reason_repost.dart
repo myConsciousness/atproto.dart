@@ -18,12 +18,12 @@ part 'skeleton_reason_repost.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#skeletonreasonrepost
 @freezed
 @lex.appBskyFeedDefsSkeletonReasonRepost
-class SkeletonReasonRepost with _$SkeletonReasonRepost {
-  const factory SkeletonReasonRepost({
+class FeedDefsSkeletonReasonRepost with _$FeedDefsSkeletonReasonRepost {
+  const factory FeedDefsSkeletonReasonRepost({
     @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,
     @atUriConverter required AtUri repost,
-  }) = _SkeletonReasonRepost;
+  }) = _FeedDefsSkeletonReasonRepost;
 
-  factory SkeletonReasonRepost.fromJson(Map<String, Object?> json) =>
-      _$SkeletonReasonRepostFromJson(json);
+  factory FeedDefsSkeletonReasonRepost.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsSkeletonReasonRepostFromJson(json);
 }

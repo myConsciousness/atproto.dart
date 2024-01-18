@@ -18,13 +18,13 @@ part 'skeleton_feed_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
 @lex.appBskyFeedDefsSkeletonFeedPost
-class SkeletonFeedPost with _$SkeletonFeedPost {
+class FeedDefsSkeletonFeedPost with _$FeedDefsSkeletonFeedPost {
   @jsonSerializable
-  const factory SkeletonFeedPost({
+  const factory FeedDefsSkeletonFeedPost({
     @atUriConverter required AtUri post,
     @unionSkeletonFeedPostReason USkeletonFeedPostReason? reason,
-  }) = _SkeletonFeedPost;
+  }) = _FeedDefsSkeletonFeedPost;
 
-  factory SkeletonFeedPost.fromJson(Map<String, Object?> json) =>
-      _$SkeletonFeedPostFromJson(json);
+  factory FeedDefsSkeletonFeedPost.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsSkeletonFeedPostFromJson(json);
 }

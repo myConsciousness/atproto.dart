@@ -17,16 +17,19 @@ part 'thread_view_post_replies.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
 class UThreadViewPostReplies with _$UThreadViewPostReplies {
+  // ignore: unused_element
+  const UThreadViewPostReplies._();
+
   const factory UThreadViewPostReplies.threadViewPost({
-    required ThreadViewPost data,
+    required FeedDefsThreadViewPost data,
   }) = UThreadViewPostRepliesThreadViewPost;
 
   const factory UThreadViewPostReplies.notFoundPost({
-    required NotFoundPost data,
+    required FeedDefsNotFoundPost data,
   }) = UThreadViewPostRepliesNotFoundPost;
 
   const factory UThreadViewPostReplies.blockedPost({
-    required BlockedPost data,
+    required FeedDefsBlockedPost data,
   }) = UThreadViewPostRepliesBlockedPost;
 
   const factory UThreadViewPostReplies.unknown({
@@ -47,17 +50,17 @@ final class _UThreadViewPostRepliesConverter
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
         return UThreadViewPostReplies.threadViewPost(
-          data: ThreadViewPost.fromJson(json),
+          data: FeedDefsThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return UThreadViewPostReplies.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return UThreadViewPostReplies.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 

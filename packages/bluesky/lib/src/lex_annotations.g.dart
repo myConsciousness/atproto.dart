@@ -103,16 +103,9 @@ const appBskyUnspeccedDefsSkeletonSearchActor =
 const appBskyUnspeccedSearchActorsSkeleton =
     LexObject(ids.appBskyUnspeccedSearchActorsSkeleton);
 
-/// `app.bsky.unspecced.getPopularFeedGenerators#main`
-const appBskyUnspeccedGetPopularFeedGenerators =
-    LexObject(ids.appBskyUnspeccedGetPopularFeedGenerators);
-
 /// `app.bsky.unspecced.searchPostsSkeleton#main`
 const appBskyUnspeccedSearchPostsSkeleton =
     LexObject(ids.appBskyUnspeccedSearchPostsSkeleton);
-
-/// `app.bsky.unspecced.getPopular#main`
-const appBskyUnspeccedGetPopular = LexObject(ids.appBskyUnspeccedGetPopular);
 
 /// `app.bsky.unspecced.getPopularFeedGenerators#main`
 const appBskyUnspeccedGetPopularFeedGenerators =

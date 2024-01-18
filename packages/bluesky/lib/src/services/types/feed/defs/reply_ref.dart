@@ -16,12 +16,12 @@ part 'reply_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
 @lex.appBskyFeedDefsReplyRef
-class ReplyRef with _$ReplyRef {
-  const factory ReplyRef({
+class FeedDefsReplyRef with _$FeedDefsReplyRef {
+  const factory FeedDefsReplyRef({
     @unionReplyRefRoot required UReplyRefRoot root,
     @unionReplyRefParent required UReplyRefParent parent,
-  }) = _ReplyRef;
+  }) = _FeedDefsReplyRef;
 
-  factory ReplyRef.fromJson(Map<String, Object?> json) =>
-      _$ReplyRefFromJson(json);
+  factory FeedDefsReplyRef.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsReplyRefFromJson(json);
 }

@@ -21,24 +21,27 @@ part 'view_record.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
 class UViewRecord with _$UViewRecord {
+  // ignore: unused_element
+  const UViewRecord._();
+
   const factory UViewRecord.viewRecord({
-    required ViewRecord data,
+    required EmbedRecordViewRecord data,
   }) = UViewRecordViewRecord;
 
   const factory UViewRecord.viewNotFound({
-    required ViewNotFound data,
+    required EmbedRecordViewNotFound data,
   }) = UViewRecordViewNotFound;
 
   const factory UViewRecord.viewBlocked({
-    required ViewBlocked data,
+    required EmbedRecordViewBlocked data,
   }) = UViewRecordViewBlocked;
 
   const factory UViewRecord.feedDefsGeneratorView({
-    required GeneratorView data,
+    required FeedDefsGeneratorView data,
   }) = UViewRecordFeedDefsGeneratorView;
 
   const factory UViewRecord.graphDefsListView({
-    required ListView data,
+    required GraphDefsListView data,
   }) = UViewRecordGraphDefsListView;
 
   const factory UViewRecord.unknown({
@@ -61,27 +64,27 @@ final class _UViewRecordConverter
 
       if (type == ids.appBskyEmbedRecordViewRecord) {
         return UViewRecord.viewRecord(
-          data: ViewRecord.fromJson(json),
+          data: EmbedRecordViewRecord.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordViewNotFound) {
         return UViewRecord.viewNotFound(
-          data: ViewNotFound.fromJson(json),
+          data: EmbedRecordViewNotFound.fromJson(json),
         );
       }
       if (type == ids.appBskyEmbedRecordViewBlocked) {
         return UViewRecord.viewBlocked(
-          data: ViewBlocked.fromJson(json),
+          data: EmbedRecordViewBlocked.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsGeneratorView) {
         return UViewRecord.feedDefsGeneratorView(
-          data: GeneratorView.fromJson(json),
+          data: FeedDefsGeneratorView.fromJson(json),
         );
       }
       if (type == ids.appBskyGraphDefsListView) {
         return UViewRecord.graphDefsListView(
-          data: ListView.fromJson(json),
+          data: GraphDefsListView.fromJson(json),
         );
       }
 

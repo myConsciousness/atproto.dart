@@ -14,35 +14,39 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-PersonalDetailsPref _$PersonalDetailsPrefFromJson(Map<String, dynamic> json) {
-  return _PersonalDetailsPref.fromJson(json);
+ActorDefsPersonalDetailsPref _$ActorDefsPersonalDetailsPrefFromJson(
+    Map<String, dynamic> json) {
+  return _ActorDefsPersonalDetailsPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$PersonalDetailsPref {
+mixin _$ActorDefsPersonalDetailsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   DateTime? get birthDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PersonalDetailsPrefCopyWith<PersonalDetailsPref> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ActorDefsPersonalDetailsPrefCopyWith<ActorDefsPersonalDetailsPref>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PersonalDetailsPrefCopyWith<$Res> {
-  factory $PersonalDetailsPrefCopyWith(
-          PersonalDetailsPref value, $Res Function(PersonalDetailsPref) then) =
-      _$PersonalDetailsPrefCopyWithImpl<$Res, PersonalDetailsPref>;
+abstract class $ActorDefsPersonalDetailsPrefCopyWith<$Res> {
+  factory $ActorDefsPersonalDetailsPrefCopyWith(
+          ActorDefsPersonalDetailsPref value,
+          $Res Function(ActorDefsPersonalDetailsPref) then) =
+      _$ActorDefsPersonalDetailsPrefCopyWithImpl<$Res,
+          ActorDefsPersonalDetailsPref>;
   @useResult
   $Res call({@typeKey String type, DateTime? birthDate});
 }
 
 /// @nodoc
-class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
-    implements $PersonalDetailsPrefCopyWith<$Res> {
-  _$PersonalDetailsPrefCopyWithImpl(this._value, this._then);
+class _$ActorDefsPersonalDetailsPrefCopyWithImpl<$Res,
+        $Val extends ActorDefsPersonalDetailsPref>
+    implements $ActorDefsPersonalDetailsPrefCopyWith<$Res> {
+  _$ActorDefsPersonalDetailsPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +73,25 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
 }
 
 /// @nodoc
-abstract class _$$PersonalDetailsPrefImplCopyWith<$Res>
-    implements $PersonalDetailsPrefCopyWith<$Res> {
-  factory _$$PersonalDetailsPrefImplCopyWith(_$PersonalDetailsPrefImpl value,
-          $Res Function(_$PersonalDetailsPrefImpl) then) =
-      __$$PersonalDetailsPrefImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsPersonalDetailsPrefImplCopyWith<$Res>
+    implements $ActorDefsPersonalDetailsPrefCopyWith<$Res> {
+  factory _$$ActorDefsPersonalDetailsPrefImplCopyWith(
+          _$ActorDefsPersonalDetailsPrefImpl value,
+          $Res Function(_$ActorDefsPersonalDetailsPrefImpl) then) =
+      __$$ActorDefsPersonalDetailsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, DateTime? birthDate});
 }
 
 /// @nodoc
-class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
-    extends _$PersonalDetailsPrefCopyWithImpl<$Res, _$PersonalDetailsPrefImpl>
-    implements _$$PersonalDetailsPrefImplCopyWith<$Res> {
-  __$$PersonalDetailsPrefImplCopyWithImpl(_$PersonalDetailsPrefImpl _value,
-      $Res Function(_$PersonalDetailsPrefImpl) _then)
+class __$$ActorDefsPersonalDetailsPrefImplCopyWithImpl<$Res>
+    extends _$ActorDefsPersonalDetailsPrefCopyWithImpl<$Res,
+        _$ActorDefsPersonalDetailsPrefImpl>
+    implements _$$ActorDefsPersonalDetailsPrefImplCopyWith<$Res> {
+  __$$ActorDefsPersonalDetailsPrefImplCopyWithImpl(
+      _$ActorDefsPersonalDetailsPrefImpl _value,
+      $Res Function(_$ActorDefsPersonalDetailsPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +100,7 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? birthDate = freezed,
   }) {
-    return _then(_$PersonalDetailsPrefImpl(
+    return _then(_$ActorDefsPersonalDetailsPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -109,13 +116,15 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
-  const _$PersonalDetailsPrefImpl(
+class _$ActorDefsPersonalDetailsPrefImpl
+    implements _ActorDefsPersonalDetailsPref {
+  const _$ActorDefsPersonalDetailsPrefImpl(
       {@typeKey this.type = appBskyActorDefsPersonalDetailsPref,
       this.birthDate});
 
-  factory _$PersonalDetailsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PersonalDetailsPrefImplFromJson(json);
+  factory _$ActorDefsPersonalDetailsPrefImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$ActorDefsPersonalDetailsPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -125,14 +134,14 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
 
   @override
   String toString() {
-    return 'PersonalDetailsPref(type: $type, birthDate: $birthDate)';
+    return 'ActorDefsPersonalDetailsPref(type: $type, birthDate: $birthDate)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PersonalDetailsPrefImpl &&
+            other is _$ActorDefsPersonalDetailsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate));
@@ -145,25 +154,27 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PersonalDetailsPrefImplCopyWith<_$PersonalDetailsPrefImpl> get copyWith =>
-      __$$PersonalDetailsPrefImplCopyWithImpl<_$PersonalDetailsPrefImpl>(
-          this, _$identity);
+  _$$ActorDefsPersonalDetailsPrefImplCopyWith<
+          _$ActorDefsPersonalDetailsPrefImpl>
+      get copyWith => __$$ActorDefsPersonalDetailsPrefImplCopyWithImpl<
+          _$ActorDefsPersonalDetailsPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PersonalDetailsPrefImplToJson(
+    return _$$ActorDefsPersonalDetailsPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _PersonalDetailsPref implements PersonalDetailsPref {
-  const factory _PersonalDetailsPref(
+abstract class _ActorDefsPersonalDetailsPref
+    implements ActorDefsPersonalDetailsPref {
+  const factory _ActorDefsPersonalDetailsPref(
       {@typeKey final String type,
-      final DateTime? birthDate}) = _$PersonalDetailsPrefImpl;
+      final DateTime? birthDate}) = _$ActorDefsPersonalDetailsPrefImpl;
 
-  factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) =
-      _$PersonalDetailsPrefImpl.fromJson;
+  factory _ActorDefsPersonalDetailsPref.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsPersonalDetailsPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -172,6 +183,7 @@ abstract class _PersonalDetailsPref implements PersonalDetailsPref {
   DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)
-  _$$PersonalDetailsPrefImplCopyWith<_$PersonalDetailsPrefImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsPersonalDetailsPrefImplCopyWith<
+          _$ActorDefsPersonalDetailsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

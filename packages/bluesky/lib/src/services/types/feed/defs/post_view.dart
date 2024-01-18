@@ -14,7 +14,7 @@ import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../actor/defs/profile_view_basic.dart';
 import '../post/converter/record_converter.dart';
-import '../post/record.dart' as feed_post;
+import '../post/record.dart';
 import 'threadgate_view.dart';
 import 'unions/post_view_embed.dart';
 import 'viewer_state.dart';
@@ -25,24 +25,24 @@ part 'post_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
 @lex.appBskyFeedDefsPostView
-class PostView with _$PostView {
+class FeedDefsPostView with _$FeedDefsPostView {
   @jsonSerializable
-  const factory PostView({
+  const factory FeedDefsPostView({
     @typeKey @Default(appBskyFeedDefsPostView) String type,
-    @recordConverter required feed_post.Record record,
-    required ProfileViewBasic author,
+    @recordConverter required FeedPostRecord record,
+    required ActorDefsProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,
     @unionPostViewEmbed UPostViewEmbed? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
-    @Default(defaultFeedDefsViewerState) ViewerState viewer,
+    @Default(defaultFeedDefsViewerState) FeedDefsViewerState viewer,
     List<Label>? labels,
-    ThreadgateView? threadgate,
+    FeedDefsThreadgateView? threadgate,
     required DateTime indexedAt,
-  }) = _PostView;
+  }) = _FeedDefsPostView;
 
-  factory PostView.fromJson(Map<String, Object?> json) =>
-      _$PostViewFromJson(json);
+  factory FeedDefsPostView.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsPostViewFromJson(json);
 }

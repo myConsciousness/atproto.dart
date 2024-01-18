@@ -19,14 +19,14 @@ part 'content_label_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#contentlabelpref
 @freezed
 @lex.appBskyActorDefsContentLabelPref
-class ContentLabelPref with _$ContentLabelPref {
+class ActorDefsContentLabelPref with _$ActorDefsContentLabelPref {
   @jsonSerializable
-  const factory ContentLabelPref({
+  const factory ActorDefsContentLabelPref({
     @typeKey @Default(appBskyActorDefsContentLabelPref) String type,
     required String label,
-    required ContentLabelPrefVisibility visibility,
-  }) = _ContentLabelPref;
+    required ActorDefsContentLabelPrefVisibility visibility,
+  }) = _ActorDefsContentLabelPref;
 
-  factory ContentLabelPref.fromJson(Map<String, Object?> json) =>
-      _$ContentLabelPrefFromJson(json);
+  factory ActorDefsContentLabelPref.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsContentLabelPrefFromJson(json);
 }

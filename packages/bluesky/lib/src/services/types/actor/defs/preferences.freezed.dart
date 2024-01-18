@@ -14,36 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
-  return _Preferences.fromJson(json);
+ActorDefsPreferences _$ActorDefsPreferencesFromJson(Map<String, dynamic> json) {
+  return _ActorDefsPreferences.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Preferences {
+mixin _$ActorDefsPreferences {
   @unionPreferencesPreferences
   List<UPreferencesPreferences> get preferences =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $PreferencesCopyWith<Preferences> get copyWith =>
+  $ActorDefsPreferencesCopyWith<ActorDefsPreferences> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PreferencesCopyWith<$Res> {
-  factory $PreferencesCopyWith(
-          Preferences value, $Res Function(Preferences) then) =
-      _$PreferencesCopyWithImpl<$Res, Preferences>;
+abstract class $ActorDefsPreferencesCopyWith<$Res> {
+  factory $ActorDefsPreferencesCopyWith(ActorDefsPreferences value,
+          $Res Function(ActorDefsPreferences) then) =
+      _$ActorDefsPreferencesCopyWithImpl<$Res, ActorDefsPreferences>;
   @useResult
   $Res call(
       {@unionPreferencesPreferences List<UPreferencesPreferences> preferences});
 }
 
 /// @nodoc
-class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
-    implements $PreferencesCopyWith<$Res> {
-  _$PreferencesCopyWithImpl(this._value, this._then);
+class _$ActorDefsPreferencesCopyWithImpl<$Res,
+        $Val extends ActorDefsPreferences>
+    implements $ActorDefsPreferencesCopyWith<$Res> {
+  _$ActorDefsPreferencesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -65,11 +66,11 @@ class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
 }
 
 /// @nodoc
-abstract class _$$PreferencesImplCopyWith<$Res>
-    implements $PreferencesCopyWith<$Res> {
-  factory _$$PreferencesImplCopyWith(
-          _$PreferencesImpl value, $Res Function(_$PreferencesImpl) then) =
-      __$$PreferencesImplCopyWithImpl<$Res>;
+abstract class _$$ActorDefsPreferencesImplCopyWith<$Res>
+    implements $ActorDefsPreferencesCopyWith<$Res> {
+  factory _$$ActorDefsPreferencesImplCopyWith(_$ActorDefsPreferencesImpl value,
+          $Res Function(_$ActorDefsPreferencesImpl) then) =
+      __$$ActorDefsPreferencesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -77,11 +78,11 @@ abstract class _$$PreferencesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PreferencesImplCopyWithImpl<$Res>
-    extends _$PreferencesCopyWithImpl<$Res, _$PreferencesImpl>
-    implements _$$PreferencesImplCopyWith<$Res> {
-  __$$PreferencesImplCopyWithImpl(
-      _$PreferencesImpl _value, $Res Function(_$PreferencesImpl) _then)
+class __$$ActorDefsPreferencesImplCopyWithImpl<$Res>
+    extends _$ActorDefsPreferencesCopyWithImpl<$Res, _$ActorDefsPreferencesImpl>
+    implements _$$ActorDefsPreferencesImplCopyWith<$Res> {
+  __$$ActorDefsPreferencesImplCopyWithImpl(_$ActorDefsPreferencesImpl _value,
+      $Res Function(_$ActorDefsPreferencesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,7 +90,7 @@ class __$$PreferencesImplCopyWithImpl<$Res>
   $Res call({
     Object? preferences = null,
   }) {
-    return _then(_$PreferencesImpl(
+    return _then(_$ActorDefsPreferencesImpl(
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
@@ -100,14 +101,14 @@ class __$$PreferencesImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$PreferencesImpl implements _Preferences {
-  const _$PreferencesImpl(
+class _$ActorDefsPreferencesImpl implements _ActorDefsPreferences {
+  const _$ActorDefsPreferencesImpl(
       {@unionPreferencesPreferences
       required final List<UPreferencesPreferences> preferences})
       : _preferences = preferences;
 
-  factory _$PreferencesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PreferencesImplFromJson(json);
+  factory _$ActorDefsPreferencesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ActorDefsPreferencesImplFromJson(json);
 
   final List<UPreferencesPreferences> _preferences;
   @override
@@ -120,14 +121,14 @@ class _$PreferencesImpl implements _Preferences {
 
   @override
   String toString() {
-    return 'Preferences(preferences: $preferences)';
+    return 'ActorDefsPreferences(preferences: $preferences)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PreferencesImpl &&
+            other is _$ActorDefsPreferencesImpl &&
             const DeepCollectionEquality()
                 .equals(other._preferences, _preferences));
   }
@@ -140,31 +141,33 @@ class _$PreferencesImpl implements _Preferences {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
-      __$$PreferencesImplCopyWithImpl<_$PreferencesImpl>(this, _$identity);
+  _$$ActorDefsPreferencesImplCopyWith<_$ActorDefsPreferencesImpl>
+      get copyWith =>
+          __$$ActorDefsPreferencesImplCopyWithImpl<_$ActorDefsPreferencesImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$PreferencesImplToJson(
+    return _$$ActorDefsPreferencesImplToJson(
       this,
     );
   }
 }
 
-abstract class _Preferences implements Preferences {
-  const factory _Preferences(
+abstract class _ActorDefsPreferences implements ActorDefsPreferences {
+  const factory _ActorDefsPreferences(
           {@unionPreferencesPreferences
           required final List<UPreferencesPreferences> preferences}) =
-      _$PreferencesImpl;
+      _$ActorDefsPreferencesImpl;
 
-  factory _Preferences.fromJson(Map<String, dynamic> json) =
-      _$PreferencesImpl.fromJson;
+  factory _ActorDefsPreferences.fromJson(Map<String, dynamic> json) =
+      _$ActorDefsPreferencesImpl.fromJson;
 
   @override
   @unionPreferencesPreferences
   List<UPreferencesPreferences> get preferences;
   @override
   @JsonKey(ignore: true)
-  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$ActorDefsPreferencesImplCopyWith<_$ActorDefsPreferencesImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

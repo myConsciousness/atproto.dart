@@ -19,16 +19,19 @@ part 'main_features.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 class UMainFeatures with _$UMainFeatures {
+  // ignore: unused_element
+  const UMainFeatures._();
+
   const factory UMainFeatures.mention({
-    required Mention data,
+    required RichtextFacetMention data,
   }) = UMainFeaturesMention;
 
   const factory UMainFeatures.link({
-    required Link data,
+    required RichtextFacetLink data,
   }) = UMainFeaturesLink;
 
   const factory UMainFeatures.tag({
-    required Tag data,
+    required RichtextFacetTag data,
   }) = UMainFeaturesTag;
 
   const factory UMainFeatures.unknown({
@@ -51,17 +54,17 @@ final class _UMainFeaturesConverter
 
       if (type == ids.appBskyRichtextFacetLink) {
         return UMainFeatures.link(
-          data: Link.fromJson(json),
+          data: RichtextFacetLink.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetMention) {
         return UMainFeatures.mention(
-          data: Mention.fromJson(json),
+          data: RichtextFacetMention.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetTag) {
         return UMainFeatures.tag(
-          data: Tag.fromJson(json),
+          data: RichtextFacetTag.fromJson(json),
         );
       }
 

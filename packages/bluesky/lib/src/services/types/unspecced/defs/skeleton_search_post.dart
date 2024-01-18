@@ -17,11 +17,11 @@ part 'skeleton_search_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
 @lex.appBskyUnspeccedDefsSkeletonSearchPost
-class SkeletonSearchPost with _$SkeletonSearchPost {
-  const factory SkeletonSearchPost({
+class UnspeccedDefsSkeletonSearchPost with _$UnspeccedDefsSkeletonSearchPost {
+  const factory UnspeccedDefsSkeletonSearchPost({
     @atUriConverter required AtUri uri,
-  }) = _SkeletonSearchPost;
+  }) = _UnspeccedDefsSkeletonSearchPost;
 
-  factory SkeletonSearchPost.fromJson(Map<String, Object?> json) =>
-      _$SkeletonSearchPostFromJson(json);
+  factory UnspeccedDefsSkeletonSearchPost.fromJson(Map<String, Object?> json) =>
+      _$UnspeccedDefsSkeletonSearchPostFromJson(json);
 }

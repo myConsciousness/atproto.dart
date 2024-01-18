@@ -134,8 +134,9 @@ class __$$UModerationCreateReportSubjectRepoRefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UModerationCreateReportSubjectRepoRefImpl
-    implements UModerationCreateReportSubjectRepoRef {
-  const _$UModerationCreateReportSubjectRepoRefImpl({required this.data});
+    extends UModerationCreateReportSubjectRepoRef {
+  const _$UModerationCreateReportSubjectRepoRefImpl({required this.data})
+      : super._();
 
   @override
   final AdminDefsRepoRef data;
@@ -237,10 +238,11 @@ class _$UModerationCreateReportSubjectRepoRefImpl
 }
 
 abstract class UModerationCreateReportSubjectRepoRef
-    implements ModerationCreateReportSubjectRefs {
+    extends ModerationCreateReportSubjectRefs {
   const factory UModerationCreateReportSubjectRepoRef(
           {required final AdminDefsRepoRef data}) =
       _$UModerationCreateReportSubjectRepoRefImpl;
+  const UModerationCreateReportSubjectRepoRef._() : super._();
 
   @override
   AdminDefsRepoRef get data;
@@ -297,8 +299,9 @@ class __$$UModerationCreateReportSubjectStrongRefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UModerationCreateReportSubjectStrongRefImpl
-    implements UModerationCreateReportSubjectStrongRef {
-  const _$UModerationCreateReportSubjectStrongRefImpl({required this.data});
+    extends UModerationCreateReportSubjectStrongRef {
+  const _$UModerationCreateReportSubjectStrongRefImpl({required this.data})
+      : super._();
 
   @override
   final RepoStrongRef data;
@@ -401,10 +404,11 @@ class _$UModerationCreateReportSubjectStrongRefImpl
 }
 
 abstract class UModerationCreateReportSubjectStrongRef
-    implements ModerationCreateReportSubjectRefs {
+    extends ModerationCreateReportSubjectRefs {
   const factory UModerationCreateReportSubjectStrongRef(
           {required final RepoStrongRef data}) =
       _$UModerationCreateReportSubjectStrongRefImpl;
+  const UModerationCreateReportSubjectStrongRef._() : super._();
 
   @override
   RepoStrongRef get data;
@@ -451,10 +455,11 @@ class __$$UModerationCreateReportSubjectUnknownImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UModerationCreateReportSubjectUnknownImpl
-    implements UModerationCreateReportSubjectUnknown {
+    extends UModerationCreateReportSubjectUnknown {
   const _$UModerationCreateReportSubjectUnknownImpl(
       {required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -562,10 +567,11 @@ class _$UModerationCreateReportSubjectUnknownImpl
 }
 
 abstract class UModerationCreateReportSubjectUnknown
-    implements ModerationCreateReportSubjectRefs {
+    extends ModerationCreateReportSubjectRefs {
   const factory UModerationCreateReportSubjectUnknown(
           {required final Map<String, dynamic> data}) =
       _$UModerationCreateReportSubjectUnknownImpl;
+  const UModerationCreateReportSubjectUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

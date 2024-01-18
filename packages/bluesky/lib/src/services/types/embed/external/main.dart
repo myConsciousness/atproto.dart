@@ -19,11 +19,12 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#main
 @freezed
 @lex.appBskyEmbedExternal
-class Main with _$Main {
-  const factory Main({
+class EmbedExternal with _$EmbedExternal {
+  const factory EmbedExternal({
     @typeKey @Default(appBskyEmbedExternal) String type,
-    required External external,
-  }) = _Main;
+    required EmbedExternalExternal external,
+  }) = _EmbedExternal;
 
-  factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
+  factory EmbedExternal.fromJson(Map<String, Object?> json) =>
+      _$EmbedExternalFromJson(json);
 }

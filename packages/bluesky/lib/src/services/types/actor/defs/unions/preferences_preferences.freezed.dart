@@ -19,34 +19,35 @@ mixin _$UPreferencesPreferences {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -129,9 +130,9 @@ abstract class _$$UPreferencesPreferencesAdultContentPrefImplCopyWith<$Res> {
           $Res Function(_$UPreferencesPreferencesAdultContentPrefImpl) then) =
       __$$UPreferencesPreferencesAdultContentPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({AdultContentPref data});
+  $Res call({ActorDefsAdultContentPref data});
 
-  $AdultContentPrefCopyWith<$Res> get data;
+  $ActorDefsAdultContentPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -153,14 +154,14 @@ class __$$UPreferencesPreferencesAdultContentPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as AdultContentPref,
+              as ActorDefsAdultContentPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $AdultContentPrefCopyWith<$Res> get data {
-    return $AdultContentPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsAdultContentPrefCopyWith<$Res> get data {
+    return $ActorDefsAdultContentPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -169,11 +170,12 @@ class __$$UPreferencesPreferencesAdultContentPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesAdultContentPrefImpl
-    implements UPreferencesPreferencesAdultContentPref {
-  const _$UPreferencesPreferencesAdultContentPrefImpl({required this.data});
+    extends UPreferencesPreferencesAdultContentPref {
+  const _$UPreferencesPreferencesAdultContentPrefImpl({required this.data})
+      : super._();
 
   @override
-  final AdultContentPref data;
+  final ActorDefsAdultContentPref data;
 
   @override
   String toString() {
@@ -203,12 +205,13 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContentPref(data);
@@ -217,12 +220,12 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContentPref?.call(data);
@@ -231,12 +234,12 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -310,13 +313,14 @@ class _$UPreferencesPreferencesAdultContentPrefImpl
 }
 
 abstract class UPreferencesPreferencesAdultContentPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesAdultContentPref(
-          {required final AdultContentPref data}) =
+          {required final ActorDefsAdultContentPref data}) =
       _$UPreferencesPreferencesAdultContentPrefImpl;
+  const UPreferencesPreferencesAdultContentPref._() : super._();
 
   @override
-  AdultContentPref get data;
+  ActorDefsAdultContentPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesAdultContentPrefImplCopyWith<
           _$UPreferencesPreferencesAdultContentPrefImpl>
@@ -330,9 +334,9 @@ abstract class _$$UPreferencesPreferencesContentLabelPrefImplCopyWith<$Res> {
           $Res Function(_$UPreferencesPreferencesContentLabelPrefImpl) then) =
       __$$UPreferencesPreferencesContentLabelPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ContentLabelPref data});
+  $Res call({ActorDefsContentLabelPref data});
 
-  $ContentLabelPrefCopyWith<$Res> get data;
+  $ActorDefsContentLabelPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -354,14 +358,14 @@ class __$$UPreferencesPreferencesContentLabelPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ContentLabelPref,
+              as ActorDefsContentLabelPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ContentLabelPrefCopyWith<$Res> get data {
-    return $ContentLabelPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsContentLabelPrefCopyWith<$Res> get data {
+    return $ActorDefsContentLabelPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -370,11 +374,12 @@ class __$$UPreferencesPreferencesContentLabelPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesContentLabelPrefImpl
-    implements UPreferencesPreferencesContentLabelPref {
-  const _$UPreferencesPreferencesContentLabelPrefImpl({required this.data});
+    extends UPreferencesPreferencesContentLabelPref {
+  const _$UPreferencesPreferencesContentLabelPrefImpl({required this.data})
+      : super._();
 
   @override
-  final ContentLabelPref data;
+  final ActorDefsContentLabelPref data;
 
   @override
   String toString() {
@@ -404,12 +409,13 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabelPref(data);
@@ -418,12 +424,12 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabelPref?.call(data);
@@ -432,12 +438,12 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -511,13 +517,14 @@ class _$UPreferencesPreferencesContentLabelPrefImpl
 }
 
 abstract class UPreferencesPreferencesContentLabelPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesContentLabelPref(
-          {required final ContentLabelPref data}) =
+          {required final ActorDefsContentLabelPref data}) =
       _$UPreferencesPreferencesContentLabelPrefImpl;
+  const UPreferencesPreferencesContentLabelPref._() : super._();
 
   @override
-  ContentLabelPref get data;
+  ActorDefsContentLabelPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesContentLabelPrefImplCopyWith<
           _$UPreferencesPreferencesContentLabelPrefImpl>
@@ -531,9 +538,9 @@ abstract class _$$UPreferencesPreferencesSavedFeedsPrefImplCopyWith<$Res> {
           $Res Function(_$UPreferencesPreferencesSavedFeedsPrefImpl) then) =
       __$$UPreferencesPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({SavedFeedsPref data});
+  $Res call({ActorDefsSavedFeedsPref data});
 
-  $SavedFeedsPrefCopyWith<$Res> get data;
+  $ActorDefsSavedFeedsPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -555,14 +562,14 @@ class __$$UPreferencesPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as SavedFeedsPref,
+              as ActorDefsSavedFeedsPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $SavedFeedsPrefCopyWith<$Res> get data {
-    return $SavedFeedsPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsSavedFeedsPrefCopyWith<$Res> get data {
+    return $ActorDefsSavedFeedsPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -571,11 +578,12 @@ class __$$UPreferencesPreferencesSavedFeedsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesSavedFeedsPrefImpl
-    implements UPreferencesPreferencesSavedFeedsPref {
-  const _$UPreferencesPreferencesSavedFeedsPrefImpl({required this.data});
+    extends UPreferencesPreferencesSavedFeedsPref {
+  const _$UPreferencesPreferencesSavedFeedsPrefImpl({required this.data})
+      : super._();
 
   @override
-  final SavedFeedsPref data;
+  final ActorDefsSavedFeedsPref data;
 
   @override
   String toString() {
@@ -604,12 +612,13 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeedsPref(data);
@@ -618,12 +627,12 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeedsPref?.call(data);
@@ -632,12 +641,12 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -711,13 +720,14 @@ class _$UPreferencesPreferencesSavedFeedsPrefImpl
 }
 
 abstract class UPreferencesPreferencesSavedFeedsPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesSavedFeedsPref(
-          {required final SavedFeedsPref data}) =
+          {required final ActorDefsSavedFeedsPref data}) =
       _$UPreferencesPreferencesSavedFeedsPrefImpl;
+  const UPreferencesPreferencesSavedFeedsPref._() : super._();
 
   @override
-  SavedFeedsPref get data;
+  ActorDefsSavedFeedsPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesSavedFeedsPrefImplCopyWith<
           _$UPreferencesPreferencesSavedFeedsPrefImpl>
@@ -732,9 +742,9 @@ abstract class _$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWith<$Res> {
               then) =
       __$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({PersonalDetailsPref data});
+  $Res call({ActorDefsPersonalDetailsPref data});
 
-  $PersonalDetailsPrefCopyWith<$Res> get data;
+  $ActorDefsPersonalDetailsPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -756,14 +766,14 @@ class __$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as PersonalDetailsPref,
+              as ActorDefsPersonalDetailsPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PersonalDetailsPrefCopyWith<$Res> get data {
-    return $PersonalDetailsPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsPersonalDetailsPrefCopyWith<$Res> get data {
+    return $ActorDefsPersonalDetailsPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -772,11 +782,12 @@ class __$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesPersonalDetailsPrefImpl
-    implements UPreferencesPreferencesPersonalDetailsPref {
-  const _$UPreferencesPreferencesPersonalDetailsPrefImpl({required this.data});
+    extends UPreferencesPreferencesPersonalDetailsPref {
+  const _$UPreferencesPreferencesPersonalDetailsPrefImpl({required this.data})
+      : super._();
 
   @override
-  final PersonalDetailsPref data;
+  final ActorDefsPersonalDetailsPref data;
 
   @override
   String toString() {
@@ -807,12 +818,13 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetailsPref(data);
@@ -821,12 +833,12 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetailsPref?.call(data);
@@ -835,12 +847,12 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -914,13 +926,14 @@ class _$UPreferencesPreferencesPersonalDetailsPrefImpl
 }
 
 abstract class UPreferencesPreferencesPersonalDetailsPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesPersonalDetailsPref(
-          {required final PersonalDetailsPref data}) =
+          {required final ActorDefsPersonalDetailsPref data}) =
       _$UPreferencesPreferencesPersonalDetailsPrefImpl;
+  const UPreferencesPreferencesPersonalDetailsPref._() : super._();
 
   @override
-  PersonalDetailsPref get data;
+  ActorDefsPersonalDetailsPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesPersonalDetailsPrefImplCopyWith<
           _$UPreferencesPreferencesPersonalDetailsPrefImpl>
@@ -934,9 +947,9 @@ abstract class _$$UPreferencesPreferencesFeedViewPrefImplCopyWith<$Res> {
           $Res Function(_$UPreferencesPreferencesFeedViewPrefImpl) then) =
       __$$UPreferencesPreferencesFeedViewPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({FeedViewPref data});
+  $Res call({ActorDefsFeedViewPref data});
 
-  $FeedViewPrefCopyWith<$Res> get data;
+  $ActorDefsFeedViewPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -958,14 +971,14 @@ class __$$UPreferencesPreferencesFeedViewPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as FeedViewPref,
+              as ActorDefsFeedViewPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $FeedViewPrefCopyWith<$Res> get data {
-    return $FeedViewPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsFeedViewPrefCopyWith<$Res> get data {
+    return $ActorDefsFeedViewPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -974,11 +987,12 @@ class __$$UPreferencesPreferencesFeedViewPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesFeedViewPrefImpl
-    implements UPreferencesPreferencesFeedViewPref {
-  const _$UPreferencesPreferencesFeedViewPrefImpl({required this.data});
+    extends UPreferencesPreferencesFeedViewPref {
+  const _$UPreferencesPreferencesFeedViewPrefImpl({required this.data})
+      : super._();
 
   @override
-  final FeedViewPref data;
+  final ActorDefsFeedViewPref data;
 
   @override
   String toString() {
@@ -1007,12 +1021,13 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedViewPref(data);
@@ -1021,12 +1036,12 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedViewPref?.call(data);
@@ -1035,12 +1050,12 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1114,13 +1129,14 @@ class _$UPreferencesPreferencesFeedViewPrefImpl
 }
 
 abstract class UPreferencesPreferencesFeedViewPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesFeedViewPref(
-          {required final FeedViewPref data}) =
+          {required final ActorDefsFeedViewPref data}) =
       _$UPreferencesPreferencesFeedViewPrefImpl;
+  const UPreferencesPreferencesFeedViewPref._() : super._();
 
   @override
-  FeedViewPref get data;
+  ActorDefsFeedViewPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesFeedViewPrefImplCopyWith<
           _$UPreferencesPreferencesFeedViewPrefImpl>
@@ -1134,9 +1150,9 @@ abstract class _$$UPreferencesPreferencesThreadViewPrefImplCopyWith<$Res> {
           $Res Function(_$UPreferencesPreferencesThreadViewPrefImpl) then) =
       __$$UPreferencesPreferencesThreadViewPrefImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ThreadViewPref data});
+  $Res call({ActorDefsThreadViewPref data});
 
-  $ThreadViewPrefCopyWith<$Res> get data;
+  $ActorDefsThreadViewPrefCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -1158,14 +1174,14 @@ class __$$UPreferencesPreferencesThreadViewPrefImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPref,
+              as ActorDefsThreadViewPref,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ThreadViewPrefCopyWith<$Res> get data {
-    return $ThreadViewPrefCopyWith<$Res>(_value.data, (value) {
+  $ActorDefsThreadViewPrefCopyWith<$Res> get data {
+    return $ActorDefsThreadViewPrefCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -1174,11 +1190,12 @@ class __$$UPreferencesPreferencesThreadViewPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesThreadViewPrefImpl
-    implements UPreferencesPreferencesThreadViewPref {
-  const _$UPreferencesPreferencesThreadViewPrefImpl({required this.data});
+    extends UPreferencesPreferencesThreadViewPref {
+  const _$UPreferencesPreferencesThreadViewPrefImpl({required this.data})
+      : super._();
 
   @override
-  final ThreadViewPref data;
+  final ActorDefsThreadViewPref data;
 
   @override
   String toString() {
@@ -1207,12 +1224,13 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return threadViewPref(data);
@@ -1221,12 +1239,12 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return threadViewPref?.call(data);
@@ -1235,12 +1253,12 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1314,13 +1332,14 @@ class _$UPreferencesPreferencesThreadViewPrefImpl
 }
 
 abstract class UPreferencesPreferencesThreadViewPref
-    implements UPreferencesPreferences {
+    extends UPreferencesPreferences {
   const factory UPreferencesPreferencesThreadViewPref(
-          {required final ThreadViewPref data}) =
+          {required final ActorDefsThreadViewPref data}) =
       _$UPreferencesPreferencesThreadViewPrefImpl;
+  const UPreferencesPreferencesThreadViewPref._() : super._();
 
   @override
-  ThreadViewPref get data;
+  ActorDefsThreadViewPref get data;
   @JsonKey(ignore: true)
   _$$UPreferencesPreferencesThreadViewPrefImplCopyWith<
           _$UPreferencesPreferencesThreadViewPrefImpl>
@@ -1364,10 +1383,11 @@ class __$$UPreferencesPreferencesUnknownImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$UPreferencesPreferencesUnknownImpl
-    implements UPreferencesPreferencesUnknown {
+    extends UPreferencesPreferencesUnknown {
   const _$UPreferencesPreferencesUnknownImpl(
       {required final Map<String, dynamic> data})
-      : _data = data;
+      : _data = data,
+        super._();
 
   final Map<String, dynamic> _data;
   @override
@@ -1405,12 +1425,13 @@ class _$UPreferencesPreferencesUnknownImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(AdultContentPref data) adultContentPref,
-    required TResult Function(ContentLabelPref data) contentLabelPref,
-    required TResult Function(SavedFeedsPref data) savedFeedsPref,
-    required TResult Function(PersonalDetailsPref data) personalDetailsPref,
-    required TResult Function(FeedViewPref data) feedViewPref,
-    required TResult Function(ThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1419,12 +1440,12 @@ class _$UPreferencesPreferencesUnknownImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(AdultContentPref data)? adultContentPref,
-    TResult? Function(ContentLabelPref data)? contentLabelPref,
-    TResult? Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult? Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult? Function(FeedViewPref data)? feedViewPref,
-    TResult? Function(ThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1433,12 +1454,12 @@ class _$UPreferencesPreferencesUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(AdultContentPref data)? adultContentPref,
-    TResult Function(ContentLabelPref data)? contentLabelPref,
-    TResult Function(SavedFeedsPref data)? savedFeedsPref,
-    TResult Function(PersonalDetailsPref data)? personalDetailsPref,
-    TResult Function(FeedViewPref data)? feedViewPref,
-    TResult Function(ThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1511,11 +1532,11 @@ class _$UPreferencesPreferencesUnknownImpl
   }
 }
 
-abstract class UPreferencesPreferencesUnknown
-    implements UPreferencesPreferences {
+abstract class UPreferencesPreferencesUnknown extends UPreferencesPreferences {
   const factory UPreferencesPreferencesUnknown(
           {required final Map<String, dynamic> data}) =
       _$UPreferencesPreferencesUnknownImpl;
+  const UPreferencesPreferencesUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;

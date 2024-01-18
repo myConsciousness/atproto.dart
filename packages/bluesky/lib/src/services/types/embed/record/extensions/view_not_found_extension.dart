@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../view_not_found.dart';
 
-extension ViewNotFoundExtension on ViewNotFound {
+extension EmbedRecordViewNotFoundExtension on EmbedRecordViewNotFound {
   bool get isNotFound => notFound;
 }

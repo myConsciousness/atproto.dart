@@ -9,7 +9,7 @@ import 'package:atproto/atproto.dart';
 import '../post_view.dart';
 import 'viewer_state_extension.dart';
 
-extension PostViewExtension on PostView {
+extension FeedDefsPostViewExtension on FeedDefsPostView {
   /// Returns the [StrongRef] representation of this record.
   StrongRef toStrongRef() => StrongRef(cid: cid, uri: uri);
 

@@ -8,33 +8,37 @@ part of 'content_label_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
+_$ActorDefsContentLabelPrefImpl _$$ActorDefsContentLabelPrefImplFromJson(
+        Map json) =>
     $checkedCreate(
-      r'_$ContentLabelPrefImpl',
+      r'_$ActorDefsContentLabelPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ContentLabelPrefImpl(
+        final val = _$ActorDefsContentLabelPrefImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           label: $checkedConvert('label', (v) => v as String),
-          visibility: $checkedConvert('visibility',
-              (v) => $enumDecode(_$ContentLabelPrefVisibilityEnumMap, v)),
+          visibility: $checkedConvert(
+              'visibility',
+              (v) =>
+                  $enumDecode(_$ActorDefsContentLabelPrefVisibilityEnumMap, v)),
         );
         return val;
       },
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ContentLabelPrefImplToJson(
-        _$ContentLabelPrefImpl instance) =>
+Map<String, dynamic> _$$ActorDefsContentLabelPrefImplToJson(
+        _$ActorDefsContentLabelPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'label': instance.label,
-      'visibility': _$ContentLabelPrefVisibilityEnumMap[instance.visibility]!,
+      'visibility':
+          _$ActorDefsContentLabelPrefVisibilityEnumMap[instance.visibility]!,
     };
 
-const _$ContentLabelPrefVisibilityEnumMap = {
-  ContentLabelPrefVisibility.ignore: 'ignore',
-  ContentLabelPrefVisibility.warn: 'warn',
-  ContentLabelPrefVisibility.hide: 'hide',
+const _$ActorDefsContentLabelPrefVisibilityEnumMap = {
+  ActorDefsContentLabelPrefVisibility.ignore: 'ignore',
+  ActorDefsContentLabelPrefVisibility.warn: 'warn',
+  ActorDefsContentLabelPrefVisibility.hide: 'hide',
 };

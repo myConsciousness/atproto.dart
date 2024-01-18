@@ -18,9 +18,9 @@ part 'feed_view_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#feedviewpref
 @freezed
 @lex.appBskyActorDefsFeedViewPref
-class FeedViewPref with _$FeedViewPref {
+class ActorDefsFeedViewPref with _$ActorDefsFeedViewPref {
   @jsonSerializable
-  const factory FeedViewPref({
+  const factory ActorDefsFeedViewPref({
     @typeKey @Default(appBskyActorDefsFeedViewPref) String type,
     required String feed,
     @Default(false) bool hideReplies,
@@ -28,8 +28,8 @@ class FeedViewPref with _$FeedViewPref {
     @Default(0) int hideRepliesByLikeCount,
     @Default(false) bool hideReposts,
     @Default(false) bool hideQuotePosts,
-  }) = _FeedViewPref;
+  }) = _ActorDefsFeedViewPref;
 
-  factory FeedViewPref.fromJson(Map<String, Object?> json) =>
-      _$FeedViewPrefFromJson(json);
+  factory ActorDefsFeedViewPref.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsFeedViewPrefFromJson(json);
 }

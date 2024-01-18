@@ -19,9 +19,9 @@ part 'profile_view_detailed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewdetailed
 @freezed
 @lex.appBskyActorDefsProfileViewDetailed
-class ProfileViewDetailed with _$ProfileViewDetailed {
+class ActorDefsProfileViewDetailed with _$ActorDefsProfileViewDetailed {
   @jsonSerializable
-  const factory ProfileViewDetailed({
+  const factory ActorDefsProfileViewDetailed({
     required String did,
     required String handle,
     String? displayName,
@@ -31,11 +31,11 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
     @Default(0) int followsCount,
     @Default(0) int followersCount,
     @Default(0) int postsCount,
-    @Default(defaultActorDefsViewerState) ViewerState viewer,
+    @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
     List<Label>? labels,
     DateTime? indexedAt,
-  }) = _ProfileViewDetailed;
+  }) = _ActorDefsProfileViewDetailed;
 
-  factory ProfileViewDetailed.fromJson(Map<String, Object?> json) =>
-      _$ProfileViewDetailedFromJson(json);
+  factory ActorDefsProfileViewDetailed.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsProfileViewDetailedFromJson(json);
 }

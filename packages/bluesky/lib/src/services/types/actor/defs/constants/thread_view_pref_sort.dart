@@ -8,7 +8,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-enum ThreadViewPrefSort implements Serializable {
+enum ActorDefsThreadViewPrefSort implements Serializable {
   oldest('oldest'),
   newest('newest'),
 
@@ -20,5 +20,5 @@ enum ThreadViewPrefSort implements Serializable {
   @override
   final String value;
 
-  const ThreadViewPrefSort(this.value);
+  const ActorDefsThreadViewPrefSort(this.value);
 }

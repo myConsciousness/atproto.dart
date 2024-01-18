@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../services/entities/list_view_basic.dart';
+import '../../services/types/graph/defs/_z.dart';
 import 'moderation_object.dart';
 
 part 'moderation_cause_source_list.freezed.dart';
@@ -17,6 +17,6 @@ part 'moderation_cause_source_list.freezed.dart';
 class ModerationCauseSourceList with _$ModerationCauseSourceList {
   const factory ModerationCauseSourceList({
     @Default('list') String type,
-    required ListViewBasic list,
+    required GraphDefsListViewBasic list,
   }) = _ModerationCauseSourceList;
 }

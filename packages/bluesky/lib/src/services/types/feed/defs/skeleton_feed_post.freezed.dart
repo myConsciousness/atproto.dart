@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SkeletonFeedPost _$SkeletonFeedPostFromJson(Map<String, dynamic> json) {
-  return _SkeletonFeedPost.fromJson(json);
+FeedDefsSkeletonFeedPost _$FeedDefsSkeletonFeedPostFromJson(
+    Map<String, dynamic> json) {
+  return _FeedDefsSkeletonFeedPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SkeletonFeedPost {
+mixin _$FeedDefsSkeletonFeedPost {
   @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
   @unionSkeletonFeedPostReason
@@ -27,15 +28,15 @@ mixin _$SkeletonFeedPost {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SkeletonFeedPostCopyWith<SkeletonFeedPost> get copyWith =>
+  $FeedDefsSkeletonFeedPostCopyWith<FeedDefsSkeletonFeedPost> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SkeletonFeedPostCopyWith<$Res> {
-  factory $SkeletonFeedPostCopyWith(
-          SkeletonFeedPost value, $Res Function(SkeletonFeedPost) then) =
-      _$SkeletonFeedPostCopyWithImpl<$Res, SkeletonFeedPost>;
+abstract class $FeedDefsSkeletonFeedPostCopyWith<$Res> {
+  factory $FeedDefsSkeletonFeedPostCopyWith(FeedDefsSkeletonFeedPost value,
+          $Res Function(FeedDefsSkeletonFeedPost) then) =
+      _$FeedDefsSkeletonFeedPostCopyWithImpl<$Res, FeedDefsSkeletonFeedPost>;
   @useResult
   $Res call(
       {@atUriConverter AtUri post,
@@ -45,9 +46,10 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
-    implements $SkeletonFeedPostCopyWith<$Res> {
-  _$SkeletonFeedPostCopyWithImpl(this._value, this._then);
+class _$FeedDefsSkeletonFeedPostCopyWithImpl<$Res,
+        $Val extends FeedDefsSkeletonFeedPost>
+    implements $FeedDefsSkeletonFeedPostCopyWith<$Res> {
+  _$FeedDefsSkeletonFeedPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,11 +88,12 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
 }
 
 /// @nodoc
-abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
-    implements $SkeletonFeedPostCopyWith<$Res> {
-  factory _$$SkeletonFeedPostImplCopyWith(_$SkeletonFeedPostImpl value,
-          $Res Function(_$SkeletonFeedPostImpl) then) =
-      __$$SkeletonFeedPostImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsSkeletonFeedPostImplCopyWith<$Res>
+    implements $FeedDefsSkeletonFeedPostCopyWith<$Res> {
+  factory _$$FeedDefsSkeletonFeedPostImplCopyWith(
+          _$FeedDefsSkeletonFeedPostImpl value,
+          $Res Function(_$FeedDefsSkeletonFeedPostImpl) then) =
+      __$$FeedDefsSkeletonFeedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -102,11 +105,13 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
-    extends _$SkeletonFeedPostCopyWithImpl<$Res, _$SkeletonFeedPostImpl>
-    implements _$$SkeletonFeedPostImplCopyWith<$Res> {
-  __$$SkeletonFeedPostImplCopyWithImpl(_$SkeletonFeedPostImpl _value,
-      $Res Function(_$SkeletonFeedPostImpl) _then)
+class __$$FeedDefsSkeletonFeedPostImplCopyWithImpl<$Res>
+    extends _$FeedDefsSkeletonFeedPostCopyWithImpl<$Res,
+        _$FeedDefsSkeletonFeedPostImpl>
+    implements _$$FeedDefsSkeletonFeedPostImplCopyWith<$Res> {
+  __$$FeedDefsSkeletonFeedPostImplCopyWithImpl(
+      _$FeedDefsSkeletonFeedPostImpl _value,
+      $Res Function(_$FeedDefsSkeletonFeedPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,7 +120,7 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
     Object? post = null,
     Object? reason = freezed,
   }) {
-    return _then(_$SkeletonFeedPostImpl(
+    return _then(_$FeedDefsSkeletonFeedPostImpl(
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -131,13 +136,13 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
-  const _$SkeletonFeedPostImpl(
+class _$FeedDefsSkeletonFeedPostImpl implements _FeedDefsSkeletonFeedPost {
+  const _$FeedDefsSkeletonFeedPostImpl(
       {@atUriConverter required this.post,
       @unionSkeletonFeedPostReason this.reason});
 
-  factory _$SkeletonFeedPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonFeedPostImplFromJson(json);
+  factory _$FeedDefsSkeletonFeedPostImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsSkeletonFeedPostImplFromJson(json);
 
   @override
   @atUriConverter
@@ -148,14 +153,14 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
   @override
   String toString() {
-    return 'SkeletonFeedPost(post: $post, reason: $reason)';
+    return 'FeedDefsSkeletonFeedPost(post: $post, reason: $reason)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonFeedPostImpl &&
+            other is _$FeedDefsSkeletonFeedPostImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reason, reason) || other.reason == reason));
   }
@@ -167,26 +172,26 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SkeletonFeedPostImplCopyWith<_$SkeletonFeedPostImpl> get copyWith =>
-      __$$SkeletonFeedPostImplCopyWithImpl<_$SkeletonFeedPostImpl>(
-          this, _$identity);
+  _$$FeedDefsSkeletonFeedPostImplCopyWith<_$FeedDefsSkeletonFeedPostImpl>
+      get copyWith => __$$FeedDefsSkeletonFeedPostImplCopyWithImpl<
+          _$FeedDefsSkeletonFeedPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SkeletonFeedPostImplToJson(
+    return _$$FeedDefsSkeletonFeedPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _SkeletonFeedPost implements SkeletonFeedPost {
-  const factory _SkeletonFeedPost(
+abstract class _FeedDefsSkeletonFeedPost implements FeedDefsSkeletonFeedPost {
+  const factory _FeedDefsSkeletonFeedPost(
           {@atUriConverter required final AtUri post,
           @unionSkeletonFeedPostReason final USkeletonFeedPostReason? reason}) =
-      _$SkeletonFeedPostImpl;
+      _$FeedDefsSkeletonFeedPostImpl;
 
-  factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) =
-      _$SkeletonFeedPostImpl.fromJson;
+  factory _FeedDefsSkeletonFeedPost.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsSkeletonFeedPostImpl.fromJson;
 
   @override
   @atUriConverter
@@ -196,6 +201,6 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   USkeletonFeedPostReason? get reason;
   @override
   @JsonKey(ignore: true)
-  _$$SkeletonFeedPostImplCopyWith<_$SkeletonFeedPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedDefsSkeletonFeedPostImplCopyWith<_$FeedDefsSkeletonFeedPostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

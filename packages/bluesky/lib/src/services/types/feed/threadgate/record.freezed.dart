@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Record _$RecordFromJson(Map<String, dynamic> json) {
-  return _Record.fromJson(json);
+FeedThreadgateRecord _$FeedThreadgateRecordFromJson(Map<String, dynamic> json) {
+  return _FeedThreadgateRecord.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Record {
+mixin _$FeedThreadgateRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -30,13 +30,15 @@ mixin _$Record {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
+  $FeedThreadgateRecordCopyWith<FeedThreadgateRecord> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RecordCopyWith<$Res> {
-  factory $RecordCopyWith(Record value, $Res Function(Record) then) =
-      _$RecordCopyWithImpl<$Res, Record>;
+abstract class $FeedThreadgateRecordCopyWith<$Res> {
+  factory $FeedThreadgateRecordCopyWith(FeedThreadgateRecord value,
+          $Res Function(FeedThreadgateRecord) then) =
+      _$FeedThreadgateRecordCopyWithImpl<$Res, FeedThreadgateRecord>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -46,9 +48,10 @@ abstract class $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$RecordCopyWithImpl<$Res, $Val extends Record>
-    implements $RecordCopyWith<$Res> {
-  _$RecordCopyWithImpl(this._value, this._then);
+class _$FeedThreadgateRecordCopyWithImpl<$Res,
+        $Val extends FeedThreadgateRecord>
+    implements $FeedThreadgateRecordCopyWith<$Res> {
+  _$FeedThreadgateRecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,10 +88,11 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
 }
 
 /// @nodoc
-abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
-  factory _$$RecordImplCopyWith(
-          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
-      __$$RecordImplCopyWithImpl<$Res>;
+abstract class _$$FeedThreadgateRecordImplCopyWith<$Res>
+    implements $FeedThreadgateRecordCopyWith<$Res> {
+  factory _$$FeedThreadgateRecordImplCopyWith(_$FeedThreadgateRecordImpl value,
+          $Res Function(_$FeedThreadgateRecordImpl) then) =
+      __$$FeedThreadgateRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,11 +103,11 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RecordImplCopyWithImpl<$Res>
-    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
-    implements _$$RecordImplCopyWith<$Res> {
-  __$$RecordImplCopyWithImpl(
-      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
+class __$$FeedThreadgateRecordImplCopyWithImpl<$Res>
+    extends _$FeedThreadgateRecordCopyWithImpl<$Res, _$FeedThreadgateRecordImpl>
+    implements _$$FeedThreadgateRecordImplCopyWith<$Res> {
+  __$$FeedThreadgateRecordImplCopyWithImpl(_$FeedThreadgateRecordImpl _value,
+      $Res Function(_$FeedThreadgateRecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -114,7 +118,7 @@ class __$$RecordImplCopyWithImpl<$Res>
     Object? allow = freezed,
     Object? createdAt = null,
   }) {
-    return _then(_$RecordImpl(
+    return _then(_$FeedThreadgateRecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -138,16 +142,16 @@ class __$$RecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$RecordImpl implements _Record {
-  const _$RecordImpl(
+class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
+  const _$FeedThreadgateRecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
       @atUriConverter required this.post,
       @unionRecordAllow final List<URecordAllow>? allow,
       required this.createdAt})
       : _allow = allow;
 
-  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RecordImplFromJson(json);
+  factory _$FeedThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedThreadgateRecordImplFromJson(json);
 
   @override
   @typeKey
@@ -171,14 +175,14 @@ class _$RecordImpl implements _Record {
 
   @override
   String toString() {
-    return 'Record(type: $type, post: $post, allow: $allow, createdAt: $createdAt)';
+    return 'FeedThreadgateRecord(type: $type, post: $post, allow: $allow, createdAt: $createdAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RecordImpl &&
+            other is _$FeedThreadgateRecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.post, post) || other.post == post) &&
             const DeepCollectionEquality().equals(other._allow, _allow) &&
@@ -194,25 +198,28 @@ class _$RecordImpl implements _Record {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
+  _$$FeedThreadgateRecordImplCopyWith<_$FeedThreadgateRecordImpl>
+      get copyWith =>
+          __$$FeedThreadgateRecordImplCopyWithImpl<_$FeedThreadgateRecordImpl>(
+              this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RecordImplToJson(
+    return _$$FeedThreadgateRecordImplToJson(
       this,
     );
   }
 }
 
-abstract class _Record implements Record {
-  const factory _Record(
+abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
+  const factory _FeedThreadgateRecord(
       {@typeKey final String type,
       @atUriConverter required final AtUri post,
       @unionRecordAllow final List<URecordAllow>? allow,
-      required final DateTime createdAt}) = _$RecordImpl;
+      required final DateTime createdAt}) = _$FeedThreadgateRecordImpl;
 
-  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
+  factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) =
+      _$FeedThreadgateRecordImpl.fromJson;
 
   @override
   @typeKey
@@ -227,6 +234,6 @@ abstract class _Record implements Record {
   DateTime get createdAt;
   @override
   @JsonKey(ignore: true)
-  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedThreadgateRecordImplCopyWith<_$FeedThreadgateRecordImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

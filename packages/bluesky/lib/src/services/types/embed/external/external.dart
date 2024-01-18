@@ -18,15 +18,15 @@ part 'external.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#external
 @freezed
 @lex.appBskyEmbedExternalExternal
-class External with _$External {
+class EmbedExternalExternal with _$EmbedExternalExternal {
   @jsonSerializable
-  const factory External({
+  const factory EmbedExternalExternal({
     required String uri,
     required String title,
     required String description,
     @blobConverter Blob? thumb,
-  }) = _External;
+  }) = _EmbedExternalExternal;
 
-  factory External.fromJson(Map<String, Object?> json) =>
-      _$ExternalFromJson(json);
+  factory EmbedExternalExternal.fromJson(Map<String, Object?> json) =>
+      _$EmbedExternalExternalFromJson(json);
 }

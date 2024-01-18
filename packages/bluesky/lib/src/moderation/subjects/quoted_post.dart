@@ -3,11 +3,9 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../../services/entities/embed_view_record.dart';
-import '../../services/entities/embed_view_record_view.dart';
-import '../../services/entities/embed_view_record_view_blocked.dart';
-import '../../services/entities/embed_view_record_view_record.dart';
-import '../../services/entities/embed_view_record_with_media.dart';
+import '../../services/types/actor/defs/_z.dart';
+import '../../services/types/embed/record/_z.dart';
+import '../../services/types/embed/record_with_media/_z.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
@@ -15,11 +13,11 @@ import '../entities/moderation_subject_profile.dart';
 import 'account.dart';
 
 ModerationDecision decideQuotedPost(
-  final EmbedViewRecord subject,
+  final EmbedRecordView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UEmbedViewRecordViewRecord) {
-    final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
+  if (subject.record is UViewRecordViewRecord) {
+    final viewRecord = subject.record.data as EmbedRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
     if (viewRecord.labels != null) {
@@ -29,8 +27,8 @@ ModerationDecision decideQuotedPost(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record is UEmbedViewRecordViewBlocked) {
-    final blockedRecord = subject.record.data as EmbedViewRecordViewBlocked;
+  } else if (subject.record is UViewRecordViewBlocked) {
+    final blockedRecord = subject.record.data as EmbedRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
 
     if (blockedRecord.author.viewer.isBlocking) {
@@ -48,14 +46,14 @@ ModerationDecision decideQuotedPost(
 }
 
 ModerationDecision decideQuotedPostAccount(
-  final EmbedViewRecord subject,
+  final EmbedRecordView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UEmbedViewRecordViewRecord) {
-    final viewRecord = subject.record.data as EmbedViewRecordViewRecord;
+  if (subject.record is UViewRecordViewRecord) {
+    final viewRecord = subject.record.data as EmbedRecordViewRecord;
 
     return decideAccount(
-      ModerationSubjectProfile.actorBasic(data: viewRecord.author),
+      ModerationSubjectProfile.profileViewBasic(data: viewRecord.author),
       options,
     );
   }
@@ -64,11 +62,11 @@ ModerationDecision decideQuotedPostAccount(
 }
 
 ModerationDecision decideQuotedPostWithMedia(
-  final EmbedViewRecordWithMedia subject,
+  final EmbedRecordWithMediaView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UEmbedViewRecordViewRecord) {
-    final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
+  if (subject.record.record is UViewRecordViewRecord) {
+    final viewRecord = subject.record.record.data as EmbedRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
     if (viewRecord.labels != null) {
@@ -78,9 +76,8 @@ ModerationDecision decideQuotedPostWithMedia(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record.record is UEmbedViewRecordViewBlocked) {
-    final blockedRecord =
-        subject.record.record.data as EmbedViewRecordViewBlocked;
+  } else if (subject.record.record is UViewRecordViewBlocked) {
+    final blockedRecord = subject.record.record.data as EmbedRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
 
     if (blockedRecord.author.viewer.isBlocking) {
@@ -98,14 +95,14 @@ ModerationDecision decideQuotedPostWithMedia(
 }
 
 ModerationDecision decideQuotedPostWithMediaAccount(
-  final EmbedViewRecordWithMedia subject,
+  final EmbedRecordWithMediaView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UEmbedViewRecordViewRecord) {
-    final viewRecord = subject.record.record.data as EmbedViewRecordViewRecord;
+  if (subject.record.record is UViewRecordViewRecord) {
+    final viewRecord = subject.record.record.data as EmbedRecordViewRecord;
 
     return decideAccount(
-      ModerationSubjectProfile.actorBasic(data: viewRecord.author),
+      ModerationSubjectProfile.profileViewBasic(data: viewRecord.author),
       options,
     );
   }

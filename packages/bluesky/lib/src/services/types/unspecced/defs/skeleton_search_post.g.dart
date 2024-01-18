@@ -8,21 +8,21 @@ part of 'skeleton_search_post.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SkeletonSearchPostImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$SkeletonSearchPostImpl(
-          uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+_$UnspeccedDefsSkeletonSearchPostImpl
+    _$$UnspeccedDefsSkeletonSearchPostImplFromJson(Map json) => $checkedCreate(
+          r'_$UnspeccedDefsSkeletonSearchPostImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$UnspeccedDefsSkeletonSearchPostImpl(
+              uri: $checkedConvert(
+                  'uri', (v) => atUriConverter.fromJson(v as String)),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$SkeletonSearchPostImplToJson(
-        _$SkeletonSearchPostImpl instance) =>
+Map<String, dynamic> _$$UnspeccedDefsSkeletonSearchPostImplToJson(
+        _$UnspeccedDefsSkeletonSearchPostImpl instance) =>
     <String, dynamic>{
       'uri': atUriConverter.toJson(instance.uri),
     };

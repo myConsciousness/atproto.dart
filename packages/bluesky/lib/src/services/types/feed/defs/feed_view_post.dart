@@ -20,14 +20,14 @@ part 'feed_view_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
 @lex.appBskyFeedDefsFeedViewPost
-class FeedViewPost with _$FeedViewPost {
+class FeedDefsFeedViewPost with _$FeedDefsFeedViewPost {
   @jsonSerializable
-  const factory FeedViewPost({
-    required PostView post,
-    ReplyRef? reply,
+  const factory FeedDefsFeedViewPost({
+    required FeedDefsPostView post,
+    FeedDefsReplyRef? reply,
     @unionFeedViewPostReason UFeedViewPostReason? reason,
-  }) = _FeedViewPost;
+  }) = _FeedDefsFeedViewPost;
 
-  factory FeedViewPost.fromJson(Map<String, Object?> json) =>
-      _$FeedViewPostFromJson(json);
+  factory FeedDefsFeedViewPost.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsFeedViewPostFromJson(json);
 }

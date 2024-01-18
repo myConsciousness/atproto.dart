@@ -14,46 +14,48 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ThreadgateView _$ThreadgateViewFromJson(Map<String, dynamic> json) {
-  return _ThreadgateView.fromJson(json);
+FeedDefsThreadgateView _$FeedDefsThreadgateViewFromJson(
+    Map<String, dynamic> json) {
+  return _FeedDefsThreadgateView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ThreadgateView {
+mixin _$FeedDefsThreadgateView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
-  feed_threadgate.Record? get record => throw _privateConstructorUsedError;
-  List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
+  FeedThreadgateRecord? get record => throw _privateConstructorUsedError;
+  List<GraphDefsListViewBasic>? get lists => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ThreadgateViewCopyWith<ThreadgateView> get copyWith =>
+  $FeedDefsThreadgateViewCopyWith<FeedDefsThreadgateView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ThreadgateViewCopyWith<$Res> {
-  factory $ThreadgateViewCopyWith(
-          ThreadgateView value, $Res Function(ThreadgateView) then) =
-      _$ThreadgateViewCopyWithImpl<$Res, ThreadgateView>;
+abstract class $FeedDefsThreadgateViewCopyWith<$Res> {
+  factory $FeedDefsThreadgateViewCopyWith(FeedDefsThreadgateView value,
+          $Res Function(FeedDefsThreadgateView) then) =
+      _$FeedDefsThreadgateViewCopyWithImpl<$Res, FeedDefsThreadgateView>;
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri? uri,
       String? cid,
-      feed_threadgate.Record? record,
-      List<ListViewBasic>? lists});
+      FeedThreadgateRecord? record,
+      List<GraphDefsListViewBasic>? lists});
 
-  $RecordCopyWith<$Res>? get record;
+  $FeedThreadgateRecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
-class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
-    implements $ThreadgateViewCopyWith<$Res> {
-  _$ThreadgateViewCopyWithImpl(this._value, this._then);
+class _$FeedDefsThreadgateViewCopyWithImpl<$Res,
+        $Val extends FeedDefsThreadgateView>
+    implements $FeedDefsThreadgateViewCopyWith<$Res> {
+  _$FeedDefsThreadgateViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -85,52 +87,55 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as feed_threadgate.Record?,
+              as FeedThreadgateRecord?,
       lists: freezed == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as List<ListViewBasic>?,
+              as List<GraphDefsListViewBasic>?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RecordCopyWith<$Res>? get record {
+  $FeedThreadgateRecordCopyWith<$Res>? get record {
     if (_value.record == null) {
       return null;
     }
 
-    return $RecordCopyWith<$Res>(_value.record!, (value) {
+    return $FeedThreadgateRecordCopyWith<$Res>(_value.record!, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ThreadgateViewImplCopyWith<$Res>
-    implements $ThreadgateViewCopyWith<$Res> {
-  factory _$$ThreadgateViewImplCopyWith(_$ThreadgateViewImpl value,
-          $Res Function(_$ThreadgateViewImpl) then) =
-      __$$ThreadgateViewImplCopyWithImpl<$Res>;
+abstract class _$$FeedDefsThreadgateViewImplCopyWith<$Res>
+    implements $FeedDefsThreadgateViewCopyWith<$Res> {
+  factory _$$FeedDefsThreadgateViewImplCopyWith(
+          _$FeedDefsThreadgateViewImpl value,
+          $Res Function(_$FeedDefsThreadgateViewImpl) then) =
+      __$$FeedDefsThreadgateViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri? uri,
       String? cid,
-      feed_threadgate.Record? record,
-      List<ListViewBasic>? lists});
+      FeedThreadgateRecord? record,
+      List<GraphDefsListViewBasic>? lists});
 
   @override
-  $RecordCopyWith<$Res>? get record;
+  $FeedThreadgateRecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
-class __$$ThreadgateViewImplCopyWithImpl<$Res>
-    extends _$ThreadgateViewCopyWithImpl<$Res, _$ThreadgateViewImpl>
-    implements _$$ThreadgateViewImplCopyWith<$Res> {
-  __$$ThreadgateViewImplCopyWithImpl(
-      _$ThreadgateViewImpl _value, $Res Function(_$ThreadgateViewImpl) _then)
+class __$$FeedDefsThreadgateViewImplCopyWithImpl<$Res>
+    extends _$FeedDefsThreadgateViewCopyWithImpl<$Res,
+        _$FeedDefsThreadgateViewImpl>
+    implements _$$FeedDefsThreadgateViewImplCopyWith<$Res> {
+  __$$FeedDefsThreadgateViewImplCopyWithImpl(
+      _$FeedDefsThreadgateViewImpl _value,
+      $Res Function(_$FeedDefsThreadgateViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -142,7 +147,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
     Object? record = freezed,
     Object? lists = freezed,
   }) {
-    return _then(_$ThreadgateViewImpl(
+    return _then(_$FeedDefsThreadgateViewImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -158,11 +163,11 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as feed_threadgate.Record?,
+              as FeedThreadgateRecord?,
       lists: freezed == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as List<ListViewBasic>?,
+              as List<GraphDefsListViewBasic>?,
     ));
   }
 }
@@ -170,17 +175,17 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ThreadgateViewImpl implements _ThreadgateView {
-  const _$ThreadgateViewImpl(
+class _$FeedDefsThreadgateViewImpl implements _FeedDefsThreadgateView {
+  const _$FeedDefsThreadgateViewImpl(
       {@typeKey this.type = appBskyFeedDefsThreadgateView,
       @atUriConverter this.uri,
       this.cid,
       this.record,
-      final List<ListViewBasic>? lists})
+      final List<GraphDefsListViewBasic>? lists})
       : _lists = lists;
 
-  factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ThreadgateViewImplFromJson(json);
+  factory _$FeedDefsThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedDefsThreadgateViewImplFromJson(json);
 
   @override
   @typeKey
@@ -191,10 +196,10 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @override
   final String? cid;
   @override
-  final feed_threadgate.Record? record;
-  final List<ListViewBasic>? _lists;
+  final FeedThreadgateRecord? record;
+  final List<GraphDefsListViewBasic>? _lists;
   @override
-  List<ListViewBasic>? get lists {
+  List<GraphDefsListViewBasic>? get lists {
     final value = _lists;
     if (value == null) return null;
     if (_lists is EqualUnmodifiableListView) return _lists;
@@ -204,14 +209,14 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 
   @override
   String toString() {
-    return 'ThreadgateView(type: $type, uri: $uri, cid: $cid, record: $record, lists: $lists)';
+    return 'FeedDefsThreadgateView(type: $type, uri: $uri, cid: $cid, record: $record, lists: $lists)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ThreadgateViewImpl &&
+            other is _$FeedDefsThreadgateViewImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -227,28 +232,29 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ThreadgateViewImplCopyWith<_$ThreadgateViewImpl> get copyWith =>
-      __$$ThreadgateViewImplCopyWithImpl<_$ThreadgateViewImpl>(
-          this, _$identity);
+  _$$FeedDefsThreadgateViewImplCopyWith<_$FeedDefsThreadgateViewImpl>
+      get copyWith => __$$FeedDefsThreadgateViewImplCopyWithImpl<
+          _$FeedDefsThreadgateViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ThreadgateViewImplToJson(
+    return _$$FeedDefsThreadgateViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _ThreadgateView implements ThreadgateView {
-  const factory _ThreadgateView(
-      {@typeKey final String type,
-      @atUriConverter final AtUri? uri,
-      final String? cid,
-      final feed_threadgate.Record? record,
-      final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
+abstract class _FeedDefsThreadgateView implements FeedDefsThreadgateView {
+  const factory _FeedDefsThreadgateView(
+          {@typeKey final String type,
+          @atUriConverter final AtUri? uri,
+          final String? cid,
+          final FeedThreadgateRecord? record,
+          final List<GraphDefsListViewBasic>? lists}) =
+      _$FeedDefsThreadgateViewImpl;
 
-  factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
-      _$ThreadgateViewImpl.fromJson;
+  factory _FeedDefsThreadgateView.fromJson(Map<String, dynamic> json) =
+      _$FeedDefsThreadgateViewImpl.fromJson;
 
   @override
   @typeKey
@@ -259,11 +265,11 @@ abstract class _ThreadgateView implements ThreadgateView {
   @override
   String? get cid;
   @override
-  feed_threadgate.Record? get record;
+  FeedThreadgateRecord? get record;
   @override
-  List<ListViewBasic>? get lists;
+  List<GraphDefsListViewBasic>? get lists;
   @override
   @JsonKey(ignore: true)
-  _$$ThreadgateViewImplCopyWith<_$ThreadgateViewImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedDefsThreadgateViewImplCopyWith<_$FeedDefsThreadgateViewImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

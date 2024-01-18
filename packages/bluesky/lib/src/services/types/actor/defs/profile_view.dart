@@ -19,19 +19,19 @@ part 'profile_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileview
 @freezed
 @lex.appBskyActorDefsProfileView
-class ProfileView with _$ProfileView {
+class ActorDefsProfileView with _$ActorDefsProfileView {
   @jsonSerializable
-  const factory ProfileView({
+  const factory ActorDefsProfileView({
     required String did,
     required String handle,
     String? displayName,
     String? description,
     String? avatar,
-    @Default(defaultActorDefsViewerState) ViewerState viewer,
+    @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
     List<Label>? labels,
     DateTime? indexedAt,
-  }) = _ProfileView;
+  }) = _ActorDefsProfileView;
 
-  factory ProfileView.fromJson(Map<String, Object?> json) =>
-      _$ProfileViewFromJson(json);
+  factory ActorDefsProfileView.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsProfileViewFromJson(json);
 }

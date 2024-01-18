@@ -14,35 +14,40 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+FeedGetFeedGeneratorOutput _$FeedGetFeedGeneratorOutputFromJson(
+    Map<String, dynamic> json) {
+  return _FeedGetFeedGeneratorOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  GeneratorView get view => throw _privateConstructorUsedError;
+mixin _$FeedGetFeedGeneratorOutput {
+  FeedDefsGeneratorView get view => throw _privateConstructorUsedError;
   bool get isOnline => throw _privateConstructorUsedError;
   bool get isValid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $FeedGetFeedGeneratorOutputCopyWith<FeedGetFeedGeneratorOutput>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $FeedGetFeedGeneratorOutputCopyWith<$Res> {
+  factory $FeedGetFeedGeneratorOutputCopyWith(FeedGetFeedGeneratorOutput value,
+          $Res Function(FeedGetFeedGeneratorOutput) then) =
+      _$FeedGetFeedGeneratorOutputCopyWithImpl<$Res,
+          FeedGetFeedGeneratorOutput>;
   @useResult
-  $Res call({GeneratorView view, bool isOnline, bool isValid});
+  $Res call({FeedDefsGeneratorView view, bool isOnline, bool isValid});
 
-  $GeneratorViewCopyWith<$Res> get view;
+  $FeedDefsGeneratorViewCopyWith<$Res> get view;
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$FeedGetFeedGeneratorOutputCopyWithImpl<$Res,
+        $Val extends FeedGetFeedGeneratorOutput>
+    implements $FeedGetFeedGeneratorOutputCopyWith<$Res> {
+  _$FeedGetFeedGeneratorOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -60,7 +65,7 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       view: null == view
           ? _value.view
           : view // ignore: cast_nullable_to_non_nullable
-              as GeneratorView,
+              as FeedDefsGeneratorView,
       isOnline: null == isOnline
           ? _value.isOnline
           : isOnline // ignore: cast_nullable_to_non_nullable
@@ -74,32 +79,36 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
 
   @override
   @pragma('vm:prefer-inline')
-  $GeneratorViewCopyWith<$Res> get view {
-    return $GeneratorViewCopyWith<$Res>(_value.view, (value) {
+  $FeedDefsGeneratorViewCopyWith<$Res> get view {
+    return $FeedDefsGeneratorViewCopyWith<$Res>(_value.view, (value) {
       return _then(_value.copyWith(view: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$FeedGetFeedGeneratorOutputImplCopyWith<$Res>
+    implements $FeedGetFeedGeneratorOutputCopyWith<$Res> {
+  factory _$$FeedGetFeedGeneratorOutputImplCopyWith(
+          _$FeedGetFeedGeneratorOutputImpl value,
+          $Res Function(_$FeedGetFeedGeneratorOutputImpl) then) =
+      __$$FeedGetFeedGeneratorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({GeneratorView view, bool isOnline, bool isValid});
+  $Res call({FeedDefsGeneratorView view, bool isOnline, bool isValid});
 
   @override
-  $GeneratorViewCopyWith<$Res> get view;
+  $FeedDefsGeneratorViewCopyWith<$Res> get view;
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$FeedGetFeedGeneratorOutputImplCopyWithImpl<$Res>
+    extends _$FeedGetFeedGeneratorOutputCopyWithImpl<$Res,
+        _$FeedGetFeedGeneratorOutputImpl>
+    implements _$$FeedGetFeedGeneratorOutputImplCopyWith<$Res> {
+  __$$FeedGetFeedGeneratorOutputImplCopyWithImpl(
+      _$FeedGetFeedGeneratorOutputImpl _value,
+      $Res Function(_$FeedGetFeedGeneratorOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,11 +118,11 @@ class __$$OutputImplCopyWithImpl<$Res>
     Object? isOnline = null,
     Object? isValid = null,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$FeedGetFeedGeneratorOutputImpl(
       view: null == view
           ? _value.view
           : view // ignore: cast_nullable_to_non_nullable
-              as GeneratorView,
+              as FeedDefsGeneratorView,
       isOnline: null == isOnline
           ? _value.isOnline
           : isOnline // ignore: cast_nullable_to_non_nullable
@@ -129,15 +138,16 @@ class __$$OutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$OutputImpl implements _Output {
-  const _$OutputImpl(
+class _$FeedGetFeedGeneratorOutputImpl implements _FeedGetFeedGeneratorOutput {
+  const _$FeedGetFeedGeneratorOutputImpl(
       {required this.view, this.isOnline = false, this.isValid = false});
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$FeedGetFeedGeneratorOutputImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$FeedGetFeedGeneratorOutputImplFromJson(json);
 
   @override
-  final GeneratorView view;
+  final FeedDefsGeneratorView view;
   @override
   @JsonKey()
   final bool isOnline;
@@ -147,14 +157,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(view: $view, isOnline: $isOnline, isValid: $isValid)';
+    return 'FeedGetFeedGeneratorOutput(view: $view, isOnline: $isOnline, isValid: $isValid)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$FeedGetFeedGeneratorOutputImpl &&
             (identical(other.view, view) || other.view == view) &&
             (identical(other.isOnline, isOnline) ||
                 other.isOnline == isOnline) &&
@@ -168,33 +178,36 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$FeedGetFeedGeneratorOutputImplCopyWith<_$FeedGetFeedGeneratorOutputImpl>
+      get copyWith => __$$FeedGetFeedGeneratorOutputImplCopyWithImpl<
+          _$FeedGetFeedGeneratorOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$FeedGetFeedGeneratorOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output(
-      {required final GeneratorView view,
+abstract class _FeedGetFeedGeneratorOutput
+    implements FeedGetFeedGeneratorOutput {
+  const factory _FeedGetFeedGeneratorOutput(
+      {required final FeedDefsGeneratorView view,
       final bool isOnline,
-      final bool isValid}) = _$OutputImpl;
+      final bool isValid}) = _$FeedGetFeedGeneratorOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _FeedGetFeedGeneratorOutput.fromJson(Map<String, dynamic> json) =
+      _$FeedGetFeedGeneratorOutputImpl.fromJson;
 
   @override
-  GeneratorView get view;
+  FeedDefsGeneratorView get view;
   @override
   bool get isOnline;
   @override
   bool get isValid;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$FeedGetFeedGeneratorOutputImplCopyWith<_$FeedGetFeedGeneratorOutputImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

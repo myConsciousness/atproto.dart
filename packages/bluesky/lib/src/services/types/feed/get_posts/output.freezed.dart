@@ -14,31 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Output _$OutputFromJson(Map<String, dynamic> json) {
-  return _Output.fromJson(json);
+FeedGetPostsOutput _$FeedGetPostsOutputFromJson(Map<String, dynamic> json) {
+  return _FeedGetPostsOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Output {
-  List<PostView> get posts => throw _privateConstructorUsedError;
+mixin _$FeedGetPostsOutput {
+  List<FeedDefsPostView> get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
+  $FeedGetPostsOutputCopyWith<FeedGetPostsOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $OutputCopyWith<$Res> {
-  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
-      _$OutputCopyWithImpl<$Res, Output>;
+abstract class $FeedGetPostsOutputCopyWith<$Res> {
+  factory $FeedGetPostsOutputCopyWith(
+          FeedGetPostsOutput value, $Res Function(FeedGetPostsOutput) then) =
+      _$FeedGetPostsOutputCopyWithImpl<$Res, FeedGetPostsOutput>;
   @useResult
-  $Res call({List<PostView> posts});
+  $Res call({List<FeedDefsPostView> posts});
 }
 
 /// @nodoc
-class _$OutputCopyWithImpl<$Res, $Val extends Output>
-    implements $OutputCopyWith<$Res> {
-  _$OutputCopyWithImpl(this._value, this._then);
+class _$FeedGetPostsOutputCopyWithImpl<$Res, $Val extends FeedGetPostsOutput>
+    implements $FeedGetPostsOutputCopyWith<$Res> {
+  _$FeedGetPostsOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -54,27 +56,28 @@ class _$OutputCopyWithImpl<$Res, $Val extends Output>
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostView>,
+              as List<FeedDefsPostView>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
-  factory _$$OutputImplCopyWith(
-          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
-      __$$OutputImplCopyWithImpl<$Res>;
+abstract class _$$FeedGetPostsOutputImplCopyWith<$Res>
+    implements $FeedGetPostsOutputCopyWith<$Res> {
+  factory _$$FeedGetPostsOutputImplCopyWith(_$FeedGetPostsOutputImpl value,
+          $Res Function(_$FeedGetPostsOutputImpl) then) =
+      __$$FeedGetPostsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PostView> posts});
+  $Res call({List<FeedDefsPostView> posts});
 }
 
 /// @nodoc
-class __$$OutputImplCopyWithImpl<$Res>
-    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
-    implements _$$OutputImplCopyWith<$Res> {
-  __$$OutputImplCopyWithImpl(
-      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
+class __$$FeedGetPostsOutputImplCopyWithImpl<$Res>
+    extends _$FeedGetPostsOutputCopyWithImpl<$Res, _$FeedGetPostsOutputImpl>
+    implements _$$FeedGetPostsOutputImplCopyWith<$Res> {
+  __$$FeedGetPostsOutputImplCopyWithImpl(_$FeedGetPostsOutputImpl _value,
+      $Res Function(_$FeedGetPostsOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -82,26 +85,27 @@ class __$$OutputImplCopyWithImpl<$Res>
   $Res call({
     Object? posts = null,
   }) {
-    return _then(_$OutputImpl(
+    return _then(_$FeedGetPostsOutputImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
-              as List<PostView>,
+              as List<FeedDefsPostView>,
     ));
   }
 }
 
 /// @nodoc
 @JsonSerializable()
-class _$OutputImpl implements _Output {
-  const _$OutputImpl({required final List<PostView> posts}) : _posts = posts;
+class _$FeedGetPostsOutputImpl implements _FeedGetPostsOutput {
+  const _$FeedGetPostsOutputImpl({required final List<FeedDefsPostView> posts})
+      : _posts = posts;
 
-  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$OutputImplFromJson(json);
+  factory _$FeedGetPostsOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$FeedGetPostsOutputImplFromJson(json);
 
-  final List<PostView> _posts;
+  final List<FeedDefsPostView> _posts;
   @override
-  List<PostView> get posts {
+  List<FeedDefsPostView> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_posts);
@@ -109,14 +113,14 @@ class _$OutputImpl implements _Output {
 
   @override
   String toString() {
-    return 'Output(posts: $posts)';
+    return 'FeedGetPostsOutput(posts: $posts)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$OutputImpl &&
+            other is _$FeedGetPostsOutputImpl &&
             const DeepCollectionEquality().equals(other._posts, _posts));
   }
 
@@ -128,26 +132,29 @@ class _$OutputImpl implements _Output {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
-      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
+  _$$FeedGetPostsOutputImplCopyWith<_$FeedGetPostsOutputImpl> get copyWith =>
+      __$$FeedGetPostsOutputImplCopyWithImpl<_$FeedGetPostsOutputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$OutputImplToJson(
+    return _$$FeedGetPostsOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Output implements Output {
-  const factory _Output({required final List<PostView> posts}) = _$OutputImpl;
+abstract class _FeedGetPostsOutput implements FeedGetPostsOutput {
+  const factory _FeedGetPostsOutput(
+      {required final List<FeedDefsPostView> posts}) = _$FeedGetPostsOutputImpl;
 
-  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
+  factory _FeedGetPostsOutput.fromJson(Map<String, dynamic> json) =
+      _$FeedGetPostsOutputImpl.fromJson;
 
   @override
-  List<PostView> get posts;
+  List<FeedDefsPostView> get posts;
   @override
   @JsonKey(ignore: true)
-  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+  _$$FeedGetPostsOutputImplCopyWith<_$FeedGetPostsOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

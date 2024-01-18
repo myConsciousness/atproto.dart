@@ -14,7 +14,7 @@ import '../../../../ids.g.dart';
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../actor/defs/profile_view_basic.dart';
 import '../../feed/post/converter/record_converter.dart';
-import '../../feed/post/record.dart' as feed_post;
+import '../../feed/post/record.dart';
 import 'unions/view_record_embeds.dart';
 
 part 'view_record.freezed.dart';
@@ -23,19 +23,19 @@ part 'view_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
 @lex.appBskyEmbedRecordViewRecord
-class ViewRecord with _$ViewRecord {
+class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
   @jsonSerializable
-  const factory ViewRecord({
+  const factory EmbedRecordViewRecord({
     @typeKey @Default(appBskyEmbedRecordViewRecord) String type,
     @atUriConverter required AtUri uri,
     required String cid,
-    required ProfileViewBasic author,
-    @recordConverter required feed_post.Record value,
+    required ActorDefsProfileViewBasic author,
+    @recordConverter required FeedPostRecord value,
     List<Label>? labels,
     @unionViewRecordEmbeds List<UViewRecordEmbeds>? embeds,
     required DateTime indexedAt,
-  }) = _ViewRecord;
+  }) = _EmbedRecordViewRecord;
 
-  factory ViewRecord.fromJson(Map<String, Object?> json) =>
-      _$ViewRecordFromJson(json);
+  factory EmbedRecordViewRecord.fromJson(Map<String, Object?> json) =>
+      _$EmbedRecordViewRecordFromJson(json);
 }

@@ -21,28 +21,31 @@ part 'preferences_preferences.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
 class UPreferencesPreferences with _$UPreferencesPreferences {
+  // ignore: unused_element
+  const UPreferencesPreferences._();
+
   const factory UPreferencesPreferences.adultContentPref({
-    required AdultContentPref data,
+    required ActorDefsAdultContentPref data,
   }) = UPreferencesPreferencesAdultContentPref;
 
   const factory UPreferencesPreferences.contentLabelPref({
-    required ContentLabelPref data,
+    required ActorDefsContentLabelPref data,
   }) = UPreferencesPreferencesContentLabelPref;
 
   const factory UPreferencesPreferences.savedFeedsPref({
-    required SavedFeedsPref data,
+    required ActorDefsSavedFeedsPref data,
   }) = UPreferencesPreferencesSavedFeedsPref;
 
   const factory UPreferencesPreferences.personalDetailsPref({
-    required PersonalDetailsPref data,
+    required ActorDefsPersonalDetailsPref data,
   }) = UPreferencesPreferencesPersonalDetailsPref;
 
   const factory UPreferencesPreferences.feedViewPref({
-    required FeedViewPref data,
+    required ActorDefsFeedViewPref data,
   }) = UPreferencesPreferencesFeedViewPref;
 
   const factory UPreferencesPreferences.threadViewPref({
-    required ThreadViewPref data,
+    required ActorDefsThreadViewPref data,
   }) = UPreferencesPreferencesThreadViewPref;
 
   const factory UPreferencesPreferences.unknown({
@@ -65,32 +68,32 @@ final class _UPreferencesPreferencesConverter
 
       if (type == ids.appBskyActorDefsAdultContentPref) {
         return UPreferencesPreferences.adultContentPref(
-          data: AdultContentPref.fromJson(json),
+          data: ActorDefsAdultContentPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsContentLabelPref) {
         return UPreferencesPreferences.contentLabelPref(
-          data: contentLabelPrefConverter.fromJson(json),
+          data: actorDefsContentLabelPrefConverter.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsSavedFeedsPref) {
         return UPreferencesPreferences.savedFeedsPref(
-          data: SavedFeedsPref.fromJson(json),
+          data: ActorDefsSavedFeedsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsPersonalDetailsPref) {
         return UPreferencesPreferences.personalDetailsPref(
-          data: PersonalDetailsPref.fromJson(json),
+          data: ActorDefsPersonalDetailsPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsFeedViewPref) {
         return UPreferencesPreferences.feedViewPref(
-          data: FeedViewPref.fromJson(json),
+          data: ActorDefsFeedViewPref.fromJson(json),
         );
       }
       if (type == ids.appBskyActorDefsThreadViewPref) {
         return UPreferencesPreferences.threadViewPref(
-          data: ThreadViewPref.fromJson(json),
+          data: ActorDefsThreadViewPref.fromJson(json),
         );
       }
 

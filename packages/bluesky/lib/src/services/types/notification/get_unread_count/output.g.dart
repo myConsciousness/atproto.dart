@@ -8,18 +8,20 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
-      json,
-      ($checkedConvert) {
-        final val = _$OutputImpl(
-          count: $checkedConvert('count', (v) => v as int? ?? 0),
+_$NotificationGetUnreadCountOutputImpl
+    _$$NotificationGetUnreadCountOutputImplFromJson(Map json) => $checkedCreate(
+          r'_$NotificationGetUnreadCountOutputImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$NotificationGetUnreadCountOutputImpl(
+              count: $checkedConvert('count', (v) => v as int? ?? 0),
+            );
+            return val;
+          },
         );
-        return val;
-      },
-    );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$NotificationGetUnreadCountOutputImplToJson(
+        _$NotificationGetUnreadCountOutputImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
     };

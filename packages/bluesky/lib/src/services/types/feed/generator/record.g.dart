@@ -8,11 +8,12 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordImpl',
+_$FeedGeneratorRecordImpl _$$FeedGeneratorRecordImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedGeneratorRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$RecordImpl(
+        final val = _$FeedGeneratorRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedGenerator),
           did: $checkedConvert('did', (v) => v as String),
@@ -21,8 +22,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map(
-                      (e) => Main.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => RichtextFacet.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert(
               'avatar',
@@ -41,7 +42,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
+Map<String, dynamic> _$$FeedGeneratorRecordImplToJson(
+    _$FeedGeneratorRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'did': instance.did,

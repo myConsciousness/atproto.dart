@@ -17,8 +17,11 @@ part 'skeleton_feed_post_reason.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
 class USkeletonFeedPostReason with _$USkeletonFeedPostReason {
+  // ignore: unused_element
+  const USkeletonFeedPostReason._();
+
   factory USkeletonFeedPostReason.skeletonReasonRepost({
-    required SkeletonReasonRepost data,
+    required FeedDefsSkeletonReasonRepost data,
   }) = USkeletonFeedPostReasonSkeletonReasonRepost;
 
   factory USkeletonFeedPostReason.unknown({
@@ -41,7 +44,7 @@ final class _USkeletonFeedPostReasonConverter
 
       if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
         return USkeletonFeedPostReason.skeletonReasonRepost(
-          data: SkeletonReasonRepost.fromJson(json),
+          data: FeedDefsSkeletonReasonRepost.fromJson(json),
         );
       }
 

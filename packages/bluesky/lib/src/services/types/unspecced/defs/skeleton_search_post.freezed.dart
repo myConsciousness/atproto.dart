@@ -14,34 +14,38 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-SkeletonSearchPost _$SkeletonSearchPostFromJson(Map<String, dynamic> json) {
-  return _SkeletonSearchPost.fromJson(json);
+UnspeccedDefsSkeletonSearchPost _$UnspeccedDefsSkeletonSearchPostFromJson(
+    Map<String, dynamic> json) {
+  return _UnspeccedDefsSkeletonSearchPost.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SkeletonSearchPost {
+mixin _$UnspeccedDefsSkeletonSearchPost {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SkeletonSearchPostCopyWith<SkeletonSearchPost> get copyWith =>
-      throw _privateConstructorUsedError;
+  $UnspeccedDefsSkeletonSearchPostCopyWith<UnspeccedDefsSkeletonSearchPost>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SkeletonSearchPostCopyWith<$Res> {
-  factory $SkeletonSearchPostCopyWith(
-          SkeletonSearchPost value, $Res Function(SkeletonSearchPost) then) =
-      _$SkeletonSearchPostCopyWithImpl<$Res, SkeletonSearchPost>;
+abstract class $UnspeccedDefsSkeletonSearchPostCopyWith<$Res> {
+  factory $UnspeccedDefsSkeletonSearchPostCopyWith(
+          UnspeccedDefsSkeletonSearchPost value,
+          $Res Function(UnspeccedDefsSkeletonSearchPost) then) =
+      _$UnspeccedDefsSkeletonSearchPostCopyWithImpl<$Res,
+          UnspeccedDefsSkeletonSearchPost>;
   @useResult
   $Res call({@atUriConverter AtUri uri});
 }
 
 /// @nodoc
-class _$SkeletonSearchPostCopyWithImpl<$Res, $Val extends SkeletonSearchPost>
-    implements $SkeletonSearchPostCopyWith<$Res> {
-  _$SkeletonSearchPostCopyWithImpl(this._value, this._then);
+class _$UnspeccedDefsSkeletonSearchPostCopyWithImpl<$Res,
+        $Val extends UnspeccedDefsSkeletonSearchPost>
+    implements $UnspeccedDefsSkeletonSearchPostCopyWith<$Res> {
+  _$UnspeccedDefsSkeletonSearchPostCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -63,22 +67,25 @@ class _$SkeletonSearchPostCopyWithImpl<$Res, $Val extends SkeletonSearchPost>
 }
 
 /// @nodoc
-abstract class _$$SkeletonSearchPostImplCopyWith<$Res>
-    implements $SkeletonSearchPostCopyWith<$Res> {
-  factory _$$SkeletonSearchPostImplCopyWith(_$SkeletonSearchPostImpl value,
-          $Res Function(_$SkeletonSearchPostImpl) then) =
-      __$$SkeletonSearchPostImplCopyWithImpl<$Res>;
+abstract class _$$UnspeccedDefsSkeletonSearchPostImplCopyWith<$Res>
+    implements $UnspeccedDefsSkeletonSearchPostCopyWith<$Res> {
+  factory _$$UnspeccedDefsSkeletonSearchPostImplCopyWith(
+          _$UnspeccedDefsSkeletonSearchPostImpl value,
+          $Res Function(_$UnspeccedDefsSkeletonSearchPostImpl) then) =
+      __$$UnspeccedDefsSkeletonSearchPostImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@atUriConverter AtUri uri});
 }
 
 /// @nodoc
-class __$$SkeletonSearchPostImplCopyWithImpl<$Res>
-    extends _$SkeletonSearchPostCopyWithImpl<$Res, _$SkeletonSearchPostImpl>
-    implements _$$SkeletonSearchPostImplCopyWith<$Res> {
-  __$$SkeletonSearchPostImplCopyWithImpl(_$SkeletonSearchPostImpl _value,
-      $Res Function(_$SkeletonSearchPostImpl) _then)
+class __$$UnspeccedDefsSkeletonSearchPostImplCopyWithImpl<$Res>
+    extends _$UnspeccedDefsSkeletonSearchPostCopyWithImpl<$Res,
+        _$UnspeccedDefsSkeletonSearchPostImpl>
+    implements _$$UnspeccedDefsSkeletonSearchPostImplCopyWith<$Res> {
+  __$$UnspeccedDefsSkeletonSearchPostImplCopyWithImpl(
+      _$UnspeccedDefsSkeletonSearchPostImpl _value,
+      $Res Function(_$UnspeccedDefsSkeletonSearchPostImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -86,7 +93,7 @@ class __$$SkeletonSearchPostImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
   }) {
-    return _then(_$SkeletonSearchPostImpl(
+    return _then(_$UnspeccedDefsSkeletonSearchPostImpl(
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -97,11 +104,14 @@ class __$$SkeletonSearchPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
-  const _$SkeletonSearchPostImpl({@atUriConverter required this.uri});
+class _$UnspeccedDefsSkeletonSearchPostImpl
+    implements _UnspeccedDefsSkeletonSearchPost {
+  const _$UnspeccedDefsSkeletonSearchPostImpl(
+      {@atUriConverter required this.uri});
 
-  factory _$SkeletonSearchPostImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SkeletonSearchPostImplFromJson(json);
+  factory _$UnspeccedDefsSkeletonSearchPostImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$UnspeccedDefsSkeletonSearchPostImplFromJson(json);
 
   @override
   @atUriConverter
@@ -109,14 +119,14 @@ class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
 
   @override
   String toString() {
-    return 'SkeletonSearchPost(uri: $uri)';
+    return 'UnspeccedDefsSkeletonSearchPost(uri: $uri)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SkeletonSearchPostImpl &&
+            other is _$UnspeccedDefsSkeletonSearchPostImpl &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
@@ -127,30 +137,34 @@ class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SkeletonSearchPostImplCopyWith<_$SkeletonSearchPostImpl> get copyWith =>
-      __$$SkeletonSearchPostImplCopyWithImpl<_$SkeletonSearchPostImpl>(
-          this, _$identity);
+  _$$UnspeccedDefsSkeletonSearchPostImplCopyWith<
+          _$UnspeccedDefsSkeletonSearchPostImpl>
+      get copyWith => __$$UnspeccedDefsSkeletonSearchPostImplCopyWithImpl<
+          _$UnspeccedDefsSkeletonSearchPostImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SkeletonSearchPostImplToJson(
+    return _$$UnspeccedDefsSkeletonSearchPostImplToJson(
       this,
     );
   }
 }
 
-abstract class _SkeletonSearchPost implements SkeletonSearchPost {
-  const factory _SkeletonSearchPost(
-      {@atUriConverter required final AtUri uri}) = _$SkeletonSearchPostImpl;
+abstract class _UnspeccedDefsSkeletonSearchPost
+    implements UnspeccedDefsSkeletonSearchPost {
+  const factory _UnspeccedDefsSkeletonSearchPost(
+          {@atUriConverter required final AtUri uri}) =
+      _$UnspeccedDefsSkeletonSearchPostImpl;
 
-  factory _SkeletonSearchPost.fromJson(Map<String, dynamic> json) =
-      _$SkeletonSearchPostImpl.fromJson;
+  factory _UnspeccedDefsSkeletonSearchPost.fromJson(Map<String, dynamic> json) =
+      _$UnspeccedDefsSkeletonSearchPostImpl.fromJson;
 
   @override
   @atUriConverter
   AtUri get uri;
   @override
   @JsonKey(ignore: true)
-  _$$SkeletonSearchPostImplCopyWith<_$SkeletonSearchPostImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UnspeccedDefsSkeletonSearchPostImplCopyWith<
+          _$UnspeccedDefsSkeletonSearchPostImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

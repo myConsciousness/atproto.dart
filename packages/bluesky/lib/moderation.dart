@@ -2,10 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-/// API
+// API
 export 'package:bluesky/src/moderation.dart' show moderateProfile, moderatePost;
 
-/// Entities
+// Objects
 export 'package:bluesky/src/moderation/entities/moderation_options.dart';
 export 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 export 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
@@ -30,7 +30,7 @@ export 'package:bluesky/src/moderation/entities/label_definition.dart';
 export 'package:bluesky/src/moderation/entities/label_group_definition.dart';
 export 'package:bluesky/src/moderation/entities/labeler.dart';
 
-/// Definitions
+// Generated Definitions
 export 'package:bluesky/src/moderation/definitions/label_preference.g.dart';
 export 'package:bluesky/src/moderation/definitions/label_definition_flag.g.dart';
 export 'package:bluesky/src/moderation/definitions/label_definition_on_warn_behavior.g.dart';
@@ -41,6 +41,6 @@ export 'package:bluesky/src/moderation/definitions/known_label_group.g.dart'
 export 'package:bluesky/src/moderation/definitions/labels.g.dart';
 export 'package:bluesky/src/moderation/definitions/label_groups.g.dart';
 
-/// Utils
+// Utils
 export 'package:bluesky/src/moderation/utils/options.dart'
     show getModerationOptions;

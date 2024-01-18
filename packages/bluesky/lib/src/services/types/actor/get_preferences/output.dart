@@ -18,15 +18,17 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
 @freezed
 @lex.appBskyActorGetPreferences
-class Output with _$Output {
-  const factory Output({
+class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
+  const factory ActorGetPreferencesOutput({
     @unionPreferencesPreferences
     required List<UPreferencesPreferences> preferences,
-  }) = _Output;
+  }) = _ActorGetPreferencesOutput;
 
-  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
+  factory ActorGetPreferencesOutput.fromJson(Map<String, Object?> json) =>
+      _$ActorGetPreferencesOutputFromJson(json);
 }
 
-extension $OutputExtension on Output {
-  Preferences get asPreferences => Preferences.fromJson(toJson());
+extension $ActorGetPreferencesOutputExtension on ActorGetPreferencesOutput {
+  ActorDefsPreferences get asPreferences =>
+      ActorDefsPreferences.fromJson(toJson());
 }

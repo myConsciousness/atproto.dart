@@ -8,16 +8,17 @@ part of 'reason_repost.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ReasonRepostImpl _$$ReasonRepostImplFromJson(Map json) => $checkedCreate(
-      r'_$ReasonRepostImpl',
+_$FeedDefsReasonRepostImpl _$$FeedDefsReasonRepostImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedDefsReasonRepostImpl',
       json,
       ($checkedConvert) {
-        final val = _$ReasonRepostImpl(
+        final val = _$FeedDefsReasonRepostImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsReasonRepost),
           by: $checkedConvert(
               'by',
-              (v) => ProfileViewBasic.fromJson(
+              (v) => ActorDefsProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -27,7 +28,8 @@ _$ReasonRepostImpl _$$ReasonRepostImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ReasonRepostImplToJson(_$ReasonRepostImpl instance) =>
+Map<String, dynamic> _$$FeedDefsReasonRepostImplToJson(
+        _$FeedDefsReasonRepostImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'by': instance.by.toJson(),

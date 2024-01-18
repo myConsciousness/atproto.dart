@@ -15,23 +15,23 @@ import '../../graph/defs/list_view_basic.dart';
 part 'viewer_state.freezed.dart';
 part 'viewer_state.g.dart';
 
-const defaultActorDefsViewerState = ViewerState();
+const defaultActorDefsViewerState = ActorDefsViewerState();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#viewerstate
 @freezed
 @lex.appBskyActorDefsViewerState
-class ViewerState with _$ViewerState {
+class ActorDefsViewerState with _$ActorDefsViewerState {
   @jsonSerializable
-  const factory ViewerState({
+  const factory ActorDefsViewerState({
     @Default(false) bool muted,
     @Default(false) bool blockedBy,
-    ListViewBasic? mutedByList,
-    ListViewBasic? blockingByList,
+    GraphDefsListViewBasic? mutedByList,
+    GraphDefsListViewBasic? blockingByList,
     @atUriConverter AtUri? blocking,
     @atUriConverter AtUri? following,
     @atUriConverter AtUri? followedBy,
-  }) = _ViewerState;
+  }) = _ActorDefsViewerState;
 
-  factory ViewerState.fromJson(Map<String, Object?> json) =>
-      _$ViewerStateFromJson(json);
+  factory ActorDefsViewerState.fromJson(Map<String, Object?> json) =>
+      _$ActorDefsViewerStateFromJson(json);
 }

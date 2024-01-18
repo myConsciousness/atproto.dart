@@ -17,16 +17,19 @@ part 'thread_view_post_parent.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
 class UThreadViewPostParent with _$UThreadViewPostParent {
+  // ignore: unused_element
+  const UThreadViewPostParent._();
+
   const factory UThreadViewPostParent.threadViewPost({
-    required ThreadViewPost data,
+    required FeedDefsThreadViewPost data,
   }) = UThreadViewPostParentThreadViewPost;
 
   const factory UThreadViewPostParent.notFoundPost({
-    required NotFoundPost data,
+    required FeedDefsNotFoundPost data,
   }) = UThreadViewPostParentNotFoundPost;
 
   const factory UThreadViewPostParent.blockedPost({
-    required BlockedPost data,
+    required FeedDefsBlockedPost data,
   }) = UThreadViewPostParentBlockedPost;
 
   const factory UThreadViewPostParent.unknown({
@@ -47,17 +50,17 @@ final class _UThreadViewPostParentConverter
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
         return UThreadViewPostParent.threadViewPost(
-          data: ThreadViewPost.fromJson(json),
+          data: FeedDefsThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return UThreadViewPostParent.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return UThreadViewPostParent.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 

@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/constants/content_label_visibility.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
 
 part 'moderation_options_behavior_scenario_label.freezed.dart';
 part 'moderation_options_behavior_scenario_label.g.dart';
@@ -20,7 +20,7 @@ class ModerationOptionsBehaviorScenarioLabel
   @jsonSerializable
   const factory ModerationOptionsBehaviorScenarioLabel({
     required String label,
-    required ContentLabelVisibility visibility,
+    required ActorDefsContentLabelPrefVisibility visibility,
   }) = _ModerationOptionsBehaviorScenarioLabel;
 
   factory ModerationOptionsBehaviorScenarioLabel.fromJson(

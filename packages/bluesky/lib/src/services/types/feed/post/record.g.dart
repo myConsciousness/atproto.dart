@@ -8,11 +8,11 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
-      r'_$RecordImpl',
+_$FeedPostRecordImpl _$$FeedPostRecordImplFromJson(Map json) => $checkedCreate(
+      r'_$FeedPostRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$RecordImpl(
+        final val = _$FeedPostRecordImpl(
           type:
               $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedPost),
           text: $checkedConvert('text', (v) => v as String),
@@ -20,7 +20,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
               'reply',
               (v) => v == null
                   ? null
-                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
+                  : FeedPostReplyRef.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
               (v) =>
@@ -35,8 +36,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map(
-                      (e) => Main.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => RichtextFacet.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
@@ -48,7 +49,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
+Map<String, dynamic> _$$FeedPostRecordImplToJson(
+    _$FeedPostRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'text': instance.text,

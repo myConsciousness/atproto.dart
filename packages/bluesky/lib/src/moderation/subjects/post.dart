@@ -31,5 +31,5 @@ ModerationDecision decidePost(
   final ModerationSubjectPost subject,
 ) =>
     subject.when(
-      post: (data) => (data.author.did, data.labels),
+      postView: (data) => (data.author.did, data.labels),
     );

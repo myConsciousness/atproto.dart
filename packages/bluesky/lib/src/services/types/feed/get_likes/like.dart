@@ -15,12 +15,13 @@ part 'like.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#like
 @freezed
 @lex.appBskyFeedGetLikesLike
-class Like with _$Like {
-  const factory Like({
-    required ProfileView actor,
+class FeedGetLikesLike with _$FeedGetLikesLike {
+  const factory FeedGetLikesLike({
+    required ActorDefsProfileView actor,
     required DateTime createdAt,
     required DateTime indexedAt,
-  }) = _Like;
+  }) = _FeedGetLikesLike;
 
-  factory Like.fromJson(Map<String, Object?> json) => _$LikeFromJson(json);
+  factory FeedGetLikesLike.fromJson(Map<String, Object?> json) =>
+      _$FeedGetLikesLikeFromJson(json);
 }

@@ -15,6 +15,9 @@ part 'repo_apply_writes_writes.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applywrites/#input
 @freezed
 class RepoApplyWritesWrites with _$RepoApplyWritesWrites {
+  // ignore: unused_element
+  const RepoApplyWritesWrites._();
+
   const factory RepoApplyWritesWrites.create({
     required RepoApplyWritesCreate data,
   }) = URepoApplyWritesWritesCreate;

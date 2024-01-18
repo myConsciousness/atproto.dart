@@ -19,13 +19,13 @@ part 'reason_repost.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#reasonrepost
 @freezed
 @lex.appBskyFeedDefsReasonRepost
-class ReasonRepost with _$ReasonRepost {
-  const factory ReasonRepost({
+class FeedDefsReasonRepost with _$FeedDefsReasonRepost {
+  const factory FeedDefsReasonRepost({
     @typeKey @Default(appBskyFeedDefsReasonRepost) String type,
-    required ProfileViewBasic by,
+    required ActorDefsProfileViewBasic by,
     required DateTime indexedAt,
-  }) = _ReasonRepost;
+  }) = _FeedDefsReasonRepost;
 
-  factory ReasonRepost.fromJson(Map<String, Object?> json) =>
-      _$ReasonRepostFromJson(json);
+  factory FeedDefsReasonRepost.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsReasonRepostFromJson(json);
 }

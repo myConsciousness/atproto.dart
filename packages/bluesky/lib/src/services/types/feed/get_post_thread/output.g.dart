@@ -8,11 +8,13 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
-      r'_$OutputImpl',
+_$FeedGetPostThreadOutputImpl _$$FeedGetPostThreadOutputImplFromJson(
+        Map json) =>
+    $checkedCreate(
+      r'_$FeedGetPostThreadOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$OutputImpl(
+        final val = _$FeedGetPostThreadOutputImpl(
           thread: $checkedConvert('thread',
               (v) => unionOutputThread.fromJson(v as Map<String, dynamic>)),
         );
@@ -20,7 +22,8 @@ _$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
+Map<String, dynamic> _$$FeedGetPostThreadOutputImplToJson(
+        _$FeedGetPostThreadOutputImpl instance) =>
     <String, dynamic>{
       'thread': unionOutputThread.toJson(instance.thread),
     };

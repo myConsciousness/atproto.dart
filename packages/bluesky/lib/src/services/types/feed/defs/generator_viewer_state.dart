@@ -14,17 +14,17 @@ import '../../../../lex_annotations.g.dart' as lex;
 part 'generator_viewer_state.freezed.dart';
 part 'generator_viewer_state.g.dart';
 
-const defaultFeedDefsGeneratorViewerState = GeneratorViewerState();
+const defaultFeedDefsGeneratorViewerState = FeedDefsGeneratorViewerState();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorviewerstate
 @freezed
 @lex.appBskyFeedDefsGeneratorViewerState
-class GeneratorViewerState with _$GeneratorViewerState {
+class FeedDefsGeneratorViewerState with _$FeedDefsGeneratorViewerState {
   @jsonSerializable
-  const factory GeneratorViewerState({
+  const factory FeedDefsGeneratorViewerState({
     @atUriConverter AtUri? like,
-  }) = _GeneratorViewerState;
+  }) = _FeedDefsGeneratorViewerState;
 
-  factory GeneratorViewerState.fromJson(Map<String, Object?> json) =>
-      _$GeneratorViewerStateFromJson(json);
+  factory FeedDefsGeneratorViewerState.fromJson(Map<String, Object?> json) =>
+      _$FeedDefsGeneratorViewerStateFromJson(json);
 }

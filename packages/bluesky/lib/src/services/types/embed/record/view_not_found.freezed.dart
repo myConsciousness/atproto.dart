@@ -14,12 +14,13 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-ViewNotFound _$ViewNotFoundFromJson(Map<String, dynamic> json) {
-  return _ViewNotFound.fromJson(json);
+EmbedRecordViewNotFound _$EmbedRecordViewNotFoundFromJson(
+    Map<String, dynamic> json) {
+  return _EmbedRecordViewNotFound.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ViewNotFound {
+mixin _$EmbedRecordViewNotFound {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -28,23 +29,24 @@ mixin _$ViewNotFound {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ViewNotFoundCopyWith<ViewNotFound> get copyWith =>
+  $EmbedRecordViewNotFoundCopyWith<EmbedRecordViewNotFound> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ViewNotFoundCopyWith<$Res> {
-  factory $ViewNotFoundCopyWith(
-          ViewNotFound value, $Res Function(ViewNotFound) then) =
-      _$ViewNotFoundCopyWithImpl<$Res, ViewNotFound>;
+abstract class $EmbedRecordViewNotFoundCopyWith<$Res> {
+  factory $EmbedRecordViewNotFoundCopyWith(EmbedRecordViewNotFound value,
+          $Res Function(EmbedRecordViewNotFound) then) =
+      _$EmbedRecordViewNotFoundCopyWithImpl<$Res, EmbedRecordViewNotFound>;
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
-class _$ViewNotFoundCopyWithImpl<$Res, $Val extends ViewNotFound>
-    implements $ViewNotFoundCopyWith<$Res> {
-  _$ViewNotFoundCopyWithImpl(this._value, this._then);
+class _$EmbedRecordViewNotFoundCopyWithImpl<$Res,
+        $Val extends EmbedRecordViewNotFound>
+    implements $EmbedRecordViewNotFoundCopyWith<$Res> {
+  _$EmbedRecordViewNotFoundCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,22 +78,25 @@ class _$ViewNotFoundCopyWithImpl<$Res, $Val extends ViewNotFound>
 }
 
 /// @nodoc
-abstract class _$$ViewNotFoundImplCopyWith<$Res>
-    implements $ViewNotFoundCopyWith<$Res> {
-  factory _$$ViewNotFoundImplCopyWith(
-          _$ViewNotFoundImpl value, $Res Function(_$ViewNotFoundImpl) then) =
-      __$$ViewNotFoundImplCopyWithImpl<$Res>;
+abstract class _$$EmbedRecordViewNotFoundImplCopyWith<$Res>
+    implements $EmbedRecordViewNotFoundCopyWith<$Res> {
+  factory _$$EmbedRecordViewNotFoundImplCopyWith(
+          _$EmbedRecordViewNotFoundImpl value,
+          $Res Function(_$EmbedRecordViewNotFoundImpl) then) =
+      __$$EmbedRecordViewNotFoundImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter AtUri uri, bool notFound});
 }
 
 /// @nodoc
-class __$$ViewNotFoundImplCopyWithImpl<$Res>
-    extends _$ViewNotFoundCopyWithImpl<$Res, _$ViewNotFoundImpl>
-    implements _$$ViewNotFoundImplCopyWith<$Res> {
-  __$$ViewNotFoundImplCopyWithImpl(
-      _$ViewNotFoundImpl _value, $Res Function(_$ViewNotFoundImpl) _then)
+class __$$EmbedRecordViewNotFoundImplCopyWithImpl<$Res>
+    extends _$EmbedRecordViewNotFoundCopyWithImpl<$Res,
+        _$EmbedRecordViewNotFoundImpl>
+    implements _$$EmbedRecordViewNotFoundImplCopyWith<$Res> {
+  __$$EmbedRecordViewNotFoundImplCopyWithImpl(
+      _$EmbedRecordViewNotFoundImpl _value,
+      $Res Function(_$EmbedRecordViewNotFoundImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -101,7 +106,7 @@ class __$$ViewNotFoundImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? notFound = null,
   }) {
-    return _then(_$ViewNotFoundImpl(
+    return _then(_$EmbedRecordViewNotFoundImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -120,14 +125,14 @@ class __$$ViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ViewNotFoundImpl implements _ViewNotFound {
-  const _$ViewNotFoundImpl(
+class _$EmbedRecordViewNotFoundImpl implements _EmbedRecordViewNotFound {
+  const _$EmbedRecordViewNotFoundImpl(
       {@typeKey this.type = appBskyEmbedRecordViewNotFound,
       @atUriConverter required this.uri,
       this.notFound = true});
 
-  factory _$ViewNotFoundImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ViewNotFoundImplFromJson(json);
+  factory _$EmbedRecordViewNotFoundImpl.fromJson(Map<String, dynamic> json) =>
+      _$$EmbedRecordViewNotFoundImplFromJson(json);
 
   @override
   @typeKey
@@ -141,14 +146,14 @@ class _$ViewNotFoundImpl implements _ViewNotFound {
 
   @override
   String toString() {
-    return 'ViewNotFound(type: $type, uri: $uri, notFound: $notFound)';
+    return 'EmbedRecordViewNotFound(type: $type, uri: $uri, notFound: $notFound)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ViewNotFoundImpl &&
+            other is _$EmbedRecordViewNotFoundImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.notFound, notFound) ||
@@ -162,25 +167,26 @@ class _$ViewNotFoundImpl implements _ViewNotFound {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ViewNotFoundImplCopyWith<_$ViewNotFoundImpl> get copyWith =>
-      __$$ViewNotFoundImplCopyWithImpl<_$ViewNotFoundImpl>(this, _$identity);
+  _$$EmbedRecordViewNotFoundImplCopyWith<_$EmbedRecordViewNotFoundImpl>
+      get copyWith => __$$EmbedRecordViewNotFoundImplCopyWithImpl<
+          _$EmbedRecordViewNotFoundImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ViewNotFoundImplToJson(
+    return _$$EmbedRecordViewNotFoundImplToJson(
       this,
     );
   }
 }
 
-abstract class _ViewNotFound implements ViewNotFound {
-  const factory _ViewNotFound(
+abstract class _EmbedRecordViewNotFound implements EmbedRecordViewNotFound {
+  const factory _EmbedRecordViewNotFound(
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
-      final bool notFound}) = _$ViewNotFoundImpl;
+      final bool notFound}) = _$EmbedRecordViewNotFoundImpl;
 
-  factory _ViewNotFound.fromJson(Map<String, dynamic> json) =
-      _$ViewNotFoundImpl.fromJson;
+  factory _EmbedRecordViewNotFound.fromJson(Map<String, dynamic> json) =
+      _$EmbedRecordViewNotFoundImpl.fromJson;
 
   @override
   @typeKey
@@ -192,6 +198,6 @@ abstract class _ViewNotFound implements ViewNotFound {
   bool get notFound;
   @override
   @JsonKey(ignore: true)
-  _$$ViewNotFoundImplCopyWith<_$ViewNotFoundImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$EmbedRecordViewNotFoundImplCopyWith<_$EmbedRecordViewNotFoundImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

@@ -11,22 +11,21 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
-import '../entities/adaptor/repo_commit_create.dart';
-import '../entities/adaptor/repo_commit_delete.dart';
-import '../entities/adaptor/repo_commit_update.dart';
-import '../entities/block_list_record.dart';
-import '../entities/block_record.dart';
-import '../entities/converter/post_record_converter.dart';
-import '../entities/follow_record.dart';
-import '../entities/generator_record.dart';
-import '../entities/like_record.dart';
-import '../entities/list_item_record.dart';
-import '../entities/list_record.dart';
-import '../entities/post_record.dart';
-import '../entities/profile_record.dart';
-import '../entities/repost_record.dart';
-import '../entities/threadgate_record.dart';
-import '../extensions/at_uri.dart';
+import '../extensions/at_uri_extension.dart';
+import '../types/actor/profile/_z.dart';
+import '../types/feed/generator/_z.dart';
+import '../types/feed/like/_z.dart';
+import '../types/feed/post/_z.dart';
+import '../types/feed/repost/_z.dart';
+import '../types/feed/threadgate/_z.dart';
+import '../types/graph/block/_z.dart';
+import '../types/graph/follow/_z.dart';
+import '../types/graph/list/_z.dart';
+import '../types/graph/listblock/_z.dart';
+import '../types/graph/listitem/_z.dart';
+import 'repo_commit_create.dart';
+import 'repo_commit_delete.dart';
+import 'repo_commit_update.dart';
 
 /// Action on create records.
 typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
@@ -42,18 +41,18 @@ typedef RepoCommitOnDelete = FutureOr<void> Function(RepoCommitDelete data);
 final class RepoCommitAdaptor {
   /// Returns the new instance of [RepoCommitAdaptor].
   const RepoCommitAdaptor({
-    final RepoCommitOnCreate<PostRecord>? onCreatePost,
-    final RepoCommitOnCreate<RepostRecord>? onCreateRepost,
-    final RepoCommitOnCreate<LikeRecord>? onCreateLike,
-    final RepoCommitOnCreate<GeneratorRecord>? onCreateGenerator,
-    final RepoCommitOnCreate<ThreadgateRecord>? onCreateThreadgate,
-    final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
-    final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
-    final RepoCommitOnCreate<ListRecord>? onCreateList,
-    final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
-    final RepoCommitOnCreate<BlockListRecord>? onCreateBlockList,
+    final RepoCommitOnCreate<FeedPostRecord>? onCreatePost,
+    final RepoCommitOnCreate<FeedRepostRecord>? onCreateRepost,
+    final RepoCommitOnCreate<FeedLikeRecord>? onCreateLike,
+    final RepoCommitOnCreate<FeedGeneratorRecord>? onCreateGenerator,
+    final RepoCommitOnCreate<FeedThreadgateRecord>? onCreateThreadgate,
+    final RepoCommitOnCreate<GraphFollowRecord>? onCreateFollow,
+    final RepoCommitOnCreate<GraphBlockRecord>? onCreateBlock,
+    final RepoCommitOnCreate<GraphListRecord>? onCreateList,
+    final RepoCommitOnCreate<GraphListitemRecord>? onCreateListItem,
+    final RepoCommitOnCreate<GraphListblockRecord>? onCreateBlockList,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
-    final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
+    final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeletePost,
     final RepoCommitOnDelete? onDeleteRepost,
@@ -91,19 +90,19 @@ final class RepoCommitAdaptor {
         _onDeleteBlockList = onDeleteBlockList,
         _onDeleteUnknown = onDeleteUnknown;
 
-  final RepoCommitOnCreate<PostRecord>? _onCreatePost;
-  final RepoCommitOnCreate<RepostRecord>? _onCreateRepost;
-  final RepoCommitOnCreate<LikeRecord>? _onCreateLike;
-  final RepoCommitOnCreate<GeneratorRecord>? _onCreateGenerator;
-  final RepoCommitOnCreate<ThreadgateRecord>? _onCreateThreadgate;
-  final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
-  final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
-  final RepoCommitOnCreate<ListRecord>? _onCreateList;
-  final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
-  final RepoCommitOnCreate<BlockListRecord>? _onCreateBlockList;
+  final RepoCommitOnCreate<FeedPostRecord>? _onCreatePost;
+  final RepoCommitOnCreate<FeedRepostRecord>? _onCreateRepost;
+  final RepoCommitOnCreate<FeedLikeRecord>? _onCreateLike;
+  final RepoCommitOnCreate<FeedGeneratorRecord>? _onCreateGenerator;
+  final RepoCommitOnCreate<FeedThreadgateRecord>? _onCreateThreadgate;
+  final RepoCommitOnCreate<GraphFollowRecord>? _onCreateFollow;
+  final RepoCommitOnCreate<GraphBlockRecord>? _onCreateBlock;
+  final RepoCommitOnCreate<GraphListRecord>? _onCreateList;
+  final RepoCommitOnCreate<GraphListitemRecord>? _onCreateListItem;
+  final RepoCommitOnCreate<GraphListblockRecord>? _onCreateBlockList;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
-  final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
+  final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateProfile;
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
 
   final RepoCommitOnDelete? _onDeletePost;
@@ -142,8 +141,8 @@ final class RepoCommitAdaptor {
   ) async {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
-        RepoCommitCreate<PostRecord>(
-          record: postRecordConverter.fromJson(
+        RepoCommitCreate<FeedPostRecord>(
+          record: recordConverter.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -154,8 +153,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isFeedRepost && _isFeedRepost(op.record!)) {
       await _onCreateRepost?.call(
-        RepoCommitCreate<RepostRecord>(
-          record: RepostRecord.fromJson(
+        RepoCommitCreate<FeedRepostRecord>(
+          record: FeedRepostRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -166,8 +165,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isFeedLike && _isFeedLike(op.record!)) {
       await _onCreateLike?.call(
-        RepoCommitCreate<LikeRecord>(
-          record: LikeRecord.fromJson(
+        RepoCommitCreate<FeedLikeRecord>(
+          record: FeedLikeRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -178,8 +177,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isFeedGenerator && _isFeedGenerator(op.record!)) {
       await _onCreateGenerator?.call(
-        RepoCommitCreate<GeneratorRecord>(
-          record: GeneratorRecord.fromJson(
+        RepoCommitCreate<FeedGeneratorRecord>(
+          record: FeedGeneratorRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -190,8 +189,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isFeedThreadgate && _isFeedThreadgate(op.record!)) {
       await _onCreateThreadgate?.call(
-        RepoCommitCreate<ThreadgateRecord>(
-          record: ThreadgateRecord.fromJson(
+        RepoCommitCreate<FeedThreadgateRecord>(
+          record: FeedThreadgateRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -202,8 +201,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isGraphFollow && _isGraphFollow(op.record!)) {
       await _onCreateFollow?.call(
-        RepoCommitCreate<FollowRecord>(
-          record: FollowRecord.fromJson(op.record!),
+        RepoCommitCreate<GraphFollowRecord>(
+          record: GraphFollowRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,
@@ -212,8 +211,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isGraphBlock && _isGraphBlock(op.record!)) {
       await _onCreateBlock?.call(
-        RepoCommitCreate<BlockRecord>(
-          record: BlockRecord.fromJson(
+        RepoCommitCreate<GraphBlockRecord>(
+          record: GraphBlockRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -224,8 +223,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isGraphList && _isGraphList(op.record!)) {
       await _onCreateList?.call(
-        RepoCommitCreate<ListRecord>(
-          record: ListRecord.fromJson(
+        RepoCommitCreate<GraphListRecord>(
+          record: GraphListRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -234,10 +233,10 @@ final class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphListItem && _isGraphListItem(op.record!)) {
+    } else if (op.uri.isGraphListitem && _isGraphListItem(op.record!)) {
       await _onCreateListItem?.call(
-        RepoCommitCreate<ListItemRecord>(
-          record: ListItemRecord.fromJson(
+        RepoCommitCreate<GraphListitemRecord>(
+          record: GraphListitemRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -246,10 +245,10 @@ final class RepoCommitAdaptor {
           cursor: data.cursor,
         ),
       );
-    } else if (op.uri.isGraphBlockList && _isGraphBlockList(op.record!)) {
+    } else if (op.uri.isGraphListblock && _isGraphBlockList(op.record!)) {
       await _onCreateBlockList?.call(
-        RepoCommitCreate<BlockListRecord>(
-          record: BlockListRecord.fromJson(
+        RepoCommitCreate<GraphListblockRecord>(
+          record: GraphListblockRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -278,8 +277,8 @@ final class RepoCommitAdaptor {
   ) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
-        RepoCommitUpdate<ProfileRecord>(
-          record: ProfileRecord.fromJson(op.record!),
+        RepoCommitUpdate<ActorProfileRecord>(
+          record: ActorProfileRecord.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,

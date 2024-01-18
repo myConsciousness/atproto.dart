@@ -20,13 +20,14 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 @lex.appBskyRichtextFacet
-class Main with _$Main {
+class RichtextFacet with _$RichtextFacet {
   @jsonSerializable
-  const factory Main({
+  const factory RichtextFacet({
     @typeKey @Default(appBskyRichtextFacet) String type,
-    required ByteSlice index,
+    required RichtextFacetByteSlice index,
     @unionMainFeatures required List<UMainFeatures> features,
-  }) = _Main;
+  }) = _RichtextFacet;
 
-  factory Main.fromJson(Map<String, Object?> json) => _$MainFromJson(json);
+  factory RichtextFacet.fromJson(Map<String, Object?> json) =>
+      _$RichtextFacetFromJson(json);
 }

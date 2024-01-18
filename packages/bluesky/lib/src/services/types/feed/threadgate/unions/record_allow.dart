@@ -17,16 +17,19 @@ part 'record_allow.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
 class URecordAllow with _$URecordAllow {
+  // ignore: unused_element
+  const URecordAllow._();
+
   const factory URecordAllow.mentionRule({
-    required MentionRule data,
+    required FeedThreadgateMentionRule data,
   }) = URecordAllowMentionRule;
 
   const factory URecordAllow.followingRule({
-    required FollowingRule data,
+    required FeedThreadgateFollowingRule data,
   }) = URecordAllowFollowingRule;
 
   const factory URecordAllow.listRule({
-    required ListRule data,
+    required FeedThreadgateListRule data,
   }) = URecordAllowlistRule;
 
   const factory URecordAllow.unknown({
@@ -49,17 +52,17 @@ final class _URecordAllowConverter
 
       if (type == ids.appBskyFeedThreadgateMentionRule) {
         return URecordAllow.mentionRule(
-          data: MentionRule.fromJson(json),
+          data: FeedThreadgateMentionRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateFollowingRule) {
         return URecordAllow.followingRule(
-          data: FollowingRule.fromJson(json),
+          data: FeedThreadgateFollowingRule.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedThreadgateListRule) {
         return URecordAllow.listRule(
-          data: ListRule.fromJson(json),
+          data: FeedThreadgateListRule.fromJson(json),
         );
       }
 

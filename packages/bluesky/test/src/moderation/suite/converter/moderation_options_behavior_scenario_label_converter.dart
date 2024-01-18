@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/constants/content_label_visibility.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
 import '../moderation_options_behavior_scenario_label.dart';
 
 const moderationOptionsBehaviorScenarioLabelConverter =
@@ -24,7 +24,7 @@ final class _ModerationOptionsBehaviorScenarioLabelConverter
       //* Legacy element. Will not be appeared in atproto.dart.
       //* See `content_label_preference_converter.dart`
       if (json['visibility'] == 'show') {
-        json['visibility'] = ContentLabelVisibility.ignore.name;
+        json['visibility'] = ActorDefsContentLabelPrefVisibility.ignore.name;
       }
 
       return ModerationOptionsBehaviorScenarioLabel.fromJson(json);

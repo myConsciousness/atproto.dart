@@ -5,6 +5,6 @@
 // 🌎 Project imports:
 import '../adult_content_pref.dart';
 
-extension AdultContentPrefExtension on AdultContentPref {
+extension ActorDefsAdultContentPrefExtension on ActorDefsAdultContentPref {
   bool get isEnabled => enabled;
 }

@@ -17,16 +17,19 @@ part 'output_thread.freezed.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
 class UOutputThread with _$UOutputThread {
+  // ignore: unused_element
+  const UOutputThread._();
+
   const factory UOutputThread.threadViewPost({
-    required ThreadViewPost data,
+    required FeedDefsThreadViewPost data,
   }) = UOutputThreadThreadViewPost;
 
   const factory UOutputThread.notFoundPost({
-    required NotFoundPost data,
+    required FeedDefsNotFoundPost data,
   }) = UOutputThreadNotFoundPost;
 
   const factory UOutputThread.blockedPost({
-    required BlockedPost data,
+    required FeedDefsBlockedPost data,
   }) = UOutputThreadBlockedPost;
 
   const factory UOutputThread.unknown({
@@ -47,17 +50,17 @@ final class _UOutputThreadConverter
 
       if (type == ids.appBskyFeedDefsThreadViewPost) {
         return UOutputThread.threadViewPost(
-          data: ThreadViewPost.fromJson(json),
+          data: FeedDefsThreadViewPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsNotFoundPost) {
         return UOutputThread.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: FeedDefsNotFoundPost.fromJson(json),
         );
       }
       if (type == ids.appBskyFeedDefsBlockedPost) {
         return UOutputThread.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: FeedDefsBlockedPost.fromJson(json),
         );
       }
 
