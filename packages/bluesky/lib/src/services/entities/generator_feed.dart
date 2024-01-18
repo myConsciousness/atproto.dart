@@ -17,6 +17,7 @@ part 'generator_feed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
 @lex.appBskyFeedDescribeFeedGeneratorFeed
+@Deprecated('Use FeedDescribeFeedGeneratorFeed instead. Will be removed')
 class GeneratorFeed with _$GeneratorFeed {
   @jsonSerializable
   const factory GeneratorFeed({

@@ -17,6 +17,8 @@ part 'suggested_follows.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getsuggestedfollowsbyactor/#output
 @freezed
 @lex.appBskyGraphGetSuggestedFollowsByActor
+@Deprecated(
+    'Use GraphGetSuggestedFollowsByActorOutput instead. Will be removed')
 class SuggestedFollows with _$SuggestedFollows {
   const factory SuggestedFollows({
     required List<Actor> suggestions,

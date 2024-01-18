@@ -17,6 +17,7 @@ part 'follows.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollows/#output
 @freezed
 @lex.appBskyGraphGetFollows
+@Deprecated('Use GraphGetFollowsOutput instead. Will be removed')
 class Follows with _$Follows {
   const factory Follows({
     required Actor subject,

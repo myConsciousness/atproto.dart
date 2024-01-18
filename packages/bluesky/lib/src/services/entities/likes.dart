@@ -18,6 +18,7 @@ part 'likes.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#output
 @freezed
 @lex.appBskyFeedGetLikes
+@Deprecated('Use FeedGetLikesOutput instead. Will be removed')
 class Likes with _$Likes {
   const factory Likes({
     required List<Like> likes,

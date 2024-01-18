@@ -19,6 +19,7 @@ part 'embed_view_record_view_blocked.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
 @lex.appBskyEmbedRecordViewBlocked
+@Deprecated('Use EmbedRecordViewBlocked instead. Will be removed')
 class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   const factory EmbedViewRecordViewBlocked({
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,

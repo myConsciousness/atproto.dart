@@ -21,6 +21,7 @@ part 'threadgate_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedThreadgate].
 @freezed
+@Deprecated('Use FeedThreadgateRecord instead. Will be removed')
 class ThreadgateRecord with _$ThreadgateRecord {
   @jsonSerializable
   const factory ThreadgateRecord({

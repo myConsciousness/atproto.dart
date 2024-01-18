@@ -19,6 +19,7 @@ part 'reason_repost.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#reasonrepost
 @freezed
 @lex.appBskyFeedDefsReasonRepost
+@Deprecated('Use FeedDefsReasonRepost instead. Will be removed')
 class ReasonRepost with _$ReasonRepost {
   const factory ReasonRepost({
     @typeKey @Default(appBskyFeedDefsReasonRepost) String type,

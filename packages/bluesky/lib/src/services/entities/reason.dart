@@ -14,6 +14,7 @@ part 'reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
+@Deprecated('Use UFeedDefsFeedViewPostReason instead. Will be removed')
 class Reason with _$Reason {
   factory Reason.repost({
     required ReasonRepost data,

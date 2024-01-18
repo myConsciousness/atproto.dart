@@ -17,6 +17,7 @@ part 'list_viewer.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewerstate
 @freezed
 @lex.appBskyGraphDefsListViewerState
+@Deprecated('Use GraphDefsListViewerState instead. Will be removed')
 class ListViewer with _$ListViewer {
   // ignore: unused_element
   const ListViewer._();

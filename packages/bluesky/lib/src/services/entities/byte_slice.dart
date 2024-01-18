@@ -14,6 +14,7 @@ part 'byte_slice.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet/#byteslice
 @freezed
 @lex.appBskyRichtextFacetByteSlice
+@Deprecated('Use RichtextFacetByteSlice instead. Will be removed')
 class ByteSlice with _$ByteSlice {
   const factory ByteSlice({
     required int byteStart,

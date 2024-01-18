@@ -15,6 +15,7 @@ part 'reply_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post/#replyref
 @freezed
 @lex.appBskyFeedPostReplyRef
+@Deprecated('Use FeedPostReplyRef instead. Will be removed')
 class ReplyRef with _$ReplyRef {
   const factory ReplyRef({
     required StrongRef root,

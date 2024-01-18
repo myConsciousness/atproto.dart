@@ -18,6 +18,7 @@ part 'thread_list_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#listrule
 @freezed
 @lex.appBskyFeedThreadgateListRule
+@Deprecated('Use FeedThreadgateListRule instead. Will be removed')
 class ThreadListRule with _$ThreadListRule {
   @jsonSerializable
   const factory ThreadListRule({

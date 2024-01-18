@@ -16,6 +16,7 @@ part 'image_aspect_ratio.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#aspectratio
 @freezed
 @lex.appBskyEmbedImagesAspectRatio
+@Deprecated('Use EmbedImagesAspectRatio instead. Will be removed')
 class ImageAspectRatio with _$ImageAspectRatio {
   const factory ImageAspectRatio({
     required int width,

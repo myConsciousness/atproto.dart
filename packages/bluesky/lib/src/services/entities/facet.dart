@@ -21,6 +21,7 @@ part 'facet.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 @lex.appBskyRichtextFacet
+@Deprecated('Use RichtextFacet instead. Will be removed')
 class Facet with _$Facet {
   @jsonSerializable
   const factory Facet({

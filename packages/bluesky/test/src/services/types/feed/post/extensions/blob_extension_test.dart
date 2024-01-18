@@ -34,7 +34,7 @@ void main() {
 
     final embedImage = blob.toPostRecordEmbedImages(alt: 'test');
 
-    expect(embedImage, isA<URecordEmbed>());
+    expect(embedImage, isA<UFeedPostRecordEmbed>());
 
     final image = embedImage.when(
       embedRecord: (data) => null,

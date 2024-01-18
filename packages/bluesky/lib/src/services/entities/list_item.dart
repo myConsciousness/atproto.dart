@@ -18,6 +18,7 @@ part 'list_item.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
 @lex.appBskyGraphDefsListItemView
+@Deprecated('Use GraphDefsListItemView instead. Will be removed')
 class ListItem with _$ListItem {
   const factory ListItem({
     @atUriConverter required AtUri uri,

@@ -18,6 +18,7 @@ part 'preference.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
+@Deprecated('Use UActorDefsPreferencesPreferences instead. Will be removed')
 class Preference with _$Preference {
   const Preference._();
 

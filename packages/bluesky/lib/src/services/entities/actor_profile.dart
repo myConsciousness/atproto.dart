@@ -20,6 +20,7 @@ part 'actor_profile.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewdetailed
 @freezed
 @lex.appBskyActorDefsProfileViewDetailed
+@Deprecated('Use ActorDefsProfileViewDetailed instead. Will be removed')
 class ActorProfile with _$ActorProfile {
   // ignore: unused_element
   const ActorProfile._();

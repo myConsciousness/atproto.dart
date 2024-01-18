@@ -15,6 +15,7 @@ part 'embed_view_media.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
+@Deprecated('Use UEmbedRecordWithMediaViewMedia instead. Will be removed')
 class EmbedViewMedia with _$EmbedViewMedia {
   const factory EmbedViewMedia.images({
     required EmbedViewImages data,

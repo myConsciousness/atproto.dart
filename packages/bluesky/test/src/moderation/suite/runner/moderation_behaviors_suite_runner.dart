@@ -65,9 +65,9 @@ final class ModerationBehaviorSuiteRunner {
             )
             .toList(),
         embed: scenario.quoteAuthor != null
-            ? UPostViewEmbed.embedRecordView(
+            ? UFeedDefsPostViewEmbed.embedRecordView(
                 data: EmbedRecordView(
-                  record: UViewRecord.viewRecord(
+                  record: UEmbedRecordViewRecord.viewRecord(
                     data: EmbedRecordViewRecord(
                       type: 'app.bsky.embed.record#viewRecord',
                       value: FeedPostRecord(

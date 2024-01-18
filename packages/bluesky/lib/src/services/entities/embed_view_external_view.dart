@@ -18,6 +18,7 @@ part 'embed_view_external_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#viewexternal
 @freezed
 @lex.appBskyEmbedExternalViewExternal
+@Deprecated('Use EmbedExternalViewExternal instead. Will be removed')
 class EmbedViewExternalView with _$EmbedViewExternalView {
   @jsonSerializable
   const factory EmbedViewExternalView({

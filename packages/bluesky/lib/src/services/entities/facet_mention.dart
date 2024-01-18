@@ -18,6 +18,7 @@ part 'facet_mention.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
 @lex.appBskyRichtextFacetMention
+@Deprecated('Use RichtextFacetMention instead. Will be removed')
 class FacetMention with _$FacetMention {
   const factory FacetMention({
     @typeKey @Default(appBskyRichtextFacetMention) String type,

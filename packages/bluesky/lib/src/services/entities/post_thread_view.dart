@@ -16,6 +16,9 @@ part 'post_thread_view.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
+@Deprecated(
+    'Use UFeedDefsThreadViewPostParent / UFeedDefsThreadViewPostReplies instead. '
+    'Will be removed')
 class PostThreadView with _$PostThreadView {
   const factory PostThreadView.record({
     required PostThreadViewRecord data,

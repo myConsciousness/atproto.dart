@@ -19,6 +19,7 @@ part 'block_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphBlock].
 @freezed
+@Deprecated('Use GraphBlockRecord instead. Will be removed')
 class BlockRecord with _$BlockRecord {
   @jsonSerializable
   const factory BlockRecord({

@@ -18,6 +18,7 @@ part 'embed_view_record_view_not_found.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
 @lex.appBskyEmbedRecordViewNotFound
+@Deprecated('Use EmbedRecordViewNotFound instead. Will be removed')
 class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
   const factory EmbedViewRecordViewNotFound({
     @typeKey @Default(appBskyEmbedRecordViewNotFound) String type,

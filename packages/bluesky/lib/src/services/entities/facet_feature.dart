@@ -16,6 +16,7 @@ part 'facet_feature.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
+@Deprecated('Use URichtextFacetFeatures instead. Will be removed')
 class FacetFeature with _$FacetFeature {
   const factory FacetFeature.mention({
     required FacetMention data,

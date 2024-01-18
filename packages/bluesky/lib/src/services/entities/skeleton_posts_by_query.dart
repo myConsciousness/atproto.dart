@@ -17,6 +17,7 @@ part 'skeleton_posts_by_query.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchpostsskeleton/#output
 @freezed
 @lex.appBskyUnspeccedSearchPostsSkeleton
+@Deprecated('Use UnspeccedSearchPostsSkeletonOutput instead. Will be removed')
 class SkeletonPostsByQuery with _$SkeletonPostsByQuery {
   const factory SkeletonPostsByQuery({
     required List<SkeletonPost> posts,

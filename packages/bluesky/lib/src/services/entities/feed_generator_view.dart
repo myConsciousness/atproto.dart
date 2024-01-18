@@ -22,6 +22,7 @@ part 'feed_generator_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorview
 @freezed
 @lex.appBskyFeedDefsGeneratorView
+@Deprecated('Use FeedDefsGeneratorView instead. Will be removed')
 class FeedGeneratorView with _$FeedGeneratorView {
   @jsonSerializable
   const factory FeedGeneratorView({

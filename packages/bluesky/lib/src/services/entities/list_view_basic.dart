@@ -20,6 +20,7 @@ part 'list_view_basic.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewbasic
 @freezed
 @lex.appBskyGraphDefsListViewBasic
+@Deprecated('Use GraphDefsListViewBasic instead. Will be removed')
 class ListViewBasic with _$ListViewBasic {
   // ignore: unused_element
   const ListViewBasic._();

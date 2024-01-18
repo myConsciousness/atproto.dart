@@ -27,6 +27,7 @@ part 'post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
 @lex.appBskyFeedDefsPostView
+@Deprecated('Use FeedDefsPostView instead. Will be removed')
 class Post with _$Post {
   // ignore: unused_element
   const Post._();

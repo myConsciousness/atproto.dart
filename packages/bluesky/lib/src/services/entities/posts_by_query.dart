@@ -17,6 +17,7 @@ part 'posts_by_query.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchposts/#output
 @freezed
 @lex.appBskyFeedSearchPosts
+@Deprecated('Use FeedSearchPostsOutput instead. Will be removed')
 class PostsByQuery with _$PostsByQuery {
   const factory PostsByQuery({
     required List<Post> posts,

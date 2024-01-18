@@ -18,6 +18,7 @@ part 'adult_content_preference.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#adultcontentpref
 @freezed
 @lex.appBskyActorDefsAdultContentPref
+@Deprecated('Use ActorDefsAdultContentPref instead. Will be removed')
 class AdultContentPreference with _$AdultContentPreference {
   @jsonSerializable
   const factory AdultContentPreference({
