@@ -314,5 +314,9 @@ const comAtprotoTempImportRepo = NSID(ids.comAtprotoTempImportRepo);
 /// `com.atproto.temp.pushBlob`
 const comAtprotoTempPushBlob = NSID(ids.comAtprotoTempPushBlob);
 
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification =
+    NSID(ids.comAtprotoTempRequestPhoneVerification);
+
 /// `com.atproto.temp.transferAccount`
 const comAtprotoTempTransferAccount = NSID(ids.comAtprotoTempTransferAccount);
