@@ -272,6 +272,10 @@ const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
 /// `com.atproto.temp.importRepo#main`
 const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
 
+/// `com.atproto.temp.requestPhoneVerification#main`
+const comAtprotoTempRequestPhoneVerification =
+    LexObject(ids.comAtprotoTempRequestPhoneVerification);
+
 /// `com.atproto.temp.transferAccount#main`
 const comAtprotoTempTransferAccount =
     LexObject(ids.comAtprotoTempTransferAccount);
