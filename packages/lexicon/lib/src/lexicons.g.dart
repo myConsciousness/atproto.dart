@@ -396,6 +396,8 @@ const comAtprotoServerCreateAccount = <String, dynamic>{
             "handle": {"type": "string", "format": "handle"},
             "did": {"type": "string", "format": "did"},
             "inviteCode": {"type": "string"},
+            "verificationCode": {"type": "string"},
+            "verificationPhone": {"type": "string"},
             "password": {"type": "string"},
             "recoveryKey": {"type": "string"},
             "plcOp": {"type": "unknown"}
@@ -601,6 +603,7 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
           "required": ["availableUserDomains"],
           "properties": {
             "inviteCodeRequired": {"type": "boolean"},
+            "phoneVerificationRequired": {"type": "boolean"},
             "availableUserDomains": {
               "type": "array",
               "items": {"type": "string"}
@@ -2018,6 +2021,29 @@ const comAtprotoTempImportRepo = <String, dynamic>{
       },
       "input": {"encoding": "application/vnd.ipld.car"},
       "output": {"encoding": "text/plain"}
+    }
+  }
+};
+
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.temp.requestPhoneVerification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Request a verification code to be sent to the supplied phone number",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phoneNumber"],
+          "properties": {
+            "phoneNumber": {"type": "string"}
+          }
+        }
+      }
     }
   }
 };
@@ -6399,6 +6425,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoLabelSubscribeLabels,
   comAtprotoLabelQueryLabels,
   comAtprotoTempImportRepo,
+  comAtprotoTempRequestPhoneVerification,
   comAtprotoTempTransferAccount,
   comAtprotoTempPushBlob,
   comAtprotoTempFetchLabels,

@@ -481,6 +481,10 @@ const comAtprotoTempImportRepo = 'com.atproto.temp.importRepo';
 /// `com.atproto.temp.pushBlob`
 const comAtprotoTempPushBlob = 'com.atproto.temp.pushBlob';
 
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification =
+    'com.atproto.temp.requestPhoneVerification';
+
 /// `com.atproto.temp.transferAccount`
 const comAtprotoTempTransferAccount = 'com.atproto.temp.transferAccount';
 
