@@ -21,8 +21,13 @@ export 'package:atproto_core/src/keys/ids.dart';
 export 'package:atproto_core/src/const.dart';
 export 'package:atproto_core/src/keys/annotations.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
-export 'package:atproto_core/src/converters/at_uri_converter.dart'
-    show atUriConverter;
+export 'package:atproto_core/src/types/blob.dart';
+export 'package:atproto_core/src/types/blob_ref.dart';
+export 'package:atproto_core/src/types/blob_refs.dart';
+export 'package:atproto_core/src/types/blob_data.dart';
+export 'package:atproto_core/src/types/converters/at_uri_converter.dart';
+export 'package:atproto_core/src/types/converters/nsid_converter.dart';
+export 'package:atproto_core/src/types/converters/blob_converter.dart';
 export 'package:atproto_core/src/progress_status.dart'
     show ProgressStatus, ProgressStatusEvent;
 export 'package:cbor/simple.dart' show cbor;

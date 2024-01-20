@@ -11,7 +11,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
 import 'entities/batch_action.dart';
-import 'entities/blob_data.dart';
 import 'entities/create_action.dart';
 import 'entities/delete_action.dart';
 import 'entities/record.dart';
@@ -116,11 +115,13 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
-  Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
+  Future<core.XRPCResponse<core.BlobData>> uploadBlob(
+    final Uint8List bytes,
+  ) async =>
       await _ctx.upload(
         ns.comAtprotoRepoUploadBlob,
         bytes,
-        to: BlobData.fromJson,
+        to: core.BlobData.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo

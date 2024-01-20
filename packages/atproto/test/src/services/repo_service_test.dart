@@ -11,7 +11,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/batch_action.dart';
-import 'package:atproto/src/services/entities/blob_data.dart';
 import 'package:atproto/src/services/entities/create_action.dart';
 import 'package:atproto/src/services/entities/record.dart';
 import 'package:atproto/src/services/entities/records.dart';
@@ -50,7 +49,7 @@ void main() {
     id: comAtprotoRepoPutRecord,
   );
 
-  testRepo<BlobData>(
+  testRepo<core.BlobData>(
     (m, s) => s.uploadBlob(File(
       'test/src/services/suite/data/com/atproto/repo/dash.png',
     ).readAsBytesSync()),
