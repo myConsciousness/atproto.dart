@@ -11,28 +11,28 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../info.dart';
 import '../labels.dart';
 
-part 'message.freezed.dart';
-part 'message.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribelabels/#output
 @freezed
-class ULabelSubscribeLabelsMessage with _$ULabelSubscribeLabelsMessage {
+class ULabelSubscribeLabelsOutput with _$ULabelSubscribeLabelsOutput {
   // ignore: unused_element
-  const ULabelSubscribeLabelsMessage._();
+  const ULabelSubscribeLabelsOutput._();
 
-  const factory ULabelSubscribeLabelsMessage.labels({
+  const factory ULabelSubscribeLabelsOutput.labels({
     required LabelSubscribeLabelsLabels data,
-  }) = ULabelSubscribeLabelsMessageLabels;
+  }) = ULabelSubscribeLabelsOutputLabels;
 
-  const factory ULabelSubscribeLabelsMessage.info({
+  const factory ULabelSubscribeLabelsOutput.info({
     required LabelSubscribeLabelsInfo data,
-  }) = ULabelSubscribeLabelsMessageInfo;
+  }) = ULabelSubscribeLabelsOutputInfo;
 
-  const factory ULabelSubscribeLabelsMessage.unknown({
+  const factory ULabelSubscribeLabelsOutput.unknown({
     required Map<String, dynamic> data,
-  }) = ULabelSubscribeLabelsMessageUnknown;
+  }) = ULabelSubscribeLabelsOutputUnknown;
 
-  factory ULabelSubscribeLabelsMessage.fromJson(Map<String, Object?> json) =>
+  factory ULabelSubscribeLabelsOutput.fromJson(Map<String, Object?> json) =>
       unionLabelSubscribeLabelsMessageConverter.fromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -40,37 +40,37 @@ class ULabelSubscribeLabelsMessage with _$ULabelSubscribeLabelsMessage {
 }
 
 const unionLabelSubscribeLabelsMessageConverter =
-    _ULabelSubscribeLabelsMessageConverter();
+    _ULabelSubscribeLabelsOutputConverter();
 
-final class _ULabelSubscribeLabelsMessageConverter
+final class _ULabelSubscribeLabelsOutputConverter
     implements
-        JsonConverter<ULabelSubscribeLabelsMessage, Map<String, dynamic>> {
-  const _ULabelSubscribeLabelsMessageConverter();
+        JsonConverter<ULabelSubscribeLabelsOutput, Map<String, dynamic>> {
+  const _ULabelSubscribeLabelsOutputConverter();
 
   @override
-  ULabelSubscribeLabelsMessage fromJson(Map<String, dynamic> json) {
+  ULabelSubscribeLabelsOutput fromJson(Map<String, dynamic> json) {
     try {
       final String type = json['t'];
 
       if (type == '#labels') {
-        return ULabelSubscribeLabelsMessage.labels(
+        return ULabelSubscribeLabelsOutput.labels(
           data: LabelSubscribeLabelsLabels.fromJson(json),
         );
       }
       if (type == '#info') {
-        return ULabelSubscribeLabelsMessage.info(
+        return ULabelSubscribeLabelsOutput.info(
           data: LabelSubscribeLabelsInfo.fromJson(json),
         );
       }
 
-      return ULabelSubscribeLabelsMessage.unknown(data: json);
+      return ULabelSubscribeLabelsOutput.unknown(data: json);
     } catch (_) {
-      return ULabelSubscribeLabelsMessage.unknown(data: json);
+      return ULabelSubscribeLabelsOutput.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULabelSubscribeLabelsMessage object) =>
+  Map<String, dynamic> toJson(ULabelSubscribeLabelsOutput object) =>
       object.when(
         labels: (data) => data.toJson(),
         info: (data) => data.toJson(),

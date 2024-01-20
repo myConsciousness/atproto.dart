@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'sync_get_repo_commits_adaptor.dart';
+import '../../get_repo_commits/adaptors/output_adaptor.dart';
 
-Map<String, dynamic> toSyncGetRepoCommit(final dynamic data) =>
-    toSyncGetRepoCommits(data)['commits'].first;
+Map<String, dynamic> toSyncGetRepoCommitOutput(final dynamic data) =>
+    toSyncGetRepoCommitsOutput(data)['commits'].first;

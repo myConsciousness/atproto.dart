@@ -9,9 +9,9 @@ import 'dart:convert';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'cid_links.dart';
+import '../../../utils/cid_links_adaptor.dart';
 
-Map<String, dynamic> toSyncGetRepoCommits(
+Map<String, dynamic> toSyncGetRepoCommitsOutput(
   final dynamic data, [
   core.ProgressStatus? progress,
 ]) {

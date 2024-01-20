@@ -2,19 +2,19 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'message.dart';
+part of 'output.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ULabelSubscribeLabelsMessageLabelsImpl
-    _$$ULabelSubscribeLabelsMessageLabelsImplFromJson(Map json) =>
+_$ULabelSubscribeLabelsOutputLabelsImpl
+    _$$ULabelSubscribeLabelsOutputLabelsImplFromJson(Map json) =>
         $checkedCreate(
-          r'_$ULabelSubscribeLabelsMessageLabelsImpl',
+          r'_$ULabelSubscribeLabelsOutputLabelsImpl',
           json,
           ($checkedConvert) {
-            final val = _$ULabelSubscribeLabelsMessageLabelsImpl(
+            final val = _$ULabelSubscribeLabelsOutputLabelsImpl(
               data: $checkedConvert(
                   'data',
                   (v) => LabelSubscribeLabelsLabels.fromJson(
@@ -26,19 +26,19 @@ _$ULabelSubscribeLabelsMessageLabelsImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$ULabelSubscribeLabelsMessageLabelsImplToJson(
-        _$ULabelSubscribeLabelsMessageLabelsImpl instance) =>
+Map<String, dynamic> _$$ULabelSubscribeLabelsOutputLabelsImplToJson(
+        _$ULabelSubscribeLabelsOutputLabelsImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ULabelSubscribeLabelsMessageInfoImpl
-    _$$ULabelSubscribeLabelsMessageInfoImplFromJson(Map json) => $checkedCreate(
-          r'_$ULabelSubscribeLabelsMessageInfoImpl',
+_$ULabelSubscribeLabelsOutputInfoImpl
+    _$$ULabelSubscribeLabelsOutputInfoImplFromJson(Map json) => $checkedCreate(
+          r'_$ULabelSubscribeLabelsOutputInfoImpl',
           json,
           ($checkedConvert) {
-            final val = _$ULabelSubscribeLabelsMessageInfoImpl(
+            final val = _$ULabelSubscribeLabelsOutputInfoImpl(
               data: $checkedConvert(
                   'data',
                   (v) => LabelSubscribeLabelsInfo.fromJson(
@@ -50,20 +50,20 @@ _$ULabelSubscribeLabelsMessageInfoImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$ULabelSubscribeLabelsMessageInfoImplToJson(
-        _$ULabelSubscribeLabelsMessageInfoImpl instance) =>
+Map<String, dynamic> _$$ULabelSubscribeLabelsOutputInfoImplToJson(
+        _$ULabelSubscribeLabelsOutputInfoImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$ULabelSubscribeLabelsMessageUnknownImpl
-    _$$ULabelSubscribeLabelsMessageUnknownImplFromJson(Map json) =>
+_$ULabelSubscribeLabelsOutputUnknownImpl
+    _$$ULabelSubscribeLabelsOutputUnknownImplFromJson(Map json) =>
         $checkedCreate(
-          r'_$ULabelSubscribeLabelsMessageUnknownImpl',
+          r'_$ULabelSubscribeLabelsOutputUnknownImpl',
           json,
           ($checkedConvert) {
-            final val = _$ULabelSubscribeLabelsMessageUnknownImpl(
+            final val = _$ULabelSubscribeLabelsOutputUnknownImpl(
               data: $checkedConvert(
                   'data', (v) => Map<String, dynamic>.from(v as Map)),
               $type: $checkedConvert('runtimeType', (v) => v as String?),
@@ -73,8 +73,8 @@ _$ULabelSubscribeLabelsMessageUnknownImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$ULabelSubscribeLabelsMessageUnknownImplToJson(
-        _$ULabelSubscribeLabelsMessageUnknownImpl instance) =>
+Map<String, dynamic> _$$ULabelSubscribeLabelsOutputUnknownImplToJson(
+        _$ULabelSubscribeLabelsOutputUnknownImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'runtimeType': instance.$type,

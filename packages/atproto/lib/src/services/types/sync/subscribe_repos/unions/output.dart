@@ -14,40 +14,40 @@ import '../info.dart';
 import '../migrate.dart';
 import '../tombstone.dart';
 
-part 'message.freezed.dart';
-part 'message.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#output
 @freezed
-class USyncSubscribeReposMessage with _$USyncSubscribeReposMessage {
+class USyncSubscribeReposOutput with _$USyncSubscribeReposOutput {
   // ignore: unused_element
-  const USyncSubscribeReposMessage._();
+  const USyncSubscribeReposOutput._();
 
-  const factory USyncSubscribeReposMessage.commit({
+  const factory USyncSubscribeReposOutput.commit({
     required SyncSubscribeReposCommit data,
-  }) = USyncSubscribeReposMessageCommit;
+  }) = USyncSubscribeReposOutputCommit;
 
-  const factory USyncSubscribeReposMessage.handle({
+  const factory USyncSubscribeReposOutput.handle({
     required SyncSubscribeReposHandle data,
-  }) = USyncSubscribeReposMessageHandle;
+  }) = USyncSubscribeReposOutputHandle;
 
-  const factory USyncSubscribeReposMessage.migrate({
+  const factory USyncSubscribeReposOutput.migrate({
     required SyncSubscribeReposMigrate data,
-  }) = USyncSubscribeReposMessageMigrate;
+  }) = USyncSubscribeReposOutputMigrate;
 
-  const factory USyncSubscribeReposMessage.tombstone({
+  const factory USyncSubscribeReposOutput.tombstone({
     required SyncSubscribeReposTombstone data,
-  }) = USyncSubscribeReposMessageTombstone;
+  }) = USyncSubscribeReposOutputTombstone;
 
-  const factory USyncSubscribeReposMessage.info({
+  const factory USyncSubscribeReposOutput.info({
     required SyncSubscribeReposInfo data,
-  }) = USyncSubscribeReposMessageInfo;
+  }) = USyncSubscribeReposOutputInfo;
 
-  const factory USyncSubscribeReposMessage.unknown({
+  const factory USyncSubscribeReposOutput.unknown({
     required Map<String, dynamic> data,
-  }) = USyncSubscribeReposMessageUnknown;
+  }) = USyncSubscribeReposOutputUnknown;
 
-  factory USyncSubscribeReposMessage.fromJson(Map<String, Object?> json) =>
+  factory USyncSubscribeReposOutput.fromJson(Map<String, Object?> json) =>
       unionSyncSubscribeReposMessageConverter.fromJson(json);
 
   Map<String, dynamic> toJson() =>
@@ -55,51 +55,51 @@ class USyncSubscribeReposMessage with _$USyncSubscribeReposMessage {
 }
 
 const unionSyncSubscribeReposMessageConverter =
-    _USyncSubscribeReposMessageConverter();
+    _USyncSubscribeReposOutputConverter();
 
-final class _USyncSubscribeReposMessageConverter
-    implements JsonConverter<USyncSubscribeReposMessage, Map<String, dynamic>> {
-  const _USyncSubscribeReposMessageConverter();
+final class _USyncSubscribeReposOutputConverter
+    implements JsonConverter<USyncSubscribeReposOutput, Map<String, dynamic>> {
+  const _USyncSubscribeReposOutputConverter();
 
   @override
-  USyncSubscribeReposMessage fromJson(Map<String, dynamic> json) {
+  USyncSubscribeReposOutput fromJson(Map<String, dynamic> json) {
     try {
       final String type = json['t'];
 
       if (type == '#commit') {
-        return USyncSubscribeReposMessage.commit(
+        return USyncSubscribeReposOutput.commit(
           data: SyncSubscribeReposCommit.fromJson(json),
         );
       }
       if (type == '#handle') {
-        return USyncSubscribeReposMessage.handle(
+        return USyncSubscribeReposOutput.handle(
           data: SyncSubscribeReposHandle.fromJson(json),
         );
       }
       if (type == '#migrate') {
-        return USyncSubscribeReposMessage.migrate(
+        return USyncSubscribeReposOutput.migrate(
           data: SyncSubscribeReposMigrate.fromJson(json),
         );
       }
       if (type == '#tombstone') {
-        return USyncSubscribeReposMessage.tombstone(
+        return USyncSubscribeReposOutput.tombstone(
           data: SyncSubscribeReposTombstone.fromJson(json),
         );
       }
       if (type == '#info') {
-        return USyncSubscribeReposMessage.info(
+        return USyncSubscribeReposOutput.info(
           data: SyncSubscribeReposInfo.fromJson(json),
         );
       }
 
-      return USyncSubscribeReposMessage.unknown(data: json);
+      return USyncSubscribeReposOutput.unknown(data: json);
     } catch (_) {
-      return USyncSubscribeReposMessage.unknown(data: json);
+      return USyncSubscribeReposOutput.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(USyncSubscribeReposMessage object) => object.when(
+  Map<String, dynamic> toJson(USyncSubscribeReposOutput object) => object.when(
         commit: (data) => data.toJson(),
         handle: (data) => data.toJson(),
         migrate: (data) => data.toJson(),

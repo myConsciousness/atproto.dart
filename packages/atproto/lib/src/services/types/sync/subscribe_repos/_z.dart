@@ -16,4 +16,4 @@ export 'extensions/handle_extension.dart';
 export 'extensions/migrate_extension.dart';
 export 'extensions/tombstone_extension.dart';
 
-export 'unions/message.dart';
+export 'unions/output.dart';

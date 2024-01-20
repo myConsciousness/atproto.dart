@@ -10,7 +10,7 @@ import 'dart:typed_data';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'cid_links.dart';
+import '../../../utils/cid_links_adaptor.dart';
 
 Map<String, dynamic> toSyncSubscribeReposRefs(final dynamic data) {
   final cborData = core.cbor.decode([0x82] + data) as List;

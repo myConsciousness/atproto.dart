@@ -2,18 +2,18 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'message.dart';
+part of 'output.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$USyncSubscribeReposMessageCommitImpl
-    _$$USyncSubscribeReposMessageCommitImplFromJson(Map json) => $checkedCreate(
-          r'_$USyncSubscribeReposMessageCommitImpl',
+_$USyncSubscribeReposOutputCommitImpl
+    _$$USyncSubscribeReposOutputCommitImplFromJson(Map json) => $checkedCreate(
+          r'_$USyncSubscribeReposOutputCommitImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageCommitImpl(
+            final val = _$USyncSubscribeReposOutputCommitImpl(
               data: $checkedConvert(
                   'data',
                   (v) => SyncSubscribeReposCommit.fromJson(
@@ -25,19 +25,19 @@ _$USyncSubscribeReposMessageCommitImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageCommitImplToJson(
-        _$USyncSubscribeReposMessageCommitImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputCommitImplToJson(
+        _$USyncSubscribeReposOutputCommitImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USyncSubscribeReposMessageHandleImpl
-    _$$USyncSubscribeReposMessageHandleImplFromJson(Map json) => $checkedCreate(
-          r'_$USyncSubscribeReposMessageHandleImpl',
+_$USyncSubscribeReposOutputHandleImpl
+    _$$USyncSubscribeReposOutputHandleImplFromJson(Map json) => $checkedCreate(
+          r'_$USyncSubscribeReposOutputHandleImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageHandleImpl(
+            final val = _$USyncSubscribeReposOutputHandleImpl(
               data: $checkedConvert(
                   'data',
                   (v) => SyncSubscribeReposHandle.fromJson(
@@ -49,20 +49,19 @@ _$USyncSubscribeReposMessageHandleImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageHandleImplToJson(
-        _$USyncSubscribeReposMessageHandleImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputHandleImplToJson(
+        _$USyncSubscribeReposOutputHandleImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USyncSubscribeReposMessageMigrateImpl
-    _$$USyncSubscribeReposMessageMigrateImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$USyncSubscribeReposMessageMigrateImpl',
+_$USyncSubscribeReposOutputMigrateImpl
+    _$$USyncSubscribeReposOutputMigrateImplFromJson(Map json) => $checkedCreate(
+          r'_$USyncSubscribeReposOutputMigrateImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageMigrateImpl(
+            final val = _$USyncSubscribeReposOutputMigrateImpl(
               data: $checkedConvert(
                   'data',
                   (v) => SyncSubscribeReposMigrate.fromJson(
@@ -74,20 +73,20 @@ _$USyncSubscribeReposMessageMigrateImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageMigrateImplToJson(
-        _$USyncSubscribeReposMessageMigrateImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputMigrateImplToJson(
+        _$USyncSubscribeReposOutputMigrateImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USyncSubscribeReposMessageTombstoneImpl
-    _$$USyncSubscribeReposMessageTombstoneImplFromJson(Map json) =>
+_$USyncSubscribeReposOutputTombstoneImpl
+    _$$USyncSubscribeReposOutputTombstoneImplFromJson(Map json) =>
         $checkedCreate(
-          r'_$USyncSubscribeReposMessageTombstoneImpl',
+          r'_$USyncSubscribeReposOutputTombstoneImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageTombstoneImpl(
+            final val = _$USyncSubscribeReposOutputTombstoneImpl(
               data: $checkedConvert(
                   'data',
                   (v) => SyncSubscribeReposTombstone.fromJson(
@@ -99,19 +98,19 @@ _$USyncSubscribeReposMessageTombstoneImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageTombstoneImplToJson(
-        _$USyncSubscribeReposMessageTombstoneImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputTombstoneImplToJson(
+        _$USyncSubscribeReposOutputTombstoneImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USyncSubscribeReposMessageInfoImpl
-    _$$USyncSubscribeReposMessageInfoImplFromJson(Map json) => $checkedCreate(
-          r'_$USyncSubscribeReposMessageInfoImpl',
+_$USyncSubscribeReposOutputInfoImpl
+    _$$USyncSubscribeReposOutputInfoImplFromJson(Map json) => $checkedCreate(
+          r'_$USyncSubscribeReposOutputInfoImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageInfoImpl(
+            final val = _$USyncSubscribeReposOutputInfoImpl(
               data: $checkedConvert(
                   'data',
                   (v) => SyncSubscribeReposInfo.fromJson(
@@ -123,20 +122,19 @@ _$USyncSubscribeReposMessageInfoImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageInfoImplToJson(
-        _$USyncSubscribeReposMessageInfoImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputInfoImplToJson(
+        _$USyncSubscribeReposOutputInfoImpl instance) =>
     <String, dynamic>{
       'data': instance.data.toJson(),
       'runtimeType': instance.$type,
     };
 
-_$USyncSubscribeReposMessageUnknownImpl
-    _$$USyncSubscribeReposMessageUnknownImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$USyncSubscribeReposMessageUnknownImpl',
+_$USyncSubscribeReposOutputUnknownImpl
+    _$$USyncSubscribeReposOutputUnknownImplFromJson(Map json) => $checkedCreate(
+          r'_$USyncSubscribeReposOutputUnknownImpl',
           json,
           ($checkedConvert) {
-            final val = _$USyncSubscribeReposMessageUnknownImpl(
+            final val = _$USyncSubscribeReposOutputUnknownImpl(
               data: $checkedConvert(
                   'data', (v) => Map<String, dynamic>.from(v as Map)),
               $type: $checkedConvert('runtimeType', (v) => v as String?),
@@ -146,8 +144,8 @@ _$USyncSubscribeReposMessageUnknownImpl
           fieldKeyMap: const {r'$type': 'runtimeType'},
         );
 
-Map<String, dynamic> _$$USyncSubscribeReposMessageUnknownImplToJson(
-        _$USyncSubscribeReposMessageUnknownImpl instance) =>
+Map<String, dynamic> _$$USyncSubscribeReposOutputUnknownImplToJson(
+        _$USyncSubscribeReposOutputUnknownImpl instance) =>
     <String, dynamic>{
       'data': instance.data,
       'runtimeType': instance.$type,

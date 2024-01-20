@@ -7,4 +7,4 @@ export 'labels.dart';
 
 export 'extensions/labels_extension.dart';
 
-export 'unions/message.dart';
+export 'unions/output.dart';
