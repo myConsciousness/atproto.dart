@@ -17,6 +17,7 @@ part 'label.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
 @lex.comAtprotoLabelDefsLabel
+@Deprecated('Use LabelDefsLabel instead. Will be removed')
 class Label with _$Label {
   @jsonSerializable
   const factory Label({

@@ -5,22 +5,17 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
-part 'repo_commit.freezed.dart';
-part 'repo_commit.g.dart';
+part 'commit.freezed.dart';
+part 'commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getrepo/#output
 @freezed
-@lex.comAtprotoSyncGetRepo
-@Deprecated('Use SyncGetRepoOutput instead. Will be removed')
-class RepoCommit with _$RepoCommit {
-  const factory RepoCommit({
+class SyncGetRepoCommitsCommit with _$SyncGetRepoCommitsCommit {
+  const factory SyncGetRepoCommitsCommit({
     required String cid,
     required Map<String, dynamic> commit,
-  }) = _RepoCommit;
+  }) = _SyncGetRepoCommitsCommit;
 
-  factory RepoCommit.fromJson(Map<String, Object?> json) =>
-      _$RepoCommitFromJson(json);
+  factory SyncGetRepoCommitsCommit.fromJson(Map<String, Object?> json) =>
+      _$SyncGetRepoCommitsCommitFromJson(json);
 }

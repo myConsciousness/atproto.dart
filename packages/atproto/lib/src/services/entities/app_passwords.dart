@@ -8,12 +8,15 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../lex_annotations.g.dart' as lex;
 import 'sealed_app_password.dart';
 
 part 'app_passwords.freezed.dart';
 part 'app_passwords.g.dart';
 
 @freezed
+@lex.comAtprotoServerListAppPasswords
+@Deprecated('Use ServerListAppPasswordsOutput instead. Will be removed')
 class AppPasswords with _$AppPasswords {
   const factory AppPasswords({
     required List<SealedAppPassword> passwords,

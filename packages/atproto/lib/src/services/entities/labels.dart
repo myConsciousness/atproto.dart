@@ -13,6 +13,7 @@ import 'self_labels.dart';
 part 'labels.freezed.dart';
 
 @freezed
+@Deprecated('Will be removed')
 class Labels with _$Labels {
   // ignore: unused_element
   const Labels._();

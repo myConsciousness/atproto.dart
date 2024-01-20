@@ -18,6 +18,7 @@ part 'create_action.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
 @lex.comAtprotoRepoApplyWritesCreate
+@Deprecated('Use RepoApplyWritesCreate instead. Will be removed')
 class CreateAction with _$CreateAction {
   @jsonSerializable
   const factory CreateAction({

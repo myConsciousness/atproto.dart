@@ -17,6 +17,7 @@ part 'repo_op.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscriberepos/#repoop
 @freezed
 @lex.comAtprotoSyncSubscribeReposRepoOp
+@Deprecated('Use SyncSubscribeReposRepoOp instead. Will be removed')
 class RepoOp with _$RepoOp {
   const factory RepoOp({
     required RepoAction action,

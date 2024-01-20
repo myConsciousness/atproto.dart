@@ -16,6 +16,7 @@ part 'subscribed_label_labels.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
 @lex.comAtprotoLabelSubscribeLabelsLabels
+@Deprecated('Use LabelSubscribeLabelsLabels instead. Will be removed')
 class SubscribedLabelLabels with _$SubscribedLabelLabels {
   @jsonSerializable
   const factory SubscribedLabelLabels({

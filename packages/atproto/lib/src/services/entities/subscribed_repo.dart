@@ -20,6 +20,7 @@ part 'subscribed_repo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#output
 @freezed
+@Deprecated('Use USyncSubscribeReposOutput instead. Will be removed')
 class SubscribedRepo with _$SubscribedRepo {
   const factory SubscribedRepo.commit({
     required SubscribedRepoCommit data,

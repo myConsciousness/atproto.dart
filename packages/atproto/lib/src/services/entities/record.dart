@@ -18,6 +18,7 @@ part 'record.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#record
 @freezed
 @lex.comAtprotoRepoListRecordsRecord
+@Deprecated('Use RepoListRecordsRecord instead. Will be removed')
 class Record with _$Record {
   // ignore: unused_element
   const Record._();

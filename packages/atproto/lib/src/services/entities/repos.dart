@@ -13,6 +13,7 @@ part 'repos.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#output
 @freezed
+@Deprecated('Use SyncListReposOutput instead. Will be removed')
 class Repos with _$Repos {
   const factory Repos({
     required List<Repo> repos,

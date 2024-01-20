@@ -14,6 +14,7 @@ part 'subscribed_repo_handle.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
 @lex.comAtprotoSyncSubscribeReposHandle
+@Deprecated('Use SyncSubscribeReposHandle instead. Will be removed')
 class SubscribedRepoHandle with _$SubscribedRepoHandle {
   const factory SubscribedRepoHandle({
     required String did,

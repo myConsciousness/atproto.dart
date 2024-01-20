@@ -17,6 +17,7 @@ part 'invite_code.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs/#invitecode
 @freezed
 @lex.comAtprotoServerDefsInviteCode
+@Deprecated('Use ServerDefsInviteCode instead. Will be removed')
 class InviteCode with _$InviteCode {
   const factory InviteCode({
     required String code,
