@@ -272,6 +272,10 @@ const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
 /// `com.atproto.temp.importRepo#main`
 const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
 
+/// `com.atproto.temp.requestPhoneVerification#main`
+const comAtprotoTempRequestPhoneVerification =
+    LexObject(ids.comAtprotoTempRequestPhoneVerification);
+
 /// `com.atproto.temp.transferAccount#main`
 const comAtprotoTempTransferAccount =
     LexObject(ids.comAtprotoTempTransferAccount);
@@ -304,6 +308,14 @@ const comAtprotoAdminGetAccountInfos =
 /// `com.atproto.admin.emitModerationEvent#main`
 const comAtprotoAdminEmitModerationEvent =
     LexObject(ids.comAtprotoAdminEmitModerationEvent);
+
+/// `com.atproto.admin.deleteCommunicationTemplate#main`
+const comAtprotoAdminDeleteCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
+
+/// `com.atproto.admin.updateCommunicationTemplate#main`
+const comAtprotoAdminUpdateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
 
 /// `com.atproto.admin.deleteAccount#main`
 const comAtprotoAdminDeleteAccount =
@@ -433,9 +445,17 @@ const comAtprotoAdminDefsModEventUnmute =
 const comAtprotoAdminDefsModEventEmail =
     LexObject(ids.comAtprotoAdminDefsModEventEmail);
 
+/// `com.atproto.admin.defs#communicationTemplateView`
+const comAtprotoAdminDefsCommunicationTemplateView =
+    LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
+
 /// `com.atproto.admin.queryModerationEvents#main`
 const comAtprotoAdminQueryModerationEvents =
     LexObject(ids.comAtprotoAdminQueryModerationEvents);
+
+/// `com.atproto.admin.createCommunicationTemplate#main`
+const comAtprotoAdminCreateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
 
 /// `com.atproto.admin.disableInviteCodes#main`
 const comAtprotoAdminDisableInviteCodes =
@@ -466,6 +486,10 @@ const comAtprotoAdminGetModerationEvent =
 /// `com.atproto.admin.getAccountInfo#main`
 const comAtprotoAdminGetAccountInfo =
     LexObject(ids.comAtprotoAdminGetAccountInfo);
+
+/// `com.atproto.admin.listCommunicationTemplates#main`
+const comAtprotoAdminListCommunicationTemplates =
+    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
 
 /// `com.atproto.admin.disableAccountInvites#main`
 const comAtprotoAdminDisableAccountInvites =
