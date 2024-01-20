@@ -40,6 +40,6 @@ class ActorGetProfileOutput with _$ActorGetProfileOutput {
 }
 
 extension $ActorGetProfileOutputExtension on ActorGetProfileOutput {
-  ActorDefsProfileViewDetailed get asProfileViewDetailed =>
+  ActorDefsProfileViewDetailed get asActorDefsProfileViewDetailed =>
       ActorDefsProfileViewDetailed.fromJson(toJson());
 }
