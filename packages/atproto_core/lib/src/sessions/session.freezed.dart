@@ -20,26 +20,12 @@ Session _$SessionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Session {
-  /// Decentralized Identifier for the user.
   String get did => throw _privateConstructorUsedError;
-
-  /// User handle.
   String get handle => throw _privateConstructorUsedError;
-
-  /// User's email address.
   String? get email => throw _privateConstructorUsedError;
-
-  /// A flag indicating whether the email address is confirmed.
-  @JsonKey(name: 'emailConfirmed')
-  bool get isEmailConfirmed => throw _privateConstructorUsedError;
-
-  /// Access JSON Web Token.
+  bool get emailConfirmed => throw _privateConstructorUsedError;
   String get accessJwt => throw _privateConstructorUsedError;
-
-  /// Refresh JSON Web Token.
   String get refreshJwt => throw _privateConstructorUsedError;
-
-  /// DID plc document.
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +42,7 @@ abstract class $SessionCopyWith<$Res> {
       {String did,
       String handle,
       String? email,
-      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailConfirmed,
       String accessJwt,
       String refreshJwt,
       Map<String, dynamic>? didDoc});
@@ -78,7 +64,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
-    Object? isEmailConfirmed = null,
+    Object? emailConfirmed = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
@@ -96,9 +82,9 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      isEmailConfirmed: null == isEmailConfirmed
-          ? _value.isEmailConfirmed
-          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+      emailConfirmed: null == emailConfirmed
+          ? _value.emailConfirmed
+          : emailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
@@ -127,7 +113,7 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
       {String did,
       String handle,
       String? email,
-      @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailConfirmed,
       String accessJwt,
       String refreshJwt,
       Map<String, dynamic>? didDoc});
@@ -147,7 +133,7 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
-    Object? isEmailConfirmed = null,
+    Object? emailConfirmed = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
@@ -165,9 +151,9 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      isEmailConfirmed: null == isEmailConfirmed
-          ? _value.isEmailConfirmed
-          : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+      emailConfirmed: null == emailConfirmed
+          ? _value.emailConfirmed
+          : emailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
@@ -188,50 +174,34 @@ class __$$SessionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SessionImpl extends _Session {
+class _$SessionImpl implements _Session {
   const _$SessionImpl(
       {required this.did,
       required this.handle,
       this.email,
-      @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false,
+      this.emailConfirmed = false,
       required this.accessJwt,
       required this.refreshJwt,
       final Map<String, dynamic>? didDoc})
-      : _didDoc = didDoc,
-        super._();
+      : _didDoc = didDoc;
 
   factory _$SessionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SessionImplFromJson(json);
 
-  /// Decentralized Identifier for the user.
   @override
   final String did;
-
-  /// User handle.
   @override
   final String handle;
-
-  /// User's email address.
   @override
   final String? email;
-
-  /// A flag indicating whether the email address is confirmed.
   @override
-  @JsonKey(name: 'emailConfirmed')
-  final bool isEmailConfirmed;
-
-  /// Access JSON Web Token.
+  @JsonKey()
+  final bool emailConfirmed;
   @override
   final String accessJwt;
-
-  /// Refresh JSON Web Token.
   @override
   final String refreshJwt;
-
-  /// DID plc document.
   final Map<String, dynamic>? _didDoc;
-
-  /// DID plc document.
   @override
   Map<String, dynamic>? get didDoc {
     final value = _didDoc;
@@ -243,7 +213,7 @@ class _$SessionImpl extends _Session {
 
   @override
   String toString() {
-    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc)';
+    return 'Session(did: $did, handle: $handle, email: $email, emailConfirmed: $emailConfirmed, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc)';
   }
 
   @override
@@ -254,8 +224,8 @@ class _$SessionImpl extends _Session {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
-            (identical(other.isEmailConfirmed, isEmailConfirmed) ||
-                other.isEmailConfirmed == isEmailConfirmed) &&
+            (identical(other.emailConfirmed, emailConfirmed) ||
+                other.emailConfirmed == emailConfirmed) &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -270,7 +240,7 @@ class _$SessionImpl extends _Session {
       did,
       handle,
       email,
-      isEmailConfirmed,
+      emailConfirmed,
       accessJwt,
       refreshJwt,
       const DeepCollectionEquality().hash(_didDoc));
@@ -289,47 +259,31 @@ class _$SessionImpl extends _Session {
   }
 }
 
-abstract class _Session extends Session {
+abstract class _Session implements Session {
   const factory _Session(
       {required final String did,
       required final String handle,
       final String? email,
-      @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
+      final bool emailConfirmed,
       required final String accessJwt,
       required final String refreshJwt,
       final Map<String, dynamic>? didDoc}) = _$SessionImpl;
-  const _Session._() : super._();
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
 
   @override
-
-  /// Decentralized Identifier for the user.
   String get did;
   @override
-
-  /// User handle.
   String get handle;
   @override
-
-  /// User's email address.
   String? get email;
   @override
-
-  /// A flag indicating whether the email address is confirmed.
-  @JsonKey(name: 'emailConfirmed')
-  bool get isEmailConfirmed;
+  bool get emailConfirmed;
   @override
-
-  /// Access JSON Web Token.
   String get accessJwt;
   @override
-
-  /// Refresh JSON Web Token.
   String get refreshJwt;
   @override
-
-  /// DID plc document.
   Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)

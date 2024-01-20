@@ -101,13 +101,11 @@ export 'package:atproto_core/atproto_core.dart'
         Jitter,
         GetClient,
         PostClient,
+        // ignore: deprecated_member_use
         Session,
         $SessionCopyWith,
         AuthToken,
         $AuthTokenCopyWith,
         decodeJwt,
         AuthScope,
-        createSession,
-        refreshSession,
-        deleteSession,
         isValidAppPassword;

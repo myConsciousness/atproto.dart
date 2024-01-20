@@ -18,6 +18,73 @@ import 'entities/invite_codes.dart';
 import 'entities/server_info.dart';
 import 'entities/signing_key.dart';
 
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
+Future<core.XRPCResponse<core.Session>> createSession({
+  core.Protocol? protocol,
+  String? service,
+  required String identifier,
+  required String password,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerCreateSession,
+      body: {
+        'identifier': identifier,
+        'password': password,
+      },
+      to: core.Session.fromJson,
+    );
+
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
+Future<core.XRPCResponse<core.Session>> refreshSession({
+  core.Protocol? protocol,
+  String? service,
+  required String refreshJwt,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerRefreshSession,
+      headers: {
+        'Authorization': 'Bearer $refreshJwt',
+      },
+      to: core.Session.fromJson,
+    );
+
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
+Future<core.XRPCResponse<core.EmptyData>> deleteSession({
+  core.Protocol? protocol,
+  String? service,
+  required String refreshJwt,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerDeleteSession,
+      headers: {
+        'Authorization': 'Bearer $refreshJwt',
+      },
+    );
+
 /// Represents `com.atproto.server.*` service.
 final class ServerService {
   ServerService(this._ctx);

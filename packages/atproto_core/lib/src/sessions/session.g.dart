@@ -11,7 +11,7 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
       did: json['did'] as String,
       handle: json['handle'] as String,
       email: json['email'] as String?,
-      isEmailConfirmed: json['emailConfirmed'] as bool? ?? false,
+      emailConfirmed: json['emailConfirmed'] as bool? ?? false,
       accessJwt: json['accessJwt'] as String,
       refreshJwt: json['refreshJwt'] as String,
       didDoc: json['didDoc'] as Map<String, dynamic>?,
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
   }
 
   writeNotNull('email', instance.email);
-  val['emailConfirmed'] = instance.isEmailConfirmed;
+  val['emailConfirmed'] = instance.emailConfirmed;
   val['accessJwt'] = instance.accessJwt;
   val['refreshJwt'] = instance.refreshJwt;
   writeNotNull('didDoc', instance.didDoc);

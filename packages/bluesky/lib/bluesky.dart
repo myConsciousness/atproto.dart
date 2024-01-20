@@ -4,6 +4,9 @@
 
 export 'package:atproto/atproto.dart'
     show
+        createSession,
+        refreshSession,
+        deleteSession,
         Record,
         $RecordCopyWith,
         Records,
@@ -173,9 +176,6 @@ export 'package:atproto_core/atproto_core.dart'
         $AuthTokenCopyWith,
         AuthScope,
         decodeJwt,
-        createSession,
-        refreshSession,
-        deleteSession,
         isValidAppPassword;
 
 export 'package:bluesky/src/bluesky.dart';
