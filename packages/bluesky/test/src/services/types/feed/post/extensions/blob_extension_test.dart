@@ -32,7 +32,7 @@ void main() {
       ref: BlobRef(link: 'aaaaaa'),
     );
 
-    final embedImage = blob.toPostRecordEmbedImages(alt: 'test');
+    final embedImage = blob.toUFeedPostRecordEmbedEmbedImages(alt: 'test');
 
     expect(embedImage, isA<UFeedPostRecordEmbed>());
 

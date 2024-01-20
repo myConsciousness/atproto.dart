@@ -10,13 +10,14 @@ import '../../../embed/record/_z.dart';
 import '../_z.dart';
 
 extension StrongRefExtension on StrongRef {
-  @Deprecated('Use .toPostRecordEmbedRecord instead. Will be removed')
+  @Deprecated('Use .toUFeedPostRecordEmbedEmbedRecord instead. Will be removed')
   UFeedPostRecordEmbed toEmbedRecord() => UFeedPostRecordEmbed.embedRecord(
         data: EmbedRecord(record: this),
       );
 
-  /// Returns the [URecordEmbed] record representation of this strong ref.
-  UFeedPostRecordEmbed toPostRecordEmbedRecord() =>
+  /// Returns the [UFeedPostRecordEmbed] record representation of this strong
+  /// ref.
+  UFeedPostRecordEmbed toUFeedPostRecordEmbedEmbedRecord() =>
       UFeedPostRecordEmbed.embedRecord(
         data: EmbedRecord(record: this),
       );

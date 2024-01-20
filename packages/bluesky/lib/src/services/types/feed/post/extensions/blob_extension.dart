@@ -21,7 +21,7 @@ extension BlobExtension on Blob {
         aspectRatio: aspectRatio,
       );
 
-  @Deprecated('Use .toPostRecordEmbedImages instead. Will be removed')
+  @Deprecated('Use .toUFeedPostRecordEmbedEmbedImages instead. Will be removed')
   UFeedPostRecordEmbed toEmbedImage({
     required String alt,
     EmbedImagesAspectRatio? aspectRatio,
@@ -50,7 +50,7 @@ extension BlobExtension on Blob {
 
   /// Returns the single [UFeedPostRecordEmbed] image representation of this
   /// blob.
-  UFeedPostRecordEmbed toPostRecordEmbedImages({
+  UFeedPostRecordEmbed toUFeedPostRecordEmbedEmbedImages({
     required String alt,
     EmbedImagesAspectRatio? aspectRatio,
   }) =>

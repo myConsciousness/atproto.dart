@@ -14,7 +14,7 @@ void main() {
   test('.toPostRecordEmbedRecord', () {
     final ref = StrongRef(cid: 'aaaaa', uri: AtUri.make('test'));
 
-    final embed = ref.toPostRecordEmbedRecord();
+    final embed = ref.toUFeedPostRecordEmbedEmbedRecord();
 
     final embedRecord = embed.when(
       embedRecord: (data) => data,
