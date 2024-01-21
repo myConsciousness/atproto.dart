@@ -19,6 +19,8 @@ Create an account.
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ❌ | - |
 | **inviteCode** | string | - | ❌ | - |
+| **verificationCode** | string | - | ❌ | - |
+| **verificationPhone** | string | - | ❌ | - |
 | **password** | string | - | ❌ | - |
 | **recoveryKey** | string | - | ❌ | - |
 | **plcOp** | unknown | - | ❌ | - |
