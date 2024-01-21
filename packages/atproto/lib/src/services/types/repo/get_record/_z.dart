@@ -2,11 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'info.dart';
-export 'labels.dart';
+export 'output.dart';
 
-export 'adaptors/output_adaptor.dart';
-
-export 'extensions/labels_extension.dart';
-
-export 'unions/output.dart';
+export 'extensions/output_extension.dart';

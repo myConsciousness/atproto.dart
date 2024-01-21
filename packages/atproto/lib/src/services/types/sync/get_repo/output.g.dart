@@ -8,11 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SyncGetRepoImpl _$$SyncGetRepoImplFromJson(Map json) => $checkedCreate(
-      r'_$SyncGetRepoImpl',
+_$SyncGetRepoOutputImpl _$$SyncGetRepoOutputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$SyncGetRepoOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$SyncGetRepoImpl(
+        final val = _$SyncGetRepoOutputImpl(
           commits: $checkedConvert(
               'commits',
               (v) => (v as List<dynamic>)
@@ -24,7 +25,8 @@ _$SyncGetRepoImpl _$$SyncGetRepoImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$SyncGetRepoImplToJson(_$SyncGetRepoImpl instance) =>
+Map<String, dynamic> _$$SyncGetRepoOutputImplToJson(
+        _$SyncGetRepoOutputImpl instance) =>
     <String, dynamic>{
       'commits': instance.commits.map((e) => e.toJson()).toList(),
     };

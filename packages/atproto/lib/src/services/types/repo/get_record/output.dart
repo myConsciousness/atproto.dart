@@ -10,20 +10,21 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../lex_annotations.g.dart' as lex;
-import 'commit.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/com/atproto/sync/getrepo/#output
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#record
 @freezed
-@lex.comAtprotoSyncGetRepo
-class SyncGetRepoOutput with _$SyncGetRepoOutput {
+@lex.comAtprotoRepoGetRecord
+class RepoGetRecordOutput with _$RepoGetRecordOutput {
   @jsonSerializable
-  const factory SyncGetRepoOutput({
-    required List<SyncGetRepoCommit> commits,
-  }) = _SyncGetRepoOutput;
+  const factory RepoGetRecordOutput({
+    @atUriConverter required AtUri uri,
+    String? cid,
+    required Map<String, dynamic> value,
+  }) = _RepoGetRecordOutput;
 
-  factory SyncGetRepoOutput.fromJson(Map<String, Object?> json) =>
-      _$SyncGetRepoOutputFromJson(json);
+  factory RepoGetRecordOutput.fromJson(Map<String, Object?> json) =>
+      _$RepoGetRecordOutputFromJson(json);
 }

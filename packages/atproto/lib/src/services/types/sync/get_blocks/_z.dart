@@ -4,3 +4,5 @@
 
 export 'block.dart';
 export 'output.dart';
+
+export 'adaptors/output_adaptor.dart';

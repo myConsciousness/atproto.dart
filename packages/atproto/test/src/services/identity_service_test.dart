@@ -7,11 +7,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/did.dart';
+import 'package:atproto/src/services/types/identity/resolve_handle/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testIdentity<DID>(
+  testIdentity<IdentityResolveHandleOutput>(
     (m, s) => s.resolveHandle(handle: m.actor),
     id: comAtprotoIdentityResolveHandle,
   );

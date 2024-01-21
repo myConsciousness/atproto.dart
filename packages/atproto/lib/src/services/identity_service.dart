@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/did.dart';
+import 'types/identity/resolve_handle/_z.dart';
 
 /// Represents `com.atproto.identity.*` service.
 final class IdentityService {
@@ -16,19 +16,19 @@ final class IdentityService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
-  Future<core.XRPCResponse<DID>> resolveHandle({
+  Future<core.XRPCResponse<IdentityResolveHandleOutput>> resolveHandle({
     required String handle,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findDID(handle: handle);
 
   @Deprecated('Use .resolveHandle instead. Will be removed')
-  Future<core.XRPCResponse<DID>> findDID({
+  Future<core.XRPCResponse<IdentityResolveHandleOutput>> findDID({
     required String handle,
   }) async =>
       await _findDID(
         handle: handle,
-        to: DID.fromJson,
+        to: IdentityResolveHandleOutput.fromJson,
       );
 
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({

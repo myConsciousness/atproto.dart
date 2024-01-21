@@ -7,25 +7,25 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/account.dart';
-import 'package:atproto/src/services/entities/app_password.dart';
-import 'package:atproto/src/services/entities/app_passwords.dart';
-import 'package:atproto/src/services/entities/created_invite_code.dart';
-import 'package:atproto/src/services/entities/created_invite_codes.dart';
-import 'package:atproto/src/services/entities/current_session.dart';
-import 'package:atproto/src/services/entities/email_update.dart';
-import 'package:atproto/src/services/entities/invite_codes.dart';
-import 'package:atproto/src/services/entities/server_info.dart';
-import 'package:atproto/src/services/entities/signing_key.dart';
+import 'package:atproto/src/services/types/server/create_account/_z.dart';
+import 'package:atproto/src/services/types/server/create_app_password/_z.dart';
+import 'package:atproto/src/services/types/server/create_invite_code/_z.dart';
+import 'package:atproto/src/services/types/server/create_invite_codes/_z.dart';
+import 'package:atproto/src/services/types/server/describe_server/_z.dart';
+import 'package:atproto/src/services/types/server/get_account_invite_codes/_z.dart';
+import 'package:atproto/src/services/types/server/get_session/_z.dart';
+import 'package:atproto/src/services/types/server/list_app_passwords/_z.dart';
+import 'package:atproto/src/services/types/server/request_email_update/_z.dart';
+import 'package:atproto/src/services/types/server/reserve_signing_key/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testServer<CurrentSession>(
+  testServer<ServerGetSessionOutput>(
     (m, s) => s.getSession(),
     id: comAtprotoServerGetSession,
   );
 
-  testServer<Account>(
+  testServer<ServerCreateAccountOutput>(
     (m, s) => s.createAccount(
       handle: m.actor,
       email: m.email,
@@ -47,17 +47,17 @@ void main() {
     id: comAtprotoServerDeleteAccount,
   );
 
-  testServer<CreatedInviteCode>(
+  testServer<ServerCreateInviteCodeOutput>(
     (m, s) => s.createInviteCode(useCount: 0),
     id: comAtprotoServerCreateInviteCode,
   );
 
-  testServer<CreatedInviteCodes>(
+  testServer<ServerCreateInviteCodesOutput>(
     (m, s) => s.createInviteCodes(codeCount: 1, useCount: 0),
     id: comAtprotoServerCreateInviteCodes,
   );
 
-  testServer<InviteCodes>(
+  testServer<ServerGetAccountInviteCodesOutput>(
     (m, s) => s.getAccountInviteCodes(),
     id: comAtprotoServerGetAccountInviteCodes,
   );
@@ -75,7 +75,7 @@ void main() {
     id: comAtprotoServerResetPassword,
   );
 
-  testServer<AppPassword>(
+  testServer<ServerCreateAppPasswordOutput>(
     (m, s) => s.createAppPassword(name: m.name),
     id: comAtprotoServerCreateAppPassword,
   );
@@ -85,17 +85,17 @@ void main() {
     id: comAtprotoServerRevokeAppPassword,
   );
 
-  testServer<AppPasswords>(
+  testServer<ServerListAppPasswordsOutput>(
     (m, s) => s.listAppPasswords(),
     id: comAtprotoServerListAppPasswords,
   );
 
-  testServer<ServerInfo>(
+  testServer<ServerDescribeServerOutput>(
     (m, s) => s.describeServer(),
     id: comAtprotoServerDescribeServer,
   );
 
-  testServer<EmailUpdate>(
+  testServer<ServerRequestEmailUpdateOutput>(
     (m, s) => s.requestEmailUpdate(),
     id: comAtprotoServerRequestEmailUpdate,
   );
@@ -121,7 +121,7 @@ void main() {
     id: comAtprotoServerUpdateEmail,
   );
 
-  testServer<SigningKey>(
+  testServer<ServerReserveSigningKeyOutput>(
     (m, s) => s.reserveSigningKey(),
     id: comAtprotoServerReserveSigningKey,
   );

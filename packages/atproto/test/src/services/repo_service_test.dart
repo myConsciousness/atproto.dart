@@ -10,28 +10,26 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/batch_action.dart';
-import 'package:atproto/src/services/entities/create_action.dart';
-import 'package:atproto/src/services/entities/record.dart';
-import 'package:atproto/src/services/entities/records.dart';
-import 'package:atproto/src/services/entities/repo_info.dart';
-import 'package:atproto/src/services/entities/strong_ref.dart';
-import 'package:atproto/src/services/entities/update_action.dart';
 import 'package:atproto/src/services/repo_service.dart';
+import 'package:atproto/src/services/types/repo/apply_writes/_z.dart';
+import 'package:atproto/src/services/types/repo/describe_repo/_z.dart';
+import 'package:atproto/src/services/types/repo/get_record/_z.dart';
+import 'package:atproto/src/services/types/repo/list_records/_z.dart';
+import 'package:atproto/src/services/types/repo/strong_ref/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testRepo<StrongRef>(
+  testRepo<RepoStrongRef>(
     (m, s) => s.createRecord(collection: m.collection, record: {}),
     id: comAtprotoRepoCreateRecord,
   );
 
-  testRepo<Record>(
+  testRepo<RepoGetRecordOutput>(
     (m, s) => s.getRecord(uri: m.uri),
     id: comAtprotoRepoGetRecord,
   );
 
-  testRepo<Records>(
+  testRepo<RepoListRecordsOutput>(
     (m, s) => s.listRecords(
       repo: m.actor,
       collection: m.collection,
@@ -44,7 +42,7 @@ void main() {
     id: comAtprotoRepoDeleteRecord,
   );
 
-  testRepo<StrongRef>(
+  testRepo<RepoStrongRef>(
     (m, s) => s.putRecord(uri: m.uri, record: {}),
     id: comAtprotoRepoPutRecord,
   );
@@ -56,17 +54,17 @@ void main() {
     id: comAtprotoRepoUploadBlob,
   );
 
-  testRepo<RepoInfo>(
+  testRepo<RepoDescribeRepoOutput>(
     (m, s) => s.describeRepo(repo: m.actor),
     id: comAtprotoRepoDescribeRepo,
   );
 
   testRepo<core.EmptyData>(
     (m, s) => s.applyWrites(actions: [
-      BatchAction.create(
-        data: CreateAction(
+      URepoApplyWritesInputWrites.create(
+        data: RepoApplyWritesCreate(
           collection: m.collection,
-          record: {},
+          value: {},
         ),
       ),
     ]),
@@ -75,9 +73,9 @@ void main() {
 
   testRepo<core.EmptyData>(
     (m, s) => s.createRecordInBulk(actions: [
-      CreateAction(
+      RepoApplyWritesCreate(
         collection: m.collection,
-        record: {},
+        value: {},
       ),
     ]),
     id: comAtprotoRepoApplyWrites,
@@ -86,10 +84,10 @@ void main() {
 
   testRepo<core.EmptyData>(
     (m, s) => s.updateRecordInBulk(actions: [
-      UpdateAction(
+      RepoApplyWritesUpdate(
         collection: m.collection,
         rkey: m.uri.rkey,
-        record: {},
+        value: {},
       ),
     ]),
     id: comAtprotoRepoApplyWrites,

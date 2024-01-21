@@ -10,16 +10,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/adaptor/repo_blocks_adaptor.dart';
-import 'entities/adaptor/repo_commit_adaptor.dart';
-import 'entities/adaptor/repo_commits_adaptor.dart';
-import 'entities/adaptor/subscribe_repo_updates_adaptor.dart';
-import 'entities/repo_blocks.dart';
-import 'entities/repo_commit.dart';
-import 'entities/repo_commits.dart';
-import 'entities/repo_latest_commit.dart';
-import 'entities/repos.dart';
-import 'entities/subscribed_repo.dart';
+import 'types/sync/get_blocks/_z.dart';
+import 'types/sync/get_latest_commit/_z.dart';
+import 'types/sync/get_record/_z.dart';
+import 'types/sync/get_repo/_z.dart';
+import 'types/sync/list_repos/_z.dart';
+import 'types/sync/subscribe_repos/_z.dart';
 
 /// Represents `com.atproto.sync.*` service.
 final class SyncService {
@@ -28,14 +24,15 @@ final class SyncService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos
-  Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>> subscribeRepos({
+  Future<core.XRPCResponse<core.Subscription<USyncSubscribeReposOutput>>>
+      subscribeRepos({
     int? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await subscribeRepoUpdates(cursor: cursor);
+          // ignore: deprecated_member_use_from_same_package
+          await subscribeRepoUpdates(cursor: cursor);
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepo
-  Future<core.XRPCResponse<RepoCommits>> getRepo({
+  Future<core.XRPCResponse<SyncGetRepoOutput>> getRepo({
     required String did,
     String? sinceCommitCid,
     core.ProgressStatus? progress,
@@ -48,7 +45,7 @@ final class SyncService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
-  Future<core.XRPCResponse<RepoBlocks>> getBlocks({
+  Future<core.XRPCResponse<SyncGetBlocksOutput>> getBlocks({
     required String did,
     required List<String> commitCids,
   }) async =>
@@ -59,7 +56,7 @@ final class SyncService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
-  Future<core.XRPCResponse<RepoLatestCommit>> getLatestCommit({
+  Future<core.XRPCResponse<SyncGetLatestCommitOutput>> getLatestCommit({
     required String did,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -68,7 +65,7 @@ final class SyncService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
-  Future<core.XRPCResponse<RepoCommit>> getRecord({
+  Future<core.XRPCResponse<SyncGetRecordOutput>> getRecord({
     required core.AtUri uri,
     String? commitCid,
   }) async =>
@@ -79,7 +76,7 @@ final class SyncService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos
-  Future<core.XRPCResponse<Repos>> listRepos({
+  Future<core.XRPCResponse<SyncListReposOutput>> listRepos({
     int? limit,
     String? cursor,
   }) async =>
@@ -131,7 +128,7 @@ final class SyncService {
       );
 
   @Deprecated('Use .subscribeRepos instead. Will be removed')
-  Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
+  Future<core.XRPCResponse<core.Subscription<USyncSubscribeReposOutput>>>
       subscribeRepoUpdates({
     int? cursor,
   }) async =>
@@ -140,12 +137,12 @@ final class SyncService {
             parameters: {
               'cursor': cursor,
             },
-            to: SubscribedRepo.fromJson,
-            adaptor: toSubscribedRepo,
+            to: USyncSubscribeReposOutput.fromJson,
+            adaptor: toSyncSubscribeReposOutput,
           );
 
   @Deprecated('Use .getRepo instead. Will be removed')
-  Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
+  Future<core.XRPCResponse<SyncGetRepoOutput>> findRepoCommits({
     required String did,
     String? sinceCommitCid,
     core.ProgressStatus? progress,
@@ -154,49 +151,49 @@ final class SyncService {
         did: did,
         sinceCommitCid: sinceCommitCid,
         progress: progress,
-        to: RepoCommits.fromJson,
+        to: SyncGetRepoOutput.fromJson,
       );
 
   @Deprecated('Use .getBlocks instead. Will be removed')
-  Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
+  Future<core.XRPCResponse<SyncGetBlocksOutput>> findRepoBlocks({
     required String did,
     required List<String> commitCids,
   }) async =>
       await _findRepoBlocks(
         did: did,
         commitCids: commitCids,
-        to: RepoBlocks.fromJson,
+        to: SyncGetBlocksOutput.fromJson,
       );
 
   @Deprecated('Use .getLatestCommit instead. Will be removed')
-  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
+  Future<core.XRPCResponse<SyncGetLatestCommitOutput>> findLatestCommit({
     required String did,
   }) async =>
       await _findLatestCommit(
         did: did,
-        to: RepoLatestCommit.fromJson,
+        to: SyncGetLatestCommitOutput.fromJson,
       );
 
   @Deprecated('Use .getRecord instead. Will be remove')
-  Future<core.XRPCResponse<RepoCommit>> findRecord({
+  Future<core.XRPCResponse<SyncGetRecordOutput>> findRecord({
     required core.AtUri uri,
     String? commitCid,
   }) async =>
       await _findRecord(
         uri: uri,
         commitCid: commitCid,
-        to: RepoCommit.fromJson,
+        to: SyncGetRecordOutput.fromJson,
       );
 
   @Deprecated('Use .listRepos instead. Will be removed')
-  Future<core.XRPCResponse<Repos>> findRepos({
+  Future<core.XRPCResponse<SyncListReposOutput>> findRepos({
     int? limit,
     String? cursor,
   }) async =>
       await _findRepos(
         limit: limit,
         cursor: cursor,
-        to: Repos.fromJson,
+        to: SyncListReposOutput.fromJson,
       );
 
   @Deprecated('Use .notifyOfUpdate instead. Will be removed')
@@ -250,7 +247,7 @@ final class SyncService {
           'did': did,
           'since': sinceCommitCid,
         },
-        adaptor: (data) => toRepoCommits(
+        adaptor: (data) => toSyncGetRepoOutput(
           data,
           progress,
         ),
@@ -268,7 +265,7 @@ final class SyncService {
           'did': did,
           'cids': commitCids,
         },
-        adaptor: toRepoBlocks,
+        adaptor: toSyncGetBlocksOutput,
         to: to,
       );
 
@@ -297,7 +294,7 @@ final class SyncService {
           'rkey': uri.rkey,
           'commit': commitCid,
         },
-        adaptor: toRepoCommit,
+        adaptor: toSyncGetRecordOutput,
         to: to,
       );
 

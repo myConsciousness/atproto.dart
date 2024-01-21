@@ -9,6 +9,8 @@ export 'migrate.dart';
 export 'repo_op.dart';
 export 'tombstone.dart';
 
+export 'adaptors/output_adaptor.dart';
+
 export 'constants/repo_op_action.dart';
 
 export 'extensions/commit_extension.dart';
