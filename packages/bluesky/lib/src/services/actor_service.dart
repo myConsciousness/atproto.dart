@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -80,12 +80,12 @@ final class ActorService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  Future<core.XRPCResponse<atp.RepoStrongRef>> profile({
+  Future<core.XRPCResponse<RepoStrongRef>> profile({
     String? displayName,
     String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    core.Blob? banner,
+    UActorProfileRecordLabels? labels,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await updateProfile(
@@ -158,12 +158,12 @@ final class ActorService {
       );
 
   @Deprecated('Use .profile instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> updateProfile({
+  Future<core.XRPCResponse<RepoStrongRef>> updateProfile({
     String? displayName,
     String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    core.Blob? banner,
+    UActorProfileRecordLabels? labels,
   }) async =>
       await _ctx.atproto.repo.updateRecord(
         uri: core.AtUri.make(
@@ -186,7 +186,7 @@ final class ActorService {
           await _findPreferences(to: ActorGetPreferencesOutput.fromJson);
 
   @Deprecated('Use .putPreferences instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(
+  Future<core.XRPCResponse<core.EmptyData>> updatePreferences(
     List<UActorDefsPreferencesPreferences> preferences,
   ) async =>
       await _ctx.post(

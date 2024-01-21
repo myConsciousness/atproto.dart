@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -25,7 +25,7 @@ import 'package:bluesky/src/services/types/graph/listitem/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.follow(did: m.did),
     bulk: (m, s) => s.followInBulk([
       GraphFollowRecord(
@@ -66,7 +66,7 @@ void main() {
     id: appBskyGraphGetBlocks,
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.block(did: m.did),
     bulk: (m, s) => s.blockInBulk([
       GraphBlockRecord(
@@ -77,7 +77,7 @@ void main() {
     id: appBskyGraphBlock,
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
     bulk: (m, s) => s.listInBulk([
       GraphListRecord(
@@ -89,13 +89,13 @@ void main() {
     id: appBskyGraphList,
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.modlist(name: m.name),
     id: appBskyGraphList,
     label: 'Moderation',
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.curatelist(name: m.name),
     id: appBskyGraphList,
     label: 'Curation',
@@ -111,7 +111,7 @@ void main() {
     id: appBskyGraphGetList,
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.listitem(subject: m.did, list: m.uri),
     bulk: (m, s) => s.listitemInBulk([
       GraphListitemRecord(
@@ -148,7 +148,7 @@ void main() {
     id: appBskyGraphGetSuggestedFollowsByActor,
   );
 
-  testGraph<atp.RepoStrongRef>(
+  testGraph<RepoStrongRef>(
     (m, s) => s.listblock(listUri: m.uri),
     id: appBskyGraphListblock,
   );

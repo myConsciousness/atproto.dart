@@ -7,109 +7,150 @@ export 'package:atproto/atproto.dart'
         createSession,
         refreshSession,
         deleteSession,
+        // ignore: deprecated_member_use
         Record,
         $RecordCopyWith,
+        // ignore: deprecated_member_use
         Records,
         $RecordsCopyWith,
+        // ignore: deprecated_member_use
         DID,
         $DIDCopyWith,
-        Blob,
-        $BlobCopyWith,
-        BlobData,
-        $BlobDataCopyWith,
-        BlobRef,
-        $BlobRefCopyWith,
-        BlobRefs,
-        $BlobRefsCopyWith,
+        // ignore: deprecated_member_use
         CurrentSession,
         $CurrentSessionCopyWith,
+        // ignore: deprecated_member_use
         Account,
         $AccountCopyWith,
+        // ignore: deprecated_member_use
         CreatedInviteCode,
         $CreatedInviteCodeCopyWith,
+        // ignore: deprecated_member_use
         CreatedInviteCodes,
         $CreatedInviteCodesCopyWith,
+        // ignore: deprecated_member_use
         AccountCodes,
         $AccountCodesCopyWith,
+        // ignore: deprecated_member_use
         EmailUpdate,
         $EmailUpdateCopyWith,
+        // ignore: deprecated_member_use
         RepoBlocks,
         $RepoBlocksCopyWith,
+        // ignore: deprecated_member_use
         RepoBlock,
         $RepoBlockCopyWith,
+        // ignore: deprecated_member_use
         ServerInfo,
         $ServerInfoCopyWith,
+        // ignore: deprecated_member_use
         ServerInfoLinks,
         $ServerInfoLinksCopyWith,
+        // ignore: deprecated_member_use
         SelfLabel,
         $SelfLabelCopyWith,
+        // ignore: deprecated_member_use
         SelfLabels,
         $SelfLabelsCopyWith,
+        // ignore: deprecated_member_use
         Labels,
         $LabelsCopyWith,
+        // ignore: deprecated_member_use
         LabelsByQuery,
         $LabelsByQueryCopyWith,
+        // ignore: deprecated_member_use
         InviteCodeUse,
         $InviteCodeUseCopyWith,
+        // ignore: deprecated_member_use
         InviteCode,
         $InviteCodeCopyWith,
+        // ignore: deprecated_member_use
         InviteCodes,
         $InviteCodesCopyWith,
+        // ignore: deprecated_member_use
         AppPassword,
         $AppPasswordCopyWith,
+        // ignore: deprecated_member_use
         AppPasswords,
         $AppPasswordsCopyWith,
+        // ignore: deprecated_member_use
         RepoInfo,
         $RepoInfoCopyWith,
+        // ignore: deprecated_member_use
         Repo,
         $RepoCopyWith,
+        // ignore: deprecated_member_use
         Repos,
         $ReposCopyWith,
+        // ignore: deprecated_member_use
         BatchAction,
         $BatchActionCopyWith,
+        // ignore: deprecated_member_use
         CreateAction,
         $CreateActionCopyWith,
+        // ignore: deprecated_member_use
         UpdateAction,
         $UpdateActionCopyWith,
+        // ignore: deprecated_member_use
         SigningKey,
         $SigningKeyCopyWith,
+        // ignore: deprecated_member_use
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
+        // ignore: deprecated_member_use
         RepoCommits,
         $RepoCommitsCopyWith,
+        // ignore: deprecated_member_use
         RepoCommit,
         $RepoCommitCopyWith,
+        // ignore: deprecated_member_use
         DeleteAction,
         $DeleteActionCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepo,
         $SubscribedRepoCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepoCommit,
         $SubscribedRepoCommitCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepoHandle,
         $SubscribedRepoHandleCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepoInfo,
         $SubscribedRepoInfoCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepoMigrate,
         $SubscribedRepoMigrateCopyWith,
+        // ignore: deprecated_member_use
         SubscribedRepoTombstone,
         $SubscribedRepoTombstoneCopyWith,
+        // ignore: deprecated_member_use
         SubscribedLabel,
         $SubscribedLabelCopyWith,
+        // ignore: deprecated_member_use
         SubscribedLabelLabels,
         $SubscribedLabelLabelsCopyWith,
+        // ignore: deprecated_member_use
         SubscribedLabelInfo,
         $SubscribedLabelInfoCopyWith,
+        // ignore: deprecated_member_use
         RepoOp,
         $RepoOpCopyWith,
+        // ignore: deprecated_member_use
         RepoAction,
+        // ignore: deprecated_member_use
         Report,
         $ReportCopyWith,
+        // ignore: deprecated_member_use
         RepoRef,
         $RepoRefCopyWith,
+        // ignore: deprecated_member_use
         StrongRef,
         $StrongRefCopyWith,
+        // ignore: deprecated_member_use
         Label,
         $LabelCopyWith,
+        // ignore: deprecated_member_use
         UBatchActionCreate,
         UBatchActionUpdate,
         UBatchActionDelete,
@@ -127,7 +168,9 @@ export 'package:atproto/atproto.dart'
         USubscribedLabelLabels,
         USubscribedLabelInfo,
         USubscribedLabelUnknown,
+        // ignore: deprecated_member_use
         ModerationReasonType,
+        // ignore: deprecated_member_use
         ReportSubject,
         $ReportSubjectCopyWith,
         ServerService,
@@ -155,6 +198,14 @@ export 'package:atproto_core/atproto_core.dart'
         AtUri,
         NSID,
         CID,
+        Blob,
+        $BlobCopyWith,
+        BlobData,
+        $BlobDataCopyWith,
+        BlobRef,
+        $BlobRefCopyWith,
+        BlobRefs,
+        $BlobRefsCopyWith,
         ProgressStatus,
         ProgressStatusEvent,
         InvalidCidError,
@@ -184,67 +235,8 @@ export 'package:bluesky/src/services/feed_service.dart';
 export 'package:bluesky/src/services/graph_service.dart';
 export 'package:bluesky/src/services/notification_service.dart';
 export 'package:bluesky/src/services/unspecced_service.dart';
-
 export 'package:bluesky/src/services/extensions/_z.dart';
 export 'package:bluesky/src/services/utils/_z.dart';
-
-export 'package:bluesky/src/services/types/actor/defs/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_preferences/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_profile/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_profiles/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_suggestions/_z.dart';
-export 'package:bluesky/src/services/types/actor/profile/_z.dart';
-export 'package:bluesky/src/services/types/actor/search_actors/_z.dart';
-export 'package:bluesky/src/services/types/actor/search_actors_typeahead/_z.dart';
-export 'package:bluesky/src/services/types/embed/external/_z.dart';
-export 'package:bluesky/src/services/types/embed/images/_z.dart';
-export 'package:bluesky/src/services/types/embed/record/_z.dart';
-export 'package:bluesky/src/services/types/embed/record_with_media/_z.dart';
-export 'package:bluesky/src/services/types/feed/defs/_z.dart';
-export 'package:bluesky/src/services/types/feed/describe_feed_generator/_z.dart';
-export 'package:bluesky/src/services/types/feed/generator/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_actor_feeds/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_actor_likes/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_author_feed/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_feed/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_feed_generator/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_feed_generators/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_feed_skeleton/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_likes/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_list_feed/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_post_thread/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_posts/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_reposted_by/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_suggested_feeds/_z.dart';
-export 'package:bluesky/src/services/types/feed/get_timeline/_z.dart';
-export 'package:bluesky/src/services/types/feed/like/_z.dart';
-export 'package:bluesky/src/services/types/feed/post/_z.dart';
-export 'package:bluesky/src/services/types/feed/repost/_z.dart';
-export 'package:bluesky/src/services/types/feed/search_posts/_z.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/_z.dart';
-export 'package:bluesky/src/services/types/graph/block/_z.dart';
-export 'package:bluesky/src/services/types/graph/defs/_z.dart';
-export 'package:bluesky/src/services/types/graph/follow/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_blocks/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_followers/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_follows/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_list/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_list_blocks/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_list_mutes/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_lists/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_mutes/_z.dart';
-export 'package:bluesky/src/services/types/graph/get_suggested_follows_by_actor/_z.dart';
-export 'package:bluesky/src/services/types/graph/list/_z.dart';
-export 'package:bluesky/src/services/types/graph/listblock/_z.dart';
-export 'package:bluesky/src/services/types/graph/listitem/_z.dart';
-export 'package:bluesky/src/services/types/notification/get_unread_count/_z.dart';
-export 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';
-export 'package:bluesky/src/services/types/richtext/facet/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/defs/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/get_timeline_skeleton/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';
 
 // Deprecated
 export 'package:bluesky/src/services/entities/actor.dart';

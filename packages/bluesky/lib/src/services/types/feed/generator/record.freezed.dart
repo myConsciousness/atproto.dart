@@ -28,8 +28,8 @@ mixin _$FeedGeneratorRecord {
   List<RichtextFacet>? get descriptionFacets =>
       throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
-  @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
+  @unionFeedGeneratorRecordLabelsConverter
+  UFeedGeneratorRecordLabels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,11 +51,12 @@ abstract class $FeedGeneratorRecordCopyWith<$Res> {
       String? description,
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionFeedGeneratorRecordLabelsConverter
+      UFeedGeneratorRecordLabels? labels,
       DateTime createdAt});
 
   $BlobCopyWith<$Res>? get avatar;
-  $LabelsCopyWith<$Res>? get labels;
+  $UFeedGeneratorRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -108,7 +109,7 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res, $Val extends FeedGeneratorRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UFeedGeneratorRecordLabels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -130,12 +131,12 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res, $Val extends FeedGeneratorRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $LabelsCopyWith<$Res>? get labels {
+  $UFeedGeneratorRecordLabelsCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+    return $UFeedGeneratorRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -156,13 +157,14 @@ abstract class _$$FeedGeneratorRecordImplCopyWith<$Res>
       String? description,
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionFeedGeneratorRecordLabelsConverter
+      UFeedGeneratorRecordLabels? labels,
       DateTime createdAt});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $LabelsCopyWith<$Res>? get labels;
+  $UFeedGeneratorRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -213,7 +215,7 @@ class __$$FeedGeneratorRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UFeedGeneratorRecordLabels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -233,7 +235,7 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
       this.description,
       final List<RichtextFacet>? descriptionFacets,
       this.avatar,
-      @labelsConverter this.labels,
+      @unionFeedGeneratorRecordLabelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
@@ -263,8 +265,8 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
   @override
   final Blob? avatar;
   @override
-  @labelsConverter
-  final Labels? labels;
+  @unionFeedGeneratorRecordLabelsConverter
+  final UFeedGeneratorRecordLabels? labels;
   @override
   final DateTime createdAt;
 
@@ -328,7 +330,8 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
       final String? description,
       final List<RichtextFacet>? descriptionFacets,
       final Blob? avatar,
-      @labelsConverter final Labels? labels,
+      @unionFeedGeneratorRecordLabelsConverter
+      final UFeedGeneratorRecordLabels? labels,
       required final DateTime createdAt}) = _$FeedGeneratorRecordImpl;
 
   factory _FeedGeneratorRecord.fromJson(Map<String, dynamic> json) =
@@ -348,8 +351,8 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
   @override
   Blob? get avatar;
   @override
-  @labelsConverter
-  Labels? get labels;
+  @unionFeedGeneratorRecordLabelsConverter
+  UFeedGeneratorRecordLabels? get labels;
   @override
   DateTime get createdAt;
   @override

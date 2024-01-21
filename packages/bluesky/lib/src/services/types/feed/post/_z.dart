@@ -11,3 +11,4 @@ export 'extensions/blob_extension.dart';
 export 'extensions/strong_ref_extension.dart';
 
 export 'unions/record_embed.dart';
+export 'unions/record_labels.dart';

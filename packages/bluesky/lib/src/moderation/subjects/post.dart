@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import '../accumulator.dart';
@@ -27,7 +27,7 @@ ModerationDecision decidePost(
   return accumulator.finalizeDecision(options);
 }
 
-(String, List<atp.LabelDefsLabel>?) _getDecisionFactors(
+(String, List<LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectPost subject,
 ) =>
     subject.when(

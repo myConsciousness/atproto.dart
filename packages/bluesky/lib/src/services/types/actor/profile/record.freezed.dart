@@ -25,8 +25,8 @@ mixin _$ActorProfileRecord {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
-  @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
+  @unionActorProfileRecordLabelsConverter
+  UActorProfileRecordLabels? get labels => throw _privateConstructorUsedError;
   Blob? get banner => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,11 +46,11 @@ abstract class $ActorProfileRecordCopyWith<$Res> {
       String? displayName,
       String? description,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
       Blob? banner});
 
   $BlobCopyWith<$Res>? get avatar;
-  $LabelsCopyWith<$Res>? get labels;
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
   $BlobCopyWith<$Res>? get banner;
 }
 
@@ -94,7 +94,7 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UActorProfileRecordLabels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
@@ -116,12 +116,12 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $LabelsCopyWith<$Res>? get labels {
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+    return $UActorProfileRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -152,13 +152,13 @@ abstract class _$$ActorProfileRecordImplCopyWith<$Res>
       String? displayName,
       String? description,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
       Blob? banner});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $LabelsCopyWith<$Res>? get labels;
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
   @override
   $BlobCopyWith<$Res>? get banner;
 }
@@ -201,7 +201,7 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UActorProfileRecordLabels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
@@ -219,7 +219,7 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
       this.displayName,
       this.description,
       this.avatar,
-      @labelsConverter this.labels,
+      @unionActorProfileRecordLabelsConverter this.labels,
       this.banner});
 
   factory _$ActorProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -235,8 +235,8 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
   @override
   final Blob? avatar;
   @override
-  @labelsConverter
-  final Labels? labels;
+  @unionActorProfileRecordLabelsConverter
+  final UActorProfileRecordLabels? labels;
   @override
   final Blob? banner;
 
@@ -286,7 +286,8 @@ abstract class _ActorProfileRecord implements ActorProfileRecord {
       final String? displayName,
       final String? description,
       final Blob? avatar,
-      @labelsConverter final Labels? labels,
+      @unionActorProfileRecordLabelsConverter
+      final UActorProfileRecordLabels? labels,
       final Blob? banner}) = _$ActorProfileRecordImpl;
 
   factory _ActorProfileRecord.fromJson(Map<String, dynamic> json) =
@@ -302,8 +303,8 @@ abstract class _ActorProfileRecord implements ActorProfileRecord {
   @override
   Blob? get avatar;
   @override
-  @labelsConverter
-  Labels? get labels;
+  @unionActorProfileRecordLabelsConverter
+  UActorProfileRecordLabels? get labels;
   @override
   Blob? get banner;
   @override

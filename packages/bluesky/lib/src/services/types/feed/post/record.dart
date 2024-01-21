@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -14,6 +13,7 @@ import '../../../../ids.g.dart';
 import '../../richtext/facet/main.dart';
 import 'reply_ref.dart';
 import 'unions/record_embed.dart';
+import 'unions/record_labels.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -31,7 +31,7 @@ class FeedPostRecord with _$FeedPostRecord {
     FeedPostReplyRef? reply,
     @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
     List<String>? langs,
-    @labelsConverter Labels? labels,
+    @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
     List<RichtextFacet>? facets,
     List<String>? tags,
     required DateTime createdAt,

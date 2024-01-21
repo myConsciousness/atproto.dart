@@ -31,8 +31,9 @@ _$FeedPostRecordImpl _$$FeedPostRecordImplFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
-                  v, labelsConverter.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedPostRecordLabels>(
+                  v, unionFeedPostRecordLabelsConverter.fromJson)),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -70,8 +71,8 @@ Map<String, dynamic> _$$FeedPostRecordImplToJson(
   writeNotNull('langs', instance.langs);
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedPostRecordLabels>(
+          instance.labels, unionFeedPostRecordLabelsConverter.toJson));
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   writeNotNull('tags', instance.tags);
   val['createdAt'] = instance.createdAt.toIso8601String();

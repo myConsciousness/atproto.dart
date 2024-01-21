@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import '../services/types/graph/defs/_z.dart';
@@ -47,7 +47,7 @@ sealed class ModerationCauseAccumulator {
   void addBlockedBy();
   void addBlockOther();
   void addLabel(
-    final atp.LabelDefsLabel label,
+    final LabelDefsLabel label,
     final ModerationOptions options,
   );
   void addMuted();
@@ -106,7 +106,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
 
   @override
   void addLabel(
-    final atp.LabelDefsLabel label,
+    final LabelDefsLabel label,
     final ModerationOptions options,
   ) {
     final knownLabel = KnownLabel.valueOf(label.value);
@@ -151,7 +151,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
 
   LabelPreference _getLabelPreference(
     final LabelDefinition labelDef,
-    final atp.LabelDefsLabel label,
+    final LabelDefsLabel label,
     final LabelerSettings? labeler,
     final ModerationOptions options,
   ) {

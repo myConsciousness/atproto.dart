@@ -5,12 +5,12 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import 'unions/record_labels.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -24,7 +24,7 @@ class ActorProfileRecord with _$ActorProfileRecord {
     String? displayName,
     String? description,
     Blob? avatar,
-    @labelsConverter Labels? labels,
+    @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
     Blob? banner,
   }) = _ActorProfileRecord;
 

@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/lex_types.dart' as lex_types;
 
 // 🌎 Project imports:
 import 'author.dart';
@@ -38,7 +39,7 @@ class EmbeddedCard extends StatelessWidget {
         postLink = 'https://$service/$handle/post/${postUri.rkey}';
 
   factory EmbeddedCard.fromFeed(
-    final bsky.FeedDefsFeedViewPost feed, {
+    final lex_types.FeedDefsFeedViewPost feed, {
     String service = 'bsky.app',
     Color? backgroundColor,
     bool darkMode = false,
@@ -71,7 +72,7 @@ class EmbeddedCard extends StatelessWidget {
   final String postLink;
   final DateTime createdAt;
 
-  final bsky.UFeedDefsFeedViewPostReason? reason;
+  final lex_types.UFeedDefsFeedViewPostReason? reason;
 
   /// Background color for the container
   final Color? backgroundColor;
@@ -292,7 +293,7 @@ class EmbeddedCard extends StatelessWidget {
       ) ??
       false;
 
-  bsky.ActorDefsProfileView? get _repostedBy => reason?.when(
+  lex_types.ActorDefsProfileView? get _repostedBy => reason?.when(
         reasonRepost: (data) => data.by.toProfileView(),
         unknown: (data) => null,
       );

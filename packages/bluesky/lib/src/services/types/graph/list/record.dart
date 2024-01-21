@@ -5,13 +5,13 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../richtext/facet/main.dart';
+import 'unions/record_labels.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -30,7 +30,7 @@ class GraphListRecord with _$GraphListRecord {
     String? description,
     List<RichtextFacet>? descriptionFacets,
     Blob? avatar,
-    @labelsConverter Labels? labels,
+    @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
     required DateTime createdAt,
   }) = _GraphListRecord;
 

@@ -10,6 +10,7 @@ import 'dart:io';
 import 'package:actions_toolkit_dart/core.dart' as core;
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/cardyb.dart' as cardyb;
+import 'package:bluesky/lex_types.dart' as lex_types;
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
 
@@ -33,7 +34,7 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feed.post(
     text: text.value,
-    facets: facets.map(bsky.RichtextFacet.fromJson).toList(),
+    facets: facets.map(lex_types.RichtextFacet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
     languageTags: _langs,
     labels: _labels,
@@ -45,14 +46,15 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<bsky.UFeedPostRecordEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
+Future<lex_types.UFeedPostRecordEmbed?> _getEmbed(
+    final bsky.Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
-      return bsky.UFeedPostRecordEmbed.embedImages(
-        data: bsky.EmbedImages(
+      return lex_types.UFeedPostRecordEmbed.embedImages(
+        data: lex_types.EmbedImages(
           images: [
-            bsky.EmbedImagesImage(
+            lex_types.EmbedImagesImage(
               alt: core.getInput(
                 name: 'media-alt',
                 options: core.InputOptions(trimWhitespace: true),
@@ -74,9 +76,9 @@ Future<bsky.UFeedPostRecordEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
       preview.data.image,
     );
 
-    return bsky.UFeedPostRecordEmbed.embedExternal(
-      data: bsky.EmbedExternal(
-        external: bsky.EmbedExternalExternal(
+    return lex_types.UFeedPostRecordEmbed.embedExternal(
+      data: lex_types.EmbedExternal(
+        external: lex_types.EmbedExternalExternal(
           uri: preview.data.url,
           title: preview.data.title,
           description: preview.data.description,
@@ -185,7 +187,7 @@ List<String>? get _langs {
   return langs.split(',');
 }
 
-bsky.Labels? get _labels {
+lex_types.UFeedPostRecordLabels? get _labels {
   final labels = core.getInput(
     name: 'labels',
     options: core.InputOptions(trimWhitespace: true),
@@ -195,9 +197,12 @@ bsky.Labels? get _labels {
     return null;
   }
 
-  return bsky.Labels.selfLabels(
-    data: bsky.SelfLabels(
-      values: labels.split(',').map((e) => bsky.SelfLabel(value: e)).toList(),
+  return lex_types.UFeedPostRecordLabels.selfLabels(
+    data: lex_types.LabelDefsSelfLabels(
+      values: labels
+          .split(',')
+          .map((e) => lex_types.LabelDefsSelfLabel(val: e))
+          .toList(),
     ),
   );
 }

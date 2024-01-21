@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
@@ -198,7 +198,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeLabels(
     final List<Map<String, dynamic>> relatedLabels,
-    final List<atp.LabelDefsLabel>? labels,
+    final List<LabelDefsLabel>? labels,
   ) {
     if (labels == null || labels.isEmpty) {
       return relatedLabels;

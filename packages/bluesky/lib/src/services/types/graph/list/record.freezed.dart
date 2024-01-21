@@ -28,8 +28,8 @@ mixin _$GraphListRecord {
   List<RichtextFacet>? get descriptionFacets =>
       throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
-  @labelsConverter
-  Labels? get labels => throw _privateConstructorUsedError;
+  @unionGraphListRecordLabelsConverter
+  UGraphListRecordLabels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -51,11 +51,11 @@ abstract class $GraphListRecordCopyWith<$Res> {
       String? description,
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
       DateTime createdAt});
 
   $BlobCopyWith<$Res>? get avatar;
-  $LabelsCopyWith<$Res>? get labels;
+  $UGraphListRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -108,7 +108,7 @@ class _$GraphListRecordCopyWithImpl<$Res, $Val extends GraphListRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UGraphListRecordLabels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -130,12 +130,12 @@ class _$GraphListRecordCopyWithImpl<$Res, $Val extends GraphListRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $LabelsCopyWith<$Res>? get labels {
+  $UGraphListRecordLabelsCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $LabelsCopyWith<$Res>(_value.labels!, (value) {
+    return $UGraphListRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -156,13 +156,13 @@ abstract class _$$GraphListRecordImplCopyWith<$Res>
       String? description,
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
-      @labelsConverter Labels? labels,
+      @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
       DateTime createdAt});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $LabelsCopyWith<$Res>? get labels;
+  $UGraphListRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -213,7 +213,7 @@ class __$$GraphListRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as Labels?,
+              as UGraphListRecordLabels?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -233,7 +233,7 @@ class _$GraphListRecordImpl implements _GraphListRecord {
       this.description,
       final List<RichtextFacet>? descriptionFacets,
       this.avatar,
-      @labelsConverter this.labels,
+      @unionGraphListRecordLabelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
 
@@ -263,8 +263,8 @@ class _$GraphListRecordImpl implements _GraphListRecord {
   @override
   final Blob? avatar;
   @override
-  @labelsConverter
-  final Labels? labels;
+  @unionGraphListRecordLabelsConverter
+  final UGraphListRecordLabels? labels;
   @override
   final DateTime createdAt;
 
@@ -327,7 +327,7 @@ abstract class _GraphListRecord implements GraphListRecord {
       final String? description,
       final List<RichtextFacet>? descriptionFacets,
       final Blob? avatar,
-      @labelsConverter final Labels? labels,
+      @unionGraphListRecordLabelsConverter final UGraphListRecordLabels? labels,
       required final DateTime createdAt}) = _$GraphListRecordImpl;
 
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) =
@@ -347,8 +347,8 @@ abstract class _GraphListRecord implements GraphListRecord {
   @override
   Blob? get avatar;
   @override
-  @labelsConverter
-  Labels? get labels;
+  @unionGraphListRecordLabelsConverter
+  UGraphListRecordLabels? get labels;
   @override
   DateTime get createdAt;
   @override

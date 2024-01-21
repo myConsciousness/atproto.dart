@@ -32,8 +32,9 @@ _$FeedGeneratorRecordImpl _$$FeedGeneratorRecordImplFromJson(Map json) =>
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
-                  v, labelsConverter.fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UFeedGeneratorRecordLabels>(
+                  v, unionFeedGeneratorRecordLabelsConverter.fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -62,8 +63,8 @@ Map<String, dynamic> _$$FeedGeneratorRecordImplToJson(
   writeNotNull('avatar', instance.avatar?.toJson());
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, Labels>(
-          instance.labels, labelsConverter.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UFeedGeneratorRecordLabels>(
+          instance.labels, unionFeedGeneratorRecordLabelsConverter.toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

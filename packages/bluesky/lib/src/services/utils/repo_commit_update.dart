@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 final class RepoCommitUpdate<T> {
@@ -36,10 +36,10 @@ final class RepoCommitUpdate<T> {
   final DateTime createdAt;
 
   @Deprecated('Use toRepoStrongRef instead. Will be removed')
-  atp.RepoStrongRef toStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
+  RepoStrongRef toStrongRef() => RepoStrongRef(cid: cid, uri: uri);
 
-  /// Returns the [atp.RepoStrongRef] representation.
-  atp.RepoStrongRef toRepoStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
+  /// Returns the [RepoStrongRef] representation.
+  RepoStrongRef toRepoStrongRef() => RepoStrongRef(cid: cid, uri: uri);
 
   @override
   String toString() =>

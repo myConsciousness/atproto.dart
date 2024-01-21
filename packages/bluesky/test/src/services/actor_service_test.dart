@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -42,7 +42,7 @@ void main() {
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.RepoStrongRef>(
+  testActor<RepoStrongRef>(
     (m, s) => s.profile(),
     id: appBskyActorProfile,
   );

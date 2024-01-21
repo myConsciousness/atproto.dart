@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import '../../../embed/record/_z.dart';

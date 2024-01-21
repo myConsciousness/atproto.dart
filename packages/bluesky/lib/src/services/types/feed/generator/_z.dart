@@ -3,3 +3,5 @@
 // modification, are permitted provided the conditions.
 
 export 'record.dart';
+
+export 'unions/record_labels.dart';

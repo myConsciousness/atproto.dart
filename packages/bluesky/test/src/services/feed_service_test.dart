@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
@@ -31,7 +31,7 @@ import 'package:bluesky/src/services/types/feed/search_posts/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testFeed<atp.RepoStrongRef>(
+  testFeed<RepoStrongRef>(
     (m, s) => s.post(text: m.text),
     bulk: (m, s) => s.postInBulk([
       FeedPostRecord(text: m.text, createdAt: DateTime.now()),
@@ -39,11 +39,11 @@ void main() {
     id: appBskyFeedPost,
   );
 
-  testFeed<atp.RepoStrongRef>(
+  testFeed<RepoStrongRef>(
     (m, s) => s.repost(cid: m.cid, uri: m.uri),
     bulk: (m, s) => s.repostInBulk([
       FeedRepostRecord(
-        subject: atp.RepoStrongRef(
+        subject: RepoStrongRef(
           cid: m.cid,
           uri: m.uri,
         ),
@@ -58,11 +58,11 @@ void main() {
     id: appBskyFeedGetTimeline,
   );
 
-  testFeed<atp.RepoStrongRef>(
+  testFeed<RepoStrongRef>(
     (m, s) => s.like(cid: m.cid, uri: m.uri),
     bulk: (m, s) => s.likeInBulk([
       FeedLikeRecord(
-        subject: atp.RepoStrongRef(
+        subject: RepoStrongRef(
           cid: m.cid,
           uri: m.uri,
         ),
@@ -112,7 +112,7 @@ void main() {
     id: appBskyFeedGetPosts,
   );
 
-  testFeed<atp.RepoStrongRef>(
+  testFeed<RepoStrongRef>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
     bulk: (m, s) => s.generatorInBulk([
       FeedGeneratorRecord(
@@ -154,7 +154,7 @@ void main() {
     id: appBskyFeedGetListFeed,
   );
 
-  testFeed<atp.RepoStrongRef>(
+  testFeed<RepoStrongRef>(
     (m, s) => s.threadgate(postUri: m.uri),
     id: appBskyFeedThreadgate,
   );

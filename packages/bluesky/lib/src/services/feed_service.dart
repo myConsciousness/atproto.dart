@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -40,13 +41,13 @@ final class FeedService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
-  Future<core.XRPCResponse<atp.RepoStrongRef>> post({
+  Future<core.XRPCResponse<RepoStrongRef>> post({
     required String text,
     FeedPostReplyRef? reply,
     List<RichtextFacet>? facets,
     UFeedPostRecordEmbed? embed,
     List<String>? languageTags,
-    atp.Labels? labels,
+    UFeedPostRecordLabels? labels,
     List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -65,7 +66,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
-  Future<core.XRPCResponse<atp.RepoStrongRef>> repost({
+  Future<core.XRPCResponse<RepoStrongRef>> repost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -93,7 +94,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
-  Future<core.XRPCResponse<atp.RepoStrongRef>> like({
+  Future<core.XRPCResponse<RepoStrongRef>> like({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -212,13 +213,13 @@ final class FeedService {
       await findPosts(uris: uris);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator
-  Future<core.XRPCResponse<atp.RepoStrongRef>> generator({
+  Future<core.XRPCResponse<RepoStrongRef>> generator({
     required String did,
     required String displayName,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UFeedGeneratorRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -292,7 +293,7 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate
-  Future<core.XRPCResponse<atp.RepoStrongRef>> threadgate({
+  Future<core.XRPCResponse<RepoStrongRef>> threadgate({
     required core.AtUri postUri,
     List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
@@ -320,13 +321,13 @@ final class FeedService {
       );
 
   @Deprecated('Use .post instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createPost({
+  Future<core.XRPCResponse<RepoStrongRef>> createPost({
     required String text,
     FeedPostReplyRef? reply,
     List<RichtextFacet>? facets,
     UFeedPostRecordEmbed? embed,
     List<String>? languageTags,
-    atp.Labels? labels,
+    UFeedPostRecordLabels? labels,
     List<String>? tags,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -352,8 +353,8 @@ final class FeedService {
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
-            .map<atp.RepoApplyWritesCreate>(
-              (e) => atp.RepoApplyWritesCreate(
+            .map<RepoApplyWritesCreate>(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedPost,
                 value: {
                   'text': e.text,
@@ -371,7 +372,7 @@ final class FeedService {
       );
 
   @Deprecated('Use .thread instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createThread(
+  Future<core.XRPCResponse<RepoStrongRef>> createThread(
     List<FeedPostRecord> params,
   ) async {
     if (params.isEmpty) {
@@ -430,7 +431,7 @@ final class FeedService {
       );
 
   @Deprecated('Use .repost instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createRepost({
+  Future<core.XRPCResponse<RepoStrongRef>> createRepost({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -455,7 +456,7 @@ final class FeedService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedRepost,
                 value: {
                   'subject': e.subject.toJson(),
@@ -467,7 +468,7 @@ final class FeedService {
       );
 
   @Deprecated('Use .like instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createLike({
+  Future<core.XRPCResponse<RepoStrongRef>> createLike({
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
@@ -492,7 +493,7 @@ final class FeedService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedLike,
                 value: {
                   'subject': e.subject.toJson(),
@@ -610,13 +611,13 @@ final class FeedService {
       );
 
   @Deprecated('Use .generator instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createGenerator({
+  Future<core.XRPCResponse<RepoStrongRef>> createGenerator({
     required String did,
     required String displayName,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UFeedGeneratorRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -642,7 +643,7 @@ final class FeedService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedGenerator,
                 value: {
                   'did': e.did,
@@ -708,7 +709,7 @@ final class FeedService {
       );
 
   @Deprecated('Use .threadgate instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createThreadgate({
+  Future<core.XRPCResponse<RepoStrongRef>> createThreadgate({
     required core.AtUri postUri,
     List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
@@ -1119,7 +1120,7 @@ final class FeedService {
 }
 
 extension FeedServiceExtension on FeedService {
-  Future<core.XRPCResponse<atp.RepoStrongRef>> thread(
+  Future<core.XRPCResponse<RepoStrongRef>> thread(
     final List<FeedPostRecord> params,
   ) async {
     if (params.isEmpty) {
@@ -1165,8 +1166,8 @@ extension FeedServiceExtension on FeedService {
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
-            .map<atp.RepoApplyWritesCreate>(
-              (e) => atp.RepoApplyWritesCreate(
+            .map<RepoApplyWritesCreate>(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedPost,
                 value: {
                   'text': e.text,
@@ -1189,7 +1190,7 @@ extension FeedServiceExtension on FeedService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedRepost,
                 value: {
                   'subject': e.subject.toJson(),
@@ -1206,7 +1207,7 @@ extension FeedServiceExtension on FeedService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedLike,
                 value: {
                   'subject': e.subject.toJson(),
@@ -1223,7 +1224,7 @@ extension FeedServiceExtension on FeedService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedGenerator,
                 value: {
                   'did': e.did,

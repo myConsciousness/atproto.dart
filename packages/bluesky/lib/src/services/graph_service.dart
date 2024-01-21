@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -32,7 +33,7 @@ final class GraphService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
-  Future<core.XRPCResponse<atp.RepoStrongRef>> follow({
+  Future<core.XRPCResponse<RepoStrongRef>> follow({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -107,7 +108,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
-  Future<core.XRPCResponse<atp.RepoStrongRef>> block({
+  Future<core.XRPCResponse<RepoStrongRef>> block({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -120,13 +121,13 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
-  Future<core.XRPCResponse<atp.RepoStrongRef>> list({
+  Future<core.XRPCResponse<RepoStrongRef>> list({
     required String purpose,
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -180,7 +181,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
-  Future<core.XRPCResponse<atp.RepoStrongRef>> listitem({
+  Future<core.XRPCResponse<RepoStrongRef>> listitem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -228,7 +229,7 @@ final class GraphService {
           await findSuggestedFollows(actor: actor);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
-  Future<core.XRPCResponse<atp.RepoStrongRef>> listblock({
+  Future<core.XRPCResponse<RepoStrongRef>> listblock({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
@@ -239,7 +240,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .follow instead. Will be removed.')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createFollow({
+  Future<core.XRPCResponse<RepoStrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -260,7 +261,7 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
                 value: {
                   'subject': e.did,
@@ -342,7 +343,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .block instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createBlock({
+  Future<core.XRPCResponse<RepoStrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -363,7 +364,7 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
                 value: {
                   'subject': e.did,
@@ -375,13 +376,13 @@ final class GraphService {
       );
 
   @Deprecated('Use .list instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createList({
+  Future<core.XRPCResponse<RepoStrongRef>> createList({
     required String purpose,
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -401,12 +402,12 @@ final class GraphService {
       );
 
   @Deprecated('Use .modlist instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createModeratedList({
+  Future<core.XRPCResponse<RepoStrongRef>> createModeratedList({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -422,12 +423,12 @@ final class GraphService {
       );
 
   @Deprecated('Use .curatelist instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createCuratedList({
+  Future<core.XRPCResponse<RepoStrongRef>> createCuratedList({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -443,13 +444,13 @@ final class GraphService {
       );
 
   @Deprecated('Use .listInBulk instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> createLists(
+  Future<core.XRPCResponse<core.EmptyData>> createLists(
     List<GraphListRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
                 value: {
                   'purpose': e.purpose,
@@ -493,7 +494,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .listitem instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createListItem({
+  Future<core.XRPCResponse<RepoStrongRef>> createListItem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -510,13 +511,13 @@ final class GraphService {
       );
 
   @Deprecated('Use .listitemInBulk instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> createListItems(
+  Future<core.XRPCResponse<core.EmptyData>> createListItems(
     List<GraphListitemRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
                 value: {
                   'subject': e.subject,
@@ -583,7 +584,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .listblock instead. Will be removed')
-  Future<core.XRPCResponse<atp.RepoStrongRef>> createBlockList({
+  Future<core.XRPCResponse<RepoStrongRef>> createBlockList({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
@@ -815,7 +816,7 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
                 value: {
                   'subject': e.did,
@@ -832,7 +833,7 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
                 value: {
                   'subject': e.did,
@@ -843,13 +844,13 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.EmptyData>> listitemInBulk(
+  Future<core.XRPCResponse<core.EmptyData>> listitemInBulk(
     final List<GraphListitemRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
                 value: {
                   'subject': e.subject,
@@ -861,13 +862,13 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.EmptyData>> listInBulk(
+  Future<core.XRPCResponse<core.EmptyData>> listInBulk(
     final List<GraphListRecord> params,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.RepoApplyWritesCreate(
+              (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
                 value: {
                   'purpose': e.purpose,
@@ -884,12 +885,12 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.RepoStrongRef>> modlist({
+  Future<core.XRPCResponse<RepoStrongRef>> modlist({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
@@ -904,12 +905,12 @@ extension GraphServiceExtension on GraphService {
         unspecced: unspecced,
       );
 
-  Future<core.XRPCResponse<atp.RepoStrongRef>> curatelist({
+  Future<core.XRPCResponse<RepoStrongRef>> curatelist({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    UGraphListRecordLabels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>

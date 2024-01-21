@@ -6,7 +6,7 @@
 import 'dart:async';
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
