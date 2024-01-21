@@ -14,10 +14,14 @@ _$FeedPostReplyRefImpl _$$FeedPostReplyRefImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$FeedPostReplyRefImpl(
-          root: $checkedConvert('root',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
-          parent: $checkedConvert('parent',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          root: $checkedConvert(
+              'root',
+              (v) =>
+                  RepoStrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          parent: $checkedConvert(
+              'parent',
+              (v) =>
+                  RepoStrongRef.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },

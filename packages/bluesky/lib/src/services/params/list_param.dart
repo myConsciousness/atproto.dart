@@ -16,6 +16,7 @@ part 'list_param.freezed.dart';
 part 'list_param.g.dart';
 
 @freezed
+@Deprecated('Use GraphListRecord instead. Will be removed')
 class ListParam with _$ListParam {
   @jsonSerializable
   const factory ListParam({

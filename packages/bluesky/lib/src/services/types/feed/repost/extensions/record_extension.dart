@@ -9,5 +9,5 @@ import 'package:atproto/atproto.dart';
 import '../record.dart';
 
 extension FeedRepostRecordExtension on FeedRepostRecord {
-  StrongRef get ref => subject;
+  RepoStrongRef get ref => subject;
 }

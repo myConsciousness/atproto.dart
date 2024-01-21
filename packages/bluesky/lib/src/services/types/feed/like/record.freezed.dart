@@ -22,7 +22,7 @@ FeedLikeRecord _$FeedLikeRecordFromJson(Map<String, dynamic> json) {
 mixin _$FeedLikeRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  StrongRef get subject => throw _privateConstructorUsedError;
+  RepoStrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,9 +37,9 @@ abstract class $FeedLikeRecordCopyWith<$Res> {
           FeedLikeRecord value, $Res Function(FeedLikeRecord) then) =
       _$FeedLikeRecordCopyWithImpl<$Res, FeedLikeRecord>;
   @useResult
-  $Res call({@typeKey String type, StrongRef subject, DateTime createdAt});
+  $Res call({@typeKey String type, RepoStrongRef subject, DateTime createdAt});
 
-  $StrongRefCopyWith<$Res> get subject;
+  $RepoStrongRefCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$FeedLikeRecordCopyWithImpl<$Res, $Val extends FeedLikeRecord>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -77,8 +77,8 @@ class _$FeedLikeRecordCopyWithImpl<$Res, $Val extends FeedLikeRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get subject {
-    return $StrongRefCopyWith<$Res>(_value.subject, (value) {
+  $RepoStrongRefCopyWith<$Res> get subject {
+    return $RepoStrongRefCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -92,10 +92,10 @@ abstract class _$$FeedLikeRecordImplCopyWith<$Res>
       __$$FeedLikeRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, StrongRef subject, DateTime createdAt});
+  $Res call({@typeKey String type, RepoStrongRef subject, DateTime createdAt});
 
   @override
-  $StrongRefCopyWith<$Res> get subject;
+  $RepoStrongRefCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$FeedLikeRecordImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ class _$FeedLikeRecordImpl implements _FeedLikeRecord {
   @typeKey
   final String type;
   @override
-  final StrongRef subject;
+  final RepoStrongRef subject;
   @override
   final DateTime createdAt;
 
@@ -188,7 +188,7 @@ class _$FeedLikeRecordImpl implements _FeedLikeRecord {
 abstract class _FeedLikeRecord implements FeedLikeRecord {
   const factory _FeedLikeRecord(
       {@typeKey final String type,
-      required final StrongRef subject,
+      required final RepoStrongRef subject,
       required final DateTime createdAt}) = _$FeedLikeRecordImpl;
 
   factory _FeedLikeRecord.fromJson(Map<String, dynamic> json) =
@@ -198,7 +198,7 @@ abstract class _FeedLikeRecord implements FeedLikeRecord {
   @typeKey
   String get type;
   @override
-  StrongRef get subject;
+  RepoStrongRef get subject;
   @override
   DateTime get createdAt;
   @override

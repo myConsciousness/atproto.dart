@@ -18,6 +18,7 @@ part 'thread_param.freezed.dart';
 part 'thread_param.g.dart';
 
 @freezed
+@Deprecated('Use FeedPostRecord instead. Will be removed')
 class ThreadParam with _$ThreadParam {
   @jsonSerializable
   const factory ThreadParam({

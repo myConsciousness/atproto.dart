@@ -16,6 +16,7 @@ part 'generator_param.freezed.dart';
 part 'generator_param.g.dart';
 
 @freezed
+@Deprecated('Use FeedGeneratorRecord instead. Will be removed')
 class GeneratorParam with _$GeneratorParam {
   @jsonSerializable
   const factory GeneratorParam({

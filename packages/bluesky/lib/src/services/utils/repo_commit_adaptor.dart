@@ -118,16 +118,16 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
-  FutureOr<void> execute(final SubscribedRepoCommit data) async {
+  FutureOr<void> execute(final SyncSubscribeReposCommit data) async {
     for (final op in data.ops) {
       switch (op.action) {
-        case RepoAction.create:
+        case SyncSubscribeReposRepoOpAction.create:
           await _onCreate(data, op);
           break;
-        case RepoAction.update:
+        case SyncSubscribeReposRepoOpAction.update:
           await _onUpdate(data, op);
           break;
-        case RepoAction.delete:
+        case SyncSubscribeReposRepoOpAction.delete:
           await _onDelete(data, op);
           break;
       }
@@ -136,8 +136,8 @@ final class RepoCommitAdaptor {
 
   /// Performs action on create.
   Future<void> _onCreate(
-    final SubscribedRepoCommit data,
-    final RepoOp op,
+    final SyncSubscribeReposCommit data,
+    final SyncSubscribeReposRepoOp op,
   ) async {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
@@ -272,8 +272,8 @@ final class RepoCommitAdaptor {
 
   /// Performs actions on update.
   Future<void> _onUpdate(
-    final SubscribedRepoCommit data,
-    final RepoOp op,
+    final SyncSubscribeReposCommit data,
+    final SyncSubscribeReposRepoOp op,
   ) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
@@ -302,8 +302,8 @@ final class RepoCommitAdaptor {
 
   /// Performs actions on delete.
   Future<void> _onDelete(
-    final SubscribedRepoCommit data,
-    final RepoOp op,
+    final SyncSubscribeReposCommit data,
+    final SyncSubscribeReposRepoOp op,
   ) async {
     if (op.uri.isFeedPost) {
       await _onDeletePost?.call(

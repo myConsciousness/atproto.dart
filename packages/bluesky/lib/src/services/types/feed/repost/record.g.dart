@@ -16,8 +16,10 @@ _$FeedRepostRecordImpl _$$FeedRepostRecordImplFromJson(Map json) =>
         final val = _$FeedRepostRecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedRepost),
-          subject: $checkedConvert('subject',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert(
+              'subject',
+              (v) =>
+                  RepoStrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );

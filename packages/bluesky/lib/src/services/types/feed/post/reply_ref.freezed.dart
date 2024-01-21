@@ -20,8 +20,8 @@ FeedPostReplyRef _$FeedPostReplyRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedPostReplyRef {
-  StrongRef get root => throw _privateConstructorUsedError;
-  StrongRef get parent => throw _privateConstructorUsedError;
+  RepoStrongRef get root => throw _privateConstructorUsedError;
+  RepoStrongRef get parent => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,10 +35,10 @@ abstract class $FeedPostReplyRefCopyWith<$Res> {
           FeedPostReplyRef value, $Res Function(FeedPostReplyRef) then) =
       _$FeedPostReplyRefCopyWithImpl<$Res, FeedPostReplyRef>;
   @useResult
-  $Res call({StrongRef root, StrongRef parent});
+  $Res call({RepoStrongRef root, RepoStrongRef parent});
 
-  $StrongRefCopyWith<$Res> get root;
-  $StrongRefCopyWith<$Res> get parent;
+  $RepoStrongRefCopyWith<$Res> get root;
+  $RepoStrongRefCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -61,26 +61,26 @@ class _$FeedPostReplyRefCopyWithImpl<$Res, $Val extends FeedPostReplyRef>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get root {
-    return $StrongRefCopyWith<$Res>(_value.root, (value) {
+  $RepoStrongRefCopyWith<$Res> get root {
+    return $RepoStrongRefCopyWith<$Res>(_value.root, (value) {
       return _then(_value.copyWith(root: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get parent {
-    return $StrongRefCopyWith<$Res>(_value.parent, (value) {
+  $RepoStrongRefCopyWith<$Res> get parent {
+    return $RepoStrongRefCopyWith<$Res>(_value.parent, (value) {
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
@@ -94,12 +94,12 @@ abstract class _$$FeedPostReplyRefImplCopyWith<$Res>
       __$$FeedPostReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StrongRef root, StrongRef parent});
+  $Res call({RepoStrongRef root, RepoStrongRef parent});
 
   @override
-  $StrongRefCopyWith<$Res> get root;
+  $RepoStrongRefCopyWith<$Res> get root;
   @override
-  $StrongRefCopyWith<$Res> get parent;
+  $RepoStrongRefCopyWith<$Res> get parent;
 }
 
 /// @nodoc
@@ -120,11 +120,11 @@ class __$$FeedPostReplyRefImplCopyWithImpl<$Res>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
     ));
   }
 }
@@ -138,9 +138,9 @@ class _$FeedPostReplyRefImpl implements _FeedPostReplyRef {
       _$$FeedPostReplyRefImplFromJson(json);
 
   @override
-  final StrongRef root;
+  final RepoStrongRef root;
   @override
-  final StrongRef parent;
+  final RepoStrongRef parent;
 
   @override
   String toString() {
@@ -177,16 +177,16 @@ class _$FeedPostReplyRefImpl implements _FeedPostReplyRef {
 
 abstract class _FeedPostReplyRef implements FeedPostReplyRef {
   const factory _FeedPostReplyRef(
-      {required final StrongRef root,
-      required final StrongRef parent}) = _$FeedPostReplyRefImpl;
+      {required final RepoStrongRef root,
+      required final RepoStrongRef parent}) = _$FeedPostReplyRefImpl;
 
   factory _FeedPostReplyRef.fromJson(Map<String, dynamic> json) =
       _$FeedPostReplyRefImpl.fromJson;
 
   @override
-  StrongRef get root;
+  RepoStrongRef get root;
   @override
-  StrongRef get parent;
+  RepoStrongRef get parent;
   @override
   @JsonKey(ignore: true)
   _$$FeedPostReplyRefImplCopyWith<_$FeedPostReplyRefImpl> get copyWith =>

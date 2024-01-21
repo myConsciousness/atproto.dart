@@ -32,7 +32,7 @@ final class GraphService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
-  Future<core.XRPCResponse<atp.StrongRef>> follow({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> follow({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -107,7 +107,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
-  Future<core.XRPCResponse<atp.StrongRef>> block({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> block({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -120,7 +120,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
-  Future<core.XRPCResponse<atp.StrongRef>> list({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> list({
     required String purpose,
     required String name,
     String? description,
@@ -180,7 +180,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
-  Future<core.XRPCResponse<atp.StrongRef>> listitem({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> listitem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -228,7 +228,7 @@ final class GraphService {
           await findSuggestedFollows(actor: actor);
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
-  Future<core.XRPCResponse<atp.StrongRef>> listblock({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> listblock({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
@@ -239,7 +239,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .follow instead. Will be removed.')
-  Future<core.XRPCResponse<atp.StrongRef>> createFollow({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -260,9 +260,9 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
-                record: {
+                value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                 },
@@ -342,7 +342,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .block instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createBlock({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -363,9 +363,9 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
-                record: {
+                value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                 },
@@ -375,7 +375,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .list instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createList({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createList({
     required String purpose,
     required String name,
     String? description,
@@ -401,7 +401,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .modlist instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createModeratedList({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
@@ -422,7 +422,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .curatelist instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createCuratedList({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
@@ -449,9 +449,9 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
-                record: {
+                value: {
                   'purpose': e.purpose,
                   'name': e.name,
                   'description': e.description,
@@ -493,7 +493,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .listitem instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createListItem({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createListItem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -516,9 +516,9 @@ final class GraphService {
       await _ctx.atproto.repo.createRecords(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
-                record: {
+                value: {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
@@ -583,7 +583,7 @@ final class GraphService {
       );
 
   @Deprecated('Use .listblock instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> createBlockList({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
@@ -815,9 +815,9 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
-                record: {
+                value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                 },
@@ -832,9 +832,9 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
-                record: {
+                value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
                 },
@@ -849,9 +849,9 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
-                record: {
+                value: {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
@@ -867,9 +867,9 @@ extension GraphServiceExtension on GraphService {
       await _ctx.atproto.repo.createRecordInBulk(
         actions: params
             .map(
-              (e) => atp.CreateAction(
+              (e) => atp.RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
-                record: {
+                value: {
                   'purpose': e.purpose,
                   'name': e.name,
                   'description': e.description,
@@ -884,7 +884,7 @@ extension GraphServiceExtension on GraphService {
             .toList(),
       );
 
-  Future<core.XRPCResponse<atp.StrongRef>> modlist({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> modlist({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,
@@ -904,7 +904,7 @@ extension GraphServiceExtension on GraphService {
         unspecced: unspecced,
       );
 
-  Future<core.XRPCResponse<atp.StrongRef>> curatelist({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> curatelist({
     required String name,
     String? description,
     List<RichtextFacet>? descriptionFacets,

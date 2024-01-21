@@ -31,7 +31,7 @@ import 'package:bluesky/src/services/types/feed/search_posts/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testFeed<atp.StrongRef>(
+  testFeed<atp.RepoStrongRef>(
     (m, s) => s.post(text: m.text),
     bulk: (m, s) => s.postInBulk([
       FeedPostRecord(text: m.text, createdAt: DateTime.now()),
@@ -39,11 +39,11 @@ void main() {
     id: appBskyFeedPost,
   );
 
-  testFeed<atp.StrongRef>(
+  testFeed<atp.RepoStrongRef>(
     (m, s) => s.repost(cid: m.cid, uri: m.uri),
     bulk: (m, s) => s.repostInBulk([
       FeedRepostRecord(
-        subject: atp.StrongRef(
+        subject: atp.RepoStrongRef(
           cid: m.cid,
           uri: m.uri,
         ),
@@ -58,11 +58,11 @@ void main() {
     id: appBskyFeedGetTimeline,
   );
 
-  testFeed<atp.StrongRef>(
+  testFeed<atp.RepoStrongRef>(
     (m, s) => s.like(cid: m.cid, uri: m.uri),
     bulk: (m, s) => s.likeInBulk([
       FeedLikeRecord(
-        subject: atp.StrongRef(
+        subject: atp.RepoStrongRef(
           cid: m.cid,
           uri: m.uri,
         ),
@@ -112,7 +112,7 @@ void main() {
     id: appBskyFeedGetPosts,
   );
 
-  testFeed<atp.StrongRef>(
+  testFeed<atp.RepoStrongRef>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
     bulk: (m, s) => s.generatorInBulk([
       FeedGeneratorRecord(
@@ -154,7 +154,7 @@ void main() {
     id: appBskyFeedGetListFeed,
   );
 
-  testFeed<atp.StrongRef>(
+  testFeed<atp.RepoStrongRef>(
     (m, s) => s.threadgate(postUri: m.uri),
     id: appBskyFeedThreadgate,
   );

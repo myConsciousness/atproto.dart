@@ -1197,45 +1197,45 @@ void main() {
   });
 }
 
-SubscribedRepoCommit _buildSubscribedRepoCommit(
-  final RepoOp op,
+SyncSubscribeReposCommit _buildSubscribedRepoCommit(
+  final SyncSubscribeReposRepoOp op,
 ) =>
-    SubscribedRepoCommit(
+    SyncSubscribeReposCommit(
       ops: [op],
-      did: 'aaaaaaa',
-      cursor: 1234,
+      repo: 'aaaaaaa',
+      seq: 1234,
       rev: 'xxxxxxx',
-      isRebase: false,
-      isTooBig: false,
-      createdAt: DateTime.now(),
+      rebase: false,
+      tooBig: false,
+      time: DateTime.now(),
     );
 
-RepoOp _buildCreateRepoOp(
+SyncSubscribeReposRepoOp _buildCreateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
 ) =>
-    RepoOp(
-      action: RepoAction.create,
+    SyncSubscribeReposRepoOp(
+      action: SyncSubscribeReposRepoOpAction.create,
       uri: AtUri.parse(uri),
       cid: 'aaaa',
       record: record,
     );
 
-RepoOp _buildUpdateRepoOp(
+SyncSubscribeReposRepoOp _buildUpdateRepoOp(
   final String uri,
   final Map<String, dynamic> record,
 ) =>
-    RepoOp(
-      action: RepoAction.update,
+    SyncSubscribeReposRepoOp(
+      action: SyncSubscribeReposRepoOpAction.update,
       uri: AtUri.parse(uri),
       cid: 'aaaa',
       record: record,
     );
 
-RepoOp _buildDeleteRepoOp(
+SyncSubscribeReposRepoOp _buildDeleteRepoOp(
   final String uri,
 ) =>
-    RepoOp(
-      action: RepoAction.delete,
+    SyncSubscribeReposRepoOp(
+      action: SyncSubscribeReposRepoOpAction.delete,
       uri: AtUri.parse(uri),
     );

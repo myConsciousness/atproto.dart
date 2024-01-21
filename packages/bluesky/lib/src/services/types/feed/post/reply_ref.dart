@@ -17,8 +17,8 @@ part 'reply_ref.g.dart';
 @lex.appBskyFeedPostReplyRef
 class FeedPostReplyRef with _$FeedPostReplyRef {
   const factory FeedPostReplyRef({
-    required StrongRef root,
-    required StrongRef parent,
+    required RepoStrongRef root,
+    required RepoStrongRef parent,
   }) = _FeedPostReplyRef;
 
   factory FeedPostReplyRef.fromJson(Map<String, Object?> json) =>

@@ -12,6 +12,7 @@ part 'list_item_param.freezed.dart';
 part 'list_item_param.g.dart';
 
 @freezed
+@Deprecated('Use GraphListitemRecord instead. Will be removed')
 class ListItemParam with _$ListItemParam {
   @jsonSerializable
   const factory ListItemParam({

@@ -42,7 +42,7 @@ void main() {
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.StrongRef>(
+  testActor<atp.RepoStrongRef>(
     (m, s) => s.profile(),
     id: appBskyActorProfile,
   );

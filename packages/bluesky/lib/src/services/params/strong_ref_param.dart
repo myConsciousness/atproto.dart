@@ -13,6 +13,7 @@ part 'strong_ref_param.freezed.dart';
 part 'strong_ref_param.g.dart';
 
 @freezed
+@Deprecated('Use FeedRepostRecord / FeedLikeRecord instead. Will be removed')
 class StrongRefParam with _$StrongRefParam {
   @jsonSerializable
   const factory StrongRefParam({

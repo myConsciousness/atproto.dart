@@ -24,7 +24,7 @@ class FeedRepostRecord with _$FeedRepostRecord {
   @jsonSerializable
   const factory FeedRepostRecord({
     @typeKey @Default(appBskyFeedRepost) String type,
-    required StrongRef subject,
+    required RepoStrongRef subject,
     required DateTime createdAt,
   }) = _FeedRepostRecord;
 

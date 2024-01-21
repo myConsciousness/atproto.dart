@@ -9,5 +9,5 @@ import 'package:atproto/atproto.dart';
 import '../record.dart';
 
 extension FeedLikeRecordExtension on FeedLikeRecord {
-  StrongRef get ref => subject;
+  RepoStrongRef get ref => subject;
 }

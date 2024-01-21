@@ -24,7 +24,7 @@ class FeedLikeRecord with _$FeedLikeRecord {
   @jsonSerializable
   const factory FeedLikeRecord({
     @typeKey @Default(appBskyFeedLike) String type,
-    required StrongRef subject,
+    required RepoStrongRef subject,
     required DateTime createdAt,
   }) = _FeedLikeRecord;
 

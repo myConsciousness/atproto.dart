@@ -80,7 +80,7 @@ final class ActorService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  Future<core.XRPCResponse<atp.StrongRef>> profile({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> profile({
     String? displayName,
     String? description,
     atp.Blob? avatar,
@@ -158,7 +158,7 @@ final class ActorService {
       );
 
   @Deprecated('Use .profile instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
+  Future<core.XRPCResponse<atp.RepoStrongRef>> updateProfile({
     String? displayName,
     String? description,
     atp.Blob? avatar,
