@@ -31,6 +31,7 @@ mixin _$GraphListRecord {
   @unionGraphListRecordLabelsConverter
   UGraphListRecordLabels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,7 +53,8 @@ abstract class $GraphListRecordCopyWith<$Res> {
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
       @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $UGraphListRecordLabelsCopyWith<$Res>? get labels;
@@ -79,6 +81,7 @@ class _$GraphListRecordCopyWithImpl<$Res, $Val extends GraphListRecord>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -113,6 +116,10 @@ class _$GraphListRecordCopyWithImpl<$Res, $Val extends GraphListRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -157,7 +164,8 @@ abstract class _$$GraphListRecordImplCopyWith<$Res>
       List<RichtextFacet>? descriptionFacets,
       Blob? avatar,
       @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
@@ -184,6 +192,7 @@ class __$$GraphListRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$GraphListRecordImpl(
       type: null == type
@@ -218,6 +227,10 @@ class __$$GraphListRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -234,8 +247,10 @@ class _$GraphListRecordImpl implements _GraphListRecord {
       final List<RichtextFacet>? descriptionFacets,
       this.avatar,
       @unionGraphListRecordLabelsConverter this.labels,
-      required this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _descriptionFacets = descriptionFacets,
+        _unknown = unknown;
 
   factory _$GraphListRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphListRecordImplFromJson(json);
@@ -267,10 +282,18 @@ class _$GraphListRecordImpl implements _GraphListRecord {
   final UGraphListRecordLabels? labels;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'GraphListRecord(type: $type, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+    return 'GraphListRecord(type: $type, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -288,7 +311,8 @@ class _$GraphListRecordImpl implements _GraphListRecord {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
@@ -302,7 +326,8 @@ class _$GraphListRecordImpl implements _GraphListRecord {
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
       labels,
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -328,7 +353,8 @@ abstract class _GraphListRecord implements GraphListRecord {
       final List<RichtextFacet>? descriptionFacets,
       final Blob? avatar,
       @unionGraphListRecordLabelsConverter final UGraphListRecordLabels? labels,
-      required final DateTime createdAt}) = _$GraphListRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$GraphListRecordImpl;
 
   factory _GraphListRecord.fromJson(Map<String, dynamic> json) =
       _$GraphListRecordImpl.fromJson;
@@ -351,6 +377,8 @@ abstract class _GraphListRecord implements GraphListRecord {
   UGraphListRecordLabels? get labels;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$GraphListRecordImplCopyWith<_$GraphListRecordImpl> get copyWith =>

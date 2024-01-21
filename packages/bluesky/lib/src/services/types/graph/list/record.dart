@@ -32,6 +32,7 @@ class GraphListRecord with _$GraphListRecord {
     Blob? avatar,
     @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _GraphListRecord;
 
   factory GraphListRecord.fromJson(Map<String, Object?> json) =>

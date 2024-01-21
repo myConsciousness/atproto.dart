@@ -36,13 +36,13 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> follow({
     required String did,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createFollow(
         did: did,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
@@ -111,13 +111,13 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> block({
     required String did,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createBlock(
         did: did,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
@@ -129,7 +129,7 @@ final class GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createList(
@@ -140,7 +140,7 @@ final class GraphService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
@@ -185,14 +185,14 @@ final class GraphService {
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createListItem(
         subject: subject,
         list: list,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
@@ -243,14 +243,14 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> createFollow({
     required String did,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphFollow,
         record: {
           'subject': did,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -266,6 +266,7 @@ final class GraphService {
                 value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -346,14 +347,14 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> createBlock({
     required String did,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphBlock,
         record: {
           'subject': did,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -369,6 +370,7 @@ final class GraphService {
                 value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -384,7 +386,7 @@ final class GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphList,
@@ -397,7 +399,7 @@ final class GraphService {
           'avatar': avatar,
           'labels': labels?.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -409,7 +411,7 @@ final class GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await list(
         name: name,
@@ -419,7 +421,7 @@ final class GraphService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   @Deprecated('Use .curatelist instead. Will be removed')
@@ -430,7 +432,7 @@ final class GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await list(
         name: name,
@@ -440,7 +442,7 @@ final class GraphService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   @Deprecated('Use .listInBulk instead. Will be removed')
@@ -461,6 +463,7 @@ final class GraphService {
                   'avatar': e.avatar,
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -498,7 +501,7 @@ final class GraphService {
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphListitem,
@@ -506,7 +509,7 @@ final class GraphService {
           'subject': subject,
           'list': list.toString(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -523,6 +526,7 @@ final class GraphService {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -821,6 +825,7 @@ extension GraphServiceExtension on GraphService {
                 value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -838,6 +843,7 @@ extension GraphServiceExtension on GraphService {
                 value: {
                   'subject': e.did,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -856,6 +862,7 @@ extension GraphServiceExtension on GraphService {
                   'subject': e.subject,
                   'list': e.list.toString(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -879,6 +886,7 @@ extension GraphServiceExtension on GraphService {
                   'avatar': e.avatar,
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -892,7 +900,7 @@ extension GraphServiceExtension on GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await list(
         name: name,
@@ -902,7 +910,7 @@ extension GraphServiceExtension on GraphService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   Future<core.XRPCResponse<RepoStrongRef>> curatelist({
@@ -912,7 +920,7 @@ extension GraphServiceExtension on GraphService {
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await list(
         name: name,
@@ -922,6 +930,6 @@ extension GraphServiceExtension on GraphService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 }

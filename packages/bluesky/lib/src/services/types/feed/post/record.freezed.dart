@@ -32,6 +32,7 @@ mixin _$FeedPostRecord {
   List<RichtextFacet>? get facets => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -54,7 +55,8 @@ abstract class $FeedPostRecordCopyWith<$Res> {
       @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
       List<RichtextFacet>? facets,
       List<String>? tags,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   $FeedPostReplyRefCopyWith<$Res>? get reply;
   $UFeedPostRecordEmbedCopyWith<$Res>? get embed;
@@ -83,6 +85,7 @@ class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
     Object? facets = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -121,6 +124,10 @@ class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -178,7 +185,8 @@ abstract class _$$FeedPostRecordImplCopyWith<$Res>
       @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
       List<RichtextFacet>? facets,
       List<String>? tags,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   @override
   $FeedPostReplyRefCopyWith<$Res>? get reply;
@@ -208,6 +216,7 @@ class __$$FeedPostRecordImplCopyWithImpl<$Res>
     Object? facets = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$FeedPostRecordImpl(
       type: null == type
@@ -246,6 +255,10 @@ class __$$FeedPostRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -263,10 +276,12 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
       @unionFeedPostRecordLabelsConverter this.labels,
       final List<RichtextFacet>? facets,
       final List<String>? tags,
-      required this.createdAt})
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
       : _langs = langs,
         _facets = facets,
-        _tags = tags;
+        _tags = tags,
+        _unknown = unknown;
 
   factory _$FeedPostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedPostRecordImplFromJson(json);
@@ -316,10 +331,18 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
 
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'FeedPostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt)';
+    return 'FeedPostRecord(type: $type, text: $text, reply: $reply, embed: $embed, langs: $langs, labels: $labels, facets: $facets, tags: $tags, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -336,7 +359,8 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
@@ -351,7 +375,8 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
       labels,
       const DeepCollectionEquality().hash(_facets),
       const DeepCollectionEquality().hash(_tags),
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -378,7 +403,8 @@ abstract class _FeedPostRecord implements FeedPostRecord {
       @unionFeedPostRecordLabelsConverter final UFeedPostRecordLabels? labels,
       final List<RichtextFacet>? facets,
       final List<String>? tags,
-      required final DateTime createdAt}) = _$FeedPostRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$FeedPostRecordImpl;
 
   factory _FeedPostRecord.fromJson(Map<String, dynamic> json) =
       _$FeedPostRecordImpl.fromJson;
@@ -404,6 +430,8 @@ abstract class _FeedPostRecord implements FeedPostRecord {
   List<String>? get tags;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedPostRecordImplCopyWith<_$FeedPostRecordImpl> get copyWith =>

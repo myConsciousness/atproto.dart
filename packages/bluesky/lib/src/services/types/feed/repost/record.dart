@@ -26,6 +26,7 @@ class FeedRepostRecord with _$FeedRepostRecord {
     @typeKey @Default(appBskyFeedRepost) String type,
     required RepoStrongRef subject,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _FeedRepostRecord;
 
   factory FeedRepostRecord.fromJson(Map<String, Object?> json) =>

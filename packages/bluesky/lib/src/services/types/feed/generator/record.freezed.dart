@@ -31,6 +31,7 @@ mixin _$FeedGeneratorRecord {
   @unionFeedGeneratorRecordLabelsConverter
   UFeedGeneratorRecordLabels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -53,7 +54,8 @@ abstract class $FeedGeneratorRecordCopyWith<$Res> {
       Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       UFeedGeneratorRecordLabels? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $UFeedGeneratorRecordLabelsCopyWith<$Res>? get labels;
@@ -80,6 +82,7 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res, $Val extends FeedGeneratorRecord>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -114,6 +117,10 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res, $Val extends FeedGeneratorRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -159,7 +166,8 @@ abstract class _$$FeedGeneratorRecordImplCopyWith<$Res>
       Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       UFeedGeneratorRecordLabels? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
@@ -186,6 +194,7 @@ class __$$FeedGeneratorRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$FeedGeneratorRecordImpl(
       type: null == type
@@ -220,6 +229,10 @@ class __$$FeedGeneratorRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -236,8 +249,10 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
       final List<RichtextFacet>? descriptionFacets,
       this.avatar,
       @unionFeedGeneratorRecordLabelsConverter this.labels,
-      required this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _descriptionFacets = descriptionFacets,
+        _unknown = unknown;
 
   factory _$FeedGeneratorRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorRecordImplFromJson(json);
@@ -269,10 +284,18 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
   final UFeedGeneratorRecordLabels? labels;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'FeedGeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+    return 'FeedGeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -291,7 +314,8 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
@@ -305,7 +329,8 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
       labels,
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -332,7 +357,8 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
       final Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       final UFeedGeneratorRecordLabels? labels,
-      required final DateTime createdAt}) = _$FeedGeneratorRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$FeedGeneratorRecordImpl;
 
   factory _FeedGeneratorRecord.fromJson(Map<String, dynamic> json) =
       _$FeedGeneratorRecordImpl.fromJson;
@@ -355,6 +381,8 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
   UFeedGeneratorRecordLabels? get labels;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedGeneratorRecordImplCopyWith<_$FeedGeneratorRecordImpl> get copyWith =>

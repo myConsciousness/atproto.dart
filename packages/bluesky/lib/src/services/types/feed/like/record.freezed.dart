@@ -24,6 +24,7 @@ mixin _$FeedLikeRecord {
   String get type => throw _privateConstructorUsedError;
   RepoStrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,11 @@ abstract class $FeedLikeRecordCopyWith<$Res> {
           FeedLikeRecord value, $Res Function(FeedLikeRecord) then) =
       _$FeedLikeRecordCopyWithImpl<$Res, FeedLikeRecord>;
   @useResult
-  $Res call({@typeKey String type, RepoStrongRef subject, DateTime createdAt});
+  $Res call(
+      {@typeKey String type,
+      RepoStrongRef subject,
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   $RepoStrongRefCopyWith<$Res> get subject;
 }
@@ -58,6 +63,7 @@ class _$FeedLikeRecordCopyWithImpl<$Res, $Val extends FeedLikeRecord>
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -72,6 +78,10 @@ class _$FeedLikeRecordCopyWithImpl<$Res, $Val extends FeedLikeRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -92,7 +102,11 @@ abstract class _$$FeedLikeRecordImplCopyWith<$Res>
       __$$FeedLikeRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, RepoStrongRef subject, DateTime createdAt});
+  $Res call(
+      {@typeKey String type,
+      RepoStrongRef subject,
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 
   @override
   $RepoStrongRefCopyWith<$Res> get subject;
@@ -112,6 +126,7 @@ class __$$FeedLikeRecordImplCopyWithImpl<$Res>
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$FeedLikeRecordImpl(
       type: null == type
@@ -126,6 +141,10 @@ class __$$FeedLikeRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -137,7 +156,9 @@ class _$FeedLikeRecordImpl implements _FeedLikeRecord {
   const _$FeedLikeRecordImpl(
       {@typeKey this.type = appBskyFeedLike,
       required this.subject,
-      required this.createdAt});
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _unknown = unknown;
 
   factory _$FeedLikeRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedLikeRecordImplFromJson(json);
@@ -149,10 +170,18 @@ class _$FeedLikeRecordImpl implements _FeedLikeRecord {
   final RepoStrongRef subject;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'FeedLikeRecord(type: $type, subject: $subject, createdAt: $createdAt)';
+    return 'FeedLikeRecord(type: $type, subject: $subject, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -163,12 +192,14 @@ class _$FeedLikeRecordImpl implements _FeedLikeRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, type, subject, createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +220,8 @@ abstract class _FeedLikeRecord implements FeedLikeRecord {
   const factory _FeedLikeRecord(
       {@typeKey final String type,
       required final RepoStrongRef subject,
-      required final DateTime createdAt}) = _$FeedLikeRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$FeedLikeRecordImpl;
 
   factory _FeedLikeRecord.fromJson(Map<String, dynamic> json) =
       _$FeedLikeRecordImpl.fromJson;
@@ -201,6 +233,8 @@ abstract class _FeedLikeRecord implements FeedLikeRecord {
   RepoStrongRef get subject;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedLikeRecordImplCopyWith<_$FeedLikeRecordImpl> get copyWith =>

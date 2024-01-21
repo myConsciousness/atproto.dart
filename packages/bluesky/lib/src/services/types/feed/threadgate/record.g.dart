@@ -26,6 +26,13 @@ _$FeedThreadgateRecordImpl _$$FeedThreadgateRecordImplFromJson(Map json) =>
                   .toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          unknown: $checkedConvert(
+              'unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -51,5 +58,6 @@ Map<String, dynamic> _$$FeedThreadgateRecordImplToJson(
           ?.map(unionFeedThreadgateRecordAllowConverter.toJson)
           .toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
+  val['unknown'] = instance.unknown;
   return val;
 }

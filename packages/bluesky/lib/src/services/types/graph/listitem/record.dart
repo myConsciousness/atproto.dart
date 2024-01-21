@@ -26,6 +26,7 @@ class GraphListitemRecord with _$GraphListitemRecord {
     @atUriConverter required AtUri list,
     required String subject,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _GraphListitemRecord;
 
   factory GraphListitemRecord.fromJson(Map<String, Object?> json) =>

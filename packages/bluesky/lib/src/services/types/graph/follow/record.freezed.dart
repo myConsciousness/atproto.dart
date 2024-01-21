@@ -24,6 +24,7 @@ mixin _$GraphFollowRecord {
   String get type => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,11 @@ abstract class $GraphFollowRecordCopyWith<$Res> {
           GraphFollowRecord value, $Res Function(GraphFollowRecord) then) =
       _$GraphFollowRecordCopyWithImpl<$Res, GraphFollowRecord>;
   @useResult
-  $Res call({@typeKey String type, String subject, DateTime createdAt});
+  $Res call(
+      {@typeKey String type,
+      String subject,
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -56,6 +61,7 @@ class _$GraphFollowRecordCopyWithImpl<$Res, $Val extends GraphFollowRecord>
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -70,6 +76,10 @@ class _$GraphFollowRecordCopyWithImpl<$Res, $Val extends GraphFollowRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -82,7 +92,11 @@ abstract class _$$GraphFollowRecordImplCopyWith<$Res>
       __$$GraphFollowRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, String subject, DateTime createdAt});
+  $Res call(
+      {@typeKey String type,
+      String subject,
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -99,6 +113,7 @@ class __$$GraphFollowRecordImplCopyWithImpl<$Res>
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$GraphFollowRecordImpl(
       type: null == type
@@ -113,6 +128,10 @@ class __$$GraphFollowRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -124,7 +143,9 @@ class _$GraphFollowRecordImpl implements _GraphFollowRecord {
   const _$GraphFollowRecordImpl(
       {@typeKey this.type = appBskyGraphFollow,
       required this.subject,
-      required this.createdAt});
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _unknown = unknown;
 
   factory _$GraphFollowRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphFollowRecordImplFromJson(json);
@@ -136,10 +157,18 @@ class _$GraphFollowRecordImpl implements _GraphFollowRecord {
   final String subject;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'GraphFollowRecord(type: $type, subject: $subject, createdAt: $createdAt)';
+    return 'GraphFollowRecord(type: $type, subject: $subject, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -150,12 +179,14 @@ class _$GraphFollowRecordImpl implements _GraphFollowRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, type, subject, createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -176,7 +207,8 @@ abstract class _GraphFollowRecord implements GraphFollowRecord {
   const factory _GraphFollowRecord(
       {@typeKey final String type,
       required final String subject,
-      required final DateTime createdAt}) = _$GraphFollowRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$GraphFollowRecordImpl;
 
   factory _GraphFollowRecord.fromJson(Map<String, dynamic> json) =
       _$GraphFollowRecordImpl.fromJson;
@@ -188,6 +220,8 @@ abstract class _GraphFollowRecord implements GraphFollowRecord {
   String get subject;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$GraphFollowRecordImplCopyWith<_$GraphFollowRecordImpl> get copyWith =>

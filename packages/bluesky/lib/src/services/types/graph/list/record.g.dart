@@ -37,6 +37,13 @@ _$GraphListRecordImpl _$$GraphListRecordImplFromJson(Map json) =>
                   v, unionGraphListRecordLabelsConverter.fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          unknown: $checkedConvert(
+              'unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -66,6 +73,7 @@ Map<String, dynamic> _$$GraphListRecordImplToJson(
       _$JsonConverterToJson<Map<String, dynamic>, UGraphListRecordLabels>(
           instance.labels, unionGraphListRecordLabelsConverter.toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
+  val['unknown'] = instance.unknown;
   return val;
 }
 

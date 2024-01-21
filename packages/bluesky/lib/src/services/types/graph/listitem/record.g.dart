@@ -21,6 +21,13 @@ _$GraphListitemRecordImpl _$$GraphListitemRecordImplFromJson(Map json) =>
           subject: $checkedConvert('subject', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          unknown: $checkedConvert(
+              'unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -34,4 +41,5 @@ Map<String, dynamic> _$$GraphListitemRecordImplToJson(
       'list': atUriConverter.toJson(instance.list),
       'subject': instance.subject,
       'createdAt': instance.createdAt.toIso8601String(),
+      'unknown': instance.unknown,
     };

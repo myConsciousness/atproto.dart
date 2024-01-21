@@ -25,9 +25,10 @@ mixin _$ActorProfileRecord {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
+  Blob? get banner => throw _privateConstructorUsedError;
   @unionActorProfileRecordLabelsConverter
   UActorProfileRecordLabels? get labels => throw _privateConstructorUsedError;
-  Blob? get banner => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,12 +47,13 @@ abstract class $ActorProfileRecordCopyWith<$Res> {
       String? displayName,
       String? description,
       Blob? avatar,
+      Blob? banner,
       @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
-      Blob? banner});
+      Map<String, dynamic> unknown});
 
   $BlobCopyWith<$Res>? get avatar;
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
   $BlobCopyWith<$Res>? get banner;
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -71,8 +73,9 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? labels = freezed,
     Object? banner = freezed,
+    Object? labels = freezed,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -91,14 +94,18 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as UActorProfileRecordLabels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as UActorProfileRecordLabels?,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -116,18 +123,6 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels {
-    if (_value.labels == null) {
-      return null;
-    }
-
-    return $UActorProfileRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
-      return _then(_value.copyWith(labels: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
   $BlobCopyWith<$Res>? get banner {
     if (_value.banner == null) {
       return null;
@@ -135,6 +130,18 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
 
     return $BlobCopyWith<$Res>(_value.banner!, (value) {
       return _then(_value.copyWith(banner: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels {
+    if (_value.labels == null) {
+      return null;
+    }
+
+    return $UActorProfileRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
+      return _then(_value.copyWith(labels: value) as $Val);
     });
   }
 }
@@ -152,15 +159,16 @@ abstract class _$$ActorProfileRecordImplCopyWith<$Res>
       String? displayName,
       String? description,
       Blob? avatar,
+      Blob? banner,
       @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
-      Blob? banner});
+      Map<String, dynamic> unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
-  @override
   $BlobCopyWith<$Res>? get banner;
+  @override
+  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -178,8 +186,9 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
-    Object? labels = freezed,
     Object? banner = freezed,
+    Object? labels = freezed,
+    Object? unknown = null,
   }) {
     return _then(_$ActorProfileRecordImpl(
       type: null == type
@@ -198,14 +207,18 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      labels: freezed == labels
-          ? _value.labels
-          : labels // ignore: cast_nullable_to_non_nullable
-              as UActorProfileRecordLabels?,
       banner: freezed == banner
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as UActorProfileRecordLabels?,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -219,8 +232,10 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
       this.displayName,
       this.description,
       this.avatar,
+      this.banner,
       @unionActorProfileRecordLabelsConverter this.labels,
-      this.banner});
+      final Map<String, dynamic> unknown = const {}})
+      : _unknown = unknown;
 
   factory _$ActorProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorProfileRecordImplFromJson(json);
@@ -235,14 +250,22 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
   @override
   final Blob? avatar;
   @override
+  final Blob? banner;
+  @override
   @unionActorProfileRecordLabelsConverter
   final UActorProfileRecordLabels? labels;
+  final Map<String, dynamic> _unknown;
   @override
-  final Blob? banner;
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'ActorProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, labels: $labels, banner: $banner)';
+    return 'ActorProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, unknown: $unknown)';
   }
 
   @override
@@ -256,14 +279,15 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.banner, banner) || other.banner == banner) &&
             (identical(other.labels, labels) || other.labels == labels) &&
-            (identical(other.banner, banner) || other.banner == banner));
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, displayName, description, avatar, labels, banner);
+  int get hashCode => Object.hash(runtimeType, type, displayName, description,
+      avatar, banner, labels, const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -286,9 +310,10 @@ abstract class _ActorProfileRecord implements ActorProfileRecord {
       final String? displayName,
       final String? description,
       final Blob? avatar,
+      final Blob? banner,
       @unionActorProfileRecordLabelsConverter
       final UActorProfileRecordLabels? labels,
-      final Blob? banner}) = _$ActorProfileRecordImpl;
+      final Map<String, dynamic> unknown}) = _$ActorProfileRecordImpl;
 
   factory _ActorProfileRecord.fromJson(Map<String, dynamic> json) =
       _$ActorProfileRecordImpl.fromJson;
@@ -303,10 +328,12 @@ abstract class _ActorProfileRecord implements ActorProfileRecord {
   @override
   Blob? get avatar;
   @override
+  Blob? get banner;
+  @override
   @unionActorProfileRecordLabelsConverter
   UActorProfileRecordLabels? get labels;
   @override
-  Blob? get banner;
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$ActorProfileRecordImplCopyWith<_$ActorProfileRecordImpl> get copyWith =>

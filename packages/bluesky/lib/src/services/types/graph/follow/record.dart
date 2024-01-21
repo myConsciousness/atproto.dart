@@ -25,6 +25,7 @@ class GraphFollowRecord with _$GraphFollowRecord {
     @typeKey @Default(appBskyGraphFollow) String type,
     required String subject,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _GraphFollowRecord;
 
   factory GraphFollowRecord.fromJson(Map<String, Object?> json) =>

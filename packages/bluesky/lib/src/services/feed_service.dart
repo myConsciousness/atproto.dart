@@ -50,7 +50,7 @@ final class FeedService {
     UFeedPostRecordLabels? labels,
     List<String>? tags,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createPost(
@@ -62,7 +62,7 @@ final class FeedService {
         labels: labels,
         tags: tags,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
@@ -70,14 +70,14 @@ final class FeedService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createRepost(
         cid: cid,
         uri: uri,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline
@@ -98,14 +98,14 @@ final class FeedService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createLike(
         cid: cid,
         uri: uri,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed
@@ -221,7 +221,7 @@ final class FeedService {
     core.Blob? avatar,
     UFeedGeneratorRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createGenerator(
@@ -232,7 +232,7 @@ final class FeedService {
         avatar: avatar,
         labels: labels,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
@@ -297,14 +297,14 @@ final class FeedService {
     required core.AtUri postUri,
     List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await createThreadgate(
         postUri: postUri,
         allowRules: allowRules,
         createdAt: createdAt,
-        unspecced: unspecced,
+        unknown: unknown,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
@@ -330,7 +330,7 @@ final class FeedService {
     UFeedPostRecordLabels? labels,
     List<String>? tags,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedPost,
@@ -343,7 +343,7 @@ final class FeedService {
           'labels': labels?.toJson(),
           'tags': tags,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -365,6 +365,7 @@ final class FeedService {
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -392,6 +393,7 @@ final class FeedService {
       labels: rootParam.labels,
       tags: rootParam.tags,
       createdAt: rootParam.createdAt,
+      unknown: rootParam.unknown,
     );
 
     final rootRef = rootRecord.data;
@@ -410,6 +412,7 @@ final class FeedService {
         labels: param.labels,
         tags: param.tags,
         createdAt: param.createdAt,
+        unknown: param.unknown,
       ))
           .data;
     }
@@ -435,7 +438,7 @@ final class FeedService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedRepost,
@@ -445,7 +448,7 @@ final class FeedService {
             'uri': uri.toString(),
           },
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -461,6 +464,7 @@ final class FeedService {
                 value: {
                   'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -472,7 +476,7 @@ final class FeedService {
     required String cid,
     required core.AtUri uri,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedLike,
@@ -482,7 +486,7 @@ final class FeedService {
             'uri': uri.toString(),
           },
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -498,6 +502,7 @@ final class FeedService {
                 value: {
                   'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -619,7 +624,7 @@ final class FeedService {
     core.Blob? avatar,
     UFeedGeneratorRecordLabels? labels,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedGenerator,
@@ -632,7 +637,7 @@ final class FeedService {
           'avatar': avatar?.toJson(),
           'labels': labels?.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -654,6 +659,7 @@ final class FeedService {
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -713,7 +719,7 @@ final class FeedService {
     required core.AtUri postUri,
     List<UFeedThreadgateRecordAllow>? allowRules,
     DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyFeedThreadgate,
@@ -723,7 +729,7 @@ final class FeedService {
           'post': postUri.toString(),
           'allow': allowRules?.map((e) => e.toJson()).toList(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
-          ...unspecced,
+          ...unknown,
         },
       );
 
@@ -1178,6 +1184,7 @@ extension FeedServiceExtension on FeedService {
                   'labels': e.labels?.toJson(),
                   'tags': e.tags,
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -1195,6 +1202,7 @@ extension FeedServiceExtension on FeedService {
                 value: {
                   'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -1212,6 +1220,7 @@ extension FeedServiceExtension on FeedService {
                 value: {
                   'subject': e.subject.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )
@@ -1235,6 +1244,7 @@ extension FeedServiceExtension on FeedService {
                   'avatar': e.avatar?.toJson(),
                   'labels': e.labels?.toJson(),
                   'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.unknown,
                 },
               ),
             )

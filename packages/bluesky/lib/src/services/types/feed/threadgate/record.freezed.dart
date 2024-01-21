@@ -28,6 +28,7 @@ mixin _$FeedThreadgateRecord {
   List<UFeedThreadgateRecordAllow>? get allow =>
       throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,8 @@ abstract class $FeedThreadgateRecordCopyWith<$Res> {
       @atUriConverter AtUri post,
       @unionFeedThreadgateRecordAllowConverter
       List<UFeedThreadgateRecordAllow>? allow,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -67,6 +69,7 @@ class _$FeedThreadgateRecordCopyWithImpl<$Res,
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -85,6 +88,10 @@ class _$FeedThreadgateRecordCopyWithImpl<$Res,
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -102,7 +109,8 @@ abstract class _$$FeedThreadgateRecordImplCopyWith<$Res>
       @atUriConverter AtUri post,
       @unionFeedThreadgateRecordAllowConverter
       List<UFeedThreadgateRecordAllow>? allow,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -120,6 +128,7 @@ class __$$FeedThreadgateRecordImplCopyWithImpl<$Res>
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$FeedThreadgateRecordImpl(
       type: null == type
@@ -138,6 +147,10 @@ class __$$FeedThreadgateRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -151,8 +164,10 @@ class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
       @atUriConverter required this.post,
       @unionFeedThreadgateRecordAllowConverter
       final List<UFeedThreadgateRecordAllow>? allow,
-      required this.createdAt})
-      : _allow = allow;
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _allow = allow,
+        _unknown = unknown;
 
   factory _$FeedThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedThreadgateRecordImplFromJson(json);
@@ -176,10 +191,18 @@ class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
 
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'FeedThreadgateRecord(type: $type, post: $post, allow: $allow, createdAt: $createdAt)';
+    return 'FeedThreadgateRecord(type: $type, post: $post, allow: $allow, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -191,13 +214,19 @@ class _$FeedThreadgateRecordImpl implements _FeedThreadgateRecord {
             (identical(other.post, post) || other.post == post) &&
             const DeepCollectionEquality().equals(other._allow, _allow) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, post,
-      const DeepCollectionEquality().hash(_allow), createdAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      type,
+      post,
+      const DeepCollectionEquality().hash(_allow),
+      createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -221,7 +250,8 @@ abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
       @atUriConverter required final AtUri post,
       @unionFeedThreadgateRecordAllowConverter
       final List<UFeedThreadgateRecordAllow>? allow,
-      required final DateTime createdAt}) = _$FeedThreadgateRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$FeedThreadgateRecordImpl;
 
   factory _FeedThreadgateRecord.fromJson(Map<String, dynamic> json) =
       _$FeedThreadgateRecordImpl.fromJson;
@@ -237,6 +267,8 @@ abstract class _FeedThreadgateRecord implements FeedThreadgateRecord {
   List<UFeedThreadgateRecordAllow>? get allow;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedThreadgateRecordImplCopyWith<_$FeedThreadgateRecordImpl>

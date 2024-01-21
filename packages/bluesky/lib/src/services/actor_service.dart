@@ -86,6 +86,7 @@ final class ActorService {
     core.Blob? avatar,
     core.Blob? banner,
     UActorProfileRecordLabels? labels,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await updateProfile(
@@ -164,6 +165,7 @@ final class ActorService {
     core.Blob? avatar,
     core.Blob? banner,
     UActorProfileRecordLabels? labels,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.updateRecord(
         uri: core.AtUri.make(
@@ -177,6 +179,7 @@ final class ActorService {
           'avatar': avatar,
           'banner': banner,
           'labels': labels?.toJson(),
+          ...unknown,
         },
       );
 

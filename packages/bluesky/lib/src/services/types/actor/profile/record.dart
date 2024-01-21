@@ -24,8 +24,9 @@ class ActorProfileRecord with _$ActorProfileRecord {
     String? displayName,
     String? description,
     Blob? avatar,
-    @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
     Blob? banner,
+    @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _ActorProfileRecord;
 
   factory ActorProfileRecord.fromJson(Map<String, Object?> json) =>

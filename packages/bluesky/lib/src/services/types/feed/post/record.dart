@@ -35,6 +35,7 @@ class FeedPostRecord with _$FeedPostRecord {
     List<RichtextFacet>? facets,
     List<String>? tags,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _FeedPostRecord;
 
   factory FeedPostRecord.fromJson(Map<String, Object?> json) =>

@@ -23,16 +23,23 @@ _$ActorProfileRecordImpl _$$ActorProfileRecordImplFromJson(Map json) =>
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
-          labels: $checkedConvert(
-              'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UActorProfileRecordLabels>(
-                  v, unionActorProfileRecordLabelsConverter.fromJson)),
           banner: $checkedConvert(
               'banner',
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+          labels: $checkedConvert(
+              'labels',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UActorProfileRecordLabels>(
+                  v, unionActorProfileRecordLabelsConverter.fromJson)),
+          unknown: $checkedConvert(
+              'unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -54,11 +61,12 @@ Map<String, dynamic> _$$ActorProfileRecordImplToJson(
   writeNotNull('displayName', instance.displayName);
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar?.toJson());
+  writeNotNull('banner', instance.banner?.toJson());
   writeNotNull(
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, UActorProfileRecordLabels>(
           instance.labels, unionActorProfileRecordLabelsConverter.toJson));
-  writeNotNull('banner', instance.banner?.toJson());
+  val['unknown'] = instance.unknown;
   return val;
 }
 

@@ -25,6 +25,7 @@ class GraphListblockRecord with _$GraphListblockRecord {
     @typeKey @Default(appBskyGraphListblock) String type,
     @atUriConverter required AtUri subject,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _GraphListblockRecord;
 
   factory GraphListblockRecord.fromJson(Map<String, Object?> json) =>

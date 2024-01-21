@@ -26,6 +26,7 @@ class FeedLikeRecord with _$FeedLikeRecord {
     @typeKey @Default(appBskyFeedLike) String type,
     required RepoStrongRef subject,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _FeedLikeRecord;
 
   factory FeedLikeRecord.fromJson(Map<String, Object?> json) =>

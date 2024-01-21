@@ -26,6 +26,7 @@ mixin _$GraphListitemRecord {
   AtUri get list => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $GraphListitemRecordCopyWith<$Res> {
       {@typeKey String type,
       @atUriConverter AtUri list,
       String subject,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$GraphListitemRecordCopyWithImpl<$Res, $Val extends GraphListitemRecord>
     Object? list = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -81,6 +84,10 @@ class _$GraphListitemRecordCopyWithImpl<$Res, $Val extends GraphListitemRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -97,7 +104,8 @@ abstract class _$$GraphListitemRecordImplCopyWith<$Res>
       {@typeKey String type,
       @atUriConverter AtUri list,
       String subject,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -115,6 +123,7 @@ class __$$GraphListitemRecordImplCopyWithImpl<$Res>
     Object? list = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$GraphListitemRecordImpl(
       type: null == type
@@ -133,6 +142,10 @@ class __$$GraphListitemRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -145,7 +158,9 @@ class _$GraphListitemRecordImpl implements _GraphListitemRecord {
       {@typeKey this.type = appBskyGraphListitem,
       @atUriConverter required this.list,
       required this.subject,
-      required this.createdAt});
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _unknown = unknown;
 
   factory _$GraphListitemRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphListitemRecordImplFromJson(json);
@@ -160,10 +175,18 @@ class _$GraphListitemRecordImpl implements _GraphListitemRecord {
   final String subject;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'GraphListitemRecord(type: $type, list: $list, subject: $subject, createdAt: $createdAt)';
+    return 'GraphListitemRecord(type: $type, list: $list, subject: $subject, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -175,12 +198,14 @@ class _$GraphListitemRecordImpl implements _GraphListitemRecord {
             (identical(other.list, list) || other.list == list) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, list, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, type, list, subject, createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -202,7 +227,8 @@ abstract class _GraphListitemRecord implements GraphListitemRecord {
       {@typeKey final String type,
       @atUriConverter required final AtUri list,
       required final String subject,
-      required final DateTime createdAt}) = _$GraphListitemRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$GraphListitemRecordImpl;
 
   factory _GraphListitemRecord.fromJson(Map<String, dynamic> json) =
       _$GraphListitemRecordImpl.fromJson;
@@ -217,6 +243,8 @@ abstract class _GraphListitemRecord implements GraphListitemRecord {
   String get subject;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$GraphListitemRecordImplCopyWith<_$GraphListitemRecordImpl> get copyWith =>

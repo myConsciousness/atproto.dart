@@ -37,6 +37,13 @@ _$FeedGeneratorRecordImpl _$$FeedGeneratorRecordImplFromJson(Map json) =>
                   v, unionFeedGeneratorRecordLabelsConverter.fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          unknown: $checkedConvert(
+              'unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -66,6 +73,7 @@ Map<String, dynamic> _$$FeedGeneratorRecordImplToJson(
       _$JsonConverterToJson<Map<String, dynamic>, UFeedGeneratorRecordLabels>(
           instance.labels, unionFeedGeneratorRecordLabelsConverter.toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
+  val['unknown'] = instance.unknown;
   return val;
 }
 

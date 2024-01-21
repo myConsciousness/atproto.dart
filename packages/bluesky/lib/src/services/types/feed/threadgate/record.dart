@@ -28,6 +28,7 @@ class FeedThreadgateRecord with _$FeedThreadgateRecord {
     @unionFeedThreadgateRecordAllowConverter
     List<UFeedThreadgateRecordAllow>? allow,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _FeedThreadgateRecord;
 
   factory FeedThreadgateRecord.fromJson(Map<String, Object?> json) =>

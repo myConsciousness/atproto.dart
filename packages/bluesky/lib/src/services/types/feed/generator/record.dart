@@ -32,6 +32,7 @@ class FeedGeneratorRecord with _$FeedGeneratorRecord {
     Blob? avatar,
     @unionFeedGeneratorRecordLabelsConverter UFeedGeneratorRecordLabels? labels,
     required DateTime createdAt,
+    @Default({}) Map<String, dynamic> unknown,
   }) = _FeedGeneratorRecord;
 
   factory FeedGeneratorRecord.fromJson(Map<String, Object?> json) =>

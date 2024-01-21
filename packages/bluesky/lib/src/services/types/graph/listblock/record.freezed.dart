@@ -25,6 +25,7 @@ mixin _$GraphListblockRecord {
   @atUriConverter
   AtUri get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +42,8 @@ abstract class $GraphListblockRecordCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri subject,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -61,6 +63,7 @@ class _$GraphListblockRecordCopyWithImpl<$Res,
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -75,6 +78,10 @@ class _$GraphListblockRecordCopyWithImpl<$Res,
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value.unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -90,7 +97,8 @@ abstract class _$$GraphListblockRecordImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @atUriConverter AtUri subject,
-      DateTime createdAt});
+      DateTime createdAt,
+      Map<String, dynamic> unknown});
 }
 
 /// @nodoc
@@ -107,6 +115,7 @@ class __$$GraphListblockRecordImplCopyWithImpl<$Res>
     Object? type = null,
     Object? subject = null,
     Object? createdAt = null,
+    Object? unknown = null,
   }) {
     return _then(_$GraphListblockRecordImpl(
       type: null == type
@@ -121,6 +130,10 @@ class __$$GraphListblockRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      unknown: null == unknown
+          ? _value._unknown
+          : unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -132,7 +145,9 @@ class _$GraphListblockRecordImpl implements _GraphListblockRecord {
   const _$GraphListblockRecordImpl(
       {@typeKey this.type = appBskyGraphListblock,
       @atUriConverter required this.subject,
-      required this.createdAt});
+      required this.createdAt,
+      final Map<String, dynamic> unknown = const {}})
+      : _unknown = unknown;
 
   factory _$GraphListblockRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphListblockRecordImplFromJson(json);
@@ -145,10 +160,18 @@ class _$GraphListblockRecordImpl implements _GraphListblockRecord {
   final AtUri subject;
   @override
   final DateTime createdAt;
+  final Map<String, dynamic> _unknown;
+  @override
+  @JsonKey()
+  Map<String, dynamic> get unknown {
+    if (_unknown is EqualUnmodifiableMapView) return _unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_unknown);
+  }
 
   @override
   String toString() {
-    return 'GraphListblockRecord(type: $type, subject: $subject, createdAt: $createdAt)';
+    return 'GraphListblockRecord(type: $type, subject: $subject, createdAt: $createdAt, unknown: $unknown)';
   }
 
   @override
@@ -159,12 +182,14 @@ class _$GraphListblockRecordImpl implements _GraphListblockRecord {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._unknown, _unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, type, subject, createdAt,
+      const DeepCollectionEquality().hash(_unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -186,7 +211,8 @@ abstract class _GraphListblockRecord implements GraphListblockRecord {
   const factory _GraphListblockRecord(
       {@typeKey final String type,
       @atUriConverter required final AtUri subject,
-      required final DateTime createdAt}) = _$GraphListblockRecordImpl;
+      required final DateTime createdAt,
+      final Map<String, dynamic> unknown}) = _$GraphListblockRecordImpl;
 
   factory _GraphListblockRecord.fromJson(Map<String, dynamic> json) =
       _$GraphListblockRecordImpl.fromJson;
@@ -199,6 +225,8 @@ abstract class _GraphListblockRecord implements GraphListblockRecord {
   AtUri get subject;
   @override
   DateTime get createdAt;
+  @override
+  Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
   _$$GraphListblockRecordImplCopyWith<_$GraphListblockRecordImpl>
