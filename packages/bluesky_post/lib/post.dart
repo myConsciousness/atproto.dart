@@ -33,7 +33,7 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feed.post(
     text: text.value,
-    facets: facets.map(bsky.Facet.fromJson).toList(),
+    facets: facets.map(bsky.RichtextFacet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
     languageTags: _langs,
     labels: _labels,
@@ -45,14 +45,14 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
+Future<bsky.UFeedPostRecordEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
-      return bsky.Embed.images(
+      return bsky.UFeedPostRecordEmbed.embedImages(
         data: bsky.EmbedImages(
           images: [
-            bsky.Image(
+            bsky.EmbedImagesImage(
               alt: core.getInput(
                 name: 'media-alt',
                 options: core.InputOptions(trimWhitespace: true),
@@ -74,13 +74,13 @@ Future<bsky.Embed?> _getEmbed(final bsky.Bluesky bluesky) async {
       preview.data.image,
     );
 
-    return bsky.Embed.external(
+    return bsky.UFeedPostRecordEmbed.embedExternal(
       data: bsky.EmbedExternal(
-        external: bsky.EmbedExternalThumbnail(
+        external: bsky.EmbedExternalExternal(
           uri: preview.data.url,
           title: preview.data.title,
           description: preview.data.description,
-          blob: uploadedPreview?.blob,
+          thumb: uploadedPreview?.blob,
         ),
       ),
     );

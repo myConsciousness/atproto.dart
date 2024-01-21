@@ -132,8 +132,8 @@ void main() {
         LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-          value: 'test',
-          createdAt: DateTime.now(),
+          val: 'test',
+          cts: DateTime.now(),
         ),
         ModerationOptions(
           userDid: 'did:web:alice.test',
@@ -152,8 +152,8 @@ void main() {
         LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-          value: 'spoiler',
-          createdAt: DateTime.now(),
+          val: 'spoiler',
+          cts: DateTime.now(),
         ),
         ModerationOptions(
           userDid: 'did:web:bob.test',
@@ -170,8 +170,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -203,8 +203,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -239,8 +239,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -275,8 +275,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       final labeler = Labeler(
@@ -326,8 +326,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: '!hide',
-        createdAt: DateTime.now(),
+        val: '!hide',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -359,8 +359,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -394,8 +394,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'intolerant-race',
-        createdAt: DateTime.now(),
+        val: 'intolerant-race',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -430,8 +430,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'gore',
-        createdAt: DateTime.now(),
+        val: 'gore',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -634,8 +634,8 @@ void main() {
       final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'intolerant-race',
-        createdAt: DateTime.now(),
+        val: 'intolerant-race',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(

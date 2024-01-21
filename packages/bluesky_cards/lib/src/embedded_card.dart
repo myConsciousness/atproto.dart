@@ -38,7 +38,7 @@ class EmbeddedCard extends StatelessWidget {
         postLink = 'https://$service/$handle/post/${postUri.rkey}';
 
   factory EmbeddedCard.fromFeed(
-    final bsky.FeedView feed, {
+    final bsky.FeedDefsFeedViewPost feed, {
     String service = 'bsky.app',
     Color? backgroundColor,
     bool darkMode = false,
@@ -71,7 +71,7 @@ class EmbeddedCard extends StatelessWidget {
   final String postLink;
   final DateTime createdAt;
 
-  final bsky.Reason? reason;
+  final bsky.UFeedDefsFeedViewPostReason? reason;
 
   /// Background color for the container
   final Color? backgroundColor;
@@ -285,19 +285,17 @@ class EmbeddedCard extends StatelessWidget {
     );
   }
 
-  bool get _isReasonRepost => reason != null
-      ? reason!.when(
-          repost: (data) => true,
-          unknown: (data) => false,
-        )
-      : false;
+  bool get _isReasonRepost =>
+      reason!.when(
+        reasonRepost: (data) => true,
+        unknown: (data) => false,
+      ) ??
+      false;
 
-  bsky.Actor? get _repostedBy => reason != null
-      ? reason!.when(
-          repost: (data) => data.by,
-          unknown: (data) => null,
-        )
-      : null;
+  bsky.ActorDefsProfileView? get _repostedBy => reason?.when(
+        reasonRepost: (data) => data.by.toProfileView(),
+        unknown: (data) => null,
+      );
 
   RepostedBy _buildRepostedBy() {
     final repostedActor = _repostedBy;
