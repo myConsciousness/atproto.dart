@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.0-preview.0
+
+- All objects that do not match Lexicon names have been deprecated and those that do match Lexicon names have been exposed as the `lex_types` package. You can import it like `import 'package:atproto/lex_types.dart';` ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
+
 ## v0.11.2
 
 - Upgraded `atproto_core`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
