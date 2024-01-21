@@ -32,7 +32,7 @@ mixin _$NotificationListNotificationsNotification {
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $NotificationListNotificationsNotificationCopyWith<$Res> {
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       DateTime indexedAt});
 
   $ActorDefsProfileViewCopyWith<$Res> get author;
@@ -121,7 +121,7 @@ class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -155,7 +155,7 @@ abstract class _$$NotificationListNotificationsNotificationImplCopyWith<$Res>
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       DateTime indexedAt});
 
   @override
@@ -217,7 +217,7 @@ class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -239,7 +239,7 @@ class _$NotificationListNotificationsNotificationImpl
       @atUriConverter this.reasonSubject,
       this.isRead = false,
       final Map<String, dynamic>? record,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       required this.indexedAt})
       : _record = record,
         _labels = labels;
@@ -273,9 +273,9 @@ class _$NotificationListNotificationsNotificationImpl
     return EqualUnmodifiableMapView(value);
   }
 
-  final List<Label>? _labels;
+  final List<LabelDefsLabel>? _labels;
   @override
-  List<Label>? get labels {
+  List<LabelDefsLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -351,7 +351,7 @@ abstract class _NotificationListNotificationsNotification
           @atUriConverter final AtUri? reasonSubject,
           final bool isRead,
           final Map<String, dynamic>? record,
-          final List<Label>? labels,
+          final List<LabelDefsLabel>? labels,
           required final DateTime indexedAt}) =
       _$NotificationListNotificationsNotificationImpl;
 
@@ -376,7 +376,7 @@ abstract class _NotificationListNotificationsNotification
   @override
   Map<String, dynamic>? get record;
   @override
-  List<Label>? get labels;
+  List<LabelDefsLabel>? get labels;
   @override
   DateTime get indexedAt;
   @override

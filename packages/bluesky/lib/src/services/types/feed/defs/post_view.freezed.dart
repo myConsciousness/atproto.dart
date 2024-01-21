@@ -34,7 +34,7 @@ mixin _$FeedDefsPostView {
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   FeedDefsViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
   FeedDefsThreadgateView? get threadgate => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -61,7 +61,7 @@ abstract class $FeedDefsPostViewCopyWith<$Res> {
       int repostCount,
       int likeCount,
       FeedDefsViewerState viewer,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       FeedDefsThreadgateView? threadgate,
       DateTime indexedAt});
 
@@ -143,7 +143,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       threadgate: freezed == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
@@ -223,7 +223,7 @@ abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
       int repostCount,
       int likeCount,
       FeedDefsViewerState viewer,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       FeedDefsThreadgateView? threadgate,
       DateTime indexedAt});
 
@@ -308,7 +308,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       threadgate: freezed == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
@@ -336,7 +336,7 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
       this.repostCount = 0,
       this.likeCount = 0,
       this.viewer = defaultFeedDefsViewerState,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       this.threadgate,
       required this.indexedAt})
       : _labels = labels;
@@ -372,9 +372,9 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @override
   @JsonKey()
   final FeedDefsViewerState viewer;
-  final List<Label>? _labels;
+  final List<LabelDefsLabel>? _labels;
   @override
-  List<Label>? get labels {
+  List<LabelDefsLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -462,7 +462,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
       final int repostCount,
       final int likeCount,
       final FeedDefsViewerState viewer,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       final FeedDefsThreadgateView? threadgate,
       required final DateTime indexedAt}) = _$FeedDefsPostViewImpl;
 
@@ -494,7 +494,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @override
   FeedDefsViewerState get viewer;
   @override
-  List<Label>? get labels;
+  List<LabelDefsLabel>? get labels;
   @override
   FeedDefsThreadgateView? get threadgate;
   @override

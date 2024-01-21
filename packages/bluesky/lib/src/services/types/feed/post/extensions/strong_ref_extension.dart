@@ -9,7 +9,7 @@ import 'package:atproto/atproto.dart';
 import '../../../embed/record/_z.dart';
 import '../_z.dart';
 
-extension StrongRefExtension on StrongRef {
+extension RepoStrongRefExtension on RepoStrongRef {
   @Deprecated('Use .toUFeedPostRecordEmbedEmbedRecord instead. Will be removed')
   UFeedPostRecordEmbed toEmbedRecord() => UFeedPostRecordEmbed.embedRecord(
         data: EmbedRecord(record: this),

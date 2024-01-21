@@ -198,7 +198,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeLabels(
     final List<Map<String, dynamic>> relatedLabels,
-    final List<atp.Label>? labels,
+    final List<atp.LabelDefsLabel>? labels,
   ) {
     if (labels == null || labels.isEmpty) {
       return relatedLabels;

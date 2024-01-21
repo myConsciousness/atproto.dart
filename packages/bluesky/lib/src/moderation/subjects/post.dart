@@ -27,7 +27,7 @@ ModerationDecision decidePost(
   return accumulator.finalizeDecision(options);
 }
 
-(String, List<atp.Label>?) _getDecisionFactors(
+(String, List<atp.LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectPost subject,
 ) =>
     subject.when(

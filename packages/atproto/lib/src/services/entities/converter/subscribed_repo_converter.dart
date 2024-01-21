@@ -13,8 +13,10 @@ import '../subscribed_repo_info.dart';
 import '../subscribed_repo_migrate.dart';
 import '../subscribed_repo_tombstone.dart';
 
+@Deprecated('Will be removed')
 const subscribedRepoConverter = _SubscribedRepoConverter();
 
+@Deprecated('Will be removed')
 final class _SubscribedRepoConverter
     implements JsonConverter<SubscribedRepo, Map<String, dynamic>> {
   const _SubscribedRepoConverter();

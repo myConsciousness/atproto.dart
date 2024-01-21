@@ -12,7 +12,7 @@ import 'package:bluesky/src/services/types/feed/post/_z.dart';
 
 void main() {
   test('.toPostRecordEmbedRecord', () {
-    final ref = StrongRef(cid: 'aaaaa', uri: AtUri.make('test'));
+    final ref = RepoStrongRef(cid: 'aaaaa', uri: AtUri.make('test'));
 
     final embed = ref.toUFeedPostRecordEmbedEmbedRecord();
 

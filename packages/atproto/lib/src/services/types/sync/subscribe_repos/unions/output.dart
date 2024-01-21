@@ -50,6 +50,7 @@ class USyncSubscribeReposOutput with _$USyncSubscribeReposOutput {
   factory USyncSubscribeReposOutput.fromJson(Map<String, Object?> json) =>
       unionSyncSubscribeReposMessageConverter.fromJson(json);
 
+  @override
   Map<String, dynamic> toJson() =>
       unionSyncSubscribeReposMessageConverter.toJson(this);
 }

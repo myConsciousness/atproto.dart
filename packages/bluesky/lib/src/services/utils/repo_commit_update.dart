@@ -35,8 +35,11 @@ final class RepoCommitUpdate<T> {
   /// The date and time this event was created.
   final DateTime createdAt;
 
-  /// Returns the [atp.StrongRef] representation.
-  atp.StrongRef toStrongRef() => atp.StrongRef(cid: cid, uri: uri);
+  @Deprecated('Use toRepoStrongRef instead. Will be removed')
+  atp.RepoStrongRef toStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
+
+  /// Returns the [atp.RepoStrongRef] representation.
+  atp.RepoStrongRef toRepoStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
 
   @override
   String toString() =>

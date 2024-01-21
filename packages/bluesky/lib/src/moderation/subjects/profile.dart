@@ -25,7 +25,7 @@ ModerationDecision decideProfile(
   return accumulator.finalizeDecision(options);
 }
 
-(String, List<atp.Label>?) _getDecisionFactors(
+(String, List<atp.LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
@@ -34,8 +34,8 @@ ModerationDecision decideProfile(
       profileViewDetailed: (data) => (data.did, data.labels),
     );
 
-List<atp.Label> _filterProfileLabels(
-  final List<atp.Label>? labels,
+List<atp.LabelDefsLabel> _filterProfileLabels(
+  final List<atp.LabelDefsLabel>? labels,
 ) =>
     labels == null
         ? const []

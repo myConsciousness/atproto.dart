@@ -22,7 +22,7 @@ part 'main.g.dart';
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     @typeKey @Default(appBskyEmbedRecord) String type,
-    required StrongRef record,
+    required RepoStrongRef record,
   }) = _EmbedRecord;
 
   factory EmbedRecord.fromJson(Map<String, Object?> json) =>

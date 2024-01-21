@@ -10,8 +10,11 @@ import '../post_view.dart';
 import 'viewer_state_extension.dart';
 
 extension FeedDefsPostViewExtension on FeedDefsPostView {
-  /// Returns the [StrongRef] representation of this record.
-  StrongRef toStrongRef() => StrongRef(cid: cid, uri: uri);
+  @Deprecated('Use toRepoStrongRef instead. Will be removed')
+  RepoStrongRef toStrongRef() => RepoStrongRef(cid: cid, uri: uri);
+
+  /// Returns the [RepoStrongRef] representation of this record.
+  RepoStrongRef toRepoStrongRef() => RepoStrongRef(cid: cid, uri: uri);
 
   /// Returns true if the authenticated user has already reposted this record,
   /// otherwise false.

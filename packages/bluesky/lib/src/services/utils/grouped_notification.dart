@@ -44,7 +44,7 @@ class GroupedNotification with _$GroupedNotification {
     required bool isRead,
 
     /// May include any labels attached to the notification.
-    required List<Label> labels,
+    required List<LabelDefsLabel> labels,
 
     /// Might include additional data related to the notification.
     Map<String, dynamic>? record,

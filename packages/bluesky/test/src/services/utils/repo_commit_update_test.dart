@@ -24,7 +24,7 @@ void main() {
       createdAt: DateTime.now(),
     );
 
-    final ref = commit.toStrongRef();
+    final ref = commit.toRepoStrongRef();
 
     expect(ref.cid, 'baaaaaaaaaaaa');
     expect(

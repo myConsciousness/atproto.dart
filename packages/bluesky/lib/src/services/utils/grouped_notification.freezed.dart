@@ -44,7 +44,7 @@ mixin _$GroupedNotification {
   bool get isRead => throw _privateConstructorUsedError;
 
   /// May include any labels attached to the notification.
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel> get labels => throw _privateConstructorUsedError;
 
   /// Might include additional data related to the notification.
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
@@ -70,7 +70,7 @@ abstract class $GroupedNotificationCopyWith<$Res> {
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
-      List<Label> labels,
+      List<LabelDefsLabel> labels,
       Map<String, dynamic>? record,
       DateTime indexedAt});
 }
@@ -121,7 +121,7 @@ class _$GroupedNotificationCopyWithImpl<$Res, $Val extends GroupedNotification>
       labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<LabelDefsLabel>,
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ abstract class _$$GroupedNotificationImplCopyWith<$Res>
       GroupedNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
-      List<Label> labels,
+      List<LabelDefsLabel> labels,
       Map<String, dynamic>? record,
       DateTime indexedAt});
 }
@@ -197,7 +197,7 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
       labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<LabelDefsLabel>,
       record: freezed == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -220,7 +220,7 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
       required this.reason,
       @atUriConverter this.reasonSubject,
       required this.isRead,
-      required final List<Label> labels,
+      required final List<LabelDefsLabel> labels,
       final Map<String, dynamic>? record,
       required this.indexedAt})
       : _uris = uris,
@@ -280,11 +280,11 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
   final bool isRead;
 
   /// May include any labels attached to the notification.
-  final List<Label> _labels;
+  final List<LabelDefsLabel> _labels;
 
   /// May include any labels attached to the notification.
   @override
-  List<Label> get labels {
+  List<LabelDefsLabel> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_labels);
@@ -364,7 +364,7 @@ abstract class _GroupedNotification implements GroupedNotification {
       required final GroupedNotificationReason reason,
       @atUriConverter final AtUri? reasonSubject,
       required final bool isRead,
-      required final List<Label> labels,
+      required final List<LabelDefsLabel> labels,
       final Map<String, dynamic>? record,
       required final DateTime indexedAt}) = _$GroupedNotificationImpl;
 
@@ -402,7 +402,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   @override
 
   /// May include any labels attached to the notification.
-  List<Label> get labels;
+  List<LabelDefsLabel> get labels;
   @override
 
   /// Might include additional data related to the notification.

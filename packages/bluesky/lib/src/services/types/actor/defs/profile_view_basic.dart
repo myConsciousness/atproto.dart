@@ -27,7 +27,7 @@ class ActorDefsProfileViewBasic with _$ActorDefsProfileViewBasic {
     String? displayName,
     String? avatar,
     @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
   }) = _ActorDefsProfileViewBasic;
 
   factory ActorDefsProfileViewBasic.fromJson(Map<String, Object?> json) =>

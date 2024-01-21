@@ -31,7 +31,7 @@ mixin _$ActorDefsProfileViewDetailed {
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
   ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,7 +59,7 @@ abstract class $ActorDefsProfileViewDetailedCopyWith<$Res> {
       int followersCount,
       int postsCount,
       ActorDefsViewerState viewer,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       DateTime? indexedAt});
 
   $ActorDefsViewerStateCopyWith<$Res> get viewer;
@@ -136,7 +136,7 @@ class _$ActorDefsProfileViewDetailedCopyWithImpl<$Res,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -173,7 +173,7 @@ abstract class _$$ActorDefsProfileViewDetailedImplCopyWith<$Res>
       int followersCount,
       int postsCount,
       ActorDefsViewerState viewer,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       DateTime? indexedAt});
 
   @override
@@ -250,7 +250,7 @@ class __$$ActorDefsProfileViewDetailedImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -275,7 +275,7 @@ class _$ActorDefsProfileViewDetailedImpl
       this.followersCount = 0,
       this.postsCount = 0,
       this.viewer = defaultActorDefsViewerState,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       this.indexedAt})
       : _labels = labels;
 
@@ -307,9 +307,9 @@ class _$ActorDefsProfileViewDetailedImpl
   @override
   @JsonKey()
   final ActorDefsViewerState viewer;
-  final List<Label>? _labels;
+  final List<LabelDefsLabel>? _labels;
   @override
-  List<Label>? get labels {
+  List<LabelDefsLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -396,7 +396,7 @@ abstract class _ActorDefsProfileViewDetailed
       final int followersCount,
       final int postsCount,
       final ActorDefsViewerState viewer,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       final DateTime? indexedAt}) = _$ActorDefsProfileViewDetailedImpl;
 
   factory _ActorDefsProfileViewDetailed.fromJson(Map<String, dynamic> json) =
@@ -423,7 +423,7 @@ abstract class _ActorDefsProfileViewDetailed
   @override
   ActorDefsViewerState get viewer;
   @override
-  List<Label>? get labels;
+  List<LabelDefsLabel>? get labels;
   @override
   DateTime? get indexedAt;
   @override

@@ -127,7 +127,7 @@ final class ModerationBehaviorSuiteRunner {
     final ModerationBehaviorScenarioLabels scenarioLabels,
   ) {
     final def = suite.users[name]!;
-    final labels = <Label>[];
+    final labels = <LabelDefsLabel>[];
 
     if (scenarioLabels.account != null) {
       for (final label in scenarioLabels.account!) {
@@ -174,11 +174,12 @@ final class ModerationBehaviorSuiteRunner {
     );
   }
 
-  Label _getLabel(final String value, final String uri) => Label(
+  LabelDefsLabel _getLabel(final String value, final String uri) =>
+      LabelDefsLabel(
         src: 'did:plc:fake-labeler',
         uri: uri,
-        value: value,
-        createdAt: DateTime.now(),
+        val: value,
+        cts: DateTime.now(),
       );
 }
 

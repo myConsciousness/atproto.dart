@@ -38,7 +38,7 @@ class FeedDefsPostView with _$FeedDefsPostView {
     @Default(0) int repostCount,
     @Default(0) int likeCount,
     @Default(defaultFeedDefsViewerState) FeedDefsViewerState viewer,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
     FeedDefsThreadgateView? threadgate,
     required DateTime indexedAt,
   }) = _FeedDefsPostView;

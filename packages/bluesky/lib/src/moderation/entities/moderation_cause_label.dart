@@ -21,7 +21,7 @@ class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     @Default('label') String type,
     required ModerationCauseSource source,
-    required Label label,
+    required LabelDefsLabel label,
     @JsonKey(name: 'labelDef') required LabelDefinition labelDefinition,
     required LabelPreference setting,
     required int priority,

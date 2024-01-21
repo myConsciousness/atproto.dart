@@ -40,8 +40,8 @@ _$NotificationListNotificationsNotificationImpl
               labels: $checkedConvert(
                   'labels',
                   (v) => (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      ?.map((e) => LabelDefsLabel.fromJson(
+                          Map<String, Object?>.from(e as Map)))
                       .toList()),
               indexedAt: $checkedConvert(
                   'indexedAt', (v) => DateTime.parse(v as String)),

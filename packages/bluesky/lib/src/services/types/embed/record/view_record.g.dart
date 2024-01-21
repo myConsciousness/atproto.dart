@@ -30,8 +30,8 @@ _$EmbedRecordViewRecordImpl _$$EmbedRecordViewRecordImplFromJson(Map json) =>
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => LabelDefsLabel.fromJson(
+                      Map<String, Object?>.from(e as Map)))
                   .toList()),
           embeds: $checkedConvert(
               'embeds',

@@ -41,7 +41,7 @@ void main() {
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -88,7 +88,7 @@ void main() {
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -145,7 +145,7 @@ void main() {
             uri: AtUri.parse('at://did:web:bob.test/app.bsky.post/fake'),
             cid: 'fake',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -201,7 +201,7 @@ void main() {
             uri: AtUri.parse('at://did:web:bob.test/app.bsky.post/fake'),
             cid: 'fake',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -253,7 +253,7 @@ void main() {
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -298,7 +298,7 @@ void main() {
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',
@@ -343,7 +343,7 @@ void main() {
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
                 value: 'porn',

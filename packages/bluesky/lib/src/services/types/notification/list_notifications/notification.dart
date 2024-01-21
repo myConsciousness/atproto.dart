@@ -31,7 +31,7 @@ class NotificationListNotificationsNotification
     @atUriConverter AtUri? reasonSubject,
     @Default(false) bool isRead,
     Map<String, dynamic>? record,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
     required DateTime indexedAt,
   }) = _NotificationListNotificationsNotification;
 

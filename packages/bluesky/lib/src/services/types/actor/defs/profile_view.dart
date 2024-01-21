@@ -28,7 +28,7 @@ class ActorDefsProfileView with _$ActorDefsProfileView {
     String? description,
     String? avatar,
     @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
     DateTime? indexedAt,
   }) = _ActorDefsProfileView;
 

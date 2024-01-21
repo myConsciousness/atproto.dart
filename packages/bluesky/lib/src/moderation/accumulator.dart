@@ -47,7 +47,7 @@ sealed class ModerationCauseAccumulator {
   void addBlockedBy();
   void addBlockOther();
   void addLabel(
-    final atp.Label label,
+    final atp.LabelDefsLabel label,
     final ModerationOptions options,
   );
   void addMuted();
@@ -106,7 +106,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
 
   @override
   void addLabel(
-    final atp.Label label,
+    final atp.LabelDefsLabel label,
     final ModerationOptions options,
   ) {
     final knownLabel = KnownLabel.valueOf(label.value);
@@ -151,7 +151,7 @@ final class _ModerationCauseAccumulator implements ModerationCauseAccumulator {
 
   LabelPreference _getLabelPreference(
     final LabelDefinition labelDef,
-    final atp.Label label,
+    final atp.LabelDefsLabel label,
     final LabelerSettings? labeler,
     final ModerationOptions options,
   ) {

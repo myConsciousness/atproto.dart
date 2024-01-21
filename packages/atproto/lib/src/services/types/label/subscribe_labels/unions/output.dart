@@ -35,6 +35,7 @@ class ULabelSubscribeLabelsOutput with _$ULabelSubscribeLabelsOutput {
   factory ULabelSubscribeLabelsOutput.fromJson(Map<String, Object?> json) =>
       unionLabelSubscribeLabelsMessageConverter.fromJson(json);
 
+  @override
   Map<String, dynamic> toJson() =>
       unionLabelSubscribeLabelsMessageConverter.toJson(this);
 }

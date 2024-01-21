@@ -31,8 +31,11 @@ final class RepoCommitCreate<T> {
   /// The current cursor.
   final int cursor;
 
-  /// Returns the [atp.StrongRef] representation.
-  atp.StrongRef toStrongRef() => atp.StrongRef(cid: cid, uri: uri);
+  @Deprecated('Use toRepoStrongRef instead. Will be removed')
+  atp.RepoStrongRef toStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
+
+  /// Returns the [atp.RepoStrongRef] representation.
+  atp.RepoStrongRef toRepoStrongRef() => atp.RepoStrongRef(cid: cid, uri: uri);
 
   @override
   String toString() =>

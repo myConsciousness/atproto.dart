@@ -26,7 +26,7 @@ mixin _$ActorDefsProfileViewBasic {
   String? get displayName => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +46,7 @@ abstract class $ActorDefsProfileViewBasicCopyWith<$Res> {
       String? displayName,
       String? avatar,
       ActorDefsViewerState viewer,
-      List<Label>? labels});
+      List<LabelDefsLabel>? labels});
 
   $ActorDefsViewerStateCopyWith<$Res> get viewer;
 }
@@ -96,7 +96,7 @@ class _$ActorDefsProfileViewBasicCopyWithImpl<$Res,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
     ) as $Val);
   }
 
@@ -124,7 +124,7 @@ abstract class _$$ActorDefsProfileViewBasicImplCopyWith<$Res>
       String? displayName,
       String? avatar,
       ActorDefsViewerState viewer,
-      List<Label>? labels});
+      List<LabelDefsLabel>? labels});
 
   @override
   $ActorDefsViewerStateCopyWith<$Res> get viewer;
@@ -174,7 +174,7 @@ class __$$ActorDefsProfileViewBasicImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
     ));
   }
 }
@@ -189,7 +189,7 @@ class _$ActorDefsProfileViewBasicImpl implements _ActorDefsProfileViewBasic {
       this.displayName,
       this.avatar,
       this.viewer = defaultActorDefsViewerState,
-      final List<Label>? labels})
+      final List<LabelDefsLabel>? labels})
       : _labels = labels;
 
   factory _$ActorDefsProfileViewBasicImpl.fromJson(Map<String, dynamic> json) =>
@@ -206,9 +206,9 @@ class _$ActorDefsProfileViewBasicImpl implements _ActorDefsProfileViewBasic {
   @override
   @JsonKey()
   final ActorDefsViewerState viewer;
-  final List<Label>? _labels;
+  final List<LabelDefsLabel>? _labels;
   @override
-  List<Label>? get labels {
+  List<LabelDefsLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -262,7 +262,7 @@ abstract class _ActorDefsProfileViewBasic implements ActorDefsProfileViewBasic {
       final String? displayName,
       final String? avatar,
       final ActorDefsViewerState viewer,
-      final List<Label>? labels}) = _$ActorDefsProfileViewBasicImpl;
+      final List<LabelDefsLabel>? labels}) = _$ActorDefsProfileViewBasicImpl;
 
   factory _ActorDefsProfileViewBasic.fromJson(Map<String, dynamic> json) =
       _$ActorDefsProfileViewBasicImpl.fromJson;
@@ -278,7 +278,7 @@ abstract class _ActorDefsProfileViewBasic implements ActorDefsProfileViewBasic {
   @override
   ActorDefsViewerState get viewer;
   @override
-  List<Label>? get labels;
+  List<LabelDefsLabel>? get labels;
   @override
   @JsonKey(ignore: true)
   _$$ActorDefsProfileViewBasicImplCopyWith<_$ActorDefsProfileViewBasicImpl>

@@ -22,7 +22,7 @@ EmbedRecord _$EmbedRecordFromJson(Map<String, dynamic> json) {
 mixin _$EmbedRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  StrongRef get record => throw _privateConstructorUsedError;
+  RepoStrongRef get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,9 +36,9 @@ abstract class $EmbedRecordCopyWith<$Res> {
           EmbedRecord value, $Res Function(EmbedRecord) then) =
       _$EmbedRecordCopyWithImpl<$Res, EmbedRecord>;
   @useResult
-  $Res call({@typeKey String type, StrongRef record});
+  $Res call({@typeKey String type, RepoStrongRef record});
 
-  $StrongRefCopyWith<$Res> get record;
+  $RepoStrongRefCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -65,14 +65,14 @@ class _$EmbedRecordCopyWithImpl<$Res, $Val extends EmbedRecord>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $StrongRefCopyWith<$Res> get record {
-    return $StrongRefCopyWith<$Res>(_value.record, (value) {
+  $RepoStrongRefCopyWith<$Res> get record {
+    return $RepoStrongRefCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
     });
   }
@@ -86,10 +86,10 @@ abstract class _$$EmbedRecordImplCopyWith<$Res>
       __$$EmbedRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, StrongRef record});
+  $Res call({@typeKey String type, RepoStrongRef record});
 
   @override
-  $StrongRefCopyWith<$Res> get record;
+  $RepoStrongRefCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -114,7 +114,7 @@ class __$$EmbedRecordImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as StrongRef,
+              as RepoStrongRef,
     ));
   }
 }
@@ -132,7 +132,7 @@ class _$EmbedRecordImpl implements _EmbedRecord {
   @typeKey
   final String type;
   @override
-  final StrongRef record;
+  final RepoStrongRef record;
 
   @override
   String toString() {
@@ -169,7 +169,7 @@ class _$EmbedRecordImpl implements _EmbedRecord {
 abstract class _EmbedRecord implements EmbedRecord {
   const factory _EmbedRecord(
       {@typeKey final String type,
-      required final StrongRef record}) = _$EmbedRecordImpl;
+      required final RepoStrongRef record}) = _$EmbedRecordImpl;
 
   factory _EmbedRecord.fromJson(Map<String, dynamic> json) =
       _$EmbedRecordImpl.fromJson;
@@ -178,7 +178,7 @@ abstract class _EmbedRecord implements EmbedRecord {
   @typeKey
   String get type;
   @override
-  StrongRef get record;
+  RepoStrongRef get record;
   @override
   @JsonKey(ignore: true)
   _$$EmbedRecordImplCopyWith<_$EmbedRecordImpl> get copyWith =>

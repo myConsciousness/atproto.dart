@@ -31,7 +31,7 @@ class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     required String cid,
     required ActorDefsProfileViewBasic author,
     @feedPostRecordConverter required FeedPostRecord value,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
     @unionEmbedRecordViewRecordEmbedsConverter
     List<UEmbedRecordViewRecordEmbeds>? embeds,
     required DateTime indexedAt,

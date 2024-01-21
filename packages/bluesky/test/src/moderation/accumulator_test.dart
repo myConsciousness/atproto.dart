@@ -129,7 +129,7 @@ void main() {
       final accumulator = ModerationCauseAccumulator('');
 
       accumulator.addLabel(
-        Label(
+        LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
           value: 'test',
@@ -149,7 +149,7 @@ void main() {
       final accumulator = ModerationCauseAccumulator('');
 
       accumulator.addLabel(
-        Label(
+        LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
           value: 'spoiler',
@@ -167,7 +167,7 @@ void main() {
 
     test('porn & not self & not enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
@@ -200,7 +200,7 @@ void main() {
 
     test('porn & not self & enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
@@ -236,7 +236,7 @@ void main() {
 
     test('porn & self & enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('did:web:bob.test');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
@@ -272,7 +272,7 @@ void main() {
 
     test('labeler', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
@@ -323,7 +323,7 @@ void main() {
 
     test('priority 1', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: '!hide',
@@ -356,7 +356,7 @@ void main() {
 
     test('priority 2', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'porn',
@@ -391,7 +391,7 @@ void main() {
 
     test('priority 5', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'intolerant-race',
@@ -427,7 +427,7 @@ void main() {
 
     test('priority 7', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'gore',
@@ -631,7 +631,7 @@ void main() {
     test('cause is UModerationCauseLabel', () {
       final accumulator = ModerationCauseAccumulator('did:web:bob.test');
 
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
         value: 'intolerant-race',

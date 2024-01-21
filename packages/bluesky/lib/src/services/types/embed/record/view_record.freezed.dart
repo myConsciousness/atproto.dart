@@ -29,7 +29,7 @@ mixin _$EmbedRecordViewRecord {
   ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
   @feedPostRecordConverter
   FeedPostRecord get value => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
   @unionEmbedRecordViewRecordEmbedsConverter
   List<UEmbedRecordViewRecordEmbeds>? get embeds =>
       throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $EmbedRecordViewRecordCopyWith<$Res> {
       String cid,
       ActorDefsProfileViewBasic author,
       @feedPostRecordConverter FeedPostRecord value,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
       List<UEmbedRecordViewRecordEmbeds>? embeds,
       DateTime indexedAt});
@@ -109,7 +109,7 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ abstract class _$$EmbedRecordViewRecordImplCopyWith<$Res>
       String cid,
       ActorDefsProfileViewBasic author,
       @feedPostRecordConverter FeedPostRecord value,
-      List<Label>? labels,
+      List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
       List<UEmbedRecordViewRecordEmbeds>? embeds,
       DateTime indexedAt});
@@ -209,7 +209,7 @@ class __$$EmbedRecordViewRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<LabelDefsLabel>?,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -232,7 +232,7 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
       required this.cid,
       required this.author,
       @feedPostRecordConverter required this.value,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
       final List<UEmbedRecordViewRecordEmbeds>? embeds,
       required this.indexedAt})
@@ -255,9 +255,9 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
   @override
   @feedPostRecordConverter
   final FeedPostRecord value;
-  final List<Label>? _labels;
+  final List<LabelDefsLabel>? _labels;
   @override
-  List<Label>? get labels {
+  List<LabelDefsLabel>? get labels {
     final value = _labels;
     if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
@@ -335,7 +335,7 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
       required final String cid,
       required final ActorDefsProfileViewBasic author,
       @feedPostRecordConverter required final FeedPostRecord value,
-      final List<Label>? labels,
+      final List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
       final List<UEmbedRecordViewRecordEmbeds>? embeds,
       required final DateTime indexedAt}) = _$EmbedRecordViewRecordImpl;
@@ -357,7 +357,7 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
   @feedPostRecordConverter
   FeedPostRecord get value;
   @override
-  List<Label>? get labels;
+  List<LabelDefsLabel>? get labels;
   @override
   @unionEmbedRecordViewRecordEmbedsConverter
   List<UEmbedRecordViewRecordEmbeds>? get embeds;

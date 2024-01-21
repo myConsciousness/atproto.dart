@@ -9,5 +9,5 @@ import 'package:atproto/atproto.dart';
 import '../main.dart';
 
 extension EmbedRecordExtension on EmbedRecord {
-  StrongRef get ref => record;
+  RepoStrongRef get ref => record;
 }

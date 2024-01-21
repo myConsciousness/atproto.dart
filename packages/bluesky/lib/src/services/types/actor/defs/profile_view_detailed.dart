@@ -32,7 +32,7 @@ class ActorDefsProfileViewDetailed with _$ActorDefsProfileViewDetailed {
     @Default(0) int followersCount,
     @Default(0) int postsCount,
     @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
-    List<Label>? labels,
+    List<LabelDefsLabel>? labels,
     DateTime? indexedAt,
   }) = _ActorDefsProfileViewDetailed;
 

@@ -6,41 +6,41 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:atproto/src/services/constants/moderation_reason_type.dart';
+import 'package:atproto/src/services/types/moderation/defs/_z.dart';
 
 void main() {
   test('.name', () {
-    expect(ModerationReasonType.spam.name, 'spam');
-    expect(ModerationReasonType.violation.name, 'violation');
-    expect(ModerationReasonType.misleading.name, 'misleading');
-    expect(ModerationReasonType.sexual.name, 'sexual');
-    expect(ModerationReasonType.rude.name, 'rude');
-    expect(ModerationReasonType.other.name, 'other');
+    expect(ModerationDefsReasonType.spam.name, 'spam');
+    expect(ModerationDefsReasonType.violation.name, 'violation');
+    expect(ModerationDefsReasonType.misleading.name, 'misleading');
+    expect(ModerationDefsReasonType.sexual.name, 'sexual');
+    expect(ModerationDefsReasonType.rude.name, 'rude');
+    expect(ModerationDefsReasonType.other.name, 'other');
   });
 
   test('.value', () {
     expect(
-      ModerationReasonType.spam.value,
+      ModerationDefsReasonType.spam.value,
       'com.atproto.moderation.defs#reasonSpam',
     );
     expect(
-      ModerationReasonType.violation.value,
+      ModerationDefsReasonType.violation.value,
       'com.atproto.moderation.defs#reasonViolation',
     );
     expect(
-      ModerationReasonType.misleading.value,
+      ModerationDefsReasonType.misleading.value,
       'com.atproto.moderation.defs#reasonMisleading',
     );
     expect(
-      ModerationReasonType.sexual.value,
+      ModerationDefsReasonType.sexual.value,
       'com.atproto.moderation.defs#reasonSexual',
     );
     expect(
-      ModerationReasonType.rude.value,
+      ModerationDefsReasonType.rude.value,
       'com.atproto.moderation.defs#reasonRude',
     );
     expect(
-      ModerationReasonType.other.value,
+      ModerationDefsReasonType.other.value,
       'com.atproto.moderation.defs#reasonOther',
     );
   });
