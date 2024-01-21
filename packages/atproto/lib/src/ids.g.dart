@@ -10,6 +10,10 @@
 // Lexicon IDs Generator
 // **************************************************************************
 
+/// `com.atproto.admin.createCommunicationTemplate`
+const comAtprotoAdminCreateCommunicationTemplate =
+    'com.atproto.admin.createCommunicationTemplate';
+
 /// `com.atproto.admin.defs`
 const comAtprotoAdminDefs = 'com.atproto.admin.defs';
 
@@ -18,6 +22,10 @@ const comAtprotoAdminDefsAccountView = 'com.atproto.admin.defs#accountView';
 
 /// `com.atproto.admin.defs#blobView`
 const comAtprotoAdminDefsBlobView = 'com.atproto.admin.defs#blobView';
+
+/// `com.atproto.admin.defs#communicationTemplateView`
+const comAtprotoAdminDefsCommunicationTemplateView =
+    'com.atproto.admin.defs#communicationTemplateView';
 
 /// `com.atproto.admin.defs#imageDetails`
 const comAtprotoAdminDefsImageDetails = 'com.atproto.admin.defs#imageDetails';
@@ -139,6 +147,10 @@ const comAtprotoAdminDefsVideoDetails = 'com.atproto.admin.defs#videoDetails';
 /// `com.atproto.admin.deleteAccount`
 const comAtprotoAdminDeleteAccount = 'com.atproto.admin.deleteAccount';
 
+/// `com.atproto.admin.deleteCommunicationTemplate`
+const comAtprotoAdminDeleteCommunicationTemplate =
+    'com.atproto.admin.deleteCommunicationTemplate';
+
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites =
     'com.atproto.admin.disableAccountInvites';
@@ -177,6 +189,10 @@ const comAtprotoAdminGetRepo = 'com.atproto.admin.getRepo';
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus = 'com.atproto.admin.getSubjectStatus';
 
+/// `com.atproto.admin.listCommunicationTemplates`
+const comAtprotoAdminListCommunicationTemplates =
+    'com.atproto.admin.listCommunicationTemplates';
+
 /// `com.atproto.admin.queryModerationEvents`
 const comAtprotoAdminQueryModerationEvents =
     'com.atproto.admin.queryModerationEvents';
@@ -198,6 +214,10 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle =
     'com.atproto.admin.updateAccountHandle';
+
+/// `com.atproto.admin.updateCommunicationTemplate`
+const comAtprotoAdminUpdateCommunicationTemplate =
+    'com.atproto.admin.updateCommunicationTemplate';
 
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
@@ -480,6 +500,10 @@ const comAtprotoTempImportRepo = 'com.atproto.temp.importRepo';
 
 /// `com.atproto.temp.pushBlob`
 const comAtprotoTempPushBlob = 'com.atproto.temp.pushBlob';
+
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification =
+    'com.atproto.temp.requestPhoneVerification';
 
 /// `com.atproto.temp.transferAccount`
 const comAtprotoTempTransferAccount = 'com.atproto.temp.transferAccount';
