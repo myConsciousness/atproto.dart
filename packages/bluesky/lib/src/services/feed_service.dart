@@ -349,10 +349,10 @@ final class FeedService {
 
   @Deprecated('Use .postInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createPosts(
-    List<FeedPostRecord> params,
+    List<FeedPostRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map<RepoApplyWritesCreate>(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedPost,
@@ -374,17 +374,17 @@ final class FeedService {
 
   @Deprecated('Use .thread instead. Will be removed')
   Future<core.XRPCResponse<RepoStrongRef>> createThread(
-    List<FeedPostRecord> params,
+    List<FeedPostRecord> records,
   ) async {
-    if (params.isEmpty) {
+    if (records.isEmpty) {
       throw ArgumentError.value(
-        params,
-        'params',
+        records,
+        'records',
         'must not be empty',
       );
     }
 
-    final rootParam = params.removeAt(0);
+    final rootParam = records.removeAt(0);
     final rootRecord = await post(
       text: rootParam.text,
       facets: rootParam.facets,
@@ -399,7 +399,7 @@ final class FeedService {
     final rootRef = rootRecord.data;
 
     var parentRef = rootRecord.data;
-    for (final param in params) {
+    for (final param in records) {
       parentRef = (await post(
         text: param.text,
         reply: FeedPostReplyRef(
@@ -454,10 +454,10 @@ final class FeedService {
 
   @Deprecated('Use .repostInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createReposts(
-    List<FeedRepostRecord> params,
+    List<FeedRepostRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedRepost,
@@ -492,10 +492,10 @@ final class FeedService {
 
   @Deprecated('Use .likeInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createLikes(
-    List<FeedLikeRecord> params,
+    List<FeedLikeRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedLike,
@@ -643,10 +643,10 @@ final class FeedService {
 
   @Deprecated('Use .generatorInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createGenerators(
-    List<FeedGeneratorRecord> params,
+    List<FeedGeneratorRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedGenerator,
@@ -1127,13 +1127,13 @@ final class FeedService {
 
 extension FeedServiceExtension on FeedService {
   Future<core.XRPCResponse<RepoStrongRef>> thread(
-    final List<FeedPostRecord> params,
+    final List<FeedPostRecord> records,
   ) async {
-    if (params.isEmpty) {
-      throw ArgumentError.value(params, 'params', 'must not be empty');
+    if (records.isEmpty) {
+      throw ArgumentError.value(records, 'params', 'must not be empty');
     }
 
-    final rootParam = params.removeAt(0);
+    final rootParam = records.removeAt(0);
     final rootRecord = await post(
       text: rootParam.text,
       facets: rootParam.facets,
@@ -1147,7 +1147,7 @@ extension FeedServiceExtension on FeedService {
     final rootRef = rootRecord.data;
 
     var parentRef = rootRecord.data;
-    for (final param in params) {
+    for (final param in records) {
       parentRef = (await post(
         text: param.text,
         reply: FeedPostReplyRef(
@@ -1168,10 +1168,10 @@ extension FeedServiceExtension on FeedService {
   }
 
   Future<core.XRPCResponse<core.EmptyData>> postInBulk(
-    final List<FeedPostRecord> params,
+    final List<FeedPostRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map<RepoApplyWritesCreate>(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedPost,
@@ -1192,10 +1192,10 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> repostInBulk(
-    final List<FeedRepostRecord> params,
+    final List<FeedRepostRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedRepost,
@@ -1210,10 +1210,10 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> likeInBulk(
-    final List<FeedLikeRecord> params,
+    final List<FeedLikeRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedLike,
@@ -1228,10 +1228,10 @@ extension FeedServiceExtension on FeedService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> generatorInBulk(
-    final List<FeedGeneratorRecord> params,
+    final List<FeedGeneratorRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyFeedGenerator,

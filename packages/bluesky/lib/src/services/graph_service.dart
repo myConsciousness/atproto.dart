@@ -256,10 +256,10 @@ final class GraphService {
 
   @Deprecated('Use .followInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createFollows(
-    List<GraphFollowRecord> params,
+    List<GraphFollowRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
@@ -360,10 +360,10 @@ final class GraphService {
 
   @Deprecated('Use .blockInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createBlocks(
-    List<GraphBlockRecord> params,
+    List<GraphBlockRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
@@ -447,10 +447,10 @@ final class GraphService {
 
   @Deprecated('Use .listInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createLists(
-    List<GraphListRecord> params,
+    List<GraphListRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
@@ -515,10 +515,10 @@ final class GraphService {
 
   @Deprecated('Use .listitemInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createListItems(
-    List<GraphListitemRecord> params,
+    List<GraphListitemRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecords(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
@@ -815,10 +815,10 @@ final class GraphService {
 
 extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<core.EmptyData>> followInBulk(
-    final List<GraphFollowRecord> params,
+    final List<GraphFollowRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphFollow,
@@ -833,10 +833,10 @@ extension GraphServiceExtension on GraphService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> blockInBulk(
-    final List<GraphBlockRecord> params,
+    final List<GraphBlockRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphBlock,
@@ -851,10 +851,10 @@ extension GraphServiceExtension on GraphService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> listitemInBulk(
-    final List<GraphListitemRecord> params,
+    final List<GraphListitemRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphListitem,
@@ -870,10 +870,10 @@ extension GraphServiceExtension on GraphService {
       );
 
   Future<core.XRPCResponse<core.EmptyData>> listInBulk(
-    final List<GraphListRecord> params,
+    final List<GraphListRecord> records,
   ) async =>
       await _ctx.atproto.repo.createRecordInBulk(
-        actions: params
+        actions: records
             .map(
               (e) => RepoApplyWritesCreate(
                 collection: ns.appBskyGraphList,
