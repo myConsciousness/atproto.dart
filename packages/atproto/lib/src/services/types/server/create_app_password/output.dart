@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../lex_annotations.g.dart' as lex;
+import 'app_password.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -25,4 +26,10 @@ class ServerCreateAppPasswordOutput with _$ServerCreateAppPasswordOutput {
 
   factory ServerCreateAppPasswordOutput.fromJson(Map<String, Object?> json) =>
       _$ServerCreateAppPasswordOutputFromJson(json);
+}
+
+extension $ServerCreateAppPasswordOutputExtension
+    on ServerCreateAppPasswordOutput {
+  ServerCreateAppPasswordAppPassword asServerCreateAppPasswordAppPassword() =>
+      ServerCreateAppPasswordAppPassword.fromJson(toJson());
 }
