@@ -396,6 +396,8 @@ const comAtprotoServerCreateAccount = <String, dynamic>{
             "handle": {"type": "string", "format": "handle"},
             "did": {"type": "string", "format": "did"},
             "inviteCode": {"type": "string"},
+            "verificationCode": {"type": "string"},
+            "verificationPhone": {"type": "string"},
             "password": {"type": "string"},
             "recoveryKey": {"type": "string"},
             "plcOp": {"type": "unknown"}
@@ -601,6 +603,7 @@ const comAtprotoServerDescribeServer = <String, dynamic>{
           "required": ["availableUserDomains"],
           "properties": {
             "inviteCodeRequired": {"type": "boolean"},
+            "phoneVerificationRequired": {"type": "boolean"},
             "availableUserDomains": {
               "type": "array",
               "items": {"type": "string"}
@@ -2022,6 +2025,29 @@ const comAtprotoTempImportRepo = <String, dynamic>{
   }
 };
 
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.temp.requestPhoneVerification",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Request a verification code to be sent to the supplied phone number",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["phoneNumber"],
+          "properties": {
+            "phoneNumber": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `com.atproto.temp.transferAccount`
 const comAtprotoTempTransferAccount = <String, dynamic>{
   "lexicon": 1,
@@ -2422,6 +2448,77 @@ const comAtprotoAdminEmitModerationEvent = <String, dynamic>{
       "errors": [
         {"name": "SubjectHasAction"}
       ]
+    }
+  }
+};
+
+/// `com.atproto.admin.deleteCommunicationTemplate`
+const comAtprotoAdminDeleteCommunicationTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.deleteCommunicationTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Delete a communication template.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {"type": "string"}
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `com.atproto.admin.updateCommunicationTemplate`
+const comAtprotoAdminUpdateCommunicationTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.updateCommunicationTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Administrative action to update an existing communication template. Allows passing partial fields to patch specific fields only.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["id"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "description": "ID of the template to be updated."
+            },
+            "name": {"type": "string", "description": "Name of the template."},
+            "contentMarkdown": {
+              "type": "string",
+              "description":
+                  "Content of the template, markdown supported, can contain variable placeholders."
+            },
+            "subject": {
+              "type": "string",
+              "description": "Subject of the message, used in emails."
+            },
+            "updatedBy": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the user who is updating the template."
+            },
+            "disabled": {"type": "boolean"}
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "com.atproto.admin.defs#communicationTemplateView"
+        }
+      }
     }
   }
 };
@@ -3052,6 +3149,39 @@ const comAtprotoAdminDefs = <String, dynamic>{
           "description": "Additional comment about the outgoing comm."
         }
       }
+    },
+    "communicationTemplateView": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "contentMarkdown",
+        "disabled",
+        "lastUpdatedBy",
+        "createdAt",
+        "updatedAt"
+      ],
+      "properties": {
+        "id": {"type": "string"},
+        "name": {"type": "string", "description": "Name of the template."},
+        "subject": {
+          "type": "string",
+          "description":
+              "Content of the template, can contain markdown and variable placeholders."
+        },
+        "contentMarkdown": {
+          "type": "string",
+          "description": "Subject of the message, used in emails."
+        },
+        "disabled": {"type": "boolean"},
+        "lastUpdatedBy": {
+          "type": "string",
+          "format": "did",
+          "description": "DID of the user who last updated the template."
+        },
+        "createdAt": {"type": "string", "format": "datetime"},
+        "updatedAt": {"type": "string", "format": "datetime"}
+      }
     }
   }
 };
@@ -3112,6 +3242,50 @@ const comAtprotoAdminQueryModerationEvents = <String, dynamic>{
               }
             }
           }
+        }
+      }
+    }
+  }
+};
+
+/// `com.atproto.admin.createCommunicationTemplate`
+const comAtprotoAdminCreateCommunicationTemplate = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.createCommunicationTemplate",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Administrative action to create a new, re-usable communication (email for now) template.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "contentMarkdown", "name"],
+          "properties": {
+            "name": {"type": "string", "description": "Name of the template."},
+            "contentMarkdown": {
+              "type": "string",
+              "description":
+                  "Content of the template, markdown supported, can contain variable placeholders."
+            },
+            "subject": {
+              "type": "string",
+              "description": "Subject of the message, used in emails."
+            },
+            "createdBy": {
+              "type": "string",
+              "format": "did",
+              "description": "DID of the user who is creating the template."
+            }
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "ref",
+          "ref": "com.atproto.admin.defs#communicationTemplateView"
         }
       }
     }
@@ -3387,6 +3561,34 @@ const comAtprotoAdminGetAccountInfo = <String, dynamic>{
       "output": {
         "encoding": "application/json",
         "schema": {"type": "ref", "ref": "com.atproto.admin.defs#accountView"}
+      }
+    }
+  }
+};
+
+/// `com.atproto.admin.listCommunicationTemplates`
+const comAtprotoAdminListCommunicationTemplates = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.admin.listCommunicationTemplates",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get list of all communication templates.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["communicationTemplates"],
+          "properties": {
+            "communicationTemplates": {
+              "type": "array",
+              "items": {
+                "type": "ref",
+                "ref": "com.atproto.admin.defs#communicationTemplateView"
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -6399,6 +6601,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoLabelSubscribeLabels,
   comAtprotoLabelQueryLabels,
   comAtprotoTempImportRepo,
+  comAtprotoTempRequestPhoneVerification,
   comAtprotoTempTransferAccount,
   comAtprotoTempPushBlob,
   comAtprotoTempFetchLabels,
@@ -6408,10 +6611,13 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoAdminUpdateAccountHandle,
   comAtprotoAdminGetAccountInfos,
   comAtprotoAdminEmitModerationEvent,
+  comAtprotoAdminDeleteCommunicationTemplate,
+  comAtprotoAdminUpdateCommunicationTemplate,
   comAtprotoAdminDeleteAccount,
   comAtprotoAdminSendEmail,
   comAtprotoAdminDefs,
   comAtprotoAdminQueryModerationEvents,
+  comAtprotoAdminCreateCommunicationTemplate,
   comAtprotoAdminDisableInviteCodes,
   comAtprotoAdminUpdateSubjectStatus,
   comAtprotoAdminGetRepo,
@@ -6420,6 +6626,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoAdminSearchRepos,
   comAtprotoAdminGetModerationEvent,
   comAtprotoAdminGetAccountInfo,
+  comAtprotoAdminListCommunicationTemplates,
   comAtprotoAdminDisableAccountInvites,
   comAtprotoAdminEnableAccountInvites,
   appBskyNotificationGetUnreadCount,
