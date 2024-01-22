@@ -20,7 +20,8 @@ void main() {
       'labels': []
     };
 
-    final actual = ActorDefsProfileViewBasic.fromJson(expected).toProfileView();
+    final actual =
+        ActorDefsProfileViewBasic.fromJson(expected).toActorDefsProfileView();
 
     expect(actual, isA<ActorDefsProfileView>());
     expect(actual.toJson(), expected);

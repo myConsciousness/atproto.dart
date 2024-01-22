@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.16.0-preview.3
+
+- Renamed util on `ActorDefsProfileViewBasic`.
+  - From `toProfileView` to `toActorDefsProfileView`
+
 ## v0.16.0-preview.2
 
 - Changed to method from function.

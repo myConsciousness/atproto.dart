@@ -9,7 +9,7 @@ import 'viewer_state_extension.dart';
 
 extension ActorDefsProfileViewBasicExtension on ActorDefsProfileViewBasic {
   /// Returns the [ActorDefsProfileView] representation of this object.
-  ActorDefsProfileView toProfileView() =>
+  ActorDefsProfileView toActorDefsProfileView() =>
       ActorDefsProfileView.fromJson(toJson());
 
   /// Returns true if authenticated user has muted this actor,
