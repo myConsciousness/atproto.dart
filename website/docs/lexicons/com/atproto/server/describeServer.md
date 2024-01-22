@@ -16,6 +16,7 @@ Get a document describing the service's accounts configuration.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **inviteCodeRequired** | boolean | - | ❌ | - |
+| **phoneVerificationRequired** | boolean | - | ❌ | - |
 | **availableUserDomains** | array of string | - | ✅ | - |
 | **links** | [#links](#links) | - | ❌ | - |
 
