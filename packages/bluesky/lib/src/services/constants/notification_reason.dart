@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 /// Represents the reason for a notifications.
+@Deprecated('Use NotificationListNotificationsNotificationReason instead. '
+    'Will be removed')
 enum NotificationReason {
   /// Indicates likes.
   like,

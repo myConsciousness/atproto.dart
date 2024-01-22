@@ -15,7 +15,7 @@ part 'notifications.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
 @freezed
 @appBskyNotificationListNotifications
-@Deprecated('Use NotificationListNotifications instead. Will be removed')
+@Deprecated('Use NotificationListNotificationsOutput instead. Will be removed')
 class Notifications with _$Notifications {
   // ignore: unused_element
   const Notifications._();

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.0-preview.4
+
+- Added deprecated messages.
+
 ## v0.16.0-preview.3
 
 - Renamed util on `ActorDefsProfileViewBasic`.
