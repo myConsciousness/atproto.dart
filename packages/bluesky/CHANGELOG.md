@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.0-preview.1
+
+- Exposed `SessionExtension`.
+
 ## v0.16.0-preview.0
 
 - Removed unsupported `.getPopular` from `UnspeccedService`.
