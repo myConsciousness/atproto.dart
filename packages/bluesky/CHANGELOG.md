@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.16.0-preview.2
+
+- Changed to method from function.
+  - `asActorDefsProfileViewDetailed` on `ActorGetProfileOutput`
+  - `asActorDefsPreferences` on `ActorGetPreferencesOutput`
+
 ## v0.16.0-preview.1
 
 - Exposed `SessionExtension`.
