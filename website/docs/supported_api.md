@@ -108,7 +108,6 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | --- | --- | :---: | :---: |
 | **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) | N/A | ✅ |
 | **[app.bsky.unspecced.searchPostsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchPostsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchPostsSkeleton.md) | N/A | ✅ |
-| **[app.bsky.unspecced.getPopular](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopular.html)** | [Reference](lexicons/app/bsky/unspecced/getPopular.md) | ✅ | ✅ |
 | **[app.bsky.unspecced.getPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopularFeedGenerators.html)** | [Reference](lexicons/app/bsky/unspecced/getPopularFeedGenerators.md) | ✅ | ✅ |
 | **[app.bsky.unspecced.getTimelineSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTimelineSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getTimelineSkeleton.md) | N/A | ✅ |
 
