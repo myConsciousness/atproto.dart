@@ -26,27 +26,27 @@ class UEmbedRecordViewRecord with _$UEmbedRecordViewRecord {
 
   const factory UEmbedRecordViewRecord.viewRecord({
     required EmbedRecordViewRecord data,
-  }) = UViewRecordViewRecord;
+  }) = UEmbedRecordViewRecordViewRecord;
 
   const factory UEmbedRecordViewRecord.viewNotFound({
     required EmbedRecordViewNotFound data,
-  }) = UViewRecordViewNotFound;
+  }) = UEmbedRecordViewRecordViewNotFound;
 
   const factory UEmbedRecordViewRecord.viewBlocked({
     required EmbedRecordViewBlocked data,
-  }) = UViewRecordViewBlocked;
+  }) = UEmbedRecordViewRecordViewBlocked;
 
   const factory UEmbedRecordViewRecord.feedDefsGeneratorView({
     required FeedDefsGeneratorView data,
-  }) = UViewRecordFeedDefsGeneratorView;
+  }) = UEmbedRecordViewRecordFeedDefsGeneratorView;
 
   const factory UEmbedRecordViewRecord.graphDefsListView({
     required GraphDefsListView data,
-  }) = UViewRecordGraphDefsListView;
+  }) = UEmbedRecordViewRecordGraphDefsListView;
 
   const factory UEmbedRecordViewRecord.unknown({
     required Map<String, dynamic> data,
-  }) = UViewRecordUnknown;
+  }) = UEmbedRecordViewRecordUnknown;
 
   Map<String, dynamic> toJson() =>
       unionEmbedRecordViewRecordConverter.toJson(this);

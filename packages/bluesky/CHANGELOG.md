@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.0-preview.5
+
+- Fixed object names of union on `UEmbedRecordViewRecord`.
+
 ## v0.16.0-preview.4
 
 - Added deprecated messages.
