@@ -46,8 +46,11 @@ jobs:
       - name: Generate Lexicon Matrix
         run: dart run ./bin/generate_lexicon_matrix.dart
 
-      - name: Generate Lexicon Docs
-        run: dart run ./bin/generate_lexicon_docs.dart
+      - name: Generate Lexicon Matrix
+        run: dart run ./bin/generate_lexicon_matrix.dart
+
+      - name: Generate Supported API Matrix
+        run: dart run ./bin/generate_supported_api_matrix.dart
 
       - name: Build
         run: |

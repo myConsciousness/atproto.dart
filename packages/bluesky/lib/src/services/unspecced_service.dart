@@ -7,7 +7,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/feed.dart';
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_feed.dart';
@@ -19,20 +18,6 @@ final class UnspeccedService {
   UnspeccedService(this._ctx);
 
   final BlueskyServiceContext _ctx;
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopular
-  @Deprecated('Get a feed generator instead. Will be removed soon')
-  Future<core.XRPCResponse<Feed>> getPopular({
-    bool? includeNsfw,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findPopularFeed(
-        includeNsfw: includeNsfw,
-        limit: limit,
-        cursor: cursor,
-      );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
   Future<core.XRPCResponse<FeedGenerators>> getPopularFeedGenerators({
@@ -86,19 +71,6 @@ final class UnspeccedService {
         cursor: cursor,
       );
 
-  @Deprecated('Use .getPopular instead. Will be removed')
-  Future<core.XRPCResponse<Feed>> findPopularFeed({
-    bool? includeNsfw,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findPopularFeed(
-        includeNsfw: includeNsfw,
-        limit: limit,
-        cursor: cursor,
-        to: Feed.fromJson,
-      );
-
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
   Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
     int? limit,
@@ -149,22 +121,6 @@ final class UnspeccedService {
         limit: limit,
         cursor: cursor,
         to: SkeletonActorsByQuery.fromJson,
-      );
-
-  Future<core.XRPCResponse<T>> _findPopularFeed<T>({
-    required bool? includeNsfw,
-    required int? limit,
-    required String? cursor,
-    core.To<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedGetPopular,
-        parameters: _buildGetPopular(
-          includeNsfw: includeNsfw,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
       );
 
   Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({
@@ -230,17 +186,6 @@ final class UnspeccedService {
         ),
         to: to,
       );
-
-  Map<String, dynamic> _buildGetPopular({
-    required bool? includeNsfw,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'includeNsfw': includeNsfw,
-        'limit': limit,
-        'cursor': cursor,
-      };
 
   Map<String, dynamic> _buildGetPopularFeedGenerators({
     required int? limit,

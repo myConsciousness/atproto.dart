@@ -16,8 +16,16 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
+/// `com.atproto.admin.createCommunicationTemplate`
+const comAtprotoAdminCreateCommunicationTemplate =
+    NSID(ids.comAtprotoAdminCreateCommunicationTemplate);
+
 /// `com.atproto.admin.deleteAccount`
 const comAtprotoAdminDeleteAccount = NSID(ids.comAtprotoAdminDeleteAccount);
+
+/// `com.atproto.admin.deleteCommunicationTemplate`
+const comAtprotoAdminDeleteCommunicationTemplate =
+    NSID(ids.comAtprotoAdminDeleteCommunicationTemplate);
 
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites =
@@ -58,6 +66,10 @@ const comAtprotoAdminGetRepo = NSID(ids.comAtprotoAdminGetRepo);
 const comAtprotoAdminGetSubjectStatus =
     NSID(ids.comAtprotoAdminGetSubjectStatus);
 
+/// `com.atproto.admin.listCommunicationTemplates`
+const comAtprotoAdminListCommunicationTemplates =
+    NSID(ids.comAtprotoAdminListCommunicationTemplates);
+
 /// `com.atproto.admin.queryModerationEvents`
 const comAtprotoAdminQueryModerationEvents =
     NSID(ids.comAtprotoAdminQueryModerationEvents);
@@ -79,6 +91,10 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.updateAccountHandle`
 const comAtprotoAdminUpdateAccountHandle =
     NSID(ids.comAtprotoAdminUpdateAccountHandle);
+
+/// `com.atproto.admin.updateCommunicationTemplate`
+const comAtprotoAdminUpdateCommunicationTemplate =
+    NSID(ids.comAtprotoAdminUpdateCommunicationTemplate);
 
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
@@ -313,6 +329,10 @@ const comAtprotoTempImportRepo = NSID(ids.comAtprotoTempImportRepo);
 
 /// `com.atproto.temp.pushBlob`
 const comAtprotoTempPushBlob = NSID(ids.comAtprotoTempPushBlob);
+
+/// `com.atproto.temp.requestPhoneVerification`
+const comAtprotoTempRequestPhoneVerification =
+    NSID(ids.comAtprotoTempRequestPhoneVerification);
 
 /// `com.atproto.temp.transferAccount`
 const comAtprotoTempTransferAccount = NSID(ids.comAtprotoTempTransferAccount);
