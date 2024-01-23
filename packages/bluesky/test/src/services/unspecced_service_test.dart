@@ -4,7 +4,6 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/feed.dart';
 import 'package:bluesky/src/services/entities/feed_generators.dart';
 import 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 import 'package:bluesky/src/services/entities/skeleton_feed.dart';
@@ -12,12 +11,6 @@ import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testUnspecced<Feed>(
-    // ignore: deprecated_member_use_from_same_package
-    (m, s) => s.getPopular(),
-    id: appBskyUnspeccedGetPopular,
-  );
-
   testUnspecced<FeedGenerators>(
     (m, s) => s.getPopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
