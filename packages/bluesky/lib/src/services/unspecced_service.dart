@@ -187,17 +187,6 @@ final class UnspeccedService {
         to: to,
       );
 
-  Map<String, dynamic> _buildGetPopular({
-    required bool? includeNsfw,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'includeNsfw': includeNsfw,
-        'limit': limit,
-        'cursor': cursor,
-      };
-
   Map<String, dynamic> _buildGetPopularFeedGenerators({
     required int? limit,
     required String? cursor,
