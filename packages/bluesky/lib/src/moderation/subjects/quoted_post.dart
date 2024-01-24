@@ -16,7 +16,7 @@ ModerationDecision decideQuotedPost(
   final EmbedRecordView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UViewRecordViewRecord) {
+  if (subject.record is UEmbedRecordViewRecordViewRecord) {
     final viewRecord = subject.record.data as EmbedRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
@@ -27,7 +27,7 @@ ModerationDecision decideQuotedPost(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record is UViewRecordViewBlocked) {
+  } else if (subject.record is UEmbedRecordViewRecordViewBlocked) {
     final blockedRecord = subject.record.data as EmbedRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
 
@@ -49,7 +49,7 @@ ModerationDecision decideQuotedPostAccount(
   final EmbedRecordView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record is UViewRecordViewRecord) {
+  if (subject.record is UEmbedRecordViewRecordViewRecord) {
     final viewRecord = subject.record.data as EmbedRecordViewRecord;
 
     return decideAccount(
@@ -65,7 +65,7 @@ ModerationDecision decideQuotedPostWithMedia(
   final EmbedRecordWithMediaView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UViewRecordViewRecord) {
+  if (subject.record.record is UEmbedRecordViewRecordViewRecord) {
     final viewRecord = subject.record.record.data as EmbedRecordViewRecord;
     final accumulator = ModerationCauseAccumulator(viewRecord.author.did);
 
@@ -76,7 +76,7 @@ ModerationDecision decideQuotedPostWithMedia(
     }
 
     return accumulator.finalizeDecision(options);
-  } else if (subject.record.record is UViewRecordViewBlocked) {
+  } else if (subject.record.record is UEmbedRecordViewRecordViewBlocked) {
     final blockedRecord = subject.record.record.data as EmbedRecordViewBlocked;
     final accumulator = ModerationCauseAccumulator(blockedRecord.author.did);
 
@@ -98,7 +98,7 @@ ModerationDecision decideQuotedPostWithMediaAccount(
   final EmbedRecordWithMediaView subject,
   final ModerationOptions options,
 ) {
-  if (subject.record.record is UViewRecordViewRecord) {
+  if (subject.record.record is UEmbedRecordViewRecordViewRecord) {
     final viewRecord = subject.record.record.data as EmbedRecordViewRecord;
 
     return decideAccount(
