@@ -32,8 +32,8 @@ base class BaseHttpService {
   Future<http.Response<T>> get<T>(
     final String unencodedPath, {
     final Map<String, dynamic>? parameters,
-    final http.To<T>? to,
-    final http.ResponseAdaptor? adaptor,
+    final http.ResponseDataBuilder<T>? to,
+    final http.ResponseDataAdaptor? adaptor,
   }) async =>
       await http.get(
         unencodedPath,
@@ -49,7 +49,7 @@ base class BaseHttpService {
     final String unencodedPath, {
     final Map<String, String>? headers,
     final dynamic body,
-    final http.To<T>? to,
+    final http.ResponseDataBuilder<T>? to,
   }) async =>
       await http.post(
         unencodedPath,

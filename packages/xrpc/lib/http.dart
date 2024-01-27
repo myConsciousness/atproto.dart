@@ -11,5 +11,5 @@ export 'package:xrpc/src/http_status.dart';
 export 'package:xrpc/src/protocol.dart';
 export 'package:xrpc/src/serializable.dart';
 export 'package:xrpc/src/types.dart'
-    show GetClient, PostClient, To, ResponseAdaptor;
+    show GetClient, PostClient, ResponseDataBuilder, ResponseDataAdaptor;
 export 'package:xrpc/src/entities/empty_data.dart';

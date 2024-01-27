@@ -26,10 +26,10 @@ typedef PostClient = Future<http.Response> Function(
 
 /// A function type that expresses the function of converting response body
 /// to model objects.
-typedef To<T> = T Function(Map<String, Object?> json);
+typedef ResponseDataBuilder<T> = T Function(Map<String, Object?> json);
 
 /// Function to convert response data to an specific structure.
-typedef ResponseAdaptor = Map<String, dynamic> Function(
+typedef ResponseDataAdaptor = Map<String, dynamic> Function(
   dynamic data,
 );
 

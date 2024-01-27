@@ -43,7 +43,7 @@ final class IdentityService {
 
   Future<core.XRPCResponse<T>> _findDID<T>({
     required String handle,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,

@@ -1,6 +1,6 @@
 name: atproto_core
 description: Core library for clients and tools. This package is mainly used by https://atprotodart.com packages.
-version: 0.9.2
+version: 0.9.3
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/intro
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/atproto_core
@@ -18,7 +18,7 @@ topics:
   - core
 
 dependencies:
-  xrpc: ^0.4.5
+  xrpc: ^0.5.0
   at_uri: ^0.3.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

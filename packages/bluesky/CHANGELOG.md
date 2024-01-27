@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.15.5
+
+- Added `.get` and `.post` methods on `Bluesky` object. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))
+- Added `bluesky/lex_namespaces` package. You can use these constants for `.get` and `.post` methods.
+
 ## v0.15.4
 
 - Upgraded `atproto_core`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))

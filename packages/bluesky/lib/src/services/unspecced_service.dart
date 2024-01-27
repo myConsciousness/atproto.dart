@@ -127,7 +127,7 @@ final class UnspeccedService {
     required int? limit,
     required String? cursor,
     required String? query,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetPopularFeedGenerators,
@@ -142,7 +142,7 @@ final class UnspeccedService {
   Future<core.XRPCResponse<T>> _findTimelineSkeleton<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetTimelineSkeleton,
@@ -157,7 +157,7 @@ final class UnspeccedService {
     required String query,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
@@ -174,7 +174,7 @@ final class UnspeccedService {
     required bool? typeahead,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchActorsSkeleton,
