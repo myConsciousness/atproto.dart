@@ -53,16 +53,17 @@ base class ServiceContext {
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
+    final Map<String, String>? headers,
     final Map<String, dynamic>? parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
+    final xrpc.ResponseDataBuilder<T>? to,
+    final xrpc.ResponseDataAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
         () async => await xrpc.query(
           methodId,
           protocol: _protocol,
           service: _service,
-          headers: _getHeaders(),
+          headers: _getHeaders(headers),
           parameters: parameters,
           to: to,
           adaptor: adaptor,
@@ -75,7 +76,7 @@ base class ServiceContext {
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,
     final dynamic body,
-    final xrpc.To<T>? to,
+    final xrpc.ResponseDataBuilder<T>? to,
   }) async =>
       await _challenge.execute(
         () async => await xrpc.procedure(
@@ -94,7 +95,7 @@ base class ServiceContext {
     final xrpc.NSID methodId,
     final Uint8List bytes, {
     final Map<String, String>? headers,
-    final xrpc.To<T>? to,
+    final xrpc.ResponseDataBuilder<T>? to,
   }) async =>
       await _challenge.execute(
         () async => await xrpc.upload(
@@ -112,8 +113,8 @@ base class ServiceContext {
   Future<xrpc.XRPCResponse<xrpc.Subscription<T>>> stream<T>(
     final xrpc.NSID methodId, {
     final Map<String, dynamic>? parameters,
-    final xrpc.To<T>? to,
-    final xrpc.ResponseAdaptor? adaptor,
+    final xrpc.ResponseDataBuilder<T>? to,
+    final xrpc.ResponseDataAdaptor? adaptor,
   }) async =>
       await _challenge.execute(
         () => xrpc.subscribe(

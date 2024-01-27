@@ -243,7 +243,7 @@ final class SyncService {
     required String did,
     required String? sinceCommitCid,
     required core.ProgressStatus? progress,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRepo,
@@ -261,7 +261,7 @@ final class SyncService {
   Future<core.XRPCResponse<T>> _findRepoBlocks<T>({
     required String did,
     required List<String> commitCids,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetBlocks,
@@ -275,7 +275,7 @@ final class SyncService {
 
   Future<core.XRPCResponse<T>> _findLatestCommit<T>({
     required String did,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetLatestCommit,
@@ -288,7 +288,7 @@ final class SyncService {
   Future<core.XRPCResponse<T>> _findRecord<T>({
     required core.AtUri uri,
     required String? commitCid,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRecord,
@@ -305,7 +305,7 @@ final class SyncService {
   Future<core.XRPCResponse<T>> _findRepos<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListRepos,
@@ -321,7 +321,7 @@ final class SyncService {
     required String? sinceCid,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListBlobs,

@@ -143,8 +143,8 @@ Future<XRPCResponse<T>> query<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
-  final type.To<T>? to,
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to,
+  final type.ResponseDataAdaptor? adaptor,
   final type.GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -279,7 +279,7 @@ Future<XRPCResponse<T>> procedure<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
-  final type.To<T>? to,
+  final type.ResponseDataBuilder<T>? to,
   final type.PostClient? postClient,
 }) async =>
     _buildResponse<T>(
@@ -313,7 +313,7 @@ Future<XRPCResponse<T>> upload<T>(
   final String? service,
   final Map<String, String>? headers,
   final Duration timeout = const Duration(seconds: 10),
-  final type.To<T>? to,
+  final type.ResponseDataBuilder<T>? to,
   final type.PostClient? postClient,
 }) async =>
     _buildResponse(
@@ -337,8 +337,8 @@ XRPCResponse<Subscription<T>> subscribe<T>(
   final nsid.NSID methodId, {
   final String? service,
   final Map<String, dynamic>? parameters,
-  final type.To<T>? to,
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to,
+  final type.ResponseDataAdaptor? adaptor,
 }) {
   final uri = _buildWsUri(methodId, service, util.removeNullValues(parameters));
   final channel = WebSocketChannel.connect(uri);
@@ -412,8 +412,8 @@ http.Response checkStatus(final http.Response response) {
 /// Returns the response object.
 XRPCResponse<T> _buildResponse<T>(
   final http.Response response,
-  final type.To<T>? to, [
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to, [
+  final type.ResponseDataAdaptor? adaptor,
 ]) =>
     XRPCResponse(
       headers: response.headers,

@@ -106,7 +106,7 @@ final class NotificationService {
     required int? limit,
     required String? cursor,
     required DateTime? seenAt,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
@@ -119,7 +119,7 @@ final class NotificationService {
       );
 
   Future<core.XRPCResponse<T>> _findUnreadCount<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,

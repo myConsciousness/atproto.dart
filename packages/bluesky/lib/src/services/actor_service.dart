@@ -197,7 +197,7 @@ final class ActorService {
     required String term,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActors,
@@ -211,7 +211,7 @@ final class ActorService {
 
   Future<core.XRPCResponse<T>> _findProfile<T>({
     required String actor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfile,
@@ -223,7 +223,7 @@ final class ActorService {
 
   Future<core.XRPCResponse<T>> _findProfiles<T>({
     required List<String> actors,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfiles,
@@ -236,7 +236,7 @@ final class ActorService {
   Future<core.XRPCResponse<T>> _findSuggestions<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetSuggestions,
@@ -250,7 +250,7 @@ final class ActorService {
   Future<core.XRPCResponse<T>> _searchTypeahead<T>({
     required String term,
     required int? limit,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActorsTypeahead,
@@ -262,7 +262,7 @@ final class ActorService {
       );
 
   Future<core.XRPCResponse<T>> _findPreferences<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetPreferences,
