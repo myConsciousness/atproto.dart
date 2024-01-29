@@ -26,6 +26,10 @@ const comAtprotoTempPushBlob = LexObject(ids.comAtprotoTempPushBlob);
 /// `com.atproto.temp.importRepo#main`
 const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
 
+/// `com.atproto.temp.requestPhoneVerification#main`
+const comAtprotoTempRequestPhoneVerification =
+    LexObject(ids.comAtprotoTempRequestPhoneVerification);
+
 /// `com.atproto.temp.fetchLabels#main`
 const comAtprotoTempFetchLabels = LexObject(ids.comAtprotoTempFetchLabels);
 
@@ -173,9 +177,25 @@ const comAtprotoAdminDefsModEventUnmute =
 const comAtprotoAdminDefsModEventEmail =
     LexObject(ids.comAtprotoAdminDefsModEventEmail);
 
+/// `com.atproto.admin.defs#communicationTemplateView`
+const comAtprotoAdminDefsCommunicationTemplateView =
+    LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
+
+/// `com.atproto.admin.listCommunicationTemplates#main`
+const comAtprotoAdminListCommunicationTemplates =
+    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
+
+/// `com.atproto.admin.createCommunicationTemplate#main`
+const comAtprotoAdminCreateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
+
 /// `com.atproto.admin.queryModerationStatuses#main`
 const comAtprotoAdminQueryModerationStatuses =
     LexObject(ids.comAtprotoAdminQueryModerationStatuses);
+
+/// `com.atproto.admin.deleteCommunicationTemplate#main`
+const comAtprotoAdminDeleteCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
 
 /// `com.atproto.admin.updateAccountHandle#main`
 const comAtprotoAdminUpdateAccountHandle =
@@ -184,6 +204,10 @@ const comAtprotoAdminUpdateAccountHandle =
 /// `com.atproto.admin.getInviteCodes#main`
 const comAtprotoAdminGetInviteCodes =
     LexObject(ids.comAtprotoAdminGetInviteCodes);
+
+/// `com.atproto.admin.updateCommunicationTemplate#main`
+const comAtprotoAdminUpdateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
 
 /// `com.atproto.admin.enableAccountInvites#main`
 const comAtprotoAdminEnableAccountInvites =
@@ -276,14 +300,6 @@ const comAtprotoServerDefsInviteCodeUse =
 const comAtprotoServerGetAccountInviteCodes =
     LexObject(ids.comAtprotoServerGetAccountInviteCodes);
 
-/// `com.atproto.temp.requestPhoneVerification#main`
-const comAtprotoTempRequestPhoneVerification =
-    LexObject(ids.comAtprotoTempRequestPhoneVerification);
-
-/// `com.atproto.temp.transferAccount#main`
-const comAtprotoTempTransferAccount =
-    LexObject(ids.comAtprotoTempTransferAccount);
-
 /// `com.atproto.server.createSession#main`
 const comAtprotoServerCreateSession =
     LexObject(ids.comAtprotoServerCreateSession);
@@ -331,18 +347,6 @@ const comAtprotoServerDescribeServerLinks =
 /// `com.atproto.server.confirmEmail#main`
 const comAtprotoServerConfirmEmail =
     LexObject(ids.comAtprotoServerConfirmEmail);
-
-/// `com.atproto.admin.deleteCommunicationTemplate#main`
-const comAtprotoAdminDeleteCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
-
-/// `com.atproto.admin.updateCommunicationTemplate#main`
-const comAtprotoAdminUpdateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
-
-/// `com.atproto.admin.deleteAccount#main`
-const comAtprotoAdminDeleteAccount =
-    LexObject(ids.comAtprotoAdminDeleteAccount);
 
 /// `com.atproto.server.getSession#main`
 const comAtprotoServerGetSession = LexObject(ids.comAtprotoServerGetSession);
@@ -463,22 +467,6 @@ const comAtprotoRepoPutRecord = LexObject(ids.comAtprotoRepoPutRecord);
 /// `com.atproto.repo.uploadBlob#main`
 const comAtprotoRepoUploadBlob = LexObject(ids.comAtprotoRepoUploadBlob);
 
-/// `com.atproto.admin.defs#communicationTemplateView`
-const comAtprotoAdminDefsCommunicationTemplateView =
-    LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
-
-/// `com.atproto.admin.queryModerationEvents#main`
-const comAtprotoAdminQueryModerationEvents =
-    LexObject(ids.comAtprotoAdminQueryModerationEvents);
-
-/// `com.atproto.admin.createCommunicationTemplate#main`
-const comAtprotoAdminCreateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
-
-/// `com.atproto.admin.disableInviteCodes#main`
-const comAtprotoAdminDisableInviteCodes =
-    LexObject(ids.comAtprotoAdminDisableInviteCodes);
-
 /// `com.atproto.repo.describeRepo#main`
 const comAtprotoRepoDescribeRepo = LexObject(ids.comAtprotoRepoDescribeRepo);
 
@@ -506,14 +494,6 @@ const comAtprotoRepoListRecords = LexObject(ids.comAtprotoRepoListRecords);
 /// `com.atproto.repo.listRecords#record`
 const comAtprotoRepoListRecordsRecord =
     LexObject(ids.comAtprotoRepoListRecordsRecord);
-
-/// `com.atproto.admin.listCommunicationTemplates#main`
-const comAtprotoAdminListCommunicationTemplates =
-    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
-
-/// `com.atproto.admin.disableAccountInvites#main`
-const comAtprotoAdminDisableAccountInvites =
-    LexObject(ids.comAtprotoAdminDisableAccountInvites);
 
 /// `com.atproto.moderation.createReport#main`
 const comAtprotoModerationCreateReport =
