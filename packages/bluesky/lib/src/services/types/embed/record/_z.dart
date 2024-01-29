@@ -11,6 +11,7 @@ export 'view.dart';
 export 'extensions/main_extension.dart';
 export 'extensions/view_blocked_extension.dart';
 export 'extensions/view_not_found_extension.dart';
+export 'extensions/view_record_embeds_extension.dart';
 
 export 'unions/view_record_embeds.dart';
 export 'unions/view_record.dart';
