@@ -1,6 +1,6 @@
 # Release Note
 
-## v0.16.0.-preview.6
+## v0.16.0-preview.6
 
 - Added extensions to convert unions.
   - `.asUEmbedRecordViewRecordEmbeds` on `UFeedDefsPostViewEmbed`
