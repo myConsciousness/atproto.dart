@@ -110,6 +110,45 @@ sealed class ATProto {
   /// Returns the labels service.
   /// This service represents `com.atproto.label.*`.
   LabelService get label;
+
+  /// Returns the result of executing [methodId] as GET communication.
+  ///
+  /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
+  /// generics. If a [to] parameter is specified to convert the response body
+  /// to a specific object, the generics need not be specified.
+  ///
+  /// - [methodId]: name of method to execute in XRPC.
+  /// - [headers]: optional header information to be added to the request.
+  /// - [parameters]: arguments passed to [methodId].
+  /// - [to]: optional builder to convert the body of the response to a specific
+  ///         object.
+  /// - [adaptor]: optional adapters to convert response bodies to a specific
+  ///              structure.
+  Future<core.XRPCResponse<T>> get<T>(
+    final core.NSID methodId, {
+    final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
+    final core.ResponseDataBuilder<T>? to,
+    final core.ResponseDataAdaptor? adaptor,
+  });
+
+  /// Returns the result of executing [methodId] as POST communication.
+  ///
+  /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
+  /// generics. If a [to] parameter is specified to convert the response body
+  /// to a specific object, the generics need not be specified.
+  ///
+  /// - [methodId]: name of method to execute in XRPC.
+  /// - [headers]: optional header information to be added to the request.
+  /// - [body]: data passed to [methodId].
+  /// - [to]: optional builder to convert the body of the response to a specific
+  ///         object.
+  Future<core.XRPCResponse<T>> post<T>(
+    final core.NSID methodId, {
+    final Map<String, String>? headers,
+    final dynamic body,
+    final core.ResponseDataBuilder<T>? to,
+  });
 }
 
 final class _ATProto implements ATProto {
@@ -120,7 +159,8 @@ final class _ATProto implements ATProto {
         repo = RepoService(ctx),
         moderation = ModerationService(ctx),
         sync = SyncService(ctx),
-        label = LabelService(ctx);
+        label = LabelService(ctx),
+        _ctx = ctx;
 
   @override
   final core.Session? session;
@@ -154,4 +194,36 @@ final class _ATProto implements ATProto {
 
   @override
   LabelService get labels => label;
+
+  final core.ServiceContext _ctx;
+
+  @override
+  Future<core.XRPCResponse<T>> get<T>(
+    final core.NSID methodId, {
+    final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
+    final core.ResponseDataBuilder<T>? to,
+    final core.ResponseDataAdaptor? adaptor,
+  }) async =>
+      await _ctx.get(
+        methodId,
+        headers: headers,
+        parameters: parameters,
+        to: to,
+        adaptor: adaptor,
+      );
+
+  @override
+  Future<core.XRPCResponse<T>> post<T>(
+    final core.NSID methodId, {
+    final Map<String, String>? headers,
+    final dynamic body,
+    final core.ResponseDataBuilder<T>? to,
+  }) async =>
+      await _ctx.post(
+        methodId,
+        headers: headers,
+        body: body,
+        to: to,
+      );
 }

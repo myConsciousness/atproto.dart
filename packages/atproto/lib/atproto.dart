@@ -16,6 +16,8 @@ export 'package:atproto_core/atproto_core.dart'
         HttpStatus,
         Serializable,
         Platform,
+        ResponseDataBuilder,
+        ResponseDataAdaptor,
         NSID,
         AtUri,
         CID,

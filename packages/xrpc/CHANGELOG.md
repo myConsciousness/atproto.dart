@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.5.0
+
+- Renamed types. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))
+  - From `To` to `ResponseDataBuilder`
+  - From `ResponseAdaptor` to `ResponseDataAdaptor`
+
 ## v0.4.5
 
 - Upgrade `NSID`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))

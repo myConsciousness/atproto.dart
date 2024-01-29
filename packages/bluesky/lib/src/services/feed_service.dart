@@ -763,7 +763,7 @@ final class FeedService {
     required core.AtUri list,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetListFeed,
@@ -779,7 +779,7 @@ final class FeedService {
     required String? algorithm,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetTimeline,
@@ -796,7 +796,7 @@ final class FeedService {
     required int? limit,
     required String? cursor,
     required FeedGetAuthorFeedInputFilter? filter,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetAuthorFeed,
@@ -813,7 +813,7 @@ final class FeedService {
     required core.AtUri generatorUri,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeed,
@@ -829,7 +829,7 @@ final class FeedService {
     required core.AtUri generatorUri,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedSkeleton,
@@ -845,7 +845,7 @@ final class FeedService {
     required String actor,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorFeeds,
@@ -862,7 +862,7 @@ final class FeedService {
     required String? cid,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetLikes,
@@ -880,7 +880,7 @@ final class FeedService {
     required String? cid,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetRepostedBy,
@@ -897,7 +897,7 @@ final class FeedService {
     required core.AtUri uri,
     required int? depth,
     required int? parentHeight,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPostThread,
@@ -911,7 +911,7 @@ final class FeedService {
 
   Future<core.XRPCResponse<T>> _findPosts<T>({
     required List<core.AtUri> uris,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPosts,
@@ -923,7 +923,7 @@ final class FeedService {
 
   Future<core.XRPCResponse<T>> _findGenerator<T>({
     required core.AtUri uri,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerator,
@@ -935,7 +935,7 @@ final class FeedService {
 
   Future<core.XRPCResponse<T>> _findGenerators<T>({
     required List<core.AtUri> uris,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerators,
@@ -946,7 +946,7 @@ final class FeedService {
       );
 
   Future<core.XRPCResponse<T>> _findGeneratorInfo<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedDescribeFeedGenerator,
@@ -957,7 +957,7 @@ final class FeedService {
     required String actor,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorLikes,
@@ -972,7 +972,7 @@ final class FeedService {
   Future<core.XRPCResponse<T>> _findSuggestedFeeds<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetSuggestedFeeds,
@@ -987,7 +987,7 @@ final class FeedService {
     required String query,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedSearchPosts,

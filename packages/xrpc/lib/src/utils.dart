@@ -71,13 +71,11 @@ Map<String, dynamic> convertParameters(final Map<String, dynamic> parameters) =>
 
 T getData<T>(
   final http.Response response,
-  final type.To<T>? to,
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to,
+  final type.ResponseDataAdaptor? adaptor,
 ) {
-  if (T == Uint8List) {
-    //* This is basically used to retrieve Blob data.
-    return response.bodyBytes as T;
-  }
+  //* This is basically used to retrieve Blob data.
+  if (T == Uint8List) return response.bodyBytes as T;
 
   return _transformData(
     adaptor != null
@@ -90,21 +88,11 @@ T getData<T>(
 /// Returns the transformed data object.
 T _transformData<T>(
   final String body,
-  final type.To<T>? to,
+  final type.ResponseDataBuilder<T>? to,
 ) {
-  if (to != null) {
-    return to.call(
-      jsonDecode(body),
-    );
-  }
-
-  if (T == String) {
-    return body as T;
-  }
-
-  if (T == Map<String, dynamic>) {
-    return jsonDecode(body) as T;
-  }
+  if (to != null) return to.call(jsonDecode(body));
+  if (T == String) return body as T;
+  if (T == Map<String, dynamic>) return jsonDecode(body) as T;
 
   return const EmptyData() as T;
 }

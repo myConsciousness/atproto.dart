@@ -604,7 +604,7 @@ final class GraphService {
     required String actor,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollows,
@@ -620,7 +620,7 @@ final class GraphService {
     required String actor,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollowers,
@@ -635,7 +635,7 @@ final class GraphService {
   Future<core.XRPCResponse<T>> _findMutes<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetMutes,
@@ -649,7 +649,7 @@ final class GraphService {
   Future<core.XRPCResponse<T>> _findBlocks<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetBlocks,
@@ -664,7 +664,7 @@ final class GraphService {
     required String actor,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetLists,
@@ -680,7 +680,7 @@ final class GraphService {
     required core.AtUri list,
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetList,
@@ -695,7 +695,7 @@ final class GraphService {
   Future<core.XRPCResponse<T>> _findMutingLists<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListMutes,
@@ -708,7 +708,7 @@ final class GraphService {
 
   Future<core.XRPCResponse<T>> _findSuggestedFollows<T>({
     required String actor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetSuggestedFollowsByActor,
@@ -721,7 +721,7 @@ final class GraphService {
   Future<core.XRPCResponse<T>> _findBlockLists<T>({
     required int? limit,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListBlocks,

@@ -337,7 +337,7 @@ final class ServerService {
           );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetSession,
@@ -347,7 +347,7 @@ final class ServerService {
   Future<core.XRPCResponse<T>> _findInviteCodes<T>({
     required bool? includeUsed,
     required bool? createAvailable,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetAccountInviteCodes,
@@ -359,7 +359,7 @@ final class ServerService {
       );
 
   Future<core.XRPCResponse<T>> _findAppPasswords<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerListAppPasswords,
@@ -367,7 +367,7 @@ final class ServerService {
       );
 
   Future<core.XRPCResponse<T>> _findServerInfo<T>({
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerDescribeServer,

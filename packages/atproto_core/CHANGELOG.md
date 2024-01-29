@@ -7,6 +7,11 @@
   - `.refreshSession`
   - `.deleteSession`
 
+## v0.9.3
+
+- Upgrade dependencies. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))
+- Added `headers` parameter for `.get` method on `ServiceContext`.
+
 ## v0.9.2
 
 - Upgrade dependencies. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))

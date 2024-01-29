@@ -18,7 +18,7 @@ topics:
   - core
 
 dependencies:
-  xrpc: ^0.4.5
+  xrpc: ^0.5.0
   at_uri: ^0.3.0
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1

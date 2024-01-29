@@ -276,7 +276,7 @@ final class RepoService {
   Future<core.XRPCResponse<T>> _findRecord<T>({
     required core.AtUri uri,
     required String? cid,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get<T>(
         ns.comAtprotoRepoGetRecord,
@@ -297,7 +297,7 @@ final class RepoService {
     required String? rkeyStart,
     required String? rkeyEnd,
     required String? cursor,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListRecords,
@@ -315,7 +315,7 @@ final class RepoService {
 
   Future<core.XRPCResponse<T>> _findRepoInfo<T>({
     required String repo,
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,

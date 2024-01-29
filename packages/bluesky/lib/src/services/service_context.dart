@@ -27,7 +27,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
-    core.To<T>? to,
+    core.ResponseDataBuilder<T>? to,
   ]) async {
     final record = await atproto.repo.getRecord(uri: uri);
 

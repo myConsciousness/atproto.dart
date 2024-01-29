@@ -26,8 +26,8 @@ Future<Response<T>> get<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? parameters,
   final Duration timeout = const Duration(seconds: 10),
-  final type.To<T>? to,
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to,
+  final type.ResponseDataAdaptor? adaptor,
   final type.GetClient? getClient,
 }) async =>
     _buildResponse<T>(
@@ -56,7 +56,7 @@ Future<Response<T>> post<T>(
   final Map<String, String>? headers,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
-  final type.To<T>? to,
+  final type.ResponseDataBuilder<T>? to,
   final type.PostClient? postClient,
 }) async =>
     _buildResponse<T>(
@@ -97,8 +97,8 @@ http.Response checkStatus(
 /// Returns the response object.
 Response<T> _buildResponse<T>(
   final http.Response response,
-  final type.To<T>? to, [
-  final type.ResponseAdaptor? adaptor,
+  final type.ResponseDataBuilder<T>? to, [
+  final type.ResponseDataAdaptor? adaptor,
 ]) =>
     Response(
       headers: response.headers,
