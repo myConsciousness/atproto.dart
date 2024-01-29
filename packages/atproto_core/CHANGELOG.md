@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.0-preview.1
+
+- Upgraded `xrpc`.
+
 ## v0.10.0-preview.0
 
 - The following functions have been moved to the `atproto` package. ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
