@@ -29,6 +29,6 @@ class ActorGetPreferencesOutput with _$ActorGetPreferencesOutput {
 }
 
 extension $ActorGetPreferencesOutputExtension on ActorGetPreferencesOutput {
-  ActorDefsPreferences  asActorDefsPreferences() =>
+  ActorDefsPreferences asActorDefsPreferences() =>
       ActorDefsPreferences.fromJson(toJson());
 }

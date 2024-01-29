@@ -294,7 +294,7 @@ class EmbeddedCard extends StatelessWidget {
       false;
 
   lex_types.ActorDefsProfileView? get _repostedBy => reason?.when(
-        reasonRepost: (data) => data.by.toProfileView(),
+        reasonRepost: (data) => data.by.toActorDefsProfileView(),
         unknown: (data) => null,
       );
 
