@@ -32,7 +32,7 @@ Future<void> main(List<String> args) async {
     }
 
     final postModeration = mod.moderatePost(
-      mod.ModerationSubjectPost.post(data: feed.post),
+      mod.ModerationSubjectPost.postView(data: feed.post),
       mod.getModerationOptions(
         userDid: 'did:web:shinyakato.dev',
         preferences: preferences.data.preferences,
