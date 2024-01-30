@@ -298,6 +298,7 @@ You can integrate **[bluesky_text](https://pub.dev/packages/bluesky_text)** and 
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/lex_types.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main() async {
@@ -315,7 +316,7 @@ Future<void> main() async {
     text: text.value,
 
     // Convert JSON to Facet object like this.
-    facets: facets.map(bsky.Facet.fromJson).toList(),
+    facets: facets.map(RichtextFacet.fromJson).toList(),
   );
 }
 ```
@@ -324,7 +325,7 @@ You see that there is nothing difficult to implement here.
 Extracting and faceting entities using **[bluesky_text](https://pub.dev/packages/bluesky_text)** is implemented as described in [Getting Started](#getting-started-).
 
 And the `bluesky.feed.createPost` used as an example is a fairly basic method for creating a post using the **[bluesky](https://pub.dev/packages/bluesky)** package.
-But, this is where **[bluesky_text](https://pub.dev/packages/bluesky_text)** is most powerful, as it can be converted into a `Facet` object in the **[bluesky](https://pub.dev/packages/bluesky)** package without any difficult processing.
+But, this is where **[bluesky_text](https://pub.dev/packages/bluesky_text)** is most powerful, as it can be converted into a `RichtextFacet` object in the **[bluesky](https://pub.dev/packages/bluesky)** package without any difficult processing.
 With **[bluesky_text](https://pub.dev/packages/bluesky_text)**, you can create Facets that are difficult to structure when creating a post using the Bluesky API without having to think about it.
 
 ### Split Text

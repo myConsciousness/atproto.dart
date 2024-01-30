@@ -307,18 +307,18 @@ Future<void> main() async {
 }
 ```
 
-Then you can deserialize `DID` object as JSON with `toJson` as follows:
+Then you can deserialize the lex type object as JSON with `toJson` as follows:
 
 ```dart
 print(did.toJson()); // => {did: did:plc:iijrtk7ocored6zuziwmqq3c}
 ```
 
-And you can serialize JSON as `DID` object with `fromJson` as follows:
+And you can serialize JSON as the lex type object with `fromJson` as follows:
 
 ```dart
 final json = did.toJson();
 
-final serializedDID = DID.fromJson(json);
+final serializedDID = IdentityResolveHandleOutput.fromJson(json);
 ```
 
 ### Thrown Exceptions
@@ -450,6 +450,7 @@ So, if you want the Firehose API to handle only `Commit` and `Handle` events, yo
 
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/lex_types.dart';
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky.anonymous();
@@ -460,9 +461,9 @@ Future<void> main() async {
     // No need to use `.when` method.
     switch (event) {
       // Specify an union object prefixed with `U` as the case.
-      case bsky.USubscribedRepoCommit():
+      case atp.USyncSubscribeReposOutputCommit():
         print(event.data.ops);
-      case bsky.USubscribedRepoHandle():
+      case atp.USyncSubscribeReposOutputHandle():
         print(event.data.handle);
     }
   }
@@ -480,6 +481,7 @@ Using **[bluesky](https://pub.dev/packages/bluesky)** to access the `Firehose AP
 
 ```dart
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/lex_types.dart';
 
 Future<void> main() async {
   // Authentication is not required.
@@ -495,14 +497,14 @@ Future<void> main() async {
         // A single commit may contain multiple records.
         for (final op in data.ops) {
           switch (op.action) {
-            case RepoAction.create:
-            case RepoAction.update:
+            case SyncSubscribeReposRepoOpAction.create:
+            case SyncSubscribeReposRepoOpAction.update:
               // Created/Updated AT URI and specific record.
               print(op.uri);
               print(op.record);
 
               break;
-            case RepoAction.delete:
+            case SyncSubscribeReposRepoOpAction.delete:
               // Deleted AT URI.
               print(op.uri);
 
@@ -729,7 +731,7 @@ For example, in the above example, if the `text` input is defined by Lexicon to 
 If a structure or type different from the properties defined in Lexicon is detected, an `InvalidRequestException` is always thrown.
 :::
 
-To include such unspecced inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `unspecced` parameter as follows.
+To include such unknown inputs in a request using **[bluesky](https://pub.dev/packages/bluesky)**, implement with `unknown` parameter as follows.
 
 ```dart title="Post with Place Information"
 import 'package:bluesky/bluesky.dart' as bsky;
@@ -741,7 +743,7 @@ Future<void> main() async {
     text: 'This is where I post from',
 
     // Use this parameter.
-    unspecced: {
+    unknown: {
       r'$place': {
         'latitude': 40.730610,
         'longitude': -73.935242,
@@ -788,6 +790,7 @@ To make the name of a property unique, the following methods are possible.
 ```dart
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/moderation.dart' as mod;
+import 'package:bluesky/lex_types.dart' as mod;
 
 Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(await _session);
@@ -851,20 +854,20 @@ Future<void> main() async {
 }
 
 mod.ModerationSubjectProfile get profileView =>
-    mod.ModerationSubjectProfile.actor(
-      data: bsky.Actor(
+    mod.ModerationSubjectProfile.profileView(
+      data: ActorDefsProfileView(
         did: 'did:web:bob.test',
         handle: 'bob.test',
       ),
     );
 
-mod.ModerationSubjectPost get postView => mod.ModerationSubjectPost.post(
-      data: bsky.Post(
-        record: bsky.PostRecord(
+mod.ModerationSubjectPost get postView => mod.ModerationSubjectPost.postView(
+      data: FeedDefsPostView(
+        record: FeedPostRecord(
           text: 'Hello!',
           createdAt: DateTime.now(),
         ),
-        author: bsky.Actor(
+        author: ActorDefsProfileView(
           did: 'did:web:bob.test',
           handle: 'bob.test',
         ),
