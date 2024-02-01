@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.10.0-preview.2
+
+- Applied `build.xml` and added `toJson` in generated freezed objects.
+
 ## v0.10.0-preview.1
 
 - Upgraded `xrpc`.

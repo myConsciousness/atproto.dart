@@ -21,7 +21,6 @@ export 'package:atproto_core/src/keys/annotations.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
 export 'package:atproto_core/src/types/blob.dart';
 export 'package:atproto_core/src/types/blob_ref.dart';
-export 'package:atproto_core/src/types/blob_refs.dart';
 export 'package:atproto_core/src/types/blob_data.dart';
 export 'package:atproto_core/src/types/converters/at_uri_converter.dart';
 export 'package:atproto_core/src/types/converters/nsid_converter.dart';

@@ -1,20 +1,33 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: non_constant_identifier_names
+
 part of 'session.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
-    _$SessionImpl(
-      did: json['did'] as String,
-      handle: json['handle'] as String,
-      email: json['email'] as String?,
-      emailConfirmed: json['emailConfirmed'] as bool? ?? false,
-      accessJwt: json['accessJwt'] as String,
-      refreshJwt: json['refreshJwt'] as String,
-      didDoc: json['didDoc'] as Map<String, dynamic>?,
+_$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
+      r'_$SessionImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$SessionImpl(
+          did: $checkedConvert('did', (v) => v as String),
+          handle: $checkedConvert('handle', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String?),
+          emailConfirmed:
+              $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
+          accessJwt: $checkedConvert('accessJwt', (v) => v as String),
+          refreshJwt: $checkedConvert('refreshJwt', (v) => v as String),
+          didDoc: $checkedConvert(
+              'didDoc',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+        );
+        return val;
+      },
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {

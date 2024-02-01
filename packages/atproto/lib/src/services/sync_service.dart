@@ -14,6 +14,7 @@ import 'types/sync/get_blocks/_z.dart';
 import 'types/sync/get_latest_commit/_z.dart';
 import 'types/sync/get_record/_z.dart';
 import 'types/sync/get_repo/_z.dart';
+import 'types/sync/list_blobs/_z.dart';
 import 'types/sync/list_repos/_z.dart';
 import 'types/sync/subscribe_repos/_z.dart';
 
@@ -113,7 +114,7 @@ final class SyncService {
       await findBlob(did: did, cid: cid);
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs
-  Future<core.XRPCResponse<core.BlobRefs>> listBlobs({
+  Future<core.XRPCResponse<SyncListBlobsOutput>> listBlobs({
     required String did,
     String? sinceCid,
     int? limit,
@@ -221,7 +222,7 @@ final class SyncService {
       );
 
   @Deprecated('Use .listBlobs instead. Will be removed')
-  Future<core.XRPCResponse<core.BlobRefs>> findBlobs({
+  Future<core.XRPCResponse<SyncListBlobsOutput>> findBlobs({
     required String did,
     String? sinceCid,
     int? limit,
@@ -232,7 +233,7 @@ final class SyncService {
         sinceCid: sinceCid,
         limit: limit,
         cursor: cursor,
-        to: core.BlobRefs.fromJson,
+        to: SyncListBlobsOutput.fromJson,
       );
 
   Future<core.XRPCResponse<T>> _findRepoCommits<T>({

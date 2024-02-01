@@ -7,11 +7,16 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../nsids.g.dart' as lex;
+
 part 'blob_refs.freezed.dart';
 part 'blob_refs.g.dart';
 
 /// Hold a reference links to blobs.
 @freezed
+@lex.comAtprotoSyncListBlobs
+@Deprecated('Use SyncListBlobsOutput instead. Will be removed')
 class BlobRefs with _$BlobRefs {
   /// Creates an instance of [BlobRefs] using a factory constructor.
   const factory BlobRefs({

@@ -25,8 +25,6 @@ export 'package:atproto_core/atproto_core.dart'
         $BlobCopyWith,
         BlobRef,
         $BlobRefCopyWith,
-        BlobRefs,
-        $BlobRefsCopyWith,
         BlobData,
         $BlobDataCopyWith,
         InvalidCidError,
@@ -79,6 +77,7 @@ export 'package:atproto/src/services/entities/invite_code_use.dart';
 export 'package:atproto/src/services/entities/invite_codes.dart';
 export 'package:atproto/src/services/entities/label.dart';
 export 'package:atproto/src/services/entities/record.dart';
+export 'package:atproto/src/services/entities/blob_refs.dart';
 export 'package:atproto/src/services/entities/records.dart';
 export 'package:atproto/src/services/entities/repo.dart';
 export 'package:atproto/src/services/entities/repo_block.dart';

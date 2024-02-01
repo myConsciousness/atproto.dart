@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.0-preview.9
+
+- Upgraded `atproto_core` and `atproto`.
+
 ## v0.16.0-preview.8
 
 - Added extensions to convert unions.

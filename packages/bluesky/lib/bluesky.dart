@@ -151,6 +151,8 @@ export 'package:atproto/atproto.dart'
         Label,
         $LabelCopyWith,
         // ignore: deprecated_member_use
+        BlobRefs,
+        $BlobRefsCopyWith,
         UBatchActionCreate,
         UBatchActionUpdate,
         UBatchActionDelete,
@@ -206,8 +208,6 @@ export 'package:atproto_core/atproto_core.dart'
         $BlobDataCopyWith,
         BlobRef,
         $BlobRefCopyWith,
-        BlobRefs,
-        $BlobRefsCopyWith,
         ProgressStatus,
         ProgressStatusEvent,
         InvalidCidError,

@@ -39,5 +39,6 @@ export 'package:atproto/src/services/types/sync/get_record/_z.dart'
 export 'package:atproto/src/services/types/sync/get_repo/_z.dart'
     hide toSyncGetRepoOutput;
 export 'package:atproto/src/services/types/sync/list_repos/_z.dart';
+export 'package:atproto/src/services/types/sync/list_blobs/_z.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/_z.dart'
     hide unionSyncSubscribeReposMessageConverter, toSyncSubscribeReposOutput;

@@ -15,6 +15,7 @@ import 'package:atproto/src/services/types/sync/get_blocks/_z.dart';
 import 'package:atproto/src/services/types/sync/get_latest_commit/_z.dart';
 import 'package:atproto/src/services/types/sync/get_record/_z.dart';
 import 'package:atproto/src/services/types/sync/get_repo/_z.dart';
+import 'package:atproto/src/services/types/sync/list_blobs/_z.dart';
 import 'package:atproto/src/services/types/sync/list_repos/_z.dart';
 import 'package:atproto/src/services/types/sync/subscribe_repos/_z.dart';
 import 'suite/data/com/atproto/sync/get_blocks.dart';
@@ -73,7 +74,7 @@ void main() {
         .readAsBytesSync(),
   );
 
-  testSync<core.BlobRefs>(
+  testSync<SyncListBlobsOutput>(
     (m, s) => s.listBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
   );
