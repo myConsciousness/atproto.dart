@@ -23,6 +23,8 @@ export 'extensions/generator_view_extension.dart';
 export 'extensions/not_found_post_extension.dart';
 export 'extensions/post_view_extension.dart';
 export 'extensions/viewer_state_extension.dart';
+export 'extensions/thread_view_post_replies_extension.dart';
+export 'extensions/thread_view_post_parent_extension.dart';
 export 'extensions/post_view_embed_extension.dart';
 
 export 'unions/feed_view_post_reason.dart';

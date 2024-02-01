@@ -1,5 +1,11 @@
 # Release Note
 
+## v0.16.0-preview.8
+
+- Added extensions to convert unions.
+  - `.asUFeedDefsThreadViewPostParent` on `UFeedDefsThreadViewPostReplies`
+  - `.asUFeedDefsThreadViewPostReplies` on `UFeedDefsThreadViewPostParent`
+
 ## v0.16.0-preview.7
 
 - Upgraded `atproto_core` and `atproto`.

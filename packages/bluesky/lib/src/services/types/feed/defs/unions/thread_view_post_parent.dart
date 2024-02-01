@@ -35,6 +35,9 @@ class UFeedDefsThreadViewPostParent with _$UFeedDefsThreadViewPostParent {
   const factory UFeedDefsThreadViewPostParent.unknown({
     required Map<String, dynamic> data,
   }) = UFeedDefsThreadViewPostParentUnknown;
+
+  Map<String, dynamic> toJson() =>
+      unionFeedDefsThreadViewPostParentConverter.toJson(this);
 }
 
 const unionFeedDefsThreadViewPostParentConverter =

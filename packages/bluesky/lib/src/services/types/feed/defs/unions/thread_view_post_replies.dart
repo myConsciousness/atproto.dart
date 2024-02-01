@@ -35,6 +35,9 @@ class UFeedDefsThreadViewPostReplies with _$UFeedDefsThreadViewPostReplies {
   const factory UFeedDefsThreadViewPostReplies.unknown({
     required Map<String, dynamic> data,
   }) = UFeedDefsThreadViewPostRepliesUnknown;
+
+  Map<String, dynamic> toJson() =>
+      unionFeedDefsThreadViewPostRepliesConverter.toJson(this);
 }
 
 const unionFeedDefsThreadViewPostRepliesConverter =
