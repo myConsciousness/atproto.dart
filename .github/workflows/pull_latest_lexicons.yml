@@ -52,14 +52,6 @@ jobs:
       - name: Generate Supported API Matrix
         run: dart run ./bin/generate_supported_api_matrix.dart
 
-      - name: Build
-        run: |
-          cd packages/atproto
-          dart run build_runner build --delete-conflicting-outputs
-          cd ../bluesky
-          dart run build_runner build --delete-conflicting-outputs
-          cd ../../
-
       - name: Format
         run: |
           dart format packages/lexicon
