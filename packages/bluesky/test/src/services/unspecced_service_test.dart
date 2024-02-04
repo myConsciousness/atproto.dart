@@ -5,7 +5,6 @@
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
 import 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
-import 'package:bluesky/src/services/types/unspecced/get_timeline_skeleton/_z.dart';
 import 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
 import 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';
 import 'suite/service_suite.dart';
@@ -14,11 +13,6 @@ void main() {
   testUnspecced<UnspeccedGetPopularFeedGeneratorsOutput>(
     (m, s) => s.getPopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
-  );
-
-  testUnspecced<UnspeccedGetTimelineSkeletonOutput>(
-    (m, s) => s.getTimelineSkeleton(),
-    id: appBskyUnspeccedGetTimelineSkeleton,
   );
 
   testUnspecced<UnspeccedSearchPostsSkeletonOutput>(

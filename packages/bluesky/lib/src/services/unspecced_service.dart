@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../nsids.g.dart' as ns;
 import 'service_context.dart';
 import 'types/unspecced/get_popular_feed_generators/_z.dart';
-import 'types/unspecced/get_timeline_skeleton/_z.dart';
 import 'types/unspecced/search_actors_skeleton/_z.dart';
 import 'types/unspecced/search_posts_skeleton/_z.dart';
 
@@ -31,18 +30,6 @@ final class UnspeccedService {
             limit: limit,
             cursor: cursor,
             query: query,
-          );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTimelineSkeleton
-  Future<core.XRPCResponse<UnspeccedGetTimelineSkeletonOutput>>
-      getTimelineSkeleton({
-    int? limit,
-    String? cursor,
-  }) async =>
-          // ignore: deprecated_member_use_from_same_package
-          await findTimelineSkeleton(
-            limit: limit,
-            cursor: cursor,
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
@@ -87,18 +74,6 @@ final class UnspeccedService {
             cursor: cursor,
             query: query,
             to: UnspeccedGetPopularFeedGeneratorsOutput.fromJson,
-          );
-
-  @Deprecated('Use .getTimelineSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<UnspeccedGetTimelineSkeletonOutput>>
-      findTimelineSkeleton({
-    int? limit,
-    String? cursor,
-  }) async =>
-          await _findTimelineSkeleton(
-            limit: limit,
-            cursor: cursor,
-            to: UnspeccedGetTimelineSkeletonOutput.fromJson,
           );
 
   @Deprecated('Use .searchPostsSkeleton instead. Will be removed')
@@ -147,20 +122,6 @@ final class UnspeccedService {
         to: to,
       );
 
-  Future<core.XRPCResponse<T>> _findTimelineSkeleton<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedGetTimelineSkeleton,
-        parameters: _buildGetTimelineSkeleton(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
   Future<core.XRPCResponse<T>> _searchPostsByQuerySkeleton<T>({
     required String query,
     required int? limit,
@@ -204,15 +165,6 @@ final class UnspeccedService {
         'limit': limit,
         'cursor': cursor,
         'query': query,
-      };
-
-  Map<String, dynamic> _buildGetTimelineSkeleton({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
       };
 
   Map<String, dynamic> _buildSearchPostsSkeletonParams({

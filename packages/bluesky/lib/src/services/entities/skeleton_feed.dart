@@ -17,8 +17,8 @@ part 'skeleton_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
 @freezed
-@lex.appBskyUnspeccedGetTimelineSkeleton
 @Deprecated('Use UnspeccedGetTimelineSkeletonOutput instead. Will be removed')
+@lex.appBskyFeedGetFeedSkeleton
 class SkeletonFeed with _$SkeletonFeed {
   @jsonSerializable
   const factory SkeletonFeed({

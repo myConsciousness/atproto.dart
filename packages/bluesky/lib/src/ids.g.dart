@@ -22,6 +22,9 @@ const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 /// `app.bsky.actor.defs#feedViewPref`
 const appBskyActorDefsFeedViewPref = 'app.bsky.actor.defs#feedViewPref';
 
+/// `app.bsky.actor.defs#interestsPref`
+const appBskyActorDefsInterestsPref = 'app.bsky.actor.defs#interestsPref';
+
 /// `app.bsky.actor.defs#personalDetailsPref`
 const appBskyActorDefsPersonalDetailsPref =
     'app.bsky.actor.defs#personalDetailsPref';
@@ -288,6 +291,12 @@ const appBskyGraphDefsListViewerState = 'app.bsky.graph.defs#listViewerState';
 /// `app.bsky.graph.defs#modlist`
 const appBskyGraphDefsModlist = 'app.bsky.graph.defs#modlist';
 
+/// `app.bsky.graph.defs#notFoundActor`
+const appBskyGraphDefsNotFoundActor = 'app.bsky.graph.defs#notFoundActor';
+
+/// `app.bsky.graph.defs#relationship`
+const appBskyGraphDefsRelationship = 'app.bsky.graph.defs#relationship';
+
 /// `app.bsky.graph.follow`
 const appBskyGraphFollow = 'app.bsky.graph.follow';
 
@@ -314,6 +323,9 @@ const appBskyGraphGetLists = 'app.bsky.graph.getLists';
 
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = 'app.bsky.graph.getMutes';
+
+/// `app.bsky.graph.getRelationships`
+const appBskyGraphGetRelationships = 'app.bsky.graph.getRelationships';
 
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
@@ -388,9 +400,13 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
 
-/// `app.bsky.unspecced.getTimelineSkeleton`
-const appBskyUnspeccedGetTimelineSkeleton =
-    'app.bsky.unspecced.getTimelineSkeleton';
+/// `app.bsky.unspecced.getTaggedSuggestions`
+const appBskyUnspeccedGetTaggedSuggestions =
+    'app.bsky.unspecced.getTaggedSuggestions';
+
+/// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
+    'app.bsky.unspecced.getTaggedSuggestions#suggestion';
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =

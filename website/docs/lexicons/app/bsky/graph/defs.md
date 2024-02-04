@@ -59,3 +59,22 @@ description: app.bsky.graph.defs
 | --- | --- | --- | :---: | --- |
 | **muted** | boolean | - | ❌ | - |
 | **blocked** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+
+## #notFoundActor
+
+indicates that a handle or DID could not be resolved
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
+| **notFound** | boolean | - | ✅ | - |
+
+## #relationship
+
+lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **following** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor follows this DID, this is the AT-URI of the follow record |
+| **followedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | if the actor is followed by this DID, contains the AT-URI of the follow record |

@@ -49,6 +49,10 @@
 - All objects that do not match Lexicon names have been deprecated and those that do match Lexicon names have been exposed as the `lex_types` package. You can import it like `import 'package:bluesky/lex_types.dart';` ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
 - Changed record's parameter name `unspecced` to `unknown`.
 
+## v0.15.6
+
+- Removed `getTimelineSkeleton` from `UnspeccedService`. ([#1226](https://github.com/myConsciousness/atproto.dart/issues/1226))
+
 ## v0.15.5
 
 - Added `.get` and `.post` methods on `Bluesky` object. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))

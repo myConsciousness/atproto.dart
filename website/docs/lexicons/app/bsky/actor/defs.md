@@ -62,7 +62,7 @@ description: app.bsky.actor.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -107,3 +107,9 @@ description: app.bsky.actor.defs
 | --- | --- | --- | :---: | --- |
 | **sort** | string | oldest<br/>newest<br/>most-likes<br/>random | ❌ | Sorting mode for threads. |
 | **prioritizeFollowedUsers** | boolean | - | ❌ | Show followed users at the top of all replies. |
+
+## #interestsPref
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **tags** | array of string | - | ✅ | A list of tags which describe the account owner's interests gathered during onboarding. |
