@@ -216,6 +216,9 @@ const appBskyGraphGetLists = NSID(ids.appBskyGraphGetLists);
 /// `app.bsky.graph.getMutes`
 const appBskyGraphGetMutes = NSID(ids.appBskyGraphGetMutes);
 
+/// `app.bsky.graph.getRelationships`
+const appBskyGraphGetRelationships = NSID(ids.appBskyGraphGetRelationships);
+
 /// `app.bsky.graph.getSuggestedFollowsByActor`
 const appBskyGraphGetSuggestedFollowsByActor =
     NSID(ids.appBskyGraphGetSuggestedFollowsByActor);
@@ -279,9 +282,13 @@ const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 const appBskyUnspeccedGetPopularFeedGenerators =
     NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
 
-/// `app.bsky.unspecced.getTimelineSkeleton`
-const appBskyUnspeccedGetTimelineSkeleton =
-    NSID(ids.appBskyUnspeccedGetTimelineSkeleton);
+/// `app.bsky.unspecced.getTaggedSuggestions`
+const appBskyUnspeccedGetTaggedSuggestions =
+    NSID(ids.appBskyUnspeccedGetTaggedSuggestions);
+
+/// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
+    NSID(ids.appBskyUnspeccedGetTaggedSuggestionsSuggestion);
 
 /// `app.bsky.unspecced.searchActorsSkeleton`
 const appBskyUnspeccedSearchActorsSkeleton =
