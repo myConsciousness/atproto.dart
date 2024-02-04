@@ -93,7 +93,9 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
         final referencePath = lexiconDoc.id.toString().replaceAll('.', '/');
         matrix.write('[Reference](lexicons/$referencePath.md) | ');
 
-        final bool? authRequired = authData[lexiconId]['required'];
+        final bool? authRequired = authData.containsKey(lexiconId)
+            ? authData[lexiconId]['required']
+            : false;
         final authRequiredIcon = authRequired == null
             ? 'N/A'
             : authRequired

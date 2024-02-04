@@ -29,11 +29,11 @@ Future<void> main(List<String> args) async {
             data[lexiconId] = {_requiredKey: true};
             break;
           case ULexUserTypeXrpcQuery():
-            await xrpc.query(xrpc.NSID.of(lexiconId));
+            await xrpc.query(xrpc.NSID(lexiconId));
             data[lexiconId] = {_requiredKey: false};
             break;
           case ULexUserTypeXrpcProcedure():
-            await xrpc.procedure(xrpc.NSID.of(lexiconId));
+            await xrpc.procedure(xrpc.NSID(lexiconId));
             data[lexiconId] = {_requiredKey: false};
             break;
           case ULexUserTypeXrpcSubscription():
