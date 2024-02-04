@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../nsids.g.dart' as ns;
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
-import 'entities/skeleton_feed.dart';
 import 'entities/skeleton_posts_by_query.dart';
 import 'service_context.dart';
 
