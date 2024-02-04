@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.6
+
+- Removed `getTimelineSkeleton` from `UnspeccedService`. ([#1226](https://github.com/myConsciousness/atproto.dart/issues/1226))
+
 ## v0.15.5
 
 - Added `.get` and `.post` methods on `Bluesky` object. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))
