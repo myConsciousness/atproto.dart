@@ -492,6 +492,9 @@ const comAtprotoSyncSubscribeReposRepoOp =
 const comAtprotoSyncSubscribeReposTombstone =
     'com.atproto.sync.subscribeRepos#tombstone';
 
+/// `com.atproto.temp.checkSignupQueue`
+const comAtprotoTempCheckSignupQueue = 'com.atproto.temp.checkSignupQueue';
+
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
 

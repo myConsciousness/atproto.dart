@@ -321,6 +321,9 @@ const comAtprotoSyncSubscribeReposRepoOp =
 const comAtprotoSyncSubscribeReposTombstone =
     NSID(ids.comAtprotoSyncSubscribeReposTombstone);
 
+/// `com.atproto.temp.checkSignupQueue`
+const comAtprotoTempCheckSignupQueue = NSID(ids.comAtprotoTempCheckSignupQueue);
+
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = NSID(ids.comAtprotoTempFetchLabels);
 
