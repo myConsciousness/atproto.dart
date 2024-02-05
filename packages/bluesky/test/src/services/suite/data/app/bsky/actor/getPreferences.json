@@ -65,6 +65,10 @@
       "hideRepliesByLikeCount": 20,
       "hideReposts": true,
       "hideQuotePosts": true
+    },
+    {
+      "$type": "app.bsky.actor.defs#interestsPref",
+      "tags": ["test1", "test2"]
     }
   ]
 }

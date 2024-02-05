@@ -194,6 +194,7 @@ export 'package:bluesky/src/services/entities/adaptor/repo_commit_create.dart';
 export 'package:bluesky/src/services/entities/adaptor/repo_commit_delete.dart';
 export 'package:bluesky/src/services/entities/adaptor/repo_commit_update.dart';
 export 'package:bluesky/src/services/entities/adult_content_preference.dart';
+export 'package:bluesky/src/services/entities/interests_preference.dart';
 export 'package:bluesky/src/services/entities/block_record.dart';
 export 'package:bluesky/src/services/entities/blocked_post.dart';
 export 'package:bluesky/src/services/entities/blocked_author.dart';
