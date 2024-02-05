@@ -14,7 +14,7 @@ import '../../lex_annotations.g.dart' as lex;
 part 'tagged_suggestion.freezed.dart';
 part 'tagged_suggestion.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#followingrule
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 @lex.appBskyUnspeccedGetTaggedSuggestionsSuggestion
 class TaggedSuggestion with _$TaggedSuggestion {
