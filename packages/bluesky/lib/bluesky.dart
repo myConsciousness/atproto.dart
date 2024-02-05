@@ -228,6 +228,8 @@ export 'package:bluesky/src/services/entities/embed_view_record_view.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_blocked.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_not_found.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_with_media.dart';
+export 'package:bluesky/src/services/entities/tagged_suggestions.dart';
+export 'package:bluesky/src/services/entities/tagged_suggestion.dart';
 export 'package:bluesky/src/services/entities/facet.dart';
 export 'package:bluesky/src/services/entities/facet_feature.dart';
 export 'package:bluesky/src/services/entities/facet_link.dart';

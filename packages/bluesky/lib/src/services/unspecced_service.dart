@@ -10,6 +10,7 @@ import '../nsids.g.dart' as ns;
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_posts_by_query.dart';
+import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
 
 /// Represents `app.bsky.unspecced.*` service.
@@ -57,6 +58,13 @@ final class UnspeccedService {
         typeahead: typeahead,
         limit: limit,
         cursor: cursor,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
+  Future<core.XRPCResponse<TaggedSuggestions>> getTaggedSuggestions() async =>
+      await _ctx.get(
+        ns.appBskyUnspeccedGetTaggedSuggestions,
+        to: TaggedSuggestions.fromJson,
       );
 
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
