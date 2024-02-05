@@ -14,6 +14,7 @@ import 'package:bluesky/src/services/entities/follows.dart';
 import 'package:bluesky/src/services/entities/list_items.dart';
 import 'package:bluesky/src/services/entities/lists.dart';
 import 'package:bluesky/src/services/entities/mutes.dart';
+import 'package:bluesky/src/services/entities/relationships.dart';
 import 'package:bluesky/src/services/entities/suggested_follows.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/params/list_item_param.dart';
@@ -136,5 +137,10 @@ void main() {
   testGraph<atp.StrongRef>(
     (m, s) => s.listblock(listUri: m.uri),
     id: appBskyGraphListblock,
+  );
+
+  testGraph<Relationships>(
+    (m, s) => s.getRelationships(actor: m.did, others: [m.did]),
+    id: appBskyGraphGetRelationships,
   );
 }
