@@ -4,6 +4,7 @@
 
 - Removed `getTimelineSkeleton` from `UnspeccedService`. ([#1226](https://github.com/myConsciousness/atproto.dart/issues/1226))
 - Added `getTaggedSuggestions` on `UnspeccedService`. ([#1225](https://github.com/myConsciousness/atproto.dart/issues/1225))
+- Added `getRelationships` on `GraphService`. ([#1224](https://github.com/myConsciousness/atproto.dart/issues/1224))
 
 ## v0.15.5
 
