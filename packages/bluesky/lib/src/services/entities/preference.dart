@@ -10,6 +10,7 @@ import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
 import 'converter/preference_converter.dart';
 import 'feed_view_preference.dart';
+import 'interests_preference.dart';
 import 'personal_details_preference.dart';
 import 'saved_feeds_preference.dart';
 import 'thread_view_preference.dart';
@@ -44,6 +45,10 @@ class Preference with _$Preference {
   const factory Preference.threadView({
     required ThreadViewPreference data,
   }) = UPreferenceThreadView;
+
+  const factory Preference.interests({
+    required InterestsPreference data,
+  }) = UPreferenceInterests;
 
   const factory Preference.unknown({
     required Map<String, dynamic> data,
