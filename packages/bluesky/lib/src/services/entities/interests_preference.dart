@@ -15,7 +15,7 @@ import '../../lex_annotations.g.dart' as lex;
 part 'interests_preference.freezed.dart';
 part 'interests_preference.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#adultcontentpref
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#interestspref
 @freezed
 @lex.appBskyActorDefsInterestsPref
 class InterestsPreference with _$InterestsPreference {
