@@ -7,7 +7,7 @@ description: com.atproto.repo.createRecord
 
 ## #main
 
-Create a new record.
+Create a single new repository record. Requires auth, implemented by PDS.
 
 ### Input
 
@@ -15,11 +15,11 @@ Create a new record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo. |
+| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo (aka, current account). |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | The NSID of the record collection. |
-| **rkey** | string | - | ❌ | The key of the record. |
-| **validate** | boolean | - | ❌ | Flag for validating the record. |
-| **record** | unknown | - | ✅ | The record to create. |
+| **rkey** | string | - | ❌ | The Record Key. |
+| **validate** | boolean | - | ❌ | Can be set to 'false' to skip Lexicon schema validation of record data. |
+| **record** | unknown | - | ✅ | The record itself. Must contain a $type field. |
 | **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous commit by CID. |
 
 ### Output

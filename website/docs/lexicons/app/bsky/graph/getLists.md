@@ -7,13 +7,13 @@ description: app.bsky.graph.getLists
 
 ## #main
 
-Get a list of lists that belong to an actor.
+Enumerates the lists created by a specified account (actor).
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
+| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The account (actor) to enumerate lists from. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

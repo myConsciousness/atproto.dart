@@ -7,7 +7,7 @@ description: com.atproto.repo.listRecords
 
 ## #main
 
-List a range of records in a collection.
+List a range of records in a repository, matching a specific collection. Does not require auth.
 
 ### Input
 

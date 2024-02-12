@@ -7,7 +7,7 @@ description: app.bsky.feed.searchPosts
 
 ## #main
 
-Find posts matching search criteria.
+Find posts matching search criteria, returning views of those posts.
 
 ### Input
 

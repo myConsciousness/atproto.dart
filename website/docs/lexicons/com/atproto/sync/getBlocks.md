@@ -7,7 +7,7 @@ description: com.atproto.sync.getBlocks
 
 ## #main
 
-Get blocks from a given repo.
+Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
 
 ### Input
 

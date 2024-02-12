@@ -7,7 +7,7 @@ description: com.atproto.identity.updateHandle
 
 ## #main
 
-Updates the handle of the account.
+Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
 
 ### Input
 
@@ -15,4 +15,4 @@ Updates the handle of the account.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
+| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | The new handle. |

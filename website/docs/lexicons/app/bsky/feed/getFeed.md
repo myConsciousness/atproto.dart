@@ -7,7 +7,7 @@ description: app.bsky.feed.getFeed
 
 ## #main
 
-Get a hydrated feed from an actor's selected feed generator.
+Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
 
 ### Input
 

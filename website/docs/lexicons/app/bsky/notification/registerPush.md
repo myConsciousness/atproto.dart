@@ -7,7 +7,7 @@ description: app.bsky.notification.registerPush
 
 ## #main
 
-Register for push notifications with a service.
+Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
 
 ### Input
 

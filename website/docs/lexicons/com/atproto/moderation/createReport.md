@@ -7,7 +7,7 @@ description: com.atproto.moderation.createReport
 
 ## #main
 
-Report a repo or a record.
+Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
 
 ### Input
 
@@ -16,7 +16,7 @@ Report a repo or a record.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **reasonType** | [com.atproto.moderation.defs#reasonType](../../../../lexicons/com/atproto/moderation/defs.md#reasontype) | - | ✅ | - |
-| **reason** | string | - | ❌ | - |
+| **reason** | string | - | ❌ | Additional context about the content and violation. |
 | **subject** | union of <br/>[com.atproto.admin.defs#repoRef](../../../../lexicons/com/atproto/admin/defs.md#reporef)<br/>[com.atproto.repo.strongRef](../../../../lexicons/com/atproto/repo/strongRef.md#main) | - | ✅ | - |
 
 ### Output

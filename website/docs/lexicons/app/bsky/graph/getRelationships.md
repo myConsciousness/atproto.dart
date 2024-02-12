@@ -7,13 +7,13 @@ description: app.bsky.graph.getRelationships
 
 ## #main
 
-Enumerates public relationships between one account, and a list of other accounts
+Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
+| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | Primary account requesting relationships for. |
 | **others** | array of [at-identifier](https://atproto.com/specs/lexicon#at-identifier) | - | ❌ | - |
 
 ### Output

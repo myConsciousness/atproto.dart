@@ -7,13 +7,13 @@ description: app.bsky.actor.getProfile
 
 ## #main
 
-Get detailed profile view of an actor.
+Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
+| **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | Handle or DID of account to fetch profile of. |
 
 ### Output
 

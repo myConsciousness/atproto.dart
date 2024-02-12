@@ -9,7 +9,7 @@ description: app.bsky.feed.generator
 
 ### Input
 
-A declaration of the existence of a feed generator.
+Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 

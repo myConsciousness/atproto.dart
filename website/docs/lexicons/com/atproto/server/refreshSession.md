@@ -7,7 +7,7 @@ description: com.atproto.server.refreshSession
 
 ## #main
 
-Refresh an authentication session.
+Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
 
 ### Output
 

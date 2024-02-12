@@ -7,7 +7,7 @@ description: com.atproto.temp.fetchLabels
 
 ## #main
 
-Fetch all labels from a labeler created after a certain date.
+Fetch all labels from a labeler created after a certain date. DEPRECATED: use queryLabels or subscribeLabels instead
 
 ### Input
 

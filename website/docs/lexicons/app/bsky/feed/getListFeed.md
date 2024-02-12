@@ -7,13 +7,13 @@ description: app.bsky.feed.getListFeed
 
 ## #main
 
-Get a view of a recent posts from actors in a list.
+Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **list** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **list** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to the list record. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

@@ -7,6 +7,8 @@ description: app.bsky.embed.external
 
 ## #main
 
+A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **external** | [#external](#external) | - | ✅ | - |

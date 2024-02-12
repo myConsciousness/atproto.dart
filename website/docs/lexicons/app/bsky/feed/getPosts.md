@@ -7,7 +7,7 @@ description: app.bsky.feed.getPosts
 
 ## #main
 
-Get a view of an actor's feed.
+Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
 
 ### Input
 

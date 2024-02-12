@@ -7,7 +7,7 @@ description: app.bsky.graph.muteActor
 
 ## #main
 
-Mute an actor by DID or handle.
+Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
 
 ### Input
 

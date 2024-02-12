@@ -7,7 +7,7 @@ description: com.atproto.sync.requestCrawl
 
 ## #main
 
-Request a service to persistently crawl hosted repos.
+Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
 
 ### Input
 
@@ -15,4 +15,4 @@ Request a service to persistently crawl hosted repos.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **hostname** | string | - | ✅ | Hostname of the service that is requesting to be crawled. |
+| **hostname** | string | - | ✅ | Hostname of the current service (eg, PDS) that is requesting to be crawled. |

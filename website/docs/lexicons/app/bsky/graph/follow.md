@@ -9,7 +9,7 @@ description: app.bsky.graph.follow
 
 ### Input
 
-A declaration of a social follow.
+Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 

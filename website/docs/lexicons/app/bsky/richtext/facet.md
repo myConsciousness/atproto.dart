@@ -7,6 +7,8 @@ description: app.bsky.richtext.facet
 
 ## #main
 
+Annotation of a sub-string within rich text.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **index** | [#byteSlice](#byteslice) | - | ✅ | - |
@@ -14,7 +16,7 @@ description: app.bsky.richtext.facet
 
 ## #mention
 
-A facet feature for actor mentions.
+Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -22,7 +24,7 @@ A facet feature for actor mentions.
 
 ## #link
 
-A facet feature for links.
+Facet feature for a URL. The text URL may have been simplified or truncated, but the facet reference should be a complete URL.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -30,7 +32,7 @@ A facet feature for links.
 
 ## #tag
 
-A hashtag.
+Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -38,7 +40,7 @@ A hashtag.
 
 ## #byteSlice
 
-A text segment. Start is inclusive, end is exclusive. Indices are for utf8-encoded strings.
+Specifies the sub-string range a facet feature applies to. Start index is inclusive, end index is exclusive. Indices are zero-indexed, counting bytes of the UTF-8 encoded text. NOTE: some languages, like Javascript, use UTF-16 or Unicode codepoints for string slice indexing; in these languages, convert to byte arrays before working with facets.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

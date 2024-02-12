@@ -48,6 +48,8 @@ description: app.bsky.actor.defs
 
 ## #viewerState
 
+Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **muted** | boolean | - | ❌ | - |

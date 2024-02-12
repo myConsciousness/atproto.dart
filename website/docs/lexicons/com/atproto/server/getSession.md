@@ -7,7 +7,7 @@ description: com.atproto.server.getSession
 
 ## #main
 
-Get information about the current session.
+Get information about the current auth session. Requires auth.
 
 ### Output
 
