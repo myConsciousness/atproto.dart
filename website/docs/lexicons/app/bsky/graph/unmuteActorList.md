@@ -7,7 +7,7 @@ description: app.bsky.graph.unmuteActorList
 
 ## #main
 
-Unmute a list of actors.
+Unmutes the specified list of accounts. Requires auth.
 
 ### Input
 

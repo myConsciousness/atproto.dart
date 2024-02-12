@@ -7,14 +7,14 @@ description: com.atproto.sync.getRepo
 
 ## #main
 
-Gets the DID's repo, optionally catching up from a specific revision.
+Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
-| **since** | string | - | ❌ | The revision of the repo to catch up from. |
+| **since** | string | - | ❌ | The revision ('rev') of the repo to create a diff from. |
 
 ### Output
 

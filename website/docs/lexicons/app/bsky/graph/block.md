@@ -9,13 +9,13 @@ description: app.bsky.graph.block
 
 ### Input
 
-A declaration of a block.
+Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subject** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **subject** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the account to be blocked. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
 ### Output

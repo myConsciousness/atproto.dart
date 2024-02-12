@@ -7,7 +7,7 @@ description: app.bsky.actor.getPreferences
 
 ## #main
 
-Get private preferences attached to the account.
+Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
 
 ### Output
 

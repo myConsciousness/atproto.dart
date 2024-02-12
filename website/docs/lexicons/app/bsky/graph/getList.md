@@ -7,13 +7,13 @@ description: app.bsky.graph.getList
 
 ## #main
 
-Get a list of actors.
+Gets a 'view' (with additional context) of a specified list.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **list** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **list** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) of the list record to hydrate. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

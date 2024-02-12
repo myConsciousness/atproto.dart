@@ -7,7 +7,7 @@ description: com.atproto.repo.deleteRecord
 
 ## #main
 
-Delete a record, or ensure it doesn't exist.
+Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
 
 ### Input
 
@@ -15,8 +15,8 @@ Delete a record, or ensure it doesn't exist.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo. |
+| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo (aka, current account). |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | The NSID of the record collection. |
-| **rkey** | string | - | ✅ | The key of the record. |
+| **rkey** | string | - | ✅ | The Record Key. |
 | **swapRecord** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous record by CID. |
 | **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous commit by CID. |

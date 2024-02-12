@@ -7,7 +7,7 @@ description: app.bsky.feed.getActorLikes
 
 ## #main
 
-Get a list of posts liked by an actor.
+Get a list of posts liked by an actor. Does not require auth.
 
 ### Input
 

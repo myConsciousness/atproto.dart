@@ -7,7 +7,7 @@ description: app.bsky.notification.getUnreadCount
 
 ## #main
 
-Get the count of unread notifications.
+Count the number of unread notifications for the requesting account. Requires auth.
 
 ### Input
 

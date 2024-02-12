@@ -7,7 +7,7 @@ description: app.bsky.notification.updateSeen
 
 ## #main
 
-Notify server that the user has seen notifications.
+Notify server that the requesting account has seen notifications. Requires auth.
 
 ### Input
 

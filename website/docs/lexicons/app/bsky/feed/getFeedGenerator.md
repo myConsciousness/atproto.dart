@@ -7,13 +7,13 @@ description: app.bsky.feed.getFeedGenerator
 
 ## #main
 
-Get information about a feed generator.
+Get information about a feed generator. Implemented by AppView.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **feed** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
+| **feed** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | AT-URI of the feed generator record. |
 
 ### Output
 
@@ -22,5 +22,5 @@ Get information about a feed generator.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **view** | [app.bsky.feed.defs#generatorView](../../../../lexicons/app/bsky/feed/defs.md#generatorview) | - | ✅ | - |
-| **isOnline** | boolean | - | ✅ | - |
-| **isValid** | boolean | - | ✅ | - |
+| **isOnline** | boolean | - | ✅ | Indicates whether the feed generator service has been online recently, or else seems to be inactive. |
+| **isValid** | boolean | - | ✅ | Indicates whether the feed generator service is compatible with the record declaration. |

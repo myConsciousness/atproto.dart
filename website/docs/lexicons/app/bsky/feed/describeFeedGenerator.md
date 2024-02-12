@@ -7,7 +7,7 @@ description: app.bsky.feed.describeFeedGenerator
 
 ## #main
 
-Get information about a feed generator, including policies and offered feed URIs.
+Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
 
 ### Output
 

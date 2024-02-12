@@ -9,7 +9,7 @@ description: app.bsky.feed.repost
 
 ### Input
 
-A declaration of a repost.
+Record representing a 'repost' of an existing Bluesky post.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 

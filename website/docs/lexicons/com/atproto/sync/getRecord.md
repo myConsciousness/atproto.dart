@@ -7,7 +7,7 @@ description: com.atproto.sync.getRecord
 
 ## #main
 
-Get blocks needed for existence or non-existence of record.
+Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
 
 ### Input
 
@@ -15,7 +15,7 @@ Get blocks needed for existence or non-existence of record.
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | - |
-| **rkey** | string | - | ✅ | - |
+| **rkey** | string | - | ✅ | Record Key |
 | **commit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | An optional past commit CID. |
 
 ### Output

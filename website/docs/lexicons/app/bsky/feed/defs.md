@@ -24,6 +24,8 @@ description: app.bsky.feed.defs
 
 ## #viewerState
 
+Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **repost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |

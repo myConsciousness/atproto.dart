@@ -7,7 +7,7 @@ description: app.bsky.actor.getSuggestions
 
 ## #main
 
-Get a list of suggested actors, used for discovery.
+Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
 
 ### Input
 

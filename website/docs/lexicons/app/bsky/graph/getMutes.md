@@ -7,7 +7,7 @@ description: app.bsky.graph.getMutes
 
 ## #main
 
-Get a list of who the actor mutes.
+Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
 
 ### Input
 

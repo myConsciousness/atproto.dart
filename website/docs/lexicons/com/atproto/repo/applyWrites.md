@@ -7,7 +7,7 @@ description: com.atproto.repo.applyWrites
 
 ## #main
 
-Apply a batch transaction of creates, updates, and deletes.
+Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
 
 ### Input
 
@@ -15,14 +15,14 @@ Apply a batch transaction of creates, updates, and deletes.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo. |
-| **validate** | boolean | - | ❌ | Flag for validating the records. |
+| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo (aka, current account). |
+| **validate** | boolean | - | ❌ | Can be set to 'false' to skip Lexicon schema validation of record data, for all operations. |
 | **writes** | array of union<br/>[#create](#create)<br/>[#update](#update)<br/>[#delete](#delete) | - | ✅ | - |
-| **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
+| **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations. |
 
 ## #create
 
-Create a new record.
+Operation which creates a new record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -32,7 +32,7 @@ Create a new record.
 
 ## #update
 
-Update an existing record.
+Operation which updates an existing record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -42,7 +42,7 @@ Update an existing record.
 
 ## #delete
 
-Delete an existing record.
+Operation which deletes an existing record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

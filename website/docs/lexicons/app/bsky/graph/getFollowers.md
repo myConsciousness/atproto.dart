@@ -7,7 +7,7 @@ description: app.bsky.graph.getFollowers
 
 ## #main
 
-Get a list of an actor's followers.
+Enumerates accounts which follow a specified account (actor).
 
 ### Input
 

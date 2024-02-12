@@ -7,13 +7,13 @@ description: app.bsky.feed.getTimeline
 
 ## #main
 
-Get a view of the actor's home timeline.
+Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **algorithm** | string | - | ❌ | - |
+| **algorithm** | string | - | ❌ | Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

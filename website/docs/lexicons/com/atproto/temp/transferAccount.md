@@ -7,7 +7,7 @@ description: com.atproto.temp.transferAccount
 
 ## #main
 
-Transfer an account.
+Transfer an account. NOTE: temporary method, necessarily how account migration will be implemented.
 
 ### Input
 

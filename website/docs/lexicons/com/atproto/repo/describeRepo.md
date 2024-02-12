@@ -7,7 +7,7 @@ description: com.atproto.repo.describeRepo
 
 ## #main
 
-Get information about the repo, including the list of collections.
+Get information about an account and repository, including the list of collections. Does not require auth.
 
 ### Input
 
@@ -23,6 +23,6 @@ Get information about the repo, including the list of collections.
 | --- | --- | --- | :---: | --- |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
-| **didDoc** | unknown | - | ✅ | - |
-| **collections** | array of string | - | ✅ | - |
-| **handleIsCorrect** | boolean | - | ✅ | - |
+| **didDoc** | unknown | - | ✅ | The complete DID document for this account. |
+| **collections** | array of string | - | ✅ | List of all the collections (NSIDs) for which this repo contains at least one record. |
+| **handleIsCorrect** | boolean | - | ✅ | Indicates if handle is currently valid (resolves bi-directionally) |
