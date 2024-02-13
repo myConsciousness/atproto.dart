@@ -15,7 +15,7 @@ Reserve a repo signing key, for use with account creation. Necessary so that a D
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **did** | string | - | ❌ | The DID to reserve a key for. |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ❌ | The DID to reserve a key for. |
 
 ### Output
 
