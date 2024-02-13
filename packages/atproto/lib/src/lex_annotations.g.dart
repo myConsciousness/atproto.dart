@@ -16,35 +16,168 @@ import 'package:lex_annotation/lex_annotation.dart';
 // 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
-/// `com.atproto.temp.checkSignupQueue#main`
-const comAtprotoTempCheckSignupQueue =
-    LexObject(ids.comAtprotoTempCheckSignupQueue);
+/// `com.atproto.identity.resolveHandle#main`
+const comAtprotoIdentityResolveHandle =
+    LexObject(ids.comAtprotoIdentityResolveHandle);
 
-/// `com.atproto.temp.importRepo#main`
-const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
-
-/// `com.atproto.temp.transferAccount#main`
-const comAtprotoTempTransferAccount =
-    LexObject(ids.comAtprotoTempTransferAccount);
+/// `com.atproto.identity.updateHandle#main`
+const comAtprotoIdentityUpdateHandle =
+    LexObject(ids.comAtprotoIdentityUpdateHandle);
 
 /// `com.atproto.temp.pushBlob#main`
 const comAtprotoTempPushBlob = LexObject(ids.comAtprotoTempPushBlob);
+
+/// `com.atproto.temp.fetchLabels#main`
+const comAtprotoTempFetchLabels = LexObject(ids.comAtprotoTempFetchLabels);
 
 /// `com.atproto.temp.requestPhoneVerification#main`
 const comAtprotoTempRequestPhoneVerification =
     LexObject(ids.comAtprotoTempRequestPhoneVerification);
 
-/// `com.atproto.temp.fetchLabels#main`
-const comAtprotoTempFetchLabels = LexObject(ids.comAtprotoTempFetchLabels);
+/// `com.atproto.temp.transferAccount#main`
+const comAtprotoTempTransferAccount =
+    LexObject(ids.comAtprotoTempTransferAccount);
+
+/// `com.atproto.temp.importRepo#main`
+const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
+
+/// `com.atproto.temp.checkSignupQueue#main`
+const comAtprotoTempCheckSignupQueue =
+    LexObject(ids.comAtprotoTempCheckSignupQueue);
+
+/// `com.atproto.server.deleteAccount#main`
+const comAtprotoServerDeleteAccount =
+    LexObject(ids.comAtprotoServerDeleteAccount);
+
+/// `com.atproto.server.createSession#main`
+const comAtprotoServerCreateSession =
+    LexObject(ids.comAtprotoServerCreateSession);
+
+/// `com.atproto.server.requestEmailConfirmation#main`
+const comAtprotoServerRequestEmailConfirmation =
+    LexObject(ids.comAtprotoServerRequestEmailConfirmation);
+
+/// `com.atproto.server.deleteSession#main`
+const comAtprotoServerDeleteSession =
+    LexObject(ids.comAtprotoServerDeleteSession);
+
+/// `com.atproto.server.defs#inviteCode`
+const comAtprotoServerDefsInviteCode =
+    LexObject(ids.comAtprotoServerDefsInviteCode);
+
+/// `com.atproto.server.defs#inviteCodeUse`
+const comAtprotoServerDefsInviteCodeUse =
+    LexObject(ids.comAtprotoServerDefsInviteCodeUse);
+
+/// `com.atproto.server.describeServer#main`
+const comAtprotoServerDescribeServer =
+    LexObject(ids.comAtprotoServerDescribeServer);
+
+/// `com.atproto.server.describeServer#links`
+const comAtprotoServerDescribeServerLinks =
+    LexObject(ids.comAtprotoServerDescribeServerLinks);
+
+/// `com.atproto.server.updateEmail#main`
+const comAtprotoServerUpdateEmail = LexObject(ids.comAtprotoServerUpdateEmail);
+
+/// `com.atproto.server.listAppPasswords#main`
+const comAtprotoServerListAppPasswords =
+    LexObject(ids.comAtprotoServerListAppPasswords);
+
+/// `com.atproto.server.listAppPasswords#appPassword`
+const comAtprotoServerListAppPasswordsAppPassword =
+    LexObject(ids.comAtprotoServerListAppPasswordsAppPassword);
+
+/// `com.atproto.server.requestAccountDelete#main`
+const comAtprotoServerRequestAccountDelete =
+    LexObject(ids.comAtprotoServerRequestAccountDelete);
+
+/// `com.atproto.server.getSession#main`
+const comAtprotoServerGetSession = LexObject(ids.comAtprotoServerGetSession);
+
+/// `com.atproto.server.resetPassword#main`
+const comAtprotoServerResetPassword =
+    LexObject(ids.comAtprotoServerResetPassword);
+
+/// `com.atproto.server.createAccount#main`
+const comAtprotoServerCreateAccount =
+    LexObject(ids.comAtprotoServerCreateAccount);
+
+/// `com.atproto.server.requestEmailUpdate#main`
+const comAtprotoServerRequestEmailUpdate =
+    LexObject(ids.comAtprotoServerRequestEmailUpdate);
+
+/// `com.atproto.server.revokeAppPassword#main`
+const comAtprotoServerRevokeAppPassword =
+    LexObject(ids.comAtprotoServerRevokeAppPassword);
+
+/// `com.atproto.server.getAccountInviteCodes#main`
+const comAtprotoServerGetAccountInviteCodes =
+    LexObject(ids.comAtprotoServerGetAccountInviteCodes);
+
+/// `com.atproto.server.createAppPassword#main`
+const comAtprotoServerCreateAppPassword =
+    LexObject(ids.comAtprotoServerCreateAppPassword);
+
+/// `com.atproto.server.createAppPassword#appPassword`
+const comAtprotoServerCreateAppPasswordAppPassword =
+    LexObject(ids.comAtprotoServerCreateAppPasswordAppPassword);
+
+/// `com.atproto.server.confirmEmail#main`
+const comAtprotoServerConfirmEmail =
+    LexObject(ids.comAtprotoServerConfirmEmail);
+
+/// `com.atproto.server.requestPasswordReset#main`
+const comAtprotoServerRequestPasswordReset =
+    LexObject(ids.comAtprotoServerRequestPasswordReset);
+
+/// `com.atproto.server.reserveSigningKey#main`
+const comAtprotoServerReserveSigningKey =
+    LexObject(ids.comAtprotoServerReserveSigningKey);
+
+/// `com.atproto.server.createInviteCode#main`
+const comAtprotoServerCreateInviteCode =
+    LexObject(ids.comAtprotoServerCreateInviteCode);
+
+/// `com.atproto.server.refreshSession#main`
+const comAtprotoServerRefreshSession =
+    LexObject(ids.comAtprotoServerRefreshSession);
+
+/// `com.atproto.server.createInviteCodes#main`
+const comAtprotoServerCreateInviteCodes =
+    LexObject(ids.comAtprotoServerCreateInviteCodes);
+
+/// `com.atproto.server.createInviteCodes#accountCodes`
+const comAtprotoServerCreateInviteCodesAccountCodes =
+    LexObject(ids.comAtprotoServerCreateInviteCodesAccountCodes);
+
+/// `com.atproto.repo.createRecord#main`
+const comAtprotoRepoCreateRecord = LexObject(ids.comAtprotoRepoCreateRecord);
+
+/// `com.atproto.repo.uploadBlob#main`
+const comAtprotoRepoUploadBlob = LexObject(ids.comAtprotoRepoUploadBlob);
+
+/// `com.atproto.repo.listRecords#main`
+const comAtprotoRepoListRecords = LexObject(ids.comAtprotoRepoListRecords);
+
+/// `com.atproto.repo.listRecords#record`
+const comAtprotoRepoListRecordsRecord =
+    LexObject(ids.comAtprotoRepoListRecordsRecord);
+
+/// `com.atproto.repo.deleteRecord#main`
+const comAtprotoRepoDeleteRecord = LexObject(ids.comAtprotoRepoDeleteRecord);
 
 /// `com.atproto.repo.describeRepo#main`
 const comAtprotoRepoDescribeRepo = LexObject(ids.comAtprotoRepoDescribeRepo);
 
+/// `com.atproto.repo.strongRef#main`
+const comAtprotoRepoStrongRef = LexObject(ids.comAtprotoRepoStrongRef);
+
 /// `com.atproto.repo.getRecord#main`
 const comAtprotoRepoGetRecord = LexObject(ids.comAtprotoRepoGetRecord);
 
-/// `com.atproto.repo.deleteRecord#main`
-const comAtprotoRepoDeleteRecord = LexObject(ids.comAtprotoRepoDeleteRecord);
+/// `com.atproto.repo.putRecord#main`
+const comAtprotoRepoPutRecord = LexObject(ids.comAtprotoRepoPutRecord);
 
 /// `com.atproto.repo.applyWrites#main`
 const comAtprotoRepoApplyWrites = LexObject(ids.comAtprotoRepoApplyWrites);
@@ -61,36 +194,35 @@ const comAtprotoRepoApplyWritesUpdate =
 const comAtprotoRepoApplyWritesDelete =
     LexObject(ids.comAtprotoRepoApplyWritesDelete);
 
-/// `com.atproto.repo.createRecord#main`
-const comAtprotoRepoCreateRecord = LexObject(ids.comAtprotoRepoCreateRecord);
+/// `com.atproto.label.defs#label`
+const comAtprotoLabelDefsLabel = LexObject(ids.comAtprotoLabelDefsLabel);
 
-/// `com.atproto.repo.putRecord#main`
-const comAtprotoRepoPutRecord = LexObject(ids.comAtprotoRepoPutRecord);
+/// `com.atproto.label.defs#selfLabels`
+const comAtprotoLabelDefsSelfLabels =
+    LexObject(ids.comAtprotoLabelDefsSelfLabels);
 
-/// `com.atproto.repo.listRecords#main`
-const comAtprotoRepoListRecords = LexObject(ids.comAtprotoRepoListRecords);
+/// `com.atproto.label.defs#selfLabel`
+const comAtprotoLabelDefsSelfLabel =
+    LexObject(ids.comAtprotoLabelDefsSelfLabel);
 
-/// `com.atproto.repo.listRecords#record`
-const comAtprotoRepoListRecordsRecord =
-    LexObject(ids.comAtprotoRepoListRecordsRecord);
+/// `com.atproto.label.subscribeLabels#main`
+const comAtprotoLabelSubscribeLabels =
+    LexObject(ids.comAtprotoLabelSubscribeLabels);
 
-/// `com.atproto.repo.strongRef#main`
-const comAtprotoRepoStrongRef = LexObject(ids.comAtprotoRepoStrongRef);
+/// `com.atproto.label.subscribeLabels#labels`
+const comAtprotoLabelSubscribeLabelsLabels =
+    LexObject(ids.comAtprotoLabelSubscribeLabelsLabels);
 
-/// `com.atproto.repo.uploadBlob#main`
-const comAtprotoRepoUploadBlob = LexObject(ids.comAtprotoRepoUploadBlob);
+/// `com.atproto.label.subscribeLabels#info`
+const comAtprotoLabelSubscribeLabelsInfo =
+    LexObject(ids.comAtprotoLabelSubscribeLabelsInfo);
 
-/// `com.atproto.admin.updateSubjectStatus#main`
-const comAtprotoAdminUpdateSubjectStatus =
-    LexObject(ids.comAtprotoAdminUpdateSubjectStatus);
+/// `com.atproto.label.queryLabels#main`
+const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
 
-/// `com.atproto.admin.disableAccountInvites#main`
-const comAtprotoAdminDisableAccountInvites =
-    LexObject(ids.comAtprotoAdminDisableAccountInvites);
-
-/// `com.atproto.admin.updateCommunicationTemplate#main`
-const comAtprotoAdminUpdateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
+/// `com.atproto.admin.disableInviteCodes#main`
+const comAtprotoAdminDisableInviteCodes =
+    LexObject(ids.comAtprotoAdminDisableInviteCodes);
 
 /// `com.atproto.admin.updateAccountEmail#main`
 const comAtprotoAdminUpdateAccountEmail =
@@ -99,74 +231,20 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.searchRepos#main`
 const comAtprotoAdminSearchRepos = LexObject(ids.comAtprotoAdminSearchRepos);
 
-/// `com.atproto.admin.emitModerationEvent#main`
-const comAtprotoAdminEmitModerationEvent =
-    LexObject(ids.comAtprotoAdminEmitModerationEvent);
-
-/// `com.atproto.admin.queryModerationEvents#main`
-const comAtprotoAdminQueryModerationEvents =
-    LexObject(ids.comAtprotoAdminQueryModerationEvents);
-
-/// `com.atproto.admin.updateAccountHandle#main`
-const comAtprotoAdminUpdateAccountHandle =
-    LexObject(ids.comAtprotoAdminUpdateAccountHandle);
-
-/// `com.atproto.admin.deleteCommunicationTemplate#main`
-const comAtprotoAdminDeleteCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
-
-/// `com.atproto.admin.getInviteCodes#main`
-const comAtprotoAdminGetInviteCodes =
-    LexObject(ids.comAtprotoAdminGetInviteCodes);
-
-/// `com.atproto.admin.getRecord#main`
-const comAtprotoAdminGetRecord = LexObject(ids.comAtprotoAdminGetRecord);
-
-/// `com.atproto.admin.getModerationEvent#main`
-const comAtprotoAdminGetModerationEvent =
-    LexObject(ids.comAtprotoAdminGetModerationEvent);
-
 /// `com.atproto.admin.deleteAccount#main`
 const comAtprotoAdminDeleteAccount =
     LexObject(ids.comAtprotoAdminDeleteAccount);
+
+/// `com.atproto.admin.getRepo#main`
+const comAtprotoAdminGetRepo = LexObject(ids.comAtprotoAdminGetRepo);
 
 /// `com.atproto.admin.getAccountInfos#main`
 const comAtprotoAdminGetAccountInfos =
     LexObject(ids.comAtprotoAdminGetAccountInfos);
 
-/// `com.atproto.admin.sendEmail#main`
-const comAtprotoAdminSendEmail = LexObject(ids.comAtprotoAdminSendEmail);
-
-/// `com.atproto.admin.queryModerationStatuses#main`
-const comAtprotoAdminQueryModerationStatuses =
-    LexObject(ids.comAtprotoAdminQueryModerationStatuses);
-
-/// `com.atproto.admin.getSubjectStatus#main`
-const comAtprotoAdminGetSubjectStatus =
-    LexObject(ids.comAtprotoAdminGetSubjectStatus);
-
-/// `com.atproto.admin.createCommunicationTemplate#main`
-const comAtprotoAdminCreateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
-
-/// `com.atproto.admin.enableAccountInvites#main`
-const comAtprotoAdminEnableAccountInvites =
-    LexObject(ids.comAtprotoAdminEnableAccountInvites);
-
-/// `com.atproto.admin.getRepo#main`
-const comAtprotoAdminGetRepo = LexObject(ids.comAtprotoAdminGetRepo);
-
-/// `com.atproto.admin.disableInviteCodes#main`
-const comAtprotoAdminDisableInviteCodes =
-    LexObject(ids.comAtprotoAdminDisableInviteCodes);
-
 /// `com.atproto.admin.getAccountInfo#main`
 const comAtprotoAdminGetAccountInfo =
     LexObject(ids.comAtprotoAdminGetAccountInfo);
-
-/// `com.atproto.admin.listCommunicationTemplates#main`
-const comAtprotoAdminListCommunicationTemplates =
-    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
 
 /// `com.atproto.admin.defs#statusAttr`
 const comAtprotoAdminDefsStatusAttr =
@@ -293,37 +371,78 @@ const comAtprotoAdminDefsModEventEmail =
 const comAtprotoAdminDefsCommunicationTemplateView =
     LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
 
-/// `com.atproto.sync.listRepos#main`
-const comAtprotoSyncListRepos = LexObject(ids.comAtprotoSyncListRepos);
+/// `com.atproto.admin.listCommunicationTemplates#main`
+const comAtprotoAdminListCommunicationTemplates =
+    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
 
-/// `com.atproto.sync.listRepos#repo`
-const comAtprotoSyncListReposRepo = LexObject(ids.comAtprotoSyncListReposRepo);
+/// `com.atproto.admin.emitModerationEvent#main`
+const comAtprotoAdminEmitModerationEvent =
+    LexObject(ids.comAtprotoAdminEmitModerationEvent);
 
-/// `com.atproto.sync.getCheckout#main`
-const comAtprotoSyncGetCheckout = LexObject(ids.comAtprotoSyncGetCheckout);
+/// `com.atproto.admin.updateCommunicationTemplate#main`
+const comAtprotoAdminUpdateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
+
+/// `com.atproto.admin.updateAccountHandle#main`
+const comAtprotoAdminUpdateAccountHandle =
+    LexObject(ids.comAtprotoAdminUpdateAccountHandle);
+
+/// `com.atproto.admin.getSubjectStatus#main`
+const comAtprotoAdminGetSubjectStatus =
+    LexObject(ids.comAtprotoAdminGetSubjectStatus);
+
+/// `com.atproto.admin.queryModerationEvents#main`
+const comAtprotoAdminQueryModerationEvents =
+    LexObject(ids.comAtprotoAdminQueryModerationEvents);
+
+/// `com.atproto.admin.updateSubjectStatus#main`
+const comAtprotoAdminUpdateSubjectStatus =
+    LexObject(ids.comAtprotoAdminUpdateSubjectStatus);
+
+/// `com.atproto.admin.getInviteCodes#main`
+const comAtprotoAdminGetInviteCodes =
+    LexObject(ids.comAtprotoAdminGetInviteCodes);
+
+/// `com.atproto.admin.sendEmail#main`
+const comAtprotoAdminSendEmail = LexObject(ids.comAtprotoAdminSendEmail);
+
+/// `com.atproto.admin.getModerationEvent#main`
+const comAtprotoAdminGetModerationEvent =
+    LexObject(ids.comAtprotoAdminGetModerationEvent);
+
+/// `com.atproto.admin.getRecord#main`
+const comAtprotoAdminGetRecord = LexObject(ids.comAtprotoAdminGetRecord);
+
+/// `com.atproto.admin.disableAccountInvites#main`
+const comAtprotoAdminDisableAccountInvites =
+    LexObject(ids.comAtprotoAdminDisableAccountInvites);
+
+/// `com.atproto.admin.deleteCommunicationTemplate#main`
+const comAtprotoAdminDeleteCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
+
+/// `com.atproto.admin.enableAccountInvites#main`
+const comAtprotoAdminEnableAccountInvites =
+    LexObject(ids.comAtprotoAdminEnableAccountInvites);
+
+/// `com.atproto.admin.createCommunicationTemplate#main`
+const comAtprotoAdminCreateCommunicationTemplate =
+    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
+
+/// `com.atproto.admin.queryModerationStatuses#main`
+const comAtprotoAdminQueryModerationStatuses =
+    LexObject(ids.comAtprotoAdminQueryModerationStatuses);
+
+/// `com.atproto.moderation.createReport#main`
+const comAtprotoModerationCreateReport =
+    LexObject(ids.comAtprotoModerationCreateReport);
+
+/// `com.atproto.sync.getBlocks#main`
+const comAtprotoSyncGetBlocks = LexObject(ids.comAtprotoSyncGetBlocks);
 
 /// `com.atproto.sync.notifyOfUpdate#main`
 const comAtprotoSyncNotifyOfUpdate =
     LexObject(ids.comAtprotoSyncNotifyOfUpdate);
-
-/// `com.atproto.sync.getRecord#main`
-const comAtprotoSyncGetRecord = LexObject(ids.comAtprotoSyncGetRecord);
-
-/// `com.atproto.sync.getHead#main`
-const comAtprotoSyncGetHead = LexObject(ids.comAtprotoSyncGetHead);
-
-/// `com.atproto.sync.getBlob#main`
-const comAtprotoSyncGetBlob = LexObject(ids.comAtprotoSyncGetBlob);
-
-/// `com.atproto.sync.listBlobs#main`
-const comAtprotoSyncListBlobs = LexObject(ids.comAtprotoSyncListBlobs);
-
-/// `com.atproto.sync.getLatestCommit#main`
-const comAtprotoSyncGetLatestCommit =
-    LexObject(ids.comAtprotoSyncGetLatestCommit);
-
-/// `com.atproto.sync.getBlocks#main`
-const comAtprotoSyncGetBlocks = LexObject(ids.comAtprotoSyncGetBlocks);
 
 /// `com.atproto.sync.subscribeRepos#main`
 const comAtprotoSyncSubscribeRepos =
@@ -353,152 +472,33 @@ const comAtprotoSyncSubscribeReposInfo =
 const comAtprotoSyncSubscribeReposRepoOp =
     LexObject(ids.comAtprotoSyncSubscribeReposRepoOp);
 
-/// `com.atproto.sync.requestCrawl#main`
-const comAtprotoSyncRequestCrawl = LexObject(ids.comAtprotoSyncRequestCrawl);
-
 /// `com.atproto.sync.getRepo#main`
 const comAtprotoSyncGetRepo = LexObject(ids.comAtprotoSyncGetRepo);
 
-/// `com.atproto.moderation.createReport#main`
-const comAtprotoModerationCreateReport =
-    LexObject(ids.comAtprotoModerationCreateReport);
+/// `com.atproto.sync.getCheckout#main`
+const comAtprotoSyncGetCheckout = LexObject(ids.comAtprotoSyncGetCheckout);
 
-/// `com.atproto.identity.updateHandle#main`
-const comAtprotoIdentityUpdateHandle =
-    LexObject(ids.comAtprotoIdentityUpdateHandle);
+/// `com.atproto.sync.getHead#main`
+const comAtprotoSyncGetHead = LexObject(ids.comAtprotoSyncGetHead);
 
-/// `com.atproto.identity.resolveHandle#main`
-const comAtprotoIdentityResolveHandle =
-    LexObject(ids.comAtprotoIdentityResolveHandle);
+/// `com.atproto.sync.listBlobs#main`
+const comAtprotoSyncListBlobs = LexObject(ids.comAtprotoSyncListBlobs);
 
-/// `com.atproto.label.subscribeLabels#main`
-const comAtprotoLabelSubscribeLabels =
-    LexObject(ids.comAtprotoLabelSubscribeLabels);
+/// `com.atproto.sync.getBlob#main`
+const comAtprotoSyncGetBlob = LexObject(ids.comAtprotoSyncGetBlob);
 
-/// `com.atproto.label.subscribeLabels#labels`
-const comAtprotoLabelSubscribeLabelsLabels =
-    LexObject(ids.comAtprotoLabelSubscribeLabelsLabels);
+/// `com.atproto.sync.getLatestCommit#main`
+const comAtprotoSyncGetLatestCommit =
+    LexObject(ids.comAtprotoSyncGetLatestCommit);
 
-/// `com.atproto.label.subscribeLabels#info`
-const comAtprotoLabelSubscribeLabelsInfo =
-    LexObject(ids.comAtprotoLabelSubscribeLabelsInfo);
+/// `com.atproto.sync.requestCrawl#main`
+const comAtprotoSyncRequestCrawl = LexObject(ids.comAtprotoSyncRequestCrawl);
 
-/// `com.atproto.label.queryLabels#main`
-const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
+/// `com.atproto.sync.getRecord#main`
+const comAtprotoSyncGetRecord = LexObject(ids.comAtprotoSyncGetRecord);
 
-/// `com.atproto.label.defs#label`
-const comAtprotoLabelDefsLabel = LexObject(ids.comAtprotoLabelDefsLabel);
+/// `com.atproto.sync.listRepos#main`
+const comAtprotoSyncListRepos = LexObject(ids.comAtprotoSyncListRepos);
 
-/// `com.atproto.label.defs#selfLabels`
-const comAtprotoLabelDefsSelfLabels =
-    LexObject(ids.comAtprotoLabelDefsSelfLabels);
-
-/// `com.atproto.label.defs#selfLabel`
-const comAtprotoLabelDefsSelfLabel =
-    LexObject(ids.comAtprotoLabelDefsSelfLabel);
-
-/// `com.atproto.server.listAppPasswords#main`
-const comAtprotoServerListAppPasswords =
-    LexObject(ids.comAtprotoServerListAppPasswords);
-
-/// `com.atproto.server.listAppPasswords#appPassword`
-const comAtprotoServerListAppPasswordsAppPassword =
-    LexObject(ids.comAtprotoServerListAppPasswordsAppPassword);
-
-/// `com.atproto.server.reserveSigningKey#main`
-const comAtprotoServerReserveSigningKey =
-    LexObject(ids.comAtprotoServerReserveSigningKey);
-
-/// `com.atproto.server.refreshSession#main`
-const comAtprotoServerRefreshSession =
-    LexObject(ids.comAtprotoServerRefreshSession);
-
-/// `com.atproto.server.createAccount#main`
-const comAtprotoServerCreateAccount =
-    LexObject(ids.comAtprotoServerCreateAccount);
-
-/// `com.atproto.server.revokeAppPassword#main`
-const comAtprotoServerRevokeAppPassword =
-    LexObject(ids.comAtprotoServerRevokeAppPassword);
-
-/// `com.atproto.server.describeServer#main`
-const comAtprotoServerDescribeServer =
-    LexObject(ids.comAtprotoServerDescribeServer);
-
-/// `com.atproto.server.describeServer#links`
-const comAtprotoServerDescribeServerLinks =
-    LexObject(ids.comAtprotoServerDescribeServerLinks);
-
-/// `com.atproto.server.updateEmail#main`
-const comAtprotoServerUpdateEmail = LexObject(ids.comAtprotoServerUpdateEmail);
-
-/// `com.atproto.server.getAccountInviteCodes#main`
-const comAtprotoServerGetAccountInviteCodes =
-    LexObject(ids.comAtprotoServerGetAccountInviteCodes);
-
-/// `com.atproto.server.requestEmailUpdate#main`
-const comAtprotoServerRequestEmailUpdate =
-    LexObject(ids.comAtprotoServerRequestEmailUpdate);
-
-/// `com.atproto.server.deleteAccount#main`
-const comAtprotoServerDeleteAccount =
-    LexObject(ids.comAtprotoServerDeleteAccount);
-
-/// `com.atproto.server.confirmEmail#main`
-const comAtprotoServerConfirmEmail =
-    LexObject(ids.comAtprotoServerConfirmEmail);
-
-/// `com.atproto.server.getSession#main`
-const comAtprotoServerGetSession = LexObject(ids.comAtprotoServerGetSession);
-
-/// `com.atproto.server.requestPasswordReset#main`
-const comAtprotoServerRequestPasswordReset =
-    LexObject(ids.comAtprotoServerRequestPasswordReset);
-
-/// `com.atproto.server.requestAccountDelete#main`
-const comAtprotoServerRequestAccountDelete =
-    LexObject(ids.comAtprotoServerRequestAccountDelete);
-
-/// `com.atproto.server.createInviteCodes#main`
-const comAtprotoServerCreateInviteCodes =
-    LexObject(ids.comAtprotoServerCreateInviteCodes);
-
-/// `com.atproto.server.createInviteCodes#accountCodes`
-const comAtprotoServerCreateInviteCodesAccountCodes =
-    LexObject(ids.comAtprotoServerCreateInviteCodesAccountCodes);
-
-/// `com.atproto.server.deleteSession#main`
-const comAtprotoServerDeleteSession =
-    LexObject(ids.comAtprotoServerDeleteSession);
-
-/// `com.atproto.server.resetPassword#main`
-const comAtprotoServerResetPassword =
-    LexObject(ids.comAtprotoServerResetPassword);
-
-/// `com.atproto.server.createInviteCode#main`
-const comAtprotoServerCreateInviteCode =
-    LexObject(ids.comAtprotoServerCreateInviteCode);
-
-/// `com.atproto.server.requestEmailConfirmation#main`
-const comAtprotoServerRequestEmailConfirmation =
-    LexObject(ids.comAtprotoServerRequestEmailConfirmation);
-
-/// `com.atproto.server.createSession#main`
-const comAtprotoServerCreateSession =
-    LexObject(ids.comAtprotoServerCreateSession);
-
-/// `com.atproto.server.createAppPassword#main`
-const comAtprotoServerCreateAppPassword =
-    LexObject(ids.comAtprotoServerCreateAppPassword);
-
-/// `com.atproto.server.createAppPassword#appPassword`
-const comAtprotoServerCreateAppPasswordAppPassword =
-    LexObject(ids.comAtprotoServerCreateAppPasswordAppPassword);
-
-/// `com.atproto.server.defs#inviteCode`
-const comAtprotoServerDefsInviteCode =
-    LexObject(ids.comAtprotoServerDefsInviteCode);
-
-/// `com.atproto.server.defs#inviteCodeUse`
-const comAtprotoServerDefsInviteCodeUse =
-    LexObject(ids.comAtprotoServerDefsInviteCodeUse);
+/// `com.atproto.sync.listRepos#repo`
+const comAtprotoSyncListReposRepo = LexObject(ids.comAtprotoSyncListReposRepo);
