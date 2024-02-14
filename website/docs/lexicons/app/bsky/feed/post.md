@@ -22,7 +22,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **embed** | union of <br/>[app.bsky.embed.images](../../../../lexicons/app/bsky/embed/images.md#main)<br/>[app.bsky.embed.external](../../../../lexicons/app/bsky/embed/external.md#main)<br/>[app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main)<br/>[app.bsky.embed.recordWithMedia](../../../../lexicons/app/bsky/embed/recordWithMedia.md#main) | - | ❌ | - |
 | **langs** | array of string | - | ❌ | Indicates human language of post primary text content. |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
-| **tags** | array of string | - | ❌ | Additional non-inline tags describing this post. |
+| **tags** | array of string | - | ❌ | Additional hashtags, in addition to any included in post text and facets. |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Client-declared timestamp when this post was originally created. |
 
 ### Output
