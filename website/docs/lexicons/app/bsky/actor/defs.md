@@ -85,6 +85,7 @@ Metadata about the requesting account's relationship with the subject account. O
 | --- | --- | --- | :---: | --- |
 | **pinned** | array of string | - | ✅ | - |
 | **saved** | array of string | - | ✅ | - |
+| **timelineIndex** | integer | - | ❌ | - |
 
 ## #personalDetailsPref
 
