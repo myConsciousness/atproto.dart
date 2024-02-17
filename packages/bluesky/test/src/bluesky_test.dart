@@ -132,4 +132,32 @@ void main() {
 
     expect(service, isA<LabelService>());
   });
+
+  group('.service', () {
+    test('case1', () {
+      final atproto = ATProto.anonymous();
+
+      expect(atproto.service, 'bsky.social');
+    });
+
+    test('case2', () {
+      final atproto = ATProto.anonymous(service: 'syu.is');
+
+      expect(atproto.service, 'syu.is');
+    });
+  });
+
+  group('.relayService', () {
+    test('case1', () {
+      final atproto = ATProto.anonymous();
+
+      expect(atproto.relayService, 'bsky.network');
+    });
+
+    test('case2', () {
+      final atproto = ATProto.anonymous(relayService: 'bgs.syu.is');
+
+      expect(atproto.relayService, 'bgs.syu.is');
+    });
+  });
 }

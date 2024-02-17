@@ -87,6 +87,14 @@ sealed class Bluesky {
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Returns the current service.
+  /// Defaults to `bsky.social`.
+  String get service;
+
+  /// Returns the current replay service.
+  /// Defaults to `bsky.network`.
+  String get relayService;
+
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
   @Deprecated('Use .actor instead. Will be removed')
@@ -213,8 +221,7 @@ sealed class Bluesky {
 
 final class _Bluesky implements Bluesky {
   _Bluesky(final BlueskyServiceContext ctx)
-      : session = ctx.session,
-        actor = ActorService(ctx),
+      : actor = ActorService(ctx),
         feed = FeedService(ctx),
         notification = NotificationService(ctx),
         graph = GraphService(ctx),
@@ -228,7 +235,13 @@ final class _Bluesky implements Bluesky {
         _ctx = ctx;
 
   @override
-  final core.Session? session;
+  core.Session? get session => _ctx.session;
+
+  @override
+  String get service => _ctx.service;
+
+  @override
+  String get relayService => _ctx.relayService;
 
   @override
   final ActorService actor;
