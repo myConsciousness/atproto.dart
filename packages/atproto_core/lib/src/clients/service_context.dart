@@ -27,14 +27,23 @@ base class ServiceContext {
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _protocol = protocol ?? defaultProtocol,
-        _service = service ?? defaultService,
-        _relayService = relayService ?? defaultRelayService,
+        service = service ?? defaultService,
+        relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
         _timeout = timeout ?? defaultTimeout,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
 
+  /// The current session.
   final Session? session;
+
+  /// The current service.
+  /// Defaults to `bsky.social`.
+  final String service;
+
+  /// The current relay service.
+  /// Defaults to `bsky.network`.
+  final String relayService;
 
   /// The communication challenge for client
   final Challenge _challenge;
@@ -44,9 +53,6 @@ base class ServiceContext {
 
   /// The communication protocol.
   final xrpc.Protocol _protocol;
-
-  final String _service;
-  final String _relayService;
 
   final xrpc.GetClient? _mockedGetClient;
   final xrpc.PostClient? _mockedPostClient;
@@ -62,7 +68,7 @@ base class ServiceContext {
         () async => await xrpc.query(
           methodId,
           protocol: _protocol,
-          service: _service,
+          service: service,
           headers: _getHeaders(headers),
           parameters: parameters,
           to: to,
@@ -82,7 +88,7 @@ base class ServiceContext {
         () async => await xrpc.procedure(
           methodId,
           protocol: _protocol,
-          service: _service,
+          service: service,
           headers: _getHeaders(headers),
           body: body,
           to: to,
@@ -102,7 +108,7 @@ base class ServiceContext {
           methodId,
           bytes,
           protocol: _protocol,
-          service: _service,
+          service: service,
           headers: _getHeaders(headers),
           timeout: _timeout,
           to: to,
@@ -119,7 +125,7 @@ base class ServiceContext {
       await _challenge.execute(
         () => xrpc.subscribe(
           methodId,
-          service: _relayService,
+          service: relayService,
           parameters: parameters,
           to: to,
           adaptor: adaptor,

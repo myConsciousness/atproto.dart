@@ -3,6 +3,7 @@
 ## v0.9.4
 
 - Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))
+- Exposed `.service` and `.relayService` properties on `ServiceContext`. ([#1254](https://github.com/myConsciousness/atproto.dart/issues/1254))
 
 ## v0.9.3
 
