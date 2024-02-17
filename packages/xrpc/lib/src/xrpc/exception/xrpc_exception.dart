@@ -24,19 +24,13 @@ base class XRPCException implements Exception {
   @override
   String toString() {
     final buffer = StringBuffer()
-      ..writeln('$_label: Failed to communicate with ATP server.\n')
-      ..writeln('  ✅ Status Code:')
-      ..writeln('   ${response.status.code}\n')
-      ..writeln('  ✅ Request:')
-      ..writeln('   ${response.request}\n')
-      ..writeln('  ✅ Headers:')
-      ..writeln('   ${response.headers}\n')
-      ..writeln('  ✅ Body:')
-      ..writeln('   ${response.data}\n')
-      ..writeln()
-      ..writeln('  Please create an Issue if you have a question '
-          'or suggestion for this exception.')
-      ..writeln('  https://github.com/myConsciousness/atproto.dart');
+      ..write('$_label:')
+      ..write(' ')
+      ..write(response.request.toString())
+      ..write(' ')
+      ..write(response.status.code)
+      ..write(' ')
+      ..write(response.data.message);
 
     return buffer.toString();
   }
