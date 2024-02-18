@@ -46,7 +46,8 @@
       ],
       "saved": [
         "at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"
-      ]
+      ],
+      "timelineIndex": 1
     },
     {
       "$type": "app.bsky.actor.defs#personalDetailsPref",
