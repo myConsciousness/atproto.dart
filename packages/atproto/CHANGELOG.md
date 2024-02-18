@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.11.5
+
+- Added `TempService`. You can use it like `atproto.temp`. ([#1238](https://github.com/myConsciousness/atproto.dart/issues/1238))
+  - `.checkSignupQueue`
+  - `.importRepo`
+  - `.pushBlob`
+  - `.requestPhoneVerification`
+  - `.transferAccount`
+
 ## v0.11.4
 
 - Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))

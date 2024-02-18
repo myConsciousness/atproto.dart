@@ -2,6 +2,9 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
@@ -29,4 +32,6 @@ final class MockValues {
 
   String get text => 'Hello!';
   String get query => 'test';
+
+  Uint8List get blob => Uint8List.fromList(const []);
 }

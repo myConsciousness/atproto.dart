@@ -70,6 +70,10 @@ export 'package:atproto/atproto.dart'
         $UpdateActionCopyWith,
         SigningKey,
         $SigningKeyCopyWith,
+        SignupQueue,
+        $SignupQueueCopyWith,
+        TransferredAccount,
+        $TransferredAccountCopyWith,
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
         RepoCommits,
@@ -133,7 +137,8 @@ export 'package:atproto/atproto.dart'
         RepoServiceExtension,
         ModerationService,
         SyncService,
-        LabelService;
+        LabelService,
+        TempService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
