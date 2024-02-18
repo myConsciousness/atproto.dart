@@ -179,6 +179,10 @@ sealed class Bluesky {
   /// This service represents `com.atproto.label.*`.
   atp.LabelService get label;
 
+  /// Returns the temp service.
+  /// This service represents `com.atproto.temp.*`.
+  atp.TempService get temp;
+
   /// Returns the result of executing [methodId] as GET communication.
   ///
   /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
@@ -234,6 +238,7 @@ final class _Bluesky implements Bluesky {
         moderation = ctx.atproto.moderation,
         sync = ctx.atproto.sync,
         label = ctx.atproto.label,
+        temp = ctx.atproto.temp,
         _ctx = ctx;
 
   @override
@@ -301,6 +306,9 @@ final class _Bluesky implements Bluesky {
 
   @override
   atp.LabelService get labels => label;
+
+  @override
+  final atp.TempService temp;
 
   final core.ServiceContext _ctx;
 

@@ -12,6 +12,7 @@ import 'services/moderation_service.dart';
 import 'services/repo_service.dart';
 import 'services/server_service.dart';
 import 'services/sync_service.dart';
+import 'services/temp_service.dart';
 
 /// Provides `com.atproto.*` services.
 sealed class ATProto {
@@ -119,6 +120,10 @@ sealed class ATProto {
   /// This service represents `com.atproto.label.*`.
   LabelService get label;
 
+  /// Returns the temp service.
+  /// This service represents `com.atproto.temp.*`.
+  TempService get temp;
+
   /// Returns the result of executing [methodId] as GET communication.
   ///
   /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
@@ -169,6 +174,7 @@ final class _ATProto implements ATProto {
         moderation = ModerationService(ctx),
         sync = SyncService(ctx),
         label = LabelService(ctx),
+        temp = TempService(ctx),
         _ctx = ctx;
 
   @override
@@ -209,6 +215,9 @@ final class _ATProto implements ATProto {
 
   @override
   LabelService get labels => label;
+
+  @override
+  final TempService temp;
 
   final core.ServiceContext _ctx;
 

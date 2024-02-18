@@ -13,6 +13,7 @@ import 'package:atproto/src/services/moderation_service.dart';
 import 'package:atproto/src/services/repo_service.dart';
 import 'package:atproto/src/services/server_service.dart';
 import 'package:atproto/src/services/sync_service.dart';
+import 'package:atproto/src/services/temp_service.dart';
 
 const _runner = _ServiceRunner();
 
@@ -100,6 +101,18 @@ void testSyncSubscription<D>(
       id,
     );
 
+void testTemp<D>(
+  final atp_test.ServiceCallback<TempService, D> endpoint, {
+  required String id,
+  String? label,
+}) =>
+    atp_test.testService<TempService, D>(
+      _runner,
+      endpoint,
+      id,
+      label,
+    );
+
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
@@ -120,6 +133,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       return _getServerService(getClient, postClient) as S;
     } else if (S == SyncService) {
       return _getSyncService(getClient, postClient) as S;
+    } else if (S == TempService) {
+      return _getTempService(getClient, postClient) as S;
     }
 
     throw UnsupportedError('Unsupported Service: $S');
@@ -175,6 +190,15 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.PostClient? mockedPostClient,
   ) =>
       SyncService(getClientContext(
+        mockedGetClient,
+        mockedPostClient,
+      ));
+
+  TempService _getTempService(
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  ) =>
+      TempService(getClientContext(
         mockedGetClient,
         mockedPostClient,
       ));
