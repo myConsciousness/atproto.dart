@@ -9,7 +9,7 @@ description: app.bsky.feed.getTimeline
 
 Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

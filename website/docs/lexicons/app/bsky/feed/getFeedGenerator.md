@@ -9,7 +9,7 @@ description: app.bsky.feed.getFeedGenerator
 
 Get information about a feed generator. Implemented by AppView.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

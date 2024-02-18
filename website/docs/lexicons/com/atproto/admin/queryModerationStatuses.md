@@ -9,7 +9,7 @@ description: com.atproto.admin.queryModerationStatuses
 
 View moderation statuses of subjects (record or repo).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,7 @@ description: app.bsky.actor.searchActors
 
 Find actors (profiles) matching search criteria. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

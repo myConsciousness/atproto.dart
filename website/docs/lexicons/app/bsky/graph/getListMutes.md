@@ -9,7 +9,7 @@ description: app.bsky.graph.getListMutes
 
 Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

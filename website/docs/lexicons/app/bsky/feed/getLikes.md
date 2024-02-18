@@ -9,7 +9,7 @@ description: app.bsky.feed.getLikes
 
 Get like records which reference a subject (by AT-URI and CID).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

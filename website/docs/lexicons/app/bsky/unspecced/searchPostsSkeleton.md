@@ -9,7 +9,7 @@ description: app.bsky.unspecced.searchPostsSkeleton
 
 Backend Posts search, returns only skeleton
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,7 @@ description: com.atproto.sync.getRecord
 
 Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

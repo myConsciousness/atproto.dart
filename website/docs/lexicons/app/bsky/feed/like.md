@@ -7,7 +7,7 @@ description: app.bsky.feed.like
 
 ## #main
 
-### Input
+### Properties
 
 Record declaring a 'like' of a piece of subject content.
 

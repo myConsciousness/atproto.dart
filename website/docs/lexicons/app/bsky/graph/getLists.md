@@ -9,7 +9,7 @@ description: app.bsky.graph.getLists
 
 Enumerates the lists created by a specified account (actor).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

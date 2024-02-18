@@ -9,7 +9,7 @@ description: app.bsky.graph.getFollows
 
 Enumerates accounts which a specified account (actor) follows.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

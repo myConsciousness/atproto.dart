@@ -9,7 +9,7 @@ description: com.atproto.server.getAccountInviteCodes
 
 Get all invite codes for the current account. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

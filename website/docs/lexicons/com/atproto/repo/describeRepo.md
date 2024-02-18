@@ -9,7 +9,7 @@ description: com.atproto.repo.describeRepo
 
 Get information about an account and repository, including the list of collections. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

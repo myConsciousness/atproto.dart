@@ -9,7 +9,7 @@ description: com.atproto.sync.getLatestCommit
 
 Get the current commit CID & revision of the specified repo. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

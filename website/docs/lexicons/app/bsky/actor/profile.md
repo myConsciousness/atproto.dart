@@ -7,7 +7,7 @@ description: app.bsky.actor.profile
 
 ## #main
 
-### Input
+### Properties
 
 A declaration of a Bluesky account profile.
 

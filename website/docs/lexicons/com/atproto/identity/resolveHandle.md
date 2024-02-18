@@ -9,7 +9,7 @@ description: com.atproto.identity.resolveHandle
 
 Resolves a handle (domain name) to a DID.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

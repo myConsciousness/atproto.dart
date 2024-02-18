@@ -7,7 +7,7 @@ description: app.bsky.graph.listitem
 
 ## #main
 
-### Input
+### Properties
 
 Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
 

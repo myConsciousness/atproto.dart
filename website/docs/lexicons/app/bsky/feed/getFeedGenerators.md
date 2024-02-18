@@ -9,7 +9,7 @@ description: app.bsky.feed.getFeedGenerators
 
 Get information about a list of feed generators.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

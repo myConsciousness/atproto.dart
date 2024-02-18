@@ -7,7 +7,7 @@ description: app.bsky.feed.generator
 
 ## #main
 
-### Input
+### Properties
 
 Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
 

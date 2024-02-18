@@ -9,7 +9,7 @@ description: com.atproto.admin.getRepo
 
 Get details about a repository.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

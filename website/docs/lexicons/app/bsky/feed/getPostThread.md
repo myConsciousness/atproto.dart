@@ -9,7 +9,7 @@ description: app.bsky.feed.getPostThread
 
 Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

@@ -9,7 +9,7 @@ description: app.bsky.feed.getSuggestedFeeds
 
 Get a list of suggested feeds (feed generators) for the requesting account.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
