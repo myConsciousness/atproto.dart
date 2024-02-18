@@ -208,12 +208,14 @@ sealed class Bluesky {
   ///
   /// - [methodId]: name of method to execute in XRPC.
   /// - [headers]: optional header information to be added to the request.
+  /// - [parameters]: query parameters passed to [methodId].
   /// - [body]: data passed to [methodId].
   /// - [to]: optional builder to convert the body of the response to a specific
   ///         object.
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final core.ResponseDataBuilder<T>? to,
   });
@@ -322,12 +324,14 @@ final class _Bluesky implements Bluesky {
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.post(
         methodId,
         headers: headers,
+        parameters: parameters,
         body: body,
         to: to,
       );

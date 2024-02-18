@@ -340,9 +340,9 @@ void main() {
 
   group('.upload', () {
     test('simple case', () async {
-      final response = await upload<EmptyData>(
+      final response = await procedure<EmptyData>(
         NSID.create('test.com', 'get'),
-        File('./test/src/data/dash.png').readAsBytesSync(),
+        body: File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{}',
           200,
@@ -356,9 +356,9 @@ void main() {
     });
 
     test('with "to" parameter', () async {
-      final response = await upload(
+      final response = await procedure(
         NSID.create('test.com', 'get'),
-        File('./test/src/data/dash.png').readAsBytesSync(),
+        body: File('./test/src/data/dash.png').readAsBytesSync(),
         to: EmptyData.fromJson,
         postClient: (url, {body, encoding, headers}) async => Response(
           '{}',
@@ -373,9 +373,9 @@ void main() {
     });
 
     test('T is String', () async {
-      final response = await upload<String>(
+      final response = await procedure<String>(
         NSID.create('test.com', 'get'),
-        File('./test/src/data/dash.png').readAsBytesSync(),
+        body: File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{"test": "test"}',
           200,
@@ -390,9 +390,9 @@ void main() {
     });
 
     test('T is Map<String, dynamic>', () async {
-      final response = await upload<Map<String, dynamic>>(
+      final response = await procedure<Map<String, dynamic>>(
         NSID.create('test.com', 'get'),
-        File('./test/src/data/dash.png').readAsBytesSync(),
+        body: File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{"test": "test"}',
           200,
@@ -407,9 +407,9 @@ void main() {
     });
 
     test('with rate limits', () async {
-      final response = await upload<EmptyData>(
+      final response = await procedure<EmptyData>(
         NSID.create('test.com', 'post'),
-        File('./test/src/data/dash.png').readAsBytesSync(),
+        body: File('./test/src/data/dash.png').readAsBytesSync(),
         postClient: (url, {body, encoding, headers}) async => Response(
           '{}',
           200,

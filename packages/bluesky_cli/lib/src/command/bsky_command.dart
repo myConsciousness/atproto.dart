@@ -77,12 +77,12 @@ abstract class BskyCommand extends Command<void> {
   Future<xrpc.XRPCResponse<String>> upload(
     final File file,
   ) async =>
-      await xrpc.upload<String>(
+      await xrpc.procedure<String>(
         xrpc.NSID.create(
           'repo.atproto.com',
           'uploadBlob',
         ),
-        file.readAsBytesSync(),
+        body: file.readAsBytesSync(),
         headers: {
           'Authorization': 'Bearer ${await accessJwt}',
         },

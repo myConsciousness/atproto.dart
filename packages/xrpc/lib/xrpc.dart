@@ -19,8 +19,7 @@ export 'package:xrpc/src/http_status.dart';
 export 'package:xrpc/src/protocol.dart';
 export 'package:xrpc/src/serializable.dart';
 export 'package:xrpc/src/subscription.dart';
-export 'package:xrpc/src/xrpc/xrpc.dart'
-    show query, procedure, upload, subscribe;
+export 'package:xrpc/src/xrpc/xrpc.dart' show query, procedure, subscribe;
 export 'package:xrpc/src/xrpc/xrpc_error.dart';
 export 'package:xrpc/src/xrpc/xrpc_request.dart';
 export 'package:xrpc/src/xrpc/xrpc_response.dart';

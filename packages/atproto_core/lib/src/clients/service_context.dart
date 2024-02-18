@@ -4,7 +4,6 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
@@ -81,6 +80,7 @@ base class ServiceContext {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final xrpc.ResponseDataBuilder<T>? to,
   }) async =>
@@ -90,28 +90,10 @@ base class ServiceContext {
           protocol: _protocol,
           service: service,
           headers: _getHeaders(headers),
+          parameters: parameters,
           body: body,
           to: to,
           timeout: _timeout,
-          postClient: _mockedPostClient,
-        ),
-      );
-
-  Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
-    final Uint8List bytes, {
-    final Map<String, String>? headers,
-    final xrpc.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _challenge.execute(
-        () async => await xrpc.upload(
-          methodId,
-          bytes,
-          protocol: _protocol,
-          service: service,
-          headers: _getHeaders(headers),
-          timeout: _timeout,
-          to: to,
           postClient: _mockedPostClient,
         ),
       );
