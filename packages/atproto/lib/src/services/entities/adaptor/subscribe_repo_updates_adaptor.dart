@@ -20,7 +20,9 @@ Map<String, dynamic> toSubscribedRepo(final dynamic data) {
   }
 
   final json = <String, dynamic>{...cborData[0], ...cborData[1]};
-  final blocks = core.decodeCar(Uint8List.fromList(json['blocks']));
+  final blocks = json.containsKey('blocks') && json['blocks'].isNotEmpty
+      ? core.decodeCar(Uint8List.fromList(json['blocks']))
+      : const <core.CID, List<int>>{};
 
   for (final op in json['ops']) {
     op['uri'] = 'at://${json['repo']}/${op['path']}';

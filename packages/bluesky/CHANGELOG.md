@@ -6,6 +6,7 @@
 - Exposed `.service` and `.relayService` properties on `Bluesky`. ([#1254](https://github.com/myConsciousness/atproto.dart/issues/1254))
 - Added `.timelineIndex` on `SavedFeedsPreference`. ([#1251](https://github.com/myConsciousness/atproto.dart/issues/1251))
 - Added `parameters` arg and you can pass bytes to `body` arg on `.post` method. ([#1252](https://github.com/myConsciousness/atproto.dart/issues/1252))
+- BugFix: Made sure to check if the subscribeRepos blocks can be decoded. ([#1239](https://github.com/myConsciousness/atproto.dart/issues/1239))
 
 ## v0.15.6
 
