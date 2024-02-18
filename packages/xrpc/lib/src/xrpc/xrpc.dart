@@ -277,7 +277,8 @@ Future<XRPCResponse<T>> procedure<T>(
   final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
-  final Map<String, dynamic>? body,
+  final Map<String, dynamic>? parameters,
+  final dynamic body,
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
   final type.PostClient? postClient,
@@ -289,45 +290,15 @@ Future<XRPCResponse<T>> procedure<T>(
               util.getUriFactory(protocol).call(
                     service ?? defaultService,
                     '/xrpc/$methodId',
+                    util.convertParameters(
+                      util.removeNullValues(parameters) ?? {},
+                    ),
                   ),
-              headers: {
-                'Content-type': 'application/json',
-              }..addAll(headers ?? {}),
-              body: body != null
-                  ? jsonEncode(
-                      util.removeNullValues(body) ?? {},
-                    )
-                  : null,
-              encoding: utf8,
+              headers: _getProcedureHeaders(headers, body),
+              body: _getProcedureBody(body),
+              encoding: body is Map<String, dynamic> ? utf8 : null,
             )
             .timeout(timeout),
-      ),
-      to,
-    );
-
-/// Uploads blob.
-Future<XRPCResponse<T>> upload<T>(
-  final nsid.NSID methodId,
-  final Uint8List bytes, {
-  final Protocol protocol = Protocol.https,
-  final String? service,
-  final Map<String, String>? headers,
-  final Duration timeout = const Duration(seconds: 10),
-  final type.ResponseDataBuilder<T>? to,
-  final type.PostClient? postClient,
-}) async =>
-    _buildResponse(
-      checkStatus(
-        await (postClient ?? http.post).call(
-          util.getUriFactory(protocol).call(
-                service ?? defaultService,
-                '/xrpc/${methodId.toString()}',
-              ),
-          headers: {
-            'Content-Type': lookupMimeType('', headerBytes: bytes) ?? '*/*',
-          }..addAll(headers ?? {}),
-          body: bytes,
-        ),
       ),
       to,
     );
@@ -455,4 +426,24 @@ Uri _buildWsUri(
   }
 
   return Uri.parse(buffer.toString());
+}
+
+Map<String, String> _getProcedureHeaders(
+  final Map<String, String>? headers,
+  final dynamic body,
+) {
+  if (body is Uint8List) {
+    return {
+      'Content-Type': lookupMimeType('', headerBytes: body) ?? '*/*',
+    }..addAll(headers ?? {});
+  }
+
+  return {'Content-type': 'application/json'}..addAll(headers ?? {});
+}
+
+dynamic _getProcedureBody(final dynamic body) {
+  if (body == null) return null;
+  if (body is Uint8List) return body;
+
+  return jsonEncode(util.removeNullValues(body) ?? {});
 }

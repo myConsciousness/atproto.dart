@@ -3,6 +3,8 @@
 ## v0.5.1
 
 - Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))
+- Added `parameters` arg on `.post` and `.procedure`. ([#1252](https://github.com/myConsciousness/atproto.dart/issues/1252))
+- Removed `.upload` from `xrpc`. You can upload from `.procedure` and pass bytes to `body`. ([#1252](https://github.com/myConsciousness/atproto.dart/issues/1252))
 
 ## v0.5.0
 

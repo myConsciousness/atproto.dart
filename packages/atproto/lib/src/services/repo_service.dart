@@ -117,9 +117,9 @@ final class RepoService {
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
-      await _ctx.upload(
+      await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
-        bytes,
+        body: bytes,
         to: BlobData.fromJson,
       );
 
