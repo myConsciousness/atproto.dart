@@ -9,7 +9,7 @@ description: app.bsky.feed.searchPosts
 
 Find posts matching search criteria, returning views of those posts.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

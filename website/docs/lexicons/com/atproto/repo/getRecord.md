@@ -9,7 +9,7 @@ description: com.atproto.repo.getRecord
 
 Get a single record from a repository. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

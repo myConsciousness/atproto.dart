@@ -9,7 +9,7 @@ description: app.bsky.unspecced.searchActorsSkeleton
 
 Backend Actors (profile) search, returns only skeleton.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

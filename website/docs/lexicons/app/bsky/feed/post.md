@@ -7,7 +7,7 @@ description: app.bsky.feed.post
 
 ## #main
 
-### Input
+### Properties
 
 Record containing a Bluesky post.
 

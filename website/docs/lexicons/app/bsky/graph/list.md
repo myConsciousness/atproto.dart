@@ -7,7 +7,7 @@ description: app.bsky.graph.list
 
 ## #main
 
-### Input
+### Properties
 
 Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
 

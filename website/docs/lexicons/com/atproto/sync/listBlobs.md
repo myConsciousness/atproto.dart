@@ -9,7 +9,7 @@ description: com.atproto.sync.listBlobs
 
 List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

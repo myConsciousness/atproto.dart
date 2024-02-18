@@ -7,7 +7,7 @@ description: app.bsky.graph.block
 
 ## #main
 
-### Input
+### Properties
 
 Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
 

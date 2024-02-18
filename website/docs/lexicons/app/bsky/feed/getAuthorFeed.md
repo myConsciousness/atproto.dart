@@ -9,7 +9,7 @@ description: app.bsky.feed.getAuthorFeed
 
 Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

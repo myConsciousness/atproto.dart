@@ -9,7 +9,7 @@ description: app.bsky.graph.getRelationships
 
 Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

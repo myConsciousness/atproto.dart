@@ -7,7 +7,7 @@ description: app.bsky.feed.repost
 
 ## #main
 
-### Input
+### Properties
 
 Record representing a 'repost' of an existing Bluesky post.
 

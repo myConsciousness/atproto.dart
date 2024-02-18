@@ -9,7 +9,7 @@ description: app.bsky.graph.getMutes
 
 Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

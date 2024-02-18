@@ -9,7 +9,7 @@ description: com.atproto.sync.getHead
 
 DEPRECATED - please use com.atproto.sync.getLatestCommit instead
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

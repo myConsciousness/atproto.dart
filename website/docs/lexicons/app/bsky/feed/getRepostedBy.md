@@ -9,7 +9,7 @@ description: app.bsky.feed.getRepostedBy
 
 Get a list of reposts for a given post.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

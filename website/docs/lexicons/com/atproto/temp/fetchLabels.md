@@ -9,7 +9,7 @@ description: com.atproto.temp.fetchLabels
 
 Fetch all labels from a labeler created after a certain date. DEPRECATED: use queryLabels or subscribeLabels instead
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

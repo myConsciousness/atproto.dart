@@ -9,7 +9,7 @@ description: app.bsky.feed.getListFeed
 
 Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

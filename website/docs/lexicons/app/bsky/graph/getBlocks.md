@@ -9,7 +9,7 @@ description: app.bsky.graph.getBlocks
 
 Enumerates which accounts the requesting account is currently blocking. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

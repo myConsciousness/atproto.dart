@@ -9,7 +9,7 @@ description: app.bsky.graph.getSuggestedFollowsByActor
 
 Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

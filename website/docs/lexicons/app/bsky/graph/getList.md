@@ -9,7 +9,7 @@ description: app.bsky.graph.getList
 
 Gets a 'view' (with additional context) of a specified list.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

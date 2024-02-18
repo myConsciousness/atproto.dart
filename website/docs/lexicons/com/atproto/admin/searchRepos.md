@@ -9,7 +9,7 @@ description: com.atproto.admin.searchRepos
 
 Find repositories based on a search term.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

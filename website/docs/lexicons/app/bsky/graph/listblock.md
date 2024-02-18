@@ -7,7 +7,7 @@ description: app.bsky.graph.listblock
 
 ## #main
 
-### Input
+### Properties
 
 Record representing a block relationship against an entire an entire list of accounts (actors).
 

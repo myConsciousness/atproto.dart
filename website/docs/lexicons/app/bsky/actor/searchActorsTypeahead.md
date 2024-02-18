@@ -9,7 +9,7 @@ description: app.bsky.actor.searchActorsTypeahead
 
 Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

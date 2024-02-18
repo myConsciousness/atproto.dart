@@ -9,7 +9,7 @@ description: com.atproto.admin.getRecord
 
 Get details about a record.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

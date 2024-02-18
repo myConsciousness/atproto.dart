@@ -9,7 +9,7 @@ description: com.atproto.admin.queryModerationEvents
 
 List moderation events related to a subject.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

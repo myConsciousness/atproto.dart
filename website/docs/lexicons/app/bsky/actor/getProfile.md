@@ -9,7 +9,7 @@ description: app.bsky.actor.getProfile
 
 Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

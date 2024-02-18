@@ -9,7 +9,7 @@ description: com.atproto.sync.getBlob
 
 Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

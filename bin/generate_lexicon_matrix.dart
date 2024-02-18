@@ -109,7 +109,7 @@ void _writeRecord(
 ) {
   matrix
     ..writeln()
-    ..writeln('### Input');
+    ..writeln('### Properties');
 
   if (data.description != null) {
     matrix
@@ -149,7 +149,7 @@ void _writeXrpcQuery(
     _writeXrpcParameters(
       matrix,
       parameters,
-      'Input',
+      'Parameters',
     );
   }
 
@@ -186,6 +186,15 @@ void _writeXrpcProcedure(
     matrix
       ..writeln()
       ..writeln(data.description);
+  }
+
+  final parameters = data.parameters;
+  if (parameters != null) {
+    _writeXrpcParameters(
+      matrix,
+      parameters,
+      'Parameters',
+    );
   }
 
   final input = data.input;
