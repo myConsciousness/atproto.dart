@@ -9,6 +9,12 @@ description: com.atproto.temp.pushBlob
 
 Gets the did's repo, optionally catching up from a specific revision.
 
+### Parameters
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
+
 ### Input
 
 - **Encoding**: \*/\*
