@@ -36,6 +36,7 @@ final class ServerService {
     required String password,
     String? inviteCode,
     String? recoveryKey,
+    Map<String, dynamic>? plcOp,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
@@ -45,6 +46,7 @@ final class ServerService {
           'password': password,
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
+          'plcOp': plcOp,
         },
         to: Account.fromJson,
       );

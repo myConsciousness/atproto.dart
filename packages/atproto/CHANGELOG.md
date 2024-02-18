@@ -5,6 +5,7 @@
 - Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))
 - Exposed `.service` and `.relayService` properties on `ATProto`. ([#1254](https://github.com/myConsciousness/atproto.dart/issues/1254))
 - BugFix: Made sure to check if the subscribeRepos blocks can be decoded. ([#1239](https://github.com/myConsciousness/atproto.dart/issues/1239))
+- Added `plcOp` param on `ServerService.createAccount`. ([#969](https://github.com/myConsciousness/atproto.dart/issues/969))
 
 ## v0.11.3
 
