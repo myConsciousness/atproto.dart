@@ -69,6 +69,7 @@ description: com.atproto.admin.defs
 | **takendown** | boolean | - | ❌ | - |
 | **appealed** | boolean | - | ❌ | True indicates that the a previously taken moderator action was appealed against, by the author of the content. False indicates last appeal was resolved by moderators. |
 | **suspendUntil** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **tags** | array of string | - | ❌ | - |
 
 ## #reportViewDetail
 
@@ -326,6 +327,16 @@ Keep a log of outgoing email to a user
 | --- | --- | --- | :---: | --- |
 | **subjectLine** | string | - | ✅ | The subject line of the email sent to the user. |
 | **comment** | string | - | ❌ | Additional comment about the outgoing comm. |
+
+## #modEventTag
+
+Add/Remove a tag on a subject
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **add** | array of string | - | ✅ | Tags to be added to the subject. If already exists, won't be duplicated. |
+| **remove** | array of string | - | ✅ | Tags to be removed to the subject. Ignores a tag If it doesn't exist, won't be duplicated. |
+| **comment** | string | - | ❌ | Additional comment about added/removed tags. |
 
 ## #communicationTemplateView
 
