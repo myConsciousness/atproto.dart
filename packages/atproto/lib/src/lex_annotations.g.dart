@@ -367,6 +367,10 @@ const comAtprotoAdminDefsModEventUnmute =
 const comAtprotoAdminDefsModEventEmail =
     LexObject(ids.comAtprotoAdminDefsModEventEmail);
 
+/// `com.atproto.admin.defs#modEventTag`
+const comAtprotoAdminDefsModEventTag =
+    LexObject(ids.comAtprotoAdminDefsModEventTag);
+
 /// `com.atproto.admin.defs#communicationTemplateView`
 const comAtprotoAdminDefsCommunicationTemplateView =
     LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
