@@ -25,6 +25,8 @@ List moderation events related to a subject.
 | **comment** | string | - | ❌ | If specified, only events with comments containing the keyword are returned |
 | **addedLabels** | array | - | ❌ | - |
 | **removedLabels** | array | - | ❌ | - |
+| **addedTags** | array | - | ❌ | - |
+| **removedTags** | array | - | ❌ | - |
 | **reportTypes** | array | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

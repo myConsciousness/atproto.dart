@@ -63,6 +63,9 @@ const comAtprotoAdminDefsModEventResolveAppeal =
 const comAtprotoAdminDefsModEventReverseTakedown =
     'com.atproto.admin.defs#modEventReverseTakedown';
 
+/// `com.atproto.admin.defs#modEventTag`
+const comAtprotoAdminDefsModEventTag = 'com.atproto.admin.defs#modEventTag';
+
 /// `com.atproto.admin.defs#modEventTakedown`
 const comAtprotoAdminDefsModEventTakedown =
     'com.atproto.admin.defs#modEventTakedown';
