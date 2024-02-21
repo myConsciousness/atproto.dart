@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.11.6
+
+- Removed temp endpoints from `TempService`.
+  - `.importRepo`
+  - `.pushBlob`
+  - `.transferAccount`
+- Added `did` property on `ServerInfo` object. Returned from `ServerService.describeServer`. ([#1279](https://github.com/myConsciousness/atproto.dart/issues/1279))
+
 ## v0.11.5
 
 - Added `TempService`. You can use it like `atproto.temp`. ([#1238](https://github.com/myConsciousness/atproto.dart/issues/1238))

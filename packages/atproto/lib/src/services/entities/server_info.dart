@@ -20,6 +20,7 @@ class ServerInfo with _$ServerInfo {
   @jsonSerializable
   const factory ServerInfo({
     required List<String> availableUserDomains,
+    required String did,
     @JsonKey(name: 'inviteCodeRequired')
     @Default(false)
     bool isInviteCodeRequired,
