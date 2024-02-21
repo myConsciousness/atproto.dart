@@ -219,6 +219,17 @@ final class ServerService {
         to: ServiceAuthToken.fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
+  Future<core.XRPCResponse<core.EmptyData>> deactivateAccount({
+    DateTime? deleteAfter,
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoServerDeactivateAccount,
+        body: {
+          'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
+        },
+      );
+
   @Deprecated('Use .getSession instead. Will be removed')
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
       await _findCurrentSession(to: CurrentSession.fromJson);

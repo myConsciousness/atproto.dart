@@ -8,6 +8,7 @@
   - `.transferAccount`
 - Added `did` property on `ServerInfo` object. Returned from `ServerService.describeServer`. ([#1279](https://github.com/myConsciousness/atproto.dart/issues/1279))
 - Added `.getServiceAuth` on `ServerService`. ([#1280](https://github.com/myConsciousness/atproto.dart/issues/1280))
+- Added `.deactivateAccount` on `ServerService`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
 
 ## v0.11.5
 

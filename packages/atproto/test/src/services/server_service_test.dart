@@ -131,4 +131,9 @@ void main() {
     (m, s) => s.getServiceAuth(aud: m.did),
     id: comAtprotoServerGetServiceAuth,
   );
+
+  testServer<core.EmptyData>(
+    (m, s) => s.deactivateAccount(deleteAfter: DateTime.now()),
+    id: comAtprotoServerDeactivateAccount,
+  );
 }
