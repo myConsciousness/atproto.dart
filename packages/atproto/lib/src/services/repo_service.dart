@@ -158,6 +158,15 @@ final class RepoService {
         to: MissingBlobs.fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
+  Future<core.XRPCResponse<core.EmptyData>> importRepo(
+    final Uint8List car,
+  ) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoImportRepo,
+        body: car,
+      );
+
   @Deprecated('Use .getRecord instead. Will be removed')
   Future<core.XRPCResponse<Record>> findRecord({
     required core.AtUri uri,

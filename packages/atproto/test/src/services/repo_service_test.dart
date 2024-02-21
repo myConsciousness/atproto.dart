@@ -108,4 +108,9 @@ void main() {
     (m, s) => s.listMissingBlobs(limit: m.limit, cursor: m.cursor),
     id: comAtprotoRepoListMissingBlobs,
   );
+
+  testRepo<core.EmptyData>(
+    (m, s) => s.importRepo(m.blob),
+    id: comAtprotoRepoImportRepo,
+  );
 }
