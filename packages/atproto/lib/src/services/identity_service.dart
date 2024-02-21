@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
 import 'entities/did.dart';
+import 'entities/plc_operation.dart';
 
 /// Represents `com.atproto.identity.*` service.
 final class IdentityService {
@@ -51,6 +52,26 @@ final class IdentityService {
         body: {
           'operation': operation,
         },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
+  Future<core.XRPCResponse<PlcOperation>> signPlcOperation({
+    String? token,
+    List<String>? rotationKeys,
+    String? alsoKnownAs,
+    Map<String, dynamic>? verificationMethods,
+    Map<String, dynamic>? services,
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoIdentitySignPlcOperation,
+        body: {
+          'token': token,
+          'rotationKeys': rotationKeys,
+          'alsoKnownAs': alsoKnownAs,
+          'verificationMethods': verificationMethods,
+          'services': services,
+        },
+        to: PlcOperation.fromJson,
       );
 
   Future<core.XRPCResponse<T>> _findDID<T>({

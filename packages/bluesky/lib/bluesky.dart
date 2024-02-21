@@ -82,6 +82,8 @@ export 'package:atproto/atproto.dart'
         $MissingBlobsCopyWith,
         RecordBlob,
         $RecordBlobCopyWith,
+        PlcOperation,
+        $PlcOperationCopyWith,
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
         RepoCommits,

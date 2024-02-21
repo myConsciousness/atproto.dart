@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/did.dart';
+import 'package:atproto/src/services/entities/plc_operation.dart';
 import 'suite/service_suite.dart';
 
 void main() {
@@ -24,5 +25,10 @@ void main() {
   testIdentity<core.EmptyData>(
     (m, s) => s.submitPlcOperation(const {}),
     id: comAtprotoIdentitySubmitPlcOperation,
+  );
+
+  testIdentity<PlcOperation>(
+    (m, s) => s.signPlcOperation(),
+    id: comAtprotoIdentitySignPlcOperation,
   );
 }
