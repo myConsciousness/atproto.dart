@@ -63,6 +63,7 @@ export 'package:atproto/src/services/entities/signing_key.dart';
 export 'package:atproto/src/services/entities/signup_queue.dart';
 export 'package:atproto/src/services/entities/transferred_account.dart';
 export 'package:atproto/src/services/entities/service_auth_token.dart';
+export 'package:atproto/src/services/entities/account_status.dart';
 export 'package:atproto/src/services/identity_service.dart';
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
 export 'package:atproto/src/services/moderation_service.dart';
