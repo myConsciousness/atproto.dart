@@ -12,21 +12,29 @@ sidebar_position: 4
 
 | Method | Docs | Auth Required | Paging (cursor) |
 | --- | --- | :---: | :---: |
+| **[com.atproto.identity.requestPlcOperationSignature](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/requestPlcOperationSignature.html)** | [Reference](lexicons/com/atproto/identity/requestPlcOperationSignature.md) | ❌ | ❌ |
+| **[com.atproto.identity.getRecommendedDidCredentials](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/getRecommendedDidCredentials.html)** | [Reference](lexicons/com/atproto/identity/getRecommendedDidCredentials.md) | ❌ | ❌ |
+| **[com.atproto.identity.signPlcOperation](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/signPlcOperation.html)** | [Reference](lexicons/com/atproto/identity/signPlcOperation.md) | ❌ | ❌ |
 | **[com.atproto.identity.resolveHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/resolveHandle.html)** | [Reference](lexicons/com/atproto/identity/resolveHandle.md) | ❌ | ❌ |
 | **[com.atproto.identity.updateHandle](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/updateHandle.html)** | [Reference](lexicons/com/atproto/identity/updateHandle.md) | ✅ | ❌ |
+| **[com.atproto.identity.submitPlcOperation](https://pub.dev/documentation/atproto/latest/atproto/IdentityService/submitPlcOperation.html)** | [Reference](lexicons/com/atproto/identity/submitPlcOperation.md) | ❌ | ❌ |
 
 ### Server Service
 
 | Method | Docs | Auth Required | Paging (cursor) |
 | --- | --- | :---: | :---: |
+| **[com.atproto.server.activateAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/activateAccount.html)** | [Reference](lexicons/com/atproto/server/activateAccount.md) | ❌ | ❌ |
 | **[com.atproto.server.deleteAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/deleteAccount.html)** | [Reference](lexicons/com/atproto/server/deleteAccount.md) | ❌ | ❌ |
 | **[com.atproto.server.createSession](https://pub.dev/documentation/atproto/latest/atproto/createSession.html)** | [Reference](lexicons/com/atproto/server/createSession.md) | ❌ | ❌ |
+| **[com.atproto.server.getServiceAuth](https://pub.dev/documentation/atproto/latest/atproto/ServerService/getServiceAuth.html)** | [Reference](lexicons/com/atproto/server/getServiceAuth.md) | ❌ | ❌ |
 | **[com.atproto.server.requestEmailConfirmation](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestEmailConfirmation.html)** | [Reference](lexicons/com/atproto/server/requestEmailConfirmation.md) | ✅ | ❌ |
 | **[com.atproto.server.deleteSession](https://pub.dev/documentation/atproto/latest/atproto/deleteSession.html)** | [Reference](lexicons/com/atproto/server/deleteSession.md) | ✅ | ❌ |
 | **[com.atproto.server.describeServer](https://pub.dev/documentation/atproto/latest/atproto/ServerService/describeServer.html)** | [Reference](lexicons/com/atproto/server/describeServer.md) | ❌ | ❌ |
 | **[com.atproto.server.updateEmail](https://pub.dev/documentation/atproto/latest/atproto/ServerService/updateEmail.html)** | [Reference](lexicons/com/atproto/server/updateEmail.md) | ✅ | ❌ |
+| **[com.atproto.server.deactivateAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/deactivateAccount.html)** | [Reference](lexicons/com/atproto/server/deactivateAccount.md) | ❌ | ❌ |
 | **[com.atproto.server.listAppPasswords](https://pub.dev/documentation/atproto/latest/atproto/ServerService/listAppPasswords.html)** | [Reference](lexicons/com/atproto/server/listAppPasswords.md) | ✅ | ❌ |
 | **[com.atproto.server.requestAccountDelete](https://pub.dev/documentation/atproto/latest/atproto/ServerService/requestAccountDelete.html)** | [Reference](lexicons/com/atproto/server/requestAccountDelete.md) | ✅ | ❌ |
+| **[com.atproto.server.checkAccountStatus](https://pub.dev/documentation/atproto/latest/atproto/ServerService/checkAccountStatus.html)** | [Reference](lexicons/com/atproto/server/checkAccountStatus.md) | ❌ | ❌ |
 | **[com.atproto.server.getSession](https://pub.dev/documentation/atproto/latest/atproto/ServerService/getSession.html)** | [Reference](lexicons/com/atproto/server/getSession.md) | ✅ | ❌ |
 | **[com.atproto.server.resetPassword](https://pub.dev/documentation/atproto/latest/atproto/ServerService/resetPassword.html)** | [Reference](lexicons/com/atproto/server/resetPassword.md) | ❌ | ❌ |
 | **[com.atproto.server.createAccount](https://pub.dev/documentation/atproto/latest/atproto/ServerService/createAccount.html)** | [Reference](lexicons/com/atproto/server/createAccount.md) | ❌ | ❌ |
@@ -50,8 +58,10 @@ sidebar_position: 4
 | **[com.atproto.repo.listRecords](https://pub.dev/documentation/atproto/latest/atproto/RepoService/listRecords.html)** | [Reference](lexicons/com/atproto/repo/listRecords.md) | ❌ | ✅ |
 | **[com.atproto.repo.deleteRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/deleteRecord.html)** | [Reference](lexicons/com/atproto/repo/deleteRecord.md) | ✅ | ❌ |
 | **[com.atproto.repo.describeRepo](https://pub.dev/documentation/atproto/latest/atproto/RepoService/describeRepo.html)** | [Reference](lexicons/com/atproto/repo/describeRepo.md) | ❌ | ❌ |
+| **[com.atproto.repo.listMissingBlobs](https://pub.dev/documentation/atproto/latest/atproto/RepoService/listMissingBlobs.html)** | [Reference](lexicons/com/atproto/repo/listMissingBlobs.md) | ❌ | ✅ |
 | **[com.atproto.repo.getRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/getRecord.html)** | [Reference](lexicons/com/atproto/repo/getRecord.md) | ❌ | ❌ |
 | **[com.atproto.repo.putRecord](https://pub.dev/documentation/atproto/latest/atproto/RepoService/putRecord.html)** | [Reference](lexicons/com/atproto/repo/putRecord.md) | ✅ | ❌ |
+| **[com.atproto.repo.importRepo](https://pub.dev/documentation/atproto/latest/atproto/RepoService/importRepo.html)** | [Reference](lexicons/com/atproto/repo/importRepo.md) | ❌ | ❌ |
 | **[com.atproto.repo.applyWrites](https://pub.dev/documentation/atproto/latest/atproto/RepoService/applyWrites.html)** | [Reference](lexicons/com/atproto/repo/applyWrites.md) | ✅ | ❌ |
 
 ### Label Service
