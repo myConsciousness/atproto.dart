@@ -238,6 +238,10 @@ final class ServerService {
         },
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
+  Future<core.XRPCResponse<core.EmptyData>> activateAccount() async =>
+      await _ctx.post(ns.comAtprotoServerDeactivateAccount);
+
   @Deprecated('Use .getSession instead. Will be removed')
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
       await _findCurrentSession(to: CurrentSession.fromJson);

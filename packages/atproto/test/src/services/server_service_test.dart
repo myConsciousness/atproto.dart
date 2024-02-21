@@ -134,6 +134,11 @@ void main() {
   );
 
   testServer<core.EmptyData>(
+    (m, s) => s.activateAccount(),
+    id: comAtprotoServerActivateAccount,
+  );
+
+  testServer<core.EmptyData>(
     (m, s) => s.deactivateAccount(deleteAfter: DateTime.now()),
     id: comAtprotoServerDeactivateAccount,
   );
