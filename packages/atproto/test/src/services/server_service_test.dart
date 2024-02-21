@@ -16,6 +16,7 @@ import 'package:atproto/src/services/entities/current_session.dart';
 import 'package:atproto/src/services/entities/email_update.dart';
 import 'package:atproto/src/services/entities/invite_codes.dart';
 import 'package:atproto/src/services/entities/server_info.dart';
+import 'package:atproto/src/services/entities/service_auth_token.dart';
 import 'package:atproto/src/services/entities/signing_key.dart';
 import 'suite/service_suite.dart';
 
@@ -124,5 +125,10 @@ void main() {
   testServer<SigningKey>(
     (m, s) => s.reserveSigningKey(),
     id: comAtprotoServerReserveSigningKey,
+  );
+
+  testServer<ServiceAuthToken>(
+    (m, s) => s.getServiceAuth(aud: m.did),
+    id: comAtprotoServerGetServiceAuth,
   );
 }

@@ -16,6 +16,7 @@ import 'entities/current_session.dart';
 import 'entities/email_update.dart';
 import 'entities/invite_codes.dart';
 import 'entities/server_info.dart';
+import 'entities/service_auth_token.dart';
 import 'entities/signing_key.dart';
 
 /// Represents `com.atproto.server.*` service.
@@ -205,6 +206,18 @@ final class ServerService {
   Future<core.XRPCResponse<SigningKey>> reserveSigningKey() async =>
       // ignore: deprecated_member_use_from_same_package
       await createSigningKey();
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
+  Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
+    required String aud,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoServerGetServiceAuth,
+        parameters: {
+          'aud': aud,
+        },
+        to: ServiceAuthToken.fromJson,
+      );
 
   @Deprecated('Use .getSession instead. Will be removed')
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
