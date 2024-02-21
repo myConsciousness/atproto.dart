@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
 import 'entities/account.dart';
+import 'entities/account_status.dart';
 import 'entities/app_password.dart';
 import 'entities/app_passwords.dart';
 import 'entities/created_invite_code.dart';
@@ -219,6 +220,13 @@ final class ServerService {
         to: ServiceAuthToken.fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
+  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus() async =>
+      await _ctx.get(
+        ns.comAtprotoServerCheckAccountStatus,
+        to: AccountStatus.fromJson,
+      );
+
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<core.XRPCResponse<core.EmptyData>> deactivateAccount({
     DateTime? deleteAfter,
@@ -229,6 +237,10 @@ final class ServerService {
           'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
         },
       );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
+  Future<core.XRPCResponse<core.EmptyData>> activateAccount() async =>
+      await _ctx.post(ns.comAtprotoServerDeactivateAccount);
 
   @Deprecated('Use .getSession instead. Will be removed')
   Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>

@@ -1,0 +1,11 @@
+{
+  "activated": true,
+  "validDid": true,
+  "repoCommit": "baaaaaaaaa",
+  "repoRev": "test",
+  "repoBlocks": 1,
+  "indexedRecords": 1,
+  "privateStateValues": 1,
+  "expectedBlobs": 1,
+  "importedBlobs": 1
+}

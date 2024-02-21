@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/src/services/entities/account_status.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -133,7 +134,17 @@ void main() {
   );
 
   testServer<core.EmptyData>(
+    (m, s) => s.activateAccount(),
+    id: comAtprotoServerActivateAccount,
+  );
+
+  testServer<core.EmptyData>(
     (m, s) => s.deactivateAccount(deleteAfter: DateTime.now()),
     id: comAtprotoServerDeactivateAccount,
+  );
+
+  testServer<AccountStatus>(
+    (m, s) => s.checkAccountStatus(),
+    id: comAtprotoServerCheckAccountStatus,
   );
 }
