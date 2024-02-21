@@ -74,6 +74,8 @@ export 'package:atproto/atproto.dart'
         $SignupQueueCopyWith,
         TransferredAccount,
         $TransferredAccountCopyWith,
+        ServiceAuthToken,
+        $ServiceAuthTokenCopyWith,
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
         RepoCommits,
