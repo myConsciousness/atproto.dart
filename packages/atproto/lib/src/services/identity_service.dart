@@ -31,6 +31,7 @@ final class IdentityService {
         to: DID.fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({
     required String handle,
   }) async =>
@@ -38,6 +39,17 @@ final class IdentityService {
         ns.comAtprotoIdentityUpdateHandle,
         body: {
           'handle': handle,
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
+  Future<core.XRPCResponse<core.EmptyData>> submitPlcOperation(
+    final Map<String, dynamic> operation,
+  ) async =>
+      await _ctx.post(
+        ns.comAtprotoIdentitySubmitPlcOperation,
+        body: {
+          'operation': operation,
         },
       );
 

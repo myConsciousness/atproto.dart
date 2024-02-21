@@ -20,4 +20,9 @@ void main() {
     (m, s) => s.updateHandle(handle: m.actor),
     id: comAtprotoIdentityUpdateHandle,
   );
+
+  testIdentity<core.EmptyData>(
+    (m, s) => s.submitPlcOperation(const {}),
+    id: comAtprotoIdentitySubmitPlcOperation,
+  );
 }
