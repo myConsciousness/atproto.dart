@@ -19,6 +19,7 @@ Describes the server's account creation requirements and capabilities. Implement
 | **phoneVerificationRequired** | boolean | - | ❌ | If true, a phone verification token must be supplied to create an account on this instance. |
 | **availableUserDomains** | array of string | - | ✅ | List of domain suffixes that can be used in account handles. |
 | **links** | [#links](#links) | - | ❌ | - |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 
 ## #links
 

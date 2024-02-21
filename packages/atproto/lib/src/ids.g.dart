@@ -226,8 +226,24 @@ const comAtprotoAdminUpdateCommunicationTemplate =
 const comAtprotoAdminUpdateSubjectStatus =
     'com.atproto.admin.updateSubjectStatus';
 
+/// `com.atproto.identity.getRecommendedDidCredentials`
+const comAtprotoIdentityGetRecommendedDidCredentials =
+    'com.atproto.identity.getRecommendedDidCredentials';
+
+/// `com.atproto.identity.requestPlcOperationSignature`
+const comAtprotoIdentityRequestPlcOperationSignature =
+    'com.atproto.identity.requestPlcOperationSignature';
+
 /// `com.atproto.identity.resolveHandle`
 const comAtprotoIdentityResolveHandle = 'com.atproto.identity.resolveHandle';
+
+/// `com.atproto.identity.signPlcOperation`
+const comAtprotoIdentitySignPlcOperation =
+    'com.atproto.identity.signPlcOperation';
+
+/// `com.atproto.identity.submitPlcOperation`
+const comAtprotoIdentitySubmitPlcOperation =
+    'com.atproto.identity.submitPlcOperation';
 
 /// `com.atproto.identity.updateHandle`
 const comAtprotoIdentityUpdateHandle = 'com.atproto.identity.updateHandle';
@@ -320,6 +336,16 @@ const comAtprotoRepoDescribeRepo = 'com.atproto.repo.describeRepo';
 /// `com.atproto.repo.getRecord`
 const comAtprotoRepoGetRecord = 'com.atproto.repo.getRecord';
 
+/// `com.atproto.repo.importRepo`
+const comAtprotoRepoImportRepo = 'com.atproto.repo.importRepo';
+
+/// `com.atproto.repo.listMissingBlobs`
+const comAtprotoRepoListMissingBlobs = 'com.atproto.repo.listMissingBlobs';
+
+/// `com.atproto.repo.listMissingBlobs#recordBlob`
+const comAtprotoRepoListMissingBlobsRecordBlob =
+    'com.atproto.repo.listMissingBlobs#recordBlob';
+
 /// `com.atproto.repo.listRecords`
 const comAtprotoRepoListRecords = 'com.atproto.repo.listRecords';
 
@@ -334,6 +360,13 @@ const comAtprotoRepoStrongRef = 'com.atproto.repo.strongRef';
 
 /// `com.atproto.repo.uploadBlob`
 const comAtprotoRepoUploadBlob = 'com.atproto.repo.uploadBlob';
+
+/// `com.atproto.server.activateAccount`
+const comAtprotoServerActivateAccount = 'com.atproto.server.activateAccount';
+
+/// `com.atproto.server.checkAccountStatus`
+const comAtprotoServerCheckAccountStatus =
+    'com.atproto.server.checkAccountStatus';
 
 /// `com.atproto.server.confirmEmail`
 const comAtprotoServerConfirmEmail = 'com.atproto.server.confirmEmail';
@@ -363,6 +396,10 @@ const comAtprotoServerCreateInviteCodesAccountCodes =
 /// `com.atproto.server.createSession`
 const comAtprotoServerCreateSession = 'com.atproto.server.createSession';
 
+/// `com.atproto.server.deactivateAccount`
+const comAtprotoServerDeactivateAccount =
+    'com.atproto.server.deactivateAccount';
+
 /// `com.atproto.server.defs`
 const comAtprotoServerDefs = 'com.atproto.server.defs';
 
@@ -389,6 +426,9 @@ const comAtprotoServerDescribeServerLinks =
 /// `com.atproto.server.getAccountInviteCodes`
 const comAtprotoServerGetAccountInviteCodes =
     'com.atproto.server.getAccountInviteCodes';
+
+/// `com.atproto.server.getServiceAuth`
+const comAtprotoServerGetServiceAuth = 'com.atproto.server.getServiceAuth';
 
 /// `com.atproto.server.getSession`
 const comAtprotoServerGetSession = 'com.atproto.server.getSession';
@@ -501,18 +541,9 @@ const comAtprotoTempCheckSignupQueue = 'com.atproto.temp.checkSignupQueue';
 /// `com.atproto.temp.fetchLabels`
 const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
 
-/// `com.atproto.temp.importRepo`
-const comAtprotoTempImportRepo = 'com.atproto.temp.importRepo';
-
-/// `com.atproto.temp.pushBlob`
-const comAtprotoTempPushBlob = 'com.atproto.temp.pushBlob';
-
 /// `com.atproto.temp.requestPhoneVerification`
 const comAtprotoTempRequestPhoneVerification =
     'com.atproto.temp.requestPhoneVerification';
-
-/// `com.atproto.temp.transferAccount`
-const comAtprotoTempTransferAccount = 'com.atproto.temp.transferAccount';
 
 /// `blob`
 const blob = 'blob';
