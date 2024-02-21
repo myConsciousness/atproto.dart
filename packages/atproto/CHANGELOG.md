@@ -11,6 +11,7 @@
 - Added `.deactivateAccount` on `ServerService`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
 - Added `.activateAccount` on `ServerService`. ([#1276](https://github.com/myConsciousness/atproto.dart/issues/1276))
 - Added `.checkAccountStatus` on `ServerService`. ([#1277](https://github.com/myConsciousness/atproto.dart/issues/1277))
+- Added `.listMissingBlobs` on `ServerService`. ([#1275](https://github.com/myConsciousness/atproto.dart/issues/1275))
 
 ## v0.11.5
 

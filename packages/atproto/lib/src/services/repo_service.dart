@@ -14,6 +14,7 @@ import 'entities/batch_action.dart';
 import 'entities/blob_data.dart';
 import 'entities/create_action.dart';
 import 'entities/delete_action.dart';
+import 'entities/missing_blobs.dart';
 import 'entities/record.dart';
 import 'entities/records.dart';
 import 'entities/repo_info.dart';
@@ -141,6 +142,20 @@ final class RepoService {
         actions: actions,
         validate: validate,
         swapCommitCid: swapCommitCid,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
+  Future<core.XRPCResponse<MissingBlobs>> listMissingBlobs({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoListMissingBlobs,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: MissingBlobs.fromJson,
       );
 
   @Deprecated('Use .getRecord instead. Will be removed')
