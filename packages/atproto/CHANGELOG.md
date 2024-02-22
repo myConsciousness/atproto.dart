@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.7
+
+- Downgrade `http`. ([#1296](https://github.com/myConsciousness/atproto.dart/issues/1296))
+
 ## v0.11.6
 
 - Removed temp endpoints from `TempService`.

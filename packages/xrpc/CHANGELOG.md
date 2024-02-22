@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.3
+
+- Downgrade `http`. ([#1296](https://github.com/myConsciousness/atproto.dart/issues/1296))
+
 ## v0.5.2
 
 - Bump SDK constraint to '^3.3.0'.

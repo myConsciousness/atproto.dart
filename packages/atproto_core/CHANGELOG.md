@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.6
+
+- Downgrade `http`. ([#1296](https://github.com/myConsciousness/atproto.dart/issues/1296))
+
 ## v0.9.5
 
 - Added `.toUtcIso8601String` on `ServiceContext`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
