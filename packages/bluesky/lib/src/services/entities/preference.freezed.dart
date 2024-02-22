@@ -26,6 +26,8 @@ mixin _$Preference {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -38,6 +40,8 @@ mixin _$Preference {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -50,6 +54,8 @@ mixin _$Preference {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -63,6 +69,8 @@ mixin _$Preference {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -75,6 +83,8 @@ mixin _$Preference {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -87,6 +97,8 @@ mixin _$Preference {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -195,6 +207,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContent(data);
@@ -210,6 +224,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContent?.call(data);
@@ -225,6 +241,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -244,6 +262,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return adultContent(this);
@@ -259,6 +279,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return adultContent?.call(this);
@@ -274,6 +296,8 @@ class _$UPreferenceAdultContentImpl extends UPreferenceAdultContent {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -381,6 +405,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabel(data);
@@ -396,6 +422,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabel?.call(data);
@@ -411,6 +439,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -430,6 +460,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return contentLabel(this);
@@ -445,6 +477,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return contentLabel?.call(this);
@@ -460,6 +494,8 @@ class _$UPreferenceContentLabelImpl extends UPreferenceContentLabel {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -566,6 +602,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeeds(data);
@@ -581,6 +619,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeeds?.call(data);
@@ -596,6 +636,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -615,6 +657,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return savedFeeds(this);
@@ -630,6 +674,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return savedFeeds?.call(this);
@@ -645,6 +691,8 @@ class _$UPreferenceSavedFeedsImpl extends UPreferenceSavedFeeds {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -751,6 +799,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetails(data);
@@ -766,6 +816,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetails?.call(data);
@@ -781,6 +833,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -800,6 +854,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return personalDetails(this);
@@ -815,6 +871,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return personalDetails?.call(this);
@@ -830,6 +888,8 @@ class _$UPreferencePersonalDetailsImpl extends UPreferencePersonalDetails {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -935,6 +995,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedView(data);
@@ -950,6 +1012,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedView?.call(data);
@@ -965,6 +1029,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -984,6 +1050,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return feedView(this);
@@ -999,6 +1067,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return feedView?.call(this);
@@ -1014,6 +1084,8 @@ class _$UPreferenceFeedViewImpl extends UPreferenceFeedView {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1119,6 +1191,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return threadView(data);
@@ -1134,6 +1208,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return threadView?.call(data);
@@ -1149,6 +1225,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1168,6 +1246,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return threadView(this);
@@ -1183,6 +1263,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return threadView?.call(this);
@@ -1198,6 +1280,8 @@ class _$UPreferenceThreadViewImpl extends UPreferenceThreadView {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1303,6 +1387,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return interests(data);
@@ -1318,6 +1404,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return interests?.call(data);
@@ -1333,6 +1421,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1352,6 +1442,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return interests(this);
@@ -1367,6 +1459,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return interests?.call(this);
@@ -1382,6 +1476,8 @@ class _$UPreferenceInterestsImpl extends UPreferenceInterests {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1401,6 +1497,399 @@ abstract class UPreferenceInterests extends Preference {
   InterestsPreference get data;
   @JsonKey(ignore: true)
   _$$UPreferenceInterestsImplCopyWith<_$UPreferenceInterestsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceMutedWordsImplCopyWith<$Res> {
+  factory _$$UPreferenceMutedWordsImplCopyWith(
+          _$UPreferenceMutedWordsImpl value,
+          $Res Function(_$UPreferenceMutedWordsImpl) then) =
+      __$$UPreferenceMutedWordsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({MutedWordsPref data});
+
+  $MutedWordsPrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceMutedWordsImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceMutedWordsImpl>
+    implements _$$UPreferenceMutedWordsImplCopyWith<$Res> {
+  __$$UPreferenceMutedWordsImplCopyWithImpl(_$UPreferenceMutedWordsImpl _value,
+      $Res Function(_$UPreferenceMutedWordsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceMutedWordsImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as MutedWordsPref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MutedWordsPrefCopyWith<$Res> get data {
+    return $MutedWordsPrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceMutedWordsImpl extends UPreferenceMutedWords {
+  const _$UPreferenceMutedWordsImpl({required this.data}) : super._();
+
+  @override
+  final MutedWordsPref data;
+
+  @override
+  String toString() {
+    return 'Preference.mutedWords(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceMutedWordsImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceMutedWordsImplCopyWith<_$UPreferenceMutedWordsImpl>
+      get copyWith => __$$UPreferenceMutedWordsImplCopyWithImpl<
+          _$UPreferenceMutedWordsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return mutedWords(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return mutedWords?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWords != null) {
+      return mutedWords(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return mutedWords(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return mutedWords?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWords != null) {
+      return mutedWords(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceMutedWords extends Preference {
+  const factory UPreferenceMutedWords({required final MutedWordsPref data}) =
+      _$UPreferenceMutedWordsImpl;
+  const UPreferenceMutedWords._() : super._();
+
+  @override
+  MutedWordsPref get data;
+  @JsonKey(ignore: true)
+  _$$UPreferenceMutedWordsImplCopyWith<_$UPreferenceMutedWordsImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UPreferenceHiddenPostsImplCopyWith<$Res> {
+  factory _$$UPreferenceHiddenPostsImplCopyWith(
+          _$UPreferenceHiddenPostsImpl value,
+          $Res Function(_$UPreferenceHiddenPostsImpl) then) =
+      __$$UPreferenceHiddenPostsImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({HiddenPostsPref data});
+
+  $HiddenPostsPrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UPreferenceHiddenPostsImplCopyWithImpl<$Res>
+    extends _$PreferenceCopyWithImpl<$Res, _$UPreferenceHiddenPostsImpl>
+    implements _$$UPreferenceHiddenPostsImplCopyWith<$Res> {
+  __$$UPreferenceHiddenPostsImplCopyWithImpl(
+      _$UPreferenceHiddenPostsImpl _value,
+      $Res Function(_$UPreferenceHiddenPostsImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UPreferenceHiddenPostsImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as HiddenPostsPref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $HiddenPostsPrefCopyWith<$Res> get data {
+    return $HiddenPostsPrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UPreferenceHiddenPostsImpl extends UPreferenceHiddenPosts {
+  const _$UPreferenceHiddenPostsImpl({required this.data}) : super._();
+
+  @override
+  final HiddenPostsPref data;
+
+  @override
+  String toString() {
+    return 'Preference.hiddenPosts(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UPreferenceHiddenPostsImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UPreferenceHiddenPostsImplCopyWith<_$UPreferenceHiddenPostsImpl>
+      get copyWith => __$$UPreferenceHiddenPostsImplCopyWithImpl<
+          _$UPreferenceHiddenPostsImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(AdultContentPreference data) adultContent,
+    required TResult Function(ContentLabelPreference data) contentLabel,
+    required TResult Function(SavedFeedsPreference data) savedFeeds,
+    required TResult Function(PersonalDetailsPreference data) personalDetails,
+    required TResult Function(FeedViewPreference data) feedView,
+    required TResult Function(ThreadViewPreference data) threadView,
+    required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return hiddenPosts(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(AdultContentPreference data)? adultContent,
+    TResult? Function(ContentLabelPreference data)? contentLabel,
+    TResult? Function(SavedFeedsPreference data)? savedFeeds,
+    TResult? Function(PersonalDetailsPreference data)? personalDetails,
+    TResult? Function(FeedViewPreference data)? feedView,
+    TResult? Function(ThreadViewPreference data)? threadView,
+    TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return hiddenPosts?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(AdultContentPreference data)? adultContent,
+    TResult Function(ContentLabelPreference data)? contentLabel,
+    TResult Function(SavedFeedsPreference data)? savedFeeds,
+    TResult Function(PersonalDetailsPreference data)? personalDetails,
+    TResult Function(FeedViewPreference data)? feedView,
+    TResult Function(ThreadViewPreference data)? threadView,
+    TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPosts != null) {
+      return hiddenPosts(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(UPreferenceAdultContent value) adultContent,
+    required TResult Function(UPreferenceContentLabel value) contentLabel,
+    required TResult Function(UPreferenceSavedFeeds value) savedFeeds,
+    required TResult Function(UPreferencePersonalDetails value) personalDetails,
+    required TResult Function(UPreferenceFeedView value) feedView,
+    required TResult Function(UPreferenceThreadView value) threadView,
+    required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
+    required TResult Function(UPreferenceUnknown value) unknown,
+  }) {
+    return hiddenPosts(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UPreferenceAdultContent value)? adultContent,
+    TResult? Function(UPreferenceContentLabel value)? contentLabel,
+    TResult? Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult? Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult? Function(UPreferenceFeedView value)? feedView,
+    TResult? Function(UPreferenceThreadView value)? threadView,
+    TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult? Function(UPreferenceUnknown value)? unknown,
+  }) {
+    return hiddenPosts?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UPreferenceAdultContent value)? adultContent,
+    TResult Function(UPreferenceContentLabel value)? contentLabel,
+    TResult Function(UPreferenceSavedFeeds value)? savedFeeds,
+    TResult Function(UPreferencePersonalDetails value)? personalDetails,
+    TResult Function(UPreferenceFeedView value)? feedView,
+    TResult Function(UPreferenceThreadView value)? threadView,
+    TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
+    TResult Function(UPreferenceUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPosts != null) {
+      return hiddenPosts(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UPreferenceHiddenPosts extends Preference {
+  const factory UPreferenceHiddenPosts({required final HiddenPostsPref data}) =
+      _$UPreferenceHiddenPostsImpl;
+  const UPreferenceHiddenPosts._() : super._();
+
+  @override
+  HiddenPostsPref get data;
+  @JsonKey(ignore: true)
+  _$$UPreferenceHiddenPostsImplCopyWith<_$UPreferenceHiddenPostsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1484,6 +1973,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     required TResult Function(FeedViewPreference data) feedView,
     required TResult Function(ThreadViewPreference data) threadView,
     required TResult Function(InterestsPreference data) interests,
+    required TResult Function(MutedWordsPref data) mutedWords,
+    required TResult Function(HiddenPostsPref data) hiddenPosts,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1499,6 +1990,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult? Function(FeedViewPreference data)? feedView,
     TResult? Function(ThreadViewPreference data)? threadView,
     TResult? Function(InterestsPreference data)? interests,
+    TResult? Function(MutedWordsPref data)? mutedWords,
+    TResult? Function(HiddenPostsPref data)? hiddenPosts,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1514,6 +2007,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult Function(FeedViewPreference data)? feedView,
     TResult Function(ThreadViewPreference data)? threadView,
     TResult Function(InterestsPreference data)? interests,
+    TResult Function(MutedWordsPref data)? mutedWords,
+    TResult Function(HiddenPostsPref data)? hiddenPosts,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1533,6 +2028,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     required TResult Function(UPreferenceFeedView value) feedView,
     required TResult Function(UPreferenceThreadView value) threadView,
     required TResult Function(UPreferenceInterests value) interests,
+    required TResult Function(UPreferenceMutedWords value) mutedWords,
+    required TResult Function(UPreferenceHiddenPosts value) hiddenPosts,
     required TResult Function(UPreferenceUnknown value) unknown,
   }) {
     return unknown(this);
@@ -1548,6 +2045,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult? Function(UPreferenceFeedView value)? feedView,
     TResult? Function(UPreferenceThreadView value)? threadView,
     TResult? Function(UPreferenceInterests value)? interests,
+    TResult? Function(UPreferenceMutedWords value)? mutedWords,
+    TResult? Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult? Function(UPreferenceUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -1563,6 +2062,8 @@ class _$UPreferenceUnknownImpl extends UPreferenceUnknown {
     TResult Function(UPreferenceFeedView value)? feedView,
     TResult Function(UPreferenceThreadView value)? threadView,
     TResult Function(UPreferenceInterests value)? interests,
+    TResult Function(UPreferenceMutedWords value)? mutedWords,
+    TResult Function(UPreferenceHiddenPosts value)? hiddenPosts,
     TResult Function(UPreferenceUnknown value)? unknown,
     required TResult orElse(),
   }) {

@@ -18,6 +18,7 @@
 - Added `.getRecommendedDidCredentials` on `IdentityService`. ([#1270](https://github.com/myConsciousness/atproto.dart/issues/1270))
 - Added `.requestPlcOperationSignature` on `IdentityService`. ([#1271](https://github.com/myConsciousness/atproto.dart/issues/1271))
 - Bump SDK constraint to '^3.3.0'.
+- Added `MutedWordsPref` and `HiddenPostsPref`. Returned from `ActorService.getPreferences`. ([#1288](https://github.com/myConsciousness/atproto.dart/issues/1288))
 
 ## v0.15.8
 

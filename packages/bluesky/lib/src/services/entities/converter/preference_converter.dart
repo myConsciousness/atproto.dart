@@ -10,7 +10,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../ids.g.dart' as ids;
 import '../adult_content_preference.dart';
 import '../feed_view_preference.dart';
+import '../hidden_posts_pref.dart';
 import '../interests_preference.dart';
+import '../muted_words_pref.dart';
 import '../personal_details_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
@@ -56,6 +58,14 @@ final class _PreferenceConverter
         return Preference.interests(
           data: InterestsPreference.fromJson(json),
         );
+      } else if (type == ids.appBskyActorDefsMutedWordsPref) {
+        return Preference.mutedWords(
+          data: MutedWordsPref.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsHiddenPostsPref) {
+        return Preference.hiddenPosts(
+          data: HiddenPostsPref.fromJson(json),
+        );
       }
 
       return Preference.unknown(data: json);
@@ -73,6 +83,8 @@ final class _PreferenceConverter
         feedView: (data) => data.toJson(),
         threadView: (data) => data.toJson(),
         interests: (data) => data.toJson(),
+        mutedWords: (data) => data.toJson(),
+        hiddenPosts: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }
