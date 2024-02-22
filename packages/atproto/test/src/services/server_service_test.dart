@@ -3,12 +3,12 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/src/services/entities/account_status.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/account.dart';
+import 'package:atproto/src/services/entities/account_status.dart';
 import 'package:atproto/src/services/entities/app_password.dart';
 import 'package:atproto/src/services/entities/app_passwords.dart';
 import 'package:atproto/src/services/entities/created_invite_code.dart';

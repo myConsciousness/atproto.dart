@@ -11,6 +11,10 @@
 - Added `.deactivateAccount` on `ServerService`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
 - Added `.activateAccount` on `ServerService`. ([#1276](https://github.com/myConsciousness/atproto.dart/issues/1276))
 - Added `.checkAccountStatus` on `ServerService`. ([#1277](https://github.com/myConsciousness/atproto.dart/issues/1277))
+- Added `.listMissingBlobs` on `RepoService`. ([#1275](https://github.com/myConsciousness/atproto.dart/issues/1275))
+- Added `.importRepo` on `RepoService`. ([#1274](https://github.com/myConsciousness/atproto.dart/issues/1274))
+- Added `.submitPlcOperation` on `IdentityService`. ([#1273](https://github.com/myConsciousness/atproto.dart/issues/1273))
+- Added `.signPlcOperation` on `IdentityService`. ([#1272](https://github.com/myConsciousness/atproto.dart/issues/1272))
 
 ## v0.11.5
 
