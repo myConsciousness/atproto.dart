@@ -22,8 +22,20 @@ const appBskyActorDefsContentLabelPref = 'app.bsky.actor.defs#contentLabelPref';
 /// `app.bsky.actor.defs#feedViewPref`
 const appBskyActorDefsFeedViewPref = 'app.bsky.actor.defs#feedViewPref';
 
+/// `app.bsky.actor.defs#hiddenPostsPref`
+const appBskyActorDefsHiddenPostsPref = 'app.bsky.actor.defs#hiddenPostsPref';
+
 /// `app.bsky.actor.defs#interestsPref`
 const appBskyActorDefsInterestsPref = 'app.bsky.actor.defs#interestsPref';
+
+/// `app.bsky.actor.defs#mutedWord`
+const appBskyActorDefsMutedWord = 'app.bsky.actor.defs#mutedWord';
+
+/// `app.bsky.actor.defs#mutedWordTarget`
+const appBskyActorDefsMutedWordTarget = 'app.bsky.actor.defs#mutedWordTarget';
+
+/// `app.bsky.actor.defs#mutedWordsPref`
+const appBskyActorDefsMutedWordsPref = 'app.bsky.actor.defs#mutedWordsPref';
 
 /// `app.bsky.actor.defs#personalDetailsPref`
 const appBskyActorDefsPersonalDetailsPref =

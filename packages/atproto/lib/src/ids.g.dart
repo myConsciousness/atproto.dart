@@ -520,6 +520,10 @@ const comAtprotoSyncSubscribeReposCommit =
 const comAtprotoSyncSubscribeReposHandle =
     'com.atproto.sync.subscribeRepos#handle';
 
+/// `com.atproto.sync.subscribeRepos#identity`
+const comAtprotoSyncSubscribeReposIdentity =
+    'com.atproto.sync.subscribeRepos#identity';
+
 /// `com.atproto.sync.subscribeRepos#info`
 const comAtprotoSyncSubscribeReposInfo = 'com.atproto.sync.subscribeRepos#info';
 

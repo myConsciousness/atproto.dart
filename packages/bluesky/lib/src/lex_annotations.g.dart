@@ -247,6 +247,17 @@ const appBskyActorDefsThreadViewPref =
 const appBskyActorDefsInterestsPref =
     LexObject(ids.appBskyActorDefsInterestsPref);
 
+/// `app.bsky.actor.defs#mutedWord`
+const appBskyActorDefsMutedWord = LexObject(ids.appBskyActorDefsMutedWord);
+
+/// `app.bsky.actor.defs#mutedWordsPref`
+const appBskyActorDefsMutedWordsPref =
+    LexObject(ids.appBskyActorDefsMutedWordsPref);
+
+/// `app.bsky.actor.defs#hiddenPostsPref`
+const appBskyActorDefsHiddenPostsPref =
+    LexObject(ids.appBskyActorDefsHiddenPostsPref);
+
 /// `app.bsky.actor.searchActorsTypeahead#main`
 const appBskyActorSearchActorsTypeahead =
     LexObject(ids.appBskyActorSearchActorsTypeahead);
