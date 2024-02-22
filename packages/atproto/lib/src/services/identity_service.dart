@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
 import 'entities/did.dart';
+import 'entities/did_credentials.dart';
 import 'entities/plc_operation.dart';
 
 /// Represents `com.atproto.identity.*` service.
@@ -73,6 +74,18 @@ final class IdentityService {
         },
         to: PlcOperation.fromJson,
       );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
+  Future<core.XRPCResponse<DidCredentials>>
+      getRecommendedDidCredentials() async => await _ctx.get(
+            ns.comAtprotoIdentityGetRecommendedDidCredentials,
+            to: DidCredentials.fromJson,
+          );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
+  Future<core.XRPCResponse<core.EmptyData>>
+      requestPlcOperationSignature() async =>
+          await _ctx.post(ns.comAtprotoIdentityRequestPlcOperationSignature);
 
   Future<core.XRPCResponse<T>> _findDID<T>({
     required String handle,
