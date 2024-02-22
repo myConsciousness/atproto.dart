@@ -489,6 +489,10 @@ const comAtprotoSyncSubscribeRepos =
 const comAtprotoSyncSubscribeReposCommit =
     LexObject(ids.comAtprotoSyncSubscribeReposCommit);
 
+/// `com.atproto.sync.subscribeRepos#identity`
+const comAtprotoSyncSubscribeReposIdentity =
+    LexObject(ids.comAtprotoSyncSubscribeReposIdentity);
+
 /// `com.atproto.sync.subscribeRepos#handle`
 const comAtprotoSyncSubscribeReposHandle =
     LexObject(ids.comAtprotoSyncSubscribeReposHandle);

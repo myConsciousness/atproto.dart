@@ -346,6 +346,10 @@ const comAtprotoSyncSubscribeReposCommit =
 const comAtprotoSyncSubscribeReposHandle =
     NSID(ids.comAtprotoSyncSubscribeReposHandle);
 
+/// `com.atproto.sync.subscribeRepos#identity`
+const comAtprotoSyncSubscribeReposIdentity =
+    NSID(ids.comAtprotoSyncSubscribeReposIdentity);
+
 /// `com.atproto.sync.subscribeRepos#info`
 const comAtprotoSyncSubscribeReposInfo =
     NSID(ids.comAtprotoSyncSubscribeReposInfo);
