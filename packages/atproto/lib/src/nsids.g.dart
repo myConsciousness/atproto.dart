@@ -92,6 +92,10 @@ const comAtprotoAdminUpdateAccountEmail =
 const comAtprotoAdminUpdateAccountHandle =
     NSID(ids.comAtprotoAdminUpdateAccountHandle);
 
+/// `com.atproto.admin.updateAccountPassword`
+const comAtprotoAdminUpdateAccountPassword =
+    NSID(ids.comAtprotoAdminUpdateAccountPassword);
+
 /// `com.atproto.admin.updateCommunicationTemplate`
 const comAtprotoAdminUpdateCommunicationTemplate =
     NSID(ids.comAtprotoAdminUpdateCommunicationTemplate);

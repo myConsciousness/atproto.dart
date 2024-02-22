@@ -416,6 +416,10 @@ const comAtprotoAdminListCommunicationTemplates =
 const comAtprotoAdminEmitModerationEvent =
     LexObject(ids.comAtprotoAdminEmitModerationEvent);
 
+/// `com.atproto.admin.updateAccountPassword#main`
+const comAtprotoAdminUpdateAccountPassword =
+    LexObject(ids.comAtprotoAdminUpdateAccountPassword);
+
 /// `com.atproto.admin.updateCommunicationTemplate#main`
 const comAtprotoAdminUpdateCommunicationTemplate =
     LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
