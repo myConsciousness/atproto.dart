@@ -218,6 +218,10 @@ const comAtprotoAdminUpdateAccountEmail =
 const comAtprotoAdminUpdateAccountHandle =
     'com.atproto.admin.updateAccountHandle';
 
+/// `com.atproto.admin.updateAccountPassword`
+const comAtprotoAdminUpdateAccountPassword =
+    'com.atproto.admin.updateAccountPassword';
+
 /// `com.atproto.admin.updateCommunicationTemplate`
 const comAtprotoAdminUpdateCommunicationTemplate =
     'com.atproto.admin.updateCommunicationTemplate';
