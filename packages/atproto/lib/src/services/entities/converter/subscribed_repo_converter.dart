@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../subscribed_repo.dart';
 import '../subscribed_repo_commit.dart';
 import '../subscribed_repo_handle.dart';
+import '../subscribed_repo_identity.dart';
 import '../subscribed_repo_info.dart';
 import '../subscribed_repo_migrate.dart';
 import '../subscribed_repo_tombstone.dart';
@@ -27,6 +28,10 @@ final class _SubscribedRepoConverter
       if (type == '#commit') {
         return SubscribedRepo.commit(
           data: SubscribedRepoCommit.fromJson(json),
+        );
+      } else if (type == '#identity') {
+        return SubscribedRepo.identity(
+          data: SubscribedRepoIdentity.fromJson(json),
         );
       } else if (type == '#handle') {
         return SubscribedRepo.handle(
@@ -55,6 +60,7 @@ final class _SubscribedRepoConverter
   @override
   Map<String, dynamic> toJson(SubscribedRepo object) => object.when(
         commit: (data) => data.toJson(),
+        identity: (data) => data.toJson(),
         handle: (data) => data.toJson(),
         migrate: (data) => data.toJson(),
         tombstone: (data) => data.toJson(),

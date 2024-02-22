@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'converter/subscribed_repo_converter.dart';
 import 'subscribed_repo_commit.dart';
 import 'subscribed_repo_handle.dart';
+import 'subscribed_repo_identity.dart';
 import 'subscribed_repo_info.dart';
 import 'subscribed_repo_migrate.dart';
 import 'subscribed_repo_tombstone.dart';
@@ -24,6 +25,10 @@ class SubscribedRepo with _$SubscribedRepo {
   const factory SubscribedRepo.commit({
     required SubscribedRepoCommit data,
   }) = USubscribedRepoCommit;
+
+  const factory SubscribedRepo.identity({
+    required SubscribedRepoIdentity data,
+  }) = USubscribedRepoIdentity;
 
   const factory SubscribedRepo.handle({
     required SubscribedRepoHandle data,

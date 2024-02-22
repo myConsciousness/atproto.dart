@@ -32,6 +32,31 @@ Map<String, dynamic> _$$USubscribedRepoCommitImplToJson(
       'runtimeType': instance.$type,
     };
 
+_$USubscribedRepoIdentityImpl _$$USubscribedRepoIdentityImplFromJson(
+        Map json) =>
+    $checkedCreate(
+      r'_$USubscribedRepoIdentityImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$USubscribedRepoIdentityImpl(
+          data: $checkedConvert(
+              'data',
+              (v) => SubscribedRepoIdentity.fromJson(
+                  Map<String, Object?>.from(v as Map))),
+          $type: $checkedConvert('runtimeType', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {r'$type': 'runtimeType'},
+    );
+
+Map<String, dynamic> _$$USubscribedRepoIdentityImplToJson(
+        _$USubscribedRepoIdentityImpl instance) =>
+    <String, dynamic>{
+      'data': instance.data.toJson(),
+      'runtimeType': instance.$type,
+    };
+
 _$USubscribedRepoHandleImpl _$$USubscribedRepoHandleImplFromJson(Map json) =>
     $checkedCreate(
       r'_$USubscribedRepoHandleImpl',
