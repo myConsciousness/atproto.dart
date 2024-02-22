@@ -19,6 +19,7 @@
 - Added `.requestPlcOperationSignature` on `IdentityService`. ([#1271](https://github.com/myConsciousness/atproto.dart/issues/1271))
 - Bump SDK constraint to '^3.3.0'.
 - Added `MutedWordsPref` and `HiddenPostsPref`. Returned from `ActorService.getPreferences`. ([#1288](https://github.com/myConsciousness/atproto.dart/issues/1288))
+- Supported `identity` event on `.subscribeRepos`. ([#1289](https://github.com/myConsciousness/atproto.dart/issues/1289))
 
 ## v0.15.8
 
