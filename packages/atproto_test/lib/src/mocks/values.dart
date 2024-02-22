@@ -33,5 +33,8 @@ final class MockValues {
   String get text => 'Hello!';
   String get query => 'test';
 
+  int get limit => 10;
+  String get cursor => 'cursor';
+
   Uint8List get blob => Uint8List.fromList(const []);
 }

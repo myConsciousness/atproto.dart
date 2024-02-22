@@ -13,6 +13,7 @@ import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/batch_action.dart';
 import 'package:atproto/src/services/entities/blob_data.dart';
 import 'package:atproto/src/services/entities/create_action.dart';
+import 'package:atproto/src/services/entities/missing_blobs.dart';
 import 'package:atproto/src/services/entities/record.dart';
 import 'package:atproto/src/services/entities/records.dart';
 import 'package:atproto/src/services/entities/repo_info.dart';
@@ -101,5 +102,15 @@ void main() {
     (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',
+  );
+
+  testRepo<MissingBlobs>(
+    (m, s) => s.listMissingBlobs(limit: m.limit, cursor: m.cursor),
+    id: comAtprotoRepoListMissingBlobs,
+  );
+
+  testRepo<core.EmptyData>(
+    (m, s) => s.importRepo(m.blob),
+    id: comAtprotoRepoImportRepo,
   );
 }
