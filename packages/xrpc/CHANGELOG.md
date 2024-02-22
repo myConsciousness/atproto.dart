@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.5.2
+
+- Bump SDK constraint to '^3.3.0'.
+
 ## v0.5.1
 
 - Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))

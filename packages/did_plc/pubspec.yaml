@@ -8,7 +8,7 @@ funding:
   - https://github.com/sponsors/myConsciousness
 
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.3.0
 
 topics:
   - atproto
@@ -23,9 +23,9 @@ dependencies:
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.21.0
-  build_runner: ^2.4.6
+  build_runner: ^2.4.8
   json_serializable: ^6.7.1
-  freezed: ^2.4.6
+  freezed: ^2.4.7
   import_sorter: ^4.6.0
   atproto_test:
     path: ../atproto_test

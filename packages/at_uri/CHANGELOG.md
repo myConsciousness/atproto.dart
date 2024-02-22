@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.1
+
+- Bump SDK constraint to '^3.3.0'.
+
 ## v0.3.0
 
 - Added a default constructor that allows `const` to be specified. Instances created with this default constructor do not parse the given URI in advance, but parse it as needed. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))
