@@ -37,4 +37,9 @@ void main() {
     (m, s) => s.getRecommendedDidCredentials(),
     id: comAtprotoIdentityGetRecommendedDidCredentials,
   );
+
+  testIdentity<core.EmptyData>(
+    (m, s) => s.requestPlcOperationSignature(),
+    id: comAtprotoIdentityRequestPlcOperationSignature,
+  );
 }

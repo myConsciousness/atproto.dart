@@ -82,6 +82,11 @@ final class IdentityService {
             to: DidCredentials.fromJson,
           );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
+  Future<core.XRPCResponse<core.EmptyData>>
+      requestPlcOperationSignature() async =>
+          await _ctx.post(ns.comAtprotoIdentityRequestPlcOperationSignature);
+
   Future<core.XRPCResponse<T>> _findDID<T>({
     required String handle,
     core.ResponseDataBuilder<T>? to,
