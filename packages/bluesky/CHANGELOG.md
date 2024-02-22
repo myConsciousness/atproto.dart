@@ -15,6 +15,7 @@
 - Added `.importRepo` on `RepoService`. ([#1274](https://github.com/myConsciousness/atproto.dart/issues/1274))
 - Added `.submitPlcOperation` on `IdentityService`. ([#1273](https://github.com/myConsciousness/atproto.dart/issues/1273))
 - Added `.signPlcOperation` on `IdentityService`. ([#1272](https://github.com/myConsciousness/atproto.dart/issues/1272))
+- Added `.getRecommendedDidCredentials` on `IdentityService`. ([#1270](https://github.com/myConsciousness/atproto.dart/issues/1270))
 
 ## v0.15.8
 
