@@ -71,5 +71,5 @@ final class RetryPolicy {
 
   int get _jitter =>
       _random.nextInt(_retryConfig!.jitter.maxInSeconds) +
-      _retryConfig!.jitter.minInSeconds;
+      _retryConfig.jitter.minInSeconds;
 }

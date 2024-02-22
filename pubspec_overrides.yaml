@@ -1,0 +1,9 @@
+dependency_overrides:
+  at_identifier:
+    path: ./packages/at_identifier
+  nsid:
+    path: ./packages/nsid
+  lexicon:
+    path: ./packages/lexicon
+  xrpc:
+    path: ./packages/xrpc
