@@ -15,6 +15,7 @@ _$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
         final val = _$ServerInfoImpl(
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          did: $checkedConvert('did', (v) => v as String),
           isInviteCodeRequired:
               $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
           links: $checkedConvert(
@@ -32,6 +33,7 @@ _$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ServerInfoImplToJson(_$ServerInfoImpl instance) {
   final val = <String, dynamic>{
     'availableUserDomains': instance.availableUserDomains,
+    'did': instance.did,
     'inviteCodeRequired': instance.isInviteCodeRequired,
   };
 

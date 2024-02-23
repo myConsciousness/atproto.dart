@@ -7,14 +7,14 @@ description: app.bsky.feed.getRepostedBy
 
 ## #main
 
-Get a list of reposts.
+Get a list of reposts for a given post.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
-| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) of post record |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | If supplied, filters to reposts of specific version (by CID) of the post record. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

@@ -7,7 +7,7 @@ description: com.atproto.repo.putRecord
 
 ## #main
 
-Write a record, creating or updating it as needed.
+Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
 
 ### Input
 
@@ -15,12 +15,12 @@ Write a record, creating or updating it as needed.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo. |
+| **repo** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | The handle or DID of the repo (aka, current account). |
 | **collection** | string ([nsid](https://atproto.com/specs/nsid)) | - | ✅ | The NSID of the record collection. |
-| **rkey** | string | - | ✅ | The key of the record. |
-| **validate** | boolean | - | ❌ | Flag for validating the record. |
+| **rkey** | string | - | ✅ | The Record Key. |
+| **validate** | boolean | - | ❌ | Can be set to 'false' to skip Lexicon schema validation of record data. |
 | **record** | unknown | - | ✅ | The record to write. |
-| **swapRecord** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous record by CID. |
+| **swapRecord** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous record by CID. WARNING: nullable and optional field; may cause problems with golang implementation |
 | **swapCommit** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Compare and swap with the previous commit by CID. |
 
 ### Output

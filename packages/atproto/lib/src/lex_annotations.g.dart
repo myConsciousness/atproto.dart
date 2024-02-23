@@ -16,19 +16,9 @@ import 'package:lex_annotation/lex_annotation.dart';
 // 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
-/// `com.atproto.temp.transferAccount#main`
-const comAtprotoTempTransferAccount =
-    LexObject(ids.comAtprotoTempTransferAccount);
-
-/// `com.atproto.temp.pushBlob#main`
-const comAtprotoTempPushBlob = LexObject(ids.comAtprotoTempPushBlob);
-
 /// `com.atproto.temp.checkSignupQueue#main`
 const comAtprotoTempCheckSignupQueue =
     LexObject(ids.comAtprotoTempCheckSignupQueue);
-
-/// `com.atproto.temp.importRepo#main`
-const comAtprotoTempImportRepo = LexObject(ids.comAtprotoTempImportRepo);
 
 /// `com.atproto.temp.requestPhoneVerification#main`
 const comAtprotoTempRequestPhoneVerification =
@@ -41,9 +31,25 @@ const comAtprotoTempFetchLabels = LexObject(ids.comAtprotoTempFetchLabels);
 const comAtprotoIdentityUpdateHandle =
     LexObject(ids.comAtprotoIdentityUpdateHandle);
 
+/// `com.atproto.identity.signPlcOperation#main`
+const comAtprotoIdentitySignPlcOperation =
+    LexObject(ids.comAtprotoIdentitySignPlcOperation);
+
+/// `com.atproto.identity.submitPlcOperation#main`
+const comAtprotoIdentitySubmitPlcOperation =
+    LexObject(ids.comAtprotoIdentitySubmitPlcOperation);
+
 /// `com.atproto.identity.resolveHandle#main`
 const comAtprotoIdentityResolveHandle =
     LexObject(ids.comAtprotoIdentityResolveHandle);
+
+/// `com.atproto.identity.requestPlcOperationSignature#main`
+const comAtprotoIdentityRequestPlcOperationSignature =
+    LexObject(ids.comAtprotoIdentityRequestPlcOperationSignature);
+
+/// `com.atproto.identity.getRecommendedDidCredentials#main`
+const comAtprotoIdentityGetRecommendedDidCredentials =
+    LexObject(ids.comAtprotoIdentityGetRecommendedDidCredentials);
 
 /// `com.atproto.admin.getRepo#main`
 const comAtprotoAdminGetRepo = LexObject(ids.comAtprotoAdminGetRepo);
@@ -137,6 +143,10 @@ const comAtprotoAdminDefsImageDetails =
 const comAtprotoAdminDefsVideoDetails =
     LexObject(ids.comAtprotoAdminDefsVideoDetails);
 
+/// `com.atproto.admin.defs#subjectReviewState`
+const comAtprotoAdminDefsSubjectReviewState =
+    LexObject(ids.comAtprotoAdminDefsSubjectReviewState);
+
 /// `com.atproto.admin.defs#modEventTakedown`
 const comAtprotoAdminDefsModEventTakedown =
     LexObject(ids.comAtprotoAdminDefsModEventTakedown);
@@ -181,6 +191,10 @@ const comAtprotoAdminDefsModEventUnmute =
 const comAtprotoAdminDefsModEventEmail =
     LexObject(ids.comAtprotoAdminDefsModEventEmail);
 
+/// `com.atproto.admin.defs#modEventTag`
+const comAtprotoAdminDefsModEventTag =
+    LexObject(ids.comAtprotoAdminDefsModEventTag);
+
 /// `com.atproto.admin.defs#communicationTemplateView`
 const comAtprotoAdminDefsCommunicationTemplateView =
     LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
@@ -200,6 +214,10 @@ const comAtprotoAdminQueryModerationStatuses =
 /// `com.atproto.admin.deleteCommunicationTemplate#main`
 const comAtprotoAdminDeleteCommunicationTemplate =
     LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
+
+/// `com.atproto.admin.updateAccountPassword#main`
+const comAtprotoAdminUpdateAccountPassword =
+    LexObject(ids.comAtprotoAdminUpdateAccountPassword);
 
 /// `com.atproto.admin.updateAccountHandle#main`
 const comAtprotoAdminUpdateAccountHandle =
@@ -300,6 +318,10 @@ const comAtprotoServerDefsInviteCode =
 const comAtprotoServerDefsInviteCodeUse =
     LexObject(ids.comAtprotoServerDefsInviteCodeUse);
 
+/// `com.atproto.server.getServiceAuth#main`
+const comAtprotoServerGetServiceAuth =
+    LexObject(ids.comAtprotoServerGetServiceAuth);
+
 /// `com.atproto.server.getAccountInviteCodes#main`
 const comAtprotoServerGetAccountInviteCodes =
     LexObject(ids.comAtprotoServerGetAccountInviteCodes);
@@ -340,6 +362,10 @@ const comAtprotoServerCreateAppPassword =
 const comAtprotoServerCreateAppPasswordAppPassword =
     LexObject(ids.comAtprotoServerCreateAppPasswordAppPassword);
 
+/// `com.atproto.server.activateAccount#main`
+const comAtprotoServerActivateAccount =
+    LexObject(ids.comAtprotoServerActivateAccount);
+
 /// `com.atproto.server.describeServer#main`
 const comAtprotoServerDescribeServer =
     LexObject(ids.comAtprotoServerDescribeServer);
@@ -359,12 +385,20 @@ const comAtprotoServerGetSession = LexObject(ids.comAtprotoServerGetSession);
 const comAtprotoServerRefreshSession =
     LexObject(ids.comAtprotoServerRefreshSession);
 
+/// `com.atproto.server.deactivateAccount#main`
+const comAtprotoServerDeactivateAccount =
+    LexObject(ids.comAtprotoServerDeactivateAccount);
+
 /// `com.atproto.server.updateEmail#main`
 const comAtprotoServerUpdateEmail = LexObject(ids.comAtprotoServerUpdateEmail);
 
 /// `com.atproto.server.resetPassword#main`
 const comAtprotoServerResetPassword =
     LexObject(ids.comAtprotoServerResetPassword);
+
+/// `com.atproto.server.checkAccountStatus#main`
+const comAtprotoServerCheckAccountStatus =
+    LexObject(ids.comAtprotoServerCheckAccountStatus);
 
 /// `com.atproto.server.requestEmailUpdate#main`
 const comAtprotoServerRequestEmailUpdate =
@@ -421,6 +455,10 @@ const comAtprotoSyncSubscribeRepos =
 const comAtprotoSyncSubscribeReposCommit =
     LexObject(ids.comAtprotoSyncSubscribeReposCommit);
 
+/// `com.atproto.sync.subscribeRepos#identity`
+const comAtprotoSyncSubscribeReposIdentity =
+    LexObject(ids.comAtprotoSyncSubscribeReposIdentity);
+
 /// `com.atproto.sync.subscribeRepos#handle`
 const comAtprotoSyncSubscribeReposHandle =
     LexObject(ids.comAtprotoSyncSubscribeReposHandle);
@@ -459,6 +497,14 @@ const comAtprotoSyncGetCheckout = LexObject(ids.comAtprotoSyncGetCheckout);
 /// `com.atproto.repo.strongRef#main`
 const comAtprotoRepoStrongRef = LexObject(ids.comAtprotoRepoStrongRef);
 
+/// `com.atproto.repo.listMissingBlobs#main`
+const comAtprotoRepoListMissingBlobs =
+    LexObject(ids.comAtprotoRepoListMissingBlobs);
+
+/// `com.atproto.repo.listMissingBlobs#recordBlob`
+const comAtprotoRepoListMissingBlobsRecordBlob =
+    LexObject(ids.comAtprotoRepoListMissingBlobsRecordBlob);
+
 /// `com.atproto.repo.createRecord#main`
 const comAtprotoRepoCreateRecord = LexObject(ids.comAtprotoRepoCreateRecord);
 
@@ -470,6 +516,9 @@ const comAtprotoRepoPutRecord = LexObject(ids.comAtprotoRepoPutRecord);
 
 /// `com.atproto.repo.uploadBlob#main`
 const comAtprotoRepoUploadBlob = LexObject(ids.comAtprotoRepoUploadBlob);
+
+/// `com.atproto.repo.importRepo#main`
+const comAtprotoRepoImportRepo = LexObject(ids.comAtprotoRepoImportRepo);
 
 /// `com.atproto.repo.describeRepo#main`
 const comAtprotoRepoDescribeRepo = LexObject(ids.comAtprotoRepoDescribeRepo);
@@ -498,6 +547,10 @@ const comAtprotoRepoListRecords = LexObject(ids.comAtprotoRepoListRecords);
 /// `com.atproto.repo.listRecords#record`
 const comAtprotoRepoListRecordsRecord =
     LexObject(ids.comAtprotoRepoListRecordsRecord);
+
+/// `com.atproto.moderation.defs#reasonType`
+const comAtprotoModerationDefsReasonType =
+    LexObject(ids.comAtprotoModerationDefsReasonType);
 
 /// `com.atproto.moderation.createReport#main`
 const comAtprotoModerationCreateReport =

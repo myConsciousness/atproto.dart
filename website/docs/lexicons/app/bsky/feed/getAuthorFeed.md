@@ -7,16 +7,16 @@ description: app.bsky.feed.getAuthorFeed
 
 ## #main
 
-Get a view of an actor's feed.
+Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **actor** | string ([at-identifier](https://atproto.com/specs/lexicon#at-identifier)) | - | ✅ | - |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
-| **filter** | string | posts_with_replies<br/>posts_no_replies<br/>posts_with_media<br/>posts_and_author_threads | ❌ | - |
+| **filter** | string | posts_with_replies<br/>posts_no_replies<br/>posts_with_media<br/>posts_and_author_threads | ❌ | Combinations of post/repost types to include in response. |
 
 ### Output
 

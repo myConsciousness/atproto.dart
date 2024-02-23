@@ -9,7 +9,7 @@ description: com.atproto.admin.getAccountInfo
 
 Get details about an account.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

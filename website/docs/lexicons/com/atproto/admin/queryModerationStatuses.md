@@ -9,7 +9,7 @@ description: com.atproto.admin.queryModerationStatuses
 
 View moderation statuses of subjects (record or repo).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -28,6 +28,8 @@ View moderation statuses of subjects (record or repo).
 | **takendown** | boolean | - | ❌ | Get subjects that were taken down |
 | **appealed** | boolean | - | ❌ | Get subjects in unresolved appealed status |
 | **limit** | integer | - | ❌ | - |
+| **tags** | array | - | ❌ | - |
+| **excludeTags** | array | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 
 ### Output

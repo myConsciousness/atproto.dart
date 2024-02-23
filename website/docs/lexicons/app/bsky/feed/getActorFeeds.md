@@ -7,9 +7,9 @@ description: app.bsky.feed.getActorFeeds
 
 ## #main
 
-Get a list of feeds created by the actor.
+Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

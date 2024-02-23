@@ -7,9 +7,9 @@ description: com.atproto.sync.listRepos
 
 ## #main
 
-List DIDs and root CIDs of hosted repos.
+Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -30,5 +30,5 @@ List DIDs and root CIDs of hosted repos.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
-| **head** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
+| **head** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | Current repo commit CID |
 | **rev** | string | - | ✅ | - |

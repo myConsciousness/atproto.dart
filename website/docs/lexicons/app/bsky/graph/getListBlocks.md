@@ -7,9 +7,9 @@ description: app.bsky.graph.getListBlocks
 
 ## #main
 
-Get lists that the actor is blocking.
+Get mod lists that the requesting account (actor) is blocking. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

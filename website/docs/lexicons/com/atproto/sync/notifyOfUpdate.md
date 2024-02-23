@@ -7,7 +7,7 @@ description: com.atproto.sync.notifyOfUpdate
 
 ## #main
 
-Notify a crawling service of a recent update; often when a long break between updates causes the connection with the crawling service to break.
+Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
 
 ### Input
 
@@ -15,4 +15,4 @@ Notify a crawling service of a recent update; often when a long break between up
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **hostname** | string | - | ✅ | Hostname of the service that is notifying of update. |
+| **hostname** | string | - | ✅ | Hostname of the current service (usually a PDS) that is notifying of update. |

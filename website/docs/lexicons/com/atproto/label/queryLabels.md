@@ -7,9 +7,9 @@ description: com.atproto.label.queryLabels
 
 ## #main
 
-Find labels relevant to the provided URI patterns.
+Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

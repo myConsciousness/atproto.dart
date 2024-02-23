@@ -74,6 +74,7 @@ Map<String, Map<String, LexUserType>> _getLexObjects(
       final object = def.whenOrNull(
         object: (data) => data,
         array: (data) => data,
+        string: (data) => data,
         xrpcQuery: (data) => data,
         xrpcProcedure: (data) => data,
         xrpcSubscription: (data) => data,

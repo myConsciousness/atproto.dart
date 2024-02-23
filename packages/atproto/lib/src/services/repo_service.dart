@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
+import 'entities/missing_blobs.dart';
 import 'types/repo/apply_writes/_z.dart';
 import 'types/repo/describe_repo/_z.dart';
 import 'types/repo/get_record/_z.dart';
@@ -115,9 +116,9 @@ final class RepoService {
   Future<core.XRPCResponse<core.BlobData>> uploadBlob(
     final Uint8List bytes,
   ) async =>
-      await _ctx.upload(
+      await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
-        bytes,
+        body: bytes,
         to: core.BlobData.fromJson,
       );
 
@@ -139,6 +140,29 @@ final class RepoService {
         actions: actions,
         validate: validate,
         swapCommitCid: swapCommitCid,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
+  Future<core.XRPCResponse<MissingBlobs>> listMissingBlobs({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoRepoListMissingBlobs,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: MissingBlobs.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
+  Future<core.XRPCResponse<core.EmptyData>> importRepo(
+    final Uint8List car,
+  ) async =>
+      await _ctx.post(
+        ns.comAtprotoRepoImportRepo,
+        body: car,
       );
 
   @Deprecated('Use .getRecord instead. Will be removed')

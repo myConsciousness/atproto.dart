@@ -7,9 +7,9 @@ description: app.bsky.feed.like
 
 ## #main
 
-### Input
+### Properties
 
-A declaration of a like.
+Record declaring a 'like' of a piece of subject content.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 

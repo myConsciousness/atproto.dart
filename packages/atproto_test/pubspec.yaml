@@ -3,12 +3,12 @@ description: This package provides core reusable and useful functionality for te
 version: 1.0.0
 publish_to: none
 environment:
-  sdk: ^3.0.0
+  sdk: ^3.3.0
 
 dependencies:
   test: ^1.21.0
   atproto_core: ^0.10.0-preview.0
-  http: ^1.1.0
+  http: ^1.2.1
   universal_io: ^2.2.2
 
 dev_dependencies:

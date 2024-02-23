@@ -15,6 +15,18 @@
   - `.refreshSession`
   - `.deleteSession`
 
+## v0.9.5
+
+- Added `.toUtcIso8601String` on `ServiceContext`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
+- Bump SDK constraint to '^3.3.0'.
+
+## v0.9.4
+
+- Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))
+- Exposed `.service` and `.relayService` properties on `ServiceContext`. ([#1254](https://github.com/myConsciousness/atproto.dart/issues/1254))
+- Added `parameters` arg and you can pass bytes to `body` arg on `.post` method. ([#1252](https://github.com/myConsciousness/atproto.dart/issues/1252))
+- BugFix: Made sure to check if the subscribeRepos blocks can be decoded. ([#1239](https://github.com/myConsciousness/atproto.dart/issues/1239))
+
 ## v0.9.3
 
 - Upgrade dependencies. ([#1217](https://github.com/myConsciousness/atproto.dart/issues/1217))

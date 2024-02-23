@@ -4,7 +4,6 @@
 
 // 🎯 Dart imports:
 import 'dart:async';
-import 'dart:typed_data';
 
 // 📦 Package imports:
 import 'package:xrpc/xrpc.dart' as xrpc;
@@ -27,14 +26,23 @@ base class ServiceContext {
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
   })  : _protocol = protocol ?? defaultProtocol,
-        _service = service ?? defaultService,
-        _relayService = relayService ?? defaultRelayService,
+        service = service ?? defaultService,
+        relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
         _timeout = timeout ?? defaultTimeout,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
 
+  /// The current session.
   final Session? session;
+
+  /// The current service.
+  /// Defaults to `bsky.social`.
+  final String service;
+
+  /// The current relay service.
+  /// Defaults to `bsky.network`.
+  final String relayService;
 
   /// The communication challenge for client
   final Challenge _challenge;
@@ -44,9 +52,6 @@ base class ServiceContext {
 
   /// The communication protocol.
   final xrpc.Protocol _protocol;
-
-  final String _service;
-  final String _relayService;
 
   final xrpc.GetClient? _mockedGetClient;
   final xrpc.PostClient? _mockedPostClient;
@@ -62,7 +67,7 @@ base class ServiceContext {
         () async => await xrpc.query(
           methodId,
           protocol: _protocol,
-          service: _service,
+          service: service,
           headers: _getHeaders(headers),
           parameters: parameters,
           to: to,
@@ -75,6 +80,7 @@ base class ServiceContext {
   Future<xrpc.XRPCResponse<T>> post<T>(
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final xrpc.ResponseDataBuilder<T>? to,
   }) async =>
@@ -82,30 +88,12 @@ base class ServiceContext {
         () async => await xrpc.procedure(
           methodId,
           protocol: _protocol,
-          service: _service,
+          service: service,
           headers: _getHeaders(headers),
+          parameters: parameters,
           body: body,
           to: to,
           timeout: _timeout,
-          postClient: _mockedPostClient,
-        ),
-      );
-
-  Future<xrpc.XRPCResponse<T>> upload<T>(
-    final xrpc.NSID methodId,
-    final Uint8List bytes, {
-    final Map<String, String>? headers,
-    final xrpc.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _challenge.execute(
-        () async => await xrpc.upload(
-          methodId,
-          bytes,
-          protocol: _protocol,
-          service: _service,
-          headers: _getHeaders(headers),
-          timeout: _timeout,
-          to: to,
           postClient: _mockedPostClient,
         ),
       );
@@ -119,7 +107,7 @@ base class ServiceContext {
       await _challenge.execute(
         () => xrpc.subscribe(
           methodId,
-          service: _relayService,
+          service: relayService,
           parameters: parameters,
           to: to,
           adaptor: adaptor,
@@ -134,4 +122,8 @@ base class ServiceContext {
       ...optional ?? const {},
     };
   }
+
+  /// Returns the [dateTime] in UTC time zone and ISO8601 format.
+  String toUtcIso8601String(final DateTime? dateTime) =>
+      (dateTime ?? DateTime.now()).toUtc().toIso8601String();
 }

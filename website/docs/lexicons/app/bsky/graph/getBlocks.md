@@ -7,9 +7,9 @@ description: app.bsky.graph.getBlocks
 
 ## #main
 
-Get a list of who the actor is blocking.
+Enumerates which accounts the requesting account is currently blocking. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

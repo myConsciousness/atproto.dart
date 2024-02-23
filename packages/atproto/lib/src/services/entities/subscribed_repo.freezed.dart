@@ -12,12 +12,14 @@ part of 'subscribed_repo.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SubscribedRepo _$SubscribedRepoFromJson(Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'commit':
       return USubscribedRepoCommit.fromJson(json);
+    case 'identity':
+      return USubscribedRepoIdentity.fromJson(json);
     case 'handle':
       return USubscribedRepoHandle.fromJson(json);
     case 'migrate':
@@ -41,6 +43,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -51,6 +54,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -61,6 +65,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -72,6 +77,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -82,6 +88,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -92,6 +99,7 @@ mixin _$SubscribedRepo {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -206,6 +214,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -219,6 +228,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -232,6 +242,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -249,6 +260,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -262,6 +274,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -275,6 +288,7 @@ class _$USubscribedRepoCommitImpl implements USubscribedRepoCommit {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -307,6 +321,203 @@ abstract class USubscribedRepoCommit implements SubscribedRepo {
   SubscribedRepoCommit get data;
   @JsonKey(ignore: true)
   _$$USubscribedRepoCommitImplCopyWith<_$USubscribedRepoCommitImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$USubscribedRepoIdentityImplCopyWith<$Res> {
+  factory _$$USubscribedRepoIdentityImplCopyWith(
+          _$USubscribedRepoIdentityImpl value,
+          $Res Function(_$USubscribedRepoIdentityImpl) then) =
+      __$$USubscribedRepoIdentityImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SubscribedRepoIdentity data});
+
+  $SubscribedRepoIdentityCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$USubscribedRepoIdentityImplCopyWithImpl<$Res>
+    extends _$SubscribedRepoCopyWithImpl<$Res, _$USubscribedRepoIdentityImpl>
+    implements _$$USubscribedRepoIdentityImplCopyWith<$Res> {
+  __$$USubscribedRepoIdentityImplCopyWithImpl(
+      _$USubscribedRepoIdentityImpl _value,
+      $Res Function(_$USubscribedRepoIdentityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$USubscribedRepoIdentityImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SubscribedRepoIdentity,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SubscribedRepoIdentityCopyWith<$Res> get data {
+    return $SubscribedRepoIdentityCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$USubscribedRepoIdentityImpl implements USubscribedRepoIdentity {
+  const _$USubscribedRepoIdentityImpl({required this.data, final String? $type})
+      : $type = $type ?? 'identity';
+
+  factory _$USubscribedRepoIdentityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$USubscribedRepoIdentityImplFromJson(json);
+
+  @override
+  final SubscribedRepoIdentity data;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'SubscribedRepo.identity(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$USubscribedRepoIdentityImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$USubscribedRepoIdentityImplCopyWith<_$USubscribedRepoIdentityImpl>
+      get copyWith => __$$USubscribedRepoIdentityImplCopyWithImpl<
+          _$USubscribedRepoIdentityImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
+    required TResult Function(SubscribedRepoHandle data) handle,
+    required TResult Function(SubscribedRepoMigrate data) migrate,
+    required TResult Function(SubscribedRepoTombstone data) tombstone,
+    required TResult Function(SubscribedRepoInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return identity(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
+    TResult? Function(SubscribedRepoHandle data)? handle,
+    TResult? Function(SubscribedRepoMigrate data)? migrate,
+    TResult? Function(SubscribedRepoTombstone data)? tombstone,
+    TResult? Function(SubscribedRepoInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return identity?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
+    TResult Function(SubscribedRepoHandle data)? handle,
+    TResult Function(SubscribedRepoMigrate data)? migrate,
+    TResult Function(SubscribedRepoTombstone data)? tombstone,
+    TResult Function(SubscribedRepoInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (identity != null) {
+      return identity(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
+    required TResult Function(USubscribedRepoHandle value) handle,
+    required TResult Function(USubscribedRepoMigrate value) migrate,
+    required TResult Function(USubscribedRepoTombstone value) tombstone,
+    required TResult Function(USubscribedRepoInfo value) info,
+    required TResult Function(USubscribedRepoUnknown value) unknown,
+  }) {
+    return identity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
+    TResult? Function(USubscribedRepoHandle value)? handle,
+    TResult? Function(USubscribedRepoMigrate value)? migrate,
+    TResult? Function(USubscribedRepoTombstone value)? tombstone,
+    TResult? Function(USubscribedRepoInfo value)? info,
+    TResult? Function(USubscribedRepoUnknown value)? unknown,
+  }) {
+    return identity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
+    TResult Function(USubscribedRepoHandle value)? handle,
+    TResult Function(USubscribedRepoMigrate value)? migrate,
+    TResult Function(USubscribedRepoTombstone value)? tombstone,
+    TResult Function(USubscribedRepoInfo value)? info,
+    TResult Function(USubscribedRepoUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (identity != null) {
+      return identity(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$USubscribedRepoIdentityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class USubscribedRepoIdentity implements SubscribedRepo {
+  const factory USubscribedRepoIdentity(
+          {required final SubscribedRepoIdentity data}) =
+      _$USubscribedRepoIdentityImpl;
+
+  factory USubscribedRepoIdentity.fromJson(Map<String, dynamic> json) =
+      _$USubscribedRepoIdentityImpl.fromJson;
+
+  @override
+  SubscribedRepoIdentity get data;
+  @JsonKey(ignore: true)
+  _$$USubscribedRepoIdentityImplCopyWith<_$USubscribedRepoIdentityImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -395,6 +606,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -408,6 +620,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -421,6 +634,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -438,6 +652,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -451,6 +666,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -464,6 +680,7 @@ class _$USubscribedRepoHandleImpl implements USubscribedRepoHandle {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -585,6 +802,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -598,6 +816,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -611,6 +830,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -628,6 +848,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -641,6 +862,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -654,6 +876,7 @@ class _$USubscribedRepoMigrateImpl implements USubscribedRepoMigrate {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -777,6 +1000,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -790,6 +1014,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -803,6 +1028,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -820,6 +1046,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -833,6 +1060,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -846,6 +1074,7 @@ class _$USubscribedRepoTombstoneImpl implements USubscribedRepoTombstone {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -966,6 +1195,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -979,6 +1209,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -992,6 +1223,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -1009,6 +1241,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -1022,6 +1255,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -1035,6 +1269,7 @@ class _$USubscribedRepoInfoImpl implements USubscribedRepoInfo {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,
@@ -1154,6 +1389,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SubscribedRepoCommit data) commit,
+    required TResult Function(SubscribedRepoIdentity data) identity,
     required TResult Function(SubscribedRepoHandle data) handle,
     required TResult Function(SubscribedRepoMigrate data) migrate,
     required TResult Function(SubscribedRepoTombstone data) tombstone,
@@ -1167,6 +1403,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SubscribedRepoCommit data)? commit,
+    TResult? Function(SubscribedRepoIdentity data)? identity,
     TResult? Function(SubscribedRepoHandle data)? handle,
     TResult? Function(SubscribedRepoMigrate data)? migrate,
     TResult? Function(SubscribedRepoTombstone data)? tombstone,
@@ -1180,6 +1417,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SubscribedRepoCommit data)? commit,
+    TResult Function(SubscribedRepoIdentity data)? identity,
     TResult Function(SubscribedRepoHandle data)? handle,
     TResult Function(SubscribedRepoMigrate data)? migrate,
     TResult Function(SubscribedRepoTombstone data)? tombstone,
@@ -1197,6 +1435,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USubscribedRepoCommit value) commit,
+    required TResult Function(USubscribedRepoIdentity value) identity,
     required TResult Function(USubscribedRepoHandle value) handle,
     required TResult Function(USubscribedRepoMigrate value) migrate,
     required TResult Function(USubscribedRepoTombstone value) tombstone,
@@ -1210,6 +1449,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USubscribedRepoCommit value)? commit,
+    TResult? Function(USubscribedRepoIdentity value)? identity,
     TResult? Function(USubscribedRepoHandle value)? handle,
     TResult? Function(USubscribedRepoMigrate value)? migrate,
     TResult? Function(USubscribedRepoTombstone value)? tombstone,
@@ -1223,6 +1463,7 @@ class _$USubscribedRepoUnknownImpl implements USubscribedRepoUnknown {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USubscribedRepoCommit value)? commit,
+    TResult Function(USubscribedRepoIdentity value)? identity,
     TResult Function(USubscribedRepoHandle value)? handle,
     TResult Function(USubscribedRepoMigrate value)? migrate,
     TResult Function(USubscribedRepoTombstone value)? tombstone,

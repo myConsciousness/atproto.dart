@@ -9,7 +9,7 @@ description: com.atproto.admin.getInviteCodes
 
 Get an admin view of invite codes.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

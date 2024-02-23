@@ -54,6 +54,7 @@ Future<Response<T>> post<T>(
   final Protocol protocol = Protocol.https,
   final String? service,
   final Map<String, String>? headers,
+  final Map<String, dynamic>? parameters,
   final Map<String, dynamic>? body,
   final Duration timeout = const Duration(seconds: 10),
   final type.ResponseDataBuilder<T>? to,
@@ -66,6 +67,9 @@ Future<Response<T>> post<T>(
               util.getUriFactory(protocol).call(
                     service ?? defaultService,
                     unencodedPath,
+                    util.convertParameters(
+                      util.removeNullValues(parameters) ?? {},
+                    ),
                   ),
               headers: {
                 'Content-type': 'application/json',

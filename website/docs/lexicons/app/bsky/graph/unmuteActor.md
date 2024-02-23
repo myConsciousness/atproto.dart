@@ -7,7 +7,7 @@ description: app.bsky.graph.unmuteActor
 
 ## #main
 
-Unmute an actor by DID or handle.
+Unmutes the specified account. Requires auth.
 
 ### Input
 

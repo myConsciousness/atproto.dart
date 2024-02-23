@@ -7,6 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
+import 'entities/did_credentials.dart';
+import 'entities/plc_operation.dart';
 import 'types/identity/resolve_handle/_z.dart';
 
 /// Represents `com.atproto.identity.*` service.
@@ -31,6 +33,7 @@ final class IdentityService {
         to: IdentityResolveHandleOutput.fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<core.XRPCResponse<core.EmptyData>> updateHandle({
     required String handle,
   }) async =>
@@ -40,6 +43,49 @@ final class IdentityService {
           'handle': handle,
         },
       );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
+  Future<core.XRPCResponse<core.EmptyData>> submitPlcOperation(
+    final Map<String, dynamic> operation,
+  ) async =>
+      await _ctx.post(
+        ns.comAtprotoIdentitySubmitPlcOperation,
+        body: {
+          'operation': operation,
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
+  Future<core.XRPCResponse<PlcOperation>> signPlcOperation({
+    String? token,
+    List<String>? rotationKeys,
+    String? alsoKnownAs,
+    Map<String, dynamic>? verificationMethods,
+    Map<String, dynamic>? services,
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoIdentitySignPlcOperation,
+        body: {
+          'token': token,
+          'rotationKeys': rotationKeys,
+          'alsoKnownAs': alsoKnownAs,
+          'verificationMethods': verificationMethods,
+          'services': services,
+        },
+        to: PlcOperation.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
+  Future<core.XRPCResponse<DidCredentials>>
+      getRecommendedDidCredentials() async => await _ctx.get(
+            ns.comAtprotoIdentityGetRecommendedDidCredentials,
+            to: DidCredentials.fromJson,
+          );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
+  Future<core.XRPCResponse<core.EmptyData>>
+      requestPlcOperationSignature() async =>
+          await _ctx.post(ns.comAtprotoIdentityRequestPlcOperationSignature);
 
   Future<core.XRPCResponse<T>> _findDID<T>({
     required String handle,

@@ -9,6 +9,10 @@ dependency_overrides:
     path: ../at_uri
   xrpc:
     path: ../xrpc
+  lexicon:
+    path: ../lexicon
+  lex_annotation:
+    path: ../lex_annotation
   atproto_core:
     path: ../atproto_core
   atproto:

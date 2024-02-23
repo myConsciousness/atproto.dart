@@ -9,7 +9,7 @@ description: com.atproto.admin.getModerationEvent
 
 Get details about a moderation event.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

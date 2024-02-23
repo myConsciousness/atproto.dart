@@ -7,4 +7,4 @@ description: com.atproto.server.deleteSession
 
 ## #main
 
-Delete the current session.
+Delete the current session. Requires auth.

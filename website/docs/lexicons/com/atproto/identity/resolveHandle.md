@@ -7,9 +7,9 @@ description: com.atproto.identity.resolveHandle
 
 ## #main
 
-Provides the DID of a repo.
+Resolves a handle (domain name) to a DID.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

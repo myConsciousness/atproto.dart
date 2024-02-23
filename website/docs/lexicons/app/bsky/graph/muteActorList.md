@@ -7,7 +7,7 @@ description: app.bsky.graph.muteActorList
 
 ## #main
 
-Mute a list of actors.
+Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
 
 ### Input
 

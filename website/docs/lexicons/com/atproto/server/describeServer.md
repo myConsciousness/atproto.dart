@@ -7,7 +7,7 @@ description: com.atproto.server.describeServer
 
 ## #main
 
-Get a document describing the service's accounts configuration.
+Describes the server's account creation requirements and capabilities. Implemented by PDS.
 
 ### Output
 
@@ -15,10 +15,11 @@ Get a document describing the service's accounts configuration.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **inviteCodeRequired** | boolean | - | ❌ | - |
-| **phoneVerificationRequired** | boolean | - | ❌ | - |
-| **availableUserDomains** | array of string | - | ✅ | - |
+| **inviteCodeRequired** | boolean | - | ❌ | If true, an invite code must be supplied to create an account on this instance. |
+| **phoneVerificationRequired** | boolean | - | ❌ | If true, a phone verification token must be supplied to create an account on this instance. |
+| **availableUserDomains** | array of string | - | ✅ | List of domain suffixes that can be used in account handles. |
 | **links** | [#links](#links) | - | ❌ | - |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 
 ## #links
 

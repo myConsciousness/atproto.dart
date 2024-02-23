@@ -7,16 +7,16 @@ description: app.bsky.graph.list
 
 ## #main
 
-### Input
+### Properties
 
-A declaration of a list of actors.
+Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
 
 Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/createRecord.md#main) to create a record.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **purpose** | [app.bsky.graph.defs#listPurpose](../../../../lexicons/app/bsky/graph/defs.md#listpurpose) | - | ✅ | - |
-| **name** | string | - | ✅ | - |
+| **name** | string | - | ✅ | Display name for list; can not be empty. |
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |

@@ -48,6 +48,8 @@ description: app.bsky.actor.defs
 
 ## #viewerState
 
+Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
+
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **muted** | boolean | - | ❌ | - |
@@ -62,7 +64,7 @@ description: app.bsky.actor.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -83,6 +85,7 @@ description: app.bsky.actor.defs
 | --- | --- | --- | :---: | --- |
 | **pinned** | array of string | - | ✅ | - |
 | **saved** | array of string | - | ✅ | - |
+| **timelineIndex** | integer | - | ❌ | - |
 
 ## #personalDetailsPref
 
@@ -113,3 +116,30 @@ description: app.bsky.actor.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **tags** | array of string | - | ✅ | A list of tags which describe the account owner's interests gathered during onboarding. |
+
+## #mutedWordTarget
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **mutedWordTarget** | string | content<br/>tag | ❌ | - |
+
+## #mutedWord
+
+A word that the account owner has muted.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **value** | string | - | ✅ | The muted word itself. |
+| **targets** | array of [app.bsky.actor.defs#mutedWordTarget](../../../../lexicons/app/bsky/actor/defs.md#mutedwordtarget) | - | ✅ | The intended targets of the muted word. |
+
+## #mutedWordsPref
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [app.bsky.actor.defs#mutedWord](../../../../lexicons/app/bsky/actor/defs.md#mutedword) | - | ✅ | A list of words the account owner has muted. |
+
+## #hiddenPostsPref
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of string | - | ✅ | A list of URIs of posts the account owner has hidden. |

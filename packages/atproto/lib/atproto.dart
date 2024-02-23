@@ -56,6 +56,7 @@ export 'package:atproto/src/services/repo_service.dart';
 export 'package:atproto/src/services/server_service.dart';
 export 'package:atproto/src/services/sync_service.dart';
 export 'package:atproto/src/services/label_service.dart';
+export 'package:atproto/src/services/temp_service.dart';
 
 // Deprecated
 export 'package:atproto/src/services/entities/account.dart';
@@ -104,10 +105,62 @@ export 'package:atproto/src/services/entities/self_labels.dart';
 export 'package:atproto/src/services/entities/labels.dart';
 export 'package:atproto/src/services/entities/labels_by_query.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_commit.dart';
+export 'package:atproto/src/services/entities/subscribed_repo_identity.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_handle.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_info.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_migrate.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_tombstone.dart';
 export 'package:atproto/src/services/entities/update_action.dart';
 export 'package:atproto/src/services/entities/signing_key.dart';
+
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
+
+// TODO: Merge
+export 'package:atproto/src/services/entities/signup_queue.dart';
+export 'package:atproto/src/services/entities/transferred_account.dart';
+export 'package:atproto/src/services/entities/service_auth_token.dart';
+export 'package:atproto/src/services/entities/account_status.dart';
+export 'package:atproto/src/services/entities/missing_blobs.dart';
+export 'package:atproto/src/services/entities/record_blob.dart';
+export 'package:atproto/src/services/entities/plc_operation.dart';
+export 'package:atproto/src/services/entities/did_credentials.dart';
+
+export 'package:atproto_core/atproto_core.dart'
+    show
+        XRPCResponse,
+        XRPCRequest,
+        XRPCError,
+        $XRPCErrorCopyWith,
+        RateLimit,
+        RateLimitPolicy,
+        Protocol,
+        EmptyData,
+        HttpMethod,
+        HttpStatus,
+        Serializable,
+        Platform,
+        ResponseDataBuilder,
+        ResponseDataAdaptor,
+        NSID,
+        AtUri,
+        CID,
+        InvalidCidError,
+        Multicodec,
+        XRPCException,
+        InternalServerErrorException,
+        InvalidRequestException,
+        XRPCNotSupportedException,
+        UnauthorizedException,
+        RateLimitExceededException,
+        RetryConfig,
+        RetryEvent,
+        Jitter,
+        GetClient,
+        PostClient,
+        Session,
+        $SessionCopyWith,
+        AuthToken,
+        $AuthTokenCopyWith,
+        decodeJwt,
+        AuthScope,
+        isValidAppPassword;

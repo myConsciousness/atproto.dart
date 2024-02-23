@@ -12,7 +12,7 @@ part of 'saved_feeds_preference.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SavedFeedsPreference _$SavedFeedsPreferenceFromJson(Map<String, dynamic> json) {
   return _SavedFeedsPreference.fromJson(json);
@@ -28,6 +28,7 @@ mixin _$SavedFeedsPreference {
   @atUriConverter
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris => throw _privateConstructorUsedError;
+  int? get timelineIndex => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,7 +45,8 @@ abstract class $SavedFeedsPreferenceCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
-      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris});
+      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris,
+      int? timelineIndex});
 }
 
 /// @nodoc
@@ -64,6 +66,7 @@ class _$SavedFeedsPreferenceCopyWithImpl<$Res,
     Object? type = null,
     Object? pinnedUris = null,
     Object? savedUris = null,
+    Object? timelineIndex = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -78,6 +81,10 @@ class _$SavedFeedsPreferenceCopyWithImpl<$Res,
           ? _value.savedUris
           : savedUris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      timelineIndex: freezed == timelineIndex
+          ? _value.timelineIndex
+          : timelineIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -93,7 +100,8 @@ abstract class _$$SavedFeedsPreferenceImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
-      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris});
+      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris,
+      int? timelineIndex});
 }
 
 /// @nodoc
@@ -110,6 +118,7 @@ class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
     Object? type = null,
     Object? pinnedUris = null,
     Object? savedUris = null,
+    Object? timelineIndex = freezed,
   }) {
     return _then(_$SavedFeedsPreferenceImpl(
       type: null == type
@@ -124,6 +133,10 @@ class __$$SavedFeedsPreferenceImplCopyWithImpl<$Res>
           ? _value._savedUris
           : savedUris // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      timelineIndex: freezed == timelineIndex
+          ? _value.timelineIndex
+          : timelineIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -139,7 +152,8 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
       required final List<AtUri> pinnedUris,
       @atUriConverter
       @JsonKey(name: 'saved')
-      required final List<AtUri> savedUris})
+      required final List<AtUri> savedUris,
+      this.timelineIndex})
       : _pinnedUris = pinnedUris,
         _savedUris = savedUris;
 
@@ -170,8 +184,11 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
   }
 
   @override
+  final int? timelineIndex;
+
+  @override
   String toString() {
-    return 'SavedFeedsPreference(type: $type, pinnedUris: $pinnedUris, savedUris: $savedUris)';
+    return 'SavedFeedsPreference(type: $type, pinnedUris: $pinnedUris, savedUris: $savedUris, timelineIndex: $timelineIndex)';
   }
 
   @override
@@ -183,7 +200,9 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
             const DeepCollectionEquality()
                 .equals(other._pinnedUris, _pinnedUris) &&
             const DeepCollectionEquality()
-                .equals(other._savedUris, _savedUris));
+                .equals(other._savedUris, _savedUris) &&
+            (identical(other.timelineIndex, timelineIndex) ||
+                other.timelineIndex == timelineIndex));
   }
 
   @JsonKey(ignore: true)
@@ -192,7 +211,8 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
       runtimeType,
       type,
       const DeepCollectionEquality().hash(_pinnedUris),
-      const DeepCollectionEquality().hash(_savedUris));
+      const DeepCollectionEquality().hash(_savedUris),
+      timelineIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +238,8 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
       required final List<AtUri> pinnedUris,
       @atUriConverter
       @JsonKey(name: 'saved')
-      required final List<AtUri> savedUris}) = _$SavedFeedsPreferenceImpl;
+      required final List<AtUri> savedUris,
+      final int? timelineIndex}) = _$SavedFeedsPreferenceImpl;
 
   factory _SavedFeedsPreference.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPreferenceImpl.fromJson;
@@ -234,6 +255,8 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   @atUriConverter
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris;
+  @override
+  int? get timelineIndex;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedsPreferenceImplCopyWith<_$SavedFeedsPreferenceImpl>

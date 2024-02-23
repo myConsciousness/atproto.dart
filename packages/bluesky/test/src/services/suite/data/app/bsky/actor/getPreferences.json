@@ -46,7 +46,8 @@
       ],
       "saved": [
         "at://did:plc:7hsnhyve3clc2crizt2ttrxz/app.bsky.feed.post/3jvwwuk2jrs2n"
-      ]
+      ],
+      "timelineIndex": 1
     },
     {
       "$type": "app.bsky.actor.defs#personalDetailsPref",
@@ -65,6 +66,25 @@
       "hideRepliesByLikeCount": 20,
       "hideReposts": true,
       "hideQuotePosts": true
+    },
+    {
+      "$type": "app.bsky.actor.defs#interestsPref",
+      "tags": ["test1", "test2"]
+    },
+    {
+      "$type": "app.bsky.actor.defs#hiddenPostsPref",
+      "items": [
+        "at://did:plc:qexgypv67x75g7bjrelr5gof/app.bsky.feed.post/3klymmkynk22s"
+      ]
+    },
+    {
+      "$type": "app.bsky.actor.defs#mutedWordsPref",
+      "items": [
+        {
+          "value": "you can not mute this word",
+          "targets": [{ "mutedWordTarget": "content" }]
+        }
+      ]
     }
   ]
 }

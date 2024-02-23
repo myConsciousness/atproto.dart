@@ -7,13 +7,13 @@ description: com.atproto.sync.getBlob
 
 ## #main
 
-Get a blob associated with a given repo.
+Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the repo. |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | The DID of the account. |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | The CID of the blob to fetch |
 
 ### Output

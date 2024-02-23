@@ -9,7 +9,7 @@ description: app.bsky.unspecced.getPopularFeedGenerators
 
 An unspecced view of globally popular feed generators.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

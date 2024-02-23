@@ -9,7 +9,7 @@ description: com.atproto.sync.getCheckout
 
 DEPRECATED - please use com.atproto.sync.getRepo instead
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

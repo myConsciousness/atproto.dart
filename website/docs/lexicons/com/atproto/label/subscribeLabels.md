@@ -7,13 +7,13 @@ description: com.atproto.label.subscribeLabels
 
 ## #main
 
-Subscribe to label updates.
+Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
 
 ### Input
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **cursor** | integer | - | ❌ | The last known event to backfill from. |
+| **cursor** | integer | - | ❌ | The last known event seq number to backfill from. |
 
 ### Output
 

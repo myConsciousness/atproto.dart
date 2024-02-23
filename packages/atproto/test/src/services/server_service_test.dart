@@ -7,6 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
+import 'package:atproto/src/services/entities/account_status.dart';
+import 'package:atproto/src/services/entities/service_auth_token.dart';
 import 'package:atproto/src/services/types/server/create_account/_z.dart';
 import 'package:atproto/src/services/types/server/create_app_password/_z.dart';
 import 'package:atproto/src/services/types/server/create_invite_code/_z.dart';
@@ -124,5 +126,25 @@ void main() {
   testServer<ServerReserveSigningKeyOutput>(
     (m, s) => s.reserveSigningKey(),
     id: comAtprotoServerReserveSigningKey,
+  );
+
+  testServer<ServiceAuthToken>(
+    (m, s) => s.getServiceAuth(aud: m.did),
+    id: comAtprotoServerGetServiceAuth,
+  );
+
+  testServer<core.EmptyData>(
+    (m, s) => s.activateAccount(),
+    id: comAtprotoServerActivateAccount,
+  );
+
+  testServer<core.EmptyData>(
+    (m, s) => s.deactivateAccount(deleteAfter: DateTime.now()),
+    id: comAtprotoServerDeactivateAccount,
+  );
+
+  testServer<AccountStatus>(
+    (m, s) => s.checkAccountStatus(),
+    id: comAtprotoServerCheckAccountStatus,
   );
 }

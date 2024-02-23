@@ -15,7 +15,7 @@ Create an App Password.
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **name** | string | - | ✅ | - |
+| **name** | string | - | ✅ | A short name for the App Password, to help distinguish them. |
 
 ### Output
 

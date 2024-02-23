@@ -1,0 +1,15 @@
+{
+  "relationships": [
+    {
+      "$type": "app.bsky.graph.defs#relationship",
+      "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+      "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jtfplt76ko23",
+      "followedBy": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jtfplt76ko23"
+    },
+    {
+      "$type": "app.bsky.graph.defs#notFoundActor",
+      "actor": "did:plc:iijrtk7ocored6zuziwmqq3c",
+      "notFound": true
+    }
+  ]
+}

@@ -9,7 +9,7 @@ description: com.atproto.admin.getSubjectStatus
 
 Get the service-specific admin status of a subject (account, record, or blob).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

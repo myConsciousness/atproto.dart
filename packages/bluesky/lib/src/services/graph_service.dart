@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
+import 'entities/relationships.dart';
 import 'service_context.dart';
 import 'types/graph/block/_z.dart';
 import 'types/graph/follow/_z.dart';
@@ -237,6 +238,20 @@ final class GraphService {
       await createBlockList(
         listUri: listUri,
         createdAt: createdAt,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
+  Future<core.XRPCResponse<Relationships>> getRelationships({
+    required String actor,
+    List<String>? others,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyGraphGetRelationships,
+        parameters: {
+          'actor': actor,
+          'others': others,
+        },
+        to: Relationships.fromJson,
       );
 
   @Deprecated('Use .follow instead. Will be removed.')

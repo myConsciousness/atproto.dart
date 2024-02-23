@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.6
+
+- Bump SDK constraint to '^3.3.0'.
+
 ## v0.1.5
 
 - Upgraded `NSID`. ([#1159](https://github.com/myConsciousness/atproto.dart/issues/1159))

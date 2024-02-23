@@ -7,9 +7,9 @@ description: app.bsky.notification.listNotifications
 
 ## #main
 
-Get a list of notifications.
+Enumerate notifications for the requesting account. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

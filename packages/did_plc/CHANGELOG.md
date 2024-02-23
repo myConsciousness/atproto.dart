@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.12
+
+- Bump SDK constraint to '^3.3.0'.
+
 ## v0.0.11
 
 - Upgraded `atproto_core`.

@@ -65,6 +65,7 @@ Future<void> main() async {
     subscription.data.stream.listen((event) {
       event.when(
         commit: print,
+        identity: print,
         handle: print,
         migrate: print,
         tombstone: print,

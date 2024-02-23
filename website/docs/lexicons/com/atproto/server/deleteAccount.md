@@ -7,7 +7,7 @@ description: com.atproto.server.deleteAccount
 
 ## #main
 
-Delete an actor's account with a token and password.
+Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
 
 ### Input
 

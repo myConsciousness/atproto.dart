@@ -8,6 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
+import 'package:bluesky/src/services/entities/relationships.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/types/graph/block/_z.dart';
 import 'package:bluesky/src/services/types/graph/follow/_z.dart';
@@ -151,5 +152,10 @@ void main() {
   testGraph<RepoStrongRef>(
     (m, s) => s.listblock(listUri: m.uri),
     id: appBskyGraphListblock,
+  );
+
+  testGraph<Relationships>(
+    (m, s) => s.getRelationships(actor: m.did, others: [m.did]),
+    id: appBskyGraphGetRelationships,
   );
 }

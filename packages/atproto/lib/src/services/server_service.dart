@@ -7,6 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
+import 'entities/account_status.dart';
+import 'entities/service_auth_token.dart';
 import 'types/server/create_account/_z.dart';
 import 'types/server/create_app_password/_z.dart';
 import 'types/server/create_invite_code/_z.dart';
@@ -103,6 +105,7 @@ final class ServerService {
     required String password,
     String? inviteCode,
     String? recoveryKey,
+    Map<String, dynamic>? plcOp,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
@@ -112,6 +115,7 @@ final class ServerService {
           'password': password,
           'inviteCode': inviteCode,
           'recoveryKey': recoveryKey,
+          'plcOp': plcOp,
         },
         to: ServerCreateAccountOutput.fromJson,
       );
@@ -274,6 +278,40 @@ final class ServerService {
       reserveSigningKey() async =>
           // ignore: deprecated_member_use_from_same_package
           await createSigningKey();
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
+  Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
+    required String aud,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoServerGetServiceAuth,
+        parameters: {
+          'aud': aud,
+        },
+        to: ServiceAuthToken.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
+  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus() async =>
+      await _ctx.get(
+        ns.comAtprotoServerCheckAccountStatus,
+        to: AccountStatus.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
+  Future<core.XRPCResponse<core.EmptyData>> deactivateAccount({
+    DateTime? deleteAfter,
+  }) async =>
+      await _ctx.post(
+        ns.comAtprotoServerDeactivateAccount,
+        body: {
+          'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
+        },
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
+  Future<core.XRPCResponse<core.EmptyData>> activateAccount() async =>
+      await _ctx.post(ns.comAtprotoServerDeactivateAccount);
 
   @Deprecated('Use .getSession instead. Will be removed')
   Future<core.XRPCResponse<ServerGetSessionOutput>>

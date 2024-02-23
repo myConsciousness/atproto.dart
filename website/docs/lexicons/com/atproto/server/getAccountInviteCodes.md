@@ -7,14 +7,14 @@ description: com.atproto.server.getAccountInviteCodes
 
 ## #main
 
-Get all invite codes for a given account.
+Get all invite codes for the current account. Requires auth.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **includeUsed** | boolean | - | ❌ | - |
-| **createAvailable** | boolean | - | ❌ | - |
+| **createAvailable** | boolean | - | ❌ | Controls whether any new 'earned' but not 'created' invites should be created. |
 
 ### Output
 

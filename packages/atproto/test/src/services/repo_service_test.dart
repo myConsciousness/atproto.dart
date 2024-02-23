@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
+import 'package:atproto/src/services/entities/missing_blobs.dart';
 import 'package:atproto/src/services/repo_service.dart';
 import 'package:atproto/src/services/types/repo/apply_writes/_z.dart';
 import 'package:atproto/src/services/types/repo/describe_repo/_z.dart';
@@ -98,5 +99,15 @@ void main() {
     (m, s) => s.deleteRecordInBulk(uris: [m.uri]),
     id: comAtprotoRepoApplyWrites,
     label: 'Delete',
+  );
+
+  testRepo<MissingBlobs>(
+    (m, s) => s.listMissingBlobs(limit: m.limit, cursor: m.cursor),
+    id: comAtprotoRepoListMissingBlobs,
+  );
+
+  testRepo<core.EmptyData>(
+    (m, s) => s.importRepo(m.blob),
+    id: comAtprotoRepoImportRepo,
   );
 }

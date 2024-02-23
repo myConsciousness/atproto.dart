@@ -9,7 +9,7 @@ description: app.bsky.actor.getProfiles
 
 Get detailed profile views of multiple actors.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

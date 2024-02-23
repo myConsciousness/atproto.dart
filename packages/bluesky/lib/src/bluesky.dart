@@ -87,6 +87,14 @@ sealed class Bluesky {
   /// [Bluesky.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Returns the current service.
+  /// Defaults to `bsky.social`.
+  String get service;
+
+  /// Returns the current replay service.
+  /// Defaults to `bsky.network`.
+  String get relayService;
+
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
   @Deprecated('Use .actor instead. Will be removed')
@@ -171,6 +179,10 @@ sealed class Bluesky {
   /// This service represents `com.atproto.label.*`.
   atp.LabelService get label;
 
+  /// Returns the temp service.
+  /// This service represents `com.atproto.temp.*`.
+  atp.TempService get temp;
+
   /// Returns the result of executing [methodId] as GET communication.
   ///
   /// You can specify `Map<String, dynamic>`, `Uint8List`, or `EmptyData` as
@@ -200,12 +212,14 @@ sealed class Bluesky {
   ///
   /// - [methodId]: name of method to execute in XRPC.
   /// - [headers]: optional header information to be added to the request.
+  /// - [parameters]: query parameters passed to [methodId].
   /// - [body]: data passed to [methodId].
   /// - [to]: optional builder to convert the body of the response to a specific
   ///         object.
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final core.ResponseDataBuilder<T>? to,
   });
@@ -213,8 +227,7 @@ sealed class Bluesky {
 
 final class _Bluesky implements Bluesky {
   _Bluesky(final BlueskyServiceContext ctx)
-      : session = ctx.session,
-        actor = ActorService(ctx),
+      : actor = ActorService(ctx),
         feed = FeedService(ctx),
         notification = NotificationService(ctx),
         graph = GraphService(ctx),
@@ -225,10 +238,17 @@ final class _Bluesky implements Bluesky {
         moderation = ctx.atproto.moderation,
         sync = ctx.atproto.sync,
         label = ctx.atproto.label,
+        temp = ctx.atproto.temp,
         _ctx = ctx;
 
   @override
-  final core.Session? session;
+  core.Session? get session => _ctx.session;
+
+  @override
+  String get service => _ctx.service;
+
+  @override
+  String get relayService => _ctx.relayService;
 
   @override
   final ActorService actor;
@@ -287,6 +307,9 @@ final class _Bluesky implements Bluesky {
   @override
   atp.LabelService get labels => label;
 
+  @override
+  final atp.TempService temp;
+
   final core.ServiceContext _ctx;
 
   @override
@@ -309,12 +332,14 @@ final class _Bluesky implements Bluesky {
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
+    final Map<String, dynamic>? parameters,
     final dynamic body,
     final core.ResponseDataBuilder<T>? to,
   }) async =>
       await _ctx.post(
         methodId,
         headers: headers,
+        parameters: parameters,
         body: body,
         to: to,
       );

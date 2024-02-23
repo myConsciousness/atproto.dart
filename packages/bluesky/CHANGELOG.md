@@ -49,9 +49,50 @@
 - All objects that do not match Lexicon names have been deprecated and those that do match Lexicon names have been exposed as the `lex_types` package. You can import it like `import 'package:bluesky/lex_types.dart';` ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
 - Changed record's parameter name `unspecced` to `unknown`.
 
+## v0.15.9
+
+- Removed temp endpoints from `TempService`.
+  - `.importRepo`
+  - `.pushBlob`
+  - `.transferAccount`
+- Added `did` property on `ServerInfo` object. Returned from `ServerService.describeServer`. ([#1279](https://github.com/myConsciousness/atproto.dart/issues/1279))
+- Added `.getServiceAuth` on `ServerService`. ([#1280](https://github.com/myConsciousness/atproto.dart/issues/1280))
+- Added `.activateAccount` on `ServerService`. ([#1276](https://github.com/myConsciousness/atproto.dart/issues/1276))
+- Added `.deactivateAccount` on `ServerService`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))
+- Added `.checkAccountStatus` on `ServerService`. ([#1277](https://github.com/myConsciousness/atproto.dart/issues/1277))
+- Added `.listMissingBlobs` on `RepoService`. ([#1275](https://github.com/myConsciousness/atproto.dart/issues/1275))
+- Added `.importRepo` on `RepoService`. ([#1274](https://github.com/myConsciousness/atproto.dart/issues/1274))
+- Added `.submitPlcOperation` on `IdentityService`. ([#1273](https://github.com/myConsciousness/atproto.dart/issues/1273))
+- Added `.signPlcOperation` on `IdentityService`. ([#1272](https://github.com/myConsciousness/atproto.dart/issues/1272))
+- Added `.getRecommendedDidCredentials` on `IdentityService`. ([#1270](https://github.com/myConsciousness/atproto.dart/issues/1270))
+- Added `.requestPlcOperationSignature` on `IdentityService`. ([#1271](https://github.com/myConsciousness/atproto.dart/issues/1271))
+- Bump SDK constraint to '^3.3.0'.
+- Added `MutedWordsPref` and `HiddenPostsPref`. Returned from `ActorService.getPreferences`. ([#1288](https://github.com/myConsciousness/atproto.dart/issues/1288))
+- Supported `identity` event on `.subscribeRepos`. ([#1289](https://github.com/myConsciousness/atproto.dart/issues/1289))
+
+## v0.15.8
+
+- Added `TempService`. You can use it like `bsky.temp`. ([#1238](https://github.com/myConsciousness/atproto.dart/issues/1238))
+  - `.checkSignupQueue`
+  - `.importRepo`
+  - `.pushBlob`
+  - `.requestPhoneVerification`
+  - `.transferAccount`
+
+## v0.15.7
+
+- Improved redundant error messages. Now it shows like `GET https://bsky.social/xrpc/com.atproto.identity.resolveHandle 400 Error: Params must have the property "handle"`. ([#1253](https://github.com/myConsciousness/atproto.dart/issues/1253))
+- Exposed `.service` and `.relayService` properties on `Bluesky`. ([#1254](https://github.com/myConsciousness/atproto.dart/issues/1254))
+- Added `.timelineIndex` on `SavedFeedsPreference`. ([#1251](https://github.com/myConsciousness/atproto.dart/issues/1251))
+- Added `parameters` arg and you can pass bytes to `body` arg on `.post` method. ([#1252](https://github.com/myConsciousness/atproto.dart/issues/1252))
+- BugFix: Made sure to check if the subscribeRepos blocks can be decoded. ([#1239](https://github.com/myConsciousness/atproto.dart/issues/1239))
+
 ## v0.15.6
 
 - Removed `getTimelineSkeleton` from `UnspeccedService`. ([#1226](https://github.com/myConsciousness/atproto.dart/issues/1226))
+- Added `getTaggedSuggestions` on `UnspeccedService`. ([#1225](https://github.com/myConsciousness/atproto.dart/issues/1225))
+- Added `getRelationships` on `GraphService`. ([#1224](https://github.com/myConsciousness/atproto.dart/issues/1224))
+- Added `.interests` union on `Preference`. ([#1223](https://github.com/myConsciousness/atproto.dart/issues/1223))
 
 ## v0.15.5
 

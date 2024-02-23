@@ -95,6 +95,23 @@ export 'package:atproto/atproto.dart'
         SigningKey,
         $SigningKeyCopyWith,
         // ignore: deprecated_member_use
+        SignupQueue,
+        $SignupQueueCopyWith,
+        TransferredAccount,
+        $TransferredAccountCopyWith,
+        ServiceAuthToken,
+        $ServiceAuthTokenCopyWith,
+        AccountStatus,
+        $AccountStatusCopyWith,
+        MissingBlobs,
+        $MissingBlobsCopyWith,
+        RecordBlob,
+        $RecordBlobCopyWith,
+        PlcOperation,
+        $PlcOperationCopyWith,
+        DidCredentials,
+        $DidCredentialsCopyWith,
+        // ignore: deprecated_member_use
         RepoLatestCommit,
         $RepoLatestCommitCopyWith,
         // ignore: deprecated_member_use
@@ -112,6 +129,9 @@ export 'package:atproto/atproto.dart'
         // ignore: deprecated_member_use
         SubscribedRepoCommit,
         $SubscribedRepoCommitCopyWith,
+        // ignore: deprecated_member_use
+        SubscribedRepoIdentity,
+        $SubscribedRepoIdentityCopyWith,
         // ignore: deprecated_member_use
         SubscribedRepoHandle,
         $SubscribedRepoHandleCopyWith,
@@ -162,6 +182,7 @@ export 'package:atproto/atproto.dart'
         UReportSubjectStrongRef,
         UReportSubjectUnknown,
         USubscribedRepoCommit,
+        USubscribedRepoIdentity,
         USubscribedRepoHandle,
         USubscribedRepoInfo,
         USubscribedRepoMigrate,
@@ -181,7 +202,8 @@ export 'package:atproto/atproto.dart'
         RepoServiceExtension,
         ModerationService,
         SyncService,
-        LabelService;
+        LabelService,
+        TempService;
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,
@@ -252,6 +274,7 @@ export 'package:bluesky/src/services/entities/actors.dart';
 export 'package:bluesky/src/services/entities/actors_typeahead.dart';
 export 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
 export 'package:bluesky/src/services/entities/adult_content_preference.dart';
+export 'package:bluesky/src/services/entities/interests_preference.dart';
 export 'package:bluesky/src/services/entities/block_record.dart';
 export 'package:bluesky/src/services/entities/blocked_post.dart';
 export 'package:bluesky/src/services/entities/blocked_author.dart';
@@ -260,6 +283,10 @@ export 'package:bluesky/src/services/entities/byte_slice.dart';
 export 'package:bluesky/src/services/entities/content_label_preference.dart';
 export 'package:bluesky/src/services/entities/count.dart';
 export 'package:bluesky/src/services/entities/embed.dart';
+export 'package:bluesky/src/services/entities/actor_relationship.dart';
+export 'package:bluesky/src/services/entities/relationship.dart';
+export 'package:bluesky/src/services/entities/relationships.dart';
+export 'package:bluesky/src/services/entities/not_found_actor.dart';
 export 'package:bluesky/src/services/entities/personal_details_preference.dart';
 export 'package:bluesky/src/services/entities/feed_view_preference.dart';
 export 'package:bluesky/src/services/entities/thread_view_preference.dart';
@@ -282,6 +309,8 @@ export 'package:bluesky/src/services/entities/embed_view_record_view.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_blocked.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_not_found.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_with_media.dart';
+export 'package:bluesky/src/services/entities/tagged_suggestions.dart';
+export 'package:bluesky/src/services/entities/tagged_suggestion.dart';
 export 'package:bluesky/src/services/entities/facet.dart';
 export 'package:bluesky/src/services/entities/facet_feature.dart';
 export 'package:bluesky/src/services/entities/facet_link.dart';
@@ -349,7 +378,17 @@ export 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 export 'package:bluesky/src/services/entities/skeleton_actor.dart';
 export 'package:bluesky/src/services/entities/suggested_follows.dart';
 
-// Deprecated
+// TODO: Migrate
+export 'package:bluesky/src/services/entities/muted_word.dart';
+export 'package:bluesky/src/services/entities/muted_word_target.dart';
+export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';
+export 'package:bluesky/src/services/entities/muted_words_pref.dart';
+export 'package:bluesky/src/services/entities/muted_word_target_value.dart';
+
+export 'package:bluesky/src/services/constants/notification_reason.dart';
+
+export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
+    show NotificationReasonFilter;
 export 'package:bluesky/src/services/params/generator_param.dart';
 export 'package:bluesky/src/services/params/list_item_param.dart';
 export 'package:bluesky/src/services/params/list_param.dart';

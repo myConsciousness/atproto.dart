@@ -7,14 +7,14 @@ description: app.bsky.feed.getLikes
 
 ## #main
 
-Get the list of likes.
+Get like records which reference a subject (by AT-URI and CID).
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
-| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | AT-URI of the subject (eg, a post record). |
+| **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | CID of the subject record (aka, specific version of record), to filter likes. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | - |
 

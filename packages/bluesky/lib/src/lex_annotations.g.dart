@@ -134,6 +134,9 @@ const appBskyGraphDefsListView = LexObject(ids.appBskyGraphDefsListView);
 const appBskyGraphDefsListItemView =
     LexObject(ids.appBskyGraphDefsListItemView);
 
+/// `app.bsky.graph.defs#listPurpose`
+const appBskyGraphDefsListPurpose = LexObject(ids.appBskyGraphDefsListPurpose);
+
 /// `app.bsky.graph.defs#listViewerState`
 const appBskyGraphDefsListViewerState =
     LexObject(ids.appBskyGraphDefsListViewerState);
@@ -382,6 +385,21 @@ const appBskyActorDefsThreadViewPref =
 /// `app.bsky.actor.defs#interestsPref`
 const appBskyActorDefsInterestsPref =
     LexObject(ids.appBskyActorDefsInterestsPref);
+
+/// `app.bsky.actor.defs#mutedWordTarget`
+const appBskyActorDefsMutedWordTarget =
+    LexObject(ids.appBskyActorDefsMutedWordTarget);
+
+/// `app.bsky.actor.defs#mutedWord`
+const appBskyActorDefsMutedWord = LexObject(ids.appBskyActorDefsMutedWord);
+
+/// `app.bsky.actor.defs#mutedWordsPref`
+const appBskyActorDefsMutedWordsPref =
+    LexObject(ids.appBskyActorDefsMutedWordsPref);
+
+/// `app.bsky.actor.defs#hiddenPostsPref`
+const appBskyActorDefsHiddenPostsPref =
+    LexObject(ids.appBskyActorDefsHiddenPostsPref);
 
 /// `app.bsky.actor.putPreferences#main`
 const appBskyActorPutPreferences = LexObject(ids.appBskyActorPutPreferences);

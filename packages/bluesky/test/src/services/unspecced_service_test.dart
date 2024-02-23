@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
+import 'package:bluesky/src/services/entities/tagged_suggestions.dart';
 import 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
 import 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
 import 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';
@@ -23,5 +24,10 @@ void main() {
   testUnspecced<UnspeccedSearchActorsSkeletonOutput>(
     (m, s) => s.searchActorsSkeleton(m.query),
     id: appBskyUnspeccedSearchActorsSkeleton,
+  );
+
+  testUnspecced<TaggedSuggestions>(
+    (m, s) => s.getTaggedSuggestions(),
+    id: appBskyUnspeccedGetTaggedSuggestions,
   );
 }

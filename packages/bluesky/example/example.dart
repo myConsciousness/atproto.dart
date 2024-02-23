@@ -72,6 +72,7 @@ Future<void> main() async {
           //! Delete events.
           onDeletePost: print,
         ).execute,
+        identity: print,
         handle: print,
         migrate: print,
         tombstone: print,

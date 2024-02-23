@@ -7,15 +7,15 @@ description: app.bsky.feed.getPostThread
 
 ## #main
 
-Get posts in a thread.
+Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
 
-### Input
+### Parameters
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
-| **depth** | integer | - | ❌ | - |
-| **parentHeight** | integer | - | ❌ | - |
+| **uri** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | Reference (AT-URI) to post record. |
+| **depth** | integer | - | ❌ | How many levels of reply depth should be included in response. |
+| **parentHeight** | integer | - | ❌ | How many levels of parent (and grandparent, etc) post to include. |
 
 ### Output
 

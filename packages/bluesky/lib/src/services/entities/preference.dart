@@ -10,6 +10,9 @@ import 'adult_content_preference.dart';
 import 'content_label_preference.dart';
 import 'converter/preference_converter.dart';
 import 'feed_view_preference.dart';
+import 'hidden_posts_pref.dart';
+import 'interests_preference.dart';
+import 'muted_words_pref.dart';
 import 'personal_details_preference.dart';
 import 'saved_feeds_preference.dart';
 import 'thread_view_preference.dart';
@@ -45,6 +48,18 @@ class Preference with _$Preference {
   const factory Preference.threadView({
     required ThreadViewPreference data,
   }) = UPreferenceThreadView;
+
+  const factory Preference.interests({
+    required InterestsPreference data,
+  }) = UPreferenceInterests;
+
+  const factory Preference.mutedWords({
+    required MutedWordsPref data,
+  }) = UPreferenceMutedWords;
+
+  const factory Preference.hiddenPosts({
+    required HiddenPostsPref data,
+  }) = UPreferenceHiddenPosts;
 
   const factory Preference.unknown({
     required Map<String, dynamic> data,
