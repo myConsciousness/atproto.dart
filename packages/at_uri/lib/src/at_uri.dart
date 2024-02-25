@@ -5,7 +5,7 @@
 final _atUriRegex = RegExp(
   // ignore: lines_longer_than_80_chars
   // proto-    --did--------------   --name-------------   --path----   --query--   --hash--
-  r'^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
+  r'^(at:\/\/)?((?:did:[a-z0-9:%-]+)|(?:[a-z0-9][a-z0-9.:-]*))(\/[^?#\s]*)?(\?[^#\s]+)?(#[^\s]+)?$',
   caseSensitive: false,
 );
 

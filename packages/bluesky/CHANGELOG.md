@@ -49,6 +49,10 @@
 - All objects that do not match Lexicon names have been deprecated and those that do match Lexicon names have been exposed as the `lex_types` package. You can import it like `import 'package:bluesky/lex_types.dart';` ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
 - Changed record's parameter name `unspecced` to `unknown`.
 
+## v0.15.10
+
+- Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))
+
 ## v0.15.9
 
 - Removed temp endpoints from `TempService`.

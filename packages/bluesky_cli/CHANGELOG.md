@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.5
+
+- Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))
+
 ## v0.4.4
 
 - Bump SDK constraint to '^3.3.0'.
