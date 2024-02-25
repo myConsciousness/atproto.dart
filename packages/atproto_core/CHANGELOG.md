@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.6
+
+- Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))
+
 ## v0.9.5
 
 - Added `.toUtcIso8601String` on `ServiceContext`. ([#1278](https://github.com/myConsciousness/atproto.dart/issues/1278))

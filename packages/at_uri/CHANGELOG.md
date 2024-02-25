@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.3.2
+
+- Merge AT URI regex. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))
+
 ## v0.3.1
 
 - Bump SDK constraint to '^3.3.0'.
