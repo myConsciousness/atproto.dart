@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../commit.dart';
 import '../handle.dart';
+import '../identity.dart';
 import '../info.dart';
 import '../migrate.dart';
 import '../tombstone.dart';
@@ -26,6 +27,10 @@ class USyncSubscribeReposOutput with _$USyncSubscribeReposOutput {
   const factory USyncSubscribeReposOutput.commit({
     required SyncSubscribeReposCommit data,
   }) = USyncSubscribeReposOutputCommit;
+
+  const factory USyncSubscribeReposOutput.identity({
+    required SyncSubscribeReposIdentity data,
+  }) = USyncSubscribeReposOutputIdentity;
 
   const factory USyncSubscribeReposOutput.handle({
     required SyncSubscribeReposHandle data,
@@ -72,6 +77,11 @@ final class _USyncSubscribeReposOutputConverter
           data: SyncSubscribeReposCommit.fromJson(json),
         );
       }
+      if (type == '#identity') {
+        return USyncSubscribeReposOutput.identity(
+          data: SyncSubscribeReposIdentity.fromJson(json),
+        );
+      }
       if (type == '#handle') {
         return USyncSubscribeReposOutput.handle(
           data: SyncSubscribeReposHandle.fromJson(json),
@@ -102,6 +112,7 @@ final class _USyncSubscribeReposOutputConverter
   @override
   Map<String, dynamic> toJson(USyncSubscribeReposOutput object) => object.when(
         commit: (data) => data.toJson(),
+        identity: (data) => data.toJson(),
         handle: (data) => data.toJson(),
         migrate: (data) => data.toJson(),
         tombstone: (data) => data.toJson(),

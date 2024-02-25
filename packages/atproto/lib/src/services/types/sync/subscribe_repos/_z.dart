@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 export 'commit.dart';
+export 'identity.dart';
 export 'handle.dart';
 export 'info.dart';
 export 'migrate.dart';

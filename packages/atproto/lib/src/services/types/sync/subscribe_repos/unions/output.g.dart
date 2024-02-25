@@ -32,6 +32,31 @@ Map<String, dynamic> _$$USyncSubscribeReposOutputCommitImplToJson(
       'runtimeType': instance.$type,
     };
 
+_$USyncSubscribeReposOutputIdentityImpl
+    _$$USyncSubscribeReposOutputIdentityImplFromJson(Map json) =>
+        $checkedCreate(
+          r'_$USyncSubscribeReposOutputIdentityImpl',
+          json,
+          ($checkedConvert) {
+            final val = _$USyncSubscribeReposOutputIdentityImpl(
+              data: $checkedConvert(
+                  'data',
+                  (v) => SyncSubscribeReposIdentity.fromJson(
+                      Map<String, Object?>.from(v as Map))),
+              $type: $checkedConvert('runtimeType', (v) => v as String?),
+            );
+            return val;
+          },
+          fieldKeyMap: const {r'$type': 'runtimeType'},
+        );
+
+Map<String, dynamic> _$$USyncSubscribeReposOutputIdentityImplToJson(
+        _$USyncSubscribeReposOutputIdentityImpl instance) =>
+    <String, dynamic>{
+      'data': instance.data.toJson(),
+      'runtimeType': instance.$type,
+    };
+
 _$USyncSubscribeReposOutputHandleImpl
     _$$USyncSubscribeReposOutputHandleImplFromJson(Map json) => $checkedCreate(
           r'_$USyncSubscribeReposOutputHandleImpl',

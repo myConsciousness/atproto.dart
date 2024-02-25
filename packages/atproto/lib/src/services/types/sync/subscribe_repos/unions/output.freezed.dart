@@ -12,13 +12,15 @@ part of 'output.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 USyncSubscribeReposOutput _$USyncSubscribeReposOutputFromJson(
     Map<String, dynamic> json) {
   switch (json['runtimeType']) {
     case 'commit':
       return USyncSubscribeReposOutputCommit.fromJson(json);
+    case 'identity':
+      return USyncSubscribeReposOutputIdentity.fromJson(json);
     case 'handle':
       return USyncSubscribeReposOutputHandle.fromJson(json);
     case 'migrate':
@@ -45,6 +47,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -55,6 +58,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -65,6 +69,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -76,6 +81,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -87,6 +93,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -97,6 +104,7 @@ mixin _$USyncSubscribeReposOutput {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -219,6 +227,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -232,6 +241,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -245,6 +255,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -262,6 +273,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -276,6 +288,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -289,6 +302,7 @@ class _$USyncSubscribeReposOutputCommitImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -325,6 +339,214 @@ abstract class USyncSubscribeReposOutputCommit
   @JsonKey(ignore: true)
   _$$USyncSubscribeReposOutputCommitImplCopyWith<
           _$USyncSubscribeReposOutputCommitImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$USyncSubscribeReposOutputIdentityImplCopyWith<$Res> {
+  factory _$$USyncSubscribeReposOutputIdentityImplCopyWith(
+          _$USyncSubscribeReposOutputIdentityImpl value,
+          $Res Function(_$USyncSubscribeReposOutputIdentityImpl) then) =
+      __$$USyncSubscribeReposOutputIdentityImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({SyncSubscribeReposIdentity data});
+
+  $SyncSubscribeReposIdentityCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$USyncSubscribeReposOutputIdentityImplCopyWithImpl<$Res>
+    extends _$USyncSubscribeReposOutputCopyWithImpl<$Res,
+        _$USyncSubscribeReposOutputIdentityImpl>
+    implements _$$USyncSubscribeReposOutputIdentityImplCopyWith<$Res> {
+  __$$USyncSubscribeReposOutputIdentityImplCopyWithImpl(
+      _$USyncSubscribeReposOutputIdentityImpl _value,
+      $Res Function(_$USyncSubscribeReposOutputIdentityImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$USyncSubscribeReposOutputIdentityImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as SyncSubscribeReposIdentity,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SyncSubscribeReposIdentityCopyWith<$Res> get data {
+    return $SyncSubscribeReposIdentityCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$USyncSubscribeReposOutputIdentityImpl
+    extends USyncSubscribeReposOutputIdentity {
+  const _$USyncSubscribeReposOutputIdentityImpl(
+      {required this.data, final String? $type})
+      : $type = $type ?? 'identity',
+        super._();
+
+  factory _$USyncSubscribeReposOutputIdentityImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$USyncSubscribeReposOutputIdentityImplFromJson(json);
+
+  @override
+  final SyncSubscribeReposIdentity data;
+
+  @JsonKey(name: 'runtimeType')
+  final String $type;
+
+  @override
+  String toString() {
+    return 'USyncSubscribeReposOutput.identity(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$USyncSubscribeReposOutputIdentityImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$USyncSubscribeReposOutputIdentityImplCopyWith<
+          _$USyncSubscribeReposOutputIdentityImpl>
+      get copyWith => __$$USyncSubscribeReposOutputIdentityImplCopyWithImpl<
+          _$USyncSubscribeReposOutputIdentityImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
+    required TResult Function(SyncSubscribeReposHandle data) handle,
+    required TResult Function(SyncSubscribeReposMigrate data) migrate,
+    required TResult Function(SyncSubscribeReposTombstone data) tombstone,
+    required TResult Function(SyncSubscribeReposInfo data) info,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return identity(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
+    TResult? Function(SyncSubscribeReposHandle data)? handle,
+    TResult? Function(SyncSubscribeReposMigrate data)? migrate,
+    TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
+    TResult? Function(SyncSubscribeReposInfo data)? info,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return identity?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
+    TResult Function(SyncSubscribeReposHandle data)? handle,
+    TResult Function(SyncSubscribeReposMigrate data)? migrate,
+    TResult Function(SyncSubscribeReposTombstone data)? tombstone,
+    TResult Function(SyncSubscribeReposInfo data)? info,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (identity != null) {
+      return identity(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
+    required TResult Function(USyncSubscribeReposOutputHandle value) handle,
+    required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
+    required TResult Function(USyncSubscribeReposOutputTombstone value)
+        tombstone,
+    required TResult Function(USyncSubscribeReposOutputInfo value) info,
+    required TResult Function(USyncSubscribeReposOutputUnknown value) unknown,
+  }) {
+    return identity(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
+    TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
+    TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
+    TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
+    TResult? Function(USyncSubscribeReposOutputInfo value)? info,
+    TResult? Function(USyncSubscribeReposOutputUnknown value)? unknown,
+  }) {
+    return identity?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
+    TResult Function(USyncSubscribeReposOutputHandle value)? handle,
+    TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
+    TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
+    TResult Function(USyncSubscribeReposOutputInfo value)? info,
+    TResult Function(USyncSubscribeReposOutputUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (identity != null) {
+      return identity(this);
+    }
+    return orElse();
+  }
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$USyncSubscribeReposOutputIdentityImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class USyncSubscribeReposOutputIdentity
+    extends USyncSubscribeReposOutput {
+  const factory USyncSubscribeReposOutputIdentity(
+          {required final SyncSubscribeReposIdentity data}) =
+      _$USyncSubscribeReposOutputIdentityImpl;
+  const USyncSubscribeReposOutputIdentity._() : super._();
+
+  factory USyncSubscribeReposOutputIdentity.fromJson(
+          Map<String, dynamic> json) =
+      _$USyncSubscribeReposOutputIdentityImpl.fromJson;
+
+  @override
+  SyncSubscribeReposIdentity get data;
+  @JsonKey(ignore: true)
+  _$$USyncSubscribeReposOutputIdentityImplCopyWith<
+          _$USyncSubscribeReposOutputIdentityImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -420,6 +642,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -433,6 +656,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -446,6 +670,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -463,6 +688,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -477,6 +703,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -490,6 +717,7 @@ class _$USyncSubscribeReposOutputHandleImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -621,6 +849,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -634,6 +863,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -647,6 +877,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -664,6 +895,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -678,6 +910,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -691,6 +924,7 @@ class _$USyncSubscribeReposOutputMigrateImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -822,6 +1056,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -835,6 +1070,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -848,6 +1084,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -865,6 +1102,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -879,6 +1117,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -892,6 +1131,7 @@ class _$USyncSubscribeReposOutputTombstoneImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -1024,6 +1264,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -1037,6 +1278,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -1050,6 +1292,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -1067,6 +1310,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -1081,6 +1325,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -1094,6 +1339,7 @@ class _$USyncSubscribeReposOutputInfoImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -1221,6 +1467,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(SyncSubscribeReposCommit data) commit,
+    required TResult Function(SyncSubscribeReposIdentity data) identity,
     required TResult Function(SyncSubscribeReposHandle data) handle,
     required TResult Function(SyncSubscribeReposMigrate data) migrate,
     required TResult Function(SyncSubscribeReposTombstone data) tombstone,
@@ -1234,6 +1481,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(SyncSubscribeReposCommit data)? commit,
+    TResult? Function(SyncSubscribeReposIdentity data)? identity,
     TResult? Function(SyncSubscribeReposHandle data)? handle,
     TResult? Function(SyncSubscribeReposMigrate data)? migrate,
     TResult? Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -1247,6 +1495,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(SyncSubscribeReposCommit data)? commit,
+    TResult Function(SyncSubscribeReposIdentity data)? identity,
     TResult Function(SyncSubscribeReposHandle data)? handle,
     TResult Function(SyncSubscribeReposMigrate data)? migrate,
     TResult Function(SyncSubscribeReposTombstone data)? tombstone,
@@ -1264,6 +1513,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(USyncSubscribeReposOutputCommit value) commit,
+    required TResult Function(USyncSubscribeReposOutputIdentity value) identity,
     required TResult Function(USyncSubscribeReposOutputHandle value) handle,
     required TResult Function(USyncSubscribeReposOutputMigrate value) migrate,
     required TResult Function(USyncSubscribeReposOutputTombstone value)
@@ -1278,6 +1528,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult? Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult? Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult? Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult? Function(USyncSubscribeReposOutputTombstone value)? tombstone,
@@ -1291,6 +1542,7 @@ class _$USyncSubscribeReposOutputUnknownImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(USyncSubscribeReposOutputCommit value)? commit,
+    TResult Function(USyncSubscribeReposOutputIdentity value)? identity,
     TResult Function(USyncSubscribeReposOutputHandle value)? handle,
     TResult Function(USyncSubscribeReposOutputMigrate value)? migrate,
     TResult Function(USyncSubscribeReposOutputTombstone value)? tombstone,
