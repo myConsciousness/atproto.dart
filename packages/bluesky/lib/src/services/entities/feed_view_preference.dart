@@ -18,6 +18,7 @@ part 'feed_view_preference.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#feedviewpref
 @freezed
 @lex.appBskyActorDefsFeedViewPref
+@Deprecated('Use ActorDefsFeedViewPref instead. Will be removed')
 class FeedViewPreference with _$FeedViewPreference {
   @jsonSerializable
   const factory FeedViewPreference({

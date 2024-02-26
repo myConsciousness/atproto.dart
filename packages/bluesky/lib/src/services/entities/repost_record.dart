@@ -20,6 +20,7 @@ part 'repost_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedRepost].
 @freezed
+@Deprecated('Use FeedRepostRecord instead. Will be removed')
 class RepostRecord with _$RepostRecord {
   @jsonSerializable
   const factory RepostRecord({

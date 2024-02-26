@@ -1,0 +1,18 @@
+# Read about `build.yaml` at https://pub.dev/packages/build_config
+# To update generated code, run `pub run build_runner build`
+targets:
+  $default:
+    builders:
+      json_serializable:
+        options:
+          any_map: true
+          checked: true
+          create_to_json: true
+          explicit_to_json: true
+
+      # The end-user of a builder which applies "source_gen|combining_builder"
+      # may configure the builder to ignore specific lints for their project
+      source_gen|combining_builder:
+        options:
+          ignore_for_file:
+          - non_constant_identifier_names

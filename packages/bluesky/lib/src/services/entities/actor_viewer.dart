@@ -18,6 +18,7 @@ part 'actor_viewer.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#viewerstate
 @freezed
 @lex.appBskyActorDefsViewerState
+@Deprecated('Use ActorDefsViewerState instead. Will be removed')
 class ActorViewer with _$ActorViewer {
   // ignore: unused_element
   const ActorViewer._();

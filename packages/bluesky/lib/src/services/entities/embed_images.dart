@@ -19,6 +19,7 @@ part 'embed_images.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#main
 @freezed
 @lex.appBskyEmbedImages
+@Deprecated('Use EmbedImages instead. Will be removed')
 class EmbedImages with _$EmbedImages {
   const factory EmbedImages({
     @typeKey @Default(appBskyEmbedImages) String type,

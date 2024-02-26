@@ -18,6 +18,7 @@ part 'lists.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
 @lex.appBskyGraphGetLists
+@Deprecated('Use GraphGetListsOutput instead. Will be removed')
 class Lists with _$Lists {
   // ignore: unused_element
   const Lists._();

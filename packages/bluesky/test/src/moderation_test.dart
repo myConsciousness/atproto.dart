@@ -7,7 +7,8 @@ import 'dart:convert';
 import 'dart:io';
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -18,10 +19,9 @@ import 'package:bluesky/src/moderation/entities/labeler_settings.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
-import 'package:bluesky/src/services/entities/actor.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
-import 'package:bluesky/src/services/entities/post.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
+import 'package:bluesky/src/services/types/feed/defs/_z.dart';
+import 'package:bluesky/src/services/types/feed/post/_z.dart';
 import 'moderation/suite/moderation_behavior_result.dart';
 import 'moderation/suite/moderation_behaviors.dart';
 import 'moderation/suite/runner/moderation_behaviors_suite_runner.dart';
@@ -36,17 +36,17 @@ void main() {
       () {
     test('porn (hide)', () {
       final actual = moderateProfile(
-        ModerationSubjectProfile.actor(
-          data: Actor(
+        ModerationSubjectProfile.profileView(
+          data: ActorDefsProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
           ),
@@ -83,17 +83,17 @@ void main() {
 
     test('porn (ignore)', () {
       final actual = moderateProfile(
-        ModerationSubjectProfile.actor(
-          data: Actor(
+        ModerationSubjectProfile.profileView(
+          data: ActorDefsProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
           ),
@@ -132,13 +132,13 @@ void main() {
   group('Applies self-labels on posts according to the global preferences', () {
     test('porn (hide)', () {
       final actual = moderatePost(
-        ModerationSubjectPost.post(
-          data: Post(
-            record: PostRecord(
+        ModerationSubjectPost.postView(
+          data: FeedDefsPostView(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: ActorBasic(
+            author: ActorDefsProfileViewBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',
@@ -146,11 +146,11 @@ void main() {
             uri: AtUri.parse('at://did:web:bob.test/app.bsky.post/fake'),
             cid: 'fake',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
             indexedAt: DateTime.now(),
@@ -188,13 +188,13 @@ void main() {
 
     test('porn (ignore)', () {
       final actual = moderatePost(
-        ModerationSubjectPost.post(
-          data: Post(
-            record: PostRecord(
+        ModerationSubjectPost.postView(
+          data: FeedDefsPostView(
+            record: FeedPostRecord(
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: ActorBasic(
+            author: ActorDefsProfileViewBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',
@@ -202,11 +202,11 @@ void main() {
             uri: AtUri.parse('at://did:web:bob.test/app.bsky.post/fake'),
             cid: 'fake',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:bob.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
             indexedAt: DateTime.now(),
@@ -248,17 +248,17 @@ void main() {
       'preferences', () {
     test('porn (ignore for labeler, hide for global)', () {
       final actual = moderateProfile(
-        ModerationSubjectProfile.actor(
-          data: Actor(
+        ModerationSubjectProfile.profileView(
+          data: ActorDefsProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
           ),
@@ -293,17 +293,17 @@ void main() {
 
     test('porn (hide for labeler, ignore for global)', () {
       final actual = moderateProfile(
-        ModerationSubjectProfile.actor(
-          data: Actor(
+        ModerationSubjectProfile.profileView(
+          data: ActorDefsProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
           ),
@@ -338,17 +338,17 @@ void main() {
 
     test('porn (unspecified for labeler, hide for global)', () {
       final actual = moderateProfile(
-        ModerationSubjectProfile.actor(
-          data: Actor(
+        ModerationSubjectProfile.profileView(
+          data: ActorDefsProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
             labels: [
-              Label(
+              LabelDefsLabel(
                 src: 'did:web:labeler.test',
                 uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-                value: 'porn',
-                createdAt: DateTime.now(),
+                val: 'porn',
+                cts: DateTime.now(),
               ),
             ],
           ),

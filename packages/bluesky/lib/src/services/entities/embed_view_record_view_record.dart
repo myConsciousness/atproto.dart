@@ -24,6 +24,7 @@ part 'embed_view_record_view_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
 @lex.appBskyEmbedRecordViewRecord
+@Deprecated('Use EmbedRecordViewRecord instead. Will be removed')
 class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({

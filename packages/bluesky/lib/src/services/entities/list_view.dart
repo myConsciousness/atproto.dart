@@ -22,6 +22,7 @@ part 'list_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listview
 @freezed
 @lex.appBskyGraphDefsListView
+@Deprecated('Use GraphDefsListView instead. Will be removed')
 class ListView with _$ListView {
   // ignore: unused_element
   const ListView._();

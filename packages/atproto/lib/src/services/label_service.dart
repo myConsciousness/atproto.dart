@@ -7,9 +7,8 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/adaptor/subscribe_label_updates_adaptor.dart';
-import 'entities/labels_by_query.dart';
-import 'entities/subscribed_label.dart';
+import 'types/label/query_labels/_z.dart';
+import 'types/label/subscribe_labels/_z.dart';
 
 /// Represents `com.atproto.label.*` service.
 final class LabelService {
@@ -18,7 +17,7 @@ final class LabelService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
-  Future<core.XRPCResponse<LabelsByQuery>> queryLabels({
+  Future<core.XRPCResponse<LabelQueryLabelsOutput>> queryLabels({
     required List<String> uriPatterns,
     List<String>? didSources,
     int? limit,
@@ -33,7 +32,7 @@ final class LabelService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
-  Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
+  Future<core.XRPCResponse<core.Subscription<ULabelSubscribeLabelsOutput>>>
       subscribeLabels({
     int? cursor,
   }) async =>
@@ -41,7 +40,7 @@ final class LabelService {
           await subscribeLabelUpdates(cursor: cursor);
 
   @Deprecated('Use .queryLabels instead. Will be removed')
-  Future<core.XRPCResponse<LabelsByQuery>> searchLabels({
+  Future<core.XRPCResponse<LabelQueryLabelsOutput>> searchLabels({
     required List<String> uriPatterns,
     List<String>? didSources,
     int? limit,
@@ -55,11 +54,11 @@ final class LabelService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: LabelsByQuery.fromJson,
+        to: LabelQueryLabelsOutput.fromJson,
       );
 
   @Deprecated('Use .subscribeLabels instead. Will be removed')
-  Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
+  Future<core.XRPCResponse<core.Subscription<ULabelSubscribeLabelsOutput>>>
       subscribeLabelUpdates({
     int? cursor,
   }) async =>
@@ -68,7 +67,7 @@ final class LabelService {
             parameters: {
               'cursor': cursor,
             },
-            to: SubscribedLabel.fromJson,
-            adaptor: toSubscribedLabel,
+            to: ULabelSubscribeLabelsOutput.fromJson,
+            adaptor: toLabelSubscribeLabelsOutput,
           );
 }

@@ -15,6 +15,7 @@ part 'subscribed_label_info.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#info
 @freezed
 @lex.comAtprotoLabelSubscribeLabelsInfo
+@Deprecated('Use LabelSubscribeLabelsInfo instead. Will be removed')
 class SubscribedLabelInfo with _$SubscribedLabelInfo {
   @jsonSerializable
   const factory SubscribedLabelInfo({

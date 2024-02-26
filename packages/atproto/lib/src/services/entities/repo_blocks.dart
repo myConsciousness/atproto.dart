@@ -13,6 +13,7 @@ part 'repo_blocks.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getblocks/#output
 @freezed
+@Deprecated('Use SyncGetBlocksOutput instead. Will be removed')
 class RepoBlocks with _$RepoBlocks {
   const factory RepoBlocks({
     required List<RepoBlock> blocks,

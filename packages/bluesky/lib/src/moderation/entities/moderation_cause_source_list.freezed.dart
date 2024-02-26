@@ -17,7 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ModerationCauseSourceList {
   String get type => throw _privateConstructorUsedError;
-  ListViewBasic get list => throw _privateConstructorUsedError;
+  GraphDefsListViewBasic get list => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ModerationCauseSourceListCopyWith<ModerationCauseSourceList> get copyWith =>
@@ -30,9 +30,9 @@ abstract class $ModerationCauseSourceListCopyWith<$Res> {
           $Res Function(ModerationCauseSourceList) then) =
       _$ModerationCauseSourceListCopyWithImpl<$Res, ModerationCauseSourceList>;
   @useResult
-  $Res call({String type, ListViewBasic list});
+  $Res call({String type, GraphDefsListViewBasic list});
 
-  $ListViewBasicCopyWith<$Res> get list;
+  $GraphDefsListViewBasicCopyWith<$Res> get list;
 }
 
 /// @nodoc
@@ -60,14 +60,14 @@ class _$ModerationCauseSourceListCopyWithImpl<$Res,
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as ListViewBasic,
+              as GraphDefsListViewBasic,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ListViewBasicCopyWith<$Res> get list {
-    return $ListViewBasicCopyWith<$Res>(_value.list, (value) {
+  $GraphDefsListViewBasicCopyWith<$Res> get list {
+    return $GraphDefsListViewBasicCopyWith<$Res>(_value.list, (value) {
       return _then(_value.copyWith(list: value) as $Val);
     });
   }
@@ -82,10 +82,10 @@ abstract class _$$ModerationCauseSourceListImplCopyWith<$Res>
       __$$ModerationCauseSourceListImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String type, ListViewBasic list});
+  $Res call({String type, GraphDefsListViewBasic list});
 
   @override
-  $ListViewBasicCopyWith<$Res> get list;
+  $GraphDefsListViewBasicCopyWith<$Res> get list;
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$ModerationCauseSourceListImplCopyWithImpl<$Res>
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
-              as ListViewBasic,
+              as GraphDefsListViewBasic,
     ));
   }
 }
@@ -127,7 +127,7 @@ class _$ModerationCauseSourceListImpl implements _ModerationCauseSourceList {
   @JsonKey()
   final String type;
   @override
-  final ListViewBasic list;
+  final GraphDefsListViewBasic list;
 
   @override
   String toString() {
@@ -156,13 +156,13 @@ class _$ModerationCauseSourceListImpl implements _ModerationCauseSourceList {
 
 abstract class _ModerationCauseSourceList implements ModerationCauseSourceList {
   const factory _ModerationCauseSourceList(
-      {final String type,
-      required final ListViewBasic list}) = _$ModerationCauseSourceListImpl;
+          {final String type, required final GraphDefsListViewBasic list}) =
+      _$ModerationCauseSourceListImpl;
 
   @override
   String get type;
   @override
-  ListViewBasic get list;
+  GraphDefsListViewBasic get list;
   @override
   @JsonKey(ignore: true)
   _$$ModerationCauseSourceListImplCopyWith<_$ModerationCauseSourceListImpl>

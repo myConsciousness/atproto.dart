@@ -376,7 +376,7 @@ void main() {
         'app.bsky.graph.listitem',
       );
 
-      expect(uri.isGraphListItem, isTrue);
+      expect(uri.isGraphListitem, isTrue);
     });
 
     test('when not graph listitem', () {
@@ -385,7 +385,7 @@ void main() {
         'test',
       );
 
-      expect(uri.isGraphListItem, isFalse);
+      expect(uri.isGraphListitem, isFalse);
     });
   });
 
@@ -396,7 +396,7 @@ void main() {
         'test',
       );
 
-      expect(uri.isNotGraphListItem, isTrue);
+      expect(uri.isNotGraphListitem, isTrue);
     });
 
     test('when graph listitem', () {
@@ -405,7 +405,7 @@ void main() {
         'app.bsky.graph.listitem',
       );
 
-      expect(uri.isNotGraphListItem, isFalse);
+      expect(uri.isNotGraphListitem, isFalse);
     });
   });
 
@@ -416,7 +416,7 @@ void main() {
         'app.bsky.graph.listblock',
       );
 
-      expect(uri.isGraphBlockList, isTrue);
+      expect(uri.isGraphListblock, isTrue);
     });
 
     test('when not graph block list', () {
@@ -425,7 +425,7 @@ void main() {
         'test',
       );
 
-      expect(uri.isGraphBlockList, isFalse);
+      expect(uri.isGraphListblock, isFalse);
     });
   });
 
@@ -436,7 +436,7 @@ void main() {
         'test',
       );
 
-      expect(uri.isNotGraphBlockList, isTrue);
+      expect(uri.isNotGraphListblock, isTrue);
     });
 
     test('when graph block list', () {
@@ -445,7 +445,7 @@ void main() {
         'app.bsky.graph.listblock',
       );
 
-      expect(uri.isNotGraphBlockList, isFalse);
+      expect(uri.isNotGraphListblock, isFalse);
     });
   });
 }

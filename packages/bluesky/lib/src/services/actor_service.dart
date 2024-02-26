@@ -3,20 +3,21 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'entities/actor_profile.dart';
-import 'entities/actor_profiles.dart';
-import 'entities/actors.dart';
-import 'entities/actors_typeahead.dart';
-import 'entities/preference.dart';
-import 'entities/preferences.dart';
-import 'entities/profile_record.dart';
 import 'service_context.dart';
+import 'types/actor/defs/_z.dart';
+import 'types/actor/get_preferences/_z.dart';
+import 'types/actor/get_profile/_z.dart';
+import 'types/actor/get_profiles/_z.dart';
+import 'types/actor/get_suggestions/_z.dart';
+import 'types/actor/profile/_z.dart';
+import 'types/actor/search_actors/_z.dart';
+import 'types/actor/search_actors_typeahead/_z.dart';
 
 /// Represents `app.bsky.actor.*` service.
 final class ActorService {
@@ -25,7 +26,7 @@ final class ActorService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
-  Future<core.XRPCResponse<Actors>> searchActors({
+  Future<core.XRPCResponse<ActorSearchActorsOutput>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -34,11 +35,11 @@ final class ActorService {
         term: term,
         limit: limit,
         cursor: cursor,
-        to: Actors.fromJson,
+        to: ActorSearchActorsOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<core.XRPCResponse<ActorProfile>> getProfile({
+  Future<core.XRPCResponse<ActorGetProfileOutput>> getProfile({
     required String actor,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -47,7 +48,7 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<core.XRPCResponse<ActorProfiles>> getProfiles({
+  Future<core.XRPCResponse<ActorGetProfilesOutput>> getProfiles({
     required List<String> actors,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -56,7 +57,7 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<core.XRPCResponse<Actors>> getSuggestions({
+  Future<core.XRPCResponse<ActorGetSuggestionsOutput>> getSuggestions({
     int? limit,
     String? cursor,
   }) async =>
@@ -67,23 +68,25 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
+  Future<core.XRPCResponse<ActorSearchActorsTypeaheadOutput>>
+      searchActorsTypeahead({
     required String term,
     int? limit,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await searchTypeahead(
-        term: term,
-        limit: limit,
-      );
+          // ignore: deprecated_member_use_from_same_package
+          await searchTypeahead(
+            term: term,
+            limit: limit,
+          );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
-  Future<core.XRPCResponse<atp.StrongRef>> profile({
+  Future<core.XRPCResponse<RepoStrongRef>> profile({
     String? displayName,
     String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    core.Blob? banner,
+    UActorProfileRecordLabels? labels,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await updateProfile(
@@ -95,13 +98,13 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<core.XRPCResponse<Preferences>> getPreferences() async =>
+  Future<core.XRPCResponse<ActorGetPreferencesOutput>> getPreferences() async =>
       // ignore: deprecated_member_use_from_same_package
       await findPreferences();
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<core.XRPCResponse<core.EmptyData>> putPreferences(
-    List<Preference> preferences,
+    List<UActorDefsPreferencesPreferences> preferences,
   ) async =>
       // ignore: deprecated_member_use_from_same_package
       await updatePreferences(
@@ -109,59 +112,60 @@ final class ActorService {
       );
 
   @Deprecated('Use .getProfile instead. Will be removed')
-  Future<core.XRPCResponse<ActorProfile>> findProfile({
+  Future<core.XRPCResponse<ActorGetProfileOutput>> findProfile({
     required String actor,
   }) async =>
       await _findProfile(
         actor: actor,
-        to: ActorProfile.fromJson,
+        to: ActorGetProfileOutput.fromJson,
       );
 
   @Deprecated('Use .getProfileRecord instead. Will be removed')
-  Future<core.XRPCResponse<ProfileRecord>> findProfileRecord() async =>
+  Future<core.XRPCResponse<ActorProfileRecord>> findProfileRecord() async =>
       await _ctx.findRecord(
         _ctx.selfUri,
-        ProfileRecord.fromJson,
+        ActorProfileRecord.fromJson,
       );
 
   @Deprecated('Use .getProfiles instead. Will be removed')
-  Future<core.XRPCResponse<ActorProfiles>> findProfiles({
+  Future<core.XRPCResponse<ActorGetProfilesOutput>> findProfiles({
     required List<String> actors,
   }) async =>
       await _findProfiles(
         actors: actors,
-        to: ActorProfiles.fromJson,
+        to: ActorGetProfilesOutput.fromJson,
       );
 
   @Deprecated('Use .getSuggestions instead. Will be removed')
-  Future<core.XRPCResponse<Actors>> findSuggestions({
+  Future<core.XRPCResponse<ActorGetSuggestionsOutput>> findSuggestions({
     int? limit,
     String? cursor,
   }) async =>
       await _findSuggestions(
         limit: limit,
         cursor: cursor,
-        to: Actors.fromJson,
+        to: ActorGetSuggestionsOutput.fromJson,
       );
 
   @Deprecated('Use .searchActorsTypeahead instead. Will be removed')
-  Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
+  Future<core.XRPCResponse<ActorSearchActorsTypeaheadOutput>> searchTypeahead({
     required String term,
     int? limit,
   }) async =>
       await _searchTypeahead(
         term: term,
         limit: limit,
-        to: ActorsTypeahead.fromJson,
+        to: ActorSearchActorsTypeaheadOutput.fromJson,
       );
 
   @Deprecated('Use .profile instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> updateProfile({
+  Future<core.XRPCResponse<RepoStrongRef>> updateProfile({
     String? displayName,
     String? description,
-    atp.Blob? avatar,
-    atp.Blob? banner,
-    atp.Labels? labels,
+    core.Blob? avatar,
+    core.Blob? banner,
+    UActorProfileRecordLabels? labels,
+    Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.updateRecord(
         uri: core.AtUri.make(
@@ -175,16 +179,18 @@ final class ActorService {
           'avatar': avatar,
           'banner': banner,
           'labels': labels?.toJson(),
+          ...unknown,
         },
       );
 
   @Deprecated('Use .getPreferences instead. Will be removed')
-  Future<core.XRPCResponse<Preferences>> findPreferences() async =>
-      await _findPreferences(to: Preferences.fromJson);
+  Future<core.XRPCResponse<ActorGetPreferencesOutput>>
+      findPreferences() async =>
+          await _findPreferences(to: ActorGetPreferencesOutput.fromJson);
 
   @Deprecated('Use .putPreferences instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> updatePreferences(
-    List<Preference> preferences,
+  Future<core.XRPCResponse<core.EmptyData>> updatePreferences(
+    List<UActorDefsPreferencesPreferences> preferences,
   ) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,
@@ -296,9 +302,9 @@ extension ActorServiceExtension on ActorService {
   ///
   /// This endpoint is useful for retrieving information when
   /// updating a profile.
-  Future<core.XRPCResponse<ProfileRecord>> getProfileRecord() async =>
+  Future<core.XRPCResponse<ActorProfileRecord>> getProfileRecord() async =>
       await _ctx.findRecord(
         _ctx.selfUri,
-        ProfileRecord.fromJson,
+        ActorProfileRecord.fromJson,
       );
 }

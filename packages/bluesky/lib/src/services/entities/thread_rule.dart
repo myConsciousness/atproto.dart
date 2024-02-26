@@ -15,6 +15,7 @@ part 'thread_rule.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#input
 @freezed
+@Deprecated('Use UFeedThreadgateRecordAllow instead. Will be removed')
 class ThreadRule with _$ThreadRule {
   // ignore: unused_element
   const ThreadRule._();

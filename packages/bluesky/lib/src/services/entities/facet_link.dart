@@ -18,6 +18,7 @@ part 'facet_link.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
 @lex.appBskyRichtextFacetLink
+@Deprecated('Use RichtextFacetLink instead. Will be removed')
 class FacetLink with _$FacetLink {
   const factory FacetLink({
     @typeKey @Default(appBskyRichtextFacetLink) String type,

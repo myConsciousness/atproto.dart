@@ -12,6 +12,7 @@ part 'repo_param.freezed.dart';
 part 'repo_param.g.dart';
 
 @freezed
+@Deprecated('Use GraphFollowRecord / GraphBlockRecord instead. Will be removed')
 class RepoParam with _$RepoParam {
   @jsonSerializable
   const factory RepoParam({

@@ -18,6 +18,7 @@ part 'missing_blobs.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
 @freezed
 @lex.comAtprotoRepoListMissingBlobs
+@Deprecated('Use RepoListMissingBlobsOutput instead. Will be removed')
 class MissingBlobs with _$MissingBlobs {
   @jsonSerializable
   const factory MissingBlobs({

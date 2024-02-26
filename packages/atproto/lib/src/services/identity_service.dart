@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/did.dart';
-import 'entities/did_credentials.dart';
-import 'entities/plc_operation.dart';
+import 'types/identity/get_recommended_did_credentials/_z.dart';
+import 'types/identity/resolve_handle/_z.dart';
+import 'types/identity/sign_plc_operation/_z.dart';
 
 /// Represents `com.atproto.identity.*` service.
 final class IdentityService {
@@ -18,19 +18,19 @@ final class IdentityService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
-  Future<core.XRPCResponse<DID>> resolveHandle({
+  Future<core.XRPCResponse<IdentityResolveHandleOutput>> resolveHandle({
     required String handle,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await findDID(handle: handle);
 
   @Deprecated('Use .resolveHandle instead. Will be removed')
-  Future<core.XRPCResponse<DID>> findDID({
+  Future<core.XRPCResponse<IdentityResolveHandleOutput>> findDID({
     required String handle,
   }) async =>
       await _findDID(
         handle: handle,
-        to: DID.fromJson,
+        to: IdentityResolveHandleOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
@@ -56,7 +56,7 @@ final class IdentityService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
-  Future<core.XRPCResponse<PlcOperation>> signPlcOperation({
+  Future<core.XRPCResponse<IdentitySignPlcOperationOutput>> signPlcOperation({
     String? token,
     List<String>? rotationKeys,
     String? alsoKnownAs,
@@ -72,14 +72,14 @@ final class IdentityService {
           'verificationMethods': verificationMethods,
           'services': services,
         },
-        to: PlcOperation.fromJson,
+        to: IdentitySignPlcOperationOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
-  Future<core.XRPCResponse<DidCredentials>>
+  Future<core.XRPCResponse<IdentityGetRecommendedDidCredentials>>
       getRecommendedDidCredentials() async => await _ctx.get(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
-            to: DidCredentials.fromJson,
+            to: IdentityGetRecommendedDidCredentials.fromJson,
           );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature

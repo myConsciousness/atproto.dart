@@ -4,16 +4,15 @@
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/repo_ref.dart';
-import 'package:atproto/src/services/entities/report.dart';
-import 'package:atproto/src/services/entities/report_subject.dart';
+import 'package:atproto/src/services/types/admin/defs/_z.dart';
+import 'package:atproto/src/services/types/moderation/create_report/_z.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testModeration<Report>(
+  testModeration<ModerationCreateReportOutput>(
     (m, s) => s.createReport(
-      subject: ReportSubject.repoRef(
-        data: RepoRef(did: m.did),
+      subject: UModerationCreateReportInputSubject.repoRef(
+        data: AdminDefsRepoRef(did: m.did),
       ),
     ),
     id: comAtprotoModerationCreateReport,

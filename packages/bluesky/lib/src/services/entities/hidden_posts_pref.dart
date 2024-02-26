@@ -16,6 +16,7 @@ part 'hidden_posts_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#hiddenPostsPref
 @freezed
 @lex.appBskyActorDefsHiddenPostsPref
+@Deprecated('Use ActorDefsHiddenPostsPref instead. Will be removed')
 class HiddenPostsPref with _$HiddenPostsPref {
   const factory HiddenPostsPref({
     @typeKey @Default(appBskyActorDefsHiddenPostsPref) String type,

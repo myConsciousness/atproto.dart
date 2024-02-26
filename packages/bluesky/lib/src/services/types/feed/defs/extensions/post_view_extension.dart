@@ -1,0 +1,40 @@
+// Copyright 2024 Shinya Kato. All rights reserved.
+// Redistribution and use in source and binary forms, with or without
+// modification, are permitted provided the conditions.
+
+// 📦 Package imports:
+import 'package:atproto/lex_types.dart';
+
+// 🌎 Project imports:
+import '../post_view.dart';
+import 'viewer_state_extension.dart';
+
+extension FeedDefsPostViewExtension on FeedDefsPostView {
+  @Deprecated('Use toRepoStrongRef instead. Will be removed')
+  RepoStrongRef toStrongRef() => RepoStrongRef(cid: cid, uri: uri);
+
+  /// Returns the [RepoStrongRef] representation of this record.
+  RepoStrongRef toRepoStrongRef() => RepoStrongRef(cid: cid, uri: uri);
+
+  /// Returns true if the authenticated user has already reposted this record,
+  /// otherwise false.
+  bool get isReposted => viewer.isReposted;
+
+  /// Returns true if the authenticated user has not reposted yet this record,
+  /// otherwise false.
+  bool get isNotReposted => !isReposted;
+
+  /// Returns true if the authenticated user has already liked this record,
+  /// otherwise false.
+  bool get isLiked => viewer.isLiked;
+
+  /// Returns true if the authenticated user has not liked yet this record,
+  /// otherwise false.
+  bool get isNotLiked => !isLiked;
+
+  /// Returns true if this post is reply disabled, otherwise false.
+  bool get isReplyDisabled => viewer.isReplyDisabled;
+
+  /// Returns true if this post is not reply disabled, otherwise false.
+  bool get isNotReplyDisabled => !isReplyDisabled;
+}

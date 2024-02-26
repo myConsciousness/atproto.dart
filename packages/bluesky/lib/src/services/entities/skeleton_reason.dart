@@ -14,6 +14,7 @@ part 'skeleton_reason.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
+@Deprecated('Use UFeedDefsSkeletonFeedPostReason instead. Will be removed')
 class SkeletonReason with _$SkeletonReason {
   factory SkeletonReason.repost({
     required SkeletonReasonRepost data,

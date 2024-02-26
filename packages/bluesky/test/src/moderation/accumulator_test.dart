@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -22,7 +23,7 @@ import 'package:bluesky/src/moderation/entities/moderation_cause_source_labeler.
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_list.dart';
 import 'package:bluesky/src/moderation/entities/moderation_cause_source_user.dart';
 import 'package:bluesky/src/moderation/entities/moderation_options.dart';
-import 'package:bluesky/src/services/entities/list_view_basic.dart';
+import 'package:bluesky/src/services/types/graph/defs/_z.dart';
 
 void main() {
   group('.did', () {
@@ -58,7 +59,7 @@ void main() {
   });
 
   test('.addBlockingByList', () {
-    final list = ListViewBasic(
+    final list = GraphDefsListViewBasic(
       uri: AtUri.parse(
         'at://did:plc:k7i7bl3s5oda3xx3oicuh5pw/app.bsky.feed.post/3kfrqxhntqs2e',
       ),
@@ -129,11 +130,11 @@ void main() {
       final accumulator = ModerationCauseAccumulator('');
 
       accumulator.addLabel(
-        Label(
+        LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-          value: 'test',
-          createdAt: DateTime.now(),
+          val: 'test',
+          cts: DateTime.now(),
         ),
         ModerationOptions(
           userDid: 'did:web:alice.test',
@@ -149,11 +150,11 @@ void main() {
       final accumulator = ModerationCauseAccumulator('');
 
       accumulator.addLabel(
-        Label(
+        LabelDefsLabel(
           src: 'did:web:bob.test',
           uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-          value: 'spoiler',
-          createdAt: DateTime.now(),
+          val: 'spoiler',
+          cts: DateTime.now(),
         ),
         ModerationOptions(
           userDid: 'did:web:bob.test',
@@ -167,11 +168,11 @@ void main() {
 
     test('porn & not self & not enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -200,11 +201,11 @@ void main() {
 
     test('porn & not self & enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -236,11 +237,11 @@ void main() {
 
     test('porn & self & enabled adult content', () {
       final accumulator = ModerationCauseAccumulator('did:web:bob.test');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -272,11 +273,11 @@ void main() {
 
     test('labeler', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       final labeler = Labeler(
@@ -323,11 +324,11 @@ void main() {
 
     test('priority 1', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: '!hide',
-        createdAt: DateTime.now(),
+        val: '!hide',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -356,11 +357,11 @@ void main() {
 
     test('priority 2', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'porn',
-        createdAt: DateTime.now(),
+        val: 'porn',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -391,11 +392,11 @@ void main() {
 
     test('priority 5', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'intolerant-race',
-        createdAt: DateTime.now(),
+        val: 'intolerant-race',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -427,11 +428,11 @@ void main() {
 
     test('priority 7', () {
       final accumulator = ModerationCauseAccumulator('');
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'gore',
-        createdAt: DateTime.now(),
+        val: 'gore',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(
@@ -481,7 +482,7 @@ void main() {
   });
 
   test('.addMutedByList', () {
-    final list = ListViewBasic(
+    final list = GraphDefsListViewBasic(
       uri: AtUri.parse(
         'at://did:plc:k7i7bl3s5oda3xx3oicuh5pw/app.bsky.feed.post/3kfrqxhntqs2e',
       ),
@@ -631,11 +632,11 @@ void main() {
     test('cause is UModerationCauseLabel', () {
       final accumulator = ModerationCauseAccumulator('did:web:bob.test');
 
-      final label = Label(
+      final label = LabelDefsLabel(
         src: 'did:web:bob.test',
         uri: 'at://did:web:bob.test/app.bsky.actor.profile/self',
-        value: 'intolerant-race',
-        createdAt: DateTime.now(),
+        val: 'intolerant-race',
+        cts: DateTime.now(),
       );
 
       accumulator.addLabel(

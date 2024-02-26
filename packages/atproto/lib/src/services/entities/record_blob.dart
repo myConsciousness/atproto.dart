@@ -17,6 +17,7 @@ part 'record_blob.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listmissingblobs/#recordblob
 @freezed
 @lex.comAtprotoRepoListMissingBlobsRecordBlob
+@Deprecated('Use RepoListMissingBlobsRecordBlob instead. Will be removed')
 class RecordBlob with _$RecordBlob {
   @jsonSerializable
   const factory RecordBlob({

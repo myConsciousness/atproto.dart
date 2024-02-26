@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
 import '../accumulator.dart';
@@ -25,17 +25,17 @@ ModerationDecision decideProfile(
   return accumulator.finalizeDecision(options);
 }
 
-(String, List<atp.Label>?) _getDecisionFactors(
+(String, List<LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
-      actorBasic: (data) => (data.did, data.labels),
-      actor: (data) => (data.did, data.labels),
-      actorProfile: (data) => (data.did, data.labels),
+      profileViewBasic: (data) => (data.did, data.labels),
+      profileView: (data) => (data.did, data.labels),
+      profileViewDetailed: (data) => (data.did, data.labels),
     );
 
-List<atp.Label> _filterProfileLabels(
-  final List<atp.Label>? labels,
+List<LabelDefsLabel> _filterProfileLabels(
+  final List<LabelDefsLabel>? labels,
 ) =>
     labels == null
         ? const []

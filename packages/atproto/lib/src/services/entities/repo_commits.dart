@@ -16,6 +16,7 @@ part 'repo_commits.g.dart';
 
 /// Represents a collection of [RepoCommit] objects.
 @freezed
+@Deprecated('Use SyncGetRepoCommitsOutput instead. Will be removed')
 class RepoCommits with _$RepoCommits {
   /// Creates a new instance of [RepoCommits].
   ///

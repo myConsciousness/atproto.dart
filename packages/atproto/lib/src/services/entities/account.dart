@@ -14,6 +14,7 @@ part 'account.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createaccount/#output
 @freezed
 @lex.comAtprotoServerCreateAccount
+@Deprecated('Use ServerCreateAccountOutput instead. Will be removed')
 class Account with _$Account {
   const factory Account({
     required String accessJwt,

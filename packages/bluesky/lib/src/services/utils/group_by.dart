@@ -1,10 +1,10 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../entities/notification.dart';
-import '../entities/notifications.dart';
+import '../types/notification/list_notifications/notification.dart';
+import '../types/notification/list_notifications/output.dart';
 
 sealed class GroupBy {
   // ignore: unused_element
@@ -13,7 +13,9 @@ sealed class GroupBy {
   const factory GroupBy.hour(final int hour) = Hour;
   const factory GroupBy.minute(final int minute) = Minute;
 
-  List<List<Notification>> execute(final Notifications data);
+  List<List<NotificationListNotificationsNotification>> execute(
+    final NotificationListNotificationsOutput data,
+  );
 }
 
 final class Hour implements GroupBy {
@@ -22,7 +24,9 @@ final class Hour implements GroupBy {
   final int hour;
 
   @override
-  List<List<Notification>> execute(Notifications data) {
+  List<List<NotificationListNotificationsNotification>> execute(
+    NotificationListNotificationsOutput data,
+  ) {
     return _buildChunks(
       _groupBy(
         data.notifications,
@@ -44,7 +48,9 @@ final class Minute implements GroupBy {
   final int minute;
 
   @override
-  List<List<Notification>> execute(Notifications data) {
+  List<List<NotificationListNotificationsNotification>> execute(
+    NotificationListNotificationsOutput data,
+  ) {
     return _buildChunks(
       _groupBy(
         data.notifications,
@@ -70,10 +76,10 @@ Map<T, List<S>> _groupBy<S, T>(Iterable<S> values, T Function(S) key) {
   return map;
 }
 
-List<List<Notification>> _buildChunks(
-  final Map<DateTime, List<Notification>> grouped,
+List<List<NotificationListNotificationsNotification>> _buildChunks(
+  final Map<DateTime, List<NotificationListNotificationsNotification>> grouped,
 ) {
-  final chunks = <List<Notification>>[];
+  final chunks = <List<NotificationListNotificationsNotification>>[];
 
   for (final notifications in grouped.values) {
     chunks.add(notifications);

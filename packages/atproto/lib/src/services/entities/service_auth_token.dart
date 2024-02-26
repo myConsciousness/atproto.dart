@@ -15,6 +15,7 @@ part 'service_auth_token.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/GetServiceAuth/#output
 @freezed
 @lex.comAtprotoServerGetServiceAuth
+@Deprecated('Use ServerGetServiceAuthOutput instead. Will be removed')
 class ServiceAuthToken with _$ServiceAuthToken {
   @jsonSerializable
   const factory ServiceAuthToken({

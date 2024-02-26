@@ -19,6 +19,7 @@ part 'content_label_preference.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#contentlabelpref
 @freezed
 @lex.appBskyActorDefsContentLabelPref
+@Deprecated('Use ActorDefsContentLabelPref instead. Will be removed')
 class ContentLabelPreference with _$ContentLabelPreference {
   @jsonSerializable
   const factory ContentLabelPreference({

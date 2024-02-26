@@ -1,5 +1,54 @@
 # Release Note
 
+## v0.16.0-preview.9
+
+- Upgraded `atproto_core` and `atproto`.
+
+## v0.16.0-preview.8
+
+- Added extensions to convert unions.
+  - `.asUFeedDefsThreadViewPostParent` on `UFeedDefsThreadViewPostReplies`
+  - `.asUFeedDefsThreadViewPostReplies` on `UFeedDefsThreadViewPostParent`
+
+## v0.16.0-preview.7
+
+- Upgraded `atproto_core` and `atproto`.
+
+## v0.16.0-preview.6
+
+- Added extensions to convert unions.
+  - `.asUEmbedRecordViewRecordEmbeds` on `UFeedDefsPostViewEmbed`
+  - `.asUFeedDefsPostViewEmbed` on `UEmbedRecordViewRecordEmbeds`
+
+## v0.16.0-preview.5
+
+- Fixed object names of union on `UEmbedRecordViewRecord`.
+
+## v0.16.0-preview.4
+
+- Added deprecated messages.
+
+## v0.16.0-preview.3
+
+- Renamed util on `ActorDefsProfileViewBasic`.
+  - From `toProfileView` to `toActorDefsProfileView`
+
+## v0.16.0-preview.2
+
+- Changed to method from function.
+  - `asActorDefsProfileViewDetailed` on `ActorGetProfileOutput`
+  - `asActorDefsPreferences` on `ActorGetPreferencesOutput`
+
+## v0.16.0-preview.1
+
+- Exposed `SessionExtension`.
+
+## v0.16.0-preview.0
+
+- Removed unsupported `.getPopular` from `UnspeccedService`.
+- All objects that do not match Lexicon names have been deprecated and those that do match Lexicon names have been exposed as the `lex_types` package. You can import it like `import 'package:bluesky/lex_types.dart';` ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
+- Changed record's parameter name `unspecced` to `unknown`.
+
 ## v0.15.10
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

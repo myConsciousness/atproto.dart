@@ -20,6 +20,7 @@ part 'like_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyFeedLike].
 @freezed
+@Deprecated('Use FeedLikeRecord instead. Will be removed')
 class LikeRecord with _$LikeRecord {
   @jsonSerializable
   const factory LikeRecord({

@@ -17,6 +17,7 @@ part 'posts.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getposts/#output
 @freezed
 @lex.appBskyFeedGetPosts
+@Deprecated('Use FeedGetPostsOutput instead. Will be removed')
 class Posts with _$Posts {
   const factory Posts({
     required List<Post> posts,

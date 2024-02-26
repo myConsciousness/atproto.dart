@@ -20,6 +20,7 @@ part 'threadgate_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
 @lex.appBskyFeedDefsThreadgateView
+@Deprecated('Use FeedDefsThreadgateView instead. Will be removed')
 class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
   const factory ThreadgateView({

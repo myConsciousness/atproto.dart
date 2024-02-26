@@ -5,7 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -21,7 +21,7 @@ class ModerationCauseLabel with _$ModerationCauseLabel {
   const factory ModerationCauseLabel({
     @Default('label') String type,
     required ModerationCauseSource source,
-    required Label label,
+    required LabelDefsLabel label,
     @JsonKey(name: 'labelDef') required LabelDefinition labelDefinition,
     required LabelPreference setting,
     required int priority,

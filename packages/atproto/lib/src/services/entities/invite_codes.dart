@@ -13,6 +13,7 @@ part 'invite_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getAccountInviteCodes#output
 @freezed
+@Deprecated('Use ServerGetAccountInviteCodesOutput instead. Will be removed')
 class InviteCodes with _$InviteCodes {
   const factory InviteCodes({
     required List<InviteCode> codes,

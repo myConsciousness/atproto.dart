@@ -74,19 +74,20 @@ PostModeration moderatePost(
 ) {
   ModerationDecision post = decidePost(subject, options);
   final (author, embed) = subject.when(
-    post: (data) => (data.author, data.embed),
+    postView: (data) => (data.author, data.embed),
   );
 
-  final profileSubject = ModerationSubjectProfile.actorBasic(data: author);
+  final profileSubject =
+      ModerationSubjectProfile.profileViewBasic(data: author);
   ModerationDecision account = decideAccount(profileSubject, options);
   ModerationDecision profile = decideProfile(profileSubject, options);
 
   ModerationDecision? quote;
   ModerationDecision? quotedAccount;
-  embed?.whenOrNull(record: (data) {
+  embed?.whenOrNull(embedRecordView: (data) {
     quote = decideQuotedPost(data, options);
     quotedAccount = decideQuotedPostAccount(data, options);
-  }, recordWithMedia: (data) {
+  }, embedRecordWithMediaView: (data) {
     quote = decideQuotedPostWithMedia(data, options);
     quotedAccount = decideQuotedPostWithMediaAccount(data, options);
   });

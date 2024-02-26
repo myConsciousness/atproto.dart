@@ -18,6 +18,7 @@ part 'preferences.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getpreferences/#output
 @freezed
 @lex.appBskyActorGetPreferences
+@Deprecated('Use ActorGetPreferencesOutput instead. Will be removed')
 class Preferences with _$Preferences {
   const factory Preferences({
     @preferenceConverter required List<Preference> preferences,

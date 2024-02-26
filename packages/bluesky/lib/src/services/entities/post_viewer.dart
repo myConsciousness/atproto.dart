@@ -17,6 +17,7 @@ part 'post_viewer.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#viewerstate
 @freezed
 @lex.appBskyFeedDefsViewerState
+@Deprecated('Use FeedDefsViewerState instead. Will be removed')
 class PostViewer with _$PostViewer {
   // ignore: unused_element
   const PostViewer._();

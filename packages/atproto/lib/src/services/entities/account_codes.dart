@@ -11,9 +11,10 @@ import '../../lex_annotations.g.dart' as lex;
 part 'account_codes.freezed.dart';
 part 'account_codes.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/com/atproto/server/createinvitecodes/#output
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createinvitecodes/#accountcodes
 @freezed
 @lex.comAtprotoServerCreateInviteCodesAccountCodes
+@Deprecated('Use ServerCreateInviteCodesAccountCodes instead. Will be removed')
 class AccountCodes with _$AccountCodes {
   const factory AccountCodes({
     required String account,

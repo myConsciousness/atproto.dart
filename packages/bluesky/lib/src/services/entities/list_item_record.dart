@@ -19,6 +19,7 @@ part 'list_item_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphListitem].
 @freezed
+@Deprecated('Use GraphListitemRecord instead. Will be removed')
 class ListItemRecord with _$ListItemRecord {
   @jsonSerializable
   const factory ListItemRecord({

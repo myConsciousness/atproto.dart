@@ -20,6 +20,7 @@ part 'blocked_author.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedauthor
 @freezed
 @lex.appBskyFeedDefsBlockedAuthor
+@Deprecated('Use FeedDefsBlockedAuthor instead. Will be removed')
 class BlockedAuthor with _$BlockedAuthor {
   const factory BlockedAuthor({
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,

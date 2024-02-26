@@ -15,6 +15,7 @@ part 'muted_word_target.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedwordtarget
 @freezed
 @lex.appBskyActorDefsMutedWordTarget
+@Deprecated('Use ActorDefsMutedWordTarget instead. Will be removed')
 class MutedWordTarget with _$MutedWordTarget {
   @jsonSerializable
   const factory MutedWordTarget({

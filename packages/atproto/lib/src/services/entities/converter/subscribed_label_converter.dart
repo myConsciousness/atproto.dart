@@ -10,8 +10,10 @@ import '../subscribed_label.dart';
 import '../subscribed_label_info.dart';
 import '../subscribed_label_labels.dart';
 
+@Deprecated('Will be removed')
 const subscribedLabelConverter = _SubscribedLabelConverter();
 
+@Deprecated('Will be removed')
 final class _SubscribedLabelConverter
     implements JsonConverter<SubscribedLabel, Map<String, dynamic>> {
   const _SubscribedLabelConverter();

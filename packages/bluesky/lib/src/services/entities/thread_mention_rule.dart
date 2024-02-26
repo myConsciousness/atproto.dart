@@ -18,6 +18,7 @@ part 'thread_mention_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#mentionrule
 @freezed
 @lex.appBskyFeedThreadgateMentionRule
+@Deprecated('Use FeedThreadgateMentionRule instead. Will be removed')
 class ThreadMentionRule with _$ThreadMentionRule {
   @jsonSerializable
   const factory ThreadMentionRule({

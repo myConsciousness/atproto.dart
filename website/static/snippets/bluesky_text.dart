@@ -7,6 +7,7 @@
 /* SNIPPET START */
 
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/lex_types.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 
 Future<void> main(List<String> args) async {
@@ -30,6 +31,6 @@ Future<void> main(List<String> args) async {
 
   final strongRef = await bsky.feed.post(
     text: text.value,
-    facets: facets.map(Facet.fromJson).toList(),
+    facets: facets.map(RichtextFacet.fromJson).toList(),
   );
 }

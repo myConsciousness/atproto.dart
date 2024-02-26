@@ -16,6 +16,7 @@ part 'app_password.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createapppassword/#apppassword
 @freezed
 @lex.comAtprotoServerCreateAppPasswordAppPassword
+@Deprecated('Use ServerCreateAppPasswordAppPassword instead. Will be removed')
 class AppPassword with _$AppPassword {
   const factory AppPassword({
     required String name,

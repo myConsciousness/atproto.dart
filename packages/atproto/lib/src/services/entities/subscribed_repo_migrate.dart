@@ -15,6 +15,7 @@ part 'subscribed_repo_migrate.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
 @lex.comAtprotoSyncSubscribeReposMigrate
+@Deprecated('Use SyncSubscribeReposMigrate instead. Will be removed')
 class SubscribedRepoMigrate with _$SubscribedRepoMigrate {
   @jsonSerializable
   const factory SubscribedRepoMigrate({

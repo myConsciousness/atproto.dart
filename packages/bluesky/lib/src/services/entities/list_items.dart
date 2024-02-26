@@ -18,6 +18,7 @@ part 'list_items.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
 @lex.appBskyGraphGetList
+@Deprecated('Use GraphGetListOutput instead. Will be removed')
 class ListItems with _$ListItems {
   const factory ListItems({
     required ListView list,

@@ -1,5 +1,20 @@
 # Release Note
 
+## v0.10.0-preview.2
+
+- Applied `build.xml` and added `toJson` in generated freezed objects.
+
+## v0.10.0-preview.1
+
+- Upgraded `xrpc`.
+
+## v0.10.0-preview.0
+
+- The following functions have been moved to the `atproto` package. ([#1164](https://github.com/myConsciousness/atproto.dart/issues/1164))
+  - `.createSession`
+  - `.refreshSession`
+  - `.deleteSession`
+
 ## v0.9.6
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

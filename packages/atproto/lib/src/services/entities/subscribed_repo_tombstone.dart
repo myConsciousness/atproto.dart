@@ -14,6 +14,7 @@ part 'subscribed_repo_tombstone.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
 @lex.comAtprotoSyncSubscribeReposTombstone
+@Deprecated('Use SyncSubscribeReposTombstone instead. Will be removed')
 class SubscribedRepoTombstone with _$SubscribedRepoTombstone {
   const factory SubscribedRepoTombstone({
     required String did,
