@@ -11,13 +11,15 @@ import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
 import 'service_context.dart';
 import 'types/actor/defs/_z.dart';
-import 'types/actor/get_preferences/_z.dart';
-import 'types/actor/get_profile/_z.dart';
-import 'types/actor/get_profiles/_z.dart';
-import 'types/actor/get_suggestions/_z.dart';
+import 'types/actor/get_preferences/_z.dart' as app_bsky_actor_get_preferences;
+import 'types/actor/get_profile/_z.dart' as app_bsky_actor_get_profile;
+import 'types/actor/get_profiles/_z.dart' as app_bsky_actor_get_profiles;
+import 'types/actor/get_suggestions/_z.dart' as app_bsky_get_actor_suggestions;
 import 'types/actor/profile/_z.dart';
-import 'types/actor/search_actors/_z.dart';
-import 'types/actor/search_actors_typeahead/_z.dart';
+import 'types/actor/search_actors/_z.dart' as app_bsky_actor_search_actors;
+
+import 'types/actor/search_actors_typeahead/_z.dart'
+    as app_bsky_actor_search_actors_typeahead;
 
 /// Represents `app.bsky.actor.*` service.
 final class ActorService {
@@ -26,7 +28,7 @@ final class ActorService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
-  Future<core.XRPCResponse<ActorSearchActorsOutput>> searchActors({
+  Future<core.XRPCResponse<app_bsky_actor_search_actors.Output>> searchActors({
     required String term,
     int? limit,
     String? cursor,
@@ -35,11 +37,11 @@ final class ActorService {
         term: term,
         limit: limit,
         cursor: cursor,
-        to: ActorSearchActorsOutput.fromJson,
+        to: app_bsky_actor_search_actors.Output.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<core.XRPCResponse<ActorGetProfileOutput>> getProfile({
+  Future<core.XRPCResponse<app_bsky_actor_get_profile.Output>> getProfile({
     required String actor,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -48,7 +50,7 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
-  Future<core.XRPCResponse<ActorGetProfilesOutput>> getProfiles({
+  Future<core.XRPCResponse<app_bsky_actor_get_profiles.Output>> getProfiles({
     required List<String> actors,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -57,18 +59,19 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<core.XRPCResponse<ActorGetSuggestionsOutput>> getSuggestions({
+  Future<core.XRPCResponse<app_bsky_get_actor_suggestions.Output>>
+      getSuggestions({
     int? limit,
     String? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findSuggestions(
-        limit: limit,
-        cursor: cursor,
-      );
+          // ignore: deprecated_member_use_from_same_package
+          await findSuggestions(
+            limit: limit,
+            cursor: cursor,
+          );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
-  Future<core.XRPCResponse<ActorSearchActorsTypeaheadOutput>>
+  Future<core.XRPCResponse<app_bsky_actor_search_actors_typeahead.Output>>
       searchActorsTypeahead({
     required String term,
     int? limit,
@@ -98,9 +101,10 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<core.XRPCResponse<ActorGetPreferencesOutput>> getPreferences() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findPreferences();
+  Future<core.XRPCResponse<app_bsky_actor_get_preferences.Output>>
+      getPreferences() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await findPreferences();
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<core.XRPCResponse<core.EmptyData>> putPreferences(
@@ -112,12 +116,12 @@ final class ActorService {
       );
 
   @Deprecated('Use .getProfile instead. Will be removed')
-  Future<core.XRPCResponse<ActorGetProfileOutput>> findProfile({
+  Future<core.XRPCResponse<app_bsky_actor_get_profile.Output>> findProfile({
     required String actor,
   }) async =>
       await _findProfile(
         actor: actor,
-        to: ActorGetProfileOutput.fromJson,
+        to: app_bsky_actor_get_profile.Output.fromJson,
       );
 
   @Deprecated('Use .getProfileRecord instead. Will be removed')
@@ -128,35 +132,37 @@ final class ActorService {
       );
 
   @Deprecated('Use .getProfiles instead. Will be removed')
-  Future<core.XRPCResponse<ActorGetProfilesOutput>> findProfiles({
+  Future<core.XRPCResponse<app_bsky_actor_get_profiles.Output>> findProfiles({
     required List<String> actors,
   }) async =>
       await _findProfiles(
         actors: actors,
-        to: ActorGetProfilesOutput.fromJson,
+        to: app_bsky_actor_get_profiles.Output.fromJson,
       );
 
   @Deprecated('Use .getSuggestions instead. Will be removed')
-  Future<core.XRPCResponse<ActorGetSuggestionsOutput>> findSuggestions({
+  Future<core.XRPCResponse<app_bsky_get_actor_suggestions.Output>>
+      findSuggestions({
     int? limit,
     String? cursor,
   }) async =>
-      await _findSuggestions(
-        limit: limit,
-        cursor: cursor,
-        to: ActorGetSuggestionsOutput.fromJson,
-      );
+          await _findSuggestions(
+            limit: limit,
+            cursor: cursor,
+            to: app_bsky_get_actor_suggestions.Output.fromJson,
+          );
 
   @Deprecated('Use .searchActorsTypeahead instead. Will be removed')
-  Future<core.XRPCResponse<ActorSearchActorsTypeaheadOutput>> searchTypeahead({
+  Future<core.XRPCResponse<app_bsky_actor_search_actors_typeahead.Output>>
+      searchTypeahead({
     required String term,
     int? limit,
   }) async =>
-      await _searchTypeahead(
-        term: term,
-        limit: limit,
-        to: ActorSearchActorsTypeaheadOutput.fromJson,
-      );
+          await _searchTypeahead(
+            term: term,
+            limit: limit,
+            to: app_bsky_actor_search_actors_typeahead.Output.fromJson,
+          );
 
   @Deprecated('Use .profile instead. Will be removed')
   Future<core.XRPCResponse<RepoStrongRef>> updateProfile({
@@ -184,9 +190,9 @@ final class ActorService {
       );
 
   @Deprecated('Use .getPreferences instead. Will be removed')
-  Future<core.XRPCResponse<ActorGetPreferencesOutput>>
-      findPreferences() async =>
-          await _findPreferences(to: ActorGetPreferencesOutput.fromJson);
+  Future<core.XRPCResponse<app_bsky_actor_get_preferences.Output>>
+      findPreferences() async => await _findPreferences(
+          to: app_bsky_actor_get_preferences.Output.fromJson);
 
   @Deprecated('Use .putPreferences instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> updatePreferences(

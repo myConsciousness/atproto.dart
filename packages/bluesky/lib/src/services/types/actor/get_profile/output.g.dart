@@ -8,12 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorGetProfileOutputImpl _$$ActorGetProfileOutputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorGetProfileOutputImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorGetProfileOutputImpl(
+        final val = _$OutputImpl(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -42,8 +41,7 @@ _$ActorGetProfileOutputImpl _$$ActorGetProfileOutputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ActorGetProfileOutputImplToJson(
-    _$ActorGetProfileOutputImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'handle': instance.handle,

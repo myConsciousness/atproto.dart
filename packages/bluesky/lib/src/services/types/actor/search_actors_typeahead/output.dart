@@ -15,12 +15,10 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchactorstypeahead/#output
 @freezed
 @lex.appBskyActorSearchActorsTypeahead
-class ActorSearchActorsTypeaheadOutput with _$ActorSearchActorsTypeaheadOutput {
-  const factory ActorSearchActorsTypeaheadOutput({
+class Output with _$Output {
+  const factory Output({
     required List<ProfileViewBasic> actors,
-  }) = _ActorSearchActorsTypeaheadOutput;
+  }) = _Output;
 
-  factory ActorSearchActorsTypeaheadOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$ActorSearchActorsTypeaheadOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

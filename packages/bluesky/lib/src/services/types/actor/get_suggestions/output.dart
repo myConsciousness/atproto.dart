@@ -15,11 +15,10 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getsuggestions/#output
 @freezed
 @lex.appBskyActorGetSuggestions
-class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
-  const factory ActorGetSuggestionsOutput({
+class Output with _$Output {
+  const factory Output({
     required List<ProfileView> actors,
-  }) = _ActorGetSuggestionsOutput;
+  }) = _Output;
 
-  factory ActorGetSuggestionsOutput.fromJson(Map<String, Object?> json) =>
-      _$ActorGetSuggestionsOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

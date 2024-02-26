@@ -18,9 +18,9 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getprofile/#outout
 @freezed
 @lex.appBskyActorGetProfile
-class ActorGetProfileOutput with _$ActorGetProfileOutput {
+class Output with _$Output {
   @jsonSerializable
-  const factory ActorGetProfileOutput({
+  const factory Output({
     required String did,
     required String handle,
     String? displayName,
@@ -33,13 +33,12 @@ class ActorGetProfileOutput with _$ActorGetProfileOutput {
     @Default(defaultActorDefsViewerState) ViewerState viewer,
     List<LabelDefsLabel>? labels,
     DateTime? indexedAt,
-  }) = _ActorGetProfileOutput;
+  }) = _Output;
 
-  factory ActorGetProfileOutput.fromJson(Map<String, Object?> json) =>
-      _$ActorGetProfileOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }
 
-extension $ActorGetProfileOutputExtension on ActorGetProfileOutput {
+extension $OutputExtension on Output {
   ProfileViewDetailed asProfileViewDetailed() =>
       ProfileViewDetailed.fromJson(toJson());
 }

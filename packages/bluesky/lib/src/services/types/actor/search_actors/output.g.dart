@@ -8,13 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorSearchActorsOutputImpl _$$ActorSearchActorsOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ActorSearchActorsOutputImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorSearchActorsOutputImpl(
+        final val = _$OutputImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -27,8 +25,7 @@ _$ActorSearchActorsOutputImpl _$$ActorSearchActorsOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ActorSearchActorsOutputImplToJson(
-        _$ActorSearchActorsOutputImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'cursor': instance.cursor,

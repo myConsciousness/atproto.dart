@@ -8,13 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorGetSuggestionsOutputImpl _$$ActorGetSuggestionsOutputImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ActorGetSuggestionsOutputImpl',
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorGetSuggestionsOutputImpl(
+        final val = _$OutputImpl(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -26,8 +24,7 @@ _$ActorGetSuggestionsOutputImpl _$$ActorGetSuggestionsOutputImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ActorGetSuggestionsOutputImplToJson(
-        _$ActorGetSuggestionsOutputImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
     };

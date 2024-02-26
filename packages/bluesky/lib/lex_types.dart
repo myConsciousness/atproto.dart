@@ -4,16 +4,9 @@
 
 export 'package:atproto/lex_types.dart';
 
-export 'package:bluesky/src/services/types/actor/defs/_z.dart'
-    hide unionPreferencesPreferencesConverter;
-export 'package:bluesky/src/services/types/actor/get_preferences/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_profile/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_profiles/_z.dart';
-export 'package:bluesky/src/services/types/actor/get_suggestions/_z.dart';
 export 'package:bluesky/src/services/types/actor/profile/_z.dart'
     hide unionActorProfileRecordLabelsConverter;
-export 'package:bluesky/src/services/types/actor/search_actors/_z.dart';
-export 'package:bluesky/src/services/types/actor/search_actors_typeahead/_z.dart';
+
 export 'package:bluesky/src/services/types/embed/external/_z.dart';
 export 'package:bluesky/src/services/types/embed/images/_z.dart';
 export 'package:bluesky/src/services/types/embed/record/_z.dart'
