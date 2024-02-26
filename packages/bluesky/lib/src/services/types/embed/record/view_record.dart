@@ -29,7 +29,7 @@ class EmbedRecordViewRecord with _$EmbedRecordViewRecord {
     @typeKey @Default(appBskyEmbedRecordViewRecord) String type,
     @atUriConverter required AtUri uri,
     required String cid,
-    required ActorDefsProfileViewBasic author,
+    required ProfileViewBasic author,
     @feedPostRecordConverter required FeedPostRecord value,
     List<LabelDefsLabel>? labels,
     @unionEmbedRecordViewRecordEmbedsConverter

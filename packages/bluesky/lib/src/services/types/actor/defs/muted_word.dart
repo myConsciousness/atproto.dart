@@ -18,7 +18,7 @@ part 'muted_word.g.dart';
 class ActorDefsMutedWord with _$ActorDefsMutedWord {
   const factory ActorDefsMutedWord({
     required String value,
-    required List<ActorDefsMutedWordTarget> targets,
+    required List<MutedWordTarget> targets,
   }) = _ActorDefsMutedWord;
 
   factory ActorDefsMutedWord.fromJson(Map<String, Object?> json) =>

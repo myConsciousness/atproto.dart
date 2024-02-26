@@ -21,8 +21,7 @@ FeedGetRepostedByOutput _$FeedGetRepostedByOutputFromJson(
 
 /// @nodoc
 mixin _$FeedGetRepostedByOutput {
-  List<ActorDefsProfileView> get repostedBy =>
-      throw _privateConstructorUsedError;
+  List<ProfileView> get repostedBy => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
@@ -41,7 +40,7 @@ abstract class $FeedGetRepostedByOutputCopyWith<$Res> {
       _$FeedGetRepostedByOutputCopyWithImpl<$Res, FeedGetRepostedByOutput>;
   @useResult
   $Res call(
-      {List<ActorDefsProfileView> repostedBy,
+      {List<ProfileView> repostedBy,
       @atUriConverter AtUri uri,
       String? cid,
       String? cursor});
@@ -70,7 +69,7 @@ class _$FeedGetRepostedByOutputCopyWithImpl<$Res,
       repostedBy: null == repostedBy
           ? _value.repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -97,7 +96,7 @@ abstract class _$$FeedGetRepostedByOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ActorDefsProfileView> repostedBy,
+      {List<ProfileView> repostedBy,
       @atUriConverter AtUri uri,
       String? cid,
       String? cursor});
@@ -125,7 +124,7 @@ class __$$FeedGetRepostedByOutputImplCopyWithImpl<$Res>
       repostedBy: null == repostedBy
           ? _value._repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -147,7 +146,7 @@ class __$$FeedGetRepostedByOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$FeedGetRepostedByOutputImpl implements _FeedGetRepostedByOutput {
   const _$FeedGetRepostedByOutputImpl(
-      {required final List<ActorDefsProfileView> repostedBy,
+      {required final List<ProfileView> repostedBy,
       @atUriConverter required this.uri,
       this.cid,
       this.cursor})
@@ -156,9 +155,9 @@ class _$FeedGetRepostedByOutputImpl implements _FeedGetRepostedByOutput {
   factory _$FeedGetRepostedByOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGetRepostedByOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _repostedBy;
+  final List<ProfileView> _repostedBy;
   @override
-  List<ActorDefsProfileView> get repostedBy {
+  List<ProfileView> get repostedBy {
     if (_repostedBy is EqualUnmodifiableListView) return _repostedBy;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_repostedBy);
@@ -211,7 +210,7 @@ class _$FeedGetRepostedByOutputImpl implements _FeedGetRepostedByOutput {
 
 abstract class _FeedGetRepostedByOutput implements FeedGetRepostedByOutput {
   const factory _FeedGetRepostedByOutput(
-      {required final List<ActorDefsProfileView> repostedBy,
+      {required final List<ProfileView> repostedBy,
       @atUriConverter required final AtUri uri,
       final String? cid,
       final String? cursor}) = _$FeedGetRepostedByOutputImpl;
@@ -220,7 +219,7 @@ abstract class _FeedGetRepostedByOutput implements FeedGetRepostedByOutput {
       _$FeedGetRepostedByOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get repostedBy;
+  List<ProfileView> get repostedBy;
   @override
   @atUriConverter
   AtUri get uri;

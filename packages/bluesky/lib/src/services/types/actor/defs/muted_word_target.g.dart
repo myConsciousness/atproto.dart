@@ -8,13 +8,12 @@ part of 'muted_word_target.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsMutedWordTargetImpl _$$ActorDefsMutedWordTargetImplFromJson(
-        Map json) =>
+_$MutedWordTargetImpl _$$MutedWordTargetImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorDefsMutedWordTargetImpl',
+      r'_$MutedWordTargetImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsMutedWordTargetImpl(
+        final val = _$MutedWordTargetImpl(
           mutedWordTarget:
               $checkedConvert('mutedWordTarget', (v) => v as String),
         );
@@ -22,8 +21,8 @@ _$ActorDefsMutedWordTargetImpl _$$ActorDefsMutedWordTargetImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ActorDefsMutedWordTargetImplToJson(
-        _$ActorDefsMutedWordTargetImpl instance) =>
+Map<String, dynamic> _$$MutedWordTargetImplToJson(
+        _$MutedWordTargetImpl instance) =>
     <String, dynamic>{
       'mutedWordTarget': instance.mutedWordTarget,
     };

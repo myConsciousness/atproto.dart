@@ -15,15 +15,13 @@ _$GraphGetFollowersOutputImpl _$$GraphGetFollowersOutputImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$GraphGetFollowersOutputImpl(
-          subject: $checkedConvert(
-              'subject',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert('subject',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           followers: $checkedConvert(
               'followers',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );

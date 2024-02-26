@@ -25,7 +25,7 @@ mixin _$NotificationListNotificationsNotification {
   String get cid => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-  ActorDefsProfileView get author => throw _privateConstructorUsedError;
+  ProfileView get author => throw _privateConstructorUsedError;
   NotificationListNotificationsNotificationReason get reason =>
       throw _privateConstructorUsedError;
   @atUriConverter
@@ -53,7 +53,7 @@ abstract class $NotificationListNotificationsNotificationCopyWith<$Res> {
   $Res call(
       {String cid,
       @atUriConverter AtUri uri,
-      ActorDefsProfileView author,
+      ProfileView author,
       NotificationListNotificationsNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -61,7 +61,7 @@ abstract class $NotificationListNotificationsNotificationCopyWith<$Res> {
       List<LabelDefsLabel>? labels,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get author;
+  $ProfileViewCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -131,8 +131,8 @@ class _$NotificationListNotificationsNotificationCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get author {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.author, (value) {
+  $ProfileViewCopyWith<$Res> get author {
+    return $ProfileViewCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -150,7 +150,7 @@ abstract class _$$NotificationListNotificationsNotificationImplCopyWith<$Res>
   $Res call(
       {String cid,
       @atUriConverter AtUri uri,
-      ActorDefsProfileView author,
+      ProfileView author,
       NotificationListNotificationsNotificationReason reason,
       @atUriConverter AtUri? reasonSubject,
       bool isRead,
@@ -159,7 +159,7 @@ abstract class _$$NotificationListNotificationsNotificationImplCopyWith<$Res>
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get author;
+  $ProfileViewCopyWith<$Res> get author;
 }
 
 /// @nodoc
@@ -197,7 +197,7 @@ class __$$NotificationListNotificationsNotificationImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -254,7 +254,7 @@ class _$NotificationListNotificationsNotificationImpl
   @atUriConverter
   final AtUri uri;
   @override
-  final ActorDefsProfileView author;
+  final ProfileView author;
   @override
   final NotificationListNotificationsNotificationReason reason;
   @override
@@ -346,7 +346,7 @@ abstract class _NotificationListNotificationsNotification
   const factory _NotificationListNotificationsNotification(
           {required final String cid,
           @atUriConverter required final AtUri uri,
-          required final ActorDefsProfileView author,
+          required final ProfileView author,
           required final NotificationListNotificationsNotificationReason reason,
           @atUriConverter final AtUri? reasonSubject,
           final bool isRead,
@@ -365,7 +365,7 @@ abstract class _NotificationListNotificationsNotification
   @atUriConverter
   AtUri get uri;
   @override
-  ActorDefsProfileView get author;
+  ProfileView get author;
   @override
   NotificationListNotificationsNotificationReason get reason;
   @override

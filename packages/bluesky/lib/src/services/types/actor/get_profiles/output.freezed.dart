@@ -21,8 +21,7 @@ ActorGetProfilesOutput _$ActorGetProfilesOutputFromJson(
 
 /// @nodoc
 mixin _$ActorGetProfilesOutput {
-  List<ActorDefsProfileViewDetailed> get profiles =>
-      throw _privateConstructorUsedError;
+  List<ProfileViewDetailed> get profiles => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $ActorGetProfilesOutputCopyWith<$Res> {
           $Res Function(ActorGetProfilesOutput) then) =
       _$ActorGetProfilesOutputCopyWithImpl<$Res, ActorGetProfilesOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileViewDetailed> profiles});
+  $Res call({List<ProfileViewDetailed> profiles});
 }
 
 /// @nodoc
@@ -59,7 +58,7 @@ class _$ActorGetProfilesOutputCopyWithImpl<$Res,
       profiles: null == profiles
           ? _value.profiles
           : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileViewDetailed>,
+              as List<ProfileViewDetailed>,
     ) as $Val);
   }
 }
@@ -73,7 +72,7 @@ abstract class _$$ActorGetProfilesOutputImplCopyWith<$Res>
       __$$ActorGetProfilesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileViewDetailed> profiles});
+  $Res call({List<ProfileViewDetailed> profiles});
 }
 
 /// @nodoc
@@ -95,7 +94,7 @@ class __$$ActorGetProfilesOutputImplCopyWithImpl<$Res>
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileViewDetailed>,
+              as List<ProfileViewDetailed>,
     ));
   }
 }
@@ -104,15 +103,15 @@ class __$$ActorGetProfilesOutputImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ActorGetProfilesOutputImpl implements _ActorGetProfilesOutput {
   const _$ActorGetProfilesOutputImpl(
-      {required final List<ActorDefsProfileViewDetailed> profiles})
+      {required final List<ProfileViewDetailed> profiles})
       : _profiles = profiles;
 
   factory _$ActorGetProfilesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorGetProfilesOutputImplFromJson(json);
 
-  final List<ActorDefsProfileViewDetailed> _profiles;
+  final List<ProfileViewDetailed> _profiles;
   @override
-  List<ActorDefsProfileViewDetailed> get profiles {
+  List<ProfileViewDetailed> get profiles {
     if (_profiles is EqualUnmodifiableListView) return _profiles;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_profiles);
@@ -153,14 +152,14 @@ class _$ActorGetProfilesOutputImpl implements _ActorGetProfilesOutput {
 
 abstract class _ActorGetProfilesOutput implements ActorGetProfilesOutput {
   const factory _ActorGetProfilesOutput(
-          {required final List<ActorDefsProfileViewDetailed> profiles}) =
+          {required final List<ProfileViewDetailed> profiles}) =
       _$ActorGetProfilesOutputImpl;
 
   factory _ActorGetProfilesOutput.fromJson(Map<String, dynamic> json) =
       _$ActorGetProfilesOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileViewDetailed> get profiles;
+  List<ProfileViewDetailed> get profiles;
   @override
   @JsonKey(ignore: true)
   _$$ActorGetProfilesOutputImplCopyWith<_$ActorGetProfilesOutputImpl>

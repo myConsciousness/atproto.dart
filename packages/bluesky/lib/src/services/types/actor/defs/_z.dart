@@ -17,8 +17,7 @@ export 'profile_view_detailed.dart';
 export 'profile_view.dart';
 export 'saved_feeds_pref.dart';
 export 'thread_view_pref.dart';
-export 'viewer_state.dart'
-    show ActorDefsViewerState, $ActorDefsViewerStateCopyWith;
+export 'viewer_state.dart' show ViewerState, $ViewerStateCopyWith;
 
 export 'unions/preferences_preferences.dart';
 

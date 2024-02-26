@@ -20,10 +20,8 @@ _$FeedDefsGeneratorViewImpl _$$FeedDefsGeneratorViewImplFromJson(Map json) =>
               'uri', (v) => atUriConverter.fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String?),
-          creator: $checkedConvert(
-              'creator',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert('creator',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           displayName: $checkedConvert('displayName', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(

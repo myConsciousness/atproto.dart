@@ -18,7 +18,7 @@ _$ActorGetPreferencesOutputImpl _$$ActorGetPreferencesOutputImplFromJson(
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
-                  .map((e) => unionActorDefsPreferencesPreferencesConverter
+                  .map((e) => unionPreferencesPreferencesConverter
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
         );
@@ -30,6 +30,6 @@ Map<String, dynamic> _$$ActorGetPreferencesOutputImplToJson(
         _$ActorGetPreferencesOutputImpl instance) =>
     <String, dynamic>{
       'preferences': instance.preferences
-          .map(unionActorDefsPreferencesPreferencesConverter.toJson)
+          .map(unionPreferencesPreferencesConverter.toJson)
           .toList(),
     };

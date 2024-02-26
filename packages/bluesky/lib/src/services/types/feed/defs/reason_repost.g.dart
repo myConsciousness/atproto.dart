@@ -18,7 +18,7 @@ _$FeedDefsReasonRepostImpl _$$FeedDefsReasonRepostImplFromJson(Map json) =>
               r'$type', (v) => v as String? ?? appBskyFeedDefsReasonRepost),
           by: $checkedConvert(
               'by',
-              (v) => ActorDefsProfileViewBasic.fromJson(
+              (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),

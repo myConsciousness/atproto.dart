@@ -178,7 +178,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   List<Map<String, dynamic>> _mergeAuthors(
     final List<Map<String, dynamic>> relatedAuthors,
-    final ActorDefsProfileView author,
+    final ProfileView author,
   ) =>
       relatedAuthors
         //! Technically the same person could not appear on the same

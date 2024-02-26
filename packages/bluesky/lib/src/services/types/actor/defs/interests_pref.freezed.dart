@@ -14,37 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorDefsInterestsPref _$ActorDefsInterestsPrefFromJson(
-    Map<String, dynamic> json) {
-  return _ActorDefsInterestsPref.fromJson(json);
+InterestsPref _$InterestsPrefFromJson(Map<String, dynamic> json) {
+  return _InterestsPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorDefsInterestsPref {
+mixin _$InterestsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   List<String> get tags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorDefsInterestsPrefCopyWith<ActorDefsInterestsPref> get copyWith =>
+  $InterestsPrefCopyWith<InterestsPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorDefsInterestsPrefCopyWith<$Res> {
-  factory $ActorDefsInterestsPrefCopyWith(ActorDefsInterestsPref value,
-          $Res Function(ActorDefsInterestsPref) then) =
-      _$ActorDefsInterestsPrefCopyWithImpl<$Res, ActorDefsInterestsPref>;
+abstract class $InterestsPrefCopyWith<$Res> {
+  factory $InterestsPrefCopyWith(
+          InterestsPref value, $Res Function(InterestsPref) then) =
+      _$InterestsPrefCopyWithImpl<$Res, InterestsPref>;
   @useResult
   $Res call({@typeKey String type, List<String> tags});
 }
 
 /// @nodoc
-class _$ActorDefsInterestsPrefCopyWithImpl<$Res,
-        $Val extends ActorDefsInterestsPref>
-    implements $ActorDefsInterestsPrefCopyWith<$Res> {
-  _$ActorDefsInterestsPrefCopyWithImpl(this._value, this._then);
+class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
+    implements $InterestsPrefCopyWith<$Res> {
+  _$InterestsPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -71,25 +69,22 @@ class _$ActorDefsInterestsPrefCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorDefsInterestsPrefImplCopyWith<$Res>
-    implements $ActorDefsInterestsPrefCopyWith<$Res> {
-  factory _$$ActorDefsInterestsPrefImplCopyWith(
-          _$ActorDefsInterestsPrefImpl value,
-          $Res Function(_$ActorDefsInterestsPrefImpl) then) =
-      __$$ActorDefsInterestsPrefImplCopyWithImpl<$Res>;
+abstract class _$$InterestsPrefImplCopyWith<$Res>
+    implements $InterestsPrefCopyWith<$Res> {
+  factory _$$InterestsPrefImplCopyWith(
+          _$InterestsPrefImpl value, $Res Function(_$InterestsPrefImpl) then) =
+      __$$InterestsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, List<String> tags});
 }
 
 /// @nodoc
-class __$$ActorDefsInterestsPrefImplCopyWithImpl<$Res>
-    extends _$ActorDefsInterestsPrefCopyWithImpl<$Res,
-        _$ActorDefsInterestsPrefImpl>
-    implements _$$ActorDefsInterestsPrefImplCopyWith<$Res> {
-  __$$ActorDefsInterestsPrefImplCopyWithImpl(
-      _$ActorDefsInterestsPrefImpl _value,
-      $Res Function(_$ActorDefsInterestsPrefImpl) _then)
+class __$$InterestsPrefImplCopyWithImpl<$Res>
+    extends _$InterestsPrefCopyWithImpl<$Res, _$InterestsPrefImpl>
+    implements _$$InterestsPrefImplCopyWith<$Res> {
+  __$$InterestsPrefImplCopyWithImpl(
+      _$InterestsPrefImpl _value, $Res Function(_$InterestsPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +93,7 @@ class __$$ActorDefsInterestsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? tags = null,
   }) {
-    return _then(_$ActorDefsInterestsPrefImpl(
+    return _then(_$InterestsPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -114,14 +109,14 @@ class __$$ActorDefsInterestsPrefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorDefsInterestsPrefImpl implements _ActorDefsInterestsPref {
-  const _$ActorDefsInterestsPrefImpl(
+class _$InterestsPrefImpl implements _InterestsPref {
+  const _$InterestsPrefImpl(
       {@typeKey this.type = appBskyActorDefsInterestsPref,
       required final List<String> tags})
       : _tags = tags;
 
-  factory _$ActorDefsInterestsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorDefsInterestsPrefImplFromJson(json);
+  factory _$InterestsPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InterestsPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -136,14 +131,14 @@ class _$ActorDefsInterestsPrefImpl implements _ActorDefsInterestsPref {
 
   @override
   String toString() {
-    return 'ActorDefsInterestsPref(type: $type, tags: $tags)';
+    return 'InterestsPref(type: $type, tags: $tags)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorDefsInterestsPrefImpl &&
+            other is _$InterestsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
@@ -156,25 +151,24 @@ class _$ActorDefsInterestsPrefImpl implements _ActorDefsInterestsPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorDefsInterestsPrefImplCopyWith<_$ActorDefsInterestsPrefImpl>
-      get copyWith => __$$ActorDefsInterestsPrefImplCopyWithImpl<
-          _$ActorDefsInterestsPrefImpl>(this, _$identity);
+  _$$InterestsPrefImplCopyWith<_$InterestsPrefImpl> get copyWith =>
+      __$$InterestsPrefImplCopyWithImpl<_$InterestsPrefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorDefsInterestsPrefImplToJson(
+    return _$$InterestsPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorDefsInterestsPref implements ActorDefsInterestsPref {
-  const factory _ActorDefsInterestsPref(
+abstract class _InterestsPref implements InterestsPref {
+  const factory _InterestsPref(
       {@typeKey final String type,
-      required final List<String> tags}) = _$ActorDefsInterestsPrefImpl;
+      required final List<String> tags}) = _$InterestsPrefImpl;
 
-  factory _ActorDefsInterestsPref.fromJson(Map<String, dynamic> json) =
-      _$ActorDefsInterestsPrefImpl.fromJson;
+  factory _InterestsPref.fromJson(Map<String, dynamic> json) =
+      _$InterestsPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -183,6 +177,6 @@ abstract class _ActorDefsInterestsPref implements ActorDefsInterestsPref {
   List<String> get tags;
   @override
   @JsonKey(ignore: true)
-  _$$ActorDefsInterestsPrefImplCopyWith<_$ActorDefsInterestsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$InterestsPrefImplCopyWith<_$InterestsPrefImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

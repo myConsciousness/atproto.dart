@@ -26,7 +26,7 @@ mixin _$EmbedRecordViewRecord {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
-  ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
+  ProfileViewBasic get author => throw _privateConstructorUsedError;
   @feedPostRecordConverter
   FeedPostRecord get value => throw _privateConstructorUsedError;
   List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
@@ -51,14 +51,14 @@ abstract class $EmbedRecordViewRecordCopyWith<$Res> {
       {@typeKey String type,
       @atUriConverter AtUri uri,
       String cid,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @feedPostRecordConverter FeedPostRecord value,
       List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
       List<UEmbedRecordViewRecordEmbeds>? embeds,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   $FeedPostRecordCopyWith<$Res> get value;
 }
 
@@ -101,7 +101,7 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res,
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -123,8 +123,8 @@ class _$EmbedRecordViewRecordCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author {
-    return $ActorDefsProfileViewBasicCopyWith<$Res>(_value.author, (value) {
+  $ProfileViewBasicCopyWith<$Res> get author {
+    return $ProfileViewBasicCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -151,7 +151,7 @@ abstract class _$$EmbedRecordViewRecordImplCopyWith<$Res>
       {@typeKey String type,
       @atUriConverter AtUri uri,
       String cid,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @feedPostRecordConverter FeedPostRecord value,
       List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
@@ -159,7 +159,7 @@ abstract class _$$EmbedRecordViewRecordImplCopyWith<$Res>
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   @override
   $FeedPostRecordCopyWith<$Res> get value;
 }
@@ -201,7 +201,7 @@ class __$$EmbedRecordViewRecordImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -251,7 +251,7 @@ class _$EmbedRecordViewRecordImpl implements _EmbedRecordViewRecord {
   @override
   final String cid;
   @override
-  final ActorDefsProfileViewBasic author;
+  final ProfileViewBasic author;
   @override
   @feedPostRecordConverter
   final FeedPostRecord value;
@@ -333,7 +333,7 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
       {@typeKey final String type,
       @atUriConverter required final AtUri uri,
       required final String cid,
-      required final ActorDefsProfileViewBasic author,
+      required final ProfileViewBasic author,
       @feedPostRecordConverter required final FeedPostRecord value,
       final List<LabelDefsLabel>? labels,
       @unionEmbedRecordViewRecordEmbedsConverter
@@ -352,7 +352,7 @@ abstract class _EmbedRecordViewRecord implements EmbedRecordViewRecord {
   @override
   String get cid;
   @override
-  ActorDefsProfileViewBasic get author;
+  ProfileViewBasic get author;
   @override
   @feedPostRecordConverter
   FeedPostRecord get value;

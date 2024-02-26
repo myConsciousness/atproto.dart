@@ -14,14 +14,14 @@ part 'moderation_subject_profile.freezed.dart';
 @moderationObject
 class ModerationSubjectProfile with _$ModerationSubjectProfile {
   const factory ModerationSubjectProfile.profileViewBasic({
-    required ActorDefsProfileViewBasic data,
+    required ProfileViewBasic data,
   }) = UModerationSubjectProfileProfileViewBasic;
 
   const factory ModerationSubjectProfile.profileView({
-    required ActorDefsProfileView data,
+    required ProfileView data,
   }) = UModerationSubjectProfileProfileView;
 
   const factory ModerationSubjectProfile.profileViewDetailed({
-    required ActorDefsProfileViewDetailed data,
+    required ProfileViewDetailed data,
   }) = UModerationSubjectProfileProfileViewDetailed;
 }

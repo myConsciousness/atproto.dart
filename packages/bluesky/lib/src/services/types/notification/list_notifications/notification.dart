@@ -26,7 +26,7 @@ class NotificationListNotificationsNotification
   const factory NotificationListNotificationsNotification({
     required String cid,
     @atUriConverter required AtUri uri,
-    required ActorDefsProfileView author,
+    required ProfileView author,
     required NotificationListNotificationsNotificationReason reason,
     @atUriConverter AtUri? reasonSubject,
     @Default(false) bool isRead,

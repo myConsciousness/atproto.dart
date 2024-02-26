@@ -17,7 +17,7 @@ _$ActorGetProfilesOutputImpl _$$ActorGetProfilesOutputImplFromJson(Map json) =>
           profiles: $checkedConvert(
               'profiles',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileViewDetailed.fromJson(
+                  .map((e) => ProfileViewDetailed.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
         );

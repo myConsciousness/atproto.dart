@@ -22,7 +22,7 @@ part 'reason_repost.g.dart';
 class FeedDefsReasonRepost with _$FeedDefsReasonRepost {
   const factory FeedDefsReasonRepost({
     @typeKey @Default(appBskyFeedDefsReasonRepost) String type,
-    required ActorDefsProfileViewBasic by,
+    required ProfileViewBasic by,
     required DateTime indexedAt,
   }) = _FeedDefsReasonRepost;
 

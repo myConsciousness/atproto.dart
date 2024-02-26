@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorDefsHiddenPostsPref _$ActorDefsHiddenPostsPrefFromJson(
-    Map<String, dynamic> json) {
-  return _ActorDefsHiddenPostsPref.fromJson(json);
+HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
+  return _HiddenPostsPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorDefsHiddenPostsPref {
+mixin _$HiddenPostsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @atUriConverter
@@ -28,24 +27,23 @@ mixin _$ActorDefsHiddenPostsPref {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorDefsHiddenPostsPrefCopyWith<ActorDefsHiddenPostsPref> get copyWith =>
+  $HiddenPostsPrefCopyWith<HiddenPostsPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorDefsHiddenPostsPrefCopyWith<$Res> {
-  factory $ActorDefsHiddenPostsPrefCopyWith(ActorDefsHiddenPostsPref value,
-          $Res Function(ActorDefsHiddenPostsPref) then) =
-      _$ActorDefsHiddenPostsPrefCopyWithImpl<$Res, ActorDefsHiddenPostsPref>;
+abstract class $HiddenPostsPrefCopyWith<$Res> {
+  factory $HiddenPostsPrefCopyWith(
+          HiddenPostsPref value, $Res Function(HiddenPostsPref) then) =
+      _$HiddenPostsPrefCopyWithImpl<$Res, HiddenPostsPref>;
   @useResult
   $Res call({@typeKey String type, @atUriConverter List<AtUri> items});
 }
 
 /// @nodoc
-class _$ActorDefsHiddenPostsPrefCopyWithImpl<$Res,
-        $Val extends ActorDefsHiddenPostsPref>
-    implements $ActorDefsHiddenPostsPrefCopyWith<$Res> {
-  _$ActorDefsHiddenPostsPrefCopyWithImpl(this._value, this._then);
+class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
+    implements $HiddenPostsPrefCopyWith<$Res> {
+  _$HiddenPostsPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,25 +70,22 @@ class _$ActorDefsHiddenPostsPrefCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorDefsHiddenPostsPrefImplCopyWith<$Res>
-    implements $ActorDefsHiddenPostsPrefCopyWith<$Res> {
-  factory _$$ActorDefsHiddenPostsPrefImplCopyWith(
-          _$ActorDefsHiddenPostsPrefImpl value,
-          $Res Function(_$ActorDefsHiddenPostsPrefImpl) then) =
-      __$$ActorDefsHiddenPostsPrefImplCopyWithImpl<$Res>;
+abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
+    implements $HiddenPostsPrefCopyWith<$Res> {
+  factory _$$HiddenPostsPrefImplCopyWith(_$HiddenPostsPrefImpl value,
+          $Res Function(_$HiddenPostsPrefImpl) then) =
+      __$$HiddenPostsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, @atUriConverter List<AtUri> items});
 }
 
 /// @nodoc
-class __$$ActorDefsHiddenPostsPrefImplCopyWithImpl<$Res>
-    extends _$ActorDefsHiddenPostsPrefCopyWithImpl<$Res,
-        _$ActorDefsHiddenPostsPrefImpl>
-    implements _$$ActorDefsHiddenPostsPrefImplCopyWith<$Res> {
-  __$$ActorDefsHiddenPostsPrefImplCopyWithImpl(
-      _$ActorDefsHiddenPostsPrefImpl _value,
-      $Res Function(_$ActorDefsHiddenPostsPrefImpl) _then)
+class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
+    extends _$HiddenPostsPrefCopyWithImpl<$Res, _$HiddenPostsPrefImpl>
+    implements _$$HiddenPostsPrefImplCopyWith<$Res> {
+  __$$HiddenPostsPrefImplCopyWithImpl(
+      _$HiddenPostsPrefImpl _value, $Res Function(_$HiddenPostsPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +94,7 @@ class __$$ActorDefsHiddenPostsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? items = null,
   }) {
-    return _then(_$ActorDefsHiddenPostsPrefImpl(
+    return _then(_$HiddenPostsPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -114,14 +109,14 @@ class __$$ActorDefsHiddenPostsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorDefsHiddenPostsPrefImpl implements _ActorDefsHiddenPostsPref {
-  const _$ActorDefsHiddenPostsPrefImpl(
+class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
+  const _$HiddenPostsPrefImpl(
       {@typeKey this.type = appBskyActorDefsHiddenPostsPref,
       @atUriConverter required final List<AtUri> items})
       : _items = items;
 
-  factory _$ActorDefsHiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorDefsHiddenPostsPrefImplFromJson(json);
+  factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$HiddenPostsPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -137,14 +132,14 @@ class _$ActorDefsHiddenPostsPrefImpl implements _ActorDefsHiddenPostsPref {
 
   @override
   String toString() {
-    return 'ActorDefsHiddenPostsPref(type: $type, items: $items)';
+    return 'HiddenPostsPref(type: $type, items: $items)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorDefsHiddenPostsPrefImpl &&
+            other is _$HiddenPostsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
@@ -157,26 +152,26 @@ class _$ActorDefsHiddenPostsPrefImpl implements _ActorDefsHiddenPostsPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorDefsHiddenPostsPrefImplCopyWith<_$ActorDefsHiddenPostsPrefImpl>
-      get copyWith => __$$ActorDefsHiddenPostsPrefImplCopyWithImpl<
-          _$ActorDefsHiddenPostsPrefImpl>(this, _$identity);
+  _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>
+      __$$HiddenPostsPrefImplCopyWithImpl<_$HiddenPostsPrefImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorDefsHiddenPostsPrefImplToJson(
+    return _$$HiddenPostsPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorDefsHiddenPostsPref implements ActorDefsHiddenPostsPref {
-  const factory _ActorDefsHiddenPostsPref(
+abstract class _HiddenPostsPref implements HiddenPostsPref {
+  const factory _HiddenPostsPref(
           {@typeKey final String type,
           @atUriConverter required final List<AtUri> items}) =
-      _$ActorDefsHiddenPostsPrefImpl;
+      _$HiddenPostsPrefImpl;
 
-  factory _ActorDefsHiddenPostsPref.fromJson(Map<String, dynamic> json) =
-      _$ActorDefsHiddenPostsPrefImpl.fromJson;
+  factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
+      _$HiddenPostsPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -186,6 +181,6 @@ abstract class _ActorDefsHiddenPostsPref implements ActorDefsHiddenPostsPref {
   List<AtUri> get items;
   @override
   @JsonKey(ignore: true)
-  _$$ActorDefsHiddenPostsPrefImplCopyWith<_$ActorDefsHiddenPostsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

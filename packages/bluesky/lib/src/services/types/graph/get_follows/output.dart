@@ -21,8 +21,8 @@ part 'output.g.dart';
 class GraphGetFollowsOutput with _$GraphGetFollowsOutput {
   @jsonSerializable
   const factory GraphGetFollowsOutput({
-    required ActorDefsProfileView subject,
-    required List<ActorDefsProfileView> follows,
+    required ProfileView subject,
+    required List<ProfileView> follows,
     String? cursor,
   }) = _GraphGetFollowsOutput;
 

@@ -16,7 +16,7 @@ final _baseNotification = NotificationListNotificationsNotification(
   cid: 'aaaa',
   uri: AtUri.parse(
       'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26'),
-  author: ActorDefsProfileView(did: 'xxxxxx', handle: 'xxxxxx'),
+  author: ProfileView(did: 'xxxxxx', handle: 'xxxxxx'),
   reason: NotificationListNotificationsNotificationReason.like,
   isRead: false,
   indexedAt: DateTime.now(),

@@ -19,7 +19,7 @@ part 'output.g.dart';
 @lex.appBskyActorSearchActors
 class ActorSearchActorsOutput with _$ActorSearchActorsOutput {
   const factory ActorSearchActorsOutput({
-    required List<ActorDefsProfileView> actors,
+    required List<ProfileView> actors,
     String? cursor,
   }) = _ActorSearchActorsOutput;
 

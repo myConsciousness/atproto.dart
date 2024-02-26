@@ -16,12 +16,12 @@ part 'hidden_posts_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#hiddenPostsPref
 @freezed
 @lex.appBskyActorDefsHiddenPostsPref
-class ActorDefsHiddenPostsPref with _$ActorDefsHiddenPostsPref {
-  const factory ActorDefsHiddenPostsPref({
+class HiddenPostsPref with _$HiddenPostsPref {
+  const factory HiddenPostsPref({
     @typeKey @Default(appBskyActorDefsHiddenPostsPref) String type,
     @atUriConverter required List<AtUri> items,
-  }) = _ActorDefsHiddenPostsPref;
+  }) = _HiddenPostsPref;
 
-  factory ActorDefsHiddenPostsPref.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsHiddenPostsPrefFromJson(json);
+  factory HiddenPostsPref.fromJson(Map<String, Object?> json) =>
+      _$HiddenPostsPrefFromJson(json);
 }

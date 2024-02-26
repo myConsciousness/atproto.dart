@@ -20,7 +20,7 @@ GraphGetMutesOutput _$GraphGetMutesOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GraphGetMutesOutput {
-  List<ActorDefsProfileView> get mutes => throw _privateConstructorUsedError;
+  List<ProfileView> get mutes => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $GraphGetMutesOutputCopyWith<$Res> {
           GraphGetMutesOutput value, $Res Function(GraphGetMutesOutput) then) =
       _$GraphGetMutesOutputCopyWithImpl<$Res, GraphGetMutesOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileView> mutes, String? cursor});
+  $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$GraphGetMutesOutputCopyWithImpl<$Res, $Val extends GraphGetMutesOutput>
       mutes: null == mutes
           ? _value.mutes
           : mutes // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -75,7 +75,7 @@ abstract class _$$GraphGetMutesOutputImplCopyWith<$Res>
       __$$GraphGetMutesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> mutes, String? cursor});
+  $Res call({List<ProfileView> mutes, String? cursor});
 }
 
 /// @nodoc
@@ -96,7 +96,7 @@ class __$$GraphGetMutesOutputImplCopyWithImpl<$Res>
       mutes: null == mutes
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -110,15 +110,15 @@ class __$$GraphGetMutesOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GraphGetMutesOutputImpl implements _GraphGetMutesOutput {
   const _$GraphGetMutesOutputImpl(
-      {required final List<ActorDefsProfileView> mutes, this.cursor})
+      {required final List<ProfileView> mutes, this.cursor})
       : _mutes = mutes;
 
   factory _$GraphGetMutesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphGetMutesOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _mutes;
+  final List<ProfileView> _mutes;
   @override
-  List<ActorDefsProfileView> get mutes {
+  List<ProfileView> get mutes {
     if (_mutes is EqualUnmodifiableListView) return _mutes;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_mutes);
@@ -163,14 +163,14 @@ class _$GraphGetMutesOutputImpl implements _GraphGetMutesOutput {
 
 abstract class _GraphGetMutesOutput implements GraphGetMutesOutput {
   const factory _GraphGetMutesOutput(
-      {required final List<ActorDefsProfileView> mutes,
+      {required final List<ProfileView> mutes,
       final String? cursor}) = _$GraphGetMutesOutputImpl;
 
   factory _GraphGetMutesOutput.fromJson(Map<String, dynamic> json) =
       _$GraphGetMutesOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get mutes;
+  List<ProfileView> get mutes;
   @override
   String? get cursor;
   @override

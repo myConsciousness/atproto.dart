@@ -18,8 +18,8 @@ _$FeedGetRepostedByOutputImpl _$$FeedGetRepostedByOutputImplFromJson(
           repostedBy: $checkedConvert(
               'repostedBy',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),

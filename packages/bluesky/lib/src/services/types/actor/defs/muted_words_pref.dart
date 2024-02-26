@@ -17,12 +17,12 @@ part 'muted_words_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedWordsPref
 @freezed
 @lex.appBskyActorDefsMutedWordsPref
-class ActorDefsMutedWordsPref with _$ActorDefsMutedWordsPref {
-  const factory ActorDefsMutedWordsPref({
+class MutedWordsPref with _$MutedWordsPref {
+  const factory MutedWordsPref({
     @typeKey @Default(appBskyActorDefsMutedWordsPref) String type,
     required List<ActorDefsMutedWord> items,
-  }) = _ActorDefsMutedWordsPref;
+  }) = _MutedWordsPref;
 
-  factory ActorDefsMutedWordsPref.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsMutedWordsPrefFromJson(json);
+  factory MutedWordsPref.fromJson(Map<String, Object?> json) =>
+      _$MutedWordsPrefFromJson(json);
 }

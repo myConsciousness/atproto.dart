@@ -14,10 +14,8 @@ _$FeedGetLikesLikeImpl _$$FeedGetLikesLikeImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$FeedGetLikesLikeImpl(
-          actor: $checkedConvert(
-              'actor',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          actor: $checkedConvert('actor',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           indexedAt:

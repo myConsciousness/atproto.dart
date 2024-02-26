@@ -30,7 +30,7 @@ class ActorGetProfileOutput with _$ActorGetProfileOutput {
     @Default(0) int followsCount,
     @Default(0) int followersCount,
     @Default(0) int postsCount,
-    @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
+    @Default(defaultActorDefsViewerState) ViewerState viewer,
     List<LabelDefsLabel>? labels,
     DateTime? indexedAt,
   }) = _ActorGetProfileOutput;
@@ -40,6 +40,6 @@ class ActorGetProfileOutput with _$ActorGetProfileOutput {
 }
 
 extension $ActorGetProfileOutputExtension on ActorGetProfileOutput {
-  ActorDefsProfileViewDetailed asActorDefsProfileViewDetailed() =>
-      ActorDefsProfileViewDetailed.fromJson(toJson());
+  ProfileViewDetailed asProfileViewDetailed() =>
+      ProfileViewDetailed.fromJson(toJson());
 }

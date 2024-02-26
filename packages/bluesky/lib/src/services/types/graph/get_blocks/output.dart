@@ -21,7 +21,7 @@ part 'output.g.dart';
 class GraphGetBlocksOutput with _$GraphGetBlocksOutput {
   @jsonSerializable
   const factory GraphGetBlocksOutput({
-    required List<ActorDefsProfileView> blocks,
+    required List<ProfileView> blocks,
     String? cursor,
   }) = _GraphGetBlocksOutput;
 

@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../saved_feeds_pref.dart';
 
-extension ActorDefsSavedFeedsPrefExtension on ActorDefsSavedFeedsPref {
+extension SavedFeedsPrefExtension on SavedFeedsPref {
   List<AtUri> get pinnedUris => pinned;
   List<AtUri> get savedUris => saved;
 }

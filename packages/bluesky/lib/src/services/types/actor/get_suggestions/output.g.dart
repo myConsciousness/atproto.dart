@@ -18,8 +18,8 @@ _$ActorGetSuggestionsOutputImpl _$$ActorGetSuggestionsOutputImplFromJson(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
         );
         return val;

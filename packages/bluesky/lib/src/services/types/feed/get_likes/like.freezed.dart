@@ -20,7 +20,7 @@ FeedGetLikesLike _$FeedGetLikesLikeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGetLikesLike {
-  ActorDefsProfileView get actor => throw _privateConstructorUsedError;
+  ProfileView get actor => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -36,10 +36,9 @@ abstract class $FeedGetLikesLikeCopyWith<$Res> {
           FeedGetLikesLike value, $Res Function(FeedGetLikesLike) then) =
       _$FeedGetLikesLikeCopyWithImpl<$Res, FeedGetLikesLike>;
   @useResult
-  $Res call(
-      {ActorDefsProfileView actor, DateTime createdAt, DateTime indexedAt});
+  $Res call({ProfileView actor, DateTime createdAt, DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get actor;
+  $ProfileViewCopyWith<$Res> get actor;
 }
 
 /// @nodoc
@@ -63,7 +62,7 @@ class _$FeedGetLikesLikeCopyWithImpl<$Res, $Val extends FeedGetLikesLike>
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -77,8 +76,8 @@ class _$FeedGetLikesLikeCopyWithImpl<$Res, $Val extends FeedGetLikesLike>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get actor {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.actor, (value) {
+  $ProfileViewCopyWith<$Res> get actor {
+    return $ProfileViewCopyWith<$Res>(_value.actor, (value) {
       return _then(_value.copyWith(actor: value) as $Val);
     });
   }
@@ -92,11 +91,10 @@ abstract class _$$FeedGetLikesLikeImplCopyWith<$Res>
       __$$FeedGetLikesLikeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ActorDefsProfileView actor, DateTime createdAt, DateTime indexedAt});
+  $Res call({ProfileView actor, DateTime createdAt, DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get actor;
+  $ProfileViewCopyWith<$Res> get actor;
 }
 
 /// @nodoc
@@ -118,7 +116,7 @@ class __$$FeedGetLikesLikeImplCopyWithImpl<$Res>
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -141,7 +139,7 @@ class _$FeedGetLikesLikeImpl implements _FeedGetLikesLike {
       _$$FeedGetLikesLikeImplFromJson(json);
 
   @override
-  final ActorDefsProfileView actor;
+  final ProfileView actor;
   @override
   final DateTime createdAt;
   @override
@@ -185,7 +183,7 @@ class _$FeedGetLikesLikeImpl implements _FeedGetLikesLike {
 
 abstract class _FeedGetLikesLike implements FeedGetLikesLike {
   const factory _FeedGetLikesLike(
-      {required final ActorDefsProfileView actor,
+      {required final ProfileView actor,
       required final DateTime createdAt,
       required final DateTime indexedAt}) = _$FeedGetLikesLikeImpl;
 
@@ -193,7 +191,7 @@ abstract class _FeedGetLikesLike implements FeedGetLikesLike {
       _$FeedGetLikesLikeImpl.fromJson;
 
   @override
-  ActorDefsProfileView get actor;
+  ProfileView get actor;
   @override
   DateTime get createdAt;
   @override

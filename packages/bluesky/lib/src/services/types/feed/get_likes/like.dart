@@ -17,7 +17,7 @@ part 'like.g.dart';
 @lex.appBskyFeedGetLikesLike
 class FeedGetLikesLike with _$FeedGetLikesLike {
   const factory FeedGetLikesLike({
-    required ActorDefsProfileView actor,
+    required ProfileView actor,
     required DateTime createdAt,
     required DateTime indexedAt,
   }) = _FeedGetLikesLike;

@@ -18,7 +18,7 @@ _$ActorDefsMutedWordImpl _$$ActorDefsMutedWordImplFromJson(Map json) =>
           targets: $checkedConvert(
               'targets',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsMutedWordTarget.fromJson(
+                  .map((e) => MutedWordTarget.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
         );

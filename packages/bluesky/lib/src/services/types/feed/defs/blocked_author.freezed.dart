@@ -24,7 +24,7 @@ mixin _$FeedDefsBlockedAuthor {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,9 @@ abstract class $FeedDefsBlockedAuthorCopyWith<$Res> {
           $Res Function(FeedDefsBlockedAuthor) then) =
       _$FeedDefsBlockedAuthorCopyWithImpl<$Res, FeedDefsBlockedAuthor>;
   @useResult
-  $Res call({@typeKey String type, String did, ActorDefsViewerState viewer});
+  $Res call({@typeKey String type, String did, ViewerState viewer});
 
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -73,14 +73,14 @@ class _$FeedDefsBlockedAuthorCopyWithImpl<$Res,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsViewerStateCopyWith<$Res> get viewer {
-    return $ActorDefsViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -95,10 +95,10 @@ abstract class _$$FeedDefsBlockedAuthorImplCopyWith<$Res>
       __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, String did, ActorDefsViewerState viewer});
+  $Res call({@typeKey String type, String did, ViewerState viewer});
 
   @override
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -129,7 +129,7 @@ class __$$FeedDefsBlockedAuthorImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
     ));
   }
 }
@@ -152,7 +152,7 @@ class _$FeedDefsBlockedAuthorImpl implements _FeedDefsBlockedAuthor {
   final String did;
   @override
   @JsonKey()
-  final ActorDefsViewerState viewer;
+  final ViewerState viewer;
 
   @override
   String toString() {
@@ -192,7 +192,7 @@ abstract class _FeedDefsBlockedAuthor implements FeedDefsBlockedAuthor {
   const factory _FeedDefsBlockedAuthor(
       {@typeKey final String type,
       required final String did,
-      final ActorDefsViewerState viewer}) = _$FeedDefsBlockedAuthorImpl;
+      final ViewerState viewer}) = _$FeedDefsBlockedAuthorImpl;
 
   factory _FeedDefsBlockedAuthor.fromJson(Map<String, dynamic> json) =
       _$FeedDefsBlockedAuthorImpl.fromJson;
@@ -203,7 +203,7 @@ abstract class _FeedDefsBlockedAuthor implements FeedDefsBlockedAuthor {
   @override
   String get did;
   @override
-  ActorDefsViewerState get viewer;
+  ViewerState get viewer;
   @override
   @JsonKey(ignore: true)
   _$$FeedDefsBlockedAuthorImplCopyWith<_$FeedDefsBlockedAuthorImpl>

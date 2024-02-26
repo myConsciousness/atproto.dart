@@ -27,7 +27,7 @@ mixin _$FeedDefsGeneratorView {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String? get did => throw _privateConstructorUsedError;
-  ActorDefsProfileView get creator => throw _privateConstructorUsedError;
+  ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<RichtextFacet>? get descriptionFacets =>
@@ -54,7 +54,7 @@ abstract class $FeedDefsGeneratorViewCopyWith<$Res> {
       @atUriConverter AtUri uri,
       String cid,
       String? did,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       String displayName,
       String? description,
       List<RichtextFacet>? descriptionFacets,
@@ -63,7 +63,7 @@ abstract class $FeedDefsGeneratorViewCopyWith<$Res> {
       FeedDefsGeneratorViewerState viewer,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   $FeedDefsGeneratorViewerStateCopyWith<$Res> get viewer;
 }
 
@@ -114,7 +114,7 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -148,8 +148,8 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get creator {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.creator, (value) {
+  $ProfileViewCopyWith<$Res> get creator {
+    return $ProfileViewCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
     });
   }
@@ -177,7 +177,7 @@ abstract class _$$FeedDefsGeneratorViewImplCopyWith<$Res>
       @atUriConverter AtUri uri,
       String cid,
       String? did,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       String displayName,
       String? description,
       List<RichtextFacet>? descriptionFacets,
@@ -187,7 +187,7 @@ abstract class _$$FeedDefsGeneratorViewImplCopyWith<$Res>
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   @override
   $FeedDefsGeneratorViewerStateCopyWith<$Res> get viewer;
 }
@@ -237,7 +237,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       displayName: null == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -303,7 +303,7 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
   @override
   final String? did;
   @override
-  final ActorDefsProfileView creator;
+  final ProfileView creator;
   @override
   final String displayName;
   @override
@@ -397,7 +397,7 @@ abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
       @atUriConverter required final AtUri uri,
       required final String cid,
       final String? did,
-      required final ActorDefsProfileView creator,
+      required final ProfileView creator,
       required final String displayName,
       final String? description,
       final List<RichtextFacet>? descriptionFacets,
@@ -420,7 +420,7 @@ abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
   @override
   String? get did;
   @override
-  ActorDefsProfileView get creator;
+  ProfileView get creator;
   @override
   String get displayName;
   @override

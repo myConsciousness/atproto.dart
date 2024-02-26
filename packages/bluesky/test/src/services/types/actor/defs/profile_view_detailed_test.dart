@@ -13,13 +13,13 @@ import 'package:bluesky/src/services/types/graph/defs/_z.dart';
 void main() {
   group('.isMuted', () {
     test('when muted', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
         ),
@@ -29,13 +29,13 @@ void main() {
     });
 
     test('when not muted', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -47,13 +47,13 @@ void main() {
 
   group('.isNotMuted', () {
     test('when muted', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
         ),
@@ -63,13 +63,13 @@ void main() {
     });
 
     test('when not muted', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -81,13 +81,13 @@ void main() {
 
   group('.isBlockedBy', () {
     test('when blocked by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: true,
         ),
@@ -97,13 +97,13 @@ void main() {
     });
 
     test('when not blocked by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -115,13 +115,13 @@ void main() {
 
   group('.isNotBlockedBy', () {
     test('when blocked by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: true,
         ),
@@ -131,13 +131,13 @@ void main() {
     });
 
     test('when not blocked by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -149,13 +149,13 @@ void main() {
 
   group('.isMutedByList', () {
     test('when muted by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
           mutedByList: GraphDefsListViewBasic(
@@ -174,13 +174,13 @@ void main() {
     });
 
     test('when not muted by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -192,13 +192,13 @@ void main() {
 
   group('.isNotMutedByList', () {
     test('when muted by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
           mutedByList: GraphDefsListViewBasic(
@@ -217,13 +217,13 @@ void main() {
     });
 
     test('when not muted by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -235,13 +235,13 @@ void main() {
 
   group('.isBlockingByList', () {
     test('when blocking by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
           blockingByList: GraphDefsListViewBasic(
@@ -260,13 +260,13 @@ void main() {
     });
 
     test('when not blocking by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -278,13 +278,13 @@ void main() {
 
   group('.isNotBlockingByList', () {
     test('when muted by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
           blockingByList: GraphDefsListViewBasic(
@@ -303,13 +303,13 @@ void main() {
     });
 
     test('when not blocking by list', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -321,13 +321,13 @@ void main() {
 
   group('.isBlocking', () {
     test('when blocking', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           blocking: AtUri.parse(
@@ -340,13 +340,13 @@ void main() {
     });
 
     test('when not blocking', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -358,13 +358,13 @@ void main() {
 
   group('.isNotBlocking', () {
     test('when blocking', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           blocking: AtUri.parse(
@@ -377,13 +377,13 @@ void main() {
     });
 
     test('when not blocking', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -395,13 +395,13 @@ void main() {
 
   group('.isFollowing', () {
     test('when following', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           following: AtUri.parse(
@@ -414,13 +414,13 @@ void main() {
     });
 
     test('when not following', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -432,13 +432,13 @@ void main() {
 
   group('.isNotFollowing', () {
     test('when following', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           following: AtUri.parse(
@@ -451,13 +451,13 @@ void main() {
     });
 
     test('when not following', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -469,13 +469,13 @@ void main() {
 
   group('.isFollowedBy', () {
     test('when followed by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           followedBy: AtUri.parse(
@@ -488,13 +488,13 @@ void main() {
     });
 
     test('when not followed by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),
@@ -506,13 +506,13 @@ void main() {
 
   group('.isNotFollowedBy', () {
     test('when followed by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
           followedBy: AtUri.parse(
@@ -525,13 +525,13 @@ void main() {
     });
 
     test('when not followed by', () {
-      final profile = ActorDefsProfileViewDetailed(
+      final profile = ProfileViewDetailed(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
         followersCount: 0,
         followsCount: 0,
         postsCount: 0,
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: false,
           blockedBy: false,
         ),

@@ -15,12 +15,12 @@ part 'muted_word_target.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedwordtarget
 @freezed
 @lex.appBskyActorDefsMutedWordTarget
-class ActorDefsMutedWordTarget with _$ActorDefsMutedWordTarget {
+class MutedWordTarget with _$MutedWordTarget {
   @jsonSerializable
-  const factory ActorDefsMutedWordTarget({
+  const factory MutedWordTarget({
     required String mutedWordTarget,
-  }) = _ActorDefsMutedWordTarget;
+  }) = _MutedWordTarget;
 
-  factory ActorDefsMutedWordTarget.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsMutedWordTargetFromJson(json);
+  factory MutedWordTarget.fromJson(Map<String, Object?> json) =>
+      _$MutedWordTargetFromJson(json);
 }

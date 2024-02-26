@@ -21,7 +21,7 @@ ActorGetSuggestionsOutput _$ActorGetSuggestionsOutputFromJson(
 
 /// @nodoc
 mixin _$ActorGetSuggestionsOutput {
-  List<ActorDefsProfileView> get actors => throw _privateConstructorUsedError;
+  List<ProfileView> get actors => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $ActorGetSuggestionsOutputCopyWith<$Res> {
           $Res Function(ActorGetSuggestionsOutput) then) =
       _$ActorGetSuggestionsOutputCopyWithImpl<$Res, ActorGetSuggestionsOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileView> actors});
+  $Res call({List<ProfileView> actors});
 }
 
 /// @nodoc
@@ -58,7 +58,7 @@ class _$ActorGetSuggestionsOutputCopyWithImpl<$Res,
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
     ) as $Val);
   }
 }
@@ -72,7 +72,7 @@ abstract class _$$ActorGetSuggestionsOutputImplCopyWith<$Res>
       __$$ActorGetSuggestionsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> actors});
+  $Res call({List<ProfileView> actors});
 }
 
 /// @nodoc
@@ -94,7 +94,7 @@ class __$$ActorGetSuggestionsOutputImplCopyWithImpl<$Res>
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
     ));
   }
 }
@@ -103,15 +103,15 @@ class __$$ActorGetSuggestionsOutputImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ActorGetSuggestionsOutputImpl implements _ActorGetSuggestionsOutput {
   const _$ActorGetSuggestionsOutputImpl(
-      {required final List<ActorDefsProfileView> actors})
+      {required final List<ProfileView> actors})
       : _actors = actors;
 
   factory _$ActorGetSuggestionsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorGetSuggestionsOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _actors;
+  final List<ProfileView> _actors;
   @override
-  List<ActorDefsProfileView> get actors {
+  List<ProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -152,14 +152,14 @@ class _$ActorGetSuggestionsOutputImpl implements _ActorGetSuggestionsOutput {
 
 abstract class _ActorGetSuggestionsOutput implements ActorGetSuggestionsOutput {
   const factory _ActorGetSuggestionsOutput(
-          {required final List<ActorDefsProfileView> actors}) =
+          {required final List<ProfileView> actors}) =
       _$ActorGetSuggestionsOutputImpl;
 
   factory _ActorGetSuggestionsOutput.fromJson(Map<String, dynamic> json) =
       _$ActorGetSuggestionsOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get actors;
+  List<ProfileView> get actors;
   @override
   @JsonKey(ignore: true)
   _$$ActorGetSuggestionsOutputImplCopyWith<_$ActorGetSuggestionsOutputImpl>

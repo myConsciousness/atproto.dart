@@ -20,7 +20,7 @@ part 'output.g.dart';
 class GraphGetSuggestedFollowsByActorOutput
     with _$GraphGetSuggestedFollowsByActorOutput {
   const factory GraphGetSuggestedFollowsByActorOutput({
-    required List<ActorDefsProfileView> suggestions,
+    required List<ProfileView> suggestions,
   }) = _GraphGetSuggestedFollowsByActorOutput;
 
   factory GraphGetSuggestedFollowsByActorOutput.fromJson(

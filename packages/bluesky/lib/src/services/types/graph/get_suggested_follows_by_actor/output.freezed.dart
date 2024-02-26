@@ -21,8 +21,7 @@ GraphGetSuggestedFollowsByActorOutput
 
 /// @nodoc
 mixin _$GraphGetSuggestedFollowsByActorOutput {
-  List<ActorDefsProfileView> get suggestions =>
-      throw _privateConstructorUsedError;
+  List<ProfileView> get suggestions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +38,7 @@ abstract class $GraphGetSuggestedFollowsByActorOutputCopyWith<$Res> {
       _$GraphGetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
           GraphGetSuggestedFollowsByActorOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileView> suggestions});
+  $Res call({List<ProfileView> suggestions});
 }
 
 /// @nodoc
@@ -62,7 +61,7 @@ class _$GraphGetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
     ) as $Val);
   }
 }
@@ -76,7 +75,7 @@ abstract class _$$GraphGetSuggestedFollowsByActorOutputImplCopyWith<$Res>
       __$$GraphGetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> suggestions});
+  $Res call({List<ProfileView> suggestions});
 }
 
 /// @nodoc
@@ -98,7 +97,7 @@ class __$$GraphGetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
     ));
   }
 }
@@ -108,16 +107,16 @@ class __$$GraphGetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
 class _$GraphGetSuggestedFollowsByActorOutputImpl
     implements _GraphGetSuggestedFollowsByActorOutput {
   const _$GraphGetSuggestedFollowsByActorOutputImpl(
-      {required final List<ActorDefsProfileView> suggestions})
+      {required final List<ProfileView> suggestions})
       : _suggestions = suggestions;
 
   factory _$GraphGetSuggestedFollowsByActorOutputImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$GraphGetSuggestedFollowsByActorOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _suggestions;
+  final List<ProfileView> _suggestions;
   @override
-  List<ActorDefsProfileView> get suggestions {
+  List<ProfileView> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_suggestions);
@@ -161,7 +160,7 @@ class _$GraphGetSuggestedFollowsByActorOutputImpl
 abstract class _GraphGetSuggestedFollowsByActorOutput
     implements GraphGetSuggestedFollowsByActorOutput {
   const factory _GraphGetSuggestedFollowsByActorOutput(
-          {required final List<ActorDefsProfileView> suggestions}) =
+          {required final List<ProfileView> suggestions}) =
       _$GraphGetSuggestedFollowsByActorOutputImpl;
 
   factory _GraphGetSuggestedFollowsByActorOutput.fromJson(
@@ -169,7 +168,7 @@ abstract class _GraphGetSuggestedFollowsByActorOutput
       _$GraphGetSuggestedFollowsByActorOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get suggestions;
+  List<ProfileView> get suggestions;
   @override
   @JsonKey(ignore: true)
   _$$GraphGetSuggestedFollowsByActorOutputImplCopyWith<

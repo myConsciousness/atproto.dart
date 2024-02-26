@@ -19,10 +19,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -51,10 +51,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -81,10 +81,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -113,10 +113,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -143,10 +143,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -175,10 +175,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -205,10 +205,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -237,10 +237,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -267,10 +267,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -297,10 +297,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -327,10 +327,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),
@@ -357,10 +357,10 @@ void main() {
           text: 'test',
           createdAt: DateTime.now(),
         ),
-        author: ActorDefsProfileViewBasic(
+        author: ProfileViewBasic(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: false,
             blockedBy: false,
           ),

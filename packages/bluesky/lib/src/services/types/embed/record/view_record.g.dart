@@ -21,7 +21,7 @@ _$EmbedRecordViewRecordImpl _$$EmbedRecordViewRecordImplFromJson(Map json) =>
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert(
               'author',
-              (v) => ActorDefsProfileViewBasic.fromJson(
+              (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           value: $checkedConvert(
               'value',

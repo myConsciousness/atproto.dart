@@ -22,7 +22,7 @@ _$FeedDefsPostViewImpl _$$FeedDefsPostViewImplFromJson(Map json) =>
                   feedPostRecordConverter.fromJson(v as Map<String, dynamic>)),
           author: $checkedConvert(
               'author',
-              (v) => ActorDefsProfileViewBasic.fromJson(
+              (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),

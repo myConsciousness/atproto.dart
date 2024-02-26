@@ -21,8 +21,8 @@ GraphGetFollowsOutput _$GraphGetFollowsOutputFromJson(
 
 /// @nodoc
 mixin _$GraphGetFollowsOutput {
-  ActorDefsProfileView get subject => throw _privateConstructorUsedError;
-  List<ActorDefsProfileView> get follows => throw _privateConstructorUsedError;
+  ProfileView get subject => throw _privateConstructorUsedError;
+  List<ProfileView> get follows => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,12 +37,9 @@ abstract class $GraphGetFollowsOutputCopyWith<$Res> {
           $Res Function(GraphGetFollowsOutput) then) =
       _$GraphGetFollowsOutputCopyWithImpl<$Res, GraphGetFollowsOutput>;
   @useResult
-  $Res call(
-      {ActorDefsProfileView subject,
-      List<ActorDefsProfileView> follows,
-      String? cursor});
+  $Res call({ProfileView subject, List<ProfileView> follows, String? cursor});
 
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -67,11 +64,11 @@ class _$GraphGetFollowsOutputCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       follows: null == follows
           ? _value.follows
           : follows // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -81,8 +78,8 @@ class _$GraphGetFollowsOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get subject {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.subject, (value) {
+  $ProfileViewCopyWith<$Res> get subject {
+    return $ProfileViewCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -97,13 +94,10 @@ abstract class _$$GraphGetFollowsOutputImplCopyWith<$Res>
       __$$GraphGetFollowsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ActorDefsProfileView subject,
-      List<ActorDefsProfileView> follows,
-      String? cursor});
+  $Res call({ProfileView subject, List<ProfileView> follows, String? cursor});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -126,11 +120,11 @@ class __$$GraphGetFollowsOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       follows: null == follows
           ? _value._follows
           : follows // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -145,7 +139,7 @@ class __$$GraphGetFollowsOutputImplCopyWithImpl<$Res>
 class _$GraphGetFollowsOutputImpl implements _GraphGetFollowsOutput {
   const _$GraphGetFollowsOutputImpl(
       {required this.subject,
-      required final List<ActorDefsProfileView> follows,
+      required final List<ProfileView> follows,
       this.cursor})
       : _follows = follows;
 
@@ -153,10 +147,10 @@ class _$GraphGetFollowsOutputImpl implements _GraphGetFollowsOutput {
       _$$GraphGetFollowsOutputImplFromJson(json);
 
   @override
-  final ActorDefsProfileView subject;
-  final List<ActorDefsProfileView> _follows;
+  final ProfileView subject;
+  final List<ProfileView> _follows;
   @override
-  List<ActorDefsProfileView> get follows {
+  List<ProfileView> get follows {
     if (_follows is EqualUnmodifiableListView) return _follows;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_follows);
@@ -202,17 +196,17 @@ class _$GraphGetFollowsOutputImpl implements _GraphGetFollowsOutput {
 
 abstract class _GraphGetFollowsOutput implements GraphGetFollowsOutput {
   const factory _GraphGetFollowsOutput(
-      {required final ActorDefsProfileView subject,
-      required final List<ActorDefsProfileView> follows,
+      {required final ProfileView subject,
+      required final List<ProfileView> follows,
       final String? cursor}) = _$GraphGetFollowsOutputImpl;
 
   factory _GraphGetFollowsOutput.fromJson(Map<String, dynamic> json) =
       _$GraphGetFollowsOutputImpl.fromJson;
 
   @override
-  ActorDefsProfileView get subject;
+  ProfileView get subject;
   @override
-  List<ActorDefsProfileView> get follows;
+  List<ProfileView> get follows;
   @override
   String? get cursor;
   @override

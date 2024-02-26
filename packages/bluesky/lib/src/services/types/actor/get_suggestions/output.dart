@@ -17,7 +17,7 @@ part 'output.g.dart';
 @lex.appBskyActorGetSuggestions
 class ActorGetSuggestionsOutput with _$ActorGetSuggestionsOutput {
   const factory ActorGetSuggestionsOutput({
-    required List<ActorDefsProfileView> actors,
+    required List<ProfileView> actors,
   }) = _ActorGetSuggestionsOutput;
 
   factory ActorGetSuggestionsOutput.fromJson(Map<String, Object?> json) =>

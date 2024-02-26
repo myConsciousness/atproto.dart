@@ -17,7 +17,7 @@ part 'output.g.dart';
 @lex.appBskyActorGetProfiles
 class ActorGetProfilesOutput with _$ActorGetProfilesOutput {
   const factory ActorGetProfilesOutput({
-    required List<ActorDefsProfileViewDetailed> profiles,
+    required List<ProfileViewDetailed> profiles,
   }) = _ActorGetProfilesOutput;
 
   factory ActorGetProfilesOutput.fromJson(Map<String, Object?> json) =>

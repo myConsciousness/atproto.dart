@@ -32,7 +32,7 @@ class GraphDefsListView with _$GraphDefsListView {
     String? description,
     List<RichtextFacet>? descriptionFacets,
     String? avatar,
-    required ActorDefsProfileView creator,
+    required ProfileView creator,
     @Default(defaultGraphDefsListViewerState) GraphDefsListViewerState viewer,
     required DateTime indexedAt,
   }) = _GraphDefsListView;

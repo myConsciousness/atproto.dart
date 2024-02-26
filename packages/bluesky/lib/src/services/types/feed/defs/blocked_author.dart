@@ -23,7 +23,7 @@ class FeedDefsBlockedAuthor with _$FeedDefsBlockedAuthor {
   const factory FeedDefsBlockedAuthor({
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,
     required String did,
-    @Default(defaultActorDefsViewerState) ActorDefsViewerState viewer,
+    @Default(defaultActorDefsViewerState) ViewerState viewer,
   }) = _FeedDefsBlockedAuthor;
 
   factory FeedDefsBlockedAuthor.fromJson(Map<String, Object?> json) =>

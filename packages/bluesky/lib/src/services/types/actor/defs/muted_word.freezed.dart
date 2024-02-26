@@ -21,8 +21,7 @@ ActorDefsMutedWord _$ActorDefsMutedWordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ActorDefsMutedWord {
   String get value => throw _privateConstructorUsedError;
-  List<ActorDefsMutedWordTarget> get targets =>
-      throw _privateConstructorUsedError;
+  List<MutedWordTarget> get targets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +35,7 @@ abstract class $ActorDefsMutedWordCopyWith<$Res> {
           ActorDefsMutedWord value, $Res Function(ActorDefsMutedWord) then) =
       _$ActorDefsMutedWordCopyWithImpl<$Res, ActorDefsMutedWord>;
   @useResult
-  $Res call({String value, List<ActorDefsMutedWordTarget> targets});
+  $Res call({String value, List<MutedWordTarget> targets});
 }
 
 /// @nodoc
@@ -63,7 +62,7 @@ class _$ActorDefsMutedWordCopyWithImpl<$Res, $Val extends ActorDefsMutedWord>
       targets: null == targets
           ? _value.targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsMutedWordTarget>,
+              as List<MutedWordTarget>,
     ) as $Val);
   }
 }
@@ -76,7 +75,7 @@ abstract class _$$ActorDefsMutedWordImplCopyWith<$Res>
       __$$ActorDefsMutedWordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value, List<ActorDefsMutedWordTarget> targets});
+  $Res call({String value, List<MutedWordTarget> targets});
 }
 
 /// @nodoc
@@ -101,7 +100,7 @@ class __$$ActorDefsMutedWordImplCopyWithImpl<$Res>
       targets: null == targets
           ? _value._targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsMutedWordTarget>,
+              as List<MutedWordTarget>,
     ));
   }
 }
@@ -110,8 +109,7 @@ class __$$ActorDefsMutedWordImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ActorDefsMutedWordImpl implements _ActorDefsMutedWord {
   const _$ActorDefsMutedWordImpl(
-      {required this.value,
-      required final List<ActorDefsMutedWordTarget> targets})
+      {required this.value, required final List<MutedWordTarget> targets})
       : _targets = targets;
 
   factory _$ActorDefsMutedWordImpl.fromJson(Map<String, dynamic> json) =>
@@ -119,9 +117,9 @@ class _$ActorDefsMutedWordImpl implements _ActorDefsMutedWord {
 
   @override
   final String value;
-  final List<ActorDefsMutedWordTarget> _targets;
+  final List<MutedWordTarget> _targets;
   @override
-  List<ActorDefsMutedWordTarget> get targets {
+  List<MutedWordTarget> get targets {
     if (_targets is EqualUnmodifiableListView) return _targets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_targets);
@@ -163,9 +161,8 @@ class _$ActorDefsMutedWordImpl implements _ActorDefsMutedWord {
 
 abstract class _ActorDefsMutedWord implements ActorDefsMutedWord {
   const factory _ActorDefsMutedWord(
-          {required final String value,
-          required final List<ActorDefsMutedWordTarget> targets}) =
-      _$ActorDefsMutedWordImpl;
+      {required final String value,
+      required final List<MutedWordTarget> targets}) = _$ActorDefsMutedWordImpl;
 
   factory _ActorDefsMutedWord.fromJson(Map<String, dynamic> json) =
       _$ActorDefsMutedWordImpl.fromJson;
@@ -173,7 +170,7 @@ abstract class _ActorDefsMutedWord implements ActorDefsMutedWord {
   @override
   String get value;
   @override
-  List<ActorDefsMutedWordTarget> get targets;
+  List<MutedWordTarget> get targets;
   @override
   @JsonKey(ignore: true)
   _$$ActorDefsMutedWordImplCopyWith<_$ActorDefsMutedWordImpl> get copyWith =>

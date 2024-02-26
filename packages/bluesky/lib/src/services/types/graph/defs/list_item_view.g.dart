@@ -16,10 +16,8 @@ _$GraphDefsListItemViewImpl _$$GraphDefsListItemViewImplFromJson(Map json) =>
         final val = _$GraphDefsListItemViewImpl(
           uri: $checkedConvert(
               'uri', (v) => atUriConverter.fromJson(v as String)),
-          subject: $checkedConvert(
-              'subject',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert('subject',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },

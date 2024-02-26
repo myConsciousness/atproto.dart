@@ -22,7 +22,7 @@ FeedDefsReasonRepost _$FeedDefsReasonRepostFromJson(Map<String, dynamic> json) {
 mixin _$FeedDefsReasonRepost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  ActorDefsProfileViewBasic get by => throw _privateConstructorUsedError;
+  ProfileViewBasic get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,10 +37,9 @@ abstract class $FeedDefsReasonRepostCopyWith<$Res> {
           $Res Function(FeedDefsReasonRepost) then) =
       _$FeedDefsReasonRepostCopyWithImpl<$Res, FeedDefsReasonRepost>;
   @useResult
-  $Res call(
-      {@typeKey String type, ActorDefsProfileViewBasic by, DateTime indexedAt});
+  $Res call({@typeKey String type, ProfileViewBasic by, DateTime indexedAt});
 
-  $ActorDefsProfileViewBasicCopyWith<$Res> get by;
+  $ProfileViewBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
@@ -69,7 +68,7 @@ class _$FeedDefsReasonRepostCopyWithImpl<$Res,
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -79,8 +78,8 @@ class _$FeedDefsReasonRepostCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewBasicCopyWith<$Res> get by {
-    return $ActorDefsProfileViewBasicCopyWith<$Res>(_value.by, (value) {
+  $ProfileViewBasicCopyWith<$Res> get by {
+    return $ProfileViewBasicCopyWith<$Res>(_value.by, (value) {
       return _then(_value.copyWith(by: value) as $Val);
     });
   }
@@ -94,11 +93,10 @@ abstract class _$$FeedDefsReasonRepostImplCopyWith<$Res>
       __$$FeedDefsReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {@typeKey String type, ActorDefsProfileViewBasic by, DateTime indexedAt});
+  $Res call({@typeKey String type, ProfileViewBasic by, DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewBasicCopyWith<$Res> get by;
+  $ProfileViewBasicCopyWith<$Res> get by;
 }
 
 /// @nodoc
@@ -124,7 +122,7 @@ class __$$FeedDefsReasonRepostImplCopyWithImpl<$Res>
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -148,7 +146,7 @@ class _$FeedDefsReasonRepostImpl implements _FeedDefsReasonRepost {
   @typeKey
   final String type;
   @override
-  final ActorDefsProfileViewBasic by;
+  final ProfileViewBasic by;
   @override
   final DateTime indexedAt;
 
@@ -191,7 +189,7 @@ class _$FeedDefsReasonRepostImpl implements _FeedDefsReasonRepost {
 abstract class _FeedDefsReasonRepost implements FeedDefsReasonRepost {
   const factory _FeedDefsReasonRepost(
       {@typeKey final String type,
-      required final ActorDefsProfileViewBasic by,
+      required final ProfileViewBasic by,
       required final DateTime indexedAt}) = _$FeedDefsReasonRepostImpl;
 
   factory _FeedDefsReasonRepost.fromJson(Map<String, dynamic> json) =
@@ -201,7 +199,7 @@ abstract class _FeedDefsReasonRepost implements FeedDefsReasonRepost {
   @typeKey
   String get type;
   @override
-  ActorDefsProfileViewBasic get by;
+  ProfileViewBasic get by;
   @override
   DateTime get indexedAt;
   @override

@@ -28,8 +28,7 @@ _$ActorGetProfileOutputImpl _$$ActorGetProfileOutputImplFromJson(Map json) =>
               'viewer',
               (v) => v == null
                   ? defaultActorDefsViewerState
-                  : ActorDefsViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)

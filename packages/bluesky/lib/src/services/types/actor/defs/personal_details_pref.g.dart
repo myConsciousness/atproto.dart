@@ -8,13 +8,12 @@ part of 'personal_details_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsPersonalDetailsPrefImpl _$$ActorDefsPersonalDetailsPrefImplFromJson(
-        Map json) =>
+_$PersonalDetailsPrefImpl _$$PersonalDetailsPrefImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorDefsPersonalDetailsPrefImpl',
+      r'_$PersonalDetailsPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsPersonalDetailsPrefImpl(
+        final val = _$PersonalDetailsPrefImpl(
           type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyActorDefsPersonalDetailsPref),
           birthDate: $checkedConvert('birthDate',
@@ -25,8 +24,8 @@ _$ActorDefsPersonalDetailsPrefImpl _$$ActorDefsPersonalDetailsPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsPersonalDetailsPrefImplToJson(
-    _$ActorDefsPersonalDetailsPrefImpl instance) {
+Map<String, dynamic> _$$PersonalDetailsPrefImplToJson(
+    _$PersonalDetailsPrefImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

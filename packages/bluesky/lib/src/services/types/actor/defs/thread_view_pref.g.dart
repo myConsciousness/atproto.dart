@@ -8,13 +8,11 @@ part of 'thread_view_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsThreadViewPrefImpl _$$ActorDefsThreadViewPrefImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ActorDefsThreadViewPrefImpl',
+_$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
+      r'_$ThreadViewPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsThreadViewPrefImpl(
+        final val = _$ThreadViewPrefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsThreadViewPref),
           sort: $checkedConvert(
@@ -29,8 +27,8 @@ _$ActorDefsThreadViewPrefImpl _$$ActorDefsThreadViewPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsThreadViewPrefImplToJson(
-    _$ActorDefsThreadViewPrefImpl instance) {
+Map<String, dynamic> _$$ThreadViewPrefImplToJson(
+    _$ThreadViewPrefImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };

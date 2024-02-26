@@ -17,7 +17,7 @@ part 'output.g.dart';
 @lex.appBskyActorSearchActorsTypeahead
 class ActorSearchActorsTypeaheadOutput with _$ActorSearchActorsTypeaheadOutput {
   const factory ActorSearchActorsTypeaheadOutput({
-    required List<ActorDefsProfileViewBasic> actors,
+    required List<ProfileViewBasic> actors,
   }) = _ActorSearchActorsTypeaheadOutput;
 
   factory ActorSearchActorsTypeaheadOutput.fromJson(

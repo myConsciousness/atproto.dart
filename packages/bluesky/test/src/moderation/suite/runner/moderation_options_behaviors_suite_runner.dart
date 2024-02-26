@@ -19,7 +19,7 @@ final class ModerationOptionsBehaviorsSuiteRunner {
   ) =>
       scenario.isAdultContentEnabled;
 
-  List<UActorDefsPreferencesPreferences> getContentLabelPreferences(
+  List<UPreferencesPreferences> getContentLabelPreferences(
     final ModerationOptionsBehaviorScenario scenario,
   ) =>
       [
@@ -40,20 +40,19 @@ final class ModerationOptionsBehaviorsSuiteRunner {
         ),
       ];
 
-  UActorDefsPreferencesPreferences _getContentLabelPreference(
+  UPreferencesPreferences _getContentLabelPreference(
     final ModerationOptionsBehaviorScenarioLabel label,
   ) =>
-      UActorDefsPreferencesPreferences.contentLabelPref(
-        data: ActorDefsContentLabelPref(
+      UPreferencesPreferences.contentLabelPref(
+        data: ContentLabelPref(
           label: label.label,
           visibility: label.visibility,
         ),
       );
 
-  UActorDefsPreferencesPreferences _getAdultContentPreference(
-          final bool isEnabled) =>
-      UActorDefsPreferencesPreferences.adultContentPref(
-        data: ActorDefsAdultContentPref(
+  UPreferencesPreferences _getAdultContentPreference(final bool isEnabled) =>
+      UPreferencesPreferences.adultContentPref(
+        data: AdultContentPref(
           enabled: isEnabled,
         ),
       );

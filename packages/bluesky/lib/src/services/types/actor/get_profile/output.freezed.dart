@@ -30,7 +30,7 @@ mixin _$ActorGetProfileOutput {
   int get followsCount => throw _privateConstructorUsedError;
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
-  ActorDefsViewerState get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
   List<LabelDefsLabel>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
@@ -56,11 +56,11 @@ abstract class $ActorGetProfileOutputCopyWith<$Res> {
       int followsCount,
       int followersCount,
       int postsCount,
-      ActorDefsViewerState viewer,
+      ViewerState viewer,
       List<LabelDefsLabel>? labels,
       DateTime? indexedAt});
 
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -130,7 +130,7 @@ class _$ActorGetProfileOutputCopyWithImpl<$Res,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -144,8 +144,8 @@ class _$ActorGetProfileOutputCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsViewerStateCopyWith<$Res> get viewer {
-    return $ActorDefsViewerStateCopyWith<$Res>(_value.viewer, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -170,12 +170,12 @@ abstract class _$$ActorGetProfileOutputImplCopyWith<$Res>
       int followsCount,
       int followersCount,
       int postsCount,
-      ActorDefsViewerState viewer,
+      ViewerState viewer,
       List<LabelDefsLabel>? labels,
       DateTime? indexedAt});
 
   @override
-  $ActorDefsViewerStateCopyWith<$Res> get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -243,7 +243,7 @@ class __$$ActorGetProfileOutputImplCopyWithImpl<$Res>
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ActorDefsViewerState,
+              as ViewerState,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -301,7 +301,7 @@ class _$ActorGetProfileOutputImpl implements _ActorGetProfileOutput {
   final int postsCount;
   @override
   @JsonKey()
-  final ActorDefsViewerState viewer;
+  final ViewerState viewer;
   final List<LabelDefsLabel>? _labels;
   @override
   List<LabelDefsLabel>? get labels {
@@ -388,7 +388,7 @@ abstract class _ActorGetProfileOutput implements ActorGetProfileOutput {
       final int followsCount,
       final int followersCount,
       final int postsCount,
-      final ActorDefsViewerState viewer,
+      final ViewerState viewer,
       final List<LabelDefsLabel>? labels,
       final DateTime? indexedAt}) = _$ActorGetProfileOutputImpl;
 
@@ -414,7 +414,7 @@ abstract class _ActorGetProfileOutput implements ActorGetProfileOutput {
   @override
   int get postsCount;
   @override
-  ActorDefsViewerState get viewer;
+  ViewerState get viewer;
   @override
   List<LabelDefsLabel>? get labels;
   @override

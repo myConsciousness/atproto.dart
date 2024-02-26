@@ -21,7 +21,7 @@ ActorSearchActorsOutput _$ActorSearchActorsOutputFromJson(
 
 /// @nodoc
 mixin _$ActorSearchActorsOutput {
-  List<ActorDefsProfileView> get actors => throw _privateConstructorUsedError;
+  List<ProfileView> get actors => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $ActorSearchActorsOutputCopyWith<$Res> {
           $Res Function(ActorSearchActorsOutput) then) =
       _$ActorSearchActorsOutputCopyWithImpl<$Res, ActorSearchActorsOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileView> actors, String? cursor});
+  $Res call({List<ProfileView> actors, String? cursor});
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$ActorSearchActorsOutputCopyWithImpl<$Res,
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -78,7 +78,7 @@ abstract class _$$ActorSearchActorsOutputImplCopyWith<$Res>
       __$$ActorSearchActorsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> actors, String? cursor});
+  $Res call({List<ProfileView> actors, String? cursor});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$ActorSearchActorsOutputImplCopyWithImpl<$Res>
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -114,15 +114,15 @@ class __$$ActorSearchActorsOutputImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ActorSearchActorsOutputImpl implements _ActorSearchActorsOutput {
   const _$ActorSearchActorsOutputImpl(
-      {required final List<ActorDefsProfileView> actors, this.cursor})
+      {required final List<ProfileView> actors, this.cursor})
       : _actors = actors;
 
   factory _$ActorSearchActorsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorSearchActorsOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _actors;
+  final List<ProfileView> _actors;
   @override
-  List<ActorDefsProfileView> get actors {
+  List<ProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_actors);
@@ -167,14 +167,14 @@ class _$ActorSearchActorsOutputImpl implements _ActorSearchActorsOutput {
 
 abstract class _ActorSearchActorsOutput implements ActorSearchActorsOutput {
   const factory _ActorSearchActorsOutput(
-      {required final List<ActorDefsProfileView> actors,
+      {required final List<ProfileView> actors,
       final String? cursor}) = _$ActorSearchActorsOutputImpl;
 
   factory _ActorSearchActorsOutput.fromJson(Map<String, dynamic> json) =
       _$ActorSearchActorsOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get actors;
+  List<ProfileView> get actors;
   @override
   String? get cursor;
   @override

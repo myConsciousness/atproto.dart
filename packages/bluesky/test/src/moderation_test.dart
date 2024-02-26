@@ -37,7 +37,7 @@ void main() {
     test('porn (hide)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileView(
-          data: ActorDefsProfileView(
+          data: ProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
@@ -84,7 +84,7 @@ void main() {
     test('porn (ignore)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileView(
-          data: ActorDefsProfileView(
+          data: ProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
@@ -138,7 +138,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: ActorDefsProfileViewBasic(
+            author: ProfileViewBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',
@@ -194,7 +194,7 @@ void main() {
               text: 'Hello',
               createdAt: DateTime.now(),
             ),
-            author: ActorDefsProfileViewBasic(
+            author: ProfileViewBasic(
               did: 'did:web:bob.test',
               handle: 'bob.test',
               displayName: 'Bob',
@@ -249,7 +249,7 @@ void main() {
     test('porn (ignore for labeler, hide for global)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileView(
-          data: ActorDefsProfileView(
+          data: ProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
@@ -294,7 +294,7 @@ void main() {
     test('porn (hide for labeler, ignore for global)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileView(
-          data: ActorDefsProfileView(
+          data: ProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',
@@ -339,7 +339,7 @@ void main() {
     test('porn (unspecified for labeler, hide for global)', () {
       final actual = moderateProfile(
         ModerationSubjectProfile.profileView(
-          data: ActorDefsProfileView(
+          data: ProfileView(
             did: 'did:web:bob.test',
             handle: 'bob.test',
             displayName: 'Bob',

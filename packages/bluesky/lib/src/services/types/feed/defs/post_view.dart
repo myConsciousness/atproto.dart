@@ -30,7 +30,7 @@ class FeedDefsPostView with _$FeedDefsPostView {
   const factory FeedDefsPostView({
     @typeKey @Default(appBskyFeedDefsPostView) String type,
     @feedPostRecordConverter required FeedPostRecord record,
-    required ActorDefsProfileViewBasic author,
+    required ProfileViewBasic author,
     @atUriConverter required AtUri uri,
     required String cid,
     @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,

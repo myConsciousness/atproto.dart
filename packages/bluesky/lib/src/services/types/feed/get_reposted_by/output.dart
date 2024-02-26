@@ -19,7 +19,7 @@ part 'output.g.dart';
 class FeedGetRepostedByOutput with _$FeedGetRepostedByOutput {
   @jsonSerializable
   const factory FeedGetRepostedByOutput({
-    required List<ActorDefsProfileView> repostedBy,
+    required List<ProfileView> repostedBy,
     @atUriConverter required AtUri uri,
     String? cid,
     String? cursor,

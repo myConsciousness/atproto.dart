@@ -2,9 +2,5 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import '../adult_content_pref.dart';
-
-extension AdultContentPrefExtension on AdultContentPref {
-  bool get isEnabled => enabled;
-}
+export 'package:bluesky/src/services/types/actor/defs/_z.dart'
+    hide unionPreferencesPreferencesConverter;

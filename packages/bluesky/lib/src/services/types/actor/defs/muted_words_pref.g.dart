@@ -8,13 +8,11 @@ part of 'muted_words_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsMutedWordsPrefImpl _$$ActorDefsMutedWordsPrefImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$ActorDefsMutedWordsPrefImpl',
+_$MutedWordsPrefImpl _$$MutedWordsPrefImplFromJson(Map json) => $checkedCreate(
+      r'_$MutedWordsPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsMutedWordsPrefImpl(
+        final val = _$MutedWordsPrefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsMutedWordsPref),
           items: $checkedConvert(
@@ -29,8 +27,8 @@ _$ActorDefsMutedWordsPrefImpl _$$ActorDefsMutedWordsPrefImplFromJson(
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsMutedWordsPrefImplToJson(
-        _$ActorDefsMutedWordsPrefImpl instance) =>
+Map<String, dynamic> _$$MutedWordsPrefImplToJson(
+        _$MutedWordsPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'items': instance.items.map((e) => e.toJson()).toList(),

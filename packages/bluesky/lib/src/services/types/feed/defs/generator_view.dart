@@ -28,7 +28,7 @@ class FeedDefsGeneratorView with _$FeedDefsGeneratorView {
     @atUriConverter required AtUri uri,
     required String cid,
     String? did,
-    required ActorDefsProfileView creator,
+    required ProfileView creator,
     required String displayName,
     String? description,
     List<RichtextFacet>? descriptionFacets,

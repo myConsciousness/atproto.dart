@@ -19,7 +19,7 @@ part 'output.g.dart';
 class GraphGetMutesOutput with _$GraphGetMutesOutput {
   @jsonSerializable
   const factory GraphGetMutesOutput({
-    required List<ActorDefsProfileView> mutes,
+    required List<ProfileView> mutes,
     String? cursor,
   }) = _GraphGetMutesOutput;
 

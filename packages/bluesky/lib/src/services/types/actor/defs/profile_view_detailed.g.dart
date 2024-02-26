@@ -8,13 +8,12 @@ part of 'profile_view_detailed.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsProfileViewDetailedImpl _$$ActorDefsProfileViewDetailedImplFromJson(
-        Map json) =>
+_$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorDefsProfileViewDetailedImpl',
+      r'_$ProfileViewDetailedImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsProfileViewDetailedImpl(
+        final val = _$ProfileViewDetailedImpl(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -29,8 +28,7 @@ _$ActorDefsProfileViewDetailedImpl _$$ActorDefsProfileViewDetailedImplFromJson(
               'viewer',
               (v) => v == null
                   ? defaultActorDefsViewerState
-                  : ActorDefsViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -44,8 +42,8 @@ _$ActorDefsProfileViewDetailedImpl _$$ActorDefsProfileViewDetailedImplFromJson(
       },
     );
 
-Map<String, dynamic> _$$ActorDefsProfileViewDetailedImplToJson(
-    _$ActorDefsProfileViewDetailedImpl instance) {
+Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
+    _$ProfileViewDetailedImpl instance) {
   final val = <String, dynamic>{
     'did': instance.did,
     'handle': instance.handle,

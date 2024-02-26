@@ -21,8 +21,7 @@ _$FeedDefsBlockedAuthorImpl _$$FeedDefsBlockedAuthorImplFromJson(Map json) =>
               'viewer',
               (v) => v == null
                   ? defaultActorDefsViewerState
-                  : ActorDefsViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },

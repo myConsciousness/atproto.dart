@@ -9,7 +9,7 @@ import '../list_view.dart';
 import 'list_viewer_state_extension.dart';
 
 extension GraphDefsListViewExtension on GraphDefsListView {
-  ActorDefsProfileView get createdBy => creator;
+  ProfileView get createdBy => creator;
 
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.

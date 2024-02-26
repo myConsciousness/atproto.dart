@@ -31,7 +31,7 @@ mixin _$GraphDefsListView {
   List<RichtextFacet>? get descriptionFacets =>
       throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  ActorDefsProfileView get creator => throw _privateConstructorUsedError;
+  ProfileView get creator => throw _privateConstructorUsedError;
   GraphDefsListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -56,11 +56,11 @@ abstract class $GraphDefsListViewCopyWith<$Res> {
       String? description,
       List<RichtextFacet>? descriptionFacets,
       String? avatar,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       GraphDefsListViewerState viewer,
       DateTime indexedAt});
 
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   $GraphDefsListViewerStateCopyWith<$Res> get viewer;
 }
 
@@ -125,7 +125,7 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -139,8 +139,8 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get creator {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.creator, (value) {
+  $ProfileViewCopyWith<$Res> get creator {
+    return $ProfileViewCopyWith<$Res>(_value.creator, (value) {
       return _then(_value.copyWith(creator: value) as $Val);
     });
   }
@@ -171,12 +171,12 @@ abstract class _$$GraphDefsListViewImplCopyWith<$Res>
       String? description,
       List<RichtextFacet>? descriptionFacets,
       String? avatar,
-      ActorDefsProfileView creator,
+      ProfileView creator,
       GraphDefsListViewerState viewer,
       DateTime indexedAt});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get creator;
+  $ProfileViewCopyWith<$Res> get creator;
   @override
   $GraphDefsListViewerStateCopyWith<$Res> get viewer;
 }
@@ -240,7 +240,7 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
       creator: null == creator
           ? _value.creator
           : creator // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -302,7 +302,7 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
   @override
   final String? avatar;
   @override
-  final ActorDefsProfileView creator;
+  final ProfileView creator;
   @override
   @JsonKey()
   final GraphDefsListViewerState viewer;
@@ -376,7 +376,7 @@ abstract class _GraphDefsListView implements GraphDefsListView {
       final String? description,
       final List<RichtextFacet>? descriptionFacets,
       final String? avatar,
-      required final ActorDefsProfileView creator,
+      required final ProfileView creator,
       final GraphDefsListViewerState viewer,
       required final DateTime indexedAt}) = _$GraphDefsListViewImpl;
 
@@ -402,7 +402,7 @@ abstract class _GraphDefsListView implements GraphDefsListView {
   @override
   String? get avatar;
   @override
-  ActorDefsProfileView get creator;
+  ProfileView get creator;
   @override
   GraphDefsListViewerState get viewer;
   @override

@@ -23,7 +23,7 @@ GraphDefsListItemView _$GraphDefsListItemViewFromJson(
 mixin _$GraphDefsListItemView {
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
-  ActorDefsProfileView get subject => throw _privateConstructorUsedError;
+  ProfileView get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,9 +37,9 @@ abstract class $GraphDefsListItemViewCopyWith<$Res> {
           $Res Function(GraphDefsListItemView) then) =
       _$GraphDefsListItemViewCopyWithImpl<$Res, GraphDefsListItemView>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, ActorDefsProfileView subject});
+  $Res call({@atUriConverter AtUri uri, ProfileView subject});
 
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -67,14 +67,14 @@ class _$GraphDefsListItemViewCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewCopyWith<$Res> get subject {
-    return $ActorDefsProfileViewCopyWith<$Res>(_value.subject, (value) {
+  $ProfileViewCopyWith<$Res> get subject {
+    return $ProfileViewCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
     });
   }
@@ -89,10 +89,10 @@ abstract class _$$GraphDefsListItemViewImplCopyWith<$Res>
       __$$GraphDefsListItemViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, ActorDefsProfileView subject});
+  $Res call({@atUriConverter AtUri uri, ProfileView subject});
 
   @override
-  $ActorDefsProfileViewCopyWith<$Res> get subject;
+  $ProfileViewCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class __$$GraphDefsListItemViewImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileView,
+              as ProfileView,
     ));
   }
 }
@@ -136,7 +136,7 @@ class _$GraphDefsListItemViewImpl implements _GraphDefsListItemView {
   @atUriConverter
   final AtUri uri;
   @override
-  final ActorDefsProfileView subject;
+  final ProfileView subject;
 
   @override
   String toString() {
@@ -173,9 +173,8 @@ class _$GraphDefsListItemViewImpl implements _GraphDefsListItemView {
 
 abstract class _GraphDefsListItemView implements GraphDefsListItemView {
   const factory _GraphDefsListItemView(
-          {@atUriConverter required final AtUri uri,
-          required final ActorDefsProfileView subject}) =
-      _$GraphDefsListItemViewImpl;
+      {@atUriConverter required final AtUri uri,
+      required final ProfileView subject}) = _$GraphDefsListItemViewImpl;
 
   factory _GraphDefsListItemView.fromJson(Map<String, dynamic> json) =
       _$GraphDefsListItemViewImpl.fromJson;
@@ -184,7 +183,7 @@ abstract class _GraphDefsListItemView implements GraphDefsListItemView {
   @atUriConverter
   AtUri get uri;
   @override
-  ActorDefsProfileView get subject;
+  ProfileView get subject;
   @override
   @JsonKey(ignore: true)
   _$$GraphDefsListItemViewImplCopyWith<_$GraphDefsListItemViewImpl>

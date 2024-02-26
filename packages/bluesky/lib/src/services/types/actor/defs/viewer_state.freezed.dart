@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorDefsViewerState _$ActorDefsViewerStateFromJson(Map<String, dynamic> json) {
-  return _ActorDefsViewerState.fromJson(json);
+ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
+  return _ViewerState.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorDefsViewerState {
+mixin _$ViewerState {
   bool get muted => throw _privateConstructorUsedError;
   bool get blockedBy => throw _privateConstructorUsedError;
   GraphDefsListViewBasic? get mutedByList => throw _privateConstructorUsedError;
@@ -34,15 +34,15 @@ mixin _$ActorDefsViewerState {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorDefsViewerStateCopyWith<ActorDefsViewerState> get copyWith =>
+  $ViewerStateCopyWith<ViewerState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorDefsViewerStateCopyWith<$Res> {
-  factory $ActorDefsViewerStateCopyWith(ActorDefsViewerState value,
-          $Res Function(ActorDefsViewerState) then) =
-      _$ActorDefsViewerStateCopyWithImpl<$Res, ActorDefsViewerState>;
+abstract class $ViewerStateCopyWith<$Res> {
+  factory $ViewerStateCopyWith(
+          ViewerState value, $Res Function(ViewerState) then) =
+      _$ViewerStateCopyWithImpl<$Res, ViewerState>;
   @useResult
   $Res call(
       {bool muted,
@@ -58,10 +58,9 @@ abstract class $ActorDefsViewerStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ActorDefsViewerStateCopyWithImpl<$Res,
-        $Val extends ActorDefsViewerState>
-    implements $ActorDefsViewerStateCopyWith<$Res> {
-  _$ActorDefsViewerStateCopyWithImpl(this._value, this._then);
+class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
+    implements $ViewerStateCopyWith<$Res> {
+  _$ViewerStateCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -138,11 +137,11 @@ class _$ActorDefsViewerStateCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorDefsViewerStateImplCopyWith<$Res>
-    implements $ActorDefsViewerStateCopyWith<$Res> {
-  factory _$$ActorDefsViewerStateImplCopyWith(_$ActorDefsViewerStateImpl value,
-          $Res Function(_$ActorDefsViewerStateImpl) then) =
-      __$$ActorDefsViewerStateImplCopyWithImpl<$Res>;
+abstract class _$$ViewerStateImplCopyWith<$Res>
+    implements $ViewerStateCopyWith<$Res> {
+  factory _$$ViewerStateImplCopyWith(
+          _$ViewerStateImpl value, $Res Function(_$ViewerStateImpl) then) =
+      __$$ViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -161,11 +160,11 @@ abstract class _$$ActorDefsViewerStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ActorDefsViewerStateImplCopyWithImpl<$Res>
-    extends _$ActorDefsViewerStateCopyWithImpl<$Res, _$ActorDefsViewerStateImpl>
-    implements _$$ActorDefsViewerStateImplCopyWith<$Res> {
-  __$$ActorDefsViewerStateImplCopyWithImpl(_$ActorDefsViewerStateImpl _value,
-      $Res Function(_$ActorDefsViewerStateImpl) _then)
+class __$$ViewerStateImplCopyWithImpl<$Res>
+    extends _$ViewerStateCopyWithImpl<$Res, _$ViewerStateImpl>
+    implements _$$ViewerStateImplCopyWith<$Res> {
+  __$$ViewerStateImplCopyWithImpl(
+      _$ViewerStateImpl _value, $Res Function(_$ViewerStateImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -179,7 +178,7 @@ class __$$ActorDefsViewerStateImplCopyWithImpl<$Res>
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
-    return _then(_$ActorDefsViewerStateImpl(
+    return _then(_$ViewerStateImpl(
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -215,8 +214,8 @@ class __$$ActorDefsViewerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorDefsViewerStateImpl implements _ActorDefsViewerState {
-  const _$ActorDefsViewerStateImpl(
+class _$ViewerStateImpl implements _ViewerState {
+  const _$ViewerStateImpl(
       {this.muted = false,
       this.blockedBy = false,
       this.mutedByList,
@@ -225,8 +224,8 @@ class _$ActorDefsViewerStateImpl implements _ActorDefsViewerState {
       @atUriConverter this.following,
       @atUriConverter this.followedBy});
 
-  factory _$ActorDefsViewerStateImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorDefsViewerStateImplFromJson(json);
+  factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ViewerStateImplFromJson(json);
 
   @override
   @JsonKey()
@@ -250,14 +249,14 @@ class _$ActorDefsViewerStateImpl implements _ActorDefsViewerState {
 
   @override
   String toString() {
-    return 'ActorDefsViewerState(muted: $muted, blockedBy: $blockedBy, mutedByList: $mutedByList, blockingByList: $blockingByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
+    return 'ViewerState(muted: $muted, blockedBy: $blockedBy, mutedByList: $mutedByList, blockingByList: $blockingByList, blocking: $blocking, following: $following, followedBy: $followedBy)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorDefsViewerStateImpl &&
+            other is _$ViewerStateImpl &&
             (identical(other.muted, muted) || other.muted == muted) &&
             (identical(other.blockedBy, blockedBy) ||
                 other.blockedBy == blockedBy) &&
@@ -281,31 +280,29 @@ class _$ActorDefsViewerStateImpl implements _ActorDefsViewerState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorDefsViewerStateImplCopyWith<_$ActorDefsViewerStateImpl>
-      get copyWith =>
-          __$$ActorDefsViewerStateImplCopyWithImpl<_$ActorDefsViewerStateImpl>(
-              this, _$identity);
+  _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>
+      __$$ViewerStateImplCopyWithImpl<_$ViewerStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorDefsViewerStateImplToJson(
+    return _$$ViewerStateImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorDefsViewerState implements ActorDefsViewerState {
-  const factory _ActorDefsViewerState(
+abstract class _ViewerState implements ViewerState {
+  const factory _ViewerState(
       {final bool muted,
       final bool blockedBy,
       final GraphDefsListViewBasic? mutedByList,
       final GraphDefsListViewBasic? blockingByList,
       @atUriConverter final AtUri? blocking,
       @atUriConverter final AtUri? following,
-      @atUriConverter final AtUri? followedBy}) = _$ActorDefsViewerStateImpl;
+      @atUriConverter final AtUri? followedBy}) = _$ViewerStateImpl;
 
-  factory _ActorDefsViewerState.fromJson(Map<String, dynamic> json) =
-      _$ActorDefsViewerStateImpl.fromJson;
+  factory _ViewerState.fromJson(Map<String, dynamic> json) =
+      _$ViewerStateImpl.fromJson;
 
   @override
   bool get muted;
@@ -326,6 +323,6 @@ abstract class _ActorDefsViewerState implements ActorDefsViewerState {
   AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)
-  _$$ActorDefsViewerStateImplCopyWith<_$ActorDefsViewerStateImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

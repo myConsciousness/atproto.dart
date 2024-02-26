@@ -22,7 +22,7 @@ const _defaultLabeler = <LabelerSettings>[
 
 ModerationOptions getModerationOptions({
   required String userDid,
-  required List<UActorDefsPreferencesPreferences> preferences,
+  required List<UPreferencesPreferences> preferences,
   List<LabelerSettings>? labelers,
 }) =>
     ModerationOptions(
@@ -33,7 +33,7 @@ ModerationOptions getModerationOptions({
     );
 
 Map<String, LabelPreference> _getLabels(
-  final List<UActorDefsPreferencesPreferences> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   final labelPreferences = _getLabelPreferences(preferences);
 
@@ -59,13 +59,13 @@ Map<String, LabelPreference> _getLabels(
 }
 
 LabelPreferences _getLabelPreferences(
-  final List<UActorDefsPreferencesPreferences> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   if (preferences.isEmpty) return const LabelPreferences();
 
   final labelPreferences = <String, dynamic>{};
   for (final preference in preferences) {
-    if (preference is UActorDefsPreferencesPreferencesContentLabelPref) {
+    if (preference is UPreferencesPreferencesContentLabelPref) {
       labelPreferences[preference.data.label] = _getLabelPreference(
         preference.data.visibility,
       ).name;
@@ -85,12 +85,12 @@ LabelPreference _getLabelPreference(
     };
 
 bool _isAdultContentEnabled(
-  final List<UActorDefsPreferencesPreferences> preferences,
+  final List<UPreferencesPreferences> preferences,
 ) {
   if (preferences.isEmpty) return false;
 
   for (final preference in preferences) {
-    if (preference is UActorDefsPreferencesPreferencesAdultContentPref) {
+    if (preference is UPreferencesPreferencesAdultContentPref) {
       return preference.data.isEnabled;
     }
   }

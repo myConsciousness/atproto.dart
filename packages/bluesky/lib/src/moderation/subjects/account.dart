@@ -46,7 +46,7 @@ ModerationDecision decideAccount(
   return accumulator.finalizeDecision(options);
 }
 
-(String, ActorDefsViewerState, List<LabelDefsLabel>?) _getDecisionFactors(
+(String, ViewerState, List<LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(

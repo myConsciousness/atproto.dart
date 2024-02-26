@@ -5,7 +5,7 @@
 export 'package:atproto/lex_types.dart';
 
 export 'package:bluesky/src/services/types/actor/defs/_z.dart'
-    hide unionActorDefsPreferencesPreferencesConverter;
+    hide unionPreferencesPreferencesConverter;
 export 'package:bluesky/src/services/types/actor/get_preferences/_z.dart';
 export 'package:bluesky/src/services/types/actor/get_profile/_z.dart';
 export 'package:bluesky/src/services/types/actor/get_profiles/_z.dart';

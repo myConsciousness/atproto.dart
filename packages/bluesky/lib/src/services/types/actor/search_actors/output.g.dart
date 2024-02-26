@@ -18,8 +18,8 @@ _$ActorSearchActorsOutputImpl _$$ActorSearchActorsOutputImplFromJson(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorDefsProfileView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );

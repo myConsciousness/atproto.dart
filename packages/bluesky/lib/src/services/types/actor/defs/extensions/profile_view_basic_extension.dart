@@ -5,12 +5,11 @@
 // 🌎 Project imports:
 import '../profile_view.dart';
 import '../profile_view_basic.dart';
-import 'viewer_state_extension.dart';
+import './viewer_state_extension.dart';
 
-extension ActorDefsProfileViewBasicExtension on ActorDefsProfileViewBasic {
-  /// Returns the [ActorDefsProfileView] representation of this object.
-  ActorDefsProfileView toActorDefsProfileView() =>
-      ActorDefsProfileView.fromJson(toJson());
+extension ProfileViewBasicExtension on ProfileViewBasic {
+  /// Returns the [ProfileView] representation of this object.
+  ProfileView toProfileView() => ProfileView.fromJson(toJson());
 
   /// Returns true if authenticated user has muted this actor,
   /// otherwise false.

@@ -123,7 +123,7 @@ final class ModerationBehaviorSuiteRunner {
         ],
       );
 
-  ActorDefsProfileViewBasic _getProfileViewBasic(
+  ProfileViewBasic _getProfileViewBasic(
     final String name,
     final ModerationBehaviorScenarioLabels scenarioLabels,
   ) {
@@ -145,11 +145,11 @@ final class ModerationBehaviorSuiteRunner {
       }
     }
 
-    return ActorDefsProfileViewBasic(
+    return ProfileViewBasic(
       did: 'did:web:$name.test',
       handle: '$name.test',
       labels: labels,
-      viewer: ActorDefsViewerState(
+      viewer: ViewerState(
         muted: def.isMuted || def.isMutedByList,
         mutedByList: def.isMutedByList
             ? GraphDefsListViewBasic(

@@ -17,7 +17,7 @@ _$ActorSearchActorsTypeaheadOutputImpl
               actors: $checkedConvert(
                   'actors',
                   (v) => (v as List<dynamic>)
-                      .map((e) => ActorDefsProfileViewBasic.fromJson(
+                      .map((e) => ProfileViewBasic.fromJson(
                           Map<String, Object?>.from(e as Map)))
                       .toList()),
             );

@@ -18,7 +18,7 @@ _$GraphGetSuggestedFollowsByActorOutputImpl
               suggestions: $checkedConvert(
                   'suggestions',
                   (v) => (v as List<dynamic>)
-                      .map((e) => ActorDefsProfileView.fromJson(
+                      .map((e) => ProfileView.fromJson(
                           Map<String, Object?>.from(e as Map)))
                       .toList()),
             );

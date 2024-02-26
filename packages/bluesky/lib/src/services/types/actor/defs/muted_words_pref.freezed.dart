@@ -14,37 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorDefsMutedWordsPref _$ActorDefsMutedWordsPrefFromJson(
-    Map<String, dynamic> json) {
-  return _ActorDefsMutedWordsPref.fromJson(json);
+MutedWordsPref _$MutedWordsPrefFromJson(Map<String, dynamic> json) {
+  return _MutedWordsPref.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorDefsMutedWordsPref {
+mixin _$MutedWordsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   List<ActorDefsMutedWord> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorDefsMutedWordsPrefCopyWith<ActorDefsMutedWordsPref> get copyWith =>
+  $MutedWordsPrefCopyWith<MutedWordsPref> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorDefsMutedWordsPrefCopyWith<$Res> {
-  factory $ActorDefsMutedWordsPrefCopyWith(ActorDefsMutedWordsPref value,
-          $Res Function(ActorDefsMutedWordsPref) then) =
-      _$ActorDefsMutedWordsPrefCopyWithImpl<$Res, ActorDefsMutedWordsPref>;
+abstract class $MutedWordsPrefCopyWith<$Res> {
+  factory $MutedWordsPrefCopyWith(
+          MutedWordsPref value, $Res Function(MutedWordsPref) then) =
+      _$MutedWordsPrefCopyWithImpl<$Res, MutedWordsPref>;
   @useResult
   $Res call({@typeKey String type, List<ActorDefsMutedWord> items});
 }
 
 /// @nodoc
-class _$ActorDefsMutedWordsPrefCopyWithImpl<$Res,
-        $Val extends ActorDefsMutedWordsPref>
-    implements $ActorDefsMutedWordsPrefCopyWith<$Res> {
-  _$ActorDefsMutedWordsPrefCopyWithImpl(this._value, this._then);
+class _$MutedWordsPrefCopyWithImpl<$Res, $Val extends MutedWordsPref>
+    implements $MutedWordsPrefCopyWith<$Res> {
+  _$MutedWordsPrefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -71,25 +69,22 @@ class _$ActorDefsMutedWordsPrefCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorDefsMutedWordsPrefImplCopyWith<$Res>
-    implements $ActorDefsMutedWordsPrefCopyWith<$Res> {
-  factory _$$ActorDefsMutedWordsPrefImplCopyWith(
-          _$ActorDefsMutedWordsPrefImpl value,
-          $Res Function(_$ActorDefsMutedWordsPrefImpl) then) =
-      __$$ActorDefsMutedWordsPrefImplCopyWithImpl<$Res>;
+abstract class _$$MutedWordsPrefImplCopyWith<$Res>
+    implements $MutedWordsPrefCopyWith<$Res> {
+  factory _$$MutedWordsPrefImplCopyWith(_$MutedWordsPrefImpl value,
+          $Res Function(_$MutedWordsPrefImpl) then) =
+      __$$MutedWordsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, List<ActorDefsMutedWord> items});
 }
 
 /// @nodoc
-class __$$ActorDefsMutedWordsPrefImplCopyWithImpl<$Res>
-    extends _$ActorDefsMutedWordsPrefCopyWithImpl<$Res,
-        _$ActorDefsMutedWordsPrefImpl>
-    implements _$$ActorDefsMutedWordsPrefImplCopyWith<$Res> {
-  __$$ActorDefsMutedWordsPrefImplCopyWithImpl(
-      _$ActorDefsMutedWordsPrefImpl _value,
-      $Res Function(_$ActorDefsMutedWordsPrefImpl) _then)
+class __$$MutedWordsPrefImplCopyWithImpl<$Res>
+    extends _$MutedWordsPrefCopyWithImpl<$Res, _$MutedWordsPrefImpl>
+    implements _$$MutedWordsPrefImplCopyWith<$Res> {
+  __$$MutedWordsPrefImplCopyWithImpl(
+      _$MutedWordsPrefImpl _value, $Res Function(_$MutedWordsPrefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +93,7 @@ class __$$ActorDefsMutedWordsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? items = null,
   }) {
-    return _then(_$ActorDefsMutedWordsPrefImpl(
+    return _then(_$MutedWordsPrefImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -113,14 +108,14 @@ class __$$ActorDefsMutedWordsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$ActorDefsMutedWordsPrefImpl implements _ActorDefsMutedWordsPref {
-  const _$ActorDefsMutedWordsPrefImpl(
+class _$MutedWordsPrefImpl implements _MutedWordsPref {
+  const _$MutedWordsPrefImpl(
       {@typeKey this.type = appBskyActorDefsMutedWordsPref,
       required final List<ActorDefsMutedWord> items})
       : _items = items;
 
-  factory _$ActorDefsMutedWordsPrefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorDefsMutedWordsPrefImplFromJson(json);
+  factory _$MutedWordsPrefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MutedWordsPrefImplFromJson(json);
 
   @override
   @typeKey
@@ -135,14 +130,14 @@ class _$ActorDefsMutedWordsPrefImpl implements _ActorDefsMutedWordsPref {
 
   @override
   String toString() {
-    return 'ActorDefsMutedWordsPref(type: $type, items: $items)';
+    return 'MutedWordsPref(type: $type, items: $items)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorDefsMutedWordsPrefImpl &&
+            other is _$MutedWordsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
@@ -155,26 +150,25 @@ class _$ActorDefsMutedWordsPrefImpl implements _ActorDefsMutedWordsPref {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorDefsMutedWordsPrefImplCopyWith<_$ActorDefsMutedWordsPrefImpl>
-      get copyWith => __$$ActorDefsMutedWordsPrefImplCopyWithImpl<
-          _$ActorDefsMutedWordsPrefImpl>(this, _$identity);
+  _$$MutedWordsPrefImplCopyWith<_$MutedWordsPrefImpl> get copyWith =>
+      __$$MutedWordsPrefImplCopyWithImpl<_$MutedWordsPrefImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorDefsMutedWordsPrefImplToJson(
+    return _$$MutedWordsPrefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorDefsMutedWordsPref implements ActorDefsMutedWordsPref {
-  const factory _ActorDefsMutedWordsPref(
-          {@typeKey final String type,
-          required final List<ActorDefsMutedWord> items}) =
-      _$ActorDefsMutedWordsPrefImpl;
+abstract class _MutedWordsPref implements MutedWordsPref {
+  const factory _MutedWordsPref(
+      {@typeKey final String type,
+      required final List<ActorDefsMutedWord> items}) = _$MutedWordsPrefImpl;
 
-  factory _ActorDefsMutedWordsPref.fromJson(Map<String, dynamic> json) =
-      _$ActorDefsMutedWordsPrefImpl.fromJson;
+  factory _MutedWordsPref.fromJson(Map<String, dynamic> json) =
+      _$MutedWordsPrefImpl.fromJson;
 
   @override
   @typeKey
@@ -183,6 +177,6 @@ abstract class _ActorDefsMutedWordsPref implements ActorDefsMutedWordsPref {
   List<ActorDefsMutedWord> get items;
   @override
   @JsonKey(ignore: true)
-  _$$ActorDefsMutedWordsPrefImplCopyWith<_$ActorDefsMutedWordsPrefImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$MutedWordsPrefImplCopyWith<_$MutedWordsPrefImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

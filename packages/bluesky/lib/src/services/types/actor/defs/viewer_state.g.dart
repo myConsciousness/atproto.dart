@@ -8,12 +8,11 @@ part of 'viewer_state.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsViewerStateImpl _$$ActorDefsViewerStateImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorDefsViewerStateImpl',
+_$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
+      r'_$ViewerStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsViewerStateImpl(
+        final val = _$ViewerStateImpl(
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
@@ -45,8 +44,7 @@ _$ActorDefsViewerStateImpl _$$ActorDefsViewerStateImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ActorDefsViewerStateImplToJson(
-    _$ActorDefsViewerStateImpl instance) {
+Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
   final val = <String, dynamic>{
     'muted': instance.muted,
     'blockedBy': instance.blockedBy,

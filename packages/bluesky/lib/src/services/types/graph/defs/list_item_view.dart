@@ -21,7 +21,7 @@ part 'list_item_view.g.dart';
 class GraphDefsListItemView with _$GraphDefsListItemView {
   const factory GraphDefsListItemView({
     @atUriConverter required AtUri uri,
-    required ActorDefsProfileView subject,
+    required ProfileView subject,
   }) = _GraphDefsListItemView;
 
   factory GraphDefsListItemView.fromJson(Map<String, Object?> json) =>

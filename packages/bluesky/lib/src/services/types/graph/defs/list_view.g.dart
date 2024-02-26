@@ -29,10 +29,8 @@ _$GraphDefsListViewImpl _$$GraphDefsListViewImplFromJson(Map json) =>
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          creator: $checkedConvert(
-              'creator',
-              (v) => ActorDefsProfileView.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert('creator',
+              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null

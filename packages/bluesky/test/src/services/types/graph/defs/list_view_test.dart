@@ -21,10 +21,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -46,10 +46,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -73,10 +73,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -98,10 +98,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -125,10 +125,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -153,10 +153,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -180,10 +180,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -208,10 +208,10 @@ void main() {
         ),
         cid: 'aaaaa',
         name: 'test',
-        creator: ActorDefsProfileView(
+        creator: ProfileView(
           did: 'xxxxxx',
           handle: 'shinyakato.dev',
-          viewer: ActorDefsViewerState(
+          viewer: ViewerState(
             muted: true,
             blockedBy: false,
           ),
@@ -234,10 +234,10 @@ void main() {
       ),
       cid: 'aaaaa',
       name: 'test',
-      creator: ActorDefsProfileView(
+      creator: ProfileView(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
         ),
@@ -262,10 +262,10 @@ void main() {
       ),
       cid: 'aaaaa',
       name: 'test',
-      creator: ActorDefsProfileView(
+      creator: ProfileView(
         did: 'xxxxxx',
         handle: 'shinyakato.dev',
-        viewer: ActorDefsViewerState(
+        viewer: ViewerState(
           muted: true,
           blockedBy: false,
         ),

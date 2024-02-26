@@ -18,13 +18,13 @@ part 'interests_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#interestspref
 @freezed
 @lex.appBskyActorDefsInterestsPref
-class ActorDefsInterestsPref with _$ActorDefsInterestsPref {
+class InterestsPref with _$InterestsPref {
   @jsonSerializable
-  const factory ActorDefsInterestsPref({
+  const factory InterestsPref({
     @typeKey @Default(appBskyActorDefsInterestsPref) String type,
     required List<String> tags,
-  }) = _ActorDefsInterestsPref;
+  }) = _InterestsPref;
 
-  factory ActorDefsInterestsPref.fromJson(Map<String, Object?> json) =>
-      _$ActorDefsInterestsPrefFromJson(json);
+  factory InterestsPref.fromJson(Map<String, Object?> json) =>
+      _$InterestsPrefFromJson(json);
 }

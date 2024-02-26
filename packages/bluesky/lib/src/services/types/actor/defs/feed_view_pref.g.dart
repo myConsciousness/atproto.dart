@@ -8,12 +8,11 @@ part of 'feed_view_pref.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDefsFeedViewPrefImpl _$$ActorDefsFeedViewPrefImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorDefsFeedViewPrefImpl',
+_$FeedViewPrefImpl _$$FeedViewPrefImplFromJson(Map json) => $checkedCreate(
+      r'_$FeedViewPrefImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDefsFeedViewPrefImpl(
+        final val = _$FeedViewPrefImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsFeedViewPref),
           feed: $checkedConvert('feed', (v) => v as String),
@@ -33,8 +32,7 @@ _$ActorDefsFeedViewPrefImpl _$$ActorDefsFeedViewPrefImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorDefsFeedViewPrefImplToJson(
-        _$ActorDefsFeedViewPrefImpl instance) =>
+Map<String, dynamic> _$$FeedViewPrefImplToJson(_$FeedViewPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
       'feed': instance.feed,

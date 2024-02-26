@@ -20,7 +20,7 @@ GraphGetBlocksOutput _$GraphGetBlocksOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GraphGetBlocksOutput {
-  List<ActorDefsProfileView> get blocks => throw _privateConstructorUsedError;
+  List<ProfileView> get blocks => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $GraphGetBlocksOutputCopyWith<$Res> {
           $Res Function(GraphGetBlocksOutput) then) =
       _$GraphGetBlocksOutputCopyWithImpl<$Res, GraphGetBlocksOutput>;
   @useResult
-  $Res call({List<ActorDefsProfileView> blocks, String? cursor});
+  $Res call({List<ProfileView> blocks, String? cursor});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$GraphGetBlocksOutputCopyWithImpl<$Res,
       blocks: null == blocks
           ? _value.blocks
           : blocks // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$GraphGetBlocksOutputImplCopyWith<$Res>
       __$$GraphGetBlocksOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ActorDefsProfileView> blocks, String? cursor});
+  $Res call({List<ProfileView> blocks, String? cursor});
 }
 
 /// @nodoc
@@ -97,7 +97,7 @@ class __$$GraphGetBlocksOutputImplCopyWithImpl<$Res>
       blocks: null == blocks
           ? _value._blocks
           : blocks // ignore: cast_nullable_to_non_nullable
-              as List<ActorDefsProfileView>,
+              as List<ProfileView>,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -111,15 +111,15 @@ class __$$GraphGetBlocksOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GraphGetBlocksOutputImpl implements _GraphGetBlocksOutput {
   const _$GraphGetBlocksOutputImpl(
-      {required final List<ActorDefsProfileView> blocks, this.cursor})
+      {required final List<ProfileView> blocks, this.cursor})
       : _blocks = blocks;
 
   factory _$GraphGetBlocksOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GraphGetBlocksOutputImplFromJson(json);
 
-  final List<ActorDefsProfileView> _blocks;
+  final List<ProfileView> _blocks;
   @override
-  List<ActorDefsProfileView> get blocks {
+  List<ProfileView> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_blocks);
@@ -165,14 +165,14 @@ class _$GraphGetBlocksOutputImpl implements _GraphGetBlocksOutput {
 
 abstract class _GraphGetBlocksOutput implements GraphGetBlocksOutput {
   const factory _GraphGetBlocksOutput(
-      {required final List<ActorDefsProfileView> blocks,
+      {required final List<ProfileView> blocks,
       final String? cursor}) = _$GraphGetBlocksOutputImpl;
 
   factory _GraphGetBlocksOutput.fromJson(Map<String, dynamic> json) =
       _$GraphGetBlocksOutputImpl.fromJson;
 
   @override
-  List<ActorDefsProfileView> get blocks;
+  List<ProfileView> get blocks;
   @override
   String? get cursor;
   @override

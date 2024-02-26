@@ -20,7 +20,7 @@ _$NotificationListNotificationsNotificationImpl
                   'uri', (v) => atUriConverter.fromJson(v as String)),
               author: $checkedConvert(
                   'author',
-                  (v) => ActorDefsProfileView.fromJson(
+                  (v) => ProfileView.fromJson(
                       Map<String, Object?>.from(v as Map))),
               reason: $checkedConvert(
                   'reason',

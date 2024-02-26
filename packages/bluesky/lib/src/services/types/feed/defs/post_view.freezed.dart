@@ -24,7 +24,7 @@ mixin _$FeedDefsPostView {
   String get type => throw _privateConstructorUsedError;
   @feedPostRecordConverter
   FeedPostRecord get record => throw _privateConstructorUsedError;
-  ActorDefsProfileViewBasic get author => throw _privateConstructorUsedError;
+  ProfileViewBasic get author => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $FeedDefsPostViewCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @feedPostRecordConverter FeedPostRecord record,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,
@@ -66,7 +66,7 @@ abstract class $FeedDefsPostViewCopyWith<$Res> {
       DateTime indexedAt});
 
   $FeedPostRecordCopyWith<$Res> get record;
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   $UFeedDefsPostViewEmbedCopyWith<$Res>? get embed;
   $FeedDefsViewerStateCopyWith<$Res> get viewer;
   $FeedDefsThreadgateViewCopyWith<$Res>? get threadgate;
@@ -111,7 +111,7 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -165,8 +165,8 @@ class _$FeedDefsPostViewCopyWithImpl<$Res, $Val extends FeedDefsPostView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author {
-    return $ActorDefsProfileViewBasicCopyWith<$Res>(_value.author, (value) {
+  $ProfileViewBasicCopyWith<$Res> get author {
+    return $ProfileViewBasicCopyWith<$Res>(_value.author, (value) {
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
@@ -215,7 +215,7 @@ abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @feedPostRecordConverter FeedPostRecord record,
-      ActorDefsProfileViewBasic author,
+      ProfileViewBasic author,
       @atUriConverter AtUri uri,
       String cid,
       @unionFeedDefsPostViewEmbedConverter UFeedDefsPostViewEmbed? embed,
@@ -230,7 +230,7 @@ abstract class _$$FeedDefsPostViewImplCopyWith<$Res>
   @override
   $FeedPostRecordCopyWith<$Res> get record;
   @override
-  $ActorDefsProfileViewBasicCopyWith<$Res> get author;
+  $ProfileViewBasicCopyWith<$Res> get author;
   @override
   $UFeedDefsPostViewEmbedCopyWith<$Res>? get embed;
   @override
@@ -276,7 +276,7 @@ class __$$FeedDefsPostViewImplCopyWithImpl<$Res>
       author: null == author
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
-              as ActorDefsProfileViewBasic,
+              as ProfileViewBasic,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -351,7 +351,7 @@ class _$FeedDefsPostViewImpl implements _FeedDefsPostView {
   @feedPostRecordConverter
   final FeedPostRecord record;
   @override
-  final ActorDefsProfileViewBasic author;
+  final ProfileViewBasic author;
   @override
   @atUriConverter
   final AtUri uri;
@@ -454,7 +454,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   const factory _FeedDefsPostView(
       {@typeKey final String type,
       @feedPostRecordConverter required final FeedPostRecord record,
-      required final ActorDefsProfileViewBasic author,
+      required final ProfileViewBasic author,
       @atUriConverter required final AtUri uri,
       required final String cid,
       @unionFeedDefsPostViewEmbedConverter final UFeedDefsPostViewEmbed? embed,
@@ -476,7 +476,7 @@ abstract class _FeedDefsPostView implements FeedDefsPostView {
   @feedPostRecordConverter
   FeedPostRecord get record;
   @override
-  ActorDefsProfileViewBasic get author;
+  ProfileViewBasic get author;
   @override
   @atUriConverter
   AtUri get uri;
