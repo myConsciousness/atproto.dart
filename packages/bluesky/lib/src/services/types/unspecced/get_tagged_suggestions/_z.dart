@@ -5,4 +5,4 @@
 export 'output.dart';
 export 'suggestion.dart';
 
-export 'constants/tagged_suggestion_subject_type.dart';
+export 'constants/tagged_suggestion_subject_type_known_values.dart';
