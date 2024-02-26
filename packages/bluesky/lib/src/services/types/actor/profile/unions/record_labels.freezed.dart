@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UActorProfileRecordLabels {
+mixin _$URecordLabels {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -38,38 +38,36 @@ mixin _$UActorProfileRecordLabels {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UActorProfileRecordLabelsSelLabels value)
-        selfLabels,
-    required TResult Function(UActorProfileRecordLabelsUnknown value) unknown,
+    required TResult Function(URecordLabelsSelLabels value) selfLabels,
+    required TResult Function(URecordLabelsUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult? Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult? Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult? Function(URecordLabelsUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult Function(URecordLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UActorProfileRecordLabelsCopyWith<$Res> {
-  factory $UActorProfileRecordLabelsCopyWith(UActorProfileRecordLabels value,
-          $Res Function(UActorProfileRecordLabels) then) =
-      _$UActorProfileRecordLabelsCopyWithImpl<$Res, UActorProfileRecordLabels>;
+abstract class $URecordLabelsCopyWith<$Res> {
+  factory $URecordLabelsCopyWith(
+          URecordLabels value, $Res Function(URecordLabels) then) =
+      _$URecordLabelsCopyWithImpl<$Res, URecordLabels>;
 }
 
 /// @nodoc
-class _$UActorProfileRecordLabelsCopyWithImpl<$Res,
-        $Val extends UActorProfileRecordLabels>
-    implements $UActorProfileRecordLabelsCopyWith<$Res> {
-  _$UActorProfileRecordLabelsCopyWithImpl(this._value, this._then);
+class _$URecordLabelsCopyWithImpl<$Res, $Val extends URecordLabels>
+    implements $URecordLabelsCopyWith<$Res> {
+  _$URecordLabelsCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -78,11 +76,11 @@ class _$UActorProfileRecordLabelsCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UActorProfileRecordLabelsSelLabelsImplCopyWith<$Res> {
-  factory _$$UActorProfileRecordLabelsSelLabelsImplCopyWith(
-          _$UActorProfileRecordLabelsSelLabelsImpl value,
-          $Res Function(_$UActorProfileRecordLabelsSelLabelsImpl) then) =
-      __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl<$Res>;
+abstract class _$$URecordLabelsSelLabelsImplCopyWith<$Res> {
+  factory _$$URecordLabelsSelLabelsImplCopyWith(
+          _$URecordLabelsSelLabelsImpl value,
+          $Res Function(_$URecordLabelsSelLabelsImpl) then) =
+      __$$URecordLabelsSelLabelsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({LabelDefsSelfLabels data});
 
@@ -90,13 +88,12 @@ abstract class _$$UActorProfileRecordLabelsSelLabelsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl<$Res>
-    extends _$UActorProfileRecordLabelsCopyWithImpl<$Res,
-        _$UActorProfileRecordLabelsSelLabelsImpl>
-    implements _$$UActorProfileRecordLabelsSelLabelsImplCopyWith<$Res> {
-  __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl(
-      _$UActorProfileRecordLabelsSelLabelsImpl _value,
-      $Res Function(_$UActorProfileRecordLabelsSelLabelsImpl) _then)
+class __$$URecordLabelsSelLabelsImplCopyWithImpl<$Res>
+    extends _$URecordLabelsCopyWithImpl<$Res, _$URecordLabelsSelLabelsImpl>
+    implements _$$URecordLabelsSelLabelsImplCopyWith<$Res> {
+  __$$URecordLabelsSelLabelsImplCopyWithImpl(
+      _$URecordLabelsSelLabelsImpl _value,
+      $Res Function(_$URecordLabelsSelLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +101,7 @@ class __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UActorProfileRecordLabelsSelLabelsImpl(
+    return _then(_$URecordLabelsSelLabelsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -123,24 +120,22 @@ class __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UActorProfileRecordLabelsSelLabelsImpl
-    extends UActorProfileRecordLabelsSelLabels {
-  const _$UActorProfileRecordLabelsSelLabelsImpl({required this.data})
-      : super._();
+class _$URecordLabelsSelLabelsImpl extends URecordLabelsSelLabels {
+  const _$URecordLabelsSelLabelsImpl({required this.data}) : super._();
 
   @override
   final LabelDefsSelfLabels data;
 
   @override
   String toString() {
-    return 'UActorProfileRecordLabels.selfLabels(data: $data)';
+    return 'URecordLabels.selfLabels(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UActorProfileRecordLabelsSelLabelsImpl &&
+            other is _$URecordLabelsSelLabelsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -150,10 +145,9 @@ class _$UActorProfileRecordLabelsSelLabelsImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UActorProfileRecordLabelsSelLabelsImplCopyWith<
-          _$UActorProfileRecordLabelsSelLabelsImpl>
-      get copyWith => __$$UActorProfileRecordLabelsSelLabelsImplCopyWithImpl<
-          _$UActorProfileRecordLabelsSelLabelsImpl>(this, _$identity);
+  _$$URecordLabelsSelLabelsImplCopyWith<_$URecordLabelsSelLabelsImpl>
+      get copyWith => __$$URecordLabelsSelLabelsImplCopyWithImpl<
+          _$URecordLabelsSelLabelsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -189,9 +183,8 @@ class _$UActorProfileRecordLabelsSelLabelsImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UActorProfileRecordLabelsSelLabels value)
-        selfLabels,
-    required TResult Function(UActorProfileRecordLabelsUnknown value) unknown,
+    required TResult Function(URecordLabelsSelLabels value) selfLabels,
+    required TResult Function(URecordLabelsUnknown value) unknown,
   }) {
     return selfLabels(this);
   }
@@ -199,8 +192,8 @@ class _$UActorProfileRecordLabelsSelLabelsImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult? Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult? Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult? Function(URecordLabelsUnknown value)? unknown,
   }) {
     return selfLabels?.call(this);
   }
@@ -208,8 +201,8 @@ class _$UActorProfileRecordLabelsSelLabelsImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult Function(URecordLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (selfLabels != null) {
@@ -219,39 +212,33 @@ class _$UActorProfileRecordLabelsSelLabelsImpl
   }
 }
 
-abstract class UActorProfileRecordLabelsSelLabels
-    extends UActorProfileRecordLabels {
-  const factory UActorProfileRecordLabelsSelLabels(
-          {required final LabelDefsSelfLabels data}) =
-      _$UActorProfileRecordLabelsSelLabelsImpl;
-  const UActorProfileRecordLabelsSelLabels._() : super._();
+abstract class URecordLabelsSelLabels extends URecordLabels {
+  const factory URecordLabelsSelLabels(
+      {required final LabelDefsSelfLabels data}) = _$URecordLabelsSelLabelsImpl;
+  const URecordLabelsSelLabels._() : super._();
 
   @override
   LabelDefsSelfLabels get data;
   @JsonKey(ignore: true)
-  _$$UActorProfileRecordLabelsSelLabelsImplCopyWith<
-          _$UActorProfileRecordLabelsSelLabelsImpl>
+  _$$URecordLabelsSelLabelsImplCopyWith<_$URecordLabelsSelLabelsImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UActorProfileRecordLabelsUnknownImplCopyWith<$Res> {
-  factory _$$UActorProfileRecordLabelsUnknownImplCopyWith(
-          _$UActorProfileRecordLabelsUnknownImpl value,
-          $Res Function(_$UActorProfileRecordLabelsUnknownImpl) then) =
-      __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl<$Res>;
+abstract class _$$URecordLabelsUnknownImplCopyWith<$Res> {
+  factory _$$URecordLabelsUnknownImplCopyWith(_$URecordLabelsUnknownImpl value,
+          $Res Function(_$URecordLabelsUnknownImpl) then) =
+      __$$URecordLabelsUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl<$Res>
-    extends _$UActorProfileRecordLabelsCopyWithImpl<$Res,
-        _$UActorProfileRecordLabelsUnknownImpl>
-    implements _$$UActorProfileRecordLabelsUnknownImplCopyWith<$Res> {
-  __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl(
-      _$UActorProfileRecordLabelsUnknownImpl _value,
-      $Res Function(_$UActorProfileRecordLabelsUnknownImpl) _then)
+class __$$URecordLabelsUnknownImplCopyWithImpl<$Res>
+    extends _$URecordLabelsCopyWithImpl<$Res, _$URecordLabelsUnknownImpl>
+    implements _$$URecordLabelsUnknownImplCopyWith<$Res> {
+  __$$URecordLabelsUnknownImplCopyWithImpl(_$URecordLabelsUnknownImpl _value,
+      $Res Function(_$URecordLabelsUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -259,7 +246,7 @@ class __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UActorProfileRecordLabelsUnknownImpl(
+    return _then(_$URecordLabelsUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -270,10 +257,8 @@ class __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UActorProfileRecordLabelsUnknownImpl
-    extends UActorProfileRecordLabelsUnknown {
-  const _$UActorProfileRecordLabelsUnknownImpl(
-      {required final Map<String, dynamic> data})
+class _$URecordLabelsUnknownImpl extends URecordLabelsUnknown {
+  const _$URecordLabelsUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -287,14 +272,14 @@ class _$UActorProfileRecordLabelsUnknownImpl
 
   @override
   String toString() {
-    return 'UActorProfileRecordLabels.unknown(data: $data)';
+    return 'URecordLabels.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UActorProfileRecordLabelsUnknownImpl &&
+            other is _$URecordLabelsUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -305,10 +290,10 @@ class _$UActorProfileRecordLabelsUnknownImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UActorProfileRecordLabelsUnknownImplCopyWith<
-          _$UActorProfileRecordLabelsUnknownImpl>
-      get copyWith => __$$UActorProfileRecordLabelsUnknownImplCopyWithImpl<
-          _$UActorProfileRecordLabelsUnknownImpl>(this, _$identity);
+  _$$URecordLabelsUnknownImplCopyWith<_$URecordLabelsUnknownImpl>
+      get copyWith =>
+          __$$URecordLabelsUnknownImplCopyWithImpl<_$URecordLabelsUnknownImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -344,9 +329,8 @@ class _$UActorProfileRecordLabelsUnknownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UActorProfileRecordLabelsSelLabels value)
-        selfLabels,
-    required TResult Function(UActorProfileRecordLabelsUnknown value) unknown,
+    required TResult Function(URecordLabelsSelLabels value) selfLabels,
+    required TResult Function(URecordLabelsUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -354,8 +338,8 @@ class _$UActorProfileRecordLabelsUnknownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult? Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult? Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult? Function(URecordLabelsUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -363,8 +347,8 @@ class _$UActorProfileRecordLabelsUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UActorProfileRecordLabelsSelLabels value)? selfLabels,
-    TResult Function(UActorProfileRecordLabelsUnknown value)? unknown,
+    TResult Function(URecordLabelsSelLabels value)? selfLabels,
+    TResult Function(URecordLabelsUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -374,17 +358,14 @@ class _$UActorProfileRecordLabelsUnknownImpl
   }
 }
 
-abstract class UActorProfileRecordLabelsUnknown
-    extends UActorProfileRecordLabels {
-  const factory UActorProfileRecordLabelsUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$UActorProfileRecordLabelsUnknownImpl;
-  const UActorProfileRecordLabelsUnknown._() : super._();
+abstract class URecordLabelsUnknown extends URecordLabels {
+  const factory URecordLabelsUnknown(
+      {required final Map<String, dynamic> data}) = _$URecordLabelsUnknownImpl;
+  const URecordLabelsUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UActorProfileRecordLabelsUnknownImplCopyWith<
-          _$UActorProfileRecordLabelsUnknownImpl>
+  _$$URecordLabelsUnknownImplCopyWith<_$URecordLabelsUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

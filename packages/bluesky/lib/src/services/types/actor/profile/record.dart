@@ -17,18 +17,17 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile/#input
 @freezed
-class ActorProfileRecord with _$ActorProfileRecord {
+class Record with _$Record {
   @jsonSerializable
-  const factory ActorProfileRecord({
+  const factory Record({
     @typeKey @Default(appBskyActorProfile) String type,
     String? displayName,
     String? description,
     Blob? avatar,
     Blob? banner,
-    @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
+    @unionRecordLabelsConverter URecordLabels? labels,
     @Default({}) Map<String, dynamic> unknown,
-  }) = _ActorProfileRecord;
+  }) = _Record;
 
-  factory ActorProfileRecord.fromJson(Map<String, Object?> json) =>
-      _$ActorProfileRecordFromJson(json);
+  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
 }

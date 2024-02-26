@@ -8,12 +8,11 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorProfileRecordImpl _$$ActorProfileRecordImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ActorProfileRecordImpl',
+_$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
+      r'_$RecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorProfileRecordImpl(
+        final val = _$RecordImpl(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorProfile),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -30,9 +29,9 @@ _$ActorProfileRecordImpl _$$ActorProfileRecordImplFromJson(Map json) =>
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
-                      UActorProfileRecordLabels>(
-                  v, unionActorProfileRecordLabelsConverter.fromJson)),
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, URecordLabels>(
+                      v, unionRecordLabelsConverter.fromJson)),
           unknown: $checkedConvert(
               'unknown',
               (v) =>
@@ -46,8 +45,7 @@ _$ActorProfileRecordImpl _$$ActorProfileRecordImplFromJson(Map json) =>
       fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$ActorProfileRecordImplToJson(
-    _$ActorProfileRecordImpl instance) {
+Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
   };
@@ -64,8 +62,8 @@ Map<String, dynamic> _$$ActorProfileRecordImplToJson(
   writeNotNull('banner', instance.banner?.toJson());
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, UActorProfileRecordLabels>(
-          instance.labels, unionActorProfileRecordLabelsConverter.toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, URecordLabels>(
+          instance.labels, unionRecordLabelsConverter.toJson));
   val['unknown'] = instance.unknown;
   return val;
 }

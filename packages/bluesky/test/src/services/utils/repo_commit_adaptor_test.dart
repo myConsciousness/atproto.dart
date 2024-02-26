@@ -8,7 +8,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/types/actor/profile/_z.dart';
 import 'package:bluesky/src/services/types/feed/generator/_z.dart';
 import 'package:bluesky/src/services/types/feed/like/_z.dart';
 import 'package:bluesky/src/services/types/feed/post/_z.dart';
@@ -23,6 +22,10 @@ import 'package:bluesky/src/services/utils/repo_commit_adaptor.dart';
 import 'package:bluesky/src/services/utils/repo_commit_create.dart';
 import 'package:bluesky/src/services/utils/repo_commit_delete.dart';
 import 'package:bluesky/src/services/utils/repo_commit_update.dart';
+
+// 🌎 Project imports:
+import 'package:bluesky/src/services/types/actor/profile/_z.dart'
+    as app_bsky_actor_profile;
 
 void main() {
   group('.onCreatePost', () {
@@ -621,7 +624,7 @@ void main() {
       final adaptor = RepoCommitAdaptor(
         onUpdateProfile: (data) {
           expect(data, isA<RepoCommitUpdate>());
-          expect(data.record, isA<ActorProfileRecord>());
+          expect(data.record, isA<app_bsky_actor_profile.Record>());
 
           result = true;
         },

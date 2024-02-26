@@ -14,33 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorProfileRecord _$ActorProfileRecordFromJson(Map<String, dynamic> json) {
-  return _ActorProfileRecord.fromJson(json);
+Record _$RecordFromJson(Map<String, dynamic> json) {
+  return _Record.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorProfileRecord {
+mixin _$Record {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   Blob? get banner => throw _privateConstructorUsedError;
-  @unionActorProfileRecordLabelsConverter
-  UActorProfileRecordLabels? get labels => throw _privateConstructorUsedError;
+  @unionRecordLabelsConverter
+  URecordLabels? get labels => throw _privateConstructorUsedError;
   Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorProfileRecordCopyWith<ActorProfileRecord> get copyWith =>
-      throw _privateConstructorUsedError;
+  $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorProfileRecordCopyWith<$Res> {
-  factory $ActorProfileRecordCopyWith(
-          ActorProfileRecord value, $Res Function(ActorProfileRecord) then) =
-      _$ActorProfileRecordCopyWithImpl<$Res, ActorProfileRecord>;
+abstract class $RecordCopyWith<$Res> {
+  factory $RecordCopyWith(Record value, $Res Function(Record) then) =
+      _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
       {@typeKey String type,
@@ -48,18 +46,18 @@ abstract class $ActorProfileRecordCopyWith<$Res> {
       String? description,
       Blob? avatar,
       Blob? banner,
-      @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
+      @unionRecordLabelsConverter URecordLabels? labels,
       Map<String, dynamic> unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $BlobCopyWith<$Res>? get banner;
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
+  $URecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
-class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
-    implements $ActorProfileRecordCopyWith<$Res> {
-  _$ActorProfileRecordCopyWithImpl(this._value, this._then);
+class _$RecordCopyWithImpl<$Res, $Val extends Record>
+    implements $RecordCopyWith<$Res> {
+  _$RecordCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -101,7 +99,7 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as UActorProfileRecordLabels?,
+              as URecordLabels?,
       unknown: null == unknown
           ? _value.unknown
           : unknown // ignore: cast_nullable_to_non_nullable
@@ -135,23 +133,22 @@ class _$ActorProfileRecordCopyWithImpl<$Res, $Val extends ActorProfileRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels {
+  $URecordLabelsCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $UActorProfileRecordLabelsCopyWith<$Res>(_value.labels!, (value) {
+    return $URecordLabelsCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ActorProfileRecordImplCopyWith<$Res>
-    implements $ActorProfileRecordCopyWith<$Res> {
-  factory _$$ActorProfileRecordImplCopyWith(_$ActorProfileRecordImpl value,
-          $Res Function(_$ActorProfileRecordImpl) then) =
-      __$$ActorProfileRecordImplCopyWithImpl<$Res>;
+abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
+  factory _$$RecordImplCopyWith(
+          _$RecordImpl value, $Res Function(_$RecordImpl) then) =
+      __$$RecordImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -160,7 +157,7 @@ abstract class _$$ActorProfileRecordImplCopyWith<$Res>
       String? description,
       Blob? avatar,
       Blob? banner,
-      @unionActorProfileRecordLabelsConverter UActorProfileRecordLabels? labels,
+      @unionRecordLabelsConverter URecordLabels? labels,
       Map<String, dynamic> unknown});
 
   @override
@@ -168,15 +165,15 @@ abstract class _$$ActorProfileRecordImplCopyWith<$Res>
   @override
   $BlobCopyWith<$Res>? get banner;
   @override
-  $UActorProfileRecordLabelsCopyWith<$Res>? get labels;
+  $URecordLabelsCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
-class __$$ActorProfileRecordImplCopyWithImpl<$Res>
-    extends _$ActorProfileRecordCopyWithImpl<$Res, _$ActorProfileRecordImpl>
-    implements _$$ActorProfileRecordImplCopyWith<$Res> {
-  __$$ActorProfileRecordImplCopyWithImpl(_$ActorProfileRecordImpl _value,
-      $Res Function(_$ActorProfileRecordImpl) _then)
+class __$$RecordImplCopyWithImpl<$Res>
+    extends _$RecordCopyWithImpl<$Res, _$RecordImpl>
+    implements _$$RecordImplCopyWith<$Res> {
+  __$$RecordImplCopyWithImpl(
+      _$RecordImpl _value, $Res Function(_$RecordImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -190,7 +187,7 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? unknown = null,
   }) {
-    return _then(_$ActorProfileRecordImpl(
+    return _then(_$RecordImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -214,7 +211,7 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as UActorProfileRecordLabels?,
+              as URecordLabels?,
       unknown: null == unknown
           ? _value._unknown
           : unknown // ignore: cast_nullable_to_non_nullable
@@ -226,19 +223,19 @@ class __$$ActorProfileRecordImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorProfileRecordImpl implements _ActorProfileRecord {
-  const _$ActorProfileRecordImpl(
+class _$RecordImpl implements _Record {
+  const _$RecordImpl(
       {@typeKey this.type = appBskyActorProfile,
       this.displayName,
       this.description,
       this.avatar,
       this.banner,
-      @unionActorProfileRecordLabelsConverter this.labels,
+      @unionRecordLabelsConverter this.labels,
       final Map<String, dynamic> unknown = const {}})
       : _unknown = unknown;
 
-  factory _$ActorProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorProfileRecordImplFromJson(json);
+  factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecordImplFromJson(json);
 
   @override
   @typeKey
@@ -252,8 +249,8 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
   @override
   final Blob? banner;
   @override
-  @unionActorProfileRecordLabelsConverter
-  final UActorProfileRecordLabels? labels;
+  @unionRecordLabelsConverter
+  final URecordLabels? labels;
   final Map<String, dynamic> _unknown;
   @override
   @JsonKey()
@@ -265,14 +262,14 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
 
   @override
   String toString() {
-    return 'ActorProfileRecord(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, unknown: $unknown)';
+    return 'Record(type: $type, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, unknown: $unknown)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorProfileRecordImpl &&
+            other is _$RecordImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -292,31 +289,28 @@ class _$ActorProfileRecordImpl implements _ActorProfileRecord {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorProfileRecordImplCopyWith<_$ActorProfileRecordImpl> get copyWith =>
-      __$$ActorProfileRecordImplCopyWithImpl<_$ActorProfileRecordImpl>(
-          this, _$identity);
+  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
+      __$$RecordImplCopyWithImpl<_$RecordImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorProfileRecordImplToJson(
+    return _$$RecordImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorProfileRecord implements ActorProfileRecord {
-  const factory _ActorProfileRecord(
+abstract class _Record implements Record {
+  const factory _Record(
       {@typeKey final String type,
       final String? displayName,
       final String? description,
       final Blob? avatar,
       final Blob? banner,
-      @unionActorProfileRecordLabelsConverter
-      final UActorProfileRecordLabels? labels,
-      final Map<String, dynamic> unknown}) = _$ActorProfileRecordImpl;
+      @unionRecordLabelsConverter final URecordLabels? labels,
+      final Map<String, dynamic> unknown}) = _$RecordImpl;
 
-  factory _ActorProfileRecord.fromJson(Map<String, dynamic> json) =
-      _$ActorProfileRecordImpl.fromJson;
+  factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
   @override
   @typeKey
@@ -330,12 +324,12 @@ abstract class _ActorProfileRecord implements ActorProfileRecord {
   @override
   Blob? get banner;
   @override
-  @unionActorProfileRecordLabelsConverter
-  UActorProfileRecordLabels? get labels;
+  @unionRecordLabelsConverter
+  URecordLabels? get labels;
   @override
   Map<String, dynamic> get unknown;
   @override
   @JsonKey(ignore: true)
-  _$$ActorProfileRecordImplCopyWith<_$ActorProfileRecordImpl> get copyWith =>
+  _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

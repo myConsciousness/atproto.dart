@@ -12,7 +12,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
 import '../extensions/at_uri_extension.dart';
-import '../types/actor/profile/_z.dart';
+import '../types/actor/profile/_z.dart' as app_bsky_actor_profile;
 import '../types/feed/generator/_z.dart';
 import '../types/feed/like/_z.dart';
 import '../types/feed/post/_z.dart';
@@ -52,7 +52,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnCreate<GraphListitemRecord>? onCreateListItem,
     final RepoCommitOnCreate<GraphListblockRecord>? onCreateBlockList,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
-    final RepoCommitOnUpdate<ActorProfileRecord>? onUpdateProfile,
+    final RepoCommitOnUpdate<app_bsky_actor_profile.Record>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
     final RepoCommitOnDelete? onDeletePost,
     final RepoCommitOnDelete? onDeleteRepost,
@@ -102,7 +102,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnCreate<GraphListblockRecord>? _onCreateBlockList;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
-  final RepoCommitOnUpdate<ActorProfileRecord>? _onUpdateProfile;
+  final RepoCommitOnUpdate<app_bsky_actor_profile.Record>? _onUpdateProfile;
   final RepoCommitOnUpdate<Map<String, dynamic>>? _onUpdateUnknown;
 
   final RepoCommitOnDelete? _onDeletePost;
@@ -277,8 +277,8 @@ final class RepoCommitAdaptor {
   ) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
-        RepoCommitUpdate<ActorProfileRecord>(
-          record: ActorProfileRecord.fromJson(op.record!),
+        RepoCommitUpdate<app_bsky_actor_profile.Record>(
+          record: app_bsky_actor_profile.Record.fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,

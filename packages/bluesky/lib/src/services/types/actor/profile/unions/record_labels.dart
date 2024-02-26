@@ -13,48 +13,46 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'record_labels.freezed.dart';
 
 @freezed
-class UActorProfileRecordLabels with _$UActorProfileRecordLabels {
+class URecordLabels with _$URecordLabels {
   // ignore: unused_element
-  const UActorProfileRecordLabels._();
+  const URecordLabels._();
 
-  const factory UActorProfileRecordLabels.selfLabels({
+  const factory URecordLabels.selfLabels({
     required LabelDefsSelfLabels data,
-  }) = UActorProfileRecordLabelsSelLabels;
+  }) = URecordLabelsSelLabels;
 
-  const factory UActorProfileRecordLabels.unknown({
+  const factory URecordLabels.unknown({
     required Map<String, dynamic> data,
-  }) = UActorProfileRecordLabelsUnknown;
+  }) = URecordLabelsUnknown;
 
-  Map<String, dynamic> toJson() =>
-      unionActorProfileRecordLabelsConverter.toJson(this);
+  Map<String, dynamic> toJson() => unionRecordLabelsConverter.toJson(this);
 }
 
-const unionActorProfileRecordLabelsConverter =
-    _UActorProfileRecordLabelsConverter();
+const unionRecordLabelsConverter = _URecordLabelsConverter();
 
-final class _UActorProfileRecordLabelsConverter
-    implements JsonConverter<UActorProfileRecordLabels, Map<String, dynamic>> {
-  const _UActorProfileRecordLabelsConverter();
+final class _URecordLabelsConverter
+    implements JsonConverter<URecordLabels, Map<String, dynamic>> {
+  const _URecordLabelsConverter();
 
   @override
-  UActorProfileRecordLabels fromJson(Map<String, dynamic> json) {
+  URecordLabels fromJson(Map<String, dynamic> json) {
     try {
       final type = json[core.objectType];
 
       if (type == ids.comAtprotoLabelDefsSelfLabels) {
-        return UActorProfileRecordLabels.selfLabels(
+        return URecordLabels.selfLabels(
           data: LabelDefsSelfLabels.fromJson(json),
         );
       }
 
-      return UActorProfileRecordLabels.unknown(data: json);
+      return URecordLabels.unknown(data: json);
     } catch (_) {
-      return UActorProfileRecordLabels.unknown(data: json);
+      return URecordLabels.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UActorProfileRecordLabels object) => object.when(
+  Map<String, dynamic> toJson(URecordLabels object) => object.when(
         selfLabels: (data) => data.toJson(),
         unknown: (data) => data,
       );

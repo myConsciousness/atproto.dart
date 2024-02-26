@@ -14,8 +14,8 @@ import 'types/actor/defs/_z.dart';
 import 'types/actor/get_preferences/_z.dart' as app_bsky_actor_get_preferences;
 import 'types/actor/get_profile/_z.dart' as app_bsky_actor_get_profile;
 import 'types/actor/get_profiles/_z.dart' as app_bsky_actor_get_profiles;
-import 'types/actor/get_suggestions/_z.dart' as app_bsky_get_actor_suggestions;
-import 'types/actor/profile/_z.dart';
+import 'types/actor/get_suggestions/_z.dart' as app_bsky_actor_get_suggestions;
+import 'types/actor/profile/_z.dart' as app_bsky_actor_profile;
 import 'types/actor/search_actors/_z.dart' as app_bsky_actor_search_actors;
 
 import 'types/actor/search_actors_typeahead/_z.dart'
@@ -59,7 +59,7 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
-  Future<core.XRPCResponse<app_bsky_get_actor_suggestions.Output>>
+  Future<core.XRPCResponse<app_bsky_actor_get_suggestions.Output>>
       getSuggestions({
     int? limit,
     String? cursor,
@@ -88,7 +88,7 @@ final class ActorService {
     String? description,
     core.Blob? avatar,
     core.Blob? banner,
-    UActorProfileRecordLabels? labels,
+    app_bsky_actor_profile.URecordLabels? labels,
     Map<String, dynamic> unknown = const {},
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -125,11 +125,11 @@ final class ActorService {
       );
 
   @Deprecated('Use .getProfileRecord instead. Will be removed')
-  Future<core.XRPCResponse<ActorProfileRecord>> findProfileRecord() async =>
-      await _ctx.findRecord(
-        _ctx.selfUri,
-        ActorProfileRecord.fromJson,
-      );
+  Future<core.XRPCResponse<app_bsky_actor_profile.Record>>
+      findProfileRecord() async => await _ctx.findRecord(
+            _ctx.selfUri,
+            app_bsky_actor_profile.Record.fromJson,
+          );
 
   @Deprecated('Use .getProfiles instead. Will be removed')
   Future<core.XRPCResponse<app_bsky_actor_get_profiles.Output>> findProfiles({
@@ -141,7 +141,7 @@ final class ActorService {
       );
 
   @Deprecated('Use .getSuggestions instead. Will be removed')
-  Future<core.XRPCResponse<app_bsky_get_actor_suggestions.Output>>
+  Future<core.XRPCResponse<app_bsky_actor_get_suggestions.Output>>
       findSuggestions({
     int? limit,
     String? cursor,
@@ -149,7 +149,7 @@ final class ActorService {
           await _findSuggestions(
             limit: limit,
             cursor: cursor,
-            to: app_bsky_get_actor_suggestions.Output.fromJson,
+            to: app_bsky_actor_get_suggestions.Output.fromJson,
           );
 
   @Deprecated('Use .searchActorsTypeahead instead. Will be removed')
@@ -170,7 +170,7 @@ final class ActorService {
     String? description,
     core.Blob? avatar,
     core.Blob? banner,
-    UActorProfileRecordLabels? labels,
+    app_bsky_actor_profile.URecordLabels? labels,
     Map<String, dynamic> unknown = const {},
   }) async =>
       await _ctx.atproto.repo.updateRecord(
@@ -308,9 +308,9 @@ extension ActorServiceExtension on ActorService {
   ///
   /// This endpoint is useful for retrieving information when
   /// updating a profile.
-  Future<core.XRPCResponse<ActorProfileRecord>> getProfileRecord() async =>
-      await _ctx.findRecord(
-        _ctx.selfUri,
-        ActorProfileRecord.fromJson,
-      );
+  Future<core.XRPCResponse<app_bsky_actor_profile.Record>>
+      getProfileRecord() async => await _ctx.findRecord(
+            _ctx.selfUri,
+            app_bsky_actor_profile.Record.fromJson,
+          );
 }

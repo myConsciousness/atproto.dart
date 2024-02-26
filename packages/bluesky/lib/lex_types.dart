@@ -4,9 +4,6 @@
 
 export 'package:atproto/lex_types.dart';
 
-export 'package:bluesky/src/services/types/actor/profile/_z.dart'
-    hide unionActorProfileRecordLabelsConverter;
-
 export 'package:bluesky/src/services/types/embed/external/_z.dart';
 export 'package:bluesky/src/services/types/embed/images/_z.dart';
 export 'package:bluesky/src/services/types/embed/record/_z.dart'
