@@ -20,6 +20,7 @@ class ServerDescribeServerOutput with _$ServerDescribeServerOutput {
   @jsonSerializable
   const factory ServerDescribeServerOutput({
     required List<String> availableUserDomains,
+    required String did,
     @Default(false) bool inviteCodeRequired,
     ServerDescribeServerLinks? links,
   }) = _ServerDescribeServerOutput;

@@ -7,14 +7,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/account_status.dart';
-import 'package:atproto/src/services/entities/service_auth_token.dart';
+import 'package:atproto/src/services/types/server/check_account_status/_z.dart';
 import 'package:atproto/src/services/types/server/create_account/_z.dart';
 import 'package:atproto/src/services/types/server/create_app_password/_z.dart';
 import 'package:atproto/src/services/types/server/create_invite_code/_z.dart';
 import 'package:atproto/src/services/types/server/create_invite_codes/_z.dart';
 import 'package:atproto/src/services/types/server/describe_server/_z.dart';
 import 'package:atproto/src/services/types/server/get_account_invite_codes/_z.dart';
+import 'package:atproto/src/services/types/server/get_service_auth/_z.dart';
 import 'package:atproto/src/services/types/server/get_session/_z.dart';
 import 'package:atproto/src/services/types/server/list_app_passwords/_z.dart';
 import 'package:atproto/src/services/types/server/request_email_update/_z.dart';
@@ -128,7 +128,7 @@ void main() {
     id: comAtprotoServerReserveSigningKey,
   );
 
-  testServer<ServiceAuthToken>(
+  testServer<ServerGetServiceAuthOutput>(
     (m, s) => s.getServiceAuth(aud: m.did),
     id: comAtprotoServerGetServiceAuth,
   );
@@ -143,7 +143,7 @@ void main() {
     id: comAtprotoServerDeactivateAccount,
   );
 
-  testServer<AccountStatus>(
+  testServer<ServerCheckAccountStatusOutput>(
     (m, s) => s.checkAccountStatus(),
     id: comAtprotoServerCheckAccountStatus,
   );

@@ -10,10 +10,10 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/missing_blobs.dart';
 import 'types/repo/apply_writes/_z.dart';
 import 'types/repo/describe_repo/_z.dart';
 import 'types/repo/get_record/_z.dart';
+import 'types/repo/list_missing_blobs/_z.dart';
 import 'types/repo/list_records/_z.dart';
 import 'types/repo/strong_ref/_z.dart';
 
@@ -143,7 +143,7 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
-  Future<core.XRPCResponse<MissingBlobs>> listMissingBlobs({
+  Future<core.XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
   }) async =>
@@ -153,7 +153,7 @@ final class RepoService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: MissingBlobs.fromJson,
+        to: RepoListMissingBlobsOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo

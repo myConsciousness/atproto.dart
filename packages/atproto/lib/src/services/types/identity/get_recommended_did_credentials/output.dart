@@ -6,23 +6,24 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
+import '../../../../lex_annotations.g.dart' as lex;
 
-part 'did_credentials.freezed.dart';
-part 'did_credentials.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/GetRecommendedDidCredentials#output
 @freezed
 @lex.comAtprotoIdentityGetRecommendedDidCredentials
-@Deprecated('Use IdentityGetRecommendedDidCredentials instead. Will be removed')
-class DidCredentials with _$DidCredentials {
-  const factory DidCredentials({
+class IdentityGetRecommendedDidCredentials
+    with _$IdentityGetRecommendedDidCredentials {
+  const factory IdentityGetRecommendedDidCredentials({
     List<String>? rotationKeys,
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
-  }) = _DidCredentials;
+  }) = _IdentityGetRecommendedDidCredentials;
 
-  factory DidCredentials.fromJson(Map<String, Object?> json) =>
-      _$DidCredentialsFromJson(json);
+  factory IdentityGetRecommendedDidCredentials.fromJson(
+          Map<String, Object?> json) =>
+      _$IdentityGetRecommendedDidCredentialsFromJson(json);
 }

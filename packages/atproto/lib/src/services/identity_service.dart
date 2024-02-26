@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/did_credentials.dart';
-import 'entities/plc_operation.dart';
+import 'types/identity/get_recommended_did_credentials/_z.dart';
 import 'types/identity/resolve_handle/_z.dart';
+import 'types/identity/sign_plc_operation/_z.dart';
 
 /// Represents `com.atproto.identity.*` service.
 final class IdentityService {
@@ -56,7 +56,7 @@ final class IdentityService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
-  Future<core.XRPCResponse<PlcOperation>> signPlcOperation({
+  Future<core.XRPCResponse<IdentitySignPlcOperationOutput>> signPlcOperation({
     String? token,
     List<String>? rotationKeys,
     String? alsoKnownAs,
@@ -72,14 +72,14 @@ final class IdentityService {
           'verificationMethods': verificationMethods,
           'services': services,
         },
-        to: PlcOperation.fromJson,
+        to: IdentitySignPlcOperationOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
-  Future<core.XRPCResponse<DidCredentials>>
+  Future<core.XRPCResponse<IdentityGetRecommendedDidCredentials>>
       getRecommendedDidCredentials() async => await _ctx.get(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
-            to: DidCredentials.fromJson,
+            to: IdentityGetRecommendedDidCredentials.fromJson,
           );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature

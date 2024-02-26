@@ -7,14 +7,14 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/account_status.dart';
-import 'entities/service_auth_token.dart';
+import 'types/server/check_account_status/_z.dart';
 import 'types/server/create_account/_z.dart';
 import 'types/server/create_app_password/_z.dart';
 import 'types/server/create_invite_code/_z.dart';
 import 'types/server/create_invite_codes/_z.dart';
 import 'types/server/describe_server/_z.dart';
 import 'types/server/get_account_invite_codes/_z.dart';
+import 'types/server/get_service_auth/_z.dart';
 import 'types/server/get_session/_z.dart';
 import 'types/server/list_app_passwords/_z.dart';
 import 'types/server/request_email_update/_z.dart';
@@ -280,7 +280,7 @@ final class ServerService {
           await createSigningKey();
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
-  Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
+  Future<core.XRPCResponse<ServerGetServiceAuthOutput>> getServiceAuth({
     required String aud,
   }) async =>
       await _ctx.get(
@@ -288,15 +288,15 @@ final class ServerService {
         parameters: {
           'aud': aud,
         },
-        to: ServiceAuthToken.fromJson,
+        to: ServerGetServiceAuthOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
-  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus() async =>
-      await _ctx.get(
-        ns.comAtprotoServerCheckAccountStatus,
-        to: AccountStatus.fromJson,
-      );
+  Future<core.XRPCResponse<ServerCheckAccountStatusOutput>>
+      checkAccountStatus() async => await _ctx.get(
+            ns.comAtprotoServerCheckAccountStatus,
+            to: ServerCheckAccountStatusOutput.fromJson,
+          );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<core.XRPCResponse<core.EmptyData>> deactivateAccount({

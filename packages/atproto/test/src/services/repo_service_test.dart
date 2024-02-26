@@ -10,11 +10,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/missing_blobs.dart';
 import 'package:atproto/src/services/repo_service.dart';
 import 'package:atproto/src/services/types/repo/apply_writes/_z.dart';
 import 'package:atproto/src/services/types/repo/describe_repo/_z.dart';
 import 'package:atproto/src/services/types/repo/get_record/_z.dart';
+import 'package:atproto/src/services/types/repo/list_missing_blobs/_z.dart';
 import 'package:atproto/src/services/types/repo/list_records/_z.dart';
 import 'package:atproto/src/services/types/repo/strong_ref/_z.dart';
 import 'suite/service_suite.dart';
@@ -101,7 +101,7 @@ void main() {
     label: 'Delete',
   );
 
-  testRepo<MissingBlobs>(
+  testRepo<RepoListMissingBlobsOutput>(
     (m, s) => s.listMissingBlobs(limit: m.limit, cursor: m.cursor),
     id: comAtprotoRepoListMissingBlobs,
   );

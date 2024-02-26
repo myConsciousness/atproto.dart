@@ -22,6 +22,7 @@ ServerDescribeServerOutput _$ServerDescribeServerOutputFromJson(
 /// @nodoc
 mixin _$ServerDescribeServerOutput {
   List<String> get availableUserDomains => throw _privateConstructorUsedError;
+  String get did => throw _privateConstructorUsedError;
   bool get inviteCodeRequired => throw _privateConstructorUsedError;
   ServerDescribeServerLinks? get links => throw _privateConstructorUsedError;
 
@@ -40,6 +41,7 @@ abstract class $ServerDescribeServerOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {List<String> availableUserDomains,
+      String did,
       bool inviteCodeRequired,
       ServerDescribeServerLinks? links});
 
@@ -61,6 +63,7 @@ class _$ServerDescribeServerOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? availableUserDomains = null,
+    Object? did = null,
     Object? inviteCodeRequired = null,
     Object? links = freezed,
   }) {
@@ -69,6 +72,10 @@ class _$ServerDescribeServerOutputCopyWithImpl<$Res,
           ? _value.availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      did: null == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
       inviteCodeRequired: null == inviteCodeRequired
           ? _value.inviteCodeRequired
           : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
@@ -104,6 +111,7 @@ abstract class _$$ServerDescribeServerOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<String> availableUserDomains,
+      String did,
       bool inviteCodeRequired,
       ServerDescribeServerLinks? links});
 
@@ -125,6 +133,7 @@ class __$$ServerDescribeServerOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? availableUserDomains = null,
+    Object? did = null,
     Object? inviteCodeRequired = null,
     Object? links = freezed,
   }) {
@@ -133,6 +142,10 @@ class __$$ServerDescribeServerOutputImplCopyWithImpl<$Res>
           ? _value._availableUserDomains
           : availableUserDomains // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      did: null == did
+          ? _value.did
+          : did // ignore: cast_nullable_to_non_nullable
+              as String,
       inviteCodeRequired: null == inviteCodeRequired
           ? _value.inviteCodeRequired
           : inviteCodeRequired // ignore: cast_nullable_to_non_nullable
@@ -151,6 +164,7 @@ class __$$ServerDescribeServerOutputImplCopyWithImpl<$Res>
 class _$ServerDescribeServerOutputImpl implements _ServerDescribeServerOutput {
   const _$ServerDescribeServerOutputImpl(
       {required final List<String> availableUserDomains,
+      required this.did,
       this.inviteCodeRequired = false,
       this.links})
       : _availableUserDomains = availableUserDomains;
@@ -169,6 +183,8 @@ class _$ServerDescribeServerOutputImpl implements _ServerDescribeServerOutput {
   }
 
   @override
+  final String did;
+  @override
   @JsonKey()
   final bool inviteCodeRequired;
   @override
@@ -176,7 +192,7 @@ class _$ServerDescribeServerOutputImpl implements _ServerDescribeServerOutput {
 
   @override
   String toString() {
-    return 'ServerDescribeServerOutput(availableUserDomains: $availableUserDomains, inviteCodeRequired: $inviteCodeRequired, links: $links)';
+    return 'ServerDescribeServerOutput(availableUserDomains: $availableUserDomains, did: $did, inviteCodeRequired: $inviteCodeRequired, links: $links)';
   }
 
   @override
@@ -186,6 +202,7 @@ class _$ServerDescribeServerOutputImpl implements _ServerDescribeServerOutput {
             other is _$ServerDescribeServerOutputImpl &&
             const DeepCollectionEquality()
                 .equals(other._availableUserDomains, _availableUserDomains) &&
+            (identical(other.did, did) || other.did == did) &&
             (identical(other.inviteCodeRequired, inviteCodeRequired) ||
                 other.inviteCodeRequired == inviteCodeRequired) &&
             (identical(other.links, links) || other.links == links));
@@ -196,6 +213,7 @@ class _$ServerDescribeServerOutputImpl implements _ServerDescribeServerOutput {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(_availableUserDomains),
+      did,
       inviteCodeRequired,
       links);
 
@@ -218,6 +236,7 @@ abstract class _ServerDescribeServerOutput
     implements ServerDescribeServerOutput {
   const factory _ServerDescribeServerOutput(
           {required final List<String> availableUserDomains,
+          required final String did,
           final bool inviteCodeRequired,
           final ServerDescribeServerLinks? links}) =
       _$ServerDescribeServerOutputImpl;
@@ -227,6 +246,8 @@ abstract class _ServerDescribeServerOutput
 
   @override
   List<String> get availableUserDomains;
+  @override
+  String get did;
   @override
   bool get inviteCodeRequired;
   @override

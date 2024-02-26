@@ -17,6 +17,7 @@ _$ServerDescribeServerOutputImpl _$$ServerDescribeServerOutputImplFromJson(
         final val = _$ServerDescribeServerOutputImpl(
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          did: $checkedConvert('did', (v) => v as String),
           inviteCodeRequired:
               $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
           links: $checkedConvert(
@@ -34,6 +35,7 @@ Map<String, dynamic> _$$ServerDescribeServerOutputImplToJson(
     _$ServerDescribeServerOutputImpl instance) {
   final val = <String, dynamic>{
     'availableUserDomains': instance.availableUserDomains,
+    'did': instance.did,
     'inviteCodeRequired': instance.inviteCodeRequired,
   };
 

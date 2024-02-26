@@ -7,21 +7,20 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
+import '../../../../lex_annotations.g.dart' as lex;
 
-part 'service_auth_token.freezed.dart';
-part 'service_auth_token.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/GetServiceAuth/#output
 @freezed
 @lex.comAtprotoServerGetServiceAuth
-@Deprecated('Use ServerGetServiceAuthOutput instead. Will be removed')
-class ServiceAuthToken with _$ServiceAuthToken {
+class ServerGetServiceAuthOutput with _$ServerGetServiceAuthOutput {
   @jsonSerializable
-  const factory ServiceAuthToken({
+  const factory ServerGetServiceAuthOutput({
     required String token,
-  }) = _ServiceAuthToken;
+  }) = _ServerGetServiceAuthOutput;
 
-  factory ServiceAuthToken.fromJson(Map<String, Object?> json) =>
-      _$ServiceAuthTokenFromJson(json);
+  factory ServerGetServiceAuthOutput.fromJson(Map<String, Object?> json) =>
+      _$ServerGetServiceAuthOutputFromJson(json);
 }

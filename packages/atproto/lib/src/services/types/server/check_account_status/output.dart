@@ -6,17 +6,16 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
+import '../../../../lex_annotations.g.dart' as lex;
 
-part 'account_status.freezed.dart';
-part 'account_status.g.dart';
+part 'output.freezed.dart';
+part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus/#output
 @freezed
 @lex.comAtprotoServerCheckAccountStatus
-@Deprecated('Use ServerCheckAccountStatusOutput instead. Will be removed')
-class AccountStatus with _$AccountStatus {
-  const factory AccountStatus({
+class ServerCheckAccountStatusOutput with _$ServerCheckAccountStatusOutput {
+  const factory ServerCheckAccountStatusOutput({
     required bool activated,
     required bool validDid,
     required String repoCommit,
@@ -26,8 +25,8 @@ class AccountStatus with _$AccountStatus {
     required int privateStateValues,
     required int expectedBlobs,
     required int importedBlobs,
-  }) = _AccountStatus;
+  }) = _ServerCheckAccountStatusOutput;
 
-  factory AccountStatus.fromJson(Map<String, Object?> json) =>
-      _$AccountStatusFromJson(json);
+  factory ServerCheckAccountStatusOutput.fromJson(Map<String, Object?> json) =>
+      _$ServerCheckAccountStatusOutputFromJson(json);
 }

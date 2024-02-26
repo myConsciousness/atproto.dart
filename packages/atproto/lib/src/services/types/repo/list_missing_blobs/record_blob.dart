@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
+import '../../../../lex_annotations.g.dart' as lex;
 
 part 'record_blob.freezed.dart';
 part 'record_blob.g.dart';
@@ -17,14 +17,13 @@ part 'record_blob.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listmissingblobs/#recordblob
 @freezed
 @lex.comAtprotoRepoListMissingBlobsRecordBlob
-@Deprecated('Use RepoListMissingBlobsRecordBlob instead. Will be removed')
-class RecordBlob with _$RecordBlob {
+class RepoListMissingBlobsRecordBlob with _$RepoListMissingBlobsRecordBlob {
   @jsonSerializable
-  const factory RecordBlob({
+  const factory RepoListMissingBlobsRecordBlob({
     required String cid,
     @atUriConverter required AtUri recordUri,
-  }) = _RecordBlob;
+  }) = _RepoListMissingBlobsRecordBlob;
 
-  factory RecordBlob.fromJson(Map<String, Object?> json) =>
-      _$RecordBlobFromJson(json);
+  factory RepoListMissingBlobsRecordBlob.fromJson(Map<String, Object?> json) =>
+      _$RepoListMissingBlobsRecordBlobFromJson(json);
 }
