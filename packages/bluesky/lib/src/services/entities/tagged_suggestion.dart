@@ -17,6 +17,8 @@ part 'tagged_suggestion.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 @lex.appBskyUnspeccedGetTaggedSuggestionsSuggestion
+@Deprecated(
+    'Use UnspeccedGetTaggedSuggestionsSuggestion instead. Will be removed')
 class TaggedSuggestion with _$TaggedSuggestion {
   @jsonSerializable
   const factory TaggedSuggestion({
@@ -29,6 +31,7 @@ class TaggedSuggestion with _$TaggedSuggestion {
       _$TaggedSuggestionFromJson(json);
 }
 
+@Deprecated('Use SuggestionSubjectTypeKnownValues instead. Will be removed')
 enum SubjectType {
   user,
   feed,

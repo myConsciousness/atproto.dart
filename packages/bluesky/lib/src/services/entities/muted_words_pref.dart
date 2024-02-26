@@ -17,6 +17,7 @@ part 'muted_words_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedWordsPref
 @freezed
 @lex.appBskyActorDefsMutedWordsPref
+@Deprecated('Use ActorDefsMutedWordsPref instead. Will be removed')
 class MutedWordsPref with _$MutedWordsPref {
   const factory MutedWordsPref({
     @typeKey @Default(appBskyActorDefsMutedWordsPref) String type,

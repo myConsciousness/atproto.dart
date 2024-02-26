@@ -5,6 +5,11 @@
 export 'adult_content_pref.dart';
 export 'content_label_pref.dart';
 export 'feed_view_pref.dart';
+export 'hidden_posts_pref.dart';
+export 'interests_pref.dart';
+export 'muted_word_target.dart';
+export 'muted_word.dart';
+export 'muted_words_pref.dart';
 export 'personal_details_pref.dart';
 export 'preferences.dart';
 export 'profile_view_basic.dart';
@@ -18,6 +23,7 @@ export 'viewer_state.dart'
 export 'unions/preferences_preferences.dart';
 
 export 'constants/content_label_pref_visibility.dart';
+export 'constants/muted_word_target_known_values.dart';
 export 'constants/thread_view_pref_sort.dart';
 
 export 'extensions/adult_content_pref_extension.dart';

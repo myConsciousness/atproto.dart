@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
 import 'types/unspecced/get_popular_feed_generators/_z.dart';
+import 'types/unspecced/get_tagged_suggestions/_z.dart';
 import 'types/unspecced/search_actors_skeleton/_z.dart';
 import 'types/unspecced/search_posts_skeleton/_z.dart';
 
@@ -64,11 +64,11 @@ final class UnspeccedService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
-  Future<core.XRPCResponse<TaggedSuggestions>> getTaggedSuggestions() async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedGetTaggedSuggestions,
-        to: TaggedSuggestions.fromJson,
-      );
+  Future<core.XRPCResponse<UnspeccedGetTaggedSuggestionsOutput>>
+      getTaggedSuggestions() async => await _ctx.get(
+            ns.appBskyUnspeccedGetTaggedSuggestions,
+            to: UnspeccedGetTaggedSuggestionsOutput.fromJson,
+          );
 
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
   Future<core.XRPCResponse<UnspeccedGetPopularFeedGeneratorsOutput>>

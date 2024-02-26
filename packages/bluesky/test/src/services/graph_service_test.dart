@@ -8,7 +8,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
-import 'package:bluesky/src/services/entities/relationships.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/types/graph/block/_z.dart';
 import 'package:bluesky/src/services/types/graph/follow/_z.dart';
@@ -20,6 +19,7 @@ import 'package:bluesky/src/services/types/graph/get_list_blocks/_z.dart';
 import 'package:bluesky/src/services/types/graph/get_list_mutes/_z.dart';
 import 'package:bluesky/src/services/types/graph/get_lists/_z.dart';
 import 'package:bluesky/src/services/types/graph/get_mutes/_z.dart';
+import 'package:bluesky/src/services/types/graph/get_relationships/_z.dart';
 import 'package:bluesky/src/services/types/graph/get_suggested_follows_by_actor/_z.dart';
 import 'package:bluesky/src/services/types/graph/list/_z.dart';
 import 'package:bluesky/src/services/types/graph/listitem/_z.dart';
@@ -154,7 +154,7 @@ void main() {
     id: appBskyGraphListblock,
   );
 
-  testGraph<Relationships>(
+  testGraph<GraphGetRelationshipsOutput>(
     (m, s) => s.getRelationships(actor: m.did, others: [m.did]),
     id: appBskyGraphGetRelationships,
   );

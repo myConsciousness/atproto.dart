@@ -18,6 +18,7 @@ part 'actor_relationship.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
 @lex.appBskyGraphDefsRelationship
+@Deprecated('Use GraphDefsRelationship instead. Will be removed')
 class ActorRelationship with _$ActorRelationship {
   const factory ActorRelationship({
     @typeKey @Default(appBskyGraphDefsRelationship) String type,

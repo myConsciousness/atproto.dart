@@ -14,6 +14,9 @@ import '../adult_content_pref.dart';
 import '../content_label_pref.dart';
 import '../converters/content_label_pref_converter.dart';
 import '../feed_view_pref.dart';
+import '../hidden_posts_pref.dart';
+import '../interests_pref.dart';
+import '../muted_words_pref.dart';
 import '../personal_details_pref.dart';
 
 part 'preferences_preferences.freezed.dart';
@@ -47,6 +50,18 @@ class UActorDefsPreferencesPreferences with _$UActorDefsPreferencesPreferences {
   const factory UActorDefsPreferencesPreferences.threadViewPref({
     required ActorDefsThreadViewPref data,
   }) = UActorDefsPreferencesPreferencesThreadViewPref;
+
+  const factory UActorDefsPreferencesPreferences.interestsPref({
+    required ActorDefsInterestsPref data,
+  }) = UActorDefsPreferencesPreferencesInterestsPref;
+
+  const factory UActorDefsPreferencesPreferences.mutedWordsPref({
+    required ActorDefsMutedWordsPref data,
+  }) = UActorDefsPreferencesPreferencesMutedWordsPref;
+
+  const factory UActorDefsPreferencesPreferences.hiddenPostsPref({
+    required ActorDefsHiddenPostsPref data,
+  }) = UActorDefsPreferencesPreferencesHiddenPostsPref;
 
   const factory UActorDefsPreferencesPreferences.unknown({
     required Map<String, dynamic> data,
@@ -99,6 +114,21 @@ final class UActorDefsPreferencesPreferencesConverter
           data: ActorDefsThreadViewPref.fromJson(json),
         );
       }
+      if (type == ids.appBskyActorDefsInterestsPref) {
+        return UActorDefsPreferencesPreferences.interestsPref(
+          data: ActorDefsInterestsPref.fromJson(json),
+        );
+      }
+      if (type == ids.appBskyActorDefsMutedWordsPref) {
+        return UActorDefsPreferencesPreferences.mutedWordsPref(
+          data: ActorDefsMutedWordsPref.fromJson(json),
+        );
+      }
+      if (type == ids.appBskyActorDefsHiddenPostsPref) {
+        return UActorDefsPreferencesPreferences.hiddenPostsPref(
+          data: ActorDefsHiddenPostsPref.fromJson(json),
+        );
+      }
 
       return UActorDefsPreferencesPreferences.unknown(data: json);
     } catch (_) {
@@ -115,6 +145,9 @@ final class UActorDefsPreferencesPreferencesConverter
         personalDetailsPref: (data) => data.toJson(),
         feedViewPref: (data) => data.toJson(),
         threadViewPref: (data) => data.toJson(),
+        interestsPref: (data) => data.toJson(),
+        mutedWordsPref: (data) => data.toJson(),
+        hiddenPostsPref: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

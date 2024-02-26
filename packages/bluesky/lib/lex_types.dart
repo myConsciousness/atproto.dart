@@ -69,6 +69,8 @@ export 'package:bluesky/src/services/types/graph/get_list_blocks/_z.dart';
 export 'package:bluesky/src/services/types/graph/get_list_mutes/_z.dart';
 export 'package:bluesky/src/services/types/graph/get_lists/_z.dart';
 export 'package:bluesky/src/services/types/graph/get_mutes/_z.dart';
+export 'package:bluesky/src/services/types/graph/get_relationships/_z.dart'
+    hide unionGraphDefsRelationshipsRelationshipsConverter;
 export 'package:bluesky/src/services/types/graph/get_suggested_follows_by_actor/_z.dart';
 export 'package:bluesky/src/services/types/graph/list/_z.dart'
     hide unionGraphListRecordLabelsConverter;
@@ -80,5 +82,6 @@ export 'package:bluesky/src/services/types/richtext/facet/_z.dart'
     hide unionRichtextFacetFeaturesConverter;
 export 'package:bluesky/src/services/types/unspecced/defs/_z.dart';
 export 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
+export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/_z.dart';
 export 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
 export 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';

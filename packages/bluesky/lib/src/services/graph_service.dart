@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
-import 'entities/relationships.dart';
 import 'service_context.dart';
 import 'types/graph/block/_z.dart';
 import 'types/graph/follow/_z.dart';
@@ -22,6 +21,7 @@ import 'types/graph/get_list_blocks/_z.dart';
 import 'types/graph/get_list_mutes/_z.dart';
 import 'types/graph/get_lists/_z.dart';
 import 'types/graph/get_mutes/_z.dart';
+import 'types/graph/get_relationships/_z.dart';
 import 'types/graph/get_suggested_follows_by_actor/_z.dart';
 import 'types/graph/list/_z.dart';
 import 'types/graph/listitem/_z.dart';
@@ -241,7 +241,7 @@ final class GraphService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
-  Future<core.XRPCResponse<Relationships>> getRelationships({
+  Future<core.XRPCResponse<GraphGetRelationshipsOutput>> getRelationships({
     required String actor,
     List<String>? others,
   }) async =>
@@ -251,7 +251,7 @@ final class GraphService {
           'actor': actor,
           'others': others,
         },
-        to: Relationships.fromJson,
+        to: GraphGetRelationshipsOutput.fromJson,
       );
 
   @Deprecated('Use .follow instead. Will be removed.')

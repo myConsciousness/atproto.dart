@@ -12,7 +12,7 @@ part of 'preferences_preferences.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$UActorDefsPreferencesPreferences {
@@ -26,6 +26,9 @@ mixin _$UActorDefsPreferencesPreferences {
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +40,9 @@ mixin _$UActorDefsPreferencesPreferences {
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +54,9 @@ mixin _$UActorDefsPreferencesPreferences {
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -72,6 +81,15 @@ mixin _$UActorDefsPreferencesPreferences {
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) =>
@@ -91,6 +109,12 @@ mixin _$UActorDefsPreferencesPreferences {
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
@@ -108,6 +132,12 @@ mixin _$UActorDefsPreferencesPreferences {
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) =>
@@ -231,6 +261,9 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return adultContentPref(data);
@@ -245,6 +278,9 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return adultContentPref?.call(data);
@@ -259,6 +295,9 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -289,6 +328,15 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -311,6 +359,12 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return adultContentPref?.call(this);
@@ -331,6 +385,12 @@ class _$UActorDefsPreferencesPreferencesAdultContentPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -452,6 +512,9 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return contentLabelPref(data);
@@ -466,6 +529,9 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return contentLabelPref?.call(data);
@@ -480,6 +546,9 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -510,6 +579,15 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -532,6 +610,12 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return contentLabelPref?.call(this);
@@ -552,6 +636,12 @@ class _$UActorDefsPreferencesPreferencesContentLabelPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -671,6 +761,9 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return savedFeedsPref(data);
@@ -685,6 +778,9 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return savedFeedsPref?.call(data);
@@ -699,6 +795,9 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -729,6 +828,15 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -751,6 +859,12 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return savedFeedsPref?.call(this);
@@ -771,6 +885,12 @@ class _$UActorDefsPreferencesPreferencesSavedFeedsPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -896,6 +1016,9 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return personalDetailsPref(data);
@@ -910,6 +1033,9 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return personalDetailsPref?.call(data);
@@ -924,6 +1050,9 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -954,6 +1083,15 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -976,6 +1114,12 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return personalDetailsPref?.call(this);
@@ -996,6 +1140,12 @@ class _$UActorDefsPreferencesPreferencesPersonalDetailsPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1114,6 +1264,9 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return feedViewPref(data);
@@ -1128,6 +1281,9 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return feedViewPref?.call(data);
@@ -1142,6 +1298,9 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1172,6 +1331,15 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -1194,6 +1362,12 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return feedViewPref?.call(this);
@@ -1214,6 +1388,12 @@ class _$UActorDefsPreferencesPreferencesFeedViewPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1333,6 +1513,9 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return threadViewPref(data);
@@ -1347,6 +1530,9 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return threadViewPref?.call(data);
@@ -1361,6 +1547,9 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1391,6 +1580,15 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -1413,6 +1611,12 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return threadViewPref?.call(this);
@@ -1433,6 +1637,12 @@ class _$UActorDefsPreferencesPreferencesThreadViewPrefImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {
@@ -1455,6 +1665,754 @@ abstract class UActorDefsPreferencesPreferencesThreadViewPref
   @JsonKey(ignore: true)
   _$$UActorDefsPreferencesPreferencesThreadViewPrefImplCopyWith<
           _$UActorDefsPreferencesPreferencesThreadViewPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWith<
+    $Res> {
+  factory _$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWith(
+          _$UActorDefsPreferencesPreferencesInterestsPrefImpl value,
+          $Res Function(_$UActorDefsPreferencesPreferencesInterestsPrefImpl)
+              then) =
+      __$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ActorDefsInterestsPref data});
+
+  $ActorDefsInterestsPrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWithImpl<$Res>
+    extends _$UActorDefsPreferencesPreferencesCopyWithImpl<$Res,
+        _$UActorDefsPreferencesPreferencesInterestsPrefImpl>
+    implements
+        _$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWith<$Res> {
+  __$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWithImpl(
+      _$UActorDefsPreferencesPreferencesInterestsPrefImpl _value,
+      $Res Function(_$UActorDefsPreferencesPreferencesInterestsPrefImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UActorDefsPreferencesPreferencesInterestsPrefImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ActorDefsInterestsPref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorDefsInterestsPrefCopyWith<$Res> get data {
+    return $ActorDefsInterestsPrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UActorDefsPreferencesPreferencesInterestsPrefImpl
+    extends UActorDefsPreferencesPreferencesInterestsPref {
+  const _$UActorDefsPreferencesPreferencesInterestsPrefImpl(
+      {required this.data})
+      : super._();
+
+  @override
+  final ActorDefsInterestsPref data;
+
+  @override
+  String toString() {
+    return 'UActorDefsPreferencesPreferences.interestsPref(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UActorDefsPreferencesPreferencesInterestsPrefImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesInterestsPrefImpl>
+      get copyWith =>
+          __$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWithImpl<
+                  _$UActorDefsPreferencesPreferencesInterestsPrefImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return interestsPref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return interestsPref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (interestsPref != null) {
+      return interestsPref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            UActorDefsPreferencesPreferencesAdultContentPref value)
+        adultContentPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesContentLabelPref value)
+        contentLabelPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesSavedFeedsPref value)
+        savedFeedsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)
+        personalDetailsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesFeedViewPref value)
+        feedViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesThreadViewPref value)
+        threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
+    required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
+        unknown,
+  }) {
+    return interestsPref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult? Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult? Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult? Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+  }) {
+    return interestsPref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult Function(UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (interestsPref != null) {
+      return interestsPref(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UActorDefsPreferencesPreferencesInterestsPref
+    extends UActorDefsPreferencesPreferences {
+  const factory UActorDefsPreferencesPreferencesInterestsPref(
+          {required final ActorDefsInterestsPref data}) =
+      _$UActorDefsPreferencesPreferencesInterestsPrefImpl;
+  const UActorDefsPreferencesPreferencesInterestsPref._() : super._();
+
+  @override
+  ActorDefsInterestsPref get data;
+  @JsonKey(ignore: true)
+  _$$UActorDefsPreferencesPreferencesInterestsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesInterestsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWith<
+    $Res> {
+  factory _$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWith(
+          _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl value,
+          $Res Function(_$UActorDefsPreferencesPreferencesMutedWordsPrefImpl)
+              then) =
+      __$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ActorDefsMutedWordsPref data});
+
+  $ActorDefsMutedWordsPrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWithImpl<$Res>
+    extends _$UActorDefsPreferencesPreferencesCopyWithImpl<$Res,
+        _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl>
+    implements
+        _$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWith<$Res> {
+  __$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWithImpl(
+      _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl _value,
+      $Res Function(_$UActorDefsPreferencesPreferencesMutedWordsPrefImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UActorDefsPreferencesPreferencesMutedWordsPrefImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ActorDefsMutedWordsPref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorDefsMutedWordsPrefCopyWith<$Res> get data {
+    return $ActorDefsMutedWordsPrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl
+    extends UActorDefsPreferencesPreferencesMutedWordsPref {
+  const _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl(
+      {required this.data})
+      : super._();
+
+  @override
+  final ActorDefsMutedWordsPref data;
+
+  @override
+  String toString() {
+    return 'UActorDefsPreferencesPreferences.mutedWordsPref(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl>
+      get copyWith =>
+          __$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWithImpl<
+                  _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return mutedWordsPref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return mutedWordsPref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWordsPref != null) {
+      return mutedWordsPref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            UActorDefsPreferencesPreferencesAdultContentPref value)
+        adultContentPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesContentLabelPref value)
+        contentLabelPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesSavedFeedsPref value)
+        savedFeedsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)
+        personalDetailsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesFeedViewPref value)
+        feedViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesThreadViewPref value)
+        threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
+    required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
+        unknown,
+  }) {
+    return mutedWordsPref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult? Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult? Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult? Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+  }) {
+    return mutedWordsPref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult Function(UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (mutedWordsPref != null) {
+      return mutedWordsPref(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UActorDefsPreferencesPreferencesMutedWordsPref
+    extends UActorDefsPreferencesPreferences {
+  const factory UActorDefsPreferencesPreferencesMutedWordsPref(
+          {required final ActorDefsMutedWordsPref data}) =
+      _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl;
+  const UActorDefsPreferencesPreferencesMutedWordsPref._() : super._();
+
+  @override
+  ActorDefsMutedWordsPref get data;
+  @JsonKey(ignore: true)
+  _$$UActorDefsPreferencesPreferencesMutedWordsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesMutedWordsPrefImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWith<
+    $Res> {
+  factory _$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWith(
+          _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl value,
+          $Res Function(_$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl)
+              then) =
+      __$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({ActorDefsHiddenPostsPref data});
+
+  $ActorDefsHiddenPostsPrefCopyWith<$Res> get data;
+}
+
+/// @nodoc
+class __$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWithImpl<$Res>
+    extends _$UActorDefsPreferencesPreferencesCopyWithImpl<$Res,
+        _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl>
+    implements
+        _$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWith<$Res> {
+  __$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWithImpl(
+      _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl _value,
+      $Res Function(_$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl)
+          _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? data = null,
+  }) {
+    return _then(_$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl(
+      data: null == data
+          ? _value.data
+          : data // ignore: cast_nullable_to_non_nullable
+              as ActorDefsHiddenPostsPref,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorDefsHiddenPostsPrefCopyWith<$Res> get data {
+    return $ActorDefsHiddenPostsPrefCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl
+    extends UActorDefsPreferencesPreferencesHiddenPostsPref {
+  const _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl(
+      {required this.data})
+      : super._();
+
+  @override
+  final ActorDefsHiddenPostsPref data;
+
+  @override
+  String toString() {
+    return 'UActorDefsPreferencesPreferences.hiddenPostsPref(data: $data)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl &&
+            (identical(other.data, data) || other.data == data));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, data);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl>
+      get copyWith =>
+          __$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWithImpl<
+                  _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(ActorDefsAdultContentPref data) adultContentPref,
+    required TResult Function(ActorDefsContentLabelPref data) contentLabelPref,
+    required TResult Function(ActorDefsSavedFeedsPref data) savedFeedsPref,
+    required TResult Function(ActorDefsPersonalDetailsPref data)
+        personalDetailsPref,
+    required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
+    required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
+    required TResult Function(Map<String, dynamic> data) unknown,
+  }) {
+    return hiddenPostsPref(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult? Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult? Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult? Function(Map<String, dynamic> data)? unknown,
+  }) {
+    return hiddenPostsPref?.call(data);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(ActorDefsAdultContentPref data)? adultContentPref,
+    TResult Function(ActorDefsContentLabelPref data)? contentLabelPref,
+    TResult Function(ActorDefsSavedFeedsPref data)? savedFeedsPref,
+    TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
+    TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
+    TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
+    TResult Function(Map<String, dynamic> data)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPostsPref != null) {
+      return hiddenPostsPref(data);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(
+            UActorDefsPreferencesPreferencesAdultContentPref value)
+        adultContentPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesContentLabelPref value)
+        contentLabelPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesSavedFeedsPref value)
+        savedFeedsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)
+        personalDetailsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesFeedViewPref value)
+        feedViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesThreadViewPref value)
+        threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
+    required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
+        unknown,
+  }) {
+    return hiddenPostsPref(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult? Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult? Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult? Function(
+            UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+  }) {
+    return hiddenPostsPref?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(UActorDefsPreferencesPreferencesAdultContentPref value)?
+        adultContentPref,
+    TResult Function(UActorDefsPreferencesPreferencesContentLabelPref value)?
+        contentLabelPref,
+    TResult Function(UActorDefsPreferencesPreferencesSavedFeedsPref value)?
+        savedFeedsPref,
+    TResult Function(UActorDefsPreferencesPreferencesPersonalDetailsPref value)?
+        personalDetailsPref,
+    TResult Function(UActorDefsPreferencesPreferencesFeedViewPref value)?
+        feedViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
+        threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
+    TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
+    required TResult orElse(),
+  }) {
+    if (hiddenPostsPref != null) {
+      return hiddenPostsPref(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class UActorDefsPreferencesPreferencesHiddenPostsPref
+    extends UActorDefsPreferencesPreferences {
+  const factory UActorDefsPreferencesPreferencesHiddenPostsPref(
+          {required final ActorDefsHiddenPostsPref data}) =
+      _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl;
+  const UActorDefsPreferencesPreferencesHiddenPostsPref._() : super._();
+
+  @override
+  ActorDefsHiddenPostsPref get data;
+  @JsonKey(ignore: true)
+  _$$UActorDefsPreferencesPreferencesHiddenPostsPrefImplCopyWith<
+          _$UActorDefsPreferencesPreferencesHiddenPostsPrefImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1545,6 +2503,9 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
         personalDetailsPref,
     required TResult Function(ActorDefsFeedViewPref data) feedViewPref,
     required TResult Function(ActorDefsThreadViewPref data) threadViewPref,
+    required TResult Function(ActorDefsInterestsPref data) interestsPref,
+    required TResult Function(ActorDefsMutedWordsPref data) mutedWordsPref,
+    required TResult Function(ActorDefsHiddenPostsPref data) hiddenPostsPref,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -1559,6 +2520,9 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
     TResult? Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult? Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult? Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult? Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult? Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult? Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -1573,6 +2537,9 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
     TResult Function(ActorDefsPersonalDetailsPref data)? personalDetailsPref,
     TResult Function(ActorDefsFeedViewPref data)? feedViewPref,
     TResult Function(ActorDefsThreadViewPref data)? threadViewPref,
+    TResult Function(ActorDefsInterestsPref data)? interestsPref,
+    TResult Function(ActorDefsMutedWordsPref data)? mutedWordsPref,
+    TResult Function(ActorDefsHiddenPostsPref data)? hiddenPostsPref,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -1603,6 +2570,15 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
     required TResult Function(
             UActorDefsPreferencesPreferencesThreadViewPref value)
         threadViewPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesInterestsPref value)
+        interestsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesMutedWordsPref value)
+        mutedWordsPref,
+    required TResult Function(
+            UActorDefsPreferencesPreferencesHiddenPostsPref value)
+        hiddenPostsPref,
     required TResult Function(UActorDefsPreferencesPreferencesUnknown value)
         unknown,
   }) {
@@ -1625,6 +2601,12 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
         feedViewPref,
     TResult? Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult? Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult? Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult? Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
   }) {
     return unknown?.call(this);
@@ -1645,6 +2627,12 @@ class _$UActorDefsPreferencesPreferencesUnknownImpl
         feedViewPref,
     TResult Function(UActorDefsPreferencesPreferencesThreadViewPref value)?
         threadViewPref,
+    TResult Function(UActorDefsPreferencesPreferencesInterestsPref value)?
+        interestsPref,
+    TResult Function(UActorDefsPreferencesPreferencesMutedWordsPref value)?
+        mutedWordsPref,
+    TResult Function(UActorDefsPreferencesPreferencesHiddenPostsPref value)?
+        hiddenPostsPref,
     TResult Function(UActorDefsPreferencesPreferencesUnknown value)? unknown,
     required TResult orElse(),
   }) {

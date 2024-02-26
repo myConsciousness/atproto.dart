@@ -24,6 +24,7 @@ class ActorDefsSavedFeedsPref with _$ActorDefsSavedFeedsPref {
     @typeKey @Default(appBskyActorDefsSavedFeedsPref) String type,
     @atUriConverter required List<AtUri> pinned,
     @atUriConverter required List<AtUri> saved,
+    int? timelineIndex,
   }) = _ActorDefsSavedFeedsPref;
 
   factory ActorDefsSavedFeedsPref.fromJson(Map<String, Object?> json) =>

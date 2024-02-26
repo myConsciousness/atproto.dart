@@ -99,16 +99,22 @@ export 'package:atproto/atproto.dart'
         $SignupQueueCopyWith,
         TransferredAccount,
         $TransferredAccountCopyWith,
+        // ignore: deprecated_member_use
         ServiceAuthToken,
         $ServiceAuthTokenCopyWith,
+        // ignore: deprecated_member_use
         AccountStatus,
         $AccountStatusCopyWith,
+        // ignore: deprecated_member_use
         MissingBlobs,
         $MissingBlobsCopyWith,
+        // ignore: deprecated_member_use
         RecordBlob,
         $RecordBlobCopyWith,
+        // ignore: deprecated_member_use
         PlcOperation,
         $PlcOperationCopyWith,
+        // ignore: deprecated_member_use
         DidCredentials,
         $DidCredentialsCopyWith,
         // ignore: deprecated_member_use
@@ -378,7 +384,6 @@ export 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
 export 'package:bluesky/src/services/entities/skeleton_actor.dart';
 export 'package:bluesky/src/services/entities/suggested_follows.dart';
 
-// TODO: Migrate
 export 'package:bluesky/src/services/entities/muted_word.dart';
 export 'package:bluesky/src/services/entities/muted_word_target.dart';
 export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';

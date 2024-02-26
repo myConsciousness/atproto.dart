@@ -18,6 +18,7 @@ part 'interests_preference.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#interestspref
 @freezed
 @lex.appBskyActorDefsInterestsPref
+@Deprecated('Use ActorDefsInterestsPref instead. Will be removed')
 class InterestsPreference with _$InterestsPreference {
   @jsonSerializable
   const factory InterestsPreference({

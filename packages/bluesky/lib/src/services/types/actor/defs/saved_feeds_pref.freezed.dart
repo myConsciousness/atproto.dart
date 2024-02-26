@@ -12,7 +12,7 @@ part of 'saved_feeds_pref.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 ActorDefsSavedFeedsPref _$ActorDefsSavedFeedsPrefFromJson(
     Map<String, dynamic> json) {
@@ -27,6 +27,7 @@ mixin _$ActorDefsSavedFeedsPref {
   List<AtUri> get pinned => throw _privateConstructorUsedError;
   @atUriConverter
   List<AtUri> get saved => throw _privateConstructorUsedError;
+  int? get timelineIndex => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -43,7 +44,8 @@ abstract class $ActorDefsSavedFeedsPrefCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       @atUriConverter List<AtUri> pinned,
-      @atUriConverter List<AtUri> saved});
+      @atUriConverter List<AtUri> saved,
+      int? timelineIndex});
 }
 
 /// @nodoc
@@ -63,6 +65,7 @@ class _$ActorDefsSavedFeedsPrefCopyWithImpl<$Res,
     Object? type = null,
     Object? pinned = null,
     Object? saved = null,
+    Object? timelineIndex = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -77,6 +80,10 @@ class _$ActorDefsSavedFeedsPrefCopyWithImpl<$Res,
           ? _value.saved
           : saved // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      timelineIndex: freezed == timelineIndex
+          ? _value.timelineIndex
+          : timelineIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ) as $Val);
   }
 }
@@ -93,7 +100,8 @@ abstract class _$$ActorDefsSavedFeedsPrefImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       @atUriConverter List<AtUri> pinned,
-      @atUriConverter List<AtUri> saved});
+      @atUriConverter List<AtUri> saved,
+      int? timelineIndex});
 }
 
 /// @nodoc
@@ -112,6 +120,7 @@ class __$$ActorDefsSavedFeedsPrefImplCopyWithImpl<$Res>
     Object? type = null,
     Object? pinned = null,
     Object? saved = null,
+    Object? timelineIndex = freezed,
   }) {
     return _then(_$ActorDefsSavedFeedsPrefImpl(
       type: null == type
@@ -126,6 +135,10 @@ class __$$ActorDefsSavedFeedsPrefImplCopyWithImpl<$Res>
           ? _value._saved
           : saved // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      timelineIndex: freezed == timelineIndex
+          ? _value.timelineIndex
+          : timelineIndex // ignore: cast_nullable_to_non_nullable
+              as int?,
     ));
   }
 }
@@ -137,7 +150,8 @@ class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
   const _$ActorDefsSavedFeedsPrefImpl(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @atUriConverter required final List<AtUri> pinned,
-      @atUriConverter required final List<AtUri> saved})
+      @atUriConverter required final List<AtUri> saved,
+      this.timelineIndex})
       : _pinned = pinned,
         _saved = saved;
 
@@ -166,8 +180,11 @@ class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
   }
 
   @override
+  final int? timelineIndex;
+
+  @override
   String toString() {
-    return 'ActorDefsSavedFeedsPref(type: $type, pinned: $pinned, saved: $saved)';
+    return 'ActorDefsSavedFeedsPref(type: $type, pinned: $pinned, saved: $saved, timelineIndex: $timelineIndex)';
   }
 
   @override
@@ -177,7 +194,9 @@ class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
             other is _$ActorDefsSavedFeedsPrefImpl &&
             (identical(other.type, type) || other.type == type) &&
             const DeepCollectionEquality().equals(other._pinned, _pinned) &&
-            const DeepCollectionEquality().equals(other._saved, _saved));
+            const DeepCollectionEquality().equals(other._saved, _saved) &&
+            (identical(other.timelineIndex, timelineIndex) ||
+                other.timelineIndex == timelineIndex));
   }
 
   @JsonKey(ignore: true)
@@ -186,7 +205,8 @@ class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
       runtimeType,
       type,
       const DeepCollectionEquality().hash(_pinned),
-      const DeepCollectionEquality().hash(_saved));
+      const DeepCollectionEquality().hash(_saved),
+      timelineIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -205,10 +225,10 @@ class _$ActorDefsSavedFeedsPrefImpl implements _ActorDefsSavedFeedsPref {
 
 abstract class _ActorDefsSavedFeedsPref implements ActorDefsSavedFeedsPref {
   const factory _ActorDefsSavedFeedsPref(
-          {@typeKey final String type,
-          @atUriConverter required final List<AtUri> pinned,
-          @atUriConverter required final List<AtUri> saved}) =
-      _$ActorDefsSavedFeedsPrefImpl;
+      {@typeKey final String type,
+      @atUriConverter required final List<AtUri> pinned,
+      @atUriConverter required final List<AtUri> saved,
+      final int? timelineIndex}) = _$ActorDefsSavedFeedsPrefImpl;
 
   factory _ActorDefsSavedFeedsPref.fromJson(Map<String, dynamic> json) =
       _$ActorDefsSavedFeedsPrefImpl.fromJson;
@@ -222,6 +242,8 @@ abstract class _ActorDefsSavedFeedsPref implements ActorDefsSavedFeedsPref {
   @override
   @atUriConverter
   List<AtUri> get saved;
+  @override
+  int? get timelineIndex;
   @override
   @JsonKey(ignore: true)
   _$$ActorDefsSavedFeedsPrefImplCopyWith<_$ActorDefsSavedFeedsPrefImpl>

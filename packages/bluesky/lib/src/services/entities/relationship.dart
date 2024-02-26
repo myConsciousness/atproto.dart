@@ -14,6 +14,7 @@ part 'relationship.freezed.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships#output
 @freezed
+@Deprecated('Use UGraphGetRelationshipsRelationships instead. Will be removed')
 class Relationship with _$Relationship {
   // ignore: unused_element
   const Relationship._();
