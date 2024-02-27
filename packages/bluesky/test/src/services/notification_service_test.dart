@@ -7,17 +7,20 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/types/notification/get_unread_count/_z.dart';
-import 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';
 import 'suite/service_suite.dart';
 
+import 'package:bluesky/src/services/types/notification/get_unread_count/_z.dart'
+    as app_bsky_notification_get_unread_count;
+import 'package:bluesky/src/services/types/notification/list_notifications/_z.dart'
+    as app_bsky_notification_list_notifications;
+
 void main() {
-  testNotification<NotificationListNotificationsOutput>(
+  testNotification<app_bsky_notification_list_notifications.Output>(
     (m, s) => s.listNotifications(),
     id: appBskyNotificationListNotifications,
   );
 
-  testNotification<NotificationGetUnreadCountOutput>(
+  testNotification<app_bsky_notification_get_unread_count.Output>(
     (m, s) => s.getUnreadCount(),
     id: appBskyNotificationGetUnreadCount,
   );

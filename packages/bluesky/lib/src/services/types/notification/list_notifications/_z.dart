@@ -5,7 +5,7 @@
 export 'notification.dart';
 export 'output.dart';
 
-export 'constants/notification_reason.dart';
+export 'constants/notification_reason_known_values.dart';
 
 export 'extensions/notification_reason_extension.dart';
 export 'extensions/output_extension.dart';

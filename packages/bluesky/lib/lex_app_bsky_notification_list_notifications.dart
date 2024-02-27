@@ -2,13 +2,4 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum NotificationListNotificationsNotificationReason {
-  like,
-  repost,
-  follow,
-  mention,
-  reply,
-  quote;
-
-  const NotificationListNotificationsNotificationReason();
-}
+export 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';

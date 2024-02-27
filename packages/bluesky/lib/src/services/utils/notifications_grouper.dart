@@ -8,16 +8,19 @@ import 'package:atproto/lex_types.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
 import '../types/actor/defs/_z.dart';
-import '../types/notification/list_notifications/_z.dart';
+import '../types/notification/list_notifications/constants/notification_reason_known_values.dart';
 import 'group_by.dart';
 import 'grouped_notification_reason.dart';
 import 'grouped_notifications.dart';
 import 'notification_reason_filter.dart';
 
-const _groupableReasons = <NotificationListNotificationsNotificationReason>[
-  NotificationListNotificationsNotificationReason.like,
-  NotificationListNotificationsNotificationReason.repost,
-  NotificationListNotificationsNotificationReason.follow,
+import '../types/notification/list_notifications/_z.dart'
+    as app_bsky_notification_list_notifications;
+
+const _groupableReasons = <NotificationReason>[
+  NotificationReason.like,
+  NotificationReason.repost,
+  NotificationReason.follow,
 ];
 
 sealed class NotificationsGrouper {
@@ -26,7 +29,7 @@ sealed class NotificationsGrouper {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [NotificationListNotificationsOutput]
+  /// Takes a [app_bsky_notification_list_notifications.Output]
   /// object containing an array of individual notification items,
   /// and groups them into related sets. A set is considered "related"
   /// if they share the same `reason` and `reasonSubject`.
@@ -44,7 +47,7 @@ sealed class NotificationsGrouper {
   /// - Returns a [GroupedNotifications] object containing the grouped
   ///   notifications.
   GroupedNotifications group(
-    final NotificationListNotificationsOutput notifications, {
+    final app_bsky_notification_list_notifications.Output notifications, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   });
@@ -55,7 +58,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   @override
   GroupedNotifications group(
-    final NotificationListNotificationsOutput data, {
+    final app_bsky_notification_list_notifications.Output data, {
     final NotificationReasonFilter? reasonFilter,
     final GroupBy? by,
   }) {
@@ -103,9 +106,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     );
   }
 
-  bool _isGroupable(
-    final NotificationListNotificationsNotificationReason reason,
-  ) =>
+  bool _isGroupable(final NotificationReason reason) =>
       _groupableReasons.contains(reason);
 
   Map<String, dynamic> _getRelatedGroup(
@@ -128,7 +129,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
   }
 
   Map<String, dynamic> _buildRelatedGroup(
-    final NotificationListNotificationsNotification notification,
+    final app_bsky_notification_list_notifications.Notification notification,
     final String? reasonSubject,
   ) =>
       {
@@ -144,7 +145,7 @@ final class _NotificationsGrouper implements NotificationsGrouper {
 
   void _updateRelatedGroup(
     final Map<String, dynamic> relatedGroup,
-    final NotificationListNotificationsNotification notification,
+    final app_bsky_notification_list_notifications.Notification notification,
   ) {
     relatedGroup['uris'] = _mergeUris(
       relatedGroup['uris'],
@@ -257,14 +258,13 @@ final class _NotificationsGrouper implements NotificationsGrouper {
       return false;
     }
 
-    return reason ==
-            NotificationListNotificationsNotificationReason.like.name &&
+    return reason == NotificationReason.like.name &&
         reasonSubject.contains(ids.appBskyFeedGenerator);
   }
 
-  List<List<NotificationListNotificationsNotification>> _groupBy(
+  List<List<app_bsky_notification_list_notifications.Notification>> _groupBy(
     final GroupBy? by,
-    final NotificationListNotificationsOutput data,
+    final app_bsky_notification_list_notifications.Output data,
   ) {
     if (by == null) {
       return [data.notifications];
@@ -273,9 +273,9 @@ final class _NotificationsGrouper implements NotificationsGrouper {
     return by.execute(data);
   }
 
-  NotificationListNotificationsOutput _filterReason(
+  app_bsky_notification_list_notifications.Output _filterReason(
     NotificationReasonFilter? reasonFilter,
-    NotificationListNotificationsOutput data,
+    app_bsky_notification_list_notifications.Output data,
   ) =>
       reasonFilter == null ? data : reasonFilter.execute(data);
 }

@@ -10,6 +10,9 @@ import '../../ids.g.dart' as ids;
 import '../types/notification/list_notifications/_z.dart';
 import 'grouped_notification_reason.dart';
 
+import '../types/notification/list_notifications/_z.dart'
+    as app_bsky_notification_list_notifications;
+
 sealed class NotificationReasonFilter {
   // ignore: unused_element
   const NotificationReasonFilter._();
@@ -23,8 +26,8 @@ sealed class NotificationReasonFilter {
   ) = NotificationReasonExcludeFilter;
 
   /// Returns a new [notifications] filtered based on reasons.
-  NotificationListNotificationsOutput execute(
-    final NotificationListNotificationsOutput notifications,
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output notifications,
   );
 }
 
@@ -37,8 +40,8 @@ final class NotificationReasonIncludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  NotificationListNotificationsOutput execute(
-    final NotificationListNotificationsOutput data,
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output data,
   ) =>
       data.copyWith(
         notifications:
@@ -55,17 +58,20 @@ final class NotificationReasonExcludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  NotificationListNotificationsOutput execute(
-    final NotificationListNotificationsOutput data,
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output data,
   ) =>
       data.copyWith(
-        notifications:
-            data.notifications.where((e) => !_test(e, reasons)).toList(),
+        notifications: data.notifications
+            .where(
+              (e) => !_test(e, reasons),
+            )
+            .toList(),
       );
 }
 
 bool _test(
-  final NotificationListNotificationsNotification e,
+  final Notification e,
   final List<GroupedNotificationReason> reasons,
 ) {
   if (_isCustomFeedLike(e.reason, e.reasonSubject)) {
@@ -83,12 +89,10 @@ bool _test(
 
 /// Returns true if this [reason] is a custom feed like, otherwise false.
 bool _isCustomFeedLike(
-  final NotificationListNotificationsNotificationReason reason,
+  final NotificationReason reason,
   final core.AtUri? reasonSubject,
 ) {
-  if (reason.isNotLike || reasonSubject == null) {
-    return false;
-  }
+  if (reason.isNotLike || reasonSubject == null) return false;
 
   return reasonSubject.collection == ids.appBskyFeedGenerator;
 }

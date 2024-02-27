@@ -11,12 +11,11 @@ import '../output.dart';
 
 final _grouper = const NotificationsGrouper();
 
-extension NotificationListNotificationsOutputExtension
-    on NotificationListNotificationsOutput {
+extension OutputExtension on Output {
   /// Groups a list of notifications based on their `reason` and
   /// `reasonSubject`.
   ///
-  /// Takes a [NotificationListNotificationsOutput] object containing
+  /// Takes a [Output] object containing
   /// an array of individual notification items, and groups them into
   /// related sets.
   ///

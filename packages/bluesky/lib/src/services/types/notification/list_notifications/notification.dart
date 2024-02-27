@@ -12,7 +12,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../lex_annotations.g.dart' as lex;
 import '../../actor/defs/profile_view.dart';
-import 'constants/notification_reason.dart';
+import 'constants/notification_reason_known_values.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';
@@ -20,22 +20,21 @@ part 'notification.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#notification
 @freezed
 @lex.appBskyNotificationListNotificationsNotification
-class NotificationListNotificationsNotification
-    with _$NotificationListNotificationsNotification {
+class Notification with _$Notification {
   @jsonSerializable
-  const factory NotificationListNotificationsNotification({
+  const factory Notification({
     required String cid,
     @atUriConverter required AtUri uri,
     required ProfileView author,
-    required NotificationListNotificationsNotificationReason reason,
+    @JsonKey(unknownEnumValue: NotificationReason.unknown)
+    required NotificationReason reason,
     @atUriConverter AtUri? reasonSubject,
     @Default(false) bool isRead,
     Map<String, dynamic>? record,
     List<LabelDefsLabel>? labels,
     required DateTime indexedAt,
-  }) = _NotificationListNotificationsNotification;
+  }) = _Notification;
 
-  factory NotificationListNotificationsNotification.fromJson(
-          Map<String, Object?> json) =>
-      _$NotificationListNotificationsNotificationFromJson(json);
+  factory Notification.fromJson(Map<String, Object?> json) =>
+      _$NotificationFromJson(json);
 }

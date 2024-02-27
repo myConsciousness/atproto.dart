@@ -10,149 +10,59 @@ import 'package:bluesky/src/services/types/notification/list_notifications/_z.da
 
 void main() {
   test('.name', () {
-    expect(
-      NotificationListNotificationsNotificationReason.like.name,
-      'like',
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.repost.name,
-      'repost',
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.name,
-      'follow',
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.mention.name,
-      'mention',
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.reply.name,
-      'reply',
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.quote.name,
-      'quote',
-    );
+    expect(NotificationReason.like.name, 'like');
+    expect(NotificationReason.repost.name, 'repost');
+    expect(NotificationReason.follow.name, 'follow');
+    expect(NotificationReason.mention.name, 'mention');
+    expect(NotificationReason.reply.name, 'reply');
+    expect(NotificationReason.quote.name, 'quote');
   });
 
   test('.isLike', () {
-    expect(
-      NotificationListNotificationsNotificationReason.like.isLike,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotLike,
-      isTrue,
-    );
+    expect(NotificationReason.like.isLike, isTrue);
+    expect(NotificationReason.follow.isNotLike, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.like.isNotLike,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isLike,
-      isFalse,
-    );
+    expect(NotificationReason.like.isNotLike, isFalse);
+    expect(NotificationReason.follow.isLike, isFalse);
   });
 
   test('.isRepost', () {
-    expect(
-      NotificationListNotificationsNotificationReason.repost.isRepost,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotRepost,
-      isTrue,
-    );
+    expect(NotificationReason.repost.isRepost, isTrue);
+    expect(NotificationReason.follow.isNotRepost, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.repost.isNotRepost,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isRepost,
-      isFalse,
-    );
+    expect(NotificationReason.repost.isNotRepost, isFalse);
+    expect(NotificationReason.follow.isRepost, isFalse);
   });
 
   test('.isFollow', () {
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isFollow,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.like.isNotFollow,
-      isTrue,
-    );
+    expect(NotificationReason.follow.isFollow, isTrue);
+    expect(NotificationReason.like.isNotFollow, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotFollow,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.like.isFollow,
-      isFalse,
-    );
+    expect(NotificationReason.follow.isNotFollow, isFalse);
+    expect(NotificationReason.like.isFollow, isFalse);
   });
 
   test('.isMention', () {
-    expect(
-      NotificationListNotificationsNotificationReason.mention.isMention,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotMention,
-      isTrue,
-    );
+    expect(NotificationReason.mention.isMention, isTrue);
+    expect(NotificationReason.follow.isNotMention, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.mention.isNotMention,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isMention,
-      isFalse,
-    );
+    expect(NotificationReason.mention.isNotMention, isFalse);
+    expect(NotificationReason.follow.isMention, isFalse);
   });
 
   test('.isReply', () {
-    expect(
-      NotificationListNotificationsNotificationReason.reply.isReply,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotReply,
-      isTrue,
-    );
+    expect(NotificationReason.reply.isReply, isTrue);
+    expect(NotificationReason.follow.isNotReply, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.reply.isNotReply,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isReply,
-      isFalse,
-    );
+    expect(NotificationReason.reply.isNotReply, isFalse);
+    expect(NotificationReason.follow.isReply, isFalse);
   });
 
   test('.isQuote', () {
-    expect(
-      NotificationListNotificationsNotificationReason.quote.isQuote,
-      isTrue,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isNotQuote,
-      isTrue,
-    );
+    expect(NotificationReason.quote.isQuote, isTrue);
+    expect(NotificationReason.follow.isNotQuote, isTrue);
 
-    expect(
-      NotificationListNotificationsNotificationReason.quote.isNotQuote,
-      isFalse,
-    );
-    expect(
-      NotificationListNotificationsNotificationReason.follow.isQuote,
-      isFalse,
-    );
+    expect(NotificationReason.quote.isNotQuote, isFalse);
+    expect(NotificationReason.follow.isQuote, isFalse);
   });
 }

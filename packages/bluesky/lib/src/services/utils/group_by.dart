@@ -4,7 +4,9 @@
 
 // 🌎 Project imports:
 import '../types/notification/list_notifications/notification.dart';
-import '../types/notification/list_notifications/output.dart';
+
+import '../types/notification/list_notifications/output.dart'
+    as app_bsky_notification_list_notifications;
 
 sealed class GroupBy {
   // ignore: unused_element
@@ -13,8 +15,8 @@ sealed class GroupBy {
   const factory GroupBy.hour(final int hour) = Hour;
   const factory GroupBy.minute(final int minute) = Minute;
 
-  List<List<NotificationListNotificationsNotification>> execute(
-    final NotificationListNotificationsOutput data,
+  List<List<Notification>> execute(
+    final app_bsky_notification_list_notifications.Output data,
   );
 }
 
@@ -24,8 +26,8 @@ final class Hour implements GroupBy {
   final int hour;
 
   @override
-  List<List<NotificationListNotificationsNotification>> execute(
-    NotificationListNotificationsOutput data,
+  List<List<Notification>> execute(
+    app_bsky_notification_list_notifications.Output data,
   ) {
     return _buildChunks(
       _groupBy(
@@ -48,8 +50,8 @@ final class Minute implements GroupBy {
   final int minute;
 
   @override
-  List<List<NotificationListNotificationsNotification>> execute(
-    NotificationListNotificationsOutput data,
+  List<List<Notification>> execute(
+    app_bsky_notification_list_notifications.Output data,
   ) {
     return _buildChunks(
       _groupBy(
@@ -76,10 +78,10 @@ Map<T, List<S>> _groupBy<S, T>(Iterable<S> values, T Function(S) key) {
   return map;
 }
 
-List<List<NotificationListNotificationsNotification>> _buildChunks(
-  final Map<DateTime, List<NotificationListNotificationsNotification>> grouped,
+List<List<Notification>> _buildChunks(
+  final Map<DateTime, List<Notification>> grouped,
 ) {
-  final chunks = <List<NotificationListNotificationsNotification>>[];
+  final chunks = <List<Notification>>[];
 
   for (final notifications in grouped.values) {
     chunks.add(notifications);

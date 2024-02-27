@@ -14,37 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-NotificationGetUnreadCountOutput _$NotificationGetUnreadCountOutputFromJson(
-    Map<String, dynamic> json) {
-  return _NotificationGetUnreadCountOutput.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$NotificationGetUnreadCountOutput {
+mixin _$Output {
   int get count => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NotificationGetUnreadCountOutputCopyWith<NotificationGetUnreadCountOutput>
-      get copyWith => throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NotificationGetUnreadCountOutputCopyWith<$Res> {
-  factory $NotificationGetUnreadCountOutputCopyWith(
-          NotificationGetUnreadCountOutput value,
-          $Res Function(NotificationGetUnreadCountOutput) then) =
-      _$NotificationGetUnreadCountOutputCopyWithImpl<$Res,
-          NotificationGetUnreadCountOutput>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class _$NotificationGetUnreadCountOutputCopyWithImpl<$Res,
-        $Val extends NotificationGetUnreadCountOutput>
-    implements $NotificationGetUnreadCountOutputCopyWith<$Res> {
-  _$NotificationGetUnreadCountOutputCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -66,25 +60,21 @@ class _$NotificationGetUnreadCountOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$NotificationGetUnreadCountOutputImplCopyWith<$Res>
-    implements $NotificationGetUnreadCountOutputCopyWith<$Res> {
-  factory _$$NotificationGetUnreadCountOutputImplCopyWith(
-          _$NotificationGetUnreadCountOutputImpl value,
-          $Res Function(_$NotificationGetUnreadCountOutputImpl) then) =
-      __$$NotificationGetUnreadCountOutputImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({int count});
 }
 
 /// @nodoc
-class __$$NotificationGetUnreadCountOutputImplCopyWithImpl<$Res>
-    extends _$NotificationGetUnreadCountOutputCopyWithImpl<$Res,
-        _$NotificationGetUnreadCountOutputImpl>
-    implements _$$NotificationGetUnreadCountOutputImplCopyWith<$Res> {
-  __$$NotificationGetUnreadCountOutputImplCopyWithImpl(
-      _$NotificationGetUnreadCountOutputImpl _value,
-      $Res Function(_$NotificationGetUnreadCountOutputImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +82,7 @@ class __$$NotificationGetUnreadCountOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? count = null,
   }) {
-    return _then(_$NotificationGetUnreadCountOutputImpl(
+    return _then(_$OutputImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
@@ -103,13 +93,11 @@ class __$$NotificationGetUnreadCountOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$NotificationGetUnreadCountOutputImpl
-    implements _NotificationGetUnreadCountOutput {
-  const _$NotificationGetUnreadCountOutputImpl({this.count = 0});
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({this.count = 0});
 
-  factory _$NotificationGetUnreadCountOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$NotificationGetUnreadCountOutputImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   @override
   @JsonKey()
@@ -117,14 +105,14 @@ class _$NotificationGetUnreadCountOutputImpl
 
   @override
   String toString() {
-    return 'NotificationGetUnreadCountOutput(count: $count)';
+    return 'Output(count: $count)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$NotificationGetUnreadCountOutputImpl &&
+            other is _$OutputImpl &&
             (identical(other.count, count) || other.count == count));
   }
 
@@ -135,33 +123,26 @@ class _$NotificationGetUnreadCountOutputImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$NotificationGetUnreadCountOutputImplCopyWith<
-          _$NotificationGetUnreadCountOutputImpl>
-      get copyWith => __$$NotificationGetUnreadCountOutputImplCopyWithImpl<
-          _$NotificationGetUnreadCountOutputImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$NotificationGetUnreadCountOutputImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _NotificationGetUnreadCountOutput
-    implements NotificationGetUnreadCountOutput {
-  const factory _NotificationGetUnreadCountOutput({final int count}) =
-      _$NotificationGetUnreadCountOutputImpl;
+abstract class _Output implements Output {
+  const factory _Output({final int count}) = _$OutputImpl;
 
-  factory _NotificationGetUnreadCountOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$NotificationGetUnreadCountOutputImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   int get count;
   @override
   @JsonKey(ignore: true)
-  _$$NotificationGetUnreadCountOutputImplCopyWith<
-          _$NotificationGetUnreadCountOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

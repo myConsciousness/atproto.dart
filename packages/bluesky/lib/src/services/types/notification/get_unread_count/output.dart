@@ -14,12 +14,10 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getunreadcount/#output
 @freezed
 @lex.appBskyNotificationGetUnreadCount
-class NotificationGetUnreadCountOutput with _$NotificationGetUnreadCountOutput {
-  const factory NotificationGetUnreadCountOutput({
+class Output with _$Output {
+  const factory Output({
     @Default(0) int count,
-  }) = _NotificationGetUnreadCountOutput;
+  }) = _Output;
 
-  factory NotificationGetUnreadCountOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$NotificationGetUnreadCountOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }
