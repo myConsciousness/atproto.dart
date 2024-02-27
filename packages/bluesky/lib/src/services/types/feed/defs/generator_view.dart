@@ -31,7 +31,7 @@ class FeedDefsGeneratorView with _$FeedDefsGeneratorView {
     required ProfileView creator,
     required String displayName,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
     @Default(defaultFeedDefsGeneratorViewerState)

@@ -25,8 +25,7 @@ mixin _$GraphListRecord {
   String get name => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   @unionGraphListRecordLabelsConverter
   UGraphListRecordLabels? get labels => throw _privateConstructorUsedError;
@@ -50,7 +49,7 @@ abstract class $GraphListRecordCopyWith<$Res> {
       String name,
       String purpose,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       Blob? avatar,
       @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
       DateTime createdAt,
@@ -103,7 +102,7 @@ class _$GraphListRecordCopyWithImpl<$Res, $Val extends GraphListRecord>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -161,7 +160,7 @@ abstract class _$$GraphListRecordImplCopyWith<$Res>
       String name,
       String purpose,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       Blob? avatar,
       @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
       DateTime createdAt,
@@ -214,7 +213,7 @@ class __$$GraphListRecordImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -244,7 +243,7 @@ class _$GraphListRecordImpl implements _GraphListRecord {
       required this.name,
       required this.purpose,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       @unionGraphListRecordLabelsConverter this.labels,
       required this.createdAt,
@@ -264,9 +263,9 @@ class _$GraphListRecordImpl implements _GraphListRecord {
   final String purpose;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -350,7 +349,7 @@ abstract class _GraphListRecord implements GraphListRecord {
       required final String name,
       required final String purpose,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final Blob? avatar,
       @unionGraphListRecordLabelsConverter final UGraphListRecordLabels? labels,
       required final DateTime createdAt,
@@ -369,7 +368,7 @@ abstract class _GraphListRecord implements GraphListRecord {
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   Blob? get avatar;
   @override

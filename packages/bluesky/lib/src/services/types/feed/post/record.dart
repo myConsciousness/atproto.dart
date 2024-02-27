@@ -32,7 +32,7 @@ class FeedPostRecord with _$FeedPostRecord {
     @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
     List<String>? langs,
     @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
-    List<RichtextFacet>? facets,
+    List<Facet>? facets,
     List<String>? tags,
     required DateTime createdAt,
     @Default({}) Map<String, dynamic> unknown,

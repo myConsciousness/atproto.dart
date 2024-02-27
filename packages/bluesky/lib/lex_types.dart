@@ -68,5 +68,3 @@ export 'package:bluesky/src/services/types/graph/listblock/_z.dart';
 export 'package:bluesky/src/services/types/graph/listitem/_z.dart';
 export 'package:bluesky/src/services/types/notification/get_unread_count/_z.dart';
 export 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';
-export 'package:bluesky/src/services/types/richtext/facet/_z.dart'
-    hide unionRichtextFacetFeaturesConverter;

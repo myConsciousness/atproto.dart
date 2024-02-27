@@ -8,12 +8,11 @@ part of 'byte_slice.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$RichtextFacetByteSliceImpl _$$RichtextFacetByteSliceImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$RichtextFacetByteSliceImpl',
+_$ByteSliceImpl _$$ByteSliceImplFromJson(Map json) => $checkedCreate(
+      r'_$ByteSliceImpl',
       json,
       ($checkedConvert) {
-        final val = _$RichtextFacetByteSliceImpl(
+        final val = _$ByteSliceImpl(
           byteStart: $checkedConvert('byteStart', (v) => v as int),
           byteEnd: $checkedConvert('byteEnd', (v) => v as int),
         );
@@ -21,8 +20,7 @@ _$RichtextFacetByteSliceImpl _$$RichtextFacetByteSliceImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$RichtextFacetByteSliceImplToJson(
-        _$RichtextFacetByteSliceImpl instance) =>
+Map<String, dynamic> _$$ByteSliceImplToJson(_$ByteSliceImpl instance) =>
     <String, dynamic>{
       'byteStart': instance.byteStart,
       'byteEnd': instance.byteEnd,

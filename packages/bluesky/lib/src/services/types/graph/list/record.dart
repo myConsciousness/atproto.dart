@@ -28,7 +28,7 @@ class GraphListRecord with _$GraphListRecord {
     required String name,
     required String purpose,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     Blob? avatar,
     @unionGraphListRecordLabelsConverter UGraphListRecordLabels? labels,
     required DateTime createdAt,

@@ -37,8 +37,8 @@ _$FeedPostRecordImpl _$$FeedPostRecordImplFromJson(Map json) => $checkedCreate(
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => RichtextFacet.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),

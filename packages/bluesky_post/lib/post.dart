@@ -10,6 +10,7 @@ import 'dart:io';
 import 'package:actions_toolkit_dart/core.dart' as core;
 import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/cardyb.dart' as cardyb;
+import 'package:bluesky/lex_app_bsky_richtext_facet.dart';
 import 'package:bluesky/lex_types.dart' as lex_types;
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
@@ -34,7 +35,7 @@ Future<void> post() async {
 
   final createdPost = await bluesky.feed.post(
     text: text.value,
-    facets: facets.map(lex_types.RichtextFacet.fromJson).toList(),
+    facets: facets.map(Facet.fromJson).toList(),
     embed: await _getEmbed(bluesky),
     languageTags: _langs,
     labels: _labels,

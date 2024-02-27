@@ -25,8 +25,7 @@ mixin _$FeedGeneratorRecord {
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
   @unionFeedGeneratorRecordLabelsConverter
   UFeedGeneratorRecordLabels? get labels => throw _privateConstructorUsedError;
@@ -50,7 +49,7 @@ abstract class $FeedGeneratorRecordCopyWith<$Res> {
       String did,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       UFeedGeneratorRecordLabels? labels,
@@ -104,7 +103,7 @@ class _$FeedGeneratorRecordCopyWithImpl<$Res, $Val extends FeedGeneratorRecord>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -162,7 +161,7 @@ abstract class _$$FeedGeneratorRecordImplCopyWith<$Res>
       String did,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       UFeedGeneratorRecordLabels? labels,
@@ -216,7 +215,7 @@ class __$$FeedGeneratorRecordImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -246,7 +245,7 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
       required this.did,
       required this.displayName,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       @unionFeedGeneratorRecordLabelsConverter this.labels,
       required this.createdAt,
@@ -266,9 +265,9 @@ class _$FeedGeneratorRecordImpl implements _FeedGeneratorRecord {
   final String displayName;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -353,7 +352,7 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
       required final String did,
       required final String displayName,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final Blob? avatar,
       @unionFeedGeneratorRecordLabelsConverter
       final UFeedGeneratorRecordLabels? labels,
@@ -373,7 +372,7 @@ abstract class _FeedGeneratorRecord implements FeedGeneratorRecord {
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   Blob? get avatar;
   @override

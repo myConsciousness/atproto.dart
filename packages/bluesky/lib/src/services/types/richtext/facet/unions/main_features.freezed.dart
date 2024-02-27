@@ -15,72 +15,71 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$URichtextFacetFeatures {
+mixin _$UFacetFeature {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) mention,
-    required TResult Function(RichtextFacetLink data) link,
-    required TResult Function(RichtextFacetTag data) tag,
+    required TResult Function(Mention data) mention,
+    required TResult Function(Link data) link,
+    required TResult Function(Tag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? mention,
-    TResult? Function(RichtextFacetLink data)? link,
-    TResult? Function(RichtextFacetTag data)? tag,
+    TResult? Function(Mention data)? mention,
+    TResult? Function(Link data)? link,
+    TResult? Function(Tag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? mention,
-    TResult Function(RichtextFacetLink data)? link,
-    TResult Function(RichtextFacetTag data)? tag,
+    TResult Function(Mention data)? mention,
+    TResult Function(Link data)? link,
+    TResult Function(Tag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesMention value) mention,
-    required TResult Function(URichtextFacetFeaturesLink value) link,
-    required TResult Function(URichtextFacetFeaturesTag value) tag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesMention value)? mention,
-    TResult? Function(URichtextFacetFeaturesLink value)? link,
-    TResult? Function(URichtextFacetFeaturesTag value)? tag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesMention value)? mention,
-    TResult Function(URichtextFacetFeaturesLink value)? link,
-    TResult Function(URichtextFacetFeaturesTag value)? tag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $URichtextFacetFeaturesCopyWith<$Res> {
-  factory $URichtextFacetFeaturesCopyWith(URichtextFacetFeatures value,
-          $Res Function(URichtextFacetFeatures) then) =
-      _$URichtextFacetFeaturesCopyWithImpl<$Res, URichtextFacetFeatures>;
+abstract class $UFacetFeatureCopyWith<$Res> {
+  factory $UFacetFeatureCopyWith(
+          UFacetFeature value, $Res Function(UFacetFeature) then) =
+      _$UFacetFeatureCopyWithImpl<$Res, UFacetFeature>;
 }
 
 /// @nodoc
-class _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        $Val extends URichtextFacetFeatures>
-    implements $URichtextFacetFeaturesCopyWith<$Res> {
-  _$URichtextFacetFeaturesCopyWithImpl(this._value, this._then);
+class _$UFacetFeatureCopyWithImpl<$Res, $Val extends UFacetFeature>
+    implements $UFacetFeatureCopyWith<$Res> {
+  _$UFacetFeatureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,25 +88,22 @@ class _$URichtextFacetFeaturesCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesMentionImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesMentionImplCopyWith(
-          _$URichtextFacetFeaturesMentionImpl value,
-          $Res Function(_$URichtextFacetFeaturesMentionImpl) then) =
-      __$$URichtextFacetFeaturesMentionImplCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureMentionImplCopyWith<$Res> {
+  factory _$$UFacetFeatureMentionImplCopyWith(_$UFacetFeatureMentionImpl value,
+          $Res Function(_$UFacetFeatureMentionImpl) then) =
+      __$$UFacetFeatureMentionImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RichtextFacetMention data});
+  $Res call({Mention data});
 
-  $RichtextFacetMentionCopyWith<$Res> get data;
+  $MentionCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$URichtextFacetFeaturesMentionImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesMentionImpl>
-    implements _$$URichtextFacetFeaturesMentionImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesMentionImplCopyWithImpl(
-      _$URichtextFacetFeaturesMentionImpl _value,
-      $Res Function(_$URichtextFacetFeaturesMentionImpl) _then)
+class __$$UFacetFeatureMentionImplCopyWithImpl<$Res>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureMentionImpl>
+    implements _$$UFacetFeatureMentionImplCopyWith<$Res> {
+  __$$UFacetFeatureMentionImplCopyWithImpl(_$UFacetFeatureMentionImpl _value,
+      $Res Function(_$UFacetFeatureMentionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -115,18 +111,18 @@ class __$$URichtextFacetFeaturesMentionImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URichtextFacetFeaturesMentionImpl(
+    return _then(_$UFacetFeatureMentionImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetMention,
+              as Mention,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RichtextFacetMentionCopyWith<$Res> get data {
-    return $RichtextFacetMentionCopyWith<$Res>(_value.data, (value) {
+  $MentionCopyWith<$Res> get data {
+    return $MentionCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -134,23 +130,22 @@ class __$$URichtextFacetFeaturesMentionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesMentionImpl
-    extends URichtextFacetFeaturesMention {
-  const _$URichtextFacetFeaturesMentionImpl({required this.data}) : super._();
+class _$UFacetFeatureMentionImpl extends UFacetFeatureMention {
+  const _$UFacetFeatureMentionImpl({required this.data}) : super._();
 
   @override
-  final RichtextFacetMention data;
+  final Mention data;
 
   @override
   String toString() {
-    return 'URichtextFacetFeatures.mention(data: $data)';
+    return 'UFacetFeature.mention(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesMentionImpl &&
+            other is _$UFacetFeatureMentionImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -160,17 +155,17 @@ class _$URichtextFacetFeaturesMentionImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesMentionImplCopyWith<
-          _$URichtextFacetFeaturesMentionImpl>
-      get copyWith => __$$URichtextFacetFeaturesMentionImplCopyWithImpl<
-          _$URichtextFacetFeaturesMentionImpl>(this, _$identity);
+  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
+      get copyWith =>
+          __$$UFacetFeatureMentionImplCopyWithImpl<_$UFacetFeatureMentionImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) mention,
-    required TResult Function(RichtextFacetLink data) link,
-    required TResult Function(RichtextFacetTag data) tag,
+    required TResult Function(Mention data) mention,
+    required TResult Function(Link data) link,
+    required TResult Function(Tag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return mention(data);
@@ -179,9 +174,9 @@ class _$URichtextFacetFeaturesMentionImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? mention,
-    TResult? Function(RichtextFacetLink data)? link,
-    TResult? Function(RichtextFacetTag data)? tag,
+    TResult? Function(Mention data)? mention,
+    TResult? Function(Link data)? link,
+    TResult? Function(Tag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return mention?.call(data);
@@ -190,9 +185,9 @@ class _$URichtextFacetFeaturesMentionImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? mention,
-    TResult Function(RichtextFacetLink data)? link,
-    TResult Function(RichtextFacetTag data)? tag,
+    TResult Function(Mention data)? mention,
+    TResult Function(Link data)? link,
+    TResult Function(Tag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -205,10 +200,10 @@ class _$URichtextFacetFeaturesMentionImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesMention value) mention,
-    required TResult Function(URichtextFacetFeaturesLink value) link,
-    required TResult Function(URichtextFacetFeaturesTag value) tag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return mention(this);
   }
@@ -216,10 +211,10 @@ class _$URichtextFacetFeaturesMentionImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesMention value)? mention,
-    TResult? Function(URichtextFacetFeaturesLink value)? link,
-    TResult? Function(URichtextFacetFeaturesTag value)? tag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return mention?.call(this);
   }
@@ -227,10 +222,10 @@ class _$URichtextFacetFeaturesMentionImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesMention value)? mention,
-    TResult Function(URichtextFacetFeaturesLink value)? link,
-    TResult Function(URichtextFacetFeaturesTag value)? tag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (mention != null) {
@@ -240,40 +235,35 @@ class _$URichtextFacetFeaturesMentionImpl
   }
 }
 
-abstract class URichtextFacetFeaturesMention extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesMention(
-          {required final RichtextFacetMention data}) =
-      _$URichtextFacetFeaturesMentionImpl;
-  const URichtextFacetFeaturesMention._() : super._();
+abstract class UFacetFeatureMention extends UFacetFeature {
+  const factory UFacetFeatureMention({required final Mention data}) =
+      _$UFacetFeatureMentionImpl;
+  const UFacetFeatureMention._() : super._();
 
   @override
-  RichtextFacetMention get data;
+  Mention get data;
   @JsonKey(ignore: true)
-  _$$URichtextFacetFeaturesMentionImplCopyWith<
-          _$URichtextFacetFeaturesMentionImpl>
+  _$$UFacetFeatureMentionImplCopyWith<_$UFacetFeatureMentionImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesLinkImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesLinkImplCopyWith(
-          _$URichtextFacetFeaturesLinkImpl value,
-          $Res Function(_$URichtextFacetFeaturesLinkImpl) then) =
-      __$$URichtextFacetFeaturesLinkImplCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureLinkImplCopyWith<$Res> {
+  factory _$$UFacetFeatureLinkImplCopyWith(_$UFacetFeatureLinkImpl value,
+          $Res Function(_$UFacetFeatureLinkImpl) then) =
+      __$$UFacetFeatureLinkImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RichtextFacetLink data});
+  $Res call({Link data});
 
-  $RichtextFacetLinkCopyWith<$Res> get data;
+  $LinkCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$URichtextFacetFeaturesLinkImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesLinkImpl>
-    implements _$$URichtextFacetFeaturesLinkImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesLinkImplCopyWithImpl(
-      _$URichtextFacetFeaturesLinkImpl _value,
-      $Res Function(_$URichtextFacetFeaturesLinkImpl) _then)
+class __$$UFacetFeatureLinkImplCopyWithImpl<$Res>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureLinkImpl>
+    implements _$$UFacetFeatureLinkImplCopyWith<$Res> {
+  __$$UFacetFeatureLinkImplCopyWithImpl(_$UFacetFeatureLinkImpl _value,
+      $Res Function(_$UFacetFeatureLinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -281,18 +271,18 @@ class __$$URichtextFacetFeaturesLinkImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URichtextFacetFeaturesLinkImpl(
+    return _then(_$UFacetFeatureLinkImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetLink,
+              as Link,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RichtextFacetLinkCopyWith<$Res> get data {
-    return $RichtextFacetLinkCopyWith<$Res>(_value.data, (value) {
+  $LinkCopyWith<$Res> get data {
+    return $LinkCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -300,22 +290,22 @@ class __$$URichtextFacetFeaturesLinkImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
-  const _$URichtextFacetFeaturesLinkImpl({required this.data}) : super._();
+class _$UFacetFeatureLinkImpl extends UFacetFeatureLink {
+  const _$UFacetFeatureLinkImpl({required this.data}) : super._();
 
   @override
-  final RichtextFacetLink data;
+  final Link data;
 
   @override
   String toString() {
-    return 'URichtextFacetFeatures.link(data: $data)';
+    return 'UFacetFeature.link(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesLinkImpl &&
+            other is _$UFacetFeatureLinkImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -325,16 +315,16 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesLinkImplCopyWith<_$URichtextFacetFeaturesLinkImpl>
-      get copyWith => __$$URichtextFacetFeaturesLinkImplCopyWithImpl<
-          _$URichtextFacetFeaturesLinkImpl>(this, _$identity);
+  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
+      __$$UFacetFeatureLinkImplCopyWithImpl<_$UFacetFeatureLinkImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) mention,
-    required TResult Function(RichtextFacetLink data) link,
-    required TResult Function(RichtextFacetTag data) tag,
+    required TResult Function(Mention data) mention,
+    required TResult Function(Link data) link,
+    required TResult Function(Tag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return link(data);
@@ -343,9 +333,9 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? mention,
-    TResult? Function(RichtextFacetLink data)? link,
-    TResult? Function(RichtextFacetTag data)? tag,
+    TResult? Function(Mention data)? mention,
+    TResult? Function(Link data)? link,
+    TResult? Function(Tag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return link?.call(data);
@@ -354,9 +344,9 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? mention,
-    TResult Function(RichtextFacetLink data)? link,
-    TResult Function(RichtextFacetTag data)? tag,
+    TResult Function(Mention data)? mention,
+    TResult Function(Link data)? link,
+    TResult Function(Tag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -369,10 +359,10 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesMention value) mention,
-    required TResult Function(URichtextFacetFeaturesLink value) link,
-    required TResult Function(URichtextFacetFeaturesTag value) tag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return link(this);
   }
@@ -380,10 +370,10 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesMention value)? mention,
-    TResult? Function(URichtextFacetFeaturesLink value)? link,
-    TResult? Function(URichtextFacetFeaturesTag value)? tag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return link?.call(this);
   }
@@ -391,10 +381,10 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesMention value)? mention,
-    TResult Function(URichtextFacetFeaturesLink value)? link,
-    TResult Function(URichtextFacetFeaturesTag value)? tag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (link != null) {
@@ -404,39 +394,35 @@ class _$URichtextFacetFeaturesLinkImpl extends URichtextFacetFeaturesLink {
   }
 }
 
-abstract class URichtextFacetFeaturesLink extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesLink(
-          {required final RichtextFacetLink data}) =
-      _$URichtextFacetFeaturesLinkImpl;
-  const URichtextFacetFeaturesLink._() : super._();
+abstract class UFacetFeatureLink extends UFacetFeature {
+  const factory UFacetFeatureLink({required final Link data}) =
+      _$UFacetFeatureLinkImpl;
+  const UFacetFeatureLink._() : super._();
 
   @override
-  RichtextFacetLink get data;
+  Link get data;
   @JsonKey(ignore: true)
-  _$$URichtextFacetFeaturesLinkImplCopyWith<_$URichtextFacetFeaturesLinkImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UFacetFeatureLinkImplCopyWith<_$UFacetFeatureLinkImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesTagImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesTagImplCopyWith(
-          _$URichtextFacetFeaturesTagImpl value,
-          $Res Function(_$URichtextFacetFeaturesTagImpl) then) =
-      __$$URichtextFacetFeaturesTagImplCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureTagImplCopyWith<$Res> {
+  factory _$$UFacetFeatureTagImplCopyWith(_$UFacetFeatureTagImpl value,
+          $Res Function(_$UFacetFeatureTagImpl) then) =
+      __$$UFacetFeatureTagImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({RichtextFacetTag data});
+  $Res call({Tag data});
 
-  $RichtextFacetTagCopyWith<$Res> get data;
+  $TagCopyWith<$Res> get data;
 }
 
 /// @nodoc
-class __$$URichtextFacetFeaturesTagImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesTagImpl>
-    implements _$$URichtextFacetFeaturesTagImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesTagImplCopyWithImpl(
-      _$URichtextFacetFeaturesTagImpl _value,
-      $Res Function(_$URichtextFacetFeaturesTagImpl) _then)
+class __$$UFacetFeatureTagImplCopyWithImpl<$Res>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureTagImpl>
+    implements _$$UFacetFeatureTagImplCopyWith<$Res> {
+  __$$UFacetFeatureTagImplCopyWithImpl(_$UFacetFeatureTagImpl _value,
+      $Res Function(_$UFacetFeatureTagImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -444,18 +430,18 @@ class __$$URichtextFacetFeaturesTagImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URichtextFacetFeaturesTagImpl(
+    return _then(_$UFacetFeatureTagImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as RichtextFacetTag,
+              as Tag,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RichtextFacetTagCopyWith<$Res> get data {
-    return $RichtextFacetTagCopyWith<$Res>(_value.data, (value) {
+  $TagCopyWith<$Res> get data {
+    return $TagCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -463,22 +449,22 @@ class __$$URichtextFacetFeaturesTagImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
-  const _$URichtextFacetFeaturesTagImpl({required this.data}) : super._();
+class _$UFacetFeatureTagImpl extends UFacetFeatureTag {
+  const _$UFacetFeatureTagImpl({required this.data}) : super._();
 
   @override
-  final RichtextFacetTag data;
+  final Tag data;
 
   @override
   String toString() {
-    return 'URichtextFacetFeatures.tag(data: $data)';
+    return 'UFacetFeature.tag(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesTagImpl &&
+            other is _$UFacetFeatureTagImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -488,16 +474,16 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesTagImplCopyWith<_$URichtextFacetFeaturesTagImpl>
-      get copyWith => __$$URichtextFacetFeaturesTagImplCopyWithImpl<
-          _$URichtextFacetFeaturesTagImpl>(this, _$identity);
+  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
+      __$$UFacetFeatureTagImplCopyWithImpl<_$UFacetFeatureTagImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) mention,
-    required TResult Function(RichtextFacetLink data) link,
-    required TResult Function(RichtextFacetTag data) tag,
+    required TResult Function(Mention data) mention,
+    required TResult Function(Link data) link,
+    required TResult Function(Tag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return tag(data);
@@ -506,9 +492,9 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? mention,
-    TResult? Function(RichtextFacetLink data)? link,
-    TResult? Function(RichtextFacetTag data)? tag,
+    TResult? Function(Mention data)? mention,
+    TResult? Function(Link data)? link,
+    TResult? Function(Tag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return tag?.call(data);
@@ -517,9 +503,9 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? mention,
-    TResult Function(RichtextFacetLink data)? link,
-    TResult Function(RichtextFacetTag data)? tag,
+    TResult Function(Mention data)? mention,
+    TResult Function(Link data)? link,
+    TResult Function(Tag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -532,10 +518,10 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesMention value) mention,
-    required TResult Function(URichtextFacetFeaturesLink value) link,
-    required TResult Function(URichtextFacetFeaturesTag value) tag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return tag(this);
   }
@@ -543,10 +529,10 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesMention value)? mention,
-    TResult? Function(URichtextFacetFeaturesLink value)? link,
-    TResult? Function(URichtextFacetFeaturesTag value)? tag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return tag?.call(this);
   }
@@ -554,10 +540,10 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesMention value)? mention,
-    TResult Function(URichtextFacetFeaturesLink value)? link,
-    TResult Function(URichtextFacetFeaturesTag value)? tag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (tag != null) {
@@ -567,36 +553,33 @@ class _$URichtextFacetFeaturesTagImpl extends URichtextFacetFeaturesTag {
   }
 }
 
-abstract class URichtextFacetFeaturesTag extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesTag(
-      {required final RichtextFacetTag data}) = _$URichtextFacetFeaturesTagImpl;
-  const URichtextFacetFeaturesTag._() : super._();
+abstract class UFacetFeatureTag extends UFacetFeature {
+  const factory UFacetFeatureTag({required final Tag data}) =
+      _$UFacetFeatureTagImpl;
+  const UFacetFeatureTag._() : super._();
 
   @override
-  RichtextFacetTag get data;
+  Tag get data;
   @JsonKey(ignore: true)
-  _$$URichtextFacetFeaturesTagImplCopyWith<_$URichtextFacetFeaturesTagImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$UFacetFeatureTagImplCopyWith<_$UFacetFeatureTagImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$URichtextFacetFeaturesUnknownImplCopyWith<$Res> {
-  factory _$$URichtextFacetFeaturesUnknownImplCopyWith(
-          _$URichtextFacetFeaturesUnknownImpl value,
-          $Res Function(_$URichtextFacetFeaturesUnknownImpl) then) =
-      __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UFacetFeatureUnknownImplCopyWith<$Res> {
+  factory _$$UFacetFeatureUnknownImplCopyWith(_$UFacetFeatureUnknownImpl value,
+          $Res Function(_$UFacetFeatureUnknownImpl) then) =
+      __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>
-    extends _$URichtextFacetFeaturesCopyWithImpl<$Res,
-        _$URichtextFacetFeaturesUnknownImpl>
-    implements _$$URichtextFacetFeaturesUnknownImplCopyWith<$Res> {
-  __$$URichtextFacetFeaturesUnknownImplCopyWithImpl(
-      _$URichtextFacetFeaturesUnknownImpl _value,
-      $Res Function(_$URichtextFacetFeaturesUnknownImpl) _then)
+class __$$UFacetFeatureUnknownImplCopyWithImpl<$Res>
+    extends _$UFacetFeatureCopyWithImpl<$Res, _$UFacetFeatureUnknownImpl>
+    implements _$$UFacetFeatureUnknownImplCopyWith<$Res> {
+  __$$UFacetFeatureUnknownImplCopyWithImpl(_$UFacetFeatureUnknownImpl _value,
+      $Res Function(_$UFacetFeatureUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -604,7 +587,7 @@ class __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$URichtextFacetFeaturesUnknownImpl(
+    return _then(_$UFacetFeatureUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -615,10 +598,8 @@ class __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$URichtextFacetFeaturesUnknownImpl
-    extends URichtextFacetFeaturesUnknown {
-  const _$URichtextFacetFeaturesUnknownImpl(
-      {required final Map<String, dynamic> data})
+class _$UFacetFeatureUnknownImpl extends UFacetFeatureUnknown {
+  const _$UFacetFeatureUnknownImpl({required final Map<String, dynamic> data})
       : _data = data,
         super._();
 
@@ -632,14 +613,14 @@ class _$URichtextFacetFeaturesUnknownImpl
 
   @override
   String toString() {
-    return 'URichtextFacetFeatures.unknown(data: $data)';
+    return 'UFacetFeature.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$URichtextFacetFeaturesUnknownImpl &&
+            other is _$UFacetFeatureUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -650,17 +631,17 @@ class _$URichtextFacetFeaturesUnknownImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$URichtextFacetFeaturesUnknownImplCopyWith<
-          _$URichtextFacetFeaturesUnknownImpl>
-      get copyWith => __$$URichtextFacetFeaturesUnknownImplCopyWithImpl<
-          _$URichtextFacetFeaturesUnknownImpl>(this, _$identity);
+  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
+      get copyWith =>
+          __$$UFacetFeatureUnknownImplCopyWithImpl<_$UFacetFeatureUnknownImpl>(
+              this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(RichtextFacetMention data) mention,
-    required TResult Function(RichtextFacetLink data) link,
-    required TResult Function(RichtextFacetTag data) tag,
+    required TResult Function(Mention data) mention,
+    required TResult Function(Link data) link,
+    required TResult Function(Tag data) tag,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -669,9 +650,9 @@ class _$URichtextFacetFeaturesUnknownImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(RichtextFacetMention data)? mention,
-    TResult? Function(RichtextFacetLink data)? link,
-    TResult? Function(RichtextFacetTag data)? tag,
+    TResult? Function(Mention data)? mention,
+    TResult? Function(Link data)? link,
+    TResult? Function(Tag data)? tag,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -680,9 +661,9 @@ class _$URichtextFacetFeaturesUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(RichtextFacetMention data)? mention,
-    TResult Function(RichtextFacetLink data)? link,
-    TResult Function(RichtextFacetTag data)? tag,
+    TResult Function(Mention data)? mention,
+    TResult Function(Link data)? link,
+    TResult Function(Tag data)? tag,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -695,10 +676,10 @@ class _$URichtextFacetFeaturesUnknownImpl
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(URichtextFacetFeaturesMention value) mention,
-    required TResult Function(URichtextFacetFeaturesLink value) link,
-    required TResult Function(URichtextFacetFeaturesTag value) tag,
-    required TResult Function(URichtextFacetFeaturesUnknown value) unknown,
+    required TResult Function(UFacetFeatureMention value) mention,
+    required TResult Function(UFacetFeatureLink value) link,
+    required TResult Function(UFacetFeatureTag value) tag,
+    required TResult Function(UFacetFeatureUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -706,10 +687,10 @@ class _$URichtextFacetFeaturesUnknownImpl
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(URichtextFacetFeaturesMention value)? mention,
-    TResult? Function(URichtextFacetFeaturesLink value)? link,
-    TResult? Function(URichtextFacetFeaturesTag value)? tag,
-    TResult? Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult? Function(UFacetFeatureMention value)? mention,
+    TResult? Function(UFacetFeatureLink value)? link,
+    TResult? Function(UFacetFeatureTag value)? tag,
+    TResult? Function(UFacetFeatureUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -717,10 +698,10 @@ class _$URichtextFacetFeaturesUnknownImpl
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(URichtextFacetFeaturesMention value)? mention,
-    TResult Function(URichtextFacetFeaturesLink value)? link,
-    TResult Function(URichtextFacetFeaturesTag value)? tag,
-    TResult Function(URichtextFacetFeaturesUnknown value)? unknown,
+    TResult Function(UFacetFeatureMention value)? mention,
+    TResult Function(UFacetFeatureLink value)? link,
+    TResult Function(UFacetFeatureTag value)? tag,
+    TResult Function(UFacetFeatureUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -730,16 +711,14 @@ class _$URichtextFacetFeaturesUnknownImpl
   }
 }
 
-abstract class URichtextFacetFeaturesUnknown extends URichtextFacetFeatures {
-  const factory URichtextFacetFeaturesUnknown(
-          {required final Map<String, dynamic> data}) =
-      _$URichtextFacetFeaturesUnknownImpl;
-  const URichtextFacetFeaturesUnknown._() : super._();
+abstract class UFacetFeatureUnknown extends UFacetFeature {
+  const factory UFacetFeatureUnknown(
+      {required final Map<String, dynamic> data}) = _$UFacetFeatureUnknownImpl;
+  const UFacetFeatureUnknown._() : super._();
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$URichtextFacetFeaturesUnknownImplCopyWith<
-          _$URichtextFacetFeaturesUnknownImpl>
+  _$$UFacetFeatureUnknownImplCopyWith<_$UFacetFeatureUnknownImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

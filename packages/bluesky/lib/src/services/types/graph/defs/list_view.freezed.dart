@@ -28,8 +28,7 @@ mixin _$GraphDefsListView {
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
   GraphDefsListViewerState get viewer => throw _privateConstructorUsedError;
@@ -54,7 +53,7 @@ abstract class $GraphDefsListViewCopyWith<$Res> {
       String cid,
       String name,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       ProfileView creator,
       GraphDefsListViewerState viewer,
@@ -117,7 +116,7 @@ class _$GraphDefsListViewCopyWithImpl<$Res, $Val extends GraphDefsListView>
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -169,7 +168,7 @@ abstract class _$$GraphDefsListViewImplCopyWith<$Res>
       String cid,
       String name,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       ProfileView creator,
       GraphDefsListViewerState viewer,
@@ -232,7 +231,7 @@ class __$$GraphDefsListViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -264,7 +263,7 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
       required this.cid,
       required this.name,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       required this.creator,
       this.viewer = defaultGraphDefsListViewerState,
@@ -288,9 +287,9 @@ class _$GraphDefsListViewImpl implements _GraphDefsListView {
   final String name;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -374,7 +373,7 @@ abstract class _GraphDefsListView implements GraphDefsListView {
       required final String cid,
       required final String name,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final String? avatar,
       required final ProfileView creator,
       final GraphDefsListViewerState viewer,
@@ -398,7 +397,7 @@ abstract class _GraphDefsListView implements GraphDefsListView {
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override

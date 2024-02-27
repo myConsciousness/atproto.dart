@@ -25,8 +25,8 @@ _$GraphDefsListViewImpl _$$GraphDefsListViewImplFromJson(Map json) =>
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => RichtextFacet.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           creator: $checkedConvert('creator',

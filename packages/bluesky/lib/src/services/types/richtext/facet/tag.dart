@@ -18,12 +18,11 @@ part 'tag.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
 @lex.appBskyRichtextFacetTag
-class RichtextFacetTag with _$RichtextFacetTag {
-  const factory RichtextFacetTag({
+class Tag with _$Tag {
+  const factory Tag({
     @typeKey @Default(appBskyRichtextFacetTag) String type,
     required String tag,
-  }) = _RichtextFacetTag;
+  }) = _Tag;
 
-  factory RichtextFacetTag.fromJson(Map<String, Object?> json) =>
-      _$RichtextFacetTagFromJson(json);
+  factory Tag.fromJson(Map<String, Object?> json) => _$TagFromJson(json);
 }

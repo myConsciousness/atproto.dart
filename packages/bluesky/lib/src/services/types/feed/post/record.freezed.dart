@@ -29,7 +29,7 @@ mixin _$FeedPostRecord {
   List<String>? get langs => throw _privateConstructorUsedError;
   @unionFeedPostRecordLabelsConverter
   UFeedPostRecordLabels? get labels => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get facets => throw _privateConstructorUsedError;
+  List<Facet>? get facets => throw _privateConstructorUsedError;
   List<String>? get tags => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unknown => throw _privateConstructorUsedError;
@@ -53,7 +53,7 @@ abstract class $FeedPostRecordCopyWith<$Res> {
       @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
       List<String>? langs,
       @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
-      List<RichtextFacet>? facets,
+      List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt,
       Map<String, dynamic> unknown});
@@ -115,7 +115,7 @@ class _$FeedPostRecordCopyWithImpl<$Res, $Val extends FeedPostRecord>
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -183,7 +183,7 @@ abstract class _$$FeedPostRecordImplCopyWith<$Res>
       @unionFeedPostRecordEmbedConverter UFeedPostRecordEmbed? embed,
       List<String>? langs,
       @unionFeedPostRecordLabelsConverter UFeedPostRecordLabels? labels,
-      List<RichtextFacet>? facets,
+      List<Facet>? facets,
       List<String>? tags,
       DateTime createdAt,
       Map<String, dynamic> unknown});
@@ -246,7 +246,7 @@ class __$$FeedPostRecordImplCopyWithImpl<$Res>
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -274,7 +274,7 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
       @unionFeedPostRecordEmbedConverter this.embed,
       final List<String>? langs,
       @unionFeedPostRecordLabelsConverter this.labels,
-      final List<RichtextFacet>? facets,
+      final List<Facet>? facets,
       final List<String>? tags,
       required this.createdAt,
       final Map<String, dynamic> unknown = const {}})
@@ -309,9 +309,9 @@ class _$FeedPostRecordImpl implements _FeedPostRecord {
   @override
   @unionFeedPostRecordLabelsConverter
   final UFeedPostRecordLabels? labels;
-  final List<RichtextFacet>? _facets;
+  final List<Facet>? _facets;
   @override
-  List<RichtextFacet>? get facets {
+  List<Facet>? get facets {
     final value = _facets;
     if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
@@ -401,7 +401,7 @@ abstract class _FeedPostRecord implements FeedPostRecord {
       @unionFeedPostRecordEmbedConverter final UFeedPostRecordEmbed? embed,
       final List<String>? langs,
       @unionFeedPostRecordLabelsConverter final UFeedPostRecordLabels? labels,
-      final List<RichtextFacet>? facets,
+      final List<Facet>? facets,
       final List<String>? tags,
       required final DateTime createdAt,
       final Map<String, dynamic> unknown}) = _$FeedPostRecordImpl;
@@ -425,7 +425,7 @@ abstract class _FeedPostRecord implements FeedPostRecord {
   @unionFeedPostRecordLabelsConverter
   UFeedPostRecordLabels? get labels;
   @override
-  List<RichtextFacet>? get facets;
+  List<Facet>? get facets;
   @override
   List<String>? get tags;
   @override

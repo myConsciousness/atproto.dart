@@ -126,7 +126,7 @@ final class GraphService {
     required String purpose,
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
@@ -397,7 +397,7 @@ final class GraphService {
     required String purpose,
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
@@ -422,7 +422,7 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> createModeratedList({
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
@@ -443,7 +443,7 @@ final class GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> createCuratedList({
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
@@ -911,7 +911,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> modlist({
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,
@@ -931,7 +931,7 @@ extension GraphServiceExtension on GraphService {
   Future<core.XRPCResponse<RepoStrongRef>> curatelist({
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     core.Blob? avatar,
     UGraphListRecordLabels? labels,
     DateTime? createdAt,

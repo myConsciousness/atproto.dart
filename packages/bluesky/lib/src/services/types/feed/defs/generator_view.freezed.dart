@@ -30,8 +30,7 @@ mixin _$FeedDefsGeneratorView {
   ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<RichtextFacet>? get descriptionFacets =>
-      throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   FeedDefsGeneratorViewerState get viewer => throw _privateConstructorUsedError;
@@ -57,7 +56,7 @@ abstract class $FeedDefsGeneratorViewCopyWith<$Res> {
       ProfileView creator,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       FeedDefsGeneratorViewerState viewer,
@@ -126,7 +125,7 @@ class _$FeedDefsGeneratorViewCopyWithImpl<$Res,
       descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -180,7 +179,7 @@ abstract class _$$FeedDefsGeneratorViewImplCopyWith<$Res>
       ProfileView creator,
       String displayName,
       String? description,
-      List<RichtextFacet>? descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       FeedDefsGeneratorViewerState viewer,
@@ -249,7 +248,7 @@ class __$$FeedDefsGeneratorViewImplCopyWithImpl<$Res>
       descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<RichtextFacet>?,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -282,7 +281,7 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
       required this.creator,
       required this.displayName,
       this.description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
       this.viewer = defaultFeedDefsGeneratorViewerState,
@@ -308,9 +307,9 @@ class _$FeedDefsGeneratorViewImpl implements _FeedDefsGeneratorView {
   final String displayName;
   @override
   final String? description;
-  final List<RichtextFacet>? _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  List<RichtextFacet>? get descriptionFacets {
+  List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
@@ -400,7 +399,7 @@ abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
       required final ProfileView creator,
       required final String displayName,
       final String? description,
-      final List<RichtextFacet>? descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final String? avatar,
       final int likeCount,
       final FeedDefsGeneratorViewerState viewer,
@@ -426,7 +425,7 @@ abstract class _FeedDefsGeneratorView implements FeedDefsGeneratorView {
   @override
   String? get description;
   @override
-  List<RichtextFacet>? get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override

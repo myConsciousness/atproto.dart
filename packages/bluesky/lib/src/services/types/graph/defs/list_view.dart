@@ -30,7 +30,7 @@ class GraphDefsListView with _$GraphDefsListView {
     required String cid,
     required String name,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     String? avatar,
     required ProfileView creator,
     @Default(defaultGraphDefsListViewerState) GraphDefsListViewerState viewer,

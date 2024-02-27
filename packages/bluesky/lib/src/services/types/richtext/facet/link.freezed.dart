@@ -14,35 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-RichtextFacetLink _$RichtextFacetLinkFromJson(Map<String, dynamic> json) {
-  return _RichtextFacetLink.fromJson(json);
+Link _$LinkFromJson(Map<String, dynamic> json) {
+  return _Link.fromJson(json);
 }
 
 /// @nodoc
-mixin _$RichtextFacetLink {
+mixin _$Link {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $RichtextFacetLinkCopyWith<RichtextFacetLink> get copyWith =>
-      throw _privateConstructorUsedError;
+  $LinkCopyWith<Link> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $RichtextFacetLinkCopyWith<$Res> {
-  factory $RichtextFacetLinkCopyWith(
-          RichtextFacetLink value, $Res Function(RichtextFacetLink) then) =
-      _$RichtextFacetLinkCopyWithImpl<$Res, RichtextFacetLink>;
+abstract class $LinkCopyWith<$Res> {
+  factory $LinkCopyWith(Link value, $Res Function(Link) then) =
+      _$LinkCopyWithImpl<$Res, Link>;
   @useResult
   $Res call({@typeKey String type, String uri});
 }
 
 /// @nodoc
-class _$RichtextFacetLinkCopyWithImpl<$Res, $Val extends RichtextFacetLink>
-    implements $RichtextFacetLinkCopyWith<$Res> {
-  _$RichtextFacetLinkCopyWithImpl(this._value, this._then);
+class _$LinkCopyWithImpl<$Res, $Val extends Link>
+    implements $LinkCopyWith<$Res> {
+  _$LinkCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +67,20 @@ class _$RichtextFacetLinkCopyWithImpl<$Res, $Val extends RichtextFacetLink>
 }
 
 /// @nodoc
-abstract class _$$RichtextFacetLinkImplCopyWith<$Res>
-    implements $RichtextFacetLinkCopyWith<$Res> {
-  factory _$$RichtextFacetLinkImplCopyWith(_$RichtextFacetLinkImpl value,
-          $Res Function(_$RichtextFacetLinkImpl) then) =
-      __$$RichtextFacetLinkImplCopyWithImpl<$Res>;
+abstract class _$$LinkImplCopyWith<$Res> implements $LinkCopyWith<$Res> {
+  factory _$$LinkImplCopyWith(
+          _$LinkImpl value, $Res Function(_$LinkImpl) then) =
+      __$$LinkImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@typeKey String type, String uri});
 }
 
 /// @nodoc
-class __$$RichtextFacetLinkImplCopyWithImpl<$Res>
-    extends _$RichtextFacetLinkCopyWithImpl<$Res, _$RichtextFacetLinkImpl>
-    implements _$$RichtextFacetLinkImplCopyWith<$Res> {
-  __$$RichtextFacetLinkImplCopyWithImpl(_$RichtextFacetLinkImpl _value,
-      $Res Function(_$RichtextFacetLinkImpl) _then)
+class __$$LinkImplCopyWithImpl<$Res>
+    extends _$LinkCopyWithImpl<$Res, _$LinkImpl>
+    implements _$$LinkImplCopyWith<$Res> {
+  __$$LinkImplCopyWithImpl(_$LinkImpl _value, $Res Function(_$LinkImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +89,7 @@ class __$$RichtextFacetLinkImplCopyWithImpl<$Res>
     Object? type = null,
     Object? uri = null,
   }) {
-    return _then(_$RichtextFacetLinkImpl(
+    return _then(_$LinkImpl(
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
@@ -108,12 +104,12 @@ class __$$RichtextFacetLinkImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$RichtextFacetLinkImpl implements _RichtextFacetLink {
-  const _$RichtextFacetLinkImpl(
+class _$LinkImpl implements _Link {
+  const _$LinkImpl(
       {@typeKey this.type = appBskyRichtextFacetLink, required this.uri});
 
-  factory _$RichtextFacetLinkImpl.fromJson(Map<String, dynamic> json) =>
-      _$$RichtextFacetLinkImplFromJson(json);
+  factory _$LinkImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LinkImplFromJson(json);
 
   @override
   @typeKey
@@ -123,14 +119,14 @@ class _$RichtextFacetLinkImpl implements _RichtextFacetLink {
 
   @override
   String toString() {
-    return 'RichtextFacetLink(type: $type, uri: $uri)';
+    return 'Link(type: $type, uri: $uri)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RichtextFacetLinkImpl &&
+            other is _$LinkImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
@@ -142,25 +138,22 @@ class _$RichtextFacetLinkImpl implements _RichtextFacetLink {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$RichtextFacetLinkImplCopyWith<_$RichtextFacetLinkImpl> get copyWith =>
-      __$$RichtextFacetLinkImplCopyWithImpl<_$RichtextFacetLinkImpl>(
-          this, _$identity);
+  _$$LinkImplCopyWith<_$LinkImpl> get copyWith =>
+      __$$LinkImplCopyWithImpl<_$LinkImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$RichtextFacetLinkImplToJson(
+    return _$$LinkImplToJson(
       this,
     );
   }
 }
 
-abstract class _RichtextFacetLink implements RichtextFacetLink {
-  const factory _RichtextFacetLink(
-      {@typeKey final String type,
-      required final String uri}) = _$RichtextFacetLinkImpl;
+abstract class _Link implements Link {
+  const factory _Link({@typeKey final String type, required final String uri}) =
+      _$LinkImpl;
 
-  factory _RichtextFacetLink.fromJson(Map<String, dynamic> json) =
-      _$RichtextFacetLinkImpl.fromJson;
+  factory _Link.fromJson(Map<String, dynamic> json) = _$LinkImpl.fromJson;
 
   @override
   @typeKey
@@ -169,6 +162,6 @@ abstract class _RichtextFacetLink implements RichtextFacetLink {
   String get uri;
   @override
   @JsonKey(ignore: true)
-  _$$RichtextFacetLinkImplCopyWith<_$RichtextFacetLinkImpl> get copyWith =>
+  _$$LinkImplCopyWith<_$LinkImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

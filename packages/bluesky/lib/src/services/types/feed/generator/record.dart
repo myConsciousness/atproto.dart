@@ -28,7 +28,7 @@ class FeedGeneratorRecord with _$FeedGeneratorRecord {
     required String did,
     required String displayName,
     String? description,
-    List<RichtextFacet>? descriptionFacets,
+    List<Facet>? descriptionFacets,
     Blob? avatar,
     @unionFeedGeneratorRecordLabelsConverter UFeedGeneratorRecordLabels? labels,
     required DateTime createdAt,
