@@ -16,6 +16,7 @@ part 'reposted_by.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getrepostedby/#output
 @freezed
 @lex.appBskyFeedGetRepostedBy
+@Deprecated('Use FeedGetRepostedByOutput instead. Will be removed')
 class RepostedBy with _$RepostedBy {
   const factory RepostedBy({
     required List<Actor> repostedBy,

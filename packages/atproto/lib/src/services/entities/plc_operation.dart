@@ -17,6 +17,7 @@ part 'plc_operation.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
 @freezed
 @lex.comAtprotoIdentitySignPlcOperation
+@Deprecated('Use IdentitySignPlcOperationOutput instead. Will be removed')
 class PlcOperation with _$PlcOperation {
   @jsonSerializable
   const factory PlcOperation({

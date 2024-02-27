@@ -18,6 +18,7 @@ part 'not_found_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
 @lex.appBskyGraphDefsNotFoundActor
+@Deprecated('Use GraphDefsNotFoundActor instead. Will be removed')
 class NotFoundActor with _$NotFoundActor {
   const factory NotFoundActor({
     @typeKey @Default(appBskyGraphDefsNotFoundActor) String type,

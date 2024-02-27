@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -18,6 +17,7 @@ part 'embed_external_thumbnail.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#viewexternal
 @freezed
 @lex.appBskyEmbedExternalExternal
+@Deprecated('Use EmbedExternalExternal instead. Will be removed')
 class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
   @jsonSerializable
   const factory EmbedExternalThumbnail({

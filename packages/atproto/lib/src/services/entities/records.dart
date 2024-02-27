@@ -13,6 +13,7 @@ part 'records.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#output
 @freezed
+@Deprecated('Use RepoListRecordsOutput instead. Will be removed')
 class Records with _$Records {
   const factory Records({
     required List<Record> records,

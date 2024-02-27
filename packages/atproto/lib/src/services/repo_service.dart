@@ -10,16 +10,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/batch_action.dart';
-import 'entities/blob_data.dart';
-import 'entities/create_action.dart';
-import 'entities/delete_action.dart';
-import 'entities/missing_blobs.dart';
-import 'entities/record.dart';
-import 'entities/records.dart';
-import 'entities/repo_info.dart';
-import 'entities/strong_ref.dart';
-import 'entities/update_action.dart';
+import 'types/repo/apply_writes/_z.dart';
+import 'types/repo/describe_repo/_z.dart';
+import 'types/repo/get_record/_z.dart';
+import 'types/repo/list_missing_blobs/_z.dart';
+import 'types/repo/list_records/_z.dart';
+import 'types/repo/strong_ref/_z.dart';
 
 /// Represents `com.atproto.repo.*` service.
 final class RepoService {
@@ -28,7 +24,7 @@ final class RepoService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
-  Future<core.XRPCResponse<StrongRef>> createRecord({
+  Future<core.XRPCResponse<RepoStrongRef>> createRecord({
     required core.NSID collection,
     required Map<String, dynamic> record,
     String? rkey,
@@ -47,11 +43,11 @@ final class RepoService {
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: StrongRef.fromJson,
+        to: RepoStrongRef.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
-  Future<core.XRPCResponse<Record>> getRecord({
+  Future<core.XRPCResponse<RepoGetRecordOutput>> getRecord({
     required core.AtUri uri,
     String? cid,
   }) async =>
@@ -62,7 +58,7 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
-  Future<core.XRPCResponse<Records>> listRecords({
+  Future<core.XRPCResponse<RepoListRecordsOutput>> listRecords({
     required String repo,
     required core.NSID collection,
     int? limit,
@@ -100,7 +96,7 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
-  Future<core.XRPCResponse<StrongRef>> putRecord({
+  Future<core.XRPCResponse<RepoStrongRef>> putRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -117,15 +113,17 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
-  Future<core.XRPCResponse<BlobData>> uploadBlob(final Uint8List bytes) async =>
+  Future<core.XRPCResponse<core.BlobData>> uploadBlob(
+    final Uint8List bytes,
+  ) async =>
       await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
         body: bytes,
-        to: BlobData.fromJson,
+        to: core.BlobData.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
-  Future<core.XRPCResponse<RepoInfo>> describeRepo({
+  Future<core.XRPCResponse<RepoDescribeRepoOutput>> describeRepo({
     required String repo,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
@@ -133,7 +131,7 @@ final class RepoService {
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
   Future<core.XRPCResponse<core.EmptyData>> applyWrites({
-    required List<BatchAction> actions,
+    required List<URepoApplyWritesInputWrites> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
@@ -145,7 +143,7 @@ final class RepoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
-  Future<core.XRPCResponse<MissingBlobs>> listMissingBlobs({
+  Future<core.XRPCResponse<RepoListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
   }) async =>
@@ -155,7 +153,7 @@ final class RepoService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: MissingBlobs.fromJson,
+        to: RepoListMissingBlobsOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
@@ -168,18 +166,18 @@ final class RepoService {
       );
 
   @Deprecated('Use .getRecord instead. Will be removed')
-  Future<core.XRPCResponse<Record>> findRecord({
+  Future<core.XRPCResponse<RepoGetRecordOutput>> findRecord({
     required core.AtUri uri,
     String? cid,
   }) async =>
       await _findRecord(
         uri: uri,
         cid: cid,
-        to: Record.fromJson,
+        to: RepoGetRecordOutput.fromJson,
       );
 
   @Deprecated('Use .listRecords instead. Will be removed')
-  Future<core.XRPCResponse<Records>> findRecords({
+  Future<core.XRPCResponse<RepoListRecordsOutput>> findRecords({
     required String repo,
     required core.NSID collection,
     int? limit,
@@ -196,11 +194,11 @@ final class RepoService {
         rkeyStart: rkeyStart,
         rkeyEnd: rkeyEnd,
         cursor: cursor,
-        to: Records.fromJson,
+        to: RepoListRecordsOutput.fromJson,
       );
 
   @Deprecated('Use .putRecord instead. Will be removed')
-  Future<core.XRPCResponse<StrongRef>> updateRecord({
+  Future<core.XRPCResponse<RepoStrongRef>> updateRecord({
     required core.AtUri uri,
     required Map<String, dynamic> record,
     bool? validate,
@@ -218,21 +216,21 @@ final class RepoService {
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
         },
-        to: StrongRef.fromJson,
+        to: RepoStrongRef.fromJson,
       );
 
   @Deprecated('Use .describeRepo instead. Will be removed')
-  Future<core.XRPCResponse<RepoInfo>> findRepoInfo({
+  Future<core.XRPCResponse<RepoDescribeRepoOutput>> findRepoInfo({
     required String repo,
   }) async =>
       await _findRepoInfo(
         repo: repo,
-        to: RepoInfo.fromJson,
+        to: RepoDescribeRepoOutput.fromJson,
       );
 
   @Deprecated('Use .applyWrites instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> updateBulk({
-    required List<BatchAction> actions,
+    required List<URepoApplyWritesInputWrites> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
@@ -258,24 +256,28 @@ final class RepoService {
 
   @Deprecated('Use .createRecordInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> createRecords({
-    required List<CreateAction> actions,
+    required List<RepoApplyWritesCreate> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
       await applyWrites(
-        actions: actions.map((e) => BatchAction.create(data: e)).toList(),
+        actions: actions
+            .map((e) => URepoApplyWritesInputWrites.create(data: e))
+            .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );
 
   @Deprecated('Use .updateRecordInBulk instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> updateRecords({
-    required List<UpdateAction> actions,
+    required List<RepoApplyWritesUpdate> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
       await applyWrites(
-        actions: actions.map((e) => BatchAction.update(data: e)).toList(),
+        actions: actions
+            .map((e) => URepoApplyWritesInputWrites.update(data: e))
+            .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );
@@ -288,7 +290,8 @@ final class RepoService {
   }) async =>
       await applyWrites(
         actions: uris
-            .map((e) => BatchAction.delete(data: DeleteAction(uri: e)))
+            .map((e) => URepoApplyWritesInputWrites.delete(
+                data: RepoApplyWritesDelete(uri: e)))
             .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
@@ -368,23 +371,27 @@ final class RepoService {
 
 extension RepoServiceExtension on RepoService {
   Future<core.XRPCResponse<core.EmptyData>> createRecordInBulk({
-    required List<CreateAction> actions,
+    required List<RepoApplyWritesCreate> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
       await applyWrites(
-        actions: actions.map((e) => BatchAction.create(data: e)).toList(),
+        actions: actions
+            .map((e) => URepoApplyWritesInputWrites.create(data: e))
+            .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );
 
   Future<core.XRPCResponse<core.EmptyData>> updateRecordInBulk({
-    required List<UpdateAction> actions,
+    required List<RepoApplyWritesUpdate> actions,
     bool? validate,
     String? swapCommitCid,
   }) async =>
       await applyWrites(
-        actions: actions.map((e) => BatchAction.update(data: e)).toList(),
+        actions: actions
+            .map((e) => URepoApplyWritesInputWrites.update(data: e))
+            .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,
       );
@@ -396,7 +403,8 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         actions: uris
-            .map((e) => BatchAction.delete(data: DeleteAction(uri: e)))
+            .map((e) => URepoApplyWritesInputWrites.delete(
+                data: RepoApplyWritesDelete(uri: e)))
             .toList(),
         validate: validate,
         swapCommitCid: swapCommitCid,

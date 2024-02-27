@@ -9,7 +9,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart';
 import '../../lex_annotations.g.dart' as lex;
-import 'converter/nsid_converter.dart';
 
 part 'update_action.freezed.dart';
 part 'update_action.g.dart';
@@ -17,6 +16,7 @@ part 'update_action.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
 @lex.comAtprotoRepoApplyWritesUpdate
+@Deprecated('Use RepoApplyWritesUpdate instead. Will be removed')
 class UpdateAction with _$UpdateAction {
   @jsonSerializable
   const factory UpdateAction({

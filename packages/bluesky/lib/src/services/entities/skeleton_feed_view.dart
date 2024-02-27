@@ -19,6 +19,7 @@ part 'skeleton_feed_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
 @lex.appBskyFeedDefsSkeletonFeedPost
+@Deprecated('Use FeedDefsSkeletonFeedPost instead. Will be removed')
 class SkeletonFeedView with _$SkeletonFeedView {
   @jsonSerializable
   const factory SkeletonFeedView({

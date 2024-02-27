@@ -22,6 +22,8 @@ part 'notification.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#notification
 @freezed
 @lex.appBskyNotificationListNotificationsNotification
+@Deprecated(
+    'Use NotificationListNotificationsNotification instead. Will be removed')
 class Notification with _$Notification {
   @jsonSerializable
   const factory Notification({

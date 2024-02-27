@@ -14,6 +14,7 @@ part 'sealed_app_password.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords#apppassword
 @freezed
 @lex.comAtprotoServerListAppPasswordsAppPassword
+@Deprecated('Use ServerListAppPasswordsAppPassword instead. Will be removed')
 class SealedAppPassword with _$SealedAppPassword {
   const factory SealedAppPassword({
     required String name,

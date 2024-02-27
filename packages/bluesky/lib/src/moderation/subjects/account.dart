@@ -3,10 +3,10 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 // 🌎 Project imports:
-import '../../services/entities/actor_viewer.dart';
+import '../../services/types/actor/defs/_z.dart';
 import '../accumulator.dart';
 import '../entities/moderation_decision.dart';
 import '../entities/moderation_options.dart';
@@ -46,17 +46,17 @@ ModerationDecision decideAccount(
   return accumulator.finalizeDecision(options);
 }
 
-(String, ActorViewer, List<atp.Label>?) _getDecisionFactors(
+(String, ViewerState, List<LabelDefsLabel>?) _getDecisionFactors(
   final ModerationSubjectProfile subject,
 ) =>
     subject.when(
-      actorBasic: (data) => (data.did, data.viewer, data.labels),
-      actor: (data) => (data.did, data.viewer, data.labels),
-      actorProfile: (data) => (data.did, data.viewer, data.labels),
+      profileViewBasic: (data) => (data.did, data.viewer, data.labels),
+      profileView: (data) => (data.did, data.viewer, data.labels),
+      profileViewDetailed: (data) => (data.did, data.viewer, data.labels),
     );
 
-List<atp.Label> _filterProfileLabels(
-  final List<atp.Label>? labels,
+List<LabelDefsLabel> _filterProfileLabels(
+  final List<LabelDefsLabel>? labels,
 ) =>
     labels == null
         ? const []

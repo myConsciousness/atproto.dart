@@ -16,6 +16,7 @@ part 'repo.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#repo
 @freezed
 @lex.comAtprotoSyncListReposRepo
+@Deprecated('Use SyncListReposRepo instead. Will be removed')
 class Repo with _$Repo {
   const factory Repo({
     required String did,

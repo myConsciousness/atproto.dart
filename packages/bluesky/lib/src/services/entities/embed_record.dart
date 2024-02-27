@@ -19,6 +19,7 @@ part 'embed_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
 @lex.appBskyEmbedRecord
+@Deprecated('Use EmbedRecord instead. Will be removed')
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     @typeKey @Default(appBskyEmbedRecord) String type,

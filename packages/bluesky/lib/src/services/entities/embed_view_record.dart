@@ -20,6 +20,7 @@ part 'embed_view_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
 @lex.appBskyEmbedRecordView
+@Deprecated('Use EmbedRecordView instead. Will be removed')
 class EmbedViewRecord with _$EmbedViewRecord {
   const factory EmbedViewRecord({
     @typeKey @Default(appBskyEmbedRecordView) String type,

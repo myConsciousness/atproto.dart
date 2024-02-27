@@ -15,6 +15,7 @@ part 'subscribed_repo_info.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#info
 @freezed
 @lex.comAtprotoSyncSubscribeReposInfo
+@Deprecated('Use SyncSubscribeReposInfo instead. Will be removed')
 class SubscribedRepoInfo with _$SubscribedRepoInfo {
   @jsonSerializable
   const factory SubscribedRepoInfo({

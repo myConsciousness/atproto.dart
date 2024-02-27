@@ -15,6 +15,7 @@ part 'muted_word.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedword
 @freezed
 @lex.appBskyActorDefsMutedWord
+@Deprecated('Use ActorDefsMutedWord instead. Will be removed')
 class MutedWord with _$MutedWord {
   const factory MutedWord({
     required String value,

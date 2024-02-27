@@ -19,6 +19,7 @@ part 'post_param.freezed.dart';
 part 'post_param.g.dart';
 
 @freezed
+@Deprecated('Use FeedPostRecord instead. Will be removed')
 class PostParam with _$PostParam {
   @jsonSerializable
   const factory PostParam({

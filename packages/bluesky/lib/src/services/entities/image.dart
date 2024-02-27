@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -19,6 +18,7 @@ part 'image.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#image
 @freezed
 @lex.appBskyEmbedImagesImage
+@Deprecated('Use EmbedImagesImage instead. Will be removed')
 class Image with _$Image {
   @jsonSerializable
   const factory Image({

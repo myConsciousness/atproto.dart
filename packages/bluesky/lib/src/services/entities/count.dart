@@ -14,6 +14,7 @@ part 'count.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getunreadcount/#output
 @freezed
 @lex.appBskyNotificationGetUnreadCount
+@Deprecated('Use NotificationGetUnreadCountOutput instead. Will be removed')
 class Count with _$Count {
   const factory Count({
     @Default(0) int count,

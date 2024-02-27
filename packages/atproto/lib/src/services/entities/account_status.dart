@@ -14,6 +14,7 @@ part 'account_status.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus/#output
 @freezed
 @lex.comAtprotoServerCheckAccountStatus
+@Deprecated('Use ServerCheckAccountStatusOutput instead. Will be removed')
 class AccountStatus with _$AccountStatus {
   const factory AccountStatus({
     required bool activated,

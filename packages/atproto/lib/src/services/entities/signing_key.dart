@@ -14,6 +14,7 @@ part 'signing_key.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/reservesigningkey/#output
 @freezed
 @lex.comAtprotoServerReserveSigningKey
+@Deprecated('Use ServerReserveSigningKeyOutput instead. Will be removed')
 class SigningKey with _$SigningKey {
   const factory SigningKey({
     required String signingKey,

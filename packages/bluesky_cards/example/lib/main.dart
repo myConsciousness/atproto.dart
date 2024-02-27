@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/lex_types.dart' as lex_types;
 import 'package:bluesky_cards/bluesky_cards.dart' as bskyc;
 
 void main() {
@@ -47,7 +48,8 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.FeedView> feed = snapshot.data.data.feed;
+              final List<lex_types.FeedDefsFeedViewPost> feed =
+                  snapshot.data.data.feed;
 
               return ListView.builder(
                 itemCount: feed.length,

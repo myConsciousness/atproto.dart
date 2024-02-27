@@ -18,6 +18,7 @@ part 'subscribed_repo_commit.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
 @lex.comAtprotoSyncSubscribeReposCommit
+@Deprecated('Use SyncSubscribeReposCommit instead. Will be removed')
 class SubscribedRepoCommit with _$SubscribedRepoCommit {
   @jsonSerializable
   const factory SubscribedRepoCommit({

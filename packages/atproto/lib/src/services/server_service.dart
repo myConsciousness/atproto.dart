@@ -7,18 +7,85 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/account.dart';
-import 'entities/account_status.dart';
-import 'entities/app_password.dart';
-import 'entities/app_passwords.dart';
-import 'entities/created_invite_code.dart';
-import 'entities/created_invite_codes.dart';
-import 'entities/current_session.dart';
-import 'entities/email_update.dart';
-import 'entities/invite_codes.dart';
-import 'entities/server_info.dart';
-import 'entities/service_auth_token.dart';
-import 'entities/signing_key.dart';
+import 'types/server/check_account_status/_z.dart';
+import 'types/server/create_account/_z.dart';
+import 'types/server/create_app_password/_z.dart';
+import 'types/server/create_invite_code/_z.dart';
+import 'types/server/create_invite_codes/_z.dart';
+import 'types/server/describe_server/_z.dart';
+import 'types/server/get_account_invite_codes/_z.dart';
+import 'types/server/get_service_auth/_z.dart';
+import 'types/server/get_session/_z.dart';
+import 'types/server/list_app_passwords/_z.dart';
+import 'types/server/request_email_update/_z.dart';
+import 'types/server/reserve_signing_key/_z.dart';
+
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession
+Future<core.XRPCResponse<core.Session>> createSession({
+  core.Protocol? protocol,
+  String? service,
+  required String identifier,
+  required String password,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerCreateSession,
+      body: {
+        'identifier': identifier,
+        'password': password,
+      },
+      to: core.Session.fromJson,
+    );
+
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
+Future<core.XRPCResponse<core.Session>> refreshSession({
+  core.Protocol? protocol,
+  String? service,
+  required String refreshJwt,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerRefreshSession,
+      headers: {
+        'Authorization': 'Bearer $refreshJwt',
+      },
+      to: core.Session.fromJson,
+    );
+
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
+Future<core.XRPCResponse<core.EmptyData>> deleteSession({
+  core.Protocol? protocol,
+  String? service,
+  required String refreshJwt,
+  core.RetryConfig? retryConfig,
+  final core.PostClient? mockedPostClient,
+}) async =>
+    await core.ServiceContext(
+      protocol: protocol,
+      service: service,
+      timeout: core.defaultTimeout,
+      retryConfig: retryConfig,
+      mockedPostClient: mockedPostClient,
+    ).post(
+      ns.comAtprotoServerDeleteSession,
+      headers: {
+        'Authorization': 'Bearer $refreshJwt',
+      },
+    );
 
 /// Represents `com.atproto.server.*` service.
 final class ServerService {
@@ -27,12 +94,12 @@ final class ServerService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
-  Future<core.XRPCResponse<CurrentSession>> getSession() async =>
+  Future<core.XRPCResponse<ServerGetSessionOutput>> getSession() async =>
       // ignore: deprecated_member_use_from_same_package
       await findCurrentSession();
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAccount
-  Future<core.XRPCResponse<Account>> createAccount({
+  Future<core.XRPCResponse<ServerCreateAccountOutput>> createAccount({
     required String handle,
     required String email,
     required String password,
@@ -50,7 +117,7 @@ final class ServerService {
           'recoveryKey': recoveryKey,
           'plcOp': plcOp,
         },
-        to: Account.fromJson,
+        to: ServerCreateAccountOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete
@@ -73,7 +140,7 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCode
-  Future<core.XRPCResponse<CreatedInviteCode>> createInviteCode({
+  Future<core.XRPCResponse<ServerCreateInviteCodeOutput>> createInviteCode({
     required int useCount,
     String? forAccount,
   }) async =>
@@ -83,11 +150,11 @@ final class ServerService {
           'useCount': useCount,
           'forAccount': forAccount,
         },
-        to: CreatedInviteCode.fromJson,
+        to: ServerCreateInviteCodeOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes
-  Future<core.XRPCResponse<CreatedInviteCodes>> createInviteCodes({
+  Future<core.XRPCResponse<ServerCreateInviteCodesOutput>> createInviteCodes({
     required int codeCount,
     required int useCount,
     List<String>? forAccounts,
@@ -99,19 +166,20 @@ final class ServerService {
           'useCount': useCount,
           'forAccounts': forAccounts,
         },
-        to: CreatedInviteCodes.fromJson,
+        to: ServerCreateInviteCodesOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getAccountInviteCodes
-  Future<core.XRPCResponse<InviteCodes>> getAccountInviteCodes({
+  Future<core.XRPCResponse<ServerGetAccountInviteCodesOutput>>
+      getAccountInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findInviteCodes(
-        includeUsed: includeUsed,
-        createAvailable: createAvailable,
-      );
+          // ignore: deprecated_member_use_from_same_package
+          await findInviteCodes(
+            includeUsed: includeUsed,
+            createAvailable: createAvailable,
+          );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestPasswordReset
   Future<core.XRPCResponse<core.EmptyData>> requestPasswordReset({
@@ -136,7 +204,7 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword
-  Future<core.XRPCResponse<AppPassword>> createAppPassword({
+  Future<core.XRPCResponse<ServerCreateAppPasswordOutput>> createAppPassword({
     required String name,
   }) async =>
       await _ctx.post(
@@ -144,7 +212,7 @@ final class ServerService {
         body: {
           'name': name,
         },
-        to: AppPassword.fromJson,
+        to: ServerCreateAppPasswordOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/revokeAppPassword
@@ -155,21 +223,23 @@ final class ServerService {
       await deleteAppPassword(name: name);
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
-  Future<core.XRPCResponse<AppPasswords>> listAppPasswords() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findAppPasswords();
+  Future<core.XRPCResponse<ServerListAppPasswordsOutput>>
+      listAppPasswords() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await findAppPasswords();
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
-  Future<core.XRPCResponse<ServerInfo>> describeServer() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findServerInfo();
+  Future<core.XRPCResponse<ServerDescribeServerOutput>>
+      describeServer() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await findServerInfo();
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate
-  Future<core.XRPCResponse<EmailUpdate>> requestEmailUpdate() async =>
-      await _ctx.post(
-        ns.comAtprotoServerRequestEmailUpdate,
-        to: EmailUpdate.fromJson,
-      );
+  Future<core.XRPCResponse<ServerRequestEmailUpdateOutput>>
+      requestEmailUpdate() async => await _ctx.post(
+            ns.comAtprotoServerRequestEmailUpdate,
+            to: ServerRequestEmailUpdateOutput.fromJson,
+          );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
   Future<core.XRPCResponse<core.EmptyData>> requestEmailConfirmation() async =>
@@ -204,12 +274,13 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
-  Future<core.XRPCResponse<SigningKey>> reserveSigningKey() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createSigningKey();
+  Future<core.XRPCResponse<ServerReserveSigningKeyOutput>>
+      reserveSigningKey() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await createSigningKey();
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
-  Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
+  Future<core.XRPCResponse<ServerGetServiceAuthOutput>> getServiceAuth({
     required String aud,
   }) async =>
       await _ctx.get(
@@ -217,15 +288,15 @@ final class ServerService {
         parameters: {
           'aud': aud,
         },
-        to: ServiceAuthToken.fromJson,
+        to: ServerGetServiceAuthOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
-  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus() async =>
-      await _ctx.get(
-        ns.comAtprotoServerCheckAccountStatus,
-        to: AccountStatus.fromJson,
-      );
+  Future<core.XRPCResponse<ServerCheckAccountStatusOutput>>
+      checkAccountStatus() async => await _ctx.get(
+            ns.comAtprotoServerCheckAccountStatus,
+            to: ServerCheckAccountStatusOutput.fromJson,
+          );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<core.XRPCResponse<core.EmptyData>> deactivateAccount({
@@ -243,22 +314,23 @@ final class ServerService {
       await _ctx.post(ns.comAtprotoServerDeactivateAccount);
 
   @Deprecated('Use .getSession instead. Will be removed')
-  Future<core.XRPCResponse<CurrentSession>> findCurrentSession() async =>
-      await _findCurrentSession(to: CurrentSession.fromJson);
+  Future<core.XRPCResponse<ServerGetSessionOutput>>
+      findCurrentSession() async =>
+          await _findCurrentSession(to: ServerGetSessionOutput.fromJson);
 
   @Deprecated('Use .requestAccountDelete instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> requestDeleteAccount() async =>
       await _ctx.post(ns.comAtprotoServerRequestAccountDelete);
 
   @Deprecated('Use .getAccountInviteCodes instead. Will be removed')
-  Future<core.XRPCResponse<InviteCodes>> findInviteCodes({
+  Future<core.XRPCResponse<ServerGetAccountInviteCodesOutput>> findInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
   }) async =>
       await _findInviteCodes(
         includeUsed: includeUsed,
         createAvailable: createAvailable,
-        to: InviteCodes.fromJson,
+        to: ServerGetAccountInviteCodesOutput.fromJson,
       );
 
   @Deprecated('Use .resetPassword instead. Will be removed')
@@ -286,19 +358,21 @@ final class ServerService {
       );
 
   @Deprecated('Use .listAppPasswords instead. Will be removed')
-  Future<core.XRPCResponse<AppPasswords>> findAppPasswords() async =>
-      await _findAppPasswords(to: AppPasswords.fromJson);
+  Future<core.XRPCResponse<ServerListAppPasswordsOutput>>
+      findAppPasswords() async =>
+          await _findAppPasswords(to: ServerListAppPasswordsOutput.fromJson);
 
   @Deprecated('Use .describeServer instead. Will be removed')
-  Future<core.XRPCResponse<ServerInfo>> findServerInfo() async =>
-      await _findServerInfo(to: ServerInfo.fromJson);
+  Future<core.XRPCResponse<ServerDescribeServerOutput>>
+      findServerInfo() async =>
+          await _findServerInfo(to: ServerDescribeServerOutput.fromJson);
 
   @Deprecated('Use .reserveSigningKey instead. Will be removed')
-  Future<core.XRPCResponse<SigningKey>> createSigningKey() async =>
-      await _ctx.post(
-        ns.comAtprotoServerReserveSigningKey,
-        to: SigningKey.fromJson,
-      );
+  Future<core.XRPCResponse<ServerReserveSigningKeyOutput>>
+      createSigningKey() async => await _ctx.post(
+            ns.comAtprotoServerReserveSigningKey,
+            to: ServerReserveSigningKeyOutput.fromJson,
+          );
 
   Future<core.XRPCResponse<T>> _findCurrentSession<T>({
     core.ResponseDataBuilder<T>? to,

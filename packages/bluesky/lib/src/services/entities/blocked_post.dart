@@ -19,6 +19,7 @@ part 'blocked_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedpost
 @freezed
 @lex.appBskyFeedDefsBlockedPost
+@Deprecated('Use FeedDefsBlockedPost instead. Will be removed')
 class BlockedPost with _$BlockedPost {
   const factory BlockedPost({
     @typeKey @Default(appBskyFeedDefsBlockedPost) String type,

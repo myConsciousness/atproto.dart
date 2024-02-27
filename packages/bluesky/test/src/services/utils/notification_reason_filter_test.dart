@@ -7,18 +7,16 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-import 'package:bluesky/src/services/constants/notification_reason.dart';
-import 'package:bluesky/src/services/entities/actor.dart';
-import 'package:bluesky/src/services/entities/notification.dart';
-import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
+import 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';
+import 'package:bluesky/src/services/utils/grouped_notification_reason.dart';
 import 'package:bluesky/src/services/utils/notification_reason_filter.dart';
 
 final _baseNotification = Notification(
   cid: 'aaaa',
   uri: AtUri.parse(
       'at://did:plc:sxd6pmcbqp6j7hics6p57hyc/app.bsky.feed.like/3jukrylmhec26'),
-  author: Actor(did: 'xxxxxx', handle: 'xxxxxx'),
+  author: ProfileView(did: 'xxxxxx', handle: 'xxxxxx'),
   reason: NotificationReason.like,
   isRead: false,
   indexedAt: DateTime.now(),
@@ -31,7 +29,7 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
         ],
@@ -46,7 +44,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
         ],
@@ -61,7 +59,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -80,7 +78,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -99,7 +97,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification.copyWith(
             reasonSubject: AtUri.parse(
@@ -123,7 +121,7 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -141,7 +139,7 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -163,7 +161,7 @@ void main() {
         GroupedNotificationReason.mention,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -185,7 +183,7 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
         ],
@@ -199,7 +197,7 @@ void main() {
         GroupedNotificationReason.like,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -219,7 +217,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -239,7 +237,7 @@ void main() {
         GroupedNotificationReason.customFeedLike,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(
@@ -264,7 +262,7 @@ void main() {
         GroupedNotificationReason.follow,
       ]);
 
-      final filtered = filter.execute(Notifications(
+      final filtered = filter.execute(Output(
         notifications: [
           _baseNotification,
           _baseNotification.copyWith(

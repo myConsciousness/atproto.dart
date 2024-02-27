@@ -16,6 +16,7 @@ part 'server_info.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#output
 @freezed
 @lex.comAtprotoServerDescribeServer
+@Deprecated('Use ServerDescribeServerOutput instead. Will be removed')
 class ServerInfo with _$ServerInfo {
   @jsonSerializable
   const factory ServerInfo({

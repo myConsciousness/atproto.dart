@@ -14,6 +14,7 @@ part 'invite_code_use.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs/#invitecodeuse
 @freezed
 @lex.comAtprotoServerDefsInviteCodeUse
+@Deprecated('Use ServerDefsInviteCodeUse instead. Will be removed')
 class InviteCodeUse with _$InviteCodeUse {
   const factory InviteCodeUse({
     required String usedBy,

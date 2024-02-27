@@ -12,6 +12,7 @@ part 'repo_info.g.dart';
 
 /// Represents detailed information about a repository.
 @freezed
+@Deprecated('Use SyncDescribeRepoOutput instead. Will be removed')
 class RepoInfo with _$RepoInfo {
   /// Creates a new instance of [RepoInfo].
   ///

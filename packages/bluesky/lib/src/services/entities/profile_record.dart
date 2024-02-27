@@ -17,6 +17,7 @@ part 'profile_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile/#input
 @freezed
+@Deprecated('Use ActorProfileRecord instead. Will be removed')
 class ProfileRecord with _$ProfileRecord {
   @jsonSerializable
   const factory ProfileRecord({

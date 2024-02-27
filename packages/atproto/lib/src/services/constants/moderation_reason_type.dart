@@ -11,6 +11,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
 
+@Deprecated('Use ModerationDefsReasonType instead. Will be removed')
 enum ModerationReasonType implements Serializable {
   /// spam
   @JsonValue(ids.comAtprotoModerationDefsReasonSpam)

@@ -1,4 +1,4 @@
-// Copyright 2023 Shinya Kato. All rights reserved.
+// Copyright 2024 Shinya Kato. All rights reserved.
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
@@ -7,10 +7,11 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../../ids.g.dart' as ids;
-import '../constants/grouped_notification_reason.dart';
-import '../constants/notification_reason.dart';
-import '../entities/notification.dart';
-import '../entities/notifications.dart';
+import '../types/notification/list_notifications/_z.dart';
+import 'grouped_notification_reason.dart';
+
+import '../types/notification/list_notifications/_z.dart'
+    as app_bsky_notification_list_notifications;
 
 sealed class NotificationReasonFilter {
   // ignore: unused_element
@@ -25,7 +26,9 @@ sealed class NotificationReasonFilter {
   ) = NotificationReasonExcludeFilter;
 
   /// Returns a new [notifications] filtered based on reasons.
-  Notifications execute(final Notifications notifications);
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output notifications,
+  );
 }
 
 /// Include strategy.
@@ -37,7 +40,10 @@ final class NotificationReasonIncludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(final Notifications data) => data.copyWith(
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output data,
+  ) =>
+      data.copyWith(
         notifications:
             data.notifications.where((e) => _test(e, reasons)).toList(),
       );
@@ -52,9 +58,15 @@ final class NotificationReasonExcludeFilter
   final List<GroupedNotificationReason> reasons;
 
   @override
-  Notifications execute(final Notifications data) => data.copyWith(
-        notifications:
-            data.notifications.where((e) => !_test(e, reasons)).toList(),
+  app_bsky_notification_list_notifications.Output execute(
+    final app_bsky_notification_list_notifications.Output data,
+  ) =>
+      data.copyWith(
+        notifications: data.notifications
+            .where(
+              (e) => !_test(e, reasons),
+            )
+            .toList(),
       );
 }
 
@@ -80,9 +92,7 @@ bool _isCustomFeedLike(
   final NotificationReason reason,
   final core.AtUri? reasonSubject,
 ) {
-  if (reason.isNotLike || reasonSubject == null) {
-    return false;
-  }
+  if (reason.isNotLike || reasonSubject == null) return false;
 
   return reasonSubject.collection == ids.appBskyFeedGenerator;
 }

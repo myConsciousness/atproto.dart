@@ -18,6 +18,7 @@ part 'personal_details_preference.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#personaldetailspref
 @freezed
 @lex.appBskyActorDefsPersonalDetailsPref
+@Deprecated('Use ActorDefsPersonalDetailsPref instead. Will be removed')
 class PersonalDetailsPreference with _$PersonalDetailsPreference {
   @jsonSerializable
   const factory PersonalDetailsPreference({

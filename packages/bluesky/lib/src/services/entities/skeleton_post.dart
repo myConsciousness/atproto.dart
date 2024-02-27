@@ -17,6 +17,8 @@ part 'skeleton_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
 @lex.appBskyUnspeccedDefsSkeletonSearchPost
+@Deprecated(
+    'Use UnspeccedDefsSkeletonSearchPostOutput instead. Will be removed')
 class SkeletonPost with _$SkeletonPost {
   const factory SkeletonPost({
     @atUriConverter required AtUri uri,

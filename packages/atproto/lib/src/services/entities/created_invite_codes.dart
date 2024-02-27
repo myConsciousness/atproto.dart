@@ -13,6 +13,7 @@ part 'created_invite_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#output
 @freezed
+@Deprecated('Use ServerCreateInviteCodesOutput instead. Will be removed')
 class CreatedInviteCodes with _$CreatedInviteCodes {
   const factory CreatedInviteCodes({
     required List<AccountCodes> codes,

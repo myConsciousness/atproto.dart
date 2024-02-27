@@ -16,6 +16,7 @@ part 'blocks.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getblocks/#output
 @freezed
+@Deprecated('Use GraphGetBlocksOutput instead. Will be removed')
 class Blocks with _$Blocks {
   @jsonSerializable
   const factory Blocks({

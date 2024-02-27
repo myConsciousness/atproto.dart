@@ -7,9 +7,12 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
-import 'entities/count.dart';
-import 'entities/notifications.dart';
 import 'service_context.dart';
+
+import 'types/notification/get_unread_count/_z.dart'
+    as app_bsky_notification_get_unread_count;
+import 'types/notification/list_notifications/_z.dart'
+    as app_bsky_notification_list_notifications;
 
 /// Represents `app.bsky.notification.*` service.
 final class NotificationService {
@@ -18,22 +21,24 @@ final class NotificationService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
-  Future<core.XRPCResponse<Notifications>> listNotifications({
+  Future<core.XRPCResponse<app_bsky_notification_list_notifications.Output>>
+      listNotifications({
     int? limit,
     String? cursor,
     DateTime? seenAt,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findNotifications(
-        limit: limit,
-        cursor: cursor,
-        seenAt: seenAt,
-      );
+          // ignore: deprecated_member_use_from_same_package
+          await findNotifications(
+            limit: limit,
+            cursor: cursor,
+            seenAt: seenAt,
+          );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
-  Future<core.XRPCResponse<Count>> getUnreadCount() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findUnreadCount();
+  Future<core.XRPCResponse<app_bsky_notification_get_unread_count.Output>>
+      getUnreadCount() async =>
+          // ignore: deprecated_member_use_from_same_package
+          await findUnreadCount();
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<core.XRPCResponse<core.EmptyData>> updateSeen({
@@ -58,21 +63,24 @@ final class NotificationService {
       );
 
   @Deprecated('Use .listNotifications instead. Will be removed')
-  Future<core.XRPCResponse<Notifications>> findNotifications({
+  Future<core.XRPCResponse<app_bsky_notification_list_notifications.Output>>
+      findNotifications({
     int? limit,
     String? cursor,
     DateTime? seenAt,
   }) async =>
-      await _findNotifications(
-        limit: limit,
-        cursor: cursor,
-        seenAt: seenAt,
-        to: Notifications.fromJson,
-      );
+          await _findNotifications(
+            limit: limit,
+            cursor: cursor,
+            seenAt: seenAt,
+            to: app_bsky_notification_list_notifications.Output.fromJson,
+          );
 
   @Deprecated('Use .getUnreadCount instead. Will be removed')
-  Future<core.XRPCResponse<Count>> findUnreadCount() async =>
-      await _findUnreadCount(to: Count.fromJson);
+  Future<core.XRPCResponse<app_bsky_notification_get_unread_count.Output>>
+      findUnreadCount() async => await _findUnreadCount(
+            to: app_bsky_notification_get_unread_count.Output.fromJson,
+          );
 
   @Deprecated('Use .updateSeen instead. Will be removed')
   Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({

@@ -14,6 +14,7 @@ part 'repo_commit.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getrepo/#output
 @freezed
 @lex.comAtprotoSyncGetRepo
+@Deprecated('Use SyncGetRepoOutput instead. Will be removed')
 class RepoCommit with _$RepoCommit {
   const factory RepoCommit({
     required String cid,

@@ -3,50 +3,58 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_profile.dart';
-import 'package:bluesky/src/services/entities/actor_profiles.dart';
-import 'package:bluesky/src/services/entities/actors.dart';
-import 'package:bluesky/src/services/entities/actors_typeahead.dart';
-import 'package:bluesky/src/services/entities/preferences.dart';
 import 'suite/service_suite.dart';
 
+import 'package:bluesky/src/services/types/actor/get_preferences/_z.dart'
+    as app_bsky_actor_get_preferences;
+import 'package:bluesky/src/services/types/actor/get_profile/_z.dart'
+    as app_bsky_actor_get_profile;
+import 'package:bluesky/src/services/types/actor/get_profiles/_z.dart'
+    as app_bsky_actor_get_profiles;
+import 'package:bluesky/src/services/types/actor/get_suggestions/_z.dart'
+    as app_bsky_actor_get_suggestions;
+import 'package:bluesky/src/services/types/actor/search_actors/_z.dart'
+    as app_bsky_actor_search_actors;
+import 'package:bluesky/src/services/types/actor/search_actors_typeahead/_z.dart'
+    as app_bsky_actor_search_actors_typeahead;
+
 void main() {
-  testActor<Actors>(
+  testActor<app_bsky_actor_search_actors.Output>(
     (m, s) => s.searchActors(term: m.query),
     id: appBskyActorSearchActors,
   );
 
-  testActor<ActorProfile>(
+  testActor<app_bsky_actor_get_profile.Output>(
     (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
 
-  testActor<ActorProfiles>(
+  testActor<app_bsky_actor_get_profiles.Output>(
     (m, s) => s.getProfiles(actors: [m.actor]),
     id: appBskyActorGetProfiles,
   );
 
-  testActor<Actors>(
+  testActor<app_bsky_actor_get_suggestions.Output>(
     (m, s) => s.getSuggestions(),
     id: appBskyActorGetSuggestions,
   );
 
-  testActor<ActorsTypeahead>(
+  testActor<app_bsky_actor_search_actors_typeahead.Output>(
     (m, s) => s.searchActorsTypeahead(term: m.query),
     id: appBskyActorSearchActorsTypeahead,
   );
 
-  testActor<atp.StrongRef>(
+  testActor<RepoStrongRef>(
     (m, s) => s.profile(),
     id: appBskyActorProfile,
   );
 
-  testActor<Preferences>(
+  testActor<app_bsky_actor_get_preferences.Output>(
     (m, s) => s.getPreferences(),
     id: appBskyActorGetPreferences,
   );

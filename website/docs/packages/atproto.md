@@ -139,7 +139,6 @@ import 'package:atproto/atproto.dart';
 Future<void> main() async {
   final atproto = ATProto.anonymous();
 
-  // Use `findDID` in `IdentitiesService`.
   final did = await atproto.identity.resolveHandle(
     handle: 'shinyakato.dev',
   );
@@ -300,18 +299,18 @@ Future<void> main() async {
 }
 ```
 
-Then you can deserialize `DID` object as JSON with `toJson` as follows:
+Then you can deserialize the lex type object as JSON with `toJson` as follows:
 
 ```dart
 print(did.toJson()); // => {did: did:plc:iijrtk7ocored6zuziwmqq3c}
 ```
 
-And you can serialize JSON as `DID` object with `fromJson` as follows:
+And you can serialize JSON as the lex type object with `fromJson` as follows:
 
 ```dart
 final json = did.toJson();
 
-final serializedDID = DID.fromJson(json);
+final serializedDID = IdentityResolveHandleOutput.fromJson(json);
 ```
 
 ### Thrown Exceptions
@@ -453,10 +452,11 @@ Alternatively, you can handle these union objects more easily using **_[pattern 
 For example, if pattern matching is used, the processing of `.when` when using the **[Firehose API](#firehose-api)** is replaced.
 
 And all union objects have defined class names prefixed with **_`U`_**.
-So, if you want the Firehose API to handle only `Commit` and `Handle` events, you can use the **`USubscribedRepoCommit`** and **`USubscribedRepoHandle`** objects for pattern matching as follows.
+So, if you want the Firehose API to handle only `Commit` and `Handle` events, you can use the **`USyncSubscribeReposOutputCommit`** and **`USyncSubscribeReposOutputHandle`** objects for pattern matching as follows.
 
 ```dart
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/lex_types.dart';
 
 Future<void> main() async {
   final atproto = atp.ATProto.anonymous();
@@ -467,9 +467,9 @@ Future<void> main() async {
     // No need to use `.when` method.
     switch (event) {
       // Specify an union object prefixed with `U` as the case.
-      case atp.USubscribedRepoCommit():
+      case atp.USyncSubscribeReposOutputCommit():
         print(event.data.ops);
-      case atp.USubscribedRepoHandle():
+      case atp.USyncSubscribeReposOutputHandle():
         print(event.data.handle);
     }
   }
@@ -487,6 +487,7 @@ Using **[atproto](https://pub.dev/packages/atproto)** to access the `Firehose AP
 
 ```dart
 import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
 
 Future<void> main() async {
   // Authentication is not required.
@@ -502,14 +503,14 @@ Future<void> main() async {
         // A single commit may contain multiple records.
         for (final op in data.ops) {
           switch (op.action) {
-            case RepoAction.create:
-            case RepoAction.update:
+            case SyncSubscribeReposRepoOpAction.create:
+            case SyncSubscribeReposRepoOpAction.update:
               // Created/Updated AT URI and specific record.
               print(op.uri);
               print(op.record);
 
               break;
-            case RepoAction.delete:
+            case SyncSubscribeReposRepoOpAction.delete:
               // Deleted AT URI.
               print(op.uri);
 

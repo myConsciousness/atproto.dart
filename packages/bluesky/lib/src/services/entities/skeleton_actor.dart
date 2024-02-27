@@ -16,6 +16,7 @@ part 'skeleton_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
 @lex.appBskyUnspeccedDefsSkeletonSearchActor
+@Deprecated('Use UnspeccedDefsSkeletonSearchActor instead. Will be removed')
 class SkeletonActor with _$SkeletonActor {
   const factory SkeletonActor({
     required String did,

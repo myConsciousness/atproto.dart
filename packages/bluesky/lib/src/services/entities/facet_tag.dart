@@ -18,6 +18,7 @@ part 'facet_tag.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
 @lex.appBskyRichtextFacetTag
+@Deprecated('Use RichtextFacetTag instead. Will be removed')
 class FacetTag with _$FacetTag {
   const factory FacetTag({
     @typeKey @Default(appBskyRichtextFacetTag) String type,

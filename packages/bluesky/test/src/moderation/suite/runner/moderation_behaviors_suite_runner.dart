@@ -3,7 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
+import 'package:atproto/lex_types.dart';
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -15,15 +16,11 @@ import 'package:bluesky/src/moderation/entities/moderation_options.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/entities/moderation_subject_profile.dart';
 import 'package:bluesky/src/moderation/entities/moderation_ui.dart';
-import 'package:bluesky/src/services/entities/actor_basic.dart';
-import 'package:bluesky/src/services/entities/actor_viewer.dart';
-import 'package:bluesky/src/services/entities/embed_view.dart';
-import 'package:bluesky/src/services/entities/embed_view_record.dart';
-import 'package:bluesky/src/services/entities/embed_view_record_view.dart';
-import 'package:bluesky/src/services/entities/embed_view_record_view_record.dart';
-import 'package:bluesky/src/services/entities/list_view_basic.dart';
-import 'package:bluesky/src/services/entities/post.dart';
-import 'package:bluesky/src/services/entities/post_record.dart';
+import 'package:bluesky/src/services/types/actor/defs/_z.dart';
+import 'package:bluesky/src/services/types/embed/record/_z.dart';
+import 'package:bluesky/src/services/types/feed/defs/_z.dart';
+import 'package:bluesky/src/services/types/feed/post/_z.dart';
+import 'package:bluesky/src/services/types/graph/defs/_z.dart';
 import '../moderation_behavior_result.dart';
 import '../moderation_behavior_scenario.dart';
 import '../moderation_behavior_scenario_labels.dart';
@@ -39,7 +36,7 @@ final class ModerationBehaviorSuiteRunner {
   ) {
     if (scenario.subject != ScenarioSubjectType.profile) throw Error();
 
-    return ModerationSubjectProfile.actorBasic(
+    return ModerationSubjectProfile.profileViewBasic(
       data: _getProfileViewBasic(scenario.author, scenario.labels),
     );
   }
@@ -51,9 +48,9 @@ final class ModerationBehaviorSuiteRunner {
 
     final author = _getProfileViewBasic(scenario.author, scenario.labels);
 
-    return ModerationSubjectPost.post(
-      data: Post(
-        record: PostRecord(
+    return ModerationSubjectPost.postView(
+      data: FeedDefsPostView(
+        record: FeedPostRecord(
           text: 'Post text',
           createdAt: DateTime.now(),
         ),
@@ -69,12 +66,12 @@ final class ModerationBehaviorSuiteRunner {
             )
             .toList(),
         embed: scenario.quoteAuthor != null
-            ? EmbedView.record(
-                data: EmbedViewRecord(
-                  record: EmbedViewRecordView.record(
-                    data: EmbedViewRecordViewRecord(
+            ? UFeedDefsPostViewEmbed.embedRecordView(
+                data: EmbedRecordView(
+                  record: UEmbedRecordViewRecord.viewRecord(
+                    data: EmbedRecordViewRecord(
                       type: 'app.bsky.embed.record#viewRecord',
-                      value: PostRecord(
+                      value: FeedPostRecord(
                         text: 'Quoted post text',
                         createdAt: DateTime.now(),
                       ),
@@ -126,12 +123,12 @@ final class ModerationBehaviorSuiteRunner {
         ],
       );
 
-  ActorBasic _getProfileViewBasic(
+  ProfileViewBasic _getProfileViewBasic(
     final String name,
     final ModerationBehaviorScenarioLabels scenarioLabels,
   ) {
     final def = suite.users[name]!;
-    final labels = <Label>[];
+    final labels = <LabelDefsLabel>[];
 
     if (scenarioLabels.account != null) {
       for (final label in scenarioLabels.account!) {
@@ -148,26 +145,26 @@ final class ModerationBehaviorSuiteRunner {
       }
     }
 
-    return ActorBasic(
+    return ProfileViewBasic(
       did: 'did:web:$name.test',
       handle: '$name.test',
       labels: labels,
-      viewer: ActorViewer(
-        isMuted: def.isMuted || def.isMutedByList,
+      viewer: ViewerState(
+        muted: def.isMuted || def.isMutedByList,
         mutedByList: def.isMutedByList
-            ? ListViewBasic(
+            ? GraphDefsListViewBasic(
                 uri: AtUri.parse('at://did:plc:fake/app.bsky.graph.list/fake'),
                 cid: 'fake',
                 name: 'Fake List',
                 indexedAt: DateTime.now(),
               )
             : null,
-        isBlockedBy: def.isBlockedBy,
+        blockedBy: def.isBlockedBy,
         blocking: def.isBlocking || def.isBlockingByList
             ? AtUri.parse('at://did:web:self.test/app.bsky.graph.block/fake')
             : null,
         blockingByList: def.isBlockingByList
-            ? ListViewBasic(
+            ? GraphDefsListViewBasic(
                 uri: AtUri.parse('at://did:plc:fake/app.bsky.graph.list/fake'),
                 cid: 'fake',
                 name: 'Fake List',
@@ -178,11 +175,12 @@ final class ModerationBehaviorSuiteRunner {
     );
   }
 
-  Label _getLabel(final String value, final String uri) => Label(
+  LabelDefsLabel _getLabel(final String value, final String uri) =>
+      LabelDefsLabel(
         src: 'did:plc:fake-labeler',
         uri: uri,
-        value: value,
-        createdAt: DateTime.now(),
+        val: value,
+        cts: DateTime.now(),
       );
 }
 

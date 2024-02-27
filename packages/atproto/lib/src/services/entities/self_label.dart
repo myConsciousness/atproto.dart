@@ -16,6 +16,7 @@ part 'self_label.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
 @lex.comAtprotoLabelDefsSelfLabel
+@Deprecated('Use LabelDefsSelfLabel instead. Will be removed')
 class SelfLabel with _$SelfLabel {
   const factory SelfLabel({
     @typeKey @Default(comAtprotoLabelDefsSelfLabel) String type,

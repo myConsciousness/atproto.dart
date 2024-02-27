@@ -14,6 +14,7 @@ part 'repo_block.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getblocks/#output
 @freezed
 @lex.comAtprotoSyncGetBlocks
+@Deprecated('Use SyncGetBlocksBlock instead. Will be removed')
 class RepoBlock with _$RepoBlock {
   const factory RepoBlock({
     required String cid,

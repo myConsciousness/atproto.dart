@@ -19,6 +19,7 @@ part 'follow_record.g.dart';
 /// An object representing the records in the created
 /// [appBskyGraphFollow].
 @freezed
+@Deprecated('Use GraphFollowRecord instead. Will be removed')
 class FollowRecord with _$FollowRecord {
   @jsonSerializable
   const factory FollowRecord({

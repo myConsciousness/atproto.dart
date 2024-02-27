@@ -12,8 +12,10 @@ import '../repo_ref.dart';
 import '../report_subject.dart';
 import '../strong_ref.dart';
 
+@Deprecated('Will be removed')
 const reportSubjectConverter = _ReportSubjectConverter();
 
+@Deprecated('Will be removed')
 final class _ReportSubjectConverter
     implements JsonConverter<ReportSubject, Map<String, dynamic>> {
   /// Returns the new instance of [_ReportSubjectConverter].

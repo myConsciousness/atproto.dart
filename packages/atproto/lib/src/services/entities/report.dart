@@ -17,6 +17,7 @@ part 'report.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
 @lex.comAtprotoModerationCreateReport
+@Deprecated('Use ModerationCreateReportOutput instead. Will be removed')
 class Report with _$Report {
   const factory Report({
     required int id,

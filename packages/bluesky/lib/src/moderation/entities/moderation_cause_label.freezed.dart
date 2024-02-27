@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ModerationCauseLabel {
   String get type => throw _privateConstructorUsedError;
   ModerationCauseSource get source => throw _privateConstructorUsedError;
-  Label get label => throw _privateConstructorUsedError;
+  LabelDefsLabel get label => throw _privateConstructorUsedError;
   @JsonKey(name: 'labelDef')
   LabelDefinition get labelDefinition => throw _privateConstructorUsedError;
   LabelPreference get setting => throw _privateConstructorUsedError;
@@ -38,13 +38,13 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
   $Res call(
       {String type,
       ModerationCauseSource source,
-      Label label,
+      LabelDefsLabel label,
       @JsonKey(name: 'labelDef') LabelDefinition labelDefinition,
       LabelPreference setting,
       int priority});
 
   $ModerationCauseSourceCopyWith<$Res> get source;
-  $LabelCopyWith<$Res> get label;
+  $LabelDefsLabelCopyWith<$Res> get label;
   $LabelDefinitionCopyWith<$Res> get labelDefinition;
 }
 
@@ -81,7 +81,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
       label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as LabelDefsLabel,
       labelDefinition: null == labelDefinition
           ? _value.labelDefinition
           : labelDefinition // ignore: cast_nullable_to_non_nullable
@@ -107,8 +107,8 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
 
   @override
   @pragma('vm:prefer-inline')
-  $LabelCopyWith<$Res> get label {
-    return $LabelCopyWith<$Res>(_value.label, (value) {
+  $LabelDefsLabelCopyWith<$Res> get label {
+    return $LabelDefsLabelCopyWith<$Res>(_value.label, (value) {
       return _then(_value.copyWith(label: value) as $Val);
     });
   }
@@ -133,7 +133,7 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
   $Res call(
       {String type,
       ModerationCauseSource source,
-      Label label,
+      LabelDefsLabel label,
       @JsonKey(name: 'labelDef') LabelDefinition labelDefinition,
       LabelPreference setting,
       int priority});
@@ -141,7 +141,7 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
   @override
   $ModerationCauseSourceCopyWith<$Res> get source;
   @override
-  $LabelCopyWith<$Res> get label;
+  $LabelDefsLabelCopyWith<$Res> get label;
   @override
   $LabelDefinitionCopyWith<$Res> get labelDefinition;
 }
@@ -176,7 +176,7 @@ class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
       label: null == label
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
-              as Label,
+              as LabelDefsLabel,
       labelDefinition: null == labelDefinition
           ? _value.labelDefinition
           : labelDefinition // ignore: cast_nullable_to_non_nullable
@@ -210,7 +210,7 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   @override
   final ModerationCauseSource source;
   @override
-  final Label label;
+  final LabelDefsLabel label;
   @override
   @JsonKey(name: 'labelDef')
   final LabelDefinition labelDefinition;
@@ -256,7 +256,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   const factory _ModerationCauseLabel(
       {final String type,
       required final ModerationCauseSource source,
-      required final Label label,
+      required final LabelDefsLabel label,
       @JsonKey(name: 'labelDef') required final LabelDefinition labelDefinition,
       required final LabelPreference setting,
       required final int priority}) = _$ModerationCauseLabelImpl;
@@ -266,7 +266,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   @override
   ModerationCauseSource get source;
   @override
-  Label get label;
+  LabelDefsLabel get label;
   @override
   @JsonKey(name: 'labelDef')
   LabelDefinition get labelDefinition;
