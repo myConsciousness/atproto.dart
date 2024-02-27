@@ -14,41 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-UnspeccedGetPopularFeedGeneratorsOutput
-    _$UnspeccedGetPopularFeedGeneratorsOutputFromJson(
-        Map<String, dynamic> json) {
-  return _UnspeccedGetPopularFeedGeneratorsOutput.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnspeccedGetPopularFeedGeneratorsOutput {
+mixin _$Output {
   List<FeedDefsGeneratorView> get feeds => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnspeccedGetPopularFeedGeneratorsOutputCopyWith<
-          UnspeccedGetPopularFeedGeneratorsOutput>
-      get copyWith => throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnspeccedGetPopularFeedGeneratorsOutputCopyWith<$Res> {
-  factory $UnspeccedGetPopularFeedGeneratorsOutputCopyWith(
-          UnspeccedGetPopularFeedGeneratorsOutput value,
-          $Res Function(UnspeccedGetPopularFeedGeneratorsOutput) then) =
-      _$UnspeccedGetPopularFeedGeneratorsOutputCopyWithImpl<$Res,
-          UnspeccedGetPopularFeedGeneratorsOutput>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
   $Res call({List<FeedDefsGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class _$UnspeccedGetPopularFeedGeneratorsOutputCopyWithImpl<$Res,
-        $Val extends UnspeccedGetPopularFeedGeneratorsOutput>
-    implements $UnspeccedGetPopularFeedGeneratorsOutputCopyWith<$Res> {
-  _$UnspeccedGetPopularFeedGeneratorsOutputCopyWithImpl(
-      this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,25 +66,21 @@ class _$UnspeccedGetPopularFeedGeneratorsOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWith<$Res>
-    implements $UnspeccedGetPopularFeedGeneratorsOutputCopyWith<$Res> {
-  factory _$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWith(
-          _$UnspeccedGetPopularFeedGeneratorsOutputImpl value,
-          $Res Function(_$UnspeccedGetPopularFeedGeneratorsOutputImpl) then) =
-      __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<FeedDefsGeneratorView> feeds, String? cursor});
 }
 
 /// @nodoc
-class __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl<$Res>
-    extends _$UnspeccedGetPopularFeedGeneratorsOutputCopyWithImpl<$Res,
-        _$UnspeccedGetPopularFeedGeneratorsOutputImpl>
-    implements _$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWith<$Res> {
-  __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl(
-      _$UnspeccedGetPopularFeedGeneratorsOutputImpl _value,
-      $Res Function(_$UnspeccedGetPopularFeedGeneratorsOutputImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -102,7 +89,7 @@ class __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl<$Res>
     Object? feeds = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$UnspeccedGetPopularFeedGeneratorsOutputImpl(
+    return _then(_$OutputImpl(
       feeds: null == feeds
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
@@ -118,15 +105,13 @@ class __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$UnspeccedGetPopularFeedGeneratorsOutputImpl
-    implements _UnspeccedGetPopularFeedGeneratorsOutput {
-  const _$UnspeccedGetPopularFeedGeneratorsOutputImpl(
+class _$OutputImpl implements _Output {
+  const _$OutputImpl(
       {required final List<FeedDefsGeneratorView> feeds, this.cursor})
       : _feeds = feeds;
 
-  factory _$UnspeccedGetPopularFeedGeneratorsOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedGetPopularFeedGeneratorsOutputImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
   final List<FeedDefsGeneratorView> _feeds;
   @override
@@ -141,14 +126,14 @@ class _$UnspeccedGetPopularFeedGeneratorsOutputImpl
 
   @override
   String toString() {
-    return 'UnspeccedGetPopularFeedGeneratorsOutput(feeds: $feeds, cursor: $cursor)';
+    return 'Output(feeds: $feeds, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnspeccedGetPopularFeedGeneratorsOutputImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -161,29 +146,23 @@ class _$UnspeccedGetPopularFeedGeneratorsOutputImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWith<
-          _$UnspeccedGetPopularFeedGeneratorsOutputImpl>
-      get copyWith =>
-          __$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWithImpl<
-              _$UnspeccedGetPopularFeedGeneratorsOutputImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnspeccedGetPopularFeedGeneratorsOutputImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnspeccedGetPopularFeedGeneratorsOutput
-    implements UnspeccedGetPopularFeedGeneratorsOutput {
-  const factory _UnspeccedGetPopularFeedGeneratorsOutput(
+abstract class _Output implements Output {
+  const factory _Output(
       {required final List<FeedDefsGeneratorView> feeds,
-      final String? cursor}) = _$UnspeccedGetPopularFeedGeneratorsOutputImpl;
+      final String? cursor}) = _$OutputImpl;
 
-  factory _UnspeccedGetPopularFeedGeneratorsOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$UnspeccedGetPopularFeedGeneratorsOutputImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
   List<FeedDefsGeneratorView> get feeds;
@@ -191,7 +170,6 @@ abstract class _UnspeccedGetPopularFeedGeneratorsOutput
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$UnspeccedGetPopularFeedGeneratorsOutputImplCopyWith<
-          _$UnspeccedGetPopularFeedGeneratorsOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

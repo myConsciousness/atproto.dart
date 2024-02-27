@@ -17,15 +17,12 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchactorsskeleton/#output
 @freezed
 @lex.appBskyUnspeccedSearchActorsSkeleton
-class UnspeccedSearchActorsSkeletonOutput
-    with _$UnspeccedSearchActorsSkeletonOutput {
-  const factory UnspeccedSearchActorsSkeletonOutput({
-    required List<UnspeccedDefsSkeletonSearchActor> actors,
+class Output with _$Output {
+  const factory Output({
+    required List<SkeletonSearchActor> actors,
     @Default(0) int hitsTotal,
     String? cursor,
-  }) = _UnspeccedSearchActorsSkeletonOutput;
+  }) = _Output;
 
-  factory UnspeccedSearchActorsSkeletonOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedSearchActorsSkeletonOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

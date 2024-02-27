@@ -8,23 +8,20 @@ part of 'suggestion.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetTaggedSuggestionsSuggestionImpl
-    _$$UnspeccedGetTaggedSuggestionsSuggestionImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$UnspeccedGetTaggedSuggestionsSuggestionImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetTaggedSuggestionsSuggestionImpl(
-              tag: $checkedConvert('tag', (v) => v as String),
-              subjectType: $checkedConvert('subjectType', (v) => v as String),
-              subject: $checkedConvert('subject', (v) => v as String),
-            );
-            return val;
-          },
+_$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
+      r'_$SuggestionImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$SuggestionImpl(
+          tag: $checkedConvert('tag', (v) => v as String),
+          subjectType: $checkedConvert('subjectType', (v) => v as String),
+          subject: $checkedConvert('subject', (v) => v as String),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$UnspeccedGetTaggedSuggestionsSuggestionImplToJson(
-        _$UnspeccedGetTaggedSuggestionsSuggestionImpl instance) =>
+Map<String, dynamic> _$$SuggestionImplToJson(_$SuggestionImpl instance) =>
     <String, dynamic>{
       'tag': instance.tag,
       'subjectType': instance.subjectType,

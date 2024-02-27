@@ -18,15 +18,12 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getpopularfeedgenerators/#output
 @freezed
 @lex.appBskyUnspeccedGetPopularFeedGenerators
-class UnspeccedGetPopularFeedGeneratorsOutput
-    with _$UnspeccedGetPopularFeedGeneratorsOutput {
+class Output with _$Output {
   @jsonSerializable
-  const factory UnspeccedGetPopularFeedGeneratorsOutput({
+  const factory Output({
     required List<FeedDefsGeneratorView> feeds,
     String? cursor,
-  }) = _UnspeccedGetPopularFeedGeneratorsOutput;
+  }) = _Output;
 
-  factory UnspeccedGetPopularFeedGeneratorsOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetPopularFeedGeneratorsOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

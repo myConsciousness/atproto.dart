@@ -70,8 +70,3 @@ export 'package:bluesky/src/services/types/notification/get_unread_count/_z.dart
 export 'package:bluesky/src/services/types/notification/list_notifications/_z.dart';
 export 'package:bluesky/src/services/types/richtext/facet/_z.dart'
     hide unionRichtextFacetFeaturesConverter;
-export 'package:bluesky/src/services/types/unspecced/defs/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/get_popular_feed_generators/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/search_actors_skeleton/_z.dart';
-export 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';

@@ -14,39 +14,31 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-UnspeccedGetTaggedSuggestionsOutput
-    _$UnspeccedGetTaggedSuggestionsOutputFromJson(Map<String, dynamic> json) {
-  return _UnspeccedGetTaggedSuggestionsOutput.fromJson(json);
+Output _$OutputFromJson(Map<String, dynamic> json) {
+  return _Output.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnspeccedGetTaggedSuggestionsOutput {
-  List<UnspeccedGetTaggedSuggestionsSuggestion> get suggestions =>
-      throw _privateConstructorUsedError;
+mixin _$Output {
+  List<Suggestion> get suggestions => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnspeccedGetTaggedSuggestionsOutputCopyWith<
-          UnspeccedGetTaggedSuggestionsOutput>
-      get copyWith => throw _privateConstructorUsedError;
+  $OutputCopyWith<Output> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnspeccedGetTaggedSuggestionsOutputCopyWith<$Res> {
-  factory $UnspeccedGetTaggedSuggestionsOutputCopyWith(
-          UnspeccedGetTaggedSuggestionsOutput value,
-          $Res Function(UnspeccedGetTaggedSuggestionsOutput) then) =
-      _$UnspeccedGetTaggedSuggestionsOutputCopyWithImpl<$Res,
-          UnspeccedGetTaggedSuggestionsOutput>;
+abstract class $OutputCopyWith<$Res> {
+  factory $OutputCopyWith(Output value, $Res Function(Output) then) =
+      _$OutputCopyWithImpl<$Res, Output>;
   @useResult
-  $Res call({List<UnspeccedGetTaggedSuggestionsSuggestion> suggestions});
+  $Res call({List<Suggestion> suggestions});
 }
 
 /// @nodoc
-class _$UnspeccedGetTaggedSuggestionsOutputCopyWithImpl<$Res,
-        $Val extends UnspeccedGetTaggedSuggestionsOutput>
-    implements $UnspeccedGetTaggedSuggestionsOutputCopyWith<$Res> {
-  _$UnspeccedGetTaggedSuggestionsOutputCopyWithImpl(this._value, this._then);
+class _$OutputCopyWithImpl<$Res, $Val extends Output>
+    implements $OutputCopyWith<$Res> {
+  _$OutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -62,31 +54,27 @@ class _$UnspeccedGetTaggedSuggestionsOutputCopyWithImpl<$Res,
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedGetTaggedSuggestionsSuggestion>,
+              as List<Suggestion>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$UnspeccedGetTaggedSuggestionsOutputImplCopyWith<$Res>
-    implements $UnspeccedGetTaggedSuggestionsOutputCopyWith<$Res> {
-  factory _$$UnspeccedGetTaggedSuggestionsOutputImplCopyWith(
-          _$UnspeccedGetTaggedSuggestionsOutputImpl value,
-          $Res Function(_$UnspeccedGetTaggedSuggestionsOutputImpl) then) =
-      __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl<$Res>;
+abstract class _$$OutputImplCopyWith<$Res> implements $OutputCopyWith<$Res> {
+  factory _$$OutputImplCopyWith(
+          _$OutputImpl value, $Res Function(_$OutputImpl) then) =
+      __$$OutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<UnspeccedGetTaggedSuggestionsSuggestion> suggestions});
+  $Res call({List<Suggestion> suggestions});
 }
 
 /// @nodoc
-class __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
-    extends _$UnspeccedGetTaggedSuggestionsOutputCopyWithImpl<$Res,
-        _$UnspeccedGetTaggedSuggestionsOutputImpl>
-    implements _$$UnspeccedGetTaggedSuggestionsOutputImplCopyWith<$Res> {
-  __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl(
-      _$UnspeccedGetTaggedSuggestionsOutputImpl _value,
-      $Res Function(_$UnspeccedGetTaggedSuggestionsOutputImpl) _then)
+class __$$OutputImplCopyWithImpl<$Res>
+    extends _$OutputCopyWithImpl<$Res, _$OutputImpl>
+    implements _$$OutputImplCopyWith<$Res> {
+  __$$OutputImplCopyWithImpl(
+      _$OutputImpl _value, $Res Function(_$OutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -94,11 +82,11 @@ class __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? suggestions = null,
   }) {
-    return _then(_$UnspeccedGetTaggedSuggestionsOutputImpl(
+    return _then(_$OutputImpl(
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
-              as List<UnspeccedGetTaggedSuggestionsSuggestion>,
+              as List<Suggestion>,
     ));
   }
 }
@@ -106,20 +94,16 @@ class __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$UnspeccedGetTaggedSuggestionsOutputImpl
-    implements _UnspeccedGetTaggedSuggestionsOutput {
-  const _$UnspeccedGetTaggedSuggestionsOutputImpl(
-      {required final List<UnspeccedGetTaggedSuggestionsSuggestion>
-          suggestions})
+class _$OutputImpl implements _Output {
+  const _$OutputImpl({required final List<Suggestion> suggestions})
       : _suggestions = suggestions;
 
-  factory _$UnspeccedGetTaggedSuggestionsOutputImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedGetTaggedSuggestionsOutputImplFromJson(json);
+  factory _$OutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$OutputImplFromJson(json);
 
-  final List<UnspeccedGetTaggedSuggestionsSuggestion> _suggestions;
+  final List<Suggestion> _suggestions;
   @override
-  List<UnspeccedGetTaggedSuggestionsSuggestion> get suggestions {
+  List<Suggestion> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_suggestions);
@@ -127,14 +111,14 @@ class _$UnspeccedGetTaggedSuggestionsOutputImpl
 
   @override
   String toString() {
-    return 'UnspeccedGetTaggedSuggestionsOutput(suggestions: $suggestions)';
+    return 'Output(suggestions: $suggestions)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnspeccedGetTaggedSuggestionsOutputImpl &&
+            other is _$OutputImpl &&
             const DeepCollectionEquality()
                 .equals(other._suggestions, _suggestions));
   }
@@ -147,34 +131,27 @@ class _$UnspeccedGetTaggedSuggestionsOutputImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnspeccedGetTaggedSuggestionsOutputImplCopyWith<
-          _$UnspeccedGetTaggedSuggestionsOutputImpl>
-      get copyWith => __$$UnspeccedGetTaggedSuggestionsOutputImplCopyWithImpl<
-          _$UnspeccedGetTaggedSuggestionsOutputImpl>(this, _$identity);
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      __$$OutputImplCopyWithImpl<_$OutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnspeccedGetTaggedSuggestionsOutputImplToJson(
+    return _$$OutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnspeccedGetTaggedSuggestionsOutput
-    implements UnspeccedGetTaggedSuggestionsOutput {
-  const factory _UnspeccedGetTaggedSuggestionsOutput(
-      {required final List<UnspeccedGetTaggedSuggestionsSuggestion>
-          suggestions}) = _$UnspeccedGetTaggedSuggestionsOutputImpl;
+abstract class _Output implements Output {
+  const factory _Output({required final List<Suggestion> suggestions}) =
+      _$OutputImpl;
 
-  factory _UnspeccedGetTaggedSuggestionsOutput.fromJson(
-          Map<String, dynamic> json) =
-      _$UnspeccedGetTaggedSuggestionsOutputImpl.fromJson;
+  factory _Output.fromJson(Map<String, dynamic> json) = _$OutputImpl.fromJson;
 
   @override
-  List<UnspeccedGetTaggedSuggestionsSuggestion> get suggestions;
+  List<Suggestion> get suggestions;
   @override
   @JsonKey(ignore: true)
-  _$$UnspeccedGetTaggedSuggestionsOutputImplCopyWith<
-          _$UnspeccedGetTaggedSuggestionsOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$OutputImplCopyWith<_$OutputImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

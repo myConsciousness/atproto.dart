@@ -8,28 +8,25 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedSearchActorsSkeletonOutputImpl
-    _$$UnspeccedSearchActorsSkeletonOutputImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$UnspeccedSearchActorsSkeletonOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedSearchActorsSkeletonOutputImpl(
-              actors: $checkedConvert(
-                  'actors',
-                  (v) => (v as List<dynamic>)
-                      .map((e) => UnspeccedDefsSkeletonSearchActor.fromJson(
-                          Map<String, Object?>.from(e as Map)))
-                      .toList()),
-              hitsTotal: $checkedConvert('hitsTotal', (v) => v as int? ?? 0),
-              cursor: $checkedConvert('cursor', (v) => v as String?),
-            );
-            return val;
-          },
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$OutputImpl(
+          actors: $checkedConvert(
+              'actors',
+              (v) => (v as List<dynamic>)
+                  .map((e) => SkeletonSearchActor.fromJson(
+                      Map<String, Object?>.from(e as Map)))
+                  .toList()),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => v as int? ?? 0),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$UnspeccedSearchActorsSkeletonOutputImplToJson(
-        _$UnspeccedSearchActorsSkeletonOutputImpl instance) =>
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) =>
     <String, dynamic>{
       'actors': instance.actors.map((e) => e.toJson()).toList(),
       'hitsTotal': instance.hitsTotal,

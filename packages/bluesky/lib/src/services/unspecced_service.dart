@@ -8,10 +8,15 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import '../nsids.g.dart' as ns;
 import 'service_context.dart';
-import 'types/unspecced/get_popular_feed_generators/_z.dart';
-import 'types/unspecced/get_tagged_suggestions/_z.dart';
-import 'types/unspecced/search_actors_skeleton/_z.dart';
-import 'types/unspecced/search_posts_skeleton/_z.dart';
+
+import 'types/unspecced/get_popular_feed_generators/_z.dart'
+    as app_bsky_unspecced_get_popular_feed_generators;
+import 'types/unspecced/get_tagged_suggestions/_z.dart'
+    as app_bsky_unspecced_get_tagged_suggestions;
+import 'types/unspecced/search_actors_skeleton/_z.dart'
+    as app_bsky_unspecced_search_actors_skeleton;
+import 'types/unspecced/search_posts_skeleton/_z.dart'
+    as app_bsky_unspecced_search_posts_skeleton;
 
 /// Represents `app.bsky.unspecced.*` service.
 final class UnspeccedService {
@@ -20,7 +25,9 @@ final class UnspeccedService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
-  Future<core.XRPCResponse<UnspeccedGetPopularFeedGeneratorsOutput>>
+  Future<
+          core
+          .XRPCResponse<app_bsky_unspecced_get_popular_feed_generators.Output>>
       getPopularFeedGenerators({
     int? limit,
     String? cursor,
@@ -34,7 +41,7 @@ final class UnspeccedService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
-  Future<core.XRPCResponse<UnspeccedSearchPostsSkeletonOutput>>
+  Future<core.XRPCResponse<app_bsky_unspecced_search_posts_skeleton.Output>>
       searchPostsSkeleton(
     final String query, {
     int? limit,
@@ -48,7 +55,7 @@ final class UnspeccedService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
-  Future<core.XRPCResponse<UnspeccedSearchActorsSkeletonOutput>>
+  Future<core.XRPCResponse<app_bsky_unspecced_search_actors_skeleton.Output>>
       searchActorsSkeleton(
     final String query, {
     bool? typeahead,
@@ -64,14 +71,16 @@ final class UnspeccedService {
           );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
-  Future<core.XRPCResponse<UnspeccedGetTaggedSuggestionsOutput>>
+  Future<core.XRPCResponse<app_bsky_unspecced_get_tagged_suggestions.Output>>
       getTaggedSuggestions() async => await _ctx.get(
             ns.appBskyUnspeccedGetTaggedSuggestions,
-            to: UnspeccedGetTaggedSuggestionsOutput.fromJson,
+            to: app_bsky_unspecced_get_tagged_suggestions.Output.fromJson,
           );
 
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
-  Future<core.XRPCResponse<UnspeccedGetPopularFeedGeneratorsOutput>>
+  Future<
+          core
+          .XRPCResponse<app_bsky_unspecced_get_popular_feed_generators.Output>>
       findPopularFeedGenerators({
     int? limit,
     String? cursor,
@@ -81,11 +90,11 @@ final class UnspeccedService {
             limit: limit,
             cursor: cursor,
             query: query,
-            to: UnspeccedGetPopularFeedGeneratorsOutput.fromJson,
+            to: app_bsky_unspecced_get_popular_feed_generators.Output.fromJson,
           );
 
   @Deprecated('Use .searchPostsSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<UnspeccedSearchPostsSkeletonOutput>>
+  Future<core.XRPCResponse<app_bsky_unspecced_search_posts_skeleton.Output>>
       searchPostsByQuerySkeleton(
     final String query, {
     int? limit,
@@ -95,11 +104,11 @@ final class UnspeccedService {
             query: query,
             limit: limit,
             cursor: cursor,
-            to: UnspeccedSearchPostsSkeletonOutput.fromJson,
+            to: app_bsky_unspecced_search_posts_skeleton.Output.fromJson,
           );
 
   @Deprecated('Use .searchActorsSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<UnspeccedSearchActorsSkeletonOutput>>
+  Future<core.XRPCResponse<app_bsky_unspecced_search_actors_skeleton.Output>>
       searchActorsByQuerySkeleton(
     final String query, {
     bool? typeahead,
@@ -111,7 +120,7 @@ final class UnspeccedService {
             typeahead: typeahead,
             limit: limit,
             cursor: cursor,
-            to: UnspeccedSearchActorsSkeletonOutput.fromJson,
+            to: app_bsky_unspecced_search_actors_skeleton.Output.fromJson,
           );
 
   Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({

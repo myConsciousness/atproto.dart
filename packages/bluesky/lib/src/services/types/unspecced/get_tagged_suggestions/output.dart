@@ -18,14 +18,11 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
 @freezed
 @lex.appBskyUnspeccedGetTaggedSuggestions
-class UnspeccedGetTaggedSuggestionsOutput
-    with _$UnspeccedGetTaggedSuggestionsOutput {
+class Output with _$Output {
   @jsonSerializable
-  const factory UnspeccedGetTaggedSuggestionsOutput({
-    required List<UnspeccedGetTaggedSuggestionsSuggestion> suggestions,
-  }) = _UnspeccedGetTaggedSuggestionsOutput;
+  const factory Output({
+    required List<Suggestion> suggestions,
+  }) = _Output;
 
-  factory UnspeccedGetTaggedSuggestionsOutput.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetTaggedSuggestionsOutputFromJson(json);
+  factory Output.fromJson(Map<String, Object?> json) => _$OutputFromJson(json);
 }

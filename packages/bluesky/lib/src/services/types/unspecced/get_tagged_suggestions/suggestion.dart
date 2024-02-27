@@ -17,16 +17,14 @@ part 'suggestion.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 @lex.appBskyUnspeccedGetTaggedSuggestionsSuggestion
-class UnspeccedGetTaggedSuggestionsSuggestion
-    with _$UnspeccedGetTaggedSuggestionsSuggestion {
+class Suggestion with _$Suggestion {
   @jsonSerializable
-  const factory UnspeccedGetTaggedSuggestionsSuggestion({
+  const factory Suggestion({
     required String tag,
     required String subjectType,
     required String subject,
-  }) = _UnspeccedGetTaggedSuggestionsSuggestion;
+  }) = _Suggestion;
 
-  factory UnspeccedGetTaggedSuggestionsSuggestion.fromJson(
-          Map<String, Object?> json) =>
-      _$UnspeccedGetTaggedSuggestionsSuggestionFromJson(json);
+  factory Suggestion.fromJson(Map<String, Object?> json) =>
+      _$SuggestionFromJson(json);
 }

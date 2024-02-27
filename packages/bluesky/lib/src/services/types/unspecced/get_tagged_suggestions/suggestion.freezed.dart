@@ -14,42 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-UnspeccedGetTaggedSuggestionsSuggestion
-    _$UnspeccedGetTaggedSuggestionsSuggestionFromJson(
-        Map<String, dynamic> json) {
-  return _UnspeccedGetTaggedSuggestionsSuggestion.fromJson(json);
+Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
+  return _Suggestion.fromJson(json);
 }
 
 /// @nodoc
-mixin _$UnspeccedGetTaggedSuggestionsSuggestion {
+mixin _$Suggestion {
   String get tag => throw _privateConstructorUsedError;
   String get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $UnspeccedGetTaggedSuggestionsSuggestionCopyWith<
-          UnspeccedGetTaggedSuggestionsSuggestion>
-      get copyWith => throw _privateConstructorUsedError;
+  $SuggestionCopyWith<Suggestion> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UnspeccedGetTaggedSuggestionsSuggestionCopyWith<$Res> {
-  factory $UnspeccedGetTaggedSuggestionsSuggestionCopyWith(
-          UnspeccedGetTaggedSuggestionsSuggestion value,
-          $Res Function(UnspeccedGetTaggedSuggestionsSuggestion) then) =
-      _$UnspeccedGetTaggedSuggestionsSuggestionCopyWithImpl<$Res,
-          UnspeccedGetTaggedSuggestionsSuggestion>;
+abstract class $SuggestionCopyWith<$Res> {
+  factory $SuggestionCopyWith(
+          Suggestion value, $Res Function(Suggestion) then) =
+      _$SuggestionCopyWithImpl<$Res, Suggestion>;
   @useResult
   $Res call({String tag, String subjectType, String subject});
 }
 
 /// @nodoc
-class _$UnspeccedGetTaggedSuggestionsSuggestionCopyWithImpl<$Res,
-        $Val extends UnspeccedGetTaggedSuggestionsSuggestion>
-    implements $UnspeccedGetTaggedSuggestionsSuggestionCopyWith<$Res> {
-  _$UnspeccedGetTaggedSuggestionsSuggestionCopyWithImpl(
-      this._value, this._then);
+class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
+    implements $SuggestionCopyWith<$Res> {
+  _$SuggestionCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -81,25 +74,22 @@ class _$UnspeccedGetTaggedSuggestionsSuggestionCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWith<$Res>
-    implements $UnspeccedGetTaggedSuggestionsSuggestionCopyWith<$Res> {
-  factory _$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWith(
-          _$UnspeccedGetTaggedSuggestionsSuggestionImpl value,
-          $Res Function(_$UnspeccedGetTaggedSuggestionsSuggestionImpl) then) =
-      __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl<$Res>;
+abstract class _$$SuggestionImplCopyWith<$Res>
+    implements $SuggestionCopyWith<$Res> {
+  factory _$$SuggestionImplCopyWith(
+          _$SuggestionImpl value, $Res Function(_$SuggestionImpl) then) =
+      __$$SuggestionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String tag, String subjectType, String subject});
 }
 
 /// @nodoc
-class __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl<$Res>
-    extends _$UnspeccedGetTaggedSuggestionsSuggestionCopyWithImpl<$Res,
-        _$UnspeccedGetTaggedSuggestionsSuggestionImpl>
-    implements _$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWith<$Res> {
-  __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl(
-      _$UnspeccedGetTaggedSuggestionsSuggestionImpl _value,
-      $Res Function(_$UnspeccedGetTaggedSuggestionsSuggestionImpl) _then)
+class __$$SuggestionImplCopyWithImpl<$Res>
+    extends _$SuggestionCopyWithImpl<$Res, _$SuggestionImpl>
+    implements _$$SuggestionImplCopyWith<$Res> {
+  __$$SuggestionImplCopyWithImpl(
+      _$SuggestionImpl _value, $Res Function(_$SuggestionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -109,7 +99,7 @@ class __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl<$Res>
     Object? subjectType = null,
     Object? subject = null,
   }) {
-    return _then(_$UnspeccedGetTaggedSuggestionsSuggestionImpl(
+    return _then(_$SuggestionImpl(
       tag: null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -129,14 +119,12 @@ class __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$UnspeccedGetTaggedSuggestionsSuggestionImpl
-    implements _UnspeccedGetTaggedSuggestionsSuggestion {
-  const _$UnspeccedGetTaggedSuggestionsSuggestionImpl(
+class _$SuggestionImpl implements _Suggestion {
+  const _$SuggestionImpl(
       {required this.tag, required this.subjectType, required this.subject});
 
-  factory _$UnspeccedGetTaggedSuggestionsSuggestionImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$UnspeccedGetTaggedSuggestionsSuggestionImplFromJson(json);
+  factory _$SuggestionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SuggestionImplFromJson(json);
 
   @override
   final String tag;
@@ -147,14 +135,14 @@ class _$UnspeccedGetTaggedSuggestionsSuggestionImpl
 
   @override
   String toString() {
-    return 'UnspeccedGetTaggedSuggestionsSuggestion(tag: $tag, subjectType: $subjectType, subject: $subject)';
+    return 'Suggestion(tag: $tag, subjectType: $subjectType, subject: $subject)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UnspeccedGetTaggedSuggestionsSuggestionImpl &&
+            other is _$SuggestionImpl &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.subjectType, subjectType) ||
                 other.subjectType == subjectType) &&
@@ -168,31 +156,25 @@ class _$UnspeccedGetTaggedSuggestionsSuggestionImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWith<
-          _$UnspeccedGetTaggedSuggestionsSuggestionImpl>
-      get copyWith =>
-          __$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWithImpl<
-              _$UnspeccedGetTaggedSuggestionsSuggestionImpl>(this, _$identity);
+  _$$SuggestionImplCopyWith<_$SuggestionImpl> get copyWith =>
+      __$$SuggestionImplCopyWithImpl<_$SuggestionImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$UnspeccedGetTaggedSuggestionsSuggestionImplToJson(
+    return _$$SuggestionImplToJson(
       this,
     );
   }
 }
 
-abstract class _UnspeccedGetTaggedSuggestionsSuggestion
-    implements UnspeccedGetTaggedSuggestionsSuggestion {
-  const factory _UnspeccedGetTaggedSuggestionsSuggestion(
-          {required final String tag,
-          required final String subjectType,
-          required final String subject}) =
-      _$UnspeccedGetTaggedSuggestionsSuggestionImpl;
+abstract class _Suggestion implements Suggestion {
+  const factory _Suggestion(
+      {required final String tag,
+      required final String subjectType,
+      required final String subject}) = _$SuggestionImpl;
 
-  factory _UnspeccedGetTaggedSuggestionsSuggestion.fromJson(
-          Map<String, dynamic> json) =
-      _$UnspeccedGetTaggedSuggestionsSuggestionImpl.fromJson;
+  factory _Suggestion.fromJson(Map<String, dynamic> json) =
+      _$SuggestionImpl.fromJson;
 
   @override
   String get tag;
@@ -202,7 +184,6 @@ abstract class _UnspeccedGetTaggedSuggestionsSuggestion
   String get subject;
   @override
   @JsonKey(ignore: true)
-  _$$UnspeccedGetTaggedSuggestionsSuggestionImplCopyWith<
-          _$UnspeccedGetTaggedSuggestionsSuggestionImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$SuggestionImplCopyWith<_$SuggestionImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

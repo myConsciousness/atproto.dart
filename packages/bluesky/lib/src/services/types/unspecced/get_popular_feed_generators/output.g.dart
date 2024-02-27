@@ -8,27 +8,24 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$UnspeccedGetPopularFeedGeneratorsOutputImpl
-    _$$UnspeccedGetPopularFeedGeneratorsOutputImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$UnspeccedGetPopularFeedGeneratorsOutputImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$UnspeccedGetPopularFeedGeneratorsOutputImpl(
-              feeds: $checkedConvert(
-                  'feeds',
-                  (v) => (v as List<dynamic>)
-                      .map((e) => FeedDefsGeneratorView.fromJson(
-                          Map<String, Object?>.from(e as Map)))
-                      .toList()),
-              cursor: $checkedConvert('cursor', (v) => v as String?),
-            );
-            return val;
-          },
+_$OutputImpl _$$OutputImplFromJson(Map json) => $checkedCreate(
+      r'_$OutputImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$OutputImpl(
+          feeds: $checkedConvert(
+              'feeds',
+              (v) => (v as List<dynamic>)
+                  .map((e) => FeedDefsGeneratorView.fromJson(
+                      Map<String, Object?>.from(e as Map)))
+                  .toList()),
+          cursor: $checkedConvert('cursor', (v) => v as String?),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$UnspeccedGetPopularFeedGeneratorsOutputImplToJson(
-    _$UnspeccedGetPopularFeedGeneratorsOutputImpl instance) {
+Map<String, dynamic> _$$OutputImplToJson(_$OutputImpl instance) {
   final val = <String, dynamic>{
     'feeds': instance.feeds.map((e) => e.toJson()).toList(),
   };

@@ -2,7 +2,4 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum SuggestionSubjectTypeKnownValues {
-  user,
-  feed,
-}
+export 'package:bluesky/src/services/types/unspecced/search_posts_skeleton/_z.dart';

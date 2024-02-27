@@ -2,7 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'output.dart';
-export 'suggestion.dart';
-
-export 'constants/subject_type_known_values.dart';
+enum SubjectTypeKnownValues {
+  user,
+  feed,
+}
