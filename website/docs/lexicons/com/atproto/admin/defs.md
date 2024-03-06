@@ -223,7 +223,7 @@ description: com.atproto.admin.defs
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **subjectReviewState** | string | [#reviewOpen](#reviewopen)<br/>[#reviewEscalated](#reviewescalated)<br/>[#reviewClosed](#reviewclosed) | ❌ | - |
+| **subjectReviewState** | string | [#reviewOpen](#reviewopen)<br/>[#reviewEscalated](#reviewescalated)<br/>[#reviewClosed](#reviewclosed)<br/>[#reviewNone](#reviewnone) | ❌ | - |
 
 ## #reviewOpen
 
@@ -236,6 +236,10 @@ description: com.atproto.admin.defs
 ## #reviewClosed
 
 **TOKEN**: Moderator review status of a subject: Closed. Indicates that the subject was already reviewed and resolved by a moderator
+
+## #reviewNone
+
+**TOKEN**: Moderator review status of a subject: Unnecessary. Indicates that the subject does not need a review at the moment but there is probably some moderation related metadata available for it
 
 ## #modEventTakedown
 

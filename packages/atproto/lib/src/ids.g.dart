@@ -130,6 +130,9 @@ const comAtprotoAdminDefsReviewClosed = 'com.atproto.admin.defs#reviewClosed';
 const comAtprotoAdminDefsReviewEscalated =
     'com.atproto.admin.defs#reviewEscalated';
 
+/// `com.atproto.admin.defs#reviewNone`
+const comAtprotoAdminDefsReviewNone = 'com.atproto.admin.defs#reviewNone';
+
 /// `com.atproto.admin.defs#reviewOpen`
 const comAtprotoAdminDefsReviewOpen = 'com.atproto.admin.defs#reviewOpen';
 
