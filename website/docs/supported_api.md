@@ -158,6 +158,13 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.notification.updateSeen](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/updateSeen.html)** | [Reference](lexicons/app/bsky/notification/updateSeen.md) | ✅ | ❌ |
 | **[app.bsky.notification.listNotifications](https://pub.dev/documentation/bluesky/latest/bluesky/NotificationService/listNotifications.html)** | [Reference](lexicons/app/bsky/notification/listNotifications.md) | ✅ | ✅ |
 
+### Labeler Service
+
+| Method | Docs | Auth Required | Paging (cursor) |
+| --- | --- | :---: | :---: |
+| **[app.bsky.labeler.service](https://pub.dev/documentation/bluesky/latest/bluesky/LabelerService/service.html)** | [Reference](lexicons/app/bsky/labeler/service.md) | ❌ | ❌ |
+| **[app.bsky.labeler.getServices](https://pub.dev/documentation/bluesky/latest/bluesky/LabelerService/getServices.html)** | [Reference](lexicons/app/bsky/labeler/getServices.md) | ❌ | ❌ |
+
 ### Feed Service
 
 | Method | Docs | Auth Required | Paging (cursor) |
