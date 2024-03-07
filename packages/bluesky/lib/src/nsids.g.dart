@@ -244,6 +244,12 @@ const appBskyGraphUnmuteActor = NSID(ids.appBskyGraphUnmuteActor);
 /// `app.bsky.graph.unmuteActorList`
 const appBskyGraphUnmuteActorList = NSID(ids.appBskyGraphUnmuteActorList);
 
+/// `app.bsky.labeler.getServices`
+const appBskyLabelerGetServices = NSID(ids.appBskyLabelerGetServices);
+
+/// `app.bsky.labeler.service`
+const appBskyLabelerService = NSID(ids.appBskyLabelerService);
+
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
     NSID(ids.appBskyNotificationGetUnreadCount);

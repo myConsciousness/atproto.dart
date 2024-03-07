@@ -134,6 +134,10 @@ const appBskyActorDefsProfileView = LexObject(ids.appBskyActorDefsProfileView);
 const appBskyActorDefsProfileViewDetailed =
     LexObject(ids.appBskyActorDefsProfileViewDetailed);
 
+/// `app.bsky.actor.defs#profileAssociated`
+const appBskyActorDefsProfileAssociated =
+    LexObject(ids.appBskyActorDefsProfileAssociated);
+
 /// `app.bsky.actor.defs#viewerState`
 const appBskyActorDefsViewerState = LexObject(ids.appBskyActorDefsViewerState);
 
@@ -179,6 +183,12 @@ const appBskyActorDefsMutedWordsPref =
 /// `app.bsky.actor.defs#hiddenPostsPref`
 const appBskyActorDefsHiddenPostsPref =
     LexObject(ids.appBskyActorDefsHiddenPostsPref);
+
+/// `app.bsky.actor.defs#modsPref`
+const appBskyActorDefsModsPref = LexObject(ids.appBskyActorDefsModsPref);
+
+/// `app.bsky.actor.defs#modPrefItem`
+const appBskyActorDefsModPrefItem = LexObject(ids.appBskyActorDefsModPrefItem);
 
 /// `app.bsky.actor.putPreferences#main`
 const appBskyActorPutPreferences = LexObject(ids.appBskyActorPutPreferences);
@@ -228,6 +238,25 @@ const appBskyRichtextFacetTag = LexObject(ids.appBskyRichtextFacetTag);
 /// `app.bsky.richtext.facet#byteSlice`
 const appBskyRichtextFacetByteSlice =
     LexObject(ids.appBskyRichtextFacetByteSlice);
+
+/// `app.bsky.labeler.defs#labelerView`
+const appBskyLabelerDefsLabelerView =
+    LexObject(ids.appBskyLabelerDefsLabelerView);
+
+/// `app.bsky.labeler.defs#labelerViewDetailed`
+const appBskyLabelerDefsLabelerViewDetailed =
+    LexObject(ids.appBskyLabelerDefsLabelerViewDetailed);
+
+/// `app.bsky.labeler.defs#labelerViewerState`
+const appBskyLabelerDefsLabelerViewerState =
+    LexObject(ids.appBskyLabelerDefsLabelerViewerState);
+
+/// `app.bsky.labeler.defs#labelerPolicies`
+const appBskyLabelerDefsLabelerPolicies =
+    LexObject(ids.appBskyLabelerDefsLabelerPolicies);
+
+/// `app.bsky.labeler.getServices#main`
+const appBskyLabelerGetServices = LexObject(ids.appBskyLabelerGetServices);
 
 /// `app.bsky.embed.recordWithMedia#main`
 const appBskyEmbedRecordWithMedia = LexObject(ids.appBskyEmbedRecordWithMedia);

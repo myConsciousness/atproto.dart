@@ -33,3 +33,30 @@ Metadata tag on an atproto record, published by the author within the record. No
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **val** | string | - | ✅ | The short string name of the value or type of this label. |
+
+## #labelValueDefinition
+
+Declares a label value and its expected interpertations and behaviors.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **identifier** | string | - | ✅ | The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+). |
+| **severity** | string | inform<br/>alert<br/>none | ✅ | How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing. |
+| **blurs** | string | content<br/>media<br/>none | ✅ | What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing. |
+| **locales** | array of [#labelValueDefinitionStrings](#labelvaluedefinitionstrings) | - | ✅ | - |
+
+## #labelValueDefinitionStrings
+
+Strings which describe the label in the UI, localized into a specific language.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **lang** | string ([language](https://atproto.com/specs/lexicon#language)) | - | ✅ | The code of the language these strings are written in. |
+| **name** | string | - | ✅ | A short human-readable name for the label. |
+| **description** | string | - | ✅ | A longer description of what the label means and why it might be applied. |
+
+## #labelValue
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **labelValue** | string | !hide<br/>!no-promote<br/>!warn<br/>!no-unauthenticated<br/>dmca-violation<br/>doxxing<br/>porn<br/>sexual<br/>nudity<br/>nsfl<br/>gore | ❌ | - |
