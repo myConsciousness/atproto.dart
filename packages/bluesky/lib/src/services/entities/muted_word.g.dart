@@ -14,12 +14,8 @@ _$MutedWordImpl _$$MutedWordImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$MutedWordImpl(
           value: $checkedConvert('value', (v) => v as String),
-          targets: $checkedConvert(
-              'targets',
-              (v) => (v as List<dynamic>)
-                  .map((e) => MutedWordTarget.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
+          targets: $checkedConvert('targets',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
         );
         return val;
       },
@@ -28,5 +24,5 @@ _$MutedWordImpl _$$MutedWordImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$MutedWordImplToJson(_$MutedWordImpl instance) =>
     <String, dynamic>{
       'value': instance.value,
-      'targets': instance.targets.map((e) => e.toJson()).toList(),
+      'targets': instance.targets,
     };

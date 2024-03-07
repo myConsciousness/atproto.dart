@@ -82,7 +82,7 @@
       "items": [
         {
           "value": "you can not mute this word",
-          "targets": [{ "mutedWordTarget": "content" }]
+          "targets": ["content", "tag"]
         }
       ]
     }

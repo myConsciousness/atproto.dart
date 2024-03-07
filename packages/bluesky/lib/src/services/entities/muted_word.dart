@@ -7,7 +7,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
-import 'muted_word_target.dart';
 
 part 'muted_word.freezed.dart';
 part 'muted_word.g.dart';
@@ -18,7 +17,7 @@ part 'muted_word.g.dart';
 class MutedWord with _$MutedWord {
   const factory MutedWord({
     required String value,
-    required List<MutedWordTarget> targets,
+    required List<String> targets,
   }) = _MutedWord;
 
   factory MutedWord.fromJson(Map<String, Object?> json) =>
