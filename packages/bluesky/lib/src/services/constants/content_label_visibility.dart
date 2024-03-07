@@ -8,6 +8,9 @@ enum ContentLabelVisibility {
   /// Indicates that the content with this label will be shown normally.
   ignore,
 
+  /// Indicates that the content with this label will be shown normally.
+  show,
+
   /// Indicates that the content with this label will be shown with a warning.
   warn,
 
