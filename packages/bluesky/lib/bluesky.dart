@@ -327,7 +327,6 @@ export 'package:bluesky/src/services/entities/muted_word.dart';
 export 'package:bluesky/src/services/entities/muted_word_target.dart';
 export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/entities/muted_words_pref.dart';
-export 'package:bluesky/src/services/entities/muted_word_target_value.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';

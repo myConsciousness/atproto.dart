@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.11
+
+- BugFix: `MutedWordPref` is now working correctly. ([#1312](https://github.com/myConsciousness/atproto.dart/issues/1312))
+
 ## v0.15.10
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

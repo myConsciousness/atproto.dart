@@ -21,7 +21,7 @@ MutedWord _$MutedWordFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MutedWord {
   String get value => throw _privateConstructorUsedError;
-  List<MutedWordTarget> get targets => throw _privateConstructorUsedError;
+  List<String> get targets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +34,7 @@ abstract class $MutedWordCopyWith<$Res> {
   factory $MutedWordCopyWith(MutedWord value, $Res Function(MutedWord) then) =
       _$MutedWordCopyWithImpl<$Res, MutedWord>;
   @useResult
-  $Res call({String value, List<MutedWordTarget> targets});
+  $Res call({String value, List<String> targets});
 }
 
 /// @nodoc
@@ -61,7 +61,7 @@ class _$MutedWordCopyWithImpl<$Res, $Val extends MutedWord>
       targets: null == targets
           ? _value.targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<MutedWordTarget>,
+              as List<String>,
     ) as $Val);
   }
 }
@@ -74,7 +74,7 @@ abstract class _$$MutedWordImplCopyWith<$Res>
       __$$MutedWordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String value, List<MutedWordTarget> targets});
+  $Res call({String value, List<String> targets});
 }
 
 /// @nodoc
@@ -99,7 +99,7 @@ class __$$MutedWordImplCopyWithImpl<$Res>
       targets: null == targets
           ? _value._targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<MutedWordTarget>,
+              as List<String>,
     ));
   }
 }
@@ -108,7 +108,7 @@ class __$$MutedWordImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$MutedWordImpl implements _MutedWord {
   const _$MutedWordImpl(
-      {required this.value, required final List<MutedWordTarget> targets})
+      {required this.value, required final List<String> targets})
       : _targets = targets;
 
   factory _$MutedWordImpl.fromJson(Map<String, dynamic> json) =>
@@ -116,9 +116,9 @@ class _$MutedWordImpl implements _MutedWord {
 
   @override
   final String value;
-  final List<MutedWordTarget> _targets;
+  final List<String> _targets;
   @override
-  List<MutedWordTarget> get targets {
+  List<String> get targets {
     if (_targets is EqualUnmodifiableListView) return _targets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_targets);
@@ -160,7 +160,7 @@ class _$MutedWordImpl implements _MutedWord {
 abstract class _MutedWord implements MutedWord {
   const factory _MutedWord(
       {required final String value,
-      required final List<MutedWordTarget> targets}) = _$MutedWordImpl;
+      required final List<String> targets}) = _$MutedWordImpl;
 
   factory _MutedWord.fromJson(Map<String, dynamic> json) =
       _$MutedWordImpl.fromJson;
@@ -168,7 +168,7 @@ abstract class _MutedWord implements MutedWord {
   @override
   String get value;
   @override
-  List<MutedWordTarget> get targets;
+  List<String> get targets;
   @override
   @JsonKey(ignore: true)
   _$$MutedWordImplCopyWith<_$MutedWordImpl> get copyWith =>
