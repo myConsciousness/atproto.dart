@@ -42,9 +42,18 @@ description: app.bsky.actor.defs
 | **followersCount** | integer | - | ❌ | - |
 | **followsCount** | integer | - | ❌ | - |
 | **postsCount** | integer | - | ❌ | - |
+| **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
+
+## #profileAssociated
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **lists** | integer | - | ❌ | - |
+| **feedgens** | integer | - | ❌ | - |
+| **labeler** | boolean | - | ❌ | - |
 
 ## #viewerState
 
@@ -76,8 +85,9 @@ Metadata about the requesting account's relationship with the subject account. O
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **labelerDid** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Which labeler does this preference apply to? If undefined, applies globally. |
 | **label** | string | - | ✅ | - |
-| **visibility** | string | show<br/>warn<br/>hide | ✅ | - |
+| **visibility** | string | ignore<br/>show<br/>warn<br/>hide | ✅ | - |
 
 ## #savedFeedsPref
 
@@ -143,3 +153,15 @@ A word that the account owner has muted.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **items** | array of string | - | ✅ | A list of URIs of posts the account owner has hidden. |
+
+## #modsPref
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **mods** | array of [#modPrefItem](#modprefitem) | - | ✅ | - |
+
+## #modPrefItem
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |

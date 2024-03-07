@@ -447,6 +447,18 @@ const comAtprotoLabelDefsSelfLabels =
 const comAtprotoLabelDefsSelfLabel =
     LexObject(ids.comAtprotoLabelDefsSelfLabel);
 
+/// `com.atproto.label.defs#labelValueDefinition`
+const comAtprotoLabelDefsLabelValueDefinition =
+    LexObject(ids.comAtprotoLabelDefsLabelValueDefinition);
+
+/// `com.atproto.label.defs#labelValueDefinitionStrings`
+const comAtprotoLabelDefsLabelValueDefinitionStrings =
+    LexObject(ids.comAtprotoLabelDefsLabelValueDefinitionStrings);
+
+/// `com.atproto.label.defs#labelValue`
+const comAtprotoLabelDefsLabelValue =
+    LexObject(ids.comAtprotoLabelDefsLabelValue);
+
 /// `com.atproto.label.queryLabels#main`
 const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
 
