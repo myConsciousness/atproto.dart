@@ -261,6 +261,17 @@ const comAtprotoLabelDefs = 'com.atproto.label.defs';
 /// `com.atproto.label.defs#label`
 const comAtprotoLabelDefsLabel = 'com.atproto.label.defs#label';
 
+/// `com.atproto.label.defs#labelValue`
+const comAtprotoLabelDefsLabelValue = 'com.atproto.label.defs#labelValue';
+
+/// `com.atproto.label.defs#labelValueDefinition`
+const comAtprotoLabelDefsLabelValueDefinition =
+    'com.atproto.label.defs#labelValueDefinition';
+
+/// `com.atproto.label.defs#labelValueDefinitionStrings`
+const comAtprotoLabelDefsLabelValueDefinitionStrings =
+    'com.atproto.label.defs#labelValueDefinitionStrings';
+
 /// `com.atproto.label.defs#selfLabel`
 const comAtprotoLabelDefsSelfLabel = 'com.atproto.label.defs#selfLabel';
 
