@@ -28,6 +28,12 @@ const appBskyActorDefsHiddenPostsPref = 'app.bsky.actor.defs#hiddenPostsPref';
 /// `app.bsky.actor.defs#interestsPref`
 const appBskyActorDefsInterestsPref = 'app.bsky.actor.defs#interestsPref';
 
+/// `app.bsky.actor.defs#modPrefItem`
+const appBskyActorDefsModPrefItem = 'app.bsky.actor.defs#modPrefItem';
+
+/// `app.bsky.actor.defs#modsPref`
+const appBskyActorDefsModsPref = 'app.bsky.actor.defs#modsPref';
+
 /// `app.bsky.actor.defs#mutedWord`
 const appBskyActorDefsMutedWord = 'app.bsky.actor.defs#mutedWord';
 
@@ -43,6 +49,10 @@ const appBskyActorDefsPersonalDetailsPref =
 
 /// `app.bsky.actor.defs#preferences`
 const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
+
+/// `app.bsky.actor.defs#profileAssociated`
+const appBskyActorDefsProfileAssociated =
+    'app.bsky.actor.defs#profileAssociated';
 
 /// `app.bsky.actor.defs#profileView`
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
@@ -363,6 +373,30 @@ const appBskyGraphUnmuteActor = 'app.bsky.graph.unmuteActor';
 
 /// `app.bsky.graph.unmuteActorList`
 const appBskyGraphUnmuteActorList = 'app.bsky.graph.unmuteActorList';
+
+/// `app.bsky.labeler.defs`
+const appBskyLabelerDefs = 'app.bsky.labeler.defs';
+
+/// `app.bsky.labeler.defs#labelerPolicies`
+const appBskyLabelerDefsLabelerPolicies =
+    'app.bsky.labeler.defs#labelerPolicies';
+
+/// `app.bsky.labeler.defs#labelerView`
+const appBskyLabelerDefsLabelerView = 'app.bsky.labeler.defs#labelerView';
+
+/// `app.bsky.labeler.defs#labelerViewDetailed`
+const appBskyLabelerDefsLabelerViewDetailed =
+    'app.bsky.labeler.defs#labelerViewDetailed';
+
+/// `app.bsky.labeler.defs#labelerViewerState`
+const appBskyLabelerDefsLabelerViewerState =
+    'app.bsky.labeler.defs#labelerViewerState';
+
+/// `app.bsky.labeler.getServices`
+const appBskyLabelerGetServices = 'app.bsky.labeler.getServices';
+
+/// `app.bsky.labeler.service`
+const appBskyLabelerService = 'app.bsky.labeler.service';
 
 /// `app.bsky.notification.getUnreadCount`
 const appBskyNotificationGetUnreadCount =
