@@ -11,12 +11,15 @@ Metadata tag on an atproto resource (eg, repo or record).
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **ver** | integer | - | ❌ | The AT Protocol version of the label object. |
 | **src** | string ([did](https://atproto.com/specs/did)) | - | ✅ | DID of the actor who created this label. |
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | AT URI of the record, repository (account), or other resource that this label applies to. |
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | Optionally, CID specifying the specific version of 'uri' resource this label applies to. |
 | **val** | string | - | ✅ | The short string name of the value or type of this label. |
 | **neg** | boolean | - | ❌ | If true, this is a negation label, overwriting a previous label. |
 | **cts** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | Timestamp when this label was created. |
+| **exp** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | Timestamp at which this label expires (no longer applies). |
+| **sig** | bytes | - | ❌ | Signature of dag-cbor encoded label. |
 
 ## #selfLabels
 
