@@ -38,6 +38,10 @@ const comAtprotoAdminDefsModEventAcknowledge =
 const comAtprotoAdminDefsModEventComment =
     'com.atproto.admin.defs#modEventComment';
 
+/// `com.atproto.admin.defs#modEventDivert`
+const comAtprotoAdminDefsModEventDivert =
+    'com.atproto.admin.defs#modEventDivert';
+
 /// `com.atproto.admin.defs#modEventEmail`
 const comAtprotoAdminDefsModEventEmail = 'com.atproto.admin.defs#modEventEmail';
 

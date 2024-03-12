@@ -186,6 +186,10 @@ const comAtprotoAdminDefsModEventEmail =
 const comAtprotoAdminDefsModEventTag =
     LexObject(ids.comAtprotoAdminDefsModEventTag);
 
+/// `com.atproto.admin.defs#modEventDivert`
+const comAtprotoAdminDefsModEventDivert =
+    LexObject(ids.comAtprotoAdminDefsModEventDivert);
+
 /// `com.atproto.admin.defs#communicationTemplateView`
 const comAtprotoAdminDefsCommunicationTemplateView =
     LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
