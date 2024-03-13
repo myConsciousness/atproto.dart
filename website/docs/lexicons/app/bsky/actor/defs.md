@@ -154,13 +154,13 @@ A word that the account owner has muted.
 | --- | --- | --- | :---: | --- |
 | **items** | array of string | - | ✅ | A list of URIs of posts the account owner has hidden. |
 
-## #modsPref
+## #labelersPref
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **mods** | array of [#modPrefItem](#modprefitem) | - | ✅ | - |
+| **labelers** | array of [#labelerPrefItem](#labelerprefitem) | - | ✅ | - |
 
-## #modPrefItem
+## #labelerPrefItem
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
