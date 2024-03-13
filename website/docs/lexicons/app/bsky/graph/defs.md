@@ -14,6 +14,7 @@ description: app.bsky.graph.defs
 | **name** | string | - | ✅ | - |
 | **purpose** | [#listPurpose](#listpurpose) | - | ✅ | - |
 | **avatar** | string | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
@@ -29,6 +30,7 @@ description: app.bsky.graph.defs
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
+| **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 
