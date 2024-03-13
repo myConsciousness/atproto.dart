@@ -16,16 +16,8 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
-/// `com.atproto.admin.createCommunicationTemplate`
-const comAtprotoAdminCreateCommunicationTemplate =
-    NSID(ids.comAtprotoAdminCreateCommunicationTemplate);
-
 /// `com.atproto.admin.deleteAccount`
 const comAtprotoAdminDeleteAccount = NSID(ids.comAtprotoAdminDeleteAccount);
-
-/// `com.atproto.admin.deleteCommunicationTemplate`
-const comAtprotoAdminDeleteCommunicationTemplate =
-    NSID(ids.comAtprotoAdminDeleteCommunicationTemplate);
 
 /// `com.atproto.admin.disableAccountInvites`
 const comAtprotoAdminDisableAccountInvites =
@@ -34,10 +26,6 @@ const comAtprotoAdminDisableAccountInvites =
 /// `com.atproto.admin.disableInviteCodes`
 const comAtprotoAdminDisableInviteCodes =
     NSID(ids.comAtprotoAdminDisableInviteCodes);
-
-/// `com.atproto.admin.emitModerationEvent`
-const comAtprotoAdminEmitModerationEvent =
-    NSID(ids.comAtprotoAdminEmitModerationEvent);
 
 /// `com.atproto.admin.enableAccountInvites`
 const comAtprotoAdminEnableAccountInvites =
@@ -52,34 +40,9 @@ const comAtprotoAdminGetAccountInfos = NSID(ids.comAtprotoAdminGetAccountInfos);
 /// `com.atproto.admin.getInviteCodes`
 const comAtprotoAdminGetInviteCodes = NSID(ids.comAtprotoAdminGetInviteCodes);
 
-/// `com.atproto.admin.getModerationEvent`
-const comAtprotoAdminGetModerationEvent =
-    NSID(ids.comAtprotoAdminGetModerationEvent);
-
-/// `com.atproto.admin.getRecord`
-const comAtprotoAdminGetRecord = NSID(ids.comAtprotoAdminGetRecord);
-
-/// `com.atproto.admin.getRepo`
-const comAtprotoAdminGetRepo = NSID(ids.comAtprotoAdminGetRepo);
-
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus =
     NSID(ids.comAtprotoAdminGetSubjectStatus);
-
-/// `com.atproto.admin.listCommunicationTemplates`
-const comAtprotoAdminListCommunicationTemplates =
-    NSID(ids.comAtprotoAdminListCommunicationTemplates);
-
-/// `com.atproto.admin.queryModerationEvents`
-const comAtprotoAdminQueryModerationEvents =
-    NSID(ids.comAtprotoAdminQueryModerationEvents);
-
-/// `com.atproto.admin.queryModerationStatuses`
-const comAtprotoAdminQueryModerationStatuses =
-    NSID(ids.comAtprotoAdminQueryModerationStatuses);
-
-/// `com.atproto.admin.searchRepos`
-const comAtprotoAdminSearchRepos = NSID(ids.comAtprotoAdminSearchRepos);
 
 /// `com.atproto.admin.sendEmail`
 const comAtprotoAdminSendEmail = NSID(ids.comAtprotoAdminSendEmail);
@@ -95,10 +58,6 @@ const comAtprotoAdminUpdateAccountHandle =
 /// `com.atproto.admin.updateAccountPassword`
 const comAtprotoAdminUpdateAccountPassword =
     NSID(ids.comAtprotoAdminUpdateAccountPassword);
-
-/// `com.atproto.admin.updateCommunicationTemplate`
-const comAtprotoAdminUpdateCommunicationTemplate =
-    NSID(ids.comAtprotoAdminUpdateCommunicationTemplate);
 
 /// `com.atproto.admin.updateSubjectStatus`
 const comAtprotoAdminUpdateSubjectStatus =
