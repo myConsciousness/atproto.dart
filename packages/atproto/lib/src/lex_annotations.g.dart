@@ -16,27 +16,13 @@ import 'package:lex_annotation/lex_annotation.dart';
 // 🌎 Project imports:
 import 'ids.g.dart' as ids;
 
-/// `com.atproto.admin.getRepo#main`
-const comAtprotoAdminGetRepo = LexObject(ids.comAtprotoAdminGetRepo);
-
 /// `com.atproto.admin.getAccountInfos#main`
 const comAtprotoAdminGetAccountInfos =
     LexObject(ids.comAtprotoAdminGetAccountInfos);
 
-/// `com.atproto.admin.queryModerationEvents#main`
-const comAtprotoAdminQueryModerationEvents =
-    LexObject(ids.comAtprotoAdminQueryModerationEvents);
-
-/// `com.atproto.admin.searchRepos#main`
-const comAtprotoAdminSearchRepos = LexObject(ids.comAtprotoAdminSearchRepos);
-
 /// `com.atproto.admin.updateSubjectStatus#main`
 const comAtprotoAdminUpdateSubjectStatus =
     LexObject(ids.comAtprotoAdminUpdateSubjectStatus);
-
-/// `com.atproto.admin.queryModerationStatuses#main`
-const comAtprotoAdminQueryModerationStatuses =
-    LexObject(ids.comAtprotoAdminQueryModerationStatuses);
 
 /// `com.atproto.admin.deleteAccount#main`
 const comAtprotoAdminDeleteAccount =
@@ -49,10 +35,6 @@ const comAtprotoAdminSendEmail = LexObject(ids.comAtprotoAdminSendEmail);
 const comAtprotoAdminUpdateAccountPassword =
     LexObject(ids.comAtprotoAdminUpdateAccountPassword);
 
-/// `com.atproto.admin.updateCommunicationTemplate#main`
-const comAtprotoAdminUpdateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminUpdateCommunicationTemplate);
-
 /// `com.atproto.admin.getSubjectStatus#main`
 const comAtprotoAdminGetSubjectStatus =
     LexObject(ids.comAtprotoAdminGetSubjectStatus);
@@ -61,40 +43,9 @@ const comAtprotoAdminGetSubjectStatus =
 const comAtprotoAdminDefsStatusAttr =
     LexObject(ids.comAtprotoAdminDefsStatusAttr);
 
-/// `com.atproto.admin.defs#modEventView`
-const comAtprotoAdminDefsModEventView =
-    LexObject(ids.comAtprotoAdminDefsModEventView);
-
-/// `com.atproto.admin.defs#modEventViewDetail`
-const comAtprotoAdminDefsModEventViewDetail =
-    LexObject(ids.comAtprotoAdminDefsModEventViewDetail);
-
-/// `com.atproto.admin.defs#reportView`
-const comAtprotoAdminDefsReportView =
-    LexObject(ids.comAtprotoAdminDefsReportView);
-
-/// `com.atproto.admin.defs#subjectStatusView`
-const comAtprotoAdminDefsSubjectStatusView =
-    LexObject(ids.comAtprotoAdminDefsSubjectStatusView);
-
-/// `com.atproto.admin.defs#reportViewDetail`
-const comAtprotoAdminDefsReportViewDetail =
-    LexObject(ids.comAtprotoAdminDefsReportViewDetail);
-
-/// `com.atproto.admin.defs#repoView`
-const comAtprotoAdminDefsRepoView = LexObject(ids.comAtprotoAdminDefsRepoView);
-
-/// `com.atproto.admin.defs#repoViewDetail`
-const comAtprotoAdminDefsRepoViewDetail =
-    LexObject(ids.comAtprotoAdminDefsRepoViewDetail);
-
 /// `com.atproto.admin.defs#accountView`
 const comAtprotoAdminDefsAccountView =
     LexObject(ids.comAtprotoAdminDefsAccountView);
-
-/// `com.atproto.admin.defs#repoViewNotFound`
-const comAtprotoAdminDefsRepoViewNotFound =
-    LexObject(ids.comAtprotoAdminDefsRepoViewNotFound);
 
 /// `com.atproto.admin.defs#repoRef`
 const comAtprotoAdminDefsRepoRef = LexObject(ids.comAtprotoAdminDefsRepoRef);
@@ -102,93 +53,6 @@ const comAtprotoAdminDefsRepoRef = LexObject(ids.comAtprotoAdminDefsRepoRef);
 /// `com.atproto.admin.defs#repoBlobRef`
 const comAtprotoAdminDefsRepoBlobRef =
     LexObject(ids.comAtprotoAdminDefsRepoBlobRef);
-
-/// `com.atproto.admin.defs#recordView`
-const comAtprotoAdminDefsRecordView =
-    LexObject(ids.comAtprotoAdminDefsRecordView);
-
-/// `com.atproto.admin.defs#recordViewDetail`
-const comAtprotoAdminDefsRecordViewDetail =
-    LexObject(ids.comAtprotoAdminDefsRecordViewDetail);
-
-/// `com.atproto.admin.defs#recordViewNotFound`
-const comAtprotoAdminDefsRecordViewNotFound =
-    LexObject(ids.comAtprotoAdminDefsRecordViewNotFound);
-
-/// `com.atproto.admin.defs#moderation`
-const comAtprotoAdminDefsModeration =
-    LexObject(ids.comAtprotoAdminDefsModeration);
-
-/// `com.atproto.admin.defs#moderationDetail`
-const comAtprotoAdminDefsModerationDetail =
-    LexObject(ids.comAtprotoAdminDefsModerationDetail);
-
-/// `com.atproto.admin.defs#blobView`
-const comAtprotoAdminDefsBlobView = LexObject(ids.comAtprotoAdminDefsBlobView);
-
-/// `com.atproto.admin.defs#imageDetails`
-const comAtprotoAdminDefsImageDetails =
-    LexObject(ids.comAtprotoAdminDefsImageDetails);
-
-/// `com.atproto.admin.defs#videoDetails`
-const comAtprotoAdminDefsVideoDetails =
-    LexObject(ids.comAtprotoAdminDefsVideoDetails);
-
-/// `com.atproto.admin.defs#subjectReviewState`
-const comAtprotoAdminDefsSubjectReviewState =
-    LexObject(ids.comAtprotoAdminDefsSubjectReviewState);
-
-/// `com.atproto.admin.defs#modEventTakedown`
-const comAtprotoAdminDefsModEventTakedown =
-    LexObject(ids.comAtprotoAdminDefsModEventTakedown);
-
-/// `com.atproto.admin.defs#modEventReverseTakedown`
-const comAtprotoAdminDefsModEventReverseTakedown =
-    LexObject(ids.comAtprotoAdminDefsModEventReverseTakedown);
-
-/// `com.atproto.admin.defs#modEventResolveAppeal`
-const comAtprotoAdminDefsModEventResolveAppeal =
-    LexObject(ids.comAtprotoAdminDefsModEventResolveAppeal);
-
-/// `com.atproto.admin.defs#modEventComment`
-const comAtprotoAdminDefsModEventComment =
-    LexObject(ids.comAtprotoAdminDefsModEventComment);
-
-/// `com.atproto.admin.defs#modEventReport`
-const comAtprotoAdminDefsModEventReport =
-    LexObject(ids.comAtprotoAdminDefsModEventReport);
-
-/// `com.atproto.admin.defs#modEventLabel`
-const comAtprotoAdminDefsModEventLabel =
-    LexObject(ids.comAtprotoAdminDefsModEventLabel);
-
-/// `com.atproto.admin.defs#modEventAcknowledge`
-const comAtprotoAdminDefsModEventAcknowledge =
-    LexObject(ids.comAtprotoAdminDefsModEventAcknowledge);
-
-/// `com.atproto.admin.defs#modEventEscalate`
-const comAtprotoAdminDefsModEventEscalate =
-    LexObject(ids.comAtprotoAdminDefsModEventEscalate);
-
-/// `com.atproto.admin.defs#modEventMute`
-const comAtprotoAdminDefsModEventMute =
-    LexObject(ids.comAtprotoAdminDefsModEventMute);
-
-/// `com.atproto.admin.defs#modEventUnmute`
-const comAtprotoAdminDefsModEventUnmute =
-    LexObject(ids.comAtprotoAdminDefsModEventUnmute);
-
-/// `com.atproto.admin.defs#modEventEmail`
-const comAtprotoAdminDefsModEventEmail =
-    LexObject(ids.comAtprotoAdminDefsModEventEmail);
-
-/// `com.atproto.admin.defs#modEventTag`
-const comAtprotoAdminDefsModEventTag =
-    LexObject(ids.comAtprotoAdminDefsModEventTag);
-
-/// `com.atproto.admin.defs#communicationTemplateView`
-const comAtprotoAdminDefsCommunicationTemplateView =
-    LexObject(ids.comAtprotoAdminDefsCommunicationTemplateView);
 
 /// `com.atproto.admin.disableInviteCodes#main`
 const comAtprotoAdminDisableInviteCodes =
@@ -201,17 +65,6 @@ const comAtprotoAdminUpdateAccountEmail =
 /// `com.atproto.admin.enableAccountInvites#main`
 const comAtprotoAdminEnableAccountInvites =
     LexObject(ids.comAtprotoAdminEnableAccountInvites);
-
-/// `com.atproto.admin.createCommunicationTemplate#main`
-const comAtprotoAdminCreateCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminCreateCommunicationTemplate);
-
-/// `com.atproto.admin.getRecord#main`
-const comAtprotoAdminGetRecord = LexObject(ids.comAtprotoAdminGetRecord);
-
-/// `com.atproto.admin.listCommunicationTemplates#main`
-const comAtprotoAdminListCommunicationTemplates =
-    LexObject(ids.comAtprotoAdminListCommunicationTemplates);
 
 /// `com.atproto.admin.getAccountInfo#main`
 const comAtprotoAdminGetAccountInfo =
@@ -228,18 +81,6 @@ const comAtprotoAdminGetInviteCodes =
 /// `com.atproto.admin.updateAccountHandle#main`
 const comAtprotoAdminUpdateAccountHandle =
     LexObject(ids.comAtprotoAdminUpdateAccountHandle);
-
-/// `com.atproto.admin.deleteCommunicationTemplate#main`
-const comAtprotoAdminDeleteCommunicationTemplate =
-    LexObject(ids.comAtprotoAdminDeleteCommunicationTemplate);
-
-/// `com.atproto.admin.emitModerationEvent#main`
-const comAtprotoAdminEmitModerationEvent =
-    LexObject(ids.comAtprotoAdminEmitModerationEvent);
-
-/// `com.atproto.admin.getModerationEvent#main`
-const comAtprotoAdminGetModerationEvent =
-    LexObject(ids.comAtprotoAdminGetModerationEvent);
 
 /// `com.atproto.repo.describeRepo#main`
 const comAtprotoRepoDescribeRepo = LexObject(ids.comAtprotoRepoDescribeRepo);
@@ -446,6 +287,18 @@ const comAtprotoLabelDefsSelfLabels =
 /// `com.atproto.label.defs#selfLabel`
 const comAtprotoLabelDefsSelfLabel =
     LexObject(ids.comAtprotoLabelDefsSelfLabel);
+
+/// `com.atproto.label.defs#labelValueDefinition`
+const comAtprotoLabelDefsLabelValueDefinition =
+    LexObject(ids.comAtprotoLabelDefsLabelValueDefinition);
+
+/// `com.atproto.label.defs#labelValueDefinitionStrings`
+const comAtprotoLabelDefsLabelValueDefinitionStrings =
+    LexObject(ids.comAtprotoLabelDefsLabelValueDefinitionStrings);
+
+/// `com.atproto.label.defs#labelValue`
+const comAtprotoLabelDefsLabelValue =
+    LexObject(ids.comAtprotoLabelDefsLabelValue);
 
 /// `com.atproto.label.queryLabels#main`
 const comAtprotoLabelQueryLabels = LexObject(ids.comAtprotoLabelQueryLabels);
