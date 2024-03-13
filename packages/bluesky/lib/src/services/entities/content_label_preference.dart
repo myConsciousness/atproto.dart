@@ -24,6 +24,7 @@ class ContentLabelPreference with _$ContentLabelPreference {
   const factory ContentLabelPreference({
     @typeKey @Default(appBskyActorDefsContentLabelPref) String type,
     required String label,
+    String? labelerDid,
     required ContentLabelVisibility visibility,
   }) = _ContentLabelPreference;
 

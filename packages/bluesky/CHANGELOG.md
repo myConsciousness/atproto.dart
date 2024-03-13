@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.13
+
+- Added `labelerDid` on `ContentLabelPreference`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+
 ## v0.15.12
 
 - Revert `show` element on `ContentLabelVisibility`. This element is the same with `ignore`. ([#1314](https://github.com/myConsciousness/atproto.dart/issues/1314))
