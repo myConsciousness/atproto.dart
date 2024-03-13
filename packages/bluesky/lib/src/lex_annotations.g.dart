@@ -184,11 +184,13 @@ const appBskyActorDefsMutedWordsPref =
 const appBskyActorDefsHiddenPostsPref =
     LexObject(ids.appBskyActorDefsHiddenPostsPref);
 
-/// `app.bsky.actor.defs#modsPref`
-const appBskyActorDefsModsPref = LexObject(ids.appBskyActorDefsModsPref);
+/// `app.bsky.actor.defs#labelersPref`
+const appBskyActorDefsLabelersPref =
+    LexObject(ids.appBskyActorDefsLabelersPref);
 
-/// `app.bsky.actor.defs#modPrefItem`
-const appBskyActorDefsModPrefItem = LexObject(ids.appBskyActorDefsModPrefItem);
+/// `app.bsky.actor.defs#labelerPrefItem`
+const appBskyActorDefsLabelerPrefItem =
+    LexObject(ids.appBskyActorDefsLabelerPrefItem);
 
 /// `app.bsky.actor.putPreferences#main`
 const appBskyActorPutPreferences = LexObject(ids.appBskyActorPutPreferences);
