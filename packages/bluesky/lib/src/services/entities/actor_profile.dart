@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_viewer.dart';
 import 'defaults.dart';
+import 'profile_associated.dart';
 
 part 'actor_profile.freezed.dart';
 part 'actor_profile.g.dart';
@@ -35,6 +36,7 @@ class ActorProfile with _$ActorProfile {
     @Default(0) int followsCount,
     @Default(0) int followersCount,
     @Default(0) int postsCount,
+    ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
     List<Label>? labels,
     DateTime? indexedAt,
