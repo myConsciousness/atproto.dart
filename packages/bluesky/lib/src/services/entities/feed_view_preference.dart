@@ -23,6 +23,9 @@ class FeedViewPreference with _$FeedViewPreference {
   const factory FeedViewPreference({
     @typeKey @Default(appBskyActorDefsFeedViewPref) String type,
     required String feed,
+    @JsonKey(name: 'lab_mergeFeedEnabled')
+    @Default(false)
+    bool mergeFeedEnabled,
     @JsonKey(name: 'hideReplies') @Default(false) bool isHideReplies,
     @JsonKey(name: 'hideRepliesByUnfollowed')
     @Default(false)

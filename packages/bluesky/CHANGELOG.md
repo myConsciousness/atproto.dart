@@ -3,6 +3,7 @@
 ## v0.15.12
 
 - Revert `show` element on `ContentLabelVisibility`. This element is the same with `ignore`. ([#1314](https://github.com/myConsciousness/atproto.dart/issues/1314))
+- Added `mergeFeedEnabled` property on `FeedViewPreference`. ([#1335](https://github.com/myConsciousness/atproto.dart/issues/1335))
 
 ## v0.15.11
 

@@ -23,6 +23,8 @@ mixin _$FeedViewPreference {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get feed => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lab_mergeFeedEnabled')
+  bool get mergeFeedEnabled => throw _privateConstructorUsedError;
   @JsonKey(name: 'hideReplies')
   bool get isHideReplies => throw _privateConstructorUsedError;
   @JsonKey(name: 'hideRepliesByUnfollowed')
@@ -48,6 +50,7 @@ abstract class $FeedViewPreferenceCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String feed,
+      @JsonKey(name: 'lab_mergeFeedEnabled') bool mergeFeedEnabled,
       @JsonKey(name: 'hideReplies') bool isHideReplies,
       @JsonKey(name: 'hideRepliesByUnfollowed') bool isHideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
@@ -70,6 +73,7 @@ class _$FeedViewPreferenceCopyWithImpl<$Res, $Val extends FeedViewPreference>
   $Res call({
     Object? type = null,
     Object? feed = null,
+    Object? mergeFeedEnabled = null,
     Object? isHideReplies = null,
     Object? isHideRepliesByUnfollowed = null,
     Object? hideRepliesByLikeCount = null,
@@ -85,6 +89,10 @@ class _$FeedViewPreferenceCopyWithImpl<$Res, $Val extends FeedViewPreference>
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as String,
+      mergeFeedEnabled: null == mergeFeedEnabled
+          ? _value.mergeFeedEnabled
+          : mergeFeedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       isHideReplies: null == isHideReplies
           ? _value.isHideReplies
           : isHideReplies // ignore: cast_nullable_to_non_nullable
@@ -120,6 +128,7 @@ abstract class _$$FeedViewPreferenceImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String feed,
+      @JsonKey(name: 'lab_mergeFeedEnabled') bool mergeFeedEnabled,
       @JsonKey(name: 'hideReplies') bool isHideReplies,
       @JsonKey(name: 'hideRepliesByUnfollowed') bool isHideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
@@ -140,6 +149,7 @@ class __$$FeedViewPreferenceImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? feed = null,
+    Object? mergeFeedEnabled = null,
     Object? isHideReplies = null,
     Object? isHideRepliesByUnfollowed = null,
     Object? hideRepliesByLikeCount = null,
@@ -155,6 +165,10 @@ class __$$FeedViewPreferenceImplCopyWithImpl<$Res>
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as String,
+      mergeFeedEnabled: null == mergeFeedEnabled
+          ? _value.mergeFeedEnabled
+          : mergeFeedEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
       isHideReplies: null == isHideReplies
           ? _value.isHideReplies
           : isHideReplies // ignore: cast_nullable_to_non_nullable
@@ -186,6 +200,7 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
   const _$FeedViewPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsFeedViewPref,
       required this.feed,
+      @JsonKey(name: 'lab_mergeFeedEnabled') this.mergeFeedEnabled = false,
       @JsonKey(name: 'hideReplies') this.isHideReplies = false,
       @JsonKey(name: 'hideRepliesByUnfollowed')
       this.isHideRepliesByUnfollowed = false,
@@ -201,6 +216,9 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
   final String type;
   @override
   final String feed;
+  @override
+  @JsonKey(name: 'lab_mergeFeedEnabled')
+  final bool mergeFeedEnabled;
   @override
   @JsonKey(name: 'hideReplies')
   final bool isHideReplies;
@@ -219,7 +237,7 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
 
   @override
   String toString() {
-    return 'FeedViewPreference(type: $type, feed: $feed, isHideReplies: $isHideReplies, isHideRepliesByUnfollowed: $isHideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, isHideReposts: $isHideReposts, isHideQuotePosts: $isHideQuotePosts)';
+    return 'FeedViewPreference(type: $type, feed: $feed, mergeFeedEnabled: $mergeFeedEnabled, isHideReplies: $isHideReplies, isHideRepliesByUnfollowed: $isHideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, isHideReposts: $isHideReposts, isHideQuotePosts: $isHideQuotePosts)';
   }
 
   @override
@@ -229,6 +247,8 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
             other is _$FeedViewPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.feed, feed) || other.feed == feed) &&
+            (identical(other.mergeFeedEnabled, mergeFeedEnabled) ||
+                other.mergeFeedEnabled == mergeFeedEnabled) &&
             (identical(other.isHideReplies, isHideReplies) ||
                 other.isHideReplies == isHideReplies) &&
             (identical(other.isHideRepliesByUnfollowed,
@@ -248,6 +268,7 @@ class _$FeedViewPreferenceImpl implements _FeedViewPreference {
       runtimeType,
       type,
       feed,
+      mergeFeedEnabled,
       isHideReplies,
       isHideRepliesByUnfollowed,
       hideRepliesByLikeCount,
@@ -273,6 +294,7 @@ abstract class _FeedViewPreference implements FeedViewPreference {
   const factory _FeedViewPreference(
           {@typeKey final String type,
           required final String feed,
+          @JsonKey(name: 'lab_mergeFeedEnabled') final bool mergeFeedEnabled,
           @JsonKey(name: 'hideReplies') final bool isHideReplies,
           @JsonKey(name: 'hideRepliesByUnfollowed')
           final bool isHideRepliesByUnfollowed,
@@ -289,6 +311,9 @@ abstract class _FeedViewPreference implements FeedViewPreference {
   String get type;
   @override
   String get feed;
+  @override
+  @JsonKey(name: 'lab_mergeFeedEnabled')
+  bool get mergeFeedEnabled;
   @override
   @JsonKey(name: 'hideReplies')
   bool get isHideReplies;

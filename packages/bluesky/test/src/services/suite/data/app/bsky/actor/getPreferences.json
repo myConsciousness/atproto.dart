@@ -61,6 +61,7 @@
     {
       "$type": "app.bsky.actor.defs#feedViewPref",
       "feed": "test",
+      "lab_mergeFeedEnabled": true,
       "hideReplies": true,
       "hideRepliesByUnfollowed": false,
       "hideRepliesByLikeCount": 20,
