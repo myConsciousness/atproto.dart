@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../ids.g.dart' as ids;
 import '../adult_content_preference.dart';
+import '../content_label_preference.dart';
 import '../feed_view_preference.dart';
 import '../hidden_posts_pref.dart';
 import '../interests_preference.dart';
@@ -17,7 +18,6 @@ import '../personal_details_preference.dart';
 import '../preference.dart';
 import '../saved_feeds_preference.dart';
 import '../thread_view_preference.dart';
-import 'content_label_preference_converter.dart';
 
 const preferenceConverter = _PreferenceConverter();
 
@@ -36,7 +36,7 @@ final class _PreferenceConverter
         );
       } else if (type == ids.appBskyActorDefsContentLabelPref) {
         return Preference.contentLabel(
-          data: contentLabelPreferenceConverter.fromJson(json),
+          data: ContentLabelPreference.fromJson(json),
         );
       } else if (type == ids.appBskyActorDefsSavedFeedsPref) {
         return Preference.savedFeeds(

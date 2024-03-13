@@ -80,7 +80,9 @@ LabelPreference _getLabelPreference(
   final ContentLabelVisibility visibility,
 ) =>
     switch (visibility) {
-      ContentLabelVisibility.ignore => LabelPreference.ignore,
+      ContentLabelVisibility.ignore ||
+      ContentLabelVisibility.show =>
+        LabelPreference.ignore,
       ContentLabelVisibility.warn => LabelPreference.warn,
       ContentLabelVisibility.hide => LabelPreference.hide,
     };
