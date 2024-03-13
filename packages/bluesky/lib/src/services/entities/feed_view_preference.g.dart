@@ -17,6 +17,8 @@ _$FeedViewPreferenceImpl _$$FeedViewPreferenceImplFromJson(Map json) =>
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsFeedViewPref),
           feed: $checkedConvert('feed', (v) => v as String),
+          mergeFeedEnabled: $checkedConvert(
+              'lab_mergeFeedEnabled', (v) => v as bool? ?? false),
           isHideReplies:
               $checkedConvert('hideReplies', (v) => v as bool? ?? false),
           isHideRepliesByUnfollowed: $checkedConvert(
@@ -32,6 +34,7 @@ _$FeedViewPreferenceImpl _$$FeedViewPreferenceImplFromJson(Map json) =>
       },
       fieldKeyMap: const {
         'type': r'$type',
+        'mergeFeedEnabled': 'lab_mergeFeedEnabled',
         'isHideReplies': 'hideReplies',
         'isHideRepliesByUnfollowed': 'hideRepliesByUnfollowed',
         'isHideReposts': 'hideReposts',
@@ -44,6 +47,7 @@ Map<String, dynamic> _$$FeedViewPreferenceImplToJson(
     <String, dynamic>{
       r'$type': instance.type,
       'feed': instance.feed,
+      'lab_mergeFeedEnabled': instance.mergeFeedEnabled,
       'hideReplies': instance.isHideReplies,
       'hideRepliesByUnfollowed': instance.isHideRepliesByUnfollowed,
       'hideRepliesByLikeCount': instance.hideRepliesByLikeCount,
