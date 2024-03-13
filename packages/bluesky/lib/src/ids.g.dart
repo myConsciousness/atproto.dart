@@ -28,11 +28,11 @@ const appBskyActorDefsHiddenPostsPref = 'app.bsky.actor.defs#hiddenPostsPref';
 /// `app.bsky.actor.defs#interestsPref`
 const appBskyActorDefsInterestsPref = 'app.bsky.actor.defs#interestsPref';
 
-/// `app.bsky.actor.defs#modPrefItem`
-const appBskyActorDefsModPrefItem = 'app.bsky.actor.defs#modPrefItem';
+/// `app.bsky.actor.defs#labelerPrefItem`
+const appBskyActorDefsLabelerPrefItem = 'app.bsky.actor.defs#labelerPrefItem';
 
-/// `app.bsky.actor.defs#modsPref`
-const appBskyActorDefsModsPref = 'app.bsky.actor.defs#modsPref';
+/// `app.bsky.actor.defs#labelersPref`
+const appBskyActorDefsLabelersPref = 'app.bsky.actor.defs#labelersPref';
 
 /// `app.bsky.actor.defs#mutedWord`
 const appBskyActorDefsMutedWord = 'app.bsky.actor.defs#mutedWord';
