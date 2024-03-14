@@ -275,6 +275,10 @@ const comAtprotoServerDeleteSession = 'com.atproto.server.deleteSession';
 /// `com.atproto.server.describeServer`
 const comAtprotoServerDescribeServer = 'com.atproto.server.describeServer';
 
+/// `com.atproto.server.describeServer#contact`
+const comAtprotoServerDescribeServerContact =
+    'com.atproto.server.describeServer#contact';
+
 /// `com.atproto.server.describeServer#links`
 const comAtprotoServerDescribeServerLinks =
     'com.atproto.server.describeServer#links';
