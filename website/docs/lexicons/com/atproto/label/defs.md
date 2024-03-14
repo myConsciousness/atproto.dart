@@ -46,6 +46,8 @@ Declares a label value and its expected interpertations and behaviors.
 | **identifier** | string | - | ✅ | The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+). |
 | **severity** | string | inform<br/>alert<br/>none | ✅ | How should a client visually convey this label? 'inform' means neutral and informational; 'alert' means negative and warning; 'none' means show nothing. |
 | **blurs** | string | content<br/>media<br/>none | ✅ | What should this label hide in the UI, if applied? 'content' hides all of the target; 'media' hides the images/video/audio; 'none' hides nothing. |
+| **defaultSetting** | string | ignore<br/>warn<br/>hide | ❌ | The default setting for this label. |
+| **adultOnly** | boolean | - | ❌ | Does the user need to have adult content enabled in order to configure this label? |
 | **locales** | array of [#labelValueDefinitionStrings](#labelvaluedefinitionstrings) | - | ✅ | - |
 
 ## #labelValueDefinitionStrings
