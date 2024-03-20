@@ -13,6 +13,7 @@ description: app.bsky.actor.defs
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
+| **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 
@@ -25,6 +26,7 @@ description: app.bsky.actor.defs
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
 | **avatar** | string | - | ❌ | - |
+| **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
