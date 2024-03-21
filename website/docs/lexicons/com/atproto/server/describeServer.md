@@ -26,8 +26,8 @@ Describes the server's account creation requirements and capabilities. Implement
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **privacyPolicy** | string | - | ❌ | - |
-| **termsOfService** | string | - | ❌ | - |
+| **privacyPolicy** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **termsOfService** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 
 ## #contact
 
