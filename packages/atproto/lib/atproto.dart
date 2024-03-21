@@ -72,6 +72,7 @@ export 'package:atproto/src/services/entities/did_credentials.dart';
 export 'package:atproto/src/services/entities/label_value.dart';
 export 'package:atproto/src/services/entities/label_value_definition.dart';
 export 'package:atproto/src/services/entities/label_value_definition_strings.dart';
+export 'package:atproto/src/services/entities/server_info_contact.dart';
 export 'package:atproto/src/services/identity_service.dart';
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
 export 'package:atproto/src/services/moderation_service.dart';

@@ -130,6 +130,8 @@ export 'package:atproto/atproto.dart'
         $LabelValueDefinitionCopyWith,
         LabelValueDefinitionStrings,
         $LabelValueDefinitionStringsCopyWith,
+        ServerInfoContact,
+        $ServerInfoContactCopyWith,
         UBatchActionCreate,
         UBatchActionUpdate,
         UBatchActionDelete,

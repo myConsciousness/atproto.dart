@@ -10,6 +10,7 @@
   - `ver`
   - `exp`
   - `sig`
+- Added `.contact` property on output of `ServerService.describeServer`.
 
 ## v0.11.7
 

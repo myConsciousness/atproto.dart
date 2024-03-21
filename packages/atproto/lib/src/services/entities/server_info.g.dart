@@ -18,6 +18,12 @@ _$ServerInfoImpl _$$ServerInfoImplFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           isInviteCodeRequired:
               $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
+          contact: $checkedConvert(
+              'contact',
+              (v) => v == null
+                  ? null
+                  : ServerInfoContact.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           links: $checkedConvert(
               'links',
               (v) => v == null
@@ -43,6 +49,7 @@ Map<String, dynamic> _$$ServerInfoImplToJson(_$ServerInfoImpl instance) {
     }
   }
 
+  writeNotNull('contact', instance.contact?.toJson());
   writeNotNull('links', instance.links?.toJson());
   return val;
 }

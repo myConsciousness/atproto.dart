@@ -8,6 +8,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
+import 'server_info_contact.dart';
 import 'server_info_links.dart';
 
 part 'server_info.freezed.dart';
@@ -24,6 +25,7 @@ class ServerInfo with _$ServerInfo {
     @JsonKey(name: 'inviteCodeRequired')
     @Default(false)
     bool isInviteCodeRequired,
+    ServerInfoContact? contact,
     ServerInfoLinks? links,
   }) = _ServerInfo;
 
