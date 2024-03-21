@@ -538,7 +538,7 @@ Future<void> main() async {
   // Authentication is not required.
   final bluesky = Bluesky.anonymous();
 
-  final subscription = await bluesky.sync.subscribeRepoUpdates();
+  final subscription = await bluesky.sync.subscribeRepos();
 
   // Use `RepoCommitAdaptor`.
   final repoCommitAdaptor = RepoCommitAdaptor(

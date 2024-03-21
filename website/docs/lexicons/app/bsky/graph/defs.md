@@ -13,7 +13,7 @@ description: app.bsky.graph.defs
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ✅ | - |
 | **name** | string | - | ✅ | - |
 | **purpose** | [#listPurpose](#listpurpose) | - | ✅ | - |
-| **avatar** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
@@ -29,7 +29,7 @@ description: app.bsky.graph.defs
 | **purpose** | [#listPurpose](#listpurpose) | - | ✅ | - |
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
-| **avatar** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#listViewerState](#listviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |

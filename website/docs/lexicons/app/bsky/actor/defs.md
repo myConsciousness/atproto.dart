@@ -12,7 +12,8 @@ description: app.bsky.actor.defs
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
-| **avatar** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 
@@ -24,7 +25,8 @@ description: app.bsky.actor.defs
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
-| **avatar** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **associated** | [#profileAssociated](#profileassociated) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **viewer** | [#viewerState](#viewerstate) | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
@@ -37,8 +39,8 @@ description: app.bsky.actor.defs
 | **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ✅ | - |
 | **displayName** | string | - | ❌ | - |
 | **description** | string | - | ❌ | - |
-| **avatar** | string | - | ❌ | - |
-| **banner** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
+| **banner** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **followersCount** | integer | - | ❌ | - |
 | **followsCount** | integer | - | ❌ | - |
 | **postsCount** | integer | - | ❌ | - |
@@ -154,13 +156,13 @@ A word that the account owner has muted.
 | --- | --- | --- | :---: | --- |
 | **items** | array of string | - | ✅ | A list of URIs of posts the account owner has hidden. |
 
-## #modsPref
+## #labelersPref
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **mods** | array of [#modPrefItem](#modprefitem) | - | ✅ | - |
+| **labelers** | array of [#labelerPrefItem](#labelerprefitem) | - | ✅ | - |
 
-## #modPrefItem
+## #labelerPrefItem
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

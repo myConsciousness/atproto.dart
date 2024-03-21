@@ -207,6 +207,10 @@ const comAtprotoServerDeleteSession = NSID(ids.comAtprotoServerDeleteSession);
 /// `com.atproto.server.describeServer`
 const comAtprotoServerDescribeServer = NSID(ids.comAtprotoServerDescribeServer);
 
+/// `com.atproto.server.describeServer#contact`
+const comAtprotoServerDescribeServerContact =
+    NSID(ids.comAtprotoServerDescribeServerContact);
+
 /// `com.atproto.server.describeServer#links`
 const comAtprotoServerDescribeServerLinks =
     NSID(ids.comAtprotoServerDescribeServerLinks);
