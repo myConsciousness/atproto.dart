@@ -6,6 +6,10 @@
   - `LabelValue`
   - `LabelValueDefinition`
   - `LabelValueDefinitionStrings`
+- Added properties on `Label` object.
+  - `ver`
+  - `exp`
+  - `sig`
 
 ## v0.11.7
 

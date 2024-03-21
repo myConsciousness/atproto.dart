@@ -11,6 +11,7 @@
   - Added `.isLabelerService` and `.isNotLabelerService` on AT URI extension
   - Added `LabelerServiceRecord` object
   - Added `.onCreateLabelerService` and `.onDeleteLabelerService` on `RepoCommitAdaptor` object
+- Added `.labels` properties on `FeedGeneratorView`, `ListView`, `ListViewBasic` object.
 
 ## v0.15.12
 

@@ -20,6 +20,9 @@ Label _$LabelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Label {
+  /// The AT Protocol version of the label object."
+  int? get ver => throw _privateConstructorUsedError;
+
   /// DID of the actor who created this label.
   String get src => throw _privateConstructorUsedError;
 
@@ -43,6 +46,12 @@ mixin _$Label {
   @JsonKey(name: 'cts')
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Timestamp at which this label expires (no longer applies).
+  DateTime? get exp => throw _privateConstructorUsedError;
+
+  /// Signature of dag-cbor encoded label.
+  List<int>? get sig => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelCopyWith<Label> get copyWith => throw _privateConstructorUsedError;
@@ -54,12 +63,15 @@ abstract class $LabelCopyWith<$Res> {
       _$LabelCopyWithImpl<$Res, Label>;
   @useResult
   $Res call(
-      {String src,
+      {int? ver,
+      String src,
       String uri,
       String? cid,
       @JsonKey(name: 'val') String value,
       @JsonKey(name: 'neg') bool isNegate,
-      @JsonKey(name: 'cts') DateTime createdAt});
+      @JsonKey(name: 'cts') DateTime createdAt,
+      DateTime? exp,
+      List<int>? sig});
 }
 
 /// @nodoc
@@ -75,14 +87,21 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? ver = freezed,
     Object? src = null,
     Object? uri = null,
     Object? cid = freezed,
     Object? value = null,
     Object? isNegate = null,
     Object? createdAt = null,
+    Object? exp = freezed,
+    Object? sig = freezed,
   }) {
     return _then(_value.copyWith(
+      ver: freezed == ver
+          ? _value.ver
+          : ver // ignore: cast_nullable_to_non_nullable
+              as int?,
       src: null == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
@@ -107,6 +126,14 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      exp: freezed == exp
+          ? _value.exp
+          : exp // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      sig: freezed == sig
+          ? _value.sig
+          : sig // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ) as $Val);
   }
 }
@@ -119,12 +146,15 @@ abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String src,
+      {int? ver,
+      String src,
       String uri,
       String? cid,
       @JsonKey(name: 'val') String value,
       @JsonKey(name: 'neg') bool isNegate,
-      @JsonKey(name: 'cts') DateTime createdAt});
+      @JsonKey(name: 'cts') DateTime createdAt,
+      DateTime? exp,
+      List<int>? sig});
 }
 
 /// @nodoc
@@ -138,14 +168,21 @@ class __$$LabelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? ver = freezed,
     Object? src = null,
     Object? uri = null,
     Object? cid = freezed,
     Object? value = null,
     Object? isNegate = null,
     Object? createdAt = null,
+    Object? exp = freezed,
+    Object? sig = freezed,
   }) {
     return _then(_$LabelImpl(
+      ver: freezed == ver
+          ? _value.ver
+          : ver // ignore: cast_nullable_to_non_nullable
+              as int?,
       src: null == src
           ? _value.src
           : src // ignore: cast_nullable_to_non_nullable
@@ -170,6 +207,14 @@ class __$$LabelImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      exp: freezed == exp
+          ? _value.exp
+          : exp // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
+      sig: freezed == sig
+          ? _value._sig
+          : sig // ignore: cast_nullable_to_non_nullable
+              as List<int>?,
     ));
   }
 }
@@ -179,15 +224,23 @@ class __$$LabelImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$LabelImpl implements _Label {
   const _$LabelImpl(
-      {required this.src,
+      {this.ver,
+      required this.src,
       required this.uri,
       this.cid,
       @JsonKey(name: 'val') required this.value,
       @JsonKey(name: 'neg') this.isNegate = false,
-      @JsonKey(name: 'cts') required this.createdAt});
+      @JsonKey(name: 'cts') required this.createdAt,
+      this.exp,
+      final List<int>? sig})
+      : _sig = sig;
 
   factory _$LabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelImplFromJson(json);
+
+  /// The AT Protocol version of the label object."
+  @override
+  final int? ver;
 
   /// DID of the actor who created this label.
   @override
@@ -218,9 +271,26 @@ class _$LabelImpl implements _Label {
   @JsonKey(name: 'cts')
   final DateTime createdAt;
 
+  /// Timestamp at which this label expires (no longer applies).
+  @override
+  final DateTime? exp;
+
+  /// Signature of dag-cbor encoded label.
+  final List<int>? _sig;
+
+  /// Signature of dag-cbor encoded label.
+  @override
+  List<int>? get sig {
+    final value = _sig;
+    if (value == null) return null;
+    if (_sig is EqualUnmodifiableListView) return _sig;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   String toString() {
-    return 'Label(src: $src, uri: $uri, cid: $cid, value: $value, isNegate: $isNegate, createdAt: $createdAt)';
+    return 'Label(ver: $ver, src: $src, uri: $uri, cid: $cid, value: $value, isNegate: $isNegate, createdAt: $createdAt, exp: $exp, sig: $sig)';
   }
 
   @override
@@ -228,6 +298,7 @@ class _$LabelImpl implements _Label {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelImpl &&
+            (identical(other.ver, ver) || other.ver == ver) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
@@ -235,13 +306,15 @@ class _$LabelImpl implements _Label {
             (identical(other.isNegate, isNegate) ||
                 other.isNegate == isNegate) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.exp, exp) || other.exp == exp) &&
+            const DeepCollectionEquality().equals(other._sig, _sig));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, src, uri, cid, value, isNegate, createdAt);
+  int get hashCode => Object.hash(runtimeType, ver, src, uri, cid, value,
+      isNegate, createdAt, exp, const DeepCollectionEquality().hash(_sig));
 
   @JsonKey(ignore: true)
   @override
@@ -259,15 +332,22 @@ class _$LabelImpl implements _Label {
 
 abstract class _Label implements Label {
   const factory _Label(
-      {required final String src,
+      {final int? ver,
+      required final String src,
       required final String uri,
       final String? cid,
       @JsonKey(name: 'val') required final String value,
       @JsonKey(name: 'neg') final bool isNegate,
-      @JsonKey(name: 'cts') required final DateTime createdAt}) = _$LabelImpl;
+      @JsonKey(name: 'cts') required final DateTime createdAt,
+      final DateTime? exp,
+      final List<int>? sig}) = _$LabelImpl;
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
 
+  @override
+
+  /// The AT Protocol version of the label object."
+  int? get ver;
   @override
 
   /// DID of the actor who created this label.
@@ -297,6 +377,14 @@ abstract class _Label implements Label {
   /// Timestamp when this label was created.
   @JsonKey(name: 'cts')
   DateTime get createdAt;
+  @override
+
+  /// Timestamp at which this label expires (no longer applies).
+  DateTime? get exp;
+  @override
+
+  /// Signature of dag-cbor encoded label.
+  List<int>? get sig;
   @override
   @JsonKey(ignore: true)
   _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>

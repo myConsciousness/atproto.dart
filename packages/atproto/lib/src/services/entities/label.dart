@@ -20,6 +20,9 @@ part 'label.g.dart';
 class Label with _$Label {
   @jsonSerializable
   const factory Label({
+    /// The AT Protocol version of the label object."
+    int? ver,
+
     /// DID of the actor who created this label.
     required String src,
 
@@ -39,6 +42,12 @@ class Label with _$Label {
 
     /// Timestamp when this label was created.
     @JsonKey(name: 'cts') required DateTime createdAt,
+
+    /// Timestamp at which this label expires (no longer applies).
+    DateTime? exp,
+
+    /// Signature of dag-cbor encoded label.
+    List<int>? sig,
   }) = _Label;
 
   factory Label.fromJson(Map<String, Object?> json) => _$LabelFromJson(json);
