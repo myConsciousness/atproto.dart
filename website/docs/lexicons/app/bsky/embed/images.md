@@ -38,7 +38,7 @@ width:height represents an aspect ratio. It may be approximate, and may not corr
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **thumb** | string | - | ✅ | Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View. |
-| **fullsize** | string | - | ✅ | Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View. |
+| **thumb** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View. |
+| **fullsize** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View. |
 | **alt** | string | - | ✅ | Alt text description of the image, for accessibility. |
 | **aspectRatio** | [#aspectRatio](#aspectratio) | - | ❌ | - |

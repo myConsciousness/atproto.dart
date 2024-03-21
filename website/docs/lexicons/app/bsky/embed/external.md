@@ -35,4 +35,4 @@ A representation of some externally linked content (eg, a URL and 'card'), embed
 | **uri** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ✅ | - |
 | **title** | string | - | ✅ | - |
 | **description** | string | - | ✅ | - |
-| **thumb** | string | - | ❌ | - |
+| **thumb** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |

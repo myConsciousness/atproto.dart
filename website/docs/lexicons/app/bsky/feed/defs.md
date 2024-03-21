@@ -95,7 +95,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **displayName** | string | - | ✅ | - |
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
-| **avatar** | string | - | ❌ | - |
+| **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
