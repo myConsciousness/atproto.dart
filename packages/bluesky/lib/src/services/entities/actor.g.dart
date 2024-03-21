@@ -18,6 +18,12 @@ _$ActorImpl _$$ActorImplFromJson(Map json) => $checkedCreate(
           displayName: $checkedConvert('displayName', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
+          associated: $checkedConvert(
+              'associated',
+              (v) => v == null
+                  ? null
+                  : ProfileAssociated.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -51,6 +57,7 @@ Map<String, dynamic> _$$ActorImplToJson(_$ActorImpl instance) {
   writeNotNull('displayName', instance.displayName);
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar);
+  writeNotNull('associated', instance.associated?.toJson());
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());

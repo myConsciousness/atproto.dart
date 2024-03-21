@@ -25,6 +25,7 @@ mixin _$Actor {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  ProfileAssociated? get associated => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
@@ -45,10 +46,12 @@ abstract class $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
 }
 
@@ -70,6 +73,7 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
@@ -95,6 +99,10 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -108,6 +116,18 @@ class _$ActorCopyWithImpl<$Res, $Val extends Actor>
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_value.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
+      return _then(_value.copyWith(associated: value) as $Val);
+    });
   }
 
   @override
@@ -132,10 +152,13 @@ abstract class _$$ActorImplCopyWith<$Res> implements $ActorCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
 }
@@ -156,6 +179,7 @@ class __$$ActorImplCopyWithImpl<$Res>
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
@@ -181,6 +205,10 @@ class __$$ActorImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -207,6 +235,7 @@ class _$ActorImpl extends _Actor {
       this.displayName,
       this.description,
       this.avatar,
+      this.associated,
       this.viewer = defaultActorViewer,
       final List<Label>? labels,
       this.indexedAt})
@@ -227,6 +256,8 @@ class _$ActorImpl extends _Actor {
   @override
   final String? avatar;
   @override
+  final ProfileAssociated? associated;
+  @override
   @JsonKey()
   final ActorViewer viewer;
   final List<Label>? _labels;
@@ -244,7 +275,7 @@ class _$ActorImpl extends _Actor {
 
   @override
   String toString() {
-    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'Actor(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -259,6 +290,8 @@ class _$ActorImpl extends _Actor {
             (identical(other.description, description) ||
                 other.description == description) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -274,6 +307,7 @@ class _$ActorImpl extends _Actor {
       displayName,
       description,
       avatar,
+      associated,
       viewer,
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
@@ -299,6 +333,7 @@ abstract class _Actor extends Actor {
       final String? displayName,
       final String? description,
       final String? avatar,
+      final ProfileAssociated? associated,
       final ActorViewer viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$ActorImpl;
@@ -316,6 +351,8 @@ abstract class _Actor extends Actor {
   String? get description;
   @override
   String? get avatar;
+  @override
+  ProfileAssociated? get associated;
   @override
   ActorViewer get viewer;
   @override

@@ -3,7 +3,7 @@
 ## v0.15.13
 
 - Added `labelerDid` on `ContentLabelPreference`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
-- Added `.associated` property on `ActorProfile`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+- Added `.associated` property on `Actor`, `ActorBasic`, `ActorProfile`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
 - Supported Labeler Service as `LabelerService`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
   - Added `.labeler` on `Bluesky` object
     - `.getServices`

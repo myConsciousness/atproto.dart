@@ -13,6 +13,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../lex_annotations.g.dart' as lex;
 import 'actor_viewer.dart';
 import 'defaults.dart';
+import 'profile_associated.dart';
 
 part 'actor.freezed.dart';
 part 'actor.g.dart';
@@ -31,6 +32,7 @@ class Actor with _$Actor {
     String? displayName,
     String? description,
     String? avatar,
+    ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
     List<Label>? labels,
     DateTime? indexedAt,
