@@ -13,6 +13,7 @@
   - Added `.onCreateLabelerService` and `.onDeleteLabelerService` on `RepoCommitAdaptor` object
 - Added `.labels` properties on `FeedGeneratorView`, `ListView`, `ListViewBasic` object.
 - Added `.labelersPref` on `Preference`.
+- Added `.treeViewEnabled` on `ThreadViewPreference`.
 
 ## v0.15.12
 
