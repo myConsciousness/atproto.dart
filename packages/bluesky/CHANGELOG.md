@@ -1,5 +1,20 @@
 # Release Note
 
+## v0.15.13
+
+- Added `labelerDid` on `ContentLabelPreference`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+- Added `.associated` property on `Actor`, `ActorBasic`, `ActorProfile`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+- Supported Labeler Service as `LabelerService`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+  - Added `.labeler` on `Bluesky` object
+    - `.getServices`
+    - `.service`
+  - Added `.isLabelerService` and `.isNotLabelerService` on AT URI extension
+  - Added `LabelerServiceRecord` object
+  - Added `.onCreateLabelerService` and `.onDeleteLabelerService` on `RepoCommitAdaptor` object
+- Added `.labels` properties on `FeedGeneratorView`, `ListView`, `ListViewBasic` object.
+- Added `.labelersPref` on `Preference`.
+- Added `.treeViewEnabled` on `ThreadViewPreference`.
+
 ## v0.15.12
 
 - Revert `show` element on `ContentLabelVisibility`. This element is the same with `ignore`. ([#1314](https://github.com/myConsciousness/atproto.dart/issues/1314))

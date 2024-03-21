@@ -448,4 +448,44 @@ void main() {
       expect(uri.isNotGraphBlockList, isFalse);
     });
   });
+
+  group('.isLabelerService', () {
+    test('when labeler service', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.labeler.service',
+      );
+
+      expect(uri.isLabelerService, isTrue);
+    });
+
+    test('when not labeler service', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isLabelerService, isFalse);
+    });
+  });
+
+  group('.isNotLabelerService', () {
+    test('when not labeler service', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'test',
+      );
+
+      expect(uri.isNotLabelerService, isTrue);
+    });
+
+    test('when labeler service', () {
+      final uri = AtUri.make(
+        'shinyakato.dev',
+        'app.bsky.labeler.service',
+      );
+
+      expect(uri.isNotLabelerService, isFalse);
+    });
+  });
 }

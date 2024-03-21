@@ -24,6 +24,7 @@ mixin _$ServerInfo {
   String get did => throw _privateConstructorUsedError;
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired => throw _privateConstructorUsedError;
+  ServerInfoContact? get contact => throw _privateConstructorUsedError;
   ServerInfoLinks? get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,8 +43,10 @@ abstract class $ServerInfoCopyWith<$Res> {
       {List<String> availableUserDomains,
       String did,
       @JsonKey(name: 'inviteCodeRequired') bool isInviteCodeRequired,
+      ServerInfoContact? contact,
       ServerInfoLinks? links});
 
+  $ServerInfoContactCopyWith<$Res>? get contact;
   $ServerInfoLinksCopyWith<$Res>? get links;
 }
 
@@ -63,6 +66,7 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
     Object? availableUserDomains = null,
     Object? did = null,
     Object? isInviteCodeRequired = null,
+    Object? contact = freezed,
     Object? links = freezed,
   }) {
     return _then(_value.copyWith(
@@ -78,11 +82,27 @@ class _$ServerInfoCopyWithImpl<$Res, $Val extends ServerInfo>
           ? _value.isInviteCodeRequired
           : isInviteCodeRequired // ignore: cast_nullable_to_non_nullable
               as bool,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as ServerInfoContact?,
       links: freezed == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as ServerInfoLinks?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ServerInfoContactCopyWith<$Res>? get contact {
+    if (_value.contact == null) {
+      return null;
+    }
+
+    return $ServerInfoContactCopyWith<$Res>(_value.contact!, (value) {
+      return _then(_value.copyWith(contact: value) as $Val);
+    });
   }
 
   @override
@@ -110,8 +130,11 @@ abstract class _$$ServerInfoImplCopyWith<$Res>
       {List<String> availableUserDomains,
       String did,
       @JsonKey(name: 'inviteCodeRequired') bool isInviteCodeRequired,
+      ServerInfoContact? contact,
       ServerInfoLinks? links});
 
+  @override
+  $ServerInfoContactCopyWith<$Res>? get contact;
   @override
   $ServerInfoLinksCopyWith<$Res>? get links;
 }
@@ -130,6 +153,7 @@ class __$$ServerInfoImplCopyWithImpl<$Res>
     Object? availableUserDomains = null,
     Object? did = null,
     Object? isInviteCodeRequired = null,
+    Object? contact = freezed,
     Object? links = freezed,
   }) {
     return _then(_$ServerInfoImpl(
@@ -145,6 +169,10 @@ class __$$ServerInfoImplCopyWithImpl<$Res>
           ? _value.isInviteCodeRequired
           : isInviteCodeRequired // ignore: cast_nullable_to_non_nullable
               as bool,
+      contact: freezed == contact
+          ? _value.contact
+          : contact // ignore: cast_nullable_to_non_nullable
+              as ServerInfoContact?,
       links: freezed == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
@@ -161,6 +189,7 @@ class _$ServerInfoImpl implements _ServerInfo {
       {required final List<String> availableUserDomains,
       required this.did,
       @JsonKey(name: 'inviteCodeRequired') this.isInviteCodeRequired = false,
+      this.contact,
       this.links})
       : _availableUserDomains = availableUserDomains;
 
@@ -182,11 +211,13 @@ class _$ServerInfoImpl implements _ServerInfo {
   @JsonKey(name: 'inviteCodeRequired')
   final bool isInviteCodeRequired;
   @override
+  final ServerInfoContact? contact;
+  @override
   final ServerInfoLinks? links;
 
   @override
   String toString() {
-    return 'ServerInfo(availableUserDomains: $availableUserDomains, did: $did, isInviteCodeRequired: $isInviteCodeRequired, links: $links)';
+    return 'ServerInfo(availableUserDomains: $availableUserDomains, did: $did, isInviteCodeRequired: $isInviteCodeRequired, contact: $contact, links: $links)';
   }
 
   @override
@@ -199,6 +230,7 @@ class _$ServerInfoImpl implements _ServerInfo {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.isInviteCodeRequired, isInviteCodeRequired) ||
                 other.isInviteCodeRequired == isInviteCodeRequired) &&
+            (identical(other.contact, contact) || other.contact == contact) &&
             (identical(other.links, links) || other.links == links));
   }
 
@@ -209,6 +241,7 @@ class _$ServerInfoImpl implements _ServerInfo {
       const DeepCollectionEquality().hash(_availableUserDomains),
       did,
       isInviteCodeRequired,
+      contact,
       links);
 
   @JsonKey(ignore: true)
@@ -230,6 +263,7 @@ abstract class _ServerInfo implements ServerInfo {
       {required final List<String> availableUserDomains,
       required final String did,
       @JsonKey(name: 'inviteCodeRequired') final bool isInviteCodeRequired,
+      final ServerInfoContact? contact,
       final ServerInfoLinks? links}) = _$ServerInfoImpl;
 
   factory _ServerInfo.fromJson(Map<String, dynamic> json) =
@@ -242,6 +276,8 @@ abstract class _ServerInfo implements ServerInfo {
   @override
   @JsonKey(name: 'inviteCodeRequired')
   bool get isInviteCodeRequired;
+  @override
+  ServerInfoContact? get contact;
   @override
   ServerInfoLinks? get links;
   @override

@@ -13,6 +13,7 @@ import '../content_label_preference.dart';
 import '../feed_view_preference.dart';
 import '../hidden_posts_pref.dart';
 import '../interests_preference.dart';
+import '../labelers_pref.dart';
 import '../muted_words_pref.dart';
 import '../personal_details_preference.dart';
 import '../preference.dart';
@@ -66,6 +67,10 @@ final class _PreferenceConverter
         return Preference.hiddenPosts(
           data: HiddenPostsPref.fromJson(json),
         );
+      } else if (type == ids.appBskyActorDefsLabelersPref) {
+        return Preference.labelersPref(
+          data: LabelersPref.fromJson(json),
+        );
       }
 
       return Preference.unknown(data: json);
@@ -85,6 +90,7 @@ final class _PreferenceConverter
         interests: (data) => data.toJson(),
         mutedWords: (data) => data.toJson(),
         hiddenPosts: (data) => data.toJson(),
+        labelersPref: (data) => data.toJson(),
         unknown: (data) => data,
       );
 }

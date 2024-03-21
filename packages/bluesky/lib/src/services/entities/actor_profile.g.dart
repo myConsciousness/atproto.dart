@@ -23,6 +23,12 @@ _$ActorProfileImpl _$$ActorProfileImplFromJson(Map json) => $checkedCreate(
           followersCount:
               $checkedConvert('followersCount', (v) => v as int? ?? 0),
           postsCount: $checkedConvert('postsCount', (v) => v as int? ?? 0),
+          associated: $checkedConvert(
+              'associated',
+              (v) => v == null
+                  ? null
+                  : ProfileAssociated.fromJson(
+                      Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -60,6 +66,7 @@ Map<String, dynamic> _$$ActorProfileImplToJson(_$ActorProfileImpl instance) {
   val['followsCount'] = instance.followsCount;
   val['followersCount'] = instance.followersCount;
   val['postsCount'] = instance.postsCount;
+  writeNotNull('associated', instance.associated?.toJson());
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());

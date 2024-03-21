@@ -24,6 +24,7 @@ mixin _$ActorBasic {
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  ProfileAssociated? get associated => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
@@ -44,9 +45,11 @@ abstract class $ActorBasicCopyWith<$Res> {
       String handle,
       String? displayName,
       String? avatar,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels});
 
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
 }
 
@@ -67,6 +70,7 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
     Object? handle = null,
     Object? displayName = freezed,
     Object? avatar = freezed,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
   }) {
@@ -87,6 +91,10 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -96,6 +104,18 @@ class _$ActorBasicCopyWithImpl<$Res, $Val extends ActorBasic>
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_value.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
+      return _then(_value.copyWith(associated: value) as $Val);
+    });
   }
 
   @override
@@ -120,9 +140,12 @@ abstract class _$$ActorBasicImplCopyWith<$Res>
       String handle,
       String? displayName,
       String? avatar,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels});
 
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
 }
@@ -142,6 +165,7 @@ class __$$ActorBasicImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? displayName = freezed,
     Object? avatar = freezed,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
   }) {
@@ -162,6 +186,10 @@ class __$$ActorBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -183,6 +211,7 @@ class _$ActorBasicImpl extends _ActorBasic {
       required this.handle,
       this.displayName,
       this.avatar,
+      this.associated,
       this.viewer = defaultActorViewer,
       final List<Label>? labels})
       : _labels = labels,
@@ -200,6 +229,8 @@ class _$ActorBasicImpl extends _ActorBasic {
   @override
   final String? avatar;
   @override
+  final ProfileAssociated? associated;
+  @override
   @JsonKey()
   final ActorViewer viewer;
   final List<Label>? _labels;
@@ -214,7 +245,7 @@ class _$ActorBasicImpl extends _ActorBasic {
 
   @override
   String toString() {
-    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, viewer: $viewer, labels: $labels)';
+    return 'ActorBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
   }
 
   @override
@@ -227,6 +258,8 @@ class _$ActorBasicImpl extends _ActorBasic {
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
   }
@@ -234,7 +267,7 @@ class _$ActorBasicImpl extends _ActorBasic {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, did, handle, displayName, avatar,
-      viewer, const DeepCollectionEquality().hash(_labels));
+      associated, viewer, const DeepCollectionEquality().hash(_labels));
 
   @JsonKey(ignore: true)
   @override
@@ -256,6 +289,7 @@ abstract class _ActorBasic extends ActorBasic {
       required final String handle,
       final String? displayName,
       final String? avatar,
+      final ProfileAssociated? associated,
       final ActorViewer viewer,
       final List<Label>? labels}) = _$ActorBasicImpl;
   const _ActorBasic._() : super._();
@@ -271,6 +305,8 @@ abstract class _ActorBasic extends ActorBasic {
   String? get displayName;
   @override
   String? get avatar;
+  @override
+  ProfileAssociated? get associated;
   @override
   ActorViewer get viewer;
   @override

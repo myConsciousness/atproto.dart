@@ -28,6 +28,12 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
                       Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
+          labels: $checkedConvert(
+              'labels',
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           createdBy: $checkedConvert('creator',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
@@ -62,6 +68,7 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
   writeNotNull('descriptionFacets',
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar);
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   val['creator'] = instance.createdBy.toJson();
   val['viewer'] = instance.viewer.toJson();
   val['indexedAt'] = instance.indexedAt.toIso8601String();

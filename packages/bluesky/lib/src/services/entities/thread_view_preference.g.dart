@@ -20,12 +20,15 @@ _$ThreadViewPreferenceImpl _$$ThreadViewPreferenceImplFromJson(Map json) =>
               (v) => $enumDecodeNullable(_$ThreadViewSortTypeEnumMap, v)),
           isPrioritizeFollowedUsers: $checkedConvert(
               'prioritizeFollowedUsers', (v) => v as bool? ?? false),
+          treeViewEnabled: $checkedConvert(
+              'lab_treeViewEnabled', (v) => v as bool? ?? false),
         );
         return val;
       },
       fieldKeyMap: const {
         'type': r'$type',
-        'isPrioritizeFollowedUsers': 'prioritizeFollowedUsers'
+        'isPrioritizeFollowedUsers': 'prioritizeFollowedUsers',
+        'treeViewEnabled': 'lab_treeViewEnabled'
       },
     );
 
@@ -43,6 +46,7 @@ Map<String, dynamic> _$$ThreadViewPreferenceImplToJson(
 
   writeNotNull('sort', _$ThreadViewSortTypeEnumMap[instance.sort]);
   val['prioritizeFollowedUsers'] = instance.isPrioritizeFollowedUsers;
+  val['lab_treeViewEnabled'] = instance.treeViewEnabled;
   return val;
 }
 

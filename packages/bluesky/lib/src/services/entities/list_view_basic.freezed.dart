@@ -28,6 +28,7 @@ mixin _$ListViewBasic {
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   ListViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -50,6 +51,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String cid,
       String name,
       String? avatar,
+      List<Label>? labels,
       ListViewer viewer,
       DateTime indexedAt});
 
@@ -75,6 +77,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -103,6 +106,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -138,6 +145,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String cid,
       String name,
       String? avatar,
+      List<Label>? labels,
       ListViewer viewer,
       DateTime indexedAt});
 
@@ -162,6 +170,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? cid = null,
     Object? name = null,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -190,6 +199,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -213,9 +226,11 @@ class _$ListViewBasicImpl extends _ListViewBasic {
       required this.cid,
       required this.name,
       this.avatar,
+      final List<Label>? labels,
       this.viewer = defaultListViewer,
       required this.indexedAt})
-      : super._();
+      : _labels = labels,
+        super._();
 
   factory _$ListViewBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewBasicImplFromJson(json);
@@ -235,6 +250,16 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   final String name;
   @override
   final String? avatar;
+  final List<Label>? _labels;
+  @override
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final ListViewer viewer;
@@ -243,7 +268,7 @@ class _$ListViewBasicImpl extends _ListViewBasic {
 
   @override
   String toString() {
-    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListViewBasic(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -257,6 +282,7 @@ class _$ListViewBasicImpl extends _ListViewBasic {
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -264,8 +290,8 @@ class _$ListViewBasicImpl extends _ListViewBasic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, type, purpose, uri, cid, name, avatar, viewer, indexedAt);
+  int get hashCode => Object.hash(runtimeType, type, purpose, uri, cid, name,
+      avatar, const DeepCollectionEquality().hash(_labels), viewer, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -289,6 +315,7 @@ abstract class _ListViewBasic extends ListViewBasic {
       required final String cid,
       required final String name,
       final String? avatar,
+      final List<Label>? labels,
       final ListViewer viewer,
       required final DateTime indexedAt}) = _$ListViewBasicImpl;
   const _ListViewBasic._() : super._();
@@ -310,6 +337,8 @@ abstract class _ListViewBasic extends ListViewBasic {
   String get name;
   @override
   String? get avatar;
+  @override
+  List<Label>? get labels;
   @override
   ListViewer get viewer;
   @override

@@ -33,6 +33,7 @@ mixin _$FeedGeneratorView {
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   FeedGeneratorViewer get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -59,6 +60,7 @@ abstract class $FeedGeneratorViewCopyWith<$Res> {
       List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
+      List<Label>? labels,
       FeedGeneratorViewer viewer,
       DateTime indexedAt});
 
@@ -89,6 +91,7 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? likeCount = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -133,6 +136,10 @@ class _$FeedGeneratorViewCopyWithImpl<$Res, $Val extends FeedGeneratorView>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -180,6 +187,7 @@ abstract class _$$FeedGeneratorViewImplCopyWith<$Res>
       List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
+      List<Label>? labels,
       FeedGeneratorViewer viewer,
       DateTime indexedAt});
 
@@ -210,6 +218,7 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? likeCount = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -254,6 +263,10 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -281,9 +294,11 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
       final List<Facet>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
+      final List<Label>? labels,
       this.viewer = defaultFeedGeneratorViewer,
       required this.indexedAt})
-      : _descriptionFacets = descriptionFacets;
+      : _descriptionFacets = descriptionFacets,
+        _labels = labels;
 
   factory _$FeedGeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorViewImplFromJson(json);
@@ -321,6 +336,16 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
   @override
   @JsonKey()
   final int likeCount;
+  final List<Label>? _labels;
+  @override
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey()
   final FeedGeneratorViewer viewer;
@@ -329,7 +354,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
 
   @override
   String toString() {
-    return 'FeedGeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, createdBy: $createdBy, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'FeedGeneratorView(type: $type, uri: $uri, cid: $cid, did: $did, createdBy: $createdBy, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -352,6 +377,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.likeCount, likeCount) ||
                 other.likeCount == likeCount) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -371,6 +397,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
       likeCount,
+      const DeepCollectionEquality().hash(_labels),
       viewer,
       indexedAt);
 
@@ -401,6 +428,7 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
       final List<Facet>? descriptionFacets,
       final String? avatar,
       final int likeCount,
+      final List<Label>? labels,
       final FeedGeneratorViewer viewer,
       required final DateTime indexedAt}) = _$FeedGeneratorViewImpl;
 
@@ -430,6 +458,8 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   String? get avatar;
   @override
   int get likeCount;
+  @override
+  List<Label>? get labels;
   @override
   FeedGeneratorViewer get viewer;
   @override

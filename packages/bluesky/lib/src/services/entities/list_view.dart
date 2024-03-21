@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -36,6 +37,7 @@ class ListView with _$ListView {
     String? description,
     List<Facet>? descriptionFacets,
     String? avatar,
+    List<Label>? labels,
     @JsonKey(name: 'creator') required Actor createdBy,
     @Default(defaultListViewer) ListViewer viewer,
     required DateTime indexedAt,

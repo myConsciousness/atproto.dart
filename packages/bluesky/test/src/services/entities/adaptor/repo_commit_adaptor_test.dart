@@ -15,6 +15,7 @@ import 'package:bluesky/src/services/entities/block_list_record.dart';
 import 'package:bluesky/src/services/entities/block_record.dart';
 import 'package:bluesky/src/services/entities/follow_record.dart';
 import 'package:bluesky/src/services/entities/generator_record.dart';
+import 'package:bluesky/src/services/entities/labeler_service_record.dart';
 import 'package:bluesky/src/services/entities/like_record.dart';
 import 'package:bluesky/src/services/entities/list_item_record.dart';
 import 'package:bluesky/src/services/entities/list_record.dart';
@@ -552,6 +553,61 @@ void main() {
         _buildSubscribedRepoCommit(
           _buildCreateRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.dummy/3k27u2pzoly2q',
+            {},
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
+  group('.onCreateLabelerService', () {
+    test('when created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateLabelerService: (data) {
+          expect(data, isA<RepoCommitCreate>());
+          expect(data.record, isA<LabelerServiceRecord>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.labeler.service/3k27u2pzoly2q',
+            {
+              objectType: 'app.bsky.labeler.service',
+              'policies': {
+                'labelValues': [
+                  '!hide',
+                ]
+              },
+              'createdAt': DateTime.now().toIso8601String(),
+            },
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not created', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onCreateLabelerService: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildCreateRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.labeler.dummy/3k27u2pzoly2q',
             {},
           ),
         ),
@@ -1100,6 +1156,50 @@ void main() {
         _buildSubscribedRepoCommit(
           _buildDeleteRepoOp(
             'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.graph.dummy/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isFalse);
+    });
+  });
+
+  group('.onDeleteLabelerService', () {
+    test('when deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteLabelerService: (data) {
+          expect(data, isA<RepoCommitDelete>());
+
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.labeler.service/3k27u2pzoly2q',
+          ),
+        ),
+      );
+
+      expect(result, isTrue);
+    });
+
+    test('when not deleted', () async {
+      bool result = false;
+
+      final adaptor = RepoCommitAdaptor(
+        onDeleteLabelerService: (data) {
+          result = true;
+        },
+      );
+
+      adaptor.execute(
+        _buildSubscribedRepoCommit(
+          _buildDeleteRepoOp(
+            'at://did:plc:cdlt5rimkun4avxokv7qoq4i/app.bsky.labeler.dummy/3k27u2pzoly2q',
           ),
         ),
       );

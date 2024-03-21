@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'services/actor_service.dart';
 import 'services/feed_service.dart';
 import 'services/graph_service.dart';
+import 'services/labeler_service.dart';
 import 'services/notification_service.dart';
 import 'services/service_context.dart';
 import 'services/unspecced_service.dart';
@@ -135,6 +136,10 @@ sealed class Bluesky {
   /// This service represents `app.bsky.unspecced.*`.
   UnspeccedService get unspecced;
 
+  /// Returns the labeler service.
+  /// This service represents `app.bsky.labeler.*`.
+  LabelerService get labeler;
+
   /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
   @Deprecated('Use .server instead. Will be removed')
@@ -232,6 +237,7 @@ final class _Bluesky implements Bluesky {
         notification = NotificationService(ctx),
         graph = GraphService(ctx),
         unspecced = UnspeccedService(ctx),
+        labeler = LabelerService(ctx),
         server = ctx.atproto.server,
         identity = ctx.atproto.identity,
         repo = ctx.atproto.repo,
@@ -276,6 +282,9 @@ final class _Bluesky implements Bluesky {
 
   @override
   final UnspeccedService unspecced;
+
+  @override
+  final LabelerService labeler;
 
   @override
   final atp.ServerService server;

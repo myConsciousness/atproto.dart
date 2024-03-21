@@ -5,6 +5,7 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -35,6 +36,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
     List<Facet>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
+    List<Label>? labels,
     @Default(defaultFeedGeneratorViewer) FeedGeneratorViewer viewer,
     required DateTime indexedAt,
   }) = _FeedGeneratorView;

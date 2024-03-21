@@ -26,6 +26,7 @@ class ThreadViewPreference with _$ThreadViewPreference {
     @JsonKey(name: 'prioritizeFollowedUsers')
     @Default(false)
     bool isPrioritizeFollowedUsers,
+    @JsonKey(name: 'lab_treeViewEnabled') @Default(false) bool treeViewEnabled,
   }) = _ThreadViewPreference;
 
   factory ThreadViewPreference.fromJson(Map<String, Object?> json) =>

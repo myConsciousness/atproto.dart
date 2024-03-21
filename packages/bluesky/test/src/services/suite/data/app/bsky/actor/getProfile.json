@@ -8,6 +8,12 @@
   "followsCount": 31769,
   "followersCount": 4945,
   "postsCount": 3358,
+  "associated": {
+    "$type": "app.bsky.actor.defs#profileAssociated",
+    "lists": 3,
+    "feedgens": 0,
+    "labeler": false
+  },
   "indexedAt": "2023-04-28T22:04:37.957Z",
   "viewer": { "muted": false, "blockedBy": false },
   "labels": []

@@ -19,6 +19,7 @@ import '../entities/block_record.dart';
 import '../entities/converter/post_record_converter.dart';
 import '../entities/follow_record.dart';
 import '../entities/generator_record.dart';
+import '../entities/labeler_service_record.dart';
 import '../entities/like_record.dart';
 import '../entities/list_item_record.dart';
 import '../entities/list_record.dart';
@@ -52,6 +53,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnCreate<ListRecord>? onCreateList,
     final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
     final RepoCommitOnCreate<BlockListRecord>? onCreateBlockList,
+    final RepoCommitOnCreate<LabelerServiceRecord>? onCreateLabelerService,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
@@ -65,6 +67,7 @@ final class RepoCommitAdaptor {
     final RepoCommitOnDelete? onDeleteList,
     final RepoCommitOnDelete? onDeleteListItem,
     final RepoCommitOnDelete? onDeleteBlockList,
+    final RepoCommitOnDelete? onDeleteLabelerService,
     final RepoCommitOnDelete? onDeleteUnknown,
   })  : _onCreatePost = onCreatePost,
         _onCreateRepost = onCreateRepost,
@@ -76,6 +79,7 @@ final class RepoCommitAdaptor {
         _onCreateList = onCreateList,
         _onCreateListItem = onCreateListItem,
         _onCreateBlockList = onCreateBlockList,
+        _onCreateLabelerService = onCreateLabelerService,
         _onCreateUnknown = onCreateUnknown,
         _onUpdateProfile = onUpdateProfile,
         _onUpdateUnknown = onUpdateUnknown,
@@ -89,6 +93,7 @@ final class RepoCommitAdaptor {
         _onDeleteList = onDeleteList,
         _onDeleteListItem = onDeleteListItem,
         _onDeleteBlockList = onDeleteBlockList,
+        _onDeleteLabelerService = onDeleteLabelerService,
         _onDeleteUnknown = onDeleteUnknown;
 
   final RepoCommitOnCreate<PostRecord>? _onCreatePost;
@@ -101,6 +106,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnCreate<ListRecord>? _onCreateList;
   final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
   final RepoCommitOnCreate<BlockListRecord>? _onCreateBlockList;
+  final RepoCommitOnCreate<LabelerServiceRecord>? _onCreateLabelerService;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
   final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
@@ -116,6 +122,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteList;
   final RepoCommitOnDelete? _onDeleteListItem;
   final RepoCommitOnDelete? _onDeleteBlockList;
+  final RepoCommitOnDelete? _onDeleteLabelerService;
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
@@ -250,6 +257,18 @@ final class RepoCommitAdaptor {
       await _onCreateBlockList?.call(
         RepoCommitCreate<BlockListRecord>(
           record: BlockListRecord.fromJson(
+            op.record!,
+          ),
+          uri: op.uri,
+          cid: op.cid!,
+          author: data.did,
+          cursor: data.cursor,
+        ),
+      );
+    } else if (op.uri.isLabelerService && _isLabelerService(op.record!)) {
+      await _onCreateLabelerService?.call(
+        RepoCommitCreate<LabelerServiceRecord>(
+          record: LabelerServiceRecord.fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -396,6 +415,15 @@ final class RepoCommitAdaptor {
           createdAt: data.createdAt,
         ),
       );
+    } else if (op.uri.isLabelerService) {
+      await _onDeleteLabelerService?.call(
+        RepoCommitDelete(
+          uri: op.uri,
+          author: data.did,
+          cursor: data.cursor,
+          createdAt: data.createdAt,
+        ),
+      );
     } else {
       await _onDeleteUnknown?.call(
         RepoCommitDelete(
@@ -451,4 +479,8 @@ final class RepoCommitAdaptor {
   /// Returns true if [record] is graph block list, otherwise false.
   bool _isGraphBlockList(final Map<String, dynamic> record) =>
       record[core.objectType] == ids.appBskyGraphListblock;
+
+  /// Returns true if [record] is labeler service, otherwise false.
+  bool _isLabelerService(final Map<String, dynamic> record) =>
+      record[core.objectType] == ids.appBskyLabelerService;
 }

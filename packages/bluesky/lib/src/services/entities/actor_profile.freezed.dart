@@ -29,6 +29,7 @@ mixin _$ActorProfile {
   int get followsCount => throw _privateConstructorUsedError;
   int get followersCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
+  ProfileAssociated? get associated => throw _privateConstructorUsedError;
   ActorViewer get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
@@ -55,10 +56,12 @@ abstract class $ActorProfileCopyWith<$Res> {
       int followsCount,
       int followersCount,
       int postsCount,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   $ActorViewerCopyWith<$Res> get viewer;
 }
 
@@ -84,6 +87,7 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
     Object? followsCount = null,
     Object? followersCount = null,
     Object? postsCount = null,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
@@ -125,6 +129,10 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -138,6 +146,18 @@ class _$ActorProfileCopyWithImpl<$Res, $Val extends ActorProfile>
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedCopyWith<$Res>? get associated {
+    if (_value.associated == null) {
+      return null;
+    }
+
+    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
+      return _then(_value.copyWith(associated: value) as $Val);
+    });
   }
 
   @override
@@ -167,10 +187,13 @@ abstract class _$$ActorProfileImplCopyWith<$Res>
       int followsCount,
       int followersCount,
       int postsCount,
+      ProfileAssociated? associated,
       ActorViewer viewer,
       List<Label>? labels,
       DateTime? indexedAt});
 
+  @override
+  $ProfileAssociatedCopyWith<$Res>? get associated;
   @override
   $ActorViewerCopyWith<$Res> get viewer;
 }
@@ -195,6 +218,7 @@ class __$$ActorProfileImplCopyWithImpl<$Res>
     Object? followsCount = null,
     Object? followersCount = null,
     Object? postsCount = null,
+    Object? associated = freezed,
     Object? viewer = null,
     Object? labels = freezed,
     Object? indexedAt = freezed,
@@ -236,6 +260,10 @@ class __$$ActorProfileImplCopyWithImpl<$Res>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
+      associated: freezed == associated
+          ? _value.associated
+          : associated // ignore: cast_nullable_to_non_nullable
+              as ProfileAssociated?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -266,6 +294,7 @@ class _$ActorProfileImpl extends _ActorProfile {
       this.followsCount = 0,
       this.followersCount = 0,
       this.postsCount = 0,
+      this.associated,
       this.viewer = defaultActorViewer,
       final List<Label>? labels,
       this.indexedAt})
@@ -297,6 +326,8 @@ class _$ActorProfileImpl extends _ActorProfile {
   @JsonKey()
   final int postsCount;
   @override
+  final ProfileAssociated? associated;
+  @override
   @JsonKey()
   final ActorViewer viewer;
   final List<Label>? _labels;
@@ -314,7 +345,7 @@ class _$ActorProfileImpl extends _ActorProfile {
 
   @override
   String toString() {
-    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
+    return 'ActorProfile(did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followsCount: $followsCount, followersCount: $followersCount, postsCount: $postsCount, associated: $associated, viewer: $viewer, labels: $labels, indexedAt: $indexedAt)';
   }
 
   @override
@@ -336,6 +367,8 @@ class _$ActorProfileImpl extends _ActorProfile {
                 other.followersCount == followersCount) &&
             (identical(other.postsCount, postsCount) ||
                 other.postsCount == postsCount) &&
+            (identical(other.associated, associated) ||
+                other.associated == associated) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.indexedAt, indexedAt) ||
@@ -355,6 +388,7 @@ class _$ActorProfileImpl extends _ActorProfile {
       followsCount,
       followersCount,
       postsCount,
+      associated,
       viewer,
       const DeepCollectionEquality().hash(_labels),
       indexedAt);
@@ -384,6 +418,7 @@ abstract class _ActorProfile extends ActorProfile {
       final int followsCount,
       final int followersCount,
       final int postsCount,
+      final ProfileAssociated? associated,
       final ActorViewer viewer,
       final List<Label>? labels,
       final DateTime? indexedAt}) = _$ActorProfileImpl;
@@ -410,6 +445,8 @@ abstract class _ActorProfile extends ActorProfile {
   int get followersCount;
   @override
   int get postsCount;
+  @override
+  ProfileAssociated? get associated;
   @override
   ActorViewer get viewer;
   @override

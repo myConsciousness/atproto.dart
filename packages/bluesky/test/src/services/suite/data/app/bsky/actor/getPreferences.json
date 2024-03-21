@@ -33,6 +33,7 @@
     {
       "$type": "app.bsky.actor.defs#contentLabelPref",
       "label": "impersonation",
+      "labelerDid": "did:plc:iijrtk7ocored6zuziwmqq3c",
       "visibility": "warn"
     },
     {
@@ -84,6 +85,14 @@
         {
           "value": "you can not mute this word",
           "targets": ["content", "tag"]
+        }
+      ]
+    },
+    {
+      "$type": "app.bsky.actor.defs#labelersPref",
+      "labelers": [
+        {
+          "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
         }
       ]
     }

@@ -14,6 +14,7 @@ import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
+import 'profile_associated.dart';
 
 part 'actor_basic.freezed.dart';
 part 'actor_basic.g.dart';
@@ -31,6 +32,7 @@ class ActorBasic with _$ActorBasic {
     required String handle,
     String? displayName,
     String? avatar,
+    ProfileAssociated? associated,
     @Default(defaultActorViewer) ActorViewer viewer,
     List<Label>? labels,
   }) = _ActorBasic;

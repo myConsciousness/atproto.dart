@@ -25,6 +25,8 @@ mixin _$ThreadViewPreference {
   ThreadViewSortType? get sort => throw _privateConstructorUsedError;
   @JsonKey(name: 'prioritizeFollowedUsers')
   bool get isPrioritizeFollowedUsers => throw _privateConstructorUsedError;
+  @JsonKey(name: 'lab_treeViewEnabled')
+  bool get treeViewEnabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,8 +43,8 @@ abstract class $ThreadViewPreferenceCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       ThreadViewSortType? sort,
-      @JsonKey(name: 'prioritizeFollowedUsers')
-      bool isPrioritizeFollowedUsers});
+      @JsonKey(name: 'prioritizeFollowedUsers') bool isPrioritizeFollowedUsers,
+      @JsonKey(name: 'lab_treeViewEnabled') bool treeViewEnabled});
 }
 
 /// @nodoc
@@ -62,6 +64,7 @@ class _$ThreadViewPreferenceCopyWithImpl<$Res,
     Object? type = null,
     Object? sort = freezed,
     Object? isPrioritizeFollowedUsers = null,
+    Object? treeViewEnabled = null,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -75,6 +78,10 @@ class _$ThreadViewPreferenceCopyWithImpl<$Res,
       isPrioritizeFollowedUsers: null == isPrioritizeFollowedUsers
           ? _value.isPrioritizeFollowedUsers
           : isPrioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
+              as bool,
+      treeViewEnabled: null == treeViewEnabled
+          ? _value.treeViewEnabled
+          : treeViewEnabled // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
   }
@@ -91,8 +98,8 @@ abstract class _$$ThreadViewPreferenceImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       ThreadViewSortType? sort,
-      @JsonKey(name: 'prioritizeFollowedUsers')
-      bool isPrioritizeFollowedUsers});
+      @JsonKey(name: 'prioritizeFollowedUsers') bool isPrioritizeFollowedUsers,
+      @JsonKey(name: 'lab_treeViewEnabled') bool treeViewEnabled});
 }
 
 /// @nodoc
@@ -109,6 +116,7 @@ class __$$ThreadViewPreferenceImplCopyWithImpl<$Res>
     Object? type = null,
     Object? sort = freezed,
     Object? isPrioritizeFollowedUsers = null,
+    Object? treeViewEnabled = null,
   }) {
     return _then(_$ThreadViewPreferenceImpl(
       type: null == type
@@ -123,6 +131,10 @@ class __$$ThreadViewPreferenceImplCopyWithImpl<$Res>
           ? _value.isPrioritizeFollowedUsers
           : isPrioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
               as bool,
+      treeViewEnabled: null == treeViewEnabled
+          ? _value.treeViewEnabled
+          : treeViewEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -135,7 +147,8 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
       {@typeKey this.type = appBskyActorDefsThreadViewPref,
       this.sort,
       @JsonKey(name: 'prioritizeFollowedUsers')
-      this.isPrioritizeFollowedUsers = false});
+      this.isPrioritizeFollowedUsers = false,
+      @JsonKey(name: 'lab_treeViewEnabled') this.treeViewEnabled = false});
 
   factory _$ThreadViewPreferenceImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPreferenceImplFromJson(json);
@@ -148,10 +161,13 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
   @override
   @JsonKey(name: 'prioritizeFollowedUsers')
   final bool isPrioritizeFollowedUsers;
+  @override
+  @JsonKey(name: 'lab_treeViewEnabled')
+  final bool treeViewEnabled;
 
   @override
   String toString() {
-    return 'ThreadViewPreference(type: $type, sort: $sort, isPrioritizeFollowedUsers: $isPrioritizeFollowedUsers)';
+    return 'ThreadViewPreference(type: $type, sort: $sort, isPrioritizeFollowedUsers: $isPrioritizeFollowedUsers, treeViewEnabled: $treeViewEnabled)';
   }
 
   @override
@@ -163,13 +179,15 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
             (identical(other.sort, sort) || other.sort == sort) &&
             (identical(other.isPrioritizeFollowedUsers,
                     isPrioritizeFollowedUsers) ||
-                other.isPrioritizeFollowedUsers == isPrioritizeFollowedUsers));
+                other.isPrioritizeFollowedUsers == isPrioritizeFollowedUsers) &&
+            (identical(other.treeViewEnabled, treeViewEnabled) ||
+                other.treeViewEnabled == treeViewEnabled));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, type, sort, isPrioritizeFollowedUsers);
+  int get hashCode => Object.hash(
+      runtimeType, type, sort, isPrioritizeFollowedUsers, treeViewEnabled);
 
   @JsonKey(ignore: true)
   @override
@@ -189,10 +207,12 @@ class _$ThreadViewPreferenceImpl implements _ThreadViewPreference {
 
 abstract class _ThreadViewPreference implements ThreadViewPreference {
   const factory _ThreadViewPreference(
-      {@typeKey final String type,
-      final ThreadViewSortType? sort,
-      @JsonKey(name: 'prioritizeFollowedUsers')
-      final bool isPrioritizeFollowedUsers}) = _$ThreadViewPreferenceImpl;
+          {@typeKey final String type,
+          final ThreadViewSortType? sort,
+          @JsonKey(name: 'prioritizeFollowedUsers')
+          final bool isPrioritizeFollowedUsers,
+          @JsonKey(name: 'lab_treeViewEnabled') final bool treeViewEnabled}) =
+      _$ThreadViewPreferenceImpl;
 
   factory _ThreadViewPreference.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPreferenceImpl.fromJson;
@@ -205,6 +225,9 @@ abstract class _ThreadViewPreference implements ThreadViewPreference {
   @override
   @JsonKey(name: 'prioritizeFollowedUsers')
   bool get isPrioritizeFollowedUsers;
+  @override
+  @JsonKey(name: 'lab_treeViewEnabled')
+  bool get treeViewEnabled;
   @override
   @JsonKey(ignore: true)
   _$$ThreadViewPreferenceImplCopyWith<_$ThreadViewPreferenceImpl>

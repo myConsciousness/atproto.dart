@@ -12,6 +12,7 @@ import 'converter/preference_converter.dart';
 import 'feed_view_preference.dart';
 import 'hidden_posts_pref.dart';
 import 'interests_preference.dart';
+import 'labelers_pref.dart';
 import 'muted_words_pref.dart';
 import 'personal_details_preference.dart';
 import 'saved_feeds_preference.dart';
@@ -59,6 +60,10 @@ class Preference with _$Preference {
   const factory Preference.hiddenPosts({
     required HiddenPostsPref data,
   }) = UPreferenceHiddenPosts;
+
+  const factory Preference.labelersPref({
+    required LabelersPref data,
+  }) = UPreferenceLabelersPref;
 
   const factory Preference.unknown({
     required Map<String, dynamic> data,

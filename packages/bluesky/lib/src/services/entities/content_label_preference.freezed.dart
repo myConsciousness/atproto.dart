@@ -24,6 +24,7 @@ mixin _$ContentLabelPreference {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
+  String? get labelerDid => throw _privateConstructorUsedError;
   ContentLabelVisibility get visibility => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +40,10 @@ abstract class $ContentLabelPreferenceCopyWith<$Res> {
       _$ContentLabelPreferenceCopyWithImpl<$Res, ContentLabelPreference>;
   @useResult
   $Res call(
-      {@typeKey String type, String label, ContentLabelVisibility visibility});
+      {@typeKey String type,
+      String label,
+      String? labelerDid,
+      ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -58,6 +62,7 @@ class _$ContentLabelPreferenceCopyWithImpl<$Res,
   $Res call({
     Object? type = null,
     Object? label = null,
+    Object? labelerDid = freezed,
     Object? visibility = null,
   }) {
     return _then(_value.copyWith(
@@ -69,6 +74,10 @@ class _$ContentLabelPreferenceCopyWithImpl<$Res,
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
+      labelerDid: freezed == labelerDid
+          ? _value.labelerDid
+          : labelerDid // ignore: cast_nullable_to_non_nullable
+              as String?,
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -87,7 +96,10 @@ abstract class _$$ContentLabelPreferenceImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@typeKey String type, String label, ContentLabelVisibility visibility});
+      {@typeKey String type,
+      String label,
+      String? labelerDid,
+      ContentLabelVisibility visibility});
 }
 
 /// @nodoc
@@ -105,6 +117,7 @@ class __$$ContentLabelPreferenceImplCopyWithImpl<$Res>
   $Res call({
     Object? type = null,
     Object? label = null,
+    Object? labelerDid = freezed,
     Object? visibility = null,
   }) {
     return _then(_$ContentLabelPreferenceImpl(
@@ -116,6 +129,10 @@ class __$$ContentLabelPreferenceImplCopyWithImpl<$Res>
           ? _value.label
           : label // ignore: cast_nullable_to_non_nullable
               as String,
+      labelerDid: freezed == labelerDid
+          ? _value.labelerDid
+          : labelerDid // ignore: cast_nullable_to_non_nullable
+              as String?,
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
@@ -131,6 +148,7 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
   const _$ContentLabelPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsContentLabelPref,
       required this.label,
+      this.labelerDid,
       required this.visibility});
 
   factory _$ContentLabelPreferenceImpl.fromJson(Map<String, dynamic> json) =>
@@ -142,11 +160,13 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
   @override
   final String label;
   @override
+  final String? labelerDid;
+  @override
   final ContentLabelVisibility visibility;
 
   @override
   String toString() {
-    return 'ContentLabelPreference(type: $type, label: $label, visibility: $visibility)';
+    return 'ContentLabelPreference(type: $type, label: $label, labelerDid: $labelerDid, visibility: $visibility)';
   }
 
   @override
@@ -156,13 +176,16 @@ class _$ContentLabelPreferenceImpl implements _ContentLabelPreference {
             other is _$ContentLabelPreferenceImpl &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.label, label) || other.label == label) &&
+            (identical(other.labelerDid, labelerDid) ||
+                other.labelerDid == labelerDid) &&
             (identical(other.visibility, visibility) ||
                 other.visibility == visibility));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, label, visibility);
+  int get hashCode =>
+      Object.hash(runtimeType, type, label, labelerDid, visibility);
 
   @JsonKey(ignore: true)
   @override
@@ -183,6 +206,7 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
   const factory _ContentLabelPreference(
           {@typeKey final String type,
           required final String label,
+          final String? labelerDid,
           required final ContentLabelVisibility visibility}) =
       _$ContentLabelPreferenceImpl;
 
@@ -194,6 +218,8 @@ abstract class _ContentLabelPreference implements ContentLabelPreference {
   String get type;
   @override
   String get label;
+  @override
+  String? get labelerDid;
   @override
   ContentLabelVisibility get visibility;
   @override

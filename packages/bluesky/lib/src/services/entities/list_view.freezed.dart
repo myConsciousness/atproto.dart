@@ -30,6 +30,7 @@ mixin _$ListView {
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   @JsonKey(name: 'creator')
   Actor get createdBy => throw _privateConstructorUsedError;
   ListViewer get viewer => throw _privateConstructorUsedError;
@@ -55,6 +56,7 @@ abstract class $ListViewCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       String? avatar,
+      List<Label>? labels,
       @JsonKey(name: 'creator') Actor createdBy,
       ListViewer viewer,
       DateTime indexedAt});
@@ -84,6 +86,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdBy = null,
     Object? viewer = null,
     Object? indexedAt = null,
@@ -121,6 +124,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      labels: freezed == labels
+          ? _value.labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
@@ -170,6 +177,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       String? avatar,
+      List<Label>? labels,
       @JsonKey(name: 'creator') Actor createdBy,
       ListViewer viewer,
       DateTime indexedAt});
@@ -199,6 +207,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? labels = freezed,
     Object? createdBy = null,
     Object? viewer = null,
     Object? indexedAt = null,
@@ -236,6 +245,10 @@ class __$$ListViewImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
+      labels: freezed == labels
+          ? _value._labels
+          : labels // ignore: cast_nullable_to_non_nullable
+              as List<Label>?,
       createdBy: null == createdBy
           ? _value.createdBy
           : createdBy // ignore: cast_nullable_to_non_nullable
@@ -265,10 +278,12 @@ class _$ListViewImpl extends _ListView {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
+      final List<Label>? labels,
       @JsonKey(name: 'creator') required this.createdBy,
       this.viewer = defaultListViewer,
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
+        _labels = labels,
         super._();
 
   factory _$ListViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -301,6 +316,16 @@ class _$ListViewImpl extends _ListView {
 
   @override
   final String? avatar;
+  final List<Label>? _labels;
+  @override
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
+    if (_labels is EqualUnmodifiableListView) return _labels;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(value);
+  }
+
   @override
   @JsonKey(name: 'creator')
   final Actor createdBy;
@@ -312,7 +337,7 @@ class _$ListViewImpl extends _ListView {
 
   @override
   String toString() {
-    return 'ListView(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, createdBy: $createdBy, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListView(type: $type, purpose: $purpose, uri: $uri, cid: $cid, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdBy: $createdBy, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -330,6 +355,7 @@ class _$ListViewImpl extends _ListView {
             const DeepCollectionEquality()
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.createdBy, createdBy) ||
                 other.createdBy == createdBy) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
@@ -349,6 +375,7 @@ class _$ListViewImpl extends _ListView {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
+      const DeepCollectionEquality().hash(_labels),
       createdBy,
       viewer,
       indexedAt);
@@ -377,6 +404,7 @@ abstract class _ListView extends ListView {
       final String? description,
       final List<Facet>? descriptionFacets,
       final String? avatar,
+      final List<Label>? labels,
       @JsonKey(name: 'creator') required final Actor createdBy,
       final ListViewer viewer,
       required final DateTime indexedAt}) = _$ListViewImpl;
@@ -403,6 +431,8 @@ abstract class _ListView extends ListView {
   List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
+  @override
+  List<Label>? get labels;
   @override
   @JsonKey(name: 'creator')
   Actor get createdBy;
