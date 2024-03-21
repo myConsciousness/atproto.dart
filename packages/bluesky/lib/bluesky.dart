@@ -125,6 +125,11 @@ export 'package:atproto/atproto.dart'
         $StrongRefCopyWith,
         Label,
         $LabelCopyWith,
+        LabelValue,
+        LabelValueDefinition,
+        $LabelValueDefinitionCopyWith,
+        LabelValueDefinitionStrings,
+        $LabelValueDefinitionStringsCopyWith,
         UBatchActionCreate,
         UBatchActionUpdate,
         UBatchActionDelete,
@@ -328,6 +333,15 @@ export 'package:bluesky/src/services/entities/muted_word_target.dart';
 export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/entities/muted_words_pref.dart';
 export 'package:bluesky/src/services/entities/profile_associated.dart';
+export 'package:bluesky/src/services/entities/labeler_policies.dart';
+export 'package:bluesky/src/services/entities/labeler_service_view.dart'
+    hide labelerServiceViewConverter;
+export 'package:bluesky/src/services/entities/labeler_services.dart';
+export 'package:bluesky/src/services/entities/labeler_view.dart';
+export 'package:bluesky/src/services/entities/labeler_view_detailed.dart';
+export 'package:bluesky/src/services/entities/labeler_viewer_state.dart'
+    hide defaultLabelerViewerState;
+export 'package:bluesky/src/services/entities/labeler_service_record.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
@@ -347,3 +361,4 @@ export 'package:bluesky/src/services/params/repo_param.dart';
 export 'package:bluesky/src/services/params/strong_ref_param.dart';
 export 'package:bluesky/src/services/params/thread_param.dart';
 export 'package:bluesky/src/services/unspecced_service.dart';
+export 'package:bluesky/src/services/labeler_service.dart';

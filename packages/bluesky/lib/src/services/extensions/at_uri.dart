@@ -43,6 +43,9 @@ extension AtUriExtension on core.AtUri {
   /// Returns true if this [collection] is graph block, otherwise false.
   bool get isGraphListItem => collection == ids.appBskyGraphListitem;
 
+  /// Returns true if this [collection] is labeler service, otherwise false.
+  bool get isLabelerService => collection == ids.appBskyLabelerService;
+
   /// Returns true if this [collection] is not actor profile, otherwise false.
   bool get isNotActorProfile => !isActorProfile;
 
@@ -76,4 +79,7 @@ extension AtUriExtension on core.AtUri {
 
   /// Returns true if this [collection] is not graph block, otherwise false.
   bool get isNotGraphListItem => !isGraphListItem;
+
+  /// Returns true if this [collection] is not labeler service, otherwise false.
+  bool get isNotLabelerService => !isLabelerService;
 }

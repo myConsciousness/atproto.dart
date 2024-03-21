@@ -1,0 +1,22 @@
+{
+  "views": [
+    {
+      "uri": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.labeler.service/self",
+      "cid": "bafyreifbdti6wgqnp6czrmlm2n35u2qph4oj3i2hjzh3zebii6d5o75ayi",
+      "creator": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato (busy) 🌮",
+        "description": "👋 I am:\n- Lucky Husband\n- Mixed Japanese\n- Programmer\n- #atdev\n\n💡Fun Facts:\n- Dart/Flutter & AT Protocol enthusiast\n- Founder of atprotodart.com\n- Collaborating with deck.blue\n- Maintaining @apod.shinyakato.dev\n- aka github.com/myConsciousness",
+        "avatar": "https://cdn.bsky.app/img/avatar/plain/did:plc:iijrtk7ocored6zuziwmqq3c/bafkreidcymbychkzpbbghmvgxhe3btr2bjkfr7frzlvkr2qy6ruxidldfe@jpeg",
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": [],
+        "indexedAt": "2024-03-05T00:58:02.019Z"
+      },
+      "likeCount": 0,
+      "labels": [],
+      "viewer": {},
+      "indexedAt": "2024-03-21T05:26:36.873Z"
+    }
+  ]
+}

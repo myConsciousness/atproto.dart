@@ -1,5 +1,12 @@
 # Release Note
 
+## v0.11.8
+
+- Supported Labeler Service's objects. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
+  - `LabelValue`
+  - `LabelValueDefinition`
+  - `LabelValueDefinitionStrings`
+
 ## v0.11.7
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

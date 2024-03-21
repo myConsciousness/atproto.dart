@@ -11,6 +11,7 @@ import 'package:atproto_test/atproto_test.dart' as atp_test;
 import 'package:bluesky/src/services/actor_service.dart';
 import 'package:bluesky/src/services/feed_service.dart';
 import 'package:bluesky/src/services/graph_service.dart';
+import 'package:bluesky/src/services/labeler_service.dart';
 import 'package:bluesky/src/services/notification_service.dart';
 import 'package:bluesky/src/services/service_context.dart';
 import 'package:bluesky/src/services/unspecced_service.dart';
@@ -81,6 +82,18 @@ void testUnspecced<D>(
       label,
     );
 
+void testLabeler<D>(
+  final atp_test.ServiceCallback<LabelerService, D> endpoint, {
+  required String id,
+  String? label,
+}) =>
+    atp_test.testService<LabelerService, D>(
+      _runner,
+      endpoint,
+      id,
+      label,
+    );
+
 final class _ServiceRunner extends atp_test.ServiceRunner {
   const _ServiceRunner();
 
@@ -99,6 +112,8 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
       return _getNotificationService(getClient, postClient) as S;
     } else if (S == UnspeccedService) {
       return _getUnspeccedService(getClient, postClient) as S;
+    } else if (S == LabelerService) {
+      return _getLabelerService(getClient, postClient) as S;
     }
 
     throw UnsupportedError('Unsupported Service: $S');
@@ -172,6 +187,19 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
     final core.PostClient? mockedPostClient,
   ) =>
       UnspeccedService(BlueskyServiceContext(
+        atproto: _getAtproto(
+          mockedGetClient,
+          mockedPostClient,
+        ),
+        mockedGetClient: mockedGetClient,
+        mockedPostClient: mockedPostClient,
+      ));
+
+  LabelerService _getLabelerService(
+    final core.GetClient? mockedGetClient,
+    final core.PostClient? mockedPostClient,
+  ) =>
+      LabelerService(BlueskyServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
