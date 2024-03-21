@@ -12,6 +12,7 @@
   - Added `LabelerServiceRecord` object
   - Added `.onCreateLabelerService` and `.onDeleteLabelerService` on `RepoCommitAdaptor` object
 - Added `.labels` properties on `FeedGeneratorView`, `ListView`, `ListViewBasic` object.
+- Added `.labelersPref` on `Preference`.
 
 ## v0.15.12
 

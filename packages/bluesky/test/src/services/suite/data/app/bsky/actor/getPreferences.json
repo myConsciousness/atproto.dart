@@ -87,6 +87,14 @@
           "targets": ["content", "tag"]
         }
       ]
+    },
+    {
+      "$type": "app.bsky.actor.defs#labelersPref",
+      "labelers": [
+        {
+          "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+        }
+      ]
     }
   ]
 }

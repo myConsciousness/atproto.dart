@@ -344,6 +344,8 @@ export 'package:bluesky/src/services/entities/labeler_view_detailed.dart';
 export 'package:bluesky/src/services/entities/labeler_viewer_state.dart'
     hide defaultLabelerViewerState;
 export 'package:bluesky/src/services/entities/labeler_service_record.dart';
+export 'package:bluesky/src/services/entities/labelers_pref.dart';
+export 'package:bluesky/src/services/entities/labeler_pref_item.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
