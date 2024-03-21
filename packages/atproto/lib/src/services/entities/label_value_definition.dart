@@ -24,6 +24,8 @@ class LabelValueDefinition with _$LabelValueDefinition {
     required String identifier,
     required String severity,
     required String blurs,
+    @Default('warn') String defaultSetting,
+    @Default(false) bool adultOnly,
     required List<LabelValueDefinitionStrings> locales,
   }) = _LabelValueDefinition;
 

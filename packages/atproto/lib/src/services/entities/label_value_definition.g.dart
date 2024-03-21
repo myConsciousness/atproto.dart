@@ -17,6 +17,9 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
           identifier: $checkedConvert('identifier', (v) => v as String),
           severity: $checkedConvert('severity', (v) => v as String),
           blurs: $checkedConvert('blurs', (v) => v as String),
+          defaultSetting:
+              $checkedConvert('defaultSetting', (v) => v as String? ?? 'warn'),
+          adultOnly: $checkedConvert('adultOnly', (v) => v as bool? ?? false),
           locales: $checkedConvert(
               'locales',
               (v) => (v as List<dynamic>)
@@ -34,5 +37,7 @@ Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
       'identifier': instance.identifier,
       'severity': instance.severity,
       'blurs': instance.blurs,
+      'defaultSetting': instance.defaultSetting,
+      'adultOnly': instance.adultOnly,
       'locales': instance.locales.map((e) => e.toJson()).toList(),
     };

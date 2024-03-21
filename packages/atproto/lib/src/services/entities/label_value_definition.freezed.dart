@@ -23,6 +23,8 @@ mixin _$LabelValueDefinition {
   String get identifier => throw _privateConstructorUsedError;
   String get severity => throw _privateConstructorUsedError;
   String get blurs => throw _privateConstructorUsedError;
+  String get defaultSetting => throw _privateConstructorUsedError;
+  bool get adultOnly => throw _privateConstructorUsedError;
   List<LabelValueDefinitionStrings> get locales =>
       throw _privateConstructorUsedError;
 
@@ -42,6 +44,8 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
       {String identifier,
       String severity,
       String blurs,
+      String defaultSetting,
+      bool adultOnly,
       List<LabelValueDefinitionStrings> locales});
 }
 
@@ -62,6 +66,8 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
     Object? identifier = null,
     Object? severity = null,
     Object? blurs = null,
+    Object? defaultSetting = null,
+    Object? adultOnly = null,
     Object? locales = null,
   }) {
     return _then(_value.copyWith(
@@ -77,6 +83,14 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
           ? _value.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
               as String,
+      defaultSetting: null == defaultSetting
+          ? _value.defaultSetting
+          : defaultSetting // ignore: cast_nullable_to_non_nullable
+              as String,
+      adultOnly: null == adultOnly
+          ? _value.adultOnly
+          : adultOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       locales: null == locales
           ? _value.locales
           : locales // ignore: cast_nullable_to_non_nullable
@@ -97,6 +111,8 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
       {String identifier,
       String severity,
       String blurs,
+      String defaultSetting,
+      bool adultOnly,
       List<LabelValueDefinitionStrings> locales});
 }
 
@@ -114,6 +130,8 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
     Object? identifier = null,
     Object? severity = null,
     Object? blurs = null,
+    Object? defaultSetting = null,
+    Object? adultOnly = null,
     Object? locales = null,
   }) {
     return _then(_$LabelValueDefinitionImpl(
@@ -129,6 +147,14 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
           ? _value.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
               as String,
+      defaultSetting: null == defaultSetting
+          ? _value.defaultSetting
+          : defaultSetting // ignore: cast_nullable_to_non_nullable
+              as String,
+      adultOnly: null == adultOnly
+          ? _value.adultOnly
+          : adultOnly // ignore: cast_nullable_to_non_nullable
+              as bool,
       locales: null == locales
           ? _value._locales
           : locales // ignore: cast_nullable_to_non_nullable
@@ -145,6 +171,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       {required this.identifier,
       required this.severity,
       required this.blurs,
+      this.defaultSetting = 'warn',
+      this.adultOnly = false,
       required final List<LabelValueDefinitionStrings> locales})
       : _locales = locales;
 
@@ -157,6 +185,12 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   final String severity;
   @override
   final String blurs;
+  @override
+  @JsonKey()
+  final String defaultSetting;
+  @override
+  @JsonKey()
+  final bool adultOnly;
   final List<LabelValueDefinitionStrings> _locales;
   @override
   List<LabelValueDefinitionStrings> get locales {
@@ -167,7 +201,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
   @override
   String toString() {
-    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, locales: $locales)';
+    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
   }
 
   @override
@@ -180,13 +214,17 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
             (identical(other.severity, severity) ||
                 other.severity == severity) &&
             (identical(other.blurs, blurs) || other.blurs == blurs) &&
+            (identical(other.defaultSetting, defaultSetting) ||
+                other.defaultSetting == defaultSetting) &&
+            (identical(other.adultOnly, adultOnly) ||
+                other.adultOnly == adultOnly) &&
             const DeepCollectionEquality().equals(other._locales, _locales));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, identifier, severity, blurs,
-      const DeepCollectionEquality().hash(_locales));
+      defaultSetting, adultOnly, const DeepCollectionEquality().hash(_locales));
 
   @JsonKey(ignore: true)
   @override
@@ -209,6 +247,8 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
           {required final String identifier,
           required final String severity,
           required final String blurs,
+          final String defaultSetting,
+          final bool adultOnly,
           required final List<LabelValueDefinitionStrings> locales}) =
       _$LabelValueDefinitionImpl;
 
@@ -221,6 +261,10 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   String get severity;
   @override
   String get blurs;
+  @override
+  String get defaultSetting;
+  @override
+  bool get adultOnly;
   @override
   List<LabelValueDefinitionStrings> get locales;
   @override
