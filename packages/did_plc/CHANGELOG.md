@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.14
+
+- Upgraded `atproto_core`.
+
 ## v0.0.13
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

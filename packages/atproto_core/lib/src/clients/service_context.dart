@@ -17,6 +17,7 @@ import 'retry_policy.dart';
 
 base class ServiceContext {
   ServiceContext({
+    this.headers,
     xrpc.Protocol? protocol,
     String? service,
     String? relayService,
@@ -32,6 +33,9 @@ base class ServiceContext {
         _timeout = timeout ?? defaultTimeout,
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
+
+  /// The global headers.
+  final Map<String, String>? headers;
 
   /// The current session.
   final Session? session;
@@ -115,10 +119,17 @@ base class ServiceContext {
       );
 
   Map<String, String>? _getHeaders([Map<String, String>? optional]) {
-    if (session == null) return optional;
+    //* Anonymous
+    if (session == null) {
+      return {
+        ...headers ?? const {},
+        ...optional ?? const {},
+      };
+    }
 
     return {
       'Authorization': 'Bearer ${session?.accessJwt}',
+      ...headers ?? const {},
       ...optional ?? const {},
     };
   }

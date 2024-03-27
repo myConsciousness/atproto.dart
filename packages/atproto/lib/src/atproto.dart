@@ -19,6 +19,7 @@ sealed class ATProto {
   /// Returns the new instance of [ATProto].
   factory ATProto.fromSession(
     final core.Session session, {
+    final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
     final String? relayService,
@@ -29,6 +30,7 @@ sealed class ATProto {
   }) =>
       _ATProto(
         core.ServiceContext(
+          headers: headers,
           protocol: protocol,
           service: service,
           relayService: relayService,
@@ -42,6 +44,7 @@ sealed class ATProto {
 
   /// Returns the new instance of [ATProto] as anonymous.
   factory ATProto.anonymous({
+    final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
     final String? relayService,
@@ -52,6 +55,7 @@ sealed class ATProto {
   }) =>
       _ATProto(
         core.ServiceContext(
+          headers: headers,
           protocol: protocol,
           service: service,
           relayService: relayService,

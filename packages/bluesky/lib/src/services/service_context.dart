@@ -12,6 +12,7 @@ import '../ids.g.dart' as ids;
 final class BlueskyServiceContext extends core.ServiceContext {
   BlueskyServiceContext({
     required this.atproto,
+    super.headers,
     super.protocol,
     super.service,
     super.relayService,

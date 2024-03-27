@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.7
+
+- Add global `.headers` on `ServiceContext`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1278))
+
 ## v0.9.6
 
 - Upgrade `at_uri`. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))
