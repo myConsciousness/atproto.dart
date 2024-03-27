@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.14
+
+- Added global `.headers` on `Bluesky`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1360))
+
 ## v0.15.13
 
 - Added `labelerDid` on `ContentLabelPreference`. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))

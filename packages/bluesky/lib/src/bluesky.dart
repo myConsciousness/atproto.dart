@@ -20,6 +20,7 @@ sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
     final atp.Session session, {
+    final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
     final String? relayService,
@@ -31,6 +32,7 @@ sealed class Bluesky {
       _Bluesky(
         BlueskyServiceContext(
           atproto: atp.ATProto.fromSession(
+            headers: headers,
             session,
             protocol: protocol,
             service: service,
@@ -40,6 +42,7 @@ sealed class Bluesky {
             mockedGetClient: mockedGetClient,
             mockedPostClient: mockedPostClient,
           ),
+          headers: headers,
           protocol: protocol,
           service: service,
           relayService: relayService,
@@ -53,6 +56,7 @@ sealed class Bluesky {
 
   /// Returns the new instance of [Bluesky] as anonymous.
   factory Bluesky.anonymous({
+    final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
     final String? relayService,
@@ -64,6 +68,7 @@ sealed class Bluesky {
       _Bluesky(
         BlueskyServiceContext(
           atproto: atp.ATProto.anonymous(
+            headers: headers,
             protocol: protocol,
             service: service,
             relayService: relayService,
@@ -72,6 +77,7 @@ sealed class Bluesky {
             mockedGetClient: mockedGetClient,
             mockedPostClient: mockedPostClient,
           ),
+          headers: headers,
           protocol: protocol,
           service: service,
           relayService: relayService,

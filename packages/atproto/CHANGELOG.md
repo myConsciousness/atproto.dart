@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.9
+
+- Added global `.headers` on `ATProto`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1360))
+
 ## v0.11.8
 
 - Supported Labeler Service's objects. ([#1316](https://github.com/myConsciousness/atproto.dart/issues/1316))
