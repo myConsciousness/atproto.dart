@@ -172,6 +172,9 @@ const appBskyFeedRepost = NSID(ids.appBskyFeedRepost);
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = NSID(ids.appBskyFeedSearchPosts);
 
+/// `app.bsky.feed.sendInteractions`
+const appBskyFeedSendInteractions = NSID(ids.appBskyFeedSendInteractions);
+
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = NSID(ids.appBskyFeedThreadgate);
 
