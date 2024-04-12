@@ -266,6 +266,9 @@ const appBskyFeedDefsSkeletonReasonRepost =
 const appBskyFeedDefsThreadgateView =
     LexObject(ids.appBskyFeedDefsThreadgateView);
 
+/// `app.bsky.feed.defs#interaction`
+const appBskyFeedDefsInteraction = LexObject(ids.appBskyFeedDefsInteraction);
+
 /// `app.bsky.feed.describeFeedGenerator#main`
 const appBskyFeedDescribeFeedGenerator =
     LexObject(ids.appBskyFeedDescribeFeedGenerator);
@@ -301,6 +304,9 @@ const appBskyFeedThreadgateFollowingRule =
 /// `app.bsky.feed.threadgate#listRule`
 const appBskyFeedThreadgateListRule =
     LexObject(ids.appBskyFeedThreadgateListRule);
+
+/// `app.bsky.feed.sendInteractions#main`
+const appBskyFeedSendInteractions = LexObject(ids.appBskyFeedSendInteractions);
 
 /// `app.bsky.feed.getPostThread#main`
 const appBskyFeedGetPostThread = LexObject(ids.appBskyFeedGetPostThread);
