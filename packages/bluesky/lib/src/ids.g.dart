@@ -155,6 +155,20 @@ const appBskyFeedDefsBlockedAuthor = 'app.bsky.feed.defs#blockedAuthor';
 /// `app.bsky.feed.defs#blockedPost`
 const appBskyFeedDefsBlockedPost = 'app.bsky.feed.defs#blockedPost';
 
+/// `app.bsky.feed.defs#clickthroughAuthor`
+const appBskyFeedDefsClickthroughAuthor =
+    'app.bsky.feed.defs#clickthroughAuthor';
+
+/// `app.bsky.feed.defs#clickthroughEmbed`
+const appBskyFeedDefsClickthroughEmbed = 'app.bsky.feed.defs#clickthroughEmbed';
+
+/// `app.bsky.feed.defs#clickthroughItem`
+const appBskyFeedDefsClickthroughItem = 'app.bsky.feed.defs#clickthroughItem';
+
+/// `app.bsky.feed.defs#clickthroughReposter`
+const appBskyFeedDefsClickthroughReposter =
+    'app.bsky.feed.defs#clickthroughReposter';
+
 /// `app.bsky.feed.defs#feedViewPost`
 const appBskyFeedDefsFeedViewPost = 'app.bsky.feed.defs#feedViewPost';
 
@@ -164,6 +178,27 @@ const appBskyFeedDefsGeneratorView = 'app.bsky.feed.defs#generatorView';
 /// `app.bsky.feed.defs#generatorViewerState`
 const appBskyFeedDefsGeneratorViewerState =
     'app.bsky.feed.defs#generatorViewerState';
+
+/// `app.bsky.feed.defs#interaction`
+const appBskyFeedDefsInteraction = 'app.bsky.feed.defs#interaction';
+
+/// `app.bsky.feed.defs#interactionLike`
+const appBskyFeedDefsInteractionLike = 'app.bsky.feed.defs#interactionLike';
+
+/// `app.bsky.feed.defs#interactionQuote`
+const appBskyFeedDefsInteractionQuote = 'app.bsky.feed.defs#interactionQuote';
+
+/// `app.bsky.feed.defs#interactionReply`
+const appBskyFeedDefsInteractionReply = 'app.bsky.feed.defs#interactionReply';
+
+/// `app.bsky.feed.defs#interactionRepost`
+const appBskyFeedDefsInteractionRepost = 'app.bsky.feed.defs#interactionRepost';
+
+/// `app.bsky.feed.defs#interactionSeen`
+const appBskyFeedDefsInteractionSeen = 'app.bsky.feed.defs#interactionSeen';
+
+/// `app.bsky.feed.defs#interactionShare`
+const appBskyFeedDefsInteractionShare = 'app.bsky.feed.defs#interactionShare';
 
 /// `app.bsky.feed.defs#notFoundPost`
 const appBskyFeedDefsNotFoundPost = 'app.bsky.feed.defs#notFoundPost';
@@ -176,6 +211,12 @@ const appBskyFeedDefsReasonRepost = 'app.bsky.feed.defs#reasonRepost';
 
 /// `app.bsky.feed.defs#replyRef`
 const appBskyFeedDefsReplyRef = 'app.bsky.feed.defs#replyRef';
+
+/// `app.bsky.feed.defs#requestLess`
+const appBskyFeedDefsRequestLess = 'app.bsky.feed.defs#requestLess';
+
+/// `app.bsky.feed.defs#requestMore`
+const appBskyFeedDefsRequestMore = 'app.bsky.feed.defs#requestMore';
 
 /// `app.bsky.feed.defs#skeletonFeedPost`
 const appBskyFeedDefsSkeletonFeedPost = 'app.bsky.feed.defs#skeletonFeedPost';
@@ -272,6 +313,9 @@ const appBskyFeedRepost = 'app.bsky.feed.repost';
 
 /// `app.bsky.feed.searchPosts`
 const appBskyFeedSearchPosts = 'app.bsky.feed.searchPosts';
+
+/// `app.bsky.feed.sendInteractions`
+const appBskyFeedSendInteractions = 'app.bsky.feed.sendInteractions';
 
 /// `app.bsky.feed.threadgate`
 const appBskyFeedThreadgate = 'app.bsky.feed.threadgate';
