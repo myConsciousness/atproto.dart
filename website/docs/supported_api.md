@@ -146,6 +146,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.feed.getFeed](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getFeed.html)** | [Reference](lexicons/app/bsky/feed/getFeed.md) | ✅ | ✅ |
 | **[app.bsky.feed.post](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/post.html)** | [Reference](lexicons/app/bsky/feed/post.md) | ✅ | ❌ |
 | **[app.bsky.feed.threadgate](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/threadgate.html)** | [Reference](lexicons/app/bsky/feed/threadgate.md) | ✅ | ❌ |
+| **[app.bsky.feed.sendInteractions](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/sendInteractions.html)** | [Reference](lexicons/app/bsky/feed/sendInteractions.md) | ❌ | ❌ |
 | **[app.bsky.feed.generator](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/generator.html)** | [Reference](lexicons/app/bsky/feed/generator.md) | ✅ | ❌ |
 | **[app.bsky.feed.getPostThread](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/getPostThread.html)** | [Reference](lexicons/app/bsky/feed/getPostThread.md) | ✅ | ❌ |
 | **[app.bsky.feed.repost](https://pub.dev/documentation/bluesky/latest/bluesky/FeedService/repost.html)** | [Reference](lexicons/app/bsky/feed/repost.md) | ✅ | ❌ |
