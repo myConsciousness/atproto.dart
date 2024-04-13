@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.15.15
+
+- Merge latest lexicon.
+  - Add `viewer` param on `ActorService.searchActorsTypeahead`
+
 ## v0.15.14
 
 - Added global `.headers` on `Bluesky`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1360))

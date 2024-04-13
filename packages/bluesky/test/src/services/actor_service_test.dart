@@ -37,7 +37,11 @@ void main() {
   );
 
   testActor<ActorsTypeahead>(
-    (m, s) => s.searchActorsTypeahead(term: m.query),
+    (m, s) => s.searchActorsTypeahead(
+      term: m.query,
+      viewer: m.did,
+      limit: m.limit,
+    ),
     id: appBskyActorSearchActorsTypeahead,
   );
 
