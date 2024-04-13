@@ -17,6 +17,7 @@ import 'entities/feed.dart';
 import 'entities/feed_generator.dart';
 import 'entities/feed_generator_info.dart';
 import 'entities/feed_generators.dart';
+import 'entities/feed_interaction.dart';
 import 'entities/likes.dart';
 import 'entities/post_thread.dart';
 import 'entities/posts.dart';
@@ -216,6 +217,7 @@ final class FeedService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    bool? acceptsInteractions,
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -227,6 +229,7 @@ final class FeedService {
         description: description,
         descriptionFacets: descriptionFacets,
         avatar: avatar,
+        acceptsInteractions: acceptsInteractions,
         labels: labels,
         createdAt: createdAt,
         unspecced: unspecced,
@@ -306,14 +309,43 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
   Future<core.XRPCResponse<PostsByQuery>> searchPosts(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
     int? limit,
     String? cursor,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await searchPostsByQuery(
         query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
         limit: limit,
         cursor: cursor,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
+  Future<core.XRPCResponse<core.EmptyData>> sendInteractions(
+    List<FeedInteraction> interactions,
+  ) async =>
+      await _ctx.post(
+        ns.appBskyFeedSendInteractions,
+        body: {
+          'interactions': interactions.map((e) => e.toJson()).toList(),
+        },
       );
 
   @Deprecated('Use .post instead. Will be removed')
@@ -624,6 +656,7 @@ final class FeedService {
     String? description,
     List<Facet>? descriptionFacets,
     atp.Blob? avatar,
+    bool? acceptsInteractions,
     atp.Labels? labels,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -637,6 +670,7 @@ final class FeedService {
           'descriptionFacets':
               descriptionFacets?.map((e) => e.toJson()).toList(),
           'avatar': avatar?.toJson(),
+          'acceptsInteractions': acceptsInteractions,
           'labels': labels?.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
           ...unspecced,
@@ -749,11 +783,29 @@ final class FeedService {
   @Deprecated('Use .searchPosts instead. Will be removed')
   Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
     int? limit,
     String? cursor,
   }) async =>
       await _searchPostsByQuery(
         query: query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
         limit: limit,
         cursor: cursor,
         to: PostsByQuery.fromJson,
@@ -985,6 +1037,15 @@ final class FeedService {
 
   Future<core.XRPCResponse<T>> _searchPostsByQuery<T>({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
     required int? limit,
     required String? cursor,
     core.ResponseDataBuilder<T>? to,
@@ -993,6 +1054,15 @@ final class FeedService {
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
+          sort: sort,
+          since: since,
+          until: until,
+          mentions: mentions,
+          author: author,
+          lang: lang,
+          domain: domain,
+          url: url,
+          tag: tag,
           limit: limit,
           cursor: cursor,
         ),
@@ -1115,11 +1185,29 @@ final class FeedService {
 
   Map<String, dynamic> _buildSearchPostsParams({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
     required int? limit,
     required String? cursor,
   }) =>
       {
         'q': query,
+        'sort': sort,
+        'since': since,
+        'until': until,
+        'mentions': mentions,
+        'author': author,
+        'lang': lang,
+        'domain': domain,
+        'url': url,
+        'tag': tag,
         'limit': limit,
         'cursor': cursor,
       };

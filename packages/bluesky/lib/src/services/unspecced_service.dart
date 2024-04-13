@@ -35,12 +35,32 @@ final class UnspeccedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
   Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsSkeleton(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
+    String? viewer,
     int? limit,
     String? cursor,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await searchPostsByQuerySkeleton(
         query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
+        viewer: viewer,
         limit: limit,
         cursor: cursor,
       );
@@ -48,6 +68,7 @@ final class UnspeccedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
   Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsSkeleton(
     final String query, {
+    String? viewer,
     bool? typeahead,
     int? limit,
     String? cursor,
@@ -55,6 +76,7 @@ final class UnspeccedService {
       // ignore: deprecated_member_use_from_same_package
       await searchActorsByQuerySkeleton(
         query,
+        viewer: viewer,
         typeahead: typeahead,
         limit: limit,
         cursor: cursor,
@@ -83,11 +105,31 @@ final class UnspeccedService {
   @Deprecated('Use .searchPostsSkeleton instead. Will be removed')
   Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
+    String? viewer,
     int? limit,
     String? cursor,
   }) async =>
       await _searchPostsByQuerySkeleton(
         query: query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
+        viewer: viewer,
         limit: limit,
         cursor: cursor,
         to: SkeletonPostsByQuery.fromJson,
@@ -96,12 +138,14 @@ final class UnspeccedService {
   @Deprecated('Use .searchActorsSkeleton instead. Will be removed')
   Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsByQuerySkeleton(
     final String query, {
+    String? viewer,
     bool? typeahead,
     int? limit,
     String? cursor,
   }) async =>
       await _searchActorsByQuerySkeleton(
         query: query,
+        viewer: viewer,
         typeahead: typeahead,
         limit: limit,
         cursor: cursor,
@@ -126,6 +170,16 @@ final class UnspeccedService {
 
   Future<core.XRPCResponse<T>> _searchPostsByQuerySkeleton<T>({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
+    required String? viewer,
     required int? limit,
     required String? cursor,
     core.ResponseDataBuilder<T>? to,
@@ -134,6 +188,16 @@ final class UnspeccedService {
         ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: _buildSearchPostsSkeletonParams(
           query: query,
+          sort: sort,
+          since: since,
+          until: until,
+          mentions: mentions,
+          author: author,
+          lang: lang,
+          domain: domain,
+          url: url,
+          tag: tag,
+          viewer: viewer,
           limit: limit,
           cursor: cursor,
         ),
@@ -142,6 +206,7 @@ final class UnspeccedService {
 
   Future<core.XRPCResponse<T>> _searchActorsByQuerySkeleton<T>({
     required String query,
+    required String? viewer,
     required bool? typeahead,
     required int? limit,
     required String? cursor,
@@ -151,6 +216,7 @@ final class UnspeccedService {
         ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: _buildSearchActorsSkeletonParams(
           query: query,
+          viewer: viewer,
           typeahead: typeahead,
           limit: limit,
           cursor: cursor,
@@ -171,23 +237,45 @@ final class UnspeccedService {
 
   Map<String, dynamic> _buildSearchPostsSkeletonParams({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
+    required String? viewer,
     required int? limit,
     required String? cursor,
   }) =>
       {
         'q': query,
+        'sort': sort,
+        'since': since,
+        'until': until,
+        'mentions': mentions,
+        'author': author,
+        'lang': lang,
+        'domain': domain,
+        'url': url,
+        'tag': tag,
+        'viewer': viewer,
         'limit': limit,
         'cursor': cursor,
       };
 
   Map<String, dynamic> _buildSearchActorsSkeletonParams({
     required String query,
+    required String? viewer,
     required bool? typeahead,
     required int? limit,
     required String? cursor,
   }) =>
       {
         'q': query,
+        'viewer': viewer,
         'typeahead': typeahead,
         'limit': limit,
         'cursor': cursor,

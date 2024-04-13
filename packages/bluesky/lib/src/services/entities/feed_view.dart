@@ -27,6 +27,7 @@ class FeedView with _$FeedView {
     required Post post,
     Reply? reply,
     @reasonConverter Reason? reason,
+    String? feedContext,
   }) = _FeedView;
 
   factory FeedView.fromJson(Map<String, Object?> json) =>

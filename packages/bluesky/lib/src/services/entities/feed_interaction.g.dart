@@ -2,37 +2,36 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'feed_view.dart';
+part of 'feed_interaction.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$FeedViewImpl _$$FeedViewImplFromJson(Map json) => $checkedCreate(
-      r'_$FeedViewImpl',
+_$FeedInteractionImpl _$$FeedInteractionImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$FeedInteractionImpl',
       json,
       ($checkedConvert) {
-        final val = _$FeedViewImpl(
-          post: $checkedConvert('post',
-              (v) => Post.fromJson(Map<String, Object?>.from(v as Map))),
-          reply: $checkedConvert(
-              'reply',
-              (v) => v == null
-                  ? null
-                  : Reply.fromJson(Map<String, Object?>.from(v as Map))),
-          reason: $checkedConvert(
-              'reason',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Reason>(
-                  v, reasonConverter.fromJson)),
+        final val = _$FeedInteractionImpl(
+          type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsInteraction),
+          item: $checkedConvert(
+              'item',
+              (v) => _$JsonConverterFromJson<String, AtUri>(
+                  v, atUriConverter.fromJson)),
+          event: $checkedConvert('event', (v) => v as String?),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
         );
         return val;
       },
+      fieldKeyMap: const {'type': r'$type'},
     );
 
-Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) {
+Map<String, dynamic> _$$FeedInteractionImplToJson(
+    _$FeedInteractionImpl instance) {
   final val = <String, dynamic>{
-    'post': instance.post.toJson(),
+    r'$type': instance.type,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -41,11 +40,11 @@ Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) {
     }
   }
 
-  writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
-      'reason',
-      _$JsonConverterToJson<Map<String, dynamic>, Reason>(
-          instance.reason, reasonConverter.toJson));
+      'item',
+      _$JsonConverterToJson<String, AtUri>(
+          instance.item, atUriConverter.toJson));
+  writeNotNull('event', instance.event);
   writeNotNull('feedContext', instance.feedContext);
   return val;
 }

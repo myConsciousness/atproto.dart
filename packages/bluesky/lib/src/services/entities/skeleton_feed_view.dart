@@ -24,6 +24,7 @@ class SkeletonFeedView with _$SkeletonFeedView {
   const factory SkeletonFeedView({
     @atUriConverter required AtUri post,
     @skeletonReasonConverter SkeletonReason? reason,
+    String? feedContext,
   }) = _SkeletonFeedView;
 
   factory SkeletonFeedView.fromJson(Map<String, Object?> json) =>

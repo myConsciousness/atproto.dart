@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
@@ -12,6 +13,7 @@ import 'package:bluesky/src/services/entities/feed.dart';
 import 'package:bluesky/src/services/entities/feed_generator.dart';
 import 'package:bluesky/src/services/entities/feed_generator_info.dart';
 import 'package:bluesky/src/services/entities/feed_generators.dart';
+import 'package:bluesky/src/services/entities/feed_interaction.dart';
 import 'package:bluesky/src/services/entities/likes.dart';
 import 'package:bluesky/src/services/entities/post_thread.dart';
 import 'package:bluesky/src/services/entities/posts.dart';
@@ -137,5 +139,10 @@ void main() {
   testFeed<PostsByQuery>(
     (m, s) => s.searchPosts(m.query),
     id: appBskyFeedSearchPosts,
+  );
+
+  testFeed<EmptyData>(
+    (m, s) => s.sendInteractions([FeedInteraction()]),
+    id: appBskyFeedSendInteractions,
   );
 }

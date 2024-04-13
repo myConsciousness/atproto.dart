@@ -1,5 +1,39 @@
 # Release Note
 
+## v0.15.15
+
+- Merge latest lexicon. ([#1403](https://github.com/myConsciousness/atproto.dart/issues/1403))
+  - Add `viewer` param on `ActorService.searchActorsTypeahead`
+  - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
+  - Add `acceptsInteractions` on `FeedService.generator` and `GeneratorRecord`
+  - Add `viewer` on `UnspeccedService.searchActorsSkeleton`
+  - Add parameters on `FeedService.searchPosts`
+    - `sort`
+    - `since`
+    - `until`
+    - `mentions`
+    - `author`
+    - `lang`
+    - `domain`
+    - `url`
+    - `tag`
+  - Add parameters on `FeedService.searchActorsSkeleton`
+    - `sort`
+    - `since`
+    - `until`
+    - `mentions`
+    - `author`
+    - `lang`
+    - `domain`
+    - `url`
+    - `tag`
+    - `viewer`
+  - Add `.sendInteractions` on `FeedService`
+  - Add `feedContext` property
+    - `FeedView`
+    - `SkeletonFeedView`
+  - Add `acceptsInteractions` on `FeedGeneratorView`
+
 ## v0.15.14
 
 - Added global `.headers` on `Bluesky`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1360))

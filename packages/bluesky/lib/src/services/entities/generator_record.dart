@@ -30,6 +30,7 @@ class GeneratorRecord with _$GeneratorRecord {
     String? description,
     List<Facet>? descriptionFacets,
     Blob? avatar,
+    @Default(false) bool acceptsInteractions,
     @labelsConverter Labels? labels,
     required DateTime createdAt,
   }) = _GeneratorRecord;

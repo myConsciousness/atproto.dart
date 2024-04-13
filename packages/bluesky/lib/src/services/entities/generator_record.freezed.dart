@@ -27,6 +27,7 @@ mixin _$GeneratorRecord {
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
+  bool get acceptsInteractions => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -50,6 +51,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
+      bool acceptsInteractions,
       @labelsConverter Labels? labels,
       DateTime createdAt});
 
@@ -76,6 +78,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
@@ -104,6 +107,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      acceptsInteractions: null == acceptsInteractions
+          ? _value.acceptsInteractions
+          : acceptsInteractions // ignore: cast_nullable_to_non_nullable
+              as bool,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -155,6 +162,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
+      bool acceptsInteractions,
       @labelsConverter Labels? labels,
       DateTime createdAt});
 
@@ -181,6 +189,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
@@ -209,6 +218,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      acceptsInteractions: null == acceptsInteractions
+          ? _value.acceptsInteractions
+          : acceptsInteractions // ignore: cast_nullable_to_non_nullable
+              as bool,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -232,6 +245,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
+      this.acceptsInteractions = false,
       @labelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
@@ -262,6 +276,9 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @override
   final Blob? avatar;
   @override
+  @JsonKey()
+  final bool acceptsInteractions;
+  @override
   @labelsConverter
   final Labels? labels;
   @override
@@ -269,7 +286,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
 
   @override
   String toString() {
-    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+    return 'GeneratorRecord(type: $type, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt)';
   }
 
   @override
@@ -286,6 +303,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
             const DeepCollectionEquality()
                 .equals(other._descriptionFacets, _descriptionFacets) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
+            (identical(other.acceptsInteractions, acceptsInteractions) ||
+                other.acceptsInteractions == acceptsInteractions) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt));
@@ -301,6 +320,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       description,
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
+      acceptsInteractions,
       labels,
       createdAt);
 
@@ -327,6 +347,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
+      final bool acceptsInteractions,
       @labelsConverter final Labels? labels,
       required final DateTime createdAt}) = _$GeneratorRecordImpl;
 
@@ -346,6 +367,8 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   List<Facet>? get descriptionFacets;
   @override
   Blob? get avatar;
+  @override
+  bool get acceptsInteractions;
   @override
   @labelsConverter
   Labels? get labels;

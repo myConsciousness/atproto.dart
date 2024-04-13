@@ -21,6 +21,7 @@ _$SkeletonFeedViewImpl _$$SkeletonFeedViewImplFromJson(Map json) =>
               (v) =>
                   _$JsonConverterFromJson<Map<String, dynamic>, SkeletonReason>(
                       v, skeletonReasonConverter.fromJson)),
+          feedContext: $checkedConvert('feedContext', (v) => v as String?),
         );
         return val;
       },
@@ -42,6 +43,7 @@ Map<String, dynamic> _$$SkeletonFeedViewImplToJson(
       'reason',
       _$JsonConverterToJson<Map<String, dynamic>, SkeletonReason>(
           instance.reason, skeletonReasonConverter.toJson));
+  writeNotNull('feedContext', instance.feedContext);
   return val;
 }
 
