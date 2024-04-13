@@ -5,6 +5,7 @@
 - Merge latest lexicon.
   - Add `viewer` param on `ActorService.searchActorsTypeahead`
   - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
+  - Add `acceptsInteractions` on `FeedService.generator` and `GeneratorRecord`
 
 ## v0.15.14
 

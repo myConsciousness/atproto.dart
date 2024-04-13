@@ -30,6 +30,8 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
               (v) => v == null
                   ? null
                   : Blob.fromJson(Map<String, Object?>.from(v as Map))),
+          acceptsInteractions:
+              $checkedConvert('acceptsInteractions', (v) => v as bool?),
           labels: $checkedConvert(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Labels>(
@@ -60,6 +62,7 @@ Map<String, dynamic> _$$GeneratorRecordImplToJson(
   writeNotNull('descriptionFacets',
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar?.toJson());
+  writeNotNull('acceptsInteractions', instance.acceptsInteractions);
   writeNotNull(
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, Labels>(
