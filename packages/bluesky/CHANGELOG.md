@@ -17,6 +17,17 @@
     - `domain`
     - `url`
     - `tag`
+  - Add parameters on `FeedService.searchActorsSkeleton`
+    - `sort`
+    - `since`
+    - `until`
+    - `mentions`
+    - `author`
+    - `lang`
+    - `domain`
+    - `url`
+    - `tag`
+    - `viewer`
 
 ## v0.15.14
 
