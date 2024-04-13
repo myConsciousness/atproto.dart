@@ -27,7 +27,7 @@ mixin _$GeneratorRecord {
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   Blob? get avatar => throw _privateConstructorUsedError;
-  bool? get acceptsInteractions => throw _privateConstructorUsedError;
+  bool get acceptsInteractions => throw _privateConstructorUsedError;
   @labelsConverter
   Labels? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      bool? acceptsInteractions,
+      bool acceptsInteractions,
       @labelsConverter Labels? labels,
       DateTime createdAt});
 
@@ -78,7 +78,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
-    Object? acceptsInteractions = freezed,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
@@ -107,10 +107,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      acceptsInteractions: freezed == acceptsInteractions
+      acceptsInteractions: null == acceptsInteractions
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       Blob? avatar,
-      bool? acceptsInteractions,
+      bool acceptsInteractions,
       @labelsConverter Labels? labels,
       DateTime createdAt});
 
@@ -189,7 +189,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
-    Object? acceptsInteractions = freezed,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
   }) {
@@ -218,10 +218,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as Blob?,
-      acceptsInteractions: freezed == acceptsInteractions
+      acceptsInteractions: null == acceptsInteractions
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -245,7 +245,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
-      this.acceptsInteractions,
+      this.acceptsInteractions = false,
       @labelsConverter this.labels,
       required this.createdAt})
       : _descriptionFacets = descriptionFacets;
@@ -276,7 +276,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @override
   final Blob? avatar;
   @override
-  final bool? acceptsInteractions;
+  @JsonKey()
+  final bool acceptsInteractions;
   @override
   @labelsConverter
   final Labels? labels;
@@ -346,7 +347,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       final String? description,
       final List<Facet>? descriptionFacets,
       final Blob? avatar,
-      final bool? acceptsInteractions,
+      final bool acceptsInteractions,
       @labelsConverter final Labels? labels,
       required final DateTime createdAt}) = _$GeneratorRecordImpl;
 
@@ -367,7 +368,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
   Blob? get avatar;
   @override
-  bool? get acceptsInteractions;
+  bool get acceptsInteractions;
   @override
   @labelsConverter
   Labels? get labels;
