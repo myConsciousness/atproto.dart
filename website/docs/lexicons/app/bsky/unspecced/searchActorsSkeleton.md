@@ -14,6 +14,7 @@ Backend Actors (profile) search, returns only skeleton.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **q** | string | - | ✅ | Search query string; syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended. For typeahead search, only simple term match is supported, not full syntax. |
+| **viewer** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking. |
 | **typeahead** | boolean | - | ❌ | If true, acts as fast/simple 'typeahead' query. |
 | **limit** | integer | - | ❌ | - |
 | **cursor** | string | - | ❌ | Optional pagination mechanism; may not necessarily allow scrolling through entire result set. |

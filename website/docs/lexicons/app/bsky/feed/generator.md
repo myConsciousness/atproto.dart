@@ -20,6 +20,7 @@ Use [com.atproto.repo.createRecord](../../../../lexicons/com/atproto/repo/create
 | **description** | string | - | ❌ | - |
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | [blob](https://atproto.com/specs/data-model#blob-type) | - | ❌ | - |
+| **acceptsInteractions** | boolean | - | ❌ | Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions |
 | **labels** | union of <br/>[com.atproto.label.defs#selfLabels](../../../../lexicons/com/atproto/label/defs.md#selflabels) | - | ❌ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
 

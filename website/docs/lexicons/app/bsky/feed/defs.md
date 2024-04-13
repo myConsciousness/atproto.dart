@@ -39,6 +39,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **post** | [#postView](#postview) | - | ✅ | - |
 | **reply** | [#replyRef](#replyref) | - | ❌ | - |
 | **reason** | union of <br/>[#reasonRepost](#reasonrepost) | - | ❌ | - |
+| **feedContext** | string | - | ❌ | Context provided by feed generator that may be passed back alongside interactions. |
 
 ## #replyRef
 
@@ -97,6 +98,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | **descriptionFacets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | - |
 | **avatar** | string ([uri](https://atproto.com/specs/lexicon#uri)) | - | ❌ | - |
 | **likeCount** | integer | - | ❌ | - |
+| **acceptsInteractions** | boolean | - | ❌ | - |
 | **labels** | array of [com.atproto.label.defs#label](../../../../lexicons/com/atproto/label/defs.md#label) | - | ❌ | - |
 | **viewer** | [#generatorViewerState](#generatorviewerstate) | - | ❌ | - |
 | **indexedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
@@ -113,6 +115,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **post** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ✅ | - |
 | **reason** | union of <br/>[#skeletonReasonRepost](#skeletonreasonrepost) | - | ❌ | - |
+| **feedContext** | string | - | ❌ | Context that will be passed through to client and may be passed to feed generator back alongside interactions. |
 
 ## #skeletonReasonRepost
 
@@ -128,3 +131,59 @@ Metadata about the requesting account's relationship with the subject content. O
 | **cid** | string ([cid](https://atproto.com/specs/repository#cid-formats)) | - | ❌ | - |
 | **record** | unknown | - | ❌ | - |
 | **lists** | array of [app.bsky.graph.defs#listViewBasic](../../../../lexicons/app/bsky/graph/defs.md#listviewbasic) | - | ❌ | - |
+
+## #interaction
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **item** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **event** | string | [app.bsky.feed.defs#requestLess](../../../../lexicons/app/bsky/feed/defs.md#requestless)<br/>[app.bsky.feed.defs#requestMore](../../../../lexicons/app/bsky/feed/defs.md#requestmore)<br/>[app.bsky.feed.defs#clickthroughItem](../../../../lexicons/app/bsky/feed/defs.md#clickthroughitem)<br/>[app.bsky.feed.defs#clickthroughAuthor](../../../../lexicons/app/bsky/feed/defs.md#clickthroughauthor)<br/>[app.bsky.feed.defs#clickthroughReposter](../../../../lexicons/app/bsky/feed/defs.md#clickthroughreposter)<br/>[app.bsky.feed.defs#clickthroughEmbed](../../../../lexicons/app/bsky/feed/defs.md#clickthroughembed)<br/>[app.bsky.feed.defs#interactionSeen](../../../../lexicons/app/bsky/feed/defs.md#interactionseen)<br/>[app.bsky.feed.defs#interactionLike](../../../../lexicons/app/bsky/feed/defs.md#interactionlike)<br/>[app.bsky.feed.defs#interactionRepost](../../../../lexicons/app/bsky/feed/defs.md#interactionrepost)<br/>[app.bsky.feed.defs#interactionReply](../../../../lexicons/app/bsky/feed/defs.md#interactionreply)<br/>[app.bsky.feed.defs#interactionQuote](../../../../lexicons/app/bsky/feed/defs.md#interactionquote)<br/>[app.bsky.feed.defs#interactionShare](../../../../lexicons/app/bsky/feed/defs.md#interactionshare) | ❌ | - |
+| **feedContext** | string | - | ❌ | Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton. |
+
+## #requestLess
+
+**TOKEN**: Request that less content like the given feed item be shown in the feed
+
+## #requestMore
+
+**TOKEN**: Request that more content like the given feed item be shown in the feed
+
+## #clickthroughItem
+
+**TOKEN**: User clicked through to the feed item
+
+## #clickthroughAuthor
+
+**TOKEN**: User clicked through to the author of the feed item
+
+## #clickthroughReposter
+
+**TOKEN**: User clicked through to the reposter of the feed item
+
+## #clickthroughEmbed
+
+**TOKEN**: User clicked through to the embedded content of the feed item
+
+## #interactionSeen
+
+**TOKEN**: Feed item was seen by user
+
+## #interactionLike
+
+**TOKEN**: User liked the feed item
+
+## #interactionRepost
+
+**TOKEN**: User reposted the feed item
+
+## #interactionReply
+
+**TOKEN**: User replied to the feed item
+
+## #interactionQuote
+
+**TOKEN**: User quoted the feed item
+
+## #interactionShare
+
+**TOKEN**: User shared the feed item
