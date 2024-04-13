@@ -7,6 +7,16 @@
   - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
   - Add `acceptsInteractions` on `FeedService.generator` and `GeneratorRecord`
   - Add `viewer` on `UnspeccedService.searchActorsSkeleton`
+  - Add parameters on `FeedService.searchPosts`
+    - `sort`
+    - `since`
+    - `until`
+    - `mentions`
+    - `author`
+    - `lang`
+    - `domain`
+    - `url`
+    - `tag`
 
 ## v0.15.14
 

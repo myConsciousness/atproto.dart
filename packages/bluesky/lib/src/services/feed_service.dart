@@ -308,12 +308,30 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts
   Future<core.XRPCResponse<PostsByQuery>> searchPosts(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
     int? limit,
     String? cursor,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await searchPostsByQuery(
         query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
         limit: limit,
         cursor: cursor,
       );
@@ -753,11 +771,29 @@ final class FeedService {
   @Deprecated('Use .searchPosts instead. Will be removed')
   Future<core.XRPCResponse<PostsByQuery>> searchPostsByQuery(
     final String query, {
+    String? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
     int? limit,
     String? cursor,
   }) async =>
       await _searchPostsByQuery(
         query: query,
+        sort: sort,
+        since: since,
+        until: until,
+        mentions: mentions,
+        author: author,
+        lang: lang,
+        domain: domain,
+        url: url,
+        tag: tag,
         limit: limit,
         cursor: cursor,
         to: PostsByQuery.fromJson,
@@ -989,6 +1025,15 @@ final class FeedService {
 
   Future<core.XRPCResponse<T>> _searchPostsByQuery<T>({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
     required int? limit,
     required String? cursor,
     core.ResponseDataBuilder<T>? to,
@@ -997,6 +1042,15 @@ final class FeedService {
         ns.appBskyFeedSearchPosts,
         parameters: _buildSearchPostsParams(
           query: query,
+          sort: sort,
+          since: since,
+          until: until,
+          mentions: mentions,
+          author: author,
+          lang: lang,
+          domain: domain,
+          url: url,
+          tag: tag,
           limit: limit,
           cursor: cursor,
         ),
@@ -1119,11 +1173,29 @@ final class FeedService {
 
   Map<String, dynamic> _buildSearchPostsParams({
     required String query,
+    required String? sort,
+    required String? since,
+    required String? until,
+    required String? mentions,
+    required String? author,
+    required String? lang,
+    required String? domain,
+    required String? url,
+    required List<String>? tag,
     required int? limit,
     required String? cursor,
   }) =>
       {
         'q': query,
+        'sort': sort,
+        'since': since,
+        'until': until,
+        'mentions': mentions,
+        'author': author,
+        'lang': lang,
+        'domain': domain,
+        'url': url,
+        'tag': tag,
         'limit': limit,
         'cursor': cursor,
       };
