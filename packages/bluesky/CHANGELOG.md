@@ -6,6 +6,7 @@
   - Add `viewer` param on `ActorService.searchActorsTypeahead`
   - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
   - Add `acceptsInteractions` on `FeedService.generator` and `GeneratorRecord`
+  - Add `viewer` on `UnspeccedService.searchActorsSkeleton`
 
 ## v0.15.14
 
