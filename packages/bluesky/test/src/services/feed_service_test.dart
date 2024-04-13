@@ -4,6 +4,8 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto_core/atproto_core.dart';
+import 'package:bluesky/bluesky.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
@@ -137,5 +139,10 @@ void main() {
   testFeed<PostsByQuery>(
     (m, s) => s.searchPosts(m.query),
     id: appBskyFeedSearchPosts,
+  );
+
+  testFeed<EmptyData>(
+    (m, s) => s.sendInteractions([FeedInteraction()]),
+    id: appBskyFeedSendInteractions,
   );
 }

@@ -28,6 +28,7 @@
     - `url`
     - `tag`
     - `viewer`
+  - Add `.sendInteractions` on `FeedService`
 
 ## v0.15.14
 

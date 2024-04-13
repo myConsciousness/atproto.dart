@@ -17,6 +17,7 @@ import 'entities/feed.dart';
 import 'entities/feed_generator.dart';
 import 'entities/feed_generator_info.dart';
 import 'entities/feed_generators.dart';
+import 'entities/feed_interaction.dart';
 import 'entities/likes.dart';
 import 'entities/post_thread.dart';
 import 'entities/posts.dart';
@@ -334,6 +335,17 @@ final class FeedService {
         tag: tag,
         limit: limit,
         cursor: cursor,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
+  Future<core.XRPCResponse<core.EmptyData>> sendInteractions(
+    List<FeedInteraction> interactions,
+  ) async =>
+      await _ctx.post(
+        ns.appBskyFeedSendInteractions,
+        body: {
+          'interactions': interactions.map((e) => e.toJson()).toList(),
+        },
       );
 
   @Deprecated('Use .post instead. Will be removed')
