@@ -29,6 +29,10 @@
     - `tag`
     - `viewer`
   - Add `.sendInteractions` on `FeedService`
+  - Add `feedContext` property
+    - `FeedView`
+    - `SkeletonFeedView`
+  - Add `acceptsInteractions` on `FeedGeneratorView`
 
 ## v0.15.14
 

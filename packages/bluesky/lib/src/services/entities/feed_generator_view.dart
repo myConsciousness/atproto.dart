@@ -36,6 +36,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
     List<Facet>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
+    @Default(false) bool acceptsInteractions,
     List<Label>? labels,
     @Default(defaultFeedGeneratorViewer) FeedGeneratorViewer viewer,
     required DateTime indexedAt,

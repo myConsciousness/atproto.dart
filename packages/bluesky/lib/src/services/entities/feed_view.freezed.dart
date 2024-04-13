@@ -24,6 +24,7 @@ mixin _$FeedView {
   Reply? get reply => throw _privateConstructorUsedError;
   @reasonConverter
   Reason? get reason => throw _privateConstructorUsedError;
+  String? get feedContext => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,11 @@ abstract class $FeedViewCopyWith<$Res> {
   factory $FeedViewCopyWith(FeedView value, $Res Function(FeedView) then) =
       _$FeedViewCopyWithImpl<$Res, FeedView>;
   @useResult
-  $Res call({Post post, Reply? reply, @reasonConverter Reason? reason});
+  $Res call(
+      {Post post,
+      Reply? reply,
+      @reasonConverter Reason? reason,
+      String? feedContext});
 
   $PostCopyWith<$Res> get post;
   $ReplyCopyWith<$Res>? get reply;
@@ -59,6 +64,7 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
     Object? post = null,
     Object? reply = freezed,
     Object? reason = freezed,
+    Object? feedContext = freezed,
   }) {
     return _then(_value.copyWith(
       post: null == post
@@ -73,6 +79,10 @@ class _$FeedViewCopyWithImpl<$Res, $Val extends FeedView>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as Reason?,
+      feedContext: freezed == feedContext
+          ? _value.feedContext
+          : feedContext // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -117,7 +127,11 @@ abstract class _$$FeedViewImplCopyWith<$Res>
       __$$FeedViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post post, Reply? reply, @reasonConverter Reason? reason});
+  $Res call(
+      {Post post,
+      Reply? reply,
+      @reasonConverter Reason? reason,
+      String? feedContext});
 
   @override
   $PostCopyWith<$Res> get post;
@@ -141,6 +155,7 @@ class __$$FeedViewImplCopyWithImpl<$Res>
     Object? post = null,
     Object? reply = freezed,
     Object? reason = freezed,
+    Object? feedContext = freezed,
   }) {
     return _then(_$FeedViewImpl(
       post: null == post
@@ -155,6 +170,10 @@ class __$$FeedViewImplCopyWithImpl<$Res>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as Reason?,
+      feedContext: freezed == feedContext
+          ? _value.feedContext
+          : feedContext // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -164,7 +183,10 @@ class __$$FeedViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$FeedViewImpl implements _FeedView {
   const _$FeedViewImpl(
-      {required this.post, this.reply, @reasonConverter this.reason});
+      {required this.post,
+      this.reply,
+      @reasonConverter this.reason,
+      this.feedContext});
 
   factory _$FeedViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewImplFromJson(json);
@@ -176,10 +198,12 @@ class _$FeedViewImpl implements _FeedView {
   @override
   @reasonConverter
   final Reason? reason;
+  @override
+  final String? feedContext;
 
   @override
   String toString() {
-    return 'FeedView(post: $post, reply: $reply, reason: $reason)';
+    return 'FeedView(post: $post, reply: $reply, reason: $reason, feedContext: $feedContext)';
   }
 
   @override
@@ -189,12 +213,15 @@ class _$FeedViewImpl implements _FeedView {
             other is _$FeedViewImpl &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reply, reply) || other.reply == reply) &&
-            (identical(other.reason, reason) || other.reason == reason));
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.feedContext, feedContext) ||
+                other.feedContext == feedContext));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, post, reply, reason);
+  int get hashCode =>
+      Object.hash(runtimeType, post, reply, reason, feedContext);
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +241,8 @@ abstract class _FeedView implements FeedView {
   const factory _FeedView(
       {required final Post post,
       final Reply? reply,
-      @reasonConverter final Reason? reason}) = _$FeedViewImpl;
+      @reasonConverter final Reason? reason,
+      final String? feedContext}) = _$FeedViewImpl;
 
   factory _FeedView.fromJson(Map<String, dynamic> json) =
       _$FeedViewImpl.fromJson;
@@ -226,6 +254,8 @@ abstract class _FeedView implements FeedView {
   @override
   @reasonConverter
   Reason? get reason;
+  @override
+  String? get feedContext;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewImplCopyWith<_$FeedViewImpl> get copyWith =>

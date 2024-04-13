@@ -24,6 +24,7 @@ _$FeedViewImpl _$$FeedViewImplFromJson(Map json) => $checkedCreate(
               'reason',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Reason>(
                   v, reasonConverter.fromJson)),
+          feedContext: $checkedConvert('feedContext', (v) => v as String?),
         );
         return val;
       },
@@ -45,6 +46,7 @@ Map<String, dynamic> _$$FeedViewImplToJson(_$FeedViewImpl instance) {
       'reason',
       _$JsonConverterToJson<Map<String, dynamic>, Reason>(
           instance.reason, reasonConverter.toJson));
+  writeNotNull('feedContext', instance.feedContext);
   return val;
 }
 

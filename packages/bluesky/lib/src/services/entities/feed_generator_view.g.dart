@@ -32,6 +32,8 @@ _$FeedGeneratorViewImpl _$$FeedGeneratorViewImplFromJson(Map json) =>
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           likeCount: $checkedConvert('likeCount', (v) => v as int? ?? 0),
+          acceptsInteractions: $checkedConvert(
+              'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -74,6 +76,7 @@ Map<String, dynamic> _$$FeedGeneratorViewImplToJson(
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar);
   val['likeCount'] = instance.likeCount;
+  val['acceptsInteractions'] = instance.acceptsInteractions;
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   val['viewer'] = instance.viewer.toJson();
   val['indexedAt'] = instance.indexedAt.toIso8601String();

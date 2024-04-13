@@ -24,6 +24,7 @@ mixin _$SkeletonFeedView {
   AtUri get post => throw _privateConstructorUsedError;
   @skeletonReasonConverter
   SkeletonReason? get reason => throw _privateConstructorUsedError;
+  String? get feedContext => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +40,8 @@ abstract class $SkeletonFeedViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@atUriConverter AtUri post,
-      @skeletonReasonConverter SkeletonReason? reason});
+      @skeletonReasonConverter SkeletonReason? reason,
+      String? feedContext});
 
   $SkeletonReasonCopyWith<$Res>? get reason;
 }
@@ -59,6 +61,7 @@ class _$SkeletonFeedViewCopyWithImpl<$Res, $Val extends SkeletonFeedView>
   $Res call({
     Object? post = null,
     Object? reason = freezed,
+    Object? feedContext = freezed,
   }) {
     return _then(_value.copyWith(
       post: null == post
@@ -69,6 +72,10 @@ class _$SkeletonFeedViewCopyWithImpl<$Res, $Val extends SkeletonFeedView>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as SkeletonReason?,
+      feedContext: freezed == feedContext
+          ? _value.feedContext
+          : feedContext // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 
@@ -95,7 +102,8 @@ abstract class _$$SkeletonFeedViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@atUriConverter AtUri post,
-      @skeletonReasonConverter SkeletonReason? reason});
+      @skeletonReasonConverter SkeletonReason? reason,
+      String? feedContext});
 
   @override
   $SkeletonReasonCopyWith<$Res>? get reason;
@@ -114,6 +122,7 @@ class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
   $Res call({
     Object? post = null,
     Object? reason = freezed,
+    Object? feedContext = freezed,
   }) {
     return _then(_$SkeletonFeedViewImpl(
       post: null == post
@@ -124,6 +133,10 @@ class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
               as SkeletonReason?,
+      feedContext: freezed == feedContext
+          ? _value.feedContext
+          : feedContext // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -134,7 +147,8 @@ class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
 class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
   const _$SkeletonFeedViewImpl(
       {@atUriConverter required this.post,
-      @skeletonReasonConverter this.reason});
+      @skeletonReasonConverter this.reason,
+      this.feedContext});
 
   factory _$SkeletonFeedViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonFeedViewImplFromJson(json);
@@ -145,10 +159,12 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
   @override
   @skeletonReasonConverter
   final SkeletonReason? reason;
+  @override
+  final String? feedContext;
 
   @override
   String toString() {
-    return 'SkeletonFeedView(post: $post, reason: $reason)';
+    return 'SkeletonFeedView(post: $post, reason: $reason, feedContext: $feedContext)';
   }
 
   @override
@@ -157,12 +173,14 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
         (other.runtimeType == runtimeType &&
             other is _$SkeletonFeedViewImpl &&
             (identical(other.post, post) || other.post == post) &&
-            (identical(other.reason, reason) || other.reason == reason));
+            (identical(other.reason, reason) || other.reason == reason) &&
+            (identical(other.feedContext, feedContext) ||
+                other.feedContext == feedContext));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, post, reason);
+  int get hashCode => Object.hash(runtimeType, post, reason, feedContext);
 
   @JsonKey(ignore: true)
   @override
@@ -181,9 +199,9 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
 
 abstract class _SkeletonFeedView implements SkeletonFeedView {
   const factory _SkeletonFeedView(
-          {@atUriConverter required final AtUri post,
-          @skeletonReasonConverter final SkeletonReason? reason}) =
-      _$SkeletonFeedViewImpl;
+      {@atUriConverter required final AtUri post,
+      @skeletonReasonConverter final SkeletonReason? reason,
+      final String? feedContext}) = _$SkeletonFeedViewImpl;
 
   factory _SkeletonFeedView.fromJson(Map<String, dynamic> json) =
       _$SkeletonFeedViewImpl.fromJson;
@@ -194,6 +212,8 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
   @override
   @skeletonReasonConverter
   SkeletonReason? get reason;
+  @override
+  String? get feedContext;
   @override
   @JsonKey(ignore: true)
   _$$SkeletonFeedViewImplCopyWith<_$SkeletonFeedViewImpl> get copyWith =>
