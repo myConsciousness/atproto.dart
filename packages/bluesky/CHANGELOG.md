@@ -2,7 +2,7 @@
 
 ## v0.15.15
 
-- Merge latest lexicon.
+- Merge latest lexicon. ([#1403](https://github.com/myConsciousness/atproto.dart/issues/1403))
   - Add `viewer` param on `ActorService.searchActorsTypeahead`
   - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
   - Add `acceptsInteractions` on `FeedService.generator` and `GeneratorRecord`
