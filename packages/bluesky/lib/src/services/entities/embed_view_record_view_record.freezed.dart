@@ -30,6 +30,9 @@ mixin _$EmbedViewRecordViewRecord {
   @postRecordConverter
   PostRecord get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
+  int get replyCount => throw _privateConstructorUsedError;
+  int get repostCount => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
   @embedViewConverter
   List<EmbedView>? get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -53,6 +56,9 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
       ActorBasic author,
       @postRecordConverter PostRecord value,
       List<Label>? labels,
+      int replyCount,
+      int repostCount,
+      int likeCount,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -80,6 +86,9 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
     Object? author = null,
     Object? value = null,
     Object? labels = freezed,
+    Object? replyCount = null,
+    Object? repostCount = null,
+    Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -108,6 +117,18 @@ class _$EmbedViewRecordViewRecordCopyWithImpl<$Res,
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      replyCount: null == replyCount
+          ? _value.replyCount
+          : replyCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      repostCount: null == repostCount
+          ? _value.repostCount
+          : repostCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -152,6 +173,9 @@ abstract class _$$EmbedViewRecordViewRecordImplCopyWith<$Res>
       ActorBasic author,
       @postRecordConverter PostRecord value,
       List<Label>? labels,
+      int replyCount,
+      int repostCount,
+      int likeCount,
       @embedViewConverter List<EmbedView>? embeds,
       DateTime indexedAt});
 
@@ -180,6 +204,9 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
     Object? author = null,
     Object? value = null,
     Object? labels = freezed,
+    Object? replyCount = null,
+    Object? repostCount = null,
+    Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -208,6 +235,18 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      replyCount: null == replyCount
+          ? _value.replyCount
+          : replyCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      repostCount: null == repostCount
+          ? _value.repostCount
+          : repostCount // ignore: cast_nullable_to_non_nullable
+              as int,
+      likeCount: null == likeCount
+          ? _value.likeCount
+          : likeCount // ignore: cast_nullable_to_non_nullable
+              as int,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -231,6 +270,9 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
       required this.author,
       @postRecordConverter required this.value,
       final List<Label>? labels,
+      this.replyCount = 0,
+      this.repostCount = 0,
+      this.likeCount = 0,
       @embedViewConverter final List<EmbedView>? embeds,
       required this.indexedAt})
       : _labels = labels,
@@ -262,6 +304,15 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
     return EqualUnmodifiableListView(value);
   }
 
+  @override
+  @JsonKey()
+  final int replyCount;
+  @override
+  @JsonKey()
+  final int repostCount;
+  @override
+  @JsonKey()
+  final int likeCount;
   final List<EmbedView>? _embeds;
   @override
   @embedViewConverter
@@ -278,7 +329,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
 
   @override
   String toString() {
-    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, embeds: $embeds, indexedAt: $indexedAt)';
+    return 'EmbedViewRecordViewRecord(type: $type, uri: $uri, cid: $cid, author: $author, value: $value, labels: $labels, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, embeds: $embeds, indexedAt: $indexedAt)';
   }
 
   @override
@@ -292,6 +343,12 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
             (identical(other.author, author) || other.author == author) &&
             (identical(other.value, value) || other.value == value) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
+            (identical(other.replyCount, replyCount) ||
+                other.replyCount == replyCount) &&
+            (identical(other.repostCount, repostCount) ||
+                other.repostCount == repostCount) &&
+            (identical(other.likeCount, likeCount) ||
+                other.likeCount == likeCount) &&
             const DeepCollectionEquality().equals(other._embeds, _embeds) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -307,6 +364,9 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
       author,
       value,
       const DeepCollectionEquality().hash(_labels),
+      replyCount,
+      repostCount,
+      likeCount,
       const DeepCollectionEquality().hash(_embeds),
       indexedAt);
 
@@ -333,6 +393,9 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
       required final ActorBasic author,
       @postRecordConverter required final PostRecord value,
       final List<Label>? labels,
+      final int replyCount,
+      final int repostCount,
+      final int likeCount,
       @embedViewConverter final List<EmbedView>? embeds,
       required final DateTime indexedAt}) = _$EmbedViewRecordViewRecordImpl;
 
@@ -354,6 +417,12 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   PostRecord get value;
   @override
   List<Label>? get labels;
+  @override
+  int get replyCount;
+  @override
+  int get repostCount;
+  @override
+  int get likeCount;
   @override
   @embedViewConverter
   List<EmbedView>? get embeds;

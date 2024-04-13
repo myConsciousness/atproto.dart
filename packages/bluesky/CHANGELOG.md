@@ -4,6 +4,7 @@
 
 - Merge latest lexicon.
   - Add `viewer` param on `ActorService.searchActorsTypeahead`
+  - Add `replyCount`, `repostCount`, `likeCount` on `EmbedViewRecordViewRecord`
 
 ## v0.15.14
 

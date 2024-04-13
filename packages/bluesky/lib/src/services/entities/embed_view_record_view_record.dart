@@ -33,6 +33,9 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
     required ActorBasic author,
     @postRecordConverter required PostRecord value,
     List<Label>? labels,
+    @Default(0) int replyCount,
+    @Default(0) int repostCount,
+    @Default(0) int likeCount,
     @embedViewConverter List<EmbedView>? embeds,
     required DateTime indexedAt,
   }) = _EmbedViewRecordViewRecord;
