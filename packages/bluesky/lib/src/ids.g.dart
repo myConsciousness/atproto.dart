@@ -490,6 +490,10 @@ const appBskyUnspeccedDefsSkeletonSearchPost =
 const appBskyUnspeccedGetPopularFeedGenerators =
     'app.bsky.unspecced.getPopularFeedGenerators';
 
+/// `app.bsky.unspecced.getSuggestionsSkeleton`
+const appBskyUnspeccedGetSuggestionsSkeleton =
+    'app.bsky.unspecced.getSuggestionsSkeleton';
+
 /// `app.bsky.unspecced.getTaggedSuggestions`
 const appBskyUnspeccedGetTaggedSuggestions =
     'app.bsky.unspecced.getTaggedSuggestions';
