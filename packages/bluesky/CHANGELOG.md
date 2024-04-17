@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.16
+
+- Removed `viewer` parameter from `searchActorsTypeahead`. ([#1407](https://github.com/myConsciousness/atproto.dart/issues/1407))
+
 ## v0.15.15
 
 - Merge latest lexicon. ([#1403](https://github.com/myConsciousness/atproto.dart/issues/1403))
