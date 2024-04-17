@@ -10,6 +10,7 @@ import '../nsids.g.dart' as ns;
 import 'entities/feed_generators.dart';
 import 'entities/skeleton_actors_by_query.dart';
 import 'entities/skeleton_posts_by_query.dart';
+import 'entities/suggestions_skeleton.dart';
 import 'entities/tagged_suggestions.dart';
 import 'service_context.dart';
 
@@ -87,6 +88,22 @@ final class UnspeccedService {
       await _ctx.get(
         ns.appBskyUnspeccedGetTaggedSuggestions,
         to: TaggedSuggestions.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
+  Future<core.XRPCResponse<SuggestionsSkeleton>> getSuggestionsSkeleton({
+    String? viewer,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        parameters: {
+          'viewer': viewer,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SuggestionsSkeleton.fromJson,
       );
 
   @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')

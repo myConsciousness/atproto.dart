@@ -69,13 +69,11 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
   Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
     required String term,
-    String? viewer,
     int? limit,
   }) async =>
       // ignore: deprecated_member_use_from_same_package
       await searchTypeahead(
         term: term,
-        viewer: viewer,
         limit: limit,
       );
 
@@ -149,12 +147,10 @@ final class ActorService {
   @Deprecated('Use .searchActorsTypeahead instead. Will be removed')
   Future<core.XRPCResponse<ActorsTypeahead>> searchTypeahead({
     required String term,
-    String? viewer,
     int? limit,
   }) async =>
       await _searchTypeahead(
         term: term,
-        viewer: viewer,
         limit: limit,
         to: ActorsTypeahead.fromJson,
       );
@@ -253,7 +249,6 @@ final class ActorService {
 
   Future<core.XRPCResponse<T>> _searchTypeahead<T>({
     required String term,
-    required String? viewer,
     required int? limit,
     core.ResponseDataBuilder<T>? to,
   }) async =>
@@ -261,7 +256,6 @@ final class ActorService {
         ns.appBskyActorSearchActorsTypeahead,
         parameters: {
           'q': term,
-          'viewer': viewer,
           'limit': limit,
         },
         to: to,
