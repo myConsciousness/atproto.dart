@@ -367,6 +367,10 @@ const appBskyUnspeccedGetTaggedSuggestions =
 const appBskyUnspeccedGetTaggedSuggestionsSuggestion =
     LexObject(ids.appBskyUnspeccedGetTaggedSuggestionsSuggestion);
 
+/// `app.bsky.unspecced.getSuggestionsSkeleton#main`
+const appBskyUnspeccedGetSuggestionsSkeleton =
+    LexObject(ids.appBskyUnspeccedGetSuggestionsSkeleton);
+
 /// `app.bsky.graph.getRelationships#main`
 const appBskyGraphGetRelationships =
     LexObject(ids.appBskyGraphGetRelationships);

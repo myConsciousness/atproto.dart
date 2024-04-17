@@ -291,6 +291,10 @@ const appBskyRichtextFacetTag = NSID(ids.appBskyRichtextFacetTag);
 const appBskyUnspeccedGetPopularFeedGenerators =
     NSID(ids.appBskyUnspeccedGetPopularFeedGenerators);
 
+/// `app.bsky.unspecced.getSuggestionsSkeleton`
+const appBskyUnspeccedGetSuggestionsSkeleton =
+    NSID(ids.appBskyUnspeccedGetSuggestionsSkeleton);
+
 /// `app.bsky.unspecced.getTaggedSuggestions`
 const appBskyUnspeccedGetTaggedSuggestions =
     NSID(ids.appBskyUnspeccedGetTaggedSuggestions);

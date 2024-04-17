@@ -15,7 +15,6 @@ Find actor suggestions for a prefix search term. Expected use is for auto-comple
 | --- | --- | --- | :---: | --- |
 | **term** | string | - | ❌ | DEPRECATED: use 'q' instead. |
 | **q** | string | - | ❌ | Search query prefix; not a full query string. |
-| **viewer** | string ([did](https://atproto.com/specs/did)) | - | ❌ | DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking. |
 | **limit** | integer | - | ❌ | - |
 
 ### Output

@@ -167,6 +167,7 @@ So all endpoints in the [atproto](#atproto) table are also available from [blues
 | **[app.bsky.unspecced.searchActorsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/searchActorsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/searchActorsSkeleton.md) | N/A | ✅ |
 | **[app.bsky.unspecced.getPopularFeedGenerators](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getPopularFeedGenerators.html)** | [Reference](lexicons/app/bsky/unspecced/getPopularFeedGenerators.md) | ✅ | ✅ |
 | **[app.bsky.unspecced.getTaggedSuggestions](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getTaggedSuggestions.html)** | [Reference](lexicons/app/bsky/unspecced/getTaggedSuggestions.md) | ❌ | ❌ |
+| **[app.bsky.unspecced.getSuggestionsSkeleton](https://pub.dev/documentation/bluesky/latest/bluesky/UnspeccedService/getSuggestionsSkeleton.html)** | [Reference](lexicons/app/bsky/unspecced/getSuggestionsSkeleton.md) | ❌ | ✅ |
 
 ### Graph Service
 
