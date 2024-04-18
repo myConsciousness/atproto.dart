@@ -19,4 +19,5 @@ Get information about the current auth session. Requires auth.
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **email** | string | - | ❌ | - |
 | **emailConfirmed** | boolean | - | ❌ | - |
+| **emailAuthFactor** | boolean | - | ❌ | - |
 | **didDoc** | unknown | - | ❌ | - |
