@@ -17,6 +17,7 @@ Create an authentication session.
 | --- | --- | --- | :---: | --- |
 | **identifier** | string | - | ✅ | Handle or other identifier supported by the server for the authenticating user. |
 | **password** | string | - | ✅ | - |
+| **authFactorToken** | string | - | ❌ | - |
 
 ### Output
 
@@ -31,3 +32,4 @@ Create an authentication session.
 | **didDoc** | unknown | - | ❌ | - |
 | **email** | string | - | ❌ | - |
 | **emailConfirmed** | boolean | - | ❌ | - |
+| **emailAuthFactor** | boolean | - | ❌ | - |

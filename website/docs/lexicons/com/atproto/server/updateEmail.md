@@ -16,4 +16,5 @@ Update an account's email.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **email** | string | - | ✅ | - |
+| **emailAuthFactor** | boolean | - | ❌ | - |
 | **token** | string | - | ❌ | Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed. |
