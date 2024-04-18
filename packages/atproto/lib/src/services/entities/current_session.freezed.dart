@@ -25,6 +25,7 @@ mixin _$CurrentSession {
   String? get email => throw _privateConstructorUsedError;
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed => throw _privateConstructorUsedError;
+  bool get emailAuthFactor => throw _privateConstructorUsedError;
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,6 +45,7 @@ abstract class $CurrentSessionCopyWith<$Res> {
       String handle,
       String? email,
       @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailAuthFactor,
       Map<String, dynamic>? didDoc});
 }
 
@@ -64,6 +66,7 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? emailAuthFactor = null,
     Object? didDoc = freezed,
   }) {
     return _then(_value.copyWith(
@@ -82,6 +85,10 @@ class _$CurrentSessionCopyWithImpl<$Res, $Val extends CurrentSession>
       isEmailConfirmed: null == isEmailConfirmed
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      emailAuthFactor: null == emailAuthFactor
+          ? _value.emailAuthFactor
+          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
               as bool,
       didDoc: freezed == didDoc
           ? _value.didDoc
@@ -104,6 +111,7 @@ abstract class _$$CurrentSessionImplCopyWith<$Res>
       String handle,
       String? email,
       @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailAuthFactor,
       Map<String, dynamic>? didDoc});
 }
 
@@ -122,6 +130,7 @@ class __$$CurrentSessionImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? emailAuthFactor = null,
     Object? didDoc = freezed,
   }) {
     return _then(_$CurrentSessionImpl(
@@ -141,6 +150,10 @@ class __$$CurrentSessionImplCopyWithImpl<$Res>
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
               as bool,
+      emailAuthFactor: null == emailAuthFactor
+          ? _value.emailAuthFactor
+          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
+              as bool,
       didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
@@ -158,6 +171,7 @@ class _$CurrentSessionImpl implements _CurrentSession {
       required this.handle,
       this.email,
       @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false,
+      this.emailAuthFactor = false,
       final Map<String, dynamic>? didDoc})
       : _didDoc = didDoc;
 
@@ -173,6 +187,9 @@ class _$CurrentSessionImpl implements _CurrentSession {
   @override
   @JsonKey(name: 'emailConfirmed')
   final bool isEmailConfirmed;
+  @override
+  @JsonKey()
+  final bool emailAuthFactor;
   final Map<String, dynamic>? _didDoc;
   @override
   Map<String, dynamic>? get didDoc {
@@ -185,7 +202,7 @@ class _$CurrentSessionImpl implements _CurrentSession {
 
   @override
   String toString() {
-    return 'CurrentSession(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, didDoc: $didDoc)';
+    return 'CurrentSession(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, emailAuthFactor: $emailAuthFactor, didDoc: $didDoc)';
   }
 
   @override
@@ -198,13 +215,21 @@ class _$CurrentSessionImpl implements _CurrentSession {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.isEmailConfirmed, isEmailConfirmed) ||
                 other.isEmailConfirmed == isEmailConfirmed) &&
+            (identical(other.emailAuthFactor, emailAuthFactor) ||
+                other.emailAuthFactor == emailAuthFactor) &&
             const DeepCollectionEquality().equals(other._didDoc, _didDoc));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, handle, email,
-      isEmailConfirmed, const DeepCollectionEquality().hash(_didDoc));
+  int get hashCode => Object.hash(
+      runtimeType,
+      did,
+      handle,
+      email,
+      isEmailConfirmed,
+      emailAuthFactor,
+      const DeepCollectionEquality().hash(_didDoc));
 
   @JsonKey(ignore: true)
   @override
@@ -227,6 +252,7 @@ abstract class _CurrentSession implements CurrentSession {
       required final String handle,
       final String? email,
       @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
+      final bool emailAuthFactor,
       final Map<String, dynamic>? didDoc}) = _$CurrentSessionImpl;
 
   factory _CurrentSession.fromJson(Map<String, dynamic> json) =
@@ -241,6 +267,8 @@ abstract class _CurrentSession implements CurrentSession {
   @override
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed;
+  @override
+  bool get emailAuthFactor;
   @override
   Map<String, dynamic>? get didDoc;
   @override

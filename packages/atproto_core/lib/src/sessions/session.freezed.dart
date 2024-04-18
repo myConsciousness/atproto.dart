@@ -32,6 +32,7 @@ mixin _$Session {
   /// A flag indicating whether the email address is confirmed.
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed => throw _privateConstructorUsedError;
+  bool get emailAuthFactor => throw _privateConstructorUsedError;
 
   /// Access JSON Web Token.
   String get accessJwt => throw _privateConstructorUsedError;
@@ -57,6 +58,7 @@ abstract class $SessionCopyWith<$Res> {
       String handle,
       String? email,
       @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailAuthFactor,
       String accessJwt,
       String refreshJwt,
       Map<String, dynamic>? didDoc});
@@ -79,6 +81,7 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? emailAuthFactor = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
@@ -99,6 +102,10 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
       isEmailConfirmed: null == isEmailConfirmed
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      emailAuthFactor: null == emailAuthFactor
+          ? _value.emailAuthFactor
+          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
               as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
@@ -128,6 +135,7 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
       String handle,
       String? email,
       @JsonKey(name: 'emailConfirmed') bool isEmailConfirmed,
+      bool emailAuthFactor,
       String accessJwt,
       String refreshJwt,
       Map<String, dynamic>? didDoc});
@@ -148,6 +156,7 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? email = freezed,
     Object? isEmailConfirmed = null,
+    Object? emailAuthFactor = null,
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
@@ -168,6 +177,10 @@ class __$$SessionImplCopyWithImpl<$Res>
       isEmailConfirmed: null == isEmailConfirmed
           ? _value.isEmailConfirmed
           : isEmailConfirmed // ignore: cast_nullable_to_non_nullable
+              as bool,
+      emailAuthFactor: null == emailAuthFactor
+          ? _value.emailAuthFactor
+          : emailAuthFactor // ignore: cast_nullable_to_non_nullable
               as bool,
       accessJwt: null == accessJwt
           ? _value.accessJwt
@@ -194,6 +207,7 @@ class _$SessionImpl extends _Session {
       required this.handle,
       this.email,
       @JsonKey(name: 'emailConfirmed') this.isEmailConfirmed = false,
+      this.emailAuthFactor = false,
       required this.accessJwt,
       required this.refreshJwt,
       final Map<String, dynamic>? didDoc})
@@ -219,6 +233,9 @@ class _$SessionImpl extends _Session {
   @override
   @JsonKey(name: 'emailConfirmed')
   final bool isEmailConfirmed;
+  @override
+  @JsonKey()
+  final bool emailAuthFactor;
 
   /// Access JSON Web Token.
   @override
@@ -243,7 +260,7 @@ class _$SessionImpl extends _Session {
 
   @override
   String toString() {
-    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc)';
+    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, emailAuthFactor: $emailAuthFactor, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc)';
   }
 
   @override
@@ -256,6 +273,8 @@ class _$SessionImpl extends _Session {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.isEmailConfirmed, isEmailConfirmed) ||
                 other.isEmailConfirmed == isEmailConfirmed) &&
+            (identical(other.emailAuthFactor, emailAuthFactor) ||
+                other.emailAuthFactor == emailAuthFactor) &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -271,6 +290,7 @@ class _$SessionImpl extends _Session {
       handle,
       email,
       isEmailConfirmed,
+      emailAuthFactor,
       accessJwt,
       refreshJwt,
       const DeepCollectionEquality().hash(_didDoc));
@@ -295,6 +315,7 @@ abstract class _Session extends Session {
       required final String handle,
       final String? email,
       @JsonKey(name: 'emailConfirmed') final bool isEmailConfirmed,
+      final bool emailAuthFactor,
       required final String accessJwt,
       required final String refreshJwt,
       final Map<String, dynamic>? didDoc}) = _$SessionImpl;
@@ -319,6 +340,8 @@ abstract class _Session extends Session {
   /// A flag indicating whether the email address is confirmed.
   @JsonKey(name: 'emailConfirmed')
   bool get isEmailConfirmed;
+  @override
+  bool get emailAuthFactor;
   @override
 
   /// Access JSON Web Token.

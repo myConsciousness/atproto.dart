@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.9.8
+
+- Add `authFactorToken` parameter on `createSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+- Add `emailAuthFactor` on `Session`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+
 ## v0.9.7
 
 - Add global `.headers` on `ServiceContext`. ([#1360](https://github.com/myConsciousness/atproto.dart/issues/1278))

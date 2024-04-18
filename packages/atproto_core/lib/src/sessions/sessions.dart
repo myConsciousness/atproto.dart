@@ -17,6 +17,7 @@ Future<xrpc.XRPCResponse<Session>> createSession({
   String? service,
   required String identifier,
   required String password,
+  String? authFactorToken,
   RetryConfig? retryConfig,
   final xrpc.PostClient? mockedPostClient,
 }) async =>
@@ -25,7 +26,11 @@ Future<xrpc.XRPCResponse<Session>> createSession({
       service: service,
       retryConfig: retryConfig,
       mockedPostClient: mockedPostClient,
-    ).createSession(identifier: identifier, password: password);
+    ).createSession(
+      identifier: identifier,
+      password: password,
+      authFactorToken: authFactorToken,
+    );
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
 Future<xrpc.XRPCResponse<Session>> refreshSession({
@@ -77,12 +82,14 @@ final class _Sessions {
   Future<xrpc.XRPCResponse<Session>> createSession({
     required String identifier,
     required String password,
+    String? authFactorToken,
   }) async =>
       await _ctx.post(
         const xrpc.NSID('com.atproto.server.createSession'),
         body: {
           'identifier': identifier,
           'password': password,
+          'authFactorToken': authFactorToken,
         },
         to: Session.fromJson,
       );

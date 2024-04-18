@@ -3,6 +3,7 @@
   "handle": "shinyakato.dev",
   "email": "contact@shinyakato.dev",
   "emailConfirmed": true,
+  "emailAuthFactor": true,
   "accessJwt": "eeeeeeeeeeeee",
   "refreshJwt": "uuuuuuuuuuuuuuuu",
   "didDoc": {

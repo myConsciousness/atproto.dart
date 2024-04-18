@@ -24,6 +24,7 @@ class CurrentSession with _$CurrentSession {
     required String handle,
     String? email,
     @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
+    @Default(false) bool emailAuthFactor,
     Map<String, dynamic>? didDoc,
   }) = _CurrentSession;
 

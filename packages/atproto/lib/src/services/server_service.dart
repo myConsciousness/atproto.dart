@@ -193,12 +193,14 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/updateEmail
   Future<core.XRPCResponse<core.EmptyData>> updateEmail({
     required String email,
+    bool? emailAuthFactor,
     String? token,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
         body: {
           'email': email,
+          'emailAuthFactor': emailAuthFactor,
           'token': token,
         },
       );

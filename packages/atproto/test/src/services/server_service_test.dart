@@ -118,6 +118,7 @@ void main() {
   testServer<core.EmptyData>(
     (m, s) => s.updateEmail(
       email: m.email,
+      emailAuthFactor: true,
       token: m.token,
     ),
     id: comAtprotoServerUpdateEmail,
