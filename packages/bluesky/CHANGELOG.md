@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.15.17
+
+## v0.11.10
+
+- Add `authFactorToken` parameter on `createSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+- Add `emailAuthFactor` property on `Session`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+- Add `emailAuthFactor` property on `CurrentSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+- Add `emailAuthFactor` parameter on `updateEmail`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
+
 ## v0.15.16
 
 - Removed `viewer` parameter from `searchActorsTypeahead`. ([#1407](https://github.com/myConsciousness/atproto.dart/issues/1407))

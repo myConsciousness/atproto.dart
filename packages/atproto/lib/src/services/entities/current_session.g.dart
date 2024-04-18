@@ -18,6 +18,8 @@ _$CurrentSessionImpl _$$CurrentSessionImplFromJson(Map json) => $checkedCreate(
           email: $checkedConvert('email', (v) => v as String?),
           isEmailConfirmed:
               $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
+          emailAuthFactor:
+              $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
           didDoc: $checkedConvert(
               'didDoc',
               (v) => (v as Map?)?.map(
@@ -44,6 +46,7 @@ Map<String, dynamic> _$$CurrentSessionImplToJson(
 
   writeNotNull('email', instance.email);
   val['emailConfirmed'] = instance.isEmailConfirmed;
+  val['emailAuthFactor'] = instance.emailAuthFactor;
   writeNotNull('didDoc', instance.didDoc);
   return val;
 }

@@ -3,6 +3,7 @@
   "handle": "shinyakato.bsky.social",
   "email": "contact@shinyakato.dev",
   "emailConfirmed": true,
+  "emailAuthFactor": true,
   "didDoc": {
     "@context": [
       "https://www.w3.org/ns/did/v1",

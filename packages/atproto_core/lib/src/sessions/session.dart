@@ -36,6 +36,7 @@ class Session with _$Session {
 
     /// A flag indicating whether the email address is confirmed.
     @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
+    @Default(false) bool emailAuthFactor,
 
     /// Access JSON Web Token.
     required String accessJwt,
