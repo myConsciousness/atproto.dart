@@ -9,7 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'behaviors/moderation_cause.dart';
 import 'mod_object.dart';
 
-part 'ui.freezed.dart';
+part 'moderation_ui.freezed.dart';
 
 @modObject
 class ModerationUI with _$ModerationUI {
