@@ -17,10 +17,10 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$ModerationUI {
   bool get noOverride => throw _privateConstructorUsedError;
-  ModerationCause get filters => throw _privateConstructorUsedError;
-  ModerationCause get blurs => throw _privateConstructorUsedError;
-  ModerationCause get alerts => throw _privateConstructorUsedError;
-  ModerationCause get informs => throw _privateConstructorUsedError;
+  List<ModerationCause> get filters => throw _privateConstructorUsedError;
+  List<ModerationCause> get blurs => throw _privateConstructorUsedError;
+  List<ModerationCause> get alerts => throw _privateConstructorUsedError;
+  List<ModerationCause> get informs => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ModerationUICopyWith<ModerationUI> get copyWith =>
@@ -35,15 +35,10 @@ abstract class $ModerationUICopyWith<$Res> {
   @useResult
   $Res call(
       {bool noOverride,
-      ModerationCause filters,
-      ModerationCause blurs,
-      ModerationCause alerts,
-      ModerationCause informs});
-
-  $ModerationCauseCopyWith<$Res> get filters;
-  $ModerationCauseCopyWith<$Res> get blurs;
-  $ModerationCauseCopyWith<$Res> get alerts;
-  $ModerationCauseCopyWith<$Res> get informs;
+      List<ModerationCause> filters,
+      List<ModerationCause> blurs,
+      List<ModerationCause> alerts,
+      List<ModerationCause> informs});
 }
 
 /// @nodoc
@@ -73,52 +68,20 @@ class _$ModerationUICopyWithImpl<$Res, $Val extends ModerationUI>
       filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       blurs: null == blurs
           ? _value.blurs
           : blurs // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       alerts: null == alerts
           ? _value.alerts
           : alerts // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       informs: null == informs
           ? _value.informs
           : informs // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
     ) as $Val);
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCauseCopyWith<$Res> get filters {
-    return $ModerationCauseCopyWith<$Res>(_value.filters, (value) {
-      return _then(_value.copyWith(filters: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCauseCopyWith<$Res> get blurs {
-    return $ModerationCauseCopyWith<$Res>(_value.blurs, (value) {
-      return _then(_value.copyWith(blurs: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCauseCopyWith<$Res> get alerts {
-    return $ModerationCauseCopyWith<$Res>(_value.alerts, (value) {
-      return _then(_value.copyWith(alerts: value) as $Val);
-    });
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $ModerationCauseCopyWith<$Res> get informs {
-    return $ModerationCauseCopyWith<$Res>(_value.informs, (value) {
-      return _then(_value.copyWith(informs: value) as $Val);
-    });
   }
 }
 
@@ -132,19 +95,10 @@ abstract class _$$ModerationUIImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool noOverride,
-      ModerationCause filters,
-      ModerationCause blurs,
-      ModerationCause alerts,
-      ModerationCause informs});
-
-  @override
-  $ModerationCauseCopyWith<$Res> get filters;
-  @override
-  $ModerationCauseCopyWith<$Res> get blurs;
-  @override
-  $ModerationCauseCopyWith<$Res> get alerts;
-  @override
-  $ModerationCauseCopyWith<$Res> get informs;
+      List<ModerationCause> filters,
+      List<ModerationCause> blurs,
+      List<ModerationCause> alerts,
+      List<ModerationCause> informs});
 }
 
 /// @nodoc
@@ -170,21 +124,21 @@ class __$$ModerationUIImplCopyWithImpl<$Res>
           : noOverride // ignore: cast_nullable_to_non_nullable
               as bool,
       filters: null == filters
-          ? _value.filters
+          ? _value._filters
           : filters // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       blurs: null == blurs
-          ? _value.blurs
+          ? _value._blurs
           : blurs // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       alerts: null == alerts
-          ? _value.alerts
+          ? _value._alerts
           : alerts // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
       informs: null == informs
-          ? _value.informs
+          ? _value._informs
           : informs // ignore: cast_nullable_to_non_nullable
-              as ModerationCause,
+              as List<ModerationCause>,
     ));
   }
 }
@@ -194,26 +148,53 @@ class __$$ModerationUIImplCopyWithImpl<$Res>
 class _$ModerationUIImpl implements _ModerationUI {
   const _$ModerationUIImpl(
       {this.noOverride = false,
-      this.filters = const [],
-      this.blurs = const [],
-      this.alerts = const [],
-      this.informs = const []});
+      final List<ModerationCause> filters = const [],
+      final List<ModerationCause> blurs = const [],
+      final List<ModerationCause> alerts = const [],
+      final List<ModerationCause> informs = const []})
+      : _filters = filters,
+        _blurs = blurs,
+        _alerts = alerts,
+        _informs = informs;
 
   @override
   @JsonKey()
   final bool noOverride;
+  final List<ModerationCause> _filters;
   @override
   @JsonKey()
-  final ModerationCause filters;
+  List<ModerationCause> get filters {
+    if (_filters is EqualUnmodifiableListView) return _filters;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_filters);
+  }
+
+  final List<ModerationCause> _blurs;
   @override
   @JsonKey()
-  final ModerationCause blurs;
+  List<ModerationCause> get blurs {
+    if (_blurs is EqualUnmodifiableListView) return _blurs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_blurs);
+  }
+
+  final List<ModerationCause> _alerts;
   @override
   @JsonKey()
-  final ModerationCause alerts;
+  List<ModerationCause> get alerts {
+    if (_alerts is EqualUnmodifiableListView) return _alerts;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_alerts);
+  }
+
+  final List<ModerationCause> _informs;
   @override
   @JsonKey()
-  final ModerationCause informs;
+  List<ModerationCause> get informs {
+    if (_informs is EqualUnmodifiableListView) return _informs;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_informs);
+  }
 
   @override
   String toString() {
@@ -227,15 +208,20 @@ class _$ModerationUIImpl implements _ModerationUI {
             other is _$ModerationUIImpl &&
             (identical(other.noOverride, noOverride) ||
                 other.noOverride == noOverride) &&
-            (identical(other.filters, filters) || other.filters == filters) &&
-            (identical(other.blurs, blurs) || other.blurs == blurs) &&
-            (identical(other.alerts, alerts) || other.alerts == alerts) &&
-            (identical(other.informs, informs) || other.informs == informs));
+            const DeepCollectionEquality().equals(other._filters, _filters) &&
+            const DeepCollectionEquality().equals(other._blurs, _blurs) &&
+            const DeepCollectionEquality().equals(other._alerts, _alerts) &&
+            const DeepCollectionEquality().equals(other._informs, _informs));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, noOverride, filters, blurs, alerts, informs);
+  int get hashCode => Object.hash(
+      runtimeType,
+      noOverride,
+      const DeepCollectionEquality().hash(_filters),
+      const DeepCollectionEquality().hash(_blurs),
+      const DeepCollectionEquality().hash(_alerts),
+      const DeepCollectionEquality().hash(_informs));
 
   @JsonKey(ignore: true)
   @override
@@ -247,21 +233,21 @@ class _$ModerationUIImpl implements _ModerationUI {
 abstract class _ModerationUI implements ModerationUI {
   const factory _ModerationUI(
       {final bool noOverride,
-      final ModerationCause filters,
-      final ModerationCause blurs,
-      final ModerationCause alerts,
-      final ModerationCause informs}) = _$ModerationUIImpl;
+      final List<ModerationCause> filters,
+      final List<ModerationCause> blurs,
+      final List<ModerationCause> alerts,
+      final List<ModerationCause> informs}) = _$ModerationUIImpl;
 
   @override
   bool get noOverride;
   @override
-  ModerationCause get filters;
+  List<ModerationCause> get filters;
   @override
-  ModerationCause get blurs;
+  List<ModerationCause> get blurs;
   @override
-  ModerationCause get alerts;
+  List<ModerationCause> get alerts;
   @override
-  ModerationCause get informs;
+  List<ModerationCause> get informs;
   @override
   @JsonKey(ignore: true)
   _$$ModerationUIImplCopyWith<_$ModerationUIImpl> get copyWith =>

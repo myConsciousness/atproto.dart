@@ -15,9 +15,9 @@ part 'moderation_ui.freezed.dart';
 class ModerationUI with _$ModerationUI {
   const factory ModerationUI({
     @Default(false) bool noOverride,
-    @Default([]) ModerationCause filters,
-    @Default([]) ModerationCause blurs,
-    @Default([]) ModerationCause alerts,
-    @Default([]) ModerationCause informs,
+    @Default([]) List<ModerationCause> filters,
+    @Default([]) List<ModerationCause> blurs,
+    @Default([]) List<ModerationCause> alerts,
+    @Default([]) List<ModerationCause> informs,
   }) = _ModerationUI;
 }

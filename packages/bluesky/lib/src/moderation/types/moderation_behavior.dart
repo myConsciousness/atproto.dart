@@ -12,7 +12,13 @@ enum Behavior {
   blur,
   alert,
   inform,
-  none,
+  none;
+
+  const Behavior();
+
+  bool get isBlur => this == Behavior.blur;
+  bool get isAlert => this == Behavior.alert;
+  bool get isInform => this == Behavior.inform;
 }
 
 abstract class ModerationBehavior {
