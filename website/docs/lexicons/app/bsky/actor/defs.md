@@ -75,7 +75,7 @@ Metadata about the requesting account's relationship with the subject account. O
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref) | - | ❌ | - |
+| **preferences** | array of union<br/>[#adultContentPref](#adultcontentpref)<br/>[#contentLabelPref](#contentlabelpref)<br/>[#savedFeedsPref](#savedfeedspref)<br/>[#savedFeedsPrefV2](#savedfeedsprefv2)<br/>[#personalDetailsPref](#personaldetailspref)<br/>[#feedViewPref](#feedviewpref)<br/>[#threadViewPref](#threadviewpref)<br/>[#interestsPref](#interestspref)<br/>[#mutedWordsPref](#mutedwordspref)<br/>[#hiddenPostsPref](#hiddenpostspref) | - | ❌ | - |
 
 ## #adultContentPref
 
@@ -90,6 +90,21 @@ Metadata about the requesting account's relationship with the subject account. O
 | **labelerDid** | string ([did](https://atproto.com/specs/did)) | - | ❌ | Which labeler does this preference apply to? If undefined, applies globally. |
 | **label** | string | - | ✅ | - |
 | **visibility** | string | ignore<br/>show<br/>warn<br/>hide | ✅ | - |
+
+## #savedFeed
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **id** | string | - | ✅ | - |
+| **type** | string | feed<br/>list<br/>timeline | ✅ | - |
+| **value** | string | - | ✅ | - |
+| **pinned** | boolean | - | ✅ | - |
+
+## #savedFeedsPrefV2
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **items** | array of [app.bsky.actor.defs#savedFeed](../../../../lexicons/app/bsky/actor/defs.md#savedfeed) | - | ✅ | - |
 
 ## #savedFeedsPref
 
