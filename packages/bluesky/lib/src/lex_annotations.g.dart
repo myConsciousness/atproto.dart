@@ -386,6 +386,13 @@ const appBskyActorDefsAdultContentPref =
 const appBskyActorDefsContentLabelPref =
     LexObject(ids.appBskyActorDefsContentLabelPref);
 
+/// `app.bsky.actor.defs#savedFeed`
+const appBskyActorDefsSavedFeed = LexObject(ids.appBskyActorDefsSavedFeed);
+
+/// `app.bsky.actor.defs#savedFeedsPrefV2`
+const appBskyActorDefsSavedFeedsPrefV2 =
+    LexObject(ids.appBskyActorDefsSavedFeedsPrefV2);
+
 /// `app.bsky.actor.defs#savedFeedsPref`
 const appBskyActorDefsSavedFeedsPref =
     LexObject(ids.appBskyActorDefsSavedFeedsPref);
