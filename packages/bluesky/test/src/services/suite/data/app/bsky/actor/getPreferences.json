@@ -51,6 +51,17 @@
       "timelineIndex": 1
     },
     {
+      "$type": "app.bsky.actor.defs#savedFeedsPrefV2",
+      "items": [
+        {
+          "id": "xxxxx",
+          "type": "timeline",
+          "value": "test",
+          "pinned": true
+        }
+      ]
+    },
+    {
       "$type": "app.bsky.actor.defs#personalDetailsPref",
       "birthDate": "2023-05-21T00:48:01.666Z"
     },
