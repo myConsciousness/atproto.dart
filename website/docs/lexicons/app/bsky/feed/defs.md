@@ -47,6 +47,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **root** | union of <br/>[#postView](#postview)<br/>[#notFoundPost](#notfoundpost)<br/>[#blockedPost](#blockedpost) | - | ✅ | - |
 | **parent** | union of <br/>[#postView](#postview)<br/>[#notFoundPost](#notfoundpost)<br/>[#blockedPost](#blockedpost) | - | ✅ | - |
+| **grandparentAuthor** | [app.bsky.actor.defs#profileViewBasic](../../../../lexicons/app/bsky/actor/defs.md#profileviewbasic) | - | ❌ | - |
 
 ## #reasonRepost
 
