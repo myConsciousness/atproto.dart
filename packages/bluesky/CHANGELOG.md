@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.19
+
+- Add `.grandparentAuthor` property on `Reply`. ([#1439](https://github.com/myConsciousness/atproto.dart/issues/1439))
+
 ## v0.15.18
 
 - Add a pattern `SavedFeedsPrefV2` on `Preference`. ([#1420](https://github.com/myConsciousness/atproto.dart/issues/1420))
