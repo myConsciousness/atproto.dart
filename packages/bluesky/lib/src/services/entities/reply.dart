@@ -7,6 +7,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../lex_annotations.g.dart' as lex;
+import 'actor_basic.dart';
 import 'converter/reply_post_converter.dart';
 import 'reply_post.dart';
 
@@ -20,6 +21,7 @@ class Reply with _$Reply {
   const factory Reply({
     @replyPostConverter required ReplyPost root,
     @replyPostConverter required ReplyPost parent,
+    ActorBasic? grandparentAuthor,
   }) = _Reply;
 
   factory Reply.fromJson(Map<String, Object?> json) => _$ReplyFromJson(json);

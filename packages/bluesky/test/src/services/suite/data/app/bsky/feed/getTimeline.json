@@ -160,6 +160,19 @@
             "like": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.feed.like/3jw7a27jlm427"
           },
           "labels": []
+        },
+        "grandparentAuthor": {
+          "did": "did:plc:vpkhqolt662uhesyj6nxm7ys",
+          "handle": "why.bsky.team",
+          "displayName": "Why",
+          "avatar": "https://cdn.bsky.social/imgproxy/TiEvaZ9nv2C-jwJUErgge53gyjzUbuSeyn3EA7NJjHU/rs:fill:1000:1000:1:0/plain/bafkreihxiic7f65slclhzy3aanyvrclotyvatwmd7lct4g4bwfvnzqlexa@jpeg",
+          "viewer": {
+            "muted": false,
+            "blockedBy": false,
+            "following": "at://did:plc:iijrtk7ocored6zuziwmqq3c/app.bsky.graph.follow/3jqccf5hapc2w",
+            "followedBy": "at://did:plc:vpkhqolt662uhesyj6nxm7ys/app.bsky.graph.follow/3jqccc4po4c2j"
+          },
+          "labels": []
         }
       }
     },
