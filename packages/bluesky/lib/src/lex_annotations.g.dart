@@ -375,6 +375,10 @@ const appBskyActorDefsProfileViewDetailed =
 const appBskyActorDefsProfileAssociated =
     LexObject(ids.appBskyActorDefsProfileAssociated);
 
+/// `app.bsky.actor.defs#profileAssociatedChat`
+const appBskyActorDefsProfileAssociatedChat =
+    LexObject(ids.appBskyActorDefsProfileAssociatedChat);
+
 /// `app.bsky.actor.defs#viewerState`
 const appBskyActorDefsViewerState = LexObject(ids.appBskyActorDefsViewerState);
 

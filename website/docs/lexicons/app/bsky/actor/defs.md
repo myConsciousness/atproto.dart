@@ -56,6 +56,13 @@ description: app.bsky.actor.defs
 | **lists** | integer | - | ❌ | - |
 | **feedgens** | integer | - | ❌ | - |
 | **labeler** | boolean | - | ❌ | - |
+| **chat** | [#profileAssociatedChat](#profileassociatedchat) | - | ❌ | - |
+
+## #profileAssociatedChat
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **allowIncoming** | string | all<br/>none<br/>following | ✅ | - |
 
 ## #viewerState
 
