@@ -54,6 +54,10 @@ const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
 const appBskyActorDefsProfileAssociated =
     'app.bsky.actor.defs#profileAssociated';
 
+/// `app.bsky.actor.defs#profileAssociatedChat`
+const appBskyActorDefsProfileAssociatedChat =
+    'app.bsky.actor.defs#profileAssociatedChat';
+
 /// `app.bsky.actor.defs#profileView`
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 
