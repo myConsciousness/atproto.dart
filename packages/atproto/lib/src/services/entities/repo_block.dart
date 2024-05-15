@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'repo_block.freezed.dart';
 part 'repo_block.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getblocks/#output
 @freezed
-@lex.comAtprotoSyncGetBlocks
 class RepoBlock with _$RepoBlock {
   const factory RepoBlock({
     required String cid,

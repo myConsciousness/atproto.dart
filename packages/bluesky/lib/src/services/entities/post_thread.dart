@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'converter/post_thread_view_converter.dart';
 import 'post_thread_view.dart';
 
@@ -15,7 +14,6 @@ part 'post_thread.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getpostthread/#output
 @freezed
-@lex.appBskyFeedGetPostThread
 class PostThread with _$PostThread {
   const factory PostThread({
     @postThreadViewConverter required PostThreadView thread,

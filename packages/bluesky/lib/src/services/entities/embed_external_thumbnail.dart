@@ -9,15 +9,11 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'embed_external_thumbnail.freezed.dart';
 part 'embed_external_thumbnail.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#viewexternal
 @freezed
-@lex.appBskyEmbedExternalExternal
 class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
   @jsonSerializable
   const factory EmbedExternalThumbnail({

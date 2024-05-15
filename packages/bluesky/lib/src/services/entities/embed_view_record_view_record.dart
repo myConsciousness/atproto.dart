@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
@@ -23,7 +22,6 @@ part 'embed_view_record_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
-@lex.appBskyEmbedRecordViewRecord
 class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({

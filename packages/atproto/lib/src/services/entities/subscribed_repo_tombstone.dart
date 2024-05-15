@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'subscribed_repo_tombstone.freezed.dart';
 part 'subscribed_repo_tombstone.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
-@lex.comAtprotoSyncSubscribeReposTombstone
 class SubscribedRepoTombstone with _$SubscribedRepoTombstone {
   const factory SubscribedRepoTombstone({
     required String did,

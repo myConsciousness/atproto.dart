@@ -7,15 +7,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'skeleton_actor.freezed.dart';
 part 'skeleton_actor.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
-@lex.appBskyUnspeccedDefsSkeletonSearchActor
 class SkeletonActor with _$SkeletonActor {
   const factory SkeletonActor({
     required String did,

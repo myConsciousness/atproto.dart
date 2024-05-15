@@ -104,17 +104,7 @@ sealed class Bluesky {
 
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
-  @Deprecated('Use .actor instead. Will be removed')
-  ActorService get actors;
-
-  /// Returns the actor service.
-  /// This service represents `app.bsky.actor.*`.
   ActorService get actor;
-
-  /// Returns the feed service.
-  /// This service represents `app.bsky.feed.*`.
-  @Deprecated('Use .feed instead. Will be removed')
-  FeedService get feeds;
 
   /// Returns the feed service.
   /// This service represents `app.bsky.feed.*`.
@@ -122,17 +112,7 @@ sealed class Bluesky {
 
   /// Returns the notification service.
   /// This service represents `app.bsky.notification.*`.
-  @Deprecated('Use .notification instead. Will be removed')
-  NotificationService get notifications;
-
-  /// Returns the notification service.
-  /// This service represents `app.bsky.notification.*`.
   NotificationService get notification;
-
-  /// Returns the graph service.
-  /// This service represents `app.bsky.graph.*`.
-  @Deprecated('Use .graph instead. Will be removed')
-  GraphService get graphs;
 
   /// Returns the graph service.
   /// This service represents `app.bsky.graph.*`.
@@ -148,26 +128,11 @@ sealed class Bluesky {
 
   /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
-  @Deprecated('Use .server instead. Will be removed')
-  atp.ServerService get servers;
-
-  /// Returns the server service.
-  /// This service represents `com.atproto.server.*`.
   atp.ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
-  @Deprecated('Use .identity instead. Will be removed')
-  atp.IdentityService get identities;
-
-  /// Returns the identity service.
-  /// This service represents `com.atproto.identity.*`.
   atp.IdentityService get identity;
-
-  /// Returns the repo service.
-  /// This service represents `com.atproto.repo.*`.
-  @Deprecated('Use .repo instead. Will be removed')
-  atp.RepoService get repositories;
 
   /// Returns the repo service.
   /// This service represents `com.atproto.repo.*`.
@@ -180,11 +145,6 @@ sealed class Bluesky {
   /// Returns the sync service.
   /// This service represents `com.atproto.sync.*`.
   atp.SyncService get sync;
-
-  /// Returns the label service.
-  /// This service represents `com.atproto.label.*`.
-  @Deprecated('Use .repo label. Will be removed')
-  atp.LabelService get labels;
 
   /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
@@ -266,25 +226,13 @@ final class _Bluesky implements Bluesky {
   final ActorService actor;
 
   @override
-  ActorService get actors => actor;
-
-  @override
   final FeedService feed;
-
-  @override
-  FeedService get feeds => feed;
 
   @override
   final NotificationService notification;
 
   @override
-  NotificationService get notifications => notification;
-
-  @override
   final GraphService graph;
-
-  @override
-  GraphService get graphs => graph;
 
   @override
   final UnspeccedService unspecced;
@@ -296,19 +244,10 @@ final class _Bluesky implements Bluesky {
   final atp.ServerService server;
 
   @override
-  atp.ServerService get servers => server;
-
-  @override
   final atp.IdentityService identity;
 
   @override
-  atp.IdentityService get identities => identity;
-
-  @override
   final atp.RepoService repo;
-
-  @override
-  atp.RepoService get repositories => repo;
 
   @override
   final atp.ModerationService moderation;
@@ -320,12 +259,9 @@ final class _Bluesky implements Bluesky {
   final atp.LabelService label;
 
   @override
-  atp.LabelService get labels => label;
-
-  @override
   final atp.TempService temp;
 
-  final core.ServiceContext _ctx;
+  final BlueskyServiceContext _ctx;
 
   @override
   Future<core.XRPCResponse<T>> get<T>(

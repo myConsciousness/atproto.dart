@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'converter/embed_view_record_view_converter.dart';
 import 'embed_view_record_view.dart';
 
@@ -19,7 +18,6 @@ part 'embed_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-@lex.appBskyEmbedRecordView
 class EmbedViewRecord with _$EmbedViewRecord {
   const factory EmbedViewRecord({
     @typeKey @Default(appBskyEmbedRecordView) String type,

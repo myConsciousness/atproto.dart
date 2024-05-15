@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 
 part 'like.freezed.dart';
@@ -14,7 +13,6 @@ part 'like.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getlikes/#like
 @freezed
-@lex.appBskyFeedGetLikesLike
 class Like with _$Like {
   const factory Like({
     required Actor actor,

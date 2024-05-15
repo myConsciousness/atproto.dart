@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 import 'defaults.dart';
 import 'facet.dart';
@@ -22,7 +21,6 @@ part 'feed_generator_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorview
 @freezed
-@lex.appBskyFeedDefsGeneratorView
 class FeedGeneratorView with _$FeedGeneratorView {
   @jsonSerializable
   const factory FeedGeneratorView({

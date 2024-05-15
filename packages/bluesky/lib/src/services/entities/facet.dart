@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'byte_slice.dart';
 import 'converter/facet_feature_converter.dart';
 import 'facet_feature.dart';
@@ -20,7 +19,6 @@ part 'facet.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-@lex.appBskyRichtextFacet
 class Facet with _$Facet {
   @jsonSerializable
   const factory Facet({

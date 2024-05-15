@@ -12,7 +12,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 import 'labeler_policies.dart';
 import 'labeler_viewer_state.dart';
@@ -22,7 +21,6 @@ part 'labeler_view_detailed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs/#labelerviewdetailed
 @freezed
-@lex.appBskyLabelerDefsLabelerViewDetailed
 class LabelerViewDetailed with _$LabelerViewDetailed {
   @jsonSerializable
   const factory LabelerViewDetailed({

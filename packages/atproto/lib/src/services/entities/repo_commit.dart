@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'repo_commit.freezed.dart';
 part 'repo_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getrepo/#output
 @freezed
-@lex.comAtprotoSyncGetRepo
 class RepoCommit with _$RepoCommit {
   const factory RepoCommit({
     required String cid,

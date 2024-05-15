@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'feed_interaction.freezed.dart';
 part 'feed_interaction.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#interaction
 @freezed
-@lex.appBskyFeedDefsInteraction
 class FeedInteraction with _$FeedInteraction {
   @jsonSerializable
   const factory FeedInteraction({

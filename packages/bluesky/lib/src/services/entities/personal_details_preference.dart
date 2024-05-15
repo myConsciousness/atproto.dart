@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'personal_details_preference.freezed.dart';
 part 'personal_details_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#personaldetailspref
 @freezed
-@lex.appBskyActorDefsPersonalDetailsPref
 class PersonalDetailsPreference with _$PersonalDetailsPreference {
   @jsonSerializable
   const factory PersonalDetailsPreference({

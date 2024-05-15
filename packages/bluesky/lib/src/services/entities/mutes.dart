@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 
 part 'mutes.freezed.dart';
@@ -14,7 +13,6 @@ part 'mutes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getmutes/#output
 @freezed
-@lex.appBskyGraphGetMutes
 class Mutes with _$Mutes {
   const factory Mutes({
     required List<Actor> mutes,

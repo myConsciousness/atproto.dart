@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'muted_word.dart';
 
 part 'muted_words_pref.freezed.dart';
@@ -16,7 +15,6 @@ part 'muted_words_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#mutedWordsPref
 @freezed
-@lex.appBskyActorDefsMutedWordsPref
 class MutedWordsPref with _$MutedWordsPref {
   const factory MutedWordsPref({
     @typeKey @Default(appBskyActorDefsMutedWordsPref) String type,

@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';
 import 'converter/post_record_converter.dart';
@@ -26,7 +25,6 @@ part 'post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
-@lex.appBskyFeedDefsPostView
 class Post with _$Post {
   // ignore: unused_element
   const Post._();

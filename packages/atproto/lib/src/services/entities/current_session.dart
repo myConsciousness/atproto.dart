@@ -8,15 +8,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'current_session.freezed.dart';
 part 'current_session.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#output
 @freezed
-@lex.comAtprotoServerGetSession
 class CurrentSession with _$CurrentSession {
   @jsonSerializable
   const factory CurrentSession({

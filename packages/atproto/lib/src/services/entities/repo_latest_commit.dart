@@ -7,15 +7,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'repo_latest_commit.freezed.dart';
 part 'repo_latest_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getlatestcommit/#output
 @freezed
-@lex.comAtprotoSyncGetLatestCommit
 class RepoLatestCommit with _$RepoLatestCommit {
   const factory RepoLatestCommit({
     required String cid,

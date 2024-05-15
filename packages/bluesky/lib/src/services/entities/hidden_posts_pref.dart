@@ -8,14 +8,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'hidden_posts_pref.freezed.dart';
 part 'hidden_posts_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#hiddenPostsPref
 @freezed
-@lex.appBskyActorDefsHiddenPostsPref
 class HiddenPostsPref with _$HiddenPostsPref {
   const factory HiddenPostsPref({
     @typeKey @Default(appBskyActorDefsHiddenPostsPref) String type,
