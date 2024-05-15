@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'facet_link.freezed.dart';
 part 'facet_link.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
-@lex.appBskyRichtextFacetLink
 class FacetLink with _$FacetLink {
   const factory FacetLink({
     @typeKey @Default(appBskyRichtextFacetLink) String type,

@@ -8,8 +8,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'list_view.dart';
 
 part 'lists.freezed.dart';
@@ -17,7 +15,6 @@ part 'lists.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlists/#output
 @freezed
-@lex.appBskyGraphGetLists
 class Lists with _$Lists {
   // ignore: unused_element
   const Lists._();

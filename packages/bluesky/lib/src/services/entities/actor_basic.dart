@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 import 'actor_viewer.dart';
 import 'defaults.dart';
@@ -21,7 +20,6 @@ part 'actor_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileviewbasic
 @freezed
-@lex.appBskyActorDefsProfileViewBasic
 class ActorBasic with _$ActorBasic {
   // ignore: unused_element
   const ActorBasic._();

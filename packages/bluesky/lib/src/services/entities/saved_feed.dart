@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'saved_feed.freezed.dart';
 part 'saved_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeed
 @freezed
-@lex.appBskyActorDefsSavedFeed
 class SavedFeed with _$SavedFeed {
   const factory SavedFeed({
     required String id,

@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'list_item.dart';
 import 'list_view.dart';
 
@@ -17,7 +16,6 @@ part 'list_items.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getlist/#output
 @freezed
-@lex.appBskyGraphGetList
 class ListItems with _$ListItems {
   const factory ListItems({
     required ListView list,

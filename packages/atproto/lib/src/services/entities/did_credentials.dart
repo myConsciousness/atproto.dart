@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'did_credentials.freezed.dart';
 part 'did_credentials.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/GetRecommendedDidCredentials#output
 @freezed
-@lex.comAtprotoIdentityGetRecommendedDidCredentials
 class DidCredentials with _$DidCredentials {
   const factory DidCredentials({
     List<String>? rotationKeys,

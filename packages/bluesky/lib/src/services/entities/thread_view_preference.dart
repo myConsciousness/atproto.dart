@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'thread_view_preference.freezed.dart';
 part 'thread_view_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#threadviewpref
 @freezed
-@lex.appBskyActorDefsThreadViewPref
 class ThreadViewPreference with _$ThreadViewPreference {
   @jsonSerializable
   const factory ThreadViewPreference({

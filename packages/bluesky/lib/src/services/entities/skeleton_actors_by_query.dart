@@ -7,8 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'skeleton_actor.dart';
 
 part 'skeleton_actors_by_query.freezed.dart';
@@ -16,7 +14,6 @@ part 'skeleton_actors_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchactorsskeleton/#output
 @freezed
-@lex.appBskyUnspeccedSearchActorsSkeleton
 class SkeletonActorsByQuery with _$SkeletonActorsByQuery {
   const factory SkeletonActorsByQuery({
     required List<SkeletonActor> actors,

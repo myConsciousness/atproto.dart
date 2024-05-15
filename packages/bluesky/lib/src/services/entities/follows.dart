@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 
 part 'follows.freezed.dart';
@@ -16,7 +15,6 @@ part 'follows.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getfollows/#output
 @freezed
-@lex.appBskyGraphGetFollows
 class Follows with _$Follows {
   const factory Follows({
     required Actor subject,

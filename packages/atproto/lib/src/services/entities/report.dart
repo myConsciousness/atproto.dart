@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import '../constants/moderation_reason_type.dart';
 import 'converter/report_subject_converter.dart';
 import 'report_subject.dart';
@@ -16,7 +15,6 @@ part 'report.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createreport/#output
 @freezed
-@lex.comAtprotoModerationCreateReport
 class Report with _$Report {
   const factory Report({
     required int id,

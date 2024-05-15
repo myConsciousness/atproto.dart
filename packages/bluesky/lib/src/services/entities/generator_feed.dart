@@ -8,15 +8,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'generator_feed.freezed.dart';
 part 'generator_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describefeedgenerator/#links
 @freezed
-@lex.appBskyFeedDescribeFeedGeneratorFeed
 class GeneratorFeed with _$GeneratorFeed {
   @jsonSerializable
   const factory GeneratorFeed({

@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'signing_key.freezed.dart';
 part 'signing_key.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/reservesigningkey/#output
 @freezed
-@lex.comAtprotoServerReserveSigningKey
 class SigningKey with _$SigningKey {
   const factory SigningKey({
     required String signingKey,

@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'saved_feeds_preference.freezed.dart';
 part 'saved_feeds_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#savedfeedspref
 @freezed
-@lex.appBskyActorDefsSavedFeedsPref
 class SavedFeedsPreference with _$SavedFeedsPreference {
   @jsonSerializable
   const factory SavedFeedsPreference({

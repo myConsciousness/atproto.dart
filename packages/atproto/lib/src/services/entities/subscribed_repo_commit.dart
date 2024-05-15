@@ -8,8 +8,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'repo_op.dart';
 
 part 'subscribed_repo_commit.freezed.dart';
@@ -17,7 +15,6 @@ part 'subscribed_repo_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
-@lex.comAtprotoSyncSubscribeReposCommit
 class SubscribedRepoCommit with _$SubscribedRepoCommit {
   @jsonSerializable
   const factory SubscribedRepoCommit({

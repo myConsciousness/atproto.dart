@@ -8,14 +8,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'self_label.freezed.dart';
 part 'self_label.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
-@lex.comAtprotoLabelDefsSelfLabel
 class SelfLabel with _$SelfLabel {
   const factory SelfLabel({
     @typeKey @Default(comAtprotoLabelDefsSelfLabel) String type,

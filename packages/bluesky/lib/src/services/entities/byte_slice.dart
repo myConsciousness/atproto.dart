@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'byte_slice.freezed.dart';
 part 'byte_slice.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet/#byteslice
 @freezed
-@lex.appBskyRichtextFacetByteSlice
 class ByteSlice with _$ByteSlice {
   const factory ByteSlice({
     required int byteStart,

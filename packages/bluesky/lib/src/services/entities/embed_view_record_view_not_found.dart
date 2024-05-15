@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'embed_view_record_view_not_found.freezed.dart';
 part 'embed_view_record_view_not_found.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
-@lex.appBskyEmbedRecordViewNotFound
 class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
   const factory EmbedViewRecordViewNotFound({
     @typeKey @Default(appBskyEmbedRecordViewNotFound) String type,
