@@ -99,9 +99,6 @@ sealed class BlueskyChat {
   /// Defaults to `bsky.network`.
   String get relayService;
 
-  /// Returns the atproto client.
-  atp.ATProto get atproto;
-
   /// Returns the actor service.
   /// This service represents `chat.bsky.actor.*`.
   ActorService get actor;
@@ -130,9 +127,6 @@ final class _BlueskyChat implements BlueskyChat {
 
   @override
   String get relayService => _ctx.relayService;
-
-  @override
-  atp.ATProto get atproto => _ctx.atproto;
 
   @override
   final ActorService actor;

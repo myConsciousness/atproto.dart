@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-       - 'packages/*/lib/**'
-       - 'packages/*/test/**'
-       - 'packages/*/pubspec.yaml'
+      - "packages/*/lib/**"
+      - "packages/*/test/**"
+      - "packages/*/pubspec.yaml"
   schedule:
     - cron: "0 10 * * *"
 
@@ -34,6 +34,7 @@ jobs:
           - packages/did_plc
           - packages/atproto
           - packages/bluesky
+          - packages/bluesky_chat
           - packages/bluesky_text
 
     steps:

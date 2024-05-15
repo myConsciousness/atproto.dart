@@ -14,9 +14,9 @@ part 'profile_view_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/defs/#profileviewbasic
 @freezed
-class ProfileViewBasic with _$ProfileViewBasic {
+class ActorProfileViewBasic with _$ActorProfileViewBasic {
   @jsonSerializable
-  const factory ProfileViewBasic({
+  const factory ActorProfileViewBasic({
     required String did,
     required String handle,
     String? displayName,
@@ -25,8 +25,8 @@ class ProfileViewBasic with _$ProfileViewBasic {
     @Default(ActorViewer()) ActorViewer viewer,
     List<Label>? labels,
     @Default(false) bool chatDisabled,
-  }) = _ProfileViewBasic;
+  }) = _ActorProfileViewBasic;
 
-  factory ProfileViewBasic.fromJson(Map<String, Object?> json) =>
-      _$ProfileViewBasicFromJson(json);
+  factory ActorProfileViewBasic.fromJson(Map<String, Object?> json) =>
+      _$ActorProfileViewBasicFromJson(json);
 }

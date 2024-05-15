@@ -5,6 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:bluesky/bluesky.dart';
 
 final class BlueskyChatServiceContext extends core.ServiceContext {
   BlueskyChatServiceContext({
@@ -37,4 +38,10 @@ final class BlueskyChatServiceContext extends core.ServiceContext {
       data: to != null ? to.call(record.data.value) : record.data.value as T,
     );
   }
+
+  AtUri self(final String methodId) => core.AtUri.make(
+        'alice',
+        methodId,
+        'self',
+      );
 }

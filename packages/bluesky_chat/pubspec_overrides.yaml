@@ -15,5 +15,7 @@ dependency_overrides:
     path: ../atproto_core
   atproto:
     path: ../atproto
+  bluesky:
+    path: ../bluesky
   bluesky_text:
     path: ../bluesky_text
