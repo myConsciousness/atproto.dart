@@ -11,7 +11,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'defaults.dart';
 import 'list_viewer.dart';
 
@@ -20,7 +19,6 @@ part 'list_view_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs/#listviewbasic
 @freezed
-@lex.appBskyGraphDefsListViewBasic
 class ListViewBasic with _$ListViewBasic {
   // ignore: unused_element
   const ListViewBasic._();

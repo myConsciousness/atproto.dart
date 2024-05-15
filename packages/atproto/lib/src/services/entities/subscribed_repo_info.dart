@@ -6,15 +6,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'subscribed_repo_info.freezed.dart';
 part 'subscribed_repo_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#info
 @freezed
-@lex.comAtprotoSyncSubscribeReposInfo
 class SubscribedRepoInfo with _$SubscribedRepoInfo {
   @jsonSerializable
   const factory SubscribedRepoInfo({

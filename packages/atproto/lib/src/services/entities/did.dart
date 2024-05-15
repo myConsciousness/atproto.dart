@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'did.freezed.dart';
 part 'did.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#output
 @freezed
-@lex.comAtprotoIdentityResolveHandle
 class DID with _$DID {
   const factory DID({
     required String did,

@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import '../constants/content_label_visibility.dart';
 
 part 'content_label_preference.freezed.dart';
@@ -18,7 +17,6 @@ part 'content_label_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#contentlabelpref
 @freezed
-@lex.appBskyActorDefsContentLabelPref
 class ContentLabelPreference with _$ContentLabelPreference {
   @jsonSerializable
   const factory ContentLabelPreference({

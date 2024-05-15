@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'converter/nsid_converter.dart';
 
 part 'create_action.freezed.dart';
@@ -18,7 +17,6 @@ part 'create_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
-@lex.comAtprotoRepoApplyWritesCreate
 class CreateAction with _$CreateAction {
   @jsonSerializable
   const factory CreateAction({

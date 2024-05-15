@@ -10,7 +10,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import '../constants/notification_reason.dart';
 import 'actor.dart';
 
@@ -21,7 +20,6 @@ part 'notification.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#notification
 @freezed
-@lex.appBskyNotificationListNotificationsNotification
 class Notification with _$Notification {
   @jsonSerializable
   const factory Notification({

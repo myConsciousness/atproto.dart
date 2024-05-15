@@ -8,8 +8,6 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'strong_ref.dart';
 
 part 'record.freezed.dart';
@@ -17,7 +15,6 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listrecords/#record
 @freezed
-@lex.comAtprotoRepoListRecordsRecord
 class Record with _$Record {
   // ignore: unused_element
   const Record._();

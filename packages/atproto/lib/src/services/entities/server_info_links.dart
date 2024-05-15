@@ -6,15 +6,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'server_info_links.freezed.dart';
 part 'server_info_links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeserver/#links
 @freezed
-@lex.comAtprotoServerDescribeServerLinks
 class ServerInfoLinks with _$ServerInfoLinks {
   @jsonSerializable
   const factory ServerInfoLinks({

@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'label_value_definition_strings.dart';
 
 part 'label_value_definition.freezed.dart';
@@ -17,7 +16,6 @@ part 'label_value_definition.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs/#labelvaluedefinition
 @freezed
-@lex.comAtprotoLabelDefsLabelValueDefinition
 class LabelValueDefinition with _$LabelValueDefinition {
   @jsonSerializable
   const factory LabelValueDefinition({

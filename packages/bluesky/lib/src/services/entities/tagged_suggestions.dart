@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'tagged_suggestion.dart';
 
 part 'tagged_suggestions.freezed.dart';
@@ -17,7 +16,6 @@ part 'tagged_suggestions.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
 @freezed
-@lex.appBskyUnspeccedGetTaggedSuggestions
 class TaggedSuggestions with _$TaggedSuggestions {
   @jsonSerializable
   const factory TaggedSuggestions({

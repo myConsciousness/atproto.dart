@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 
 part 'list_item.freezed.dart';
@@ -17,7 +16,6 @@ part 'list_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
-@lex.appBskyGraphDefsListItemView
 class ListItem with _$ListItem {
   const factory ListItem({
     @atUriConverter required AtUri uri,

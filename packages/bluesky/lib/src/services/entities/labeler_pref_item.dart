@@ -8,14 +8,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'labeler_pref_item.freezed.dart';
 part 'labeler_pref_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#labelerprefitem
 @freezed
-@lex.appBskyActorDefsLabelerPrefItem
 class LabelerPrefItem with _$LabelerPrefItem {
   const factory LabelerPrefItem({
     @typeKey @Default(appBskyActorDefsLabelerPrefItem) String type,

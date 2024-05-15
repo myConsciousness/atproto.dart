@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'facet_mention.freezed.dart';
 part 'facet_mention.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
-@lex.appBskyRichtextFacetMention
 class FacetMention with _$FacetMention {
   const factory FacetMention({
     @typeKey @Default(appBskyRichtextFacetMention) String type,

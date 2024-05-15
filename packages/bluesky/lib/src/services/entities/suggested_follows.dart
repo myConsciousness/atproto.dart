@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'actor.dart';
 
 part 'suggested_follows.freezed.dart';
@@ -16,7 +15,6 @@ part 'suggested_follows.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getsuggestedfollowsbyactor/#output
 @freezed
-@lex.appBskyGraphGetSuggestedFollowsByActor
 class SuggestedFollows with _$SuggestedFollows {
   const factory SuggestedFollows({
     required List<Actor> suggestions,

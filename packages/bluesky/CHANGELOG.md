@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.15.20
+
+- Removed `lex_annotation`.
+- Removed deprecated properties on `Bluesky` object.
+
 ## v0.15.19
 
 - Add `.grandparentAuthor` property on `Reply`. ([#1439](https://github.com/myConsciousness/atproto.dart/issues/1439))

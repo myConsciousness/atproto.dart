@@ -9,14 +9,12 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 
 part 'feed_generator_viewer.freezed.dart';
 part 'feed_generator_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#generatorviewerstate
 @freezed
-@lex.appBskyFeedDefsGeneratorViewerState
 class FeedGeneratorViewer with _$FeedGeneratorViewer {
   @jsonSerializable
   const factory FeedGeneratorViewer({

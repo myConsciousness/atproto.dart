@@ -82,26 +82,11 @@ sealed class ATProto {
 
   /// Returns the servers service.
   /// This service represents `com.atproto.server.*`.
-  @Deprecated('Use .server instead. Will be removed')
-  ServerService get servers;
-
-  /// Returns the servers service.
-  /// This service represents `com.atproto.server.*`.
   ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
-  @Deprecated('Use .identity instead. Will be removed')
-  IdentityService get identities;
-
-  /// Returns the identity service.
-  /// This service represents `com.atproto.identity.*`.
   IdentityService get identity;
-
-  /// Returns the repositories service.
-  /// This service represents `com.atproto.repo.*`.
-  @Deprecated('Use .repo instead. Will be removed')
-  RepoService get repositories;
 
   /// Returns the repositories service.
   /// This service represents `com.atproto.repo.*`.
@@ -114,11 +99,6 @@ sealed class ATProto {
   /// Returns the sync service.
   /// This service represents `com.atproto.sync.*`.
   SyncService get sync;
-
-  /// Returns the labels service.
-  /// This service represents `com.atproto.label.*`.
-  @Deprecated('Use .label instead. Will be removed')
-  LabelService get labels;
 
   /// Returns the labels service.
   /// This service represents `com.atproto.label.*`.
@@ -194,19 +174,10 @@ final class _ATProto implements ATProto {
   final ServerService server;
 
   @override
-  ServerService get servers => server;
-
-  @override
   final IdentityService identity;
 
   @override
-  IdentityService get identities => identity;
-
-  @override
   final RepoService repo;
-
-  @override
-  RepoService get repositories => repo;
 
   @override
   final ModerationService moderation;
@@ -216,9 +187,6 @@ final class _ATProto implements ATProto {
 
   @override
   final LabelService label;
-
-  @override
-  LabelService get labels => label;
 
   @override
   final TempService temp;

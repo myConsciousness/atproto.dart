@@ -8,15 +8,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'record_blob.freezed.dart';
 part 'record_blob.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listmissingblobs/#recordblob
 @freezed
-@lex.comAtprotoRepoListMissingBlobsRecordBlob
 class RecordBlob with _$RecordBlob {
   @jsonSerializable
   const factory RecordBlob({

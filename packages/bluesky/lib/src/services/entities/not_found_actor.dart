@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'not_found_actor.freezed.dart';
 part 'not_found_actor.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
-@lex.appBskyGraphDefsNotFoundActor
 class NotFoundActor with _$NotFoundActor {
   const factory NotFoundActor({
     @typeKey @Default(appBskyGraphDefsNotFoundActor) String type,

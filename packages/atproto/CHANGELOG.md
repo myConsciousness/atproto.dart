@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.11.11
+
+- Removed `lex_annotation`.
+- Removed deprecated properties on `ATProto` object.
+
 ## v0.11.10
 
 - Add `authFactorToken` parameter on `createSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))

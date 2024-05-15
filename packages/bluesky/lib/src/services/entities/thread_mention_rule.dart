@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'thread_mention_rule.freezed.dart';
 part 'thread_mention_rule.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate/#mentionrule
 @freezed
-@lex.appBskyFeedThreadgateMentionRule
 class ThreadMentionRule with _$ThreadMentionRule {
   @jsonSerializable
   const factory ThreadMentionRule({

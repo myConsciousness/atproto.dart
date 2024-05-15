@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'not_found_post.freezed.dart';
 part 'not_found_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#notfoundpost
 @freezed
-@lex.appBskyFeedDefsNotFoundPost
 class NotFoundPost with _$NotFoundPost {
   const factory NotFoundPost({
     @typeKey @Default(appBskyFeedDefsNotFoundPost) String type,

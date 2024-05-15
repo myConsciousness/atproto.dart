@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'adult_content_preference.freezed.dart';
 part 'adult_content_preference.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#adultcontentpref
 @freezed
-@lex.appBskyActorDefsAdultContentPref
 class AdultContentPreference with _$AdultContentPreference {
   @jsonSerializable
   const factory AdultContentPreference({

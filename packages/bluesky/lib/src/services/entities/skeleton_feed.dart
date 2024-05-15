@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'skeleton_feed_view.dart';
 
 part 'skeleton_feed.freezed.dart';
@@ -17,7 +16,6 @@ part 'skeleton_feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/gettimelineskeleton/#output
 @freezed
-@lex.appBskyFeedGetFeedSkeleton
 class SkeletonFeed with _$SkeletonFeed {
   @jsonSerializable
   const factory SkeletonFeed({
