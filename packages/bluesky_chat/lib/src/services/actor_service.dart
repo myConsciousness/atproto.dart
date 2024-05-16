@@ -22,8 +22,8 @@ final class ActorService {
   Future<core.XRPCResponse<atp.StrongRef>> declaration({
     required ActorDeclarationAllowIncoming allowIncoming,
   }) async =>
-      await _ctx.atproto.repo.putRecord(
-        uri: _ctx.self(ids.chatBskyActorDeclaration),
+      await _ctx.atproto.repo.createRecord(
+        collection: ns.chatBskyActorDeclaration,
         record: {
           'allowIncoming': allowIncoming.value,
         },
