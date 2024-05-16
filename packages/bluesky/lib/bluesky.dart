@@ -335,6 +335,7 @@ export 'package:bluesky/src/services/entities/muted_word_target.dart';
 export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/entities/muted_words_pref.dart';
 export 'package:bluesky/src/services/entities/profile_associated.dart';
+export 'package:bluesky/src/services/entities/profile_associated_chat.dart';
 export 'package:bluesky/src/services/entities/labeler_policies.dart';
 export 'package:bluesky/src/services/entities/labeler_service_view.dart'
     hide labelerServiceViewConverter;
@@ -348,6 +349,8 @@ export 'package:bluesky/src/services/entities/labelers_pref.dart';
 export 'package:bluesky/src/services/entities/labeler_pref_item.dart';
 export 'package:bluesky/src/services/entities/feed_interaction.dart';
 export 'package:bluesky/src/services/entities/suggestions_skeleton.dart';
+export 'package:bluesky/src/services/entities/saved_feed.dart';
+export 'package:bluesky/src/services/entities/saved_feeds_pref_v2.dart';
 export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';

@@ -40,12 +40,6 @@ jobs:
       - name: Generate Lexicon IDs
         run: dart run ./bin/generate_lexicon_ids.dart
 
-      - name: Generate Lex Annotations
-        run: dart run ./bin/generate_lex_annotations.dart
-
-      - name: Generate Lexicon Matrix
-        run: dart run ./bin/generate_lexicon_matrix.dart
-
       - name: Generate Lexicon Matrix
         run: dart run ./bin/generate_lexicon_matrix.dart
 

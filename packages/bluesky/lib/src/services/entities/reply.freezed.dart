@@ -24,6 +24,7 @@ mixin _$Reply {
   ReplyPost get root => throw _privateConstructorUsedError;
   @replyPostConverter
   ReplyPost get parent => throw _privateConstructorUsedError;
+  ActorBasic? get grandparentAuthor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,10 +38,12 @@ abstract class $ReplyCopyWith<$Res> {
   @useResult
   $Res call(
       {@replyPostConverter ReplyPost root,
-      @replyPostConverter ReplyPost parent});
+      @replyPostConverter ReplyPost parent,
+      ActorBasic? grandparentAuthor});
 
   $ReplyPostCopyWith<$Res> get root;
   $ReplyPostCopyWith<$Res> get parent;
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
 }
 
 /// @nodoc
@@ -58,6 +61,7 @@ class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
   $Res call({
     Object? root = null,
     Object? parent = null,
+    Object? grandparentAuthor = freezed,
   }) {
     return _then(_value.copyWith(
       root: null == root
@@ -68,6 +72,10 @@ class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as ReplyPost,
+      grandparentAuthor: freezed == grandparentAuthor
+          ? _value.grandparentAuthor
+          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
+              as ActorBasic?,
     ) as $Val);
   }
 
@@ -86,6 +94,18 @@ class _$ReplyCopyWithImpl<$Res, $Val extends Reply>
       return _then(_value.copyWith(parent: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor {
+    if (_value.grandparentAuthor == null) {
+      return null;
+    }
+
+    return $ActorBasicCopyWith<$Res>(_value.grandparentAuthor!, (value) {
+      return _then(_value.copyWith(grandparentAuthor: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -97,12 +117,15 @@ abstract class _$$ReplyImplCopyWith<$Res> implements $ReplyCopyWith<$Res> {
   @useResult
   $Res call(
       {@replyPostConverter ReplyPost root,
-      @replyPostConverter ReplyPost parent});
+      @replyPostConverter ReplyPost parent,
+      ActorBasic? grandparentAuthor});
 
   @override
   $ReplyPostCopyWith<$Res> get root;
   @override
   $ReplyPostCopyWith<$Res> get parent;
+  @override
+  $ActorBasicCopyWith<$Res>? get grandparentAuthor;
 }
 
 /// @nodoc
@@ -118,6 +141,7 @@ class __$$ReplyImplCopyWithImpl<$Res>
   $Res call({
     Object? root = null,
     Object? parent = null,
+    Object? grandparentAuthor = freezed,
   }) {
     return _then(_$ReplyImpl(
       root: null == root
@@ -128,6 +152,10 @@ class __$$ReplyImplCopyWithImpl<$Res>
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
               as ReplyPost,
+      grandparentAuthor: freezed == grandparentAuthor
+          ? _value.grandparentAuthor
+          : grandparentAuthor // ignore: cast_nullable_to_non_nullable
+              as ActorBasic?,
     ));
   }
 }
@@ -137,7 +165,8 @@ class __$$ReplyImplCopyWithImpl<$Res>
 class _$ReplyImpl implements _Reply {
   const _$ReplyImpl(
       {@replyPostConverter required this.root,
-      @replyPostConverter required this.parent});
+      @replyPostConverter required this.parent,
+      this.grandparentAuthor});
 
   factory _$ReplyImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReplyImplFromJson(json);
@@ -148,10 +177,12 @@ class _$ReplyImpl implements _Reply {
   @override
   @replyPostConverter
   final ReplyPost parent;
+  @override
+  final ActorBasic? grandparentAuthor;
 
   @override
   String toString() {
-    return 'Reply(root: $root, parent: $parent)';
+    return 'Reply(root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor)';
   }
 
   @override
@@ -160,12 +191,14 @@ class _$ReplyImpl implements _Reply {
         (other.runtimeType == runtimeType &&
             other is _$ReplyImpl &&
             (identical(other.root, root) || other.root == root) &&
-            (identical(other.parent, parent) || other.parent == parent));
+            (identical(other.parent, parent) || other.parent == parent) &&
+            (identical(other.grandparentAuthor, grandparentAuthor) ||
+                other.grandparentAuthor == grandparentAuthor));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, root, parent);
+  int get hashCode => Object.hash(runtimeType, root, parent, grandparentAuthor);
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +217,8 @@ class _$ReplyImpl implements _Reply {
 abstract class _Reply implements Reply {
   const factory _Reply(
       {@replyPostConverter required final ReplyPost root,
-      @replyPostConverter required final ReplyPost parent}) = _$ReplyImpl;
+      @replyPostConverter required final ReplyPost parent,
+      final ActorBasic? grandparentAuthor}) = _$ReplyImpl;
 
   factory _Reply.fromJson(Map<String, dynamic> json) = _$ReplyImpl.fromJson;
 
@@ -194,6 +228,8 @@ abstract class _Reply implements Reply {
   @override
   @replyPostConverter
   ReplyPost get parent;
+  @override
+  ActorBasic? get grandparentAuthor;
   @override
   @JsonKey(ignore: true)
   _$$ReplyImplCopyWith<_$ReplyImpl> get copyWith =>

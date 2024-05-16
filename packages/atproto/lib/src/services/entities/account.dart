@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'account.freezed.dart';
 part 'account.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createaccount/#output
 @freezed
-@lex.comAtprotoServerCreateAccount
 class Account with _$Account {
   const factory Account({
     required String accessJwt,

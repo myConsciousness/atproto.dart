@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#reporef
 @freezed
-@lex.comAtprotoAdminDefsRepoRef
 class RepoRef with _$RepoRef {
   const factory RepoRef({
     @typeKey @Default(comAtprotoAdminDefsRepoRef) String type,

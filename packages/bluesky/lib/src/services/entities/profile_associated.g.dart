@@ -19,6 +19,12 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
           lists: $checkedConvert('lists', (v) => v as int? ?? 0),
           feedgens: $checkedConvert('feedgens', (v) => v as int? ?? 0),
           labeler: $checkedConvert('labeler', (v) => v as bool? ?? false),
+          chat: $checkedConvert(
+              'chat',
+              (v) => v == null
+                  ? null
+                  : ActorProfileAssociatedChat.fromJson(
+                      Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -26,10 +32,20 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ProfileAssociatedImplToJson(
-        _$ProfileAssociatedImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.type,
-      'lists': instance.lists,
-      'feedgens': instance.feedgens,
-      'labeler': instance.labeler,
-    };
+    _$ProfileAssociatedImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.type,
+    'lists': instance.lists,
+    'feedgens': instance.feedgens,
+    'labeler': instance.labeler,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('chat', instance.chat?.toJson());
+  return val;
+}

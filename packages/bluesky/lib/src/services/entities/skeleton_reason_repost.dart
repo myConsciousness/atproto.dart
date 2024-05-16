@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'skeleton_reason_repost.freezed.dart';
 part 'skeleton_reason_repost.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#skeletonreasonrepost
 @freezed
-@lex.appBskyFeedDefsSkeletonReasonRepost
 class SkeletonReasonRepost with _$SkeletonReasonRepost {
   const factory SkeletonReasonRepost({
     @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,

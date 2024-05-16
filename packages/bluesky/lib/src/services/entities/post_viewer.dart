@@ -8,15 +8,11 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'post_viewer.freezed.dart';
 part 'post_viewer.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#viewerstate
 @freezed
-@lex.appBskyFeedDefsViewerState
 class PostViewer with _$PostViewer {
   // ignore: unused_element
   const PostViewer._();

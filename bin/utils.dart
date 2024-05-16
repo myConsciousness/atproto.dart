@@ -26,6 +26,8 @@ const moderationDefinitionsPath =
 const lexiconsRoot = [
   'com/atproto',
   'app/bsky',
+  'chat/bsky',
+  'tools/ozone',
 ];
 
 final officialRepositorySlug = RepositorySlug(

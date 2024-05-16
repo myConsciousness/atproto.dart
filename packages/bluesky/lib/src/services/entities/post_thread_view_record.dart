@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'converter/post_thread_view_converter.dart';
 import 'post.dart';
 import 'post_thread_view.dart';
@@ -20,7 +19,6 @@ part 'post_thread_view_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-@lex.appBskyFeedDefsThreadViewPost
 class PostThreadViewRecord with _$PostThreadViewRecord {
   const factory PostThreadViewRecord({
     @typeKey @Default(appBskyFeedDefsThreadViewPost) String type,

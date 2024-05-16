@@ -8,7 +8,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'skeleton_post.dart';
 
 part 'skeleton_posts_by_query.freezed.dart';
@@ -16,7 +15,6 @@ part 'skeleton_posts_by_query.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchpostsskeleton/#output
 @freezed
-@lex.appBskyUnspeccedSearchPostsSkeleton
 class SkeletonPostsByQuery with _$SkeletonPostsByQuery {
   const factory SkeletonPostsByQuery({
     required List<SkeletonPost> posts,

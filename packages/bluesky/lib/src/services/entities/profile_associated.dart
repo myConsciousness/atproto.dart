@@ -10,14 +10,13 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
+import 'profile_associated_chat.dart';
 
 part 'profile_associated.freezed.dart';
 part 'profile_associated.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs/#profileassociated
 @freezed
-@lex.appBskyActorDefsProfileAssociated
 class ProfileAssociated with _$ProfileAssociated {
   @jsonSerializable
   const factory ProfileAssociated({
@@ -25,6 +24,7 @@ class ProfileAssociated with _$ProfileAssociated {
     @Default(0) int lists,
     @Default(0) int feedgens,
     @Default(false) bool labeler,
+    ActorProfileAssociatedChat? chat,
   }) = _ProfileAssociated;
 
   factory ProfileAssociated.fromJson(Map<String, Object?> json) =>

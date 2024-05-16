@@ -1,8 +1,25 @@
 # Release Note
 
-## v0.15.17
+## v0.15.21
 
-## v0.11.10
+- Add `.chat` property on `ProfileAssociated` object. ([#1448](https://github.com/myConsciousness/atproto.dart/issues/1448))
+
+## v0.15.20
+
+- Removed `lex_annotation`.
+- Removed deprecated properties on `Bluesky` object.
+
+## v0.15.19
+
+- Add `.grandparentAuthor` property on `Reply`. ([#1439](https://github.com/myConsciousness/atproto.dart/issues/1439))
+
+## v0.15.18
+
+- Add a pattern `SavedFeedsPrefV2` on `Preference`. ([#1420](https://github.com/myConsciousness/atproto.dart/issues/1420))
+  - `SavedFeedsPrefV2`
+  - `SavedFeed`
+
+## v0.15.17
 
 - Add `authFactorToken` parameter on `createSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
 - Add `emailAuthFactor` property on `Session`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))

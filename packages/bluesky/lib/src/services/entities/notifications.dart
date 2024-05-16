@@ -6,7 +6,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart';
 import '../utils/group_by.dart';
 import '../utils/notification_reason_filter.dart';
 import '../utils/notifications_grouper.dart';
@@ -20,7 +19,6 @@ final _grouper = const NotificationsGrouper();
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listnotifications/#output
 @freezed
-@appBskyNotificationListNotifications
 class Notifications with _$Notifications {
   // ignore: unused_element
   const Notifications._();

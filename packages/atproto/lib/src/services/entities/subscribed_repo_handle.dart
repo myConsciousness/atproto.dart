@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'subscribed_repo_handle.freezed.dart';
 part 'subscribed_repo_handle.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
-@lex.comAtprotoSyncSubscribeReposHandle
 class SubscribedRepoHandle with _$SubscribedRepoHandle {
   const factory SubscribedRepoHandle({
     required String did,

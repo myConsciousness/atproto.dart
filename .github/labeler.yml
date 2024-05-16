@@ -29,46 +29,12 @@ bluesky_text:
 - packages/bluesky_text/**/*
 bluesky:
 - packages/bluesky/**/*
+bluesky_chat:
+- packages/bluesky_chat/**/*
 bluesky_cli:
 - packages/bluesky_cli/**/*
 bluesky_cards:
 - packages/bluesky_cards/**/*
-
-atproto/lexicon/accounts:
-- packages/atproto/lib/src/accounts/*.dart
-atproto/lexicon/admin:
-- packages/atproto/lib/src/admin/*.dart
-atproto/lexicon/blob:
-- packages/atproto/lib/src/blob/*.dart
-atproto/lexicon/identities:
-- packages/atproto/lib/src/identities/*.dart
-atproto/lexicon/repositories:
-- packages/atproto/lib/src/repositories/*.dart
-atproto/lexicon/moderation:
-- packages/atproto/lib/src/moderation/*.dart
-atproto/lexicon/servers:
-- packages/atproto/lib/src/servers/*.dart
-atproto/lexicon/sessions:
-- packages/atproto/lib/src/sessions/*.dart
-atproto/lexicon/sync:
-- packages/atproto/lib/src/sync/*.dart
-atproto/lexicon/labels:
-- packages/atproto/lib/src/labels/*.dart
-
-bsky/lexicon/actors:
-- packages/bluesky/lib/src/actors/*.dart
-bsky/lexicon/feeds:
-- packages/bluesky/lib/src/feeds/*.dart
-bsky/lexicon/embed:
-- packages/bluesky/lib/src/embed/*.dart
-bsky/lexicon/graphs:
-- packages/bluesky/lib/src/graphs/*.dart
-bsky/lexicon/notifications:
-- packages/bluesky/lib/src/notifications/*.dart
-bsky/lexicon/systems:
-- packages/bluesky/lib/src/systems/*.dart
-bsky/lexicon/unspecced:
-- packages/bluesky/lib/src/unspecced/*.dart
 
 test:
 - packages/at_identifier/test/**/*.dart
@@ -84,6 +50,7 @@ test:
 - packages/atproto/test/**/*.dart
 - packages/bluesky_text/test/**/*.dart
 - packages/bluesky/test/**/*.dart
+- packages/bluesky_chat/test/**/*.dart
 - packages/bluesky_cli/test/**/*.dart
 - packages/bluesky_cards/test/**/*.dart
 
@@ -114,6 +81,8 @@ documentation:
 - packages/bluesky_text/README.md
 - packages/bluesky/CHANGELOG.md
 - packages/bluesky/README.md
+- packages/bluesky_chat/CHANGELOG.md
+- packages/bluesky_chat/README.md
 - packages/bluesky_cli/CHANGELOG.md
 - packages/bluesky_cli/README.md
 - packages/bluesky_cards/CHANGELOG.md

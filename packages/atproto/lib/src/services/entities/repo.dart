@@ -7,15 +7,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listrepos/#repo
 @freezed
-@lex.comAtprotoSyncListReposRepo
 class Repo with _$Repo {
   const factory Repo({
     required String did,

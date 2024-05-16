@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'actor_viewer.dart';
 import 'defaults.dart';
 
@@ -19,7 +18,6 @@ part 'blocked_author.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#blockedauthor
 @freezed
-@lex.appBskyFeedDefsBlockedAuthor
 class BlockedAuthor with _$BlockedAuthor {
   const factory BlockedAuthor({
     @typeKey @Default(appBskyFeedDefsBlockedAuthor) String type,

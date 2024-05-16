@@ -8,14 +8,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'strong_ref.freezed.dart';
 part 'strong_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
 @freezed
-@lex.comAtprotoRepoStrongRef
 class StrongRef with _$StrongRef {
   const factory StrongRef({
     @typeKey @Default(comAtprotoRepoStrongRef) String type,

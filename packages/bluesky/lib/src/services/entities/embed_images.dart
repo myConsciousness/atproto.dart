@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'image.dart';
 
 part 'embed_images.freezed.dart';
@@ -18,7 +17,6 @@ part 'embed_images.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images/#main
 @freezed
-@lex.appBskyEmbedImages
 class EmbedImages with _$EmbedImages {
   const factory EmbedImages({
     @typeKey @Default(appBskyEmbedImages) String type,

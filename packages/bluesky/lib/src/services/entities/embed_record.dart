@@ -11,14 +11,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'embed_record.freezed.dart';
 part 'embed_record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
-@lex.appBskyEmbedRecord
 class EmbedRecord with _$EmbedRecord {
   const factory EmbedRecord({
     @typeKey @Default(appBskyEmbedRecord) String type,

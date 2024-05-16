@@ -17,6 +17,11 @@ _$ReplyImpl _$$ReplyImplFromJson(Map json) => $checkedCreate(
               (v) => replyPostConverter.fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert('parent',
               (v) => replyPostConverter.fromJson(v as Map<String, dynamic>)),
+          grandparentAuthor: $checkedConvert(
+              'grandparentAuthor',
+              (v) => v == null
+                  ? null
+                  : ActorBasic.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
@@ -26,4 +31,5 @@ Map<String, dynamic> _$$ReplyImplToJson(_$ReplyImpl instance) =>
     <String, dynamic>{
       'root': replyPostConverter.toJson(instance.root),
       'parent': replyPostConverter.toJson(instance.parent),
+      'grandparentAuthor': instance.grandparentAuthor?.toJson(),
     };

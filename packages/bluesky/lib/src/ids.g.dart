@@ -54,6 +54,10 @@ const appBskyActorDefsPreferences = 'app.bsky.actor.defs#preferences';
 const appBskyActorDefsProfileAssociated =
     'app.bsky.actor.defs#profileAssociated';
 
+/// `app.bsky.actor.defs#profileAssociatedChat`
+const appBskyActorDefsProfileAssociatedChat =
+    'app.bsky.actor.defs#profileAssociatedChat';
+
 /// `app.bsky.actor.defs#profileView`
 const appBskyActorDefsProfileView = 'app.bsky.actor.defs#profileView';
 
@@ -64,8 +68,14 @@ const appBskyActorDefsProfileViewBasic = 'app.bsky.actor.defs#profileViewBasic';
 const appBskyActorDefsProfileViewDetailed =
     'app.bsky.actor.defs#profileViewDetailed';
 
+/// `app.bsky.actor.defs#savedFeed`
+const appBskyActorDefsSavedFeed = 'app.bsky.actor.defs#savedFeed';
+
 /// `app.bsky.actor.defs#savedFeedsPref`
 const appBskyActorDefsSavedFeedsPref = 'app.bsky.actor.defs#savedFeedsPref';
+
+/// `app.bsky.actor.defs#savedFeedsPrefV2`
+const appBskyActorDefsSavedFeedsPrefV2 = 'app.bsky.actor.defs#savedFeedsPrefV2';
 
 /// `app.bsky.actor.defs#threadViewPref`
 const appBskyActorDefsThreadViewPref = 'app.bsky.actor.defs#threadViewPref';

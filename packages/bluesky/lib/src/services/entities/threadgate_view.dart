@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'list_view_basic.dart';
 import 'threadgate_record.dart';
 
@@ -19,7 +18,6 @@ part 'threadgate_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs/#threadgateview
 @freezed
-@lex.appBskyFeedDefsThreadgateView
 class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
   const factory ThreadgateView({

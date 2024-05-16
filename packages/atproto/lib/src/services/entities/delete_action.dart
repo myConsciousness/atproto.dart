@@ -10,14 +10,12 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 
 part 'delete_action.freezed.dart';
 part 'delete_action.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
-@lex.comAtprotoRepoApplyWritesDelete
 class DeleteAction with _$DeleteAction {
   @jsonSerializable
   const factory DeleteAction({

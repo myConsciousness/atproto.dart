@@ -9,7 +9,6 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'feed_view.dart';
 
 part 'feed.freezed.dart';
@@ -17,7 +16,6 @@ part 'feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getauthorfeed/#output
 @freezed
-@lex.appBskyFeedGetAuthorFeed
 class Feed with _$Feed {
   @jsonSerializable
   const factory Feed({

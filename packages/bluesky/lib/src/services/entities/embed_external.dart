@@ -10,7 +10,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
-import '../../lex_annotations.g.dart' as lex;
 import 'embed_external_thumbnail.dart';
 
 part 'embed_external.freezed.dart';
@@ -18,7 +17,6 @@ part 'embed_external.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external/#main
 @freezed
-@lex.appBskyEmbedExternal
 class EmbedExternal with _$EmbedExternal {
   const factory EmbedExternal({
     @typeKey @Default(appBskyEmbedExternal) String type,

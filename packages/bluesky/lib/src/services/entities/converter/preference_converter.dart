@@ -17,6 +17,7 @@ import '../labelers_pref.dart';
 import '../muted_words_pref.dart';
 import '../personal_details_preference.dart';
 import '../preference.dart';
+import '../saved_feeds_pref_v2.dart';
 import '../saved_feeds_preference.dart';
 import '../thread_view_preference.dart';
 
@@ -42,6 +43,10 @@ final class _PreferenceConverter
       } else if (type == ids.appBskyActorDefsSavedFeedsPref) {
         return Preference.savedFeeds(
           data: SavedFeedsPreference.fromJson(json),
+        );
+      } else if (type == ids.appBskyActorDefsSavedFeedsPrefV2) {
+        return Preference.savedFeedsV2(
+          data: SavedFeedsPrefV2.fromJson(json),
         );
       } else if (type == ids.appBskyActorDefsPersonalDetailsPref) {
         return Preference.personalDetails(
@@ -84,6 +89,7 @@ final class _PreferenceConverter
         adultContent: (data) => data.toJson(),
         contentLabel: (data) => data.toJson(),
         savedFeeds: (data) => data.toJson(),
+        savedFeedsV2: (data) => data.toJson(),
         personalDetails: (data) => data.toJson(),
         feedView: (data) => data.toJson(),
         threadView: (data) => data.toJson(),

@@ -10,6 +10,7 @@ import 'utils.dart';
 const packages = [
   'atproto',
   'bluesky',
+  'bluesky_chat',
 ];
 
 final _header = getFileHeader('Lexicon IDs Generator');
@@ -32,7 +33,7 @@ void main() {
       ..writeln("import '$_idsFileName' as ids;");
 
     for (final field in fields) {
-      if (!field.value.contains(_toServiceName(package))) {
+      if (!field.value.startsWith(_toServiceName(package))) {
         continue;
       }
 
@@ -122,8 +123,10 @@ class Field {
 
 String _toServiceName(final String package) {
   if (package == 'bluesky') {
-    return 'bsky';
+    return 'app.bsky';
+  } else if (package == 'bluesky_chat') {
+    return 'chat.bsky';
   }
 
-  return 'atproto';
+  return 'com.atproto';
 }

@@ -7,8 +7,6 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
 import 'invite_code_use.dart';
 
 part 'invite_code.freezed.dart';
@@ -16,7 +14,6 @@ part 'invite_code.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs/#invitecode
 @freezed
-@lex.comAtprotoServerDefsInviteCode
 class InviteCode with _$InviteCode {
   const factory InviteCode({
     required String code,

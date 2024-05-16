@@ -5,15 +5,11 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../lex_annotations.g.dart' as lex;
-
 part 'signup_queue.freezed.dart';
 part 'signup_queue.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue/#output
 @freezed
-@lex.comAtprotoTempCheckSignupQueue
 class SignupQueue with _$SignupQueue {
   const factory SignupQueue({
     required bool activated,
