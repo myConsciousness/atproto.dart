@@ -10,6 +10,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../ids.g.dart';
+import 'profile_associated_chat.dart';
 
 part 'profile_associated.freezed.dart';
 part 'profile_associated.g.dart';
@@ -23,6 +24,7 @@ class ProfileAssociated with _$ProfileAssociated {
     @Default(0) int lists,
     @Default(0) int feedgens,
     @Default(false) bool labeler,
+    ActorProfileAssociatedChat? chat,
   }) = _ProfileAssociated;
 
   factory ProfileAssociated.fromJson(Map<String, Object?> json) =>
