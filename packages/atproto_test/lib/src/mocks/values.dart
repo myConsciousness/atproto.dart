@@ -37,4 +37,7 @@ final class MockValues {
   String get cursor => 'cursor';
 
   Uint8List get blob => Uint8List.fromList(const []);
+
+  String get convoId => 'xxxxxx';
+  String get messageId => 'yyyyyy';
 }

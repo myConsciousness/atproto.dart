@@ -1,0 +1,20 @@
+{
+  "day": {
+    "messagesSent": 1,
+    "messagesReceived": 1,
+    "convos": 2,
+    "convosStarted": 10
+  },
+  "month": {
+    "messagesSent": 1,
+    "messagesReceived": 1,
+    "convos": 2,
+    "convosStarted": 10
+  },
+  "all": {
+    "messagesSent": 1,
+    "messagesReceived": 1,
+    "convos": 2,
+    "convosStarted": 10
+  }
+}

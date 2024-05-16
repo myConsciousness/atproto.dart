@@ -42,6 +42,7 @@ void main(List<String> args) {
   <String, Map<String, List<LexiconDoc>>>{
     'atproto': _only(services, authority: 'com.atproto'),
     'bluesky': _only(services, authority: 'app.bsky'),
+    'bluesky_chat': _only(services, authority: 'chat.bsky'),
   }.forEach((package, services) {
     matrix
       ..writeln()
