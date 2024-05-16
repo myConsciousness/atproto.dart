@@ -92,11 +92,11 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       ));
 
-  ActorService _getConvoService(
+  ConvoService _getConvoService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ActorService(BlueskyChatServiceContext(
+      ConvoService(BlueskyChatServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,
@@ -105,11 +105,11 @@ final class _ServiceRunner extends atp_test.ServiceRunner {
         mockedPostClient: mockedPostClient,
       ));
 
-  ActorService _getModerationService(
+  ModerationService _getModerationService(
     final core.GetClient? mockedGetClient,
     final core.PostClient? mockedPostClient,
   ) =>
-      ActorService(BlueskyChatServiceContext(
+      ModerationService(BlueskyChatServiceContext(
         atproto: _getAtproto(
           mockedGetClient,
           mockedPostClient,

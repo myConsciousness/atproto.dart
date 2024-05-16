@@ -1,0 +1,14 @@
+{
+  "items": [
+    {
+      "$type": "chat.bsky.convo.defs#messageView",
+      "id": "1234",
+      "rev": "0",
+      "text": "Hi",
+      "sender": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+      },
+      "sentAt": "2023-05-21T00:48:01.666Z"
+    }
+  ]
+}

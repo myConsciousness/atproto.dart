@@ -22,8 +22,8 @@ void main() {
     id: chatBskyActorDeleteAccount,
   );
 
-  testActor<core.EmptyData>(
-    (m, s) => s.exportAccountData(),
-    id: chatBskyActorExportAccountData,
-  );
+  // testActor<core.EmptyData>(
+  //   (m, s) => s.exportAccountData(),
+  //   id: chatBskyActorExportAccountData,
+  // );
 }

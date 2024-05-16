@@ -1,0 +1,44 @@
+{
+  "logs": [
+    {
+      "$type": "chat.bsky.convo.defs#logBeginConvo",
+      "rev": "0",
+      "convoId": "1234"
+    },
+    {
+      "$type": "chat.bsky.convo.defs#logLeaveConvo",
+      "rev": "0",
+      "convoId": "1234"
+    },
+    {
+      "$type": "chat.bsky.convo.defs#logCreateMessage",
+      "rev": "0",
+      "convoId": "1234",
+      "message": {
+        "$type": "chat.bsky.convo.defs#messageView",
+        "id": "1234",
+        "rev": "0",
+        "text": "Hi",
+        "sender": {
+          "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+        },
+        "sentAt": "2023-05-21T00:48:01.666Z"
+      }
+    },
+    {
+      "$type": "chat.bsky.convo.defs#logDeleteMessage",
+      "rev": "0",
+      "convoId": "1234",
+      "message": {
+        "$type": "chat.bsky.convo.defs#deletedMessageView",
+        "id": "1234",
+        "rev": "0",
+        "sender": {
+          "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+        },
+        "sentAt": "2023-05-21T00:48:01.666Z"
+      }
+    }
+  ],
+  "cursor": "1684199144738::bafyreigegkxuusjnbik5gxaux75lhhjw2zqvlavi6oz7rdubo2jr24y4gm"
+}

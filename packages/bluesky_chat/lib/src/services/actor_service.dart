@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../ids.g.dart' as ids;
 import '../nsids.g.dart' as ns;
 import 'service_context.dart';
 import 'types/actor/declaration/allow_incoming.dart';
@@ -33,7 +32,7 @@ final class ActorService {
   Future<core.XRPCResponse<core.EmptyData>> deleteAccount() async =>
       await _ctx.post(ns.chatBskyActorDeleteAccount);
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
-  Future<core.XRPCResponse<core.EmptyData>> exportAccountData() async =>
-      await _ctx.get(ns.chatBskyActorExportAccountData);
+  // /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
+  // Future<core.XRPCResponse<core.EmptyData>> exportAccountData() async =>
+  //     await _ctx.get(ns.chatBskyActorExportAccountData);
 }
