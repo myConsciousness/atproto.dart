@@ -10,4 +10,14 @@ enum ActorDeclarationAllowIncoming {
   String get value => name;
 
   const ActorDeclarationAllowIncoming();
+
+  static ActorDeclarationAllowIncoming? valueOf(final String value) {
+    for (final $value in values) {
+      if ($value.value == value) {
+        return $value;
+      }
+    }
+
+    return null;
+  }
 }

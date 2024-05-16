@@ -72,7 +72,9 @@ export 'package:bluesky/bluesky.dart'
         ByteSlice,
         $ByteSliceCopyWith,
         ProfileAssociated,
-        $ProfileAssociatedCopyWith;
+        $ProfileAssociatedCopyWith,
+        ActorProfileAssociatedChat,
+        $ActorProfileAssociatedChatCopyWith;
 
 export 'package:bluesky_chat/src/bluesky_chat.dart';
 

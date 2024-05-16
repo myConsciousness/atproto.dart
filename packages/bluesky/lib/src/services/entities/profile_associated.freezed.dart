@@ -25,6 +25,7 @@ mixin _$ProfileAssociated {
   int get lists => throw _privateConstructorUsedError;
   int get feedgens => throw _privateConstructorUsedError;
   bool get labeler => throw _privateConstructorUsedError;
+  ActorProfileAssociatedChat? get chat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,14 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
           ProfileAssociated value, $Res Function(ProfileAssociated) then) =
       _$ProfileAssociatedCopyWithImpl<$Res, ProfileAssociated>;
   @useResult
-  $Res call({@typeKey String type, int lists, int feedgens, bool labeler});
+  $Res call(
+      {@typeKey String type,
+      int lists,
+      int feedgens,
+      bool labeler,
+      ActorProfileAssociatedChat? chat});
+
+  $ActorProfileAssociatedChatCopyWith<$Res>? get chat;
 }
 
 /// @nodoc
@@ -58,6 +66,7 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
     Object? lists = null,
     Object? feedgens = null,
     Object? labeler = null,
+    Object? chat = freezed,
   }) {
     return _then(_value.copyWith(
       type: null == type
@@ -76,7 +85,23 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
           ? _value.labeler
           : labeler // ignore: cast_nullable_to_non_nullable
               as bool,
+      chat: freezed == chat
+          ? _value.chat
+          : chat // ignore: cast_nullable_to_non_nullable
+              as ActorProfileAssociatedChat?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ActorProfileAssociatedChatCopyWith<$Res>? get chat {
+    if (_value.chat == null) {
+      return null;
+    }
+
+    return $ActorProfileAssociatedChatCopyWith<$Res>(_value.chat!, (value) {
+      return _then(_value.copyWith(chat: value) as $Val);
+    });
   }
 }
 
@@ -88,7 +113,15 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
       __$$ProfileAssociatedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, int lists, int feedgens, bool labeler});
+  $Res call(
+      {@typeKey String type,
+      int lists,
+      int feedgens,
+      bool labeler,
+      ActorProfileAssociatedChat? chat});
+
+  @override
+  $ActorProfileAssociatedChatCopyWith<$Res>? get chat;
 }
 
 /// @nodoc
@@ -106,6 +139,7 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
     Object? lists = null,
     Object? feedgens = null,
     Object? labeler = null,
+    Object? chat = freezed,
   }) {
     return _then(_$ProfileAssociatedImpl(
       type: null == type
@@ -124,6 +158,10 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
           ? _value.labeler
           : labeler // ignore: cast_nullable_to_non_nullable
               as bool,
+      chat: freezed == chat
+          ? _value.chat
+          : chat // ignore: cast_nullable_to_non_nullable
+              as ActorProfileAssociatedChat?,
     ));
   }
 }
@@ -136,7 +174,8 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
       {@typeKey this.type = appBskyActorDefsProfileAssociated,
       this.lists = 0,
       this.feedgens = 0,
-      this.labeler = false});
+      this.labeler = false,
+      this.chat});
 
   factory _$ProfileAssociatedImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedImplFromJson(json);
@@ -153,10 +192,12 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
   @override
   @JsonKey()
   final bool labeler;
+  @override
+  final ActorProfileAssociatedChat? chat;
 
   @override
   String toString() {
-    return 'ProfileAssociated(type: $type, lists: $lists, feedgens: $feedgens, labeler: $labeler)';
+    return 'ProfileAssociated(type: $type, lists: $lists, feedgens: $feedgens, labeler: $labeler, chat: $chat)';
   }
 
   @override
@@ -168,12 +209,14 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
             (identical(other.lists, lists) || other.lists == lists) &&
             (identical(other.feedgens, feedgens) ||
                 other.feedgens == feedgens) &&
-            (identical(other.labeler, labeler) || other.labeler == labeler));
+            (identical(other.labeler, labeler) || other.labeler == labeler) &&
+            (identical(other.chat, chat) || other.chat == chat));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, type, lists, feedgens, labeler);
+  int get hashCode =>
+      Object.hash(runtimeType, type, lists, feedgens, labeler, chat);
 
   @JsonKey(ignore: true)
   @override
@@ -195,7 +238,8 @@ abstract class _ProfileAssociated implements ProfileAssociated {
       {@typeKey final String type,
       final int lists,
       final int feedgens,
-      final bool labeler}) = _$ProfileAssociatedImpl;
+      final bool labeler,
+      final ActorProfileAssociatedChat? chat}) = _$ProfileAssociatedImpl;
 
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedImpl.fromJson;
@@ -209,6 +253,8 @@ abstract class _ProfileAssociated implements ProfileAssociated {
   int get feedgens;
   @override
   bool get labeler;
+  @override
+  ActorProfileAssociatedChat? get chat;
   @override
   @JsonKey(ignore: true)
   _$$ProfileAssociatedImplCopyWith<_$ProfileAssociatedImpl> get copyWith =>

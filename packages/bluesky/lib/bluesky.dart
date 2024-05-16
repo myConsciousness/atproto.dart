@@ -335,6 +335,7 @@ export 'package:bluesky/src/services/entities/muted_word_target.dart';
 export 'package:bluesky/src/services/entities/hidden_posts_pref.dart';
 export 'package:bluesky/src/services/entities/muted_words_pref.dart';
 export 'package:bluesky/src/services/entities/profile_associated.dart';
+export 'package:bluesky/src/services/entities/profile_associated_chat.dart';
 export 'package:bluesky/src/services/entities/labeler_policies.dart';
 export 'package:bluesky/src/services/entities/labeler_service_view.dart'
     hide labelerServiceViewConverter;

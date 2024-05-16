@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.21
+
+- Add `.chat` property on `ProfileAssociated` object. ([#1448](https://github.com/myConsciousness/atproto.dart/issues/1448))
+
 ## v0.15.20
 
 - Removed `lex_annotation`.
