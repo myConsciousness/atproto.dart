@@ -2,96 +2,65 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-const blockBehavior = _BlockBehavior();
-const muteBehavior = _MuteBehavior();
-const muteWordBehavior = _MuteWordBehavior();
-const hideBehavior = _HideBehavior();
-const noopBehavior = _NoopBehavior();
-
-enum Behavior {
+enum ModerationBehaviorValue {
   blur,
   alert,
   inform,
   none;
 
-  const Behavior();
+  const ModerationBehaviorValue();
 
-  bool get isBlur => this == Behavior.blur;
-  bool get isAlert => this == Behavior.alert;
-  bool get isInform => this == Behavior.inform;
+  bool get isBlur => this == ModerationBehaviorValue.blur;
+  bool get isAlert => this == ModerationBehaviorValue.alert;
+  bool get isInform => this == ModerationBehaviorValue.inform;
 }
 
-abstract class ModerationBehavior {
-  const ModerationBehavior();
+const kBlockBehavior = {
+  'profileList': ModerationBehaviorValue.blur,
+  'profileView': ModerationBehaviorValue.alert,
+  'avatar': ModerationBehaviorValue.blur,
+  'banner': ModerationBehaviorValue.blur,
+  'contentList': ModerationBehaviorValue.blur,
+  'contentView': ModerationBehaviorValue.blur,
+};
 
-  Behavior get profileList => Behavior.none;
-  Behavior get profileView => Behavior.none;
-  Behavior get avatar => Behavior.none;
-  Behavior get banner => Behavior.none;
-  Behavior get displayName => Behavior.none;
-  Behavior get contentList => Behavior.none;
-  Behavior get contentView => Behavior.none;
-  Behavior get contentMedia => Behavior.none;
-}
+const kMuteBehavior = {
+  'profileList': ModerationBehaviorValue.inform,
+  'profileView': ModerationBehaviorValue.alert,
+  'contentList': ModerationBehaviorValue.blur,
+  'contentView': ModerationBehaviorValue.inform,
+};
 
-final class _BlockBehavior extends ModerationBehavior {
-  const _BlockBehavior();
+const kMuteWordBehavior = {
+  'contentList': ModerationBehaviorValue.blur,
+  'contentView': ModerationBehaviorValue.blur,
+};
 
-  @override
-  Behavior get profileList => Behavior.blur;
+const kHideBehavior = {
+  'contentList': ModerationBehaviorValue.blur,
+  'contentView': ModerationBehaviorValue.blur,
+};
 
-  @override
-  Behavior get profileView => Behavior.alert;
+const kNoopBehavior = {};
 
-  @override
-  Behavior get avatar => Behavior.blur;
+enum ModerationBehaviorKey {
+  profileList,
+  profileView,
+  avatar,
+  banner,
+  displayName,
+  contentList,
+  contentView,
+  contentMedia;
 
-  @override
-  Behavior get banner => Behavior.blur;
+  const ModerationBehaviorKey();
 
-  @override
-  Behavior get contentList => Behavior.blur;
-
-  @override
-  Behavior get contentView => Behavior.blur;
-}
-
-final class _MuteBehavior extends ModerationBehavior {
-  const _MuteBehavior();
-
-  @override
-  Behavior get profileList => Behavior.inform;
-
-  @override
-  Behavior get profileView => Behavior.alert;
-
-  @override
-  Behavior get contentList => Behavior.blur;
-
-  @override
-  Behavior get contentView => Behavior.inform;
-}
-
-final class _MuteWordBehavior extends ModerationBehavior {
-  const _MuteWordBehavior();
-
-  @override
-  Behavior get contentList => Behavior.blur;
-
-  @override
-  Behavior get contentView => Behavior.blur;
-}
-
-final class _HideBehavior extends ModerationBehavior {
-  const _HideBehavior();
-
-  @override
-  Behavior get contentList => Behavior.blur;
-
-  @override
-  Behavior get contentView => Behavior.blur;
-}
-
-final class _NoopBehavior extends ModerationBehavior {
-  const _NoopBehavior();
+  bool get isProfileList => this == ModerationBehaviorKey.profileList;
+  bool get isProfileView => this == ModerationBehaviorKey.profileView;
+  bool get isAvatar => this == ModerationBehaviorKey.avatar;
+  bool get isBanner => this == ModerationBehaviorKey.banner;
+  bool get isDisplayName => this == ModerationBehaviorKey.displayName;
+  bool get isContentList => this == ModerationBehaviorKey.contentList;
+  bool get isContentView => this == ModerationBehaviorKey.contentView;
+  bool get isContentMedia => this == ModerationBehaviorKey.contentMedia;
 }

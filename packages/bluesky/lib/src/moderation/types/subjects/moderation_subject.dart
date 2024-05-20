@@ -3,10 +3,10 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'moderation_subject_post.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../entities/moderation_subject_post.dart';
 import '../mod_object.dart';
 import 'moderation_subject_feed_generator.dart';
 import 'moderation_subject_notification.dart';

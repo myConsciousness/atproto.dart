@@ -2,7 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
 import 'moderation_behavior.dart';
 
 enum LabelTarget {
@@ -30,16 +29,21 @@ enum LabelValueDefinitionFlag {
 
 final class InterpretedLabelValueDefinition {
   const InterpretedLabelValueDefinition({
-    this.definedBy,
+    required this.identifier,
+    this.flags = const [],
     this.configurable = false,
     this.defaultSetting = LabelPreference.ignore,
-    this.flags = const [],
+    required this.severity,
+    required this.blurs,
     this.behaviors = const {},
   });
 
-  final String? definedBy;
+  final String identifier;
+  final List<LabelValueDefinitionFlag> flags;
   final bool configurable;
   final LabelPreference defaultSetting;
-  final List<LabelValueDefinitionFlag> flags;
-  final Map<LabelTarget, ModerationBehavior> behaviors;
+  final String severity;
+  final String blurs;
+  final Map<LabelTarget, Map<ModerationBehaviorKey, ModerationBehaviorValue>>
+      behaviors;
 }

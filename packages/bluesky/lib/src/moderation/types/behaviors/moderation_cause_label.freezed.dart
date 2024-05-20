@@ -22,7 +22,8 @@ mixin _$ModerationCauseLabel {
       throw _privateConstructorUsedError;
   LabelTarget get target => throw _privateConstructorUsedError;
   LabelPreference get setting => throw _privateConstructorUsedError;
-  ModerationBehavior get behavior => throw _privateConstructorUsedError;
+  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior =>
+      throw _privateConstructorUsedError;
   bool get noOverride => throw _privateConstructorUsedError;
   @Assert(_assertEvalPriority)
   int get priority => throw _privateConstructorUsedError;
@@ -45,7 +46,7 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
       InterpretedLabelValueDefinition labelDef,
       LabelTarget target,
       LabelPreference setting,
-      ModerationBehavior behavior,
+      Map<ModerationBehaviorKey, ModerationBehaviorValue> behavior,
       bool noOverride,
       @Assert(_assertEvalPriority) int priority,
       bool downgraded});
@@ -102,7 +103,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
       behavior: null == behavior
           ? _value.behavior
           : behavior // ignore: cast_nullable_to_non_nullable
-              as ModerationBehavior,
+              as Map<ModerationBehaviorKey, ModerationBehaviorValue>,
       noOverride: null == noOverride
           ? _value.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
@@ -149,7 +150,7 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
       InterpretedLabelValueDefinition labelDef,
       LabelTarget target,
       LabelPreference setting,
-      ModerationBehavior behavior,
+      Map<ModerationBehaviorKey, ModerationBehaviorValue> behavior,
       bool noOverride,
       @Assert(_assertEvalPriority) int priority,
       bool downgraded});
@@ -203,9 +204,9 @@ class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
           : setting // ignore: cast_nullable_to_non_nullable
               as LabelPreference,
       behavior: null == behavior
-          ? _value.behavior
+          ? _value._behavior
           : behavior // ignore: cast_nullable_to_non_nullable
-              as ModerationBehavior,
+              as Map<ModerationBehaviorKey, ModerationBehaviorValue>,
       noOverride: null == noOverride
           ? _value.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
@@ -231,10 +232,12 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
       required this.labelDef,
       required this.target,
       required this.setting,
-      required this.behavior,
+      required final Map<ModerationBehaviorKey, ModerationBehaviorValue>
+          behavior,
       this.noOverride = false,
       @Assert(_assertEvalPriority) this.priority = 0,
-      this.downgraded = false});
+      this.downgraded = false})
+      : _behavior = behavior;
 
   @override
   final ModerationCauseSource source;
@@ -246,8 +249,14 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   final LabelTarget target;
   @override
   final LabelPreference setting;
+  final Map<ModerationBehaviorKey, ModerationBehaviorValue> _behavior;
   @override
-  final ModerationBehavior behavior;
+  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior {
+    if (_behavior is EqualUnmodifiableMapView) return _behavior;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_behavior);
+  }
+
   @override
   @JsonKey()
   final bool noOverride;
@@ -275,8 +284,7 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
                 other.labelDef == labelDef) &&
             (identical(other.target, target) || other.target == target) &&
             (identical(other.setting, setting) || other.setting == setting) &&
-            (identical(other.behavior, behavior) ||
-                other.behavior == behavior) &&
+            const DeepCollectionEquality().equals(other._behavior, _behavior) &&
             (identical(other.noOverride, noOverride) ||
                 other.noOverride == noOverride) &&
             (identical(other.priority, priority) ||
@@ -286,8 +294,17 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, source, label, labelDef, target,
-      setting, behavior, noOverride, priority, downgraded);
+  int get hashCode => Object.hash(
+      runtimeType,
+      source,
+      label,
+      labelDef,
+      target,
+      setting,
+      const DeepCollectionEquality().hash(_behavior),
+      noOverride,
+      priority,
+      downgraded);
 
   @JsonKey(ignore: true)
   @override
@@ -305,7 +322,8 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
       required final InterpretedLabelValueDefinition labelDef,
       required final LabelTarget target,
       required final LabelPreference setting,
-      required final ModerationBehavior behavior,
+      required final Map<ModerationBehaviorKey, ModerationBehaviorValue>
+          behavior,
       final bool noOverride,
       @Assert(_assertEvalPriority) final int priority,
       final bool downgraded}) = _$ModerationCauseLabelImpl;
@@ -321,7 +339,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   @override
   LabelPreference get setting;
   @override
-  ModerationBehavior get behavior;
+  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior;
   @override
   bool get noOverride;
   @override

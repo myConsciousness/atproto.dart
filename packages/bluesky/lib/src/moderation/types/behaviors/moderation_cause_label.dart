@@ -28,7 +28,7 @@ class ModerationCauseLabel with _$ModerationCauseLabel {
     required InterpretedLabelValueDefinition labelDef,
     required LabelTarget target,
     required LabelPreference setting,
-    required ModerationBehavior behavior,
+    required Map<ModerationBehaviorKey, ModerationBehaviorValue> behavior,
     @Default(false) bool noOverride,
     @Assert(_assertEvalPriority) @Default(0) int priority,
     @Default(false) bool downgraded,

@@ -19,6 +19,9 @@ part 'moderation_cause.freezed.dart';
 
 @modObject
 class ModerationCause with _$ModerationCause {
+  // ignore: unused_element
+  const ModerationCause._();
+
   const factory ModerationCause.blocking({
     required ModerationCauseBlocking data,
   }) = UModerationCauseBlocking;
@@ -46,4 +49,14 @@ class ModerationCause with _$ModerationCause {
   const factory ModerationCause.hidden({
     required ModerationCauseHidden data,
   }) = UModerationCauseHidden;
+
+  bool get downgraded => map(
+        blocking: (data) => data.downgraded,
+        blockedBy: (data) => data.downgraded,
+        blockOther: (data) => data.downgraded,
+        label: (data) => data.downgraded,
+        muted: (data) => data.downgraded,
+        muteWord: (data) => data.downgraded,
+        hidden: (data) => data.downgraded,
+      );
 }

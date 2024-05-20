@@ -150,8 +150,8 @@ class __$$UModerationCauseBlockingImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockingImpl implements UModerationCauseBlocking {
-  const _$UModerationCauseBlockingImpl({required this.data});
+class _$UModerationCauseBlockingImpl extends UModerationCauseBlocking {
+  const _$UModerationCauseBlockingImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseBlocking data;
@@ -272,10 +272,11 @@ class _$UModerationCauseBlockingImpl implements UModerationCauseBlocking {
   }
 }
 
-abstract class UModerationCauseBlocking implements ModerationCause {
+abstract class UModerationCauseBlocking extends ModerationCause {
   const factory UModerationCauseBlocking(
           {required final ModerationCauseBlocking data}) =
       _$UModerationCauseBlockingImpl;
+  const UModerationCauseBlocking._() : super._();
 
   @override
   ModerationCauseBlocking get data;
@@ -329,8 +330,8 @@ class __$$UModerationCauseBlockedByImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockedByImpl implements UModerationCauseBlockedBy {
-  const _$UModerationCauseBlockedByImpl({required this.data});
+class _$UModerationCauseBlockedByImpl extends UModerationCauseBlockedBy {
+  const _$UModerationCauseBlockedByImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseBlockedBy data;
@@ -451,10 +452,11 @@ class _$UModerationCauseBlockedByImpl implements UModerationCauseBlockedBy {
   }
 }
 
-abstract class UModerationCauseBlockedBy implements ModerationCause {
+abstract class UModerationCauseBlockedBy extends ModerationCause {
   const factory UModerationCauseBlockedBy(
           {required final ModerationCauseBlockedBy data}) =
       _$UModerationCauseBlockedByImpl;
+  const UModerationCauseBlockedBy._() : super._();
 
   @override
   ModerationCauseBlockedBy get data;
@@ -509,8 +511,8 @@ class __$$UModerationCauseBlockOtherImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseBlockOtherImpl implements UModerationCauseBlockOther {
-  const _$UModerationCauseBlockOtherImpl({required this.data});
+class _$UModerationCauseBlockOtherImpl extends UModerationCauseBlockOther {
+  const _$UModerationCauseBlockOtherImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseBlockOther data;
@@ -631,10 +633,11 @@ class _$UModerationCauseBlockOtherImpl implements UModerationCauseBlockOther {
   }
 }
 
-abstract class UModerationCauseBlockOther implements ModerationCause {
+abstract class UModerationCauseBlockOther extends ModerationCause {
   const factory UModerationCauseBlockOther(
           {required final ModerationCauseBlockOther data}) =
       _$UModerationCauseBlockOtherImpl;
+  const UModerationCauseBlockOther._() : super._();
 
   @override
   ModerationCauseBlockOther get data;
@@ -687,8 +690,8 @@ class __$$UModerationCauseLabelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseLabelImpl implements UModerationCauseLabel {
-  const _$UModerationCauseLabelImpl({required this.data});
+class _$UModerationCauseLabelImpl extends UModerationCauseLabel {
+  const _$UModerationCauseLabelImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseLabel data;
@@ -809,9 +812,10 @@ class _$UModerationCauseLabelImpl implements UModerationCauseLabel {
   }
 }
 
-abstract class UModerationCauseLabel implements ModerationCause {
+abstract class UModerationCauseLabel extends ModerationCause {
   const factory UModerationCauseLabel(
       {required final ModerationCauseLabel data}) = _$UModerationCauseLabelImpl;
+  const UModerationCauseLabel._() : super._();
 
   @override
   ModerationCauseLabel get data;
@@ -864,8 +868,8 @@ class __$$UModerationCauseMutedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseMutedImpl implements UModerationCauseMuted {
-  const _$UModerationCauseMutedImpl({required this.data});
+class _$UModerationCauseMutedImpl extends UModerationCauseMuted {
+  const _$UModerationCauseMutedImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseMuted data;
@@ -986,9 +990,10 @@ class _$UModerationCauseMutedImpl implements UModerationCauseMuted {
   }
 }
 
-abstract class UModerationCauseMuted implements ModerationCause {
+abstract class UModerationCauseMuted extends ModerationCause {
   const factory UModerationCauseMuted(
       {required final ModerationCauseMuted data}) = _$UModerationCauseMutedImpl;
+  const UModerationCauseMuted._() : super._();
 
   @override
   ModerationCauseMuted get data;
@@ -1042,8 +1047,8 @@ class __$$UModerationCauseMuteWordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseMuteWordImpl implements UModerationCauseMuteWord {
-  const _$UModerationCauseMuteWordImpl({required this.data});
+class _$UModerationCauseMuteWordImpl extends UModerationCauseMuteWord {
+  const _$UModerationCauseMuteWordImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseMuteWord data;
@@ -1164,10 +1169,11 @@ class _$UModerationCauseMuteWordImpl implements UModerationCauseMuteWord {
   }
 }
 
-abstract class UModerationCauseMuteWord implements ModerationCause {
+abstract class UModerationCauseMuteWord extends ModerationCause {
   const factory UModerationCauseMuteWord(
           {required final ModerationCauseMuteWord data}) =
       _$UModerationCauseMuteWordImpl;
+  const UModerationCauseMuteWord._() : super._();
 
   @override
   ModerationCauseMuteWord get data;
@@ -1221,8 +1227,8 @@ class __$$UModerationCauseHiddenImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UModerationCauseHiddenImpl implements UModerationCauseHidden {
-  const _$UModerationCauseHiddenImpl({required this.data});
+class _$UModerationCauseHiddenImpl extends UModerationCauseHidden {
+  const _$UModerationCauseHiddenImpl({required this.data}) : super._();
 
   @override
   final ModerationCauseHidden data;
@@ -1343,10 +1349,11 @@ class _$UModerationCauseHiddenImpl implements UModerationCauseHidden {
   }
 }
 
-abstract class UModerationCauseHidden implements ModerationCause {
+abstract class UModerationCauseHidden extends ModerationCause {
   const factory UModerationCauseHidden(
           {required final ModerationCauseHidden data}) =
       _$UModerationCauseHiddenImpl;
+  const UModerationCauseHidden._() : super._();
 
   @override
   ModerationCauseHidden get data;
