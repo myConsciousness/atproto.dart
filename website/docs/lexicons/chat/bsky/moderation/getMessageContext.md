@@ -11,6 +11,7 @@ description: chat.bsky.moderation.getMessageContext
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
+| **convoId** | string | - | ❌ | Conversation that the message is from. NOTE: this field will eventually be required. |
 | **messageId** | string | - | ✅ | - |
 | **before** | integer | - | ❌ | - |
 | **after** | integer | - | ❌ | - |
