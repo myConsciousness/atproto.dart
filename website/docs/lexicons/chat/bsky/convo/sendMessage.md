@@ -14,7 +14,7 @@ description: chat.bsky.convo.sendMessage
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **convoId** | string | - | ✅ | - |
-| **message** | [chat.bsky.convo.defs#message](../../../../lexicons/chat/bsky/convo/defs.md#message) | - | ✅ | - |
+| **message** | [chat.bsky.convo.defs#messageInput](../../../../lexicons/chat/bsky/convo/defs.md#messageinput) | - | ✅ | - |
 
 ### Output
 

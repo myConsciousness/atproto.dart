@@ -46,8 +46,8 @@ const chatBskyConvoDefsLogDeleteMessage = 'chat.bsky.convo.defs#logDeleteMessage
 /// `chat.bsky.convo.defs#logLeaveConvo`
 const chatBskyConvoDefsLogLeaveConvo = 'chat.bsky.convo.defs#logLeaveConvo';
 
-/// `chat.bsky.convo.defs#message`
-const chatBskyConvoDefsMessage = 'chat.bsky.convo.defs#message';
+/// `chat.bsky.convo.defs#messageInput`
+const chatBskyConvoDefsMessageInput = 'chat.bsky.convo.defs#messageInput';
 
 /// `chat.bsky.convo.defs#messageRef`
 const chatBskyConvoDefsMessageRef = 'chat.bsky.convo.defs#messageRef';
