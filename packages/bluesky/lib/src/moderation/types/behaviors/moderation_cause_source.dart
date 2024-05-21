@@ -3,12 +3,12 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'moderation_cause_source_list.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../mod_object.dart';
 import 'moderation_cause_source_labeler.dart';
+import 'moderation_cause_source_list.dart';
 import 'moderation_cause_source_user.dart';
 
 part 'moderation_cause_source.freezed.dart';

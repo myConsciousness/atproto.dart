@@ -2,9 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/atproto.dart';
 
+// 🌎 Project imports:
 import '../../../services/entities/embed_view.dart';
+import '../../../services/entities/embed_view_record_view.dart';
 import '../../../services/entities/embed_view_record_view_blocked.dart';
 import '../../../services/entities/embed_view_record_view_record.dart';
 import '../../../services/entities/muted_word.dart';
@@ -41,7 +44,37 @@ ModerationDecision decidePost(
     decision.addMutedWord();
   }
 
-  return ModerationDecision();
+  ModerationDecision? embedDecision;
+  if (embed != null) {
+    if (embed is UEmbedViewRecord) {
+      final record = embed.data.record;
+
+      if (record is UEmbedViewRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.data, opts);
+      } else if (record is UEmbedViewRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      }
+    } else if (embed is UEmbedViewRecordWithMedia) {
+      final record = embed.data.record.record;
+
+      if (record is UEmbedViewRecordViewRecord) {
+        embedDecision = decideQuotedPost(record.data, opts);
+      } else if (record is UEmbedViewRecordViewBlocked) {
+        embedDecision = decideBlockedQuotedPost(record.data, opts);
+      }
+    }
+  }
+
+  final profileSubject = ModerationSubjectProfile.profileViewBasic(
+    data: author,
+  );
+
+  return ModerationDecision.merge([
+    decision,
+    if (embedDecision != null) embedDecision.downgrade(),
+    decideAccount(profileSubject, opts),
+    decideProfile(profileSubject, opts),
+  ]);
 }
 
 ModerationDecision decideQuotedPost(

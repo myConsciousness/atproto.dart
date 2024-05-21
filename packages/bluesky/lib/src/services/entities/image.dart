@@ -9,6 +9,7 @@ import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'image_aspect_ratio.dart';
 
 part 'image.freezed.dart';

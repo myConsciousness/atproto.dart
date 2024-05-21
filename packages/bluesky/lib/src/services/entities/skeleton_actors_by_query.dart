@@ -7,6 +7,7 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'skeleton_actor.dart';
 
 part 'skeleton_actors_by_query.freezed.dart';

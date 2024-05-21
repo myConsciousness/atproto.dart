@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import '../../services/entities/facet.dart';
 import '../../services/entities/facet_feature.dart';
 import '../../services/entities/muted_word.dart';
