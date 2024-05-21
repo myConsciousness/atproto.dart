@@ -5,6 +5,7 @@
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation/index.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
+import 'package:test/test.dart';
 import 'utils/runner.dart';
 import 'utils/suite_configuration.dart';
 import 'utils/suite_scenario.dart';
@@ -1004,16 +1005,60 @@ void main() {
       .toList();
 
   for (final scenario in scenarios) {
-    final result = scenario.value.subject == 'profile'
-        ? moderateProfile(
-            suite.profileScenario(scenario.value),
-            suite.getModerationOpts(scenario.value),
-          )
-        : moderatePost(
-            suite.getPostScenario(scenario.value),
-            suite.getModerationOpts(scenario.value),
-          );
+    test(scenario.key, () {
+      final actual = scenario.value.subject == 'profile'
+          ? moderateProfile(
+              suite.profileScenario(scenario.value),
+              suite.getModerationOpts(scenario.value),
+            )
+          : moderatePost(
+              suite.getPostScenario(scenario.value),
+              suite.getModerationOpts(scenario.value),
+            );
 
-    print(result.getUI(ModerationBehaviorKey.profileList));
+      if (scenario.value.subject == 'profile') {
+        testModeration(
+          actual: actual.getUI(ModerationBehaviorKey.profileList),
+          expected: scenario.value.behaviors['profileList'] ?? [],
+          context: ModerationBehaviorKey.profileList.name,
+        );
+        testModeration(
+          actual: actual.getUI(ModerationBehaviorKey.profileView),
+          expected: scenario.value.behaviors['profileView'] ?? [],
+          context: ModerationBehaviorKey.profileView.name,
+        );
+      }
+
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        expected: scenario.value.behaviors['avatar'] ?? [],
+        context: ModerationBehaviorKey.avatar.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.banner),
+        expected: scenario.value.behaviors['banner'] ?? [],
+        context: ModerationBehaviorKey.banner.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        expected: scenario.value.behaviors['displayName'] ?? [],
+        context: ModerationBehaviorKey.displayName.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        expected: scenario.value.behaviors['contentList'] ?? [],
+        context: ModerationBehaviorKey.contentList.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        expected: scenario.value.behaviors['contentView'] ?? [],
+        context: ModerationBehaviorKey.contentView.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        expected: scenario.value.behaviors['contentMedia'] ?? [],
+        context: ModerationBehaviorKey.contentMedia.name,
+      );
+    });
   }
 }

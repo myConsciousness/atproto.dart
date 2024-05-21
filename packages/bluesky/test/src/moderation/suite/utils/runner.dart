@@ -9,14 +9,80 @@ import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.dart';
+import 'package:bluesky/src/moderation/types/moderation_ui.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
+import 'package:test/test.dart';
 import 'mock.dart' as m;
+import 'result_flag.dart';
 import 'suite_configuration.dart';
 import 'suite_scenario.dart';
 import 'suite_user.dart';
+
+extension ModerationUIExtension on ModerationUI {
+  bool get filter => filters.isNotEmpty;
+  bool get blur => blurs.isNotEmpty;
+  bool get alert => alerts.isNotEmpty;
+  bool get inform => informs.isNotEmpty;
+}
+
+void testModeration({
+  required ModerationUI actual,
+  required List<ModerationTestSuiteResultFlag> expected,
+  required String context,
+}) {
+  if (expected.isNotEmpty) {
+    expect(
+      actual.inform,
+      isFalse,
+      reason: '$context expected to be a no-op, got inform=true',
+    );
+    expect(
+      actual.alert,
+      isFalse,
+      reason: '$context expected to be a no-op, got alert=true',
+    );
+    expect(
+      actual.blur,
+      isFalse,
+      reason: '$context expected to be a no-op, got blur=true',
+    );
+    expect(
+      actual.filters.isEmpty,
+      isFalse,
+      reason: '$context expected to be a no-op, got filter=true',
+    );
+    expect(
+      actual.noOverride,
+      isFalse,
+      reason: '$context expected to be a no-op, got noOverride=true',
+    );
+  } else {
+    expect(
+      actual.inform == expected.contains(ModerationTestSuiteResultFlag.inform),
+      isTrue,
+    );
+    expect(
+      actual.alert == expected.contains(ModerationTestSuiteResultFlag.alert),
+      isTrue,
+    );
+    expect(
+      actual.blur == expected.contains(ModerationTestSuiteResultFlag.blur),
+      isTrue,
+    );
+    expect(
+      actual.filter == expected.contains(ModerationTestSuiteResultFlag.filter),
+      isTrue,
+    );
+    expect(
+      actual.noOverride ==
+          expected.contains(ModerationTestSuiteResultFlag.noOverride),
+      isTrue,
+    );
+  }
+}
 
 final class ModerationBehaviorSuiteRunner {
   const ModerationBehaviorSuiteRunner({
