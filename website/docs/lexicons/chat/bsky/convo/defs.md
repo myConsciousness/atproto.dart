@@ -10,13 +10,13 @@ description: chat.bsky.convo.defs
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **convoId** | string | - | ✅ | - |
 | **messageId** | string | - | ✅ | - |
 
-## #message
+## #messageInput
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **id** | string | - | ❌ | - |
 | **text** | string | - | ✅ | - |
 | **facets** | array of [app.bsky.richtext.facet](../../../../lexicons/app/bsky/richtext/facet.md#main) | - | ❌ | Annotations of text (mentions, URLs, hashtags, etc) |
 | **embed** | union of <br/>[app.bsky.embed.record](../../../../lexicons/app/bsky/embed/record.md#main) | - | ❌ | - |
