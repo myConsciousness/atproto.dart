@@ -27,7 +27,7 @@ ModerationDecision decidePost(
     postView: (data) => (data.author, data.labels, data.uri, data.embed),
   );
 
-  final decision = ModerationDecision(
+  final decision = ModerationDecision.init(
     did: author.did,
     me: author.did == opts.userDid,
   );
@@ -81,7 +81,7 @@ ModerationDecision decideQuotedPost(
   final EmbedViewRecordViewRecord subject,
   final ModerationOpts opts,
 ) {
-  final decision = ModerationDecision(
+  final decision = ModerationDecision.init(
     did: subject.author.did,
     me: subject.author.did == opts.userDid,
   );
@@ -105,7 +105,7 @@ ModerationDecision decideBlockedQuotedPost(
   final EmbedViewRecordViewBlocked subject,
   final ModerationOpts opts,
 ) {
-  final decision = ModerationDecision(
+  final decision = ModerationDecision.init(
     did: subject.author.did,
     me: subject.author.did == opts.userDid,
   );

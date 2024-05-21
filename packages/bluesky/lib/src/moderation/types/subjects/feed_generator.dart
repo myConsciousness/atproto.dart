@@ -22,7 +22,7 @@ ModerationDecision decideFeedGenerator(
     generatorView: (data) => (data.createdBy, data.labels),
   );
 
-  final decision = ModerationDecision(
+  final decision = ModerationDecision.init(
     did: creator.did,
     me: creator.did == opts.userDid,
   );

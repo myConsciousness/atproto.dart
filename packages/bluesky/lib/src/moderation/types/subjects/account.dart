@@ -22,7 +22,7 @@ ModerationDecision decideAccount(
     profileViewDetailed: (data) => (data.did, data.viewer, data.labels),
   );
 
-  final decision = ModerationDecision(did: did, me: did == opts.userDid);
+  final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 
   if (viewer.isMuted) {
     if (viewer.isMutedByList) {

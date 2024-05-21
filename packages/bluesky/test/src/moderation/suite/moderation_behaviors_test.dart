@@ -2,6 +2,14 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
+import 'package:bluesky/src/moderation/index.dart';
+import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
+import 'utils/runner.dart';
+import 'utils/suite_configuration.dart';
+import 'utils/suite_scenario.dart';
+import 'utils/suite_user.dart';
+
 const _kUsers = <String, dynamic>{
   "self": {
     "blocking": false,
@@ -61,7 +69,7 @@ const _kUsers = <String, dynamic>{
   }
 };
 
-const _kConfigurations = <String, dynamic>{
+const _kConfigurations = <String, Map<String, dynamic>>{
   "none": {},
   "adult-disabled": {"adultContentEnabled": false},
   "intolerant-hide": {
@@ -968,3 +976,44 @@ const _kScenarios = <String, dynamic>{
     },
   },
 };
+
+final suite = ModerationBehaviorSuiteRunner(
+  users: _kUsers.map(
+    (key, value) => MapEntry(
+      key,
+      ModerationTestSuiteUser.fromJson(value),
+    ),
+  ),
+  configurations: _kConfigurations.map(
+    (key, value) => MapEntry(
+      key,
+      ModerationTestSuiteConfiguration.fromJson(value),
+    ),
+  ),
+  scenarios: _kScenarios.map(
+    (key, value) => MapEntry(
+      key,
+      ModerationTestSuiteScenario.fromJson(value),
+    ),
+  ),
+);
+
+void main() {
+  final scenarios = suite.scenarios.entries
+      .where((entry) => !entry.key.startsWith('//'))
+      .toList();
+
+  for (final scenario in scenarios) {
+    final result = scenario.value.subject == 'profile'
+        ? moderateProfile(
+            suite.profileScenario(scenario.value),
+            suite.getModerationOpts(scenario.value),
+          )
+        : moderatePost(
+            suite.getPostScenario(scenario.value),
+            suite.getModerationOpts(scenario.value),
+          );
+
+    print(result.getUI(ModerationBehaviorKey.profileList));
+  }
+}

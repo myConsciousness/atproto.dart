@@ -9,9 +9,10 @@ import 'package:atproto/atproto.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.dart';
+import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
+import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
-import 'package:bluesky/src/services/entities/post.dart';
 import 'mock.dart' as m;
 import 'suite_configuration.dart';
 import 'suite_scenario.dart';
@@ -28,7 +29,8 @@ final class ModerationBehaviorSuiteRunner {
   final Map<String, ModerationTestSuiteConfiguration> configurations;
   final Map<String, ModerationTestSuiteScenario> scenarios;
 
-  Post getPostScenario(final ModerationTestSuiteScenario scenario) {
+  ModerationSubjectPost getPostScenario(
+      final ModerationTestSuiteScenario scenario) {
     if (scenario.subject != 'post') throw Error();
 
     final author = profileViewBasic(
@@ -36,38 +38,44 @@ final class ModerationBehaviorSuiteRunner {
       scenarioLabels: scenario.labels,
     );
 
-    return m.postView(
-      record: m.post(text: 'Post text'),
-      author: author,
-      embed: scenario.quoteAuthor != null
-          ? m.embedRecordView(
-              record: m.post(text: 'Quoted post text'),
-              author: profileViewBasic(
-                name: scenario.quoteAuthor!,
-                scenarioLabels: {
-                  'account': scenario.labels['quotedAccount']!,
-                },
-              ),
-              labels: (scenario.labels['quotedPost'] ?? const <String>[])
-                  .map((e) => m.label(
-                      uri: 'at://${author.did}/app.bsky.feed.post/fake',
-                      val: e))
-                  .toList(),
-            )
-          : null,
-      labels: (scenario.labels['post'] ?? const <String>[])
-          .map((e) => m.label(
-              uri: 'at://${author.did}/app.bsky.feed.post/fake', val: e))
-          .toList(),
+    return ModerationSubjectPost.postView(
+      data: m.postView(
+        record: m.post(text: 'Post text'),
+        author: author,
+        embed: scenario.quoteAuthor != null
+            ? m.embedRecordView(
+                record: m.post(text: 'Quoted post text'),
+                author: profileViewBasic(
+                  name: scenario.quoteAuthor!,
+                  scenarioLabels: {
+                    'account': scenario.labels['quotedAccount']!,
+                  },
+                ),
+                labels: (scenario.labels['quotedPost'] ?? const <String>[])
+                    .map((e) => m.label(
+                        uri: 'at://${author.did}/app.bsky.feed.post/fake',
+                        val: e))
+                    .toList(),
+              )
+            : null,
+        labels: (scenario.labels['post'] ?? const <String>[])
+            .map((e) => m.label(
+                uri: 'at://${author.did}/app.bsky.feed.post/fake', val: e))
+            .toList(),
+      ),
     );
   }
 
-  ActorBasic profileScenario(final ModerationTestSuiteScenario scenario) {
+  ModerationSubjectProfile profileScenario(
+    final ModerationTestSuiteScenario scenario,
+  ) {
     if (scenario.subject != 'profile') throw Error();
 
-    return profileViewBasic(
-      name: scenario.author,
-      scenarioLabels: scenario.labels,
+    return ModerationSubjectProfile.profileViewBasic(
+      data: profileViewBasic(
+        name: scenario.author,
+        scenarioLabels: scenario.labels,
+      ),
     );
   }
 

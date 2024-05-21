@@ -22,7 +22,7 @@ ModerationDecision decideNotification(
     notification: (data) => (data.author, data.labels),
   );
 
-  final decision = ModerationDecision(
+  final decision = ModerationDecision.init(
     did: author.did,
     me: author.did == opts.userDid,
   );

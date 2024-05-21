@@ -50,7 +50,7 @@ class ModerationCause with _$ModerationCause {
     required ModerationCauseHidden data,
   }) = UModerationCauseHidden;
 
-  bool get downgraded => map(
+  bool get downgraded => when(
         blocking: (data) => data.downgraded,
         blockedBy: (data) => data.downgraded,
         blockOther: (data) => data.downgraded,

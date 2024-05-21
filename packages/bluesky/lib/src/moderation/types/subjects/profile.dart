@@ -21,7 +21,7 @@ ModerationDecision decideProfile(
     profileViewDetailed: (data) => (data.did, data.labels),
   );
 
-  final decision = ModerationDecision(did: did, me: did == opts.userDid);
+  final decision = ModerationDecision.init(did: did, me: did == opts.userDid);
 
   for (final label in _filterProfileLabels(labels)) {
     decision.addLabel(target: LabelTarget.profile, label: label, opts: opts);

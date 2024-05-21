@@ -30,16 +30,26 @@ enum ModerationBehaviorSeverity {
 }
 
 final class ModerationDecision {
-  ModerationDecision({
+  ModerationDecision._({
+    required this.causes,
     this.did = '',
     this.me = false,
-    this.causes = const [],
   });
 
-  factory ModerationDecision.merge(final List<ModerationDecision> decisions) {
-    if (decisions.isEmpty) return ModerationDecision();
+  factory ModerationDecision.init({
+    String did = '',
+    bool me = false,
+  }) =>
+      ModerationDecision._(
+        did: did,
+        me: me,
+        causes: [],
+      );
 
-    return ModerationDecision(
+  factory ModerationDecision.merge(final List<ModerationDecision> decisions) {
+    if (decisions.isEmpty) return ModerationDecision.init();
+
+    return ModerationDecision._(
       did: decisions.first.did,
       me: decisions.first.me,
       causes: decisions.expand((e) => e.causes).toList(),
@@ -78,7 +88,7 @@ final class ModerationDecision {
       ));
     }
 
-    return ModerationDecision(did: did, me: me, causes: causes);
+    return ModerationDecision._(did: did, me: me, causes: causes);
   }
 
   void addHidden() => causes.add(
@@ -396,11 +406,11 @@ ModerationBehaviorSeverity _measureModerationBehaviorSeverity(
 ) {
   if (beh == null || beh.isEmpty) return ModerationBehaviorSeverity.low;
 
-  if (beh[ModerationBehaviorKey.profileView]!.isBlur ||
-      beh[ModerationBehaviorKey.contentView]!.isBlur) {
+  if ((beh[ModerationBehaviorKey.profileView]?.isBlur ?? false) ||
+      (beh[ModerationBehaviorKey.contentView]?.isBlur ?? false)) {
     return ModerationBehaviorSeverity.high;
-  } else if (beh[ModerationBehaviorKey.contentList]!.isBlur ||
-      beh[ModerationBehaviorKey.contentMedia]!.isBlur) {
+  } else if ((beh[ModerationBehaviorKey.contentList]?.isBlur ?? false) ||
+      (beh[ModerationBehaviorKey.contentMedia]?.isBlur ?? false)) {
     return ModerationBehaviorSeverity.medium;
   }
 
@@ -411,13 +421,13 @@ int _sortByCausePriority(final ModerationCause a, final ModerationCause b) =>
     _getCausePriority(a) - _getCausePriority(b);
 
 int _getCausePriority(final ModerationCause cause) => switch (cause) {
-      ModerationCauseBlocking(:final priority) => priority,
-      ModerationCauseBlockedBy(:final priority) => priority,
-      ModerationCauseBlockOther(:final priority) => priority,
-      ModerationCauseLabel(:final priority) => priority,
-      ModerationCauseMuted(:final priority) => priority,
-      ModerationCauseMuteWord(:final priority) => priority,
-      ModerationCauseHidden(:final priority) => priority,
+      UModerationCauseBlocking(:final data) => data.priority,
+      UModerationCauseBlockedBy(:final data) => data.priority,
+      UModerationCauseBlockOther(:final data) => data.priority,
+      UModerationCauseLabel(:final data) => data.priority,
+      UModerationCauseMuted(:final data) => data.priority,
+      UModerationCauseMuteWord(:final data) => data.priority,
+      UModerationCauseHidden(:final data) => data.priority,
       _ => throw UnsupportedError(
           'Not supported cause: $cause',
         ), //! Should not happen
