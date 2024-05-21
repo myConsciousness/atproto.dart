@@ -32,16 +32,58 @@ final class ModerationDecision {
   ModerationDecision({
     this.did = '',
     this.me = false,
+    this.causes = const [],
   });
+
+  factory ModerationDecision.merge(final List<ModerationDecision> decisions) {
+    if (decisions.isEmpty) return ModerationDecision();
+
+    return ModerationDecision(
+      did: decisions.first.did,
+      me: decisions.first.me,
+      causes: decisions.expand((e) => e.causes).toList(),
+    );
+  }
 
   final String did;
   final bool me;
-  final List<ModerationCause> _causes = [];
+  final List<ModerationCause> causes;
 
   bool get blocked => _blockCause != null;
   bool get muted => _muteCause != null;
 
-  void addHidden() => _causes.add(
+  ModerationDecision downgrade() {
+    final causes = <ModerationCause>[];
+    for (final cause in this.causes) {
+      causes.add(cause.when(
+        blocking: (data) => ModerationCause.blocking(
+          data: data.copyWith(downgraded: true),
+        ),
+        blockedBy: (data) => ModerationCause.blockedBy(
+          data: data.copyWith(downgraded: true),
+        ),
+        blockOther: (data) => ModerationCause.blockOther(
+          data: data.copyWith(downgraded: true),
+        ),
+        label: (data) => ModerationCause.label(
+          data: data.copyWith(downgraded: true),
+        ),
+        muted: (data) => ModerationCause.muted(
+          data: data.copyWith(downgraded: true),
+        ),
+        muteWord: (data) => ModerationCause.muteWord(
+          data: data.copyWith(downgraded: true),
+        ),
+        hidden: (data) => ModerationCause.hidden(
+          data: data.copyWith(downgraded: true),
+        ),
+      ));
+    }
+
+    return ModerationDecision(did: did, me: me, causes: causes);
+  }
+
+  void addHidden() => causes.add(
         const ModerationCause.hidden(
           data: ModerationCauseHidden(
             source: ModerationCauseSource.user(
@@ -51,7 +93,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addMutedWord() => _causes.add(
+  void addMutedWord() => causes.add(
         const ModerationCause.muteWord(
           data: ModerationCauseMuteWord(
             source: ModerationCauseSource.user(
@@ -61,7 +103,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addBlocking() => _causes.add(
+  void addBlocking() => causes.add(
         const ModerationCause.blocking(
           data: ModerationCauseBlocking(
             source: ModerationCauseSource.user(
@@ -71,7 +113,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addBlockingByList(final ListViewBasic blockingByList) => _causes.add(
+  void addBlockingByList(final ListViewBasic blockingByList) => causes.add(
         ModerationCause.blocking(
           data: ModerationCauseBlocking(
             source: ModerationCauseSource.list(
@@ -83,7 +125,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addBlockedBy() => _causes.add(
+  void addBlockedBy() => causes.add(
         const ModerationCause.blockedBy(
           data: ModerationCauseBlockedBy(
             source: ModerationCauseSource.user(
@@ -93,7 +135,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addBlockOther() => _causes.add(
+  void addBlockOther() => causes.add(
         const ModerationCause.blockOther(
           data: ModerationCauseBlockOther(
             source: ModerationCauseSource.user(
@@ -184,7 +226,7 @@ final class ModerationDecision {
       noOverride = true;
     }
 
-    _causes.add(
+    causes.add(
       ModerationCause.label(
         data: ModerationCauseLabel(
           source: isSelf || labeler != null
@@ -206,7 +248,7 @@ final class ModerationDecision {
     );
   }
 
-  void addMuted() => _causes.add(
+  void addMuted() => causes.add(
         const ModerationCause.muted(
           data: ModerationCauseMuted(
             source: ModerationCauseSource.user(
@@ -216,7 +258,7 @@ final class ModerationDecision {
         ),
       );
 
-  void addMutedByList(final ListViewBasic mutedByList) => _causes.add(
+  void addMutedByList(final ListViewBasic mutedByList) => causes.add(
         ModerationCause.muted(
           data: ModerationCauseMuted(
             source: ModerationCauseSource.list(
@@ -235,7 +277,7 @@ final class ModerationDecision {
     final alerts = <ModerationCause>[];
     final informs = <ModerationCause>[];
 
-    for (final cause in _causes) {
+    for (final cause in causes) {
       if (cause is UModerationCauseBlocking ||
           cause is UModerationCauseBlockedBy ||
           cause is UModerationCauseBlockOther) {
@@ -351,7 +393,7 @@ final class ModerationDecision {
   }
 
   ModerationCause? get _blockCause {
-    for (final cause in _causes) {
+    for (final cause in causes) {
       if (cause is UModerationCauseBlocking ||
           cause is UModerationCauseBlockedBy ||
           cause is UModerationCauseBlockOther) {
@@ -363,10 +405,10 @@ final class ModerationDecision {
   }
 
   ModerationCause? get _muteCause =>
-      _getFirstCauseOrNull(_causes.whereType<UModerationCauseMuted>().toList());
+      _getFirstCauseOrNull(causes.whereType<UModerationCauseMuted>().toList());
 
   ModerationCause? get _labelCause =>
-      _getFirstCauseOrNull(_causes.whereType<UModerationCauseLabel>().toList());
+      _getFirstCauseOrNull(causes.whereType<UModerationCauseLabel>().toList());
 
   ModerationCause? _getFirstCauseOrNull(final List causes) =>
       causes.isNotEmpty ? causes.first : null;

@@ -7,21 +7,33 @@ import 'package:atproto/atproto.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
+import 'account.dart';
 import 'moderation_subject_feed_generator.dart';
+import 'moderation_subject_profile.dart';
+import 'profile.dart';
 
 ModerationDecision decideFeedGenerator(
   final ModerationSubjectFeedGenerator subject,
   final ModerationOpts opts,
 ) {
-  final (did, labels) = subject.when(
-    generatorView: (data) => (data.createdBy.did, data.labels),
+  final (creator, labels) = subject.when(
+    generatorView: (data) => (data.createdBy, data.labels),
   );
 
-  final decision = ModerationDecision(did: did, me: did == opts.userDid);
+  final decision = ModerationDecision(
+    did: creator.did,
+    me: creator.did == opts.userDid,
+  );
 
   for (final label in labels ?? const <Label>[]) {
     decision.addLabel(target: LabelTarget.content, label: label, opts: opts);
   }
 
-  return decision; // TODO .merge
+  final profileSubject = ModerationSubjectProfile.profileView(data: creator);
+
+  return ModerationDecision.merge([
+    decision,
+    decideAccount(profileSubject, opts),
+    decideProfile(profileSubject, opts),
+  ]);
 }

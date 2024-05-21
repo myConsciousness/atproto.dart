@@ -7,21 +7,33 @@ import 'package:atproto/atproto.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
+import 'account.dart';
 import 'moderation_subject_notification.dart';
+import 'moderation_subject_profile.dart';
+import 'profile.dart';
 
 ModerationDecision decideNotification(
   final ModerationSubjectNotification subject,
   final ModerationOpts opts,
 ) {
-  final (did, labels) = subject.when(
-    notification: (data) => (data.author.did, data.labels),
+  final (author, labels) = subject.when(
+    notification: (data) => (data.author, data.labels),
   );
 
-  final decision = ModerationDecision(did: did, me: did == opts.userDid);
+  final decision = ModerationDecision(
+    did: author.did,
+    me: author.did == opts.userDid,
+  );
 
   for (final label in labels ?? const <Label>[]) {
     decision.addLabel(target: LabelTarget.content, label: label, opts: opts);
   }
 
-  return decision; // TODO .merge
+  final profileSubject = ModerationSubjectProfile.profileView(data: author);
+
+  return ModerationDecision.merge([
+    decision,
+    decideAccount(profileSubject, opts),
+    decideProfile(profileSubject, opts),
+  ]);
 }
