@@ -50,9 +50,6 @@ final class ModerationDecision {
   final bool me;
   final List<ModerationCause> causes;
 
-  bool get blocked => _blockCause != null;
-  bool get muted => _muteCause != null;
-
   ModerationDecision downgrade() {
     final causes = <ModerationCause>[];
     for (final cause in this.causes) {
@@ -392,27 +389,6 @@ final class ModerationDecision {
       informs: informs,
     );
   }
-
-  ModerationCause? get _blockCause {
-    for (final cause in causes) {
-      if (cause is UModerationCauseBlocking ||
-          cause is UModerationCauseBlockedBy ||
-          cause is UModerationCauseBlockOther) {
-        return cause;
-      }
-    }
-
-    return null;
-  }
-
-  ModerationCause? get _muteCause =>
-      _getFirstCauseOrNull(causes.whereType<UModerationCauseMuted>().toList());
-
-  ModerationCause? get _labelCause =>
-      _getFirstCauseOrNull(causes.whereType<UModerationCauseLabel>().toList());
-
-  ModerationCause? _getFirstCauseOrNull(final List causes) =>
-      causes.isNotEmpty ? causes.first : null;
 }
 
 ModerationBehaviorSeverity _measureModerationBehaviorSeverity(
