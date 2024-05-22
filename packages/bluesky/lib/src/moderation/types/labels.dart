@@ -31,6 +31,7 @@ enum LabelValueDefinitionFlag {
 final class InterpretedLabelValueDefinition {
   const InterpretedLabelValueDefinition({
     required this.identifier,
+    this.definedBy,
     this.flags = const [],
     this.configurable = false,
     this.defaultSetting = LabelPreference.ignore,
@@ -40,6 +41,7 @@ final class InterpretedLabelValueDefinition {
   });
 
   final String identifier;
+  final String? definedBy;
   final List<LabelValueDefinitionFlag> flags;
   final bool configurable;
   final LabelPreference defaultSetting;

@@ -160,12 +160,10 @@ final class ModerationDecision {
   }) {
     InterpretedLabelValueDefinition? labelDef;
     if (customLabelValueRegex.hasMatch(label.value)) {
-      final optsLabelDef = opts.labelDefs[label.src];
-
-      labelDef = optsLabelDef != null &&
-              optsLabelDef.firstOrNull?.identifier == label.value
-          ? optsLabelDef.firstOrNull
-          : kLabels[KnownLabelValue.valueOf(label.value)];
+      labelDef = opts.labelDefs[label.src]
+              ?.where((e) => e.identifier == label.value)
+              .firstOrNull ??
+          kLabels[KnownLabelValue.valueOf(label.value)];
     } else {
       labelDef = kLabels[KnownLabelValue.valueOf(label.value)];
     }

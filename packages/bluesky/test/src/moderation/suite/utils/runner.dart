@@ -63,23 +63,28 @@ void testModeration({
     expect(
       actual.inform == expected.contains(ModerationTestSuiteResultFlag.inform),
       isTrue,
+      reason: '$context:inform',
     );
     expect(
       actual.alert == expected.contains(ModerationTestSuiteResultFlag.alert),
       isTrue,
+      reason: '$context:alert',
     );
     expect(
       actual.blur == expected.contains(ModerationTestSuiteResultFlag.blur),
       isTrue,
+      reason: '$context:blur',
     );
     expect(
       actual.filter == expected.contains(ModerationTestSuiteResultFlag.filter),
       isTrue,
+      reason: '$context:filter',
     );
     expect(
       actual.noOverride ==
           expected.contains(ModerationTestSuiteResultFlag.noOverride),
       isTrue,
+      reason: '$context:noOverride',
     );
   }
 }

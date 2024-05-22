@@ -11,6 +11,7 @@ import 'package:bluesky/src/moderation/types/labels.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
+import 'package:bluesky/src/moderation/utils.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';
 import 'package:test/test.dart';
 
@@ -314,6 +315,102 @@ void main() {
             .first
             .whenOrNull(label: (data) => data.label.value),
         'porn',
+      );
+    });
+
+    test('Prioritizes custom label definitions', () {
+      final actual = moderatePost(
+        ModerationSubjectPost.postView(
+          data: postView(
+            record: PostRecord(
+              text: 'Hello',
+              createdAt: DateTime.now().toUtc(),
+            ),
+            author: profileViewBasic(
+              handle: 'bob.test',
+              displayName: 'Bob',
+            ),
+            labels: [
+              Label(
+                src: 'did:web:labeler.test',
+                uri: 'at://did:web:bob.test/app.bsky.post/fake',
+                value: 'porn',
+                createdAt: DateTime.now().toUtc(),
+              ),
+            ],
+          ),
+        ),
+        ModerationOpts(
+          userDid: 'did:web:alice.test',
+          prefs: ModerationPrefs(
+            adultContentEnabled: true,
+            labels: const {
+              'porn': LabelPreference.warn,
+            },
+            labelers: const [
+              ModerationPrefsLabeler(
+                did: 'did:web:labeler.test',
+                labels: {
+                  'porn': LabelPreference.warn,
+                },
+              ),
+            ],
+            mutedWords: const [],
+            hiddenPosts: const [],
+          ),
+          labelDefs: {
+            'did:web:labeler.test': [
+              getInterpretedLabelValueDefinition(
+                identifier: 'porn',
+                severity: 'inform',
+                blurs: 'none',
+                defaultSetting: LabelPreference.warn,
+                definedBy: 'did:web:labeler.test',
+              )
+            ]
+          },
+        ),
+      );
+
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        expected: const [],
+        context: ModerationBehaviorKey.profileList.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        expected: const [],
+        context: ModerationBehaviorKey.profileView.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        expected: const [],
+        context: ModerationBehaviorKey.avatar.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.banner),
+        expected: const [],
+        context: ModerationBehaviorKey.banner.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        expected: const [],
+        context: ModerationBehaviorKey.displayName.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        expected: const [ModerationTestSuiteResultFlag.inform],
+        context: ModerationBehaviorKey.contentList.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        expected: const [ModerationTestSuiteResultFlag.inform],
+        context: ModerationBehaviorKey.contentView.name,
+      );
+      testModeration(
+        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        expected: const [],
+        context: ModerationBehaviorKey.contentMedia.name,
       );
     });
   });
