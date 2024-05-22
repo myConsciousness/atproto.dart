@@ -176,7 +176,7 @@ final class ModerationDecision {
     final isSelf = label.src == did;
     final labeler = isSelf
         ? null
-        : opts.prefs.labelers.where((e) => e.did == label.src).first;
+        : opts.prefs.labelers.where((e) => e.did == label.src).firstOrNull;
 
     if (!isSelf && labeler == null) {
       return; // skip labelers not configured by the user
