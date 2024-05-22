@@ -6,7 +6,7 @@
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/src/moderation/index.dart';
+import 'package:bluesky/src/moderation.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'utils/runner.dart';
 import 'utils/suite_configuration.dart';
