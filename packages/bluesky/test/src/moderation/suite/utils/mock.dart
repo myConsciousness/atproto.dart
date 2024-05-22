@@ -6,7 +6,6 @@
 import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
 import 'package:bluesky/src/services/entities/embed_view.dart';
