@@ -14,7 +14,7 @@ _$ModerationTestSuiteConfigurationImpl
           json,
           ($checkedConvert) {
             final val = _$ModerationTestSuiteConfigurationImpl(
-              authed: $checkedConvert('authed', (v) => v as bool? ?? false),
+              authed: $checkedConvert('authed', (v) => v as bool? ?? true),
               adultContentEnabled: $checkedConvert(
                   'adultContentEnabled', (v) => v as bool? ?? false),
               settings: $checkedConvert(

@@ -2,10 +2,12 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:test/test.dart';
+
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation/index.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
-import 'package:test/test.dart';
 import 'utils/runner.dart';
 import 'utils/suite_configuration.dart';
 import 'utils/suite_scenario.dart';

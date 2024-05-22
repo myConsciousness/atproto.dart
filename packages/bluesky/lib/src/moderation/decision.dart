@@ -360,7 +360,7 @@ final class ModerationDecision {
           }
         }
       } else if (cause is UModerationCauseLabel) {
-        final labelCause = cause.mapOrNull(label: (data) => data)!.data;
+        final labelCause = cause.whenOrNull(label: (data) => data)!;
 
         if (context.isProfileList && labelCause.target == LabelTarget.account) {
           if (labelCause.setting == LabelPreference.hide && !me) {

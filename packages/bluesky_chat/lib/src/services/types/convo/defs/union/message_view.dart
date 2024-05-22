@@ -6,8 +6,8 @@
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../../../../../ids.g.dart' as ids;
-
 import '../deleted_message_view.dart';
 import '../message_view.dart';
 

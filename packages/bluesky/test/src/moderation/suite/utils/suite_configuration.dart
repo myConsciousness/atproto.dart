@@ -14,7 +14,7 @@ part 'suite_configuration.g.dart';
 @freezed
 class ModerationTestSuiteConfiguration with _$ModerationTestSuiteConfiguration {
   const factory ModerationTestSuiteConfiguration({
-    @Default(false) bool authed,
+    @Default(true) bool authed,
     @Default(false) bool adultContentEnabled,
     @Default({}) Map<String, LabelPreference> settings,
   }) = _ModerationTestSuiteConfiguration;

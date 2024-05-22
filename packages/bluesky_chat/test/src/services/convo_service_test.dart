@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'package:bluesky_chat/src/ids.g.dart';
 import 'package:bluesky_chat/src/services/types/convo/defs/deleted_message_view.dart';
 import 'package:bluesky_chat/src/services/types/convo/defs/message.dart';
@@ -17,7 +18,6 @@ import 'package:bluesky_chat/src/services/types/convo/sendMessageBatch/batch_ite
 import 'package:bluesky_chat/src/services/types/convo/sendMessageBatch/output.dart';
 import 'package:bluesky_chat/src/services/types/convo/unmuteConvo/output.dart';
 import 'package:bluesky_chat/src/services/types/convo/updateRead/output.dart';
-
 import 'suite/service_suite.dart';
 
 void main() {

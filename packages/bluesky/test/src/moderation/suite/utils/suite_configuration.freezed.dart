@@ -135,7 +135,7 @@ class __$$ModerationTestSuiteConfigurationImplCopyWithImpl<$Res>
 class _$ModerationTestSuiteConfigurationImpl
     implements _ModerationTestSuiteConfiguration {
   const _$ModerationTestSuiteConfigurationImpl(
-      {this.authed = false,
+      {this.authed = true,
       this.adultContentEnabled = false,
       final Map<String, LabelPreference> settings = const {}})
       : _settings = settings;

@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart';
+import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
@@ -14,7 +15,6 @@ import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.da
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
-import 'package:test/test.dart';
 import 'mock.dart' as m;
 import 'result_flag.dart';
 import 'suite_configuration.dart';
@@ -33,7 +33,7 @@ void testModeration({
   required List<ModerationTestSuiteResultFlag> expected,
   required String context,
 }) {
-  if (expected.isNotEmpty) {
+  if (expected.isEmpty) {
     expect(
       actual.inform,
       isFalse,
@@ -50,7 +50,7 @@ void testModeration({
       reason: '$context expected to be a no-op, got blur=true',
     );
     expect(
-      actual.filters.isEmpty,
+      actual.filter,
       isFalse,
       reason: '$context expected to be a no-op, got filter=true',
     );
@@ -149,6 +149,9 @@ final class ModerationBehaviorSuiteRunner {
     final ModerationTestSuiteScenario scenario,
   ) {
     return ModerationOpts(
+      userDid: configurations[scenario.cfg]!.authed == false
+          ? null
+          : 'did:web:self.test',
       prefs: ModerationPrefs(
         adultContentEnabled:
             configurations[scenario.cfg]?.adultContentEnabled ?? false,
