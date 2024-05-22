@@ -241,7 +241,9 @@ final class ModerationDecision {
                   data: ModerationCauseSourceUser(),
                 )
               : ModerationCauseSource.labeler(
-                  data: ModerationCauseSourceLabeler(did: labeler!.did),
+                  data: ModerationCauseSourceLabeler(
+                    did: labeler!.did,
+                  ),
                 ),
           label: label,
           labelDef: labelDef,

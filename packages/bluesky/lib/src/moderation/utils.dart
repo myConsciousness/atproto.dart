@@ -2,6 +2,7 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🌎 Project imports:
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
 
@@ -11,7 +12,7 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
   required String severity,
   required String blurs,
   String? definedBy,
-  bool adultOnly = true,
+  bool adultOnly = false,
 }) {
   final accountBehavior = <ModerationBehaviorKey, ModerationBehaviorValue>{};
   final profileBehavior = <ModerationBehaviorKey, ModerationBehaviorValue>{};
