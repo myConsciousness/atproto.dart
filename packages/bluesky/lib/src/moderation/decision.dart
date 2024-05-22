@@ -162,8 +162,9 @@ final class ModerationDecision {
     if (customLabelValueRegex.hasMatch(label.value)) {
       final optsLabelDef = opts.labelDefs[label.src];
 
-      labelDef = optsLabelDef != null && optsLabelDef.identifier == label.value
-          ? optsLabelDef
+      labelDef = optsLabelDef != null &&
+              optsLabelDef.firstOrNull?.identifier == label.value
+          ? optsLabelDef.firstOrNull
           : kLabels[KnownLabelValue.valueOf(label.value)];
     } else {
       labelDef = kLabels[KnownLabelValue.valueOf(label.value)];

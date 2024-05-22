@@ -17,6 +17,6 @@ class ModerationOpts with _$ModerationOpts {
   const factory ModerationOpts({
     String? userDid,
     required ModerationPrefs prefs,
-    @Default({}) Map<String, InterpretedLabelValueDefinition> labelDefs,
+    @Default({}) Map<String, List<InterpretedLabelValueDefinition>> labelDefs,
   }) = _ModerationOpts;
 }

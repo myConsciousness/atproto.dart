@@ -18,7 +18,7 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$ModerationOpts {
   String? get userDid => throw _privateConstructorUsedError;
   ModerationPrefs get prefs => throw _privateConstructorUsedError;
-  Map<String, InterpretedLabelValueDefinition> get labelDefs =>
+  Map<String, List<InterpretedLabelValueDefinition>> get labelDefs =>
       throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -35,7 +35,7 @@ abstract class $ModerationOptsCopyWith<$Res> {
   $Res call(
       {String? userDid,
       ModerationPrefs prefs,
-      Map<String, InterpretedLabelValueDefinition> labelDefs});
+      Map<String, List<InterpretedLabelValueDefinition>> labelDefs});
 
   $ModerationPrefsCopyWith<$Res> get prefs;
 }
@@ -69,7 +69,7 @@ class _$ModerationOptsCopyWithImpl<$Res, $Val extends ModerationOpts>
       labelDefs: null == labelDefs
           ? _value.labelDefs
           : labelDefs // ignore: cast_nullable_to_non_nullable
-              as Map<String, InterpretedLabelValueDefinition>,
+              as Map<String, List<InterpretedLabelValueDefinition>>,
     ) as $Val);
   }
 
@@ -93,7 +93,7 @@ abstract class _$$ModerationOptsImplCopyWith<$Res>
   $Res call(
       {String? userDid,
       ModerationPrefs prefs,
-      Map<String, InterpretedLabelValueDefinition> labelDefs});
+      Map<String, List<InterpretedLabelValueDefinition>> labelDefs});
 
   @override
   $ModerationPrefsCopyWith<$Res> get prefs;
@@ -126,7 +126,7 @@ class __$$ModerationOptsImplCopyWithImpl<$Res>
       labelDefs: null == labelDefs
           ? _value._labelDefs
           : labelDefs // ignore: cast_nullable_to_non_nullable
-              as Map<String, InterpretedLabelValueDefinition>,
+              as Map<String, List<InterpretedLabelValueDefinition>>,
     ));
   }
 }
@@ -137,17 +137,18 @@ class _$ModerationOptsImpl implements _ModerationOpts {
   const _$ModerationOptsImpl(
       {this.userDid,
       required this.prefs,
-      final Map<String, InterpretedLabelValueDefinition> labelDefs = const {}})
+      final Map<String, List<InterpretedLabelValueDefinition>> labelDefs =
+          const {}})
       : _labelDefs = labelDefs;
 
   @override
   final String? userDid;
   @override
   final ModerationPrefs prefs;
-  final Map<String, InterpretedLabelValueDefinition> _labelDefs;
+  final Map<String, List<InterpretedLabelValueDefinition>> _labelDefs;
   @override
   @JsonKey()
-  Map<String, InterpretedLabelValueDefinition> get labelDefs {
+  Map<String, List<InterpretedLabelValueDefinition>> get labelDefs {
     if (_labelDefs is EqualUnmodifiableMapView) return _labelDefs;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_labelDefs);
@@ -185,7 +186,7 @@ abstract class _ModerationOpts implements ModerationOpts {
   const factory _ModerationOpts(
           {final String? userDid,
           required final ModerationPrefs prefs,
-          final Map<String, InterpretedLabelValueDefinition> labelDefs}) =
+          final Map<String, List<InterpretedLabelValueDefinition>> labelDefs}) =
       _$ModerationOptsImpl;
 
   @override
@@ -193,7 +194,7 @@ abstract class _ModerationOpts implements ModerationOpts {
   @override
   ModerationPrefs get prefs;
   @override
-  Map<String, InterpretedLabelValueDefinition> get labelDefs;
+  Map<String, List<InterpretedLabelValueDefinition>> get labelDefs;
   @override
   @JsonKey(ignore: true)
   _$$ModerationOptsImplCopyWith<_$ModerationOptsImpl> get copyWith =>
