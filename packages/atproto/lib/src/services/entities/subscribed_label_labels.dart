@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import 'label.dart';
 
 part 'subscribed_label_labels.freezed.dart';

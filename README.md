@@ -125,7 +125,7 @@ melos setup
 | **melos setup**   | Set up the atproto.dart project when cloned. Run `dart pub get` and `dart run build_runner build` in all Dart packages. |
 | **melos get**     | Run `dart pub get` command in all packages.                                                                             |
 | **melos analyze** | Run `dart analyze` in all packages.                                                                                     |
-| **melos format**  | Run `dart format` and `dart run import_sorter:main` in all packages.                                                    |
+| **melos fmt**     | Run `dart format` and `dart run import_sorter:main` in all packages.                                                    |
 | **melos build**   | Run `dart run build_runner build` in all packages.                                                                      |
 | **melos test**    | Run all Dart tests in this project.                                                                                     |
 

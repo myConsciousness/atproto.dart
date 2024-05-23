@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.3
+
+- Bump `bluesky`.
+
 ## v0.1.2
 
 - Rename from `ConvoMessage` to `ConvoMessageInput`. ([#1463](https://github.com/myConsciousness/atproto.dart/issues/1463))

@@ -48,6 +48,7 @@
     "Pageable",
     "paginations",
     "pchar",
+    "Prefs",
     "proto",
     "pubspec",
     "punycode",

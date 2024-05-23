@@ -1,5 +1,14 @@
 # Release Note
 
+## v0.15.22
+
+- Merged the official algorithm of the moderation API. Exposed the following functions.
+  - `moderatePost`
+  - `moderateProfile`
+  - `moderateNotification`
+  - `moderateFeedGenerator`
+  - `moderateUserList`
+
 ## v0.15.21
 
 - Add `.chat` property on `ProfileAssociated` object. ([#1448](https://github.com/myConsciousness/atproto.dart/issues/1448))
