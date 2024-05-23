@@ -6,6 +6,7 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
 import '../../actor/defs/profile_view_basic.dart';
 import 'union/message_view.dart';
 

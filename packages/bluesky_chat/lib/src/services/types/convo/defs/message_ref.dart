@@ -15,6 +15,7 @@ class ConvoMessageRef with _$ConvoMessageRef {
   @jsonSerializable
   const factory ConvoMessageRef({
     required String did,
+    required String convoId,
     required String messageId,
   }) = _ConvoMessageRef;
 

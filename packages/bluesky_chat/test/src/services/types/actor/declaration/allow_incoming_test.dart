@@ -2,8 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky_chat/src/services/types/actor/declaration/allow_incoming.dart';
+// 📦 Package imports:
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:bluesky_chat/src/services/types/actor/declaration/allow_incoming.dart';
 
 void main() {
   test('.name', () {

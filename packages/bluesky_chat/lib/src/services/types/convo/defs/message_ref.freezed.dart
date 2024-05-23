@@ -21,6 +21,7 @@ ConvoMessageRef _$ConvoMessageRefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ConvoMessageRef {
   String get did => throw _privateConstructorUsedError;
+  String get convoId => throw _privateConstructorUsedError;
   String get messageId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +36,7 @@ abstract class $ConvoMessageRefCopyWith<$Res> {
           ConvoMessageRef value, $Res Function(ConvoMessageRef) then) =
       _$ConvoMessageRefCopyWithImpl<$Res, ConvoMessageRef>;
   @useResult
-  $Res call({String did, String messageId});
+  $Res call({String did, String convoId, String messageId});
 }
 
 /// @nodoc
@@ -52,12 +53,17 @@ class _$ConvoMessageRefCopyWithImpl<$Res, $Val extends ConvoMessageRef>
   @override
   $Res call({
     Object? did = null,
+    Object? convoId = null,
     Object? messageId = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _value.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
               as String,
       messageId: null == messageId
           ? _value.messageId
@@ -75,7 +81,7 @@ abstract class _$$ConvoMessageRefImplCopyWith<$Res>
       __$$ConvoMessageRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, String messageId});
+  $Res call({String did, String convoId, String messageId});
 }
 
 /// @nodoc
@@ -90,12 +96,17 @@ class __$$ConvoMessageRefImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? did = null,
+    Object? convoId = null,
     Object? messageId = null,
   }) {
     return _then(_$ConvoMessageRefImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
+              as String,
+      convoId: null == convoId
+          ? _value.convoId
+          : convoId // ignore: cast_nullable_to_non_nullable
               as String,
       messageId: null == messageId
           ? _value.messageId
@@ -109,7 +120,8 @@ class __$$ConvoMessageRefImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ConvoMessageRefImpl implements _ConvoMessageRef {
-  const _$ConvoMessageRefImpl({required this.did, required this.messageId});
+  const _$ConvoMessageRefImpl(
+      {required this.did, required this.convoId, required this.messageId});
 
   factory _$ConvoMessageRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ConvoMessageRefImplFromJson(json);
@@ -117,11 +129,13 @@ class _$ConvoMessageRefImpl implements _ConvoMessageRef {
   @override
   final String did;
   @override
+  final String convoId;
+  @override
   final String messageId;
 
   @override
   String toString() {
-    return 'ConvoMessageRef(did: $did, messageId: $messageId)';
+    return 'ConvoMessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
   }
 
   @override
@@ -130,13 +144,14 @@ class _$ConvoMessageRefImpl implements _ConvoMessageRef {
         (other.runtimeType == runtimeType &&
             other is _$ConvoMessageRefImpl &&
             (identical(other.did, did) || other.did == did) &&
+            (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.messageId, messageId) ||
                 other.messageId == messageId));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, messageId);
+  int get hashCode => Object.hash(runtimeType, did, convoId, messageId);
 
   @JsonKey(ignore: true)
   @override
@@ -156,6 +171,7 @@ class _$ConvoMessageRefImpl implements _ConvoMessageRef {
 abstract class _ConvoMessageRef implements ConvoMessageRef {
   const factory _ConvoMessageRef(
       {required final String did,
+      required final String convoId,
       required final String messageId}) = _$ConvoMessageRefImpl;
 
   factory _ConvoMessageRef.fromJson(Map<String, dynamic> json) =
@@ -163,6 +179,8 @@ abstract class _ConvoMessageRef implements ConvoMessageRef {
 
   @override
   String get did;
+  @override
+  String get convoId;
   @override
   String get messageId;
   @override
