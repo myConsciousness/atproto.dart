@@ -12,6 +12,7 @@ import 'package:bluesky/src/services/entities/embed_view.dart';
 import 'package:bluesky/src/services/entities/embed_view_record.dart';
 import 'package:bluesky/src/services/entities/embed_view_record_view.dart';
 import 'package:bluesky/src/services/entities/embed_view_record_view_record.dart';
+import 'package:bluesky/src/services/entities/facet.dart';
 import 'package:bluesky/src/services/entities/list_view_basic.dart';
 import 'package:bluesky/src/services/entities/post.dart';
 import 'package:bluesky/src/services/entities/post_record.dart';
@@ -19,9 +20,13 @@ import 'package:bluesky/src/services/entities/post_viewer.dart';
 
 const _kFakeCid = 'bafyreiclp443lavogvhj3d2ob2cxbfuscni2k5jk7bebjzg7khl3esabwq';
 
-PostRecord post({required String text}) {
+PostRecord post({
+  required String text,
+  List<Facet>? facets,
+}) {
   return PostRecord(
     text: text,
+    facets: facets,
     langs: const ['en'],
     createdAt: DateTime.now().toUtc(),
   );

@@ -2,9 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:characters/characters.dart';
 
+// 🌎 Project imports:
 import '../../services/entities/facet.dart';
 import '../../services/entities/facet_feature.dart';
 import '../../services/entities/muted_word.dart';
@@ -21,15 +22,12 @@ const _kLanguageExceptions = [
   'vi', // Vietnamese
 ];
 
-final _spaceOrPunctuationRegex = RegExp(r'(?:^\p{P}+|\p{P}+$)', unicode: true);
+final _leadingTrailingPunctuationRegex =
+    RegExp(r'(?:^\p{P}+|\p{P}+$)', unicode: true);
+final _whitespacePunctuationRegex = RegExp(r'(?:\s|\p{P})+?', unicode: true);
 final _wordBoundaryRegex = RegExp(r'[\s\n\t\r\f\v]+?');
-final _leadingTrailingPunctuationRegex = RegExp(
-  r'(?:^\p{P}+|\p{P}+$)',
-  multiLine: true,
-  unicode: true,
-);
 final _punctuationRegex = RegExp(r'\p{P}+', unicode: true);
-final _spaceRegex = RegExp(r'\s');
+final _spaceRegex = RegExp(r'\s', unicode: true);
 
 bool hasMutedWord({
   required List<MutedWord> mutedWords,
@@ -58,7 +56,7 @@ bool hasMutedWord({
     }
     if (mutedWord.length > postText.length) continue;
     if (mutedWord == postText) return true;
-    if (_spaceOrPunctuationRegex.hasMatch(mutedWord) &&
+    if (_whitespacePunctuationRegex.hasMatch(mutedWord) &&
         postText.contains(mutedWord)) {
       return true;
     }

@@ -2,10 +2,19 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/src/moderation/types/mute_words.dart';
+// 📦 Package imports:
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:test/test.dart';
+
+// 🌎 Project imports:
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/src/moderation.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_cause.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
+import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
+import 'package:bluesky/src/moderation/types/mute_words.dart';
+import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
+import 'utils/mock.dart';
 
 void main() {
   group('hasMutedWord tags', () {
@@ -796,6 +805,129 @@ void main() {
         ),
         isTrue,
       );
+    });
+  });
+
+  group('languages without spaces', () {
+    test('match: インターネット', () async {
+      final text = BlueskyText(
+        '私はカメが好きです、またはどのようにして心配するのをやめてインターネットを愛するようになったのか',
+      );
+      final facets = await text.entities.toFacets();
+
+      expect(
+        hasMutedWord(
+          mutedWords: [
+            MutedWord(value: 'インターネット', targets: ['content']),
+          ],
+          text: text.value,
+          facets: facets.map(Facet.fromJson).toList(),
+          outlineTags: [],
+          languages: ['ja'],
+        ),
+        isTrue,
+      );
+    });
+  });
+
+  group("doesn't mute own post", () {
+    test("does mute if it isn't own post", () async {
+      final actual = moderatePost(
+        ModerationSubjectPost.postView(
+          data: postView(
+            record: post(text: 'Mute words!'),
+            author: profileViewBasic(
+              handle: 'bob.test',
+              displayName: 'Bob',
+            ),
+          ),
+        ),
+        ModerationOpts(
+          userDid: 'did:web:alice.test',
+          prefs: ModerationPrefs(
+            adultContentEnabled: false,
+            labels: {},
+            labelers: const [],
+            mutedWords: const [
+              MutedWord(
+                value: 'words',
+                targets: ['content'],
+              ),
+            ],
+            hiddenPosts: const [],
+          ),
+        ),
+      );
+
+      expect(actual.causes.firstOrNull, isA<UModerationCauseMuteWord>());
+    });
+
+    test("doesn't mute own post when muted word is in text", () async {
+      final actual = moderatePost(
+        ModerationSubjectPost.postView(
+          data: postView(
+            record: post(text: 'Mute words!'),
+            author: profileViewBasic(
+              handle: 'bob.test',
+              displayName: 'Bob',
+            ),
+          ),
+        ),
+        ModerationOpts(
+          userDid: 'did:web:bob.test',
+          prefs: ModerationPrefs(
+            adultContentEnabled: false,
+            labels: {},
+            labelers: const [],
+            mutedWords: const [
+              MutedWord(
+                value: 'words',
+                targets: ['content'],
+              ),
+            ],
+            hiddenPosts: const [],
+          ),
+        ),
+      );
+
+      expect(actual.causes.isEmpty, isTrue);
+    });
+
+    test("doesn't mute own post when muted word is in tags", () async {
+      final text = BlueskyText('Mute #words!');
+      final facets = await text.entities.toFacets();
+
+      final actual = moderatePost(
+        ModerationSubjectPost.postView(
+          data: postView(
+            record: post(
+              text: text.value,
+              facets: facets.map(Facet.fromJson).toList(),
+            ),
+            author: profileViewBasic(
+              handle: 'bob.test',
+              displayName: 'Bob',
+            ),
+          ),
+        ),
+        ModerationOpts(
+          userDid: 'did:web:bob.test',
+          prefs: ModerationPrefs(
+            adultContentEnabled: false,
+            labels: {},
+            labelers: const [],
+            mutedWords: const [
+              MutedWord(
+                value: 'words',
+                targets: ['tags'],
+              ),
+            ],
+            hiddenPosts: const [],
+          ),
+        ),
+      );
+
+      expect(actual.causes.isEmpty, isTrue);
     });
   });
 }
