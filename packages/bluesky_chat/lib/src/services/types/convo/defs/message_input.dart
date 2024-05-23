@@ -10,20 +10,19 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import 'union/message_embed.dart';
 
-part 'message.freezed.dart';
-part 'message.g.dart';
+part 'message_input.freezed.dart';
+part 'message_input.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#message
+/// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageinput
 @freezed
-class ConvoMessage with _$ConvoMessage {
+class ConvoMessageInput with _$ConvoMessageInput {
   @jsonSerializable
-  const factory ConvoMessage({
-    String? id,
+  const factory ConvoMessageInput({
     required String text,
     List<Facet>? facets,
     @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
-  }) = _ConvoMessage;
+  }) = _ConvoMessageInput;
 
-  factory ConvoMessage.fromJson(Map<String, Object?> json) =>
-      _$ConvoMessageFromJson(json);
+  factory ConvoMessageInput.fromJson(Map<String, Object?> json) =>
+      _$ConvoMessageInputFromJson(json);
 }

@@ -9,7 +9,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import '../nsids.g.dart' as ns;
 import 'service_context.dart';
 import 'types/convo/defs/deleted_message_view.dart';
-import 'types/convo/defs/message.dart';
+import 'types/convo/defs/message_input.dart';
 import 'types/convo/defs/message_view.dart';
 import 'types/convo/getConvo/output.dart';
 import 'types/convo/getConvoForMembers/output.dart';
@@ -136,7 +136,7 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
   Future<core.XRPCResponse<ConvoMessageView>> sendMessage({
     required String convoId,
-    required ConvoMessage message,
+    required ConvoMessageInput message,
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,

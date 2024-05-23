@@ -95,7 +95,7 @@ export 'package:bluesky_chat/src/services/types/convo/defs/log_leave_convo.dart'
 export 'package:bluesky_chat/src/services/types/convo/defs/message_ref.dart';
 export 'package:bluesky_chat/src/services/types/convo/defs/message_view_sender.dart';
 export 'package:bluesky_chat/src/services/types/convo/defs/message_view.dart';
-export 'package:bluesky_chat/src/services/types/convo/defs/message.dart';
+export 'package:bluesky_chat/src/services/types/convo/defs/message_input.dart';
 export 'package:bluesky_chat/src/services/types/convo/defs/union/log.dart';
 export 'package:bluesky_chat/src/services/types/convo/defs/union/message_embed.dart';
 export 'package:bluesky_chat/src/services/types/convo/defs/union/message_view.dart';

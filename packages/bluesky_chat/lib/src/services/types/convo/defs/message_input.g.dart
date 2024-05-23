@@ -2,18 +2,18 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'message.dart';
+part of 'message_input.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoMessageImpl _$$ConvoMessageImplFromJson(Map json) => $checkedCreate(
-      r'_$ConvoMessageImpl',
+_$ConvoMessageInputImpl _$$ConvoMessageInputImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ConvoMessageInputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoMessageImpl(
-          id: $checkedConvert('id', (v) => v as String?),
+        final val = _$ConvoMessageInputImpl(
           text: $checkedConvert('text', (v) => v as String),
           facets: $checkedConvert(
               'facets',
@@ -31,8 +31,11 @@ _$ConvoMessageImpl _$$ConvoMessageImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ConvoMessageImplToJson(_$ConvoMessageImpl instance) {
-  final val = <String, dynamic>{};
+Map<String, dynamic> _$$ConvoMessageInputImplToJson(
+    _$ConvoMessageInputImpl instance) {
+  final val = <String, dynamic>{
+    'text': instance.text,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -40,8 +43,6 @@ Map<String, dynamic> _$$ConvoMessageImplToJson(_$ConvoMessageImpl instance) {
     }
   }
 
-  writeNotNull('id', instance.id);
-  val['text'] = instance.text;
   writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   writeNotNull(
       'embed',
