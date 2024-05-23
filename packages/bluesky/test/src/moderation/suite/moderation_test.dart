@@ -56,9 +56,9 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [ModerationTestSuiteResultFlag.blur],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
     });
 
@@ -95,9 +95,9 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
     });
 
@@ -133,7 +133,7 @@ void main() {
         ),
       );
 
-      for (final context in ModerationBehaviorKey.values) {
+      for (final context in ModerationBehaviorContext.values) {
         testModeration(
           actual: actual.getUI(context),
           expected: const [],
@@ -181,7 +181,7 @@ void main() {
         ),
       );
 
-      for (final context in ModerationBehaviorKey.values) {
+      for (final context in ModerationBehaviorContext.values) {
         testModeration(
           actual: actual.getUI(context),
           expected: const [],
@@ -224,19 +224,19 @@ void main() {
       actual.addHidden();
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [
           ModerationTestSuiteResultFlag.filter,
           ModerationTestSuiteResultFlag.blur,
         ],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [
           ModerationTestSuiteResultFlag.blur,
         ],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
     });
 
@@ -289,7 +289,7 @@ void main() {
 
       expect(
         actual
-            .getUI(ModerationBehaviorKey.contentList)
+            .getUI(ModerationBehaviorContext.contentList)
             .filters
             .first
             .whenOrNull(label: (data) => data.label.value),
@@ -297,14 +297,14 @@ void main() {
       );
       expect(
         actual
-            .getUI(ModerationBehaviorKey.contentList)
+            .getUI(ModerationBehaviorContext.contentList)
             .filters[1]
             .whenOrNull(label: (data) => data.label.value),
         'porn',
       );
       expect(
         actual
-            .getUI(ModerationBehaviorKey.contentList)
+            .getUI(ModerationBehaviorContext.contentList)
             .blurs
             .first
             .whenOrNull(label: (data) => data.label.value),
@@ -312,7 +312,7 @@ void main() {
       );
       expect(
         actual
-            .getUI(ModerationBehaviorKey.contentMedia)
+            .getUI(ModerationBehaviorContext.contentMedia)
             .blurs
             .first
             .whenOrNull(label: (data) => data.label.value),
@@ -375,44 +375,44 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [ModerationTestSuiteResultFlag.inform],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [ModerationTestSuiteResultFlag.inform],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -467,51 +467,51 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [
           ModerationTestSuiteResultFlag.filter,
           ModerationTestSuiteResultFlag.blur,
           ModerationTestSuiteResultFlag.noOverride,
         ],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [
           ModerationTestSuiteResultFlag.blur,
           ModerationTestSuiteResultFlag.noOverride,
         ],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -582,44 +582,44 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -688,49 +688,49 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [
           ModerationTestSuiteResultFlag.filter,
           ModerationTestSuiteResultFlag.blur,
         ],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [
           ModerationTestSuiteResultFlag.inform,
         ],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -799,48 +799,48 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [
           ModerationTestSuiteResultFlag.blur,
         ],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [
           ModerationTestSuiteResultFlag.inform,
         ],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -909,44 +909,44 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -1006,51 +1006,51 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [
           ModerationTestSuiteResultFlag.filter,
           ModerationTestSuiteResultFlag.blur,
           ModerationTestSuiteResultFlag.noOverride,
         ],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [
           ModerationTestSuiteResultFlag.blur,
           ModerationTestSuiteResultFlag.noOverride,
         ],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
 
@@ -1096,47 +1096,47 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: const [],
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: const [],
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: const [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: const [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: const [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: const [ModerationTestSuiteResultFlag.filter],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: const [],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: const [
           ModerationTestSuiteResultFlag.blur,
           ModerationTestSuiteResultFlag.noOverride,
         ],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
   });

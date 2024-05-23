@@ -47,6 +47,6 @@ final class InterpretedLabelValueDefinition {
   final LabelPreference defaultSetting;
   final String severity;
   final String blurs;
-  final Map<LabelTarget, Map<ModerationBehaviorKey, ModerationBehaviorValue>>
+  final Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
       behaviors;
 }

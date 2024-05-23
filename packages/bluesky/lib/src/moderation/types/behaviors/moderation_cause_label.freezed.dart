@@ -22,7 +22,7 @@ mixin _$ModerationCauseLabel {
       throw _privateConstructorUsedError;
   LabelTarget get target => throw _privateConstructorUsedError;
   LabelPreference get setting => throw _privateConstructorUsedError;
-  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior =>
+  Map<ModerationBehaviorContext, ModerationBehavior> get behavior =>
       throw _privateConstructorUsedError;
   bool get noOverride => throw _privateConstructorUsedError;
   @Assert(_assertEvalPriority)
@@ -46,7 +46,7 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
       InterpretedLabelValueDefinition labelDef,
       LabelTarget target,
       LabelPreference setting,
-      Map<ModerationBehaviorKey, ModerationBehaviorValue> behavior,
+      Map<ModerationBehaviorContext, ModerationBehavior> behavior,
       bool noOverride,
       @Assert(_assertEvalPriority) int priority,
       bool downgraded});
@@ -103,7 +103,7 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
       behavior: null == behavior
           ? _value.behavior
           : behavior // ignore: cast_nullable_to_non_nullable
-              as Map<ModerationBehaviorKey, ModerationBehaviorValue>,
+              as Map<ModerationBehaviorContext, ModerationBehavior>,
       noOverride: null == noOverride
           ? _value.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
@@ -150,7 +150,7 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
       InterpretedLabelValueDefinition labelDef,
       LabelTarget target,
       LabelPreference setting,
-      Map<ModerationBehaviorKey, ModerationBehaviorValue> behavior,
+      Map<ModerationBehaviorContext, ModerationBehavior> behavior,
       bool noOverride,
       @Assert(_assertEvalPriority) int priority,
       bool downgraded});
@@ -206,7 +206,7 @@ class __$$ModerationCauseLabelImplCopyWithImpl<$Res>
       behavior: null == behavior
           ? _value._behavior
           : behavior // ignore: cast_nullable_to_non_nullable
-              as Map<ModerationBehaviorKey, ModerationBehaviorValue>,
+              as Map<ModerationBehaviorContext, ModerationBehavior>,
       noOverride: null == noOverride
           ? _value.noOverride
           : noOverride // ignore: cast_nullable_to_non_nullable
@@ -232,7 +232,7 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
       required this.labelDef,
       required this.target,
       required this.setting,
-      required final Map<ModerationBehaviorKey, ModerationBehaviorValue>
+      required final Map<ModerationBehaviorContext, ModerationBehavior>
           behavior,
       this.noOverride = false,
       @Assert(_assertEvalPriority) this.priority = 0,
@@ -249,9 +249,9 @@ class _$ModerationCauseLabelImpl implements _ModerationCauseLabel {
   final LabelTarget target;
   @override
   final LabelPreference setting;
-  final Map<ModerationBehaviorKey, ModerationBehaviorValue> _behavior;
+  final Map<ModerationBehaviorContext, ModerationBehavior> _behavior;
   @override
-  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior {
+  Map<ModerationBehaviorContext, ModerationBehavior> get behavior {
     if (_behavior is EqualUnmodifiableMapView) return _behavior;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableMapView(_behavior);
@@ -322,7 +322,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
       required final InterpretedLabelValueDefinition labelDef,
       required final LabelTarget target,
       required final LabelPreference setting,
-      required final Map<ModerationBehaviorKey, ModerationBehaviorValue>
+      required final Map<ModerationBehaviorContext, ModerationBehavior>
           behavior,
       final bool noOverride,
       @Assert(_assertEvalPriority) final int priority,
@@ -339,7 +339,7 @@ abstract class _ModerationCauseLabel implements ModerationCauseLabel {
   @override
   LabelPreference get setting;
   @override
-  Map<ModerationBehaviorKey, ModerationBehaviorValue> get behavior;
+  Map<ModerationBehaviorContext, ModerationBehavior> get behavior;
   @override
   bool get noOverride;
   @override

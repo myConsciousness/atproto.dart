@@ -212,44 +212,44 @@ void main() {
       );
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileList),
+        actual: actual.getUI(ModerationBehaviorContext.profileList),
         expected: _getExpectedResultFlags(expected['profileList']),
-        context: ModerationBehaviorKey.profileList.name,
+        context: ModerationBehaviorContext.profileList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.profileView),
+        actual: actual.getUI(ModerationBehaviorContext.profileView),
         expected: _getExpectedResultFlags(expected['profileView']),
-        context: ModerationBehaviorKey.profileView.name,
+        context: ModerationBehaviorContext.profileView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: _getExpectedResultFlags(expected['avatar']),
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: _getExpectedResultFlags(expected['banner']),
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: _getExpectedResultFlags(expected['displayName']),
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: _getExpectedResultFlags(expected['contentList']),
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: _getExpectedResultFlags(expected['contentView']),
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: _getExpectedResultFlags(expected['contentMedia']),
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     }
   });

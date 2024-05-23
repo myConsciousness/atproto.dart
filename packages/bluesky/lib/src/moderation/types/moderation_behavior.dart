@@ -2,48 +2,48 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum ModerationBehaviorValue {
+enum ModerationBehavior {
   blur,
   alert,
   inform,
   none;
 
-  const ModerationBehaviorValue();
+  const ModerationBehavior();
 
-  bool get isBlur => this == ModerationBehaviorValue.blur;
-  bool get isAlert => this == ModerationBehaviorValue.alert;
-  bool get isInform => this == ModerationBehaviorValue.inform;
+  bool get isBlur => this == ModerationBehavior.blur;
+  bool get isAlert => this == ModerationBehavior.alert;
+  bool get isInform => this == ModerationBehavior.inform;
 }
 
 const kBlockBehavior = {
-  'profileList': ModerationBehaviorValue.blur,
-  'profileView': ModerationBehaviorValue.alert,
-  'avatar': ModerationBehaviorValue.blur,
-  'banner': ModerationBehaviorValue.blur,
-  'contentList': ModerationBehaviorValue.blur,
-  'contentView': ModerationBehaviorValue.blur,
+  'profileList': ModerationBehavior.blur,
+  'profileView': ModerationBehavior.alert,
+  'avatar': ModerationBehavior.blur,
+  'banner': ModerationBehavior.blur,
+  'contentList': ModerationBehavior.blur,
+  'contentView': ModerationBehavior.blur,
 };
 
 const kMuteBehavior = {
-  'profileList': ModerationBehaviorValue.inform,
-  'profileView': ModerationBehaviorValue.alert,
-  'contentList': ModerationBehaviorValue.blur,
-  'contentView': ModerationBehaviorValue.inform,
+  'profileList': ModerationBehavior.inform,
+  'profileView': ModerationBehavior.alert,
+  'contentList': ModerationBehavior.blur,
+  'contentView': ModerationBehavior.inform,
 };
 
 const kMuteWordBehavior = {
-  'contentList': ModerationBehaviorValue.blur,
-  'contentView': ModerationBehaviorValue.blur,
+  'contentList': ModerationBehavior.blur,
+  'contentView': ModerationBehavior.blur,
 };
 
 const kHideBehavior = {
-  'contentList': ModerationBehaviorValue.blur,
-  'contentView': ModerationBehaviorValue.blur,
+  'contentList': ModerationBehavior.blur,
+  'contentView': ModerationBehavior.blur,
 };
 
 const kNoopBehavior = {};
 
-enum ModerationBehaviorKey {
+enum ModerationBehaviorContext {
   profileList,
   profileView,
   avatar,
@@ -53,14 +53,14 @@ enum ModerationBehaviorKey {
   contentView,
   contentMedia;
 
-  const ModerationBehaviorKey();
+  const ModerationBehaviorContext();
 
-  bool get isProfileList => this == ModerationBehaviorKey.profileList;
-  bool get isProfileView => this == ModerationBehaviorKey.profileView;
-  bool get isAvatar => this == ModerationBehaviorKey.avatar;
-  bool get isBanner => this == ModerationBehaviorKey.banner;
-  bool get isDisplayName => this == ModerationBehaviorKey.displayName;
-  bool get isContentList => this == ModerationBehaviorKey.contentList;
-  bool get isContentView => this == ModerationBehaviorKey.contentView;
-  bool get isContentMedia => this == ModerationBehaviorKey.contentMedia;
+  bool get isProfileList => this == ModerationBehaviorContext.profileList;
+  bool get isProfileView => this == ModerationBehaviorContext.profileView;
+  bool get isAvatar => this == ModerationBehaviorContext.avatar;
+  bool get isBanner => this == ModerationBehaviorContext.banner;
+  bool get isDisplayName => this == ModerationBehaviorContext.displayName;
+  bool get isContentList => this == ModerationBehaviorContext.contentList;
+  bool get isContentView => this == ModerationBehaviorContext.contentView;
+  bool get isContentMedia => this == ModerationBehaviorContext.contentMedia;
 }

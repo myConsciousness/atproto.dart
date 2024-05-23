@@ -1020,46 +1020,46 @@ void main() {
 
       if (scenario.value.subject == 'profile') {
         testModeration(
-          actual: actual.getUI(ModerationBehaviorKey.profileList),
+          actual: actual.getUI(ModerationBehaviorContext.profileList),
           expected: scenario.value.behaviors['profileList'] ?? [],
-          context: ModerationBehaviorKey.profileList.name,
+          context: ModerationBehaviorContext.profileList.name,
         );
         testModeration(
-          actual: actual.getUI(ModerationBehaviorKey.profileView),
+          actual: actual.getUI(ModerationBehaviorContext.profileView),
           expected: scenario.value.behaviors['profileView'] ?? [],
-          context: ModerationBehaviorKey.profileView.name,
+          context: ModerationBehaviorContext.profileView.name,
         );
       }
 
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.avatar),
+        actual: actual.getUI(ModerationBehaviorContext.avatar),
         expected: scenario.value.behaviors['avatar'] ?? [],
-        context: ModerationBehaviorKey.avatar.name,
+        context: ModerationBehaviorContext.avatar.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.banner),
+        actual: actual.getUI(ModerationBehaviorContext.banner),
         expected: scenario.value.behaviors['banner'] ?? [],
-        context: ModerationBehaviorKey.banner.name,
+        context: ModerationBehaviorContext.banner.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.displayName),
+        actual: actual.getUI(ModerationBehaviorContext.displayName),
         expected: scenario.value.behaviors['displayName'] ?? [],
-        context: ModerationBehaviorKey.displayName.name,
+        context: ModerationBehaviorContext.displayName.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentList),
+        actual: actual.getUI(ModerationBehaviorContext.contentList),
         expected: scenario.value.behaviors['contentList'] ?? [],
-        context: ModerationBehaviorKey.contentList.name,
+        context: ModerationBehaviorContext.contentList.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentView),
+        actual: actual.getUI(ModerationBehaviorContext.contentView),
         expected: scenario.value.behaviors['contentView'] ?? [],
-        context: ModerationBehaviorKey.contentView.name,
+        context: ModerationBehaviorContext.contentView.name,
       );
       testModeration(
-        actual: actual.getUI(ModerationBehaviorKey.contentMedia),
+        actual: actual.getUI(ModerationBehaviorContext.contentMedia),
         expected: scenario.value.behaviors['contentMedia'] ?? [],
-        context: ModerationBehaviorKey.contentMedia.name,
+        context: ModerationBehaviorContext.contentMedia.name,
       );
     });
   }

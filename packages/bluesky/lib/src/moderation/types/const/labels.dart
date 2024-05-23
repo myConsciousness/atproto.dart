@@ -59,22 +59,22 @@ const kHideInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   blurs: 'content',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.profileList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.profileView: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.displayName: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.profileList: ModerationBehavior.blur,
+      ModerationBehaviorContext.profileView: ModerationBehavior.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.displayName: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.displayName: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.displayName: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     }
   },
 );
@@ -89,21 +89,21 @@ const kWarnInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   blurs: 'content',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.profileList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.profileView: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.profileList: ModerationBehavior.blur,
+      ModerationBehaviorContext.profileView: ModerationBehavior.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.displayName: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.displayName: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     }
   },
 );
@@ -120,22 +120,22 @@ const kNoUnauthenticatedInterpretedLabelValueDefinition =
   blurs: 'content',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.profileList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.profileView: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.displayName: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.profileList: ModerationBehavior.blur,
+      ModerationBehaviorContext.profileView: ModerationBehavior.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.displayName: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.displayName: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
+      ModerationBehaviorContext.displayName: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentList: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.contentView: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentList: ModerationBehavior.blur,
+      ModerationBehaviorContext.contentView: ModerationBehavior.blur,
     }
   },
 );
@@ -151,15 +151,15 @@ const kPornInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   blurs: 'media',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentMedia: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentMedia: ModerationBehavior.blur,
     }
   },
 );
@@ -175,15 +175,15 @@ const kSexualInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   blurs: 'media',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentMedia: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentMedia: ModerationBehavior.blur,
     }
   },
 );
@@ -196,15 +196,15 @@ const kNudityInterpretedLabelValueDefinition = InterpretedLabelValueDefinition(
   blurs: 'media',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentMedia: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentMedia: ModerationBehavior.blur,
     }
   },
 );
@@ -221,15 +221,15 @@ const kGraphicMediaInterpretedLabelValueDefinition =
   blurs: 'media',
   behaviors: {
     LabelTarget.account: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.profile: {
-      ModerationBehaviorKey.avatar: ModerationBehaviorValue.blur,
-      ModerationBehaviorKey.banner: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.avatar: ModerationBehavior.blur,
+      ModerationBehaviorContext.banner: ModerationBehavior.blur,
     },
     LabelTarget.content: {
-      ModerationBehaviorKey.contentMedia: ModerationBehaviorValue.blur,
+      ModerationBehaviorContext.contentMedia: ModerationBehavior.blur,
     }
   },
 );

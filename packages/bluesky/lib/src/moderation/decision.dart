@@ -279,7 +279,7 @@ final class ModerationDecision {
         ),
       );
 
-  ModerationUI getUI(final ModerationBehaviorKey context) {
+  ModerationUI getUI(final ModerationBehaviorContext context) {
     bool noOverride = false;
     final filters = <ModerationCause>[];
     final blurs = <ModerationCause>[];
@@ -297,14 +297,13 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kBlockBehavior[context.name] == ModerationBehaviorValue.blur) {
+          if (kBlockBehavior[context.name] == ModerationBehavior.blur) {
             noOverride = true;
             blurs.add(cause);
-          } else if (kBlockBehavior[context.name] ==
-              ModerationBehaviorValue.alert) {
+          } else if (kBlockBehavior[context.name] == ModerationBehavior.alert) {
             alerts.add(cause);
           } else if (kBlockBehavior[context.name] ==
-              ModerationBehaviorValue.inform) {
+              ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -316,13 +315,11 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kMuteBehavior[context.name] == ModerationBehaviorValue.blur) {
+          if (kMuteBehavior[context.name] == ModerationBehavior.blur) {
             blurs.add(cause);
-          } else if (kMuteBehavior[context.name] ==
-              ModerationBehaviorValue.alert) {
+          } else if (kMuteBehavior[context.name] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kMuteBehavior[context.name] ==
-              ModerationBehaviorValue.inform) {
+          } else if (kMuteBehavior[context.name] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -334,13 +331,13 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kMuteWordBehavior[context.name] == ModerationBehaviorValue.blur) {
+          if (kMuteWordBehavior[context.name] == ModerationBehavior.blur) {
             blurs.add(cause);
           } else if (kMuteWordBehavior[context.name] ==
-              ModerationBehaviorValue.alert) {
+              ModerationBehavior.alert) {
             alerts.add(cause);
           } else if (kMuteWordBehavior[context.name] ==
-              ModerationBehaviorValue.inform) {
+              ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -350,13 +347,11 @@ final class ModerationDecision {
         }
 
         if (!cause.downgraded) {
-          if (kHideBehavior[context.name] == ModerationBehaviorValue.blur) {
+          if (kHideBehavior[context.name] == ModerationBehavior.blur) {
             blurs.add(cause);
-          } else if (kHideBehavior[context.name] ==
-              ModerationBehaviorValue.alert) {
+          } else if (kHideBehavior[context.name] == ModerationBehavior.alert) {
             alerts.add(cause);
-          } else if (kHideBehavior[context.name] ==
-              ModerationBehaviorValue.inform) {
+          } else if (kHideBehavior[context.name] == ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -376,16 +371,15 @@ final class ModerationDecision {
         }
 
         if (!labelCause.downgraded) {
-          if (labelCause.behavior[context] == ModerationBehaviorValue.blur) {
+          if (labelCause.behavior[context] == ModerationBehavior.blur) {
             blurs.add(cause);
             if (labelCause.noOverride && !me) {
               noOverride = true;
             }
-          } else if (labelCause.behavior[context] ==
-              ModerationBehaviorValue.alert) {
+          } else if (labelCause.behavior[context] == ModerationBehavior.alert) {
             alerts.add(cause);
           } else if (labelCause.behavior[context] ==
-              ModerationBehaviorValue.inform) {
+              ModerationBehavior.inform) {
             informs.add(cause);
           }
         }
@@ -403,15 +397,15 @@ final class ModerationDecision {
 }
 
 ModerationBehaviorSeverity _measureModerationBehaviorSeverity(
-  final Map<ModerationBehaviorKey, ModerationBehaviorValue>? beh,
+  final Map<ModerationBehaviorContext, ModerationBehavior>? beh,
 ) {
   if (beh == null || beh.isEmpty) return ModerationBehaviorSeverity.low;
 
-  if ((beh[ModerationBehaviorKey.profileView]?.isBlur ?? false) ||
-      (beh[ModerationBehaviorKey.contentView]?.isBlur ?? false)) {
+  if ((beh[ModerationBehaviorContext.profileView]?.isBlur ?? false) ||
+      (beh[ModerationBehaviorContext.contentView]?.isBlur ?? false)) {
     return ModerationBehaviorSeverity.high;
-  } else if ((beh[ModerationBehaviorKey.contentList]?.isBlur ?? false) ||
-      (beh[ModerationBehaviorKey.contentMedia]?.isBlur ?? false)) {
+  } else if ((beh[ModerationBehaviorContext.contentList]?.isBlur ?? false) ||
+      (beh[ModerationBehaviorContext.contentMedia]?.isBlur ?? false)) {
     return ModerationBehaviorSeverity.medium;
   }
 
