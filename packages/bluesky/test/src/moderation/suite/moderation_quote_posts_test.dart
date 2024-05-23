@@ -270,6 +270,7 @@ ModerationOpts modOpts(
   return ModerationOpts(
     userDid: 'did:web:alice.test',
     prefs: ModerationPrefs(
+      adultContentEnabled: true,
       labels: const {},
       labelers: [
         ModerationPrefsLabeler(
