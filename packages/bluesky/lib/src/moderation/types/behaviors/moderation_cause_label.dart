@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../interpreted_label_value_definition.dart';
 import '../labels.dart';
 import '../mod_object.dart';
 import '../moderation_behavior.dart';

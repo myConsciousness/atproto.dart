@@ -12,8 +12,12 @@ export 'package:bluesky/src/moderation.dart'
 
 export 'package:bluesky/src/moderation/decision.dart' show ModerationDecision;
 export 'package:bluesky/src/moderation/utils.dart'
-    show getInterpretedLabelValueDefinition;
+    show
+        getInterpretedLabelValueDefinition,
+        getInterpretedLabelValueDefinitions,
+        getLabelDefinitions;
 
+export 'package:bluesky/src/moderation/types/interpreted_label_value_definition.dart';
 export 'package:bluesky/src/moderation/types/moderation_ui.dart';
 export 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 export 'package:bluesky/src/moderation/types/labels.dart';

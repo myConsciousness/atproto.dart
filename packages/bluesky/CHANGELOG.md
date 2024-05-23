@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.23
+
+- Add `.getLabelDefinitions` function for moderation API.
+
 ## v0.15.22
 
 - Merged the official algorithm of the moderation API. Exposed the following functions.

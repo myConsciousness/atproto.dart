@@ -14,11 +14,8 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$LabelerPoliciesImpl(
-          labelValues: $checkedConvert(
-              'labelValues',
-              (v) => (v as List<dynamic>)
-                  .map((e) => $enumDecode(_$LabelValueEnumMap, e))
-                  .toList()),
+          labelValues: $checkedConvert('labelValues',
+              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           labelValueDefinitions: $checkedConvert(
               'labelValueDefinitions',
               (v) => (v as List<dynamic>?)
@@ -33,8 +30,7 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
 Map<String, dynamic> _$$LabelerPoliciesImplToJson(
     _$LabelerPoliciesImpl instance) {
   final val = <String, dynamic>{
-    'labelValues':
-        instance.labelValues.map((e) => _$LabelValueEnumMap[e]!).toList(),
+    'labelValues': instance.labelValues,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -47,17 +43,3 @@ Map<String, dynamic> _$$LabelerPoliciesImplToJson(
       instance.labelValueDefinitions?.map((e) => e.toJson()).toList());
   return val;
 }
-
-const _$LabelValueEnumMap = {
-  LabelValue.hide: '!hide',
-  LabelValue.noPromote: '!no-promote',
-  LabelValue.warn: '!warn',
-  LabelValue.noUnauthenticated: '!no-unauthenticated',
-  LabelValue.dmcaViolation: 'dmca-violation',
-  LabelValue.doxxing: 'doxxing',
-  LabelValue.porn: 'porn',
-  LabelValue.sexual: 'sexual',
-  LabelValue.nudity: 'nudity',
-  LabelValue.nsfl: 'nsfl',
-  LabelValue.gore: 'gore',
-};

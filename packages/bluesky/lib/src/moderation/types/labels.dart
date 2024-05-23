@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🌎 Project imports:
-import 'moderation_behavior.dart';
-
 enum LabelTarget {
   account,
   profile,
@@ -14,7 +11,17 @@ enum LabelTarget {
 enum LabelPreference {
   ignore,
   warn,
-  hide,
+  hide;
+
+  static LabelPreference? valueOf(final String value) {
+    for (final $value in values) {
+      if ($value.name == value) {
+        return $value;
+      }
+    }
+
+    return null;
+  }
 }
 
 enum LabelValueDefinitionFlag {
@@ -26,27 +33,4 @@ enum LabelValueDefinitionFlag {
   final String value;
 
   const LabelValueDefinitionFlag(this.value);
-}
-
-final class InterpretedLabelValueDefinition {
-  const InterpretedLabelValueDefinition({
-    required this.identifier,
-    this.definedBy,
-    this.flags = const [],
-    this.configurable = false,
-    this.defaultSetting = LabelPreference.ignore,
-    required this.severity,
-    required this.blurs,
-    this.behaviors = const {},
-  });
-
-  final String identifier;
-  final String? definedBy;
-  final List<LabelValueDefinitionFlag> flags;
-  final bool configurable;
-  final LabelPreference defaultSetting;
-  final String severity;
-  final String blurs;
-  final Map<LabelTarget, Map<ModerationBehaviorContext, ModerationBehavior>>
-      behaviors;
 }

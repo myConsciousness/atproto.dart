@@ -3,8 +3,15 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
+import '../services/entities/labeler_service_view.dart';
+import '../services/entities/labeler_view_detailed.dart';
+import '../services/entities/preference.dart';
+import '../services/labeler_service.dart';
+import 'types/interpreted_label_value_definition.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
+
+const kBskyLabelerDid = 'did:plc:ar7c4by46qjdydhdevvrndac';
 
 InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
   required String identifier,
@@ -91,4 +98,49 @@ InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
       LabelTarget.content: contentBehavior,
     },
   );
+}
+
+List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
+  final LabelerViewDetailed labelerView,
+) {
+  return labelerView.policies.labelValueDefinitions
+          ?.map((e) => getInterpretedLabelValueDefinition(
+                identifier: e.identifier,
+                defaultSetting: LabelPreference.valueOf(e.defaultSetting) ??
+                    LabelPreference.warn,
+                severity: e.severity,
+                blurs: e.blurs,
+                adultOnly: e.adultOnly,
+                definedBy: labelerView.creator.did,
+              ))
+          .toList() ??
+      const [];
+}
+
+Future<Map<String, List<InterpretedLabelValueDefinition>>> getLabelDefinitions({
+  required LabelerService labelerService,
+  required List<Preference> prefs,
+}) async {
+  final dids = <String>[kBskyLabelerDid];
+
+  dids.addAll(prefs
+      .whereType<UPreferenceLabelersPref>()
+      .expand((e) => e.data.labelers)
+      .map((e) => e.did));
+
+  final labelers = await labelerService.getServices(
+    dids: dids,
+    detailed: true,
+  );
+
+  final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};
+  for (final labeler in labelers.data.views) {
+    if (labeler is! ULabelerServiceViewLabelerViewDetailed) continue;
+
+    labelDefs[labeler.data.creator.did] = getInterpretedLabelValueDefinitions(
+      labeler.data,
+    );
+  }
+
+  return labelDefs;
 }

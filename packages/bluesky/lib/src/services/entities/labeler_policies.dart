@@ -17,7 +17,7 @@ part 'labeler_policies.g.dart';
 class LabelerPolicies with _$LabelerPolicies {
   @jsonSerializable
   const factory LabelerPolicies({
-    required List<LabelValue> labelValues,
+    required List<String> labelValues,
     List<LabelValueDefinition>? labelValueDefinitions,
   }) = _LabelerPolicies;
 
