@@ -26,13 +26,15 @@ const chatBskyActorDeleteAccount = NSID(ids.chatBskyActorDeleteAccount);
 const chatBskyActorExportAccountData = NSID(ids.chatBskyActorExportAccountData);
 
 /// `chat.bsky.convo.deleteMessageForSelf`
-const chatBskyConvoDeleteMessageForSelf = NSID(ids.chatBskyConvoDeleteMessageForSelf);
+const chatBskyConvoDeleteMessageForSelf =
+    NSID(ids.chatBskyConvoDeleteMessageForSelf);
 
 /// `chat.bsky.convo.getConvo`
 const chatBskyConvoGetConvo = NSID(ids.chatBskyConvoGetConvo);
 
 /// `chat.bsky.convo.getConvoForMembers`
-const chatBskyConvoGetConvoForMembers = NSID(ids.chatBskyConvoGetConvoForMembers);
+const chatBskyConvoGetConvoForMembers =
+    NSID(ids.chatBskyConvoGetConvoForMembers);
 
 /// `chat.bsky.convo.getLog`
 const chatBskyConvoGetLog = NSID(ids.chatBskyConvoGetLog);
@@ -56,7 +58,8 @@ const chatBskyConvoSendMessage = NSID(ids.chatBskyConvoSendMessage);
 const chatBskyConvoSendMessageBatch = NSID(ids.chatBskyConvoSendMessageBatch);
 
 /// `chat.bsky.convo.sendMessageBatch#batchItem`
-const chatBskyConvoSendMessageBatchBatchItem = NSID(ids.chatBskyConvoSendMessageBatchBatchItem);
+const chatBskyConvoSendMessageBatchBatchItem =
+    NSID(ids.chatBskyConvoSendMessageBatchBatchItem);
 
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = NSID(ids.chatBskyConvoUnmuteConvo);
@@ -65,13 +68,17 @@ const chatBskyConvoUnmuteConvo = NSID(ids.chatBskyConvoUnmuteConvo);
 const chatBskyConvoUpdateRead = NSID(ids.chatBskyConvoUpdateRead);
 
 /// `chat.bsky.moderation.getActorMetadata`
-const chatBskyModerationGetActorMetadata = NSID(ids.chatBskyModerationGetActorMetadata);
+const chatBskyModerationGetActorMetadata =
+    NSID(ids.chatBskyModerationGetActorMetadata);
 
 /// `chat.bsky.moderation.getActorMetadata#metadata`
-const chatBskyModerationGetActorMetadataMetadata = NSID(ids.chatBskyModerationGetActorMetadataMetadata);
+const chatBskyModerationGetActorMetadataMetadata =
+    NSID(ids.chatBskyModerationGetActorMetadataMetadata);
 
 /// `chat.bsky.moderation.getMessageContext`
-const chatBskyModerationGetMessageContext = NSID(ids.chatBskyModerationGetMessageContext);
+const chatBskyModerationGetMessageContext =
+    NSID(ids.chatBskyModerationGetMessageContext);
 
 /// `chat.bsky.moderation.updateActorAccess`
-const chatBskyModerationUpdateActorAccess = NSID(ids.chatBskyModerationUpdateActorAccess);
+const chatBskyModerationUpdateActorAccess =
+    NSID(ids.chatBskyModerationUpdateActorAccess);
