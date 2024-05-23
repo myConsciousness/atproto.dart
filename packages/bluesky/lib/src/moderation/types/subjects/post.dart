@@ -3,17 +3,14 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 
 // 🌎 Project imports:
-import '../../../services/entities/embed_view.dart';
-import '../../../services/entities/embed_view_record_view.dart';
-import '../../../services/entities/embed_view_record_view_blocked.dart';
+import '../../../../bluesky.dart';
 import '../../../services/entities/embed_view_record_view_record.dart';
-import '../../../services/entities/muted_word.dart';
 import '../../decision.dart';
 import '../behaviors/moderation_opts.dart';
 import '../labels.dart';
+import '../mute_words.dart';
 import 'account.dart';
 import 'moderation_subject_post.dart';
 import 'moderation_subject_profile.dart';
@@ -23,8 +20,14 @@ ModerationDecision decidePost(
   final ModerationSubjectPost subject,
   final ModerationOpts opts,
 ) {
-  final (author, labels, uri, embed) = subject.when(
-    postView: (data) => (data.author, data.labels, data.uri, data.embed),
+  final (author, labels, uri, record, embed) = subject.when(
+    postView: (data) => (
+      data.author,
+      data.labels,
+      data.uri,
+      data.record,
+      data.embed,
+    ),
   );
 
   final decision = ModerationDecision.init(
@@ -40,7 +43,7 @@ ModerationDecision decidePost(
     decision.addHidden();
   }
 
-  if (!decision.me && _hasMutedWords(opts.prefs.mutedWords)) {
+  if (!decision.me && _hasMutedWords(record, embed, opts.prefs.mutedWords)) {
     decision.addMutedWord();
   }
 
@@ -165,7 +168,153 @@ bool _hasHiddenPost(
   return false;
 }
 
-bool _hasMutedWords(final List<MutedWord> mutedWords) {
+bool _hasMutedWords(
+  final PostRecord record,
+  final EmbedView? embed,
+  final List<MutedWord> mutedWords,
+) {
   if (mutedWords.isEmpty) return false;
+
+  if (hasMutedWord(
+    mutedWords: mutedWords,
+    text: record.text,
+    facets: record.facets,
+    outlineTags: record.tags,
+    languages: record.langs,
+  )) {
+    return true;
+  }
+
+  if (embed == null) return false; // No quote.
+
+  // quote post
+  if (embed is UEmbedViewImages) {
+    for (final image in embed.data.images) {
+      if (hasMutedWord(
+        mutedWords: mutedWords,
+        text: image.alt,
+        languages: record.langs,
+      )) {
+        return true;
+      }
+    }
+  }
+
+  if (embed is UEmbedViewRecord) {
+    final embeddedPost = embed.data.record.whenOrNull(
+      record: (data) => data.value,
+    );
+
+    // quoted post text
+    if (embeddedPost != null &&
+        hasMutedWord(
+          mutedWords: mutedWords,
+          text: embeddedPost.text,
+          facets: embeddedPost.facets,
+          outlineTags: embeddedPost.tags,
+          languages: embeddedPost.langs,
+        )) {
+      return true;
+    }
+
+    final embeddedPostEmbed = embeddedPost?.embed;
+
+    // quoted post's images
+    if (embeddedPostEmbed != null && embeddedPostEmbed is UEmbedImages) {
+      for (final image in embeddedPostEmbed.data.images) {
+        if (hasMutedWord(
+            mutedWords: mutedWords,
+            text: image.alt,
+            languages: embeddedPost?.langs)) {
+          return true;
+        }
+      }
+    }
+
+    // quoted post's link card
+    if (embeddedPostEmbed != null && embeddedPostEmbed is UEmbedExternal) {
+      final external = embeddedPostEmbed.data.external;
+      if (hasMutedWord(
+        mutedWords: mutedWords,
+        text: '${external.title} ${external.description}',
+        languages: const [],
+      )) {
+        return true;
+      }
+    }
+
+    if (embeddedPostEmbed != null &&
+        embeddedPostEmbed is UEmbedRecordWithMedia) {
+      final embeddedPostEmbedMedia = embeddedPostEmbed.data.media;
+
+      // quoted post's link card when it did a quote + media
+      if (embeddedPostEmbedMedia is UEmbedMediaExternal) {
+        final external = embeddedPostEmbedMedia.data.external;
+        if (hasMutedWord(
+          mutedWords: mutedWords,
+          text: '${external.title} ${external.description}',
+          languages: const [],
+        )) {
+          return true;
+        }
+      }
+
+      // quoted post's images when it did a quote + media
+      if (embeddedPostEmbedMedia is UEmbedMediaImages) {
+        for (final image in embeddedPostEmbedMedia.data.images) {
+          if (hasMutedWord(
+            mutedWords: mutedWords,
+            text: image.alt,
+            languages: embeddedPost?.langs,
+          )) {
+            return true;
+          }
+        }
+      }
+    }
+  }
+  // link card
+  else if (embed is UEmbedViewExternal) {
+    final external = embed.data.external;
+    if (hasMutedWord(
+      mutedWords: mutedWords,
+      text: '${external.title} ${external.description}',
+      languages: const [],
+    )) {
+      return true;
+    }
+  }
+  // quote post with media
+  else if (embed is UEmbedViewRecordWithMedia) {
+    // quoted post text
+    final embeddedPostRecordRecord = embed.data.record.record;
+    if (embeddedPostRecordRecord is UEmbedViewRecordViewRecord) {
+      final post = embeddedPostRecordRecord.data.value;
+      if (hasMutedWord(
+        mutedWords: mutedWords,
+        text: post.text,
+        facets: post.facets,
+        outlineTags: post.tags,
+        languages: post.langs,
+      )) {
+        return true;
+      }
+    }
+
+    // quoted post images
+    final embeddedPostMedia = embed.data.media;
+    if (embeddedPostMedia is UEmbedViewMediaImages) {
+      for (final image in embeddedPostMedia.data.images) {
+        if (hasMutedWord(
+          mutedWords: mutedWords,
+          text: image.alt,
+          languages: record.langs,
+        )) {
+          return true;
+        }
+      }
+    }
+  }
+
   return false;
 }

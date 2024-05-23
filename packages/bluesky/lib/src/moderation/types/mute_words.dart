@@ -32,16 +32,17 @@ final _spaceRegex = RegExp(r'\s', unicode: true);
 bool hasMutedWord({
   required List<MutedWord> mutedWords,
   required String text,
-  List<Facet> facets = const [],
-  List<String> outlineTags = const [],
-  List<String> languages = const [],
+  List<Facet>? facets,
+  List<String>? outlineTags,
+  List<String>? languages,
 }) {
   final hasExceptionLanguage = _hasExceptionLanguage(languages);
   final tags = <String>[
-    ...outlineTags.map((e) => e.toLowerCase()),
-    ...facets
-        .map((e) => e.features.whereType<UFacetFeatureTag>())
-        .map((e) => e.first.data.tag.toLowerCase())
+    if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
+    if (facets != null)
+      ...facets
+          .map((e) => e.features.whereType<UFacetFeatureTag>())
+          .map((e) => e.first.data.tag.toLowerCase())
   ];
 
   for (final mute in mutedWords) {
@@ -93,7 +94,9 @@ bool hasMutedWord({
   return false;
 }
 
-bool _hasExceptionLanguage(final List<String> languages) {
+bool _hasExceptionLanguage(final List<String>? languages) {
+  if (languages == null) return false;
+
   for (final language in languages) {
     if (_kLanguageExceptions.contains(language)) {
       return true;
