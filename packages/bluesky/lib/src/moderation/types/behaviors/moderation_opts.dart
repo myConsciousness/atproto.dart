@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../labels.dart';
+import '../interpreted_label_value_definition.dart';
 import '../mod_object.dart';
 import 'moderation_prefs.dart';
 

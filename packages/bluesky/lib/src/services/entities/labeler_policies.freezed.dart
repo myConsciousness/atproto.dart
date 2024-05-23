@@ -20,7 +20,7 @@ LabelerPolicies _$LabelerPoliciesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerPolicies {
-  List<LabelValue> get labelValues => throw _privateConstructorUsedError;
+  List<String> get labelValues => throw _privateConstructorUsedError;
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
@@ -37,7 +37,7 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
       _$LabelerPoliciesCopyWithImpl<$Res, LabelerPolicies>;
   @useResult
   $Res call(
-      {List<LabelValue> labelValues,
+      {List<String> labelValues,
       List<LabelValueDefinition>? labelValueDefinitions});
 }
 
@@ -61,7 +61,7 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
       labelValues: null == labelValues
           ? _value.labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
-              as List<LabelValue>,
+              as List<String>,
       labelValueDefinitions: freezed == labelValueDefinitions
           ? _value.labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
@@ -79,7 +79,7 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<LabelValue> labelValues,
+      {List<String> labelValues,
       List<LabelValueDefinition>? labelValueDefinitions});
 }
 
@@ -101,7 +101,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
       labelValues: null == labelValues
           ? _value._labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
-              as List<LabelValue>,
+              as List<String>,
       labelValueDefinitions: freezed == labelValueDefinitions
           ? _value._labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
@@ -115,7 +115,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
-      {required final List<LabelValue> labelValues,
+      {required final List<String> labelValues,
       final List<LabelValueDefinition>? labelValueDefinitions})
       : _labelValues = labelValues,
         _labelValueDefinitions = labelValueDefinitions;
@@ -123,9 +123,9 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   factory _$LabelerPoliciesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerPoliciesImplFromJson(json);
 
-  final List<LabelValue> _labelValues;
+  final List<String> _labelValues;
   @override
-  List<LabelValue> get labelValues {
+  List<String> get labelValues {
     if (_labelValues is EqualUnmodifiableListView) return _labelValues;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_labelValues);
@@ -182,7 +182,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
 
 abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
-          {required final List<LabelValue> labelValues,
+          {required final List<String> labelValues,
           final List<LabelValueDefinition>? labelValueDefinitions}) =
       _$LabelerPoliciesImpl;
 
@@ -190,7 +190,7 @@ abstract class _LabelerPolicies implements LabelerPolicies {
       _$LabelerPoliciesImpl.fromJson;
 
   @override
-  List<LabelValue> get labelValues;
+  List<String> get labelValues;
   @override
   List<LabelValueDefinition>? get labelValueDefinitions;
   @override

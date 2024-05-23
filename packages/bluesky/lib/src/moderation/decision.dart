@@ -18,6 +18,7 @@ import 'types/behaviors/moderation_cause_source_list.dart';
 import 'types/behaviors/moderation_cause_source_user.dart';
 import 'types/behaviors/moderation_opts.dart';
 import 'types/const/labels.dart';
+import 'types/interpreted_label_value_definition.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
 import 'types/moderation_ui.dart';

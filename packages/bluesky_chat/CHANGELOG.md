@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.1.4
+
+- Bump `bluesky`.
+
 ## v0.1.3
 
 - Bump `bluesky`.

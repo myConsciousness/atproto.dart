@@ -53,6 +53,7 @@ abstract class $ModerationCauseLabelCopyWith<$Res> {
 
   $ModerationCauseSourceCopyWith<$Res> get source;
   $LabelCopyWith<$Res> get label;
+  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 }
 
 /// @nodoc
@@ -134,6 +135,15 @@ class _$ModerationCauseLabelCopyWithImpl<$Res,
       return _then(_value.copyWith(label: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef {
+    return $InterpretedLabelValueDefinitionCopyWith<$Res>(_value.labelDef,
+        (value) {
+      return _then(_value.copyWith(labelDef: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -159,6 +169,8 @@ abstract class _$$ModerationCauseLabelImplCopyWith<$Res>
   $ModerationCauseSourceCopyWith<$Res> get source;
   @override
   $LabelCopyWith<$Res> get label;
+  @override
+  $InterpretedLabelValueDefinitionCopyWith<$Res> get labelDef;
 }
 
 /// @nodoc

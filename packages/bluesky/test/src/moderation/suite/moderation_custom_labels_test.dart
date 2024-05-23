@@ -11,6 +11,7 @@ import 'package:bluesky/src/moderation/decision.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_opts.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs.dart';
 import 'package:bluesky/src/moderation/types/behaviors/moderation_prefs_labeler.dart';
+import 'package:bluesky/src/moderation/types/interpreted_label_value_definition.dart';
 import 'package:bluesky/src/moderation/types/labels.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.dart';
