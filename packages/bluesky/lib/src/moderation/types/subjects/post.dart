@@ -2,8 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
-
 // 🌎 Project imports:
 import '../../../../bluesky.dart';
 import '../../../services/entities/embed_view_record_view_record.dart';
@@ -223,9 +221,10 @@ bool _hasMutedWords(
     if (embeddedPostEmbed != null && embeddedPostEmbed is UEmbedImages) {
       for (final image in embeddedPostEmbed.data.images) {
         if (hasMutedWord(
-            mutedWords: mutedWords,
-            text: image.alt,
-            languages: embeddedPost?.langs)) {
+          mutedWords: mutedWords,
+          text: image.alt,
+          languages: embeddedPost?.langs,
+        )) {
           return true;
         }
       }

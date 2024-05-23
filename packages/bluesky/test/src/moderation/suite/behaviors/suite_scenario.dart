@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'result_flag.dart';
+import '../utils/result_flag.dart';
 
 part 'suite_scenario.freezed.dart';
 part 'suite_scenario.g.dart';

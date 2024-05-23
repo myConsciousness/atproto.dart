@@ -8,10 +8,10 @@ import 'package:test/test.dart';
 // 🌎 Project imports:
 import 'package:bluesky/src/moderation.dart';
 import 'package:bluesky/src/moderation/types/moderation_behavior.dart';
+import 'behaviors/suite_configuration.dart';
+import 'behaviors/suite_scenario.dart';
+import 'behaviors/suite_user.dart';
 import 'utils/runner.dart';
-import 'utils/suite_configuration.dart';
-import 'utils/suite_scenario.dart';
-import 'utils/suite_user.dart';
 
 const _kUsers = <String, dynamic>{
   "self": {

@@ -15,11 +15,11 @@ import 'package:bluesky/src/moderation/types/subjects/moderation_subject_post.da
 import 'package:bluesky/src/moderation/types/subjects/moderation_subject_profile.dart';
 import 'package:bluesky/src/services/entities/actor_basic.dart';
 import 'package:bluesky/src/services/entities/actor_viewer.dart';
+import '../behaviors/suite_configuration.dart';
+import '../behaviors/suite_scenario.dart';
+import '../behaviors/suite_user.dart';
 import 'mock.dart' as m;
 import 'result_flag.dart';
-import 'suite_configuration.dart';
-import 'suite_scenario.dart';
-import 'suite_user.dart';
 
 extension ModerationUIExtension on ModerationUI {
   bool get filter => filters.isNotEmpty;
