@@ -32,6 +32,7 @@ final class ModerationService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
   Future<core.XRPCResponse<ModerationGetMessageContext>> getMessageContext({
     required String messageId,
+    String? convoId,
     int? before,
     int? after,
   }) async =>
@@ -39,6 +40,7 @@ final class ModerationService {
         ns.chatBskyModerationGetMessageContext,
         parameters: {
           'messageId': messageId,
+          'convoId': convoId,
           'before': before,
           'after': after,
         },

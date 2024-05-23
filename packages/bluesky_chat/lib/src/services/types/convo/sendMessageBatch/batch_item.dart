@@ -6,7 +6,8 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../defs/message.dart';
+// 🌎 Project imports:
+import '../defs/message_input.dart';
 
 part 'batch_item.freezed.dart';
 part 'batch_item.g.dart';
@@ -17,7 +18,7 @@ class ConvoSendMessageBatchBatchItem with _$ConvoSendMessageBatchBatchItem {
   @jsonSerializable
   const factory ConvoSendMessageBatchBatchItem({
     required String convoId,
-    required ConvoMessage message,
+    required ConvoMessageInput message,
   }) = _ConvoSendMessageBatchBatchItem;
 
   factory ConvoSendMessageBatchBatchItem.fromJson(Map<String, Object?> json) =>

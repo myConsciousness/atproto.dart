@@ -2,11 +2,13 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
+
+// 🌎 Project imports:
 import 'package:bluesky_chat/src/ids.g.dart';
 import 'package:bluesky_chat/src/services/types/moderation/getActorMetadata/output.dart';
 import 'package:bluesky_chat/src/services/types/moderation/getMessageContext/output.dart';
-
 import 'suite/service_suite.dart';
 
 void main() {

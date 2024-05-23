@@ -22,7 +22,7 @@ ConvoSendMessageBatchBatchItem _$ConvoSendMessageBatchBatchItemFromJson(
 /// @nodoc
 mixin _$ConvoSendMessageBatchBatchItem {
   String get convoId => throw _privateConstructorUsedError;
-  ConvoMessage get message => throw _privateConstructorUsedError;
+  ConvoMessageInput get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,9 +38,9 @@ abstract class $ConvoSendMessageBatchBatchItemCopyWith<$Res> {
       _$ConvoSendMessageBatchBatchItemCopyWithImpl<$Res,
           ConvoSendMessageBatchBatchItem>;
   @useResult
-  $Res call({String convoId, ConvoMessage message});
+  $Res call({String convoId, ConvoMessageInput message});
 
-  $ConvoMessageCopyWith<$Res> get message;
+  $ConvoMessageInputCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -68,14 +68,14 @@ class _$ConvoSendMessageBatchBatchItemCopyWithImpl<$Res,
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as ConvoMessage,
+              as ConvoMessageInput,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoMessageCopyWith<$Res> get message {
-    return $ConvoMessageCopyWith<$Res>(_value.message, (value) {
+  $ConvoMessageInputCopyWith<$Res> get message {
+    return $ConvoMessageInputCopyWith<$Res>(_value.message, (value) {
       return _then(_value.copyWith(message: value) as $Val);
     });
   }
@@ -90,10 +90,10 @@ abstract class _$$ConvoSendMessageBatchBatchItemImplCopyWith<$Res>
       __$$ConvoSendMessageBatchBatchItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String convoId, ConvoMessage message});
+  $Res call({String convoId, ConvoMessageInput message});
 
   @override
-  $ConvoMessageCopyWith<$Res> get message;
+  $ConvoMessageInputCopyWith<$Res> get message;
 }
 
 /// @nodoc
@@ -120,7 +120,7 @@ class __$$ConvoSendMessageBatchBatchItemImplCopyWithImpl<$Res>
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as ConvoMessage,
+              as ConvoMessageInput,
     ));
   }
 }
@@ -140,7 +140,7 @@ class _$ConvoSendMessageBatchBatchItemImpl
   @override
   final String convoId;
   @override
-  final ConvoMessage message;
+  final ConvoMessageInput message;
 
   @override
   String toString() {
@@ -180,7 +180,7 @@ abstract class _ConvoSendMessageBatchBatchItem
     implements ConvoSendMessageBatchBatchItem {
   const factory _ConvoSendMessageBatchBatchItem(
           {required final String convoId,
-          required final ConvoMessage message}) =
+          required final ConvoMessageInput message}) =
       _$ConvoSendMessageBatchBatchItemImpl;
 
   factory _ConvoSendMessageBatchBatchItem.fromJson(Map<String, dynamic> json) =
@@ -189,7 +189,7 @@ abstract class _ConvoSendMessageBatchBatchItem
   @override
   String get convoId;
   @override
-  ConvoMessage get message;
+  ConvoMessageInput get message;
   @override
   @JsonKey(ignore: true)
   _$$ConvoSendMessageBatchBatchItemImplCopyWith<

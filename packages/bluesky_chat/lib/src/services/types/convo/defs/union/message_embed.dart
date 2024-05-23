@@ -5,9 +5,8 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:bluesky/bluesky.dart';
-import 'package:freezed_annotation/freezed_annotation.dart';
-
 import 'package:bluesky/ids.dart' as bsky_ids;
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'message_embed.freezed.dart';
 

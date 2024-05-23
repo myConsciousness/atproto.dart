@@ -15,6 +15,7 @@ _$ConvoMessageRefImpl _$$ConvoMessageRefImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$ConvoMessageRefImpl(
           did: $checkedConvert('did', (v) => v as String),
+          convoId: $checkedConvert('convoId', (v) => v as String),
           messageId: $checkedConvert('messageId', (v) => v as String),
         );
         return val;
@@ -25,5 +26,6 @@ Map<String, dynamic> _$$ConvoMessageRefImplToJson(
         _$ConvoMessageRefImpl instance) =>
     <String, dynamic>{
       'did': instance.did,
+      'convoId': instance.convoId,
       'messageId': instance.messageId,
     };

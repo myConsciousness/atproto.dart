@@ -17,7 +17,7 @@ _$ConvoSendMessageBatchBatchItemImpl
               convoId: $checkedConvert('convoId', (v) => v as String),
               message: $checkedConvert(
                   'message',
-                  (v) => ConvoMessage.fromJson(
+                  (v) => ConvoMessageInput.fromJson(
                       Map<String, Object?>.from(v as Map))),
             );
             return val;
