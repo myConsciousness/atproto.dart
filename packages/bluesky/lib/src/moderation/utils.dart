@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import '../services/entities/labeler_view_detailed.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
 
