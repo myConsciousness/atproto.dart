@@ -23,3 +23,4 @@ List all App Passwords.
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **privileged** | boolean | - | ❌ | - |
