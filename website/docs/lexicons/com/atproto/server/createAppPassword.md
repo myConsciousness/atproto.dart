@@ -16,6 +16,7 @@ Create an App Password.
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
 | **name** | string | - | ✅ | A short name for the App Password, to help distinguish them. |
+| **privileged** | boolean | - | ❌ | If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients. |
 
 ### Output
 
@@ -32,3 +33,4 @@ Create an App Password.
 | **name** | string | - | ✅ | - |
 | **password** | string | - | ✅ | - |
 | **createdAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **privileged** | boolean | - | ❌ | - |
