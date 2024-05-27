@@ -17,6 +17,7 @@ class AppPassword with _$AppPassword {
     required String name,
     required String password,
     required DateTime createdAt,
+    @Default(false) bool privileged,
   }) = _AppPassword;
 
   factory AppPassword.fromJson(Map<String, Object?> json) =>
