@@ -32,8 +32,14 @@ final class SyncService {
   Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>> subscribeRepos({
     int? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await subscribeRepoUpdates(cursor: cursor);
+      await _ctx.stream(
+        ns.comAtprotoSyncSubscribeRepos,
+        parameters: {
+          'cursor': cursor,
+        },
+        to: SubscribedRepo.fromJson,
+        adaptor: toSubscribedRepo,
+      );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepo
   Future<core.XRPCResponse<RepoCommits>> getRepo({
@@ -41,11 +47,17 @@ final class SyncService {
     String? sinceCommitCid,
     core.ProgressStatus? progress,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findRepoCommits(
-        did: did,
-        sinceCommitCid: sinceCommitCid,
-        progress: progress,
+      await _ctx.get(
+        ns.comAtprotoSyncGetRepo,
+        parameters: {
+          'did': did,
+          'since': sinceCommitCid,
+        },
+        adaptor: (data) => toRepoCommits(
+          data,
+          progress,
+        ),
+        to: RepoCommits.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
@@ -53,19 +65,26 @@ final class SyncService {
     required String did,
     required List<String> commitCids,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findRepoBlocks(
-        did: did,
-        commitCids: commitCids,
+      await _ctx.get(
+        ns.comAtprotoSyncGetBlocks,
+        parameters: {
+          'did': did,
+          'cids': commitCids,
+        },
+        adaptor: toRepoBlocks,
+        to: RepoBlocks.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
   Future<core.XRPCResponse<RepoLatestCommit>> getLatestCommit({
     required String did,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findLatestCommit(
-        did: did,
+      await _ctx.get(
+        ns.comAtprotoSyncGetLatestCommit,
+        parameters: {
+          'did': did,
+        },
+        to: RepoLatestCommit.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
@@ -73,10 +92,16 @@ final class SyncService {
     required core.AtUri uri,
     String? commitCid,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findRecord(
-        uri: uri,
-        commitCid: commitCid,
+      await _ctx.get(
+        ns.comAtprotoSyncGetRecord,
+        parameters: {
+          'did': uri.hostname,
+          'collection': uri.collection,
+          'rkey': uri.rkey,
+          'commit': commitCid,
+        },
+        adaptor: toRepoCommit,
+        to: RepoCommit.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos
@@ -84,18 +109,25 @@ final class SyncService {
     int? limit,
     String? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findRepos(
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.comAtprotoSyncListRepos,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Repos.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
   Future<core.XRPCResponse<core.EmptyData>> notifyOfUpdate({
     required String hostname,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await notifyCrawlingServiceOfUpdate(hostname: hostname);
+      await _ctx.post(
+        ns.comAtprotoSyncNotifyOfUpdate,
+        body: {
+          'hostname': hostname,
+        },
+      );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
   Future<core.XRPCResponse<core.EmptyData>> requestCrawl({
@@ -113,109 +145,6 @@ final class SyncService {
     required String did,
     required String cid,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findBlob(did: did, cid: cid);
-
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs
-  Future<core.XRPCResponse<BlobRefs>> listBlobs({
-    required String did,
-    String? sinceCid,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findBlobs(
-        did: did,
-        sinceCid: sinceCid,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  @Deprecated('Use .subscribeRepos instead. Will be removed')
-  Future<core.XRPCResponse<core.Subscription<SubscribedRepo>>>
-      subscribeRepoUpdates({
-    int? cursor,
-  }) async =>
-          await _ctx.stream(
-            ns.comAtprotoSyncSubscribeRepos,
-            parameters: {
-              'cursor': cursor,
-            },
-            to: SubscribedRepo.fromJson,
-            adaptor: toSubscribedRepo,
-          );
-
-  @Deprecated('Use .getRepo instead. Will be removed')
-  Future<core.XRPCResponse<RepoCommits>> findRepoCommits({
-    required String did,
-    String? sinceCommitCid,
-    core.ProgressStatus? progress,
-  }) async =>
-      await _findRepoCommits(
-        did: did,
-        sinceCommitCid: sinceCommitCid,
-        progress: progress,
-        to: RepoCommits.fromJson,
-      );
-
-  @Deprecated('Use .getBlocks instead. Will be removed')
-  Future<core.XRPCResponse<RepoBlocks>> findRepoBlocks({
-    required String did,
-    required List<String> commitCids,
-  }) async =>
-      await _findRepoBlocks(
-        did: did,
-        commitCids: commitCids,
-        to: RepoBlocks.fromJson,
-      );
-
-  @Deprecated('Use .getLatestCommit instead. Will be removed')
-  Future<core.XRPCResponse<RepoLatestCommit>> findLatestCommit({
-    required String did,
-  }) async =>
-      await _findLatestCommit(
-        did: did,
-        to: RepoLatestCommit.fromJson,
-      );
-
-  @Deprecated('Use .getRecord instead. Will be remove')
-  Future<core.XRPCResponse<RepoCommit>> findRecord({
-    required core.AtUri uri,
-    String? commitCid,
-  }) async =>
-      await _findRecord(
-        uri: uri,
-        commitCid: commitCid,
-        to: RepoCommit.fromJson,
-      );
-
-  @Deprecated('Use .listRepos instead. Will be removed')
-  Future<core.XRPCResponse<Repos>> findRepos({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findRepos(
-        limit: limit,
-        cursor: cursor,
-        to: Repos.fromJson,
-      );
-
-  @Deprecated('Use .notifyOfUpdate instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> notifyCrawlingServiceOfUpdate({
-    required String hostname,
-  }) async =>
-      await _ctx.post(
-        ns.comAtprotoSyncNotifyOfUpdate,
-        body: {
-          'hostname': hostname,
-        },
-      );
-
-  @Deprecated('Use .getBlob instead. Will be removed')
-  Future<core.XRPCResponse<Uint8List>> findBlob({
-    required String did,
-    required String cid,
-  }) async =>
       await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlob,
         parameters: {
@@ -224,135 +153,21 @@ final class SyncService {
         },
       );
 
-  @Deprecated('Use .listBlobs instead. Will be removed')
-  Future<core.XRPCResponse<BlobRefs>> findBlobs({
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs
+  Future<core.XRPCResponse<BlobRefs>> listBlobs({
     required String did,
     String? sinceCid,
     int? limit,
     String? cursor,
   }) async =>
-      await _findBlobs(
-        did: did,
-        sinceCid: sinceCid,
-        limit: limit,
-        cursor: cursor,
-        to: BlobRefs.fromJson,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoCommits<T>({
-    required String did,
-    required String? sinceCommitCid,
-    required core.ProgressStatus? progress,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoSyncGetRepo,
-        parameters: {
-          'did': did,
-          'since': sinceCommitCid,
-        },
-        adaptor: (data) => toRepoCommits(
-          data,
-          progress,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepoBlocks<T>({
-    required String did,
-    required List<String> commitCids,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoSyncGetBlocks,
-        parameters: {
-          'did': did,
-          'cids': commitCids,
-        },
-        adaptor: toRepoBlocks,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findLatestCommit<T>({
-    required String did,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoSyncGetLatestCommit,
-        parameters: {
-          'did': did,
-        },
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRecord<T>({
-    required core.AtUri uri,
-    required String? commitCid,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoSyncGetRecord,
-        parameters: {
-          'did': uri.hostname,
-          'collection': uri.collection,
-          'rkey': uri.rkey,
-          'commit': commitCid,
-        },
-        adaptor: toRepoCommit,
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findRepos<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.comAtprotoSyncListRepos,
-        parameters: _buildListReposParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findBlobs<T>({
-    required String did,
-    required String? sinceCid,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListBlobs,
-        parameters: _buildListBlobsParams(
-          did: did,
-          sinceCid: sinceCid,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
+        parameters: {
+          'did': did,
+          'since': sinceCid,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: BlobRefs.fromJson,
       );
-
-  Map<String, dynamic> _buildListReposParams({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildListBlobsParams({
-    required String did,
-    required String? sinceCid,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'did': did,
-        'since': sinceCid,
-        'limit': limit,
-        'cursor': cursor,
-      };
 }
