@@ -78,7 +78,10 @@ void main() {
   );
 
   testServer<AppPassword>(
-    (m, s) => s.createAppPassword(name: m.name),
+    (m, s) => s.createAppPassword(
+      name: m.name,
+      privileged: true,
+    ),
     id: comAtprotoServerCreateAppPassword,
   );
 

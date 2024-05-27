@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.12
+
+- Add `privileged` input and property on `ServerService.createAppPassword`, `AppPassword`. ([#1494](https://github.com/myConsciousness/atproto.dart/issues/1494))
+
 ## v0.11.11
 
 - Removed `lex_annotation`.

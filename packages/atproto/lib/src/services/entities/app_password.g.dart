@@ -17,6 +17,7 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
           password: $checkedConvert('password', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          privileged: $checkedConvert('privileged', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
       'name': instance.name,
       'password': instance.password,
       'createdAt': instance.createdAt.toIso8601String(),
+      'privileged': instance.privileged,
     };
