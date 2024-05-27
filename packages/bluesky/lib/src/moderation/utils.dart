@@ -21,7 +21,7 @@ import 'types/interpreted_label_value_definition.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
 
-const kBskyLabelerDid = 'did:plc:ar7c4by46qjdydhdevvrndac';
+const _kBskyLabelerDid = 'did:plc:ar7c4by46qjdydhdevvrndac';
 
 InterpretedLabelValueDefinition getInterpretedLabelValueDefinition({
   required String identifier,
@@ -129,16 +129,15 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
 
 extension LabelerServiceExtension on LabelerService {
   Future<Map<String, List<InterpretedLabelValueDefinition>>>
-      getLabelDefinitions({
-    required ModerationPrefs prefs,
-  }) async {
-    final dids = <String>[kBskyLabelerDid];
-
-    dids.addAll(prefs.labelers.map((e) => e.did));
+      getLabelDefinitions(final ModerationPrefs prefs) async {
+    final dids = <String>[
+      ...prefs.labelers.map((e) => e.did),
+    ];
 
     final labelers = await getServices(
       dids: dids,
       detailed: true,
+      headers: getLabelerHeaders(prefs),
     );
 
     final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};
@@ -155,7 +154,9 @@ extension LabelerServiceExtension on LabelerService {
 }
 
 extension PreferencesExtension on Preferences {
-  ModerationPrefs getModerationPrefs() {
+  ModerationPrefs getModerationPrefs({
+    List<String> appLabelers = const [_kBskyLabelerDid],
+  }) {
     bool adultContentEnabled = false;
     final labels = <String, LabelPreference>{};
     final mutedWords = <MutedWord>[];
@@ -169,12 +170,14 @@ extension PreferencesExtension on Preferences {
           adultContentEnabled = preference.data.isEnabled;
           break;
         case UPreferenceLabelersPref():
-          labelers.addAll(preference.data.labelers.map(
-            (e) => {
-              'did': e.did,
-              'labels': <String, LabelPreference>{},
-            },
-          ));
+          labelers.addAll([
+            ...appLabelers.map(
+              (e) => {'did': e, 'labels': <String, LabelPreference>{}},
+            ),
+            ...preference.data.labelers.map(
+              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+            )
+          ]);
           break;
         case UPreferenceMutedWords():
           mutedWords.addAll(preference.data.items);
@@ -247,4 +250,18 @@ extension PreferencesExtension on Preferences {
 
     return label;
   }
+}
+
+Map<String, String> getLabelerHeaders(final ModerationPrefs? prefs) {
+  if (prefs == null) return const {};
+  if (prefs.labelers.isEmpty) return const {};
+
+  return {
+    'atproto-accept-labelers': prefs.labelers
+        .map((e) => e.did)
+        .where((e) => e.startsWith('did:'))
+        .take(10)
+        .map((str) => '$str;redact')
+        .join(', '),
+  };
 }
