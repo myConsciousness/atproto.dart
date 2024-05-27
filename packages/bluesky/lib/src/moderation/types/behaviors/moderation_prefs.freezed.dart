@@ -21,7 +21,7 @@ mixin _$ModerationPrefs {
   List<ModerationPrefsLabeler> get labelers =>
       throw _privateConstructorUsedError;
   List<MutedWord> get mutedWords => throw _privateConstructorUsedError;
-  List<String> get hiddenPosts => throw _privateConstructorUsedError;
+  List<AtUri> get hiddenPosts => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $ModerationPrefsCopyWith<ModerationPrefs> get copyWith =>
@@ -39,7 +39,7 @@ abstract class $ModerationPrefsCopyWith<$Res> {
       Map<String, LabelPreference> labels,
       List<ModerationPrefsLabeler> labelers,
       List<MutedWord> mutedWords,
-      List<String> hiddenPosts});
+      List<AtUri> hiddenPosts});
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$ModerationPrefsCopyWithImpl<$Res, $Val extends ModerationPrefs>
       hiddenPosts: null == hiddenPosts
           ? _value.hiddenPosts
           : hiddenPosts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<AtUri>,
     ) as $Val);
   }
 }
@@ -99,7 +99,7 @@ abstract class _$$ModerationPrefsImplCopyWith<$Res>
       Map<String, LabelPreference> labels,
       List<ModerationPrefsLabeler> labelers,
       List<MutedWord> mutedWords,
-      List<String> hiddenPosts});
+      List<AtUri> hiddenPosts});
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$ModerationPrefsImplCopyWithImpl<$Res>
       hiddenPosts: null == hiddenPosts
           ? _value._hiddenPosts
           : hiddenPosts // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<AtUri>,
     ));
   }
 }
@@ -152,7 +152,7 @@ class _$ModerationPrefsImpl implements _ModerationPrefs {
       required final Map<String, LabelPreference> labels,
       required final List<ModerationPrefsLabeler> labelers,
       required final List<MutedWord> mutedWords,
-      required final List<String> hiddenPosts})
+      required final List<AtUri> hiddenPosts})
       : _labels = labels,
         _labelers = labelers,
         _mutedWords = mutedWords,
@@ -185,9 +185,9 @@ class _$ModerationPrefsImpl implements _ModerationPrefs {
     return EqualUnmodifiableListView(_mutedWords);
   }
 
-  final List<String> _hiddenPosts;
+  final List<AtUri> _hiddenPosts;
   @override
-  List<String> get hiddenPosts {
+  List<AtUri> get hiddenPosts {
     if (_hiddenPosts is EqualUnmodifiableListView) return _hiddenPosts;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hiddenPosts);
@@ -236,7 +236,7 @@ abstract class _ModerationPrefs implements ModerationPrefs {
       required final Map<String, LabelPreference> labels,
       required final List<ModerationPrefsLabeler> labelers,
       required final List<MutedWord> mutedWords,
-      required final List<String> hiddenPosts}) = _$ModerationPrefsImpl;
+      required final List<AtUri> hiddenPosts}) = _$ModerationPrefsImpl;
 
   @override
   bool get adultContentEnabled;
@@ -247,7 +247,7 @@ abstract class _ModerationPrefs implements ModerationPrefs {
   @override
   List<MutedWord> get mutedWords;
   @override
-  List<String> get hiddenPosts;
+  List<AtUri> get hiddenPosts;
   @override
   @JsonKey(ignore: true)
   _$$ModerationPrefsImplCopyWith<_$ModerationPrefsImpl> get copyWith =>

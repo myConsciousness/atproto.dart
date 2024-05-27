@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -20,6 +21,6 @@ class ModerationPrefs with _$ModerationPrefs {
     required Map<String, LabelPreference> labels,
     required List<ModerationPrefsLabeler> labelers,
     required List<MutedWord> mutedWords,
-    required List<String> hiddenPosts,
+    required List<AtUri> hiddenPosts,
   }) = _ModerationPrefs;
 }

@@ -15,7 +15,7 @@ export 'package:bluesky/src/moderation/utils.dart'
     show
         getInterpretedLabelValueDefinition,
         getInterpretedLabelValueDefinitions,
-        getLabelDefinitions;
+        PreferencesExtension;
 
 export 'package:bluesky/src/moderation/types/interpreted_label_value_definition.dart';
 export 'package:bluesky/src/moderation/types/moderation_ui.dart';
