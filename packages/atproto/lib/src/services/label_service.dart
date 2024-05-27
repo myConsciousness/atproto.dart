@@ -23,9 +23,11 @@ final class LabelService {
     List<String>? didSources,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
+        headers: headers,
         parameters: {
           'uriPatterns': uriPatterns,
           'sources': didSources,

@@ -29,9 +29,11 @@ final class ActorService {
     required String term,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActors,
+        headers: headers,
         parameters: {
           'q': term,
           'limit': limit,
@@ -43,9 +45,11 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<core.XRPCResponse<ActorProfile>> getProfile({
     required String actor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfile,
+        headers: headers,
         parameters: {
           'actor': actor,
         },
@@ -55,9 +59,11 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
   Future<core.XRPCResponse<ActorProfiles>> getProfiles({
     required List<String> actors,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfiles,
+        headers: headers,
         parameters: {
           'actors': actors,
         },
@@ -68,9 +74,11 @@ final class ActorService {
   Future<core.XRPCResponse<Actors>> getSuggestions({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetSuggestions,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -82,9 +90,11 @@ final class ActorService {
   Future<core.XRPCResponse<ActorsTypeahead>> searchActorsTypeahead({
     required String term,
     int? limit,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActorsTypeahead,
+        headers: headers,
         parameters: {
           'q': term,
           'limit': limit,
@@ -116,9 +126,12 @@ final class ActorService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<core.XRPCResponse<Preferences>> getPreferences() async =>
+  Future<core.XRPCResponse<Preferences>> getPreferences({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.appBskyActorGetPreferences,
+        headers: headers,
         to: Preferences.fromJson,
       );
 

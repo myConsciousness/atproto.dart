@@ -46,9 +46,11 @@ final class SyncService {
     required String did,
     String? sinceCommitCid,
     core.ProgressStatus? progress,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRepo,
+        headers: headers,
         parameters: {
           'did': did,
           'since': sinceCommitCid,
@@ -64,9 +66,11 @@ final class SyncService {
   Future<core.XRPCResponse<RepoBlocks>> getBlocks({
     required String did,
     required List<String> commitCids,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetBlocks,
+        headers: headers,
         parameters: {
           'did': did,
           'cids': commitCids,
@@ -78,9 +82,11 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
   Future<core.XRPCResponse<RepoLatestCommit>> getLatestCommit({
     required String did,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetLatestCommit,
+        headers: headers,
         parameters: {
           'did': did,
         },
@@ -91,9 +97,11 @@ final class SyncService {
   Future<core.XRPCResponse<RepoCommit>> getRecord({
     required core.AtUri uri,
     String? commitCid,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRecord,
+        headers: headers,
         parameters: {
           'did': uri.hostname,
           'collection': uri.collection,
@@ -108,9 +116,11 @@ final class SyncService {
   Future<core.XRPCResponse<Repos>> listRepos({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListRepos,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -144,9 +154,11 @@ final class SyncService {
   Future<core.XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlob,
+        headers: headers,
         parameters: {
           'did': did,
           'cid': cid,
@@ -159,9 +171,11 @@ final class SyncService {
     String? sinceCid,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListBlobs,
+        headers: headers,
         parameters: {
           'did': did,
           'since': sinceCid,

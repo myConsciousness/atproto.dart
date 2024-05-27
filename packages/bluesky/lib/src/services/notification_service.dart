@@ -22,9 +22,11 @@ final class NotificationService {
     int? limit,
     String? cursor,
     DateTime? seenAt,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -34,8 +36,12 @@ final class NotificationService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
-  Future<core.XRPCResponse<Count>> getUnreadCount() async => await _ctx.get(
+  Future<core.XRPCResponse<Count>> getUnreadCount({
+    Map<String, String>? headers,
+  }) async =>
+      await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
+        headers: headers,
         to: Count.fromJson,
       );
 

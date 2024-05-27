@@ -54,9 +54,11 @@ final class RepoService {
   Future<core.XRPCResponse<Record>> getRecord({
     required core.AtUri uri,
     String? cid,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoGetRecord,
+        headers: headers,
         parameters: {
           'repo': uri.hostname,
           'collection': uri.collection,
@@ -75,9 +77,11 @@ final class RepoService {
     String? rkeyStart,
     String? rkeyEnd,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListRecords,
+        headers: headers,
         parameters: {
           'repo': repo,
           'collection': collection,
@@ -140,9 +144,11 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<core.XRPCResponse<RepoInfo>> describeRepo({
     required String repo,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,
+        headers: headers,
         parameters: {
           'repo': repo,
         },
@@ -179,9 +185,11 @@ final class RepoService {
   Future<core.XRPCResponse<MissingBlobs>> listMissingBlobs({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListMissingBlobs,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,

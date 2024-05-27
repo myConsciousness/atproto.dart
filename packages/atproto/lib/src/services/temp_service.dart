@@ -16,9 +16,12 @@ final class TempService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue
-  Future<core.XRPCResponse<SignupQueue>> checkSignupQueue() async =>
+  Future<core.XRPCResponse<SignupQueue>> checkSignupQueue({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoTempCheckSignupQueue,
+        headers: headers,
         to: SignupQueue.fromJson,
       );
 

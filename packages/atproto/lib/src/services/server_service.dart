@@ -27,9 +27,12 @@ final class ServerService {
   final core.ServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
-  Future<core.XRPCResponse<CurrentSession>> getSession() async =>
+  Future<core.XRPCResponse<CurrentSession>> getSession({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetSession,
+        headers: headers,
         to: CurrentSession.fromJson,
       );
 
@@ -107,9 +110,11 @@ final class ServerService {
   Future<core.XRPCResponse<InviteCodes>> getAccountInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetAccountInviteCodes,
+        headers: headers,
         parameters: {
           'includeUsed': includeUsed,
           'createAvailable': createAvailable,
@@ -167,16 +172,22 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
-  Future<core.XRPCResponse<AppPasswords>> listAppPasswords() async =>
+  Future<core.XRPCResponse<AppPasswords>> listAppPasswords({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoServerListAppPasswords,
+        headers: headers,
         to: AppPasswords.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
-  Future<core.XRPCResponse<ServerInfo>> describeServer() async =>
+  Future<core.XRPCResponse<ServerInfo>> describeServer({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoServerDescribeServer,
+        headers: headers,
         to: ServerInfo.fromJson,
       );
 
@@ -231,9 +242,11 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
   Future<core.XRPCResponse<ServiceAuthToken>> getServiceAuth({
     required String aud,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetServiceAuth,
+        headers: headers,
         parameters: {
           'aud': aud,
         },
@@ -241,9 +254,12 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
-  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus() async =>
+  Future<core.XRPCResponse<AccountStatus>> checkAccountStatus({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoServerCheckAccountStatus,
+        headers: headers,
         to: AccountStatus.fromJson,
       );
 

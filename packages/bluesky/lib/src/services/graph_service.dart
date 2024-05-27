@@ -49,9 +49,11 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollows,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -65,9 +67,11 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollowers,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -102,9 +106,11 @@ final class GraphService {
   Future<core.XRPCResponse<Mutes>> getMutes({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetMutes,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -116,9 +122,11 @@ final class GraphService {
   Future<core.XRPCResponse<Blocks>> getBlocks({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetBlocks,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -172,9 +180,11 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetLists,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -187,9 +197,11 @@ final class GraphService {
   Future<core.XRPCResponse<Lists>> getListBlocks({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListBlocks,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -202,9 +214,11 @@ final class GraphService {
     required core.AtUri list,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetList,
+        headers: headers,
         parameters: {
           'list': list.toString(),
           'limit': limit,
@@ -234,9 +248,11 @@ final class GraphService {
   Future<core.XRPCResponse<Lists>> getListMutes({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListMutes,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -269,9 +285,11 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
   Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
     required String actor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetSuggestedFollowsByActor,
+        headers: headers,
         parameters: {
           'actor': actor,
         },
@@ -295,9 +313,11 @@ final class GraphService {
   Future<core.XRPCResponse<Relationships>> getRelationships({
     required String actor,
     List<String>? others,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetRelationships,
+        headers: headers,
         parameters: {
           'actor': actor,
           'others': others,

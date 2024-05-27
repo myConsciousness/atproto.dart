@@ -89,9 +89,11 @@ final class FeedService {
     String? algorithm,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetTimeline,
+        headers: headers,
         parameters: {
           'algorithm': algorithm,
           'limit': limit,
@@ -125,9 +127,11 @@ final class FeedService {
     int? limit,
     String? cursor,
     FeedFilter? filter,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetAuthorFeed,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -142,9 +146,11 @@ final class FeedService {
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeed,
+        headers: headers,
         parameters: {
           'feed': generatorUri.toString(),
           'limit': limit,
@@ -158,9 +164,11 @@ final class FeedService {
     required core.AtUri generatorUri,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedSkeleton,
+        headers: headers,
         parameters: {
           'feed': generatorUri.toString(),
           'limit': limit,
@@ -174,9 +182,11 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorFeeds,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -191,9 +201,11 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetLikes,
+        headers: headers,
         parameters: {
           'uri': uri,
           'cid': cid,
@@ -209,9 +221,11 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetRepostedBy,
+        headers: headers,
         parameters: {
           'uri': uri,
           'cid': cid,
@@ -226,9 +240,11 @@ final class FeedService {
     required core.AtUri uri,
     int? depth,
     int? parentHeight,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPostThread,
+        headers: headers,
         parameters: {
           'uri': uri,
           'depth': depth,
@@ -240,9 +256,11 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
   Future<core.XRPCResponse<Posts>> getPosts({
     required List<core.AtUri> uris,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPosts,
+        headers: headers,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
         },
@@ -280,9 +298,11 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
   Future<core.XRPCResponse<FeedGenerator>> getFeedGenerator({
     required core.AtUri uri,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerator,
+        headers: headers,
         parameters: {
           'feed': uri.toString(),
         },
@@ -292,9 +312,11 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
   Future<core.XRPCResponse<FeedGenerators>> getFeedGenerators({
     required List<core.AtUri> uris,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerators,
+        headers: headers,
         parameters: {
           'feeds': uris.map((e) => e.toString()).toList(),
         },
@@ -302,9 +324,12 @@ final class FeedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
-  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator() async =>
+  Future<core.XRPCResponse<FeedGeneratorInfo>> describeFeedGenerator({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.appBskyFeedDescribeFeedGenerator,
+        headers: headers,
         to: FeedGeneratorInfo.fromJson,
       );
 
@@ -313,9 +338,11 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorLikes,
+        headers: headers,
         parameters: {
           'actor': actor,
           'limit': limit,
@@ -328,9 +355,11 @@ final class FeedService {
   Future<core.XRPCResponse<FeedGenerators>> getSuggestedFeeds({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetSuggestedFeeds,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -343,9 +372,11 @@ final class FeedService {
     required core.AtUri list,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetListFeed,
+        headers: headers,
         parameters: {
           'list': list,
           'limit': limit,
@@ -387,9 +418,11 @@ final class FeedService {
     List<String>? tag,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyFeedSearchPosts,
+        headers: headers,
         parameters: {
           'q': query,
           'sort': sort,

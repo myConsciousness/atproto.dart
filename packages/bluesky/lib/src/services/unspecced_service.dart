@@ -25,9 +25,11 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
     String? query,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetPopularFeedGenerators,
+        headers: headers,
         parameters: {
           'limit': limit,
           'cursor': cursor,
@@ -51,9 +53,11 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
+        headers: headers,
         parameters: {
           'q': query,
           'sort': sort,
@@ -79,9 +83,11 @@ final class UnspeccedService {
     bool? typeahead,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchActorsSkeleton,
+        headers: headers,
         parameters: {
           'q': query,
           'viewer': viewer,
@@ -93,9 +99,12 @@ final class UnspeccedService {
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
-  Future<core.XRPCResponse<TaggedSuggestions>> getTaggedSuggestions() async =>
+  Future<core.XRPCResponse<TaggedSuggestions>> getTaggedSuggestions({
+    Map<String, String>? headers,
+  }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetTaggedSuggestions,
+        headers: headers,
         to: TaggedSuggestions.fromJson,
       );
 
@@ -104,9 +113,11 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        headers: headers,
         parameters: {
           'viewer': viewer,
           'limit': limit,

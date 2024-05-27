@@ -20,9 +20,11 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<core.XRPCResponse<DID>> resolveHandle({
     required String handle,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
+        headers: headers,
         parameters: {
           'handle': handle,
         },
@@ -72,11 +74,14 @@ final class IdentityService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
-  Future<core.XRPCResponse<DidCredentials>>
-      getRecommendedDidCredentials() async => await _ctx.get(
-            ns.comAtprotoIdentityGetRecommendedDidCredentials,
-            to: DidCredentials.fromJson,
-          );
+  Future<core.XRPCResponse<DidCredentials>> getRecommendedDidCredentials({
+    Map<String, String>? headers,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoIdentityGetRecommendedDidCredentials,
+        headers: headers,
+        to: DidCredentials.fromJson,
+      );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
   Future<core.XRPCResponse<core.EmptyData>>
