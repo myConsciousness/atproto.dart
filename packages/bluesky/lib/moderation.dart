@@ -16,6 +16,7 @@ export 'package:bluesky/src/moderation/utils.dart'
         getInterpretedLabelValueDefinition,
         getInterpretedLabelValueDefinitions,
         PreferencesExtension,
+        LabelerServiceExtension,
         getLabelerHeaders;
 
 export 'package:bluesky/src/moderation/types/interpreted_label_value_definition.dart';
