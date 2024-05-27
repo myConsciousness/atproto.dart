@@ -12,4 +12,6 @@ enum AuthScope {
   refresh,
   @JsonValue('com.atproto.appPass')
   appPass,
+  @JsonValue('com.atproto.appPassPrivileged')
+  appPassPrivileged,
 }
