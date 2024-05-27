@@ -26,11 +26,14 @@ final class UnspeccedService {
     String? cursor,
     String? query,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findPopularFeedGenerators(
-        limit: limit,
-        cursor: cursor,
-        query: query,
+      await _ctx.get(
+        ns.appBskyUnspeccedGetPopularFeedGenerators,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+          'query': query,
+        },
+        to: FeedGenerators.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
@@ -49,21 +52,24 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await searchPostsByQuerySkeleton(
-        query,
-        sort: sort,
-        since: since,
-        until: until,
-        mentions: mentions,
-        author: author,
-        lang: lang,
-        domain: domain,
-        url: url,
-        tag: tag,
-        viewer: viewer,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyUnspeccedSearchPostsSkeleton,
+        parameters: {
+          'q': query,
+          'sort': sort,
+          'since': since,
+          'until': until,
+          'mentions': mentions,
+          'author': author,
+          'lang': lang,
+          'domain': domain,
+          'url': url,
+          'tag': tag,
+          'viewer': viewer,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SkeletonPostsByQuery.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
@@ -74,13 +80,16 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await searchActorsByQuerySkeleton(
-        query,
-        viewer: viewer,
-        typeahead: typeahead,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyUnspeccedSearchActorsSkeleton,
+        parameters: {
+          'q': query,
+          'viewer': viewer,
+          'typeahead': typeahead,
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: SkeletonActorsByQuery.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
@@ -105,196 +114,4 @@ final class UnspeccedService {
         },
         to: SuggestionsSkeleton.fromJson,
       );
-
-  @Deprecated('Use .getPopularFeedGenerators instead. Will be removed')
-  Future<core.XRPCResponse<FeedGenerators>> findPopularFeedGenerators({
-    int? limit,
-    String? cursor,
-    String? query,
-  }) async =>
-      await _findPopularFeedGenerators(
-        limit: limit,
-        cursor: cursor,
-        query: query,
-        to: FeedGenerators.fromJson,
-      );
-
-  @Deprecated('Use .searchPostsSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<SkeletonPostsByQuery>> searchPostsByQuerySkeleton(
-    final String query, {
-    String? sort,
-    String? since,
-    String? until,
-    String? mentions,
-    String? author,
-    String? lang,
-    String? domain,
-    String? url,
-    List<String>? tag,
-    String? viewer,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _searchPostsByQuerySkeleton(
-        query: query,
-        sort: sort,
-        since: since,
-        until: until,
-        mentions: mentions,
-        author: author,
-        lang: lang,
-        domain: domain,
-        url: url,
-        tag: tag,
-        viewer: viewer,
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonPostsByQuery.fromJson,
-      );
-
-  @Deprecated('Use .searchActorsSkeleton instead. Will be removed')
-  Future<core.XRPCResponse<SkeletonActorsByQuery>> searchActorsByQuerySkeleton(
-    final String query, {
-    String? viewer,
-    bool? typeahead,
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _searchActorsByQuerySkeleton(
-        query: query,
-        viewer: viewer,
-        typeahead: typeahead,
-        limit: limit,
-        cursor: cursor,
-        to: SkeletonActorsByQuery.fromJson,
-      );
-
-  Future<core.XRPCResponse<T>> _findPopularFeedGenerators<T>({
-    required int? limit,
-    required String? cursor,
-    required String? query,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedGetPopularFeedGenerators,
-        parameters: _buildGetPopularFeedGenerators(
-          limit: limit,
-          cursor: cursor,
-          query: query,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _searchPostsByQuerySkeleton<T>({
-    required String query,
-    required String? sort,
-    required String? since,
-    required String? until,
-    required String? mentions,
-    required String? author,
-    required String? lang,
-    required String? domain,
-    required String? url,
-    required List<String>? tag,
-    required String? viewer,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedSearchPostsSkeleton,
-        parameters: _buildSearchPostsSkeletonParams(
-          query: query,
-          sort: sort,
-          since: since,
-          until: until,
-          mentions: mentions,
-          author: author,
-          lang: lang,
-          domain: domain,
-          url: url,
-          tag: tag,
-          viewer: viewer,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _searchActorsByQuerySkeleton<T>({
-    required String query,
-    required String? viewer,
-    required bool? typeahead,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyUnspeccedSearchActorsSkeleton,
-        parameters: _buildSearchActorsSkeletonParams(
-          query: query,
-          viewer: viewer,
-          typeahead: typeahead,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Map<String, dynamic> _buildGetPopularFeedGenerators({
-    required int? limit,
-    required String? cursor,
-    required String? query,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-        'query': query,
-      };
-
-  Map<String, dynamic> _buildSearchPostsSkeletonParams({
-    required String query,
-    required String? sort,
-    required String? since,
-    required String? until,
-    required String? mentions,
-    required String? author,
-    required String? lang,
-    required String? domain,
-    required String? url,
-    required List<String>? tag,
-    required String? viewer,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'q': query,
-        'sort': sort,
-        'since': since,
-        'until': until,
-        'mentions': mentions,
-        'author': author,
-        'lang': lang,
-        'domain': domain,
-        'url': url,
-        'tag': tag,
-        'viewer': viewer,
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildSearchActorsSkeletonParams({
-    required String query,
-    required String? viewer,
-    required bool? typeahead,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'q': query,
-        'viewer': viewer,
-        'typeahead': typeahead,
-        'limit': limit,
-        'cursor': cursor,
-      };
 }

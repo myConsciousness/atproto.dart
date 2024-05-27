@@ -35,226 +35,6 @@ final class GraphService {
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createFollow(
-        did: did,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
-  Future<core.XRPCResponse<Follows>> getFollows({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findFollows(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers
-  Future<core.XRPCResponse<Followers>> getFollowers({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findFollowers(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
-  Future<core.XRPCResponse<core.EmptyData>> muteActor({
-    required String actor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createMute(actor: actor);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
-  Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
-    required String actor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await deleteMute(actor: actor);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
-  Future<core.XRPCResponse<Mutes>> getMutes({
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findMutes(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
-  Future<core.XRPCResponse<Blocks>> getBlocks({
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findBlocks(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
-  Future<core.XRPCResponse<atp.StrongRef>> block({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createBlock(
-        did: did,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
-  Future<core.XRPCResponse<atp.StrongRef>> list({
-    required String purpose,
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createList(
-        purpose: purpose,
-        name: name,
-        description: description,
-        descriptionFacets: descriptionFacets,
-        avatar: avatar,
-        labels: labels,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
-  Future<core.XRPCResponse<Lists>> getLists({
-    required String actor,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findLists(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
-  Future<core.XRPCResponse<Lists>> getListBlocks({
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findBlockLists(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
-  Future<core.XRPCResponse<ListItems>> getList({
-    required core.AtUri list,
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findListItems(
-        list: list,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
-  Future<core.XRPCResponse<atp.StrongRef>> listitem({
-    required String subject,
-    required core.AtUri list,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createListItem(
-        subject: subject,
-        list: list,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
-  Future<core.XRPCResponse<Lists>> getListMutes({
-    int? limit,
-    String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findMutingLists(
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
-  Future<core.XRPCResponse<core.EmptyData>> muteActorList({
-    required core.AtUri list,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createMuteActorList(list: list);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
-  Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
-    required core.AtUri list,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await deleteMuteActorList(list: list);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
-  Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
-    required String actor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findSuggestedFollows(actor: actor);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
-  Future<core.XRPCResponse<atp.StrongRef>> listblock({
-    required core.AtUri listUri,
-    DateTime? createdAt,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createBlockList(
-        listUri: listUri,
-        createdAt: createdAt,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
-  Future<core.XRPCResponse<Relationships>> getRelationships({
-    required String actor,
-    List<String>? others,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetRelationships,
-        parameters: {
-          'actor': actor,
-          'others': others,
-        },
-        to: Relationships.fromJson,
-      );
-
-  @Deprecated('Use .follow instead. Will be removed.')
-  Future<core.XRPCResponse<atp.StrongRef>> createFollow({
-    required String did,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.appBskyGraphFollow,
         record: {
@@ -264,97 +44,90 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .followInBulk instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> createFollows(
-    List<RepoParam> params,
-  ) async =>
-      await _ctx.atproto.repo.createRecords(
-        actions: params
-            .map(
-              (e) => atp.CreateAction(
-                collection: ns.appBskyGraphFollow,
-                record: {
-                  'subject': e.did,
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
-                },
-              ),
-            )
-            .toList(),
-      );
-
-  @Deprecated('Use .getFollows instead. Will be removed')
-  Future<core.XRPCResponse<Follows>> findFollows({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
+  Future<core.XRPCResponse<Follows>> getFollows({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      await _findFollows(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetFollows,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Follows.fromJson,
       );
 
-  @Deprecated('Use .getFollowers instead. Will be removed')
-  Future<core.XRPCResponse<Followers>> findFollowers({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers
+  Future<core.XRPCResponse<Followers>> getFollowers({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      await _findFollowers(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetFollowers,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Followers.fromJson,
       );
 
-  @Deprecated('Use .muteActor instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> createMute({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
+  Future<core.XRPCResponse<core.EmptyData>> muteActor({
     required String actor,
   }) async =>
-      await _ctx.post<core.EmptyData>(
+      await _ctx.post(
         ns.appBskyGraphMuteActor,
         body: {
           'actor': actor,
         },
       );
 
-  @Deprecated('Use .unmuteActor instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> deleteMute({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActor({
     required String actor,
   }) async =>
-      await _ctx.post<core.EmptyData>(
+      await _ctx.post(
         ns.appBskyGraphUnmuteActor,
         body: {
           'actor': actor,
         },
       );
 
-  @Deprecated('Use .getMutes instead. Will be removed')
-  Future<core.XRPCResponse<Mutes>> findMutes({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
+  Future<core.XRPCResponse<Mutes>> getMutes({
     int? limit,
     String? cursor,
   }) async =>
-      await _findMutes(
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetMutes,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Mutes.fromJson,
       );
 
-  @Deprecated('Use .getBlocks instead. Will be removed')
-  Future<core.XRPCResponse<Blocks>> findBlocks({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
+  Future<core.XRPCResponse<Blocks>> getBlocks({
     int? limit,
     String? cursor,
   }) async =>
-      await _findBlocks(
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetBlocks,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Blocks.fromJson,
       );
 
-  @Deprecated('Use .block instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createBlock({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
+  Future<core.XRPCResponse<atp.StrongRef>> block({
     required String did,
     DateTime? createdAt,
     Map<String, dynamic> unspecced = core.emptyJson,
@@ -368,27 +141,8 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .blockInBulk instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> createBlocks(
-    List<RepoParam> params,
-  ) async =>
-      await _ctx.atproto.repo.createRecords(
-        actions: params
-            .map(
-              (e) => atp.CreateAction(
-                collection: ns.appBskyGraphBlock,
-                record: {
-                  'subject': e.did,
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
-                },
-              ),
-            )
-            .toList(),
-      );
-
-  @Deprecated('Use .list instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createList({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
+  Future<core.XRPCResponse<atp.StrongRef>> list({
     required String purpose,
     required String name,
     String? description,
@@ -413,101 +167,54 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .modlist instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createModeratedList({
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      await list(
-        name: name,
-        purpose: ids.appBskyGraphDefsModlist,
-        description: description,
-        descriptionFacets: descriptionFacets,
-        avatar: avatar,
-        labels: labels,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  @Deprecated('Use .curatelist instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createCuratedList({
-    required String name,
-    String? description,
-    List<Facet>? descriptionFacets,
-    atp.Blob? avatar,
-    atp.Labels? labels,
-    DateTime? createdAt,
-    Map<String, dynamic> unspecced = core.emptyJson,
-  }) async =>
-      await list(
-        name: name,
-        purpose: ids.appBskyGraphDefsCuratelist,
-        description: description,
-        descriptionFacets: descriptionFacets,
-        avatar: avatar,
-        labels: labels,
-        createdAt: createdAt,
-        unspecced: unspecced,
-      );
-
-  @Deprecated('Use .listInBulk instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> createLists(
-    List<ListParam> params,
-  ) async =>
-      await _ctx.atproto.repo.createRecords(
-        actions: params
-            .map(
-              (e) => atp.CreateAction(
-                collection: ns.appBskyGraphList,
-                record: {
-                  'purpose': e.purpose,
-                  'name': e.name,
-                  'description': e.description,
-                  'descriptionFacets':
-                      e.descriptionFacets?.map((e) => e.toJson()).toList(),
-                  'avatar': e.avatar,
-                  'labels': e.labels?.toJson(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced,
-                },
-              ),
-            )
-            .toList(),
-      );
-
-  @Deprecated('Use .getLists instead. Will be removed')
-  Future<core.XRPCResponse<Lists>> findLists({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
+  Future<core.XRPCResponse<Lists>> getLists({
     required String actor,
     int? limit,
     String? cursor,
   }) async =>
-      await _findLists(
-        actor: actor,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetLists,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Lists.fromJson,
       );
 
-  @Deprecated('Use .getList instead. Will be removed')
-  Future<core.XRPCResponse<ListItems>> findListItems({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
+  Future<core.XRPCResponse<Lists>> getListBlocks({
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyGraphGetListBlocks,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
+        to: Lists.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
+  Future<core.XRPCResponse<ListItems>> getList({
     required core.AtUri list,
     int? limit,
     String? cursor,
   }) async =>
-      await _findListItems(
-        list: list,
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetList,
+        parameters: {
+          'list': list.toString(),
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: ListItems.fromJson,
       );
 
-  @Deprecated('Use .listitem instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createListItem({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
+  Future<core.XRPCResponse<atp.StrongRef>> listitem({
     required String subject,
     required core.AtUri list,
     DateTime? createdAt,
@@ -523,39 +230,22 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .listitemInBulk instead. Will be removed')
-  Future<core.XRPCResponse<atp.EmptyData>> createListItems(
-    List<ListItemParam> params,
-  ) async =>
-      await _ctx.atproto.repo.createRecords(
-        actions: params
-            .map(
-              (e) => atp.CreateAction(
-                collection: ns.appBskyGraphListitem,
-                record: {
-                  'subject': e.subject,
-                  'list': e.list.toString(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.unspecced
-                },
-              ),
-            )
-            .toList(),
-      );
-
-  @Deprecated('Use .getListMutes instead. Will be removed')
-  Future<core.XRPCResponse<Lists>> findMutingLists({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
+  Future<core.XRPCResponse<Lists>> getListMutes({
     int? limit,
     String? cursor,
   }) async =>
-      await _findMutingLists(
-        limit: limit,
-        cursor: cursor,
+      await _ctx.get(
+        ns.appBskyGraphGetListMutes,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: Lists.fromJson,
       );
 
-  @Deprecated('Use .muteActorList instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> createMuteActorList({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
+  Future<core.XRPCResponse<core.EmptyData>> muteActorList({
     required core.AtUri list,
   }) async =>
       await _ctx.post(
@@ -565,8 +255,8 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .unmuteActorList instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> deleteMuteActorList({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
+  Future<core.XRPCResponse<core.EmptyData>> unmuteActorList({
     required core.AtUri list,
   }) async =>
       await _ctx.post(
@@ -576,28 +266,20 @@ final class GraphService {
         },
       );
 
-  @Deprecated('Use .getSuggestedFollowsByActor instead. Will be removed')
-  Future<core.XRPCResponse<SuggestedFollows>> findSuggestedFollows({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
+  Future<core.XRPCResponse<SuggestedFollows>> getSuggestedFollowsByActor({
     required String actor,
   }) async =>
-      await _findSuggestedFollows(
-        actor: actor,
+      await _ctx.get(
+        ns.appBskyGraphGetSuggestedFollowsByActor,
+        parameters: {
+          'actor': actor,
+        },
         to: SuggestedFollows.fromJson,
       );
 
-  @Deprecated('Use .getListBlocks instead. Will be removed')
-  Future<core.XRPCResponse<Lists>> findBlockLists({
-    int? limit,
-    String? cursor,
-  }) async =>
-      await _findBlockLists(
-        limit: limit,
-        cursor: cursor,
-        to: Lists.fromJson,
-      );
-
-  @Deprecated('Use .listblock instead. Will be removed')
-  Future<core.XRPCResponse<atp.StrongRef>> createBlockList({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
+  Future<core.XRPCResponse<atp.StrongRef>> listblock({
     required core.AtUri listUri,
     DateTime? createdAt,
   }) async =>
@@ -609,217 +291,19 @@ final class GraphService {
         },
       );
 
-  Future<core.XRPCResponse<T>> _findFollows<T>({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
+  Future<core.XRPCResponse<Relationships>> getRelationships({
     required String actor,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
+    List<String>? others,
   }) async =>
       await _ctx.get(
-        ns.appBskyGraphGetFollows,
-        parameters: _buildGetFollowsParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findFollowers<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetFollowers,
-        parameters: _buildGetFollowersParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findMutes<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetMutes,
-        parameters: _buildGetMutesParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findBlocks<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetBlocks,
-        parameters: _buildGetBlocksParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findLists<T>({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetLists,
-        parameters: _buildGetListsParams(
-          actor: actor,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findListItems<T>({
-    required core.AtUri list,
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetList,
-        parameters: _buildListItemsParams(
-          list: list,
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findMutingLists<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetListMutes,
-        parameters: _buildGetListMutesParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findSuggestedFollows<T>({
-    required String actor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetSuggestedFollowsByActor,
+        ns.appBskyGraphGetRelationships,
         parameters: {
           'actor': actor,
+          'others': others,
         },
-        to: to,
+        to: Relationships.fromJson,
       );
-
-  Future<core.XRPCResponse<T>> _findBlockLists<T>({
-    required int? limit,
-    required String? cursor,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyGraphGetListBlocks,
-        parameters: _buildGetBlockListsParams(
-          limit: limit,
-          cursor: cursor,
-        ),
-        to: to,
-      );
-
-  Map<String, dynamic> _buildGetFollowsParams({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'actor': actor,
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetFollowersParams({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'actor': actor,
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetMutesParams({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetBlocksParams({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetListsParams({
-    required String actor,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'actor': actor,
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildListItemsParams({
-    required core.AtUri list,
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'list': list.toString(),
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetListMutesParams({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-      };
-
-  Map<String, dynamic> _buildGetBlockListsParams({
-    required int? limit,
-    required String? cursor,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-      };
 }
 
 extension GraphServiceExtension on GraphService {
