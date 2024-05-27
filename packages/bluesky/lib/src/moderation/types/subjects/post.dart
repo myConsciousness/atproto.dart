@@ -137,10 +137,10 @@ ModerationDecision decideBlockedQuotedPost(
 bool _hasHiddenPost(
   final AtUri uri,
   final EmbedView? embed,
-  final List<String> hiddenPosts,
+  final List<AtUri> hiddenPosts,
 ) {
   if (hiddenPosts.isEmpty) return false;
-  if (hiddenPosts.contains(uri.toString())) return true;
+  if (hiddenPosts.contains(uri)) return true;
   if (embed == null) return false;
 
   if (embed is UEmbedViewRecord) {
@@ -148,7 +148,7 @@ bool _hasHiddenPost(
       record: (data) => data.uri,
     );
 
-    if (hiddenPosts.contains(uri.toString())) {
+    if (hiddenPosts.contains(uri)) {
       return true;
     }
   }
@@ -158,7 +158,7 @@ bool _hasHiddenPost(
       record: (data) => data.uri,
     );
 
-    if (hiddenPosts.contains(uri.toString())) {
+    if (hiddenPosts.contains(uri)) {
       return true;
     }
   }

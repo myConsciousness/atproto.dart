@@ -23,32 +23,11 @@ final class LabelService {
     List<String>? didSources,
     int? limit,
     String? cursor,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await searchLabels(
-        uriPatterns: uriPatterns,
-        didSources: didSources,
-        limit: limit,
-        cursor: cursor,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
-  Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
-      subscribeLabels({
-    int? cursor,
-  }) async =>
-          // ignore: deprecated_member_use_from_same_package
-          await subscribeLabelUpdates(cursor: cursor);
-
-  @Deprecated('Use .queryLabels instead. Will be removed')
-  Future<core.XRPCResponse<LabelsByQuery>> searchLabels({
-    required List<String> uriPatterns,
-    List<String>? didSources,
-    int? limit,
-    String? cursor,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
+        headers: headers,
         parameters: {
           'uriPatterns': uriPatterns,
           'sources': didSources,
@@ -58,9 +37,9 @@ final class LabelService {
         to: LabelsByQuery.fromJson,
       );
 
-  @Deprecated('Use .subscribeLabels instead. Will be removed')
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
   Future<core.XRPCResponse<core.Subscription<SubscribedLabel>>>
-      subscribeLabelUpdates({
+      subscribeLabels({
     int? cursor,
   }) async =>
           await _ctx.stream(

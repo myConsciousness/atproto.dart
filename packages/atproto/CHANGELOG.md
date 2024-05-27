@@ -1,5 +1,15 @@
 # Release Note
 
+## v0.11.13
+
+- Removed deprecated methods from following services.
+  - `IdentityService`
+  - `LabelService`
+  - `RepoService`
+  - `ServerService`
+  - `SyncService`
+- Add `headers` parameters on GET endpoints. You can specify additional headers.
+
 ## v0.11.12
 
 - Add `privileged` input and property on `ServerService.createAppPassword`, `AppPassword`. ([#1494](https://github.com/myConsciousness/atproto.dart/issues/1494))

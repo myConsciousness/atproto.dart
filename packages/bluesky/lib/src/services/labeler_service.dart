@@ -22,9 +22,11 @@ final class LabelerService {
   Future<core.XRPCResponse<LabelerServices>> getServices({
     required List<String> dids,
     bool? detailed,
+    Map<String, String>? headers,
   }) async =>
       await _ctx.get(
         ns.appBskyLabelerGetServices,
+        headers: headers,
         parameters: {
           'dids': dids,
           'detailed': detailed,

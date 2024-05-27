@@ -22,60 +22,31 @@ final class NotificationService {
     int? limit,
     String? cursor,
     DateTime? seenAt,
+    Map<String, String>? headers,
   }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findNotifications(
-        limit: limit,
-        cursor: cursor,
-        seenAt: seenAt,
-      );
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
-  Future<core.XRPCResponse<Count>> getUnreadCount() async =>
-      // ignore: deprecated_member_use_from_same_package
-      await findUnreadCount();
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
-  Future<core.XRPCResponse<core.EmptyData>> updateSeen({
-    DateTime? seenAt,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await updateNotificationsAsRead(seenAt: seenAt);
-
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
-  Future<core.XRPCResponse<core.EmptyData>> registerPush({
-    required String serviceDid,
-    required String token,
-    required core.Platform platform,
-    required String appId,
-  }) async =>
-      // ignore: deprecated_member_use_from_same_package
-      await createPushRegistration(
-        serviceDid: serviceDid,
-        token: token,
-        platform: platform,
-        appId: appId,
-      );
-
-  @Deprecated('Use .listNotifications instead. Will be removed')
-  Future<core.XRPCResponse<Notifications>> findNotifications({
-    int? limit,
-    String? cursor,
-    DateTime? seenAt,
-  }) async =>
-      await _findNotifications(
-        limit: limit,
-        cursor: cursor,
-        seenAt: seenAt,
+      await _ctx.get(
+        ns.appBskyNotificationListNotifications,
+        headers: headers,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+          'seenAt': seenAt,
+        },
         to: Notifications.fromJson,
       );
 
-  @Deprecated('Use .getUnreadCount instead. Will be removed')
-  Future<core.XRPCResponse<Count>> findUnreadCount() async =>
-      await _findUnreadCount(to: Count.fromJson);
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
+  Future<core.XRPCResponse<Count>> getUnreadCount({
+    Map<String, String>? headers,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyNotificationGetUnreadCount,
+        headers: headers,
+        to: Count.fromJson,
+      );
 
-  @Deprecated('Use .updateSeen instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> updateNotificationsAsRead({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
+  Future<core.XRPCResponse<core.EmptyData>> updateSeen({
     DateTime? seenAt,
   }) async =>
       await _ctx.post<core.EmptyData>(
@@ -85,8 +56,8 @@ final class NotificationService {
         },
       );
 
-  @Deprecated('Use .registerPush instead. Will be removed')
-  Future<core.XRPCResponse<core.EmptyData>> createPushRegistration({
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
+  Future<core.XRPCResponse<core.EmptyData>> registerPush({
     required String serviceDid,
     required String token,
     required core.Platform platform,
@@ -101,39 +72,4 @@ final class NotificationService {
           'appId': appId,
         },
       );
-
-  Future<core.XRPCResponse<T>> _findNotifications<T>({
-    required int? limit,
-    required String? cursor,
-    required DateTime? seenAt,
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyNotificationListNotifications,
-        parameters: _buildListNotificationsParams(
-          limit: limit,
-          cursor: cursor,
-          seenAt: seenAt,
-        ),
-        to: to,
-      );
-
-  Future<core.XRPCResponse<T>> _findUnreadCount<T>({
-    core.ResponseDataBuilder<T>? to,
-  }) async =>
-      await _ctx.get(
-        ns.appBskyNotificationGetUnreadCount,
-        to: to,
-      );
-
-  Map<String, dynamic> _buildListNotificationsParams({
-    required int? limit,
-    required String? cursor,
-    required DateTime? seenAt,
-  }) =>
-      {
-        'limit': limit,
-        'cursor': cursor,
-        'seenAt': seenAt,
-      };
 }

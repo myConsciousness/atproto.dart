@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/moderation.dart';
 
 /// https://atprotodart.com/docs/packages/bluesky
 Future<void> main() async {
@@ -35,10 +36,32 @@ Future<void> main() async {
       timeout: Duration(seconds: 20),
     );
 
+    //! Moderation Stuffs
+    final preferences = await bsky.actor.getPreferences();
+    final moderationPrefs = preferences.data.getModerationPrefs();
+    final labelDefs = await bsky.labeler.getLabelDefinitions(moderationPrefs);
+
+    final moderationOpts = ModerationOpts(
+      userDid: bsky.session!.did,
+      prefs: moderationPrefs,
+      labelDefs: labelDefs,
+    );
+
     //! Let's get home timeline!
     final feeds = await bsky.feed.getTimeline(
-      limit: 10,
+      headers: getLabelerHeaders(moderationPrefs),
     );
+
+    for (final feed in feeds.data.feed) {
+      final decision = moderatePost(
+        ModerationSubjectPost.postView(data: feed.post),
+        moderationOpts,
+      );
+
+      if (decision.getUI(ModerationBehaviorContext.contentView).alert) {
+        // Alert!
+      }
+    }
 
     print(feeds);
 

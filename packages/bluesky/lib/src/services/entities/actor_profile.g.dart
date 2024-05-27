@@ -19,10 +19,12 @@ _$ActorProfileImpl _$$ActorProfileImplFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           banner: $checkedConvert('banner', (v) => v as String?),
-          followsCount: $checkedConvert('followsCount', (v) => v as int? ?? 0),
-          followersCount:
-              $checkedConvert('followersCount', (v) => v as int? ?? 0),
-          postsCount: $checkedConvert('postsCount', (v) => v as int? ?? 0),
+          followsCount:
+              $checkedConvert('followsCount', (v) => (v as num?)?.toInt() ?? 0),
+          followersCount: $checkedConvert(
+              'followersCount', (v) => (v as num?)?.toInt() ?? 0),
+          postsCount:
+              $checkedConvert('postsCount', (v) => (v as num?)?.toInt() ?? 0),
           associated: $checkedConvert(
               'associated',
               (v) => v == null
