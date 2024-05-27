@@ -19,8 +19,8 @@ topics:
 
 dependencies:
   atproto_core: ^0.9.8
-  atproto: ^0.11.12
-  bluesky: ^0.15.24
+  atproto: ^0.11.13
+  bluesky: ^0.15.25
   freezed_annotation: ^2.4.1
   json_annotation: ^4.8.1
 

@@ -1,5 +1,28 @@
 # Release Note
 
+## v0.15.25
+
+- Removed deprecated methods from following services.
+  - `IdentityService`
+  - `LabelService`
+  - `RepoService`
+  - `ServerService`
+  - `SyncService`
+  - `ActorService`
+  - `FeedService`
+  - `GraphService`
+  - `NotificationService`
+  - `UnspeccedService`
+- Add `headers` parameters on GET endpoints. You can specify additional headers.
+- Add utilities on `ModerationUI` object.
+  - `filter`
+  - `blur`
+  - `alert`
+  - `inform`
+- Add `getLabelerHeaders` function.
+- Add `.getModerationPrefs` method on `Preferences` object as an extension.
+- Move `.getLabelDefinitions` to `LabelerService` as an extension.
+
 ## v0.15.24
 
 - Add `privileged` input and property on `ServerService.createAppPassword`, `AppPassword`. ([#1494](https://github.com/myConsciousness/atproto.dart/issues/1494))
