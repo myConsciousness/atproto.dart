@@ -21,3 +21,10 @@ class ModerationUI with _$ModerationUI {
     @Default([]) List<ModerationCause> informs,
   }) = _ModerationUI;
 }
+
+extension ModerationUIExtension on ModerationUI {
+  bool get filter => filters.isNotEmpty;
+  bool get blur => blurs.isNotEmpty;
+  bool get alert => alerts.isNotEmpty;
+  bool get inform => informs.isNotEmpty;
+}

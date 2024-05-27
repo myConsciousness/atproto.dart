@@ -21,13 +21,6 @@ import '../behaviors/suite_user.dart';
 import 'mock.dart' as m;
 import 'result_flag.dart';
 
-extension ModerationUIExtension on ModerationUI {
-  bool get filter => filters.isNotEmpty;
-  bool get blur => blurs.isNotEmpty;
-  bool get alert => alerts.isNotEmpty;
-  bool get inform => informs.isNotEmpty;
-}
-
 void testModeration({
   required ModerationUI actual,
   required List<ModerationTestSuiteResultFlag> expected,
