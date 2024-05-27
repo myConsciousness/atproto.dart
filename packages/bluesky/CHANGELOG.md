@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.24
+
+- Add `privileged` input and property on `ServerService.createAppPassword`, `AppPassword`. ([#1494](https://github.com/myConsciousness/atproto.dart/issues/1494))
+
 ## v0.15.23
 
 - Add `.getLabelDefinitions` function for moderation API.

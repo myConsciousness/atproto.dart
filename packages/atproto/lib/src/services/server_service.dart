@@ -138,11 +138,13 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword
   Future<core.XRPCResponse<AppPassword>> createAppPassword({
     required String name,
+    bool? privileged,
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAppPassword,
         body: {
           'name': name,
+          'privileged': privileged,
         },
         to: AppPassword.fromJson,
       );

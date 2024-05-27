@@ -23,6 +23,7 @@ mixin _$AppPassword {
   String get name => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  bool get privileged => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,8 @@ abstract class $AppPasswordCopyWith<$Res> {
           AppPassword value, $Res Function(AppPassword) then) =
       _$AppPasswordCopyWithImpl<$Res, AppPassword>;
   @useResult
-  $Res call({String name, String password, DateTime createdAt});
+  $Res call(
+      {String name, String password, DateTime createdAt, bool privileged});
 }
 
 /// @nodoc
@@ -55,6 +57,7 @@ class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
     Object? name = null,
     Object? password = null,
     Object? createdAt = null,
+    Object? privileged = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -69,6 +72,10 @@ class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      privileged: null == privileged
+          ? _value.privileged
+          : privileged // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -81,7 +88,8 @@ abstract class _$$AppPasswordImplCopyWith<$Res>
       __$$AppPasswordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String password, DateTime createdAt});
+  $Res call(
+      {String name, String password, DateTime createdAt, bool privileged});
 }
 
 /// @nodoc
@@ -98,6 +106,7 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
     Object? name = null,
     Object? password = null,
     Object? createdAt = null,
+    Object? privileged = null,
   }) {
     return _then(_$AppPasswordImpl(
       name: null == name
@@ -112,6 +121,10 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      privileged: null == privileged
+          ? _value.privileged
+          : privileged // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -120,7 +133,10 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$AppPasswordImpl implements _AppPassword {
   const _$AppPasswordImpl(
-      {required this.name, required this.password, required this.createdAt});
+      {required this.name,
+      required this.password,
+      required this.createdAt,
+      this.privileged = false});
 
   factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppPasswordImplFromJson(json);
@@ -131,10 +147,13 @@ class _$AppPasswordImpl implements _AppPassword {
   final String password;
   @override
   final DateTime createdAt;
+  @override
+  @JsonKey()
+  final bool privileged;
 
   @override
   String toString() {
-    return 'AppPassword(name: $name, password: $password, createdAt: $createdAt)';
+    return 'AppPassword(name: $name, password: $password, createdAt: $createdAt, privileged: $privileged)';
   }
 
   @override
@@ -146,12 +165,15 @@ class _$AppPasswordImpl implements _AppPassword {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            (identical(other.privileged, privileged) ||
+                other.privileged == privileged));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, password, createdAt);
+  int get hashCode =>
+      Object.hash(runtimeType, name, password, createdAt, privileged);
 
   @JsonKey(ignore: true)
   @override
@@ -171,7 +193,8 @@ abstract class _AppPassword implements AppPassword {
   const factory _AppPassword(
       {required final String name,
       required final String password,
-      required final DateTime createdAt}) = _$AppPasswordImpl;
+      required final DateTime createdAt,
+      final bool privileged}) = _$AppPasswordImpl;
 
   factory _AppPassword.fromJson(Map<String, dynamic> json) =
       _$AppPasswordImpl.fromJson;
@@ -182,6 +205,8 @@ abstract class _AppPassword implements AppPassword {
   String get password;
   @override
   DateTime get createdAt;
+  @override
+  bool get privileged;
   @override
   @JsonKey(ignore: true)
   _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>
