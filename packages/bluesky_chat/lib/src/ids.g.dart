@@ -17,8 +17,7 @@ const chatBskyActorDeclaration = 'chat.bsky.actor.declaration';
 const chatBskyActorDefs = 'chat.bsky.actor.defs';
 
 /// `chat.bsky.actor.defs#profileViewBasic`
-const chatBskyActorDefsProfileViewBasic =
-    'chat.bsky.actor.defs#profileViewBasic';
+const chatBskyActorDefsProfileViewBasic = 'chat.bsky.actor.defs#profileViewBasic';
 
 /// `chat.bsky.actor.deleteAccount`
 const chatBskyActorDeleteAccount = 'chat.bsky.actor.deleteAccount';
@@ -33,19 +32,16 @@ const chatBskyConvoDefs = 'chat.bsky.convo.defs';
 const chatBskyConvoDefsConvoView = 'chat.bsky.convo.defs#convoView';
 
 /// `chat.bsky.convo.defs#deletedMessageView`
-const chatBskyConvoDefsDeletedMessageView =
-    'chat.bsky.convo.defs#deletedMessageView';
+const chatBskyConvoDefsDeletedMessageView = 'chat.bsky.convo.defs#deletedMessageView';
 
 /// `chat.bsky.convo.defs#logBeginConvo`
 const chatBskyConvoDefsLogBeginConvo = 'chat.bsky.convo.defs#logBeginConvo';
 
 /// `chat.bsky.convo.defs#logCreateMessage`
-const chatBskyConvoDefsLogCreateMessage =
-    'chat.bsky.convo.defs#logCreateMessage';
+const chatBskyConvoDefsLogCreateMessage = 'chat.bsky.convo.defs#logCreateMessage';
 
 /// `chat.bsky.convo.defs#logDeleteMessage`
-const chatBskyConvoDefsLogDeleteMessage =
-    'chat.bsky.convo.defs#logDeleteMessage';
+const chatBskyConvoDefsLogDeleteMessage = 'chat.bsky.convo.defs#logDeleteMessage';
 
 /// `chat.bsky.convo.defs#logLeaveConvo`
 const chatBskyConvoDefsLogLeaveConvo = 'chat.bsky.convo.defs#logLeaveConvo';
@@ -60,12 +56,10 @@ const chatBskyConvoDefsMessageRef = 'chat.bsky.convo.defs#messageRef';
 const chatBskyConvoDefsMessageView = 'chat.bsky.convo.defs#messageView';
 
 /// `chat.bsky.convo.defs#messageViewSender`
-const chatBskyConvoDefsMessageViewSender =
-    'chat.bsky.convo.defs#messageViewSender';
+const chatBskyConvoDefsMessageViewSender = 'chat.bsky.convo.defs#messageViewSender';
 
 /// `chat.bsky.convo.deleteMessageForSelf`
-const chatBskyConvoDeleteMessageForSelf =
-    'chat.bsky.convo.deleteMessageForSelf';
+const chatBskyConvoDeleteMessageForSelf = 'chat.bsky.convo.deleteMessageForSelf';
 
 /// `chat.bsky.convo.getConvo`
 const chatBskyConvoGetConvo = 'chat.bsky.convo.getConvo';
@@ -95,8 +89,7 @@ const chatBskyConvoSendMessage = 'chat.bsky.convo.sendMessage';
 const chatBskyConvoSendMessageBatch = 'chat.bsky.convo.sendMessageBatch';
 
 /// `chat.bsky.convo.sendMessageBatch#batchItem`
-const chatBskyConvoSendMessageBatchBatchItem =
-    'chat.bsky.convo.sendMessageBatch#batchItem';
+const chatBskyConvoSendMessageBatchBatchItem = 'chat.bsky.convo.sendMessageBatch#batchItem';
 
 /// `chat.bsky.convo.unmuteConvo`
 const chatBskyConvoUnmuteConvo = 'chat.bsky.convo.unmuteConvo';
@@ -105,17 +98,13 @@ const chatBskyConvoUnmuteConvo = 'chat.bsky.convo.unmuteConvo';
 const chatBskyConvoUpdateRead = 'chat.bsky.convo.updateRead';
 
 /// `chat.bsky.moderation.getActorMetadata`
-const chatBskyModerationGetActorMetadata =
-    'chat.bsky.moderation.getActorMetadata';
+const chatBskyModerationGetActorMetadata = 'chat.bsky.moderation.getActorMetadata';
 
 /// `chat.bsky.moderation.getActorMetadata#metadata`
-const chatBskyModerationGetActorMetadataMetadata =
-    'chat.bsky.moderation.getActorMetadata#metadata';
+const chatBskyModerationGetActorMetadataMetadata = 'chat.bsky.moderation.getActorMetadata#metadata';
 
 /// `chat.bsky.moderation.getMessageContext`
-const chatBskyModerationGetMessageContext =
-    'chat.bsky.moderation.getMessageContext';
+const chatBskyModerationGetMessageContext = 'chat.bsky.moderation.getMessageContext';
 
 /// `chat.bsky.moderation.updateActorAccess`
-const chatBskyModerationUpdateActorAccess =
-    'chat.bsky.moderation.updateActorAccess';
+const chatBskyModerationUpdateActorAccess = 'chat.bsky.moderation.updateActorAccess';
