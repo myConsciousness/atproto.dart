@@ -16,11 +16,19 @@ Future<void> main(List<String> args) async {
   final bsky = Bluesky.fromSession(session.data);
 
   /* SNIPPET START */
-  final timeline = await bsky.feed.getTimeline(
-    limit: 25,
+  //! Moderation Stuffs
+  final preferences = await bsky.actor.getPreferences();
+  final moderationPrefs = preferences.data.getModerationPrefs();
+  final labelDefs = await bsky.labeler.getLabelDefinitions(moderationPrefs);
+  final labelerHeaders = mod.getLabelerHeaders(moderationPrefs);
+
+  final moderationOpts = mod.ModerationOpts(
+    userDid: bsky.session!.did,
+    prefs: moderationPrefs,
+    labelDefs: labelDefs,
   );
 
-  final preferences = await bsky.actor.getPreferences();
+  final timeline = await bsky.feed.getTimeline(headers: labelerHeaders);
   for (final feed in timeline.data.feed) {
     final text = feed.post.record.text.toLowerCase();
 
@@ -32,14 +40,11 @@ Future<void> main(List<String> args) async {
     }
 
     final postModeration = mod.moderatePost(
-      mod.ModerationSubjectPost.post(data: feed.post),
-      mod.getModerationOptions(
-        userDid: 'did:web:shinyakato.dev',
-        preferences: preferences.data.preferences,
-      ),
+      mod.ModerationSubjectPost.postView(data: feed.post),
+      moderationOpts,
     );
 
-    if (postModeration.content.isBlur) {
+    if (postModeration.getUI(mod.ModerationBehaviorContext.contentView).blur) {
       // nsfw...?
     }
   }

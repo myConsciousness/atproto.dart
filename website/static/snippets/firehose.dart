@@ -23,6 +23,7 @@ Future<void> main(List<String> args) async {
   await for (final event in subscription.data.stream) {
     event.when(
       commit: repoCommitAdaptor.execute,
+      identity: print,
       handle: print,
       migrate: print,
       tombstone: print,
