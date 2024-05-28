@@ -39,7 +39,6 @@ void main() {
       );
 
       expect(context.headers, const <String, String>{
-        'Authorization': 'Bearer 1234',
         'atproto-test': '1234',
       });
     });
