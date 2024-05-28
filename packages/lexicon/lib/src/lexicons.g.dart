@@ -2598,7 +2598,7 @@ const comAtprotoRepoCreateRecord = <String, dynamic>{
             },
             "record": {
               "type": "unknown",
-              "description": "The record itself. Must contain a $type field."
+              "description": "The record itself. Must contain a \$type field."
             },
             "swapCommit": {
               "type": "string",
