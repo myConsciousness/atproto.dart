@@ -13,5 +13,6 @@ void main() {
     expect(AuthScope.access.name, 'access');
     expect(AuthScope.refresh.name, 'refresh');
     expect(AuthScope.appPass.name, 'appPass');
+    expect(AuthScope.appPassPrivileged.name, 'appPassPrivileged');
   });
 }

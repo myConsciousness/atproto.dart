@@ -26,4 +26,5 @@ const _$AuthScopeEnumMap = {
   AuthScope.access: 'com.atproto.access',
   AuthScope.refresh: 'com.atproto.refresh',
   AuthScope.appPass: 'com.atproto.appPass',
+  AuthScope.appPassPrivileged: 'com.atproto.appPassPrivileged',
 };

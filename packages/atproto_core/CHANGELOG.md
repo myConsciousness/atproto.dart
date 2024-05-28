@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.9
+
+- Add `appPassPrivileged` on `AuthScope`. ([#1501](https://github.com/myConsciousness/atproto.dart/pull/1501))
+
 ## v0.9.8
 
 - Add `authFactorToken` parameter on `createSession`. ([#1412](https://github.com/myConsciousness/atproto.dart/issues/1412))
