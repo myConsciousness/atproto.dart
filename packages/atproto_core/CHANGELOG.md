@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.9.10
+
+- Don't include Auth headers in `.headers`.
+
 ## v0.9.9
 
 - Add `appPassPrivileged` on `AuthScope`. ([#1501](https://github.com/myConsciousness/atproto.dart/pull/1501))

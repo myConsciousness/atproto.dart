@@ -85,7 +85,7 @@ sealed class BlueskyChat {
         ),
       );
 
-  /// Returns the merged headers with global headers and auth header.
+  /// Returns the global headers without auth header.
   Map<String, String> get headers;
 
   /// Returns the current session.

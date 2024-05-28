@@ -61,8 +61,7 @@ base class ServiceContext {
   final xrpc.GetClient? _mockedGetClient;
   final xrpc.PostClient? _mockedPostClient;
 
-  /// Returns the merged headers with global headers and auth header.
-  Map<String, String> get headers => _mergeHeaders();
+  Map<String, String> get headers => _headers ?? const {};
 
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
@@ -123,14 +122,10 @@ base class ServiceContext {
       );
 
   Map<String, String> _mergeHeaders([Map<String, String>? optional]) => {
-        ...authHeader,
+        if (session != null) 'Authorization': 'Bearer ${session!.accessJwt}',
         ..._headers ?? const {},
         ...optional ?? const {},
       };
-
-  Map<String, String> get authHeader => session != null
-      ? {'Authorization': 'Bearer ${session!.accessJwt}'}
-      : const {};
 
   /// Returns the [dateTime] in UTC time zone and ISO8601 format.
   String toUtcIso8601String(final DateTime? dateTime) =>
