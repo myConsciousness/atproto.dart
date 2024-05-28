@@ -46,11 +46,15 @@ jobs:
       - name: Generate Supported API Matrix
         run: dart run ./bin/generate_supported_api_matrix.dart
 
+      - name: Generate Lexicon Docs
+        run: dart run ./bin/generate_lexicon_docs.dart
+
       - name: Format
         run: |
           dart format packages/lexicon
           dart format packages/atproto
           dart format packages/bluesky
+          dart format packages/bluesky_chat
 
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3

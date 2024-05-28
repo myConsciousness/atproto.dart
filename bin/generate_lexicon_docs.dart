@@ -20,7 +20,8 @@ void main(List<String> args) {
 
   for (final lexicon in utils.lexiconDocs) {
     final variableName = _toVariableName(lexicon.id.toString());
-    final lexiconJson = _jsonEncoder.convert(lexicon.toJson());
+    final lexiconJson =
+        _jsonEncoder.convert(lexicon.toJson()).replaceAll(r'$', r'\$');
 
     docs
       ..writeln()
