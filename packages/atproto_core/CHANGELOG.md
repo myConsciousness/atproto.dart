@@ -3,6 +3,7 @@
 ## v0.9.9
 
 - Add `appPassPrivileged` on `AuthScope`. ([#1501](https://github.com/myConsciousness/atproto.dart/pull/1501))
+- Add `.headers` property. Returns the merged headers with global headers and auth header.
 
 ## v0.9.8
 

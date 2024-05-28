@@ -3,6 +3,7 @@
 ## v0.11.14
 
 - Bump `atproto_core`. Add auth scope `com.atproto.appPassPrivileged`. ([#1501](https://github.com/myConsciousness/atproto.dart/issues/1501))
+- Add `.headers` property. Returns the merged headers with global headers and auth header.
 
 ## v0.11.13
 
