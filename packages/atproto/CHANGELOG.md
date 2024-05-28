@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.11.14
+
+- Bump `atproto_core`. Add auth scope `com.atproto.appPassPrivileged`. ([#1501](https://github.com/myConsciousness/atproto.dart/issues/1501))
+
 ## v0.11.13
 
 - Removed deprecated methods from following services.
