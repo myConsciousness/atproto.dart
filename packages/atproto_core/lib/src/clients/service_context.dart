@@ -123,7 +123,7 @@ base class ServiceContext {
       );
 
   Map<String, String> _mergeHeaders([Map<String, String>? optional]) => {
-        if (session != null) ...authHeader,
+        ...authHeader,
         ..._headers ?? const {},
         ...optional ?? const {},
       };
