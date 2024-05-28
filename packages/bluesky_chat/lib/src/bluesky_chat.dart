@@ -85,6 +85,9 @@ sealed class BlueskyChat {
         ),
       );
 
+  /// Returns the merged headers with global headers and auth header.
+  Map<String, String> get headers;
+
   /// Returns the current session.
   ///
   /// Set only if an instance of this object was created in
@@ -118,6 +121,9 @@ final class _BlueskyChat implements BlueskyChat {
         convo = ConvoService(ctx),
         moderation = ModerationService(ctx),
         _ctx = ctx;
+
+  @override
+  Map<String, String> get headers => _ctx.headers;
 
   @override
   core.Session? get session => _ctx.session;

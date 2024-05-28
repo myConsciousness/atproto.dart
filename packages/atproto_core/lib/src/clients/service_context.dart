@@ -17,7 +17,7 @@ import 'retry_policy.dart';
 
 base class ServiceContext {
   ServiceContext({
-    this.headers,
+    Map<String, String>? headers,
     xrpc.Protocol? protocol,
     String? service,
     String? relayService,
@@ -26,7 +26,8 @@ base class ServiceContext {
     RetryConfig? retryConfig,
     final xrpc.GetClient? mockedGetClient,
     final xrpc.PostClient? mockedPostClient,
-  })  : _protocol = protocol ?? defaultProtocol,
+  })  : _headers = headers,
+        _protocol = protocol ?? defaultProtocol,
         service = service ?? defaultService,
         relayService = relayService ?? defaultRelayService,
         _challenge = Challenge(RetryPolicy(retryConfig)),
@@ -34,8 +35,8 @@ base class ServiceContext {
         _mockedGetClient = mockedGetClient,
         _mockedPostClient = mockedPostClient;
 
-  /// The global headers.
-  final Map<String, String>? headers;
+  /// The global headers without auth header.
+  final Map<String, String>? _headers;
 
   /// The current session.
   final Session? session;
@@ -60,6 +61,9 @@ base class ServiceContext {
   final xrpc.GetClient? _mockedGetClient;
   final xrpc.PostClient? _mockedPostClient;
 
+  /// Returns the merged headers with global headers and auth header.
+  Map<String, String> get headers => _mergeHeaders();
+
   Future<xrpc.XRPCResponse<T>> get<T>(
     final xrpc.NSID methodId, {
     final Map<String, String>? headers,
@@ -72,7 +76,7 @@ base class ServiceContext {
           methodId,
           protocol: _protocol,
           service: service,
-          headers: _getHeaders(headers),
+          headers: _mergeHeaders(headers),
           parameters: parameters,
           to: to,
           adaptor: adaptor,
@@ -93,7 +97,7 @@ base class ServiceContext {
           methodId,
           protocol: _protocol,
           service: service,
-          headers: _getHeaders(headers),
+          headers: _mergeHeaders(headers),
           parameters: parameters,
           body: body,
           to: to,
@@ -118,21 +122,15 @@ base class ServiceContext {
         ),
       );
 
-  Map<String, String>? _getHeaders([Map<String, String>? optional]) {
-    //* Anonymous
-    if (session == null) {
-      return {
-        ...headers ?? const {},
+  Map<String, String> _mergeHeaders([Map<String, String>? optional]) => {
+        if (session != null) ...authHeader,
+        ..._headers ?? const {},
         ...optional ?? const {},
       };
-    }
 
-    return {
-      'Authorization': 'Bearer ${session?.accessJwt}',
-      ...headers ?? const {},
-      ...optional ?? const {},
-    };
-  }
+  Map<String, String> get authHeader => session != null
+      ? {'Authorization': 'Bearer ${session!.accessJwt}'}
+      : const {};
 
   /// Returns the [dateTime] in UTC time zone and ISO8601 format.
   String toUtcIso8601String(final DateTime? dateTime) =>
