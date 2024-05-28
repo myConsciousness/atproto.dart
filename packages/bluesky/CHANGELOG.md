@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.15.27
+
+- Don't include Auth headers in `.headers`.
+
 ## v0.15.26
 
 - Bump `atproto_core`. Add auth scope `com.atproto.appPassPrivileged`. ([#1501](https://github.com/myConsciousness/atproto.dart/issues/1501))

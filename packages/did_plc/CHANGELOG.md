@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.17
+
+- Don't include Auth headers in `.headers`.
+
 ## v0.0.16
 
 - Upgraded `atproto_core`.
