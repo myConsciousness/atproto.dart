@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.0
+
+- Merge latest lexicons definitions.
+
 ## v0.1.6
 
 - Bump SDK constraint to '^3.3.0'.
