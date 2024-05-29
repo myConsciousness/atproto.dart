@@ -7,6 +7,7 @@ import 'package:lexicon/lexicon.dart';
 import './lex_naming_convention.dart';
 import '../utils.dart';
 
+const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";
 
@@ -30,6 +31,8 @@ final class LexObjectTemplate {
     final objectName = namingConvention.getObjectName();
 
     buffer.writeln(getFileHeader('Lex Object Generator'));
+    buffer.writeln();
+    buffer.writeln(_kCorePackage);
     buffer.writeln();
     buffer.writeln(_kFreezedAnnotationPackage);
     buffer.writeln();
