@@ -183,6 +183,37 @@ final class LexNamingConvention {
     return '${segments.sublist(2).join('/')}/$fileName.dart';
   }
 
+  String getRelativeImportPath(final NSID baseDocId) {
+    if (!lexiconId.contains('.')) throw ArgumentError();
+
+    final baseSegments = baseDocId.toString().split('#').first.split('.');
+    final baseLexiconRoot = baseSegments.take(2).join('.');
+
+    if (lexiconId.startsWith(baseLexiconRoot)) {
+      final docId = lexiconId.split('#').first;
+
+      final fileName = getFileName();
+      if (docId.startsWith(baseSegments.join('.'))) {
+        // The same folder.
+        return '$fileName.dart';
+      } else {
+        // The another folder.
+        final path = docId.split('.').sublist(2).join('/');
+
+        return '../../$path/$fileName.dart';
+      }
+    }
+
+    // Package Import
+    if (baseLexiconRoot == 'com.atproto') {
+      return 'package:atproto/atproto.dart';
+    } else if (baseLexiconRoot == 'app.bsky') {
+      return 'package:bluesky/bluesky.dart';
+    }
+
+    throw UnimplementedError(baseDocId.toString());
+  }
+
   String _toLowerCamelCase(final String input) {
     return input
         .split(RegExp(r'(?=[A-Z])'))

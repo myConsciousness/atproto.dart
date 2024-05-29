@@ -11,6 +11,26 @@ const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";
 
+final class Property {
+  const Property({
+    this.isRequired = false,
+    required this.type,
+    required this.name,
+    this.importPath,
+  });
+
+  final bool isRequired;
+  final String type;
+  final String name;
+
+  final String? importPath;
+
+  @override
+  String toString() {
+    return isRequired ? 'required $type $name,' : '$type? $name,';
+  }
+}
+
 final class LexObjectTemplate {
   const LexObjectTemplate(
     this.docId,
@@ -26,59 +46,73 @@ final class LexObjectTemplate {
 
   String? build() {
     final properties = _getProperties();
-    if (properties == null) return null; // RefVariant, no need to create.
-
-    final buffer = StringBuffer();
+    if (properties.isEmpty) return null; // RefVariant, no need to create.
 
     final fileName = namingConvention.getFileName();
     final objectName = namingConvention.getObjectName();
 
+    final importPaths = properties
+        .map((e) => e.importPath)
+        .where((e) => e != null)
+        .toSet()
+        .toList();
+
+    final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Object Generator'));
     buffer.writeln();
     buffer.writeln(_kCorePackage);
-    buffer.writeln();
     buffer.writeln(_kFreezedAnnotationPackage);
+    for (final importPath in importPaths) {
+      buffer
+        ..writeln()
+        ..write("import '$importPath';");
+    }
     buffer.writeln();
     buffer.writeln("part '$fileName.freezed.dart';");
     buffer.writeln("part '$fileName.g.dart';");
     buffer.writeln();
     buffer.writeln('@freezed');
-    buffer.writeln('class $objectName with _$objectName {');
+    buffer.writeln('class $objectName with _\$$objectName {');
     buffer.writeln('  @jsonSerializable');
     buffer.write('  const factory $objectName({');
-    buffer.writeln(properties);
+    buffer.writeln();
+    for (final property in properties) {
+      buffer
+        ..writeln()
+        ..write('    ')
+        ..write(property.toString());
+    }
+    buffer.writeln();
     buffer.writeln('  }) = _$objectName;');
     buffer.writeln();
     buffer.writeln(
         '  factory $objectName.fromJson(Map<String, Object?> json) =>');
-    buffer.writeln('      _${objectName}FromJson(json);');
+    buffer.writeln('      _\$${objectName}FromJson(json);');
     buffer.writeln('}');
 
     return buffer.toString();
   }
 
-  String? _getProperties() {
+  List<Property> _getProperties() {
     final properties = def.whenOrNull(
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) return null; // RefVariant
+        if (object == null) return const <Property>[]; // RefVariant
 
         return _getObjectProperties(object);
       },
     );
 
-    return properties?.toString();
+    return properties ?? const [];
   }
 
-  String _getObjectProperties(final LexObject object) {
-    final buffer = StringBuffer();
+  List<Property> _getObjectProperties(final LexObject object) {
+    final properties = <Property>[];
 
     final requiredProperties = object.requiredProperties ?? const [];
 
     for (final entry in object.properties!.entries) {
-      buffer.writeln();
-
       final isRequired = requiredProperties.contains(entry.key);
 
       final property = entry.value.toJson();
@@ -91,36 +125,47 @@ final class LexObjectTemplate {
       );
 
       if (isRequired) {
-        buffer.write('    required $dataType ${entry.key},');
+        properties.add(Property(
+          isRequired: true,
+          type: dataType.$1,
+          name: entry.key,
+          importPath: dataType.$2,
+        ));
       } else {
-        buffer.write('    $dataType? ${entry.key},');
+        properties.add(
+          Property(
+            type: dataType.$1,
+            name: entry.key,
+            importPath: dataType.$2,
+          ),
+        );
       }
     }
 
-    return buffer.toString();
+    return properties;
   }
 
-  String _getDartDataType(
+  (String, String?) _getDartDataType(
     final NSID docId, {
     required String? type,
     required String? format,
     required String? ref,
     required Map<String, dynamic>? items,
   }) {
-    if (type == 'string' && format == 'datetime') return 'DateTime';
-    if (type == 'string' && format == 'at-uri') return 'AtUri';
-    if (type == 'string') return 'String';
-    if (type == 'integer') return 'int';
-    if (type == 'boolean') return 'bool';
+    if (type == 'string' && format == 'datetime') return ('DateTime', null);
+    if (type == 'string' && format == 'at-uri') return ('AtUri', null);
+    if (type == 'string') return ('String', null);
+    if (type == 'integer') return ('int', null);
+    if (type == 'boolean') return ('bool', null);
 
-    if (type == 'cid-link') return 'String';
-    if (type == 'blob') return 'Blob';
-    if (type == 'unknown') return 'Map<String, dynamic>';
+    if (type == 'cid-link') return ('String', null);
+    if (type == 'blob') return ('Blob', null);
+    if (type == 'unknown') return ('Map<String, dynamic>', null);
 
     if (type == 'array') {
       if (items == null) throw ArgumentError.notNull('items');
 
-      final dataType = _getDartDataType(
+      final (dataType, importPath) = _getDartDataType(
         docId,
         type: items['type'],
         format: items['format'],
@@ -128,12 +173,13 @@ final class LexObjectTemplate {
         items: items,
       );
 
-      return 'List<$dataType>';
+      return ('List<$dataType>', importPath);
     }
 
     if (type == 'ref') {
       if (ref == null) throw ArgumentError.notNull('ref');
 
+      LexNamingConvention convention;
       if (ref.contains('#')) {
         if (ref.startsWith('#')) {
           final defName = ref.split('#').last;
@@ -143,11 +189,10 @@ final class LexObjectTemplate {
                 defName.substring(0, 1).toUpperCase() +
                 defName.substring(1);
 
-            return LexNamingConvention('${docId.toString()}#$objectName')
-                .getObjectName();
+            convention = LexNamingConvention('${docId.toString()}#$objectName');
+          } else {
+            convention = LexNamingConvention(docId.toString() + ref);
           }
-
-          return LexNamingConvention(docId.toString() + ref).getObjectName();
         } else {
           final segments = ref.split('#');
           final lexiconId = segments.first;
@@ -158,23 +203,27 @@ final class LexObjectTemplate {
                 defName.substring(0, 1).toUpperCase() +
                 defName.substring(1);
 
-            return LexNamingConvention('${docId.toString()}#$objectName')
-                .getObjectName();
+            convention = LexNamingConvention('${docId.toString()}#$objectName');
+          } else {
+            convention = LexNamingConvention(ref);
           }
-
-          return LexNamingConvention(ref).getObjectName();
         }
       } else {
         final segments = ref.split('.');
         final objectName = segments.last.substring(0, 1).toUpperCase() +
             segments.last.substring(1);
 
-        return LexNamingConvention('$ref#$objectName').getObjectName();
+        convention = LexNamingConvention('$ref#$objectName');
       }
+
+      return (
+        convention.getObjectName(),
+        convention.getRelativeImportPath(docId),
+      );
     }
 
-    if (type == 'union') return 'String';
-    if (type == 'bytes') return 'Uint8List';
+    if (type == 'union') return ('String', null);
+    if (type == 'bytes') return ('Uint8List', null);
 
     throw UnimplementedError(type);
   }
