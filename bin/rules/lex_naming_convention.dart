@@ -144,6 +144,42 @@ bool _isSupportedDoc(final LexiconDoc doc) {
   return false;
 }
 
+LexUserType getRef(
+  final NSID docId,
+  final String ref,
+) {
+  final baseLexiconId = _getLexiconId(docId, ref);
+
+  for (final lexicon in lexicons) {
+    final doc = LexiconDoc.fromJson(lexicon);
+
+    for (final entry in doc.defs.entries) {
+      final lexiconId = _getLexiconId(doc.id, '#${entry.key}');
+
+      if (lexiconId == baseLexiconId) {
+        return entry.value;
+      }
+    }
+  }
+
+  throw UnsupportedError(baseLexiconId);
+}
+
+String _getLexiconId(
+  final NSID docId,
+  final String ref,
+) {
+  if (ref.contains('#')) {
+    if (ref.startsWith('#')) {
+      return docId.toString() + ref;
+    } else {
+      return ref;
+    }
+  }
+
+  return '$ref#main';
+}
+
 final class LexNamingConvention {
   const LexNamingConvention(this.lexiconId);
 
@@ -193,7 +229,7 @@ final class LexNamingConvention {
       final docId = lexiconId.split('#').first;
 
       final fileName = getFileName();
-      if (docId.startsWith(baseSegments.join('.'))) {
+      if (docId == baseSegments.join('.')) {
         // The same folder.
         return '$fileName.dart';
       } else {
@@ -204,10 +240,12 @@ final class LexNamingConvention {
       }
     }
 
+    final lexiconRoot = lexiconId.split('#').first.split('.').take(2).join('.');
+
     // Package Import
-    if (baseLexiconRoot == 'com.atproto') {
+    if (lexiconRoot == 'com.atproto') {
       return 'package:atproto/atproto.dart';
-    } else if (baseLexiconRoot == 'app.bsky') {
+    } else if (lexiconRoot == 'app.bsky') {
       return 'package:bluesky/bluesky.dart';
     }
 

@@ -1,0 +1,184 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'record_with_media.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+RecordWithMedia _$RecordWithMediaFromJson(Map<String, dynamic> json) {
+  return _RecordWithMedia.fromJson(json);
+}
+
+/// @nodoc
+mixin _$RecordWithMedia {
+  Record get record => throw _privateConstructorUsedError;
+  String get media => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $RecordWithMediaCopyWith<RecordWithMedia> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $RecordWithMediaCopyWith<$Res> {
+  factory $RecordWithMediaCopyWith(
+          RecordWithMedia value, $Res Function(RecordWithMedia) then) =
+      _$RecordWithMediaCopyWithImpl<$Res, RecordWithMedia>;
+  @useResult
+  $Res call({Record record, String media});
+
+  $RecordCopyWith<$Res> get record;
+}
+
+/// @nodoc
+class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
+    implements $RecordWithMediaCopyWith<$Res> {
+  _$RecordWithMediaCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? record = null,
+    Object? media = null,
+  }) {
+    return _then(_value.copyWith(
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Record,
+      media: null == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as String,
+    ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecordCopyWith<$Res> get record {
+    return $RecordCopyWith<$Res>(_value.record, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
+  }
+}
+
+/// @nodoc
+abstract class _$$RecordWithMediaImplCopyWith<$Res>
+    implements $RecordWithMediaCopyWith<$Res> {
+  factory _$$RecordWithMediaImplCopyWith(_$RecordWithMediaImpl value,
+          $Res Function(_$RecordWithMediaImpl) then) =
+      __$$RecordWithMediaImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({Record record, String media});
+
+  @override
+  $RecordCopyWith<$Res> get record;
+}
+
+/// @nodoc
+class __$$RecordWithMediaImplCopyWithImpl<$Res>
+    extends _$RecordWithMediaCopyWithImpl<$Res, _$RecordWithMediaImpl>
+    implements _$$RecordWithMediaImplCopyWith<$Res> {
+  __$$RecordWithMediaImplCopyWithImpl(
+      _$RecordWithMediaImpl _value, $Res Function(_$RecordWithMediaImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? record = null,
+    Object? media = null,
+  }) {
+    return _then(_$RecordWithMediaImpl(
+      record: null == record
+          ? _value.record
+          : record // ignore: cast_nullable_to_non_nullable
+              as Record,
+      media: null == media
+          ? _value.media
+          : media // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+@jsonSerializable
+class _$RecordWithMediaImpl implements _RecordWithMedia {
+  const _$RecordWithMediaImpl({required this.record, required this.media});
+
+  factory _$RecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
+      _$$RecordWithMediaImplFromJson(json);
+
+  @override
+  final Record record;
+  @override
+  final String media;
+
+  @override
+  String toString() {
+    return 'RecordWithMedia(record: $record, media: $media)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$RecordWithMediaImpl &&
+            (identical(other.record, record) || other.record == record) &&
+            (identical(other.media, media) || other.media == media));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, record, media);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$RecordWithMediaImplCopyWith<_$RecordWithMediaImpl> get copyWith =>
+      __$$RecordWithMediaImplCopyWithImpl<_$RecordWithMediaImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$RecordWithMediaImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _RecordWithMedia implements RecordWithMedia {
+  const factory _RecordWithMedia(
+      {required final Record record,
+      required final String media}) = _$RecordWithMediaImpl;
+
+  factory _RecordWithMedia.fromJson(Map<String, dynamic> json) =
+      _$RecordWithMediaImpl.fromJson;
+
+  @override
+  Record get record;
+  @override
+  String get media;
+  @override
+  @JsonKey(ignore: true)
+  _$$RecordWithMediaImplCopyWith<_$RecordWithMediaImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}

@@ -17,6 +17,7 @@ final class Property {
     required this.type,
     required this.name,
     this.importPath,
+    this.converter,
   });
 
   final bool isRequired;
@@ -24,10 +25,30 @@ final class Property {
   final String name;
 
   final String? importPath;
+  final String? converter;
 
   @override
   String toString() {
-    return isRequired ? 'required $type $name,' : '$type? $name,';
+    final buffer = StringBuffer();
+
+    if (converter != null) {
+      buffer.write('@$converter');
+      buffer.write(' ');
+    }
+
+    if (isRequired) {
+      buffer.write('required');
+      buffer.write(' ');
+      buffer.write(type);
+      buffer.write(' ');
+    } else {
+      buffer.write('$type?');
+      buffer.write(' ');
+    }
+
+    buffer.write('$name,');
+
+    return buffer.toString();
   }
 }
 
@@ -130,6 +151,7 @@ final class LexObjectTemplate {
           type: dataType.$1,
           name: entry.key,
           importPath: dataType.$2,
+          converter: dataType.$3,
         ));
       } else {
         properties.add(
@@ -137,6 +159,7 @@ final class LexObjectTemplate {
             type: dataType.$1,
             name: entry.key,
             importPath: dataType.$2,
+            converter: dataType.$3,
           ),
         );
       }
@@ -145,27 +168,35 @@ final class LexObjectTemplate {
     return properties;
   }
 
-  (String, String?) _getDartDataType(
+  (String, String?, String?) _getDartDataType(
     final NSID docId, {
     required String? type,
     required String? format,
     required String? ref,
     required Map<String, dynamic>? items,
   }) {
-    if (type == 'string' && format == 'datetime') return ('DateTime', null);
-    if (type == 'string' && format == 'at-uri') return ('AtUri', null);
-    if (type == 'string') return ('String', null);
-    if (type == 'integer') return ('int', null);
-    if (type == 'boolean') return ('bool', null);
+    if (type == 'string' && format == 'datetime') {
+      return ('DateTime', null, null);
+    }
+    if (type == 'string' && format == 'at-uri') {
+      return ('AtUri', null, 'atUriConverter');
+    }
 
-    if (type == 'cid-link') return ('String', null);
-    if (type == 'blob') return ('Blob', null);
-    if (type == 'unknown') return ('Map<String, dynamic>', null);
+    if (type == 'string') return ('String', null, null);
+    if (type == 'integer') return ('int', null, null);
+    if (type == 'boolean') return ('bool', null, null);
+
+    if (type == 'cid-link') return ('String', null, null);
+    if (type == 'unknown') return ('Map<String, dynamic>', null, null);
+
+    if (type == 'blob') {
+      return ('Blob', 'package:atproto/atproto.dart', 'blobConverter');
+    }
 
     if (type == 'array') {
       if (items == null) throw ArgumentError.notNull('items');
 
-      final (dataType, importPath) = _getDartDataType(
+      final (dataType, importPath, converter) = _getDartDataType(
         docId,
         type: items['type'],
         format: items['format'],
@@ -173,11 +204,16 @@ final class LexObjectTemplate {
         items: items,
       );
 
-      return ('List<$dataType>', importPath);
+      return ('List<$dataType>', importPath, converter);
     }
 
     if (type == 'ref') {
       if (ref == null) throw ArgumentError.notNull('ref');
+
+      final refObject = getRef(docId, ref);
+      if (refObject.toJson()['type'] == 'string') {
+        return ('String', null, null);
+      }
 
       LexNamingConvention convention;
       if (ref.contains('#')) {
@@ -219,11 +255,12 @@ final class LexObjectTemplate {
       return (
         convention.getObjectName(),
         convention.getRelativeImportPath(docId),
+        null,
       );
     }
 
-    if (type == 'union') return ('String', null);
-    if (type == 'bytes') return ('Uint8List', null);
+    if (type == 'union') return ('String', null, null);
+    if (type == 'bytes') return ('Uint8List', null, null);
 
     throw UnimplementedError(type);
   }
