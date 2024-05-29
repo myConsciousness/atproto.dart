@@ -7441,7 +7441,7 @@ const chatBskyConvoDefs = <String, dynamic>{
         },
         "embed": {
           "type": "union",
-          "refs": ["app.bsky.embed.record"]
+          "refs": ["app.bsky.embed.record#view"]
         },
         "sender": {"type": "ref", "ref": "#messageViewSender"},
         "sentAt": {"type": "string", "format": "datetime"}
