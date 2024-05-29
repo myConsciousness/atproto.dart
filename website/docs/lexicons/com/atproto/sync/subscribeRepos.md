@@ -19,7 +19,7 @@ Repository event stream, aka Firehose endpoint. Outputs repo commits with diff d
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
-| **refs** | union of <br/>[#commit](#commit)<br/>[#identity](#identity)<br/>[#handle](#handle)<br/>[#migrate](#migrate)<br/>[#tombstone](#tombstone)<br/>[#info](#info) | - | ✅ | - |
+| **refs** | union of <br/>[#commit](#commit)<br/>[#identity](#identity)<br/>[#account](#account)<br/>[#handle](#handle)<br/>[#migrate](#migrate)<br/>[#tombstone](#tombstone)<br/>[#info](#info) | - | ✅ | - |
 
 ## #commit
 
@@ -49,10 +49,23 @@ Represents a change to an account's identity. Could be an updated handle, signin
 | **seq** | integer | - | ✅ | - |
 | **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
 | **time** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **handle** | string ([handle](https://atproto.com/specs/handle)) | - | ❌ | The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details. |
+
+## #account
+
+Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **seq** | integer | - | ✅ | - |
+| **did** | string ([did](https://atproto.com/specs/did)) | - | ✅ | - |
+| **time** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ✅ | - |
+| **active** | boolean | - | ✅ | Indicates that the account has a repository which can be fetched from the host that emitted this event. |
+| **status** | string | takendown<br/>suspended<br/>deleted<br/>deactivated | ❌ | If active=false, this optional field indicates a reason for why the account is not active. |
 
 ## #handle
 
-Represents an update of the account's handle, or transition to/from invalid state. NOTE: Will be deprecated in favor of #identity.
+DEPRECATED -- Use #identity event instead
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -63,7 +76,7 @@ Represents an update of the account's handle, or transition to/from invalid stat
 
 ## #migrate
 
-Represents an account moving from one PDS instance to another. NOTE: not implemented; account migration uses #identity instead
+DEPRECATED -- Use #account event instead
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |
@@ -74,7 +87,7 @@ Represents an account moving from one PDS instance to another. NOTE: not impleme
 
 ## #tombstone
 
-Indicates that an account has been deleted. NOTE: may be deprecated in favor of #identity or a future #account event
+DEPRECATED -- Use #account event instead
 
 | Property | Type | Known Values | Required | Description |
 | --- | --- | --- | :---: | --- |

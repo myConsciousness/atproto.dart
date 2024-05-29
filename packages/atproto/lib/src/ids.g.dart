@@ -354,6 +354,9 @@ const comAtprotoSyncGetRecord = 'com.atproto.sync.getRecord';
 /// `com.atproto.sync.getRepo`
 const comAtprotoSyncGetRepo = 'com.atproto.sync.getRepo';
 
+/// `com.atproto.sync.getRepoStatus`
+const comAtprotoSyncGetRepoStatus = 'com.atproto.sync.getRepoStatus';
+
 /// `com.atproto.sync.listBlobs`
 const comAtprotoSyncListBlobs = 'com.atproto.sync.listBlobs';
 
@@ -371,6 +374,10 @@ const comAtprotoSyncRequestCrawl = 'com.atproto.sync.requestCrawl';
 
 /// `com.atproto.sync.subscribeRepos`
 const comAtprotoSyncSubscribeRepos = 'com.atproto.sync.subscribeRepos';
+
+/// `com.atproto.sync.subscribeRepos#account`
+const comAtprotoSyncSubscribeReposAccount =
+    'com.atproto.sync.subscribeRepos#account';
 
 /// `com.atproto.sync.subscribeRepos#commit`
 const comAtprotoSyncSubscribeReposCommit =

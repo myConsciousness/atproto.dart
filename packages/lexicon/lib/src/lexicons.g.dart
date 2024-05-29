@@ -2624,7 +2624,14 @@ const comAtprotoSyncGetRecord = <String, dynamic>{
           }
         }
       },
-      "output": {"encoding": "application/vnd.ipld.car"}
+      "output": {"encoding": "application/vnd.ipld.car"},
+      "errors": [
+        {"name": "RecordNotFound"},
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
+      ]
     }
   }
 };
@@ -2653,7 +2660,63 @@ const comAtprotoSyncGetBlocks = <String, dynamic>{
           }
         }
       },
-      "output": {"encoding": "application/vnd.ipld.car"}
+      "output": {"encoding": "application/vnd.ipld.car"},
+      "errors": [
+        {"name": "BlockNotFound"},
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
+      ]
+    }
+  }
+};
+
+/// `com.atproto.sync.getRepoStatus`
+const comAtprotoSyncGetRepoStatus = <String, dynamic>{
+  "lexicon": 1,
+  "id": "com.atproto.sync.getRepoStatus",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.",
+      "parameters": {
+        "type": "params",
+        "required": ["did"],
+        "properties": {
+          "did": {
+            "type": "string",
+            "format": "did",
+            "description": "The DID of the repo."
+          }
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["did", "active"],
+          "properties": {
+            "did": {"type": "string", "format": "did"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": ["takendown", "suspended", "deactivated"]
+            },
+            "rev": {
+              "type": "string",
+              "description":
+                  "Optional field, the current rev of the repo, if active=true"
+            }
+          }
+        }
+      },
+      "errors": [
+        {"name": "RepoNotFound"}
+      ]
     }
   }
 };
@@ -2683,7 +2746,13 @@ const comAtprotoSyncGetRepo = <String, dynamic>{
           }
         }
       },
-      "output": {"encoding": "application/vnd.ipld.car"}
+      "output": {"encoding": "application/vnd.ipld.car"},
+      "errors": [
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
+      ]
     }
   }
 };
@@ -2750,7 +2819,14 @@ const comAtprotoSyncGetBlob = <String, dynamic>{
           }
         }
       },
-      "output": {"encoding": "*/*"}
+      "output": {"encoding": "*/*"},
+      "errors": [
+        {"name": "BlobNotFound"},
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
+      ]
     }
   }
 };
@@ -2779,6 +2855,7 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
           "refs": [
             "#commit",
             "#identity",
+            "#account",
             "#handle",
             "#migrate",
             "#tombstone",
@@ -2888,13 +2965,40 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
       "properties": {
         "seq": {"type": "integer"},
         "did": {"type": "string", "format": "did"},
-        "time": {"type": "string", "format": "datetime"}
+        "time": {"type": "string", "format": "datetime"},
+        "handle": {
+          "type": "string",
+          "format": "handle",
+          "description":
+              "The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details."
+        }
+      }
+    },
+    "account": {
+      "type": "object",
+      "description":
+          "Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.",
+      "required": ["seq", "did", "time", "active"],
+      "properties": {
+        "seq": {"type": "integer"},
+        "did": {"type": "string", "format": "did"},
+        "time": {"type": "string", "format": "datetime"},
+        "active": {
+          "type": "boolean",
+          "description":
+              "Indicates that the account has a repository which can be fetched from the host that emitted this event."
+        },
+        "status": {
+          "type": "string",
+          "description":
+              "If active=false, this optional field indicates a reason for why the account is not active.",
+          "knownValues": ["takendown", "suspended", "deleted", "deactivated"]
+        }
       }
     },
     "handle": {
       "type": "object",
-      "description":
-          "Represents an update of the account's handle, or transition to/from invalid state. NOTE: Will be deprecated in favor of #identity.",
+      "description": "DEPRECATED -- Use #identity event instead",
       "required": ["seq", "did", "handle", "time"],
       "properties": {
         "seq": {"type": "integer"},
@@ -2905,8 +3009,7 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
     },
     "migrate": {
       "type": "object",
-      "description":
-          "Represents an account moving from one PDS instance to another. NOTE: not implemented; account migration uses #identity instead",
+      "description": "DEPRECATED -- Use #account event instead",
       "required": ["seq", "did", "migrateTo", "time"],
       "nullable": ["migrateTo"],
       "properties": {
@@ -2918,8 +3021,7 @@ const comAtprotoSyncSubscribeRepos = <String, dynamic>{
     },
     "tombstone": {
       "type": "object",
-      "description":
-          "Indicates that an account has been deleted. NOTE: may be deprecated in favor of #identity or a future #account event",
+      "description": "DEPRECATED -- Use #account event instead",
       "required": ["seq", "did", "time"],
       "properties": {
         "seq": {"type": "integer"},
@@ -3027,7 +3129,13 @@ const comAtprotoSyncListBlobs = <String, dynamic>{
             }
           }
         }
-      }
+      },
+      "errors": [
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
+      ]
     }
   }
 };
@@ -3132,7 +3240,14 @@ const comAtprotoSyncListRepos = <String, dynamic>{
           "format": "cid",
           "description": "Current repo commit CID"
         },
-        "rev": {"type": "string"}
+        "rev": {"type": "string"},
+        "active": {"type": "boolean"},
+        "status": {
+          "type": "string",
+          "description":
+              "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+          "knownValues": ["takendown", "suspended", "deactivated"]
+        }
       }
     }
   }
@@ -3170,7 +3285,10 @@ const comAtprotoSyncGetLatestCommit = <String, dynamic>{
         }
       },
       "errors": [
-        {"name": "RepoNotFound"}
+        {"name": "RepoNotFound"},
+        {"name": "RepoTakendown"},
+        {"name": "RepoSuspended"},
+        {"name": "RepoDeactivated"}
       ]
     }
   }
@@ -7441,7 +7559,7 @@ const chatBskyConvoDefs = <String, dynamic>{
         },
         "embed": {
           "type": "union",
-          "refs": ["app.bsky.embed.record"]
+          "refs": ["app.bsky.embed.record#view"]
         },
         "sender": {"type": "ref", "ref": "#messageViewSender"},
         "sentAt": {"type": "string", "format": "datetime"}
@@ -8886,6 +9004,7 @@ const lexicons = <Map<String, dynamic>>[
   comAtprotoAdminGetAccountInfos,
   comAtprotoSyncGetRecord,
   comAtprotoSyncGetBlocks,
+  comAtprotoSyncGetRepoStatus,
   comAtprotoSyncGetRepo,
   comAtprotoSyncGetHead,
   comAtprotoSyncGetBlob,
