@@ -2,17 +2,28 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'dart:io';
+
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 import './lex_object_template.dart';
 
 const _supportedLexicons = [
-  'com.atproto',
+  // 'com.atproto',
   'app.bsky',
-  'chat.bsky',
+  // 'chat.bsky',
 ];
 
+const _kTypesPath = 'lib/src/services/types';
+
 void main(List<String> args) {
+  for (final package in _supportedLexicons) {
+    final file = File('packages/${_getPackageName(package)}/$_kTypesPath');
+    if (file.existsSync()) {
+      file.deleteSync(recursive: true);
+    }
+  }
+
   final mainObjects = _getMainObjects();
 
   for (final lexicon in lexicons) {
@@ -37,10 +48,29 @@ void main(List<String> args) {
           mainObjects,
         );
 
-        print(template.build());
+        final object = template.build();
+        if (object != null) {
+          final filePath = convention.getFilePath();
+          File(
+              'packages/${_getPackageName(doc.id.toString())}/$_kTypesPath/$filePath')
+            ..createSync(recursive: true)
+            ..writeAsStringSync(object);
+        }
       }
     });
   }
+}
+
+String _getPackageName(final String lexicon) {
+  if (lexicon.startsWith('com.atproto')) {
+    return 'atproto';
+  } else if (lexicon.startsWith('app.bsky')) {
+    return 'bluesky';
+  } else if (lexicon.startsWith('chat.bsky')) {
+    return 'bluesky_chat';
+  }
+
+  throw UnimplementedError(lexicon);
 }
 
 List<String> _getMainObjects() {
@@ -65,6 +95,10 @@ LexNamingConvention? getNamingConvention(
 ) {
   if (defName == 'main') {
     final defJson = def.toJson();
+
+    if (defJson['type'] == 'record') {
+      return null; // Always returns StrongRef for output
+    }
 
     if (defJson['type'] == 'object') {
       final objectName = lexiconId.toString().split('.').last;
@@ -146,7 +180,7 @@ final class LexNamingConvention {
     final segments = lexiconId.split('#').first.split('.');
     final fileName = getFileName();
 
-    return '${segments.join('/')}/$fileName.dart';
+    return '${segments.sublist(2).join('/')}/$fileName.dart';
   }
 
   String _toLowerCamelCase(final String input) {

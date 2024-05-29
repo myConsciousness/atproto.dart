@@ -24,7 +24,10 @@ final class LexObjectTemplate {
   final LexUserType def;
   final List<String> mainObjects;
 
-  String build() {
+  String? build() {
+    final properties = _getProperties();
+    if (properties == null) return null; // RefVariant, no need to create.
+
     final buffer = StringBuffer();
 
     final fileName = namingConvention.getFileName();
@@ -43,7 +46,7 @@ final class LexObjectTemplate {
     buffer.writeln('class $objectName with _$objectName {');
     buffer.writeln('  @jsonSerializable');
     buffer.write('  const factory $objectName({');
-    buffer.writeln(_getProperties());
+    buffer.writeln(properties);
     buffer.writeln('  }) = _$objectName;');
     buffer.writeln();
     buffer.writeln(
@@ -54,33 +57,43 @@ final class LexObjectTemplate {
     return buffer.toString();
   }
 
-  String _getProperties() {
+  String? _getProperties() {
+    final properties = def.whenOrNull(
+      object: (data) => _getObjectProperties(data),
+      xrpcQuery: (data) {
+        final object = data.output?.schema?.whenOrNull(object: (data) => data);
+        if (object == null) return null; // RefVariant
+
+        return _getObjectProperties(object);
+      },
+    );
+
+    return properties?.toString();
+  }
+
+  String _getObjectProperties(final LexObject object) {
     final buffer = StringBuffer();
 
-    final object = def.whenOrNull(object: (data) => data);
+    final requiredProperties = object.requiredProperties ?? const [];
 
-    if (object != null && object.properties != null) {
-      final requiredProperties = object.requiredProperties ?? const [];
+    for (final entry in object.properties!.entries) {
+      buffer.writeln();
 
-      for (final entry in object.properties!.entries) {
-        buffer.writeln();
+      final isRequired = requiredProperties.contains(entry.key);
 
-        final isRequired = requiredProperties.contains(entry.key);
+      final property = entry.value.toJson();
+      final dataType = _getDartDataType(
+        docId,
+        type: property['type'],
+        format: property['format'],
+        ref: property['ref'],
+        items: property['items'],
+      );
 
-        final property = entry.value.toJson();
-        final dataType = _getDartDataType(
-          docId,
-          type: property['type'],
-          format: property['format'],
-          ref: property['ref'],
-          items: property['items'],
-        );
-
-        if (isRequired) {
-          buffer.write('    required $dataType ${entry.key},');
-        } else {
-          buffer.write('    $dataType? ${entry.key},');
-        }
+      if (isRequired) {
+        buffer.write('    required $dataType ${entry.key},');
+      } else {
+        buffer.write('    $dataType? ${entry.key},');
       }
     }
 
