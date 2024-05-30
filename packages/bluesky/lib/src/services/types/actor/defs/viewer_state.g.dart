@@ -13,14 +13,14 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ViewerStateImpl(
-          muted: $checkedConvert('muted', (v) => v as bool?),
+          muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
               'mutedByList',
               (v) => v == null
                   ? null
                   : ListViewBasic.fromJson(
                       Map<String, Object?>.from(v as Map))),
-          blockedBy: $checkedConvert('blockedBy', (v) => v as bool?),
+          blockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           blocking: $checkedConvert(
               'blocking',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -45,7 +45,9 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'muted': instance.muted,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -53,9 +55,8 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
     }
   }
 
-  writeNotNull('muted', instance.muted);
   writeNotNull('mutedByList', instance.mutedByList?.toJson());
-  writeNotNull('blockedBy', instance.blockedBy);
+  val['blockedBy'] = instance.blockedBy;
   writeNotNull(
       'blocking',
       _$JsonConverterToJson<String, AtUri>(

@@ -24,19 +24,19 @@ mixin _$FeedViewPref {
   String get feed => throw _privateConstructorUsedError;
 
   /// Hide replies in the feed.
-  bool? get hideReplies => throw _privateConstructorUsedError;
+  bool get hideReplies => throw _privateConstructorUsedError;
 
   /// Hide replies in the feed if they are not by followed users.
-  bool? get hideRepliesByUnfollowed => throw _privateConstructorUsedError;
+  bool get hideRepliesByUnfollowed => throw _privateConstructorUsedError;
 
   /// Hide replies in the feed if they do not have this number of likes.
-  int? get hideRepliesByLikeCount => throw _privateConstructorUsedError;
+  int get hideRepliesByLikeCount => throw _privateConstructorUsedError;
 
   /// Hide reposts in the feed.
-  bool? get hideReposts => throw _privateConstructorUsedError;
+  bool get hideReposts => throw _privateConstructorUsedError;
 
   /// Hide quote posts in the feed.
-  bool? get hideQuotePosts => throw _privateConstructorUsedError;
+  bool get hideQuotePosts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,11 +52,11 @@ abstract class $FeedViewPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {String feed,
-      bool? hideReplies,
-      bool? hideRepliesByUnfollowed,
-      int? hideRepliesByLikeCount,
-      bool? hideReposts,
-      bool? hideQuotePosts});
+      bool hideReplies,
+      bool hideRepliesByUnfollowed,
+      int hideRepliesByLikeCount,
+      bool hideReposts,
+      bool hideQuotePosts});
 }
 
 /// @nodoc
@@ -73,37 +73,37 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
   @override
   $Res call({
     Object? feed = null,
-    Object? hideReplies = freezed,
-    Object? hideRepliesByUnfollowed = freezed,
-    Object? hideRepliesByLikeCount = freezed,
-    Object? hideReposts = freezed,
-    Object? hideQuotePosts = freezed,
+    Object? hideReplies = null,
+    Object? hideRepliesByUnfollowed = null,
+    Object? hideRepliesByLikeCount = null,
+    Object? hideReposts = null,
+    Object? hideQuotePosts = null,
   }) {
     return _then(_value.copyWith(
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as String,
-      hideReplies: freezed == hideReplies
+      hideReplies: null == hideReplies
           ? _value.hideReplies
           : hideReplies // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideRepliesByUnfollowed: freezed == hideRepliesByUnfollowed
+              as bool,
+      hideRepliesByUnfollowed: null == hideRepliesByUnfollowed
           ? _value.hideRepliesByUnfollowed
           : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideRepliesByLikeCount: freezed == hideRepliesByLikeCount
+              as bool,
+      hideRepliesByLikeCount: null == hideRepliesByLikeCount
           ? _value.hideRepliesByLikeCount
           : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      hideReposts: freezed == hideReposts
+              as int,
+      hideReposts: null == hideReposts
           ? _value.hideReposts
           : hideReposts // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideQuotePosts: freezed == hideQuotePosts
+              as bool,
+      hideQuotePosts: null == hideQuotePosts
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -118,11 +118,11 @@ abstract class _$$FeedViewPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {String feed,
-      bool? hideReplies,
-      bool? hideRepliesByUnfollowed,
-      int? hideRepliesByLikeCount,
-      bool? hideReposts,
-      bool? hideQuotePosts});
+      bool hideReplies,
+      bool hideRepliesByUnfollowed,
+      int hideRepliesByLikeCount,
+      bool hideReposts,
+      bool hideQuotePosts});
 }
 
 /// @nodoc
@@ -137,37 +137,37 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? feed = null,
-    Object? hideReplies = freezed,
-    Object? hideRepliesByUnfollowed = freezed,
-    Object? hideRepliesByLikeCount = freezed,
-    Object? hideReposts = freezed,
-    Object? hideQuotePosts = freezed,
+    Object? hideReplies = null,
+    Object? hideRepliesByUnfollowed = null,
+    Object? hideRepliesByLikeCount = null,
+    Object? hideReposts = null,
+    Object? hideQuotePosts = null,
   }) {
     return _then(_$FeedViewPrefImpl(
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as String,
-      hideReplies: freezed == hideReplies
+      hideReplies: null == hideReplies
           ? _value.hideReplies
           : hideReplies // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideRepliesByUnfollowed: freezed == hideRepliesByUnfollowed
+              as bool,
+      hideRepliesByUnfollowed: null == hideRepliesByUnfollowed
           ? _value.hideRepliesByUnfollowed
           : hideRepliesByUnfollowed // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideRepliesByLikeCount: freezed == hideRepliesByLikeCount
+              as bool,
+      hideRepliesByLikeCount: null == hideRepliesByLikeCount
           ? _value.hideRepliesByLikeCount
           : hideRepliesByLikeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      hideReposts: freezed == hideReposts
+              as int,
+      hideReposts: null == hideReposts
           ? _value.hideReposts
           : hideReposts // ignore: cast_nullable_to_non_nullable
-              as bool?,
-      hideQuotePosts: freezed == hideQuotePosts
+              as bool,
+      hideQuotePosts: null == hideQuotePosts
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -178,11 +178,11 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
 class _$FeedViewPrefImpl implements _FeedViewPref {
   const _$FeedViewPrefImpl(
       {required this.feed,
-      this.hideReplies,
-      this.hideRepliesByUnfollowed,
-      this.hideRepliesByLikeCount,
-      this.hideReposts,
-      this.hideQuotePosts});
+      this.hideReplies = false,
+      this.hideRepliesByUnfollowed = true,
+      this.hideRepliesByLikeCount = 0,
+      this.hideReposts = false,
+      this.hideQuotePosts = false});
 
   factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPrefImplFromJson(json);
@@ -193,23 +193,28 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
   /// Hide replies in the feed.
   @override
-  final bool? hideReplies;
+  @JsonKey()
+  final bool hideReplies;
 
   /// Hide replies in the feed if they are not by followed users.
   @override
-  final bool? hideRepliesByUnfollowed;
+  @JsonKey()
+  final bool hideRepliesByUnfollowed;
 
   /// Hide replies in the feed if they do not have this number of likes.
   @override
-  final int? hideRepliesByLikeCount;
+  @JsonKey()
+  final int hideRepliesByLikeCount;
 
   /// Hide reposts in the feed.
   @override
-  final bool? hideReposts;
+  @JsonKey()
+  final bool hideReposts;
 
   /// Hide quote posts in the feed.
   @override
-  final bool? hideQuotePosts;
+  @JsonKey()
+  final bool hideQuotePosts;
 
   @override
   String toString() {
@@ -263,11 +268,11 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 abstract class _FeedViewPref implements FeedViewPref {
   const factory _FeedViewPref(
       {required final String feed,
-      final bool? hideReplies,
-      final bool? hideRepliesByUnfollowed,
-      final int? hideRepliesByLikeCount,
-      final bool? hideReposts,
-      final bool? hideQuotePosts}) = _$FeedViewPrefImpl;
+      final bool hideReplies,
+      final bool hideRepliesByUnfollowed,
+      final int hideRepliesByLikeCount,
+      final bool hideReposts,
+      final bool hideQuotePosts}) = _$FeedViewPrefImpl;
 
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) =
       _$FeedViewPrefImpl.fromJson;
@@ -279,23 +284,23 @@ abstract class _FeedViewPref implements FeedViewPref {
   @override
 
   /// Hide replies in the feed.
-  bool? get hideReplies;
+  bool get hideReplies;
   @override
 
   /// Hide replies in the feed if they are not by followed users.
-  bool? get hideRepliesByUnfollowed;
+  bool get hideRepliesByUnfollowed;
   @override
 
   /// Hide replies in the feed if they do not have this number of likes.
-  int? get hideRepliesByLikeCount;
+  int get hideRepliesByLikeCount;
   @override
 
   /// Hide reposts in the feed.
-  bool? get hideReposts;
+  bool get hideReposts;
   @override
 
   /// Hide quote posts in the feed.
-  bool? get hideQuotePosts;
+  bool get hideQuotePosts;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewPrefImplCopyWith<_$FeedViewPrefImpl> get copyWith =>

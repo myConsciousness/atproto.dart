@@ -20,12 +20,12 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           banner: $checkedConvert('banner', (v) => v as String?),
-          followersCount:
-              $checkedConvert('followersCount', (v) => (v as num?)?.toInt()),
+          followersCount: $checkedConvert(
+              'followersCount', (v) => (v as num?)?.toInt() ?? 0),
           followsCount:
-              $checkedConvert('followsCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('followsCount', (v) => (v as num?)?.toInt() ?? 0),
           postsCount:
-              $checkedConvert('postsCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('postsCount', (v) => (v as num?)?.toInt() ?? 0),
           associated: $checkedConvert(
               'associated',
               (v) => v == null
@@ -67,9 +67,9 @@ Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
   writeNotNull('description', instance.description);
   writeNotNull('avatar', instance.avatar);
   writeNotNull('banner', instance.banner);
-  writeNotNull('followersCount', instance.followersCount);
-  writeNotNull('followsCount', instance.followsCount);
-  writeNotNull('postsCount', instance.postsCount);
+  val['followersCount'] = instance.followersCount;
+  val['followsCount'] = instance.followsCount;
+  val['postsCount'] = instance.postsCount;
   writeNotNull('associated', instance.associated?.toJson());
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   writeNotNull('viewer', instance.viewer?.toJson());

@@ -24,7 +24,7 @@ class SavedFeedsPref with _$SavedFeedsPref {
   const factory SavedFeedsPref({
     @atUriConverter required List<AtUri> pinned,
     @atUriConverter required List<AtUri> saved,
-    int? timelineIndex,
+    @Default(0) int timelineIndex,
   }) = _SavedFeedsPref;
 
   factory SavedFeedsPref.fromJson(Map<String, Object?> json) =>

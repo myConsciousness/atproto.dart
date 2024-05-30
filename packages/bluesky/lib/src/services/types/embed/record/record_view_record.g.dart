@@ -30,10 +30,11 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           replyCount:
-              $checkedConvert('replyCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
           repostCount:
-              $checkedConvert('repostCount', (v) => (v as num?)?.toInt()),
-          likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           embeds: $checkedConvert('embeds',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           indexedAt:
@@ -59,9 +60,9 @@ Map<String, dynamic> _$$RecordViewRecordImplToJson(
   }
 
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('replyCount', instance.replyCount);
-  writeNotNull('repostCount', instance.repostCount);
-  writeNotNull('likeCount', instance.likeCount);
+  val['replyCount'] = instance.replyCount;
+  val['repostCount'] = instance.repostCount;
+  val['likeCount'] = instance.likeCount;
   writeNotNull('embeds', instance.embeds);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;

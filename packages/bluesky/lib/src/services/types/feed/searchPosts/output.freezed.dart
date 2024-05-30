@@ -23,7 +23,7 @@ mixin _$SearchPostsOutput {
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal => throw _privateConstructorUsedError;
+  int get hitsTotal => throw _privateConstructorUsedError;
   List<PostView> get posts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $SearchPostsOutputCopyWith<$Res> {
           SearchPostsOutput value, $Res Function(SearchPostsOutput) then) =
       _$SearchPostsOutputCopyWithImpl<$Res, SearchPostsOutput>;
   @useResult
-  $Res call({String? cursor, int? hitsTotal, List<PostView> posts});
+  $Res call({String? cursor, int hitsTotal, List<PostView> posts});
 }
 
 /// @nodoc
@@ -55,7 +55,7 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? posts = null,
   }) {
     return _then(_value.copyWith(
@@ -63,10 +63,10 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -83,7 +83,7 @@ abstract class _$$SearchPostsOutputImplCopyWith<$Res>
       __$$SearchPostsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, int? hitsTotal, List<PostView> posts});
+  $Res call({String? cursor, int hitsTotal, List<PostView> posts});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = freezed,
+    Object? hitsTotal = null,
     Object? posts = null,
   }) {
     return _then(_$SearchPostsOutputImpl(
@@ -106,10 +106,10 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: freezed == hitsTotal
+      hitsTotal: null == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -123,7 +123,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   const _$SearchPostsOutputImpl(
-      {this.cursor, this.hitsTotal, required final List<PostView> posts})
+      {this.cursor, this.hitsTotal = 0, required final List<PostView> posts})
       : _posts = posts;
 
   factory _$SearchPostsOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -134,7 +134,8 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
-  final int? hitsTotal;
+  @JsonKey()
+  final int hitsTotal;
   final List<PostView> _posts;
   @override
   List<PostView> get posts {
@@ -182,7 +183,7 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 abstract class _SearchPostsOutput implements SearchPostsOutput {
   const factory _SearchPostsOutput(
       {final String? cursor,
-      final int? hitsTotal,
+      final int hitsTotal,
       required final List<PostView> posts}) = _$SearchPostsOutputImpl;
 
   factory _SearchPostsOutput.fromJson(Map<String, dynamic> json) =
@@ -193,7 +194,7 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   @override
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int? get hitsTotal;
+  int get hitsTotal;
   @override
   List<PostView> get posts;
   @override

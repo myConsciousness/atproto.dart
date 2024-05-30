@@ -18,7 +18,8 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           creator: $checkedConvert('creator',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
-          likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -43,6 +44,7 @@ Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) {
     'uri': atUriConverter.toJson(instance.uri),
     'cid': instance.cid,
     'creator': instance.creator.toJson(),
+    'likeCount': instance.likeCount,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -51,7 +53,6 @@ Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) {
     }
   }
 
-  writeNotNull('likeCount', instance.likeCount);
   writeNotNull('viewer', instance.viewer?.toJson());
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());

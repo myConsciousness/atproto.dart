@@ -22,7 +22,7 @@ part 'list_viewer_state.g.dart';
 class ListViewerState with _$ListViewerState {
   @jsonSerializable
   const factory ListViewerState({
-    bool? muted,
+    @Default(false) bool muted,
     @atUriConverter AtUri? blocked,
   }) = _ListViewerState;
 

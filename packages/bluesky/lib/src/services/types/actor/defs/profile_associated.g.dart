@@ -14,9 +14,10 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileAssociatedImpl(
-          lists: $checkedConvert('lists', (v) => (v as num?)?.toInt()),
-          feedgens: $checkedConvert('feedgens', (v) => (v as num?)?.toInt()),
-          labeler: $checkedConvert('labeler', (v) => v as bool?),
+          lists: $checkedConvert('lists', (v) => (v as num?)?.toInt() ?? 0),
+          feedgens:
+              $checkedConvert('feedgens', (v) => (v as num?)?.toInt() ?? 0),
+          labeler: $checkedConvert('labeler', (v) => v as bool? ?? false),
           chat: $checkedConvert(
               'chat',
               (v) => v == null
@@ -30,7 +31,11 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$ProfileAssociatedImplToJson(
     _$ProfileAssociatedImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'lists': instance.lists,
+    'feedgens': instance.feedgens,
+    'labeler': instance.labeler,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -38,9 +43,6 @@ Map<String, dynamic> _$$ProfileAssociatedImplToJson(
     }
   }
 
-  writeNotNull('lists', instance.lists);
-  writeNotNull('feedgens', instance.feedgens);
-  writeNotNull('labeler', instance.labeler);
   writeNotNull('chat', instance.chat?.toJson());
   return val;
 }

@@ -19,6 +19,7 @@ final class Property {
     required this.name,
     this.importPath,
     this.converter,
+    this.defaultValue,
   });
 
   final String? description;
@@ -28,6 +29,7 @@ final class Property {
 
   final String? importPath;
   final String? converter;
+  final String? defaultValue;
 
   @override
   String toString() {
@@ -49,8 +51,13 @@ final class Property {
       buffer.write(type);
       buffer.write(' ');
     } else {
-      buffer.write('$type?');
-      buffer.write(' ');
+      if (defaultValue != null) {
+        buffer.write('@Default($defaultValue) $type');
+        buffer.write(' ');
+      } else {
+        buffer.write('$type?');
+        buffer.write(' ');
+      }
     }
 
     buffer.write('$name,');
@@ -146,8 +153,6 @@ final class LexObjectTemplate {
     final requiredProperties = object.requiredProperties ?? const [];
 
     for (final entry in object.properties!.entries) {
-      final isRequired = requiredProperties.contains(entry.key);
-
       final property = entry.value.toJson();
       final dataType = _getDartDataType(
         docId,
@@ -157,29 +162,36 @@ final class LexObjectTemplate {
         items: property['items'],
       );
 
-      if (isRequired) {
-        properties.add(Property(
+      properties.add(
+        Property(
           description: property['description'],
-          isRequired: true,
+          isRequired: requiredProperties.contains(entry.key),
           type: dataType.$1,
           name: entry.key,
           importPath: dataType.$2,
           converter: dataType.$3,
-        ));
-      } else {
-        properties.add(
-          Property(
-            description: property['description'],
-            type: dataType.$1,
-            name: entry.key,
-            importPath: dataType.$2,
-            converter: dataType.$3,
+          defaultValue: _getDefaultValue(
+            property['default'],
+            dataType.$1,
           ),
-        );
-      }
+        ),
+      );
     }
 
     return properties;
+  }
+
+  String? _getDefaultValue(
+    final dynamic defaultValue,
+    final String dataType,
+  ) {
+    if (dataType == 'int') {
+      return defaultValue != null ? defaultValue.toString() : '0';
+    } else if (dataType == 'bool') {
+      return defaultValue != null ? defaultValue.toString() : 'false';
+    }
+
+    return null;
   }
 
   (String, String?, String?) _getDartDataType(

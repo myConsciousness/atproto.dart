@@ -20,7 +20,7 @@ ListViewerState _$ListViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewerState {
-  bool? get muted => throw _privateConstructorUsedError;
+  bool get muted => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get blocked => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $ListViewerStateCopyWith<$Res> {
           ListViewerState value, $Res Function(ListViewerState) then) =
       _$ListViewerStateCopyWithImpl<$Res, ListViewerState>;
   @useResult
-  $Res call({bool? muted, @atUriConverter AtUri? blocked});
+  $Res call({bool muted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
@@ -52,14 +52,14 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? muted = freezed,
+    Object? muted = null,
     Object? blocked = freezed,
   }) {
     return _then(_value.copyWith(
-      muted: freezed == muted
+      muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       blocked: freezed == blocked
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
@@ -76,7 +76,7 @@ abstract class _$$ListViewerStateImplCopyWith<$Res>
       __$$ListViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool? muted, @atUriConverter AtUri? blocked});
+  $Res call({bool muted, @atUriConverter AtUri? blocked});
 }
 
 /// @nodoc
@@ -90,14 +90,14 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? muted = freezed,
+    Object? muted = null,
     Object? blocked = freezed,
   }) {
     return _then(_$ListViewerStateImpl(
-      muted: freezed == muted
+      muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       blocked: freezed == blocked
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
@@ -110,13 +110,15 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ListViewerStateImpl implements _ListViewerState {
-  const _$ListViewerStateImpl({this.muted, @atUriConverter this.blocked});
+  const _$ListViewerStateImpl(
+      {this.muted = false, @atUriConverter this.blocked});
 
   factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewerStateImplFromJson(json);
 
   @override
-  final bool? muted;
+  @JsonKey()
+  final bool muted;
   @override
   @atUriConverter
   final AtUri? blocked;
@@ -156,14 +158,14 @@ class _$ListViewerStateImpl implements _ListViewerState {
 
 abstract class _ListViewerState implements ListViewerState {
   const factory _ListViewerState(
-      {final bool? muted,
+      {final bool muted,
       @atUriConverter final AtUri? blocked}) = _$ListViewerStateImpl;
 
   factory _ListViewerState.fromJson(Map<String, dynamic> json) =
       _$ListViewerStateImpl.fromJson;
 
   @override
-  bool? get muted;
+  bool get muted;
   @override
   @atUriConverter
   AtUri? get blocked;

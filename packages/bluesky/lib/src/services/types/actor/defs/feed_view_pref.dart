@@ -26,19 +26,19 @@ class FeedViewPref with _$FeedViewPref {
     required String feed,
 
     /// Hide replies in the feed.
-    bool? hideReplies,
+    @Default(false) bool hideReplies,
 
     /// Hide replies in the feed if they are not by followed users.
-    bool? hideRepliesByUnfollowed,
+    @Default(true) bool hideRepliesByUnfollowed,
 
     /// Hide replies in the feed if they do not have this number of likes.
-    int? hideRepliesByLikeCount,
+    @Default(0) int hideRepliesByLikeCount,
 
     /// Hide reposts in the feed.
-    bool? hideReposts,
+    @Default(false) bool hideReposts,
 
     /// Hide quote posts in the feed.
-    bool? hideQuotePosts,
+    @Default(false) bool hideQuotePosts,
   }) = _FeedViewPref;
 
   factory FeedViewPref.fromJson(Map<String, Object?> json) =>

@@ -25,9 +25,9 @@ part 'viewer_state.g.dart';
 class ViewerState with _$ViewerState {
   @jsonSerializable
   const factory ViewerState({
-    bool? muted,
+    @Default(false) bool muted,
     ListViewBasic? mutedByList,
-    bool? blockedBy,
+    @Default(false) bool blockedBy,
     @atUriConverter AtUri? blocking,
     ListViewBasic? blockingByList,
     @atUriConverter AtUri? following,

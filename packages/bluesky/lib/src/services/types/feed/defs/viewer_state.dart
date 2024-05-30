@@ -24,7 +24,7 @@ class ViewerState with _$ViewerState {
   const factory ViewerState({
     @atUriConverter AtUri? repost,
     @atUriConverter AtUri? like,
-    bool? replyDisabled,
+    @Default(false) bool replyDisabled,
   }) = _ViewerState;
 
   factory ViewerState.fromJson(Map<String, Object?> json) =>

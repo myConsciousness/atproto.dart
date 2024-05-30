@@ -24,7 +24,7 @@ mixin _$ThreadViewPref {
   String? get sort => throw _privateConstructorUsedError;
 
   /// Show followed users at the top of all replies.
-  bool? get prioritizeFollowedUsers => throw _privateConstructorUsedError;
+  bool get prioritizeFollowedUsers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +38,7 @@ abstract class $ThreadViewPrefCopyWith<$Res> {
           ThreadViewPref value, $Res Function(ThreadViewPref) then) =
       _$ThreadViewPrefCopyWithImpl<$Res, ThreadViewPref>;
   @useResult
-  $Res call({String? sort, bool? prioritizeFollowedUsers});
+  $Res call({String? sort, bool prioritizeFollowedUsers});
 }
 
 /// @nodoc
@@ -55,17 +55,17 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
   @override
   $Res call({
     Object? sort = freezed,
-    Object? prioritizeFollowedUsers = freezed,
+    Object? prioritizeFollowedUsers = null,
   }) {
     return _then(_value.copyWith(
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as String?,
-      prioritizeFollowedUsers: freezed == prioritizeFollowedUsers
+      prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -78,7 +78,7 @@ abstract class _$$ThreadViewPrefImplCopyWith<$Res>
       __$$ThreadViewPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? sort, bool? prioritizeFollowedUsers});
+  $Res call({String? sort, bool prioritizeFollowedUsers});
 }
 
 /// @nodoc
@@ -93,17 +93,17 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sort = freezed,
-    Object? prioritizeFollowedUsers = freezed,
+    Object? prioritizeFollowedUsers = null,
   }) {
     return _then(_$ThreadViewPrefImpl(
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as String?,
-      prioritizeFollowedUsers: freezed == prioritizeFollowedUsers
+      prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -112,7 +112,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ThreadViewPrefImpl implements _ThreadViewPref {
-  const _$ThreadViewPrefImpl({this.sort, this.prioritizeFollowedUsers});
+  const _$ThreadViewPrefImpl({this.sort, this.prioritizeFollowedUsers = false});
 
   factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPrefImplFromJson(json);
@@ -123,7 +123,8 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
   /// Show followed users at the top of all replies.
   @override
-  final bool? prioritizeFollowedUsers;
+  @JsonKey()
+  final bool prioritizeFollowedUsers;
 
   @override
   String toString() {
@@ -163,7 +164,7 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 abstract class _ThreadViewPref implements ThreadViewPref {
   const factory _ThreadViewPref(
       {final String? sort,
-      final bool? prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
+      final bool prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
 
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPrefImpl.fromJson;
@@ -175,7 +176,7 @@ abstract class _ThreadViewPref implements ThreadViewPref {
   @override
 
   /// Show followed users at the top of all replies.
-  bool? get prioritizeFollowedUsers;
+  bool get prioritizeFollowedUsers;
   @override
   @JsonKey(ignore: true)
   _$$ThreadViewPrefImplCopyWith<_$ThreadViewPrefImpl> get copyWith =>

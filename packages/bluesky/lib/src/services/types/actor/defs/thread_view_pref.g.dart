@@ -14,8 +14,8 @@ _$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ThreadViewPrefImpl(
           sort: $checkedConvert('sort', (v) => v as String?),
-          prioritizeFollowedUsers:
-              $checkedConvert('prioritizeFollowedUsers', (v) => v as bool?),
+          prioritizeFollowedUsers: $checkedConvert(
+              'prioritizeFollowedUsers', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -32,6 +32,6 @@ Map<String, dynamic> _$$ThreadViewPrefImplToJson(
   }
 
   writeNotNull('sort', instance.sort);
-  writeNotNull('prioritizeFollowedUsers', instance.prioritizeFollowedUsers);
+  val['prioritizeFollowedUsers'] = instance.prioritizeFollowedUsers;
   return val;
 }

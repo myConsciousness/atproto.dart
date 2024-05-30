@@ -28,9 +28,10 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
                       Facet.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
-          likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
-          acceptsInteractions:
-              $checkedConvert('acceptsInteractions', (v) => v as bool?),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
+          acceptsInteractions: $checkedConvert(
+              'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
@@ -69,8 +70,8 @@ Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
   writeNotNull('descriptionFacets',
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('likeCount', instance.likeCount);
-  writeNotNull('acceptsInteractions', instance.acceptsInteractions);
+  val['likeCount'] = instance.likeCount;
+  val['acceptsInteractions'] = instance.acceptsInteractions;
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   writeNotNull('viewer', instance.viewer?.toJson());
   val['indexedAt'] = instance.indexedAt.toIso8601String();

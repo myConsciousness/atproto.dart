@@ -30,7 +30,7 @@ class LabelerView with _$LabelerView {
     @atUriConverter required AtUri uri,
     required String cid,
     required ProfileView creator,
-    int? likeCount,
+    @Default(0) int likeCount,
     LabelerViewerState? viewer,
     required DateTime indexedAt,
     List<Label>? labels,

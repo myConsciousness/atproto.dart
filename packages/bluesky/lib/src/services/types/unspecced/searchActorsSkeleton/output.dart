@@ -28,7 +28,7 @@ class SearchActorsSkeletonOutput with _$SearchActorsSkeletonOutput {
     String? cursor,
 
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-    int? hitsTotal,
+    @Default(0) int hitsTotal,
     required List<SkeletonSearchActor> actors,
   }) = _SearchActorsSkeletonOutput;
 

@@ -16,7 +16,8 @@ _$SearchPostsSkeletonOutputImpl _$$SearchPostsSkeletonOutputImplFromJson(
       ($checkedConvert) {
         final val = _$SearchPostsSkeletonOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          hitsTotal: $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
+          hitsTotal:
+              $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
@@ -39,7 +40,7 @@ Map<String, dynamic> _$$SearchPostsSkeletonOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  writeNotNull('hitsTotal', instance.hitsTotal);
+  val['hitsTotal'] = instance.hitsTotal;
   val['posts'] = instance.posts.map((e) => e.toJson()).toList();
   return val;
 }

@@ -26,7 +26,7 @@ class ThreadViewPref with _$ThreadViewPref {
     String? sort,
 
     /// Show followed users at the top of all replies.
-    bool? prioritizeFollowedUsers,
+    @Default(false) bool prioritizeFollowedUsers,
   }) = _ThreadViewPref;
 
   factory ThreadViewPref.fromJson(Map<String, Object?> json) =>

@@ -25,9 +25,9 @@ part 'profile_associated.g.dart';
 class ProfileAssociated with _$ProfileAssociated {
   @jsonSerializable
   const factory ProfileAssociated({
-    int? lists,
-    int? feedgens,
-    bool? labeler,
+    @Default(0) int lists,
+    @Default(0) int feedgens,
+    @Default(false) bool labeler,
     ProfileAssociatedChat? chat,
   }) = _ProfileAssociated;
 

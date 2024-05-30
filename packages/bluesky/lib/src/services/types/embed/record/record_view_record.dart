@@ -33,9 +33,9 @@ class RecordViewRecord with _$RecordViewRecord {
     /// The record data itself.
     required Map<String, dynamic> value,
     List<Label>? labels,
-    int? replyCount,
-    int? repostCount,
-    int? likeCount,
+    @Default(0) int replyCount,
+    @Default(0) int repostCount,
+    @Default(0) int likeCount,
     List<String>? embeds,
     required DateTime indexedAt,
   }) = _RecordViewRecord;

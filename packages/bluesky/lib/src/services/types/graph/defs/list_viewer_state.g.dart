@@ -14,7 +14,7 @@ _$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListViewerStateImpl(
-          muted: $checkedConvert('muted', (v) => v as bool?),
+          muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blocked: $checkedConvert(
               'blocked',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -26,7 +26,9 @@ _$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$ListViewerStateImplToJson(
     _$ListViewerStateImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    'muted': instance.muted,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -34,7 +36,6 @@ Map<String, dynamic> _$$ListViewerStateImplToJson(
     }
   }
 
-  writeNotNull('muted', instance.muted);
   writeNotNull(
       'blocked',
       _$JsonConverterToJson<String, AtUri>(

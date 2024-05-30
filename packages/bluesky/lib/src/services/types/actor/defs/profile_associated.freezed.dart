@@ -20,9 +20,9 @@ ProfileAssociated _$ProfileAssociatedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProfileAssociated {
-  int? get lists => throw _privateConstructorUsedError;
-  int? get feedgens => throw _privateConstructorUsedError;
-  bool? get labeler => throw _privateConstructorUsedError;
+  int get lists => throw _privateConstructorUsedError;
+  int get feedgens => throw _privateConstructorUsedError;
+  bool get labeler => throw _privateConstructorUsedError;
   ProfileAssociatedChat? get chat => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       _$ProfileAssociatedCopyWithImpl<$Res, ProfileAssociated>;
   @useResult
   $Res call(
-      {int? lists, int? feedgens, bool? labeler, ProfileAssociatedChat? chat});
+      {int lists, int feedgens, bool labeler, ProfileAssociatedChat? chat});
 
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
 }
@@ -56,24 +56,24 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lists = freezed,
-    Object? feedgens = freezed,
-    Object? labeler = freezed,
+    Object? lists = null,
+    Object? feedgens = null,
+    Object? labeler = null,
     Object? chat = freezed,
   }) {
     return _then(_value.copyWith(
-      lists: freezed == lists
+      lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as int?,
-      feedgens: freezed == feedgens
+              as int,
+      feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
-              as int?,
-      labeler: freezed == labeler
+              as int,
+      labeler: null == labeler
           ? _value.labeler
           : labeler // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       chat: freezed == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
@@ -103,7 +103,7 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int? lists, int? feedgens, bool? labeler, ProfileAssociatedChat? chat});
+      {int lists, int feedgens, bool labeler, ProfileAssociatedChat? chat});
 
   @override
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
@@ -120,24 +120,24 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? lists = freezed,
-    Object? feedgens = freezed,
-    Object? labeler = freezed,
+    Object? lists = null,
+    Object? feedgens = null,
+    Object? labeler = null,
     Object? chat = freezed,
   }) {
     return _then(_$ProfileAssociatedImpl(
-      lists: freezed == lists
+      lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
-              as int?,
-      feedgens: freezed == feedgens
+              as int,
+      feedgens: null == feedgens
           ? _value.feedgens
           : feedgens // ignore: cast_nullable_to_non_nullable
-              as int?,
-      labeler: freezed == labeler
+              as int,
+      labeler: null == labeler
           ? _value.labeler
           : labeler // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       chat: freezed == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
@@ -151,17 +151,20 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ProfileAssociatedImpl implements _ProfileAssociated {
   const _$ProfileAssociatedImpl(
-      {this.lists, this.feedgens, this.labeler, this.chat});
+      {this.lists = 0, this.feedgens = 0, this.labeler = false, this.chat});
 
   factory _$ProfileAssociatedImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedImplFromJson(json);
 
   @override
-  final int? lists;
+  @JsonKey()
+  final int lists;
   @override
-  final int? feedgens;
+  @JsonKey()
+  final int feedgens;
   @override
-  final bool? labeler;
+  @JsonKey()
+  final bool labeler;
   @override
   final ProfileAssociatedChat? chat;
 
@@ -203,20 +206,20 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
 abstract class _ProfileAssociated implements ProfileAssociated {
   const factory _ProfileAssociated(
-      {final int? lists,
-      final int? feedgens,
-      final bool? labeler,
+      {final int lists,
+      final int feedgens,
+      final bool labeler,
       final ProfileAssociatedChat? chat}) = _$ProfileAssociatedImpl;
 
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedImpl.fromJson;
 
   @override
-  int? get lists;
+  int get lists;
   @override
-  int? get feedgens;
+  int get feedgens;
   @override
-  bool? get labeler;
+  bool get labeler;
   @override
   ProfileAssociatedChat? get chat;
   @override

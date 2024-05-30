@@ -20,9 +20,9 @@ ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ViewerState {
-  bool? get muted => throw _privateConstructorUsedError;
+  bool get muted => throw _privateConstructorUsedError;
   ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
-  bool? get blockedBy => throw _privateConstructorUsedError;
+  bool get blockedBy => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get blocking => throw _privateConstructorUsedError;
   ListViewBasic? get blockingByList => throw _privateConstructorUsedError;
@@ -44,9 +44,9 @@ abstract class $ViewerStateCopyWith<$Res> {
       _$ViewerStateCopyWithImpl<$Res, ViewerState>;
   @useResult
   $Res call(
-      {bool? muted,
+      {bool muted,
       ListViewBasic? mutedByList,
-      bool? blockedBy,
+      bool blockedBy,
       @atUriConverter AtUri? blocking,
       ListViewBasic? blockingByList,
       @atUriConverter AtUri? following,
@@ -69,27 +69,27 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? muted = freezed,
+    Object? muted = null,
     Object? mutedByList = freezed,
-    Object? blockedBy = freezed,
+    Object? blockedBy = null,
     Object? blocking = freezed,
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
     return _then(_value.copyWith(
-      muted: freezed == muted
+      muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       mutedByList: freezed == mutedByList
           ? _value.mutedByList
           : mutedByList // ignore: cast_nullable_to_non_nullable
               as ListViewBasic?,
-      blockedBy: freezed == blockedBy
+      blockedBy: null == blockedBy
           ? _value.blockedBy
           : blockedBy // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       blocking: freezed == blocking
           ? _value.blocking
           : blocking // ignore: cast_nullable_to_non_nullable
@@ -143,9 +143,9 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool? muted,
+      {bool muted,
       ListViewBasic? mutedByList,
-      bool? blockedBy,
+      bool blockedBy,
       @atUriConverter AtUri? blocking,
       ListViewBasic? blockingByList,
       @atUriConverter AtUri? following,
@@ -168,27 +168,27 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? muted = freezed,
+    Object? muted = null,
     Object? mutedByList = freezed,
-    Object? blockedBy = freezed,
+    Object? blockedBy = null,
     Object? blocking = freezed,
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
     return _then(_$ViewerStateImpl(
-      muted: freezed == muted
+      muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       mutedByList: freezed == mutedByList
           ? _value.mutedByList
           : mutedByList // ignore: cast_nullable_to_non_nullable
               as ListViewBasic?,
-      blockedBy: freezed == blockedBy
+      blockedBy: null == blockedBy
           ? _value.blockedBy
           : blockedBy // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       blocking: freezed == blocking
           ? _value.blocking
           : blocking // ignore: cast_nullable_to_non_nullable
@@ -214,9 +214,9 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
-      {this.muted,
+      {this.muted = false,
       this.mutedByList,
-      this.blockedBy,
+      this.blockedBy = false,
       @atUriConverter this.blocking,
       this.blockingByList,
       @atUriConverter this.following,
@@ -226,11 +226,13 @@ class _$ViewerStateImpl implements _ViewerState {
       _$$ViewerStateImplFromJson(json);
 
   @override
-  final bool? muted;
+  @JsonKey()
+  final bool muted;
   @override
   final ListViewBasic? mutedByList;
   @override
-  final bool? blockedBy;
+  @JsonKey()
+  final bool blockedBy;
   @override
   @atUriConverter
   final AtUri? blocking;
@@ -289,9 +291,9 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {final bool? muted,
+      {final bool muted,
       final ListViewBasic? mutedByList,
-      final bool? blockedBy,
+      final bool blockedBy,
       @atUriConverter final AtUri? blocking,
       final ListViewBasic? blockingByList,
       @atUriConverter final AtUri? following,
@@ -301,11 +303,11 @@ abstract class _ViewerState implements ViewerState {
       _$ViewerStateImpl.fromJson;
 
   @override
-  bool? get muted;
+  bool get muted;
   @override
   ListViewBasic? get mutedByList;
   @override
-  bool? get blockedBy;
+  bool get blockedBy;
   @override
   @atUriConverter
   AtUri? get blocking;

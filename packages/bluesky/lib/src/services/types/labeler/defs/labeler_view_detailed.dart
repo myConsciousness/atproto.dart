@@ -32,7 +32,7 @@ class LabelerViewDetailed with _$LabelerViewDetailed {
     required String cid,
     required ProfileView creator,
     required LabelerPolicies policies,
-    int? likeCount,
+    @Default(0) int likeCount,
     LabelerViewerState? viewer,
     required DateTime indexedAt,
     List<Label>? labels,

@@ -24,7 +24,7 @@ mixin _$ViewerState {
   AtUri? get repost => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get like => throw _privateConstructorUsedError;
-  bool? get replyDisabled => throw _privateConstructorUsedError;
+  bool get replyDisabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $ViewerStateCopyWith<$Res> {
   $Res call(
       {@atUriConverter AtUri? repost,
       @atUriConverter AtUri? like,
-      bool? replyDisabled});
+      bool replyDisabled});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
-    Object? replyDisabled = freezed,
+    Object? replyDisabled = null,
   }) {
     return _then(_value.copyWith(
       repost: freezed == repost
@@ -70,10 +70,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      replyDisabled: freezed == replyDisabled
+      replyDisabled: null == replyDisabled
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ) as $Val);
   }
 }
@@ -89,7 +89,7 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   $Res call(
       {@atUriConverter AtUri? repost,
       @atUriConverter AtUri? like,
-      bool? replyDisabled});
+      bool replyDisabled});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
   $Res call({
     Object? repost = freezed,
     Object? like = freezed,
-    Object? replyDisabled = freezed,
+    Object? replyDisabled = null,
   }) {
     return _then(_$ViewerStateImpl(
       repost: freezed == repost
@@ -116,10 +116,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
-      replyDisabled: freezed == replyDisabled
+      replyDisabled: null == replyDisabled
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
     ));
   }
 }
@@ -131,7 +131,7 @@ class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
       {@atUriConverter this.repost,
       @atUriConverter this.like,
-      this.replyDisabled});
+      this.replyDisabled = false});
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
@@ -143,7 +143,8 @@ class _$ViewerStateImpl implements _ViewerState {
   @atUriConverter
   final AtUri? like;
   @override
-  final bool? replyDisabled;
+  @JsonKey()
+  final bool replyDisabled;
 
   @override
   String toString() {
@@ -183,7 +184,7 @@ abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
       {@atUriConverter final AtUri? repost,
       @atUriConverter final AtUri? like,
-      final bool? replyDisabled}) = _$ViewerStateImpl;
+      final bool replyDisabled}) = _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
@@ -195,7 +196,7 @@ abstract class _ViewerState implements ViewerState {
   @atUriConverter
   AtUri? get like;
   @override
-  bool? get replyDisabled;
+  bool get replyDisabled;
   @override
   @JsonKey(ignore: true)
   _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>

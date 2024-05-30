@@ -21,7 +21,8 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, atUriConverter.fromJson)),
-          replyDisabled: $checkedConvert('replyDisabled', (v) => v as bool?),
+          replyDisabled:
+              $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
         );
         return val;
       },
@@ -44,7 +45,7 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
       'like',
       _$JsonConverterToJson<String, AtUri>(
           instance.like, atUriConverter.toJson));
-  writeNotNull('replyDisabled', instance.replyDisabled);
+  val['replyDisabled'] = instance.replyDisabled;
   return val;
 }
 

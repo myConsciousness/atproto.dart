@@ -24,10 +24,11 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
               'record', (v) => Map<String, dynamic>.from(v as Map)),
           embed: $checkedConvert('embed', (v) => v as String?),
           replyCount:
-              $checkedConvert('replyCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
           repostCount:
-              $checkedConvert('repostCount', (v) => (v as num?)?.toInt()),
-          likeCount: $checkedConvert('likeCount', (v) => (v as num?)?.toInt()),
+              $checkedConvert('repostCount', (v) => (v as num?)?.toInt() ?? 0),
+          likeCount:
+              $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           viewer: $checkedConvert(
@@ -67,9 +68,9 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   }
 
   writeNotNull('embed', instance.embed);
-  writeNotNull('replyCount', instance.replyCount);
-  writeNotNull('repostCount', instance.repostCount);
-  writeNotNull('likeCount', instance.likeCount);
+  val['replyCount'] = instance.replyCount;
+  val['repostCount'] = instance.repostCount;
+  val['likeCount'] = instance.likeCount;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   writeNotNull('viewer', instance.viewer?.toJson());
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());

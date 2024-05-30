@@ -24,7 +24,7 @@ mixin _$SavedFeedsPref {
   List<AtUri> get pinned => throw _privateConstructorUsedError;
   @atUriConverter
   List<AtUri> get saved => throw _privateConstructorUsedError;
-  int? get timelineIndex => throw _privateConstructorUsedError;
+  int get timelineIndex => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,7 +41,7 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
   $Res call(
       {@atUriConverter List<AtUri> pinned,
       @atUriConverter List<AtUri> saved,
-      int? timelineIndex});
+      int timelineIndex});
 }
 
 /// @nodoc
@@ -59,7 +59,7 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
   $Res call({
     Object? pinned = null,
     Object? saved = null,
-    Object? timelineIndex = freezed,
+    Object? timelineIndex = null,
   }) {
     return _then(_value.copyWith(
       pinned: null == pinned
@@ -70,10 +70,10 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
           ? _value.saved
           : saved // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
-      timelineIndex: freezed == timelineIndex
+      timelineIndex: null == timelineIndex
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ) as $Val);
   }
 }
@@ -89,7 +89,7 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
   $Res call(
       {@atUriConverter List<AtUri> pinned,
       @atUriConverter List<AtUri> saved,
-      int? timelineIndex});
+      int timelineIndex});
 }
 
 /// @nodoc
@@ -105,7 +105,7 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? pinned = null,
     Object? saved = null,
-    Object? timelineIndex = freezed,
+    Object? timelineIndex = null,
   }) {
     return _then(_$SavedFeedsPrefImpl(
       pinned: null == pinned
@@ -116,10 +116,10 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
           ? _value._saved
           : saved // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
-      timelineIndex: freezed == timelineIndex
+      timelineIndex: null == timelineIndex
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
     ));
   }
 }
@@ -131,7 +131,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   const _$SavedFeedsPrefImpl(
       {@atUriConverter required final List<AtUri> pinned,
       @atUriConverter required final List<AtUri> saved,
-      this.timelineIndex})
+      this.timelineIndex = 0})
       : _pinned = pinned,
         _saved = saved;
 
@@ -157,7 +157,8 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   }
 
   @override
-  final int? timelineIndex;
+  @JsonKey()
+  final int timelineIndex;
 
   @override
   String toString() {
@@ -202,7 +203,7 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
   const factory _SavedFeedsPref(
       {@atUriConverter required final List<AtUri> pinned,
       @atUriConverter required final List<AtUri> saved,
-      final int? timelineIndex}) = _$SavedFeedsPrefImpl;
+      final int timelineIndex}) = _$SavedFeedsPrefImpl;
 
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPrefImpl.fromJson;
@@ -214,7 +215,7 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
   @atUriConverter
   List<AtUri> get saved;
   @override
-  int? get timelineIndex;
+  int get timelineIndex;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedsPrefImplCopyWith<_$SavedFeedsPrefImpl> get copyWith =>

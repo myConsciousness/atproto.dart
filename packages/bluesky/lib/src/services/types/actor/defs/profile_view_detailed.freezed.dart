@@ -26,9 +26,9 @@ mixin _$ProfileViewDetailed {
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   String? get banner => throw _privateConstructorUsedError;
-  int? get followersCount => throw _privateConstructorUsedError;
-  int? get followsCount => throw _privateConstructorUsedError;
-  int? get postsCount => throw _privateConstructorUsedError;
+  int get followersCount => throw _privateConstructorUsedError;
+  int get followsCount => throw _privateConstructorUsedError;
+  int get postsCount => throw _privateConstructorUsedError;
   ProfileAssociated? get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
   ViewerState? get viewer => throw _privateConstructorUsedError;
@@ -53,9 +53,9 @@ abstract class $ProfileViewDetailedCopyWith<$Res> {
       String? description,
       String? avatar,
       String? banner,
-      int? followersCount,
-      int? followsCount,
-      int? postsCount,
+      int followersCount,
+      int followsCount,
+      int postsCount,
       ProfileAssociated? associated,
       DateTime? indexedAt,
       ViewerState? viewer,
@@ -84,9 +84,9 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
     Object? description = freezed,
     Object? avatar = freezed,
     Object? banner = freezed,
-    Object? followersCount = freezed,
-    Object? followsCount = freezed,
-    Object? postsCount = freezed,
+    Object? followersCount = null,
+    Object? followsCount = null,
+    Object? postsCount = null,
     Object? associated = freezed,
     Object? indexedAt = freezed,
     Object? viewer = freezed,
@@ -117,18 +117,18 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as String?,
-      followersCount: freezed == followersCount
+      followersCount: null == followersCount
           ? _value.followersCount
           : followersCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      followsCount: freezed == followsCount
+              as int,
+      followsCount: null == followsCount
           ? _value.followsCount
           : followsCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      postsCount: freezed == postsCount
+              as int,
+      postsCount: null == postsCount
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       associated: freezed == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
@@ -188,9 +188,9 @@ abstract class _$$ProfileViewDetailedImplCopyWith<$Res>
       String? description,
       String? avatar,
       String? banner,
-      int? followersCount,
-      int? followsCount,
-      int? postsCount,
+      int followersCount,
+      int followsCount,
+      int postsCount,
       ProfileAssociated? associated,
       DateTime? indexedAt,
       ViewerState? viewer,
@@ -219,9 +219,9 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? avatar = freezed,
     Object? banner = freezed,
-    Object? followersCount = freezed,
-    Object? followsCount = freezed,
-    Object? postsCount = freezed,
+    Object? followersCount = null,
+    Object? followsCount = null,
+    Object? postsCount = null,
     Object? associated = freezed,
     Object? indexedAt = freezed,
     Object? viewer = freezed,
@@ -252,18 +252,18 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
           ? _value.banner
           : banner // ignore: cast_nullable_to_non_nullable
               as String?,
-      followersCount: freezed == followersCount
+      followersCount: null == followersCount
           ? _value.followersCount
           : followersCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      followsCount: freezed == followsCount
+              as int,
+      followsCount: null == followsCount
           ? _value.followsCount
           : followsCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      postsCount: freezed == postsCount
+              as int,
+      postsCount: null == postsCount
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       associated: freezed == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
@@ -295,9 +295,9 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       this.description,
       this.avatar,
       this.banner,
-      this.followersCount,
-      this.followsCount,
-      this.postsCount,
+      this.followersCount = 0,
+      this.followsCount = 0,
+      this.postsCount = 0,
       this.associated,
       this.indexedAt,
       this.viewer,
@@ -320,11 +320,14 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
   @override
   final String? banner;
   @override
-  final int? followersCount;
+  @JsonKey()
+  final int followersCount;
   @override
-  final int? followsCount;
+  @JsonKey()
+  final int followsCount;
   @override
-  final int? postsCount;
+  @JsonKey()
+  final int postsCount;
   @override
   final ProfileAssociated? associated;
   @override
@@ -414,9 +417,9 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
       final String? description,
       final String? avatar,
       final String? banner,
-      final int? followersCount,
-      final int? followsCount,
-      final int? postsCount,
+      final int followersCount,
+      final int followsCount,
+      final int postsCount,
       final ProfileAssociated? associated,
       final DateTime? indexedAt,
       final ViewerState? viewer,
@@ -438,11 +441,11 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   @override
   String? get banner;
   @override
-  int? get followersCount;
+  int get followersCount;
   @override
-  int? get followsCount;
+  int get followsCount;
   @override
-  int? get postsCount;
+  int get postsCount;
   @override
   ProfileAssociated? get associated;
   @override

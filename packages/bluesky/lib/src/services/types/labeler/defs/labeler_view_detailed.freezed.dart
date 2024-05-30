@@ -25,7 +25,7 @@ mixin _$LabelerViewDetailed {
   String get cid => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
   LabelerPolicies get policies => throw _privateConstructorUsedError;
-  int? get likeCount => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
   LabelerViewerState? get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $LabelerViewDetailedCopyWith<$Res> {
       String cid,
       ProfileView creator,
       LabelerPolicies policies,
-      int? likeCount,
+      int likeCount,
       LabelerViewerState? viewer,
       DateTime indexedAt,
       List<Label>? labels});
@@ -74,7 +74,7 @@ class _$LabelerViewDetailedCopyWithImpl<$Res, $Val extends LabelerViewDetailed>
     Object? cid = null,
     Object? creator = null,
     Object? policies = null,
-    Object? likeCount = freezed,
+    Object? likeCount = null,
     Object? viewer = freezed,
     Object? indexedAt = null,
     Object? labels = freezed,
@@ -96,10 +96,10 @@ class _$LabelerViewDetailedCopyWithImpl<$Res, $Val extends LabelerViewDetailed>
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
               as LabelerPolicies,
-      likeCount: freezed == likeCount
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       viewer: freezed == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ abstract class _$$LabelerViewDetailedImplCopyWith<$Res>
       String cid,
       ProfileView creator,
       LabelerPolicies policies,
-      int? likeCount,
+      int likeCount,
       LabelerViewerState? viewer,
       DateTime indexedAt,
       List<Label>? labels});
@@ -185,7 +185,7 @@ class __$$LabelerViewDetailedImplCopyWithImpl<$Res>
     Object? cid = null,
     Object? creator = null,
     Object? policies = null,
-    Object? likeCount = freezed,
+    Object? likeCount = null,
     Object? viewer = freezed,
     Object? indexedAt = null,
     Object? labels = freezed,
@@ -207,10 +207,10 @@ class __$$LabelerViewDetailedImplCopyWithImpl<$Res>
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
               as LabelerPolicies,
-      likeCount: freezed == likeCount
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       viewer: freezed == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -236,7 +236,7 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
       required this.cid,
       required this.creator,
       required this.policies,
-      this.likeCount,
+      this.likeCount = 0,
       this.viewer,
       required this.indexedAt,
       final List<Label>? labels})
@@ -255,7 +255,8 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
   @override
   final LabelerPolicies policies;
   @override
-  final int? likeCount;
+  @JsonKey()
+  final int likeCount;
   @override
   final LabelerViewerState? viewer;
   @override
@@ -327,7 +328,7 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
       required final String cid,
       required final ProfileView creator,
       required final LabelerPolicies policies,
-      final int? likeCount,
+      final int likeCount,
       final LabelerViewerState? viewer,
       required final DateTime indexedAt,
       final List<Label>? labels}) = _$LabelerViewDetailedImpl;
@@ -345,7 +346,7 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
   @override
   LabelerPolicies get policies;
   @override
-  int? get likeCount;
+  int get likeCount;
   @override
   LabelerViewerState? get viewer;
   @override

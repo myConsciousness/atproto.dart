@@ -28,9 +28,9 @@ mixin _$RecordViewRecord {
   /// The record data itself.
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  int? get replyCount => throw _privateConstructorUsedError;
-  int? get repostCount => throw _privateConstructorUsedError;
-  int? get likeCount => throw _privateConstructorUsedError;
+  int get replyCount => throw _privateConstructorUsedError;
+  int get repostCount => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
   List<String>? get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -52,9 +52,9 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       ProfileViewBasic author,
       Map<String, dynamic> value,
       List<Label>? labels,
-      int? replyCount,
-      int? repostCount,
-      int? likeCount,
+      int replyCount,
+      int repostCount,
+      int likeCount,
       List<String>? embeds,
       DateTime indexedAt});
 
@@ -79,9 +79,9 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
     Object? author = null,
     Object? value = null,
     Object? labels = freezed,
-    Object? replyCount = freezed,
-    Object? repostCount = freezed,
-    Object? likeCount = freezed,
+    Object? replyCount = null,
+    Object? repostCount = null,
+    Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -106,18 +106,18 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      replyCount: freezed == replyCount
+      replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      repostCount: freezed == repostCount
+              as int,
+      repostCount: null == repostCount
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      likeCount: freezed == likeCount
+              as int,
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       embeds: freezed == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -152,9 +152,9 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       ProfileViewBasic author,
       Map<String, dynamic> value,
       List<Label>? labels,
-      int? replyCount,
-      int? repostCount,
-      int? likeCount,
+      int replyCount,
+      int repostCount,
+      int likeCount,
       List<String>? embeds,
       DateTime indexedAt});
 
@@ -178,9 +178,9 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
     Object? author = null,
     Object? value = null,
     Object? labels = freezed,
-    Object? replyCount = freezed,
-    Object? repostCount = freezed,
-    Object? likeCount = freezed,
+    Object? replyCount = null,
+    Object? repostCount = null,
+    Object? likeCount = null,
     Object? embeds = freezed,
     Object? indexedAt = null,
   }) {
@@ -205,18 +205,18 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      replyCount: freezed == replyCount
+      replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      repostCount: freezed == repostCount
+              as int,
+      repostCount: null == repostCount
           ? _value.repostCount
           : repostCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      likeCount: freezed == likeCount
+              as int,
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       embeds: freezed == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
@@ -239,9 +239,9 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       required this.author,
       required final Map<String, dynamic> value,
       final List<Label>? labels,
-      this.replyCount,
-      this.repostCount,
-      this.likeCount,
+      this.replyCount = 0,
+      this.repostCount = 0,
+      this.likeCount = 0,
       final List<String>? embeds,
       required this.indexedAt})
       : _value = value,
@@ -281,11 +281,14 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   }
 
   @override
-  final int? replyCount;
+  @JsonKey()
+  final int replyCount;
   @override
-  final int? repostCount;
+  @JsonKey()
+  final int repostCount;
   @override
-  final int? likeCount;
+  @JsonKey()
+  final int likeCount;
   final List<String>? _embeds;
   @override
   List<String>? get embeds {
@@ -362,9 +365,9 @@ abstract class _RecordViewRecord implements RecordViewRecord {
       required final ProfileViewBasic author,
       required final Map<String, dynamic> value,
       final List<Label>? labels,
-      final int? replyCount,
-      final int? repostCount,
-      final int? likeCount,
+      final int replyCount,
+      final int repostCount,
+      final int likeCount,
       final List<String>? embeds,
       required final DateTime indexedAt}) = _$RecordViewRecordImpl;
 
@@ -385,11 +388,11 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
   List<Label>? get labels;
   @override
-  int? get replyCount;
+  int get replyCount;
   @override
-  int? get repostCount;
+  int get repostCount;
   @override
-  int? get likeCount;
+  int get likeCount;
   @override
   List<String>? get embeds;
   @override

@@ -29,8 +29,8 @@ mixin _$GeneratorView {
   String? get description => throw _privateConstructorUsedError;
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  int? get likeCount => throw _privateConstructorUsedError;
-  bool? get acceptsInteractions => throw _privateConstructorUsedError;
+  int get likeCount => throw _privateConstructorUsedError;
+  bool get acceptsInteractions => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   GeneratorViewerState? get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
@@ -56,8 +56,8 @@ abstract class $GeneratorViewCopyWith<$Res> {
       String? description,
       List<Facet>? descriptionFacets,
       String? avatar,
-      int? likeCount,
-      bool? acceptsInteractions,
+      int likeCount,
+      bool acceptsInteractions,
       List<Label>? labels,
       GeneratorViewerState? viewer,
       DateTime indexedAt});
@@ -87,8 +87,8 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
-    Object? likeCount = freezed,
-    Object? acceptsInteractions = freezed,
+    Object? likeCount = null,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? viewer = freezed,
     Object? indexedAt = null,
@@ -126,14 +126,14 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      likeCount: freezed == likeCount
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      acceptsInteractions: freezed == acceptsInteractions
+              as int,
+      acceptsInteractions: null == acceptsInteractions
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -187,8 +187,8 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
       String? description,
       List<Facet>? descriptionFacets,
       String? avatar,
-      int? likeCount,
-      bool? acceptsInteractions,
+      int likeCount,
+      bool acceptsInteractions,
       List<Label>? labels,
       GeneratorViewerState? viewer,
       DateTime indexedAt});
@@ -218,8 +218,8 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
     Object? description = freezed,
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
-    Object? likeCount = freezed,
-    Object? acceptsInteractions = freezed,
+    Object? likeCount = null,
+    Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? viewer = freezed,
     Object? indexedAt = null,
@@ -257,14 +257,14 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      likeCount: freezed == likeCount
+      likeCount: null == likeCount
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
-              as int?,
-      acceptsInteractions: freezed == acceptsInteractions
+              as int,
+      acceptsInteractions: null == acceptsInteractions
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
-              as bool?,
+              as bool,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -294,8 +294,8 @@ class _$GeneratorViewImpl implements _GeneratorView {
       this.description,
       final List<Facet>? descriptionFacets,
       this.avatar,
-      this.likeCount,
-      this.acceptsInteractions,
+      this.likeCount = 0,
+      this.acceptsInteractions = false,
       final List<Label>? labels,
       this.viewer,
       required this.indexedAt})
@@ -332,9 +332,11 @@ class _$GeneratorViewImpl implements _GeneratorView {
   @override
   final String? avatar;
   @override
-  final int? likeCount;
+  @JsonKey()
+  final int likeCount;
   @override
-  final bool? acceptsInteractions;
+  @JsonKey()
+  final bool acceptsInteractions;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -423,8 +425,8 @@ abstract class _GeneratorView implements GeneratorView {
       final String? description,
       final List<Facet>? descriptionFacets,
       final String? avatar,
-      final int? likeCount,
-      final bool? acceptsInteractions,
+      final int likeCount,
+      final bool acceptsInteractions,
       final List<Label>? labels,
       final GeneratorViewerState? viewer,
       required final DateTime indexedAt}) = _$GeneratorViewImpl;
@@ -450,9 +452,9 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   String? get avatar;
   @override
-  int? get likeCount;
+  int get likeCount;
   @override
-  bool? get acceptsInteractions;
+  bool get acceptsInteractions;
   @override
   List<Label>? get labels;
   @override
