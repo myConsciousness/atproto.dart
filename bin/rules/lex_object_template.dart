@@ -217,6 +217,7 @@ final class LexObjectTemplate {
 
       LexNamingConvention convention;
       if (ref.contains('#')) {
+        // In the same def file
         if (ref.startsWith('#')) {
           final defName = ref.split('#').last;
 
@@ -229,17 +230,18 @@ final class LexObjectTemplate {
           } else {
             convention = LexNamingConvention(docId.toString() + ref);
           }
-        } else {
+        } // In the another def file
+        else {
           final segments = ref.split('#');
-          final lexiconId = segments.first;
+          final refDocId = segments.first;
           final defName = segments.last;
 
-          if (mainObjects.contains(lexiconId)) {
-            final objectName = lexiconId.toString().split('.').last +
+          if (mainObjects.contains(refDocId)) {
+            final objectName = refDocId.toString().split('.').last +
                 defName.substring(0, 1).toUpperCase() +
                 defName.substring(1);
 
-            convention = LexNamingConvention('${docId.toString()}#$objectName');
+            convention = LexNamingConvention('$refDocId#$objectName');
           } else {
             convention = LexNamingConvention(ref);
           }

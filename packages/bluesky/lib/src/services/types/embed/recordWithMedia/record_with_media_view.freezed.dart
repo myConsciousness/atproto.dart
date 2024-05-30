@@ -36,6 +36,8 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
       _$RecordWithMediaViewCopyWithImpl<$Res, RecordWithMediaView>;
   @useResult
   $Res call({RecordView record, String media});
+
+  $RecordViewCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -51,11 +53,11 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? record = freezed,
+    Object? record = null,
     Object? media = null,
   }) {
     return _then(_value.copyWith(
-      record: freezed == record
+      record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as RecordView,
@@ -64,6 +66,14 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
           : media // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RecordViewCopyWith<$Res> get record {
+    return $RecordViewCopyWith<$Res>(_value.record, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
   }
 }
 
@@ -76,6 +86,9 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call({RecordView record, String media});
+
+  @override
+  $RecordViewCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -89,11 +102,11 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? record = freezed,
+    Object? record = null,
     Object? media = null,
   }) {
     return _then(_$RecordWithMediaViewImpl(
-      record: freezed == record
+      record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as RecordView,
@@ -129,14 +142,13 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordWithMediaViewImpl &&
-            const DeepCollectionEquality().equals(other.record, record) &&
+            (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(record), media);
+  int get hashCode => Object.hash(runtimeType, record, media);
 
   @JsonKey(ignore: true)
   @override
