@@ -138,6 +138,7 @@ The following projects/services are using atproto.dart packages:
 - **[SkyBridge](https://skybridge.fly.dev)** (proxy) maintained by [@videah.net](https://bsky.app/profile/videah.net)
 - **[SkyClad](https://github.com/igz0/skyclad)** (mobile) maintained by [@igz0.bsky.social](https://bsky.app/profile/igz0.bsky.social)
 - **[deck.blue](https://deck.blue)** (web) maintained by [@deck.blue](https://bsky.app/profile/deck.blue)
+- **[SkyThrow](https://skythrow.com/)** (mobile) maintained by [@rukari.bsky.social](https://bsky.app/profile/rukari.bsky.social), [@hidea.bsky.social](https://bsky.app/profile/hidea.bsky.social)
 
 You can see more at [showcase](https://atprotodart.com/showcase), special thanks!
 

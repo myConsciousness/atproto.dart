@@ -287,6 +287,9 @@ const comAtprotoSyncGetRecord = NSID(ids.comAtprotoSyncGetRecord);
 /// `com.atproto.sync.getRepo`
 const comAtprotoSyncGetRepo = NSID(ids.comAtprotoSyncGetRepo);
 
+/// `com.atproto.sync.getRepoStatus`
+const comAtprotoSyncGetRepoStatus = NSID(ids.comAtprotoSyncGetRepoStatus);
+
 /// `com.atproto.sync.listBlobs`
 const comAtprotoSyncListBlobs = NSID(ids.comAtprotoSyncListBlobs);
 
@@ -304,6 +307,10 @@ const comAtprotoSyncRequestCrawl = NSID(ids.comAtprotoSyncRequestCrawl);
 
 /// `com.atproto.sync.subscribeRepos`
 const comAtprotoSyncSubscribeRepos = NSID(ids.comAtprotoSyncSubscribeRepos);
+
+/// `com.atproto.sync.subscribeRepos#account`
+const comAtprotoSyncSubscribeReposAccount =
+    NSID(ids.comAtprotoSyncSubscribeReposAccount);
 
 /// `com.atproto.sync.subscribeRepos#commit`
 const comAtprotoSyncSubscribeReposCommit =
