@@ -28,7 +28,7 @@ class ThreadgateView with _$ThreadgateView {
     @atUriConverter AtUri? uri,
     String? cid,
     Map<String, dynamic>? record,
-    List<ListViewBasic>? lists,
+    @Default([]) List<ListViewBasic> lists,
   }) = _ThreadgateView;
 
   factory ThreadgateView.fromJson(Map<String, Object?> json) =>

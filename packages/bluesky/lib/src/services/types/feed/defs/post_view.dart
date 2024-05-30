@@ -38,7 +38,7 @@ class PostView with _$PostView {
     @Default(0) int likeCount,
     required DateTime indexedAt,
     @Default(ViewerState()) ViewerState viewer,
-    List<Label>? labels,
+    @Default([]) List<Label> labels,
     @Default(ThreadgateView()) ThreadgateView threadgate,
   }) = _PostView;
 

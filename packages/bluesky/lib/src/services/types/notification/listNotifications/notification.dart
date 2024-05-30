@@ -36,7 +36,7 @@ class Notification with _$Notification {
     required Map<String, dynamic> record,
     required bool isRead,
     required DateTime indexedAt,
-    List<Label>? labels,
+    @Default([]) List<Label> labels,
   }) = _Notification;
 
   factory Notification.fromJson(Map<String, Object?> json) =>

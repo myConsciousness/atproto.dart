@@ -27,7 +27,7 @@ class LabelerPolicies with _$LabelerPolicies {
     required List<String> labelValues,
 
     /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
-    List<LabelValueDefinition>? labelValueDefinitions,
+    @Default([]) List<LabelValueDefinition> labelValueDefinitions,
   }) = _LabelerPolicies;
 
   factory LabelerPolicies.fromJson(Map<String, Object?> json) =>

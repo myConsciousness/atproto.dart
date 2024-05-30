@@ -191,6 +191,8 @@ final class LexObjectTemplate {
       return defaultValue != null ? defaultValue.toString() : '0';
     } else if (dataType == 'bool') {
       return defaultValue != null ? defaultValue.toString() : 'false';
+    } else if (dataType.startsWith('List<')) {
+      return '[]';
     }
 
     if (ref != null) {

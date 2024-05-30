@@ -31,7 +31,7 @@ class ListViewBasic with _$ListViewBasic {
     required String name,
     required String purpose,
     String? avatar,
-    List<Label>? labels,
+    @Default([]) List<Label> labels,
     @Default(ListViewerState()) ListViewerState viewer,
     DateTime? indexedAt,
   }) = _ListViewBasic;

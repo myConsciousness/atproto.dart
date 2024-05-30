@@ -34,9 +34,9 @@ class ListView with _$ListView {
     required String name,
     required String purpose,
     String? description,
-    List<Facet>? descriptionFacets,
+    @Default([]) List<Facet> descriptionFacets,
     String? avatar,
-    List<Label>? labels,
+    @Default([]) List<Label> labels,
     @Default(ListViewerState()) ListViewerState viewer,
     required DateTime indexedAt,
   }) = _ListView;

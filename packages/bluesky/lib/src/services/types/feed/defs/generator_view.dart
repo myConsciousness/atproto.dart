@@ -34,11 +34,11 @@ class GeneratorView with _$GeneratorView {
     required ProfileView creator,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    @Default([]) List<Facet> descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
     @Default(false) bool acceptsInteractions,
-    List<Label>? labels,
+    @Default([]) List<Label> labels,
     @Default(GeneratorViewerState()) GeneratorViewerState viewer,
     required DateTime indexedAt,
   }) = _GeneratorView;

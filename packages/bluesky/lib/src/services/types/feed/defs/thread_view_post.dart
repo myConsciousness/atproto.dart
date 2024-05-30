@@ -27,7 +27,7 @@ class ThreadViewPost with _$ThreadViewPost {
   const factory ThreadViewPost({
     required PostView post,
     String? parent,
-    List<String>? replies,
+    @Default([]) List<String> replies,
   }) = _ThreadViewPost;
 
   factory ThreadViewPost.fromJson(Map<String, Object?> json) =>
