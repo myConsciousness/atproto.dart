@@ -21,13 +21,13 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
           associated: $checkedConvert(
               'associated',
               (v) => v == null
-                  ? null
+                  ? const ProfileAssociated()
                   : ProfileAssociated.fromJson(
                       Map<String, Object?>.from(v as Map))),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const ViewerState()
                   : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
@@ -55,8 +55,8 @@ Map<String, dynamic> _$$ProfileViewBasicImplToJson(
 
   writeNotNull('displayName', instance.displayName);
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('associated', instance.associated?.toJson());
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['associated'] = instance.associated.toJson();
+  val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   return val;
 }

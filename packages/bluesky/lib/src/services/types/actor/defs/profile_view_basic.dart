@@ -31,8 +31,8 @@ class ProfileViewBasic with _$ProfileViewBasic {
     required String handle,
     String? displayName,
     String? avatar,
-    ProfileAssociated? associated,
-    ViewerState? viewer,
+    @Default(ProfileAssociated()) ProfileAssociated associated,
+    @Default(ViewerState()) ViewerState viewer,
     List<Label>? labels,
   }) = _ProfileViewBasic;
 

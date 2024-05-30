@@ -28,7 +28,7 @@ class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
   const factory DescribeFeedGeneratorOutput({
     required String did,
     required List<Feed> feeds,
-    Links? links,
+    @Default(Links()) Links links,
   }) = _DescribeFeedGeneratorOutput;
 
   factory DescribeFeedGeneratorOutput.fromJson(Map<String, Object?> json) =>

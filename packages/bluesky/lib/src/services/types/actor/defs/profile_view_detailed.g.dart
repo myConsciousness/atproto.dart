@@ -29,7 +29,7 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
           associated: $checkedConvert(
               'associated',
               (v) => v == null
-                  ? null
+                  ? const ProfileAssociated()
                   : ProfileAssociated.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt: $checkedConvert('indexedAt',
@@ -37,7 +37,7 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const ViewerState()
                   : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
@@ -70,9 +70,9 @@ Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
   val['followersCount'] = instance.followersCount;
   val['followsCount'] = instance.followsCount;
   val['postsCount'] = instance.postsCount;
-  writeNotNull('associated', instance.associated?.toJson());
+  val['associated'] = instance.associated.toJson();
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   return val;
 }

@@ -37,7 +37,7 @@ class ListView with _$ListView {
     List<Facet>? descriptionFacets,
     String? avatar,
     List<Label>? labels,
-    ListViewerState? viewer,
+    @Default(ListViewerState()) ListViewerState viewer,
     required DateTime indexedAt,
   }) = _ListView;
 

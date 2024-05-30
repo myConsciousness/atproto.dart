@@ -32,9 +32,9 @@ class ProfileView with _$ProfileView {
     String? displayName,
     String? description,
     String? avatar,
-    ProfileAssociated? associated,
+    @Default(ProfileAssociated()) ProfileAssociated associated,
     DateTime? indexedAt,
-    ViewerState? viewer,
+    @Default(ViewerState()) ViewerState viewer,
     List<Label>? labels,
   }) = _ProfileView;
 

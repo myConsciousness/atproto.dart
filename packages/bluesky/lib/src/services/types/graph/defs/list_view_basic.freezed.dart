@@ -27,7 +27,7 @@ mixin _$ListViewBasic {
   String get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  ListViewerState? get viewer => throw _privateConstructorUsedError;
+  ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,10 +49,10 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String purpose,
       String? avatar,
       List<Label>? labels,
-      ListViewerState? viewer,
+      ListViewerState viewer,
       DateTime? indexedAt});
 
-  $ListViewerStateCopyWith<$Res>? get viewer;
+  $ListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? purpose = null,
     Object? avatar = freezed,
     Object? labels = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -102,10 +102,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ListViewerState?,
+              as ListViewerState,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -115,12 +115,8 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
 
   @override
   @pragma('vm:prefer-inline')
-  $ListViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $ListViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $ListViewerStateCopyWith<$Res> get viewer {
+    return $ListViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -141,11 +137,11 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String purpose,
       String? avatar,
       List<Label>? labels,
-      ListViewerState? viewer,
+      ListViewerState viewer,
       DateTime? indexedAt});
 
   @override
-  $ListViewerStateCopyWith<$Res>? get viewer;
+  $ListViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -165,7 +161,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? purpose = null,
     Object? avatar = freezed,
     Object? labels = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
     return _then(_$ListViewBasicImpl(
@@ -193,10 +189,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ListViewerState?,
+              as ListViewerState,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -216,7 +212,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       required this.purpose,
       this.avatar,
       final List<Label>? labels,
-      this.viewer,
+      this.viewer = const ListViewerState(),
       this.indexedAt})
       : _labels = labels;
 
@@ -245,7 +241,8 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   }
 
   @override
-  final ListViewerState? viewer;
+  @JsonKey()
+  final ListViewerState viewer;
   @override
   final DateTime? indexedAt;
 
@@ -297,7 +294,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       required final String purpose,
       final String? avatar,
       final List<Label>? labels,
-      final ListViewerState? viewer,
+      final ListViewerState viewer,
       final DateTime? indexedAt}) = _$ListViewBasicImpl;
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
@@ -317,7 +314,7 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   List<Label>? get labels;
   @override
-  ListViewerState? get viewer;
+  ListViewerState get viewer;
   @override
   DateTime? get indexedAt;
   @override

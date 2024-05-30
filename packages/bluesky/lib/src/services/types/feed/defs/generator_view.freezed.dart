@@ -32,7 +32,7 @@ mixin _$GeneratorView {
   int get likeCount => throw _privateConstructorUsedError;
   bool get acceptsInteractions => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
-  GeneratorViewerState? get viewer => throw _privateConstructorUsedError;
+  GeneratorViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -59,11 +59,11 @@ abstract class $GeneratorViewCopyWith<$Res> {
       int likeCount,
       bool acceptsInteractions,
       List<Label>? labels,
-      GeneratorViewerState? viewer,
+      GeneratorViewerState viewer,
       DateTime indexedAt});
 
   $ProfileViewCopyWith<$Res> get creator;
-  $GeneratorViewerStateCopyWith<$Res>? get viewer;
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -90,7 +90,7 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
     Object? likeCount = null,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
@@ -138,10 +138,10 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as GeneratorViewerState?,
+              as GeneratorViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -159,12 +159,8 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
 
   @override
   @pragma('vm:prefer-inline')
-  $GeneratorViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $GeneratorViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $GeneratorViewerStateCopyWith<$Res> get viewer {
+    return $GeneratorViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -190,13 +186,13 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
       int likeCount,
       bool acceptsInteractions,
       List<Label>? labels,
-      GeneratorViewerState? viewer,
+      GeneratorViewerState viewer,
       DateTime indexedAt});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
   @override
-  $GeneratorViewerStateCopyWith<$Res>? get viewer;
+  $GeneratorViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -221,7 +217,7 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
     Object? likeCount = null,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = null,
   }) {
     return _then(_$GeneratorViewImpl(
@@ -269,10 +265,10 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as GeneratorViewerState?,
+              as GeneratorViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -297,7 +293,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
       this.likeCount = 0,
       this.acceptsInteractions = false,
       final List<Label>? labels,
-      this.viewer,
+      this.viewer = const GeneratorViewerState(),
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
         _labels = labels;
@@ -348,7 +344,8 @@ class _$GeneratorViewImpl implements _GeneratorView {
   }
 
   @override
-  final GeneratorViewerState? viewer;
+  @JsonKey()
+  final GeneratorViewerState viewer;
   @override
   final DateTime indexedAt;
 
@@ -428,7 +425,7 @@ abstract class _GeneratorView implements GeneratorView {
       final int likeCount,
       final bool acceptsInteractions,
       final List<Label>? labels,
-      final GeneratorViewerState? viewer,
+      final GeneratorViewerState viewer,
       required final DateTime indexedAt}) = _$GeneratorViewImpl;
 
   factory _GeneratorView.fromJson(Map<String, dynamic> json) =
@@ -458,7 +455,7 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   List<Label>? get labels;
   @override
-  GeneratorViewerState? get viewer;
+  GeneratorViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override

@@ -36,9 +36,9 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
     @Default(0) int followersCount,
     @Default(0) int followsCount,
     @Default(0) int postsCount,
-    ProfileAssociated? associated,
+    @Default(ProfileAssociated()) ProfileAssociated associated,
     DateTime? indexedAt,
-    ViewerState? viewer,
+    @Default(ViewerState()) ViewerState viewer,
     List<Label>? labels,
   }) = _ProfileViewDetailed;
 

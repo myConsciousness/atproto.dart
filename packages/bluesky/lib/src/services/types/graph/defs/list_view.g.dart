@@ -37,7 +37,7 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const ListViewerState()
                   : ListViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
@@ -67,7 +67,7 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
       instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull('avatar', instance.avatar);
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['viewer'] = instance.viewer.toJson();
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

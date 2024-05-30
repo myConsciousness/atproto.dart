@@ -37,9 +37,9 @@ class PostView with _$PostView {
     @Default(0) int repostCount,
     @Default(0) int likeCount,
     required DateTime indexedAt,
-    ViewerState? viewer,
+    @Default(ViewerState()) ViewerState viewer,
     List<Label>? labels,
-    ThreadgateView? threadgate,
+    @Default(ThreadgateView()) ThreadgateView threadgate,
   }) = _PostView;
 
   factory PostView.fromJson(Map<String, Object?> json) =>

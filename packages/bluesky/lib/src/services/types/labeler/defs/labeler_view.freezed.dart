@@ -25,7 +25,7 @@ mixin _$LabelerView {
   String get cid => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
-  LabelerViewerState? get viewer => throw _privateConstructorUsedError;
+  LabelerViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
@@ -46,12 +46,12 @@ abstract class $LabelerViewCopyWith<$Res> {
       String cid,
       ProfileView creator,
       int likeCount,
-      LabelerViewerState? viewer,
+      LabelerViewerState viewer,
       DateTime indexedAt,
       List<Label>? labels});
 
   $ProfileViewCopyWith<$Res> get creator;
-  $LabelerViewerStateCopyWith<$Res>? get viewer;
+  $LabelerViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     Object? cid = null,
     Object? creator = null,
     Object? likeCount = null,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = null,
     Object? labels = freezed,
   }) {
@@ -92,10 +92,10 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as LabelerViewerState?,
+              as LabelerViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -117,12 +117,8 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
 
   @override
   @pragma('vm:prefer-inline')
-  $LabelerViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $LabelerViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $LabelerViewerStateCopyWith<$Res> get viewer {
+    return $LabelerViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -141,14 +137,14 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
       String cid,
       ProfileView creator,
       int likeCount,
-      LabelerViewerState? viewer,
+      LabelerViewerState viewer,
       DateTime indexedAt,
       List<Label>? labels});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
   @override
-  $LabelerViewerStateCopyWith<$Res>? get viewer;
+  $LabelerViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -166,7 +162,7 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
     Object? cid = null,
     Object? creator = null,
     Object? likeCount = null,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? indexedAt = null,
     Object? labels = freezed,
   }) {
@@ -187,10 +183,10 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
           ? _value.likeCount
           : likeCount // ignore: cast_nullable_to_non_nullable
               as int,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as LabelerViewerState?,
+              as LabelerViewerState,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -212,7 +208,7 @@ class _$LabelerViewImpl implements _LabelerView {
       required this.cid,
       required this.creator,
       this.likeCount = 0,
-      this.viewer,
+      this.viewer = const LabelerViewerState(),
       required this.indexedAt,
       final List<Label>? labels})
       : _labels = labels;
@@ -231,7 +227,8 @@ class _$LabelerViewImpl implements _LabelerView {
   @JsonKey()
   final int likeCount;
   @override
-  final LabelerViewerState? viewer;
+  @JsonKey()
+  final LabelerViewerState viewer;
   @override
   final DateTime indexedAt;
   final List<Label>? _labels;
@@ -290,7 +287,7 @@ abstract class _LabelerView implements LabelerView {
       required final String cid,
       required final ProfileView creator,
       final int likeCount,
-      final LabelerViewerState? viewer,
+      final LabelerViewerState viewer,
       required final DateTime indexedAt,
       final List<Label>? labels}) = _$LabelerViewImpl;
 
@@ -307,7 +304,7 @@ abstract class _LabelerView implements LabelerView {
   @override
   int get likeCount;
   @override
-  LabelerViewerState? get viewer;
+  LabelerViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override

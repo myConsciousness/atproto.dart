@@ -173,6 +173,7 @@ final class LexObjectTemplate {
           defaultValue: _getDefaultValue(
             property['default'],
             dataType.$1,
+            property['ref'],
           ),
         ),
       );
@@ -184,11 +185,23 @@ final class LexObjectTemplate {
   String? _getDefaultValue(
     final dynamic defaultValue,
     final String dataType,
+    final String? ref,
   ) {
     if (dataType == 'int') {
       return defaultValue != null ? defaultValue.toString() : '0';
     } else if (dataType == 'bool') {
       return defaultValue != null ? defaultValue.toString() : 'false';
+    }
+
+    if (ref != null) {
+      final requiredProperties = getRef(docId, ref).whenOrNull(
+        object: (data) => data.requiredProperties ?? const [],
+      );
+
+      if (requiredProperties == null || requiredProperties.isEmpty) {
+        // There is no required properties.
+        return '$dataType()';
+      }
     }
 
     return null;

@@ -41,7 +41,7 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const GeneratorViewerState()
                   : GeneratorViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
@@ -73,7 +73,7 @@ Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
   val['likeCount'] = instance.likeCount;
   val['acceptsInteractions'] = instance.acceptsInteractions;
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['viewer'] = instance.viewer.toJson();
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;
 }

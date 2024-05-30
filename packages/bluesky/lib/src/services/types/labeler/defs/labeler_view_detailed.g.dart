@@ -28,7 +28,7 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const LabelerViewerState()
                   : LabelerViewerState.fromJson(
                       Map<String, Object?>.from(v as Map))),
           indexedAt:
@@ -52,6 +52,8 @@ Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
     'creator': instance.creator.toJson(),
     'policies': instance.policies.toJson(),
     'likeCount': instance.likeCount,
+    'viewer': instance.viewer.toJson(),
+    'indexedAt': instance.indexedAt.toIso8601String(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -60,8 +62,6 @@ Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
     }
   }
 
-  writeNotNull('viewer', instance.viewer?.toJson());
-  val['indexedAt'] = instance.indexedAt.toIso8601String();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   return val;
 }

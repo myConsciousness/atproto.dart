@@ -23,7 +23,7 @@ DescribeFeedGeneratorOutput _$DescribeFeedGeneratorOutputFromJson(
 mixin _$DescribeFeedGeneratorOutput {
   String get did => throw _privateConstructorUsedError;
   List<Feed> get feeds => throw _privateConstructorUsedError;
-  Links? get links => throw _privateConstructorUsedError;
+  Links get links => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,9 +39,9 @@ abstract class $DescribeFeedGeneratorOutputCopyWith<$Res> {
       _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
           DescribeFeedGeneratorOutput>;
   @useResult
-  $Res call({String did, List<Feed> feeds, Links? links});
+  $Res call({String did, List<Feed> feeds, Links links});
 
-  $LinksCopyWith<$Res>? get links;
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -60,7 +60,7 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
   $Res call({
     Object? did = null,
     Object? feeds = null,
-    Object? links = freezed,
+    Object? links = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -71,21 +71,17 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
+              as Links,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $LinksCopyWith<$Res>? get links {
-    if (_value.links == null) {
-      return null;
-    }
-
-    return $LinksCopyWith<$Res>(_value.links!, (value) {
+  $LinksCopyWith<$Res> get links {
+    return $LinksCopyWith<$Res>(_value.links, (value) {
       return _then(_value.copyWith(links: value) as $Val);
     });
   }
@@ -100,10 +96,10 @@ abstract class _$$DescribeFeedGeneratorOutputImplCopyWith<$Res>
       __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, List<Feed> feeds, Links? links});
+  $Res call({String did, List<Feed> feeds, Links links});
 
   @override
-  $LinksCopyWith<$Res>? get links;
+  $LinksCopyWith<$Res> get links;
 }
 
 /// @nodoc
@@ -121,7 +117,7 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? feeds = null,
-    Object? links = freezed,
+    Object? links = null,
   }) {
     return _then(_$DescribeFeedGeneratorOutputImpl(
       did: null == did
@@ -132,10 +128,10 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<Feed>,
-      links: freezed == links
+      links: null == links
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
-              as Links?,
+              as Links,
     ));
   }
 }
@@ -146,7 +142,9 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
 class _$DescribeFeedGeneratorOutputImpl
     implements _DescribeFeedGeneratorOutput {
   const _$DescribeFeedGeneratorOutputImpl(
-      {required this.did, required final List<Feed> feeds, this.links})
+      {required this.did,
+      required final List<Feed> feeds,
+      this.links = const Links()})
       : _feeds = feeds;
 
   factory _$DescribeFeedGeneratorOutputImpl.fromJson(
@@ -164,7 +162,8 @@ class _$DescribeFeedGeneratorOutputImpl
   }
 
   @override
-  final Links? links;
+  @JsonKey()
+  final Links links;
 
   @override
   String toString() {
@@ -206,7 +205,7 @@ abstract class _DescribeFeedGeneratorOutput
   const factory _DescribeFeedGeneratorOutput(
       {required final String did,
       required final List<Feed> feeds,
-      final Links? links}) = _$DescribeFeedGeneratorOutputImpl;
+      final Links links}) = _$DescribeFeedGeneratorOutputImpl;
 
   factory _DescribeFeedGeneratorOutput.fromJson(Map<String, dynamic> json) =
       _$DescribeFeedGeneratorOutputImpl.fromJson;
@@ -216,7 +215,7 @@ abstract class _DescribeFeedGeneratorOutput
   @override
   List<Feed> get feeds;
   @override
-  Links? get links;
+  Links get links;
   @override
   @JsonKey(ignore: true)
   _$$DescribeFeedGeneratorOutputImplCopyWith<_$DescribeFeedGeneratorOutputImpl>

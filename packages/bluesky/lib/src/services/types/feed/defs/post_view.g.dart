@@ -34,7 +34,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const ViewerState()
                   : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
@@ -45,7 +45,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
           threadgate: $checkedConvert(
               'threadgate',
               (v) => v == null
-                  ? null
+                  ? const ThreadgateView()
                   : ThreadgateView.fromJson(
                       Map<String, Object?>.from(v as Map))),
         );
@@ -72,8 +72,8 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
-  writeNotNull('viewer', instance.viewer?.toJson());
+  val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  writeNotNull('threadgate', instance.threadgate?.toJson());
+  val['threadgate'] = instance.threadgate.toJson();
   return val;
 }

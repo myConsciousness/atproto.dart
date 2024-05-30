@@ -29,9 +29,9 @@ mixin _$ProfileViewDetailed {
   int get followersCount => throw _privateConstructorUsedError;
   int get followsCount => throw _privateConstructorUsedError;
   int get postsCount => throw _privateConstructorUsedError;
-  ProfileAssociated? get associated => throw _privateConstructorUsedError;
+  ProfileAssociated get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
-  ViewerState? get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,13 +56,13 @@ abstract class $ProfileViewDetailedCopyWith<$Res> {
       int followersCount,
       int followsCount,
       int postsCount,
-      ProfileAssociated? associated,
+      ProfileAssociated associated,
       DateTime? indexedAt,
-      ViewerState? viewer,
+      ViewerState viewer,
       List<Label>? labels});
 
-  $ProfileAssociatedCopyWith<$Res>? get associated;
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ProfileAssociatedCopyWith<$Res> get associated;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -87,9 +87,9 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
     Object? followersCount = null,
     Object? followsCount = null,
     Object? postsCount = null,
-    Object? associated = freezed,
+    Object? associated = null,
     Object? indexedAt = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
@@ -129,18 +129,18 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      associated: freezed == associated
+      associated: null == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
+              as ProfileAssociated,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -150,24 +150,16 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileAssociatedCopyWith<$Res>? get associated {
-    if (_value.associated == null) {
-      return null;
-    }
-
-    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
+  $ProfileAssociatedCopyWith<$Res> get associated {
+    return $ProfileAssociatedCopyWith<$Res>(_value.associated, (value) {
       return _then(_value.copyWith(associated: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $ViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -191,15 +183,15 @@ abstract class _$$ProfileViewDetailedImplCopyWith<$Res>
       int followersCount,
       int followsCount,
       int postsCount,
-      ProfileAssociated? associated,
+      ProfileAssociated associated,
       DateTime? indexedAt,
-      ViewerState? viewer,
+      ViewerState viewer,
       List<Label>? labels});
 
   @override
-  $ProfileAssociatedCopyWith<$Res>? get associated;
+  $ProfileAssociatedCopyWith<$Res> get associated;
   @override
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -222,9 +214,9 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
     Object? followersCount = null,
     Object? followsCount = null,
     Object? postsCount = null,
-    Object? associated = freezed,
+    Object? associated = null,
     Object? indexedAt = freezed,
-    Object? viewer = freezed,
+    Object? viewer = null,
     Object? labels = freezed,
   }) {
     return _then(_$ProfileViewDetailedImpl(
@@ -264,18 +256,18 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
           ? _value.postsCount
           : postsCount // ignore: cast_nullable_to_non_nullable
               as int,
-      associated: freezed == associated
+      associated: null == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
+              as ProfileAssociated,
       indexedAt: freezed == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -298,9 +290,9 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       this.followersCount = 0,
       this.followsCount = 0,
       this.postsCount = 0,
-      this.associated,
+      this.associated = const ProfileAssociated(),
       this.indexedAt,
-      this.viewer,
+      this.viewer = const ViewerState(),
       final List<Label>? labels})
       : _labels = labels;
 
@@ -329,11 +321,13 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
   @JsonKey()
   final int postsCount;
   @override
-  final ProfileAssociated? associated;
+  @JsonKey()
+  final ProfileAssociated associated;
   @override
   final DateTime? indexedAt;
   @override
-  final ViewerState? viewer;
+  @JsonKey()
+  final ViewerState viewer;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -420,9 +414,9 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
       final int followersCount,
       final int followsCount,
       final int postsCount,
-      final ProfileAssociated? associated,
+      final ProfileAssociated associated,
       final DateTime? indexedAt,
-      final ViewerState? viewer,
+      final ViewerState viewer,
       final List<Label>? labels}) = _$ProfileViewDetailedImpl;
 
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) =
@@ -447,11 +441,11 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   @override
   int get postsCount;
   @override
-  ProfileAssociated? get associated;
+  ProfileAssociated get associated;
   @override
   DateTime? get indexedAt;
   @override
-  ViewerState? get viewer;
+  ViewerState get viewer;
   @override
   List<Label>? get labels;
   @override

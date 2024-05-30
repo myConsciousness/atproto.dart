@@ -17,24 +17,15 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
-                  ? null
+                  ? const ViewerState()
                   : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) {
-  final val = <String, dynamic>{
-    'did': instance.did,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('viewer', instance.viewer?.toJson());
-  return val;
-}
+Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
+    <String, dynamic>{
+      'did': instance.did,
+      'viewer': instance.viewer.toJson(),
+    };

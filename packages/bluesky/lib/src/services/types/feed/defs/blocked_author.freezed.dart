@@ -21,7 +21,7 @@ BlockedAuthor _$BlockedAuthorFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$BlockedAuthor {
   String get did => throw _privateConstructorUsedError;
-  ViewerState? get viewer => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +35,9 @@ abstract class $BlockedAuthorCopyWith<$Res> {
           BlockedAuthor value, $Res Function(BlockedAuthor) then) =
       _$BlockedAuthorCopyWithImpl<$Res, BlockedAuthor>;
   @useResult
-  $Res call({String did, ViewerState? viewer});
+  $Res call({String did, ViewerState viewer});
 
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -54,28 +54,24 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
   @override
   $Res call({
     Object? did = null,
-    Object? viewer = freezed,
+    Object? viewer = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $ViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -89,10 +85,10 @@ abstract class _$$BlockedAuthorImplCopyWith<$Res>
       __$$BlockedAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, ViewerState? viewer});
+  $Res call({String did, ViewerState viewer});
 
   @override
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -107,17 +103,17 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? did = null,
-    Object? viewer = freezed,
+    Object? viewer = null,
   }) {
     return _then(_$BlockedAuthorImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      viewer: freezed == viewer
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
     ));
   }
 }
@@ -126,7 +122,8 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$BlockedAuthorImpl implements _BlockedAuthor {
-  const _$BlockedAuthorImpl({required this.did, this.viewer});
+  const _$BlockedAuthorImpl(
+      {required this.did, this.viewer = const ViewerState()});
 
   factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedAuthorImplFromJson(json);
@@ -134,7 +131,8 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   @override
   final String did;
   @override
-  final ViewerState? viewer;
+  @JsonKey()
+  final ViewerState viewer;
 
   @override
   String toString() {
@@ -171,7 +169,7 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
 abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
       {required final String did,
-      final ViewerState? viewer}) = _$BlockedAuthorImpl;
+      final ViewerState viewer}) = _$BlockedAuthorImpl;
 
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
       _$BlockedAuthorImpl.fromJson;
@@ -179,7 +177,7 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   @override
   String get did;
   @override
-  ViewerState? get viewer;
+  ViewerState get viewer;
   @override
   @JsonKey(ignore: true)
   _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>

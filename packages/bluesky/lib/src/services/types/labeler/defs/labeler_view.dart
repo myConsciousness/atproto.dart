@@ -31,7 +31,7 @@ class LabelerView with _$LabelerView {
     required String cid,
     required ProfileView creator,
     @Default(0) int likeCount,
-    LabelerViewerState? viewer,
+    @Default(LabelerViewerState()) LabelerViewerState viewer,
     required DateTime indexedAt,
     List<Label>? labels,
   }) = _LabelerView;

@@ -39,7 +39,7 @@ class GeneratorView with _$GeneratorView {
     @Default(0) int likeCount,
     @Default(false) bool acceptsInteractions,
     List<Label>? labels,
-    GeneratorViewerState? viewer,
+    @Default(GeneratorViewerState()) GeneratorViewerState viewer,
     required DateTime indexedAt,
   }) = _GeneratorView;
 

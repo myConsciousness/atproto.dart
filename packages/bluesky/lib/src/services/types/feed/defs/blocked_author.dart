@@ -26,7 +26,7 @@ class BlockedAuthor with _$BlockedAuthor {
   @jsonSerializable
   const factory BlockedAuthor({
     required String did,
-    ViewerState? viewer,
+    @Default(ViewerState()) ViewerState viewer,
   }) = _BlockedAuthor;
 
   factory BlockedAuthor.fromJson(Map<String, Object?> json) =>

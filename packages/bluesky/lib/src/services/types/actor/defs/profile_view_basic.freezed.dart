@@ -24,8 +24,8 @@ mixin _$ProfileViewBasic {
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  ProfileAssociated? get associated => throw _privateConstructorUsedError;
-  ViewerState? get viewer => throw _privateConstructorUsedError;
+  ProfileAssociated get associated => throw _privateConstructorUsedError;
+  ViewerState get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,12 +45,12 @@ abstract class $ProfileViewBasicCopyWith<$Res> {
       String handle,
       String? displayName,
       String? avatar,
-      ProfileAssociated? associated,
-      ViewerState? viewer,
+      ProfileAssociated associated,
+      ViewerState viewer,
       List<Label>? labels});
 
-  $ProfileAssociatedCopyWith<$Res>? get associated;
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ProfileAssociatedCopyWith<$Res> get associated;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -70,8 +70,8 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
     Object? handle = null,
     Object? displayName = freezed,
     Object? avatar = freezed,
-    Object? associated = freezed,
-    Object? viewer = freezed,
+    Object? associated = null,
+    Object? viewer = null,
     Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
@@ -91,14 +91,14 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      associated: freezed == associated
+      associated: null == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
-      viewer: freezed == viewer
+              as ProfileAssociated,
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -108,24 +108,16 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileAssociatedCopyWith<$Res>? get associated {
-    if (_value.associated == null) {
-      return null;
-    }
-
-    return $ProfileAssociatedCopyWith<$Res>(_value.associated!, (value) {
+  $ProfileAssociatedCopyWith<$Res> get associated {
+    return $ProfileAssociatedCopyWith<$Res>(_value.associated, (value) {
       return _then(_value.copyWith(associated: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ViewerStateCopyWith<$Res>? get viewer {
-    if (_value.viewer == null) {
-      return null;
-    }
-
-    return $ViewerStateCopyWith<$Res>(_value.viewer!, (value) {
+  $ViewerStateCopyWith<$Res> get viewer {
+    return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
     });
   }
@@ -144,14 +136,14 @@ abstract class _$$ProfileViewBasicImplCopyWith<$Res>
       String handle,
       String? displayName,
       String? avatar,
-      ProfileAssociated? associated,
-      ViewerState? viewer,
+      ProfileAssociated associated,
+      ViewerState viewer,
       List<Label>? labels});
 
   @override
-  $ProfileAssociatedCopyWith<$Res>? get associated;
+  $ProfileAssociatedCopyWith<$Res> get associated;
   @override
-  $ViewerStateCopyWith<$Res>? get viewer;
+  $ViewerStateCopyWith<$Res> get viewer;
 }
 
 /// @nodoc
@@ -169,8 +161,8 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? displayName = freezed,
     Object? avatar = freezed,
-    Object? associated = freezed,
-    Object? viewer = freezed,
+    Object? associated = null,
+    Object? viewer = null,
     Object? labels = freezed,
   }) {
     return _then(_$ProfileViewBasicImpl(
@@ -190,14 +182,14 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      associated: freezed == associated
+      associated: null == associated
           ? _value.associated
           : associated // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociated?,
-      viewer: freezed == viewer
+              as ProfileAssociated,
+      viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
-              as ViewerState?,
+              as ViewerState,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -215,8 +207,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       required this.handle,
       this.displayName,
       this.avatar,
-      this.associated,
-      this.viewer,
+      this.associated = const ProfileAssociated(),
+      this.viewer = const ViewerState(),
       final List<Label>? labels})
       : _labels = labels;
 
@@ -232,9 +224,11 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
   @override
   final String? avatar;
   @override
-  final ProfileAssociated? associated;
+  @JsonKey()
+  final ProfileAssociated associated;
   @override
-  final ViewerState? viewer;
+  @JsonKey()
+  final ViewerState viewer;
   final List<Label>? _labels;
   @override
   List<Label>? get labels {
@@ -292,8 +286,8 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
       required final String handle,
       final String? displayName,
       final String? avatar,
-      final ProfileAssociated? associated,
-      final ViewerState? viewer,
+      final ProfileAssociated associated,
+      final ViewerState viewer,
       final List<Label>? labels}) = _$ProfileViewBasicImpl;
 
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =
@@ -308,9 +302,9 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
   @override
   String? get avatar;
   @override
-  ProfileAssociated? get associated;
+  ProfileAssociated get associated;
   @override
-  ViewerState? get viewer;
+  ViewerState get viewer;
   @override
   List<Label>? get labels;
   @override
