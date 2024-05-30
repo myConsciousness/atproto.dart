@@ -21,10 +21,12 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
           avatar: $checkedConvert('avatar', (v) => v as String?),
           labels: $checkedConvert(
               'labels',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) =>
+                          Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      .toList() ??
+                  const []),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -53,7 +55,7 @@ Map<String, dynamic> _$$ListViewBasicImplToJson(_$ListViewBasicImpl instance) {
   }
 
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   return val;

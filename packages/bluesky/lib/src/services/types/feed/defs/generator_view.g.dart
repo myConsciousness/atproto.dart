@@ -23,10 +23,12 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) =>
+                          Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                      .toList() ??
+                  const []),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           likeCount:
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
@@ -34,10 +36,12 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
               'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(
               'labels',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) =>
+                          Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      .toList() ??
+                  const []),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
@@ -67,12 +71,12 @@ Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
   }
 
   writeNotNull('description', instance.description);
-  writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
+  val['descriptionFacets'] =
+      instance.descriptionFacets.map((e) => e.toJson()).toList();
   writeNotNull('avatar', instance.avatar);
   val['likeCount'] = instance.likeCount;
   val['acceptsInteractions'] = instance.acceptsInteractions;
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   val['viewer'] = instance.viewer.toJson();
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   return val;

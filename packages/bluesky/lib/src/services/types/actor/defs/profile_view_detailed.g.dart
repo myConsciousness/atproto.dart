@@ -41,10 +41,12 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
                   : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
           labels: $checkedConvert(
               'labels',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
-                  .toList()),
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) =>
+                          Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      .toList() ??
+                  const []),
         );
         return val;
       },
@@ -73,6 +75,6 @@ Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
   val['associated'] = instance.associated.toJson();
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   return val;
 }

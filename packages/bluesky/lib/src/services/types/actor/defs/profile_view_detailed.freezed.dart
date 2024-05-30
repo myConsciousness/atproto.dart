@@ -32,7 +32,7 @@ mixin _$ProfileViewDetailed {
   ProfileAssociated get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
   ViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -59,7 +59,7 @@ abstract class $ProfileViewDetailedCopyWith<$Res> {
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label>? labels});
+      List<Label> labels});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
   $ViewerStateCopyWith<$Res> get viewer;
@@ -90,7 +90,7 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
     Object? associated = null,
     Object? indexedAt = freezed,
     Object? viewer = null,
-    Object? labels = freezed,
+    Object? labels = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -141,10 +141,10 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: freezed == labels
+      labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
     ) as $Val);
   }
 
@@ -186,7 +186,7 @@ abstract class _$$ProfileViewDetailedImplCopyWith<$Res>
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label>? labels});
+      List<Label> labels});
 
   @override
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -217,7 +217,7 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
     Object? associated = null,
     Object? indexedAt = freezed,
     Object? viewer = null,
-    Object? labels = freezed,
+    Object? labels = null,
   }) {
     return _then(_$ProfileViewDetailedImpl(
       did: null == did
@@ -268,10 +268,10 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: freezed == labels
+      labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
     ));
   }
 }
@@ -293,7 +293,7 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       this.associated = const ProfileAssociated(),
       this.indexedAt,
       this.viewer = const ViewerState(),
-      final List<Label>? labels})
+      final List<Label> labels = const []})
       : _labels = labels;
 
   factory _$ProfileViewDetailedImpl.fromJson(Map<String, dynamic> json) =>
@@ -328,14 +328,13 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
   @override
   @JsonKey()
   final ViewerState viewer;
-  final List<Label>? _labels;
+  final List<Label> _labels;
   @override
-  List<Label>? get labels {
-    final value = _labels;
-    if (value == null) return null;
+  @JsonKey()
+  List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_labels);
   }
 
   @override
@@ -417,7 +416,7 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
       final ProfileAssociated associated,
       final DateTime? indexedAt,
       final ViewerState viewer,
-      final List<Label>? labels}) = _$ProfileViewDetailedImpl;
+      final List<Label> labels}) = _$ProfileViewDetailedImpl;
 
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) =
       _$ProfileViewDetailedImpl.fromJson;
@@ -447,7 +446,7 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   @override
   ViewerState get viewer;
   @override
-  List<Label>? get labels;
+  List<Label> get labels;
   @override
   @JsonKey(ignore: true)
   _$$ProfileViewDetailedImplCopyWith<_$ProfileViewDetailedImpl> get copyWith =>

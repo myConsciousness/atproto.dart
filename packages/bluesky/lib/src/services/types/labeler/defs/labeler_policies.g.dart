@@ -18,28 +18,21 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           labelValueDefinitions: $checkedConvert(
               'labelValueDefinitions',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => LabelValueDefinition.fromJson(
-                      Map<String, Object?>.from(e as Map)))
-                  .toList()),
+              (v) =>
+                  (v as List<dynamic>?)
+                      ?.map((e) => LabelValueDefinition.fromJson(
+                          Map<String, Object?>.from(e as Map)))
+                      .toList() ??
+                  const []),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$LabelerPoliciesImplToJson(
-    _$LabelerPoliciesImpl instance) {
-  final val = <String, dynamic>{
-    'labelValues': instance.labelValues,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('labelValueDefinitions',
-      instance.labelValueDefinitions?.map((e) => e.toJson()).toList());
-  return val;
-}
+        _$LabelerPoliciesImpl instance) =>
+    <String, dynamic>{
+      'labelValues': instance.labelValues,
+      'labelValueDefinitions':
+          instance.labelValueDefinitions.map((e) => e.toJson()).toList(),
+    };

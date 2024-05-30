@@ -26,7 +26,7 @@ mixin _$ListViewBasic {
   String get name => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
@@ -48,7 +48,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String name,
       String purpose,
       String? avatar,
-      List<Label>? labels,
+      List<Label> labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
@@ -73,7 +73,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -98,10 +98,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: freezed == labels
+      labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -136,7 +136,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String name,
       String purpose,
       String? avatar,
-      List<Label>? labels,
+      List<Label> labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
@@ -160,7 +160,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -185,10 +185,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: freezed == labels
+      labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       required this.name,
       required this.purpose,
       this.avatar,
-      final List<Label>? labels,
+      final List<Label> labels = const [],
       this.viewer = const ListViewerState(),
       this.indexedAt})
       : _labels = labels;
@@ -230,14 +230,13 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   final String purpose;
   @override
   final String? avatar;
-  final List<Label>? _labels;
+  final List<Label> _labels;
   @override
-  List<Label>? get labels {
-    final value = _labels;
-    if (value == null) return null;
+  @JsonKey()
+  List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_labels);
   }
 
   @override
@@ -293,7 +292,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       required final String name,
       required final String purpose,
       final String? avatar,
-      final List<Label>? labels,
+      final List<Label> labels,
       final ListViewerState viewer,
       final DateTime? indexedAt}) = _$ListViewBasicImpl;
 
@@ -312,7 +311,7 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   String? get avatar;
   @override
-  List<Label>? get labels;
+  List<Label> get labels;
   @override
   ListViewerState get viewer;
   @override

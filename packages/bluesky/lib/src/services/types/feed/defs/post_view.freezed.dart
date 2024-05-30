@@ -31,7 +31,7 @@ mixin _$PostView {
   int get likeCount => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   ViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   ThreadgateView get threadgate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ abstract class $PostViewCopyWith<$Res> {
       int likeCount,
       DateTime indexedAt,
       ViewerState viewer,
-      List<Label>? labels,
+      List<Label> labels,
       ThreadgateView threadgate});
 
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -87,7 +87,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
     Object? likeCount = null,
     Object? indexedAt = null,
     Object? viewer = null,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? threadgate = null,
   }) {
     return _then(_value.copyWith(
@@ -131,10 +131,10 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: freezed == labels
+      labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       threadgate: null == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
@@ -186,7 +186,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       int likeCount,
       DateTime indexedAt,
       ViewerState viewer,
-      List<Label>? labels,
+      List<Label> labels,
       ThreadgateView threadgate});
 
   @override
@@ -218,7 +218,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
     Object? likeCount = null,
     Object? indexedAt = null,
     Object? viewer = null,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? threadgate = null,
   }) {
     return _then(_$PostViewImpl(
@@ -262,10 +262,10 @@ class __$$PostViewImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: freezed == labels
+      labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       threadgate: null == threadgate
           ? _value.threadgate
           : threadgate // ignore: cast_nullable_to_non_nullable
@@ -289,7 +289,7 @@ class _$PostViewImpl implements _PostView {
       this.likeCount = 0,
       required this.indexedAt,
       this.viewer = const ViewerState(),
-      final List<Label>? labels,
+      final List<Label> labels = const [],
       this.threadgate = const ThreadgateView()})
       : _record = record,
         _labels = labels;
@@ -328,14 +328,13 @@ class _$PostViewImpl implements _PostView {
   @override
   @JsonKey()
   final ViewerState viewer;
-  final List<Label>? _labels;
+  final List<Label> _labels;
   @override
-  List<Label>? get labels {
-    final value = _labels;
-    if (value == null) return null;
+  @JsonKey()
+  List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_labels);
   }
 
   @override
@@ -414,7 +413,7 @@ abstract class _PostView implements PostView {
       final int likeCount,
       required final DateTime indexedAt,
       final ViewerState viewer,
-      final List<Label>? labels,
+      final List<Label> labels,
       final ThreadgateView threadgate}) = _$PostViewImpl;
 
   factory _PostView.fromJson(Map<String, dynamic> json) =
@@ -442,7 +441,7 @@ abstract class _PostView implements PostView {
   @override
   ViewerState get viewer;
   @override
-  List<Label>? get labels;
+  List<Label> get labels;
   @override
   ThreadgateView get threadgate;
   @override

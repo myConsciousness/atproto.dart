@@ -27,9 +27,9 @@ mixin _$ListView {
   String get name => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
+  List<Facet> get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  List<Label>? get labels => throw _privateConstructorUsedError;
+  List<Label> get labels => throw _privateConstructorUsedError;
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -51,9 +51,9 @@ abstract class $ListViewCopyWith<$Res> {
       String name,
       String purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Facet> descriptionFacets,
       String? avatar,
-      List<Label>? labels,
+      List<Label> labels,
       ListViewerState viewer,
       DateTime indexedAt});
 
@@ -80,9 +80,9 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? name = null,
     Object? purpose = null,
     Object? description = freezed,
-    Object? descriptionFacets = freezed,
+    Object? descriptionFacets = null,
     Object? avatar = freezed,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -111,18 +111,18 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: freezed == descriptionFacets
+      descriptionFacets: null == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Facet>,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: freezed == labels
+      labels: null == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -166,9 +166,9 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String name,
       String purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      List<Facet> descriptionFacets,
       String? avatar,
-      List<Label>? labels,
+      List<Label> labels,
       ListViewerState viewer,
       DateTime indexedAt});
 
@@ -195,9 +195,9 @@ class __$$ListViewImplCopyWithImpl<$Res>
     Object? name = null,
     Object? purpose = null,
     Object? description = freezed,
-    Object? descriptionFacets = freezed,
+    Object? descriptionFacets = null,
     Object? avatar = freezed,
-    Object? labels = freezed,
+    Object? labels = null,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -226,18 +226,18 @@ class __$$ListViewImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: freezed == descriptionFacets
+      descriptionFacets: null == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>?,
+              as List<Facet>,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: freezed == labels
+      labels: null == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>?,
+              as List<Label>,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -261,9 +261,9 @@ class _$ListViewImpl implements _ListView {
       required this.name,
       required this.purpose,
       this.description,
-      final List<Facet>? descriptionFacets,
+      final List<Facet> descriptionFacets = const [],
       this.avatar,
-      final List<Label>? labels,
+      final List<Label> labels = const [],
       this.viewer = const ListViewerState(),
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
@@ -285,27 +285,25 @@ class _$ListViewImpl implements _ListView {
   final String purpose;
   @override
   final String? description;
-  final List<Facet>? _descriptionFacets;
+  final List<Facet> _descriptionFacets;
   @override
-  List<Facet>? get descriptionFacets {
-    final value = _descriptionFacets;
-    if (value == null) return null;
+  @JsonKey()
+  List<Facet> get descriptionFacets {
     if (_descriptionFacets is EqualUnmodifiableListView)
       return _descriptionFacets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_descriptionFacets);
   }
 
   @override
   final String? avatar;
-  final List<Label>? _labels;
+  final List<Label> _labels;
   @override
-  List<Label>? get labels {
-    final value = _labels;
-    if (value == null) return null;
+  @JsonKey()
+  List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
+    return EqualUnmodifiableListView(_labels);
   }
 
   @override
@@ -378,9 +376,9 @@ abstract class _ListView implements ListView {
       required final String name,
       required final String purpose,
       final String? description,
-      final List<Facet>? descriptionFacets,
+      final List<Facet> descriptionFacets,
       final String? avatar,
-      final List<Label>? labels,
+      final List<Label> labels,
       final ListViewerState viewer,
       required final DateTime indexedAt}) = _$ListViewImpl;
 
@@ -401,11 +399,11 @@ abstract class _ListView implements ListView {
   @override
   String? get description;
   @override
-  List<Facet>? get descriptionFacets;
+  List<Facet> get descriptionFacets;
   @override
   String? get avatar;
   @override
-  List<Label>? get labels;
+  List<Label> get labels;
   @override
   ListViewerState get viewer;
   @override
