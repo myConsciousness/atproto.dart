@@ -21,6 +21,7 @@ import 'images_aspect_ratio.dart';
 part 'images_image.freezed.dart';
 part 'images_image.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#image
 @freezed
 class ImagesImage with _$ImagesImage {
   @jsonSerializable

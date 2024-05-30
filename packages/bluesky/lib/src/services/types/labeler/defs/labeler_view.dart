@@ -22,6 +22,7 @@ import 'labeler_viewer_state.dart';
 part 'labeler_view.freezed.dart';
 part 'labeler_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerview
 @freezed
 class LabelerView with _$LabelerView {
   @jsonSerializable

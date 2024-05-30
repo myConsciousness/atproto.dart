@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view_detailed.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles#main
 @freezed
 class GetProfilesOutput with _$GetProfilesOutput {
   @jsonSerializable

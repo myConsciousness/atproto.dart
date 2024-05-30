@@ -20,6 +20,7 @@ import '../../feed/defs/post_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts#main
 @freezed
 class GetPostsOutput with _$GetPostsOutput {
   @jsonSerializable

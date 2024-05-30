@@ -21,6 +21,7 @@ import 'links.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#main
 @freezed
 class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
   @jsonSerializable

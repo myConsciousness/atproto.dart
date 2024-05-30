@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions#main
 @freezed
 class GetSuggestionsOutput with _$GetSuggestionsOutput {
   @jsonSerializable

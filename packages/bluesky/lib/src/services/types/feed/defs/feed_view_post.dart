@@ -21,6 +21,7 @@ import 'reply_ref.dart';
 part 'feed_view_post.freezed.dart';
 part 'feed_view_post.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
 class FeedViewPost with _$FeedViewPost {
   @jsonSerializable

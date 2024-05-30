@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'text_slice.freezed.dart';
 part 'text_slice.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#textslice
 @freezed
 class TextSlice with _$TextSlice {
   @jsonSerializable

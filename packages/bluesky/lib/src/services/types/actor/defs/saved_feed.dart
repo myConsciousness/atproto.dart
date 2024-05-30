@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'saved_feed.freezed.dart';
 part 'saved_feed.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeed
 @freezed
 class SavedFeed with _$SavedFeed {
   @jsonSerializable

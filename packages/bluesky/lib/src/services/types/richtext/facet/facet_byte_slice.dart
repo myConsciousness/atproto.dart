@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'facet_byte_slice.freezed.dart';
 part 'facet_byte_slice.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#byteslice
 @freezed
 class FacetByteSlice with _$FacetByteSlice {
   @jsonSerializable

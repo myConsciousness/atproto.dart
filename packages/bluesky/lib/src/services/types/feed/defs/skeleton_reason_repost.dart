@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'skeleton_reason_repost.freezed.dart';
 part 'skeleton_reason_repost.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonreasonrepost
 @freezed
 class SkeletonReasonRepost with _$SkeletonReasonRepost {
   @jsonSerializable

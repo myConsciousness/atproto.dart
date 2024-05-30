@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 class Suggestion with _$Suggestion {
   @jsonSerializable

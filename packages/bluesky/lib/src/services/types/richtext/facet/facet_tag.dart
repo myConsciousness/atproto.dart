@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'facet_tag.freezed.dart';
 part 'facet_tag.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
 class FacetTag with _$FacetTag {
   @jsonSerializable

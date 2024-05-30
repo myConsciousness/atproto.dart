@@ -18,6 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'labeler_policies.freezed.dart';
 part 'labeler_policies.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerpolicies
 @freezed
 class LabelerPolicies with _$LabelerPolicies {
   @jsonSerializable

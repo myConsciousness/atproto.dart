@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'hidden_posts_pref.freezed.dart';
 part 'hidden_posts_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#hiddenpostspref
 @freezed
 class HiddenPostsPref with _$HiddenPostsPref {
   @jsonSerializable

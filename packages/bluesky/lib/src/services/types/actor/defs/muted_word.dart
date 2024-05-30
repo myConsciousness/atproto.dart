@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'muted_word.freezed.dart';
 part 'muted_word.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#mutedword
 @freezed
 class MutedWord with _$MutedWord {
   @jsonSerializable

@@ -20,6 +20,7 @@ import 'external_external.dart';
 part 'external.freezed.dart';
 part 'external.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#main
 @freezed
 class External with _$External {
   @jsonSerializable

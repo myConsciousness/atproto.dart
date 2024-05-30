@@ -20,6 +20,7 @@ import '../../feed/defs/generator_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators#main
 @freezed
 class GetFeedGeneratorsOutput with _$GetFeedGeneratorsOutput {
   @jsonSerializable

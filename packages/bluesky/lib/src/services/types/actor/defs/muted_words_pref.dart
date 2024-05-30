@@ -20,6 +20,7 @@ import 'muted_word.dart';
 part 'muted_words_pref.freezed.dart';
 part 'muted_words_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#mutedwordspref
 @freezed
 class MutedWordsPref with _$MutedWordsPref {
   @jsonSerializable

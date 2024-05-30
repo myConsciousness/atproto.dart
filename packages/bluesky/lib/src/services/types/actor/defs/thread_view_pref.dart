@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'thread_view_pref.freezed.dart';
 part 'thread_view_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#threadviewpref
 @freezed
 class ThreadViewPref with _$ThreadViewPref {
   @jsonSerializable

@@ -20,6 +20,7 @@ import '../../graph/defs/list_view_basic.dart';
 part 'threadgate_view.freezed.dart';
 part 'threadgate_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadgateview
 @freezed
 class ThreadgateView with _$ThreadgateView {
   @jsonSerializable

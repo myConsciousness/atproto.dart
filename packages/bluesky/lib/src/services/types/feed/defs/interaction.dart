@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#interaction
 @freezed
 class Interaction with _$Interaction {
   @jsonSerializable

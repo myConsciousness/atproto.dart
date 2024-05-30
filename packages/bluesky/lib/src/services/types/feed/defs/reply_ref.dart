@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view_basic.dart';
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
 class ReplyRef with _$ReplyRef {
   @jsonSerializable

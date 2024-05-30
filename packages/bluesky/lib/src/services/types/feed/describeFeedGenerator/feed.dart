@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'feed.freezed.dart';
 part 'feed.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#feed
 @freezed
 class Feed with _$Feed {
   @jsonSerializable

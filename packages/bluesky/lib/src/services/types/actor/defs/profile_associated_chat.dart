@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociatedchat
 @freezed
 class ProfileAssociatedChat with _$ProfileAssociatedChat {
   @jsonSerializable

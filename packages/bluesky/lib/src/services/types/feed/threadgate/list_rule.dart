@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'list_rule.freezed.dart';
 part 'list_rule.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#listrule
 @freezed
 class ListRule with _$ListRule {
   @jsonSerializable

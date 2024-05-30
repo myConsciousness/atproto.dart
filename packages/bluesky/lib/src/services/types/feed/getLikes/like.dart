@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'like.freezed.dart';
 part 'like.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes#like
 @freezed
 class Like with _$Like {
   @jsonSerializable

@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'images_aspect_ratio.freezed.dart';
 part 'images_aspect_ratio.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed
 class ImagesAspectRatio with _$ImagesAspectRatio {
   @jsonSerializable

@@ -18,6 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#replyref
 @freezed
 class ReplyRef with _$ReplyRef {
   @jsonSerializable

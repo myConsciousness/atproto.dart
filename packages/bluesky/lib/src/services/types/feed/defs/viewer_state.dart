@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'viewer_state.freezed.dart';
 part 'viewer_state.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#viewerstate
 @freezed
 class ViewerState with _$ViewerState {
   @jsonSerializable

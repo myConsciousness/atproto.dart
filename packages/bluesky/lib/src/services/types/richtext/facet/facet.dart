@@ -20,6 +20,7 @@ import 'facet_byte_slice.dart';
 part 'facet.freezed.dart';
 part 'facet.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 class Facet with _$Facet {
   @jsonSerializable

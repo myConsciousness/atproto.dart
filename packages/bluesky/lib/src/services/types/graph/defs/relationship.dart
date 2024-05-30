@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
 class Relationship with _$Relationship {
   @jsonSerializable

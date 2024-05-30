@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'feed_view_pref.freezed.dart';
 part 'feed_view_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#feedviewpref
 @freezed
 class FeedViewPref with _$FeedViewPref {
   @jsonSerializable

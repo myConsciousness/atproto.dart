@@ -20,6 +20,7 @@ import 'blocked_author.dart';
 part 'blocked_post.freezed.dart';
 part 'blocked_post.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedpost
 @freezed
 class BlockedPost with _$BlockedPost {
   @jsonSerializable

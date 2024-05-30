@@ -20,6 +20,7 @@ import '../../embed/record/record_view.dart';
 part 'record_with_media_view.freezed.dart';
 part 'record_with_media_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#view
 @freezed
 class RecordWithMediaView with _$RecordWithMediaView {
   @jsonSerializable

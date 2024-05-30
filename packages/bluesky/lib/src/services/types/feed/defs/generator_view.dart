@@ -23,6 +23,7 @@ import 'generator_viewer_state.dart';
 part 'generator_view.freezed.dart';
 part 'generator_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorview
 @freezed
 class GeneratorView with _$GeneratorView {
   @jsonSerializable

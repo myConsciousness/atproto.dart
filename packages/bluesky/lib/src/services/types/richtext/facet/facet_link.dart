@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'facet_link.freezed.dart';
 part 'facet_link.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
 class FacetLink with _$FacetLink {
   @jsonSerializable

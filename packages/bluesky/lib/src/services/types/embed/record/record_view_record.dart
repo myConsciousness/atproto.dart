@@ -21,6 +21,7 @@ import '../../actor/defs/profile_view_basic.dart';
 part 'record_view_record.freezed.dart';
 part 'record_view_record.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
 class RecordViewRecord with _$RecordViewRecord {
   @jsonSerializable

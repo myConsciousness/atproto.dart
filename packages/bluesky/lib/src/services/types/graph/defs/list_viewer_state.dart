@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'list_viewer_state.freezed.dart';
 part 'list_viewer_state.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewerstate
 @freezed
 class ListViewerState with _$ListViewerState {
   @jsonSerializable

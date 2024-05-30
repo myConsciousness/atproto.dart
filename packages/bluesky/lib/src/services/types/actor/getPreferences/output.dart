@@ -20,6 +20,7 @@ import '../../actor/defs/preferences.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences#main
 @freezed
 class GetPreferencesOutput with _$GetPreferencesOutput {
   @jsonSerializable

@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount#main
 @freezed
 class GetUnreadCountOutput with _$GetUnreadCountOutput {
   @jsonSerializable

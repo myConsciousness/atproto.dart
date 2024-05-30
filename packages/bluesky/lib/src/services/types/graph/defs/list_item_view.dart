@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'list_item_view.freezed.dart';
 part 'list_item_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
 class ListItemView with _$ListItemView {
   @jsonSerializable

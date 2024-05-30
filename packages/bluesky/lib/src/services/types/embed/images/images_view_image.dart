@@ -20,6 +20,7 @@ import 'images_aspect_ratio.dart';
 part 'images_view_image.freezed.dart';
 part 'images_view_image.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#viewimage
 @freezed
 class ImagesViewImage with _$ImagesViewImage {
   @jsonSerializable

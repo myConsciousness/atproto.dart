@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#contentlabelpref
 @freezed
 class ContentLabelPref with _$ContentLabelPref {
   @jsonSerializable

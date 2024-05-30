@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'record_view.freezed.dart';
 part 'record_view.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
 class RecordView with _$RecordView {
   @jsonSerializable

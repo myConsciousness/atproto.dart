@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'external_view_external.freezed.dart';
 part 'external_view_external.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#viewexternal
 @freezed
 class ExternalViewExternal with _$ExternalViewExternal {
   @jsonSerializable

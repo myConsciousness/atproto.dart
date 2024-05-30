@@ -55,12 +55,14 @@ final class Property {
 final class LexObjectTemplate {
   const LexObjectTemplate(
     this.docId,
+    this.defName,
     this.namingConvention,
     this.def,
     this.mainObjects,
   );
 
   final NSID docId;
+  final String defName;
   final LexNamingConvention namingConvention;
   final LexUserType def;
   final List<String> mainObjects;
@@ -72,11 +74,14 @@ final class LexObjectTemplate {
     final fileName = namingConvention.getFileName();
     final objectName = namingConvention.getObjectName();
 
+    // Distinct
     final importPaths = properties
         .map((e) => e.importPath)
         .where((e) => e != null)
         .toSet()
         .toList();
+
+    final referencePath = getReferencePath(docId, defName);
 
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Object Generator'));
@@ -92,6 +97,7 @@ final class LexObjectTemplate {
     buffer.writeln("part '$fileName.freezed.dart';");
     buffer.writeln("part '$fileName.g.dart';");
     buffer.writeln();
+    buffer.writeln('// $referencePath');
     buffer.writeln('@freezed');
     buffer.writeln('class $objectName with _\$$objectName {');
     buffer.writeln('  @jsonSerializable');

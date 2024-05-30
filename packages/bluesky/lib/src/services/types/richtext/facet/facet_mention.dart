@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'facet_mention.freezed.dart';
 part 'facet_mention.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
 class FacetMention with _$FacetMention {
   @jsonSerializable

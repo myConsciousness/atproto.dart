@@ -43,6 +43,7 @@ void main(List<String> args) {
       if (convention != null) {
         final template = LexObjectTemplate(
           lexiconId,
+          defName,
           convention,
           def,
           mainObjects,
@@ -178,6 +179,15 @@ String _getLexiconId(
   }
 
   return '$ref#main';
+}
+
+String getReferencePath(
+  final NSID docId,
+  final String defName,
+) {
+  final service = docId.toString().replaceAll('.', '/');
+
+  return 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}';
 }
 
 final class LexNamingConvention {

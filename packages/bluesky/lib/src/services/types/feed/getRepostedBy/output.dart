@@ -20,6 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy#main
 @freezed
 class GetRepostedByOutput with _$GetRepostedByOutput {
   @jsonSerializable

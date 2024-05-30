@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'personal_details_pref.freezed.dart';
 part 'personal_details_pref.g.dart';
 
+// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#personaldetailspref
 @freezed
 class PersonalDetailsPref with _$PersonalDetailsPref {
   @jsonSerializable
