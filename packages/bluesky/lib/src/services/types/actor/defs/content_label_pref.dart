@@ -22,6 +22,7 @@ part 'content_label_pref.g.dart';
 class ContentLabelPref with _$ContentLabelPref {
   @jsonSerializable
   const factory ContentLabelPref({
+    /// Which labeler does this preference apply to? If undefined, applies globally.
     String? labelerDid,
     required String label,
     required String visibility,

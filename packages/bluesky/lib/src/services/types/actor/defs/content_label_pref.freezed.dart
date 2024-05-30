@@ -20,6 +20,7 @@ ContentLabelPref _$ContentLabelPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ContentLabelPref {
+  /// Which labeler does this preference apply to? If undefined, applies globally.
   String? get labelerDid => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
   String get visibility => throw _privateConstructorUsedError;
@@ -126,6 +127,7 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   factory _$ContentLabelPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContentLabelPrefImplFromJson(json);
 
+  /// Which labeler does this preference apply to? If undefined, applies globally.
   @override
   final String? labelerDid;
   @override
@@ -179,6 +181,8 @@ abstract class _ContentLabelPref implements ContentLabelPref {
       _$ContentLabelPrefImpl.fromJson;
 
   @override
+
+  /// Which labeler does this preference apply to? If undefined, applies globally.
   String? get labelerDid;
   @override
   String get label;

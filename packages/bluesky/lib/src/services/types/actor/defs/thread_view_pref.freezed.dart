@@ -20,7 +20,10 @@ ThreadViewPref _$ThreadViewPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadViewPref {
+  /// Sorting mode for threads.
   String? get sort => throw _privateConstructorUsedError;
+
+  /// Show followed users at the top of all replies.
   bool? get prioritizeFollowedUsers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -114,8 +117,11 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
   factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPrefImplFromJson(json);
 
+  /// Sorting mode for threads.
   @override
   final String? sort;
+
+  /// Show followed users at the top of all replies.
   @override
   final bool? prioritizeFollowedUsers;
 
@@ -163,8 +169,12 @@ abstract class _ThreadViewPref implements ThreadViewPref {
       _$ThreadViewPrefImpl.fromJson;
 
   @override
+
+  /// Sorting mode for threads.
   String? get sort;
   @override
+
+  /// Show followed users at the top of all replies.
   bool? get prioritizeFollowedUsers;
   @override
   @JsonKey(ignore: true)

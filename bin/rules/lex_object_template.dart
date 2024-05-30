@@ -13,6 +13,7 @@ const _kFreezedAnnotationPackage =
 
 final class Property {
   const Property({
+    this.description,
     this.isRequired = false,
     required this.type,
     required this.name,
@@ -20,6 +21,7 @@ final class Property {
     this.converter,
   });
 
+  final String? description;
   final bool isRequired;
   final String type;
   final String name;
@@ -30,6 +32,11 @@ final class Property {
   @override
   String toString() {
     final buffer = StringBuffer();
+
+    if (description != null && description!.isNotEmpty) {
+      buffer.write('    '); // Comments will not be formatted
+      buffer.writeln('/// $description');
+    }
 
     if (converter != null) {
       buffer.write('@$converter');
@@ -106,7 +113,6 @@ final class LexObjectTemplate {
     for (final property in properties) {
       buffer
         ..writeln()
-        ..write('    ')
         ..write(property.toString());
     }
     buffer.writeln();
@@ -153,6 +159,7 @@ final class LexObjectTemplate {
 
       if (isRequired) {
         properties.add(Property(
+          description: property['description'],
           isRequired: true,
           type: dataType.$1,
           name: entry.key,
@@ -162,6 +169,7 @@ final class LexObjectTemplate {
       } else {
         properties.add(
           Property(
+            description: property['description'],
             type: dataType.$1,
             name: entry.key,
             importPath: dataType.$2,

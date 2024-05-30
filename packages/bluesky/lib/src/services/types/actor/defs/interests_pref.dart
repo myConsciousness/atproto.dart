@@ -22,6 +22,7 @@ part 'interests_pref.g.dart';
 class InterestsPref with _$InterestsPref {
   @jsonSerializable
   const factory InterestsPref({
+    /// A list of tags which describe the account owner's interests gathered during onboarding.
     required List<String> tags,
   }) = _InterestsPref;
 

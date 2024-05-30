@@ -24,6 +24,8 @@ class Interaction with _$Interaction {
   const factory Interaction({
     @atUriConverter AtUri? item,
     String? event,
+
+    /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
     String? feedContext,
   }) = _Interaction;
 

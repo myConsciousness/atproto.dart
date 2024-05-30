@@ -20,7 +20,10 @@ LabelerPolicies _$LabelerPoliciesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerPolicies {
+  /// The label values which this labeler publishes. May include global or custom labels.
   List<String> get labelValues => throw _privateConstructorUsedError;
+
+  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
@@ -123,7 +126,10 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   factory _$LabelerPoliciesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerPoliciesImplFromJson(json);
 
+  /// The label values which this labeler publishes. May include global or custom labels.
   final List<String> _labelValues;
+
+  /// The label values which this labeler publishes. May include global or custom labels.
   @override
   List<String> get labelValues {
     if (_labelValues is EqualUnmodifiableListView) return _labelValues;
@@ -131,7 +137,10 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
     return EqualUnmodifiableListView(_labelValues);
   }
 
+  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   final List<LabelValueDefinition>? _labelValueDefinitions;
+
+  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   @override
   List<LabelValueDefinition>? get labelValueDefinitions {
     final value = _labelValueDefinitions;
@@ -190,8 +199,12 @@ abstract class _LabelerPolicies implements LabelerPolicies {
       _$LabelerPoliciesImpl.fromJson;
 
   @override
+
+  /// The label values which this labeler publishes. May include global or custom labels.
   List<String> get labelValues;
   @override
+
+  /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   List<LabelValueDefinition>? get labelValueDefinitions;
   @override
   @JsonKey(ignore: true)

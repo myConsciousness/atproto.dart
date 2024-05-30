@@ -21,6 +21,8 @@ SearchPostsOutput _$SearchPostsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SearchPostsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int? get hitsTotal => throw _privateConstructorUsedError;
   List<PostView> get posts => throw _privateConstructorUsedError;
 
@@ -129,6 +131,8 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 
   @override
   final String? cursor;
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
   final int? hitsTotal;
   final List<PostView> _posts;
@@ -187,6 +191,8 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   @override
   String? get cursor;
   @override
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int? get hitsTotal;
   @override
   List<PostView> get posts;

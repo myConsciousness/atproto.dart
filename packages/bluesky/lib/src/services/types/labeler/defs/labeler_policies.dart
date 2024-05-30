@@ -23,7 +23,10 @@ part 'labeler_policies.g.dart';
 class LabelerPolicies with _$LabelerPolicies {
   @jsonSerializable
   const factory LabelerPolicies({
+    /// The label values which this labeler publishes. May include global or custom labels.
     required List<String> labelValues,
+
+    /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
     List<LabelValueDefinition>? labelValueDefinitions,
   }) = _LabelerPolicies;
 

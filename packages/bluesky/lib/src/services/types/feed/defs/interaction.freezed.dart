@@ -23,6 +23,8 @@ mixin _$Interaction {
   @atUriConverter
   AtUri? get item => throw _privateConstructorUsedError;
   String? get event => throw _privateConstructorUsedError;
+
+  /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -132,6 +134,8 @@ class _$InteractionImpl implements _Interaction {
   final AtUri? item;
   @override
   final String? event;
+
+  /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   @override
   final String? feedContext;
 
@@ -184,6 +188,8 @@ abstract class _Interaction implements Interaction {
   @override
   String? get event;
   @override
+
+  /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext;
   @override
   @JsonKey(ignore: true)

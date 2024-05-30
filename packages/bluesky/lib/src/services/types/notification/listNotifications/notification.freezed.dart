@@ -24,6 +24,8 @@ mixin _$Notification {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileView get author => throw _privateConstructorUsedError;
+
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   String get reason => throw _privateConstructorUsedError;
   @atUriConverter
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
@@ -242,6 +244,8 @@ class _$NotificationImpl implements _Notification {
   final String cid;
   @override
   final ProfileView author;
+
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   @override
   final String reason;
   @override
@@ -343,6 +347,8 @@ abstract class _Notification implements Notification {
   @override
   ProfileView get author;
   @override
+
+  /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   String get reason;
   @override
   @atUriConverter

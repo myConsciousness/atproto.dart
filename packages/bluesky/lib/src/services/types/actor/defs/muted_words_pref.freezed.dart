@@ -20,6 +20,7 @@ MutedWordsPref _$MutedWordsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MutedWordsPref {
+  /// A list of words the account owner has muted.
   List<MutedWord> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -104,7 +105,10 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
   factory _$MutedWordsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$MutedWordsPrefImplFromJson(json);
 
+  /// A list of words the account owner has muted.
   final List<MutedWord> _items;
+
+  /// A list of words the account owner has muted.
   @override
   List<MutedWord> get items {
     if (_items is EqualUnmodifiableListView) return _items;
@@ -153,6 +157,8 @@ abstract class _MutedWordsPref implements MutedWordsPref {
       _$MutedWordsPrefImpl.fromJson;
 
   @override
+
+  /// A list of words the account owner has muted.
   List<MutedWord> get items;
   @override
   @JsonKey(ignore: true)

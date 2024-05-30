@@ -24,6 +24,8 @@ mixin _$RecordViewRecord {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
+
+  /// The record data itself.
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
   int? get replyCount => throw _privateConstructorUsedError;
@@ -256,7 +258,11 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   final String cid;
   @override
   final ProfileViewBasic author;
+
+  /// The record data itself.
   final Map<String, dynamic> _value;
+
+  /// The record data itself.
   @override
   Map<String, dynamic> get value {
     if (_value is EqualUnmodifiableMapView) return _value;
@@ -373,6 +379,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
   ProfileViewBasic get author;
   @override
+
+  /// The record data itself.
   Map<String, dynamic> get value;
   @override
   List<Label>? get labels;

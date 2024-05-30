@@ -29,6 +29,8 @@ class Notification with _$Notification {
     @atUriConverter required AtUri uri,
     required String cid,
     required ProfileView author,
+
+    /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
     required String reason,
     @atUriConverter AtUri? reasonSubject,
     required Map<String, dynamic> record,

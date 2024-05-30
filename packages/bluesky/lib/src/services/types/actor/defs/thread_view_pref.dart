@@ -22,7 +22,10 @@ part 'thread_view_pref.g.dart';
 class ThreadViewPref with _$ThreadViewPref {
   @jsonSerializable
   const factory ThreadViewPref({
+    /// Sorting mode for threads.
     String? sort,
+
+    /// Show followed users at the top of all replies.
     bool? prioritizeFollowedUsers,
   }) = _ThreadViewPref;
 

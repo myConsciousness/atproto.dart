@@ -23,7 +23,11 @@ class Relationship with _$Relationship {
   @jsonSerializable
   const factory Relationship({
     required String did,
+
+    /// if the actor follows this DID, this is the AT-URI of the follow record
     @atUriConverter AtUri? following,
+
+    /// if the actor is followed by this DID, contains the AT-URI of the follow record
     @atUriConverter AtUri? followedBy,
   }) = _Relationship;
 

@@ -22,7 +22,11 @@ GetFeedGeneratorOutput _$GetFeedGeneratorOutputFromJson(
 /// @nodoc
 mixin _$GetFeedGeneratorOutput {
   GeneratorView get view => throw _privateConstructorUsedError;
+
+  /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
   bool get isOnline => throw _privateConstructorUsedError;
+
+  /// Indicates whether the feed generator service is compatible with the record declaration.
   bool get isValid => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -146,8 +150,12 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
 
   @override
   final GeneratorView view;
+
+  /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
   @override
   final bool isOnline;
+
+  /// Indicates whether the feed generator service is compatible with the record declaration.
   @override
   final bool isValid;
 
@@ -198,8 +206,12 @@ abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
   @override
   GeneratorView get view;
   @override
+
+  /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
   bool get isOnline;
   @override
+
+  /// Indicates whether the feed generator service is compatible with the record declaration.
   bool get isValid;
   @override
   @JsonKey(ignore: true)

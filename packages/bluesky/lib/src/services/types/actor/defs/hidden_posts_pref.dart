@@ -22,6 +22,7 @@ part 'hidden_posts_pref.g.dart';
 class HiddenPostsPref with _$HiddenPostsPref {
   @jsonSerializable
   const factory HiddenPostsPref({
+    /// A list of URIs of posts the account owner has hidden.
     @atUriConverter required List<AtUri> items,
   }) = _HiddenPostsPref;
 

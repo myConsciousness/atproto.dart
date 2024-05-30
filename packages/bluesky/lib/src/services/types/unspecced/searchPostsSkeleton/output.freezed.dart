@@ -22,6 +22,8 @@ SearchPostsSkeletonOutput _$SearchPostsSkeletonOutputFromJson(
 /// @nodoc
 mixin _$SearchPostsSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int? get hitsTotal => throw _privateConstructorUsedError;
   List<SkeletonSearchPost> get posts => throw _privateConstructorUsedError;
 
@@ -136,6 +138,8 @@ class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
 
   @override
   final String? cursor;
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
   final int? hitsTotal;
   final List<SkeletonSearchPost> _posts;
@@ -195,6 +199,8 @@ abstract class _SearchPostsSkeletonOutput implements SearchPostsSkeletonOutput {
   @override
   String? get cursor;
   @override
+
+  /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int? get hitsTotal;
   @override
   List<SkeletonSearchPost> get posts;

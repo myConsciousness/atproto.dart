@@ -20,6 +20,7 @@ InterestsPref _$InterestsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InterestsPref {
+  /// A list of tags which describe the account owner's interests gathered during onboarding.
   List<String> get tags => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,7 +104,10 @@ class _$InterestsPrefImpl implements _InterestsPref {
   factory _$InterestsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$InterestsPrefImplFromJson(json);
 
+  /// A list of tags which describe the account owner's interests gathered during onboarding.
   final List<String> _tags;
+
+  /// A list of tags which describe the account owner's interests gathered during onboarding.
   @override
   List<String> get tags {
     if (_tags is EqualUnmodifiableListView) return _tags;
@@ -151,6 +155,8 @@ abstract class _InterestsPref implements InterestsPref {
       _$InterestsPrefImpl.fromJson;
 
   @override
+
+  /// A list of tags which describe the account owner's interests gathered during onboarding.
   List<String> get tags;
   @override
   @JsonKey(ignore: true)

@@ -24,6 +24,8 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
   const factory SkeletonFeedPost({
     @atUriConverter required AtUri post,
     String? reason,
+
+    /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
     String? feedContext,
   }) = _SkeletonFeedPost;
 

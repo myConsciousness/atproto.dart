@@ -21,8 +21,12 @@ Relationship _$RelationshipFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Relationship {
   String get did => throw _privateConstructorUsedError;
+
+  /// if the actor follows this DID, this is the AT-URI of the follow record
   @atUriConverter
   AtUri? get following => throw _privateConstructorUsedError;
+
+  /// if the actor is followed by this DID, contains the AT-URI of the follow record
   @atUriConverter
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
@@ -138,9 +142,13 @@ class _$RelationshipImpl implements _Relationship {
 
   @override
   final String did;
+
+  /// if the actor follows this DID, this is the AT-URI of the follow record
   @override
   @atUriConverter
   final AtUri? following;
+
+  /// if the actor is followed by this DID, contains the AT-URI of the follow record
   @override
   @atUriConverter
   final AtUri? followedBy;
@@ -192,9 +200,13 @@ abstract class _Relationship implements Relationship {
   @override
   String get did;
   @override
+
+  /// if the actor follows this DID, this is the AT-URI of the follow record
   @atUriConverter
   AtUri? get following;
   @override
+
+  /// if the actor is followed by this DID, contains the AT-URI of the follow record
   @atUriConverter
   AtUri? get followedBy;
   @override

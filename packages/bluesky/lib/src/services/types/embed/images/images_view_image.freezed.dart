@@ -20,8 +20,13 @@ ImagesViewImage _$ImagesViewImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesViewImage {
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
   String get thumb => throw _privateConstructorUsedError;
+
+  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
   String get fullsize => throw _privateConstructorUsedError;
+
+  /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
   ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
@@ -165,10 +170,15 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   factory _$ImagesViewImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesViewImageImplFromJson(json);
 
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
   @override
   final String thumb;
+
+  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
   @override
   final String fullsize;
+
+  /// Alt text description of the image, for accessibility.
   @override
   final String alt;
   @override
@@ -223,10 +233,16 @@ abstract class _ImagesViewImage implements ImagesViewImage {
       _$ImagesViewImageImpl.fromJson;
 
   @override
+
+  /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
   String get thumb;
   @override
+
+  /// Fully-qualified URL where a large version of the image can be fetched. May or may not be the exact original blob. For example, CDN location provided by the App View.
   String get fullsize;
   @override
+
+  /// Alt text description of the image, for accessibility.
   String get alt;
   @override
   ImagesAspectRatio? get aspectRatio;

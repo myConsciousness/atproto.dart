@@ -22,6 +22,8 @@ ImagesImage _$ImagesImageFromJson(Map<String, dynamic> json) {
 mixin _$ImagesImage {
   @blobConverter
   Blob get image => throw _privateConstructorUsedError;
+
+  /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
   ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
@@ -162,6 +164,8 @@ class _$ImagesImageImpl implements _ImagesImage {
   @override
   @blobConverter
   final Blob image;
+
+  /// Alt text description of the image, for accessibility.
   @override
   final String alt;
   @override
@@ -214,6 +218,8 @@ abstract class _ImagesImage implements ImagesImage {
   @blobConverter
   Blob get image;
   @override
+
+  /// Alt text description of the image, for accessibility.
   String get alt;
   @override
   ImagesAspectRatio? get aspectRatio;

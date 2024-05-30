@@ -26,6 +26,8 @@ class Entity with _$Entity {
   @jsonSerializable
   const factory Entity({
     required TextSlice index,
+
+    /// Expected values are 'mention' and 'link'.
     required String type,
     required String value,
   }) = _Entity;

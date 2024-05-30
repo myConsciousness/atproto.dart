@@ -20,6 +20,7 @@ PersonalDetailsPref _$PersonalDetailsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PersonalDetailsPref {
+  /// The birth date of account owner.
   DateTime? get birthDate => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -103,6 +104,7 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
   factory _$PersonalDetailsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$PersonalDetailsPrefImplFromJson(json);
 
+  /// The birth date of account owner.
   @override
   final DateTime? birthDate;
 
@@ -147,6 +149,8 @@ abstract class _PersonalDetailsPref implements PersonalDetailsPref {
       _$PersonalDetailsPrefImpl.fromJson;
 
   @override
+
+  /// The birth date of account owner.
   DateTime? get birthDate;
   @override
   @JsonKey(ignore: true)

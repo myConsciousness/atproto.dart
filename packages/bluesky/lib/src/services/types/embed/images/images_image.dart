@@ -27,6 +27,8 @@ class ImagesImage with _$ImagesImage {
   @jsonSerializable
   const factory ImagesImage({
     @blobConverter required Blob image,
+
+    /// Alt text description of the image, for accessibility.
     required String alt,
     ImagesAspectRatio? aspectRatio,
   }) = _ImagesImage;

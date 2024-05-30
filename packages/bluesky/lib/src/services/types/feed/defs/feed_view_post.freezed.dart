@@ -23,6 +23,8 @@ mixin _$FeedViewPost {
   PostView get post => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
+
+  /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -173,6 +175,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   final ReplyRef? reply;
   @override
   final String? reason;
+
+  /// Context provided by feed generator that may be passed back alongside interactions.
   @override
   final String? feedContext;
 
@@ -229,6 +233,8 @@ abstract class _FeedViewPost implements FeedViewPost {
   @override
   String? get reason;
   @override
+
+  /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext;
   @override
   @JsonKey(ignore: true)

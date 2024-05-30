@@ -20,6 +20,7 @@ HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HiddenPostsPref {
+  /// A list of URIs of posts the account owner has hidden.
   @atUriConverter
   List<AtUri> get items => throw _privateConstructorUsedError;
 
@@ -106,7 +107,10 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$HiddenPostsPrefImplFromJson(json);
 
+  /// A list of URIs of posts the account owner has hidden.
   final List<AtUri> _items;
+
+  /// A list of URIs of posts the account owner has hidden.
   @override
   @atUriConverter
   List<AtUri> get items {
@@ -157,6 +161,8 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
       _$HiddenPostsPrefImpl.fromJson;
 
   @override
+
+  /// A list of URIs of posts the account owner has hidden.
   @atUriConverter
   List<AtUri> get items;
   @override

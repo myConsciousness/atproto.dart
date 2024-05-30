@@ -29,6 +29,8 @@ class FeedViewPost with _$FeedViewPost {
     required PostView post,
     ReplyRef? reply,
     String? reason,
+
+    /// Context provided by feed generator that may be passed back alongside interactions.
     String? feedContext,
   }) = _FeedViewPost;
 

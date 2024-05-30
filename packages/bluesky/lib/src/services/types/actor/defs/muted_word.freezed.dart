@@ -20,7 +20,10 @@ MutedWord _$MutedWordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MutedWord {
+  /// The muted word itself.
   String get value => throw _privateConstructorUsedError;
+
+  /// The intended targets of the muted word.
   List<String> get targets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -115,9 +118,14 @@ class _$MutedWordImpl implements _MutedWord {
   factory _$MutedWordImpl.fromJson(Map<String, dynamic> json) =>
       _$$MutedWordImplFromJson(json);
 
+  /// The muted word itself.
   @override
   final String value;
+
+  /// The intended targets of the muted word.
   final List<String> _targets;
+
+  /// The intended targets of the muted word.
   @override
   List<String> get targets {
     if (_targets is EqualUnmodifiableListView) return _targets;
@@ -167,8 +175,12 @@ abstract class _MutedWord implements MutedWord {
       _$MutedWordImpl.fromJson;
 
   @override
+
+  /// The muted word itself.
   String get value;
   @override
+
+  /// The intended targets of the muted word.
   List<String> get targets;
   @override
   @JsonKey(ignore: true)

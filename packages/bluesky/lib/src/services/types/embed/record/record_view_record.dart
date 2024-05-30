@@ -29,6 +29,8 @@ class RecordViewRecord with _$RecordViewRecord {
     @atUriConverter required AtUri uri,
     required String cid,
     required ProfileViewBasic author,
+
+    /// The record data itself.
     required Map<String, dynamic> value,
     List<Label>? labels,
     int? replyCount,

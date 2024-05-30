@@ -27,6 +27,8 @@ class ReplyRef with _$ReplyRef {
   const factory ReplyRef({
     required String root,
     required String parent,
+
+    /// When parent is a reply to another post, this is the author of that post.
     ProfileViewBasic? grandparentAuthor,
   }) = _ReplyRef;
 

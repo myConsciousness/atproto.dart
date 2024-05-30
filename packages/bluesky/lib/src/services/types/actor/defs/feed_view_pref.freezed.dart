@@ -20,11 +20,22 @@ FeedViewPref _$FeedViewPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedViewPref {
+  /// The URI of the feed, or an identifier which describes the feed.
   String get feed => throw _privateConstructorUsedError;
+
+  /// Hide replies in the feed.
   bool? get hideReplies => throw _privateConstructorUsedError;
+
+  /// Hide replies in the feed if they are not by followed users.
   bool? get hideRepliesByUnfollowed => throw _privateConstructorUsedError;
+
+  /// Hide replies in the feed if they do not have this number of likes.
   int? get hideRepliesByLikeCount => throw _privateConstructorUsedError;
+
+  /// Hide reposts in the feed.
   bool? get hideReposts => throw _privateConstructorUsedError;
+
+  /// Hide quote posts in the feed.
   bool? get hideQuotePosts => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -176,16 +187,27 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPrefImplFromJson(json);
 
+  /// The URI of the feed, or an identifier which describes the feed.
   @override
   final String feed;
+
+  /// Hide replies in the feed.
   @override
   final bool? hideReplies;
+
+  /// Hide replies in the feed if they are not by followed users.
   @override
   final bool? hideRepliesByUnfollowed;
+
+  /// Hide replies in the feed if they do not have this number of likes.
   @override
   final int? hideRepliesByLikeCount;
+
+  /// Hide reposts in the feed.
   @override
   final bool? hideReposts;
+
+  /// Hide quote posts in the feed.
   @override
   final bool? hideQuotePosts;
 
@@ -251,16 +273,28 @@ abstract class _FeedViewPref implements FeedViewPref {
       _$FeedViewPrefImpl.fromJson;
 
   @override
+
+  /// The URI of the feed, or an identifier which describes the feed.
   String get feed;
   @override
+
+  /// Hide replies in the feed.
   bool? get hideReplies;
   @override
+
+  /// Hide replies in the feed if they are not by followed users.
   bool? get hideRepliesByUnfollowed;
   @override
+
+  /// Hide replies in the feed if they do not have this number of likes.
   int? get hideRepliesByLikeCount;
   @override
+
+  /// Hide reposts in the feed.
   bool? get hideReposts;
   @override
+
+  /// Hide quote posts in the feed.
   bool? get hideQuotePosts;
   @override
   @JsonKey(ignore: true)

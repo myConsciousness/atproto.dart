@@ -25,6 +25,7 @@ part 'muted_words_pref.g.dart';
 class MutedWordsPref with _$MutedWordsPref {
   @jsonSerializable
   const factory MutedWordsPref({
+    /// A list of words the account owner has muted.
     required List<MutedWord> items,
   }) = _MutedWordsPref;
 

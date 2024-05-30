@@ -22,7 +22,10 @@ part 'muted_word.g.dart';
 class MutedWord with _$MutedWord {
   @jsonSerializable
   const factory MutedWord({
+    /// The muted word itself.
     required String value,
+
+    /// The intended targets of the muted word.
     required List<String> targets,
   }) = _MutedWord;
 

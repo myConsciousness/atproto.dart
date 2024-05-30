@@ -22,6 +22,8 @@ ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
 mixin _$ReplyRef {
   String get root => throw _privateConstructorUsedError;
   String get parent => throw _privateConstructorUsedError;
+
+  /// When parent is a reply to another post, this is the author of that post.
   ProfileViewBasic? get grandparentAuthor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -146,6 +148,8 @@ class _$ReplyRefImpl implements _ReplyRef {
   final String root;
   @override
   final String parent;
+
+  /// When parent is a reply to another post, this is the author of that post.
   @override
   final ProfileViewBasic? grandparentAuthor;
 
@@ -197,6 +201,8 @@ abstract class _ReplyRef implements ReplyRef {
   @override
   String get parent;
   @override
+
+  /// When parent is a reply to another post, this is the author of that post.
   ProfileViewBasic? get grandparentAuthor;
   @override
   @JsonKey(ignore: true)

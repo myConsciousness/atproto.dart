@@ -21,6 +21,8 @@ Entity _$EntityFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Entity {
   TextSlice get index => throw _privateConstructorUsedError;
+
+  /// Expected values are 'mention' and 'link'.
   String get type => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
 
@@ -138,6 +140,8 @@ class _$EntityImpl implements _Entity {
 
   @override
   final TextSlice index;
+
+  /// Expected values are 'mention' and 'link'.
   @override
   final String type;
   @override
@@ -187,6 +191,8 @@ abstract class _Entity implements Entity {
   @override
   TextSlice get index;
   @override
+
+  /// Expected values are 'mention' and 'link'.
   String get type;
   @override
   String get value;

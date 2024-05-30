@@ -23,6 +23,8 @@ mixin _$SkeletonFeedPost {
   @atUriConverter
   AtUri get post => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
+
+  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -132,6 +134,8 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   final AtUri post;
   @override
   final String? reason;
+
+  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   @override
   final String? feedContext;
 
@@ -185,6 +189,8 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   @override
   String? get reason;
   @override
+
+  /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   String? get feedContext;
   @override
   @JsonKey(ignore: true)

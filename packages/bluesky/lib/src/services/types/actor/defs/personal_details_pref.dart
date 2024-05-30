@@ -22,6 +22,7 @@ part 'personal_details_pref.g.dart';
 class PersonalDetailsPref with _$PersonalDetailsPref {
   @jsonSerializable
   const factory PersonalDetailsPref({
+    /// The birth date of account owner.
     DateTime? birthDate,
   }) = _PersonalDetailsPref;
 

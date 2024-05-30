@@ -22,11 +22,22 @@ part 'feed_view_pref.g.dart';
 class FeedViewPref with _$FeedViewPref {
   @jsonSerializable
   const factory FeedViewPref({
+    /// The URI of the feed, or an identifier which describes the feed.
     required String feed,
+
+    /// Hide replies in the feed.
     bool? hideReplies,
+
+    /// Hide replies in the feed if they are not by followed users.
     bool? hideRepliesByUnfollowed,
+
+    /// Hide replies in the feed if they do not have this number of likes.
     int? hideRepliesByLikeCount,
+
+    /// Hide reposts in the feed.
     bool? hideReposts,
+
+    /// Hide quote posts in the feed.
     bool? hideQuotePosts,
   }) = _FeedViewPref;
 
