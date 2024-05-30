@@ -108,6 +108,15 @@ const Users: User[] = [
     source: 'https://github.com/igz0/skyclad',
     tags: ['mobile'],
   },
+  {
+    title: 'SkyThrow',
+    author: 'rukari.bsky.social',
+    description: 'Post only Bluesky client app for iOS and Android by Flutter. Specializes in multi-accounts and hashtags.',
+    preview: require('./showcase/SkyThrow.png'),
+    website: 'https://skythrow.com',
+    source: null,
+    tags: ['mobile'],
+  },
 ];
 
 export type User = {
