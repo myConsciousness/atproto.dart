@@ -193,6 +193,8 @@ final class LexObjectTemplate {
       return defaultValue != null ? defaultValue.toString() : 'false';
     } else if (dataType.startsWith('List<')) {
       return '[]';
+    } else if (dataType.startsWith('Map<')) {
+      return '{}';
     }
 
     if (ref != null) {

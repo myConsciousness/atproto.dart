@@ -23,7 +23,7 @@ mixin _$ThreadgateView {
   @atUriConverter
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+  Map<String, dynamic> get record => throw _privateConstructorUsedError;
   List<ListViewBasic> get lists => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $ThreadgateViewCopyWith<$Res> {
   $Res call(
       {@atUriConverter AtUri? uri,
       String? cid,
-      Map<String, dynamic>? record,
+      Map<String, dynamic> record,
       List<ListViewBasic> lists});
 }
 
@@ -60,7 +60,7 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
   $Res call({
     Object? uri = freezed,
     Object? cid = freezed,
-    Object? record = freezed,
+    Object? record = null,
     Object? lists = null,
   }) {
     return _then(_value.copyWith(
@@ -72,10 +72,10 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      record: freezed == record
+      record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as Map<String, dynamic>,
       lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
   $Res call(
       {@atUriConverter AtUri? uri,
       String? cid,
-      Map<String, dynamic>? record,
+      Map<String, dynamic> record,
       List<ListViewBasic> lists});
 }
 
@@ -112,7 +112,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = freezed,
     Object? cid = freezed,
-    Object? record = freezed,
+    Object? record = null,
     Object? lists = null,
   }) {
     return _then(_$ThreadgateViewImpl(
@@ -124,10 +124,10 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      record: freezed == record
+      record: null == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as Map<String, dynamic>,
       lists: null == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -143,7 +143,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   const _$ThreadgateViewImpl(
       {@atUriConverter this.uri,
       this.cid,
-      final Map<String, dynamic>? record,
+      final Map<String, dynamic> record = const {},
       final List<ListViewBasic> lists = const []})
       : _record = record,
         _lists = lists;
@@ -156,14 +156,13 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   final AtUri? uri;
   @override
   final String? cid;
-  final Map<String, dynamic>? _record;
+  final Map<String, dynamic> _record;
   @override
-  Map<String, dynamic>? get record {
-    final value = _record;
-    if (value == null) return null;
+  @JsonKey()
+  Map<String, dynamic> get record {
     if (_record is EqualUnmodifiableMapView) return _record;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
+    return EqualUnmodifiableMapView(_record);
   }
 
   final List<ListViewBasic> _lists;
@@ -219,7 +218,7 @@ abstract class _ThreadgateView implements ThreadgateView {
   const factory _ThreadgateView(
       {@atUriConverter final AtUri? uri,
       final String? cid,
-      final Map<String, dynamic>? record,
+      final Map<String, dynamic> record,
       final List<ListViewBasic> lists}) = _$ThreadgateViewImpl;
 
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
@@ -231,7 +230,7 @@ abstract class _ThreadgateView implements ThreadgateView {
   @override
   String? get cid;
   @override
-  Map<String, dynamic>? get record;
+  Map<String, dynamic> get record;
   @override
   List<ListViewBasic> get lists;
   @override

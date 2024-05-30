@@ -27,7 +27,7 @@ class ThreadgateView with _$ThreadgateView {
   const factory ThreadgateView({
     @atUriConverter AtUri? uri,
     String? cid,
-    Map<String, dynamic>? record,
+    @Default({}) Map<String, dynamic> record,
     @Default([]) List<ListViewBasic> lists,
   }) = _ThreadgateView;
 
