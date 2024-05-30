@@ -18,9 +18,9 @@ const _kTypesPath = 'lib/src/services/types';
 
 void main(List<String> args) {
   for (final package in _supportedLexicons) {
-    final file = File('packages/${_getPackageName(package)}/$_kTypesPath');
-    if (file.existsSync()) {
-      file.deleteSync(recursive: true);
+    final dir = Directory('packages/${_getPackageName(package)}/$_kTypesPath');
+    if (dir.existsSync()) {
+      dir.deleteSync(recursive: true);
     }
   }
 

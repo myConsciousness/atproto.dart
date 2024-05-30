@@ -140,6 +140,17 @@ final class LexObjectTemplate {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
         if (object == null) return const <Property>[]; // RefVariant
 
+        if (object.properties?.length == 1) {
+          final refVariant = object.properties?.values.first
+              .whenOrNull(refVariant: (data) => data);
+          final ref = refVariant?.whenOrNull(ref: (data) => data);
+
+          if (ref != null && ref.ref != null) {
+            // final refObject = getRef(docId, ref.ref!);
+            return const <Property>[]; //! Ignore ref now.
+          }
+        }
+
         return _getObjectProperties(object);
       },
     );
@@ -148,6 +159,8 @@ final class LexObjectTemplate {
   }
 
   List<Property> _getObjectProperties(final LexObject object) {
+    if (object.properties == null) return const [];
+
     final properties = <Property>[];
 
     final requiredProperties = object.requiredProperties ?? const [];
@@ -254,7 +267,7 @@ final class LexObjectTemplate {
       if (ref == null) throw ArgumentError.notNull('ref');
 
       final refObject = getRef(docId, ref);
-      if (refObject.toJson()['type'] == 'string') {
+      if (refObject is ULexUserTypeString) {
         return ('String', null, null);
       }
 
