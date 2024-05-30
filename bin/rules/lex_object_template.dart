@@ -5,6 +5,7 @@
 import 'package:lexicon/lexicon.dart';
 
 import './lex_naming_convention.dart';
+import './lex_known_values_template.dart';
 import '../utils.dart';
 
 const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
@@ -211,7 +212,7 @@ final class LexObjectTemplate {
     }
 
     if (ref != null) {
-      final requiredProperties = getRef(docId, ref).whenOrNull(
+      final requiredProperties = getRef(docId, ref)!.whenOrNull(
         object: (data) => data.requiredProperties ?? const [],
       );
 

@@ -145,7 +145,7 @@ bool _isSupportedDoc(final LexiconDoc doc) {
   return false;
 }
 
-LexUserType getRef(
+LexUserType? getRef(
   final NSID docId,
   final String ref,
 ) {
@@ -163,7 +163,7 @@ LexUserType getRef(
     }
   }
 
-  throw UnsupportedError(baseLexiconId);
+  return null;
 }
 
 String _getLexiconId(
