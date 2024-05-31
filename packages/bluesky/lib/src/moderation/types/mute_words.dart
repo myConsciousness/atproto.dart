@@ -35,16 +35,12 @@ List<String> allTags({
 }) {
   try {
     final all = Set<String>.from(outlineTags ?? []);
-    List<String> tagFacets = [];
     if (facets != null) {
       for (Facet facet in facets) {
         for (FacetFeature feature in facet.features) {
-          feature.whenOrNull(tag: (data) => tagFacets.add(data.tag));
+          feature.whenOrNull(tag: (data) => all.add(data.tag));
         }
       }
-    }
-    if (tagFacets.isNotEmpty) {
-      all.addAll(tagFacets);
     }
     return all.map((it) => it.toLowerCase()).toList();
   } catch (_) {
