@@ -34,7 +34,7 @@ List<String> allTags({
   List<Facet>? facets,
 }) {
   try {
-    final all = Set<String>.from(tags ?? []);
+    final all = Set<String>.from(outlineTags ?? []);
     List<String> tagFacets = [];
     if (facets != null) {
       for (Facet facet in facets) {
