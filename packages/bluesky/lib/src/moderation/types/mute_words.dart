@@ -29,6 +29,29 @@ final _wordBoundaryRegex = RegExp(r'[\s\n\t\r\f\v]+?');
 final _punctuationRegex = RegExp(r'\p{P}+', unicode: true);
 final _spaceRegex = RegExp(r'\s', unicode: true);
 
+List<String> allTags({
+  List<String>? outlineTags,
+  List<Facet>? facets,
+}) {
+  try {
+    final all = Set<String>.from(tags ?? []);
+    List<String> tagFacets = [];
+    if (facets != null) {
+      for (Facet facet in facets) {
+        for (FacetFeature feature in facet.features) {
+          feature.whenOrNull(tag: (data) => tagFacets.add(data.tag));
+        }
+      }
+    }
+    if (tagFacets.isNotEmpty) {
+      all.addAll(tagFacets);
+    }
+    return all.map((it) => it.toLowerCase()).toList();
+  } catch (_) {
+    return const <String>[];
+  }
+}
+
 bool hasMutedWord({
   required List<MutedWord> mutedWords,
   required String text,
@@ -37,13 +60,7 @@ bool hasMutedWord({
   List<String>? languages,
 }) {
   final hasExceptionLanguage = _hasExceptionLanguage(languages);
-  final tags = <String>[
-    if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
-    if (facets != null)
-      ...facets
-          .map((e) => e.features.whereType<UFacetFeatureTag>())
-          .map((e) => e.first.data.tag.toLowerCase())
-  ];
+  final tags = allTags(outlineTags: outlineTags, facets: facets);
 
   for (final mute in mutedWords) {
     final mutedWord = mute.value.toLowerCase();
