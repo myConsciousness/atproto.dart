@@ -215,6 +215,7 @@ Add/Remove a tag on a subject
 | **invitedBy** | [com.atproto.server.defs#inviteCode](../../../../lexicons/com/atproto/server/defs.md#invitecode) | - | ❌ | - |
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
+| **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #repoViewDetail
 
@@ -232,6 +233,7 @@ Add/Remove a tag on a subject
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
+| **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #repoViewNotFound
 
