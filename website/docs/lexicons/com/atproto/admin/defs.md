@@ -26,6 +26,7 @@ description: com.atproto.admin.defs
 | **invitesDisabled** | boolean | - | ❌ | - |
 | **emailConfirmedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 | **inviteNote** | string | - | ❌ | - |
+| **deactivatedAt** | string ([datetime](https://atproto.com/specs/lexicon#datetime)) | - | ❌ | - |
 
 ## #repoRef
 
