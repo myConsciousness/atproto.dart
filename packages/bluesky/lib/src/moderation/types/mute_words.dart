@@ -44,7 +44,7 @@ bool hasMutedWord({
           .map((e) => e.features.whereType<UFacetFeatureTag>())
           .where((e) => e.isNotEmpty)
           .map((e) => e.first.data.tag.toLowerCase())
-    }.toList();
+  }.toList();
 
   for (final mute in mutedWords) {
     final mutedWord = mute.value.toLowerCase();
