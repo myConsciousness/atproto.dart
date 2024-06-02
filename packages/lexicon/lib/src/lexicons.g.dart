@@ -600,7 +600,14 @@ const comAtprotoServerRefreshSession = <String, dynamic>{
             "refreshJwt": {"type": "string"},
             "handle": {"type": "string", "format": "handle"},
             "did": {"type": "string", "format": "did"},
-            "didDoc": {"type": "unknown"}
+            "didDoc": {"type": "unknown"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "Hosting status of the account. If not specified, then assume 'active'.",
+              "knownValues": ["takendown", "suspended", "deactivated"]
+            }
           }
         }
       },
@@ -802,7 +809,14 @@ const comAtprotoServerGetSession = <String, dynamic>{
             "email": {"type": "string"},
             "emailConfirmed": {"type": "boolean"},
             "emailAuthFactor": {"type": "boolean"},
-            "didDoc": {"type": "unknown"}
+            "didDoc": {"type": "unknown"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": ["takendown", "suspended", "deactivated"]
+            }
           }
         }
       }
@@ -957,7 +971,14 @@ const comAtprotoServerCreateSession = <String, dynamic>{
             "didDoc": {"type": "unknown"},
             "email": {"type": "string"},
             "emailConfirmed": {"type": "boolean"},
-            "emailAuthFactor": {"type": "boolean"}
+            "emailAuthFactor": {"type": "boolean"},
+            "active": {"type": "boolean"},
+            "status": {
+              "type": "string",
+              "description":
+                  "If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.",
+              "knownValues": ["takendown", "suspended", "deactivated"]
+            }
           }
         }
       },
@@ -2151,6 +2172,10 @@ const comAtprotoAdminGetSubjectStatus = <String, dynamic>{
             "takedown": {
               "type": "ref",
               "ref": "com.atproto.admin.defs#statusAttr"
+            },
+            "deactivated": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr"
             }
           }
         }
@@ -2536,7 +2561,8 @@ const comAtprotoAdminDefs = <String, dynamic>{
         },
         "invitesDisabled": {"type": "boolean"},
         "emailConfirmedAt": {"type": "string", "format": "datetime"},
-        "inviteNote": {"type": "string"}
+        "inviteNote": {"type": "string"},
+        "deactivatedAt": {"type": "string", "format": "datetime"}
       }
     },
     "repoRef": {
@@ -8457,7 +8483,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
           "ref": "com.atproto.server.defs#inviteCode"
         },
         "invitesDisabled": {"type": "boolean"},
-        "inviteNote": {"type": "string"}
+        "inviteNote": {"type": "string"},
+        "deactivatedAt": {"type": "string", "format": "datetime"}
       }
     },
     "repoViewDetail": {
@@ -8493,7 +8520,8 @@ const toolsOzoneModerationDefs = <String, dynamic>{
         },
         "invitesDisabled": {"type": "boolean"},
         "inviteNote": {"type": "string"},
-        "emailConfirmedAt": {"type": "string", "format": "datetime"}
+        "emailConfirmedAt": {"type": "string", "format": "datetime"},
+        "deactivatedAt": {"type": "string", "format": "datetime"}
       }
     },
     "repoViewNotFound": {
