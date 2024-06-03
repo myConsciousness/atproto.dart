@@ -78,10 +78,6 @@ final class LexNamingConvention {
 
   String get _lexicon {
     if (context.defName == 'main') {
-      // if (context.def is ULexUserTypeRecord) {
-      //   return null; // Always returns StrongRef for output
-      // }
-
       if (context.def is ULexUserTypeObject) {
         final defName = context.docId.toString().split('.').last;
 
