@@ -9,6 +9,7 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../rules/naming_convention.dart';
 import '../types/context.dart';
+import '../types/data_type.dart';
 
 String toLowerCamelCase(final String input) {
   return input
@@ -57,8 +58,7 @@ LexUserType? getRef(final NSID docId, final String ref) {
   return null;
 }
 
-/// (DataType, ImportPath, Converter)
-(String, String?, String?) getDartDataTypes(
+DataType getDataType(
   final LexGenContext context, {
   required String? type,
   required String? format,
@@ -66,27 +66,27 @@ LexUserType? getRef(final NSID docId, final String ref) {
   required Map<String, dynamic>? items,
 }) {
   if (type == 'string' && format == 'datetime') {
-    return ('DateTime', null, null);
+    return const DataType(name: 'DateTime');
   }
   if (type == 'string' && format == 'at-uri') {
-    return ('AtUri', null, 'AtUriConverter');
+    return const DataType(name: 'AtUri', converter: 'AtUriConverter');
   }
 
-  if (type == 'string') return ('String', null, null);
-  if (type == 'integer') return ('int', null, null);
-  if (type == 'boolean') return ('bool', null, null);
+  if (type == 'string') return const DataType(name: 'String');
+  if (type == 'integer') return const DataType(name: 'int');
+  if (type == 'boolean') return const DataType(name: 'bool');
 
-  if (type == 'cid-link') return ('String', null, null);
-  if (type == 'unknown') return ('Map<String, dynamic>', null, null);
+  if (type == 'cid-link') return const DataType(name: 'String');
+  if (type == 'unknown') return const DataType(name: 'Map<String, dynamic>');
 
   if (type == 'blob') {
-    return ('Blob', null, 'BlobConverter');
+    return const DataType(name: 'Blob', converter: 'BlobConverter');
   }
 
   if (type == 'array') {
     if (items == null) throw ArgumentError.notNull('items');
 
-    final (dataType, importPath, converter) = getDartDataTypes(
+    final type = getDataType(
       context,
       type: items['type'],
       format: items['format'],
@@ -94,7 +94,11 @@ LexUserType? getRef(final NSID docId, final String ref) {
       items: items,
     );
 
-    return ('List<$dataType>', importPath, converter);
+    return DataType(
+      name: 'List<${type.name}>',
+      importPath: type.importPath,
+      converter: type.converter,
+    );
   }
 
   if (type == 'ref') {
@@ -102,7 +106,7 @@ LexUserType? getRef(final NSID docId, final String ref) {
 
     final refDef = getRef(context.docId, ref);
     if (refDef is ULexUserTypeString) {
-      return ('String', null, null);
+      return const DataType(name: 'String');
     }
 
     LexGenContext refContext;
@@ -140,15 +144,14 @@ LexUserType? getRef(final NSID docId, final String ref) {
 
     final convention = LexNamingConvention(refContext);
 
-    return (
-      convention.getObjectName(),
-      convention.getRelativeImportPath(context.docId),
-      null,
+    return DataType(
+      name: convention.getObjectName(),
+      importPath: convention.getRelativeImportPath(context.docId),
     );
   }
 
-  if (type == 'union') return ('String', null, null);
-  if (type == 'bytes') return ('Uint8List', null, null);
+  if (type == 'union') return const DataType(name: 'String');
+  if (type == 'bytes') return const DataType(name: 'Uint8List');
 
   throw UnimplementedError(type);
 }

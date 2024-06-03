@@ -9,6 +9,7 @@ import 'package:lexicon/lexicon.dart';
 import '../rules/naming_convention.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
+import '../types/data_type.dart';
 import '../types/object.dart';
 
 final class LexGenObjectBuilder {
@@ -64,7 +65,7 @@ final class LexGenObjectBuilder {
 
     for (final entry in object.properties!.entries) {
       final property = entry.value.toJson();
-      final dataTypes = getDartDataTypes(
+      final dataType = getDataType(
         context,
         type: property['type'],
         format: property['format'],
@@ -76,13 +77,11 @@ final class LexGenObjectBuilder {
         LexGenObjectProperty(
           description: property['description'],
           isRequired: requiredProperties.contains(entry.key),
-          type: dataTypes.$1,
+          type: dataType,
           name: entry.key,
-          importPath: dataTypes.$2,
-          converter: dataTypes.$3,
           defaultValue: _getDefaultValue(
             property['default'],
-            dataTypes.$1,
+            dataType,
             property['ref'],
           ),
         ),
@@ -94,16 +93,16 @@ final class LexGenObjectBuilder {
 
   String? _getDefaultValue(
     final dynamic defaultValue,
-    final String dataType,
+    final DataType type,
     final String? ref,
   ) {
-    if (dataType == 'int') {
+    if (type.name == 'int') {
       return defaultValue != null ? defaultValue.toString() : '0';
-    } else if (dataType == 'bool') {
+    } else if (type.name == 'bool') {
       return defaultValue != null ? defaultValue.toString() : 'false';
-    } else if (dataType.startsWith('List<')) {
+    } else if (type.name.startsWith('List<')) {
       return '[]';
-    } else if (dataType.startsWith('Map<')) {
+    } else if (type.name.startsWith('Map<')) {
       return '{}';
     }
 
@@ -114,7 +113,7 @@ final class LexGenObjectBuilder {
 
       if (requiredProperties == null || requiredProperties.isEmpty) {
         // There is no required properties.
-        return '$dataType()';
+        return '${type.name}()';
       }
     }
 

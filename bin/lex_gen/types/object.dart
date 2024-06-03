@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import '../../utils.dart';
+import 'data_type.dart';
 
 const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
 const _kFreezedAnnotationPackage =
@@ -31,7 +32,7 @@ final class LexGenObject {
 
     // Distinct
     final importPaths = properties
-        .map((e) => e.importPath)
+        .map((e) => e.type.importPath)
         .where((e) => e != null)
         .toSet()
         .toList();
@@ -80,18 +81,14 @@ final class LexGenObjectProperty {
     this.isRequired = false,
     required this.type,
     required this.name,
-    this.importPath,
-    this.converter,
     this.defaultValue,
   });
 
   final String? description;
   final bool isRequired;
-  final String type;
+  final DataType type;
   final String name;
 
-  final String? importPath;
-  final String? converter;
   final String? defaultValue;
 
   @override
@@ -103,22 +100,22 @@ final class LexGenObjectProperty {
       buffer.writeln('/// $description');
     }
 
-    if (converter != null) {
-      buffer.write('@$converter()');
+    if (type.converter != null) {
+      buffer.write('@${type.converter}()');
       buffer.write(' ');
     }
 
     if (isRequired) {
       buffer.write('required');
       buffer.write(' ');
-      buffer.write(type);
+      buffer.write(type.name);
       buffer.write(' ');
     } else {
       if (defaultValue != null) {
-        buffer.write('@Default($defaultValue) $type');
+        buffer.write('@Default($defaultValue) ${type.name}');
         buffer.write(' ');
       } else {
-        buffer.write('$type?');
+        buffer.write('${type.name}?');
         buffer.write(' ');
       }
     }
