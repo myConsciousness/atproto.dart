@@ -20,7 +20,7 @@ SkeletonPost _$SkeletonPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonPost {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $SkeletonPostCopyWith<$Res> {
           SkeletonPost value, $Res Function(SkeletonPost) then) =
       _$SkeletonPostCopyWithImpl<$Res, SkeletonPost>;
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$SkeletonPostImplCopyWith<$Res>
       __$$SkeletonPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -98,13 +98,13 @@ class __$$SkeletonPostImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$SkeletonPostImpl implements _SkeletonPost {
-  const _$SkeletonPostImpl({@atUriConverter required this.uri});
+  const _$SkeletonPostImpl({@AtUriConverter() required this.uri});
 
   factory _$SkeletonPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonPostImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
 
   @override
@@ -139,14 +139,14 @@ class _$SkeletonPostImpl implements _SkeletonPost {
 }
 
 abstract class _SkeletonPost implements SkeletonPost {
-  const factory _SkeletonPost({@atUriConverter required final AtUri uri}) =
+  const factory _SkeletonPost({@AtUriConverter() required final AtUri uri}) =
       _$SkeletonPostImpl;
 
   factory _SkeletonPost.fromJson(Map<String, dynamic> json) =
       _$SkeletonPostImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

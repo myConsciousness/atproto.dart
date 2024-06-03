@@ -23,7 +23,7 @@ EmbedViewRecordViewBlocked _$EmbedViewRecordViewBlockedFromJson(
 mixin _$EmbedViewRecordViewBlocked {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   @JsonKey(name: 'blocked')
   bool get isBlocked => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $EmbedViewRecordViewBlockedCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'blocked') bool isBlocked,
       BlockedAuthor author});
 
@@ -110,7 +110,7 @@ abstract class _$$EmbedViewRecordViewBlockedImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'blocked') bool isBlocked,
       BlockedAuthor author});
 
@@ -162,7 +162,7 @@ class __$$EmbedViewRecordViewBlockedImplCopyWithImpl<$Res>
 class _$EmbedViewRecordViewBlockedImpl implements _EmbedViewRecordViewBlocked {
   const _$EmbedViewRecordViewBlockedImpl(
       {@typeKey this.type = appBskyEmbedRecordViewBlocked,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       @JsonKey(name: 'blocked') this.isBlocked = true,
       required this.author});
 
@@ -174,7 +174,7 @@ class _$EmbedViewRecordViewBlockedImpl implements _EmbedViewRecordViewBlocked {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   @JsonKey(name: 'blocked')
@@ -222,7 +222,7 @@ abstract class _EmbedViewRecordViewBlocked
     implements EmbedViewRecordViewBlocked {
   const factory _EmbedViewRecordViewBlocked(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       @JsonKey(name: 'blocked') final bool isBlocked,
       required final BlockedAuthor author}) = _$EmbedViewRecordViewBlockedImpl;
 
@@ -233,7 +233,7 @@ abstract class _EmbedViewRecordViewBlocked
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(name: 'blocked')

@@ -16,7 +16,7 @@ _$ThreadListRuleImpl _$$ThreadListRuleImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedThreadgateListRule),
           listUri: $checkedConvert(
-              'list', (v) => atUriConverter.fromJson(v as String)),
+              'list', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -27,5 +27,5 @@ Map<String, dynamic> _$$ThreadListRuleImplToJson(
         _$ThreadListRuleImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'list': atUriConverter.toJson(instance.listUri),
+      'list': const AtUriConverter().toJson(instance.listUri),
     };

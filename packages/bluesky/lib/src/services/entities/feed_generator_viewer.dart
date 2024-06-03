@@ -18,7 +18,7 @@ part 'feed_generator_viewer.g.dart';
 class FeedGeneratorViewer with _$FeedGeneratorViewer {
   @jsonSerializable
   const factory FeedGeneratorViewer({
-    @atUriConverter AtUri? like,
+    @AtUriConverter() AtUri? like,
   }) = _FeedGeneratorViewer;
 
   factory FeedGeneratorViewer.fromJson(Map<String, Object?> json) =>

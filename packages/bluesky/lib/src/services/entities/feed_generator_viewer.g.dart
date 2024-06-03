@@ -17,7 +17,7 @@ _$FeedGeneratorViewerImpl _$$FeedGeneratorViewerImplFromJson(Map json) =>
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -36,7 +36,7 @@ Map<String, dynamic> _$$FeedGeneratorViewerImplToJson(
   writeNotNull(
       'like',
       _$JsonConverterToJson<String, AtUri>(
-          instance.like, atUriConverter.toJson));
+          instance.like, const AtUriConverter().toJson));
   return val;
 }
 

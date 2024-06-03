@@ -22,7 +22,7 @@ DeleteAction _$DeleteActionFromJson(Map<String, dynamic> json) {
 mixin _$DeleteAction {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $DeleteActionCopyWith<$Res> {
           DeleteAction value, $Res Function(DeleteAction) then) =
       _$DeleteActionCopyWithImpl<$Res, DeleteAction>;
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ abstract class _$$DeleteActionImplCopyWith<$Res>
       __$$DeleteActionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$DeleteActionImplCopyWithImpl<$Res>
 class _$DeleteActionImpl implements _DeleteAction {
   const _$DeleteActionImpl(
       {@typeKey this.type = comAtprotoRepoApplyWritesDelete,
-      @atUriConverter required this.uri});
+      @AtUriConverter() required this.uri});
 
   factory _$DeleteActionImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeleteActionImplFromJson(json);
@@ -122,7 +122,7 @@ class _$DeleteActionImpl implements _DeleteAction {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
 
   @override
@@ -160,7 +160,7 @@ class _$DeleteActionImpl implements _DeleteAction {
 abstract class _DeleteAction implements DeleteAction {
   const factory _DeleteAction(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri}) = _$DeleteActionImpl;
+      @AtUriConverter() required final AtUri uri}) = _$DeleteActionImpl;
 
   factory _DeleteAction.fromJson(Map<String, dynamic> json) =
       _$DeleteActionImpl.fromJson;
@@ -169,7 +169,7 @@ abstract class _DeleteAction implements DeleteAction {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

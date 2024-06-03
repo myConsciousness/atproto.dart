@@ -6,8 +6,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../converters/date_time_converter.dart';
-import '../keys/annotations.dart';
+import '../utils/annotations.dart';
+import '../utils/date_time_converter.dart';
 import 'auth_scope.dart';
 
 part 'auth_token.freezed.dart';

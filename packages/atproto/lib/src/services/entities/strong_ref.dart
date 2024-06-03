@@ -18,7 +18,7 @@ class StrongRef with _$StrongRef {
   const factory StrongRef({
     @typeKey @Default(comAtprotoRepoStrongRef) String type,
     required String cid,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _StrongRef;
 
   factory StrongRef.fromJson(Map<String, Object?> json) =>

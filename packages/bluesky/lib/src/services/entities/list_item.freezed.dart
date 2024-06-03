@@ -20,7 +20,7 @@ ListItem _$ListItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItem {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   Actor get subject => throw _privateConstructorUsedError;
 
@@ -35,7 +35,7 @@ abstract class $ListItemCopyWith<$Res> {
   factory $ListItemCopyWith(ListItem value, $Res Function(ListItem) then) =
       _$ListItemCopyWithImpl<$Res, ListItem>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, Actor subject});
+  $Res call({@AtUriConverter() AtUri uri, Actor subject});
 
   $ActorCopyWith<$Res> get subject;
 }
@@ -85,7 +85,7 @@ abstract class _$$ListItemImplCopyWith<$Res>
       __$$ListItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, Actor subject});
+  $Res call({@AtUriConverter() AtUri uri, Actor subject});
 
   @override
   $ActorCopyWith<$Res> get subject;
@@ -122,13 +122,13 @@ class __$$ListItemImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$ListItemImpl implements _ListItem {
   const _$ListItemImpl(
-      {@atUriConverter required this.uri, required this.subject});
+      {@AtUriConverter() required this.uri, required this.subject});
 
   factory _$ListItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final Actor subject;
@@ -167,14 +167,14 @@ class _$ListItemImpl implements _ListItem {
 
 abstract class _ListItem implements ListItem {
   const factory _ListItem(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final Actor subject}) = _$ListItemImpl;
 
   factory _ListItem.fromJson(Map<String, dynamic> json) =
       _$ListItemImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   Actor get subject;

@@ -21,7 +21,7 @@ RepoOp _$RepoOpFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepoOp {
   RepoAction get action => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {RepoAction action,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       Map<String, dynamic>? record});
 }
@@ -91,7 +91,7 @@ abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
   @useResult
   $Res call(
       {RepoAction action,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       Map<String, dynamic>? record});
 }
@@ -138,7 +138,7 @@ class __$$RepoOpImplCopyWithImpl<$Res>
 class _$RepoOpImpl implements _RepoOp {
   const _$RepoOpImpl(
       {required this.action,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       this.cid,
       final Map<String, dynamic>? record})
       : _record = record;
@@ -149,7 +149,7 @@ class _$RepoOpImpl implements _RepoOp {
   @override
   final RepoAction action;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -201,7 +201,7 @@ class _$RepoOpImpl implements _RepoOp {
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
       {required final RepoAction action,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       final String? cid,
       final Map<String, dynamic>? record}) = _$RepoOpImpl;
 
@@ -210,7 +210,7 @@ abstract class _RepoOp implements RepoOp {
   @override
   RepoAction get action;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;

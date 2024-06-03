@@ -16,7 +16,7 @@ _$DeleteActionImpl _$$DeleteActionImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesDelete),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -26,5 +26,5 @@ _$DeleteActionImpl _$$DeleteActionImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$DeleteActionImplToJson(_$DeleteActionImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
     };

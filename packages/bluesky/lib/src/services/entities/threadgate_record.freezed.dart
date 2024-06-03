@@ -22,7 +22,7 @@ ThreadgateRecord _$ThreadgateRecordFromJson(Map<String, dynamic> json) {
 mixin _$ThreadgateRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'post')
   AtUri get postUri => throw _privateConstructorUsedError;
   @threadRuleConverter
@@ -44,7 +44,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter @JsonKey(name: 'post') AtUri postUri,
+      @AtUriConverter() @JsonKey(name: 'post') AtUri postUri,
       @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
       DateTime createdAt});
 }
@@ -98,7 +98,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter @JsonKey(name: 'post') AtUri postUri,
+      @AtUriConverter() @JsonKey(name: 'post') AtUri postUri,
       @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
       DateTime createdAt});
 }
@@ -146,7 +146,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
 class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   const _$ThreadgateRecordImpl(
       {@typeKey this.type = appBskyFeedThreadgate,
-      @atUriConverter @JsonKey(name: 'post') required this.postUri,
+      @AtUriConverter() @JsonKey(name: 'post') required this.postUri,
       @threadRuleConverter
       @JsonKey(name: 'allow')
       final List<ThreadRule>? allowRules,
@@ -160,7 +160,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'post')
   final AtUri postUri;
   final List<ThreadRule>? _allowRules;
@@ -219,7 +219,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
       {@typeKey final String type,
-      @atUriConverter @JsonKey(name: 'post') required final AtUri postUri,
+      @AtUriConverter() @JsonKey(name: 'post') required final AtUri postUri,
       @threadRuleConverter
       @JsonKey(name: 'allow')
       final List<ThreadRule>? allowRules,
@@ -232,7 +232,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'post')
   AtUri get postUri;
   @override

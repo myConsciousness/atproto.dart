@@ -22,7 +22,7 @@ BlockListRecord _$BlockListRecordFromJson(Map<String, dynamic> json) {
 mixin _$BlockListRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -40,7 +40,7 @@ abstract class $BlockListRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri subject,
+      @AtUriConverter() AtUri subject,
       DateTime createdAt});
 }
 
@@ -88,7 +88,7 @@ abstract class _$$BlockListRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri subject,
+      @AtUriConverter() AtUri subject,
       DateTime createdAt});
 }
 
@@ -130,7 +130,7 @@ class __$$BlockListRecordImplCopyWithImpl<$Res>
 class _$BlockListRecordImpl implements _BlockListRecord {
   const _$BlockListRecordImpl(
       {@typeKey this.type = appBskyGraphListblock,
-      @atUriConverter required this.subject,
+      @AtUriConverter() required this.subject,
       required this.createdAt});
 
   factory _$BlockListRecordImpl.fromJson(Map<String, dynamic> json) =>
@@ -140,7 +140,7 @@ class _$BlockListRecordImpl implements _BlockListRecord {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri subject;
   @override
   final DateTime createdAt;
@@ -183,7 +183,7 @@ class _$BlockListRecordImpl implements _BlockListRecord {
 abstract class _BlockListRecord implements BlockListRecord {
   const factory _BlockListRecord(
       {@typeKey final String type,
-      @atUriConverter required final AtUri subject,
+      @AtUriConverter() required final AtUri subject,
       required final DateTime createdAt}) = _$BlockListRecordImpl;
 
   factory _BlockListRecord.fromJson(Map<String, dynamic> json) =
@@ -193,7 +193,7 @@ abstract class _BlockListRecord implements BlockListRecord {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get subject;
   @override
   DateTime get createdAt;

@@ -15,7 +15,7 @@ _$StrongRefParamImpl _$$StrongRefParamImplFromJson(Map json) => $checkedCreate(
         final val = _$StrongRefParamImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           unspecced: $checkedConvert(
@@ -34,7 +34,7 @@ Map<String, dynamic> _$$StrongRefParamImplToJson(
     _$StrongRefParamImpl instance) {
   final val = <String, dynamic>{
     'cid': instance.cid,
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
   };
 
   void writeNotNull(String key, dynamic value) {

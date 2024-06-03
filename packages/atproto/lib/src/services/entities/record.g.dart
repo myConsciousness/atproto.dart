@@ -14,7 +14,7 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$RecordImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
           value: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
@@ -25,7 +25,7 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
   };
 
   void writeNotNull(String key, dynamic value) {

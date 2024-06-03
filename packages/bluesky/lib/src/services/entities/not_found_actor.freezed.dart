@@ -22,7 +22,7 @@ NotFoundActor _$NotFoundActorFromJson(Map<String, dynamic> json) {
 mixin _$NotFoundActor {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   String get actor => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
@@ -39,7 +39,7 @@ abstract class $NotFoundActorCopyWith<$Res> {
       _$NotFoundActorCopyWithImpl<$Res, NotFoundActor>;
   @useResult
   $Res call(
-      {@typeKey String type, @atUriConverter String actor, bool notFound});
+      {@typeKey String type, @AtUriConverter() String actor, bool notFound});
 }
 
 /// @nodoc
@@ -85,7 +85,7 @@ abstract class _$$NotFoundActorImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@typeKey String type, @atUriConverter String actor, bool notFound});
+      {@typeKey String type, @AtUriConverter() String actor, bool notFound});
 }
 
 /// @nodoc
@@ -125,7 +125,7 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
 class _$NotFoundActorImpl implements _NotFoundActor {
   const _$NotFoundActorImpl(
       {@typeKey this.type = appBskyGraphDefsNotFoundActor,
-      @atUriConverter required this.actor,
+      @AtUriConverter() required this.actor,
       this.notFound = true});
 
   factory _$NotFoundActorImpl.fromJson(Map<String, dynamic> json) =>
@@ -135,7 +135,7 @@ class _$NotFoundActorImpl implements _NotFoundActor {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final String actor;
   @override
   @JsonKey()
@@ -178,7 +178,7 @@ class _$NotFoundActorImpl implements _NotFoundActor {
 abstract class _NotFoundActor implements NotFoundActor {
   const factory _NotFoundActor(
       {@typeKey final String type,
-      @atUriConverter required final String actor,
+      @AtUriConverter() required final String actor,
       final bool notFound}) = _$NotFoundActorImpl;
 
   factory _NotFoundActor.fromJson(Map<String, dynamic> json) =
@@ -188,7 +188,7 @@ abstract class _NotFoundActor implements NotFoundActor {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   String get actor;
   @override
   bool get notFound;

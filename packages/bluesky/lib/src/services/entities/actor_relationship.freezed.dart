@@ -23,9 +23,9 @@ mixin _$ActorRelationship {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get following => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,8 +43,8 @@ abstract class $ActorRelationshipCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String did,
-      @atUriConverter AtUri? following,
-      @atUriConverter AtUri? followedBy});
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -97,8 +97,8 @@ abstract class _$$ActorRelationshipImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String did,
-      @atUriConverter AtUri? following,
-      @atUriConverter AtUri? followedBy});
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -144,8 +144,8 @@ class _$ActorRelationshipImpl implements _ActorRelationship {
   const _$ActorRelationshipImpl(
       {@typeKey this.type = appBskyGraphDefsRelationship,
       required this.did,
-      @atUriConverter this.following,
-      @atUriConverter this.followedBy});
+      @AtUriConverter() this.following,
+      @AtUriConverter() this.followedBy});
 
   factory _$ActorRelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$ActorRelationshipImplFromJson(json);
@@ -156,10 +156,10 @@ class _$ActorRelationshipImpl implements _ActorRelationship {
   @override
   final String did;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? following;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? followedBy;
 
   @override
@@ -204,8 +204,8 @@ abstract class _ActorRelationship implements ActorRelationship {
   const factory _ActorRelationship(
       {@typeKey final String type,
       required final String did,
-      @atUriConverter final AtUri? following,
-      @atUriConverter final AtUri? followedBy}) = _$ActorRelationshipImpl;
+      @AtUriConverter() final AtUri? following,
+      @AtUriConverter() final AtUri? followedBy}) = _$ActorRelationshipImpl;
 
   factory _ActorRelationship.fromJson(Map<String, dynamic> json) =
       _$ActorRelationshipImpl.fromJson;
@@ -216,10 +216,10 @@ abstract class _ActorRelationship implements ActorRelationship {
   @override
   String get did;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get following;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)

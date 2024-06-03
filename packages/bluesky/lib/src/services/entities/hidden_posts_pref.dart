@@ -17,7 +17,7 @@ part 'hidden_posts_pref.g.dart';
 class HiddenPostsPref with _$HiddenPostsPref {
   const factory HiddenPostsPref({
     @typeKey @Default(appBskyActorDefsHiddenPostsPref) String type,
-    @atUriConverter required List<AtUri> items,
+    @AtUriConverter() required List<AtUri> items,
   }) = _HiddenPostsPref;
 
   factory HiddenPostsPref.fromJson(Map<String, Object?> json) =>

@@ -17,7 +17,7 @@ _$BlockListRecordImpl _$$BlockListRecordImplFromJson(Map json) =>
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphListblock),
           subject: $checkedConvert(
-              'subject', (v) => atUriConverter.fromJson(v as String)),
+              'subject', (v) => const AtUriConverter().fromJson(v as String)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -30,6 +30,6 @@ Map<String, dynamic> _$$BlockListRecordImplToJson(
         _$BlockListRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'subject': atUriConverter.toJson(instance.subject),
+      'subject': const AtUriConverter().toJson(instance.subject),
       'createdAt': instance.createdAt.toIso8601String(),
     };

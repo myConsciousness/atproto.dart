@@ -26,9 +26,9 @@ class ActorViewer with _$ActorViewer {
     @JsonKey(name: 'blockedBy') @Default(false) bool isBlockedBy,
     ListViewBasic? mutedByList,
     ListViewBasic? blockingByList,
-    @atUriConverter AtUri? blocking,
-    @atUriConverter AtUri? following,
-    @atUriConverter AtUri? followedBy,
+    @AtUriConverter() AtUri? blocking,
+    @AtUriConverter() AtUri? following,
+    @AtUriConverter() AtUri? followedBy,
   }) = _ActorViewer;
 
   factory ActorViewer.fromJson(Map<String, Object?> json) =>

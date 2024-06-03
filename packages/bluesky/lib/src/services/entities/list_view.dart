@@ -29,7 +29,7 @@ class ListView with _$ListView {
   const factory ListView({
     @typeKey @Default(appBskyGraphDefsListView) String type,
     required String purpose,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String name,
     String? description,

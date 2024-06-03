@@ -19,7 +19,7 @@ _$FeedInteractionImpl _$$FeedInteractionImplFromJson(Map json) =>
           item: $checkedConvert(
               'item',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           event: $checkedConvert('event', (v) => v as String?),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
         );
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$FeedInteractionImplToJson(
   writeNotNull(
       'item',
       _$JsonConverterToJson<String, AtUri>(
-          instance.item, atUriConverter.toJson));
+          instance.item, const AtUriConverter().toJson));
   writeNotNull('event', instance.event);
   writeNotNull('feedContext', instance.feedContext);
   return val;

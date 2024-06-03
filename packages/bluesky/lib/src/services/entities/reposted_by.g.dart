@@ -20,7 +20,7 @@ _$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
                       Actor.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
         );
@@ -31,7 +31,7 @@ _$RepostedByImpl _$$RepostedByImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RepostedByImplToJson(_$RepostedByImpl instance) =>
     <String, dynamic>{
       'repostedBy': instance.repostedBy.map((e) => e.toJson()).toList(),
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'cursor': instance.cursor,
     };

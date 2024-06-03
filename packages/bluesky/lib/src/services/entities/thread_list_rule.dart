@@ -20,7 +20,7 @@ class ThreadListRule with _$ThreadListRule {
   @jsonSerializable
   const factory ThreadListRule({
     @typeKey @Default(appBskyFeedThreadgateListRule) String type,
-    @JsonKey(name: 'list') @atUriConverter required AtUri listUri,
+    @JsonKey(name: 'list') @AtUriConverter() required AtUri listUri,
   }) = _ThreadListRule;
 
   factory ThreadListRule.fromJson(Map<String, Object?> json) =>

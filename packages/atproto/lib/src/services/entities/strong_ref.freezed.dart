@@ -23,7 +23,7 @@ mixin _$StrongRef {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $StrongRefCopyWith<$Res> {
   factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
       _$StrongRefCopyWithImpl<$Res, StrongRef>;
   @useResult
-  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ abstract class _$$StrongRefImplCopyWith<$Res>
       __$$StrongRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, String cid, @atUriConverter AtUri uri});
+  $Res call({@typeKey String type, String cid, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -123,7 +123,7 @@ class _$StrongRefImpl implements _StrongRef {
   const _$StrongRefImpl(
       {@typeKey this.type = comAtprotoRepoStrongRef,
       required this.cid,
-      @atUriConverter required this.uri});
+      @AtUriConverter() required this.uri});
 
   factory _$StrongRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$StrongRefImplFromJson(json);
@@ -134,7 +134,7 @@ class _$StrongRefImpl implements _StrongRef {
   @override
   final String cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
 
   @override
@@ -174,7 +174,7 @@ abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
       {@typeKey final String type,
       required final String cid,
-      @atUriConverter required final AtUri uri}) = _$StrongRefImpl;
+      @AtUriConverter() required final AtUri uri}) = _$StrongRefImpl;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
       _$StrongRefImpl.fromJson;
@@ -185,7 +185,7 @@ abstract class _StrongRef implements StrongRef {
   @override
   String get cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

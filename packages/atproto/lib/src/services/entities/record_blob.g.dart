@@ -15,7 +15,7 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
         final val = _$RecordBlobImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           recordUri: $checkedConvert(
-              'recordUri', (v) => atUriConverter.fromJson(v as String)),
+              'recordUri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -24,5 +24,5 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RecordBlobImplToJson(_$RecordBlobImpl instance) =>
     <String, dynamic>{
       'cid': instance.cid,
-      'recordUri': atUriConverter.toJson(instance.recordUri),
+      'recordUri': const AtUriConverter().toJson(instance.recordUri),
     };

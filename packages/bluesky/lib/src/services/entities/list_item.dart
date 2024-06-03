@@ -18,7 +18,7 @@ part 'list_item.g.dart';
 @freezed
 class ListItem with _$ListItem {
   const factory ListItem({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required Actor subject,
   }) = _ListItem;
 

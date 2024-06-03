@@ -17,7 +17,7 @@ part 'skeleton_post.g.dart';
 @freezed
 class SkeletonPost with _$SkeletonPost {
   const factory SkeletonPost({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _SkeletonPost;
 
   factory SkeletonPost.fromJson(Map<String, Object?> json) =>

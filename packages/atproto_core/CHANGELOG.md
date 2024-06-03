@@ -138,7 +138,7 @@
 
 ## v0.4.4
 
-- Export `atUriConverter` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+- Export `AtUriConverter()` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
 
 ## v0.4.3
 

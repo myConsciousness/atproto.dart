@@ -15,7 +15,7 @@ _$ListItemParamImpl _$$ListItemParamImplFromJson(Map json) => $checkedCreate(
         final val = _$ListItemParamImpl(
           subject: $checkedConvert('subject', (v) => v as String),
           list: $checkedConvert(
-              'list', (v) => atUriConverter.fromJson(v as String)),
+              'list', (v) => const AtUriConverter().fromJson(v as String)),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           unspecced: $checkedConvert(
@@ -33,7 +33,7 @@ _$ListItemParamImpl _$$ListItemParamImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ListItemParamImplToJson(_$ListItemParamImpl instance) {
   final val = <String, dynamic>{
     'subject': instance.subject,
-    'list': atUriConverter.toJson(instance.list),
+    'list': const AtUriConverter().toJson(instance.list),
   };
 
   void writeNotNull(String key, dynamic value) {

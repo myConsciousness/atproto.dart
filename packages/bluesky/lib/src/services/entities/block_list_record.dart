@@ -23,7 +23,7 @@ class BlockListRecord with _$BlockListRecord {
   @jsonSerializable
   const factory BlockListRecord({
     @typeKey @Default(appBskyGraphListblock) String type,
-    @atUriConverter required AtUri subject,
+    @AtUriConverter() required AtUri subject,
     required DateTime createdAt,
   }) = _BlockListRecord;
 

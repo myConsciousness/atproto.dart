@@ -17,7 +17,7 @@ class StrongRefParam with _$StrongRefParam {
   @jsonSerializable
   const factory StrongRefParam({
     required String cid,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     DateTime? createdAt,
     @Default(emptyJson) Map<String, dynamic> unspecced,
   }) = _StrongRefParam;

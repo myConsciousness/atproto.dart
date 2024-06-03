@@ -16,7 +16,7 @@ _$NotFoundPostImpl _$$NotFoundPostImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsNotFoundPost),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           isNotFound: $checkedConvert('notFound', (v) => v as bool? ?? true),
         );
         return val;
@@ -27,6 +27,6 @@ _$NotFoundPostImpl _$$NotFoundPostImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$NotFoundPostImplToJson(_$NotFoundPostImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'notFound': instance.isNotFound,
     };

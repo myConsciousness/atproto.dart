@@ -16,7 +16,7 @@ _$SubscribedRepoMigrateImpl _$$SubscribedRepoMigrateImplFromJson(Map json) =>
         final val = _$SubscribedRepoMigrateImpl(
           did: $checkedConvert('did', (v) => v as String),
           migrateTo: $checkedConvert('migrateTo', (v) => v as String?),
-          cursor: $checkedConvert('seq', (v) => v as int),
+          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
           createdAt:
               $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );

@@ -21,7 +21,7 @@ RecordBlob _$RecordBlobFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RecordBlob {
   String get cid => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get recordUri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $RecordBlobCopyWith<$Res> {
           RecordBlob value, $Res Function(RecordBlob) then) =
       _$RecordBlobCopyWithImpl<$Res, RecordBlob>;
   @useResult
-  $Res call({String cid, @atUriConverter AtUri recordUri});
+  $Res call({String cid, @AtUriConverter() AtUri recordUri});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ abstract class _$$RecordBlobImplCopyWith<$Res>
       __$$RecordBlobImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, @atUriConverter AtUri recordUri});
+  $Res call({String cid, @AtUriConverter() AtUri recordUri});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$RecordBlobImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$RecordBlobImpl implements _RecordBlob {
   const _$RecordBlobImpl(
-      {required this.cid, @atUriConverter required this.recordUri});
+      {required this.cid, @AtUriConverter() required this.recordUri});
 
   factory _$RecordBlobImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordBlobImplFromJson(json);
@@ -119,7 +119,7 @@ class _$RecordBlobImpl implements _RecordBlob {
   @override
   final String cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri recordUri;
 
   @override
@@ -158,7 +158,7 @@ class _$RecordBlobImpl implements _RecordBlob {
 abstract class _RecordBlob implements RecordBlob {
   const factory _RecordBlob(
       {required final String cid,
-      @atUriConverter required final AtUri recordUri}) = _$RecordBlobImpl;
+      @AtUriConverter() required final AtUri recordUri}) = _$RecordBlobImpl;
 
   factory _RecordBlob.fromJson(Map<String, dynamic> json) =
       _$RecordBlobImpl.fromJson;
@@ -166,7 +166,7 @@ abstract class _RecordBlob implements RecordBlob {
   @override
   String get cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get recordUri;
   @override
   @JsonKey(ignore: true)

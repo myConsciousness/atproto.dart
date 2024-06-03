@@ -22,7 +22,7 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 mixin _$BlockedPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $BlockedPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       bool blocked,
       BlockedAuthor author});
 
@@ -105,7 +105,7 @@ abstract class _$$BlockedPostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       bool blocked,
       BlockedAuthor author});
 
@@ -155,7 +155,7 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
 class _$BlockedPostImpl implements _BlockedPost {
   const _$BlockedPostImpl(
       {@typeKey this.type = appBskyFeedDefsBlockedPost,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.blocked,
       required this.author});
 
@@ -166,7 +166,7 @@ class _$BlockedPostImpl implements _BlockedPost {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final bool blocked;
@@ -210,7 +210,7 @@ class _$BlockedPostImpl implements _BlockedPost {
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final bool blocked,
       required final BlockedAuthor author}) = _$BlockedPostImpl;
 
@@ -221,7 +221,7 @@ abstract class _BlockedPost implements BlockedPost {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   bool get blocked;

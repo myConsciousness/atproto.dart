@@ -20,7 +20,7 @@ _$PostImpl _$$PostImplFromJson(Map json) => $checkedCreate(
           author: $checkedConvert('author',
               (v) => ActorBasic.fromJson(Map<String, Object?>.from(v as Map))),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           embed: $checkedConvert(
               'embed',
@@ -62,7 +62,7 @@ Map<String, dynamic> _$$PostImplToJson(_$PostImpl instance) {
     r'$type': instance.type,
     'record': postRecordConverter.toJson(instance.record),
     'author': instance.author.toJson(),
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
   };
 

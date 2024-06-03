@@ -18,7 +18,7 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
           purpose: $checkedConvert(
               'purpose', (v) => v as String? ?? appBskyGraphDefsModlist),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           avatar: $checkedConvert('avatar', (v) => v as String?),
@@ -45,7 +45,7 @@ Map<String, dynamic> _$$ListViewBasicImplToJson(_$ListViewBasicImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
     'purpose': instance.purpose,
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'name': instance.name,
   };

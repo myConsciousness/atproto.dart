@@ -17,12 +17,11 @@ export 'package:atproto_core/src/sessions/jwt_decoder.dart' show decodeJwt;
 export 'package:atproto_core/src/sessions/session.dart';
 export 'package:atproto_core/src/sessions/sessions.dart'
     show createSession, refreshSession, deleteSession;
-export 'package:atproto_core/src/keys/ids.dart';
+export 'package:atproto_core/src/utils/ids.dart';
 export 'package:atproto_core/src/const.dart';
-export 'package:atproto_core/src/keys/annotations.dart';
+export 'package:atproto_core/src/utils/annotations.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
-export 'package:atproto_core/src/converters/at_uri_converter.dart'
-    show atUriConverter;
+export 'package:atproto_core/src/utils/at_uri_converter.dart';
 export 'package:atproto_core/src/progress_status.dart'
     show ProgressStatus, ProgressStatusEvent;
 export 'package:cbor/simple.dart' show cbor;

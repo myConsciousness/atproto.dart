@@ -22,7 +22,7 @@ class Record with _$Record {
 
   @jsonSerializable
   const factory Record({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     required Map<String, dynamic> value,
   }) = _Record;

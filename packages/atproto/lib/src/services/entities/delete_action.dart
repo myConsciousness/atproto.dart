@@ -20,7 +20,7 @@ class DeleteAction with _$DeleteAction {
   @jsonSerializable
   const factory DeleteAction({
     @typeKey @Default(comAtprotoRepoApplyWritesDelete) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _DeleteAction;
 
   factory DeleteAction.fromJson(Map<String, Object?> json) =>

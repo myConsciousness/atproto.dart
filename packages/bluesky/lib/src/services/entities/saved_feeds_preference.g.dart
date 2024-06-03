@@ -19,12 +19,12 @@ _$SavedFeedsPreferenceImpl _$$SavedFeedsPreferenceImplFromJson(Map json) =>
           pinnedUris: $checkedConvert(
               'pinned',
               (v) => (v as List<dynamic>)
-                  .map((e) => atUriConverter.fromJson(e as String))
+                  .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
           savedUris: $checkedConvert(
               'saved',
               (v) => (v as List<dynamic>)
-                  .map((e) => atUriConverter.fromJson(e as String))
+                  .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
           timelineIndex:
               $checkedConvert('timelineIndex', (v) => (v as num?)?.toInt()),
@@ -42,8 +42,8 @@ Map<String, dynamic> _$$SavedFeedsPreferenceImplToJson(
     _$SavedFeedsPreferenceImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'pinned': instance.pinnedUris.map(atUriConverter.toJson).toList(),
-    'saved': instance.savedUris.map(atUriConverter.toJson).toList(),
+    'pinned': instance.pinnedUris.map(const AtUriConverter().toJson).toList(),
+    'saved': instance.savedUris.map(const AtUriConverter().toJson).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {

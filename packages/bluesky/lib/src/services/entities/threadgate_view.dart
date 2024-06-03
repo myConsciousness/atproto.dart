@@ -22,7 +22,7 @@ class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
   const factory ThreadgateView({
     @typeKey @Default(appBskyFeedDefsThreadgateView) String type,
-    @atUriConverter AtUri? uri,
+    @AtUriConverter() AtUri? uri,
     String? cid,
     ThreadgateRecord? record,
     List<ListViewBasic>? lists,

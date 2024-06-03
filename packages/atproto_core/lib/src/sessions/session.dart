@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../keys/annotations.dart';
+import '../utils/annotations.dart';
 import 'auth_token.dart';
 import 'jwt_decoder.dart';
 
@@ -46,6 +46,8 @@ class Session with _$Session {
 
     /// DID plc document.
     Map<String, dynamic>? didDoc,
+    @Default(true) bool active,
+    String? status,
   }) = _Session;
 
   /// Creates a new instance of [Session] from a JSON object.

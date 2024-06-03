@@ -19,7 +19,7 @@ part 'likes.g.dart';
 class Likes with _$Likes {
   const factory Likes({
     required List<Like> likes,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
   }) = _Likes;

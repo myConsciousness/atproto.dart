@@ -16,7 +16,7 @@ _$ListItemRecordImpl _$$ListItemRecordImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyGraphListitem),
           list: $checkedConvert(
-              'list', (v) => atUriConverter.fromJson(v as String)),
+              'list', (v) => const AtUriConverter().fromJson(v as String)),
           did: $checkedConvert('subject', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -30,7 +30,7 @@ Map<String, dynamic> _$$ListItemRecordImplToJson(
         _$ListItemRecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'list': atUriConverter.toJson(instance.list),
+      'list': const AtUriConverter().toJson(instance.list),
       'subject': instance.did,
       'createdAt': instance.createdAt.toIso8601String(),
     };

@@ -22,7 +22,7 @@ ListViewer _$ListViewerFromJson(Map<String, dynamic> json) {
 mixin _$ListViewer {
   @JsonKey(name: 'muted')
   bool get isMuted => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get blocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $ListViewerCopyWith<$Res> {
       _$ListViewerCopyWithImpl<$Res, ListViewer>;
   @useResult
   $Res call(
-      {@JsonKey(name: 'muted') bool isMuted, @atUriConverter AtUri? blocked});
+      {@JsonKey(name: 'muted') bool isMuted, @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -79,7 +79,7 @@ abstract class _$$ListViewerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: 'muted') bool isMuted, @atUriConverter AtUri? blocked});
+      {@JsonKey(name: 'muted') bool isMuted, @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -115,7 +115,7 @@ class __$$ListViewerImplCopyWithImpl<$Res>
 class _$ListViewerImpl extends _ListViewer {
   const _$ListViewerImpl(
       {@JsonKey(name: 'muted') this.isMuted = false,
-      @atUriConverter this.blocked})
+      @AtUriConverter() this.blocked})
       : super._();
 
   factory _$ListViewerImpl.fromJson(Map<String, dynamic> json) =>
@@ -125,7 +125,7 @@ class _$ListViewerImpl extends _ListViewer {
   @JsonKey(name: 'muted')
   final bool isMuted;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? blocked;
 
   @override
@@ -163,7 +163,7 @@ class _$ListViewerImpl extends _ListViewer {
 abstract class _ListViewer extends ListViewer {
   const factory _ListViewer(
       {@JsonKey(name: 'muted') final bool isMuted,
-      @atUriConverter final AtUri? blocked}) = _$ListViewerImpl;
+      @AtUriConverter() final AtUri? blocked}) = _$ListViewerImpl;
   const _ListViewer._() : super._();
 
   factory _ListViewer.fromJson(Map<String, dynamic> json) =
@@ -173,7 +173,7 @@ abstract class _ListViewer extends ListViewer {
   @JsonKey(name: 'muted')
   bool get isMuted;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get blocked;
   @override
   @JsonKey(ignore: true)

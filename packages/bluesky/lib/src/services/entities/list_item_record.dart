@@ -23,7 +23,7 @@ class ListItemRecord with _$ListItemRecord {
   @jsonSerializable
   const factory ListItemRecord({
     @typeKey @Default(appBskyGraphListitem) String type,
-    @atUriConverter required AtUri list,
+    @AtUriConverter() required AtUri list,
     @JsonKey(name: 'subject') required String did,
     required DateTime createdAt,
   }) = _ListItemRecord;

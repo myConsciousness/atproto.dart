@@ -19,7 +19,7 @@ part 'not_found_post.g.dart';
 class NotFoundPost with _$NotFoundPost {
   const factory NotFoundPost({
     @typeKey @Default(appBskyFeedDefsNotFoundPost) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     @JsonKey(name: 'notFound') @Default(true) bool isNotFound,
   }) = _NotFoundPost;
 
