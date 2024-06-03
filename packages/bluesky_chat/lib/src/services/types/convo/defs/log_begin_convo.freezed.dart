@@ -14,34 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoLogBeginConvo _$ConvoLogBeginConvoFromJson(Map<String, dynamic> json) {
-  return _ConvoLogBeginConvo.fromJson(json);
+LogBeginConvo _$LogBeginConvoFromJson(Map<String, dynamic> json) {
+  return _LogBeginConvo.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoLogBeginConvo {
+mixin _$LogBeginConvo {
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoLogBeginConvoCopyWith<ConvoLogBeginConvo> get copyWith =>
+  $LogBeginConvoCopyWith<LogBeginConvo> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoLogBeginConvoCopyWith<$Res> {
-  factory $ConvoLogBeginConvoCopyWith(
-          ConvoLogBeginConvo value, $Res Function(ConvoLogBeginConvo) then) =
-      _$ConvoLogBeginConvoCopyWithImpl<$Res, ConvoLogBeginConvo>;
+abstract class $LogBeginConvoCopyWith<$Res> {
+  factory $LogBeginConvoCopyWith(
+          LogBeginConvo value, $Res Function(LogBeginConvo) then) =
+      _$LogBeginConvoCopyWithImpl<$Res, LogBeginConvo>;
   @useResult
   $Res call({String rev, String convoId});
 }
 
 /// @nodoc
-class _$ConvoLogBeginConvoCopyWithImpl<$Res, $Val extends ConvoLogBeginConvo>
-    implements $ConvoLogBeginConvoCopyWith<$Res> {
-  _$ConvoLogBeginConvoCopyWithImpl(this._value, this._then);
+class _$LogBeginConvoCopyWithImpl<$Res, $Val extends LogBeginConvo>
+    implements $LogBeginConvoCopyWith<$Res> {
+  _$LogBeginConvoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,22 +68,22 @@ class _$ConvoLogBeginConvoCopyWithImpl<$Res, $Val extends ConvoLogBeginConvo>
 }
 
 /// @nodoc
-abstract class _$$ConvoLogBeginConvoImplCopyWith<$Res>
-    implements $ConvoLogBeginConvoCopyWith<$Res> {
-  factory _$$ConvoLogBeginConvoImplCopyWith(_$ConvoLogBeginConvoImpl value,
-          $Res Function(_$ConvoLogBeginConvoImpl) then) =
-      __$$ConvoLogBeginConvoImplCopyWithImpl<$Res>;
+abstract class _$$LogBeginConvoImplCopyWith<$Res>
+    implements $LogBeginConvoCopyWith<$Res> {
+  factory _$$LogBeginConvoImplCopyWith(
+          _$LogBeginConvoImpl value, $Res Function(_$LogBeginConvoImpl) then) =
+      __$$LogBeginConvoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String rev, String convoId});
 }
 
 /// @nodoc
-class __$$ConvoLogBeginConvoImplCopyWithImpl<$Res>
-    extends _$ConvoLogBeginConvoCopyWithImpl<$Res, _$ConvoLogBeginConvoImpl>
-    implements _$$ConvoLogBeginConvoImplCopyWith<$Res> {
-  __$$ConvoLogBeginConvoImplCopyWithImpl(_$ConvoLogBeginConvoImpl _value,
-      $Res Function(_$ConvoLogBeginConvoImpl) _then)
+class __$$LogBeginConvoImplCopyWithImpl<$Res>
+    extends _$LogBeginConvoCopyWithImpl<$Res, _$LogBeginConvoImpl>
+    implements _$$LogBeginConvoImplCopyWith<$Res> {
+  __$$LogBeginConvoImplCopyWithImpl(
+      _$LogBeginConvoImpl _value, $Res Function(_$LogBeginConvoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$ConvoLogBeginConvoImplCopyWithImpl<$Res>
     Object? rev = null,
     Object? convoId = null,
   }) {
-    return _then(_$ConvoLogBeginConvoImpl(
+    return _then(_$LogBeginConvoImpl(
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -108,11 +108,11 @@ class __$$ConvoLogBeginConvoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoLogBeginConvoImpl implements _ConvoLogBeginConvo {
-  const _$ConvoLogBeginConvoImpl({required this.rev, required this.convoId});
+class _$LogBeginConvoImpl implements _LogBeginConvo {
+  const _$LogBeginConvoImpl({required this.rev, required this.convoId});
 
-  factory _$ConvoLogBeginConvoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoLogBeginConvoImplFromJson(json);
+  factory _$LogBeginConvoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LogBeginConvoImplFromJson(json);
 
   @override
   final String rev;
@@ -121,14 +121,14 @@ class _$ConvoLogBeginConvoImpl implements _ConvoLogBeginConvo {
 
   @override
   String toString() {
-    return 'ConvoLogBeginConvo(rev: $rev, convoId: $convoId)';
+    return 'LogBeginConvo(rev: $rev, convoId: $convoId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoLogBeginConvoImpl &&
+            other is _$LogBeginConvoImpl &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId));
   }
@@ -140,25 +140,24 @@ class _$ConvoLogBeginConvoImpl implements _ConvoLogBeginConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoLogBeginConvoImplCopyWith<_$ConvoLogBeginConvoImpl> get copyWith =>
-      __$$ConvoLogBeginConvoImplCopyWithImpl<_$ConvoLogBeginConvoImpl>(
-          this, _$identity);
+  _$$LogBeginConvoImplCopyWith<_$LogBeginConvoImpl> get copyWith =>
+      __$$LogBeginConvoImplCopyWithImpl<_$LogBeginConvoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoLogBeginConvoImplToJson(
+    return _$$LogBeginConvoImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoLogBeginConvo implements ConvoLogBeginConvo {
-  const factory _ConvoLogBeginConvo(
+abstract class _LogBeginConvo implements LogBeginConvo {
+  const factory _LogBeginConvo(
       {required final String rev,
-      required final String convoId}) = _$ConvoLogBeginConvoImpl;
+      required final String convoId}) = _$LogBeginConvoImpl;
 
-  factory _ConvoLogBeginConvo.fromJson(Map<String, dynamic> json) =
-      _$ConvoLogBeginConvoImpl.fromJson;
+  factory _LogBeginConvo.fromJson(Map<String, dynamic> json) =
+      _$LogBeginConvoImpl.fromJson;
 
   @override
   String get rev;
@@ -166,6 +165,6 @@ abstract class _ConvoLogBeginConvo implements ConvoLogBeginConvo {
   String get convoId;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoLogBeginConvoImplCopyWith<_$ConvoLogBeginConvoImpl> get copyWith =>
+  _$$LogBeginConvoImplCopyWith<_$LogBeginConvoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -14,35 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoGetLog _$ConvoGetLogFromJson(Map<String, dynamic> json) {
-  return _ConvoGetLog.fromJson(json);
+GetLogOutput _$GetLogOutputFromJson(Map<String, dynamic> json) {
+  return _GetLogOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoGetLog {
+mixin _$GetLogOutput {
   @unionConvoLogConverter
   List<UConvoLog> get logs => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoGetLogCopyWith<ConvoGetLog> get copyWith =>
+  $GetLogOutputCopyWith<GetLogOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoGetLogCopyWith<$Res> {
-  factory $ConvoGetLogCopyWith(
-          ConvoGetLog value, $Res Function(ConvoGetLog) then) =
-      _$ConvoGetLogCopyWithImpl<$Res, ConvoGetLog>;
+abstract class $GetLogOutputCopyWith<$Res> {
+  factory $GetLogOutputCopyWith(
+          GetLogOutput value, $Res Function(GetLogOutput) then) =
+      _$GetLogOutputCopyWithImpl<$Res, GetLogOutput>;
   @useResult
   $Res call({@unionConvoLogConverter List<UConvoLog> logs, String? cursor});
 }
 
 /// @nodoc
-class _$ConvoGetLogCopyWithImpl<$Res, $Val extends ConvoGetLog>
-    implements $ConvoGetLogCopyWith<$Res> {
-  _$ConvoGetLogCopyWithImpl(this._value, this._then);
+class _$GetLogOutputCopyWithImpl<$Res, $Val extends GetLogOutput>
+    implements $GetLogOutputCopyWith<$Res> {
+  _$GetLogOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -69,22 +69,22 @@ class _$ConvoGetLogCopyWithImpl<$Res, $Val extends ConvoGetLog>
 }
 
 /// @nodoc
-abstract class _$$ConvoGetLogImplCopyWith<$Res>
-    implements $ConvoGetLogCopyWith<$Res> {
-  factory _$$ConvoGetLogImplCopyWith(
-          _$ConvoGetLogImpl value, $Res Function(_$ConvoGetLogImpl) then) =
-      __$$ConvoGetLogImplCopyWithImpl<$Res>;
+abstract class _$$GetLogOutputImplCopyWith<$Res>
+    implements $GetLogOutputCopyWith<$Res> {
+  factory _$$GetLogOutputImplCopyWith(
+          _$GetLogOutputImpl value, $Res Function(_$GetLogOutputImpl) then) =
+      __$$GetLogOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@unionConvoLogConverter List<UConvoLog> logs, String? cursor});
 }
 
 /// @nodoc
-class __$$ConvoGetLogImplCopyWithImpl<$Res>
-    extends _$ConvoGetLogCopyWithImpl<$Res, _$ConvoGetLogImpl>
-    implements _$$ConvoGetLogImplCopyWith<$Res> {
-  __$$ConvoGetLogImplCopyWithImpl(
-      _$ConvoGetLogImpl _value, $Res Function(_$ConvoGetLogImpl) _then)
+class __$$GetLogOutputImplCopyWithImpl<$Res>
+    extends _$GetLogOutputCopyWithImpl<$Res, _$GetLogOutputImpl>
+    implements _$$GetLogOutputImplCopyWith<$Res> {
+  __$$GetLogOutputImplCopyWithImpl(
+      _$GetLogOutputImpl _value, $Res Function(_$GetLogOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +93,7 @@ class __$$ConvoGetLogImplCopyWithImpl<$Res>
     Object? logs = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ConvoGetLogImpl(
+    return _then(_$GetLogOutputImpl(
       logs: null == logs
           ? _value._logs
           : logs // ignore: cast_nullable_to_non_nullable
@@ -109,14 +109,14 @@ class __$$ConvoGetLogImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoGetLogImpl implements _ConvoGetLog {
-  const _$ConvoGetLogImpl(
+class _$GetLogOutputImpl implements _GetLogOutput {
+  const _$GetLogOutputImpl(
       {@unionConvoLogConverter required final List<UConvoLog> logs,
       this.cursor})
       : _logs = logs;
 
-  factory _$ConvoGetLogImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoGetLogImplFromJson(json);
+  factory _$GetLogOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetLogOutputImplFromJson(json);
 
   final List<UConvoLog> _logs;
   @override
@@ -132,14 +132,14 @@ class _$ConvoGetLogImpl implements _ConvoGetLog {
 
   @override
   String toString() {
-    return 'ConvoGetLog(logs: $logs, cursor: $cursor)';
+    return 'GetLogOutput(logs: $logs, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoGetLogImpl &&
+            other is _$GetLogOutputImpl &&
             const DeepCollectionEquality().equals(other._logs, _logs) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -152,24 +152,24 @@ class _$ConvoGetLogImpl implements _ConvoGetLog {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoGetLogImplCopyWith<_$ConvoGetLogImpl> get copyWith =>
-      __$$ConvoGetLogImplCopyWithImpl<_$ConvoGetLogImpl>(this, _$identity);
+  _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
+      __$$GetLogOutputImplCopyWithImpl<_$GetLogOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoGetLogImplToJson(
+    return _$$GetLogOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoGetLog implements ConvoGetLog {
-  const factory _ConvoGetLog(
+abstract class _GetLogOutput implements GetLogOutput {
+  const factory _GetLogOutput(
       {@unionConvoLogConverter required final List<UConvoLog> logs,
-      final String? cursor}) = _$ConvoGetLogImpl;
+      final String? cursor}) = _$GetLogOutputImpl;
 
-  factory _ConvoGetLog.fromJson(Map<String, dynamic> json) =
-      _$ConvoGetLogImpl.fromJson;
+  factory _GetLogOutput.fromJson(Map<String, dynamic> json) =
+      _$GetLogOutputImpl.fromJson;
 
   @override
   @unionConvoLogConverter
@@ -178,6 +178,6 @@ abstract class _ConvoGetLog implements ConvoGetLog {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoGetLogImplCopyWith<_$ConvoGetLogImpl> get copyWith =>
+  _$$GetLogOutputImplCopyWith<_$GetLogOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

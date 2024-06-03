@@ -1,0 +1,21 @@
+dependency_overrides:
+  at_identifier:
+    path: ../packages/at_identifier
+  nsid:
+    path: ../packages/nsid
+  at_uri:
+    path: ../packages/at_uri
+  xrpc:
+    path: ../packages/xrpc
+  multiformats:
+    path: ../packages/multiformats
+  lex_annotation:
+    path: ../packages/lex_annotation
+  atproto_core:
+    path: ../packages/atproto_core
+  atproto:
+    path: ../packages/atproto
+  bluesky:
+    path: ../packages/bluesky
+  bluesky_text:
+    path: ../packages/bluesky_text

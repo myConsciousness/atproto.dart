@@ -37,7 +37,7 @@ final class ServerService {
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAccount
-  Future<core.XRPCResponse<Account>> createAccount({
+  Future<core.XRPCResponse<CreateAccountOutput>> createAccount({
     required String handle,
     required String email,
     required String password,
@@ -55,7 +55,7 @@ final class ServerService {
           'recoveryKey': recoveryKey,
           'plcOp': plcOp,
         },
-        to: Account.fromJson,
+        to: CreateAccountOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete

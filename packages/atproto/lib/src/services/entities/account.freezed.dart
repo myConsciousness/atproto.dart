@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-Account _$AccountFromJson(Map<String, dynamic> json) {
-  return _Account.fromJson(json);
+CreateAccountOutput _$CreateAccountOutputFromJson(Map<String, dynamic> json) {
+  return _CreateAccountOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$Account {
+mixin _$CreateAccountOutput {
   String get accessJwt => throw _privateConstructorUsedError;
   String get refreshJwt => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
@@ -28,13 +28,15 @@ mixin _$Account {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
+  $CreateAccountOutputCopyWith<CreateAccountOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $AccountCopyWith<$Res> {
-  factory $AccountCopyWith(Account value, $Res Function(Account) then) =
-      _$AccountCopyWithImpl<$Res, Account>;
+abstract class $CreateAccountOutputCopyWith<$Res> {
+  factory $CreateAccountOutputCopyWith(
+          CreateAccountOutput value, $Res Function(CreateAccountOutput) then) =
+      _$CreateAccountOutputCopyWithImpl<$Res, CreateAccountOutput>;
   @useResult
   $Res call(
       {String accessJwt,
@@ -45,9 +47,9 @@ abstract class $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AccountCopyWithImpl<$Res, $Val extends Account>
-    implements $AccountCopyWith<$Res> {
-  _$AccountCopyWithImpl(this._value, this._then);
+class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
+    implements $CreateAccountOutputCopyWith<$Res> {
+  _$CreateAccountOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -89,10 +91,11 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
 }
 
 /// @nodoc
-abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
-  factory _$$AccountImplCopyWith(
-          _$AccountImpl value, $Res Function(_$AccountImpl) then) =
-      __$$AccountImplCopyWithImpl<$Res>;
+abstract class _$$CreateAccountOutputImplCopyWith<$Res>
+    implements $CreateAccountOutputCopyWith<$Res> {
+  factory _$$CreateAccountOutputImplCopyWith(_$CreateAccountOutputImpl value,
+          $Res Function(_$CreateAccountOutputImpl) then) =
+      __$$CreateAccountOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -104,11 +107,11 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$AccountImplCopyWithImpl<$Res>
-    extends _$AccountCopyWithImpl<$Res, _$AccountImpl>
-    implements _$$AccountImplCopyWith<$Res> {
-  __$$AccountImplCopyWithImpl(
-      _$AccountImpl _value, $Res Function(_$AccountImpl) _then)
+class __$$CreateAccountOutputImplCopyWithImpl<$Res>
+    extends _$CreateAccountOutputCopyWithImpl<$Res, _$CreateAccountOutputImpl>
+    implements _$$CreateAccountOutputImplCopyWith<$Res> {
+  __$$CreateAccountOutputImplCopyWithImpl(_$CreateAccountOutputImpl _value,
+      $Res Function(_$CreateAccountOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -120,7 +123,7 @@ class __$$AccountImplCopyWithImpl<$Res>
     Object? did = null,
     Object? didDoc = freezed,
   }) {
-    return _then(_$AccountImpl(
+    return _then(_$CreateAccountOutputImpl(
       accessJwt: null == accessJwt
           ? _value.accessJwt
           : accessJwt // ignore: cast_nullable_to_non_nullable
@@ -147,8 +150,8 @@ class __$$AccountImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$AccountImpl implements _Account {
-  const _$AccountImpl(
+class _$CreateAccountOutputImpl implements _CreateAccountOutput {
+  const _$CreateAccountOutputImpl(
       {required this.accessJwt,
       required this.refreshJwt,
       required this.handle,
@@ -156,8 +159,8 @@ class _$AccountImpl implements _Account {
       final Map<String, dynamic>? didDoc})
       : _didDoc = didDoc;
 
-  factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
-      _$$AccountImplFromJson(json);
+  factory _$CreateAccountOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$CreateAccountOutputImplFromJson(json);
 
   @override
   final String accessJwt;
@@ -179,14 +182,14 @@ class _$AccountImpl implements _Account {
 
   @override
   String toString() {
-    return 'Account(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
+    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$AccountImpl &&
+            other is _$CreateAccountOutputImpl &&
             (identical(other.accessJwt, accessJwt) ||
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
@@ -204,26 +207,28 @@ class _$AccountImpl implements _Account {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
-      __$$AccountImplCopyWithImpl<_$AccountImpl>(this, _$identity);
+  _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
+      __$$CreateAccountOutputImplCopyWithImpl<_$CreateAccountOutputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$AccountImplToJson(
+    return _$$CreateAccountOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _Account implements Account {
-  const factory _Account(
+abstract class _CreateAccountOutput implements CreateAccountOutput {
+  const factory _CreateAccountOutput(
       {required final String accessJwt,
       required final String refreshJwt,
       required final String handle,
       required final String did,
-      final Map<String, dynamic>? didDoc}) = _$AccountImpl;
+      final Map<String, dynamic>? didDoc}) = _$CreateAccountOutputImpl;
 
-  factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
+  factory _CreateAccountOutput.fromJson(Map<String, dynamic> json) =
+      _$CreateAccountOutputImpl.fromJson;
 
   @override
   String get accessJwt;
@@ -237,6 +242,6 @@ abstract class _Account implements Account {
   Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
-  _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
+  _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -8,20 +8,20 @@ part of 'message_view_sender.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoMessageViewSenderImpl _$$ConvoMessageViewSenderImplFromJson(Map json) =>
+_$MessageViewSenderImpl _$$MessageViewSenderImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ConvoMessageViewSenderImpl',
+      r'_$MessageViewSenderImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoMessageViewSenderImpl(
+        final val = _$MessageViewSenderImpl(
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ConvoMessageViewSenderImplToJson(
-        _$ConvoMessageViewSenderImpl instance) =>
+Map<String, dynamic> _$$MessageViewSenderImplToJson(
+        _$MessageViewSenderImpl instance) =>
     <String, dynamic>{
       'did': instance.did,
     };

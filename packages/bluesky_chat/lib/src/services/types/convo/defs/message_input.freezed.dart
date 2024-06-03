@@ -14,12 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoMessageInput _$ConvoMessageInputFromJson(Map<String, dynamic> json) {
-  return _ConvoMessageInput.fromJson(json);
+MessageInput _$MessageInputFromJson(Map<String, dynamic> json) {
+  return _MessageInput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoMessageInput {
+mixin _$MessageInput {
   String get text => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
   @unionConvoMessageEmbedConverter
@@ -27,15 +27,15 @@ mixin _$ConvoMessageInput {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoMessageInputCopyWith<ConvoMessageInput> get copyWith =>
+  $MessageInputCopyWith<MessageInput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoMessageInputCopyWith<$Res> {
-  factory $ConvoMessageInputCopyWith(
-          ConvoMessageInput value, $Res Function(ConvoMessageInput) then) =
-      _$ConvoMessageInputCopyWithImpl<$Res, ConvoMessageInput>;
+abstract class $MessageInputCopyWith<$Res> {
+  factory $MessageInputCopyWith(
+          MessageInput value, $Res Function(MessageInput) then) =
+      _$MessageInputCopyWithImpl<$Res, MessageInput>;
   @useResult
   $Res call(
       {String text,
@@ -46,9 +46,9 @@ abstract class $ConvoMessageInputCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoMessageInputCopyWithImpl<$Res, $Val extends ConvoMessageInput>
-    implements $ConvoMessageInputCopyWith<$Res> {
-  _$ConvoMessageInputCopyWithImpl(this._value, this._then);
+class _$MessageInputCopyWithImpl<$Res, $Val extends MessageInput>
+    implements $MessageInputCopyWith<$Res> {
+  _$MessageInputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -92,11 +92,11 @@ class _$ConvoMessageInputCopyWithImpl<$Res, $Val extends ConvoMessageInput>
 }
 
 /// @nodoc
-abstract class _$$ConvoMessageInputImplCopyWith<$Res>
-    implements $ConvoMessageInputCopyWith<$Res> {
-  factory _$$ConvoMessageInputImplCopyWith(_$ConvoMessageInputImpl value,
-          $Res Function(_$ConvoMessageInputImpl) then) =
-      __$$ConvoMessageInputImplCopyWithImpl<$Res>;
+abstract class _$$MessageInputImplCopyWith<$Res>
+    implements $MessageInputCopyWith<$Res> {
+  factory _$$MessageInputImplCopyWith(
+          _$MessageInputImpl value, $Res Function(_$MessageInputImpl) then) =
+      __$$MessageInputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -109,11 +109,11 @@ abstract class _$$ConvoMessageInputImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoMessageInputImplCopyWithImpl<$Res>
-    extends _$ConvoMessageInputCopyWithImpl<$Res, _$ConvoMessageInputImpl>
-    implements _$$ConvoMessageInputImplCopyWith<$Res> {
-  __$$ConvoMessageInputImplCopyWithImpl(_$ConvoMessageInputImpl _value,
-      $Res Function(_$ConvoMessageInputImpl) _then)
+class __$$MessageInputImplCopyWithImpl<$Res>
+    extends _$MessageInputCopyWithImpl<$Res, _$MessageInputImpl>
+    implements _$$MessageInputImplCopyWith<$Res> {
+  __$$MessageInputImplCopyWithImpl(
+      _$MessageInputImpl _value, $Res Function(_$MessageInputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +123,7 @@ class __$$ConvoMessageInputImplCopyWithImpl<$Res>
     Object? facets = freezed,
     Object? embed = freezed,
   }) {
-    return _then(_$ConvoMessageInputImpl(
+    return _then(_$MessageInputImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -143,15 +143,15 @@ class __$$ConvoMessageInputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoMessageInputImpl implements _ConvoMessageInput {
-  const _$ConvoMessageInputImpl(
+class _$MessageInputImpl implements _MessageInput {
+  const _$MessageInputImpl(
       {required this.text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedConverter this.embed})
       : _facets = facets;
 
-  factory _$ConvoMessageInputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoMessageInputImplFromJson(json);
+  factory _$MessageInputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageInputImplFromJson(json);
 
   @override
   final String text;
@@ -171,14 +171,14 @@ class _$ConvoMessageInputImpl implements _ConvoMessageInput {
 
   @override
   String toString() {
-    return 'ConvoMessageInput(text: $text, facets: $facets, embed: $embed)';
+    return 'MessageInput(text: $text, facets: $facets, embed: $embed)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoMessageInputImpl &&
+            other is _$MessageInputImpl &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.embed, embed) || other.embed == embed));
@@ -192,27 +192,26 @@ class _$ConvoMessageInputImpl implements _ConvoMessageInput {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoMessageInputImplCopyWith<_$ConvoMessageInputImpl> get copyWith =>
-      __$$ConvoMessageInputImplCopyWithImpl<_$ConvoMessageInputImpl>(
-          this, _$identity);
+  _$$MessageInputImplCopyWith<_$MessageInputImpl> get copyWith =>
+      __$$MessageInputImplCopyWithImpl<_$MessageInputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoMessageInputImplToJson(
+    return _$$MessageInputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoMessageInput implements ConvoMessageInput {
-  const factory _ConvoMessageInput(
+abstract class _MessageInput implements MessageInput {
+  const factory _MessageInput(
           {required final String text,
           final List<Facet>? facets,
           @unionConvoMessageEmbedConverter final UConvoMessageEmbed? embed}) =
-      _$ConvoMessageInputImpl;
+      _$MessageInputImpl;
 
-  factory _ConvoMessageInput.fromJson(Map<String, dynamic> json) =
-      _$ConvoMessageInputImpl.fromJson;
+  factory _MessageInput.fromJson(Map<String, dynamic> json) =
+      _$MessageInputImpl.fromJson;
 
   @override
   String get text;
@@ -223,6 +222,6 @@ abstract class _ConvoMessageInput implements ConvoMessageInput {
   UConvoMessageEmbed? get embed;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoMessageInputImplCopyWith<_$ConvoMessageInputImpl> get copyWith =>
+  _$$MessageInputImplCopyWith<_$MessageInputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

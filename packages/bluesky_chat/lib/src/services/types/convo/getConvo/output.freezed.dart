@@ -14,25 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoGetConvo _$ConvoGetConvoFromJson(Map<String, dynamic> json) {
-  return _ConvoGetConvo.fromJson(json);
+GetConvoOutput _$GetConvoOutputFromJson(Map<String, dynamic> json) {
+  return _GetConvoOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoGetConvo {
+mixin _$GetConvoOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoGetConvoCopyWith<ConvoGetConvo> get copyWith =>
+  $GetConvoOutputCopyWith<GetConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoGetConvoCopyWith<$Res> {
-  factory $ConvoGetConvoCopyWith(
-          ConvoGetConvo value, $Res Function(ConvoGetConvo) then) =
-      _$ConvoGetConvoCopyWithImpl<$Res, ConvoGetConvo>;
+abstract class $GetConvoOutputCopyWith<$Res> {
+  factory $GetConvoOutputCopyWith(
+          GetConvoOutput value, $Res Function(GetConvoOutput) then) =
+      _$GetConvoOutputCopyWithImpl<$Res, GetConvoOutput>;
   @useResult
   $Res call({ConvoView convo});
 
@@ -40,9 +40,9 @@ abstract class $ConvoGetConvoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoGetConvoCopyWithImpl<$Res, $Val extends ConvoGetConvo>
-    implements $ConvoGetConvoCopyWith<$Res> {
-  _$ConvoGetConvoCopyWithImpl(this._value, this._then);
+class _$GetConvoOutputCopyWithImpl<$Res, $Val extends GetConvoOutput>
+    implements $GetConvoOutputCopyWith<$Res> {
+  _$GetConvoOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$ConvoGetConvoCopyWithImpl<$Res, $Val extends ConvoGetConvo>
 }
 
 /// @nodoc
-abstract class _$$ConvoGetConvoImplCopyWith<$Res>
-    implements $ConvoGetConvoCopyWith<$Res> {
-  factory _$$ConvoGetConvoImplCopyWith(
-          _$ConvoGetConvoImpl value, $Res Function(_$ConvoGetConvoImpl) then) =
-      __$$ConvoGetConvoImplCopyWithImpl<$Res>;
+abstract class _$$GetConvoOutputImplCopyWith<$Res>
+    implements $GetConvoOutputCopyWith<$Res> {
+  factory _$$GetConvoOutputImplCopyWith(_$GetConvoOutputImpl value,
+          $Res Function(_$GetConvoOutputImpl) then) =
+      __$$GetConvoOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ConvoView convo});
@@ -86,11 +86,11 @@ abstract class _$$ConvoGetConvoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoGetConvoImplCopyWithImpl<$Res>
-    extends _$ConvoGetConvoCopyWithImpl<$Res, _$ConvoGetConvoImpl>
-    implements _$$ConvoGetConvoImplCopyWith<$Res> {
-  __$$ConvoGetConvoImplCopyWithImpl(
-      _$ConvoGetConvoImpl _value, $Res Function(_$ConvoGetConvoImpl) _then)
+class __$$GetConvoOutputImplCopyWithImpl<$Res>
+    extends _$GetConvoOutputCopyWithImpl<$Res, _$GetConvoOutputImpl>
+    implements _$$GetConvoOutputImplCopyWith<$Res> {
+  __$$GetConvoOutputImplCopyWithImpl(
+      _$GetConvoOutputImpl _value, $Res Function(_$GetConvoOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ConvoGetConvoImplCopyWithImpl<$Res>
   $Res call({
     Object? convo = null,
   }) {
-    return _then(_$ConvoGetConvoImpl(
+    return _then(_$GetConvoOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
@@ -110,25 +110,25 @@ class __$$ConvoGetConvoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoGetConvoImpl implements _ConvoGetConvo {
-  const _$ConvoGetConvoImpl({required this.convo});
+class _$GetConvoOutputImpl implements _GetConvoOutput {
+  const _$GetConvoOutputImpl({required this.convo});
 
-  factory _$ConvoGetConvoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoGetConvoImplFromJson(json);
+  factory _$GetConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetConvoOutputImplFromJson(json);
 
   @override
   final ConvoView convo;
 
   @override
   String toString() {
-    return 'ConvoGetConvo(convo: $convo)';
+    return 'GetConvoOutput(convo: $convo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoGetConvoImpl &&
+            other is _$GetConvoOutputImpl &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -139,28 +139,29 @@ class _$ConvoGetConvoImpl implements _ConvoGetConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoGetConvoImplCopyWith<_$ConvoGetConvoImpl> get copyWith =>
-      __$$ConvoGetConvoImplCopyWithImpl<_$ConvoGetConvoImpl>(this, _$identity);
+  _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
+      __$$GetConvoOutputImplCopyWithImpl<_$GetConvoOutputImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoGetConvoImplToJson(
+    return _$$GetConvoOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoGetConvo implements ConvoGetConvo {
-  const factory _ConvoGetConvo({required final ConvoView convo}) =
-      _$ConvoGetConvoImpl;
+abstract class _GetConvoOutput implements GetConvoOutput {
+  const factory _GetConvoOutput({required final ConvoView convo}) =
+      _$GetConvoOutputImpl;
 
-  factory _ConvoGetConvo.fromJson(Map<String, dynamic> json) =
-      _$ConvoGetConvoImpl.fromJson;
+  factory _GetConvoOutput.fromJson(Map<String, dynamic> json) =
+      _$GetConvoOutputImpl.fromJson;
 
   @override
   ConvoView get convo;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoGetConvoImplCopyWith<_$ConvoGetConvoImpl> get copyWith =>
+  _$$GetConvoOutputImplCopyWith<_$GetConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

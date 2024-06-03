@@ -8,27 +8,24 @@ part of 'metadata.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationGetActorMetadataMetadataImpl
-    _$$ModerationGetActorMetadataMetadataImplFromJson(Map json) =>
-        $checkedCreate(
-          r'_$ModerationGetActorMetadataMetadataImpl',
-          json,
-          ($checkedConvert) {
-            final val = _$ModerationGetActorMetadataMetadataImpl(
-              messagesSent:
-                  $checkedConvert('messagesSent', (v) => (v as num).toInt()),
-              messagesReceived: $checkedConvert(
-                  'messagesReceived', (v) => (v as num).toInt()),
-              convos: $checkedConvert('convos', (v) => (v as num).toInt()),
-              convosStarted:
-                  $checkedConvert('convosStarted', (v) => (v as num).toInt()),
-            );
-            return val;
-          },
+_$MetadataImpl _$$MetadataImplFromJson(Map json) => $checkedCreate(
+      r'_$MetadataImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$MetadataImpl(
+          messagesSent:
+              $checkedConvert('messagesSent', (v) => (v as num).toInt()),
+          messagesReceived:
+              $checkedConvert('messagesReceived', (v) => (v as num).toInt()),
+          convos: $checkedConvert('convos', (v) => (v as num).toInt()),
+          convosStarted:
+              $checkedConvert('convosStarted', (v) => (v as num).toInt()),
         );
+        return val;
+      },
+    );
 
-Map<String, dynamic> _$$ModerationGetActorMetadataMetadataImplToJson(
-        _$ModerationGetActorMetadataMetadataImpl instance) =>
+Map<String, dynamic> _$$MetadataImplToJson(_$MetadataImpl instance) =>
     <String, dynamic>{
       'messagesSent': instance.messagesSent,
       'messagesReceived': instance.messagesReceived,

@@ -21,7 +21,7 @@ import 'package:bluesky_chat/src/services/types/convo/updateRead/output.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testConvo<ConvoDeletedMessageView>(
+  testConvo<DeletedMessageView>(
     (m, s) => s.deleteMessageForSelf(
       convoId: m.convoId,
       messageId: m.messageId,
@@ -29,65 +29,65 @@ void main() {
     id: chatBskyConvoDeleteMessageForSelf,
   );
 
-  testConvo<ConvoGetConvo>(
+  testConvo<GetConvoOutput>(
     (m, s) => s.getConvo(convoId: m.convoId),
     id: chatBskyConvoGetConvo,
   );
 
-  testConvo<ConvoGetConvoForMembers>(
+  testConvo<GetConvoForMembersOutput>(
     (m, s) => s.getConvoForMembers(members: [m.convoId]),
     id: chatBskyConvoGetConvoForMembers,
   );
 
-  testConvo<ConvoGetLog>(
+  testConvo<GetLogOutput>(
     (m, s) => s.getLog(cursor: m.cursor),
     id: chatBskyConvoGetLog,
   );
 
-  testConvo<ConvoGetMessages>(
+  testConvo<GetMessagesOutput>(
     (m, s) => s.getMessages(convoId: m.convoId),
     id: chatBskyConvoGetMessages,
   );
 
-  testConvo<ConvoLeaveConvo>(
+  testConvo<LeaveConvoOutput>(
     (m, s) => s.leaveConvo(convoId: m.convoId),
     id: chatBskyConvoLeaveConvo,
   );
 
-  testConvo<ConvoListConvos>(
+  testConvo<ListConvosOutput>(
     (m, s) => s.listConvos(limit: m.limit, cursor: m.cursor),
     id: chatBskyConvoListConvos,
   );
 
-  testConvo<ConvoMuteConvo>(
+  testConvo<MuteConvoOutput>(
     (m, s) => s.muteConvo(convoId: m.convoId),
     id: chatBskyConvoMuteConvo,
   );
 
-  testConvo<ConvoMessageView>(
+  testConvo<MessageView>(
     (m, s) => s.sendMessage(
       convoId: m.convoId,
-      message: ConvoMessageInput(text: m.text),
+      message: MessageInput(text: m.text),
     ),
     id: chatBskyConvoSendMessage,
   );
 
-  testConvo<ConvoSendMessageBatch>(
+  testConvo<SendMessageBatchOutput>(
     (m, s) => s.sendMessageBatch(items: [
-      ConvoSendMessageBatchBatchItem(
+      BatchItem(
         convoId: m.convoId,
-        message: ConvoMessageInput(text: m.text),
+        message: MessageInput(text: m.text),
       )
     ]),
     id: chatBskyConvoSendMessageBatch,
   );
 
-  testConvo<ConvoUnmuteConvo>(
+  testConvo<UnmuteConvoOutput>(
     (m, s) => s.unmuteConvo(convoId: m.convoId),
     id: chatBskyConvoUnmuteConvo,
   );
 
-  testConvo<ConvoUpdateRead>(
+  testConvo<UpdateReadOutput>(
     (m, s) => s.updateRead(convoId: m.convoId),
     id: chatBskyConvoUpdateRead,
   );

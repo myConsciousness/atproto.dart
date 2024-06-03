@@ -10,14 +10,13 @@ part 'subscribed_repo_handle.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
-class SubscribedRepoHandle with _$SubscribedRepoHandle {
-  const factory SubscribedRepoHandle({
+class Handle with _$Handle {
+  const factory Handle({
     required String did,
     required String handle,
     @JsonKey(name: 'seq') required int cursor,
     @JsonKey(name: 'time') required DateTime createdAt,
-  }) = _SubscribedRepoHandle;
+  }) = _Handle;
 
-  factory SubscribedRepoHandle.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoHandleFromJson(json);
+  factory Handle.fromJson(Map<String, Object?> json) => _$HandleFromJson(json);
 }

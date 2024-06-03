@@ -19,22 +19,22 @@ mixin _$UConvoMessageView {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoMessageView data) messageView,
-    required TResult Function(ConvoDeletedMessageView data) deletedMessageView,
+    required TResult Function(MessageView data) messageView,
+    required TResult Function(DeletedMessageView data) deletedMessageView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoMessageView data)? messageView,
-    TResult? Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult? Function(MessageView data)? messageView,
+    TResult? Function(DeletedMessageView data)? deletedMessageView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoMessageView data)? messageView,
-    TResult Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult Function(MessageView data)? messageView,
+    TResult Function(DeletedMessageView data)? deletedMessageView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -91,9 +91,9 @@ abstract class _$$UConvoMessageViewMessageViewImplCopyWith<$Res> {
           $Res Function(_$UConvoMessageViewMessageViewImpl) then) =
       __$$UConvoMessageViewMessageViewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoMessageView data});
+  $Res call({MessageView data});
 
-  $ConvoMessageViewCopyWith<$Res> get data;
+  $MessageViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -115,14 +115,14 @@ class __$$UConvoMessageViewMessageViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoMessageView,
+              as MessageView,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoMessageViewCopyWith<$Res> get data {
-    return $ConvoMessageViewCopyWith<$Res>(_value.data, (value) {
+  $MessageViewCopyWith<$Res> get data {
+    return $MessageViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -134,7 +134,7 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
   const _$UConvoMessageViewMessageViewImpl({required this.data}) : super._();
 
   @override
-  final ConvoMessageView data;
+  final MessageView data;
 
   @override
   String toString() {
@@ -163,8 +163,8 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoMessageView data) messageView,
-    required TResult Function(ConvoDeletedMessageView data) deletedMessageView,
+    required TResult Function(MessageView data) messageView,
+    required TResult Function(DeletedMessageView data) deletedMessageView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return messageView(data);
@@ -173,8 +173,8 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoMessageView data)? messageView,
-    TResult? Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult? Function(MessageView data)? messageView,
+    TResult? Function(DeletedMessageView data)? deletedMessageView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return messageView?.call(data);
@@ -183,8 +183,8 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoMessageView data)? messageView,
-    TResult Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult Function(MessageView data)? messageView,
+    TResult Function(DeletedMessageView data)? deletedMessageView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -234,12 +234,11 @@ class _$UConvoMessageViewMessageViewImpl extends UConvoMessageViewMessageView {
 
 abstract class UConvoMessageViewMessageView extends UConvoMessageView {
   const factory UConvoMessageViewMessageView(
-          {required final ConvoMessageView data}) =
-      _$UConvoMessageViewMessageViewImpl;
+      {required final MessageView data}) = _$UConvoMessageViewMessageViewImpl;
   const UConvoMessageViewMessageView._() : super._();
 
   @override
-  ConvoMessageView get data;
+  MessageView get data;
   @JsonKey(ignore: true)
   _$$UConvoMessageViewMessageViewImplCopyWith<
           _$UConvoMessageViewMessageViewImpl>
@@ -253,9 +252,9 @@ abstract class _$$UConvoMessageViewDeletedMessageViewImplCopyWith<$Res> {
           $Res Function(_$UConvoMessageViewDeletedMessageViewImpl) then) =
       __$$UConvoMessageViewDeletedMessageViewImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoDeletedMessageView data});
+  $Res call({DeletedMessageView data});
 
-  $ConvoDeletedMessageViewCopyWith<$Res> get data;
+  $DeletedMessageViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -277,14 +276,14 @@ class __$$UConvoMessageViewDeletedMessageViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoDeletedMessageView,
+              as DeletedMessageView,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoDeletedMessageViewCopyWith<$Res> get data {
-    return $ConvoDeletedMessageViewCopyWith<$Res>(_value.data, (value) {
+  $DeletedMessageViewCopyWith<$Res> get data {
+    return $DeletedMessageViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -298,7 +297,7 @@ class _$UConvoMessageViewDeletedMessageViewImpl
       : super._();
 
   @override
-  final ConvoDeletedMessageView data;
+  final DeletedMessageView data;
 
   @override
   String toString() {
@@ -327,8 +326,8 @@ class _$UConvoMessageViewDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoMessageView data) messageView,
-    required TResult Function(ConvoDeletedMessageView data) deletedMessageView,
+    required TResult Function(MessageView data) messageView,
+    required TResult Function(DeletedMessageView data) deletedMessageView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return deletedMessageView(data);
@@ -337,8 +336,8 @@ class _$UConvoMessageViewDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoMessageView data)? messageView,
-    TResult? Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult? Function(MessageView data)? messageView,
+    TResult? Function(DeletedMessageView data)? deletedMessageView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return deletedMessageView?.call(data);
@@ -347,8 +346,8 @@ class _$UConvoMessageViewDeletedMessageViewImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoMessageView data)? messageView,
-    TResult Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult Function(MessageView data)? messageView,
+    TResult Function(DeletedMessageView data)? deletedMessageView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -398,12 +397,12 @@ class _$UConvoMessageViewDeletedMessageViewImpl
 
 abstract class UConvoMessageViewDeletedMessageView extends UConvoMessageView {
   const factory UConvoMessageViewDeletedMessageView(
-          {required final ConvoDeletedMessageView data}) =
+          {required final DeletedMessageView data}) =
       _$UConvoMessageViewDeletedMessageViewImpl;
   const UConvoMessageViewDeletedMessageView._() : super._();
 
   @override
-  ConvoDeletedMessageView get data;
+  DeletedMessageView get data;
   @JsonKey(ignore: true)
   _$$UConvoMessageViewDeletedMessageViewImplCopyWith<
           _$UConvoMessageViewDeletedMessageViewImpl>
@@ -487,8 +486,8 @@ class _$UConvoMessageViewUnknownImpl extends UConvoMessageViewUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoMessageView data) messageView,
-    required TResult Function(ConvoDeletedMessageView data) deletedMessageView,
+    required TResult Function(MessageView data) messageView,
+    required TResult Function(DeletedMessageView data) deletedMessageView,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -497,8 +496,8 @@ class _$UConvoMessageViewUnknownImpl extends UConvoMessageViewUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoMessageView data)? messageView,
-    TResult? Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult? Function(MessageView data)? messageView,
+    TResult? Function(DeletedMessageView data)? deletedMessageView,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -507,8 +506,8 @@ class _$UConvoMessageViewUnknownImpl extends UConvoMessageViewUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoMessageView data)? messageView,
-    TResult Function(ConvoDeletedMessageView data)? deletedMessageView,
+    TResult Function(MessageView data)? messageView,
+    TResult Function(DeletedMessageView data)? deletedMessageView,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {

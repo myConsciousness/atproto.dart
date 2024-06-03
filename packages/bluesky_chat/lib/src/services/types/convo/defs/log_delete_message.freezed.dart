@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoLogDeleteMessage _$ConvoLogDeleteMessageFromJson(
-    Map<String, dynamic> json) {
-  return _ConvoLogDeleteMessage.fromJson(json);
+LogDeleteMessage _$LogDeleteMessageFromJson(Map<String, dynamic> json) {
+  return _LogDeleteMessage.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoLogDeleteMessage {
+mixin _$LogDeleteMessage {
   String get rev => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
   @unionConvoMessageViewConverter
@@ -28,15 +27,15 @@ mixin _$ConvoLogDeleteMessage {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoLogDeleteMessageCopyWith<ConvoLogDeleteMessage> get copyWith =>
+  $LogDeleteMessageCopyWith<LogDeleteMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoLogDeleteMessageCopyWith<$Res> {
-  factory $ConvoLogDeleteMessageCopyWith(ConvoLogDeleteMessage value,
-          $Res Function(ConvoLogDeleteMessage) then) =
-      _$ConvoLogDeleteMessageCopyWithImpl<$Res, ConvoLogDeleteMessage>;
+abstract class $LogDeleteMessageCopyWith<$Res> {
+  factory $LogDeleteMessageCopyWith(
+          LogDeleteMessage value, $Res Function(LogDeleteMessage) then) =
+      _$LogDeleteMessageCopyWithImpl<$Res, LogDeleteMessage>;
   @useResult
   $Res call(
       {String rev,
@@ -47,10 +46,9 @@ abstract class $ConvoLogDeleteMessageCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoLogDeleteMessageCopyWithImpl<$Res,
-        $Val extends ConvoLogDeleteMessage>
-    implements $ConvoLogDeleteMessageCopyWith<$Res> {
-  _$ConvoLogDeleteMessageCopyWithImpl(this._value, this._then);
+class _$LogDeleteMessageCopyWithImpl<$Res, $Val extends LogDeleteMessage>
+    implements $LogDeleteMessageCopyWith<$Res> {
+  _$LogDeleteMessageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -90,12 +88,11 @@ class _$ConvoLogDeleteMessageCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConvoLogDeleteMessageImplCopyWith<$Res>
-    implements $ConvoLogDeleteMessageCopyWith<$Res> {
-  factory _$$ConvoLogDeleteMessageImplCopyWith(
-          _$ConvoLogDeleteMessageImpl value,
-          $Res Function(_$ConvoLogDeleteMessageImpl) then) =
-      __$$ConvoLogDeleteMessageImplCopyWithImpl<$Res>;
+abstract class _$$LogDeleteMessageImplCopyWith<$Res>
+    implements $LogDeleteMessageCopyWith<$Res> {
+  factory _$$LogDeleteMessageImplCopyWith(_$LogDeleteMessageImpl value,
+          $Res Function(_$LogDeleteMessageImpl) then) =
+      __$$LogDeleteMessageImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -108,12 +105,11 @@ abstract class _$$ConvoLogDeleteMessageImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoLogDeleteMessageImplCopyWithImpl<$Res>
-    extends _$ConvoLogDeleteMessageCopyWithImpl<$Res,
-        _$ConvoLogDeleteMessageImpl>
-    implements _$$ConvoLogDeleteMessageImplCopyWith<$Res> {
-  __$$ConvoLogDeleteMessageImplCopyWithImpl(_$ConvoLogDeleteMessageImpl _value,
-      $Res Function(_$ConvoLogDeleteMessageImpl) _then)
+class __$$LogDeleteMessageImplCopyWithImpl<$Res>
+    extends _$LogDeleteMessageCopyWithImpl<$Res, _$LogDeleteMessageImpl>
+    implements _$$LogDeleteMessageImplCopyWith<$Res> {
+  __$$LogDeleteMessageImplCopyWithImpl(_$LogDeleteMessageImpl _value,
+      $Res Function(_$LogDeleteMessageImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -123,7 +119,7 @@ class __$$ConvoLogDeleteMessageImplCopyWithImpl<$Res>
     Object? convoId = null,
     Object? message = null,
   }) {
-    return _then(_$ConvoLogDeleteMessageImpl(
+    return _then(_$LogDeleteMessageImpl(
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -143,14 +139,14 @@ class __$$ConvoLogDeleteMessageImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoLogDeleteMessageImpl implements _ConvoLogDeleteMessage {
-  const _$ConvoLogDeleteMessageImpl(
+class _$LogDeleteMessageImpl implements _LogDeleteMessage {
+  const _$LogDeleteMessageImpl(
       {required this.rev,
       required this.convoId,
       @unionConvoMessageViewConverter required this.message});
 
-  factory _$ConvoLogDeleteMessageImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoLogDeleteMessageImplFromJson(json);
+  factory _$LogDeleteMessageImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LogDeleteMessageImplFromJson(json);
 
   @override
   final String rev;
@@ -162,14 +158,14 @@ class _$ConvoLogDeleteMessageImpl implements _ConvoLogDeleteMessage {
 
   @override
   String toString() {
-    return 'ConvoLogDeleteMessage(rev: $rev, convoId: $convoId, message: $message)';
+    return 'LogDeleteMessage(rev: $rev, convoId: $convoId, message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoLogDeleteMessageImpl &&
+            other is _$LogDeleteMessageImpl &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.message, message) || other.message == message));
@@ -182,27 +178,27 @@ class _$ConvoLogDeleteMessageImpl implements _ConvoLogDeleteMessage {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoLogDeleteMessageImplCopyWith<_$ConvoLogDeleteMessageImpl>
-      get copyWith => __$$ConvoLogDeleteMessageImplCopyWithImpl<
-          _$ConvoLogDeleteMessageImpl>(this, _$identity);
+  _$$LogDeleteMessageImplCopyWith<_$LogDeleteMessageImpl> get copyWith =>
+      __$$LogDeleteMessageImplCopyWithImpl<_$LogDeleteMessageImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoLogDeleteMessageImplToJson(
+    return _$$LogDeleteMessageImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoLogDeleteMessage implements ConvoLogDeleteMessage {
-  const factory _ConvoLogDeleteMessage(
+abstract class _LogDeleteMessage implements LogDeleteMessage {
+  const factory _LogDeleteMessage(
       {required final String rev,
       required final String convoId,
       @unionConvoMessageViewConverter
-      required final UConvoMessageView message}) = _$ConvoLogDeleteMessageImpl;
+      required final UConvoMessageView message}) = _$LogDeleteMessageImpl;
 
-  factory _ConvoLogDeleteMessage.fromJson(Map<String, dynamic> json) =
-      _$ConvoLogDeleteMessageImpl.fromJson;
+  factory _LogDeleteMessage.fromJson(Map<String, dynamic> json) =
+      _$LogDeleteMessageImpl.fromJson;
 
   @override
   String get rev;
@@ -213,6 +209,6 @@ abstract class _ConvoLogDeleteMessage implements ConvoLogDeleteMessage {
   UConvoMessageView get message;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoLogDeleteMessageImplCopyWith<_$ConvoLogDeleteMessageImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$LogDeleteMessageImplCopyWith<_$LogDeleteMessageImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -14,26 +14,26 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoGetConvoForMembers _$ConvoGetConvoForMembersFromJson(
+GetConvoForMembersOutput _$GetConvoForMembersOutputFromJson(
     Map<String, dynamic> json) {
-  return _ConvoGetConvoForMembers.fromJson(json);
+  return _GetConvoForMembersOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoGetConvoForMembers {
+mixin _$GetConvoForMembersOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoGetConvoForMembersCopyWith<ConvoGetConvoForMembers> get copyWith =>
+  $GetConvoForMembersOutputCopyWith<GetConvoForMembersOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoGetConvoForMembersCopyWith<$Res> {
-  factory $ConvoGetConvoForMembersCopyWith(ConvoGetConvoForMembers value,
-          $Res Function(ConvoGetConvoForMembers) then) =
-      _$ConvoGetConvoForMembersCopyWithImpl<$Res, ConvoGetConvoForMembers>;
+abstract class $GetConvoForMembersOutputCopyWith<$Res> {
+  factory $GetConvoForMembersOutputCopyWith(GetConvoForMembersOutput value,
+          $Res Function(GetConvoForMembersOutput) then) =
+      _$GetConvoForMembersOutputCopyWithImpl<$Res, GetConvoForMembersOutput>;
   @useResult
   $Res call({ConvoView convo});
 
@@ -41,10 +41,10 @@ abstract class $ConvoGetConvoForMembersCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoGetConvoForMembersCopyWithImpl<$Res,
-        $Val extends ConvoGetConvoForMembers>
-    implements $ConvoGetConvoForMembersCopyWith<$Res> {
-  _$ConvoGetConvoForMembersCopyWithImpl(this._value, this._then);
+class _$GetConvoForMembersOutputCopyWithImpl<$Res,
+        $Val extends GetConvoForMembersOutput>
+    implements $GetConvoForMembersOutputCopyWith<$Res> {
+  _$GetConvoForMembersOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -74,12 +74,12 @@ class _$ConvoGetConvoForMembersCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConvoGetConvoForMembersImplCopyWith<$Res>
-    implements $ConvoGetConvoForMembersCopyWith<$Res> {
-  factory _$$ConvoGetConvoForMembersImplCopyWith(
-          _$ConvoGetConvoForMembersImpl value,
-          $Res Function(_$ConvoGetConvoForMembersImpl) then) =
-      __$$ConvoGetConvoForMembersImplCopyWithImpl<$Res>;
+abstract class _$$GetConvoForMembersOutputImplCopyWith<$Res>
+    implements $GetConvoForMembersOutputCopyWith<$Res> {
+  factory _$$GetConvoForMembersOutputImplCopyWith(
+          _$GetConvoForMembersOutputImpl value,
+          $Res Function(_$GetConvoForMembersOutputImpl) then) =
+      __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ConvoView convo});
@@ -89,13 +89,13 @@ abstract class _$$ConvoGetConvoForMembersImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoGetConvoForMembersImplCopyWithImpl<$Res>
-    extends _$ConvoGetConvoForMembersCopyWithImpl<$Res,
-        _$ConvoGetConvoForMembersImpl>
-    implements _$$ConvoGetConvoForMembersImplCopyWith<$Res> {
-  __$$ConvoGetConvoForMembersImplCopyWithImpl(
-      _$ConvoGetConvoForMembersImpl _value,
-      $Res Function(_$ConvoGetConvoForMembersImpl) _then)
+class __$$GetConvoForMembersOutputImplCopyWithImpl<$Res>
+    extends _$GetConvoForMembersOutputCopyWithImpl<$Res,
+        _$GetConvoForMembersOutputImpl>
+    implements _$$GetConvoForMembersOutputImplCopyWith<$Res> {
+  __$$GetConvoForMembersOutputImplCopyWithImpl(
+      _$GetConvoForMembersOutputImpl _value,
+      $Res Function(_$GetConvoForMembersOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -103,7 +103,7 @@ class __$$ConvoGetConvoForMembersImplCopyWithImpl<$Res>
   $Res call({
     Object? convo = null,
   }) {
-    return _then(_$ConvoGetConvoForMembersImpl(
+    return _then(_$GetConvoForMembersOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
@@ -115,25 +115,25 @@ class __$$ConvoGetConvoForMembersImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoGetConvoForMembersImpl implements _ConvoGetConvoForMembers {
-  const _$ConvoGetConvoForMembersImpl({required this.convo});
+class _$GetConvoForMembersOutputImpl implements _GetConvoForMembersOutput {
+  const _$GetConvoForMembersOutputImpl({required this.convo});
 
-  factory _$ConvoGetConvoForMembersImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoGetConvoForMembersImplFromJson(json);
+  factory _$GetConvoForMembersOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetConvoForMembersOutputImplFromJson(json);
 
   @override
   final ConvoView convo;
 
   @override
   String toString() {
-    return 'ConvoGetConvoForMembers(convo: $convo)';
+    return 'GetConvoForMembersOutput(convo: $convo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoGetConvoForMembersImpl &&
+            other is _$GetConvoForMembersOutputImpl &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -144,29 +144,29 @@ class _$ConvoGetConvoForMembersImpl implements _ConvoGetConvoForMembers {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoGetConvoForMembersImplCopyWith<_$ConvoGetConvoForMembersImpl>
-      get copyWith => __$$ConvoGetConvoForMembersImplCopyWithImpl<
-          _$ConvoGetConvoForMembersImpl>(this, _$identity);
+  _$$GetConvoForMembersOutputImplCopyWith<_$GetConvoForMembersOutputImpl>
+      get copyWith => __$$GetConvoForMembersOutputImplCopyWithImpl<
+          _$GetConvoForMembersOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoGetConvoForMembersImplToJson(
+    return _$$GetConvoForMembersOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoGetConvoForMembers implements ConvoGetConvoForMembers {
-  const factory _ConvoGetConvoForMembers({required final ConvoView convo}) =
-      _$ConvoGetConvoForMembersImpl;
+abstract class _GetConvoForMembersOutput implements GetConvoForMembersOutput {
+  const factory _GetConvoForMembersOutput({required final ConvoView convo}) =
+      _$GetConvoForMembersOutputImpl;
 
-  factory _ConvoGetConvoForMembers.fromJson(Map<String, dynamic> json) =
-      _$ConvoGetConvoForMembersImpl.fromJson;
+  factory _GetConvoForMembersOutput.fromJson(Map<String, dynamic> json) =
+      _$GetConvoForMembersOutputImpl.fromJson;
 
   @override
   ConvoView get convo;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoGetConvoForMembersImplCopyWith<_$ConvoGetConvoForMembersImpl>
+  _$$GetConvoForMembersOutputImplCopyWith<_$GetConvoForMembersOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

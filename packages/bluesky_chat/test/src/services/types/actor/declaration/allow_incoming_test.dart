@@ -10,26 +10,26 @@ import 'package:bluesky_chat/src/services/types/actor/declaration/allow_incoming
 
 void main() {
   test('.name', () {
-    expect(ActorDeclarationAllowIncoming.all.name, 'all');
-    expect(ActorDeclarationAllowIncoming.following.name, 'following');
-    expect(ActorDeclarationAllowIncoming.none.name, 'none');
+    expect(DeclarationAllowIncoming.all.name, 'all');
+    expect(DeclarationAllowIncoming.following.name, 'following');
+    expect(DeclarationAllowIncoming.none.name, 'none');
   });
 
   test('.value', () {
-    expect(ActorDeclarationAllowIncoming.all.value, 'all');
-    expect(ActorDeclarationAllowIncoming.following.value, 'following');
-    expect(ActorDeclarationAllowIncoming.none.value, 'none');
+    expect(DeclarationAllowIncoming.all.value, 'all');
+    expect(DeclarationAllowIncoming.following.value, 'following');
+    expect(DeclarationAllowIncoming.none.value, 'none');
   });
 
   group('.valueOf', () {
     test('case1', () {
-      final actual = ActorDeclarationAllowIncoming.valueOf('all');
+      final actual = DeclarationAllowIncoming.valueOf('all');
 
-      expect(actual, ActorDeclarationAllowIncoming.all);
+      expect(actual, DeclarationAllowIncoming.all);
     });
 
     test('case2', () {
-      final actual = ActorDeclarationAllowIncoming.valueOf('hi');
+      final actual = DeclarationAllowIncoming.valueOf('hi');
 
       expect(actual, isNull);
     });

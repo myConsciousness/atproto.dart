@@ -11,13 +11,13 @@ part 'log_begin_convo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logbeginconvo
 @freezed
-class ConvoLogBeginConvo with _$ConvoLogBeginConvo {
+class LogBeginConvo with _$LogBeginConvo {
   @jsonSerializable
-  const factory ConvoLogBeginConvo({
+  const factory LogBeginConvo({
     required String rev,
     required String convoId,
-  }) = _ConvoLogBeginConvo;
+  }) = _LogBeginConvo;
 
-  factory ConvoLogBeginConvo.fromJson(Map<String, Object?> json) =>
-      _$ConvoLogBeginConvoFromJson(json);
+  factory LogBeginConvo.fromJson(Map<String, Object?> json) =>
+      _$LogBeginConvoFromJson(json);
 }

@@ -20,7 +20,7 @@ class ConvoView with _$ConvoView {
   const factory ConvoView({
     required String id,
     required String rev,
-    required List<ActorProfileViewBasic> members,
+    required List<ProfileViewBasic> members,
     @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
     required bool muted,
     required int unreadCount,

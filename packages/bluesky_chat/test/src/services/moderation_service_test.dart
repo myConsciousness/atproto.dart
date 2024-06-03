@@ -12,12 +12,12 @@ import 'package:bluesky_chat/src/services/types/moderation/getMessageContext/out
 import 'suite/service_suite.dart';
 
 void main() {
-  testModeration<ModerationGetActorMetadata>(
+  testModeration<GetActorMetadataOutput>(
     (m, s) => s.getActorMetadata(actor: m.did),
     id: chatBskyModerationGetActorMetadata,
   );
 
-  testModeration<ModerationGetMessageContext>(
+  testModeration<GetMessageContextOutput>(
     (m, s) => s.getMessageContext(messageId: m.messageId),
     id: chatBskyModerationGetMessageContext,
   );

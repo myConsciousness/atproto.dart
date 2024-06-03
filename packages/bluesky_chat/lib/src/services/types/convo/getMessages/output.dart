@@ -14,13 +14,13 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages/#main
 @freezed
-class ConvoGetMessages with _$ConvoGetMessages {
+class GetMessagesOutput with _$GetMessagesOutput {
   @jsonSerializable
-  const factory ConvoGetMessages({
+  const factory GetMessagesOutput({
     @unionConvoMessageViewConverter required List<UConvoMessageView> messages,
     String? cursor,
-  }) = _ConvoGetMessages;
+  }) = _GetMessagesOutput;
 
-  factory ConvoGetMessages.fromJson(Map<String, Object?> json) =>
-      _$ConvoGetMessagesFromJson(json);
+  factory GetMessagesOutput.fromJson(Map<String, Object?> json) =>
+      _$GetMessagesOutputFromJson(json);
 }

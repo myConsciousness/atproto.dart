@@ -15,7 +15,7 @@ Future<void> main(List<String> args) async {
   final chat = BlueskyChat.fromSession(session.data);
 
   final ref = await chat.actor.declaration(
-    allowIncoming: ActorDeclarationAllowIncoming.following,
+    allowIncoming: DeclarationAllowIncoming.following,
   );
 
   print(ref);

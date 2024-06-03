@@ -9,6 +9,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'converter/subscribed_repo_converter.dart';
+import 'subscribed_repo_account.dart';
 import 'subscribed_repo_commit.dart';
 import 'subscribed_repo_handle.dart';
 import 'subscribed_repo_identity.dart';
@@ -23,27 +24,31 @@ part 'subscribed_repo.g.dart';
 @freezed
 class SubscribedRepo with _$SubscribedRepo {
   const factory SubscribedRepo.commit({
-    required SubscribedRepoCommit data,
+    required Commit data,
   }) = USubscribedRepoCommit;
 
   const factory SubscribedRepo.identity({
-    required SubscribedRepoIdentity data,
+    required Identity data,
   }) = USubscribedRepoIdentity;
 
+  const factory SubscribedRepo.account({
+    required Account data,
+  }) = USubscribedRepoAccount;
+
   const factory SubscribedRepo.handle({
-    required SubscribedRepoHandle data,
+    required Handle data,
   }) = USubscribedRepoHandle;
 
   const factory SubscribedRepo.migrate({
-    required SubscribedRepoMigrate data,
+    required Migrate data,
   }) = USubscribedRepoMigrate;
 
   const factory SubscribedRepo.tombstone({
-    required SubscribedRepoTombstone data,
+    required Tombstone data,
   }) = USubscribedRepoTombstone;
 
   const factory SubscribedRepo.info({
-    required SubscribedRepoInfo data,
+    required Info data,
   }) = USubscribedRepoInfo;
 
   const factory SubscribedRepo.unknown({

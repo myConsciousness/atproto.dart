@@ -1,8 +1,9 @@
 # Release Note
 
-## v0.1.9
+## v0.2.0
 
 - Bump `atproto_core`, `atproto`, `bluesky`.
+- Applied naming convention based on lexicons.
 
 ## v0.1.8
 

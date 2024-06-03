@@ -66,6 +66,7 @@ Future<void> main() async {
       event.when(
         commit: print,
         identity: print,
+        account: print,
         handle: print,
         migrate: print,
         tombstone: print,

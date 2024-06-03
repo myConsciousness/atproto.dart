@@ -15,6 +15,7 @@ import 'entities/adaptor/repo_commit_adaptor.dart';
 import 'entities/adaptor/repo_commits_adaptor.dart';
 import 'entities/adaptor/subscribe_repo_updates_adaptor.dart';
 import 'entities/blob_refs.dart';
+import 'entities/get_repo_status_output.dart';
 import 'entities/repo_blocks.dart';
 import 'entities/repo_commit.dart';
 import 'entities/repo_commits.dart';
@@ -183,5 +184,19 @@ final class SyncService {
           'cursor': cursor,
         },
         to: BlobRefs.fromJson,
+      );
+
+  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus
+  Future<core.XRPCResponse<GetRepoStatusOutput>> getRepoStatus({
+    required String did,
+    Map<String, String>? headers,
+  }) async =>
+      await _ctx.get(
+        ns.comAtprotoSyncGetRepoStatus,
+        headers: headers,
+        parameters: {
+          'did': did,
+        },
+        to: GetRepoStatusOutput.fromJson,
       );
 }

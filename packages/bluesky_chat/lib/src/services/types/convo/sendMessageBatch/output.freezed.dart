@@ -14,35 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoSendMessageBatch _$ConvoSendMessageBatchFromJson(
+SendMessageBatchOutput _$SendMessageBatchOutputFromJson(
     Map<String, dynamic> json) {
-  return _ConvoSendMessageBatch.fromJson(json);
+  return _SendMessageBatchOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoSendMessageBatch {
-  List<ConvoMessageView> get items => throw _privateConstructorUsedError;
+mixin _$SendMessageBatchOutput {
+  List<MessageView> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoSendMessageBatchCopyWith<ConvoSendMessageBatch> get copyWith =>
+  $SendMessageBatchOutputCopyWith<SendMessageBatchOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoSendMessageBatchCopyWith<$Res> {
-  factory $ConvoSendMessageBatchCopyWith(ConvoSendMessageBatch value,
-          $Res Function(ConvoSendMessageBatch) then) =
-      _$ConvoSendMessageBatchCopyWithImpl<$Res, ConvoSendMessageBatch>;
+abstract class $SendMessageBatchOutputCopyWith<$Res> {
+  factory $SendMessageBatchOutputCopyWith(SendMessageBatchOutput value,
+          $Res Function(SendMessageBatchOutput) then) =
+      _$SendMessageBatchOutputCopyWithImpl<$Res, SendMessageBatchOutput>;
   @useResult
-  $Res call({List<ConvoMessageView> items});
+  $Res call({List<MessageView> items});
 }
 
 /// @nodoc
-class _$ConvoSendMessageBatchCopyWithImpl<$Res,
-        $Val extends ConvoSendMessageBatch>
-    implements $ConvoSendMessageBatchCopyWith<$Res> {
-  _$ConvoSendMessageBatchCopyWithImpl(this._value, this._then);
+class _$SendMessageBatchOutputCopyWithImpl<$Res,
+        $Val extends SendMessageBatchOutput>
+    implements $SendMessageBatchOutputCopyWith<$Res> {
+  _$SendMessageBatchOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,30 +58,31 @@ class _$ConvoSendMessageBatchCopyWithImpl<$Res,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<ConvoMessageView>,
+              as List<MessageView>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$ConvoSendMessageBatchImplCopyWith<$Res>
-    implements $ConvoSendMessageBatchCopyWith<$Res> {
-  factory _$$ConvoSendMessageBatchImplCopyWith(
-          _$ConvoSendMessageBatchImpl value,
-          $Res Function(_$ConvoSendMessageBatchImpl) then) =
-      __$$ConvoSendMessageBatchImplCopyWithImpl<$Res>;
+abstract class _$$SendMessageBatchOutputImplCopyWith<$Res>
+    implements $SendMessageBatchOutputCopyWith<$Res> {
+  factory _$$SendMessageBatchOutputImplCopyWith(
+          _$SendMessageBatchOutputImpl value,
+          $Res Function(_$SendMessageBatchOutputImpl) then) =
+      __$$SendMessageBatchOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ConvoMessageView> items});
+  $Res call({List<MessageView> items});
 }
 
 /// @nodoc
-class __$$ConvoSendMessageBatchImplCopyWithImpl<$Res>
-    extends _$ConvoSendMessageBatchCopyWithImpl<$Res,
-        _$ConvoSendMessageBatchImpl>
-    implements _$$ConvoSendMessageBatchImplCopyWith<$Res> {
-  __$$ConvoSendMessageBatchImplCopyWithImpl(_$ConvoSendMessageBatchImpl _value,
-      $Res Function(_$ConvoSendMessageBatchImpl) _then)
+class __$$SendMessageBatchOutputImplCopyWithImpl<$Res>
+    extends _$SendMessageBatchOutputCopyWithImpl<$Res,
+        _$SendMessageBatchOutputImpl>
+    implements _$$SendMessageBatchOutputImplCopyWith<$Res> {
+  __$$SendMessageBatchOutputImplCopyWithImpl(
+      _$SendMessageBatchOutputImpl _value,
+      $Res Function(_$SendMessageBatchOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -89,11 +90,11 @@ class __$$ConvoSendMessageBatchImplCopyWithImpl<$Res>
   $Res call({
     Object? items = null,
   }) {
-    return _then(_$ConvoSendMessageBatchImpl(
+    return _then(_$SendMessageBatchOutputImpl(
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
-              as List<ConvoMessageView>,
+              as List<MessageView>,
     ));
   }
 }
@@ -101,17 +102,16 @@ class __$$ConvoSendMessageBatchImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoSendMessageBatchImpl implements _ConvoSendMessageBatch {
-  const _$ConvoSendMessageBatchImpl(
-      {required final List<ConvoMessageView> items})
+class _$SendMessageBatchOutputImpl implements _SendMessageBatchOutput {
+  const _$SendMessageBatchOutputImpl({required final List<MessageView> items})
       : _items = items;
 
-  factory _$ConvoSendMessageBatchImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoSendMessageBatchImplFromJson(json);
+  factory _$SendMessageBatchOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SendMessageBatchOutputImplFromJson(json);
 
-  final List<ConvoMessageView> _items;
+  final List<MessageView> _items;
   @override
-  List<ConvoMessageView> get items {
+  List<MessageView> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_items);
@@ -119,14 +119,14 @@ class _$ConvoSendMessageBatchImpl implements _ConvoSendMessageBatch {
 
   @override
   String toString() {
-    return 'ConvoSendMessageBatch(items: $items)';
+    return 'SendMessageBatchOutput(items: $items)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoSendMessageBatchImpl &&
+            other is _$SendMessageBatchOutputImpl &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
@@ -138,30 +138,29 @@ class _$ConvoSendMessageBatchImpl implements _ConvoSendMessageBatch {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoSendMessageBatchImplCopyWith<_$ConvoSendMessageBatchImpl>
-      get copyWith => __$$ConvoSendMessageBatchImplCopyWithImpl<
-          _$ConvoSendMessageBatchImpl>(this, _$identity);
+  _$$SendMessageBatchOutputImplCopyWith<_$SendMessageBatchOutputImpl>
+      get copyWith => __$$SendMessageBatchOutputImplCopyWithImpl<
+          _$SendMessageBatchOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoSendMessageBatchImplToJson(
+    return _$$SendMessageBatchOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoSendMessageBatch implements ConvoSendMessageBatch {
-  const factory _ConvoSendMessageBatch(
-          {required final List<ConvoMessageView> items}) =
-      _$ConvoSendMessageBatchImpl;
+abstract class _SendMessageBatchOutput implements SendMessageBatchOutput {
+  const factory _SendMessageBatchOutput(
+      {required final List<MessageView> items}) = _$SendMessageBatchOutputImpl;
 
-  factory _ConvoSendMessageBatch.fromJson(Map<String, dynamic> json) =
-      _$ConvoSendMessageBatchImpl.fromJson;
+  factory _SendMessageBatchOutput.fromJson(Map<String, dynamic> json) =
+      _$SendMessageBatchOutputImpl.fromJson;
 
   @override
-  List<ConvoMessageView> get items;
+  List<MessageView> get items;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoSendMessageBatchImplCopyWith<_$ConvoSendMessageBatchImpl>
+  _$$SendMessageBatchOutputImplCopyWith<_$SendMessageBatchOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

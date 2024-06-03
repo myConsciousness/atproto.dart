@@ -11,14 +11,14 @@ part 'message_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageref
 @freezed
-class ConvoMessageRef with _$ConvoMessageRef {
+class MessageRef with _$MessageRef {
   @jsonSerializable
-  const factory ConvoMessageRef({
+  const factory MessageRef({
     required String did,
     required String convoId,
     required String messageId,
-  }) = _ConvoMessageRef;
+  }) = _MessageRef;
 
-  factory ConvoMessageRef.fromJson(Map<String, Object?> json) =>
-      _$ConvoMessageRefFromJson(json);
+  factory MessageRef.fromJson(Map<String, Object?> json) =>
+      _$MessageRefFromJson(json);
 }

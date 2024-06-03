@@ -16,18 +16,18 @@ part 'message_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageview
 @freezed
-class ConvoMessageView with _$ConvoMessageView {
+class MessageView with _$MessageView {
   @jsonSerializable
-  const factory ConvoMessageView({
+  const factory MessageView({
     required String id,
     required String rev,
     required String text,
     List<Facet>? facets,
     @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
-    required ConvoMessageViewSender sender,
+    required MessageViewSender sender,
     required DateTime sentAt,
-  }) = _ConvoMessageView;
+  }) = _MessageView;
 
-  factory ConvoMessageView.fromJson(Map<String, Object?> json) =>
-      _$ConvoMessageViewFromJson(json);
+  factory MessageView.fromJson(Map<String, Object?> json) =>
+      _$MessageViewFromJson(json);
 }

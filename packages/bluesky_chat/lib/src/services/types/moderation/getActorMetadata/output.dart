@@ -14,14 +14,14 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata/#output
 @freezed
-class ModerationGetActorMetadata with _$ModerationGetActorMetadata {
+class GetActorMetadataOutput with _$GetActorMetadataOutput {
   @jsonSerializable
-  const factory ModerationGetActorMetadata({
-    required ModerationGetActorMetadataMetadata day,
-    required ModerationGetActorMetadataMetadata month,
-    required ModerationGetActorMetadataMetadata all,
-  }) = _ModerationGetActorMetadata;
+  const factory GetActorMetadataOutput({
+    required Metadata day,
+    required Metadata month,
+    required Metadata all,
+  }) = _GetActorMetadataOutput;
 
-  factory ModerationGetActorMetadata.fromJson(Map<String, Object?> json) =>
-      _$ModerationGetActorMetadataFromJson(json);
+  factory GetActorMetadataOutput.fromJson(Map<String, Object?> json) =>
+      _$GetActorMetadataOutputFromJson(json);
 }

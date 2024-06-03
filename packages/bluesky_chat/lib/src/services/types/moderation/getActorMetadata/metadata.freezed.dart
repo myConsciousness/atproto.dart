@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ModerationGetActorMetadataMetadata _$ModerationGetActorMetadataMetadataFromJson(
-    Map<String, dynamic> json) {
-  return _ModerationGetActorMetadataMetadata.fromJson(json);
+Metadata _$MetadataFromJson(Map<String, dynamic> json) {
+  return _Metadata.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ModerationGetActorMetadataMetadata {
+mixin _$Metadata {
   int get messagesSent => throw _privateConstructorUsedError;
   int get messagesReceived => throw _privateConstructorUsedError;
   int get convos => throw _privateConstructorUsedError;
@@ -28,28 +27,23 @@ mixin _$ModerationGetActorMetadataMetadata {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ModerationGetActorMetadataMetadataCopyWith<
-          ModerationGetActorMetadataMetadata>
-      get copyWith => throw _privateConstructorUsedError;
+  $MetadataCopyWith<Metadata> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ModerationGetActorMetadataMetadataCopyWith<$Res> {
-  factory $ModerationGetActorMetadataMetadataCopyWith(
-          ModerationGetActorMetadataMetadata value,
-          $Res Function(ModerationGetActorMetadataMetadata) then) =
-      _$ModerationGetActorMetadataMetadataCopyWithImpl<$Res,
-          ModerationGetActorMetadataMetadata>;
+abstract class $MetadataCopyWith<$Res> {
+  factory $MetadataCopyWith(Metadata value, $Res Function(Metadata) then) =
+      _$MetadataCopyWithImpl<$Res, Metadata>;
   @useResult
   $Res call(
       {int messagesSent, int messagesReceived, int convos, int convosStarted});
 }
 
 /// @nodoc
-class _$ModerationGetActorMetadataMetadataCopyWithImpl<$Res,
-        $Val extends ModerationGetActorMetadataMetadata>
-    implements $ModerationGetActorMetadataMetadataCopyWith<$Res> {
-  _$ModerationGetActorMetadataMetadataCopyWithImpl(this._value, this._then);
+class _$MetadataCopyWithImpl<$Res, $Val extends Metadata>
+    implements $MetadataCopyWith<$Res> {
+  _$MetadataCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -86,12 +80,11 @@ class _$ModerationGetActorMetadataMetadataCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ModerationGetActorMetadataMetadataImplCopyWith<$Res>
-    implements $ModerationGetActorMetadataMetadataCopyWith<$Res> {
-  factory _$$ModerationGetActorMetadataMetadataImplCopyWith(
-          _$ModerationGetActorMetadataMetadataImpl value,
-          $Res Function(_$ModerationGetActorMetadataMetadataImpl) then) =
-      __$$ModerationGetActorMetadataMetadataImplCopyWithImpl<$Res>;
+abstract class _$$MetadataImplCopyWith<$Res>
+    implements $MetadataCopyWith<$Res> {
+  factory _$$MetadataImplCopyWith(
+          _$MetadataImpl value, $Res Function(_$MetadataImpl) then) =
+      __$$MetadataImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -99,13 +92,11 @@ abstract class _$$ModerationGetActorMetadataMetadataImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ModerationGetActorMetadataMetadataImplCopyWithImpl<$Res>
-    extends _$ModerationGetActorMetadataMetadataCopyWithImpl<$Res,
-        _$ModerationGetActorMetadataMetadataImpl>
-    implements _$$ModerationGetActorMetadataMetadataImplCopyWith<$Res> {
-  __$$ModerationGetActorMetadataMetadataImplCopyWithImpl(
-      _$ModerationGetActorMetadataMetadataImpl _value,
-      $Res Function(_$ModerationGetActorMetadataMetadataImpl) _then)
+class __$$MetadataImplCopyWithImpl<$Res>
+    extends _$MetadataCopyWithImpl<$Res, _$MetadataImpl>
+    implements _$$MetadataImplCopyWith<$Res> {
+  __$$MetadataImplCopyWithImpl(
+      _$MetadataImpl _value, $Res Function(_$MetadataImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -116,7 +107,7 @@ class __$$ModerationGetActorMetadataMetadataImplCopyWithImpl<$Res>
     Object? convos = null,
     Object? convosStarted = null,
   }) {
-    return _then(_$ModerationGetActorMetadataMetadataImpl(
+    return _then(_$MetadataImpl(
       messagesSent: null == messagesSent
           ? _value.messagesSent
           : messagesSent // ignore: cast_nullable_to_non_nullable
@@ -140,17 +131,15 @@ class __$$ModerationGetActorMetadataMetadataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ModerationGetActorMetadataMetadataImpl
-    implements _ModerationGetActorMetadataMetadata {
-  const _$ModerationGetActorMetadataMetadataImpl(
+class _$MetadataImpl implements _Metadata {
+  const _$MetadataImpl(
       {required this.messagesSent,
       required this.messagesReceived,
       required this.convos,
       required this.convosStarted});
 
-  factory _$ModerationGetActorMetadataMetadataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ModerationGetActorMetadataMetadataImplFromJson(json);
+  factory _$MetadataImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MetadataImplFromJson(json);
 
   @override
   final int messagesSent;
@@ -163,14 +152,14 @@ class _$ModerationGetActorMetadataMetadataImpl
 
   @override
   String toString() {
-    return 'ModerationGetActorMetadataMetadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
+    return 'Metadata(messagesSent: $messagesSent, messagesReceived: $messagesReceived, convos: $convos, convosStarted: $convosStarted)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationGetActorMetadataMetadataImpl &&
+            other is _$MetadataImpl &&
             (identical(other.messagesSent, messagesSent) ||
                 other.messagesSent == messagesSent) &&
             (identical(other.messagesReceived, messagesReceived) ||
@@ -188,31 +177,26 @@ class _$ModerationGetActorMetadataMetadataImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationGetActorMetadataMetadataImplCopyWith<
-          _$ModerationGetActorMetadataMetadataImpl>
-      get copyWith => __$$ModerationGetActorMetadataMetadataImplCopyWithImpl<
-          _$ModerationGetActorMetadataMetadataImpl>(this, _$identity);
+  _$$MetadataImplCopyWith<_$MetadataImpl> get copyWith =>
+      __$$MetadataImplCopyWithImpl<_$MetadataImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ModerationGetActorMetadataMetadataImplToJson(
+    return _$$MetadataImplToJson(
       this,
     );
   }
 }
 
-abstract class _ModerationGetActorMetadataMetadata
-    implements ModerationGetActorMetadataMetadata {
-  const factory _ModerationGetActorMetadataMetadata(
-          {required final int messagesSent,
-          required final int messagesReceived,
-          required final int convos,
-          required final int convosStarted}) =
-      _$ModerationGetActorMetadataMetadataImpl;
+abstract class _Metadata implements Metadata {
+  const factory _Metadata(
+      {required final int messagesSent,
+      required final int messagesReceived,
+      required final int convos,
+      required final int convosStarted}) = _$MetadataImpl;
 
-  factory _ModerationGetActorMetadataMetadata.fromJson(
-          Map<String, dynamic> json) =
-      _$ModerationGetActorMetadataMetadataImpl.fromJson;
+  factory _Metadata.fromJson(Map<String, dynamic> json) =
+      _$MetadataImpl.fromJson;
 
   @override
   int get messagesSent;
@@ -224,7 +208,6 @@ abstract class _ModerationGetActorMetadataMetadata
   int get convosStarted;
   @override
   @JsonKey(ignore: true)
-  _$$ModerationGetActorMetadataMetadataImplCopyWith<
-          _$ModerationGetActorMetadataMetadataImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$MetadataImplCopyWith<_$MetadataImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

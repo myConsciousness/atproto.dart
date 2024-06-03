@@ -16,6 +16,8 @@ _$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           headCid: $checkedConvert('head', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
+          active: $checkedConvert('active', (v) => v as bool? ?? true),
+          status: $checkedConvert('status', (v) => v as String?),
         );
         return val;
       },
@@ -27,4 +29,6 @@ Map<String, dynamic> _$$RepoImplToJson(_$RepoImpl instance) =>
       'did': instance.did,
       'head': instance.headCid,
       'rev': instance.rev,
+      'active': instance.active,
+      'status': instance.status,
     };

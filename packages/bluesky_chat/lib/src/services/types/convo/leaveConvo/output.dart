@@ -11,13 +11,13 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo/#main
 @freezed
-class ConvoLeaveConvo with _$ConvoLeaveConvo {
+class LeaveConvoOutput with _$LeaveConvoOutput {
   @jsonSerializable
-  const factory ConvoLeaveConvo({
+  const factory LeaveConvoOutput({
     required String convoId,
     required String rev,
-  }) = _ConvoLeaveConvo;
+  }) = _LeaveConvoOutput;
 
-  factory ConvoLeaveConvo.fromJson(Map<String, Object?> json) =>
-      _$ConvoLeaveConvoFromJson(json);
+  factory LeaveConvoOutput.fromJson(Map<String, Object?> json) =>
+      _$LeaveConvoOutputFromJson(json);
 }

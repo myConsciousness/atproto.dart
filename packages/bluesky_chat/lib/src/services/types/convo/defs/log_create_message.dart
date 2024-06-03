@@ -14,14 +14,14 @@ part 'log_create_message.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logcreatemessage
 @freezed
-class ConvoLogCreateMessage with _$ConvoLogCreateMessage {
+class LogCreateMessage with _$LogCreateMessage {
   @jsonSerializable
-  const factory ConvoLogCreateMessage({
+  const factory LogCreateMessage({
     required String rev,
     required String convoId,
     @unionConvoMessageViewConverter required UConvoMessageView message,
-  }) = _ConvoLogCreateMessage;
+  }) = _LogCreateMessage;
 
-  factory ConvoLogCreateMessage.fromJson(Map<String, Object?> json) =>
-      _$ConvoLogCreateMessageFromJson(json);
+  factory LogCreateMessage.fromJson(Map<String, Object?> json) =>
+      _$LogCreateMessageFromJson(json);
 }
