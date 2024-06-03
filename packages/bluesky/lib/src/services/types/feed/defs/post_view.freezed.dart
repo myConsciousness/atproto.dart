@@ -20,7 +20,7 @@ PostView _$PostViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
@@ -46,7 +46,7 @@ abstract class $PostViewCopyWith<$Res> {
       _$PostViewCopyWithImpl<$Res, PostView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
@@ -176,7 +176,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
@@ -279,7 +279,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$PostViewImpl implements _PostView {
   const _$PostViewImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       required final Map<String, dynamic> record,
@@ -298,7 +298,7 @@ class _$PostViewImpl implements _PostView {
       _$$PostViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -403,7 +403,7 @@ class _$PostViewImpl implements _PostView {
 
 abstract class _PostView implements PostView {
   const factory _PostView(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileViewBasic author,
       required final Map<String, dynamic> record,
@@ -420,7 +420,7 @@ abstract class _PostView implements PostView {
       _$PostViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

@@ -20,7 +20,7 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonReasonRepost {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get repost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
           $Res Function(SkeletonReasonRepost) then) =
       _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
   @useResult
-  $Res call({@atUriConverter AtUri repost});
+  $Res call({@AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
       __$$SkeletonReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri repost});
+  $Res call({@AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -100,13 +100,13 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
-  const _$SkeletonReasonRepostImpl({@atUriConverter required this.repost});
+  const _$SkeletonReasonRepostImpl({@AtUriConverter() required this.repost});
 
   factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonReasonRepostImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri repost;
 
   @override
@@ -144,14 +144,14 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
 
 abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
-          {@atUriConverter required final AtUri repost}) =
+          {@AtUriConverter() required final AtUri repost}) =
       _$SkeletonReasonRepostImpl;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
       _$SkeletonReasonRepostImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get repost;
   @override
   @JsonKey(ignore: true)

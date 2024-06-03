@@ -20,7 +20,7 @@ LabelerView _$LabelerViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $LabelerViewCopyWith<$Res> {
       _$LabelerViewCopyWithImpl<$Res, LabelerView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       int likeCount,
@@ -133,7 +133,7 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       int likeCount,
@@ -204,7 +204,7 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$LabelerViewImpl implements _LabelerView {
   const _$LabelerViewImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.creator,
       this.likeCount = 0,
@@ -217,7 +217,7 @@ class _$LabelerViewImpl implements _LabelerView {
       _$$LabelerViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -282,7 +282,7 @@ class _$LabelerViewImpl implements _LabelerView {
 
 abstract class _LabelerView implements LabelerView {
   const factory _LabelerView(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView creator,
       final int likeCount,
@@ -294,7 +294,7 @@ abstract class _LabelerView implements LabelerView {
       _$LabelerViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

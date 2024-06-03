@@ -22,8 +22,8 @@ part 'saved_feeds_pref.g.dart';
 class SavedFeedsPref with _$SavedFeedsPref {
   @jsonSerializable
   const factory SavedFeedsPref({
-    @atUriConverter required List<AtUri> pinned,
-    @atUriConverter required List<AtUri> saved,
+    @AtUriConverter() required List<AtUri> pinned,
+    @AtUriConverter() required List<AtUri> saved,
     @Default(0) int timelineIndex,
   }) = _SavedFeedsPref;
 

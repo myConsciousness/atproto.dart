@@ -23,7 +23,7 @@ class HiddenPostsPref with _$HiddenPostsPref {
   @jsonSerializable
   const factory HiddenPostsPref({
     /// A list of URIs of posts the account owner has hidden.
-    @atUriConverter required List<AtUri> items,
+    @AtUriConverter() required List<AtUri> items,
   }) = _HiddenPostsPref;
 
   factory HiddenPostsPref.fromJson(Map<String, Object?> json) =>

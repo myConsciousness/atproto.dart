@@ -20,7 +20,7 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundPost {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $NotFoundPostCopyWith<$Res> {
           NotFoundPost value, $Res Function(NotFoundPost) then) =
       _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool notFound});
+  $Res call({@AtUriConverter() AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ abstract class _$$NotFoundPostImplCopyWith<$Res>
       __$$NotFoundPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool notFound});
+  $Res call({@AtUriConverter() AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -111,13 +111,13 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$NotFoundPostImpl implements _NotFoundPost {
   const _$NotFoundPostImpl(
-      {@atUriConverter required this.uri, required this.notFound});
+      {@AtUriConverter() required this.uri, required this.notFound});
 
   factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotFoundPostImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final bool notFound;
@@ -157,14 +157,14 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final bool notFound}) = _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
       _$NotFoundPostImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   bool get notFound;

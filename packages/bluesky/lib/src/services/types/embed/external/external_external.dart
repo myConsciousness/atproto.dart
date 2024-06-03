@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,7 +25,7 @@ class ExternalExternal with _$ExternalExternal {
     required String uri,
     required String title,
     required String description,
-    @blobConverter Blob? thumb,
+    @BlobConverter() Blob? thumb,
   }) = _ExternalExternal;
 
   factory ExternalExternal.fromJson(Map<String, Object?> json) =>

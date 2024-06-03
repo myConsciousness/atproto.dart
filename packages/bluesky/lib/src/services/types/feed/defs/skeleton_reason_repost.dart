@@ -22,7 +22,7 @@ part 'skeleton_reason_repost.g.dart';
 class SkeletonReasonRepost with _$SkeletonReasonRepost {
   @jsonSerializable
   const factory SkeletonReasonRepost({
-    @atUriConverter required AtUri repost,
+    @AtUriConverter() required AtUri repost,
   }) = _SkeletonReasonRepost;
 
   factory SkeletonReasonRepost.fromJson(Map<String, Object?> json) =>

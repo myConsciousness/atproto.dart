@@ -15,7 +15,7 @@ _$GetRepostedByOutputImpl _$$GetRepostedByOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$GetRepostedByOutputImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           repostedBy: $checkedConvert(
@@ -32,7 +32,7 @@ _$GetRepostedByOutputImpl _$$GetRepostedByOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetRepostedByOutputImplToJson(
     _$GetRepostedByOutputImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
   };
 
   void writeNotNull(String key, dynamic value) {

@@ -25,10 +25,10 @@ class Relationship with _$Relationship {
     required String did,
 
     /// if the actor follows this DID, this is the AT-URI of the follow record
-    @atUriConverter AtUri? following,
+    @AtUriConverter() AtUri? following,
 
     /// if the actor is followed by this DID, contains the AT-URI of the follow record
-    @atUriConverter AtUri? followedBy,
+    @AtUriConverter() AtUri? followedBy,
   }) = _Relationship;
 
   factory Relationship.fromJson(Map<String, Object?> json) =>

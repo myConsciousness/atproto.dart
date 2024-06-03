@@ -26,7 +26,7 @@ part 'record_view_record.g.dart';
 class RecordViewRecord with _$RecordViewRecord {
   @jsonSerializable
   const factory RecordViewRecord({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileViewBasic author,
 

@@ -17,11 +17,11 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map json) => $checkedCreate(
           following: $checkedConvert(
               'following',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           followedBy: $checkedConvert(
               'followedBy',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -41,11 +41,11 @@ Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) {
   writeNotNull(
       'following',
       _$JsonConverterToJson<String, AtUri>(
-          instance.following, atUriConverter.toJson));
+          instance.following, const AtUriConverter().toJson));
   writeNotNull(
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
-          instance.followedBy, atUriConverter.toJson));
+          instance.followedBy, const AtUriConverter().toJson));
   return val;
 }
 

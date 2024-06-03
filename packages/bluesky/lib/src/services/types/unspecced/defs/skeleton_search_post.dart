@@ -22,7 +22,7 @@ part 'skeleton_search_post.g.dart';
 class SkeletonSearchPost with _$SkeletonSearchPost {
   @jsonSerializable
   const factory SkeletonSearchPost({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _SkeletonSearchPost;
 
   factory SkeletonSearchPost.fromJson(Map<String, Object?> json) =>

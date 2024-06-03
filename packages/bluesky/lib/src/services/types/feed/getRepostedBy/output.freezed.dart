@@ -20,7 +20,7 @@ GetRepostedByOutput _$GetRepostedByOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetRepostedByOutput {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $GetRepostedByOutputCopyWith<$Res> {
       _$GetRepostedByOutputCopyWithImpl<$Res, GetRepostedByOutput>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
       List<ProfileView> repostedBy});
@@ -93,7 +93,7 @@ abstract class _$$GetRepostedByOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
       List<ProfileView> repostedBy});
@@ -141,7 +141,7 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
   const _$GetRepostedByOutputImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
       required final List<ProfileView> repostedBy})
@@ -151,7 +151,7 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
       _$$GetRepostedByOutputImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -204,7 +204,7 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
 
 abstract class _GetRepostedByOutput implements GetRepostedByOutput {
   const factory _GetRepostedByOutput(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       final String? cid,
       final String? cursor,
       required final List<ProfileView> repostedBy}) = _$GetRepostedByOutputImpl;
@@ -213,7 +213,7 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
       _$GetRepostedByOutputImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;

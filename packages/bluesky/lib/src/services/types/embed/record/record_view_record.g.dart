@@ -15,7 +15,7 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$RecordViewRecordImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert(
               'author',
@@ -52,7 +52,7 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$RecordViewRecordImplToJson(
         _$RecordViewRecordImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'author': instance.author.toJson(),
       'value': instance.value,

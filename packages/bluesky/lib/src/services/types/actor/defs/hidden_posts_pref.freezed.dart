@@ -21,7 +21,7 @@ HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$HiddenPostsPref {
   /// A list of URIs of posts the account owner has hidden.
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $HiddenPostsPrefCopyWith<$Res> {
           HiddenPostsPref value, $Res Function(HiddenPostsPref) then) =
       _$HiddenPostsPrefCopyWithImpl<$Res, HiddenPostsPref>;
   @useResult
-  $Res call({@atUriConverter List<AtUri> items});
+  $Res call({@AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
       __$$HiddenPostsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter List<AtUri> items});
+  $Res call({@AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -101,7 +101,7 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   const _$HiddenPostsPrefImpl(
-      {@atUriConverter required final List<AtUri> items})
+      {@AtUriConverter() required final List<AtUri> items})
       : _items = items;
 
   factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -112,7 +112,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 
   /// A list of URIs of posts the account owner has hidden.
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
@@ -154,7 +154,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 
 abstract class _HiddenPostsPref implements HiddenPostsPref {
   const factory _HiddenPostsPref(
-          {@atUriConverter required final List<AtUri> items}) =
+          {@AtUriConverter() required final List<AtUri> items}) =
       _$HiddenPostsPrefImpl;
 
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
@@ -163,7 +163,7 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
   @override
 
   /// A list of URIs of posts the account owner has hidden.
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items;
   @override
   @JsonKey(ignore: true)

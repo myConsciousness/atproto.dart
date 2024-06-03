@@ -16,7 +16,7 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           cid: $checkedConvert('cid', (v) => v as String?),
           record: $checkedConvert(
               'record',
@@ -51,7 +51,7 @@ Map<String, dynamic> _$$ThreadgateViewImplToJson(
   writeNotNull(
       'uri',
       _$JsonConverterToJson<String, AtUri>(
-          instance.uri, atUriConverter.toJson));
+          instance.uri, const AtUriConverter().toJson));
   writeNotNull('cid', instance.cid);
   val['record'] = instance.record;
   val['lists'] = instance.lists.map((e) => e.toJson()).toList();

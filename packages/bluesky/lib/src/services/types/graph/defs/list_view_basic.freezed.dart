@@ -20,7 +20,7 @@ ListViewBasic _$ListViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewBasic {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       _$ListViewBasicCopyWithImpl<$Res, ListViewBasic>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       String name,
       String purpose,
@@ -131,7 +131,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       String name,
       String purpose,
@@ -206,7 +206,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ListViewBasicImpl implements _ListViewBasic {
   const _$ListViewBasicImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.name,
       required this.purpose,
@@ -220,7 +220,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       _$$ListViewBasicImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -287,7 +287,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
 
 abstract class _ListViewBasic implements ListViewBasic {
   const factory _ListViewBasic(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String name,
       required final String purpose,
@@ -300,7 +300,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       _$ListViewBasicImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

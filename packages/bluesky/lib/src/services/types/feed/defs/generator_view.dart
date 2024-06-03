@@ -28,7 +28,7 @@ part 'generator_view.g.dart';
 class GeneratorView with _$GeneratorView {
   @jsonSerializable
   const factory GeneratorView({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String did,
     required ProfileView creator,

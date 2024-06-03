@@ -22,7 +22,7 @@ part 'list_rule.g.dart';
 class ListRule with _$ListRule {
   @jsonSerializable
   const factory ListRule({
-    @atUriConverter required AtUri list,
+    @AtUriConverter() required AtUri list,
   }) = _ListRule;
 
   factory ListRule.fromJson(Map<String, Object?> json) =>

@@ -22,7 +22,7 @@ part 'feed.g.dart';
 class Feed with _$Feed {
   @jsonSerializable
   const factory Feed({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _Feed;
 
   factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);

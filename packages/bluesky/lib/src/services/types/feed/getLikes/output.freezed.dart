@@ -20,7 +20,7 @@ GetLikesOutput _$GetLikesOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetLikesOutput {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $GetLikesOutputCopyWith<$Res> {
       _$GetLikesOutputCopyWithImpl<$Res, GetLikesOutput>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
       List<Like> likes});
@@ -93,7 +93,7 @@ abstract class _$$GetLikesOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
       List<Like> likes});
@@ -141,7 +141,7 @@ class __$$GetLikesOutputImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GetLikesOutputImpl implements _GetLikesOutput {
   const _$GetLikesOutputImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
       required final List<Like> likes})
@@ -151,7 +151,7 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
       _$$GetLikesOutputImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -203,7 +203,7 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
 
 abstract class _GetLikesOutput implements GetLikesOutput {
   const factory _GetLikesOutput(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       final String? cid,
       final String? cursor,
       required final List<Like> likes}) = _$GetLikesOutputImpl;
@@ -212,7 +212,7 @@ abstract class _GetLikesOutput implements GetLikesOutput {
       _$GetLikesOutputImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;

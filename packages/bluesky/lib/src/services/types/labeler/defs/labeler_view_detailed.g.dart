@@ -15,7 +15,7 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$LabelerViewDetailedImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           creator: $checkedConvert('creator',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
@@ -49,7 +49,7 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
 Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
         _$LabelerViewDetailedImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'creator': instance.creator.toJson(),
       'policies': instance.policies.toJson(),

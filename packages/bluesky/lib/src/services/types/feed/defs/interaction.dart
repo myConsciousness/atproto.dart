@@ -22,7 +22,7 @@ part 'interaction.g.dart';
 class Interaction with _$Interaction {
   @jsonSerializable
   const factory Interaction({
-    @atUriConverter AtUri? item,
+    @AtUriConverter() AtUri? item,
     String? event,
 
     /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.

@@ -20,7 +20,7 @@ Interaction _$InteractionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Interaction {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get item => throw _privateConstructorUsedError;
   String? get event => throw _privateConstructorUsedError;
 
@@ -39,7 +39,8 @@ abstract class $InteractionCopyWith<$Res> {
           Interaction value, $Res Function(Interaction) then) =
       _$InteractionCopyWithImpl<$Res, Interaction>;
   @useResult
-  $Res call({@atUriConverter AtUri? item, String? event, String? feedContext});
+  $Res call(
+      {@AtUriConverter() AtUri? item, String? event, String? feedContext});
 }
 
 /// @nodoc
@@ -84,7 +85,8 @@ abstract class _$$InteractionImplCopyWith<$Res>
       __$$InteractionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri? item, String? event, String? feedContext});
+  $Res call(
+      {@AtUriConverter() AtUri? item, String? event, String? feedContext});
 }
 
 /// @nodoc
@@ -124,13 +126,13 @@ class __$$InteractionImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$InteractionImpl implements _Interaction {
   const _$InteractionImpl(
-      {@atUriConverter this.item, this.event, this.feedContext});
+      {@AtUriConverter() this.item, this.event, this.feedContext});
 
   factory _$InteractionImpl.fromJson(Map<String, dynamic> json) =>
       _$$InteractionImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? item;
   @override
   final String? event;
@@ -175,7 +177,7 @@ class _$InteractionImpl implements _Interaction {
 
 abstract class _Interaction implements Interaction {
   const factory _Interaction(
-      {@atUriConverter final AtUri? item,
+      {@AtUriConverter() final AtUri? item,
       final String? event,
       final String? feedContext}) = _$InteractionImpl;
 
@@ -183,7 +185,7 @@ abstract class _Interaction implements Interaction {
       _$InteractionImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get item;
   @override
   String? get event;

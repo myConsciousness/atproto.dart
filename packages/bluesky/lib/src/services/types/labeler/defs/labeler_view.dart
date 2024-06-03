@@ -27,7 +27,7 @@ part 'labeler_view.g.dart';
 class LabelerView with _$LabelerView {
   @jsonSerializable
   const factory LabelerView({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView creator,
     @Default(0) int likeCount,

@@ -22,8 +22,8 @@ part 'viewer_state.g.dart';
 class ViewerState with _$ViewerState {
   @jsonSerializable
   const factory ViewerState({
-    @atUriConverter AtUri? repost,
-    @atUriConverter AtUri? like,
+    @AtUriConverter() AtUri? repost,
+    @AtUriConverter() AtUri? like,
     @Default(false) bool replyDisabled,
   }) = _ViewerState;
 

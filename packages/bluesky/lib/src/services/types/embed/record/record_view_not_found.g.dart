@@ -15,7 +15,7 @@ _$RecordViewNotFoundImpl _$$RecordViewNotFoundImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$RecordViewNotFoundImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           notFound: $checkedConvert('notFound', (v) => v as bool),
         );
         return val;
@@ -25,6 +25,6 @@ _$RecordViewNotFoundImpl _$$RecordViewNotFoundImplFromJson(Map json) =>
 Map<String, dynamic> _$$RecordViewNotFoundImplToJson(
         _$RecordViewNotFoundImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'notFound': instance.notFound,
     };

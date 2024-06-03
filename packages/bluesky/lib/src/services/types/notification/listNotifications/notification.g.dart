@@ -14,7 +14,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$NotificationImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert('author',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
@@ -22,7 +22,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           record: $checkedConvert(
               'record', (v) => Map<String, dynamic>.from(v as Map)),
           isRead: $checkedConvert('isRead', (v) => v as bool),
@@ -43,7 +43,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
     'reason': instance.reason,
@@ -58,7 +58,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   writeNotNull(
       'reasonSubject',
       _$JsonConverterToJson<String, AtUri>(
-          instance.reasonSubject, atUriConverter.toJson));
+          instance.reasonSubject, const AtUriConverter().toJson));
   val['record'] = instance.record;
   val['isRead'] = instance.isRead;
   val['indexedAt'] = instance.indexedAt.toIso8601String();

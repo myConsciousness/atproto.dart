@@ -15,7 +15,7 @@ _$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$SkeletonSearchPostImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -24,5 +24,5 @@ _$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
 Map<String, dynamic> _$$SkeletonSearchPostImplToJson(
         _$SkeletonSearchPostImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
     };

@@ -25,7 +25,7 @@ part 'record_view_blocked.g.dart';
 class RecordViewBlocked with _$RecordViewBlocked {
   @jsonSerializable
   const factory RecordViewBlocked({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required bool blocked,
     required BlockedAuthor author,
   }) = _RecordViewBlocked;

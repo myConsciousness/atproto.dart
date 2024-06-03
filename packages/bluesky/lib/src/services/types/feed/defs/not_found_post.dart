@@ -22,7 +22,7 @@ part 'not_found_post.g.dart';
 class NotFoundPost with _$NotFoundPost {
   @jsonSerializable
   const factory NotFoundPost({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required bool notFound,
   }) = _NotFoundPost;
 

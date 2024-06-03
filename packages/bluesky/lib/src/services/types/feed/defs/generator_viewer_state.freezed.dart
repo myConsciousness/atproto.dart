@@ -20,7 +20,7 @@ GeneratorViewerState _$GeneratorViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorViewerState {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $GeneratorViewerStateCopyWith<$Res> {
           $Res Function(GeneratorViewerState) then) =
       _$GeneratorViewerStateCopyWithImpl<$Res, GeneratorViewerState>;
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -71,7 +71,7 @@ abstract class _$$GeneratorViewerStateImplCopyWith<$Res>
       __$$GeneratorViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -100,13 +100,13 @@ class __$$GeneratorViewerStateImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
-  const _$GeneratorViewerStateImpl({@atUriConverter this.like});
+  const _$GeneratorViewerStateImpl({@AtUriConverter() this.like});
 
   factory _$GeneratorViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorViewerStateImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? like;
 
   @override
@@ -143,14 +143,14 @@ class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
 }
 
 abstract class _GeneratorViewerState implements GeneratorViewerState {
-  const factory _GeneratorViewerState({@atUriConverter final AtUri? like}) =
+  const factory _GeneratorViewerState({@AtUriConverter() final AtUri? like}) =
       _$GeneratorViewerStateImpl;
 
   factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) =
       _$GeneratorViewerStateImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like;
   @override
   @JsonKey(ignore: true)

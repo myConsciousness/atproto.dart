@@ -25,7 +25,7 @@ part 'list_item_view.g.dart';
 class ListItemView with _$ListItemView {
   @jsonSerializable
   const factory ListItemView({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required ProfileView subject,
   }) = _ListItemView;
 

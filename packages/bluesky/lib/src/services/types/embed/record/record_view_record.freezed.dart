@@ -20,7 +20,7 @@ RecordViewRecord _$RecordViewRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordViewRecord {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       _$RecordViewRecordCopyWithImpl<$Res, RecordViewRecord>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> value,
@@ -147,7 +147,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> value,
@@ -234,7 +234,7 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$RecordViewRecordImpl implements _RecordViewRecord {
   const _$RecordViewRecordImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       required final Map<String, dynamic> value,
@@ -252,7 +252,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       _$$RecordViewRecordImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -358,7 +358,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
 
 abstract class _RecordViewRecord implements RecordViewRecord {
   const factory _RecordViewRecord(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileViewBasic author,
       required final Map<String, dynamic> value,
@@ -373,7 +373,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
       _$RecordViewRecordImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

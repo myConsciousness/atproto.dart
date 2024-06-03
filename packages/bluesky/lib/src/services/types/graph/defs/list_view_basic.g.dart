@@ -14,7 +14,7 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ListViewBasicImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           purpose: $checkedConvert('purpose', (v) => v as String),
@@ -42,7 +42,7 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListViewBasicImplToJson(_$ListViewBasicImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'name': instance.name,
     'purpose': instance.purpose,

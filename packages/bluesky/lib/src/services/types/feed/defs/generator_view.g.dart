@@ -14,7 +14,7 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$GeneratorViewImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           creator: $checkedConvert('creator',
@@ -57,7 +57,7 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'did': instance.did,
     'creator': instance.creator.toJson(),

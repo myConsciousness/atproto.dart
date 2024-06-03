@@ -28,10 +28,10 @@ class ViewerState with _$ViewerState {
     @Default(false) bool muted,
     ListViewBasic? mutedByList,
     @Default(false) bool blockedBy,
-    @atUriConverter AtUri? blocking,
+    @AtUriConverter() AtUri? blocking,
     ListViewBasic? blockingByList,
-    @atUriConverter AtUri? following,
-    @atUriConverter AtUri? followedBy,
+    @AtUriConverter() AtUri? following,
+    @AtUriConverter() AtUri? followedBy,
   }) = _ViewerState;
 
   factory ViewerState.fromJson(Map<String, Object?> json) =>

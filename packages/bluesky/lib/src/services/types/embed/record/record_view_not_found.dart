@@ -22,7 +22,7 @@ part 'record_view_not_found.g.dart';
 class RecordViewNotFound with _$RecordViewNotFound {
   @jsonSerializable
   const factory RecordViewNotFound({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required bool notFound,
   }) = _RecordViewNotFound;
 

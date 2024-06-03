@@ -20,7 +20,7 @@ ThreadgateView _$ThreadgateViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadgateView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       _$ThreadgateViewCopyWithImpl<$Res, ThreadgateView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri? uri,
+      {@AtUriConverter() AtUri? uri,
       String? cid,
       Map<String, dynamic> record,
       List<ListViewBasic> lists});
@@ -93,7 +93,7 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri? uri,
+      {@AtUriConverter() AtUri? uri,
       String? cid,
       Map<String, dynamic> record,
       List<ListViewBasic> lists});
@@ -141,7 +141,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ThreadgateViewImpl implements _ThreadgateView {
   const _$ThreadgateViewImpl(
-      {@atUriConverter this.uri,
+      {@AtUriConverter() this.uri,
       this.cid,
       final Map<String, dynamic> record = const {},
       final List<ListViewBasic> lists = const []})
@@ -152,7 +152,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
       _$$ThreadgateViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? uri;
   @override
   final String? cid;
@@ -216,7 +216,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 
 abstract class _ThreadgateView implements ThreadgateView {
   const factory _ThreadgateView(
-      {@atUriConverter final AtUri? uri,
+      {@AtUriConverter() final AtUri? uri,
       final String? cid,
       final Map<String, dynamic> record,
       final List<ListViewBasic> lists}) = _$ThreadgateViewImpl;
@@ -225,7 +225,7 @@ abstract class _ThreadgateView implements ThreadgateView {
       _$ThreadgateViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get uri;
   @override
   String? get cid;

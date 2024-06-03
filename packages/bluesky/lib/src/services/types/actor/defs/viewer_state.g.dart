@@ -24,7 +24,7 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
           blocking: $checkedConvert(
               'blocking',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           blockingByList: $checkedConvert(
               'blockingByList',
               (v) => v == null
@@ -34,11 +34,11 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
           following: $checkedConvert(
               'following',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           followedBy: $checkedConvert(
               'followedBy',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -60,16 +60,16 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
   writeNotNull(
       'blocking',
       _$JsonConverterToJson<String, AtUri>(
-          instance.blocking, atUriConverter.toJson));
+          instance.blocking, const AtUriConverter().toJson));
   writeNotNull('blockingByList', instance.blockingByList?.toJson());
   writeNotNull(
       'following',
       _$JsonConverterToJson<String, AtUri>(
-          instance.following, atUriConverter.toJson));
+          instance.following, const AtUriConverter().toJson));
   writeNotNull(
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
-          instance.followedBy, atUriConverter.toJson));
+          instance.followedBy, const AtUriConverter().toJson));
   return val;
 }
 

@@ -14,7 +14,7 @@ _$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ListItemViewImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           subject: $checkedConvert('subject',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
         );
@@ -24,6 +24,6 @@ _$ListItemViewImpl _$$ListItemViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListItemViewImplToJson(_$ListItemViewImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'subject': instance.subject.toJson(),
     };

@@ -20,7 +20,7 @@ RecordViewNotFound _$RecordViewNotFoundFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordViewNotFound {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $RecordViewNotFoundCopyWith<$Res> {
           RecordViewNotFound value, $Res Function(RecordViewNotFound) then) =
       _$RecordViewNotFoundCopyWithImpl<$Res, RecordViewNotFound>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool notFound});
+  $Res call({@AtUriConverter() AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ abstract class _$$RecordViewNotFoundImplCopyWith<$Res>
       __$$RecordViewNotFoundImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool notFound});
+  $Res call({@AtUriConverter() AtUri uri, bool notFound});
 }
 
 /// @nodoc
@@ -111,13 +111,13 @@ class __$$RecordViewNotFoundImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
   const _$RecordViewNotFoundImpl(
-      {@atUriConverter required this.uri, required this.notFound});
+      {@AtUriConverter() required this.uri, required this.notFound});
 
   factory _$RecordViewNotFoundImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewNotFoundImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final bool notFound;
@@ -158,14 +158,14 @@ class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
 
 abstract class _RecordViewNotFound implements RecordViewNotFound {
   const factory _RecordViewNotFound(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final bool notFound}) = _$RecordViewNotFoundImpl;
 
   factory _RecordViewNotFound.fromJson(Map<String, dynamic> json) =
       _$RecordViewNotFoundImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   bool get notFound;

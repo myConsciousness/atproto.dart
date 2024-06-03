@@ -22,7 +22,7 @@ part 'generator_viewer_state.g.dart';
 class GeneratorViewerState with _$GeneratorViewerState {
   @jsonSerializable
   const factory GeneratorViewerState({
-    @atUriConverter AtUri? like,
+    @AtUriConverter() AtUri? like,
   }) = _GeneratorViewerState;
 
   factory GeneratorViewerState.fromJson(Map<String, Object?> json) =>

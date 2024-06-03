@@ -14,7 +14,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$PostViewImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert(
               'author',
@@ -57,7 +57,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
     'record': instance.record,

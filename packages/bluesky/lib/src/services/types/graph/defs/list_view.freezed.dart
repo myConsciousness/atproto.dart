@@ -20,7 +20,7 @@ ListView _$ListViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
@@ -45,7 +45,7 @@ abstract class $ListViewCopyWith<$Res> {
       _$ListViewCopyWithImpl<$Res, ListView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       String name,
@@ -160,7 +160,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       String name,
@@ -255,7 +255,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ListViewImpl implements _ListView {
   const _$ListViewImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.creator,
       required this.name,
@@ -273,7 +273,7 @@ class _$ListViewImpl implements _ListView {
       _$$ListViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -370,7 +370,7 @@ class _$ListViewImpl implements _ListView {
 
 abstract class _ListView implements ListView {
   const factory _ListView(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView creator,
       required final String name,
@@ -386,7 +386,7 @@ abstract class _ListView implements ListView {
       _$ListViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

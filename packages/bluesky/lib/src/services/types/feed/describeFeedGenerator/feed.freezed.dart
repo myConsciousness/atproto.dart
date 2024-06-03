@@ -20,7 +20,7 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Feed {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +33,7 @@ abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
       _$FeedCopyWithImpl<$Res, Feed>;
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
       __$$FeedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -95,13 +95,13 @@ class __$$FeedImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$FeedImpl implements _Feed {
-  const _$FeedImpl({@atUriConverter required this.uri});
+  const _$FeedImpl({@AtUriConverter() required this.uri});
 
   factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
 
   @override
@@ -136,12 +136,13 @@ class _$FeedImpl implements _Feed {
 }
 
 abstract class _Feed implements Feed {
-  const factory _Feed({@atUriConverter required final AtUri uri}) = _$FeedImpl;
+  const factory _Feed({@AtUriConverter() required final AtUri uri}) =
+      _$FeedImpl;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

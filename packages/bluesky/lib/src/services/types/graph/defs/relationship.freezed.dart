@@ -23,11 +23,11 @@ mixin _$Relationship {
   String get did => throw _privateConstructorUsedError;
 
   /// if the actor follows this DID, this is the AT-URI of the follow record
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get following => throw _privateConstructorUsedError;
 
   /// if the actor is followed by this DID, contains the AT-URI of the follow record
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -44,8 +44,8 @@ abstract class $RelationshipCopyWith<$Res> {
   @useResult
   $Res call(
       {String did,
-      @atUriConverter AtUri? following,
-      @atUriConverter AtUri? followedBy});
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -92,8 +92,8 @@ abstract class _$$RelationshipImplCopyWith<$Res>
   @useResult
   $Res call(
       {String did,
-      @atUriConverter AtUri? following,
-      @atUriConverter AtUri? followedBy});
+      @AtUriConverter() AtUri? following,
+      @AtUriConverter() AtUri? followedBy});
 }
 
 /// @nodoc
@@ -134,8 +134,8 @@ class __$$RelationshipImplCopyWithImpl<$Res>
 class _$RelationshipImpl implements _Relationship {
   const _$RelationshipImpl(
       {required this.did,
-      @atUriConverter this.following,
-      @atUriConverter this.followedBy});
+      @AtUriConverter() this.following,
+      @AtUriConverter() this.followedBy});
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$RelationshipImplFromJson(json);
@@ -145,12 +145,12 @@ class _$RelationshipImpl implements _Relationship {
 
   /// if the actor follows this DID, this is the AT-URI of the follow record
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? following;
 
   /// if the actor is followed by this DID, contains the AT-URI of the follow record
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? followedBy;
 
   @override
@@ -191,8 +191,8 @@ class _$RelationshipImpl implements _Relationship {
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
       {required final String did,
-      @atUriConverter final AtUri? following,
-      @atUriConverter final AtUri? followedBy}) = _$RelationshipImpl;
+      @AtUriConverter() final AtUri? following,
+      @AtUriConverter() final AtUri? followedBy}) = _$RelationshipImpl;
 
   factory _Relationship.fromJson(Map<String, dynamic> json) =
       _$RelationshipImpl.fromJson;
@@ -202,12 +202,12 @@ abstract class _Relationship implements Relationship {
   @override
 
   /// if the actor follows this DID, this is the AT-URI of the follow record
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get following;
   @override
 
   /// if the actor is followed by this DID, contains the AT-URI of the follow record
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get followedBy;
   @override
   @JsonKey(ignore: true)

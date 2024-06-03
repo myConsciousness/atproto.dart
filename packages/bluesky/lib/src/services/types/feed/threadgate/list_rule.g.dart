@@ -14,7 +14,7 @@ _$ListRuleImpl _$$ListRuleImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ListRuleImpl(
           list: $checkedConvert(
-              'list', (v) => atUriConverter.fromJson(v as String)),
+              'list', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -22,5 +22,5 @@ _$ListRuleImpl _$$ListRuleImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListRuleImplToJson(_$ListRuleImpl instance) =>
     <String, dynamic>{
-      'list': atUriConverter.toJson(instance.list),
+      'list': const AtUriConverter().toJson(instance.list),
     };

@@ -14,7 +14,7 @@ _$GetLikesOutputImpl _$$GetLikesOutputImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$GetLikesOutputImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           likes: $checkedConvert(
@@ -31,7 +31,7 @@ _$GetLikesOutputImpl _$$GetLikesOutputImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$GetLikesOutputImplToJson(
     _$GetLikesOutputImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
   };
 
   void writeNotNull(String key, dynamic value) {

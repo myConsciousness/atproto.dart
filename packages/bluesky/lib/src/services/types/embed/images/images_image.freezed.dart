@@ -20,7 +20,7 @@ ImagesImage _$ImagesImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesImage {
-  @blobConverter
+  @BlobConverter()
   Blob get image => throw _privateConstructorUsedError;
 
   /// Alt text description of the image, for accessibility.
@@ -40,7 +40,9 @@ abstract class $ImagesImageCopyWith<$Res> {
       _$ImagesImageCopyWithImpl<$Res, ImagesImage>;
   @useResult
   $Res call(
-      {@blobConverter Blob image, String alt, ImagesAspectRatio? aspectRatio});
+      {@BlobConverter() Blob image,
+      String alt,
+      ImagesAspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get image;
   $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
@@ -109,7 +111,9 @@ abstract class _$$ImagesImageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@blobConverter Blob image, String alt, ImagesAspectRatio? aspectRatio});
+      {@BlobConverter() Blob image,
+      String alt,
+      ImagesAspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get image;
@@ -154,7 +158,7 @@ class __$$ImagesImageImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ImagesImageImpl implements _ImagesImage {
   const _$ImagesImageImpl(
-      {@blobConverter required this.image,
+      {@BlobConverter() required this.image,
       required this.alt,
       this.aspectRatio});
 
@@ -162,7 +166,7 @@ class _$ImagesImageImpl implements _ImagesImage {
       _$$ImagesImageImplFromJson(json);
 
   @override
-  @blobConverter
+  @BlobConverter()
   final Blob image;
 
   /// Alt text description of the image, for accessibility.
@@ -207,7 +211,7 @@ class _$ImagesImageImpl implements _ImagesImage {
 
 abstract class _ImagesImage implements ImagesImage {
   const factory _ImagesImage(
-      {@blobConverter required final Blob image,
+      {@BlobConverter() required final Blob image,
       required final String alt,
       final ImagesAspectRatio? aspectRatio}) = _$ImagesImageImpl;
 
@@ -215,7 +219,7 @@ abstract class _ImagesImage implements ImagesImage {
       _$ImagesImageImpl.fromJson;
 
   @override
-  @blobConverter
+  @BlobConverter()
   Blob get image;
   @override
 

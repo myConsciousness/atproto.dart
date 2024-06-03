@@ -14,7 +14,7 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ListViewImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           creator: $checkedConvert('creator',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
@@ -53,7 +53,7 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
   final val = <String, dynamic>{
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'creator': instance.creator.toJson(),
     'name': instance.name,

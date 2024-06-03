@@ -14,7 +14,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$LabelerViewImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           creator: $checkedConvert('creator',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
@@ -43,7 +43,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'creator': instance.creator.toJson(),
       'likeCount': instance.likeCount,

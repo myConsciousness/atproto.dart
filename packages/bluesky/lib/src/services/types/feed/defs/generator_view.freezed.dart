@@ -20,7 +20,7 @@ GeneratorView _$GeneratorViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $GeneratorViewCopyWith<$Res> {
       _$GeneratorViewCopyWithImpl<$Res, GeneratorView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       String did,
       ProfileView creator,
@@ -175,7 +175,7 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       String did,
       ProfileView creator,
@@ -282,7 +282,7 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GeneratorViewImpl implements _GeneratorView {
   const _$GeneratorViewImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.did,
       required this.creator,
@@ -302,7 +302,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
       _$$GeneratorViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -412,7 +412,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
 
 abstract class _GeneratorView implements GeneratorView {
   const factory _GeneratorView(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String did,
       required final ProfileView creator,
@@ -430,7 +430,7 @@ abstract class _GeneratorView implements GeneratorView {
       _$GeneratorViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

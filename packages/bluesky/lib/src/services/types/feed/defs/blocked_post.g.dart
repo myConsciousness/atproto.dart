@@ -14,7 +14,7 @@ _$BlockedPostImpl _$$BlockedPostImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$BlockedPostImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           blocked: $checkedConvert('blocked', (v) => v as bool),
           author: $checkedConvert(
               'author',
@@ -27,7 +27,7 @@ _$BlockedPostImpl _$$BlockedPostImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$BlockedPostImplToJson(_$BlockedPostImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'blocked': instance.blocked,
       'author': instance.author.toJson(),
     };

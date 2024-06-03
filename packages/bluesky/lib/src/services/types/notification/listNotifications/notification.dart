@@ -26,13 +26,13 @@ part 'notification.g.dart';
 class Notification with _$Notification {
   @jsonSerializable
   const factory Notification({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView author,
 
     /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
     required String reason,
-    @atUriConverter AtUri? reasonSubject,
+    @AtUriConverter() AtUri? reasonSubject,
     required Map<String, dynamic> record,
     required bool isRead,
     required DateTime indexedAt,

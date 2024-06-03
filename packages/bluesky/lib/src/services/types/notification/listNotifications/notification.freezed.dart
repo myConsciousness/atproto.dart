@@ -20,14 +20,14 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notification {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileView get author => throw _privateConstructorUsedError;
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   String get reason => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
@@ -47,11 +47,11 @@ abstract class $NotificationCopyWith<$Res> {
       _$NotificationCopyWithImpl<$Res, Notification>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
       String reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
@@ -141,11 +141,11 @@ abstract class _$$NotificationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
       String reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
@@ -222,11 +222,11 @@ class __$$NotificationImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$NotificationImpl implements _Notification {
   const _$NotificationImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       required this.reason,
-      @atUriConverter this.reasonSubject,
+      @AtUriConverter() this.reasonSubject,
       required final Map<String, dynamic> record,
       required this.isRead,
       required this.indexedAt,
@@ -238,7 +238,7 @@ class _$NotificationImpl implements _Notification {
       _$$NotificationImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -249,7 +249,7 @@ class _$NotificationImpl implements _Notification {
   @override
   final String reason;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? reasonSubject;
   final Map<String, dynamic> _record;
   @override
@@ -325,11 +325,11 @@ class _$NotificationImpl implements _Notification {
 
 abstract class _Notification implements Notification {
   const factory _Notification(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView author,
       required final String reason,
-      @atUriConverter final AtUri? reasonSubject,
+      @AtUriConverter() final AtUri? reasonSubject,
       required final Map<String, dynamic> record,
       required final bool isRead,
       required final DateTime indexedAt,
@@ -339,7 +339,7 @@ abstract class _Notification implements Notification {
       _$NotificationImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;
@@ -350,7 +350,7 @@ abstract class _Notification implements Notification {
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   String get reason;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject;
   @override
   Map<String, dynamic> get record;

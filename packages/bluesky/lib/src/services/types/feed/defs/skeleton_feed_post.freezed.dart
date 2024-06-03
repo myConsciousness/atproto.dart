@@ -20,7 +20,7 @@ SkeletonFeedPost _$SkeletonFeedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeedPost {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
 
@@ -39,7 +39,8 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
           SkeletonFeedPost value, $Res Function(SkeletonFeedPost) then) =
       _$SkeletonFeedPostCopyWithImpl<$Res, SkeletonFeedPost>;
   @useResult
-  $Res call({@atUriConverter AtUri post, String? reason, String? feedContext});
+  $Res call(
+      {@AtUriConverter() AtUri post, String? reason, String? feedContext});
 }
 
 /// @nodoc
@@ -84,7 +85,8 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
       __$$SkeletonFeedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri post, String? reason, String? feedContext});
+  $Res call(
+      {@AtUriConverter() AtUri post, String? reason, String? feedContext});
 }
 
 /// @nodoc
@@ -124,13 +126,13 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   const _$SkeletonFeedPostImpl(
-      {@atUriConverter required this.post, this.reason, this.feedContext});
+      {@AtUriConverter() required this.post, this.reason, this.feedContext});
 
   factory _$SkeletonFeedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonFeedPostImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri post;
   @override
   final String? reason;
@@ -176,7 +178,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
 abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   const factory _SkeletonFeedPost(
-      {@atUriConverter required final AtUri post,
+      {@AtUriConverter() required final AtUri post,
       final String? reason,
       final String? feedContext}) = _$SkeletonFeedPostImpl;
 
@@ -184,7 +186,7 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
       _$SkeletonFeedPostImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get post;
   @override
   String? get reason;

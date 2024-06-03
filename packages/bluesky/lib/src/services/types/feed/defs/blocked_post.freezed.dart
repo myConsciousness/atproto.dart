@@ -20,7 +20,7 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedPost {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $BlockedPostCopyWith<$Res> {
           BlockedPost value, $Res Function(BlockedPost) then) =
       _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -92,7 +92,7 @@ abstract class _$$BlockedPostImplCopyWith<$Res>
       __$$BlockedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -135,7 +135,7 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$BlockedPostImpl implements _BlockedPost {
   const _$BlockedPostImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.blocked,
       required this.author});
 
@@ -143,7 +143,7 @@ class _$BlockedPostImpl implements _BlockedPost {
       _$$BlockedPostImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final bool blocked;
@@ -185,7 +185,7 @@ class _$BlockedPostImpl implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final bool blocked,
       required final BlockedAuthor author}) = _$BlockedPostImpl;
 
@@ -193,7 +193,7 @@ abstract class _BlockedPost implements BlockedPost {
       _$BlockedPostImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   bool get blocked;

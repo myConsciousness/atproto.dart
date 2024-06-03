@@ -25,7 +25,7 @@ part 'blocked_post.g.dart';
 class BlockedPost with _$BlockedPost {
   @jsonSerializable
   const factory BlockedPost({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required bool blocked,
     required BlockedAuthor author,
   }) = _BlockedPost;

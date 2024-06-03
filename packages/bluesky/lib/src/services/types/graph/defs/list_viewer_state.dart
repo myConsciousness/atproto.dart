@@ -23,7 +23,7 @@ class ListViewerState with _$ListViewerState {
   @jsonSerializable
   const factory ListViewerState({
     @Default(false) bool muted,
-    @atUriConverter AtUri? blocked,
+    @AtUriConverter() AtUri? blocked,
   }) = _ListViewerState;
 
   factory ListViewerState.fromJson(Map<String, Object?> json) =>

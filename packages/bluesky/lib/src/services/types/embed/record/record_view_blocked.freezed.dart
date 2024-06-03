@@ -20,7 +20,7 @@ RecordViewBlocked _$RecordViewBlockedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordViewBlocked {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $RecordViewBlockedCopyWith<$Res> {
           RecordViewBlocked value, $Res Function(RecordViewBlocked) then) =
       _$RecordViewBlockedCopyWithImpl<$Res, RecordViewBlocked>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -92,7 +92,7 @@ abstract class _$$RecordViewBlockedImplCopyWith<$Res>
       __$$RecordViewBlockedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -135,7 +135,7 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$RecordViewBlockedImpl implements _RecordViewBlocked {
   const _$RecordViewBlockedImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.blocked,
       required this.author});
 
@@ -143,7 +143,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
       _$$RecordViewBlockedImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final bool blocked;
@@ -186,7 +186,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
 
 abstract class _RecordViewBlocked implements RecordViewBlocked {
   const factory _RecordViewBlocked(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final bool blocked,
       required final BlockedAuthor author}) = _$RecordViewBlockedImpl;
 
@@ -194,7 +194,7 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
       _$RecordViewBlockedImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   bool get blocked;

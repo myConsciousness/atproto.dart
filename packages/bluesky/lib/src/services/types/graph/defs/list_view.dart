@@ -28,7 +28,7 @@ part 'list_view.g.dart';
 class ListView with _$ListView {
   @jsonSerializable
   const factory ListView({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView creator,
     required String name,

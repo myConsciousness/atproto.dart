@@ -5,7 +5,7 @@
 import 'package:lexicon/lexicon.dart';
 
 import './lex_naming_convention.dart';
-import './lex_known_values_template.dart';
+
 import '../utils.dart';
 
 const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
@@ -42,7 +42,7 @@ final class Property {
     }
 
     if (converter != null) {
-      buffer.write('@$converter');
+      buffer.write('@$converter()');
       buffer.write(' ');
     }
 
@@ -236,7 +236,7 @@ final class LexObjectTemplate {
       return ('DateTime', null, null);
     }
     if (type == 'string' && format == 'at-uri') {
-      return ('AtUri', null, 'atUriConverter');
+      return ('AtUri', null, 'AtUriConverter');
     }
 
     if (type == 'string') return ('String', null, null);
@@ -247,7 +247,7 @@ final class LexObjectTemplate {
     if (type == 'unknown') return ('Map<String, dynamic>', null, null);
 
     if (type == 'blob') {
-      return ('Blob', 'package:atproto/atproto.dart', 'blobConverter');
+      return ('Blob', null, 'BlobConverter');
     }
 
     if (type == 'array') {

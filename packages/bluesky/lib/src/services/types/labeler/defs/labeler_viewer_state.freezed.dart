@@ -20,7 +20,7 @@ LabelerViewerState _$LabelerViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerViewerState {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $LabelerViewerStateCopyWith<$Res> {
           LabelerViewerState value, $Res Function(LabelerViewerState) then) =
       _$LabelerViewerStateCopyWithImpl<$Res, LabelerViewerState>;
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$LabelerViewerStateImplCopyWith<$Res>
       __$$LabelerViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -99,13 +99,13 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$LabelerViewerStateImpl implements _LabelerViewerState {
-  const _$LabelerViewerStateImpl({@atUriConverter this.like});
+  const _$LabelerViewerStateImpl({@AtUriConverter() this.like});
 
   factory _$LabelerViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerViewerStateImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? like;
 
   @override
@@ -141,14 +141,14 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
 }
 
 abstract class _LabelerViewerState implements LabelerViewerState {
-  const factory _LabelerViewerState({@atUriConverter final AtUri? like}) =
+  const factory _LabelerViewerState({@AtUriConverter() final AtUri? like}) =
       _$LabelerViewerStateImpl;
 
   factory _LabelerViewerState.fromJson(Map<String, dynamic> json) =
       _$LabelerViewerStateImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like;
   @override
   @JsonKey(ignore: true)

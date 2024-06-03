@@ -25,7 +25,7 @@ part 'output.g.dart';
 class GetLikesOutput with _$GetLikesOutput {
   @jsonSerializable
   const factory GetLikesOutput({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
     required List<Like> likes,

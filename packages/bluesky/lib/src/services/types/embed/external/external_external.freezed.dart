@@ -23,7 +23,7 @@ mixin _$ExternalExternal {
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @blobConverter
+  @BlobConverter()
   Blob? get thumb => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ExternalExternalCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @blobConverter Blob? thumb});
+      @BlobConverter() Blob? thumb});
 
   $BlobCopyWith<$Res>? get thumb;
 }
@@ -110,7 +110,7 @@ abstract class _$$ExternalExternalImplCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @blobConverter Blob? thumb});
+      @BlobConverter() Blob? thumb});
 
   @override
   $BlobCopyWith<$Res>? get thumb;
@@ -161,7 +161,7 @@ class _$ExternalExternalImpl implements _ExternalExternal {
       {required this.uri,
       required this.title,
       required this.description,
-      @blobConverter this.thumb});
+      @BlobConverter() this.thumb});
 
   factory _$ExternalExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalExternalImplFromJson(json);
@@ -173,7 +173,7 @@ class _$ExternalExternalImpl implements _ExternalExternal {
   @override
   final String description;
   @override
-  @blobConverter
+  @BlobConverter()
   final Blob? thumb;
 
   @override
@@ -217,7 +217,7 @@ abstract class _ExternalExternal implements ExternalExternal {
       {required final String uri,
       required final String title,
       required final String description,
-      @blobConverter final Blob? thumb}) = _$ExternalExternalImpl;
+      @BlobConverter() final Blob? thumb}) = _$ExternalExternalImpl;
 
   factory _ExternalExternal.fromJson(Map<String, dynamic> json) =
       _$ExternalExternalImpl.fromJson;
@@ -229,7 +229,7 @@ abstract class _ExternalExternal implements ExternalExternal {
   @override
   String get description;
   @override
-  @blobConverter
+  @BlobConverter()
   Blob? get thumb;
   @override
   @JsonKey(ignore: true)

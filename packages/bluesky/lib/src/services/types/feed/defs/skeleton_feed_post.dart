@@ -22,7 +22,7 @@ part 'skeleton_feed_post.g.dart';
 class SkeletonFeedPost with _$SkeletonFeedPost {
   @jsonSerializable
   const factory SkeletonFeedPost({
-    @atUriConverter required AtUri post,
+    @AtUriConverter() required AtUri post,
     String? reason,
 
     /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.

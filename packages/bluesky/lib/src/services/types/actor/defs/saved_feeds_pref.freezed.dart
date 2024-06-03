@@ -20,9 +20,9 @@ SavedFeedsPref _$SavedFeedsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavedFeedsPref {
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinned => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get saved => throw _privateConstructorUsedError;
   int get timelineIndex => throw _privateConstructorUsedError;
 
@@ -39,8 +39,8 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
       _$SavedFeedsPrefCopyWithImpl<$Res, SavedFeedsPref>;
   @useResult
   $Res call(
-      {@atUriConverter List<AtUri> pinned,
-      @atUriConverter List<AtUri> saved,
+      {@AtUriConverter() List<AtUri> pinned,
+      @AtUriConverter() List<AtUri> saved,
       int timelineIndex});
 }
 
@@ -87,8 +87,8 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter List<AtUri> pinned,
-      @atUriConverter List<AtUri> saved,
+      {@AtUriConverter() List<AtUri> pinned,
+      @AtUriConverter() List<AtUri> saved,
       int timelineIndex});
 }
 
@@ -129,8 +129,8 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   const _$SavedFeedsPrefImpl(
-      {@atUriConverter required final List<AtUri> pinned,
-      @atUriConverter required final List<AtUri> saved,
+      {@AtUriConverter() required final List<AtUri> pinned,
+      @AtUriConverter() required final List<AtUri> saved,
       this.timelineIndex = 0})
       : _pinned = pinned,
         _saved = saved;
@@ -140,7 +140,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
   final List<AtUri> _pinned;
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinned {
     if (_pinned is EqualUnmodifiableListView) return _pinned;
     // ignore: implicit_dynamic_type
@@ -149,7 +149,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
   final List<AtUri> _saved;
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get saved {
     if (_saved is EqualUnmodifiableListView) return _saved;
     // ignore: implicit_dynamic_type
@@ -201,18 +201,18 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
 abstract class _SavedFeedsPref implements SavedFeedsPref {
   const factory _SavedFeedsPref(
-      {@atUriConverter required final List<AtUri> pinned,
-      @atUriConverter required final List<AtUri> saved,
+      {@AtUriConverter() required final List<AtUri> pinned,
+      @AtUriConverter() required final List<AtUri> saved,
       final int timelineIndex}) = _$SavedFeedsPrefImpl;
 
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPrefImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinned;
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get saved;
   @override
   int get timelineIndex;

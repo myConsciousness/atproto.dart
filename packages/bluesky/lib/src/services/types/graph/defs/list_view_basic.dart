@@ -26,7 +26,7 @@ part 'list_view_basic.g.dart';
 class ListViewBasic with _$ListViewBasic {
   @jsonSerializable
   const factory ListViewBasic({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String name,
     required String purpose,

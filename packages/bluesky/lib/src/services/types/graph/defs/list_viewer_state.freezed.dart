@@ -21,7 +21,7 @@ ListViewerState _$ListViewerStateFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListViewerState {
   bool get muted => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get blocked => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $ListViewerStateCopyWith<$Res> {
           ListViewerState value, $Res Function(ListViewerState) then) =
       _$ListViewerStateCopyWithImpl<$Res, ListViewerState>;
   @useResult
-  $Res call({bool muted, @atUriConverter AtUri? blocked});
+  $Res call({bool muted, @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -76,7 +76,7 @@ abstract class _$$ListViewerStateImplCopyWith<$Res>
       __$$ListViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool muted, @atUriConverter AtUri? blocked});
+  $Res call({bool muted, @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -111,7 +111,7 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ListViewerStateImpl implements _ListViewerState {
   const _$ListViewerStateImpl(
-      {this.muted = false, @atUriConverter this.blocked});
+      {this.muted = false, @AtUriConverter() this.blocked});
 
   factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewerStateImplFromJson(json);
@@ -120,7 +120,7 @@ class _$ListViewerStateImpl implements _ListViewerState {
   @JsonKey()
   final bool muted;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? blocked;
 
   @override
@@ -159,7 +159,7 @@ class _$ListViewerStateImpl implements _ListViewerState {
 abstract class _ListViewerState implements ListViewerState {
   const factory _ListViewerState(
       {final bool muted,
-      @atUriConverter final AtUri? blocked}) = _$ListViewerStateImpl;
+      @AtUriConverter() final AtUri? blocked}) = _$ListViewerStateImpl;
 
   factory _ListViewerState.fromJson(Map<String, dynamic> json) =
       _$ListViewerStateImpl.fromJson;
@@ -167,7 +167,7 @@ abstract class _ListViewerState implements ListViewerState {
   @override
   bool get muted;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get blocked;
   @override
   @JsonKey(ignore: true)

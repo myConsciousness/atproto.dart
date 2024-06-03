@@ -20,7 +20,7 @@ ListItemView _$ListItemViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItemView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   ProfileView get subject => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $ListItemViewCopyWith<$Res> {
           ListItemView value, $Res Function(ListItemView) then) =
       _$ListItemViewCopyWithImpl<$Res, ListItemView>;
   @useResult
-  $Res call({@atUriConverter AtUri uri, ProfileView subject});
+  $Res call({@AtUriConverter() AtUri uri, ProfileView subject});
 
   $ProfileViewCopyWith<$Res> get subject;
 }
@@ -86,7 +86,7 @@ abstract class _$$ListItemViewImplCopyWith<$Res>
       __$$ListItemViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri, ProfileView subject});
+  $Res call({@AtUriConverter() AtUri uri, ProfileView subject});
 
   @override
   $ProfileViewCopyWith<$Res> get subject;
@@ -124,13 +124,13 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ListItemViewImpl implements _ListItemView {
   const _$ListItemViewImpl(
-      {@atUriConverter required this.uri, required this.subject});
+      {@AtUriConverter() required this.uri, required this.subject});
 
   factory _$ListItemViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final ProfileView subject;
@@ -169,14 +169,14 @@ class _$ListItemViewImpl implements _ListItemView {
 
 abstract class _ListItemView implements ListItemView {
   const factory _ListItemView(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final ProfileView subject}) = _$ListItemViewImpl;
 
   factory _ListItemView.fromJson(Map<String, dynamic> json) =
       _$ListItemViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   ProfileView get subject;

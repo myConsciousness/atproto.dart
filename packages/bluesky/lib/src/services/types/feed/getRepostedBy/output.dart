@@ -25,7 +25,7 @@ part 'output.g.dart';
 class GetRepostedByOutput with _$GetRepostedByOutput {
   @jsonSerializable
   const factory GetRepostedByOutput({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
     required List<ProfileView> repostedBy,

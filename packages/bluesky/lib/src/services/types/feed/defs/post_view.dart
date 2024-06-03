@@ -28,7 +28,7 @@ part 'post_view.g.dart';
 class PostView with _$PostView {
   @jsonSerializable
   const factory PostView({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileViewBasic author,
     required Map<String, dynamic> record,

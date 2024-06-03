@@ -22,7 +22,7 @@ part 'labeler_viewer_state.g.dart';
 class LabelerViewerState with _$LabelerViewerState {
   @jsonSerializable
   const factory LabelerViewerState({
-    @atUriConverter AtUri? like,
+    @AtUriConverter() AtUri? like,
   }) = _LabelerViewerState;
 
   factory LabelerViewerState.fromJson(Map<String, Object?> json) =>

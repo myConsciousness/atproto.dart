@@ -20,7 +20,7 @@ ListRule _$ListRuleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRule {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +34,7 @@ abstract class $ListRuleCopyWith<$Res> {
   factory $ListRuleCopyWith(ListRule value, $Res Function(ListRule) then) =
       _$ListRuleCopyWithImpl<$Res, ListRule>;
   @useResult
-  $Res call({@atUriConverter AtUri list});
+  $Res call({@AtUriConverter() AtUri list});
 }
 
 /// @nodoc
@@ -69,7 +69,7 @@ abstract class _$$ListRuleImplCopyWith<$Res>
       __$$ListRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri list});
+  $Res call({@AtUriConverter() AtUri list});
 }
 
 /// @nodoc
@@ -98,13 +98,13 @@ class __$$ListRuleImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ListRuleImpl implements _ListRule {
-  const _$ListRuleImpl({@atUriConverter required this.list});
+  const _$ListRuleImpl({@AtUriConverter() required this.list});
 
   factory _$ListRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRuleImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri list;
 
   @override
@@ -139,14 +139,14 @@ class _$ListRuleImpl implements _ListRule {
 }
 
 abstract class _ListRule implements ListRule {
-  const factory _ListRule({@atUriConverter required final AtUri list}) =
+  const factory _ListRule({@AtUriConverter() required final AtUri list}) =
       _$ListRuleImpl;
 
   factory _ListRule.fromJson(Map<String, dynamic> json) =
       _$ListRuleImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list;
   @override
   @JsonKey(ignore: true)

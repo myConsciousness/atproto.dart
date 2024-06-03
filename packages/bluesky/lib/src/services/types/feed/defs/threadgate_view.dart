@@ -25,7 +25,7 @@ part 'threadgate_view.g.dart';
 class ThreadgateView with _$ThreadgateView {
   @jsonSerializable
   const factory ThreadgateView({
-    @atUriConverter AtUri? uri,
+    @AtUriConverter() AtUri? uri,
     String? cid,
     @Default({}) Map<String, dynamic> record,
     @Default([]) List<ListViewBasic> lists,

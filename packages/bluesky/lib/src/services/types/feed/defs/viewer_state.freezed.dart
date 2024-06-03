@@ -20,9 +20,9 @@ ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ViewerState {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get repost => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
   bool get replyDisabled => throw _privateConstructorUsedError;
 
@@ -39,8 +39,8 @@ abstract class $ViewerStateCopyWith<$Res> {
       _$ViewerStateCopyWithImpl<$Res, ViewerState>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri? repost,
-      @atUriConverter AtUri? like,
+      {@AtUriConverter() AtUri? repost,
+      @AtUriConverter() AtUri? like,
       bool replyDisabled});
 }
 
@@ -87,8 +87,8 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri? repost,
-      @atUriConverter AtUri? like,
+      {@AtUriConverter() AtUri? repost,
+      @AtUriConverter() AtUri? like,
       bool replyDisabled});
 }
 
@@ -129,18 +129,18 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
-      {@atUriConverter this.repost,
-      @atUriConverter this.like,
+      {@AtUriConverter() this.repost,
+      @AtUriConverter() this.like,
       this.replyDisabled = false});
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? repost;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? like;
   @override
   @JsonKey()
@@ -182,18 +182,18 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {@atUriConverter final AtUri? repost,
-      @atUriConverter final AtUri? like,
+      {@AtUriConverter() final AtUri? repost,
+      @AtUriConverter() final AtUri? like,
       final bool replyDisabled}) = _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get repost;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like;
   @override
   bool get replyDisabled;

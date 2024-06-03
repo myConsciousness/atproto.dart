@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -26,7 +25,7 @@ part 'images_image.g.dart';
 class ImagesImage with _$ImagesImage {
   @jsonSerializable
   const factory ImagesImage({
-    @blobConverter required Blob image,
+    @BlobConverter() required Blob image,
 
     /// Alt text description of the image, for accessibility.
     required String alt,
