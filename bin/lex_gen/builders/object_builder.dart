@@ -12,17 +12,13 @@ import '../rules/utils.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(
-    this.docId,
-    this.defName,
+    this.context,
     this.namingConvention,
-    this.def,
     this.mainObjects,
   );
 
-  final NSID docId;
-  final String defName;
+  final LexGenContext context;
   final LexNamingConvention namingConvention;
-  final LexUserType def;
   final List<String> mainObjects;
 
   LexGenObject? build() {
@@ -30,11 +26,7 @@ final class LexGenObjectBuilder {
     if (properties.isEmpty) return null; // RefVariant, no need to create.
 
     return LexGenObject(
-      description: getReferencePath(LexGenContext(
-        docId: docId,
-        defName: defName,
-        def: def,
-      )),
+      description: getReferencePath(context),
       name: namingConvention.getObjectName(),
       fileName: namingConvention.getFileName(),
       properties: properties,
@@ -42,7 +34,7 @@ final class LexGenObjectBuilder {
   }
 
   List<LexGenObjectProperty> _getProperties() {
-    final properties = def.whenOrNull(
+    final properties = context.def.whenOrNull(
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
@@ -76,7 +68,7 @@ final class LexGenObjectBuilder {
     for (final entry in object.properties!.entries) {
       final property = entry.value.toJson();
       final dataType = _getDartDataType(
-        docId,
+        context.docId,
         type: property['type'],
         format: property['format'],
         ref: property['ref'],
@@ -119,7 +111,7 @@ final class LexGenObjectBuilder {
     }
 
     if (ref != null) {
-      final requiredProperties = getRef(docId, ref)!.whenOrNull(
+      final requiredProperties = getRef(context.docId, ref)!.whenOrNull(
         object: (data) => data.requiredProperties ?? const [],
       );
 

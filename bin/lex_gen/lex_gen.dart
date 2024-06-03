@@ -8,6 +8,7 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 import 'rules/naming_convention.dart';
+import 'types/context.dart';
 import 'builders/object_builder.dart';
 
 const _supportedLexicons = [
@@ -39,10 +40,10 @@ final class LexGen {
 
       if (!_isSupportedDoc(doc)) continue;
 
-      final lexiconId = doc.id;
+      final docId = doc.id;
       doc.defs.forEach((defName, def) {
         final convention = getNamingConvention(
-          lexiconId,
+          docId,
           defName,
           def,
           mainObjects,
@@ -50,10 +51,8 @@ final class LexGen {
 
         if (convention != null) {
           final template = LexGenObjectBuilder(
-            lexiconId,
-            defName,
+            LexGenContext(docId: docId, defName: defName, def: def),
             convention,
-            def,
             mainObjects,
           ).build();
 
