@@ -156,6 +156,36 @@ DataType getDataType(
   throw UnimplementedError(type);
 }
 
+String? getDefaultValue(
+  final dynamic defaultValue,
+  final DataType type,
+  final NSID docId,
+  final String? ref,
+) {
+  if (type.name == 'int') {
+    return defaultValue != null ? defaultValue.toString() : '0';
+  } else if (type.name == 'bool') {
+    return defaultValue != null ? defaultValue.toString() : 'false';
+  } else if (type.name.startsWith('List<')) {
+    return '[]';
+  } else if (type.name.startsWith('Map<')) {
+    return '{}';
+  }
+
+  if (ref != null) {
+    final requiredProperties = getRef(docId, ref)!.whenOrNull(
+      object: (data) => data.requiredProperties ?? const [],
+    );
+
+    if (requiredProperties == null || requiredProperties.isEmpty) {
+      // There is no required properties.
+      return '${type.name}()';
+    }
+  }
+
+  return null;
+}
+
 String _getLexiconId(
   final NSID docId,
   final String ref,
