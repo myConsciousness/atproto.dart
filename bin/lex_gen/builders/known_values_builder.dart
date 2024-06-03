@@ -5,7 +5,7 @@
 import 'package:lexicon/lexicon.dart';
 
 import '../../utils.dart';
-import '../rules/naming_convention.dart';
+import '../rules/utils.dart';
 
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";

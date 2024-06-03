@@ -2,10 +2,46 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+import 'package:lexicon/docs.dart';
+import 'package:lexicon/lexicon.dart';
+
 import '../types/context.dart';
 
 String getReferencePath(final LexGenContext context) {
   final service = context.docId.toString().replaceAll('.', '/');
 
   return 'https://atprotodart.com/docs/lexicons/$service#${context.defName.toLowerCase()}';
+}
+
+LexUserType? getRef(final NSID docId, final String ref) {
+  final baseLexiconId = _getLexiconId(docId, ref);
+
+  for (final lexicon in lexicons) {
+    final doc = LexiconDoc.fromJson(lexicon);
+
+    for (final entry in doc.defs.entries) {
+      final lexiconId = _getLexiconId(doc.id, '#${entry.key}');
+
+      if (lexiconId == baseLexiconId) {
+        return entry.value;
+      }
+    }
+  }
+
+  return null;
+}
+
+String _getLexiconId(
+  final NSID docId,
+  final String ref,
+) {
+  if (ref.contains('#')) {
+    if (ref.startsWith('#')) {
+      return docId.toString() + ref;
+    } else {
+      return ref;
+    }
+  }
+
+  return '$ref#main';
 }
