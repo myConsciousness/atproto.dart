@@ -39,6 +39,34 @@ enum KnownProfileAssociatedChatAllowIncoming {
   }
 }
 
+/// This is an union object to improve safety and convenience of objects
+/// using Enum.
+///
+/// Enum provides a very powerful type for a specific group of data,
+/// but at the same time it means a loss of flexibility: values not defined
+/// in Enum are either completely ignored or an exception is thrown
+/// if parsing fails. This union object exists to solve that problem.
+///
+/// This union object handles the `KnownValue`, a known enum value defined in Lexicon,
+/// and the `UnknownValue`, an unknown string value not defined in Lexicon. In other words,
+/// it can handle unknown values while enjoying the type safety of Enum.
+///
+/// This union object can be used as follows.
+///
+/// ```dart
+/// // use when syntax.
+/// final value = object.when(
+///   knownValue: (data) => data, // => KnownProfileAssociatedChatAllowIncoming
+///   unknownValue: (data) => data, // => String
+/// );
+///
+/// // or simpler way.
+/// if (object.isKnownValue) {
+///   print(object.knownValue);
+/// } else if (object.isUnknownValue) {
+///   print(object.unknownValue);
+/// }
+/// ```
 @freezed
 class ProfileAssociatedChatAllowIncoming
     with _$ProfileAssociatedChatAllowIncoming {
