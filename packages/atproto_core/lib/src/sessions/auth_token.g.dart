@@ -10,8 +10,8 @@ _$AuthTokenImpl _$$AuthTokenImplFromJson(Map<String, dynamic> json) =>
     _$AuthTokenImpl(
       scope: $enumDecode(_$AuthScopeEnumMap, json['scope']),
       subject: json['sub'] as String,
-      expiresAt: dateTimeConverter.fromJson(json['exp'] as int),
-      issuedAt: dateTimeConverter.fromJson(json['iat'] as int),
+      expiresAt: dateTimeConverter.fromJson((json['exp'] as num).toInt()),
+      issuedAt: dateTimeConverter.fromJson((json['iat'] as num).toInt()),
     );
 
 Map<String, dynamic> _$$AuthTokenImplToJson(_$AuthTokenImpl instance) =>

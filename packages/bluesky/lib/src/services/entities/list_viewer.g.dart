@@ -17,7 +17,7 @@ _$ListViewerImpl _$$ListViewerImplFromJson(Map json) => $checkedCreate(
           blocked: $checkedConvert(
               'blocked',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -38,7 +38,7 @@ Map<String, dynamic> _$$ListViewerImplToJson(_$ListViewerImpl instance) {
   writeNotNull(
       'blocked',
       _$JsonConverterToJson<String, AtUri>(
-          instance.blocked, atUriConverter.toJson));
+          instance.blocked, const AtUriConverter().toJson));
   return val;
 }
 

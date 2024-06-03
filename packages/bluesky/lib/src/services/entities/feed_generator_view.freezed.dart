@@ -22,7 +22,7 @@ FeedGeneratorView _$FeedGeneratorViewFromJson(Map<String, dynamic> json) {
 mixin _$FeedGeneratorView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String? get did => throw _privateConstructorUsedError;
@@ -52,7 +52,7 @@ abstract class $FeedGeneratorViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String? did,
       @JsonKey(name: 'creator') Actor createdBy,
@@ -185,7 +185,7 @@ abstract class _$$FeedGeneratorViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String? did,
       @JsonKey(name: 'creator') Actor createdBy,
@@ -298,7 +298,7 @@ class __$$FeedGeneratorViewImplCopyWithImpl<$Res>
 class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
   const _$FeedGeneratorViewImpl(
       {@typeKey this.type = appBskyFeedDefsGeneratorView,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       this.did,
       @JsonKey(name: 'creator') required this.createdBy,
@@ -321,7 +321,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -439,7 +439,7 @@ class _$FeedGeneratorViewImpl implements _FeedGeneratorView {
 abstract class _FeedGeneratorView implements FeedGeneratorView {
   const factory _FeedGeneratorView(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       final String? did,
       @JsonKey(name: 'creator') required final Actor createdBy,
@@ -460,7 +460,7 @@ abstract class _FeedGeneratorView implements FeedGeneratorView {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

@@ -20,7 +20,7 @@ class ListViewer with _$ListViewer {
   @jsonSerializable
   const factory ListViewer({
     @JsonKey(name: 'muted') @Default(false) bool isMuted,
-    @atUriConverter AtUri? blocked,
+    @AtUriConverter() AtUri? blocked,
   }) = _ListViewer;
 
   factory ListViewer.fromJson(Map<String, Object?> json) =>

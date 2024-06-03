@@ -27,7 +27,7 @@ class ListViewBasic with _$ListViewBasic {
   const factory ListViewBasic({
     @typeKey @Default(appBskyGraphDefsListViewBasic) String type,
     @Default(appBskyGraphDefsModlist) String purpose,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required String name,
     String? avatar,

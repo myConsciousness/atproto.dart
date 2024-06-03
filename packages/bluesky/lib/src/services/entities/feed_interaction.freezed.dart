@@ -22,7 +22,7 @@ FeedInteraction _$FeedInteractionFromJson(Map<String, dynamic> json) {
 mixin _$FeedInteraction {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get item => throw _privateConstructorUsedError;
   String? get event => throw _privateConstructorUsedError;
   String? get feedContext => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $FeedInteractionCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri? item,
+      @AtUriConverter() AtUri? item,
       String? event,
       String? feedContext});
 }
@@ -95,7 +95,7 @@ abstract class _$$FeedInteractionImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri? item,
+      @AtUriConverter() AtUri? item,
       String? event,
       String? feedContext});
 }
@@ -143,7 +143,7 @@ class __$$FeedInteractionImplCopyWithImpl<$Res>
 class _$FeedInteractionImpl implements _FeedInteraction {
   const _$FeedInteractionImpl(
       {@typeKey this.type = appBskyFeedDefsInteraction,
-      @atUriConverter this.item,
+      @AtUriConverter() this.item,
       this.event,
       this.feedContext});
 
@@ -154,7 +154,7 @@ class _$FeedInteractionImpl implements _FeedInteraction {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? item;
   @override
   final String? event;
@@ -200,7 +200,7 @@ class _$FeedInteractionImpl implements _FeedInteraction {
 abstract class _FeedInteraction implements FeedInteraction {
   const factory _FeedInteraction(
       {@typeKey final String type,
-      @atUriConverter final AtUri? item,
+      @AtUriConverter() final AtUri? item,
       final String? event,
       final String? feedContext}) = _$FeedInteractionImpl;
 
@@ -211,7 +211,7 @@ abstract class _FeedInteraction implements FeedInteraction {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get item;
   @override
   String? get event;

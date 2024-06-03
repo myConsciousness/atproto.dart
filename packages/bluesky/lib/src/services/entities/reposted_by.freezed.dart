@@ -21,7 +21,7 @@ RepostedBy _$RepostedByFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RepostedBy {
   List<Actor> get repostedBy => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $RepostedByCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Actor> repostedBy,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       String? cursor});
 }
@@ -94,7 +94,7 @@ abstract class _$$RepostedByImplCopyWith<$Res>
   @useResult
   $Res call(
       {List<Actor> repostedBy,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       String? cursor});
 }
@@ -141,7 +141,7 @@ class __$$RepostedByImplCopyWithImpl<$Res>
 class _$RepostedByImpl implements _RepostedBy {
   const _$RepostedByImpl(
       {required final List<Actor> repostedBy,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       this.cid,
       this.cursor})
       : _repostedBy = repostedBy;
@@ -158,7 +158,7 @@ class _$RepostedByImpl implements _RepostedBy {
   }
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -204,7 +204,7 @@ class _$RepostedByImpl implements _RepostedBy {
 abstract class _RepostedBy implements RepostedBy {
   const factory _RepostedBy(
       {required final List<Actor> repostedBy,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       final String? cid,
       final String? cursor}) = _$RepostedByImpl;
 
@@ -214,7 +214,7 @@ abstract class _RepostedBy implements RepostedBy {
   @override
   List<Actor> get repostedBy;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;

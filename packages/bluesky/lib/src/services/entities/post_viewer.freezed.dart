@@ -20,9 +20,9 @@ PostViewer _$PostViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostViewer {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get repost => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
   @JsonKey(name: 'replyDisabled')
   bool get isReplyDisabled => throw _privateConstructorUsedError;
@@ -40,8 +40,8 @@ abstract class $PostViewerCopyWith<$Res> {
       _$PostViewerCopyWithImpl<$Res, PostViewer>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri? repost,
-      @atUriConverter AtUri? like,
+      {@AtUriConverter() AtUri? repost,
+      @AtUriConverter() AtUri? like,
       @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
 }
 
@@ -88,8 +88,8 @@ abstract class _$$PostViewerImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri? repost,
-      @atUriConverter AtUri? like,
+      {@AtUriConverter() AtUri? repost,
+      @AtUriConverter() AtUri? like,
       @JsonKey(name: 'replyDisabled') bool isReplyDisabled});
 }
 
@@ -130,8 +130,8 @@ class __$$PostViewerImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$PostViewerImpl extends _PostViewer {
   const _$PostViewerImpl(
-      {@atUriConverter this.repost,
-      @atUriConverter this.like,
+      {@AtUriConverter() this.repost,
+      @AtUriConverter() this.like,
       @JsonKey(name: 'replyDisabled') this.isReplyDisabled = false})
       : super._();
 
@@ -139,10 +139,10 @@ class _$PostViewerImpl extends _PostViewer {
       _$$PostViewerImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? repost;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? like;
   @override
   @JsonKey(name: 'replyDisabled')
@@ -184,8 +184,8 @@ class _$PostViewerImpl extends _PostViewer {
 
 abstract class _PostViewer extends PostViewer {
   const factory _PostViewer(
-          {@atUriConverter final AtUri? repost,
-          @atUriConverter final AtUri? like,
+          {@AtUriConverter() final AtUri? repost,
+          @AtUriConverter() final AtUri? like,
           @JsonKey(name: 'replyDisabled') final bool isReplyDisabled}) =
       _$PostViewerImpl;
   const _PostViewer._() : super._();
@@ -194,10 +194,10 @@ abstract class _PostViewer extends PostViewer {
       _$PostViewerImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get repost;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like;
   @override
   @JsonKey(name: 'replyDisabled')

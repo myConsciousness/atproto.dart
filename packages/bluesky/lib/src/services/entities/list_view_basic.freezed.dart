@@ -23,7 +23,7 @@ mixin _$ListViewBasic {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -47,7 +47,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String purpose,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -141,7 +141,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String purpose,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String name,
       String? avatar,
@@ -222,7 +222,7 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   const _$ListViewBasicImpl(
       {@typeKey this.type = appBskyGraphDefsListViewBasic,
       this.purpose = appBskyGraphDefsModlist,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.name,
       this.avatar,
@@ -242,7 +242,7 @@ class _$ListViewBasicImpl extends _ListViewBasic {
   @JsonKey()
   final String purpose;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -311,7 +311,7 @@ abstract class _ListViewBasic extends ListViewBasic {
   const factory _ListViewBasic(
       {@typeKey final String type,
       final String purpose,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String name,
       final String? avatar,
@@ -329,7 +329,7 @@ abstract class _ListViewBasic extends ListViewBasic {
   @override
   String get purpose;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

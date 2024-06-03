@@ -23,7 +23,7 @@ EmbedViewRecordViewNotFound _$EmbedViewRecordViewNotFoundFromJson(
 mixin _$EmbedViewRecordViewNotFound {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $EmbedViewRecordViewNotFoundCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'notFound') bool isNotFound});
 }
 
@@ -94,7 +94,7 @@ abstract class _$$EmbedViewRecordViewNotFoundImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'notFound') bool isNotFound});
 }
 
@@ -138,7 +138,7 @@ class _$EmbedViewRecordViewNotFoundImpl
     implements _EmbedViewRecordViewNotFound {
   const _$EmbedViewRecordViewNotFoundImpl(
       {@typeKey this.type = appBskyEmbedRecordViewNotFound,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       @JsonKey(name: 'notFound') this.isNotFound = true});
 
   factory _$EmbedViewRecordViewNotFoundImpl.fromJson(
@@ -149,7 +149,7 @@ class _$EmbedViewRecordViewNotFoundImpl
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   @JsonKey(name: 'notFound')
@@ -194,7 +194,7 @@ abstract class _EmbedViewRecordViewNotFound
     implements EmbedViewRecordViewNotFound {
   const factory _EmbedViewRecordViewNotFound(
           {@typeKey final String type,
-          @atUriConverter required final AtUri uri,
+          @AtUriConverter() required final AtUri uri,
           @JsonKey(name: 'notFound') final bool isNotFound}) =
       _$EmbedViewRecordViewNotFoundImpl;
 
@@ -205,7 +205,7 @@ abstract class _EmbedViewRecordViewNotFound
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(name: 'notFound')

@@ -18,7 +18,7 @@ _$EmbedViewRecordViewBlockedImpl _$$EmbedViewRecordViewBlockedImplFromJson(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewBlocked),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           isBlocked: $checkedConvert('blocked', (v) => v as bool? ?? true),
           author: $checkedConvert(
               'author',
@@ -34,7 +34,7 @@ Map<String, dynamic> _$$EmbedViewRecordViewBlockedImplToJson(
         _$EmbedViewRecordViewBlockedImpl instance) =>
     <String, dynamic>{
       r'$type': instance.type,
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'blocked': instance.isBlocked,
       'author': instance.author.toJson(),
     };

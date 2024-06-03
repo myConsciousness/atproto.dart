@@ -22,7 +22,7 @@ HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
 mixin _$HiddenPostsPref {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $HiddenPostsPrefCopyWith<$Res> {
           HiddenPostsPref value, $Res Function(HiddenPostsPref) then) =
       _$HiddenPostsPrefCopyWithImpl<$Res, HiddenPostsPref>;
   @useResult
-  $Res call({@typeKey String type, @atUriConverter List<AtUri> items});
+  $Res call({@typeKey String type, @AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -77,7 +77,7 @@ abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
       __$$HiddenPostsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @atUriConverter List<AtUri> items});
+  $Res call({@typeKey String type, @AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
 class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   const _$HiddenPostsPrefImpl(
       {@typeKey this.type = appBskyActorDefsHiddenPostsPref,
-      @atUriConverter required final List<AtUri> items})
+      @AtUriConverter() required final List<AtUri> items})
       : _items = items;
 
   factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -123,7 +123,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   final String type;
   final List<AtUri> _items;
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
@@ -167,7 +167,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 abstract class _HiddenPostsPref implements HiddenPostsPref {
   const factory _HiddenPostsPref(
           {@typeKey final String type,
-          @atUriConverter required final List<AtUri> items}) =
+          @AtUriConverter() required final List<AtUri> items}) =
       _$HiddenPostsPrefImpl;
 
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
@@ -177,7 +177,7 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get items;
   @override
   @JsonKey(ignore: true)

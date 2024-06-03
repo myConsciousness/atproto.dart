@@ -25,7 +25,7 @@ mixin _$Post {
   @postRecordConverter
   PostRecord get record => throw _privateConstructorUsedError;
   ActorBasic get author => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   @embedViewConverter
@@ -52,7 +52,7 @@ abstract class $PostCopyWith<$Res> {
       {@typeKey String type,
       @postRecordConverter PostRecord record,
       ActorBasic author,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       @embedViewConverter EmbedView? embed,
       int replyCount,
@@ -213,7 +213,7 @@ abstract class _$$PostImplCopyWith<$Res> implements $PostCopyWith<$Res> {
       {@typeKey String type,
       @postRecordConverter PostRecord record,
       ActorBasic author,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       @embedViewConverter EmbedView? embed,
       int replyCount,
@@ -325,7 +325,7 @@ class _$PostImpl extends _Post {
       {@typeKey this.type = appBskyFeedDefsPostView,
       @postRecordConverter required this.record,
       required this.author,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       @embedViewConverter this.embed,
       this.replyCount = 0,
@@ -350,7 +350,7 @@ class _$PostImpl extends _Post {
   @override
   final ActorBasic author;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -451,7 +451,7 @@ abstract class _Post extends Post {
       {@typeKey final String type,
       @postRecordConverter required final PostRecord record,
       required final ActorBasic author,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       @embedViewConverter final EmbedView? embed,
       final int replyCount,
@@ -474,7 +474,7 @@ abstract class _Post extends Post {
   @override
   ActorBasic get author;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

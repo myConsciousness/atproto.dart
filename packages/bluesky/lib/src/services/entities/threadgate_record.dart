@@ -25,7 +25,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
   @jsonSerializable
   const factory ThreadgateRecord({
     @typeKey @Default(appBskyFeedThreadgate) String type,
-    @atUriConverter @JsonKey(name: 'post') required AtUri postUri,
+    @AtUriConverter() @JsonKey(name: 'post') required AtUri postUri,
     @threadRuleConverter @JsonKey(name: 'allow') List<ThreadRule>? allowRules,
     required DateTime createdAt,
   }) = _ThreadgateRecord;

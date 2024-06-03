@@ -23,7 +23,7 @@ mixin _$ThreadListRule {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'list')
-  @atUriConverter
+  @AtUriConverter()
   AtUri get listUri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $ThreadListRuleCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @JsonKey(name: 'list') @atUriConverter AtUri listUri});
+      @JsonKey(name: 'list') @AtUriConverter() AtUri listUri});
 }
 
 /// @nodoc
@@ -82,7 +82,7 @@ abstract class _$$ThreadListRuleImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @JsonKey(name: 'list') @atUriConverter AtUri listUri});
+      @JsonKey(name: 'list') @AtUriConverter() AtUri listUri});
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class __$$ThreadListRuleImplCopyWithImpl<$Res>
 class _$ThreadListRuleImpl implements _ThreadListRule {
   const _$ThreadListRuleImpl(
       {@typeKey this.type = appBskyFeedThreadgateListRule,
-      @JsonKey(name: 'list') @atUriConverter required this.listUri});
+      @JsonKey(name: 'list') @AtUriConverter() required this.listUri});
 
   factory _$ThreadListRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadListRuleImplFromJson(json);
@@ -128,7 +128,7 @@ class _$ThreadListRuleImpl implements _ThreadListRule {
   final String type;
   @override
   @JsonKey(name: 'list')
-  @atUriConverter
+  @AtUriConverter()
   final AtUri listUri;
 
   @override
@@ -168,7 +168,7 @@ abstract class _ThreadListRule implements ThreadListRule {
   const factory _ThreadListRule(
       {@typeKey final String type,
       @JsonKey(name: 'list')
-      @atUriConverter
+      @AtUriConverter()
       required final AtUri listUri}) = _$ThreadListRuleImpl;
 
   factory _ThreadListRule.fromJson(Map<String, dynamic> json) =
@@ -179,7 +179,7 @@ abstract class _ThreadListRule implements ThreadListRule {
   String get type;
   @override
   @JsonKey(name: 'list')
-  @atUriConverter
+  @AtUriConverter()
   AtUri get listUri;
   @override
   @JsonKey(ignore: true)

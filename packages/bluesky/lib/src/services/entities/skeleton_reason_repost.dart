@@ -19,7 +19,7 @@ part 'skeleton_reason_repost.g.dart';
 class SkeletonReasonRepost with _$SkeletonReasonRepost {
   const factory SkeletonReasonRepost({
     @typeKey @Default(appBskyFeedDefsSkeletonReasonRepost) String type,
-    @atUriConverter required AtUri repost,
+    @AtUriConverter() required AtUri repost,
   }) = _SkeletonReasonRepost;
 
   factory SkeletonReasonRepost.fromJson(Map<String, Object?> json) =>

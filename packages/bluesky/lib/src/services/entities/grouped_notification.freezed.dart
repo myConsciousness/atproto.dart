@@ -24,7 +24,7 @@ mixin _$GroupedNotification {
   ///
   /// This list is set in chronological order, with the uri of
   /// the most recent notification at the top.
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get uris => throw _privateConstructorUsedError;
 
   /// The collection of authors causing the notification.
@@ -37,7 +37,7 @@ mixin _$GroupedNotification {
   GroupedNotificationReason get reason => throw _privateConstructorUsedError;
 
   /// Optionally, represents the subject of the reason for the notification.
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
 
   /// Indicates whether the notification has been read or not.
@@ -65,10 +65,10 @@ abstract class $GroupedNotificationCopyWith<$Res> {
       _$GroupedNotificationCopyWithImpl<$Res, GroupedNotification>;
   @useResult
   $Res call(
-      {@atUriConverter List<AtUri> uris,
+      {@AtUriConverter() List<AtUri> uris,
       List<Actor> authors,
       GroupedNotificationReason reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
       Map<String, dynamic>? record,
@@ -143,10 +143,10 @@ abstract class _$$GroupedNotificationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter List<AtUri> uris,
+      {@AtUriConverter() List<AtUri> uris,
       List<Actor> authors,
       GroupedNotificationReason reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       List<Label> labels,
       Map<String, dynamic>? record,
@@ -215,10 +215,10 @@ class __$$GroupedNotificationImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$GroupedNotificationImpl implements _GroupedNotification {
   const _$GroupedNotificationImpl(
-      {@atUriConverter required final List<AtUri> uris,
+      {@AtUriConverter() required final List<AtUri> uris,
       required final List<Actor> authors,
       required this.reason,
-      @atUriConverter this.reasonSubject,
+      @AtUriConverter() this.reasonSubject,
       required this.isRead,
       required final List<Label> labels,
       final Map<String, dynamic>? record,
@@ -242,7 +242,7 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
   /// This list is set in chronological order, with the uri of
   /// the most recent notification at the top.
   @override
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get uris {
     if (_uris is EqualUnmodifiableListView) return _uris;
     // ignore: implicit_dynamic_type
@@ -272,7 +272,7 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
 
   /// Optionally, represents the subject of the reason for the notification.
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? reasonSubject;
 
   /// Indicates whether the notification has been read or not.
@@ -359,10 +359,10 @@ class _$GroupedNotificationImpl implements _GroupedNotification {
 
 abstract class _GroupedNotification implements GroupedNotification {
   const factory _GroupedNotification(
-      {@atUriConverter required final List<AtUri> uris,
+      {@AtUriConverter() required final List<AtUri> uris,
       required final List<Actor> authors,
       required final GroupedNotificationReason reason,
-      @atUriConverter final AtUri? reasonSubject,
+      @AtUriConverter() final AtUri? reasonSubject,
       required final bool isRead,
       required final List<Label> labels,
       final Map<String, dynamic>? record,
@@ -377,7 +377,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   ///
   /// This list is set in chronological order, with the uri of
   /// the most recent notification at the top.
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get uris;
   @override
 
@@ -393,7 +393,7 @@ abstract class _GroupedNotification implements GroupedNotification {
   @override
 
   /// Optionally, represents the subject of the reason for the notification.
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject;
   @override
 

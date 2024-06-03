@@ -26,7 +26,7 @@ class GroupedNotification with _$GroupedNotification {
     ///
     /// This list is set in chronological order, with the uri of
     /// the most recent notification at the top.
-    @atUriConverter required List<AtUri> uris,
+    @AtUriConverter() required List<AtUri> uris,
 
     /// The collection of authors causing the notification.
     ///
@@ -38,7 +38,7 @@ class GroupedNotification with _$GroupedNotification {
     required GroupedNotificationReason reason,
 
     /// Optionally, represents the subject of the reason for the notification.
-    @atUriConverter AtUri? reasonSubject,
+    @AtUriConverter() AtUri? reasonSubject,
 
     /// Indicates whether the notification has been read or not.
     required bool isRead,

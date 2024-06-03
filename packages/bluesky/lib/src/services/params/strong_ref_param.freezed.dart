@@ -21,7 +21,7 @@ StrongRefParam _$StrongRefParamFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$StrongRefParam {
   String get cid => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $StrongRefParamCopyWith<$Res> {
   @useResult
   $Res call(
       {String cid,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 }
@@ -94,7 +94,7 @@ abstract class _$$StrongRefParamImplCopyWith<$Res>
   @useResult
   $Res call(
       {String cid,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 }
@@ -142,7 +142,7 @@ class __$$StrongRefParamImplCopyWithImpl<$Res>
 class _$StrongRefParamImpl implements _StrongRefParam {
   const _$StrongRefParamImpl(
       {required this.cid,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
@@ -153,7 +153,7 @@ class _$StrongRefParamImpl implements _StrongRefParam {
   @override
   final String cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final DateTime? createdAt;
@@ -207,7 +207,7 @@ class _$StrongRefParamImpl implements _StrongRefParam {
 abstract class _StrongRefParam implements StrongRefParam {
   const factory _StrongRefParam(
       {required final String cid,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       final DateTime? createdAt,
       final Map<String, dynamic> unspecced}) = _$StrongRefParamImpl;
 
@@ -217,7 +217,7 @@ abstract class _StrongRefParam implements StrongRefParam {
   @override
   String get cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   DateTime? get createdAt;

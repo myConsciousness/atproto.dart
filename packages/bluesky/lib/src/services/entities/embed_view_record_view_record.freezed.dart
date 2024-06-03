@@ -23,7 +23,7 @@ EmbedViewRecordViewRecord _$EmbedViewRecordViewRecordFromJson(
 mixin _$EmbedViewRecordViewRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ActorBasic get author => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $EmbedViewRecordViewRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       ActorBasic author,
       @postRecordConverter PostRecord value,
@@ -168,7 +168,7 @@ abstract class _$$EmbedViewRecordViewRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       ActorBasic author,
       @postRecordConverter PostRecord value,
@@ -265,7 +265,7 @@ class __$$EmbedViewRecordViewRecordImplCopyWithImpl<$Res>
 class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
   const _$EmbedViewRecordViewRecordImpl(
       {@typeKey this.type = appBskyEmbedRecordViewRecord,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       @postRecordConverter required this.value,
@@ -285,7 +285,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -388,7 +388,7 @@ class _$EmbedViewRecordViewRecordImpl implements _EmbedViewRecordViewRecord {
 abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   const factory _EmbedViewRecordViewRecord(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ActorBasic author,
       @postRecordConverter required final PostRecord value,
@@ -406,7 +406,7 @@ abstract class _EmbedViewRecordViewRecord implements EmbedViewRecordViewRecord {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

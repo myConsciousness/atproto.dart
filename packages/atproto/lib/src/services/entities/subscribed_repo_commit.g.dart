@@ -21,7 +21,7 @@ _$SubscribedRepoCommitImpl _$$SubscribedRepoCommitImplFromJson(Map json) =>
                       RepoOp.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
           did: $checkedConvert('repo', (v) => v as String),
-          cursor: $checkedConvert('seq', (v) => v as int),
+          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
           rev: $checkedConvert('rev', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String?),
           isRebase: $checkedConvert('rebase', (v) => v as bool? ?? false),

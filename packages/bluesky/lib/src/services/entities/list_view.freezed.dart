@@ -23,7 +23,7 @@ mixin _$ListView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   String get purpose => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -50,7 +50,7 @@ abstract class $ListViewCopyWith<$Res> {
   $Res call(
       {@typeKey String type,
       String purpose,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String name,
       String? description,
@@ -171,7 +171,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
   $Res call(
       {@typeKey String type,
       String purpose,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String cid,
       String name,
       String? description,
@@ -272,7 +272,7 @@ class _$ListViewImpl extends _ListView {
   const _$ListViewImpl(
       {@typeKey this.type = appBskyGraphDefsListView,
       required this.purpose,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.name,
       this.description,
@@ -295,7 +295,7 @@ class _$ListViewImpl extends _ListView {
   @override
   final String purpose;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -398,7 +398,7 @@ abstract class _ListView extends ListView {
   const factory _ListView(
       {@typeKey final String type,
       required final String purpose,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String name,
       final String? description,
@@ -419,7 +419,7 @@ abstract class _ListView extends ListView {
   @override
   String get purpose;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

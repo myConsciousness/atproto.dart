@@ -16,7 +16,7 @@ part 'repo_op.g.dart';
 class RepoOp with _$RepoOp {
   const factory RepoOp({
     required RepoAction action,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     Map<String, dynamic>? record,
   }) = _RepoOp;

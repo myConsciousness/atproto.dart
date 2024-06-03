@@ -26,7 +26,7 @@ class EmbedViewRecordViewRecord with _$EmbedViewRecordViewRecord {
   @jsonSerializable
   const factory EmbedViewRecordViewRecord({
     @typeKey @Default(appBskyEmbedRecordViewRecord) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required ActorBasic author,
     @postRecordConverter required PostRecord value,

@@ -34,7 +34,7 @@ class Post with _$Post {
     @typeKey @Default(appBskyFeedDefsPostView) String type,
     @postRecordConverter required PostRecord record,
     required ActorBasic author,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     @embedViewConverter EmbedView? embed,
     @Default(0) int replyCount,

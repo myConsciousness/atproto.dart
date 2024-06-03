@@ -22,7 +22,7 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 mixin _$NotFoundPost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   @JsonKey(name: 'notFound')
   bool get isNotFound => throw _privateConstructorUsedError;
@@ -41,7 +41,7 @@ abstract class $NotFoundPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'notFound') bool isNotFound});
 }
 
@@ -89,7 +89,7 @@ abstract class _$$NotFoundPostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       @JsonKey(name: 'notFound') bool isNotFound});
 }
 
@@ -130,7 +130,7 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
 class _$NotFoundPostImpl implements _NotFoundPost {
   const _$NotFoundPostImpl(
       {@typeKey this.type = appBskyFeedDefsNotFoundPost,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       @JsonKey(name: 'notFound') this.isNotFound = true});
 
   factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
@@ -140,7 +140,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   @JsonKey(name: 'notFound')
@@ -183,7 +183,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
       {@typeKey final String type,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       @JsonKey(name: 'notFound') final bool isNotFound}) = _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
@@ -193,7 +193,7 @@ abstract class _NotFoundPost implements NotFoundPost {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(name: 'notFound')

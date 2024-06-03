@@ -17,7 +17,7 @@ part 'reposted_by.g.dart';
 class RepostedBy with _$RepostedBy {
   const factory RepostedBy({
     required List<Actor> repostedBy,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
   }) = _RepostedBy;

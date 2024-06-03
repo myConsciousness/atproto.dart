@@ -20,7 +20,7 @@ part 'skeleton_feed_view.g.dart';
 class SkeletonFeedView with _$SkeletonFeedView {
   @jsonSerializable
   const factory SkeletonFeedView({
-    @atUriConverter required AtUri post,
+    @AtUriConverter() required AtUri post,
     @skeletonReasonConverter SkeletonReason? reason,
     String? feedContext,
   }) = _SkeletonFeedView;

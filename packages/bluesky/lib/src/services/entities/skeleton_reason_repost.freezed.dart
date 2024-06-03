@@ -22,7 +22,7 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 mixin _$SkeletonReasonRepost {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get repost => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -37,7 +37,7 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
           $Res Function(SkeletonReasonRepost) then) =
       _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri repost});
+  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
       __$$SkeletonReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@typeKey String type, @atUriConverter AtUri repost});
+  $Res call({@typeKey String type, @AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
 class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
   const _$SkeletonReasonRepostImpl(
       {@typeKey this.type = appBskyFeedDefsSkeletonReasonRepost,
-      @atUriConverter required this.repost});
+      @AtUriConverter() required this.repost});
 
   factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonReasonRepostImplFromJson(json);
@@ -122,7 +122,7 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri repost;
 
   @override
@@ -162,7 +162,7 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
 abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
           {@typeKey final String type,
-          @atUriConverter required final AtUri repost}) =
+          @AtUriConverter() required final AtUri repost}) =
       _$SkeletonReasonRepostImpl;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
@@ -172,7 +172,7 @@ abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get repost;
   @override
   @JsonKey(ignore: true)

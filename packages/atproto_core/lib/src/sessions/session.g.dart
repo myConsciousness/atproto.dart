@@ -16,6 +16,8 @@ _$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
       accessJwt: json['accessJwt'] as String,
       refreshJwt: json['refreshJwt'] as String,
       didDoc: json['didDoc'] as Map<String, dynamic>?,
+      active: json['active'] as bool? ?? true,
+      status: json['status'] as String?,
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
@@ -36,5 +38,7 @@ Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {
   val['accessJwt'] = instance.accessJwt;
   val['refreshJwt'] = instance.refreshJwt;
   writeNotNull('didDoc', instance.didDoc);
+  val['active'] = instance.active;
+  writeNotNull('status', instance.status);
   return val;
 }

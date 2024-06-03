@@ -20,7 +20,7 @@ SkeletonFeedView _$SkeletonFeedViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeedView {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
   @skeletonReasonConverter
   SkeletonReason? get reason => throw _privateConstructorUsedError;
@@ -39,7 +39,7 @@ abstract class $SkeletonFeedViewCopyWith<$Res> {
       _$SkeletonFeedViewCopyWithImpl<$Res, SkeletonFeedView>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri post,
+      {@AtUriConverter() AtUri post,
       @skeletonReasonConverter SkeletonReason? reason,
       String? feedContext});
 
@@ -101,7 +101,7 @@ abstract class _$$SkeletonFeedViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri post,
+      {@AtUriConverter() AtUri post,
       @skeletonReasonConverter SkeletonReason? reason,
       String? feedContext});
 
@@ -146,7 +146,7 @@ class __$$SkeletonFeedViewImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
   const _$SkeletonFeedViewImpl(
-      {@atUriConverter required this.post,
+      {@AtUriConverter() required this.post,
       @skeletonReasonConverter this.reason,
       this.feedContext});
 
@@ -154,7 +154,7 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
       _$$SkeletonFeedViewImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri post;
   @override
   @skeletonReasonConverter
@@ -199,7 +199,7 @@ class _$SkeletonFeedViewImpl implements _SkeletonFeedView {
 
 abstract class _SkeletonFeedView implements SkeletonFeedView {
   const factory _SkeletonFeedView(
-      {@atUriConverter required final AtUri post,
+      {@AtUriConverter() required final AtUri post,
       @skeletonReasonConverter final SkeletonReason? reason,
       final String? feedContext}) = _$SkeletonFeedViewImpl;
 
@@ -207,7 +207,7 @@ abstract class _SkeletonFeedView implements SkeletonFeedView {
       _$SkeletonFeedViewImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get post;
   @override
   @skeletonReasonConverter

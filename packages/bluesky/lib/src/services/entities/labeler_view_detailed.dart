@@ -22,7 +22,7 @@ part 'labeler_view_detailed.g.dart';
 class LabelerViewDetailed with _$LabelerViewDetailed {
   @jsonSerializable
   const factory LabelerViewDetailed({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     required Actor creator,
     required LabelerPolicies policies,

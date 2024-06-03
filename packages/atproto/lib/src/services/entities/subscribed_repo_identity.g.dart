@@ -15,7 +15,7 @@ _$SubscribedRepoIdentityImpl _$$SubscribedRepoIdentityImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$SubscribedRepoIdentityImpl(
           did: $checkedConvert('did', (v) => v as String),
-          seq: $checkedConvert('seq', (v) => v as int),
+          seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );
         return val;

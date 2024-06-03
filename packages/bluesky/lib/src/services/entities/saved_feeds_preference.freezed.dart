@@ -23,9 +23,9 @@ mixin _$SavedFeedsPreference {
   @typeKey
   String get type => throw _privateConstructorUsedError;
   @JsonKey(name: 'pinned')
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinnedUris => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris => throw _privateConstructorUsedError;
   int? get timelineIndex => throw _privateConstructorUsedError;
@@ -44,8 +44,8 @@ abstract class $SavedFeedsPreferenceCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
-      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris,
+      @JsonKey(name: 'pinned') @AtUriConverter() List<AtUri> pinnedUris,
+      @AtUriConverter() @JsonKey(name: 'saved') List<AtUri> savedUris,
       int? timelineIndex});
 }
 
@@ -99,8 +99,8 @@ abstract class _$$SavedFeedsPreferenceImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @JsonKey(name: 'pinned') @atUriConverter List<AtUri> pinnedUris,
-      @atUriConverter @JsonKey(name: 'saved') List<AtUri> savedUris,
+      @JsonKey(name: 'pinned') @AtUriConverter() List<AtUri> pinnedUris,
+      @AtUriConverter() @JsonKey(name: 'saved') List<AtUri> savedUris,
       int? timelineIndex});
 }
 
@@ -148,9 +148,9 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
   const _$SavedFeedsPreferenceImpl(
       {@typeKey this.type = appBskyActorDefsSavedFeedsPref,
       @JsonKey(name: 'pinned')
-      @atUriConverter
+      @AtUriConverter()
       required final List<AtUri> pinnedUris,
-      @atUriConverter
+      @AtUriConverter()
       @JsonKey(name: 'saved')
       required final List<AtUri> savedUris,
       this.timelineIndex})
@@ -166,7 +166,7 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
   final List<AtUri> _pinnedUris;
   @override
   @JsonKey(name: 'pinned')
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinnedUris {
     if (_pinnedUris is EqualUnmodifiableListView) return _pinnedUris;
     // ignore: implicit_dynamic_type
@@ -175,7 +175,7 @@ class _$SavedFeedsPreferenceImpl implements _SavedFeedsPreference {
 
   final List<AtUri> _savedUris;
   @override
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris {
     if (_savedUris is EqualUnmodifiableListView) return _savedUris;
@@ -234,9 +234,9 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   const factory _SavedFeedsPreference(
       {@typeKey final String type,
       @JsonKey(name: 'pinned')
-      @atUriConverter
+      @AtUriConverter()
       required final List<AtUri> pinnedUris,
-      @atUriConverter
+      @AtUriConverter()
       @JsonKey(name: 'saved')
       required final List<AtUri> savedUris,
       final int? timelineIndex}) = _$SavedFeedsPreferenceImpl;
@@ -249,10 +249,10 @@ abstract class _SavedFeedsPreference implements SavedFeedsPreference {
   String get type;
   @override
   @JsonKey(name: 'pinned')
-  @atUriConverter
+  @AtUriConverter()
   List<AtUri> get pinnedUris;
   @override
-  @atUriConverter
+  @AtUriConverter()
   @JsonKey(name: 'saved')
   List<AtUri> get savedUris;
   @override
