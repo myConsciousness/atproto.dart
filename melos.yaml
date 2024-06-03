@@ -49,6 +49,15 @@ scripts:
     flutter: false
     dir-exists: test
 
+  lex_gen:
+    run: |
+      dart run ./bin/lex_gen/lex_gen.dart
+      cd packages/bluesky
+      dart format .
+      dart run import_sorter:main
+      dart run build_runner build
+    description: Run `dart run build_runner build` in all packages.
+
   publish_all:
     run: |
       melos publish

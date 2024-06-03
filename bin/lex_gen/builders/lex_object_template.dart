@@ -4,12 +4,12 @@
 
 import 'package:lexicon/lexicon.dart';
 
-import './lex_naming_convention.dart';
+import '../rules/lex_naming_convention.dart';
 
-import '../lex_gen/types/lex_gen_object.dart';
+import '../types/lex_gen_object.dart';
 
-final class LexObjectTemplate {
-  const LexObjectTemplate(
+final class LexGenObjectBuilder {
+  const LexGenObjectBuilder(
     this.docId,
     this.defName,
     this.namingConvention,
@@ -23,7 +23,7 @@ final class LexObjectTemplate {
   final LexUserType def;
   final List<String> mainObjects;
 
-  String? build() {
+  LexGenObject? build() {
     final properties = _getProperties();
     if (properties.isEmpty) return null; // RefVariant, no need to create.
 
@@ -32,7 +32,7 @@ final class LexObjectTemplate {
       name: namingConvention.getObjectName(),
       fileName: namingConvention.getFileName(),
       properties: properties,
-    ).toString();
+    );
   }
 
   List<LexGenObjectProperty> _getProperties() {
