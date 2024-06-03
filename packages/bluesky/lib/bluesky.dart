@@ -257,6 +257,7 @@ export 'package:bluesky/src/services/entities/embed_view_images_view.dart';
 export 'package:bluesky/src/services/entities/embed_view_media.dart';
 export 'package:bluesky/src/services/entities/embed_view_record.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view.dart';
+export 'package:bluesky/src/services/entities/converter/embed_view_record_view_converter.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_blocked.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_view_not_found.dart';
 export 'package:bluesky/src/services/entities/embed_view_record_with_media.dart';
