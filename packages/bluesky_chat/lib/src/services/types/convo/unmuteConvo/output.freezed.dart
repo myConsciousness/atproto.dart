@@ -14,25 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoUnmuteConvo _$ConvoUnmuteConvoFromJson(Map<String, dynamic> json) {
-  return _ConvoUnmuteConvo.fromJson(json);
+UnmuteConvoOutput _$UnmuteConvoOutputFromJson(Map<String, dynamic> json) {
+  return _UnmuteConvoOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoUnmuteConvo {
+mixin _$UnmuteConvoOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoUnmuteConvoCopyWith<ConvoUnmuteConvo> get copyWith =>
+  $UnmuteConvoOutputCopyWith<UnmuteConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoUnmuteConvoCopyWith<$Res> {
-  factory $ConvoUnmuteConvoCopyWith(
-          ConvoUnmuteConvo value, $Res Function(ConvoUnmuteConvo) then) =
-      _$ConvoUnmuteConvoCopyWithImpl<$Res, ConvoUnmuteConvo>;
+abstract class $UnmuteConvoOutputCopyWith<$Res> {
+  factory $UnmuteConvoOutputCopyWith(
+          UnmuteConvoOutput value, $Res Function(UnmuteConvoOutput) then) =
+      _$UnmuteConvoOutputCopyWithImpl<$Res, UnmuteConvoOutput>;
   @useResult
   $Res call({ConvoView convo});
 
@@ -40,9 +40,9 @@ abstract class $ConvoUnmuteConvoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoUnmuteConvoCopyWithImpl<$Res, $Val extends ConvoUnmuteConvo>
-    implements $ConvoUnmuteConvoCopyWith<$Res> {
-  _$ConvoUnmuteConvoCopyWithImpl(this._value, this._then);
+class _$UnmuteConvoOutputCopyWithImpl<$Res, $Val extends UnmuteConvoOutput>
+    implements $UnmuteConvoOutputCopyWith<$Res> {
+  _$UnmuteConvoOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$ConvoUnmuteConvoCopyWithImpl<$Res, $Val extends ConvoUnmuteConvo>
 }
 
 /// @nodoc
-abstract class _$$ConvoUnmuteConvoImplCopyWith<$Res>
-    implements $ConvoUnmuteConvoCopyWith<$Res> {
-  factory _$$ConvoUnmuteConvoImplCopyWith(_$ConvoUnmuteConvoImpl value,
-          $Res Function(_$ConvoUnmuteConvoImpl) then) =
-      __$$ConvoUnmuteConvoImplCopyWithImpl<$Res>;
+abstract class _$$UnmuteConvoOutputImplCopyWith<$Res>
+    implements $UnmuteConvoOutputCopyWith<$Res> {
+  factory _$$UnmuteConvoOutputImplCopyWith(_$UnmuteConvoOutputImpl value,
+          $Res Function(_$UnmuteConvoOutputImpl) then) =
+      __$$UnmuteConvoOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ConvoView convo});
@@ -86,11 +86,11 @@ abstract class _$$ConvoUnmuteConvoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoUnmuteConvoImplCopyWithImpl<$Res>
-    extends _$ConvoUnmuteConvoCopyWithImpl<$Res, _$ConvoUnmuteConvoImpl>
-    implements _$$ConvoUnmuteConvoImplCopyWith<$Res> {
-  __$$ConvoUnmuteConvoImplCopyWithImpl(_$ConvoUnmuteConvoImpl _value,
-      $Res Function(_$ConvoUnmuteConvoImpl) _then)
+class __$$UnmuteConvoOutputImplCopyWithImpl<$Res>
+    extends _$UnmuteConvoOutputCopyWithImpl<$Res, _$UnmuteConvoOutputImpl>
+    implements _$$UnmuteConvoOutputImplCopyWith<$Res> {
+  __$$UnmuteConvoOutputImplCopyWithImpl(_$UnmuteConvoOutputImpl _value,
+      $Res Function(_$UnmuteConvoOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ConvoUnmuteConvoImplCopyWithImpl<$Res>
   $Res call({
     Object? convo = null,
   }) {
-    return _then(_$ConvoUnmuteConvoImpl(
+    return _then(_$UnmuteConvoOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
@@ -110,25 +110,25 @@ class __$$ConvoUnmuteConvoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoUnmuteConvoImpl implements _ConvoUnmuteConvo {
-  const _$ConvoUnmuteConvoImpl({required this.convo});
+class _$UnmuteConvoOutputImpl implements _UnmuteConvoOutput {
+  const _$UnmuteConvoOutputImpl({required this.convo});
 
-  factory _$ConvoUnmuteConvoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoUnmuteConvoImplFromJson(json);
+  factory _$UnmuteConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UnmuteConvoOutputImplFromJson(json);
 
   @override
   final ConvoView convo;
 
   @override
   String toString() {
-    return 'ConvoUnmuteConvo(convo: $convo)';
+    return 'UnmuteConvoOutput(convo: $convo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoUnmuteConvoImpl &&
+            other is _$UnmuteConvoOutputImpl &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -139,29 +139,29 @@ class _$ConvoUnmuteConvoImpl implements _ConvoUnmuteConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoUnmuteConvoImplCopyWith<_$ConvoUnmuteConvoImpl> get copyWith =>
-      __$$ConvoUnmuteConvoImplCopyWithImpl<_$ConvoUnmuteConvoImpl>(
+  _$$UnmuteConvoOutputImplCopyWith<_$UnmuteConvoOutputImpl> get copyWith =>
+      __$$UnmuteConvoOutputImplCopyWithImpl<_$UnmuteConvoOutputImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoUnmuteConvoImplToJson(
+    return _$$UnmuteConvoOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoUnmuteConvo implements ConvoUnmuteConvo {
-  const factory _ConvoUnmuteConvo({required final ConvoView convo}) =
-      _$ConvoUnmuteConvoImpl;
+abstract class _UnmuteConvoOutput implements UnmuteConvoOutput {
+  const factory _UnmuteConvoOutput({required final ConvoView convo}) =
+      _$UnmuteConvoOutputImpl;
 
-  factory _ConvoUnmuteConvo.fromJson(Map<String, dynamic> json) =
-      _$ConvoUnmuteConvoImpl.fromJson;
+  factory _UnmuteConvoOutput.fromJson(Map<String, dynamic> json) =
+      _$UnmuteConvoOutputImpl.fromJson;
 
   @override
   ConvoView get convo;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoUnmuteConvoImplCopyWith<_$ConvoUnmuteConvoImpl> get copyWith =>
+  _$$UnmuteConvoOutputImplCopyWith<_$UnmuteConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

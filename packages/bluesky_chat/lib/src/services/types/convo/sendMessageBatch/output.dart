@@ -14,12 +14,12 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch/#output
 @freezed
-class ConvoSendMessageBatch with _$ConvoSendMessageBatch {
+class SendMessageBatchOutput with _$SendMessageBatchOutput {
   @jsonSerializable
-  const factory ConvoSendMessageBatch({
-    required List<ConvoMessageView> items,
-  }) = _ConvoSendMessageBatch;
+  const factory SendMessageBatchOutput({
+    required List<MessageView> items,
+  }) = _SendMessageBatchOutput;
 
-  factory ConvoSendMessageBatch.fromJson(Map<String, Object?> json) =>
-      _$ConvoSendMessageBatchFromJson(json);
+  factory SendMessageBatchOutput.fromJson(Map<String, Object?> json) =>
+      _$SendMessageBatchOutputFromJson(json);
 }

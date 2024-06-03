@@ -22,7 +22,7 @@ ConvoView _$ConvoViewFromJson(Map<String, dynamic> json) {
 mixin _$ConvoView {
   String get id => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
-  List<ActorProfileViewBasic> get members => throw _privateConstructorUsedError;
+  List<ProfileViewBasic> get members => throw _privateConstructorUsedError;
   @unionConvoMessageViewConverter
   UConvoMessageView? get lastMessage => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ConvoViewCopyWith<$Res> {
   $Res call(
       {String id,
       String rev,
-      List<ActorProfileViewBasic> members,
+      List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
       bool muted,
       int unreadCount});
@@ -82,7 +82,7 @@ class _$ConvoViewCopyWithImpl<$Res, $Val extends ConvoView>
       members: null == members
           ? _value.members
           : members // ignore: cast_nullable_to_non_nullable
-              as List<ActorProfileViewBasic>,
+              as List<ProfileViewBasic>,
       lastMessage: freezed == lastMessage
           ? _value.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
@@ -122,7 +122,7 @@ abstract class _$$ConvoViewImplCopyWith<$Res>
   $Res call(
       {String id,
       String rev,
-      List<ActorProfileViewBasic> members,
+      List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter UConvoMessageView? lastMessage,
       bool muted,
       int unreadCount});
@@ -161,7 +161,7 @@ class __$$ConvoViewImplCopyWithImpl<$Res>
       members: null == members
           ? _value._members
           : members // ignore: cast_nullable_to_non_nullable
-              as List<ActorProfileViewBasic>,
+              as List<ProfileViewBasic>,
       lastMessage: freezed == lastMessage
           ? _value.lastMessage
           : lastMessage // ignore: cast_nullable_to_non_nullable
@@ -185,7 +185,7 @@ class _$ConvoViewImpl implements _ConvoView {
   const _$ConvoViewImpl(
       {required this.id,
       required this.rev,
-      required final List<ActorProfileViewBasic> members,
+      required final List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter this.lastMessage,
       required this.muted,
       required this.unreadCount})
@@ -198,9 +198,9 @@ class _$ConvoViewImpl implements _ConvoView {
   final String id;
   @override
   final String rev;
-  final List<ActorProfileViewBasic> _members;
+  final List<ProfileViewBasic> _members;
   @override
-  List<ActorProfileViewBasic> get members {
+  List<ProfileViewBasic> get members {
     if (_members is EqualUnmodifiableListView) return _members;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_members);
@@ -263,7 +263,7 @@ abstract class _ConvoView implements ConvoView {
   const factory _ConvoView(
       {required final String id,
       required final String rev,
-      required final List<ActorProfileViewBasic> members,
+      required final List<ProfileViewBasic> members,
       @unionConvoMessageViewConverter final UConvoMessageView? lastMessage,
       required final bool muted,
       required final int unreadCount}) = _$ConvoViewImpl;
@@ -276,7 +276,7 @@ abstract class _ConvoView implements ConvoView {
   @override
   String get rev;
   @override
-  List<ActorProfileViewBasic> get members;
+  List<ProfileViewBasic> get members;
   @override
   @unionConvoMessageViewConverter
   UConvoMessageView? get lastMessage;

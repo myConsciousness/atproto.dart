@@ -14,12 +14,12 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo/#main
 @freezed
-class ConvoMuteConvo with _$ConvoMuteConvo {
+class MuteConvoOutput with _$MuteConvoOutput {
   @jsonSerializable
-  const factory ConvoMuteConvo({
+  const factory MuteConvoOutput({
     required ConvoView convo,
-  }) = _ConvoMuteConvo;
+  }) = _MuteConvoOutput;
 
-  factory ConvoMuteConvo.fromJson(Map<String, Object?> json) =>
-      _$ConvoMuteConvoFromJson(json);
+  factory MuteConvoOutput.fromJson(Map<String, Object?> json) =>
+      _$MuteConvoOutputFromJson(json);
 }

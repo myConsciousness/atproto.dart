@@ -14,13 +14,13 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos/#main
 @freezed
-class ConvoListConvos with _$ConvoListConvos {
+class ListConvosOutput with _$ListConvosOutput {
   @jsonSerializable
-  const factory ConvoListConvos({
+  const factory ListConvosOutput({
     required List<ConvoView> convos,
     String? cursor,
-  }) = _ConvoListConvos;
+  }) = _ListConvosOutput;
 
-  factory ConvoListConvos.fromJson(Map<String, Object?> json) =>
-      _$ConvoListConvosFromJson(json);
+  factory ListConvosOutput.fromJson(Map<String, Object?> json) =>
+      _$ListConvosOutputFromJson(json);
 }

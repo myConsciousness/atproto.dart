@@ -14,38 +14,36 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ModerationGetMessageContext _$ModerationGetMessageContextFromJson(
+GetMessageContextOutput _$GetMessageContextOutputFromJson(
     Map<String, dynamic> json) {
-  return _ModerationGetMessageContext.fromJson(json);
+  return _GetMessageContextOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ModerationGetMessageContext {
+mixin _$GetMessageContextOutput {
   @unionConvoMessageViewConverter
   List<UConvoMessageView> get messages => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ModerationGetMessageContextCopyWith<ModerationGetMessageContext>
-      get copyWith => throw _privateConstructorUsedError;
+  $GetMessageContextOutputCopyWith<GetMessageContextOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ModerationGetMessageContextCopyWith<$Res> {
-  factory $ModerationGetMessageContextCopyWith(
-          ModerationGetMessageContext value,
-          $Res Function(ModerationGetMessageContext) then) =
-      _$ModerationGetMessageContextCopyWithImpl<$Res,
-          ModerationGetMessageContext>;
+abstract class $GetMessageContextOutputCopyWith<$Res> {
+  factory $GetMessageContextOutputCopyWith(GetMessageContextOutput value,
+          $Res Function(GetMessageContextOutput) then) =
+      _$GetMessageContextOutputCopyWithImpl<$Res, GetMessageContextOutput>;
   @useResult
   $Res call({@unionConvoMessageViewConverter List<UConvoMessageView> messages});
 }
 
 /// @nodoc
-class _$ModerationGetMessageContextCopyWithImpl<$Res,
-        $Val extends ModerationGetMessageContext>
-    implements $ModerationGetMessageContextCopyWith<$Res> {
-  _$ModerationGetMessageContextCopyWithImpl(this._value, this._then);
+class _$GetMessageContextOutputCopyWithImpl<$Res,
+        $Val extends GetMessageContextOutput>
+    implements $GetMessageContextOutputCopyWith<$Res> {
+  _$GetMessageContextOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -67,25 +65,25 @@ class _$ModerationGetMessageContextCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ModerationGetMessageContextImplCopyWith<$Res>
-    implements $ModerationGetMessageContextCopyWith<$Res> {
-  factory _$$ModerationGetMessageContextImplCopyWith(
-          _$ModerationGetMessageContextImpl value,
-          $Res Function(_$ModerationGetMessageContextImpl) then) =
-      __$$ModerationGetMessageContextImplCopyWithImpl<$Res>;
+abstract class _$$GetMessageContextOutputImplCopyWith<$Res>
+    implements $GetMessageContextOutputCopyWith<$Res> {
+  factory _$$GetMessageContextOutputImplCopyWith(
+          _$GetMessageContextOutputImpl value,
+          $Res Function(_$GetMessageContextOutputImpl) then) =
+      __$$GetMessageContextOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({@unionConvoMessageViewConverter List<UConvoMessageView> messages});
 }
 
 /// @nodoc
-class __$$ModerationGetMessageContextImplCopyWithImpl<$Res>
-    extends _$ModerationGetMessageContextCopyWithImpl<$Res,
-        _$ModerationGetMessageContextImpl>
-    implements _$$ModerationGetMessageContextImplCopyWith<$Res> {
-  __$$ModerationGetMessageContextImplCopyWithImpl(
-      _$ModerationGetMessageContextImpl _value,
-      $Res Function(_$ModerationGetMessageContextImpl) _then)
+class __$$GetMessageContextOutputImplCopyWithImpl<$Res>
+    extends _$GetMessageContextOutputCopyWithImpl<$Res,
+        _$GetMessageContextOutputImpl>
+    implements _$$GetMessageContextOutputImplCopyWith<$Res> {
+  __$$GetMessageContextOutputImplCopyWithImpl(
+      _$GetMessageContextOutputImpl _value,
+      $Res Function(_$GetMessageContextOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -93,7 +91,7 @@ class __$$ModerationGetMessageContextImplCopyWithImpl<$Res>
   $Res call({
     Object? messages = null,
   }) {
-    return _then(_$ModerationGetMessageContextImpl(
+    return _then(_$GetMessageContextOutputImpl(
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -105,16 +103,14 @@ class __$$ModerationGetMessageContextImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ModerationGetMessageContextImpl
-    implements _ModerationGetMessageContext {
-  const _$ModerationGetMessageContextImpl(
+class _$GetMessageContextOutputImpl implements _GetMessageContextOutput {
+  const _$GetMessageContextOutputImpl(
       {@unionConvoMessageViewConverter
       required final List<UConvoMessageView> messages})
       : _messages = messages;
 
-  factory _$ModerationGetMessageContextImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ModerationGetMessageContextImplFromJson(json);
+  factory _$GetMessageContextOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetMessageContextOutputImplFromJson(json);
 
   final List<UConvoMessageView> _messages;
   @override
@@ -127,14 +123,14 @@ class _$ModerationGetMessageContextImpl
 
   @override
   String toString() {
-    return 'ModerationGetMessageContext(messages: $messages)';
+    return 'GetMessageContextOutput(messages: $messages)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationGetMessageContextImpl &&
+            other is _$GetMessageContextOutputImpl &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
@@ -146,33 +142,32 @@ class _$ModerationGetMessageContextImpl
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationGetMessageContextImplCopyWith<_$ModerationGetMessageContextImpl>
-      get copyWith => __$$ModerationGetMessageContextImplCopyWithImpl<
-          _$ModerationGetMessageContextImpl>(this, _$identity);
+  _$$GetMessageContextOutputImplCopyWith<_$GetMessageContextOutputImpl>
+      get copyWith => __$$GetMessageContextOutputImplCopyWithImpl<
+          _$GetMessageContextOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ModerationGetMessageContextImplToJson(
+    return _$$GetMessageContextOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ModerationGetMessageContext
-    implements ModerationGetMessageContext {
-  const factory _ModerationGetMessageContext(
+abstract class _GetMessageContextOutput implements GetMessageContextOutput {
+  const factory _GetMessageContextOutput(
           {@unionConvoMessageViewConverter
           required final List<UConvoMessageView> messages}) =
-      _$ModerationGetMessageContextImpl;
+      _$GetMessageContextOutputImpl;
 
-  factory _ModerationGetMessageContext.fromJson(Map<String, dynamic> json) =
-      _$ModerationGetMessageContextImpl.fromJson;
+  factory _GetMessageContextOutput.fromJson(Map<String, dynamic> json) =
+      _$GetMessageContextOutputImpl.fromJson;
 
   @override
   @unionConvoMessageViewConverter
   List<UConvoMessageView> get messages;
   @override
   @JsonKey(ignore: true)
-  _$$ModerationGetMessageContextImplCopyWith<_$ModerationGetMessageContextImpl>
+  _$$GetMessageContextOutputImplCopyWith<_$GetMessageContextOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

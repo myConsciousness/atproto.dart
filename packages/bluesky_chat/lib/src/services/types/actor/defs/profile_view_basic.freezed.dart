@@ -14,13 +14,12 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ActorProfileViewBasic _$ActorProfileViewBasicFromJson(
-    Map<String, dynamic> json) {
-  return _ActorProfileViewBasic.fromJson(json);
+ProfileViewBasic _$ProfileViewBasicFromJson(Map<String, dynamic> json) {
+  return _ProfileViewBasic.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ActorProfileViewBasic {
+mixin _$ProfileViewBasic {
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
@@ -32,15 +31,15 @@ mixin _$ActorProfileViewBasic {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ActorProfileViewBasicCopyWith<ActorProfileViewBasic> get copyWith =>
+  $ProfileViewBasicCopyWith<ProfileViewBasic> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ActorProfileViewBasicCopyWith<$Res> {
-  factory $ActorProfileViewBasicCopyWith(ActorProfileViewBasic value,
-          $Res Function(ActorProfileViewBasic) then) =
-      _$ActorProfileViewBasicCopyWithImpl<$Res, ActorProfileViewBasic>;
+abstract class $ProfileViewBasicCopyWith<$Res> {
+  factory $ProfileViewBasicCopyWith(
+          ProfileViewBasic value, $Res Function(ProfileViewBasic) then) =
+      _$ProfileViewBasicCopyWithImpl<$Res, ProfileViewBasic>;
   @useResult
   $Res call(
       {String did,
@@ -57,10 +56,9 @@ abstract class $ActorProfileViewBasicCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ActorProfileViewBasicCopyWithImpl<$Res,
-        $Val extends ActorProfileViewBasic>
-    implements $ActorProfileViewBasicCopyWith<$Res> {
-  _$ActorProfileViewBasicCopyWithImpl(this._value, this._then);
+class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
+    implements $ProfileViewBasicCopyWith<$Res> {
+  _$ProfileViewBasicCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -137,12 +135,11 @@ class _$ActorProfileViewBasicCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ActorProfileViewBasicImplCopyWith<$Res>
-    implements $ActorProfileViewBasicCopyWith<$Res> {
-  factory _$$ActorProfileViewBasicImplCopyWith(
-          _$ActorProfileViewBasicImpl value,
-          $Res Function(_$ActorProfileViewBasicImpl) then) =
-      __$$ActorProfileViewBasicImplCopyWithImpl<$Res>;
+abstract class _$$ProfileViewBasicImplCopyWith<$Res>
+    implements $ProfileViewBasicCopyWith<$Res> {
+  factory _$$ProfileViewBasicImplCopyWith(_$ProfileViewBasicImpl value,
+          $Res Function(_$ProfileViewBasicImpl) then) =
+      __$$ProfileViewBasicImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -162,12 +159,11 @@ abstract class _$$ActorProfileViewBasicImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ActorProfileViewBasicImplCopyWithImpl<$Res>
-    extends _$ActorProfileViewBasicCopyWithImpl<$Res,
-        _$ActorProfileViewBasicImpl>
-    implements _$$ActorProfileViewBasicImplCopyWith<$Res> {
-  __$$ActorProfileViewBasicImplCopyWithImpl(_$ActorProfileViewBasicImpl _value,
-      $Res Function(_$ActorProfileViewBasicImpl) _then)
+class __$$ProfileViewBasicImplCopyWithImpl<$Res>
+    extends _$ProfileViewBasicCopyWithImpl<$Res, _$ProfileViewBasicImpl>
+    implements _$$ProfileViewBasicImplCopyWith<$Res> {
+  __$$ProfileViewBasicImplCopyWithImpl(_$ProfileViewBasicImpl _value,
+      $Res Function(_$ProfileViewBasicImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -182,7 +178,7 @@ class __$$ActorProfileViewBasicImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? chatDisabled = null,
   }) {
-    return _then(_$ActorProfileViewBasicImpl(
+    return _then(_$ProfileViewBasicImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -222,8 +218,8 @@ class __$$ActorProfileViewBasicImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ActorProfileViewBasicImpl implements _ActorProfileViewBasic {
-  const _$ActorProfileViewBasicImpl(
+class _$ProfileViewBasicImpl implements _ProfileViewBasic {
+  const _$ProfileViewBasicImpl(
       {required this.did,
       required this.handle,
       this.displayName,
@@ -234,8 +230,8 @@ class _$ActorProfileViewBasicImpl implements _ActorProfileViewBasic {
       this.chatDisabled = false})
       : _labels = labels;
 
-  factory _$ActorProfileViewBasicImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ActorProfileViewBasicImplFromJson(json);
+  factory _$ProfileViewBasicImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProfileViewBasicImplFromJson(json);
 
   @override
   final String did;
@@ -266,14 +262,14 @@ class _$ActorProfileViewBasicImpl implements _ActorProfileViewBasic {
 
   @override
   String toString() {
-    return 'ActorProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
+    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels, chatDisabled: $chatDisabled)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ActorProfileViewBasicImpl &&
+            other is _$ProfileViewBasicImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -303,20 +299,20 @@ class _$ActorProfileViewBasicImpl implements _ActorProfileViewBasic {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ActorProfileViewBasicImplCopyWith<_$ActorProfileViewBasicImpl>
-      get copyWith => __$$ActorProfileViewBasicImplCopyWithImpl<
-          _$ActorProfileViewBasicImpl>(this, _$identity);
+  _$$ProfileViewBasicImplCopyWith<_$ProfileViewBasicImpl> get copyWith =>
+      __$$ProfileViewBasicImplCopyWithImpl<_$ProfileViewBasicImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ActorProfileViewBasicImplToJson(
+    return _$$ProfileViewBasicImplToJson(
       this,
     );
   }
 }
 
-abstract class _ActorProfileViewBasic implements ActorProfileViewBasic {
-  const factory _ActorProfileViewBasic(
+abstract class _ProfileViewBasic implements ProfileViewBasic {
+  const factory _ProfileViewBasic(
       {required final String did,
       required final String handle,
       final String? displayName,
@@ -324,10 +320,10 @@ abstract class _ActorProfileViewBasic implements ActorProfileViewBasic {
       final ProfileAssociated? associated,
       final ActorViewer viewer,
       final List<Label>? labels,
-      final bool chatDisabled}) = _$ActorProfileViewBasicImpl;
+      final bool chatDisabled}) = _$ProfileViewBasicImpl;
 
-  factory _ActorProfileViewBasic.fromJson(Map<String, dynamic> json) =
-      _$ActorProfileViewBasicImpl.fromJson;
+  factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =
+      _$ProfileViewBasicImpl.fromJson;
 
   @override
   String get did;
@@ -347,6 +343,6 @@ abstract class _ActorProfileViewBasic implements ActorProfileViewBasic {
   bool get chatDisabled;
   @override
   @JsonKey(ignore: true)
-  _$$ActorProfileViewBasicImplCopyWith<_$ActorProfileViewBasicImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$ProfileViewBasicImplCopyWith<_$ProfileViewBasicImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

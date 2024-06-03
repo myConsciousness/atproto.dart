@@ -8,20 +8,20 @@ part of 'record.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ActorDeclarationRecordImpl _$$ActorDeclarationRecordImplFromJson(Map json) =>
+_$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ActorDeclarationRecordImpl',
+      r'_$DeclarationRecordImpl',
       json,
       ($checkedConvert) {
-        final val = _$ActorDeclarationRecordImpl(
+        final val = _$DeclarationRecordImpl(
           allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ActorDeclarationRecordImplToJson(
-        _$ActorDeclarationRecordImpl instance) =>
+Map<String, dynamic> _$$DeclarationRecordImplToJson(
+        _$DeclarationRecordImpl instance) =>
     <String, dynamic>{
       'allowIncoming': instance.allowIncoming,
     };

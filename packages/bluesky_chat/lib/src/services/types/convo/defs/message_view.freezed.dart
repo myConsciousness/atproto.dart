@@ -14,32 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoMessageView _$ConvoMessageViewFromJson(Map<String, dynamic> json) {
-  return _ConvoMessageView.fromJson(json);
+MessageView _$MessageViewFromJson(Map<String, dynamic> json) {
+  return _MessageView.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoMessageView {
+mixin _$MessageView {
   String get id => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
   String get text => throw _privateConstructorUsedError;
   List<Facet>? get facets => throw _privateConstructorUsedError;
   @unionConvoMessageEmbedConverter
   UConvoMessageEmbed? get embed => throw _privateConstructorUsedError;
-  ConvoMessageViewSender get sender => throw _privateConstructorUsedError;
+  MessageViewSender get sender => throw _privateConstructorUsedError;
   DateTime get sentAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoMessageViewCopyWith<ConvoMessageView> get copyWith =>
+  $MessageViewCopyWith<MessageView> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoMessageViewCopyWith<$Res> {
-  factory $ConvoMessageViewCopyWith(
-          ConvoMessageView value, $Res Function(ConvoMessageView) then) =
-      _$ConvoMessageViewCopyWithImpl<$Res, ConvoMessageView>;
+abstract class $MessageViewCopyWith<$Res> {
+  factory $MessageViewCopyWith(
+          MessageView value, $Res Function(MessageView) then) =
+      _$MessageViewCopyWithImpl<$Res, MessageView>;
   @useResult
   $Res call(
       {String id,
@@ -47,17 +47,17 @@ abstract class $ConvoMessageViewCopyWith<$Res> {
       String text,
       List<Facet>? facets,
       @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
-      ConvoMessageViewSender sender,
+      MessageViewSender sender,
       DateTime sentAt});
 
   $UConvoMessageEmbedCopyWith<$Res>? get embed;
-  $ConvoMessageViewSenderCopyWith<$Res> get sender;
+  $MessageViewSenderCopyWith<$Res> get sender;
 }
 
 /// @nodoc
-class _$ConvoMessageViewCopyWithImpl<$Res, $Val extends ConvoMessageView>
-    implements $ConvoMessageViewCopyWith<$Res> {
-  _$ConvoMessageViewCopyWithImpl(this._value, this._then);
+class _$MessageViewCopyWithImpl<$Res, $Val extends MessageView>
+    implements $MessageViewCopyWith<$Res> {
+  _$MessageViewCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -99,7 +99,7 @@ class _$ConvoMessageViewCopyWithImpl<$Res, $Val extends ConvoMessageView>
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as ConvoMessageViewSender,
+              as MessageViewSender,
       sentAt: null == sentAt
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
@@ -121,19 +121,19 @@ class _$ConvoMessageViewCopyWithImpl<$Res, $Val extends ConvoMessageView>
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoMessageViewSenderCopyWith<$Res> get sender {
-    return $ConvoMessageViewSenderCopyWith<$Res>(_value.sender, (value) {
+  $MessageViewSenderCopyWith<$Res> get sender {
+    return $MessageViewSenderCopyWith<$Res>(_value.sender, (value) {
       return _then(_value.copyWith(sender: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ConvoMessageViewImplCopyWith<$Res>
-    implements $ConvoMessageViewCopyWith<$Res> {
-  factory _$$ConvoMessageViewImplCopyWith(_$ConvoMessageViewImpl value,
-          $Res Function(_$ConvoMessageViewImpl) then) =
-      __$$ConvoMessageViewImplCopyWithImpl<$Res>;
+abstract class _$$MessageViewImplCopyWith<$Res>
+    implements $MessageViewCopyWith<$Res> {
+  factory _$$MessageViewImplCopyWith(
+          _$MessageViewImpl value, $Res Function(_$MessageViewImpl) then) =
+      __$$MessageViewImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -142,21 +142,21 @@ abstract class _$$ConvoMessageViewImplCopyWith<$Res>
       String text,
       List<Facet>? facets,
       @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
-      ConvoMessageViewSender sender,
+      MessageViewSender sender,
       DateTime sentAt});
 
   @override
   $UConvoMessageEmbedCopyWith<$Res>? get embed;
   @override
-  $ConvoMessageViewSenderCopyWith<$Res> get sender;
+  $MessageViewSenderCopyWith<$Res> get sender;
 }
 
 /// @nodoc
-class __$$ConvoMessageViewImplCopyWithImpl<$Res>
-    extends _$ConvoMessageViewCopyWithImpl<$Res, _$ConvoMessageViewImpl>
-    implements _$$ConvoMessageViewImplCopyWith<$Res> {
-  __$$ConvoMessageViewImplCopyWithImpl(_$ConvoMessageViewImpl _value,
-      $Res Function(_$ConvoMessageViewImpl) _then)
+class __$$MessageViewImplCopyWithImpl<$Res>
+    extends _$MessageViewCopyWithImpl<$Res, _$MessageViewImpl>
+    implements _$$MessageViewImplCopyWith<$Res> {
+  __$$MessageViewImplCopyWithImpl(
+      _$MessageViewImpl _value, $Res Function(_$MessageViewImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -170,7 +170,7 @@ class __$$ConvoMessageViewImplCopyWithImpl<$Res>
     Object? sender = null,
     Object? sentAt = null,
   }) {
-    return _then(_$ConvoMessageViewImpl(
+    return _then(_$MessageViewImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class __$$ConvoMessageViewImplCopyWithImpl<$Res>
       sender: null == sender
           ? _value.sender
           : sender // ignore: cast_nullable_to_non_nullable
-              as ConvoMessageViewSender,
+              as MessageViewSender,
       sentAt: null == sentAt
           ? _value.sentAt
           : sentAt // ignore: cast_nullable_to_non_nullable
@@ -206,8 +206,8 @@ class __$$ConvoMessageViewImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoMessageViewImpl implements _ConvoMessageView {
-  const _$ConvoMessageViewImpl(
+class _$MessageViewImpl implements _MessageView {
+  const _$MessageViewImpl(
       {required this.id,
       required this.rev,
       required this.text,
@@ -217,8 +217,8 @@ class _$ConvoMessageViewImpl implements _ConvoMessageView {
       required this.sentAt})
       : _facets = facets;
 
-  factory _$ConvoMessageViewImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoMessageViewImplFromJson(json);
+  factory _$MessageViewImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageViewImplFromJson(json);
 
   @override
   final String id;
@@ -240,20 +240,20 @@ class _$ConvoMessageViewImpl implements _ConvoMessageView {
   @unionConvoMessageEmbedConverter
   final UConvoMessageEmbed? embed;
   @override
-  final ConvoMessageViewSender sender;
+  final MessageViewSender sender;
   @override
   final DateTime sentAt;
 
   @override
   String toString() {
-    return 'ConvoMessageView(id: $id, rev: $rev, text: $text, facets: $facets, embed: $embed, sender: $sender, sentAt: $sentAt)';
+    return 'MessageView(id: $id, rev: $rev, text: $text, facets: $facets, embed: $embed, sender: $sender, sentAt: $sentAt)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoMessageViewImpl &&
+            other is _$MessageViewImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.text, text) || other.text == text) &&
@@ -271,30 +271,29 @@ class _$ConvoMessageViewImpl implements _ConvoMessageView {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoMessageViewImplCopyWith<_$ConvoMessageViewImpl> get copyWith =>
-      __$$ConvoMessageViewImplCopyWithImpl<_$ConvoMessageViewImpl>(
-          this, _$identity);
+  _$$MessageViewImplCopyWith<_$MessageViewImpl> get copyWith =>
+      __$$MessageViewImplCopyWithImpl<_$MessageViewImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoMessageViewImplToJson(
+    return _$$MessageViewImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoMessageView implements ConvoMessageView {
-  const factory _ConvoMessageView(
+abstract class _MessageView implements MessageView {
+  const factory _MessageView(
       {required final String id,
       required final String rev,
       required final String text,
       final List<Facet>? facets,
       @unionConvoMessageEmbedConverter final UConvoMessageEmbed? embed,
-      required final ConvoMessageViewSender sender,
-      required final DateTime sentAt}) = _$ConvoMessageViewImpl;
+      required final MessageViewSender sender,
+      required final DateTime sentAt}) = _$MessageViewImpl;
 
-  factory _ConvoMessageView.fromJson(Map<String, dynamic> json) =
-      _$ConvoMessageViewImpl.fromJson;
+  factory _MessageView.fromJson(Map<String, dynamic> json) =
+      _$MessageViewImpl.fromJson;
 
   @override
   String get id;
@@ -308,11 +307,11 @@ abstract class _ConvoMessageView implements ConvoMessageView {
   @unionConvoMessageEmbedConverter
   UConvoMessageEmbed? get embed;
   @override
-  ConvoMessageViewSender get sender;
+  MessageViewSender get sender;
   @override
   DateTime get sentAt;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoMessageViewImplCopyWith<_$ConvoMessageViewImpl> get copyWith =>
+  _$$MessageViewImplCopyWith<_$MessageViewImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

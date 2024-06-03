@@ -8,12 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoGetMessagesImpl _$$ConvoGetMessagesImplFromJson(Map json) =>
+_$GetMessagesOutputImpl _$$GetMessagesOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ConvoGetMessagesImpl',
+      r'_$GetMessagesOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoGetMessagesImpl(
+        final val = _$GetMessagesOutputImpl(
           messages: $checkedConvert(
               'messages',
               (v) => (v as List<dynamic>)
@@ -26,8 +26,8 @@ _$ConvoGetMessagesImpl _$$ConvoGetMessagesImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ConvoGetMessagesImplToJson(
-    _$ConvoGetMessagesImpl instance) {
+Map<String, dynamic> _$$GetMessagesOutputImplToJson(
+    _$GetMessagesOutputImpl instance) {
   final val = <String, dynamic>{
     'messages':
         instance.messages.map(unionConvoMessageViewConverter.toJson).toList(),

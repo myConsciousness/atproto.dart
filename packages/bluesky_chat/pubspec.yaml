@@ -1,6 +1,6 @@
 name: bluesky_chat
 description: The most powerful Dart/Flutter library for Bluesky Chat.
-version: 0.1.9
+version: 0.2.0
 homepage: https://atprotodart.com
 documentation: https://atprotodart.com/docs/packages/bluesky_chat
 repository: https://github.com/myConsciousness/atproto.dart/tree/main/packages/bluesky_chat

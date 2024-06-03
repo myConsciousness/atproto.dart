@@ -21,19 +21,19 @@ class UConvoLog with _$UConvoLog {
   const UConvoLog._();
 
   const factory UConvoLog.logBeginConvo({
-    required ConvoLogBeginConvo data,
+    required LogBeginConvo data,
   }) = UConvoLogConvoLogBeginConvo;
 
   const factory UConvoLog.logLeaveConvo({
-    required ConvoLogLeaveConvo data,
+    required LogLeaveConvo data,
   }) = UConvoLogConvoLogLeaveConvo;
 
   const factory UConvoLog.logCreateMessage({
-    required ConvoLogCreateMessage data,
+    required LogCreateMessage data,
   }) = UConvoLogConvoLogCreateMessage;
 
   const factory UConvoLog.logDeleteMessage({
-    required ConvoLogDeleteMessage data,
+    required LogDeleteMessage data,
   }) = UConvoLogConvoLogDeleteMessage;
 
   const factory UConvoLog.unknown({
@@ -56,22 +56,22 @@ final class _UConvoLogConverter
 
       if (type == ids.chatBskyConvoDefsLogBeginConvo) {
         return UConvoLog.logBeginConvo(
-          data: ConvoLogBeginConvo.fromJson(json),
+          data: LogBeginConvo.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsLogLeaveConvo) {
         return UConvoLog.logLeaveConvo(
-          data: ConvoLogLeaveConvo.fromJson(json),
+          data: LogLeaveConvo.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsLogCreateMessage) {
         return UConvoLog.logCreateMessage(
-          data: ConvoLogCreateMessage.fromJson(json),
+          data: LogCreateMessage.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsLogDeleteMessage) {
         return UConvoLog.logDeleteMessage(
-          data: ConvoLogDeleteMessage.fromJson(json),
+          data: LogDeleteMessage.fromJson(json),
         );
       }
 

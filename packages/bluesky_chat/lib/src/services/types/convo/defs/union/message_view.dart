@@ -19,11 +19,11 @@ class UConvoMessageView with _$UConvoMessageView {
   const UConvoMessageView._();
 
   const factory UConvoMessageView.messageView({
-    required ConvoMessageView data,
+    required MessageView data,
   }) = UConvoMessageViewMessageView;
 
   const factory UConvoMessageView.deletedMessageView({
-    required ConvoDeletedMessageView data,
+    required DeletedMessageView data,
   }) = UConvoMessageViewDeletedMessageView;
 
   const factory UConvoMessageView.unknown({
@@ -46,12 +46,12 @@ final class _UConvoMessageViewConverter
 
       if (type == ids.chatBskyConvoDefsMessageView) {
         return UConvoMessageView.messageView(
-          data: ConvoMessageView.fromJson(json),
+          data: MessageView.fromJson(json),
         );
       }
       if (type == ids.chatBskyConvoDefsDeletedMessageView) {
         return UConvoMessageView.deletedMessageView(
-          data: ConvoDeletedMessageView.fromJson(json),
+          data: DeletedMessageView.fromJson(json),
         );
       }
 

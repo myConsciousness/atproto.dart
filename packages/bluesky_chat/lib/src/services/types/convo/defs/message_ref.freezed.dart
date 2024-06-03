@@ -14,35 +14,35 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoMessageRef _$ConvoMessageRefFromJson(Map<String, dynamic> json) {
-  return _ConvoMessageRef.fromJson(json);
+MessageRef _$MessageRefFromJson(Map<String, dynamic> json) {
+  return _MessageRef.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoMessageRef {
+mixin _$MessageRef {
   String get did => throw _privateConstructorUsedError;
   String get convoId => throw _privateConstructorUsedError;
   String get messageId => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoMessageRefCopyWith<ConvoMessageRef> get copyWith =>
+  $MessageRefCopyWith<MessageRef> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoMessageRefCopyWith<$Res> {
-  factory $ConvoMessageRefCopyWith(
-          ConvoMessageRef value, $Res Function(ConvoMessageRef) then) =
-      _$ConvoMessageRefCopyWithImpl<$Res, ConvoMessageRef>;
+abstract class $MessageRefCopyWith<$Res> {
+  factory $MessageRefCopyWith(
+          MessageRef value, $Res Function(MessageRef) then) =
+      _$MessageRefCopyWithImpl<$Res, MessageRef>;
   @useResult
   $Res call({String did, String convoId, String messageId});
 }
 
 /// @nodoc
-class _$ConvoMessageRefCopyWithImpl<$Res, $Val extends ConvoMessageRef>
-    implements $ConvoMessageRefCopyWith<$Res> {
-  _$ConvoMessageRefCopyWithImpl(this._value, this._then);
+class _$MessageRefCopyWithImpl<$Res, $Val extends MessageRef>
+    implements $MessageRefCopyWith<$Res> {
+  _$MessageRefCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -74,22 +74,22 @@ class _$ConvoMessageRefCopyWithImpl<$Res, $Val extends ConvoMessageRef>
 }
 
 /// @nodoc
-abstract class _$$ConvoMessageRefImplCopyWith<$Res>
-    implements $ConvoMessageRefCopyWith<$Res> {
-  factory _$$ConvoMessageRefImplCopyWith(_$ConvoMessageRefImpl value,
-          $Res Function(_$ConvoMessageRefImpl) then) =
-      __$$ConvoMessageRefImplCopyWithImpl<$Res>;
+abstract class _$$MessageRefImplCopyWith<$Res>
+    implements $MessageRefCopyWith<$Res> {
+  factory _$$MessageRefImplCopyWith(
+          _$MessageRefImpl value, $Res Function(_$MessageRefImpl) then) =
+      __$$MessageRefImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, String convoId, String messageId});
 }
 
 /// @nodoc
-class __$$ConvoMessageRefImplCopyWithImpl<$Res>
-    extends _$ConvoMessageRefCopyWithImpl<$Res, _$ConvoMessageRefImpl>
-    implements _$$ConvoMessageRefImplCopyWith<$Res> {
-  __$$ConvoMessageRefImplCopyWithImpl(
-      _$ConvoMessageRefImpl _value, $Res Function(_$ConvoMessageRefImpl) _then)
+class __$$MessageRefImplCopyWithImpl<$Res>
+    extends _$MessageRefCopyWithImpl<$Res, _$MessageRefImpl>
+    implements _$$MessageRefImplCopyWith<$Res> {
+  __$$MessageRefImplCopyWithImpl(
+      _$MessageRefImpl _value, $Res Function(_$MessageRefImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +99,7 @@ class __$$ConvoMessageRefImplCopyWithImpl<$Res>
     Object? convoId = null,
     Object? messageId = null,
   }) {
-    return _then(_$ConvoMessageRefImpl(
+    return _then(_$MessageRefImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -119,12 +119,12 @@ class __$$ConvoMessageRefImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoMessageRefImpl implements _ConvoMessageRef {
-  const _$ConvoMessageRefImpl(
+class _$MessageRefImpl implements _MessageRef {
+  const _$MessageRefImpl(
       {required this.did, required this.convoId, required this.messageId});
 
-  factory _$ConvoMessageRefImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoMessageRefImplFromJson(json);
+  factory _$MessageRefImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageRefImplFromJson(json);
 
   @override
   final String did;
@@ -135,14 +135,14 @@ class _$ConvoMessageRefImpl implements _ConvoMessageRef {
 
   @override
   String toString() {
-    return 'ConvoMessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
+    return 'MessageRef(did: $did, convoId: $convoId, messageId: $messageId)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoMessageRefImpl &&
+            other is _$MessageRefImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.convoId, convoId) || other.convoId == convoId) &&
             (identical(other.messageId, messageId) ||
@@ -156,26 +156,25 @@ class _$ConvoMessageRefImpl implements _ConvoMessageRef {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoMessageRefImplCopyWith<_$ConvoMessageRefImpl> get copyWith =>
-      __$$ConvoMessageRefImplCopyWithImpl<_$ConvoMessageRefImpl>(
-          this, _$identity);
+  _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
+      __$$MessageRefImplCopyWithImpl<_$MessageRefImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoMessageRefImplToJson(
+    return _$$MessageRefImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoMessageRef implements ConvoMessageRef {
-  const factory _ConvoMessageRef(
+abstract class _MessageRef implements MessageRef {
+  const factory _MessageRef(
       {required final String did,
       required final String convoId,
-      required final String messageId}) = _$ConvoMessageRefImpl;
+      required final String messageId}) = _$MessageRefImpl;
 
-  factory _ConvoMessageRef.fromJson(Map<String, dynamic> json) =
-      _$ConvoMessageRefImpl.fromJson;
+  factory _MessageRef.fromJson(Map<String, dynamic> json) =
+      _$MessageRefImpl.fromJson;
 
   @override
   String get did;
@@ -185,6 +184,6 @@ abstract class _ConvoMessageRef implements ConvoMessageRef {
   String get messageId;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoMessageRefImplCopyWith<_$ConvoMessageRefImpl> get copyWith =>
+  _$$MessageRefImplCopyWith<_$MessageRefImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -11,12 +11,12 @@ part 'message_view_sender.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageviewsender
 @freezed
-class ConvoMessageViewSender with _$ConvoMessageViewSender {
+class MessageViewSender with _$MessageViewSender {
   @jsonSerializable
-  const factory ConvoMessageViewSender({
+  const factory MessageViewSender({
     required String did,
-  }) = _ConvoMessageViewSender;
+  }) = _MessageViewSender;
 
-  factory ConvoMessageViewSender.fromJson(Map<String, Object?> json) =>
-      _$ConvoMessageViewSenderFromJson(json);
+  factory MessageViewSender.fromJson(Map<String, Object?> json) =>
+      _$MessageViewSenderFromJson(json);
 }

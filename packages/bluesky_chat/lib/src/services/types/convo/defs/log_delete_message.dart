@@ -14,14 +14,14 @@ part 'log_delete_message.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#logdeletemessage
 @freezed
-class ConvoLogDeleteMessage with _$ConvoLogDeleteMessage {
+class LogDeleteMessage with _$LogDeleteMessage {
   @jsonSerializable
-  const factory ConvoLogDeleteMessage({
+  const factory LogDeleteMessage({
     required String rev,
     required String convoId,
     @unionConvoMessageViewConverter required UConvoMessageView message,
-  }) = _ConvoLogDeleteMessage;
+  }) = _LogDeleteMessage;
 
-  factory ConvoLogDeleteMessage.fromJson(Map<String, Object?> json) =>
-      _$ConvoLogDeleteMessageFromJson(json);
+  factory LogDeleteMessage.fromJson(Map<String, Object?> json) =>
+      _$LogDeleteMessageFromJson(json);
 }

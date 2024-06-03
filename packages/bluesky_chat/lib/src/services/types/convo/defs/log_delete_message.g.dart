@@ -8,12 +8,12 @@ part of 'log_delete_message.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoLogDeleteMessageImpl _$$ConvoLogDeleteMessageImplFromJson(Map json) =>
+_$LogDeleteMessageImpl _$$LogDeleteMessageImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ConvoLogDeleteMessageImpl',
+      r'_$LogDeleteMessageImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoLogDeleteMessageImpl(
+        final val = _$LogDeleteMessageImpl(
           rev: $checkedConvert('rev', (v) => v as String),
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
@@ -25,8 +25,8 @@ _$ConvoLogDeleteMessageImpl _$$ConvoLogDeleteMessageImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ConvoLogDeleteMessageImplToJson(
-        _$ConvoLogDeleteMessageImpl instance) =>
+Map<String, dynamic> _$$LogDeleteMessageImplToJson(
+        _$LogDeleteMessageImpl instance) =>
     <String, dynamic>{
       'rev': instance.rev,
       'convoId': instance.convoId,

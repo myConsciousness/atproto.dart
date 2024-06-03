@@ -8,32 +8,25 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ModerationGetActorMetadataImpl _$$ModerationGetActorMetadataImplFromJson(
-        Map json) =>
+_$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ModerationGetActorMetadataImpl',
+      r'_$GetActorMetadataOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ModerationGetActorMetadataImpl(
-          day: $checkedConvert(
-              'day',
-              (v) => ModerationGetActorMetadataMetadata.fromJson(
-                  Map<String, Object?>.from(v as Map))),
-          month: $checkedConvert(
-              'month',
-              (v) => ModerationGetActorMetadataMetadata.fromJson(
-                  Map<String, Object?>.from(v as Map))),
-          all: $checkedConvert(
-              'all',
-              (v) => ModerationGetActorMetadataMetadata.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+        final val = _$GetActorMetadataOutputImpl(
+          day: $checkedConvert('day',
+              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
+          month: $checkedConvert('month',
+              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
+          all: $checkedConvert('all',
+              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ModerationGetActorMetadataImplToJson(
-        _$ModerationGetActorMetadataImpl instance) =>
+Map<String, dynamic> _$$GetActorMetadataOutputImplToJson(
+        _$GetActorMetadataOutputImpl instance) =>
     <String, dynamic>{
       'day': instance.day.toJson(),
       'month': instance.month.toJson(),

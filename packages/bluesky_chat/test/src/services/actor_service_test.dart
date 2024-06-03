@@ -14,7 +14,7 @@ import 'suite/service_suite.dart';
 void main() {
   testActor<atp.StrongRef>(
     (m, s) => s.declaration(
-      allowIncoming: ActorDeclarationAllowIncoming.following,
+      allowIncoming: DeclarationAllowIncoming.following,
     ),
     id: chatBskyActorDeclaration,
   );

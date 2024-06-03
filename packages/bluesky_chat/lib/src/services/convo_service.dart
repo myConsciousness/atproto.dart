@@ -30,7 +30,7 @@ final class ConvoService {
   final BlueskyChatServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
-  Future<core.XRPCResponse<ConvoDeletedMessageView>> deleteMessageForSelf({
+  Future<core.XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
   }) async =>
@@ -40,11 +40,11 @@ final class ConvoService {
           'convoId': convoId,
           'messageId': messageId,
         },
-        to: ConvoDeletedMessageView.fromJson,
+        to: DeletedMessageView.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
-  Future<core.XRPCResponse<ConvoGetConvo>> getConvo({
+  Future<core.XRPCResponse<GetConvoOutput>> getConvo({
     required String convoId,
   }) async =>
       await _ctx.get(
@@ -52,11 +52,11 @@ final class ConvoService {
         parameters: {
           'convoId': convoId,
         },
-        to: ConvoGetConvo.fromJson,
+        to: GetConvoOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
-  Future<core.XRPCResponse<ConvoGetConvoForMembers>> getConvoForMembers({
+  Future<core.XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
     required List<String> members,
   }) async =>
       await _ctx.get(
@@ -64,11 +64,11 @@ final class ConvoService {
         parameters: {
           'members': members,
         },
-        to: ConvoGetConvoForMembers.fromJson,
+        to: GetConvoForMembersOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
-  Future<core.XRPCResponse<ConvoGetLog>> getLog({
+  Future<core.XRPCResponse<GetLogOutput>> getLog({
     String? cursor,
   }) async =>
       await _ctx.get(
@@ -76,11 +76,11 @@ final class ConvoService {
         parameters: {
           'cursor': cursor,
         },
-        to: ConvoGetLog.fromJson,
+        to: GetLogOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages
-  Future<core.XRPCResponse<ConvoGetMessages>> getMessages({
+  Future<core.XRPCResponse<GetMessagesOutput>> getMessages({
     required String convoId,
     int? limit,
     String? cursor,
@@ -92,11 +92,11 @@ final class ConvoService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: ConvoGetMessages.fromJson,
+        to: GetMessagesOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
-  Future<core.XRPCResponse<ConvoLeaveConvo>> leaveConvo({
+  Future<core.XRPCResponse<LeaveConvoOutput>> leaveConvo({
     required String convoId,
   }) async =>
       await _ctx.get(
@@ -104,11 +104,11 @@ final class ConvoService {
         parameters: {
           'convoId': convoId,
         },
-        to: ConvoLeaveConvo.fromJson,
+        to: LeaveConvoOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
-  Future<core.XRPCResponse<ConvoListConvos>> listConvos({
+  Future<core.XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
   }) async =>
@@ -118,11 +118,11 @@ final class ConvoService {
           'limit': limit,
           'cursor': cursor,
         },
-        to: ConvoListConvos.fromJson,
+        to: ListConvosOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
-  Future<core.XRPCResponse<ConvoMuteConvo>> muteConvo({
+  Future<core.XRPCResponse<MuteConvoOutput>> muteConvo({
     required String convoId,
   }) async =>
       await _ctx.post(
@@ -130,13 +130,13 @@ final class ConvoService {
         body: {
           'convoId': convoId,
         },
-        to: ConvoMuteConvo.fromJson,
+        to: MuteConvoOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
-  Future<core.XRPCResponse<ConvoMessageView>> sendMessage({
+  Future<core.XRPCResponse<MessageView>> sendMessage({
     required String convoId,
-    required ConvoMessageInput message,
+    required MessageInput message,
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
@@ -144,23 +144,23 @@ final class ConvoService {
           'convoId': convoId,
           'message': message.toJson(),
         },
-        to: ConvoMessageView.fromJson,
+        to: MessageView.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
-  Future<core.XRPCResponse<ConvoSendMessageBatch>> sendMessageBatch({
-    required List<ConvoSendMessageBatchBatchItem> items,
+  Future<core.XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
+    required List<BatchItem> items,
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
         body: {
           'items': items.map((e) => e.toJson()).toList(),
         },
-        to: ConvoSendMessageBatch.fromJson,
+        to: SendMessageBatchOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
-  Future<core.XRPCResponse<ConvoUnmuteConvo>> unmuteConvo({
+  Future<core.XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
     required String convoId,
   }) async =>
       await _ctx.post(
@@ -168,11 +168,11 @@ final class ConvoService {
         body: {
           'convoId': convoId,
         },
-        to: ConvoUnmuteConvo.fromJson,
+        to: UnmuteConvoOutput.fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead
-  Future<core.XRPCResponse<ConvoUpdateRead>> updateRead({
+  Future<core.XRPCResponse<UpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
   }) async =>
@@ -182,6 +182,6 @@ final class ConvoService {
           'convoId': convoId,
           'messageId': messageId,
         },
-        to: ConvoUpdateRead.fromJson,
+        to: UpdateReadOutput.fromJson,
       );
 }

@@ -15,14 +15,14 @@ part 'message_input.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#messageinput
 @freezed
-class ConvoMessageInput with _$ConvoMessageInput {
+class MessageInput with _$MessageInput {
   @jsonSerializable
-  const factory ConvoMessageInput({
+  const factory MessageInput({
     required String text,
     List<Facet>? facets,
     @unionConvoMessageEmbedConverter UConvoMessageEmbed? embed,
-  }) = _ConvoMessageInput;
+  }) = _MessageInput;
 
-  factory ConvoMessageInput.fromJson(Map<String, Object?> json) =>
-      _$ConvoMessageInputFromJson(json);
+  factory MessageInput.fromJson(Map<String, Object?> json) =>
+      _$MessageInputFromJson(json);
 }

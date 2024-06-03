@@ -2,16 +2,16 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-enum ActorDeclarationAllowIncoming {
+enum DeclarationAllowIncoming {
   all,
   none,
   following;
 
   String get value => name;
 
-  const ActorDeclarationAllowIncoming();
+  const DeclarationAllowIncoming();
 
-  static ActorDeclarationAllowIncoming? valueOf(final String value) {
+  static DeclarationAllowIncoming? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

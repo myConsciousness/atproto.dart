@@ -14,48 +14,41 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ModerationGetActorMetadata _$ModerationGetActorMetadataFromJson(
+GetActorMetadataOutput _$GetActorMetadataOutputFromJson(
     Map<String, dynamic> json) {
-  return _ModerationGetActorMetadata.fromJson(json);
+  return _GetActorMetadataOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ModerationGetActorMetadata {
-  ModerationGetActorMetadataMetadata get day =>
-      throw _privateConstructorUsedError;
-  ModerationGetActorMetadataMetadata get month =>
-      throw _privateConstructorUsedError;
-  ModerationGetActorMetadataMetadata get all =>
-      throw _privateConstructorUsedError;
+mixin _$GetActorMetadataOutput {
+  Metadata get day => throw _privateConstructorUsedError;
+  Metadata get month => throw _privateConstructorUsedError;
+  Metadata get all => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ModerationGetActorMetadataCopyWith<ModerationGetActorMetadata>
-      get copyWith => throw _privateConstructorUsedError;
+  $GetActorMetadataOutputCopyWith<GetActorMetadataOutput> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ModerationGetActorMetadataCopyWith<$Res> {
-  factory $ModerationGetActorMetadataCopyWith(ModerationGetActorMetadata value,
-          $Res Function(ModerationGetActorMetadata) then) =
-      _$ModerationGetActorMetadataCopyWithImpl<$Res,
-          ModerationGetActorMetadata>;
+abstract class $GetActorMetadataOutputCopyWith<$Res> {
+  factory $GetActorMetadataOutputCopyWith(GetActorMetadataOutput value,
+          $Res Function(GetActorMetadataOutput) then) =
+      _$GetActorMetadataOutputCopyWithImpl<$Res, GetActorMetadataOutput>;
   @useResult
-  $Res call(
-      {ModerationGetActorMetadataMetadata day,
-      ModerationGetActorMetadataMetadata month,
-      ModerationGetActorMetadataMetadata all});
+  $Res call({Metadata day, Metadata month, Metadata all});
 
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get day;
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get month;
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get all;
+  $MetadataCopyWith<$Res> get day;
+  $MetadataCopyWith<$Res> get month;
+  $MetadataCopyWith<$Res> get all;
 }
 
 /// @nodoc
-class _$ModerationGetActorMetadataCopyWithImpl<$Res,
-        $Val extends ModerationGetActorMetadata>
-    implements $ModerationGetActorMetadataCopyWith<$Res> {
-  _$ModerationGetActorMetadataCopyWithImpl(this._value, this._then);
+class _$GetActorMetadataOutputCopyWithImpl<$Res,
+        $Val extends GetActorMetadataOutput>
+    implements $GetActorMetadataOutputCopyWith<$Res> {
+  _$GetActorMetadataOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -73,76 +66,70 @@ class _$ModerationGetActorMetadataCopyWithImpl<$Res,
       day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
       month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
       all: null == all
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get day {
-    return $ModerationGetActorMetadataMetadataCopyWith<$Res>(_value.day,
-        (value) {
+  $MetadataCopyWith<$Res> get day {
+    return $MetadataCopyWith<$Res>(_value.day, (value) {
       return _then(_value.copyWith(day: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get month {
-    return $ModerationGetActorMetadataMetadataCopyWith<$Res>(_value.month,
-        (value) {
+  $MetadataCopyWith<$Res> get month {
+    return $MetadataCopyWith<$Res>(_value.month, (value) {
       return _then(_value.copyWith(month: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get all {
-    return $ModerationGetActorMetadataMetadataCopyWith<$Res>(_value.all,
-        (value) {
+  $MetadataCopyWith<$Res> get all {
+    return $MetadataCopyWith<$Res>(_value.all, (value) {
       return _then(_value.copyWith(all: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$ModerationGetActorMetadataImplCopyWith<$Res>
-    implements $ModerationGetActorMetadataCopyWith<$Res> {
-  factory _$$ModerationGetActorMetadataImplCopyWith(
-          _$ModerationGetActorMetadataImpl value,
-          $Res Function(_$ModerationGetActorMetadataImpl) then) =
-      __$$ModerationGetActorMetadataImplCopyWithImpl<$Res>;
+abstract class _$$GetActorMetadataOutputImplCopyWith<$Res>
+    implements $GetActorMetadataOutputCopyWith<$Res> {
+  factory _$$GetActorMetadataOutputImplCopyWith(
+          _$GetActorMetadataOutputImpl value,
+          $Res Function(_$GetActorMetadataOutputImpl) then) =
+      __$$GetActorMetadataOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {ModerationGetActorMetadataMetadata day,
-      ModerationGetActorMetadataMetadata month,
-      ModerationGetActorMetadataMetadata all});
+  $Res call({Metadata day, Metadata month, Metadata all});
 
   @override
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get day;
+  $MetadataCopyWith<$Res> get day;
   @override
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get month;
+  $MetadataCopyWith<$Res> get month;
   @override
-  $ModerationGetActorMetadataMetadataCopyWith<$Res> get all;
+  $MetadataCopyWith<$Res> get all;
 }
 
 /// @nodoc
-class __$$ModerationGetActorMetadataImplCopyWithImpl<$Res>
-    extends _$ModerationGetActorMetadataCopyWithImpl<$Res,
-        _$ModerationGetActorMetadataImpl>
-    implements _$$ModerationGetActorMetadataImplCopyWith<$Res> {
-  __$$ModerationGetActorMetadataImplCopyWithImpl(
-      _$ModerationGetActorMetadataImpl _value,
-      $Res Function(_$ModerationGetActorMetadataImpl) _then)
+class __$$GetActorMetadataOutputImplCopyWithImpl<$Res>
+    extends _$GetActorMetadataOutputCopyWithImpl<$Res,
+        _$GetActorMetadataOutputImpl>
+    implements _$$GetActorMetadataOutputImplCopyWith<$Res> {
+  __$$GetActorMetadataOutputImplCopyWithImpl(
+      _$GetActorMetadataOutputImpl _value,
+      $Res Function(_$GetActorMetadataOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -152,19 +139,19 @@ class __$$ModerationGetActorMetadataImplCopyWithImpl<$Res>
     Object? month = null,
     Object? all = null,
   }) {
-    return _then(_$ModerationGetActorMetadataImpl(
+    return _then(_$GetActorMetadataOutputImpl(
       day: null == day
           ? _value.day
           : day // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
       month: null == month
           ? _value.month
           : month // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
       all: null == all
           ? _value.all
           : all // ignore: cast_nullable_to_non_nullable
-              as ModerationGetActorMetadataMetadata,
+              as Metadata,
     ));
   }
 }
@@ -172,31 +159,30 @@ class __$$ModerationGetActorMetadataImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ModerationGetActorMetadataImpl implements _ModerationGetActorMetadata {
-  const _$ModerationGetActorMetadataImpl(
+class _$GetActorMetadataOutputImpl implements _GetActorMetadataOutput {
+  const _$GetActorMetadataOutputImpl(
       {required this.day, required this.month, required this.all});
 
-  factory _$ModerationGetActorMetadataImpl.fromJson(
-          Map<String, dynamic> json) =>
-      _$$ModerationGetActorMetadataImplFromJson(json);
+  factory _$GetActorMetadataOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetActorMetadataOutputImplFromJson(json);
 
   @override
-  final ModerationGetActorMetadataMetadata day;
+  final Metadata day;
   @override
-  final ModerationGetActorMetadataMetadata month;
+  final Metadata month;
   @override
-  final ModerationGetActorMetadataMetadata all;
+  final Metadata all;
 
   @override
   String toString() {
-    return 'ModerationGetActorMetadata(day: $day, month: $month, all: $all)';
+    return 'GetActorMetadataOutput(day: $day, month: $month, all: $all)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ModerationGetActorMetadataImpl &&
+            other is _$GetActorMetadataOutputImpl &&
             (identical(other.day, day) || other.day == day) &&
             (identical(other.month, month) || other.month == month) &&
             (identical(other.all, all) || other.all == all));
@@ -209,37 +195,35 @@ class _$ModerationGetActorMetadataImpl implements _ModerationGetActorMetadata {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ModerationGetActorMetadataImplCopyWith<_$ModerationGetActorMetadataImpl>
-      get copyWith => __$$ModerationGetActorMetadataImplCopyWithImpl<
-          _$ModerationGetActorMetadataImpl>(this, _$identity);
+  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
+      get copyWith => __$$GetActorMetadataOutputImplCopyWithImpl<
+          _$GetActorMetadataOutputImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ModerationGetActorMetadataImplToJson(
+    return _$$GetActorMetadataOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ModerationGetActorMetadata
-    implements ModerationGetActorMetadata {
-  const factory _ModerationGetActorMetadata(
-          {required final ModerationGetActorMetadataMetadata day,
-          required final ModerationGetActorMetadataMetadata month,
-          required final ModerationGetActorMetadataMetadata all}) =
-      _$ModerationGetActorMetadataImpl;
+abstract class _GetActorMetadataOutput implements GetActorMetadataOutput {
+  const factory _GetActorMetadataOutput(
+      {required final Metadata day,
+      required final Metadata month,
+      required final Metadata all}) = _$GetActorMetadataOutputImpl;
 
-  factory _ModerationGetActorMetadata.fromJson(Map<String, dynamic> json) =
-      _$ModerationGetActorMetadataImpl.fromJson;
+  factory _GetActorMetadataOutput.fromJson(Map<String, dynamic> json) =
+      _$GetActorMetadataOutputImpl.fromJson;
 
   @override
-  ModerationGetActorMetadataMetadata get day;
+  Metadata get day;
   @override
-  ModerationGetActorMetadataMetadata get month;
+  Metadata get month;
   @override
-  ModerationGetActorMetadataMetadata get all;
+  Metadata get all;
   @override
   @JsonKey(ignore: true)
-  _$$ModerationGetActorMetadataImplCopyWith<_$ModerationGetActorMetadataImpl>
+  _$$GetActorMetadataOutputImplCopyWith<_$GetActorMetadataOutputImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
