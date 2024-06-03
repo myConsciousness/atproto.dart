@@ -6,6 +6,15 @@
 - Move `BlobConverter`, `Blob`, `BlobRef` from `atproto` package to `atproto_core`.
 - Add `.active` and `.status` properties on `Repo` object. ([#1517](https://github.com/myConsciousness/atproto.dart/issues/1517))
 - Add `.getRepoStatus` method on `SyncService`. ([#1517](https://github.com/myConsciousness/atproto.dart/issues/1517))
+- Applied naming convention based on lexicons on following objects.
+  - `SubscribedRepoCommit` -> `Commit`
+  - `SubscribedRepoIdentity` -> `Identity`
+  - `SubscribedRepoHandle` -> `Handle`
+  - `SubscribedRepoMigrate` -> `Migrate`
+  - `SubscribedRepoTombstone` -> `Tombstone`
+  - `SubscribedRepoInfo` -> `Info`
+  - `Account` -> `CreateAccountOutput`
+- Add `account` event on `SyncService.subscribeRepos`. ([#1517](https://github.com/myConsciousness/atproto.dart/issues/1517))
 
 ## v0.15.27
 

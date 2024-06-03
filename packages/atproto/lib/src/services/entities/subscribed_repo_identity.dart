@@ -11,14 +11,14 @@ part 'subscribed_repo_identity.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#identity
 @freezed
-class SubscribedRepoIdentity with _$SubscribedRepoIdentity {
+class Identity with _$Identity {
   @jsonSerializable
-  const factory SubscribedRepoIdentity({
+  const factory Identity({
     required String did,
     required int seq,
     required DateTime time,
-  }) = _SubscribedRepoIdentity;
+  }) = _Identity;
 
-  factory SubscribedRepoIdentity.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoIdentityFromJson(json);
+  factory Identity.fromJson(Map<String, Object?> json) =>
+      _$IdentityFromJson(json);
 }

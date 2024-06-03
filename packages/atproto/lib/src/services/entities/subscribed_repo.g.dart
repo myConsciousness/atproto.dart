@@ -14,10 +14,8 @@ _$USubscribedRepoCommitImpl _$$USubscribedRepoCommitImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoCommitImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoCommit.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Commit.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;
@@ -39,10 +37,8 @@ _$USubscribedRepoIdentityImpl _$$USubscribedRepoIdentityImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoIdentityImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoIdentity.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Identity.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;
@@ -57,16 +53,36 @@ Map<String, dynamic> _$$USubscribedRepoIdentityImplToJson(
       'runtimeType': instance.$type,
     };
 
+_$USubscribedRepoAccountImpl _$$USubscribedRepoAccountImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$USubscribedRepoAccountImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$USubscribedRepoAccountImpl(
+          data: $checkedConvert('data',
+              (v) => Account.fromJson(Map<String, Object?>.from(v as Map))),
+          $type: $checkedConvert('runtimeType', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {r'$type': 'runtimeType'},
+    );
+
+Map<String, dynamic> _$$USubscribedRepoAccountImplToJson(
+        _$USubscribedRepoAccountImpl instance) =>
+    <String, dynamic>{
+      'data': instance.data.toJson(),
+      'runtimeType': instance.$type,
+    };
+
 _$USubscribedRepoHandleImpl _$$USubscribedRepoHandleImplFromJson(Map json) =>
     $checkedCreate(
       r'_$USubscribedRepoHandleImpl',
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoHandleImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoHandle.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Handle.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;
@@ -87,10 +103,8 @@ _$USubscribedRepoMigrateImpl _$$USubscribedRepoMigrateImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoMigrateImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoMigrate.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Migrate.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;
@@ -112,10 +126,8 @@ _$USubscribedRepoTombstoneImpl _$$USubscribedRepoTombstoneImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoTombstoneImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoTombstone.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Tombstone.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;
@@ -136,10 +148,8 @@ _$USubscribedRepoInfoImpl _$$USubscribedRepoInfoImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$USubscribedRepoInfoImpl(
-          data: $checkedConvert(
-              'data',
-              (v) => SubscribedRepoInfo.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+          data: $checkedConvert('data',
+              (v) => Info.fromJson(Map<String, Object?>.from(v as Map))),
           $type: $checkedConvert('runtimeType', (v) => v as String?),
         );
         return val;

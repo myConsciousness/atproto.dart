@@ -1297,15 +1297,14 @@ void main() {
   });
 }
 
-SubscribedRepoCommit _buildSubscribedRepoCommit(
+Commit _buildSubscribedRepoCommit(
   final RepoOp op,
 ) =>
-    SubscribedRepoCommit(
+    Commit(
       ops: [op],
       did: 'aaaaaaa',
       cursor: 1234,
       rev: 'xxxxxxx',
-      isRebase: false,
       isTooBig: false,
       createdAt: DateTime.now(),
     );

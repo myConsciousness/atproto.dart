@@ -16,9 +16,9 @@ part 'subscribed_repo_commit.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
-class SubscribedRepoCommit with _$SubscribedRepoCommit {
+class Commit with _$Commit {
   @jsonSerializable
-  const factory SubscribedRepoCommit({
+  const factory Commit({
     required List<RepoOp> ops,
     @JsonKey(name: 'repo') required String did,
     @JsonKey(name: 'seq') required int cursor,
@@ -28,11 +28,9 @@ class SubscribedRepoCommit with _$SubscribedRepoCommit {
 
     /// The rev of the last emitted commit from this repo.
     String? since,
-    @JsonKey(name: 'rebase') @Default(false) bool isRebase,
     @JsonKey(name: 'tooBig') @Default(false) bool isTooBig,
     @JsonKey(name: 'time') required DateTime createdAt,
-  }) = _SubscribedRepoCommit;
+  }) = _Commit;
 
-  factory SubscribedRepoCommit.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoCommitFromJson(json);
+  factory Commit.fromJson(Map<String, Object?> json) => _$CommitFromJson(json);
 }

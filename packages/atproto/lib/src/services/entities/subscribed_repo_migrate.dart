@@ -11,19 +11,15 @@ part 'subscribed_repo_migrate.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
-class SubscribedRepoMigrate with _$SubscribedRepoMigrate {
+class Migrate with _$Migrate {
   @jsonSerializable
-  const factory SubscribedRepoMigrate({
+  const factory Migrate({
     required String did,
     String? migrateTo,
     @JsonKey(name: 'seq') required int cursor,
     @JsonKey(name: 'time') required DateTime createdAt,
-  }) = _SubscribedRepoMigrate;
+  }) = _Migrate;
 
-  /// Creates a new instance of [SubscribedRepoMigrate] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can be used
-  /// to populate an instance of [SubscribedRepoMigrate].
-  factory SubscribedRepoMigrate.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoMigrateFromJson(json);
+  factory Migrate.fromJson(Map<String, Object?> json) =>
+      _$MigrateFromJson(json);
 }

@@ -11,13 +11,12 @@ part 'subscribed_repo_info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#info
 @freezed
-class SubscribedRepoInfo with _$SubscribedRepoInfo {
+class Info with _$Info {
   @jsonSerializable
-  const factory SubscribedRepoInfo({
+  const factory Info({
     required String name,
     String? message,
-  }) = _SubscribedRepoInfo;
+  }) = _Info;
 
-  factory SubscribedRepoInfo.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoInfoFromJson(json);
+  factory Info.fromJson(Map<String, Object?> json) => _$InfoFromJson(json);
 }

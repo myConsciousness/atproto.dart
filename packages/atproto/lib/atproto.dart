@@ -50,6 +50,7 @@ export 'package:atproto/src/services/entities/self_label.dart';
 export 'package:atproto/src/services/entities/self_labels.dart';
 export 'package:atproto/src/services/entities/labels.dart';
 export 'package:atproto/src/services/entities/labels_by_query.dart';
+export 'package:atproto/src/services/entities/subscribed_repo_account.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_commit.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_identity.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_handle.dart';

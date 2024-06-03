@@ -8,15 +8,13 @@ part of 'subscribed_repo_tombstone.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscribedRepoTombstoneImpl _$$SubscribedRepoTombstoneImplFromJson(
-        Map json) =>
-    $checkedCreate(
-      r'_$SubscribedRepoTombstoneImpl',
+_$TombstoneImpl _$$TombstoneImplFromJson(Map json) => $checkedCreate(
+      r'_$TombstoneImpl',
       json,
       ($checkedConvert) {
-        final val = _$SubscribedRepoTombstoneImpl(
+        final val = _$TombstoneImpl(
           did: $checkedConvert('did', (v) => v as String),
-          cursor: $checkedConvert('seq', (v) => v as int),
+          cursor: $checkedConvert('seq', (v) => (v as num).toInt()),
           createdAt:
               $checkedConvert('time', (v) => DateTime.parse(v as String)),
         );
@@ -25,8 +23,7 @@ _$SubscribedRepoTombstoneImpl _$$SubscribedRepoTombstoneImplFromJson(
       fieldKeyMap: const {'cursor': 'seq', 'createdAt': 'time'},
     );
 
-Map<String, dynamic> _$$SubscribedRepoTombstoneImplToJson(
-        _$SubscribedRepoTombstoneImpl instance) =>
+Map<String, dynamic> _$$TombstoneImplToJson(_$TombstoneImpl instance) =>
     <String, dynamic>{
       'did': instance.did,
       'seq': instance.cursor,

@@ -27,7 +27,7 @@ void main() {
     id: comAtprotoServerGetSession,
   );
 
-  testServer<Account>(
+  testServer<CreateAccountOutput>(
     (m, s) => s.createAccount(
       handle: m.actor,
       email: m.email,

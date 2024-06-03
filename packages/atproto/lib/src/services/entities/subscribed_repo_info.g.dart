@@ -8,12 +8,11 @@ part of 'subscribed_repo_info.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SubscribedRepoInfoImpl _$$SubscribedRepoInfoImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$SubscribedRepoInfoImpl',
+_$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
+      r'_$InfoImpl',
       json,
       ($checkedConvert) {
-        final val = _$SubscribedRepoInfoImpl(
+        final val = _$InfoImpl(
           name: $checkedConvert('name', (v) => v as String),
           message: $checkedConvert('message', (v) => v as String?),
         );
@@ -21,8 +20,7 @@ _$SubscribedRepoInfoImpl _$$SubscribedRepoInfoImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$SubscribedRepoInfoImplToJson(
-    _$SubscribedRepoInfoImpl instance) {
+Map<String, dynamic> _$$InfoImplToJson(_$InfoImpl instance) {
   final val = <String, dynamic>{
     'name': instance.name,
   };
