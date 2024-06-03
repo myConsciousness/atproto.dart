@@ -7,6 +7,8 @@ import 'package:lexicon/lexicon.dart';
 import '../rules/lex_naming_convention.dart';
 
 import '../types/lex_gen_object.dart';
+import '../types/context.dart';
+import '../utils.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(
@@ -28,7 +30,11 @@ final class LexGenObjectBuilder {
     if (properties.isEmpty) return null; // RefVariant, no need to create.
 
     return LexGenObject(
-      description: getReferencePath(docId, defName),
+      description: getReferencePath(LexGenContext(
+        docId: docId,
+        defName: defName,
+        def: def,
+      )),
       name: namingConvention.getObjectName(),
       fileName: namingConvention.getFileName(),
       properties: properties,
