@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.10.0
+
+- Add `.active` and `.status` properties on `Session` object. ([#1516](https://github.com/myConsciousness/atproto.dart/pull/1516))
+- Move `BlobConverter`, `Blob`, `BlobRef` from `atproto` package to `atproto_core`.
+
 ## v0.9.10
 
 - Don't include Auth headers in `.headers`.
