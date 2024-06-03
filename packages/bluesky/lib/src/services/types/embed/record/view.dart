@@ -14,20 +14,17 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'external.freezed.dart';
-part 'external.g.dart';
+part 'view.freezed.dart';
+part 'view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class ExternalExternal with _$ExternalExternal {
+class RecordView with _$RecordView {
   @jsonSerializable
-  const factory ExternalExternal({
-    required String uri,
-    required String title,
-    required String description,
-    @BlobConverter() Blob? thumb,
-  }) = _ExternalExternal;
+  const factory RecordView({
+    required String record,
+  }) = _RecordView;
 
-  factory ExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$ExternalExternalFromJson(json);
+  factory RecordView.fromJson(Map<String, Object?> json) =>
+      _$RecordViewFromJson(json);
 }

@@ -8,21 +8,53 @@ part of 'external.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
-      r'_$ExternalImpl',
+_$ExternalExternalImpl _$$ExternalExternalImplFromJson(Map json) =>
+    $checkedCreate(
+      r'_$ExternalExternalImpl',
       json,
       ($checkedConvert) {
-        final val = _$ExternalImpl(
-          external: $checkedConvert(
-              'external',
-              (v) => ExternalExternal.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+        final val = _$ExternalExternalImpl(
+          uri: $checkedConvert('uri', (v) => v as String),
+          title: $checkedConvert('title', (v) => v as String),
+          description: $checkedConvert('description', (v) => v as String),
+          thumb: $checkedConvert(
+              'thumb',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Blob>(
+                  v, const BlobConverter().fromJson)),
         );
         return val;
       },
     );
 
-Map<String, dynamic> _$$ExternalImplToJson(_$ExternalImpl instance) =>
-    <String, dynamic>{
-      'external': instance.external.toJson(),
-    };
+Map<String, dynamic> _$$ExternalExternalImplToJson(
+    _$ExternalExternalImpl instance) {
+  final val = <String, dynamic>{
+    'uri': instance.uri,
+    'title': instance.title,
+    'description': instance.description,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'thumb',
+      _$JsonConverterToJson<Map<String, dynamic>, Blob>(
+          instance.thumb, const BlobConverter().toJson));
+  return val;
+}
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

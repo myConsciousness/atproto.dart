@@ -14,20 +14,18 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'external.freezed.dart';
-part 'external.g.dart';
+part 'aspect_ratio.freezed.dart';
+part 'aspect_ratio.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed
-class ExternalExternal with _$ExternalExternal {
+class ImagesAspectRatio with _$ImagesAspectRatio {
   @jsonSerializable
-  const factory ExternalExternal({
-    required String uri,
-    required String title,
-    required String description,
-    @BlobConverter() Blob? thumb,
-  }) = _ExternalExternal;
+  const factory ImagesAspectRatio({
+    required int width,
+    required int height,
+  }) = _ImagesAspectRatio;
 
-  factory ExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$ExternalExternalFromJson(json);
+  factory ImagesAspectRatio.fromJson(Map<String, Object?> json) =>
+      _$ImagesAspectRatioFromJson(json);
 }

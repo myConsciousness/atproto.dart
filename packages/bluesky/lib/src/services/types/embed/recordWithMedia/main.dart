@@ -14,20 +14,21 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'external.freezed.dart';
-part 'external.g.dart';
+// 🌎 Project imports:
+import '../../embed/record/main.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
+part 'main.freezed.dart';
+part 'main.g.dart';
+
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
-class ExternalExternal with _$ExternalExternal {
+class RecordWithMedia with _$RecordWithMedia {
   @jsonSerializable
-  const factory ExternalExternal({
-    required String uri,
-    required String title,
-    required String description,
-    @BlobConverter() Blob? thumb,
-  }) = _ExternalExternal;
+  const factory RecordWithMedia({
+    required Record record,
+    required String media,
+  }) = _RecordWithMedia;
 
-  factory ExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$ExternalExternalFromJson(json);
+  factory RecordWithMedia.fromJson(Map<String, Object?> json) =>
+      _$RecordWithMediaFromJson(json);
 }

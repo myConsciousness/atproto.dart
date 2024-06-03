@@ -11,23 +11,20 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'external.freezed.dart';
-part 'external.g.dart';
+part 'main.freezed.dart';
+part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
-class ExternalExternal with _$ExternalExternal {
+class Record with _$Record {
   @jsonSerializable
-  const factory ExternalExternal({
-    required String uri,
-    required String title,
-    required String description,
-    @BlobConverter() Blob? thumb,
-  }) = _ExternalExternal;
+  const factory Record({
+    required StrongRef record,
+  }) = _Record;
 
-  factory ExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$ExternalExternalFromJson(json);
+  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
 }

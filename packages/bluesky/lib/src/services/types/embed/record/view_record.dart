@@ -16,31 +16,30 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../actor/defs/profile_view.dart';
-import '../../richtext/facet/main.dart';
-import 'list_viewer_state.dart';
+import '../../actor/defs/profile_view_basic.dart';
 
-part 'list_view.freezed.dart';
-part 'list_view.g.dart';
+part 'view_record.freezed.dart';
+part 'view_record.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listview
+// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
-class ListView with _$ListView {
+class RecordViewRecord with _$RecordViewRecord {
   @jsonSerializable
-  const factory ListView({
+  const factory RecordViewRecord({
     @AtUriConverter() required AtUri uri,
     required String cid,
-    required ProfileView creator,
-    required String name,
-    required String purpose,
-    String? description,
-    @Default([]) List<Facet> descriptionFacets,
-    String? avatar,
-    @Default([]) List<Label> labels,
-    @Default(ListViewerState()) ListViewerState viewer,
-    required DateTime indexedAt,
-  }) = _ListView;
+    required ProfileViewBasic author,
 
-  factory ListView.fromJson(Map<String, Object?> json) =>
-      _$ListViewFromJson(json);
+    /// The record data itself.
+    required Map<String, dynamic> value,
+    @Default([]) List<Label> labels,
+    @Default(0) int replyCount,
+    @Default(0) int repostCount,
+    @Default(0) int likeCount,
+    @Default([]) List<String> embeds,
+    required DateTime indexedAt,
+  }) = _RecordViewRecord;
+
+  factory RecordViewRecord.fromJson(Map<String, Object?> json) =>
+      _$RecordViewRecordFromJson(json);
 }

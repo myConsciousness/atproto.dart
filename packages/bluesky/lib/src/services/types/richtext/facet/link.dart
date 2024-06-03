@@ -14,20 +14,17 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'external.freezed.dart';
-part 'external.g.dart';
+part 'link.freezed.dart';
+part 'link.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
+// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
-class ExternalExternal with _$ExternalExternal {
+class FacetLink with _$FacetLink {
   @jsonSerializable
-  const factory ExternalExternal({
+  const factory FacetLink({
     required String uri,
-    required String title,
-    required String description,
-    @BlobConverter() Blob? thumb,
-  }) = _ExternalExternal;
+  }) = _FacetLink;
 
-  factory ExternalExternal.fromJson(Map<String, Object?> json) =>
-      _$ExternalExternalFromJson(json);
+  factory FacetLink.fromJson(Map<String, Object?> json) =>
+      _$FacetLinkFromJson(json);
 }

@@ -28,12 +28,12 @@ final class LexNamingConvention {
   String getFileName() {
     final lexicon = _lexicon;
 
-    final segments = lexicon.split('.');
+    final segments = context.docId.toString().split('.');
     if (!segments.last.startsWith('defs') && !lexicon.contains('#')) {
       return 'output';
     }
 
-    return toLowerCamelCase(lexicon.split('#').last);
+    return toLowerCamelCase(context.defName);
   }
 
   String getFilePath() {
