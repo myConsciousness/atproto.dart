@@ -10,6 +10,7 @@ import '../rules/naming_convention.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/object.dart';
+import 'known_values_builder.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(this.context);
@@ -78,6 +79,12 @@ final class LexGenObjectBuilder {
           isRequired: requiredProperties.contains(entry.key),
           type: dataType,
           name: entry.key,
+          knownValues: LexKnownValuesBuilder(
+            context.docId,
+            context.defName,
+            entry.key,
+            property['knownValues'] ?? const [],
+          ).build(),
           defaultValue: getDefaultValue(
             property['default'],
             dataType,

@@ -5,6 +5,7 @@
 // 🌎 Project imports:
 import '../../utils.dart';
 import 'data_type.dart';
+import 'known_values.dart';
 
 const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
 const _kFreezedAnnotationPackage =
@@ -81,6 +82,7 @@ final class LexGenObjectProperty {
     this.isRequired = false,
     required this.type,
     required this.name,
+    this.knownValues,
     this.defaultValue,
   });
 
@@ -89,6 +91,7 @@ final class LexGenObjectProperty {
   final DataType type;
   final String name;
 
+  final LexGenKnownValues? knownValues;
   final String? defaultValue;
 
   @override

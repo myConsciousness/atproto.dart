@@ -57,6 +57,14 @@ final class LexGen {
           File(_getOutputFilePath(docId, object.filePath))
             ..createSync(recursive: true)
             ..writeAsStringSync(object.toString());
+
+          for (final property in object.properties) {
+            if (property.knownValues != null) {
+              File(_getOutputFilePath(docId, property.knownValues!.filePath))
+                ..createSync(recursive: true)
+                ..writeAsStringSync(property.knownValues.toString());
+            }
+          }
         }
       });
     }

@@ -6,94 +6,45 @@
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import '../../utils.dart';
 import '../rules/utils.dart';
+import '../types/known_values.dart';
 
-const _kFreezedAnnotationPackage =
-    "import 'package:freezed_annotation/freezed_annotation.dart';";
-
-final class Element {
-  const Element({
-    this.description,
-    required this.name,
-    this.value,
-  });
-
-  final String? description;
-  final String name;
-  final String? value;
-
-  @override
-  String toString() {
-    final buffer = StringBuffer();
-
-    if (description != null) {
-      buffer.writeln('/// $description');
-    }
-
-    if (value != null) {
-      buffer.writeln("@JsonValue('$value')");
-      buffer.writeln("$name('$value'),");
-    } else {
-      buffer.writeln("@JsonValue('$name')");
-      buffer.writeln("$name('$name'),");
-    }
-
-    return buffer.toString();
-  }
-}
-
-final class LexKnownValuesTemplate {
-  const LexKnownValuesTemplate(
+final class LexKnownValuesBuilder {
+  const LexKnownValuesBuilder(
+    this.docId,
     this.defName,
     this.propertyName,
     this.knownValues,
   );
 
+  final NSID docId;
   final String defName;
   final String propertyName;
   final List<String> knownValues;
 
-  String? build() {
+  LexGenKnownValues? build() {
+    if (knownValues.isEmpty) return null;
+
     final elements = _getElements();
     if (elements.isEmpty) return null;
 
-    final objectName =
-        'Known${_toFirstUpper(defName)}${_toFirstUpper(propertyName)}';
+    final objectName = '${toFirstUpper(defName)}${toFirstUpper(propertyName)}';
+    final fileName = toLowerCamelCase(objectName);
+    final path =
+        docId.toString().split('.').sublist(2).join('.').replaceAll('.', '/');
 
-    final buffer = StringBuffer();
-    buffer.writeln(getFileHeader('Lex Object Generator'));
-    buffer.writeln();
-    buffer.writeln(_kFreezedAnnotationPackage);
-    buffer.writeln();
-    buffer.writeln('enum $objectName {');
-    for (final element in elements) {
-      buffer.write(element.toString());
-    }
-    buffer.writeln('  ;');
-    buffer.writeln();
-    buffer.writeln('  final String value;');
-    buffer.writeln();
-    buffer.writeln('  const $objectName(this.value);');
-    buffer.writeln();
-    buffer.writeln('  static $objectName? valueOf(final String value) {');
-    buffer.writeln('    for (final \$value in values) {');
-    buffer.writeln('      if (\$value.value == value) {');
-    buffer.writeln('        return \$value');
-    buffer.writeln('      }');
-    buffer.writeln('    }');
-    buffer.writeln();
-    buffer.writeln('    return null;');
-    buffer.writeln('  }');
-    buffer.writeln('}');
-
-    return buffer.toString();
+    return LexGenKnownValues(
+      name: objectName,
+      elements: elements,
+      fileName: fileName,
+      filePath: '$path/$fileName.dart',
+    );
   }
 
-  List<Element> _getElements() {
+  List<LexGenKnownValuesElement> _getElements() {
     if (knownValues.isEmpty) return const [];
 
-    final elements = <Element>[];
+    final elements = <LexGenKnownValuesElement>[];
     for (final knownValue in knownValues) {
       if (knownValue.contains('.') && knownValue.contains('#')) {
         final segments = knownValue.split('#');
@@ -101,7 +52,7 @@ final class LexKnownValuesTemplate {
 
         if (refToken is ULexUserTypeToken) {
           elements.add(
-            Element(
+            LexGenKnownValuesElement(
               description: refToken.data.description,
               name: segments.last,
               value: knownValue,
@@ -111,15 +62,15 @@ final class LexKnownValuesTemplate {
       } else {
         String name = knownValue;
         if (name.startsWith('!')) {
-          name = name.substring(1);
+          name = name.substring(1); // Remove unnecessary sign`.
         }
         if (name.contains('-')) {
-          name = knownValue.split('-').map(_toFirstUpper).join();
+          name = knownValue.split('-').map(toFirstUpper).join();
         }
 
         elements.add(
-          Element(
-            name: _toFirstLower(name),
+          LexGenKnownValuesElement(
+            name: toFirstLower(name),
             value: knownValue,
           ),
         );
@@ -127,13 +78,5 @@ final class LexKnownValuesTemplate {
     }
 
     return elements;
-  }
-
-  String _toFirstUpper(final String input) {
-    return input.substring(0, 1).toUpperCase() + input.substring(1);
-  }
-
-  String _toFirstLower(final String input) {
-    return input.substring(0, 1).toLowerCase() + input.substring(1);
   }
 }
