@@ -9,6 +9,17 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../types/context.dart';
 
+String toLowerCamelCase(final String input) {
+  return input
+      .split(RegExp(r'(?=[A-Z])'))
+      .map((word) => word.toLowerCase())
+      .join('_');
+}
+
+String toFirstUpper(final String input) {
+  return input.substring(0, 1).toUpperCase() + input.substring(1);
+}
+
 String getPackageName(final String lexicon) {
   if (lexicon.startsWith('com.atproto')) {
     return 'atproto';

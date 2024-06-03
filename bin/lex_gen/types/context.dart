@@ -9,13 +9,13 @@ final class LexGenContext {
   const LexGenContext({
     required this.docId,
     required this.defName,
-    required this.def,
+    this.def,
     required this.mainRelatedDocIds,
   });
 
   final NSID docId;
   final String defName;
-  final LexUserType def;
+  final LexUserType? def;
 
   final List<String> mainRelatedDocIds;
 }

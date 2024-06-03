@@ -11,7 +11,6 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import 'builders/object_builder.dart';
-import 'rules/naming_convention.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
 
@@ -45,31 +44,21 @@ final class LexGen {
 
       final docId = doc.id;
       doc.defs.forEach((defName, def) {
-        final convention = getNamingConvention(
-          docId,
-          defName,
-          def,
-          mainRelatedDocIds,
-        );
+        final object = LexGenObjectBuilder(
+          LexGenContext(
+            docId: docId,
+            defName: defName,
+            def: def,
+            mainRelatedDocIds: mainRelatedDocIds,
+          ),
+        ).build();
 
-        if (convention != null) {
-          final object = LexGenObjectBuilder(
-            LexGenContext(
-              docId: docId,
-              defName: defName,
-              def: def,
-              mainRelatedDocIds: mainRelatedDocIds,
-            ),
-            convention,
-          ).build();
-
-          if (object != null) {
-            final filePath = convention.getFilePath();
-            File(
-                'packages/${getPackageName(doc.id.toString())}/$_kTypesPath/$filePath')
-              ..createSync(recursive: true)
-              ..writeAsStringSync(object.toString());
-          }
+        if (object != null) {
+          File(
+            'packages/${getPackageName(doc.id.toString())}/$_kTypesPath/${object.outputFilePath}',
+          )
+            ..createSync(recursive: true)
+            ..writeAsStringSync(object.toString());
         }
       });
     }
@@ -87,39 +76,6 @@ final class LexGen {
     }
 
     return docIds;
-  }
-
-  LexNamingConvention? getNamingConvention(
-    final NSID lexiconId,
-    final String defName,
-    final LexUserType def,
-    final List<String> mainObjects,
-  ) {
-    if (defName == 'main') {
-      final defJson = def.toJson();
-
-      if (defJson['type'] == 'record') {
-        return null; // Always returns StrongRef for output
-      }
-
-      if (defJson['type'] == 'object') {
-        final objectName = lexiconId.toString().split('.').last;
-
-        return LexNamingConvention('$lexiconId#$objectName');
-      }
-
-      return LexNamingConvention(lexiconId.toString());
-    }
-
-    if (mainObjects.contains(lexiconId.toString())) {
-      final objectName = lexiconId.toString().split('.').last +
-          defName.substring(0, 1).toUpperCase() +
-          defName.substring(1);
-
-      return LexNamingConvention('$lexiconId#$objectName');
-    }
-
-    return LexNamingConvention('$lexiconId#$defName');
   }
 
   bool _hasMainObject(final Map<String, LexUserType> defs) {

@@ -15,12 +15,15 @@ final class LexGenObject {
     required this.name,
     required this.fileName,
     required this.properties,
+    required this.outputFilePath,
   });
 
   final String? description;
   final String name;
   final String fileName;
   final List<LexGenObjectProperty> properties;
+
+  final String outputFilePath;
 
   @override
   String toString() {

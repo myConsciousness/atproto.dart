@@ -12,28 +12,26 @@ import '../types/context.dart';
 import '../types/object.dart';
 
 final class LexGenObjectBuilder {
-  const LexGenObjectBuilder(
-    this.context,
-    this.namingConvention,
-  );
+  const LexGenObjectBuilder(this.context);
 
   final LexGenContext context;
-  final LexNamingConvention namingConvention;
 
   LexGenObject? build() {
     final properties = _getProperties();
     if (properties.isEmpty) return null; // RefVariant, no need to create.
 
+    final convention = LexNamingConvention(context);
+
     return LexGenObject(
-      description: getReferencePath(context),
-      name: namingConvention.getObjectName(),
-      fileName: namingConvention.getFileName(),
-      properties: properties,
-    );
+        description: getReferencePath(context),
+        name: convention.getObjectName(),
+        fileName: convention.getFileName(),
+        properties: properties,
+        outputFilePath: convention.getFilePath());
   }
 
   List<LexGenObjectProperty> _getProperties() {
-    final properties = context.def.whenOrNull(
+    final properties = context.def!.whenOrNull(
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
@@ -165,49 +163,45 @@ final class LexGenObjectBuilder {
     if (type == 'ref') {
       if (ref == null) throw ArgumentError.notNull('ref');
 
-      final refObject = getRef(docId, ref);
-      if (refObject is ULexUserTypeString) {
+      final refDef = getRef(docId, ref);
+      if (refDef is ULexUserTypeString) {
         return ('String', null, null);
       }
 
-      LexNamingConvention convention;
+      LexGenContext refContext;
       if (ref.contains('#')) {
         // In the same def file
         if (ref.startsWith('#')) {
-          final defName = ref.split('#').last;
-
-          if (context.mainRelatedDocIds.contains(docId.toString())) {
-            final objectName = docId.toString().split('.').last +
-                defName.substring(0, 1).toUpperCase() +
-                defName.substring(1);
-
-            convention = LexNamingConvention('${docId.toString()}#$objectName');
-          } else {
-            convention = LexNamingConvention(docId.toString() + ref);
-          }
+          refContext = LexGenContext(
+            docId: docId,
+            defName: ref.substring(1),
+            def: refDef,
+            mainRelatedDocIds: context.mainRelatedDocIds,
+          );
         } // In the another def file
         else {
           final segments = ref.split('#');
           final refDocId = segments.first;
           final defName = segments.last;
 
-          if (context.mainRelatedDocIds.contains(refDocId)) {
-            final objectName = refDocId.toString().split('.').last +
-                defName.substring(0, 1).toUpperCase() +
-                defName.substring(1);
-
-            convention = LexNamingConvention('$refDocId#$objectName');
-          } else {
-            convention = LexNamingConvention(ref);
-          }
+          refContext = LexGenContext(
+            docId: NSID(refDocId),
+            defName: defName,
+            def: refDef,
+            mainRelatedDocIds: context.mainRelatedDocIds,
+          );
         }
-      } else {
-        final segments = ref.split('.');
-        final objectName = segments.last.substring(0, 1).toUpperCase() +
-            segments.last.substring(1);
-
-        convention = LexNamingConvention('$ref#$objectName');
+      } // main def
+      else {
+        refContext = LexGenContext(
+          docId: NSID(ref),
+          defName: 'main',
+          def: refDef,
+          mainRelatedDocIds: context.mainRelatedDocIds,
+        );
       }
+
+      final convention = LexNamingConvention(refContext);
 
       return (
         convention.getObjectName(),

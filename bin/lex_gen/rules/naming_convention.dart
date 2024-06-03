@@ -5,53 +5,54 @@
 // 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
+import '../rules/utils.dart';
+import '../types/context.dart';
+
 final class LexNamingConvention {
-  const LexNamingConvention(this.lexiconId);
+  const LexNamingConvention(this.context);
 
-  final String lexiconId;
-
-  NSID get docId => NSID(lexiconId.split('#').first);
+  final LexGenContext context;
 
   String getObjectName() {
-    if (!lexiconId.contains('.')) throw ArgumentError();
+    final lexicon = _lexicon;
+    final segments = lexicon.split('.');
 
-    final segments = lexiconId.split('.');
-
-    if (lexiconId.contains('#')) {
-      return _toFirstUpper(lexiconId.split('#').last);
+    if (lexicon.contains('#')) {
+      return toFirstUpper(lexicon.split('#').last);
     }
 
-    return '${_toFirstUpper(segments.last)}Output';
+    return '${toFirstUpper(segments.last)}Output';
   }
 
   String getFileName() {
-    if (!lexiconId.contains('.')) throw ArgumentError();
+    final lexicon = _lexicon;
 
-    final segments = lexiconId.split('.');
-    if (!segments.last.startsWith('defs') && !lexiconId.contains('#')) {
+    final segments = lexicon.split('.');
+    if (!segments.last.startsWith('defs') && !lexicon.contains('#')) {
       return 'output';
     }
 
-    return _toLowerCamelCase(lexiconId.split('#').last);
+    return toLowerCamelCase(lexicon.split('#').last);
   }
 
   String getFilePath() {
-    if (!lexiconId.contains('.')) throw ArgumentError();
+    final lexicon = _lexicon;
 
-    final segments = lexiconId.split('#').first.split('.');
+    final segments = lexicon.split('#').first.split('.');
     final fileName = getFileName();
 
     return '${segments.sublist(2).join('/')}/$fileName.dart';
   }
 
   String getRelativeImportPath(final NSID baseDocId) {
-    if (!lexiconId.contains('.')) throw ArgumentError();
+    final lexicon = _lexicon;
 
     final baseSegments = baseDocId.toString().split('#').first.split('.');
     final baseLexiconRoot = baseSegments.take(2).join('.');
 
-    if (lexiconId.startsWith(baseLexiconRoot)) {
-      final docId = lexiconId.split('#').first;
+    if (lexicon.startsWith(baseLexiconRoot)) {
+      final docId = lexicon.split('#').first;
 
       final fileName = getFileName();
       if (docId == baseSegments.join('.')) {
@@ -65,7 +66,7 @@ final class LexNamingConvention {
       }
     }
 
-    final lexiconRoot = lexiconId.split('#').first.split('.').take(2).join('.');
+    final lexiconRoot = lexicon.split('#').first.split('.').take(2).join('.');
 
     // Package Import
     if (lexiconRoot == 'com.atproto') {
@@ -77,14 +78,29 @@ final class LexNamingConvention {
     throw UnimplementedError(baseDocId.toString());
   }
 
-  String _toLowerCamelCase(final String input) {
-    return input
-        .split(RegExp(r'(?=[A-Z])'))
-        .map((word) => word.toLowerCase())
-        .join('_');
-  }
+  String get _lexicon {
+    if (context.defName == 'main') {
+      // if (context.def is ULexUserTypeRecord) {
+      //   return null; // Always returns StrongRef for output
+      // }
 
-  String _toFirstUpper(final String input) {
-    return input.substring(0, 1).toUpperCase() + input.substring(1);
+      if (context.def is ULexUserTypeObject) {
+        final defName = context.docId.toString().split('.').last;
+
+        return '${context.docId}#$defName';
+      }
+
+      return context.docId.toString();
+    }
+
+    if (context.mainRelatedDocIds.contains(context.docId.toString())) {
+      final defName = context.docId.toString().split('.').last +
+          context.defName.substring(0, 1).toUpperCase() +
+          context.defName.substring(1);
+
+      return '${context.docId}#$defName';
+    }
+
+    return '${context.docId}#${context.defName}';
   }
 }
