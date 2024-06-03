@@ -50,13 +50,6 @@ void main() {
       }
     }
 
-    if (package == 'atproto') {
-      ids
-        ..writeln()
-        ..writeln('/// `blob`')
-        ..writeln("const blob = 'blob';");
-    }
-
     File('./packages/$package/lib/src/$_idsFileName')
         .writeAsStringSync(ids.toString());
 

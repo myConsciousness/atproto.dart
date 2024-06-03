@@ -8,12 +8,12 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoListConvosImpl _$$ConvoListConvosImplFromJson(Map json) =>
+_$ListConvosOutputImpl _$$ListConvosOutputImplFromJson(Map json) =>
     $checkedCreate(
-      r'_$ConvoListConvosImpl',
+      r'_$ListConvosOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoListConvosImpl(
+        final val = _$ListConvosOutputImpl(
           convos: $checkedConvert(
               'convos',
               (v) => (v as List<dynamic>)
@@ -26,8 +26,8 @@ _$ConvoListConvosImpl _$$ConvoListConvosImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ConvoListConvosImplToJson(
-    _$ConvoListConvosImpl instance) {
+Map<String, dynamic> _$$ListConvosOutputImplToJson(
+    _$ListConvosOutputImpl instance) {
   final val = <String, dynamic>{
     'convos': instance.convos.map((e) => e.toJson()).toList(),
   };

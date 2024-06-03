@@ -17,7 +17,7 @@ class RecordBlob with _$RecordBlob {
   @jsonSerializable
   const factory RecordBlob({
     required String cid,
-    @atUriConverter required AtUri recordUri,
+    @AtUriConverter() required AtUri recordUri,
   }) = _RecordBlob;
 
   factory RecordBlob.fromJson(Map<String, Object?> json) =>

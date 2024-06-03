@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.2.0
+
+- Bump `atproto_core`, `atproto`, `bluesky`.
+- Applied naming convention based on lexicons.
+
 ## v0.1.8
 
 - Don't include Auth headers in `.headers`.

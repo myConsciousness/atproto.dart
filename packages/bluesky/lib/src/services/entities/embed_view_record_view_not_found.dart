@@ -19,7 +19,7 @@ part 'embed_view_record_view_not_found.g.dart';
 class EmbedViewRecordViewNotFound with _$EmbedViewRecordViewNotFound {
   const factory EmbedViewRecordViewNotFound({
     @typeKey @Default(appBskyEmbedRecordViewNotFound) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     @JsonKey(name: 'notFound') @Default(true) bool isNotFound,
   }) = _EmbedViewRecordViewNotFound;
 

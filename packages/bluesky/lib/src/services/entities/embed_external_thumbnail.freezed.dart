@@ -24,7 +24,7 @@ mixin _$EmbedExternalThumbnail {
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  @blobConverter
+  @BlobConverter()
   @JsonKey(name: 'thumb')
   Blob? get blob => throw _privateConstructorUsedError;
 
@@ -44,7 +44,7 @@ abstract class $EmbedExternalThumbnailCopyWith<$Res> {
       {String uri,
       String title,
       String description,
-      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
+      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
 
   $BlobCopyWith<$Res>? get blob;
 }
@@ -114,7 +114,7 @@ abstract class _$$EmbedExternalThumbnailImplCopyWith<$Res>
       {String uri,
       String title,
       String description,
-      @blobConverter @JsonKey(name: 'thumb') Blob? blob});
+      @BlobConverter() @JsonKey(name: 'thumb') Blob? blob});
 
   @override
   $BlobCopyWith<$Res>? get blob;
@@ -167,7 +167,7 @@ class _$EmbedExternalThumbnailImpl implements _EmbedExternalThumbnail {
       {required this.uri,
       required this.title,
       required this.description,
-      @blobConverter @JsonKey(name: 'thumb') this.blob});
+      @BlobConverter() @JsonKey(name: 'thumb') this.blob});
 
   factory _$EmbedExternalThumbnailImpl.fromJson(Map<String, dynamic> json) =>
       _$$EmbedExternalThumbnailImplFromJson(json);
@@ -179,7 +179,7 @@ class _$EmbedExternalThumbnailImpl implements _EmbedExternalThumbnail {
   @override
   final String description;
   @override
-  @blobConverter
+  @BlobConverter()
   @JsonKey(name: 'thumb')
   final Blob? blob;
 
@@ -224,7 +224,7 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
           {required final String uri,
           required final String title,
           required final String description,
-          @blobConverter @JsonKey(name: 'thumb') final Blob? blob}) =
+          @BlobConverter() @JsonKey(name: 'thumb') final Blob? blob}) =
       _$EmbedExternalThumbnailImpl;
 
   factory _EmbedExternalThumbnail.fromJson(Map<String, dynamic> json) =
@@ -237,7 +237,7 @@ abstract class _EmbedExternalThumbnail implements EmbedExternalThumbnail {
   @override
   String get description;
   @override
-  @blobConverter
+  @BlobConverter()
   @JsonKey(name: 'thumb')
   Blob? get blob;
   @override

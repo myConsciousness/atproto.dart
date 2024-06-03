@@ -15,9 +15,9 @@ class UConvoMessageEmbed with _$UConvoMessageEmbed {
   // ignore: unused_element
   const UConvoMessageEmbed._();
 
-  const factory UConvoMessageEmbed.record({
-    required EmbedRecord data,
-  }) = UConvoMessageEmbedRecord;
+  const factory UConvoMessageEmbed.recordView({
+    required EmbedViewRecordView data,
+  }) = UConvoMessageEmbedViewRecordView;
 
   const factory UConvoMessageEmbed.unknown({
     required Map<String, dynamic> data,
@@ -38,8 +38,8 @@ final class _UConvoMessageEmbedConverter
       final type = json[core.objectType];
 
       if (type == bsky_ids.appBskyEmbedRecord) {
-        return UConvoMessageEmbed.record(
-          data: EmbedRecord.fromJson(json),
+        return UConvoMessageEmbed.recordView(
+          data: embedViewRecordViewConverter.fromJson(json),
         );
       }
 
@@ -51,7 +51,7 @@ final class _UConvoMessageEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UConvoMessageEmbed object) => object.when(
-        record: (data) => data.toJson(),
+        recordView: (data) => embedViewRecordViewConverter.toJson(data),
         unknown: (data) => data,
       );
 }

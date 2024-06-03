@@ -21,7 +21,7 @@ Likes _$LikesFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Likes {
   List<Like> get likes => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
@@ -38,7 +38,7 @@ abstract class $LikesCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Like> likes,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       String? cursor});
 }
@@ -91,7 +91,7 @@ abstract class _$$LikesImplCopyWith<$Res> implements $LikesCopyWith<$Res> {
   @useResult
   $Res call(
       {List<Like> likes,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       String? cid,
       String? cursor});
 }
@@ -138,7 +138,7 @@ class __$$LikesImplCopyWithImpl<$Res>
 class _$LikesImpl implements _Likes {
   const _$LikesImpl(
       {required final List<Like> likes,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       this.cid,
       this.cursor})
       : _likes = likes;
@@ -155,7 +155,7 @@ class _$LikesImpl implements _Likes {
   }
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -200,7 +200,7 @@ class _$LikesImpl implements _Likes {
 abstract class _Likes implements Likes {
   const factory _Likes(
       {required final List<Like> likes,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       final String? cid,
       final String? cursor}) = _$LikesImpl;
 
@@ -209,7 +209,7 @@ abstract class _Likes implements Likes {
   @override
   List<Like> get likes;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;

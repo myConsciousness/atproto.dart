@@ -14,12 +14,12 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo/#main
 @freezed
-class ConvoGetConvo with _$ConvoGetConvo {
+class GetConvoOutput with _$GetConvoOutput {
   @jsonSerializable
-  const factory ConvoGetConvo({
+  const factory GetConvoOutput({
     required ConvoView convo,
-  }) = _ConvoGetConvo;
+  }) = _GetConvoOutput;
 
-  factory ConvoGetConvo.fromJson(Map<String, Object?> json) =>
-      _$ConvoGetConvoFromJson(json);
+  factory GetConvoOutput.fromJson(Map<String, Object?> json) =>
+      _$GetConvoOutputFromJson(json);
 }

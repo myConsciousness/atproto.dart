@@ -17,7 +17,7 @@ _$GroupedNotificationImpl _$$GroupedNotificationImplFromJson(Map json) =>
           uris: $checkedConvert(
               'uris',
               (v) => (v as List<dynamic>)
-                  .map((e) => atUriConverter.fromJson(e as String))
+                  .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
           authors: $checkedConvert(
               'authors',
@@ -30,7 +30,7 @@ _$GroupedNotificationImpl _$$GroupedNotificationImplFromJson(Map json) =>
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           isRead: $checkedConvert('isRead', (v) => v as bool),
           labels: $checkedConvert(
               'labels',
@@ -53,7 +53,7 @@ _$GroupedNotificationImpl _$$GroupedNotificationImplFromJson(Map json) =>
 Map<String, dynamic> _$$GroupedNotificationImplToJson(
     _$GroupedNotificationImpl instance) {
   final val = <String, dynamic>{
-    'uris': instance.uris.map(atUriConverter.toJson).toList(),
+    'uris': instance.uris.map(const AtUriConverter().toJson).toList(),
     'authors': instance.authors.map((e) => e.toJson()).toList(),
     'reason': _$GroupedNotificationReasonEnumMap[instance.reason]!,
   };
@@ -67,7 +67,7 @@ Map<String, dynamic> _$$GroupedNotificationImplToJson(
   writeNotNull(
       'reasonSubject',
       _$JsonConverterToJson<String, AtUri>(
-          instance.reasonSubject, atUriConverter.toJson));
+          instance.reasonSubject, const AtUriConverter().toJson));
   val['isRead'] = instance.isRead;
   val['labels'] = instance.labels.map((e) => e.toJson()).toList();
   writeNotNull('record', instance.record);

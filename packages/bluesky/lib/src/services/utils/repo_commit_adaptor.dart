@@ -126,7 +126,7 @@ final class RepoCommitAdaptor {
   final RepoCommitOnDelete? _onDeleteUnknown;
 
   /// Performs actions based on [data].
-  FutureOr<void> execute(final SubscribedRepoCommit data) async {
+  FutureOr<void> execute(final Commit data) async {
     for (final op in data.ops) {
       switch (op.action) {
         case RepoAction.create:
@@ -144,7 +144,7 @@ final class RepoCommitAdaptor {
 
   /// Performs action on create.
   Future<void> _onCreate(
-    final SubscribedRepoCommit data,
+    final Commit data,
     final RepoOp op,
   ) async {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
@@ -292,7 +292,7 @@ final class RepoCommitAdaptor {
 
   /// Performs actions on update.
   Future<void> _onUpdate(
-    final SubscribedRepoCommit data,
+    final Commit data,
     final RepoOp op,
   ) async {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
@@ -322,7 +322,7 @@ final class RepoCommitAdaptor {
 
   /// Performs actions on delete.
   Future<void> _onDelete(
-    final SubscribedRepoCommit data,
+    final Commit data,
     final RepoOp op,
   ) async {
     if (op.uri.isFeedPost) {

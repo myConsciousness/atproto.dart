@@ -10,13 +10,13 @@ part 'subscribed_repo_tombstone.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
-class SubscribedRepoTombstone with _$SubscribedRepoTombstone {
-  const factory SubscribedRepoTombstone({
+class Tombstone with _$Tombstone {
+  const factory Tombstone({
     required String did,
     @JsonKey(name: 'seq') required int cursor,
     @JsonKey(name: 'time') required DateTime createdAt,
-  }) = _SubscribedRepoTombstone;
+  }) = _Tombstone;
 
-  factory SubscribedRepoTombstone.fromJson(Map<String, Object?> json) =>
-      _$SubscribedRepoTombstoneFromJson(json);
+  factory Tombstone.fromJson(Map<String, Object?> json) =>
+      _$TombstoneFromJson(json);
 }

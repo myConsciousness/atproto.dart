@@ -37,13 +37,14 @@ bool hasMutedWord({
   List<String>? languages,
 }) {
   final hasExceptionLanguage = _hasExceptionLanguage(languages);
-  final tags = <String>[
+  final tags = <String>{
     if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
     if (facets != null)
       ...facets
           .map((e) => e.features.whereType<UFacetFeatureTag>())
+          .where((e) => e.isNotEmpty)
           .map((e) => e.first.data.tag.toLowerCase())
-  ];
+  }.toList();
 
   for (final mute in mutedWords) {
     final mutedWord = mute.value.toLowerCase();

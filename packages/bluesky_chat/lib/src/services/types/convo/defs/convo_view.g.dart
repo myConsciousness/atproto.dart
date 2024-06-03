@@ -18,7 +18,7 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
           members: $checkedConvert(
               'members',
               (v) => (v as List<dynamic>)
-                  .map((e) => ActorProfileViewBasic.fromJson(
+                  .map((e) => ProfileViewBasic.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
           lastMessage: $checkedConvert(

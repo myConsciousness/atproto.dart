@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.10.0
+
+- Add `.active` and `.status` properties on `Session` object. ([#1516](https://github.com/myConsciousness/atproto.dart/pull/1516))
+- Move `BlobConverter`, `Blob`, `BlobRef` from `atproto` package to `atproto_core`.
+
 ## v0.9.10
 
 - Don't include Auth headers in `.headers`.
@@ -138,7 +143,7 @@
 
 ## v0.4.4
 
-- Export `atUriConverter` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
+- Export `AtUriConverter()` as const. ([#605](https://github.com/myConsciousness/atproto.dart/issues/605))
 
 ## v0.4.3
 

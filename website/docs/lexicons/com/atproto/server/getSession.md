@@ -21,3 +21,5 @@ Get information about the current auth session. Requires auth.
 | **emailConfirmed** | boolean | - | ❌ | - |
 | **emailAuthFactor** | boolean | - | ❌ | - |
 | **didDoc** | unknown | - | ❌ | - |
+| **active** | boolean | - | ❌ | - |
+| **status** | string | takendown<br/>suspended<br/>deactivated | ❌ | If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted. |

@@ -21,7 +21,7 @@ Image _$ImageFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Image {
   String get alt => throw _privateConstructorUsedError;
-  @blobConverter
+  @BlobConverter()
   Blob get image => throw _privateConstructorUsedError;
   ImageAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
@@ -36,7 +36,7 @@ abstract class $ImageCopyWith<$Res> {
       _$ImageCopyWithImpl<$Res, Image>;
   @useResult
   $Res call(
-      {String alt, @blobConverter Blob image, ImageAspectRatio? aspectRatio});
+      {String alt, @BlobConverter() Blob image, ImageAspectRatio? aspectRatio});
 
   $BlobCopyWith<$Res> get image;
   $ImageAspectRatioCopyWith<$Res>? get aspectRatio;
@@ -104,7 +104,7 @@ abstract class _$$ImageImplCopyWith<$Res> implements $ImageCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String alt, @blobConverter Blob image, ImageAspectRatio? aspectRatio});
+      {String alt, @BlobConverter() Blob image, ImageAspectRatio? aspectRatio});
 
   @override
   $BlobCopyWith<$Res> get image;
@@ -150,7 +150,7 @@ class __$$ImageImplCopyWithImpl<$Res>
 class _$ImageImpl implements _Image {
   const _$ImageImpl(
       {required this.alt,
-      @blobConverter required this.image,
+      @BlobConverter() required this.image,
       this.aspectRatio});
 
   factory _$ImageImpl.fromJson(Map<String, dynamic> json) =>
@@ -159,7 +159,7 @@ class _$ImageImpl implements _Image {
   @override
   final String alt;
   @override
-  @blobConverter
+  @BlobConverter()
   final Blob image;
   @override
   final ImageAspectRatio? aspectRatio;
@@ -201,7 +201,7 @@ class _$ImageImpl implements _Image {
 abstract class _Image implements Image {
   const factory _Image(
       {required final String alt,
-      @blobConverter required final Blob image,
+      @BlobConverter() required final Blob image,
       final ImageAspectRatio? aspectRatio}) = _$ImageImpl;
 
   factory _Image.fromJson(Map<String, dynamic> json) = _$ImageImpl.fromJson;
@@ -209,7 +209,7 @@ abstract class _Image implements Image {
   @override
   String get alt;
   @override
-  @blobConverter
+  @BlobConverter()
   Blob get image;
   @override
   ImageAspectRatio? get aspectRatio;

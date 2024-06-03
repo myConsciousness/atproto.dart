@@ -16,11 +16,11 @@ _$PostViewerImpl _$$PostViewerImplFromJson(Map json) => $checkedCreate(
           repost: $checkedConvert(
               'repost',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           isReplyDisabled:
               $checkedConvert('replyDisabled', (v) => v as bool? ?? false),
         );
@@ -41,11 +41,11 @@ Map<String, dynamic> _$$PostViewerImplToJson(_$PostViewerImpl instance) {
   writeNotNull(
       'repost',
       _$JsonConverterToJson<String, AtUri>(
-          instance.repost, atUriConverter.toJson));
+          instance.repost, const AtUriConverter().toJson));
   writeNotNull(
       'like',
       _$JsonConverterToJson<String, AtUri>(
-          instance.like, atUriConverter.toJson));
+          instance.like, const AtUriConverter().toJson));
   val['replyDisabled'] = instance.isReplyDisabled;
   return val;
 }

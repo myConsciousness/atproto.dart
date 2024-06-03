@@ -26,5 +26,7 @@
         "serviceEndpoint": "https://bsky.social"
       }
     ]
-  }
+  },
+  "active": false,
+  "status": "deactivated"
 }

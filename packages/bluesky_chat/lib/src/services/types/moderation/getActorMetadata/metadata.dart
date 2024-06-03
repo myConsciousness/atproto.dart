@@ -9,19 +9,17 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'metadata.freezed.dart';
 part 'metadata.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata/#output
+/// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata/#metadata
 @freezed
-class ModerationGetActorMetadataMetadata
-    with _$ModerationGetActorMetadataMetadata {
+class Metadata with _$Metadata {
   @jsonSerializable
-  const factory ModerationGetActorMetadataMetadata({
+  const factory Metadata({
     required int messagesSent,
     required int messagesReceived,
     required int convos,
     required int convosStarted,
-  }) = _ModerationGetActorMetadataMetadata;
+  }) = _Metadata;
 
-  factory ModerationGetActorMetadataMetadata.fromJson(
-          Map<String, Object?> json) =>
-      _$ModerationGetActorMetadataMetadataFromJson(json);
+  factory Metadata.fromJson(Map<String, Object?> json) =>
+      _$MetadataFromJson(json);
 }

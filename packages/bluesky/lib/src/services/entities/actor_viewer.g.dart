@@ -30,15 +30,15 @@ _$ActorViewerImpl _$$ActorViewerImplFromJson(Map json) => $checkedCreate(
           blocking: $checkedConvert(
               'blocking',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           following: $checkedConvert(
               'following',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           followedBy: $checkedConvert(
               'followedBy',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
         );
         return val;
       },
@@ -62,15 +62,15 @@ Map<String, dynamic> _$$ActorViewerImplToJson(_$ActorViewerImpl instance) {
   writeNotNull(
       'blocking',
       _$JsonConverterToJson<String, AtUri>(
-          instance.blocking, atUriConverter.toJson));
+          instance.blocking, const AtUriConverter().toJson));
   writeNotNull(
       'following',
       _$JsonConverterToJson<String, AtUri>(
-          instance.following, atUriConverter.toJson));
+          instance.following, const AtUriConverter().toJson));
   writeNotNull(
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
-          instance.followedBy, atUriConverter.toJson));
+          instance.followedBy, const AtUriConverter().toJson));
   return val;
 }
 

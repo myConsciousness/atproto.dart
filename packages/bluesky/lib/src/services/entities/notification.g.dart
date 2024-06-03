@@ -15,7 +15,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
         final val = _$NotificationImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           author: $checkedConvert('author',
               (v) => Actor.fromJson(Map<String, Object?>.from(v as Map))),
           reason: $checkedConvert(
@@ -23,7 +23,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
-                  v, atUriConverter.fromJson)),
+                  v, const AtUriConverter().fromJson)),
           isRead: $checkedConvert('isRead', (v) => v as bool? ?? false),
           record: $checkedConvert(
               'record',
@@ -46,7 +46,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   final val = <String, dynamic>{
     'cid': instance.cid,
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'author': instance.author.toJson(),
     'reason': _$NotificationReasonEnumMap[instance.reason]!,
   };
@@ -60,7 +60,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   writeNotNull(
       'reasonSubject',
       _$JsonConverterToJson<String, AtUri>(
-          instance.reasonSubject, atUriConverter.toJson));
+          instance.reasonSubject, const AtUriConverter().toJson));
   val['isRead'] = instance.isRead;
   writeNotNull('record', instance.record);
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());

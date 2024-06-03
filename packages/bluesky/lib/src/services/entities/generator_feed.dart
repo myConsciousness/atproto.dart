@@ -16,7 +16,7 @@ part 'generator_feed.g.dart';
 class GeneratorFeed with _$GeneratorFeed {
   @jsonSerializable
   const factory GeneratorFeed({
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
   }) = _GeneratorFeed;
 
   factory GeneratorFeed.fromJson(Map<String, Object?> json) =>

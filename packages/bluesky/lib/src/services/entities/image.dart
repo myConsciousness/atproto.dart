@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -21,7 +20,7 @@ class Image with _$Image {
   @jsonSerializable
   const factory Image({
     required String alt,
-    @blobConverter required Blob image,
+    @BlobConverter() required Blob image,
     ImageAspectRatio? aspectRatio,
   }) = _Image;
 

@@ -20,8 +20,8 @@ class SavedFeedsPreference with _$SavedFeedsPreference {
   @jsonSerializable
   const factory SavedFeedsPreference({
     @typeKey @Default(appBskyActorDefsSavedFeedsPref) String type,
-    @JsonKey(name: 'pinned') @atUriConverter required List<AtUri> pinnedUris,
-    @atUriConverter @JsonKey(name: 'saved') required List<AtUri> savedUris,
+    @JsonKey(name: 'pinned') @AtUriConverter() required List<AtUri> pinnedUris,
+    @AtUriConverter() @JsonKey(name: 'saved') required List<AtUri> savedUris,
     int? timelineIndex,
   }) = _SavedFeedsPreference;
 

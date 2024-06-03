@@ -96,6 +96,7 @@ Future<void> main() async {
           onDeletePost: print,
         ).execute,
         identity: print,
+        account: print,
         handle: print,
         migrate: print,
         tombstone: print,

@@ -14,34 +14,32 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SubscribedRepoInfo _$SubscribedRepoInfoFromJson(Map<String, dynamic> json) {
-  return _SubscribedRepoInfo.fromJson(json);
+Info _$InfoFromJson(Map<String, dynamic> json) {
+  return _Info.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SubscribedRepoInfo {
+mixin _$Info {
   String get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SubscribedRepoInfoCopyWith<SubscribedRepoInfo> get copyWith =>
-      throw _privateConstructorUsedError;
+  $InfoCopyWith<Info> get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SubscribedRepoInfoCopyWith<$Res> {
-  factory $SubscribedRepoInfoCopyWith(
-          SubscribedRepoInfo value, $Res Function(SubscribedRepoInfo) then) =
-      _$SubscribedRepoInfoCopyWithImpl<$Res, SubscribedRepoInfo>;
+abstract class $InfoCopyWith<$Res> {
+  factory $InfoCopyWith(Info value, $Res Function(Info) then) =
+      _$InfoCopyWithImpl<$Res, Info>;
   @useResult
   $Res call({String name, String? message});
 }
 
 /// @nodoc
-class _$SubscribedRepoInfoCopyWithImpl<$Res, $Val extends SubscribedRepoInfo>
-    implements $SubscribedRepoInfoCopyWith<$Res> {
-  _$SubscribedRepoInfoCopyWithImpl(this._value, this._then);
+class _$InfoCopyWithImpl<$Res, $Val extends Info>
+    implements $InfoCopyWith<$Res> {
+  _$InfoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,22 +66,20 @@ class _$SubscribedRepoInfoCopyWithImpl<$Res, $Val extends SubscribedRepoInfo>
 }
 
 /// @nodoc
-abstract class _$$SubscribedRepoInfoImplCopyWith<$Res>
-    implements $SubscribedRepoInfoCopyWith<$Res> {
-  factory _$$SubscribedRepoInfoImplCopyWith(_$SubscribedRepoInfoImpl value,
-          $Res Function(_$SubscribedRepoInfoImpl) then) =
-      __$$SubscribedRepoInfoImplCopyWithImpl<$Res>;
+abstract class _$$InfoImplCopyWith<$Res> implements $InfoCopyWith<$Res> {
+  factory _$$InfoImplCopyWith(
+          _$InfoImpl value, $Res Function(_$InfoImpl) then) =
+      __$$InfoImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String name, String? message});
 }
 
 /// @nodoc
-class __$$SubscribedRepoInfoImplCopyWithImpl<$Res>
-    extends _$SubscribedRepoInfoCopyWithImpl<$Res, _$SubscribedRepoInfoImpl>
-    implements _$$SubscribedRepoInfoImplCopyWith<$Res> {
-  __$$SubscribedRepoInfoImplCopyWithImpl(_$SubscribedRepoInfoImpl _value,
-      $Res Function(_$SubscribedRepoInfoImpl) _then)
+class __$$InfoImplCopyWithImpl<$Res>
+    extends _$InfoCopyWithImpl<$Res, _$InfoImpl>
+    implements _$$InfoImplCopyWith<$Res> {
+  __$$InfoImplCopyWithImpl(_$InfoImpl _value, $Res Function(_$InfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +88,7 @@ class __$$SubscribedRepoInfoImplCopyWithImpl<$Res>
     Object? name = null,
     Object? message = freezed,
   }) {
-    return _then(_$SubscribedRepoInfoImpl(
+    return _then(_$InfoImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -108,11 +104,11 @@ class __$$SubscribedRepoInfoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SubscribedRepoInfoImpl implements _SubscribedRepoInfo {
-  const _$SubscribedRepoInfoImpl({required this.name, this.message});
+class _$InfoImpl implements _Info {
+  const _$InfoImpl({required this.name, this.message});
 
-  factory _$SubscribedRepoInfoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscribedRepoInfoImplFromJson(json);
+  factory _$InfoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InfoImplFromJson(json);
 
   @override
   final String name;
@@ -121,14 +117,14 @@ class _$SubscribedRepoInfoImpl implements _SubscribedRepoInfo {
 
   @override
   String toString() {
-    return 'SubscribedRepoInfo(name: $name, message: $message)';
+    return 'Info(name: $name, message: $message)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscribedRepoInfoImpl &&
+            other is _$InfoImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message));
   }
@@ -140,25 +136,22 @@ class _$SubscribedRepoInfoImpl implements _SubscribedRepoInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SubscribedRepoInfoImplCopyWith<_$SubscribedRepoInfoImpl> get copyWith =>
-      __$$SubscribedRepoInfoImplCopyWithImpl<_$SubscribedRepoInfoImpl>(
-          this, _$identity);
+  _$$InfoImplCopyWith<_$InfoImpl> get copyWith =>
+      __$$InfoImplCopyWithImpl<_$InfoImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubscribedRepoInfoImplToJson(
+    return _$$InfoImplToJson(
       this,
     );
   }
 }
 
-abstract class _SubscribedRepoInfo implements SubscribedRepoInfo {
-  const factory _SubscribedRepoInfo(
-      {required final String name,
-      final String? message}) = _$SubscribedRepoInfoImpl;
+abstract class _Info implements Info {
+  const factory _Info({required final String name, final String? message}) =
+      _$InfoImpl;
 
-  factory _SubscribedRepoInfo.fromJson(Map<String, dynamic> json) =
-      _$SubscribedRepoInfoImpl.fromJson;
+  factory _Info.fromJson(Map<String, dynamic> json) = _$InfoImpl.fromJson;
 
   @override
   String get name;
@@ -166,6 +159,6 @@ abstract class _SubscribedRepoInfo implements SubscribedRepoInfo {
   String? get message;
   @override
   @JsonKey(ignore: true)
-  _$$SubscribedRepoInfoImplCopyWith<_$SubscribedRepoInfoImpl> get copyWith =>
+  _$$InfoImplCopyWith<_$InfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

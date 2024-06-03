@@ -8,11 +8,11 @@ part of 'output.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoGetLogImpl _$$ConvoGetLogImplFromJson(Map json) => $checkedCreate(
-      r'_$ConvoGetLogImpl',
+_$GetLogOutputImpl _$$GetLogOutputImplFromJson(Map json) => $checkedCreate(
+      r'_$GetLogOutputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoGetLogImpl(
+        final val = _$GetLogOutputImpl(
           logs: $checkedConvert(
               'logs',
               (v) => (v as List<dynamic>)
@@ -25,7 +25,7 @@ _$ConvoGetLogImpl _$$ConvoGetLogImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$ConvoGetLogImplToJson(_$ConvoGetLogImpl instance) {
+Map<String, dynamic> _$$GetLogOutputImplToJson(_$GetLogOutputImpl instance) {
   final val = <String, dynamic>{
     'logs': instance.logs.map(unionConvoLogConverter.toJson).toList(),
   };

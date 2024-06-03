@@ -20,7 +20,7 @@ LabelerViewDetailed _$LabelerViewDetailedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerViewDetailed {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   Actor get creator => throw _privateConstructorUsedError;
@@ -43,7 +43,7 @@ abstract class $LabelerViewDetailedCopyWith<$Res> {
       _$LabelerViewDetailedCopyWithImpl<$Res, LabelerViewDetailed>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       Actor creator,
       LabelerPolicies policies,
@@ -149,7 +149,7 @@ abstract class _$$LabelerViewDetailedImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri,
+      {@AtUriConverter() AtUri uri,
       String cid,
       Actor creator,
       LabelerPolicies policies,
@@ -228,7 +228,7 @@ class __$$LabelerViewDetailedImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
   const _$LabelerViewDetailedImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       required this.cid,
       required this.creator,
       required this.policies,
@@ -242,7 +242,7 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
       _$$LabelerViewDetailedImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String cid;
@@ -322,7 +322,7 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
 
 abstract class _LabelerViewDetailed implements LabelerViewDetailed {
   const factory _LabelerViewDetailed(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final Actor creator,
       required final LabelerPolicies policies,
@@ -335,7 +335,7 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
       _$LabelerViewDetailedImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String get cid;

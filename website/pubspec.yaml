@@ -3,8 +3,10 @@ environment:
   sdk: ^3.0.0
 
 dependencies:
-  bluesky: ^0.15.25
-  bluesky_text: ^0.6.3
+  bluesky:
+    path: ../packages/bluesky
+  bluesky_text:
+    path: ../packages/bluesky_text
 
 dev_dependencies:
   build_web_compilers: ^4.0.0

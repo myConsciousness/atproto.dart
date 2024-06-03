@@ -22,6 +22,8 @@ class CurrentSession with _$CurrentSession {
     @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
     @Default(false) bool emailAuthFactor,
     Map<String, dynamic>? didDoc,
+    @Default(true) bool active,
+    String? status,
   }) = _CurrentSession;
 
   factory CurrentSession.fromJson(Map<String, Object?> json) =>

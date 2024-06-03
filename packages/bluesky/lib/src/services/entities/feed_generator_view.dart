@@ -25,7 +25,7 @@ class FeedGeneratorView with _$FeedGeneratorView {
   @jsonSerializable
   const factory FeedGeneratorView({
     @typeKey @Default(appBskyFeedDefsGeneratorView) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required String cid,
     String? did,
     @JsonKey(name: 'creator') required Actor createdBy,

@@ -141,7 +141,7 @@ class __$$BlobImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$BlobImpl implements _Blob {
   const _$BlobImpl(
-      {@typeKey this.type = blob,
+      {@typeKey this.type = 'blob',
       required this.mimeType,
       required this.size,
       required this.ref});

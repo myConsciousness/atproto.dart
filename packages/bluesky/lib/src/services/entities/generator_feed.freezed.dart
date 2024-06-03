@@ -20,7 +20,7 @@ GeneratorFeed _$GeneratorFeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorFeed {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $GeneratorFeedCopyWith<$Res> {
           GeneratorFeed value, $Res Function(GeneratorFeed) then) =
       _$GeneratorFeedCopyWithImpl<$Res, GeneratorFeed>;
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$GeneratorFeedImplCopyWith<$Res>
       __$$GeneratorFeedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri uri});
+  $Res call({@AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -99,13 +99,13 @@ class __$$GeneratorFeedImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$GeneratorFeedImpl implements _GeneratorFeed {
-  const _$GeneratorFeedImpl({@atUriConverter required this.uri});
+  const _$GeneratorFeedImpl({@AtUriConverter() required this.uri});
 
   factory _$GeneratorFeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorFeedImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
 
   @override
@@ -140,14 +140,14 @@ class _$GeneratorFeedImpl implements _GeneratorFeed {
 }
 
 abstract class _GeneratorFeed implements GeneratorFeed {
-  const factory _GeneratorFeed({@atUriConverter required final AtUri uri}) =
+  const factory _GeneratorFeed({@AtUriConverter() required final AtUri uri}) =
       _$GeneratorFeedImpl;
 
   factory _GeneratorFeed.fromJson(Map<String, dynamic> json) =
       _$GeneratorFeedImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   @JsonKey(ignore: true)

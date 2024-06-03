@@ -17,7 +17,7 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedThreadgate),
           postUri: $checkedConvert(
-              'post', (v) => atUriConverter.fromJson(v as String)),
+              'post', (v) => const AtUriConverter().fromJson(v as String)),
           allowRules: $checkedConvert(
               'allow',
               (v) => (v as List<dynamic>?)
@@ -40,7 +40,7 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
     _$ThreadgateRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'post': atUriConverter.toJson(instance.postUri),
+    'post': const AtUriConverter().toJson(instance.postUri),
   };
 
   void writeNotNull(String key, dynamic value) {

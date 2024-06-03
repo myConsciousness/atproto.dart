@@ -5,7 +5,6 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
@@ -20,7 +19,7 @@ class EmbedExternalThumbnail with _$EmbedExternalThumbnail {
     required String uri,
     required String title,
     required String description,
-    @blobConverter @JsonKey(name: 'thumb') Blob? blob,
+    @BlobConverter() @JsonKey(name: 'thumb') Blob? blob,
   }) = _EmbedExternalThumbnail;
 
   factory EmbedExternalThumbnail.fromJson(Map<String, Object?> json) =>

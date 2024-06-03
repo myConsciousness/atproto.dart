@@ -21,11 +21,11 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Notification {
   String get cid => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   Actor get author => throw _privateConstructorUsedError;
   NotificationReason get reason => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
   Map<String, dynamic>? get record => throw _privateConstructorUsedError;
@@ -46,10 +46,10 @@ abstract class $NotificationCopyWith<$Res> {
   @useResult
   $Res call(
       {String cid,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -140,10 +140,10 @@ abstract class _$$NotificationImplCopyWith<$Res>
   @useResult
   $Res call(
       {String cid,
-      @atUriConverter AtUri uri,
+      @AtUriConverter() AtUri uri,
       Actor author,
       NotificationReason reason,
-      @atUriConverter AtUri? reasonSubject,
+      @AtUriConverter() AtUri? reasonSubject,
       bool isRead,
       Map<String, dynamic>? record,
       List<Label>? labels,
@@ -221,10 +221,10 @@ class __$$NotificationImplCopyWithImpl<$Res>
 class _$NotificationImpl implements _Notification {
   const _$NotificationImpl(
       {required this.cid,
-      @atUriConverter required this.uri,
+      @AtUriConverter() required this.uri,
       required this.author,
       required this.reason,
-      @atUriConverter this.reasonSubject,
+      @AtUriConverter() this.reasonSubject,
       this.isRead = false,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -238,14 +238,14 @@ class _$NotificationImpl implements _Notification {
   @override
   final String cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final Actor author;
   @override
   final NotificationReason reason;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? reasonSubject;
   @override
   @JsonKey()
@@ -327,10 +327,10 @@ class _$NotificationImpl implements _Notification {
 abstract class _Notification implements Notification {
   const factory _Notification(
       {required final String cid,
-      @atUriConverter required final AtUri uri,
+      @AtUriConverter() required final AtUri uri,
       required final Actor author,
       required final NotificationReason reason,
-      @atUriConverter final AtUri? reasonSubject,
+      @AtUriConverter() final AtUri? reasonSubject,
       final bool isRead,
       final Map<String, dynamic>? record,
       final List<Label>? labels,
@@ -342,14 +342,14 @@ abstract class _Notification implements Notification {
   @override
   String get cid;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   Actor get author;
   @override
   NotificationReason get reason;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get reasonSubject;
   @override
   bool get isRead;

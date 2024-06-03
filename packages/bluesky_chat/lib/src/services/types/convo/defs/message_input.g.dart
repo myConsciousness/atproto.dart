@@ -8,12 +8,11 @@ part of 'message_input.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoMessageInputImpl _$$ConvoMessageInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoMessageInputImpl',
+_$MessageInputImpl _$$MessageInputImplFromJson(Map json) => $checkedCreate(
+      r'_$MessageInputImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoMessageInputImpl(
+        final val = _$MessageInputImpl(
           text: $checkedConvert('text', (v) => v as String),
           facets: $checkedConvert(
               'facets',
@@ -31,8 +30,7 @@ _$ConvoMessageInputImpl _$$ConvoMessageInputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ConvoMessageInputImplToJson(
-    _$ConvoMessageInputImpl instance) {
+Map<String, dynamic> _$$MessageInputImplToJson(_$MessageInputImpl instance) {
   final val = <String, dynamic>{
     'text': instance.text,
   };

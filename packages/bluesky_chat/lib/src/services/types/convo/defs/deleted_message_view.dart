@@ -14,15 +14,15 @@ part 'deleted_message_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/defs/#deletedmessageview
 @freezed
-class ConvoDeletedMessageView with _$ConvoDeletedMessageView {
+class DeletedMessageView with _$DeletedMessageView {
   @jsonSerializable
-  const factory ConvoDeletedMessageView({
+  const factory DeletedMessageView({
     required String id,
     required String rev,
-    required ConvoMessageViewSender sender,
+    required MessageViewSender sender,
     required DateTime sentAt,
-  }) = _ConvoDeletedMessageView;
+  }) = _DeletedMessageView;
 
-  factory ConvoDeletedMessageView.fromJson(Map<String, Object?> json) =>
-      _$ConvoDeletedMessageViewFromJson(json);
+  factory DeletedMessageView.fromJson(Map<String, Object?> json) =>
+      _$DeletedMessageViewFromJson(json);
 }

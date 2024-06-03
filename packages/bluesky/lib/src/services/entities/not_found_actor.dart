@@ -19,7 +19,7 @@ part 'not_found_actor.g.dart';
 class NotFoundActor with _$NotFoundActor {
   const factory NotFoundActor({
     @typeKey @Default(appBskyGraphDefsNotFoundActor) String type,
-    @atUriConverter required String actor,
+    @AtUriConverter() required String actor,
     @Default(true) bool notFound,
   }) = _NotFoundActor;
 

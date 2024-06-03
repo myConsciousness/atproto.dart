@@ -18,7 +18,7 @@ _$EmbedViewRecordViewRecordImpl _$$EmbedViewRecordViewRecordImplFromJson(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordViewRecord),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert('author',
               (v) => ActorBasic.fromJson(Map<String, Object?>.from(v as Map))),
@@ -54,7 +54,7 @@ Map<String, dynamic> _$$EmbedViewRecordViewRecordImplToJson(
     _$EmbedViewRecordViewRecordImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.type,
-    'uri': atUriConverter.toJson(instance.uri),
+    'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
     'value': postRecordConverter.toJson(instance.value),

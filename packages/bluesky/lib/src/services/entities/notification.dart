@@ -24,10 +24,10 @@ class Notification with _$Notification {
   @jsonSerializable
   const factory Notification({
     required String cid,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required Actor author,
     required NotificationReason reason,
-    @atUriConverter AtUri? reasonSubject,
+    @AtUriConverter() AtUri? reasonSubject,
     @Default(false) bool isRead,
     Map<String, dynamic>? record,
     List<Label>? labels,

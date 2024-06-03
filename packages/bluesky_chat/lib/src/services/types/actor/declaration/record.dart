@@ -11,12 +11,12 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration/#main
 @freezed
-class ActorDeclarationRecord with _$ActorDeclarationRecord {
+class DeclarationRecord with _$DeclarationRecord {
   @jsonSerializable
-  const factory ActorDeclarationRecord({
+  const factory DeclarationRecord({
     required String allowIncoming,
-  }) = _ActorDeclarationRecord;
+  }) = _DeclarationRecord;
 
-  factory ActorDeclarationRecord.fromJson(Map<String, Object?> json) =>
-      _$ActorDeclarationRecordFromJson(json);
+  factory DeclarationRecord.fromJson(Map<String, Object?> json) =>
+      _$DeclarationRecordFromJson(json);
 }

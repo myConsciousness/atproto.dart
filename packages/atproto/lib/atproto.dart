@@ -8,12 +8,8 @@ export 'package:atproto/src/services/entities/account_codes.dart';
 export 'package:atproto/src/services/entities/app_password.dart';
 export 'package:atproto/src/services/entities/app_passwords.dart';
 export 'package:atproto/src/services/entities/batch_action.dart';
-export 'package:atproto/src/services/entities/blob.dart';
 export 'package:atproto/src/services/entities/blob_data.dart';
-export 'package:atproto/src/services/entities/blob_ref.dart';
 export 'package:atproto/src/services/entities/blob_refs.dart';
-export 'package:atproto/src/services/entities/converter/blob_converter.dart'
-    show blobConverter;
 export 'package:atproto/src/services/entities/converter/labels_converter.dart'
     show labelsConverter;
 export 'package:atproto/src/services/entities/create_action.dart';
@@ -29,6 +25,7 @@ export 'package:atproto/src/services/entities/invite_codes.dart';
 export 'package:atproto/src/services/entities/label.dart';
 export 'package:atproto/src/services/entities/record.dart';
 export 'package:atproto/src/services/entities/records.dart';
+export 'package:atproto/src/services/entities/get_repo_status_output.dart';
 export 'package:atproto/src/services/entities/repo.dart';
 export 'package:atproto/src/services/entities/repo_block.dart';
 export 'package:atproto/src/services/entities/repo_blocks.dart';
@@ -53,6 +50,7 @@ export 'package:atproto/src/services/entities/self_label.dart';
 export 'package:atproto/src/services/entities/self_labels.dart';
 export 'package:atproto/src/services/entities/labels.dart';
 export 'package:atproto/src/services/entities/labels_by_query.dart';
+export 'package:atproto/src/services/entities/subscribed_repo_account.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_commit.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_identity.dart';
 export 'package:atproto/src/services/entities/subscribed_repo_handle.dart';
@@ -100,6 +98,11 @@ export 'package:atproto_core/atproto_core.dart'
         NSID,
         AtUri,
         CID,
+        Blob,
+        $BlobCopyWith,
+        BlobRef,
+        $BlobRefCopyWith,
+        BlobConverter,
         InvalidCidError,
         Multicodec,
         XRPCException,

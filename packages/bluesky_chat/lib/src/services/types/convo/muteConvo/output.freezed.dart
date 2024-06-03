@@ -14,25 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoMuteConvo _$ConvoMuteConvoFromJson(Map<String, dynamic> json) {
-  return _ConvoMuteConvo.fromJson(json);
+MuteConvoOutput _$MuteConvoOutputFromJson(Map<String, dynamic> json) {
+  return _MuteConvoOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoMuteConvo {
+mixin _$MuteConvoOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoMuteConvoCopyWith<ConvoMuteConvo> get copyWith =>
+  $MuteConvoOutputCopyWith<MuteConvoOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoMuteConvoCopyWith<$Res> {
-  factory $ConvoMuteConvoCopyWith(
-          ConvoMuteConvo value, $Res Function(ConvoMuteConvo) then) =
-      _$ConvoMuteConvoCopyWithImpl<$Res, ConvoMuteConvo>;
+abstract class $MuteConvoOutputCopyWith<$Res> {
+  factory $MuteConvoOutputCopyWith(
+          MuteConvoOutput value, $Res Function(MuteConvoOutput) then) =
+      _$MuteConvoOutputCopyWithImpl<$Res, MuteConvoOutput>;
   @useResult
   $Res call({ConvoView convo});
 
@@ -40,9 +40,9 @@ abstract class $ConvoMuteConvoCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoMuteConvoCopyWithImpl<$Res, $Val extends ConvoMuteConvo>
-    implements $ConvoMuteConvoCopyWith<$Res> {
-  _$ConvoMuteConvoCopyWithImpl(this._value, this._then);
+class _$MuteConvoOutputCopyWithImpl<$Res, $Val extends MuteConvoOutput>
+    implements $MuteConvoOutputCopyWith<$Res> {
+  _$MuteConvoOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$ConvoMuteConvoCopyWithImpl<$Res, $Val extends ConvoMuteConvo>
 }
 
 /// @nodoc
-abstract class _$$ConvoMuteConvoImplCopyWith<$Res>
-    implements $ConvoMuteConvoCopyWith<$Res> {
-  factory _$$ConvoMuteConvoImplCopyWith(_$ConvoMuteConvoImpl value,
-          $Res Function(_$ConvoMuteConvoImpl) then) =
-      __$$ConvoMuteConvoImplCopyWithImpl<$Res>;
+abstract class _$$MuteConvoOutputImplCopyWith<$Res>
+    implements $MuteConvoOutputCopyWith<$Res> {
+  factory _$$MuteConvoOutputImplCopyWith(_$MuteConvoOutputImpl value,
+          $Res Function(_$MuteConvoOutputImpl) then) =
+      __$$MuteConvoOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ConvoView convo});
@@ -86,11 +86,11 @@ abstract class _$$ConvoMuteConvoImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoMuteConvoImplCopyWithImpl<$Res>
-    extends _$ConvoMuteConvoCopyWithImpl<$Res, _$ConvoMuteConvoImpl>
-    implements _$$ConvoMuteConvoImplCopyWith<$Res> {
-  __$$ConvoMuteConvoImplCopyWithImpl(
-      _$ConvoMuteConvoImpl _value, $Res Function(_$ConvoMuteConvoImpl) _then)
+class __$$MuteConvoOutputImplCopyWithImpl<$Res>
+    extends _$MuteConvoOutputCopyWithImpl<$Res, _$MuteConvoOutputImpl>
+    implements _$$MuteConvoOutputImplCopyWith<$Res> {
+  __$$MuteConvoOutputImplCopyWithImpl(
+      _$MuteConvoOutputImpl _value, $Res Function(_$MuteConvoOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ConvoMuteConvoImplCopyWithImpl<$Res>
   $Res call({
     Object? convo = null,
   }) {
-    return _then(_$ConvoMuteConvoImpl(
+    return _then(_$MuteConvoOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
@@ -110,25 +110,25 @@ class __$$ConvoMuteConvoImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoMuteConvoImpl implements _ConvoMuteConvo {
-  const _$ConvoMuteConvoImpl({required this.convo});
+class _$MuteConvoOutputImpl implements _MuteConvoOutput {
+  const _$MuteConvoOutputImpl({required this.convo});
 
-  factory _$ConvoMuteConvoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoMuteConvoImplFromJson(json);
+  factory _$MuteConvoOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MuteConvoOutputImplFromJson(json);
 
   @override
   final ConvoView convo;
 
   @override
   String toString() {
-    return 'ConvoMuteConvo(convo: $convo)';
+    return 'MuteConvoOutput(convo: $convo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoMuteConvoImpl &&
+            other is _$MuteConvoOutputImpl &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -139,29 +139,29 @@ class _$ConvoMuteConvoImpl implements _ConvoMuteConvo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoMuteConvoImplCopyWith<_$ConvoMuteConvoImpl> get copyWith =>
-      __$$ConvoMuteConvoImplCopyWithImpl<_$ConvoMuteConvoImpl>(
+  _$$MuteConvoOutputImplCopyWith<_$MuteConvoOutputImpl> get copyWith =>
+      __$$MuteConvoOutputImplCopyWithImpl<_$MuteConvoOutputImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoMuteConvoImplToJson(
+    return _$$MuteConvoOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoMuteConvo implements ConvoMuteConvo {
-  const factory _ConvoMuteConvo({required final ConvoView convo}) =
-      _$ConvoMuteConvoImpl;
+abstract class _MuteConvoOutput implements MuteConvoOutput {
+  const factory _MuteConvoOutput({required final ConvoView convo}) =
+      _$MuteConvoOutputImpl;
 
-  factory _ConvoMuteConvo.fromJson(Map<String, dynamic> json) =
-      _$ConvoMuteConvoImpl.fromJson;
+  factory _MuteConvoOutput.fromJson(Map<String, dynamic> json) =
+      _$MuteConvoOutputImpl.fromJson;
 
   @override
   ConvoView get convo;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoMuteConvoImplCopyWith<_$ConvoMuteConvoImpl> get copyWith =>
+  _$$MuteConvoOutputImplCopyWith<_$MuteConvoOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

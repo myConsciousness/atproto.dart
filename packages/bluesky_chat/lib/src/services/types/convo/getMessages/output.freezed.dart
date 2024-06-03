@@ -14,27 +14,27 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoGetMessages _$ConvoGetMessagesFromJson(Map<String, dynamic> json) {
-  return _ConvoGetMessages.fromJson(json);
+GetMessagesOutput _$GetMessagesOutputFromJson(Map<String, dynamic> json) {
+  return _GetMessagesOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoGetMessages {
+mixin _$GetMessagesOutput {
   @unionConvoMessageViewConverter
   List<UConvoMessageView> get messages => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoGetMessagesCopyWith<ConvoGetMessages> get copyWith =>
+  $GetMessagesOutputCopyWith<GetMessagesOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoGetMessagesCopyWith<$Res> {
-  factory $ConvoGetMessagesCopyWith(
-          ConvoGetMessages value, $Res Function(ConvoGetMessages) then) =
-      _$ConvoGetMessagesCopyWithImpl<$Res, ConvoGetMessages>;
+abstract class $GetMessagesOutputCopyWith<$Res> {
+  factory $GetMessagesOutputCopyWith(
+          GetMessagesOutput value, $Res Function(GetMessagesOutput) then) =
+      _$GetMessagesOutputCopyWithImpl<$Res, GetMessagesOutput>;
   @useResult
   $Res call(
       {@unionConvoMessageViewConverter List<UConvoMessageView> messages,
@@ -42,9 +42,9 @@ abstract class $ConvoGetMessagesCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoGetMessagesCopyWithImpl<$Res, $Val extends ConvoGetMessages>
-    implements $ConvoGetMessagesCopyWith<$Res> {
-  _$ConvoGetMessagesCopyWithImpl(this._value, this._then);
+class _$GetMessagesOutputCopyWithImpl<$Res, $Val extends GetMessagesOutput>
+    implements $GetMessagesOutputCopyWith<$Res> {
+  _$GetMessagesOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -71,11 +71,11 @@ class _$ConvoGetMessagesCopyWithImpl<$Res, $Val extends ConvoGetMessages>
 }
 
 /// @nodoc
-abstract class _$$ConvoGetMessagesImplCopyWith<$Res>
-    implements $ConvoGetMessagesCopyWith<$Res> {
-  factory _$$ConvoGetMessagesImplCopyWith(_$ConvoGetMessagesImpl value,
-          $Res Function(_$ConvoGetMessagesImpl) then) =
-      __$$ConvoGetMessagesImplCopyWithImpl<$Res>;
+abstract class _$$GetMessagesOutputImplCopyWith<$Res>
+    implements $GetMessagesOutputCopyWith<$Res> {
+  factory _$$GetMessagesOutputImplCopyWith(_$GetMessagesOutputImpl value,
+          $Res Function(_$GetMessagesOutputImpl) then) =
+      __$$GetMessagesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -84,11 +84,11 @@ abstract class _$$ConvoGetMessagesImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoGetMessagesImplCopyWithImpl<$Res>
-    extends _$ConvoGetMessagesCopyWithImpl<$Res, _$ConvoGetMessagesImpl>
-    implements _$$ConvoGetMessagesImplCopyWith<$Res> {
-  __$$ConvoGetMessagesImplCopyWithImpl(_$ConvoGetMessagesImpl _value,
-      $Res Function(_$ConvoGetMessagesImpl) _then)
+class __$$GetMessagesOutputImplCopyWithImpl<$Res>
+    extends _$GetMessagesOutputCopyWithImpl<$Res, _$GetMessagesOutputImpl>
+    implements _$$GetMessagesOutputImplCopyWith<$Res> {
+  __$$GetMessagesOutputImplCopyWithImpl(_$GetMessagesOutputImpl _value,
+      $Res Function(_$GetMessagesOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -97,7 +97,7 @@ class __$$ConvoGetMessagesImplCopyWithImpl<$Res>
     Object? messages = null,
     Object? cursor = freezed,
   }) {
-    return _then(_$ConvoGetMessagesImpl(
+    return _then(_$GetMessagesOutputImpl(
       messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
@@ -113,15 +113,15 @@ class __$$ConvoGetMessagesImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoGetMessagesImpl implements _ConvoGetMessages {
-  const _$ConvoGetMessagesImpl(
+class _$GetMessagesOutputImpl implements _GetMessagesOutput {
+  const _$GetMessagesOutputImpl(
       {@unionConvoMessageViewConverter
       required final List<UConvoMessageView> messages,
       this.cursor})
       : _messages = messages;
 
-  factory _$ConvoGetMessagesImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoGetMessagesImplFromJson(json);
+  factory _$GetMessagesOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GetMessagesOutputImplFromJson(json);
 
   final List<UConvoMessageView> _messages;
   @override
@@ -137,14 +137,14 @@ class _$ConvoGetMessagesImpl implements _ConvoGetMessages {
 
   @override
   String toString() {
-    return 'ConvoGetMessages(messages: $messages, cursor: $cursor)';
+    return 'GetMessagesOutput(messages: $messages, cursor: $cursor)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoGetMessagesImpl &&
+            other is _$GetMessagesOutputImpl &&
             const DeepCollectionEquality().equals(other._messages, _messages) &&
             (identical(other.cursor, cursor) || other.cursor == cursor));
   }
@@ -157,26 +157,26 @@ class _$ConvoGetMessagesImpl implements _ConvoGetMessages {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoGetMessagesImplCopyWith<_$ConvoGetMessagesImpl> get copyWith =>
-      __$$ConvoGetMessagesImplCopyWithImpl<_$ConvoGetMessagesImpl>(
+  _$$GetMessagesOutputImplCopyWith<_$GetMessagesOutputImpl> get copyWith =>
+      __$$GetMessagesOutputImplCopyWithImpl<_$GetMessagesOutputImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoGetMessagesImplToJson(
+    return _$$GetMessagesOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoGetMessages implements ConvoGetMessages {
-  const factory _ConvoGetMessages(
+abstract class _GetMessagesOutput implements GetMessagesOutput {
+  const factory _GetMessagesOutput(
       {@unionConvoMessageViewConverter
       required final List<UConvoMessageView> messages,
-      final String? cursor}) = _$ConvoGetMessagesImpl;
+      final String? cursor}) = _$GetMessagesOutputImpl;
 
-  factory _ConvoGetMessages.fromJson(Map<String, dynamic> json) =
-      _$ConvoGetMessagesImpl.fromJson;
+  factory _GetMessagesOutput.fromJson(Map<String, dynamic> json) =
+      _$GetMessagesOutputImpl.fromJson;
 
   @override
   @unionConvoMessageViewConverter
@@ -185,6 +185,6 @@ abstract class _ConvoGetMessages implements ConvoGetMessages {
   String? get cursor;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoGetMessagesImplCopyWith<_$ConvoGetMessagesImpl> get copyWith =>
+  _$$GetMessagesOutputImplCopyWith<_$GetMessagesOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

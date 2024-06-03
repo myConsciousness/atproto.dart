@@ -21,7 +21,7 @@ ListItemParam _$ListItemParamFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListItemParam {
   String get subject => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
   Map<String, dynamic> get unspecced => throw _privateConstructorUsedError;
@@ -40,7 +40,7 @@ abstract class $ListItemParamCopyWith<$Res> {
   @useResult
   $Res call(
       {String subject,
-      @atUriConverter AtUri list,
+      @AtUriConverter() AtUri list,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 }
@@ -94,7 +94,7 @@ abstract class _$$ListItemParamImplCopyWith<$Res>
   @useResult
   $Res call(
       {String subject,
-      @atUriConverter AtUri list,
+      @AtUriConverter() AtUri list,
       DateTime? createdAt,
       Map<String, dynamic> unspecced});
 }
@@ -142,7 +142,7 @@ class __$$ListItemParamImplCopyWithImpl<$Res>
 class _$ListItemParamImpl implements _ListItemParam {
   const _$ListItemParamImpl(
       {required this.subject,
-      @atUriConverter required this.list,
+      @AtUriConverter() required this.list,
       this.createdAt,
       final Map<String, dynamic> unspecced = emptyJson})
       : _unspecced = unspecced;
@@ -153,7 +153,7 @@ class _$ListItemParamImpl implements _ListItemParam {
   @override
   final String subject;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri list;
   @override
   final DateTime? createdAt;
@@ -206,7 +206,7 @@ class _$ListItemParamImpl implements _ListItemParam {
 abstract class _ListItemParam implements ListItemParam {
   const factory _ListItemParam(
       {required final String subject,
-      @atUriConverter required final AtUri list,
+      @AtUriConverter() required final AtUri list,
       final DateTime? createdAt,
       final Map<String, dynamic> unspecced}) = _$ListItemParamImpl;
 
@@ -216,7 +216,7 @@ abstract class _ListItemParam implements ListItemParam {
   @override
   String get subject;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list;
   @override
   DateTime? get createdAt;

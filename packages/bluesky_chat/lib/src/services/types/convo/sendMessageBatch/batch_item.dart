@@ -14,13 +14,13 @@ part 'batch_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch/#batchitem
 @freezed
-class ConvoSendMessageBatchBatchItem with _$ConvoSendMessageBatchBatchItem {
+class BatchItem with _$BatchItem {
   @jsonSerializable
-  const factory ConvoSendMessageBatchBatchItem({
+  const factory BatchItem({
     required String convoId,
-    required ConvoMessageInput message,
-  }) = _ConvoSendMessageBatchBatchItem;
+    required MessageInput message,
+  }) = _BatchItem;
 
-  factory ConvoSendMessageBatchBatchItem.fromJson(Map<String, Object?> json) =>
-      _$ConvoSendMessageBatchBatchItemFromJson(json);
+  factory BatchItem.fromJson(Map<String, Object?> json) =>
+      _$BatchItemFromJson(json);
 }

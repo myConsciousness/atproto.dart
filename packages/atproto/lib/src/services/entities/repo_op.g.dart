@@ -16,7 +16,7 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
           action: $checkedConvert(
               'action', (v) => $enumDecode(_$RepoActionEnumMap, v)),
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
           record: $checkedConvert(
               'record',
@@ -31,7 +31,7 @@ _$RepoOpImpl _$$RepoOpImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RepoOpImplToJson(_$RepoOpImpl instance) =>
     <String, dynamic>{
       'action': _$RepoActionEnumMap[instance.action]!,
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'record': instance.record,
     };

@@ -8,12 +8,11 @@ part of 'message_view.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$ConvoMessageViewImpl _$$ConvoMessageViewImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$ConvoMessageViewImpl',
+_$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
+      r'_$MessageViewImpl',
       json,
       ($checkedConvert) {
-        final val = _$ConvoMessageViewImpl(
+        final val = _$MessageViewImpl(
           id: $checkedConvert('id', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
           text: $checkedConvert('text', (v) => v as String),
@@ -30,7 +29,7 @@ _$ConvoMessageViewImpl _$$ConvoMessageViewImplFromJson(Map json) =>
                   v, unionConvoMessageEmbedConverter.fromJson)),
           sender: $checkedConvert(
               'sender',
-              (v) => ConvoMessageViewSender.fromJson(
+              (v) => MessageViewSender.fromJson(
                   Map<String, Object?>.from(v as Map))),
           sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
         );
@@ -38,8 +37,7 @@ _$ConvoMessageViewImpl _$$ConvoMessageViewImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$ConvoMessageViewImplToJson(
-    _$ConvoMessageViewImpl instance) {
+Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) {
   final val = <String, dynamic>{
     'id': instance.id,
     'rev': instance.rev,

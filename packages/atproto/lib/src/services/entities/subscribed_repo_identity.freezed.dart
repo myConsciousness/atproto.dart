@@ -14,37 +14,34 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-SubscribedRepoIdentity _$SubscribedRepoIdentityFromJson(
-    Map<String, dynamic> json) {
-  return _SubscribedRepoIdentity.fromJson(json);
+Identity _$IdentityFromJson(Map<String, dynamic> json) {
+  return _Identity.fromJson(json);
 }
 
 /// @nodoc
-mixin _$SubscribedRepoIdentity {
+mixin _$Identity {
   String get did => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $SubscribedRepoIdentityCopyWith<SubscribedRepoIdentity> get copyWith =>
+  $IdentityCopyWith<Identity> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SubscribedRepoIdentityCopyWith<$Res> {
-  factory $SubscribedRepoIdentityCopyWith(SubscribedRepoIdentity value,
-          $Res Function(SubscribedRepoIdentity) then) =
-      _$SubscribedRepoIdentityCopyWithImpl<$Res, SubscribedRepoIdentity>;
+abstract class $IdentityCopyWith<$Res> {
+  factory $IdentityCopyWith(Identity value, $Res Function(Identity) then) =
+      _$IdentityCopyWithImpl<$Res, Identity>;
   @useResult
   $Res call({String did, int seq, DateTime time});
 }
 
 /// @nodoc
-class _$SubscribedRepoIdentityCopyWithImpl<$Res,
-        $Val extends SubscribedRepoIdentity>
-    implements $SubscribedRepoIdentityCopyWith<$Res> {
-  _$SubscribedRepoIdentityCopyWithImpl(this._value, this._then);
+class _$IdentityCopyWithImpl<$Res, $Val extends Identity>
+    implements $IdentityCopyWith<$Res> {
+  _$IdentityCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -76,25 +73,22 @@ class _$SubscribedRepoIdentityCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$SubscribedRepoIdentityImplCopyWith<$Res>
-    implements $SubscribedRepoIdentityCopyWith<$Res> {
-  factory _$$SubscribedRepoIdentityImplCopyWith(
-          _$SubscribedRepoIdentityImpl value,
-          $Res Function(_$SubscribedRepoIdentityImpl) then) =
-      __$$SubscribedRepoIdentityImplCopyWithImpl<$Res>;
+abstract class _$$IdentityImplCopyWith<$Res>
+    implements $IdentityCopyWith<$Res> {
+  factory _$$IdentityImplCopyWith(
+          _$IdentityImpl value, $Res Function(_$IdentityImpl) then) =
+      __$$IdentityImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did, int seq, DateTime time});
 }
 
 /// @nodoc
-class __$$SubscribedRepoIdentityImplCopyWithImpl<$Res>
-    extends _$SubscribedRepoIdentityCopyWithImpl<$Res,
-        _$SubscribedRepoIdentityImpl>
-    implements _$$SubscribedRepoIdentityImplCopyWith<$Res> {
-  __$$SubscribedRepoIdentityImplCopyWithImpl(
-      _$SubscribedRepoIdentityImpl _value,
-      $Res Function(_$SubscribedRepoIdentityImpl) _then)
+class __$$IdentityImplCopyWithImpl<$Res>
+    extends _$IdentityCopyWithImpl<$Res, _$IdentityImpl>
+    implements _$$IdentityImplCopyWith<$Res> {
+  __$$IdentityImplCopyWithImpl(
+      _$IdentityImpl _value, $Res Function(_$IdentityImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +98,7 @@ class __$$SubscribedRepoIdentityImplCopyWithImpl<$Res>
     Object? seq = null,
     Object? time = null,
   }) {
-    return _then(_$SubscribedRepoIdentityImpl(
+    return _then(_$IdentityImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -124,12 +118,12 @@ class __$$SubscribedRepoIdentityImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$SubscribedRepoIdentityImpl implements _SubscribedRepoIdentity {
-  const _$SubscribedRepoIdentityImpl(
+class _$IdentityImpl implements _Identity {
+  const _$IdentityImpl(
       {required this.did, required this.seq, required this.time});
 
-  factory _$SubscribedRepoIdentityImpl.fromJson(Map<String, dynamic> json) =>
-      _$$SubscribedRepoIdentityImplFromJson(json);
+  factory _$IdentityImpl.fromJson(Map<String, dynamic> json) =>
+      _$$IdentityImplFromJson(json);
 
   @override
   final String did;
@@ -140,14 +134,14 @@ class _$SubscribedRepoIdentityImpl implements _SubscribedRepoIdentity {
 
   @override
   String toString() {
-    return 'SubscribedRepoIdentity(did: $did, seq: $seq, time: $time)';
+    return 'Identity(did: $did, seq: $seq, time: $time)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$SubscribedRepoIdentityImpl &&
+            other is _$IdentityImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.time, time) || other.time == time));
@@ -160,26 +154,25 @@ class _$SubscribedRepoIdentityImpl implements _SubscribedRepoIdentity {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$SubscribedRepoIdentityImplCopyWith<_$SubscribedRepoIdentityImpl>
-      get copyWith => __$$SubscribedRepoIdentityImplCopyWithImpl<
-          _$SubscribedRepoIdentityImpl>(this, _$identity);
+  _$$IdentityImplCopyWith<_$IdentityImpl> get copyWith =>
+      __$$IdentityImplCopyWithImpl<_$IdentityImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$SubscribedRepoIdentityImplToJson(
+    return _$$IdentityImplToJson(
       this,
     );
   }
 }
 
-abstract class _SubscribedRepoIdentity implements SubscribedRepoIdentity {
-  const factory _SubscribedRepoIdentity(
+abstract class _Identity implements Identity {
+  const factory _Identity(
       {required final String did,
       required final int seq,
-      required final DateTime time}) = _$SubscribedRepoIdentityImpl;
+      required final DateTime time}) = _$IdentityImpl;
 
-  factory _SubscribedRepoIdentity.fromJson(Map<String, dynamic> json) =
-      _$SubscribedRepoIdentityImpl.fromJson;
+  factory _Identity.fromJson(Map<String, dynamic> json) =
+      _$IdentityImpl.fromJson;
 
   @override
   String get did;
@@ -189,6 +182,6 @@ abstract class _SubscribedRepoIdentity implements SubscribedRepoIdentity {
   DateTime get time;
   @override
   @JsonKey(ignore: true)
-  _$$SubscribedRepoIdentityImplCopyWith<_$SubscribedRepoIdentityImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$IdentityImplCopyWith<_$IdentityImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

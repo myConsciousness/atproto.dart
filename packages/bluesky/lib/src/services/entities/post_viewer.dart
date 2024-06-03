@@ -19,8 +19,8 @@ class PostViewer with _$PostViewer {
 
   @jsonSerializable
   const factory PostViewer({
-    @atUriConverter AtUri? repost,
-    @atUriConverter AtUri? like,
+    @AtUriConverter() AtUri? repost,
+    @AtUriConverter() AtUri? like,
     @JsonKey(name: 'replyDisabled') @Default(false) bool isReplyDisabled,
   }) = _PostViewer;
 

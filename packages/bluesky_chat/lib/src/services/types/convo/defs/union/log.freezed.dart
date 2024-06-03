@@ -19,28 +19,28 @@ mixin _$UConvoLog {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) =>
@@ -101,9 +101,9 @@ abstract class _$$UConvoLogConvoLogBeginConvoImplCopyWith<$Res> {
           $Res Function(_$UConvoLogConvoLogBeginConvoImpl) then) =
       __$$UConvoLogConvoLogBeginConvoImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoLogBeginConvo data});
+  $Res call({LogBeginConvo data});
 
-  $ConvoLogBeginConvoCopyWith<$Res> get data;
+  $LogBeginConvoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -124,14 +124,14 @@ class __$$UConvoLogConvoLogBeginConvoImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoLogBeginConvo,
+              as LogBeginConvo,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoLogBeginConvoCopyWith<$Res> get data {
-    return $ConvoLogBeginConvoCopyWith<$Res>(_value.data, (value) {
+  $LogBeginConvoCopyWith<$Res> get data {
+    return $LogBeginConvoCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -143,7 +143,7 @@ class _$UConvoLogConvoLogBeginConvoImpl extends UConvoLogConvoLogBeginConvo {
   const _$UConvoLogConvoLogBeginConvoImpl({required this.data}) : super._();
 
   @override
-  final ConvoLogBeginConvo data;
+  final LogBeginConvo data;
 
   @override
   String toString() {
@@ -171,10 +171,10 @@ class _$UConvoLogConvoLogBeginConvoImpl extends UConvoLogConvoLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return logBeginConvo(data);
@@ -183,10 +183,10 @@ class _$UConvoLogConvoLogBeginConvoImpl extends UConvoLogConvoLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return logBeginConvo?.call(data);
@@ -195,10 +195,10 @@ class _$UConvoLogConvoLogBeginConvoImpl extends UConvoLogConvoLogBeginConvo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -253,12 +253,11 @@ class _$UConvoLogConvoLogBeginConvoImpl extends UConvoLogConvoLogBeginConvo {
 
 abstract class UConvoLogConvoLogBeginConvo extends UConvoLog {
   const factory UConvoLogConvoLogBeginConvo(
-          {required final ConvoLogBeginConvo data}) =
-      _$UConvoLogConvoLogBeginConvoImpl;
+      {required final LogBeginConvo data}) = _$UConvoLogConvoLogBeginConvoImpl;
   const UConvoLogConvoLogBeginConvo._() : super._();
 
   @override
-  ConvoLogBeginConvo get data;
+  LogBeginConvo get data;
   @JsonKey(ignore: true)
   _$$UConvoLogConvoLogBeginConvoImplCopyWith<_$UConvoLogConvoLogBeginConvoImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -271,9 +270,9 @@ abstract class _$$UConvoLogConvoLogLeaveConvoImplCopyWith<$Res> {
           $Res Function(_$UConvoLogConvoLogLeaveConvoImpl) then) =
       __$$UConvoLogConvoLogLeaveConvoImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoLogLeaveConvo data});
+  $Res call({LogLeaveConvo data});
 
-  $ConvoLogLeaveConvoCopyWith<$Res> get data;
+  $LogLeaveConvoCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -294,14 +293,14 @@ class __$$UConvoLogConvoLogLeaveConvoImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoLogLeaveConvo,
+              as LogLeaveConvo,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoLogLeaveConvoCopyWith<$Res> get data {
-    return $ConvoLogLeaveConvoCopyWith<$Res>(_value.data, (value) {
+  $LogLeaveConvoCopyWith<$Res> get data {
+    return $LogLeaveConvoCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -313,7 +312,7 @@ class _$UConvoLogConvoLogLeaveConvoImpl extends UConvoLogConvoLogLeaveConvo {
   const _$UConvoLogConvoLogLeaveConvoImpl({required this.data}) : super._();
 
   @override
-  final ConvoLogLeaveConvo data;
+  final LogLeaveConvo data;
 
   @override
   String toString() {
@@ -341,10 +340,10 @@ class _$UConvoLogConvoLogLeaveConvoImpl extends UConvoLogConvoLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return logLeaveConvo(data);
@@ -353,10 +352,10 @@ class _$UConvoLogConvoLogLeaveConvoImpl extends UConvoLogConvoLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return logLeaveConvo?.call(data);
@@ -365,10 +364,10 @@ class _$UConvoLogConvoLogLeaveConvoImpl extends UConvoLogConvoLogLeaveConvo {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -423,12 +422,11 @@ class _$UConvoLogConvoLogLeaveConvoImpl extends UConvoLogConvoLogLeaveConvo {
 
 abstract class UConvoLogConvoLogLeaveConvo extends UConvoLog {
   const factory UConvoLogConvoLogLeaveConvo(
-          {required final ConvoLogLeaveConvo data}) =
-      _$UConvoLogConvoLogLeaveConvoImpl;
+      {required final LogLeaveConvo data}) = _$UConvoLogConvoLogLeaveConvoImpl;
   const UConvoLogConvoLogLeaveConvo._() : super._();
 
   @override
-  ConvoLogLeaveConvo get data;
+  LogLeaveConvo get data;
   @JsonKey(ignore: true)
   _$$UConvoLogConvoLogLeaveConvoImplCopyWith<_$UConvoLogConvoLogLeaveConvoImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -441,9 +439,9 @@ abstract class _$$UConvoLogConvoLogCreateMessageImplCopyWith<$Res> {
           $Res Function(_$UConvoLogConvoLogCreateMessageImpl) then) =
       __$$UConvoLogConvoLogCreateMessageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoLogCreateMessage data});
+  $Res call({LogCreateMessage data});
 
-  $ConvoLogCreateMessageCopyWith<$Res> get data;
+  $LogCreateMessageCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -464,14 +462,14 @@ class __$$UConvoLogConvoLogCreateMessageImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoLogCreateMessage,
+              as LogCreateMessage,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoLogCreateMessageCopyWith<$Res> get data {
-    return $ConvoLogCreateMessageCopyWith<$Res>(_value.data, (value) {
+  $LogCreateMessageCopyWith<$Res> get data {
+    return $LogCreateMessageCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -484,7 +482,7 @@ class _$UConvoLogConvoLogCreateMessageImpl
   const _$UConvoLogConvoLogCreateMessageImpl({required this.data}) : super._();
 
   @override
-  final ConvoLogCreateMessage data;
+  final LogCreateMessage data;
 
   @override
   String toString() {
@@ -513,10 +511,10 @@ class _$UConvoLogConvoLogCreateMessageImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return logCreateMessage(data);
@@ -525,10 +523,10 @@ class _$UConvoLogConvoLogCreateMessageImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return logCreateMessage?.call(data);
@@ -537,10 +535,10 @@ class _$UConvoLogConvoLogCreateMessageImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -595,12 +593,12 @@ class _$UConvoLogConvoLogCreateMessageImpl
 
 abstract class UConvoLogConvoLogCreateMessage extends UConvoLog {
   const factory UConvoLogConvoLogCreateMessage(
-          {required final ConvoLogCreateMessage data}) =
+          {required final LogCreateMessage data}) =
       _$UConvoLogConvoLogCreateMessageImpl;
   const UConvoLogConvoLogCreateMessage._() : super._();
 
   @override
-  ConvoLogCreateMessage get data;
+  LogCreateMessage get data;
   @JsonKey(ignore: true)
   _$$UConvoLogConvoLogCreateMessageImplCopyWith<
           _$UConvoLogConvoLogCreateMessageImpl>
@@ -614,9 +612,9 @@ abstract class _$$UConvoLogConvoLogDeleteMessageImplCopyWith<$Res> {
           $Res Function(_$UConvoLogConvoLogDeleteMessageImpl) then) =
       __$$UConvoLogConvoLogDeleteMessageImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ConvoLogDeleteMessage data});
+  $Res call({LogDeleteMessage data});
 
-  $ConvoLogDeleteMessageCopyWith<$Res> get data;
+  $LogDeleteMessageCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -637,14 +635,14 @@ class __$$UConvoLogConvoLogDeleteMessageImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as ConvoLogDeleteMessage,
+              as LogDeleteMessage,
     ));
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ConvoLogDeleteMessageCopyWith<$Res> get data {
-    return $ConvoLogDeleteMessageCopyWith<$Res>(_value.data, (value) {
+  $LogDeleteMessageCopyWith<$Res> get data {
+    return $LogDeleteMessageCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value));
     });
   }
@@ -657,7 +655,7 @@ class _$UConvoLogConvoLogDeleteMessageImpl
   const _$UConvoLogConvoLogDeleteMessageImpl({required this.data}) : super._();
 
   @override
-  final ConvoLogDeleteMessage data;
+  final LogDeleteMessage data;
 
   @override
   String toString() {
@@ -686,10 +684,10 @@ class _$UConvoLogConvoLogDeleteMessageImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return logDeleteMessage(data);
@@ -698,10 +696,10 @@ class _$UConvoLogConvoLogDeleteMessageImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return logDeleteMessage?.call(data);
@@ -710,10 +708,10 @@ class _$UConvoLogConvoLogDeleteMessageImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {
@@ -768,12 +766,12 @@ class _$UConvoLogConvoLogDeleteMessageImpl
 
 abstract class UConvoLogConvoLogDeleteMessage extends UConvoLog {
   const factory UConvoLogConvoLogDeleteMessage(
-          {required final ConvoLogDeleteMessage data}) =
+          {required final LogDeleteMessage data}) =
       _$UConvoLogConvoLogDeleteMessageImpl;
   const UConvoLogConvoLogDeleteMessage._() : super._();
 
   @override
-  ConvoLogDeleteMessage get data;
+  LogDeleteMessage get data;
   @JsonKey(ignore: true)
   _$$UConvoLogConvoLogDeleteMessageImplCopyWith<
           _$UConvoLogConvoLogDeleteMessageImpl>
@@ -853,10 +851,10 @@ class _$UConvoLogUnknownImpl extends UConvoLogUnknown {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ConvoLogBeginConvo data) logBeginConvo,
-    required TResult Function(ConvoLogLeaveConvo data) logLeaveConvo,
-    required TResult Function(ConvoLogCreateMessage data) logCreateMessage,
-    required TResult Function(ConvoLogDeleteMessage data) logDeleteMessage,
+    required TResult Function(LogBeginConvo data) logBeginConvo,
+    required TResult Function(LogLeaveConvo data) logLeaveConvo,
+    required TResult Function(LogCreateMessage data) logCreateMessage,
+    required TResult Function(LogDeleteMessage data) logDeleteMessage,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
     return unknown(data);
@@ -865,10 +863,10 @@ class _$UConvoLogUnknownImpl extends UConvoLogUnknown {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult? Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult? Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult? Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult? Function(LogBeginConvo data)? logBeginConvo,
+    TResult? Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult? Function(LogCreateMessage data)? logCreateMessage,
+    TResult? Function(LogDeleteMessage data)? logDeleteMessage,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
     return unknown?.call(data);
@@ -877,10 +875,10 @@ class _$UConvoLogUnknownImpl extends UConvoLogUnknown {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ConvoLogBeginConvo data)? logBeginConvo,
-    TResult Function(ConvoLogLeaveConvo data)? logLeaveConvo,
-    TResult Function(ConvoLogCreateMessage data)? logCreateMessage,
-    TResult Function(ConvoLogDeleteMessage data)? logDeleteMessage,
+    TResult Function(LogBeginConvo data)? logBeginConvo,
+    TResult Function(LogLeaveConvo data)? logLeaveConvo,
+    TResult Function(LogCreateMessage data)? logCreateMessage,
+    TResult Function(LogDeleteMessage data)? logDeleteMessage,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
   }) {

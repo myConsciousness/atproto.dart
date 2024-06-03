@@ -10,15 +10,15 @@ part 'account.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createaccount/#output
 @freezed
-class Account with _$Account {
-  const factory Account({
+class CreateAccountOutput with _$CreateAccountOutput {
+  const factory CreateAccountOutput({
     required String accessJwt,
     required String refreshJwt,
     required String handle,
     required String did,
     Map<String, dynamic>? didDoc,
-  }) = _Account;
+  }) = _CreateAccountOutput;
 
-  factory Account.fromJson(Map<String, Object?> json) =>
-      _$AccountFromJson(json);
+  factory CreateAccountOutput.fromJson(Map<String, Object?> json) =>
+      _$CreateAccountOutputFromJson(json);
 }

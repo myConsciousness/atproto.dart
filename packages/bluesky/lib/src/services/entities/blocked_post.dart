@@ -20,7 +20,7 @@ part 'blocked_post.g.dart';
 class BlockedPost with _$BlockedPost {
   const factory BlockedPost({
     @typeKey @Default(appBskyFeedDefsBlockedPost) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     required bool blocked,
     required BlockedAuthor author,
   }) = _BlockedPost;

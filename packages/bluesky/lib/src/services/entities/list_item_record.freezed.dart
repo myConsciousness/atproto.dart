@@ -22,7 +22,7 @@ ListItemRecord _$ListItemRecordFromJson(Map<String, dynamic> json) {
 mixin _$ListItemRecord {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
   @JsonKey(name: 'subject')
   String get did => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ListItemRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri list,
+      @AtUriConverter() AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -96,7 +96,7 @@ abstract class _$$ListItemRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri list,
+      @AtUriConverter() AtUri list,
       @JsonKey(name: 'subject') String did,
       DateTime createdAt});
 }
@@ -144,7 +144,7 @@ class __$$ListItemRecordImplCopyWithImpl<$Res>
 class _$ListItemRecordImpl implements _ListItemRecord {
   const _$ListItemRecordImpl(
       {@typeKey this.type = appBskyGraphListitem,
-      @atUriConverter required this.list,
+      @AtUriConverter() required this.list,
       @JsonKey(name: 'subject') required this.did,
       required this.createdAt});
 
@@ -155,7 +155,7 @@ class _$ListItemRecordImpl implements _ListItemRecord {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri list;
   @override
   @JsonKey(name: 'subject')
@@ -202,7 +202,7 @@ class _$ListItemRecordImpl implements _ListItemRecord {
 abstract class _ListItemRecord implements ListItemRecord {
   const factory _ListItemRecord(
       {@typeKey final String type,
-      @atUriConverter required final AtUri list,
+      @AtUriConverter() required final AtUri list,
       @JsonKey(name: 'subject') required final String did,
       required final DateTime createdAt}) = _$ListItemRecordImpl;
 
@@ -213,7 +213,7 @@ abstract class _ListItemRecord implements ListItemRecord {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get list;
   @override
   @JsonKey(name: 'subject')

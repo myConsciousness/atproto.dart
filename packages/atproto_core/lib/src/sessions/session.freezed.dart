@@ -42,6 +42,8 @@ mixin _$Session {
 
   /// DID plc document.
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -61,7 +63,9 @@ abstract class $SessionCopyWith<$Res> {
       bool emailAuthFactor,
       String accessJwt,
       String refreshJwt,
-      Map<String, dynamic>? didDoc});
+      Map<String, dynamic>? didDoc,
+      bool active,
+      String? status});
 }
 
 /// @nodoc
@@ -85,6 +89,8 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
+    Object? active = null,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -119,6 +125,14 @@ class _$SessionCopyWithImpl<$Res, $Val extends Session>
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -138,7 +152,9 @@ abstract class _$$SessionImplCopyWith<$Res> implements $SessionCopyWith<$Res> {
       bool emailAuthFactor,
       String accessJwt,
       String refreshJwt,
-      Map<String, dynamic>? didDoc});
+      Map<String, dynamic>? didDoc,
+      bool active,
+      String? status});
 }
 
 /// @nodoc
@@ -160,6 +176,8 @@ class __$$SessionImplCopyWithImpl<$Res>
     Object? accessJwt = null,
     Object? refreshJwt = null,
     Object? didDoc = freezed,
+    Object? active = null,
+    Object? status = freezed,
   }) {
     return _then(_$SessionImpl(
       did: null == did
@@ -194,6 +212,14 @@ class __$$SessionImplCopyWithImpl<$Res>
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -210,7 +236,9 @@ class _$SessionImpl extends _Session {
       this.emailAuthFactor = false,
       required this.accessJwt,
       required this.refreshJwt,
-      final Map<String, dynamic>? didDoc})
+      final Map<String, dynamic>? didDoc,
+      this.active = true,
+      this.status})
       : _didDoc = didDoc,
         super._();
 
@@ -259,8 +287,14 @@ class _$SessionImpl extends _Session {
   }
 
   @override
+  @JsonKey()
+  final bool active;
+  @override
+  final String? status;
+
+  @override
   String toString() {
-    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, emailAuthFactor: $emailAuthFactor, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc)';
+    return 'Session(did: $did, handle: $handle, email: $email, isEmailConfirmed: $isEmailConfirmed, emailAuthFactor: $emailAuthFactor, accessJwt: $accessJwt, refreshJwt: $refreshJwt, didDoc: $didDoc, active: $active, status: $status)';
   }
 
   @override
@@ -279,7 +313,9 @@ class _$SessionImpl extends _Session {
                 other.accessJwt == accessJwt) &&
             (identical(other.refreshJwt, refreshJwt) ||
                 other.refreshJwt == refreshJwt) &&
-            const DeepCollectionEquality().equals(other._didDoc, _didDoc));
+            const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
+            (identical(other.active, active) || other.active == active) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
@@ -293,7 +329,9 @@ class _$SessionImpl extends _Session {
       emailAuthFactor,
       accessJwt,
       refreshJwt,
-      const DeepCollectionEquality().hash(_didDoc));
+      const DeepCollectionEquality().hash(_didDoc),
+      active,
+      status);
 
   @JsonKey(ignore: true)
   @override
@@ -318,7 +356,9 @@ abstract class _Session extends Session {
       final bool emailAuthFactor,
       required final String accessJwt,
       required final String refreshJwt,
-      final Map<String, dynamic>? didDoc}) = _$SessionImpl;
+      final Map<String, dynamic>? didDoc,
+      final bool active,
+      final String? status}) = _$SessionImpl;
   const _Session._() : super._();
 
   factory _Session.fromJson(Map<String, dynamic> json) = _$SessionImpl.fromJson;
@@ -354,6 +394,10 @@ abstract class _Session extends Session {
 
   /// DID plc document.
   Map<String, dynamic>? get didDoc;
+  @override
+  bool get active;
+  @override
+  String? get status;
   @override
   @JsonKey(ignore: true)
   _$$SessionImplCopyWith<_$SessionImpl> get copyWith =>

@@ -14,13 +14,13 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog/#main
 @freezed
-class ConvoGetLog with _$ConvoGetLog {
+class GetLogOutput with _$GetLogOutput {
   @jsonSerializable
-  const factory ConvoGetLog({
+  const factory GetLogOutput({
     @unionConvoLogConverter required List<UConvoLog> logs,
     String? cursor,
-  }) = _ConvoGetLog;
+  }) = _GetLogOutput;
 
-  factory ConvoGetLog.fromJson(Map<String, Object?> json) =>
-      _$ConvoGetLogFromJson(json);
+  factory GetLogOutput.fromJson(Map<String, Object?> json) =>
+      _$GetLogOutputFromJson(json);
 }

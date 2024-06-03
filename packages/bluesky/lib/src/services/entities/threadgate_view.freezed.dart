@@ -22,7 +22,7 @@ ThreadgateView _$ThreadgateViewFromJson(Map<String, dynamic> json) {
 mixin _$ThreadgateView {
   @typeKey
   String get type => throw _privateConstructorUsedError;
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   ThreadgateRecord? get record => throw _privateConstructorUsedError;
@@ -42,7 +42,7 @@ abstract class $ThreadgateViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri? uri,
+      @AtUriConverter() AtUri? uri,
       String? cid,
       ThreadgateRecord? record,
       List<ListViewBasic>? lists});
@@ -116,7 +116,7 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@typeKey String type,
-      @atUriConverter AtUri? uri,
+      @AtUriConverter() AtUri? uri,
       String? cid,
       ThreadgateRecord? record,
       List<ListViewBasic>? lists});
@@ -173,7 +173,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
 class _$ThreadgateViewImpl implements _ThreadgateView {
   const _$ThreadgateViewImpl(
       {@typeKey this.type = appBskyFeedDefsThreadgateView,
-      @atUriConverter this.uri,
+      @AtUriConverter() this.uri,
       this.cid,
       this.record,
       final List<ListViewBasic>? lists})
@@ -186,7 +186,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @typeKey
   final String type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? uri;
   @override
   final String? cid;
@@ -242,7 +242,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 abstract class _ThreadgateView implements ThreadgateView {
   const factory _ThreadgateView(
       {@typeKey final String type,
-      @atUriConverter final AtUri? uri,
+      @AtUriConverter() final AtUri? uri,
       final String? cid,
       final ThreadgateRecord? record,
       final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
@@ -254,7 +254,7 @@ abstract class _ThreadgateView implements ThreadgateView {
   @typeKey
   String get type;
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get uri;
   @override
   String? get cid;

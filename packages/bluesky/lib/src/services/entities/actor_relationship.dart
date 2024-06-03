@@ -20,8 +20,8 @@ class ActorRelationship with _$ActorRelationship {
   const factory ActorRelationship({
     @typeKey @Default(appBskyGraphDefsRelationship) String type,
     required String did,
-    @atUriConverter AtUri? following,
-    @atUriConverter AtUri? followedBy,
+    @AtUriConverter() AtUri? following,
+    @AtUriConverter() AtUri? followedBy,
   }) = _ActorRelationship;
 
   factory ActorRelationship.fromJson(Map<String, Object?> json) =>

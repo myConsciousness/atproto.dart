@@ -20,7 +20,7 @@ FeedGeneratorViewer _$FeedGeneratorViewerFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedGeneratorViewer {
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -35,7 +35,7 @@ abstract class $FeedGeneratorViewerCopyWith<$Res> {
           FeedGeneratorViewer value, $Res Function(FeedGeneratorViewer) then) =
       _$FeedGeneratorViewerCopyWithImpl<$Res, FeedGeneratorViewer>;
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -70,7 +70,7 @@ abstract class _$$FeedGeneratorViewerImplCopyWith<$Res>
       __$$FeedGeneratorViewerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@atUriConverter AtUri? like});
+  $Res call({@AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -99,13 +99,13 @@ class __$$FeedGeneratorViewerImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
-  const _$FeedGeneratorViewerImpl({@atUriConverter this.like});
+  const _$FeedGeneratorViewerImpl({@AtUriConverter() this.like});
 
   factory _$FeedGeneratorViewerImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedGeneratorViewerImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri? like;
 
   @override
@@ -141,14 +141,14 @@ class _$FeedGeneratorViewerImpl implements _FeedGeneratorViewer {
 }
 
 abstract class _FeedGeneratorViewer implements FeedGeneratorViewer {
-  const factory _FeedGeneratorViewer({@atUriConverter final AtUri? like}) =
+  const factory _FeedGeneratorViewer({@AtUriConverter() final AtUri? like}) =
       _$FeedGeneratorViewerImpl;
 
   factory _FeedGeneratorViewer.fromJson(Map<String, dynamic> json) =
       _$FeedGeneratorViewerImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri? get like;
   @override
   @JsonKey(ignore: true)

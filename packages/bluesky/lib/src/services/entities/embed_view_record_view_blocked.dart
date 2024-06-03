@@ -20,7 +20,7 @@ part 'embed_view_record_view_blocked.g.dart';
 class EmbedViewRecordViewBlocked with _$EmbedViewRecordViewBlocked {
   const factory EmbedViewRecordViewBlocked({
     @typeKey @Default(appBskyEmbedRecordViewBlocked) String type,
-    @atUriConverter required AtUri uri,
+    @AtUriConverter() required AtUri uri,
     @JsonKey(name: 'blocked') @Default(true) bool isBlocked,
     required BlockedAuthor author,
   }) = _EmbedViewRecordViewBlocked;

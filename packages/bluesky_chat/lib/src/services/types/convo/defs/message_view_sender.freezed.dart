@@ -14,35 +14,33 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoMessageViewSender _$ConvoMessageViewSenderFromJson(
-    Map<String, dynamic> json) {
-  return _ConvoMessageViewSender.fromJson(json);
+MessageViewSender _$MessageViewSenderFromJson(Map<String, dynamic> json) {
+  return _MessageViewSender.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoMessageViewSender {
+mixin _$MessageViewSender {
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoMessageViewSenderCopyWith<ConvoMessageViewSender> get copyWith =>
+  $MessageViewSenderCopyWith<MessageViewSender> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoMessageViewSenderCopyWith<$Res> {
-  factory $ConvoMessageViewSenderCopyWith(ConvoMessageViewSender value,
-          $Res Function(ConvoMessageViewSender) then) =
-      _$ConvoMessageViewSenderCopyWithImpl<$Res, ConvoMessageViewSender>;
+abstract class $MessageViewSenderCopyWith<$Res> {
+  factory $MessageViewSenderCopyWith(
+          MessageViewSender value, $Res Function(MessageViewSender) then) =
+      _$MessageViewSenderCopyWithImpl<$Res, MessageViewSender>;
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class _$ConvoMessageViewSenderCopyWithImpl<$Res,
-        $Val extends ConvoMessageViewSender>
-    implements $ConvoMessageViewSenderCopyWith<$Res> {
-  _$ConvoMessageViewSenderCopyWithImpl(this._value, this._then);
+class _$MessageViewSenderCopyWithImpl<$Res, $Val extends MessageViewSender>
+    implements $MessageViewSenderCopyWith<$Res> {
+  _$MessageViewSenderCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -64,25 +62,22 @@ class _$ConvoMessageViewSenderCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$ConvoMessageViewSenderImplCopyWith<$Res>
-    implements $ConvoMessageViewSenderCopyWith<$Res> {
-  factory _$$ConvoMessageViewSenderImplCopyWith(
-          _$ConvoMessageViewSenderImpl value,
-          $Res Function(_$ConvoMessageViewSenderImpl) then) =
-      __$$ConvoMessageViewSenderImplCopyWithImpl<$Res>;
+abstract class _$$MessageViewSenderImplCopyWith<$Res>
+    implements $MessageViewSenderCopyWith<$Res> {
+  factory _$$MessageViewSenderImplCopyWith(_$MessageViewSenderImpl value,
+          $Res Function(_$MessageViewSenderImpl) then) =
+      __$$MessageViewSenderImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String did});
 }
 
 /// @nodoc
-class __$$ConvoMessageViewSenderImplCopyWithImpl<$Res>
-    extends _$ConvoMessageViewSenderCopyWithImpl<$Res,
-        _$ConvoMessageViewSenderImpl>
-    implements _$$ConvoMessageViewSenderImplCopyWith<$Res> {
-  __$$ConvoMessageViewSenderImplCopyWithImpl(
-      _$ConvoMessageViewSenderImpl _value,
-      $Res Function(_$ConvoMessageViewSenderImpl) _then)
+class __$$MessageViewSenderImplCopyWithImpl<$Res>
+    extends _$MessageViewSenderCopyWithImpl<$Res, _$MessageViewSenderImpl>
+    implements _$$MessageViewSenderImplCopyWith<$Res> {
+  __$$MessageViewSenderImplCopyWithImpl(_$MessageViewSenderImpl _value,
+      $Res Function(_$MessageViewSenderImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,7 +85,7 @@ class __$$ConvoMessageViewSenderImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
   }) {
-    return _then(_$ConvoMessageViewSenderImpl(
+    return _then(_$MessageViewSenderImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -102,25 +97,25 @@ class __$$ConvoMessageViewSenderImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoMessageViewSenderImpl implements _ConvoMessageViewSender {
-  const _$ConvoMessageViewSenderImpl({required this.did});
+class _$MessageViewSenderImpl implements _MessageViewSender {
+  const _$MessageViewSenderImpl({required this.did});
 
-  factory _$ConvoMessageViewSenderImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoMessageViewSenderImplFromJson(json);
+  factory _$MessageViewSenderImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageViewSenderImplFromJson(json);
 
   @override
   final String did;
 
   @override
   String toString() {
-    return 'ConvoMessageViewSender(did: $did)';
+    return 'MessageViewSender(did: $did)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoMessageViewSenderImpl &&
+            other is _$MessageViewSenderImpl &&
             (identical(other.did, did) || other.did == did));
   }
 
@@ -131,29 +126,29 @@ class _$ConvoMessageViewSenderImpl implements _ConvoMessageViewSender {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoMessageViewSenderImplCopyWith<_$ConvoMessageViewSenderImpl>
-      get copyWith => __$$ConvoMessageViewSenderImplCopyWithImpl<
-          _$ConvoMessageViewSenderImpl>(this, _$identity);
+  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
+      __$$MessageViewSenderImplCopyWithImpl<_$MessageViewSenderImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoMessageViewSenderImplToJson(
+    return _$$MessageViewSenderImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoMessageViewSender implements ConvoMessageViewSender {
-  const factory _ConvoMessageViewSender({required final String did}) =
-      _$ConvoMessageViewSenderImpl;
+abstract class _MessageViewSender implements MessageViewSender {
+  const factory _MessageViewSender({required final String did}) =
+      _$MessageViewSenderImpl;
 
-  factory _ConvoMessageViewSender.fromJson(Map<String, dynamic> json) =
-      _$ConvoMessageViewSenderImpl.fromJson;
+  factory _MessageViewSender.fromJson(Map<String, dynamic> json) =
+      _$MessageViewSenderImpl.fromJson;
 
   @override
   String get did;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoMessageViewSenderImplCopyWith<_$ConvoMessageViewSenderImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$MessageViewSenderImplCopyWith<_$MessageViewSenderImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

@@ -14,7 +14,7 @@ _$SkeletonPostImpl _$$SkeletonPostImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$SkeletonPostImpl(
           uri: $checkedConvert(
-              'uri', (v) => atUriConverter.fromJson(v as String)),
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
         return val;
       },
@@ -22,5 +22,5 @@ _$SkeletonPostImpl _$$SkeletonPostImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$SkeletonPostImplToJson(_$SkeletonPostImpl instance) =>
     <String, dynamic>{
-      'uri': atUriConverter.toJson(instance.uri),
+      'uri': const AtUriConverter().toJson(instance.uri),
     };

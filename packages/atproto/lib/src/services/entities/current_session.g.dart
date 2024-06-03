@@ -25,6 +25,8 @@ _$CurrentSessionImpl _$$CurrentSessionImplFromJson(Map json) => $checkedCreate(
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
+          active: $checkedConvert('active', (v) => v as bool? ?? true),
+          status: $checkedConvert('status', (v) => v as String?),
         );
         return val;
       },
@@ -48,5 +50,7 @@ Map<String, dynamic> _$$CurrentSessionImplToJson(
   val['emailConfirmed'] = instance.isEmailConfirmed;
   val['emailAuthFactor'] = instance.emailAuthFactor;
   writeNotNull('didDoc', instance.didDoc);
+  val['active'] = instance.active;
+  writeNotNull('status', instance.status);
   return val;
 }

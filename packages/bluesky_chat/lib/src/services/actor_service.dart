@@ -19,7 +19,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
   Future<core.XRPCResponse<atp.StrongRef>> declaration({
-    required ActorDeclarationAllowIncoming allowIncoming,
+    required DeclarationAllowIncoming allowIncoming,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         collection: ns.chatBskyActorDeclaration,

@@ -14,12 +14,12 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead/#output
 @freezed
-class ConvoUpdateRead with _$ConvoUpdateRead {
+class UpdateReadOutput with _$UpdateReadOutput {
   @jsonSerializable
-  const factory ConvoUpdateRead({
+  const factory UpdateReadOutput({
     required ConvoView convo,
-  }) = _ConvoUpdateRead;
+  }) = _UpdateReadOutput;
 
-  factory ConvoUpdateRead.fromJson(Map<String, Object?> json) =>
-      _$ConvoUpdateReadFromJson(json);
+  factory UpdateReadOutput.fromJson(Map<String, Object?> json) =>
+      _$UpdateReadOutputFromJson(json);
 }

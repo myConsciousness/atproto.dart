@@ -24,6 +24,7 @@ Future<void> main(List<String> args) async {
     event.when(
       commit: repoCommitAdaptor.execute,
       identity: print,
+      account: print,
       handle: print,
       migrate: print,
       tombstone: print,

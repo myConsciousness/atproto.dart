@@ -20,7 +20,7 @@ class FeedInteraction with _$FeedInteraction {
   @jsonSerializable
   const factory FeedInteraction({
     @typeKey @Default(appBskyFeedDefsInteraction) String type,
-    @atUriConverter AtUri? item,
+    @AtUriConverter() AtUri? item,
     String? event,
     String? feedContext,
   }) = _FeedInteraction;

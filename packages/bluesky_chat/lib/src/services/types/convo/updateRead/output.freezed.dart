@@ -14,25 +14,25 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-ConvoUpdateRead _$ConvoUpdateReadFromJson(Map<String, dynamic> json) {
-  return _ConvoUpdateRead.fromJson(json);
+UpdateReadOutput _$UpdateReadOutputFromJson(Map<String, dynamic> json) {
+  return _UpdateReadOutput.fromJson(json);
 }
 
 /// @nodoc
-mixin _$ConvoUpdateRead {
+mixin _$UpdateReadOutput {
   ConvoView get convo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $ConvoUpdateReadCopyWith<ConvoUpdateRead> get copyWith =>
+  $UpdateReadOutputCopyWith<UpdateReadOutput> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ConvoUpdateReadCopyWith<$Res> {
-  factory $ConvoUpdateReadCopyWith(
-          ConvoUpdateRead value, $Res Function(ConvoUpdateRead) then) =
-      _$ConvoUpdateReadCopyWithImpl<$Res, ConvoUpdateRead>;
+abstract class $UpdateReadOutputCopyWith<$Res> {
+  factory $UpdateReadOutputCopyWith(
+          UpdateReadOutput value, $Res Function(UpdateReadOutput) then) =
+      _$UpdateReadOutputCopyWithImpl<$Res, UpdateReadOutput>;
   @useResult
   $Res call({ConvoView convo});
 
@@ -40,9 +40,9 @@ abstract class $ConvoUpdateReadCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ConvoUpdateReadCopyWithImpl<$Res, $Val extends ConvoUpdateRead>
-    implements $ConvoUpdateReadCopyWith<$Res> {
-  _$ConvoUpdateReadCopyWithImpl(this._value, this._then);
+class _$UpdateReadOutputCopyWithImpl<$Res, $Val extends UpdateReadOutput>
+    implements $UpdateReadOutputCopyWith<$Res> {
+  _$UpdateReadOutputCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -72,11 +72,11 @@ class _$ConvoUpdateReadCopyWithImpl<$Res, $Val extends ConvoUpdateRead>
 }
 
 /// @nodoc
-abstract class _$$ConvoUpdateReadImplCopyWith<$Res>
-    implements $ConvoUpdateReadCopyWith<$Res> {
-  factory _$$ConvoUpdateReadImplCopyWith(_$ConvoUpdateReadImpl value,
-          $Res Function(_$ConvoUpdateReadImpl) then) =
-      __$$ConvoUpdateReadImplCopyWithImpl<$Res>;
+abstract class _$$UpdateReadOutputImplCopyWith<$Res>
+    implements $UpdateReadOutputCopyWith<$Res> {
+  factory _$$UpdateReadOutputImplCopyWith(_$UpdateReadOutputImpl value,
+          $Res Function(_$UpdateReadOutputImpl) then) =
+      __$$UpdateReadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({ConvoView convo});
@@ -86,11 +86,11 @@ abstract class _$$ConvoUpdateReadImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$ConvoUpdateReadImplCopyWithImpl<$Res>
-    extends _$ConvoUpdateReadCopyWithImpl<$Res, _$ConvoUpdateReadImpl>
-    implements _$$ConvoUpdateReadImplCopyWith<$Res> {
-  __$$ConvoUpdateReadImplCopyWithImpl(
-      _$ConvoUpdateReadImpl _value, $Res Function(_$ConvoUpdateReadImpl) _then)
+class __$$UpdateReadOutputImplCopyWithImpl<$Res>
+    extends _$UpdateReadOutputCopyWithImpl<$Res, _$UpdateReadOutputImpl>
+    implements _$$UpdateReadOutputImplCopyWith<$Res> {
+  __$$UpdateReadOutputImplCopyWithImpl(_$UpdateReadOutputImpl _value,
+      $Res Function(_$UpdateReadOutputImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -98,7 +98,7 @@ class __$$ConvoUpdateReadImplCopyWithImpl<$Res>
   $Res call({
     Object? convo = null,
   }) {
-    return _then(_$ConvoUpdateReadImpl(
+    return _then(_$UpdateReadOutputImpl(
       convo: null == convo
           ? _value.convo
           : convo // ignore: cast_nullable_to_non_nullable
@@ -110,25 +110,25 @@ class __$$ConvoUpdateReadImplCopyWithImpl<$Res>
 /// @nodoc
 
 @jsonSerializable
-class _$ConvoUpdateReadImpl implements _ConvoUpdateRead {
-  const _$ConvoUpdateReadImpl({required this.convo});
+class _$UpdateReadOutputImpl implements _UpdateReadOutput {
+  const _$UpdateReadOutputImpl({required this.convo});
 
-  factory _$ConvoUpdateReadImpl.fromJson(Map<String, dynamic> json) =>
-      _$$ConvoUpdateReadImplFromJson(json);
+  factory _$UpdateReadOutputImpl.fromJson(Map<String, dynamic> json) =>
+      _$$UpdateReadOutputImplFromJson(json);
 
   @override
   final ConvoView convo;
 
   @override
   String toString() {
-    return 'ConvoUpdateRead(convo: $convo)';
+    return 'UpdateReadOutput(convo: $convo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$ConvoUpdateReadImpl &&
+            other is _$UpdateReadOutputImpl &&
             (identical(other.convo, convo) || other.convo == convo));
   }
 
@@ -139,29 +139,29 @@ class _$ConvoUpdateReadImpl implements _ConvoUpdateRead {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$ConvoUpdateReadImplCopyWith<_$ConvoUpdateReadImpl> get copyWith =>
-      __$$ConvoUpdateReadImplCopyWithImpl<_$ConvoUpdateReadImpl>(
+  _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
+      __$$UpdateReadOutputImplCopyWithImpl<_$UpdateReadOutputImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$ConvoUpdateReadImplToJson(
+    return _$$UpdateReadOutputImplToJson(
       this,
     );
   }
 }
 
-abstract class _ConvoUpdateRead implements ConvoUpdateRead {
-  const factory _ConvoUpdateRead({required final ConvoView convo}) =
-      _$ConvoUpdateReadImpl;
+abstract class _UpdateReadOutput implements UpdateReadOutput {
+  const factory _UpdateReadOutput({required final ConvoView convo}) =
+      _$UpdateReadOutputImpl;
 
-  factory _ConvoUpdateRead.fromJson(Map<String, dynamic> json) =
-      _$ConvoUpdateReadImpl.fromJson;
+  factory _UpdateReadOutput.fromJson(Map<String, dynamic> json) =
+      _$UpdateReadOutputImpl.fromJson;
 
   @override
   ConvoView get convo;
   @override
   @JsonKey(ignore: true)
-  _$$ConvoUpdateReadImplCopyWith<_$ConvoUpdateReadImpl> get copyWith =>
+  _$$UpdateReadOutputImplCopyWith<_$UpdateReadOutputImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -20,7 +20,7 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
@@ -36,7 +36,7 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
+      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@atUriConverter AtUri uri, String? cid, Map<String, dynamic> value});
+      {@AtUriConverter() AtUri uri, String? cid, Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -121,7 +121,7 @@ class __$$RecordImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$RecordImpl extends _Record {
   const _$RecordImpl(
-      {@atUriConverter required this.uri,
+      {@AtUriConverter() required this.uri,
       this.cid,
       required final Map<String, dynamic> value})
       : _value = value,
@@ -131,7 +131,7 @@ class _$RecordImpl extends _Record {
       _$$RecordImplFromJson(json);
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   final AtUri uri;
   @override
   final String? cid;
@@ -179,7 +179,7 @@ class _$RecordImpl extends _Record {
 
 abstract class _Record extends Record {
   const factory _Record(
-      {@atUriConverter required final AtUri uri,
+      {@AtUriConverter() required final AtUri uri,
       final String? cid,
       required final Map<String, dynamic> value}) = _$RecordImpl;
   const _Record._() : super._();
@@ -187,7 +187,7 @@ abstract class _Record extends Record {
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
   @override
-  @atUriConverter
+  @AtUriConverter()
   AtUri get uri;
   @override
   String? get cid;
