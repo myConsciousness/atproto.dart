@@ -12,6 +12,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/blob_refs.dart';
+import 'package:atproto/src/services/entities/get_repo_status_output.dart';
 import 'package:atproto/src/services/entities/repo_blocks.dart';
 import 'package:atproto/src/services/entities/repo_commit.dart';
 import 'package:atproto/src/services/entities/repo_commits.dart';
@@ -77,5 +78,10 @@ void main() {
   testSync<BlobRefs>(
     (m, s) => s.listBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
+  );
+
+  testSync<GetRepoStatusOutput>(
+    (m, s) => s.getRepoStatus(did: m.did),
+    id: comAtprotoSyncGetRepoStatus,
   );
 }

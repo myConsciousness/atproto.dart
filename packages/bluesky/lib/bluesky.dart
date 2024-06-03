@@ -54,6 +54,8 @@ export 'package:atproto/atproto.dart'
         $AppPasswordsCopyWith,
         RepoInfo,
         $RepoInfoCopyWith,
+        GetRepoStatusOutput,
+        $GetRepoStatusOutputCopyWith,
         Repo,
         $RepoCopyWith,
         Repos,

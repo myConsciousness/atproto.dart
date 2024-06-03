@@ -25,6 +25,7 @@ export 'package:atproto/src/services/entities/invite_codes.dart';
 export 'package:atproto/src/services/entities/label.dart';
 export 'package:atproto/src/services/entities/record.dart';
 export 'package:atproto/src/services/entities/records.dart';
+export 'package:atproto/src/services/entities/get_repo_status_output.dart';
 export 'package:atproto/src/services/entities/repo.dart';
 export 'package:atproto/src/services/entities/repo_block.dart';
 export 'package:atproto/src/services/entities/repo_blocks.dart';
