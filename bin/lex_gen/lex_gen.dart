@@ -7,8 +7,8 @@ import 'dart:io';
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
-import 'rules/lex_naming_convention.dart';
-import 'builders/lex_object_template.dart';
+import 'rules/naming_convention.dart';
+import 'builders/object_builder.dart';
 
 const _supportedLexicons = [
   // 'com.atproto',

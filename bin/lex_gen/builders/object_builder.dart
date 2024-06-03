@@ -4,11 +4,11 @@
 
 import 'package:lexicon/lexicon.dart';
 
-import '../rules/lex_naming_convention.dart';
+import '../rules/naming_convention.dart';
 
-import '../types/lex_gen_object.dart';
+import '../types/object.dart';
 import '../types/context.dart';
-import '../utils.dart';
+import '../rules/utils.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(

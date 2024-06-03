@@ -4,7 +4,7 @@
 
 import 'package:test/test.dart';
 
-import '../../bin/lex_gen/rules/lex_naming_convention.dart';
+import '../../bin/lex_gen/rules/naming_convention.dart';
 
 void main() {
   test('app.bsky.actor.defs#profileViewBasic', () {
