@@ -6,66 +6,7 @@ import 'package:lexicon/lexicon.dart';
 
 import './lex_naming_convention.dart';
 
-import '../utils.dart';
-
-const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
-const _kFreezedAnnotationPackage =
-    "import 'package:freezed_annotation/freezed_annotation.dart';";
-
-final class Property {
-  const Property({
-    this.description,
-    this.isRequired = false,
-    required this.type,
-    required this.name,
-    this.importPath,
-    this.converter,
-    this.defaultValue,
-  });
-
-  final String? description;
-  final bool isRequired;
-  final String type;
-  final String name;
-
-  final String? importPath;
-  final String? converter;
-  final String? defaultValue;
-
-  @override
-  String toString() {
-    final buffer = StringBuffer();
-
-    if (description != null && description!.isNotEmpty) {
-      buffer.write('    '); // Comments will not be formatted
-      buffer.writeln('/// $description');
-    }
-
-    if (converter != null) {
-      buffer.write('@$converter()');
-      buffer.write(' ');
-    }
-
-    if (isRequired) {
-      buffer.write('required');
-      buffer.write(' ');
-      buffer.write(type);
-      buffer.write(' ');
-    } else {
-      if (defaultValue != null) {
-        buffer.write('@Default($defaultValue) $type');
-        buffer.write(' ');
-      } else {
-        buffer.write('$type?');
-        buffer.write(' ');
-      }
-    }
-
-    buffer.write('$name,');
-
-    return buffer.toString();
-  }
-}
+import '../lex_gen/types/lex_gen_object.dart';
 
 final class LexObjectTemplate {
   const LexObjectTemplate(
@@ -86,60 +27,20 @@ final class LexObjectTemplate {
     final properties = _getProperties();
     if (properties.isEmpty) return null; // RefVariant, no need to create.
 
-    final fileName = namingConvention.getFileName();
-    final objectName = namingConvention.getObjectName();
-
-    // Distinct
-    final importPaths = properties
-        .map((e) => e.importPath)
-        .where((e) => e != null)
-        .toSet()
-        .toList();
-
-    final referencePath = getReferencePath(docId, defName);
-
-    final buffer = StringBuffer();
-    buffer.writeln(getFileHeader('Lex Object Generator'));
-    buffer.writeln();
-    buffer.writeln(_kCorePackage);
-    buffer.writeln(_kFreezedAnnotationPackage);
-    for (final importPath in importPaths) {
-      buffer
-        ..writeln()
-        ..write("import '$importPath';");
-    }
-    buffer.writeln();
-    buffer.writeln("part '$fileName.freezed.dart';");
-    buffer.writeln("part '$fileName.g.dart';");
-    buffer.writeln();
-    buffer.writeln('// $referencePath');
-    buffer.writeln('@freezed');
-    buffer.writeln('class $objectName with _\$$objectName {');
-    buffer.writeln('  @jsonSerializable');
-    buffer.write('  const factory $objectName({');
-    buffer.writeln();
-    for (final property in properties) {
-      buffer
-        ..writeln()
-        ..write(property.toString());
-    }
-    buffer.writeln();
-    buffer.writeln('  }) = _$objectName;');
-    buffer.writeln();
-    buffer.writeln(
-        '  factory $objectName.fromJson(Map<String, Object?> json) =>');
-    buffer.writeln('      _\$${objectName}FromJson(json);');
-    buffer.writeln('}');
-
-    return buffer.toString();
+    return LexGenObject(
+      description: getReferencePath(docId, defName),
+      name: namingConvention.getObjectName(),
+      fileName: namingConvention.getFileName(),
+      properties: properties,
+    ).toString();
   }
 
-  List<Property> _getProperties() {
+  List<LexGenObjectProperty> _getProperties() {
     final properties = def.whenOrNull(
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) return const <Property>[]; // RefVariant
+        if (object == null) return const <LexGenObjectProperty>[]; // RefVariant
 
         if (object.properties?.length == 1) {
           final refVariant = object.properties?.values.first
@@ -148,7 +49,7 @@ final class LexObjectTemplate {
 
           if (ref != null && ref.ref != null) {
             // final refObject = getRef(docId, ref.ref!);
-            return const <Property>[]; //! Ignore ref now.
+            return const <LexGenObjectProperty>[]; //! Ignore ref now.
           }
         }
 
@@ -159,10 +60,10 @@ final class LexObjectTemplate {
     return properties ?? const [];
   }
 
-  List<Property> _getObjectProperties(final LexObject object) {
+  List<LexGenObjectProperty> _getObjectProperties(final LexObject object) {
     if (object.properties == null) return const [];
 
-    final properties = <Property>[];
+    final properties = <LexGenObjectProperty>[];
 
     final requiredProperties = object.requiredProperties ?? const [];
 
@@ -177,7 +78,7 @@ final class LexObjectTemplate {
       );
 
       properties.add(
-        Property(
+        LexGenObjectProperty(
           description: property['description'],
           isRequired: requiredProperties.contains(entry.key),
           type: dataType.$1,
