@@ -2,8 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
 

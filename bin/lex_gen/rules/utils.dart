@@ -2,9 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
 import '../types/context.dart';
 
 String getPackageName(final String lexicon) {

@@ -2,15 +2,18 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
-import 'rules/naming_convention.dart';
-import 'types/context.dart';
+// 🌎 Project imports:
 import 'builders/object_builder.dart';
+import 'rules/naming_convention.dart';
 import 'rules/utils.dart';
+import 'types/context.dart';
 
 const _supportedLexicons = [
   // 'com.atproto',
@@ -33,7 +36,7 @@ final class LexGen {
       }
     }
 
-    final mainObjects = _getMainObjects();
+    final mainRelatedDocIds = _loadMainRelatedDocIds();
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
@@ -46,14 +49,18 @@ final class LexGen {
           docId,
           defName,
           def,
-          mainObjects,
+          mainRelatedDocIds,
         );
 
         if (convention != null) {
           final object = LexGenObjectBuilder(
-            LexGenContext(docId: docId, defName: defName, def: def),
+            LexGenContext(
+              docId: docId,
+              defName: defName,
+              def: def,
+              mainRelatedDocIds: mainRelatedDocIds,
+            ),
             convention,
-            mainObjects,
           ).build();
 
           if (object != null) {
@@ -68,18 +75,18 @@ final class LexGen {
     }
   }
 
-  List<String> _getMainObjects() {
-    final mainObjects = <String>[];
+  List<String> _loadMainRelatedDocIds() {
+    final docIds = <String>[];
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
       if (!_isSupportedDoc(doc)) continue;
 
       if (_hasMainObject(doc.defs)) {
-        mainObjects.add(doc.id.toString());
+        docIds.add(doc.id.toString());
       }
     }
 
-    return mainObjects;
+    return docIds;
   }
 
   LexNamingConvention? getNamingConvention(

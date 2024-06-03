@@ -2,24 +2,23 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
 import '../rules/naming_convention.dart';
-
-import '../types/object.dart';
-import '../types/context.dart';
 import '../rules/utils.dart';
+import '../types/context.dart';
+import '../types/object.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(
     this.context,
     this.namingConvention,
-    this.mainObjects,
   );
 
   final LexGenContext context;
   final LexNamingConvention namingConvention;
-  final List<String> mainObjects;
 
   LexGenObject? build() {
     final properties = _getProperties();
@@ -177,7 +176,7 @@ final class LexGenObjectBuilder {
         if (ref.startsWith('#')) {
           final defName = ref.split('#').last;
 
-          if (mainObjects.contains(docId.toString())) {
+          if (context.mainRelatedDocIds.contains(docId.toString())) {
             final objectName = docId.toString().split('.').last +
                 defName.substring(0, 1).toUpperCase() +
                 defName.substring(1);
@@ -192,7 +191,7 @@ final class LexGenObjectBuilder {
           final refDocId = segments.first;
           final defName = segments.last;
 
-          if (mainObjects.contains(refDocId)) {
+          if (context.mainRelatedDocIds.contains(refDocId)) {
             final objectName = refDocId.toString().split('.').last +
                 defName.substring(0, 1).toUpperCase() +
                 defName.substring(1);
