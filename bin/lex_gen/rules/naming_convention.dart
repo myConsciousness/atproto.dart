@@ -26,10 +26,8 @@ final class LexNamingConvention {
   }
 
   String getFileName() {
-    final lexicon = _lexicon;
-
     final segments = context.docId.toString().split('.');
-    if (!segments.last.startsWith('defs') && !lexicon.contains('#')) {
+    if (!segments.last.startsWith('defs') && !_lexicon.contains('#')) {
       return 'output';
     }
 
