@@ -64,8 +64,8 @@ final class LexGenObjectBuilder {
 
     for (final entry in object.properties!.entries) {
       final property = entry.value.toJson();
-      final dataType = _getDartDataType(
-        context.docId,
+      final dataTypes = getDartDataTypes(
+        context,
         type: property['type'],
         format: property['format'],
         ref: property['ref'],
@@ -76,13 +76,13 @@ final class LexGenObjectBuilder {
         LexGenObjectProperty(
           description: property['description'],
           isRequired: requiredProperties.contains(entry.key),
-          type: dataType.$1,
+          type: dataTypes.$1,
           name: entry.key,
-          importPath: dataType.$2,
-          converter: dataType.$3,
+          importPath: dataTypes.$2,
+          converter: dataTypes.$3,
           defaultValue: _getDefaultValue(
             property['default'],
-            dataType.$1,
+            dataTypes.$1,
             property['ref'],
           ),
         ),
@@ -119,100 +119,5 @@ final class LexGenObjectBuilder {
     }
 
     return null;
-  }
-
-  (String, String?, String?) _getDartDataType(
-    final NSID docId, {
-    required String? type,
-    required String? format,
-    required String? ref,
-    required Map<String, dynamic>? items,
-  }) {
-    if (type == 'string' && format == 'datetime') {
-      return ('DateTime', null, null);
-    }
-    if (type == 'string' && format == 'at-uri') {
-      return ('AtUri', null, 'AtUriConverter');
-    }
-
-    if (type == 'string') return ('String', null, null);
-    if (type == 'integer') return ('int', null, null);
-    if (type == 'boolean') return ('bool', null, null);
-
-    if (type == 'cid-link') return ('String', null, null);
-    if (type == 'unknown') return ('Map<String, dynamic>', null, null);
-
-    if (type == 'blob') {
-      return ('Blob', null, 'BlobConverter');
-    }
-
-    if (type == 'array') {
-      if (items == null) throw ArgumentError.notNull('items');
-
-      final (dataType, importPath, converter) = _getDartDataType(
-        docId,
-        type: items['type'],
-        format: items['format'],
-        ref: items['ref'],
-        items: items,
-      );
-
-      return ('List<$dataType>', importPath, converter);
-    }
-
-    if (type == 'ref') {
-      if (ref == null) throw ArgumentError.notNull('ref');
-
-      final refDef = getRef(docId, ref);
-      if (refDef is ULexUserTypeString) {
-        return ('String', null, null);
-      }
-
-      LexGenContext refContext;
-      if (ref.contains('#')) {
-        // In the same def file
-        if (ref.startsWith('#')) {
-          refContext = LexGenContext(
-            docId: docId,
-            defName: ref.substring(1),
-            def: refDef,
-            mainRelatedDocIds: context.mainRelatedDocIds,
-          );
-        } // In the another def file
-        else {
-          final segments = ref.split('#');
-          final refDocId = segments.first;
-          final defName = segments.last;
-
-          refContext = LexGenContext(
-            docId: NSID(refDocId),
-            defName: defName,
-            def: refDef,
-            mainRelatedDocIds: context.mainRelatedDocIds,
-          );
-        }
-      } // main def
-      else {
-        refContext = LexGenContext(
-          docId: NSID(ref),
-          defName: 'main',
-          def: refDef,
-          mainRelatedDocIds: context.mainRelatedDocIds,
-        );
-      }
-
-      final convention = LexNamingConvention(refContext);
-
-      return (
-        convention.getObjectName(),
-        convention.getRelativeImportPath(docId),
-        null,
-      );
-    }
-
-    if (type == 'union') return ('String', null, null);
-    if (type == 'bytes') return ('Uint8List', null, null);
-
-    throw UnimplementedError(type);
   }
 }
