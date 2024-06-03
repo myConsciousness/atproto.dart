@@ -4,6 +4,7 @@
 
 - Add `.active` and `.status` properties on `Session` and `CurrentSession` objects. ([#1516](https://github.com/myConsciousness/atproto.dart/pull/1516))
 - Move `BlobConverter`, `Blob`, `BlobRef` from `atproto` package to `atproto_core`.
+- Add `.active` and `.status` properties on `Repo` object. ([#1517](https://github.com/myConsciousness/atproto.dart/issues/1517))
 
 ## v0.11.15
 

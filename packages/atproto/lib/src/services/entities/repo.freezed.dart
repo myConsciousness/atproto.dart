@@ -24,6 +24,8 @@ mixin _$Repo {
   @JsonKey(name: 'head')
   String get headCid => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
+  String? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,12 @@ abstract class $RepoCopyWith<$Res> {
   factory $RepoCopyWith(Repo value, $Res Function(Repo) then) =
       _$RepoCopyWithImpl<$Res, Repo>;
   @useResult
-  $Res call({String did, @JsonKey(name: 'head') String headCid, String rev});
+  $Res call(
+      {String did,
+      @JsonKey(name: 'head') String headCid,
+      String rev,
+      bool active,
+      String? status});
 }
 
 /// @nodoc
@@ -54,6 +61,8 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
     Object? did = null,
     Object? headCid = null,
     Object? rev = null,
+    Object? active = null,
+    Object? status = freezed,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -68,6 +77,14 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -79,7 +96,12 @@ abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
       __$$RepoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, @JsonKey(name: 'head') String headCid, String rev});
+  $Res call(
+      {String did,
+      @JsonKey(name: 'head') String headCid,
+      String rev,
+      bool active,
+      String? status});
 }
 
 /// @nodoc
@@ -95,6 +117,8 @@ class __$$RepoImplCopyWithImpl<$Res>
     Object? did = null,
     Object? headCid = null,
     Object? rev = null,
+    Object? active = null,
+    Object? status = freezed,
   }) {
     return _then(_$RepoImpl(
       did: null == did
@@ -109,6 +133,14 @@ class __$$RepoImplCopyWithImpl<$Res>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      status: freezed == status
+          ? _value.status
+          : status // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -119,7 +151,9 @@ class _$RepoImpl implements _Repo {
   const _$RepoImpl(
       {required this.did,
       @JsonKey(name: 'head') required this.headCid,
-      required this.rev});
+      required this.rev,
+      this.active = true,
+      this.status});
 
   factory _$RepoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoImplFromJson(json);
@@ -131,10 +165,15 @@ class _$RepoImpl implements _Repo {
   final String headCid;
   @override
   final String rev;
+  @override
+  @JsonKey()
+  final bool active;
+  @override
+  final String? status;
 
   @override
   String toString() {
-    return 'Repo(did: $did, headCid: $headCid, rev: $rev)';
+    return 'Repo(did: $did, headCid: $headCid, rev: $rev, active: $active, status: $status)';
   }
 
   @override
@@ -144,12 +183,15 @@ class _$RepoImpl implements _Repo {
             other is _$RepoImpl &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.headCid, headCid) || other.headCid == headCid) &&
-            (identical(other.rev, rev) || other.rev == rev));
+            (identical(other.rev, rev) || other.rev == rev) &&
+            (identical(other.active, active) || other.active == active) &&
+            (identical(other.status, status) || other.status == status));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, headCid, rev);
+  int get hashCode =>
+      Object.hash(runtimeType, did, headCid, rev, active, status);
 
   @JsonKey(ignore: true)
   @override
@@ -169,7 +211,9 @@ abstract class _Repo implements Repo {
   const factory _Repo(
       {required final String did,
       @JsonKey(name: 'head') required final String headCid,
-      required final String rev}) = _$RepoImpl;
+      required final String rev,
+      final bool active,
+      final String? status}) = _$RepoImpl;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$RepoImpl.fromJson;
 
@@ -180,6 +224,10 @@ abstract class _Repo implements Repo {
   String get headCid;
   @override
   String get rev;
+  @override
+  bool get active;
+  @override
+  String? get status;
   @override
   @JsonKey(ignore: true)
   _$$RepoImplCopyWith<_$RepoImpl> get copyWith =>
