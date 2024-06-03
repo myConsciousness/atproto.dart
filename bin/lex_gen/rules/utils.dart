@@ -7,6 +7,18 @@ import 'package:lexicon/lexicon.dart';
 
 import '../types/context.dart';
 
+String getPackageName(final String lexicon) {
+  if (lexicon.startsWith('com.atproto')) {
+    return 'atproto';
+  } else if (lexicon.startsWith('app.bsky')) {
+    return 'bluesky';
+  } else if (lexicon.startsWith('chat.bsky')) {
+    return 'bluesky_chat';
+  }
+
+  throw UnimplementedError(lexicon);
+}
+
 String getReferencePath(final LexGenContext context) {
   final service = context.docId.toString().replaceAll('.', '/');
 

@@ -10,6 +10,7 @@ import 'package:lexicon/lexicon.dart';
 import 'rules/naming_convention.dart';
 import 'types/context.dart';
 import 'builders/object_builder.dart';
+import 'rules/utils.dart';
 
 const _supportedLexicons = [
   // 'com.atproto',
@@ -26,8 +27,7 @@ final class LexGen {
 
   void execute() {
     for (final package in _supportedLexicons) {
-      final dir =
-          Directory('packages/${_getPackageName(package)}/$_kTypesPath');
+      final dir = Directory('packages/${getPackageName(package)}/$_kTypesPath');
       if (dir.existsSync()) {
         dir.deleteSync(recursive: true);
       }
@@ -50,34 +50,22 @@ final class LexGen {
         );
 
         if (convention != null) {
-          final template = LexGenObjectBuilder(
+          final object = LexGenObjectBuilder(
             LexGenContext(docId: docId, defName: defName, def: def),
             convention,
             mainObjects,
           ).build();
 
-          if (template != null) {
+          if (object != null) {
             final filePath = convention.getFilePath();
             File(
-                'packages/${_getPackageName(doc.id.toString())}/$_kTypesPath/$filePath')
+                'packages/${getPackageName(doc.id.toString())}/$_kTypesPath/$filePath')
               ..createSync(recursive: true)
-              ..writeAsStringSync(template.toString());
+              ..writeAsStringSync(object.toString());
           }
         }
       });
     }
-  }
-
-  String _getPackageName(final String lexicon) {
-    if (lexicon.startsWith('com.atproto')) {
-      return 'atproto';
-    } else if (lexicon.startsWith('app.bsky')) {
-      return 'bluesky';
-    } else if (lexicon.startsWith('chat.bsky')) {
-      return 'bluesky_chat';
-    }
-
-    throw UnimplementedError(lexicon);
   }
 
   List<String> _getMainObjects() {
