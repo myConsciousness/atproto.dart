@@ -15,7 +15,7 @@ final class LexGenObject {
     required this.name,
     required this.fileName,
     required this.properties,
-    required this.outputFilePath,
+    required this.filePath,
   });
 
   final String? description;
@@ -23,7 +23,7 @@ final class LexGenObject {
   final String fileName;
   final List<LexGenObjectProperty> properties;
 
-  final String outputFilePath;
+  final String filePath;
 
   @override
   String toString() {

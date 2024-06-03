@@ -27,7 +27,7 @@ final class LexGenObjectBuilder {
         name: convention.getObjectName(),
         fileName: convention.getFileName(),
         properties: properties,
-        outputFilePath: convention.getFilePath());
+        filePath: convention.getFilePath());
   }
 
   List<LexGenObjectProperty> _getProperties() {

@@ -54,14 +54,19 @@ final class LexGen {
         ).build();
 
         if (object != null) {
-          File(
-            'packages/${getPackageName(doc.id.toString())}/$_kTypesPath/${object.outputFilePath}',
-          )
+          File(_getOutputFilePath(docId, object.filePath))
             ..createSync(recursive: true)
             ..writeAsStringSync(object.toString());
         }
       });
     }
+  }
+
+  String _getOutputFilePath(
+    final NSID docId,
+    final filePath,
+  ) {
+    return 'packages/${getPackageName(docId.toString())}/$_kTypesPath/$filePath';
   }
 
   List<String> _loadMainRelatedDocIds() {
