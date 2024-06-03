@@ -5,11 +5,10 @@
 // ignore_for_file: invalid_annotation_target
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../ids.g.dart';
+import 'package:atproto_core/src/utils/annotations.dart';
 import 'blob_ref.dart';
 
 part 'blob.freezed.dart';
@@ -19,7 +18,7 @@ part 'blob.g.dart';
 @freezed
 class Blob with _$Blob {
   const factory Blob({
-    @typeKey @Default(blob) String type,
+    @typeKey @Default('blob') String type,
     required String mimeType,
     required int size,
     required BlobRef ref,

@@ -415,6 +415,3 @@ const comAtprotoTempFetchLabels = 'com.atproto.temp.fetchLabels';
 /// `com.atproto.temp.requestPhoneVerification`
 const comAtprotoTempRequestPhoneVerification =
     'com.atproto.temp.requestPhoneVerification';
-
-/// `blob`
-const blob = 'blob';

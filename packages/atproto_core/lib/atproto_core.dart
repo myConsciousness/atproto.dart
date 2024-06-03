@@ -19,8 +19,11 @@ export 'package:atproto_core/src/sessions/sessions.dart'
     show createSession, refreshSession, deleteSession;
 export 'package:atproto_core/src/utils/ids.dart';
 export 'package:atproto_core/src/const.dart';
-export 'package:atproto_core/src/utils/annotations.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
+export 'package:atproto_core/src/utils/annotations.dart';
+export 'package:atproto_core/src/utils/blob_converter.dart';
+export 'package:atproto_core/src/utils/blob.dart';
+export 'package:atproto_core/src/utils/blob_ref.dart';
 export 'package:atproto_core/src/utils/at_uri_converter.dart';
 export 'package:atproto_core/src/progress_status.dart'
     show ProgressStatus, ProgressStatusEvent;

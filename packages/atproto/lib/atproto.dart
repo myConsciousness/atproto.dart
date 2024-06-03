@@ -8,12 +8,8 @@ export 'package:atproto/src/services/entities/account_codes.dart';
 export 'package:atproto/src/services/entities/app_password.dart';
 export 'package:atproto/src/services/entities/app_passwords.dart';
 export 'package:atproto/src/services/entities/batch_action.dart';
-export 'package:atproto/src/services/entities/blob.dart';
 export 'package:atproto/src/services/entities/blob_data.dart';
-export 'package:atproto/src/services/entities/blob_ref.dart';
 export 'package:atproto/src/services/entities/blob_refs.dart';
-export 'package:atproto/src/services/entities/converter/blob_converter.dart'
-    show blobConverter;
 export 'package:atproto/src/services/entities/converter/labels_converter.dart'
     show labelsConverter;
 export 'package:atproto/src/services/entities/create_action.dart';
@@ -100,6 +96,11 @@ export 'package:atproto_core/atproto_core.dart'
         NSID,
         AtUri,
         CID,
+        Blob,
+        $BlobCopyWith,
+        BlobRef,
+        $BlobRefCopyWith,
+        BlobConverter,
         InvalidCidError,
         Multicodec,
         XRPCException,
