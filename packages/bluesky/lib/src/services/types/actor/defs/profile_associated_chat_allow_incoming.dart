@@ -80,4 +80,12 @@ extension ProfileAssociatedChatAllowIncomingExtension
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue =>
       this is UProfileAssociatedChatAllowIncomingUnknownValue;
+
+  /// Returns known value if this data is known, otherwise null.
+  KnownProfileAssociatedChatAllowIncoming? get knownValue => isKnownValue
+      ? this.data as KnownProfileAssociatedChatAllowIncoming
+      : null;
+
+  /// Returns unknown value if this data is unknown, otherwise null.
+  String? get unknownValue => isUnknownValue ? this.data as String : null;
 }

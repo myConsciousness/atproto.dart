@@ -78,4 +78,11 @@ extension ThreadViewPrefSortExtension on ThreadViewPrefSort {
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UThreadViewPrefSortUnknownValue;
+
+  /// Returns known value if this data is known, otherwise null.
+  KnownThreadViewPrefSort? get knownValue =>
+      isKnownValue ? this.data as KnownThreadViewPrefSort : null;
+
+  /// Returns unknown value if this data is unknown, otherwise null.
+  String? get unknownValue => isUnknownValue ? this.data as String : null;
 }

@@ -74,4 +74,11 @@ extension SuggestionSubjectTypeExtension on SuggestionSubjectType {
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is USuggestionSubjectTypeUnknownValue;
+
+  /// Returns known value if this data is known, otherwise null.
+  KnownSuggestionSubjectType? get knownValue =>
+      isKnownValue ? this.data as KnownSuggestionSubjectType : null;
+
+  /// Returns unknown value if this data is unknown, otherwise null.
+  String? get unknownValue => isUnknownValue ? this.data as String : null;
 }

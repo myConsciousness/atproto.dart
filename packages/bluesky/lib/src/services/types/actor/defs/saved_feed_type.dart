@@ -76,4 +76,11 @@ extension SavedFeedTypeExtension on SavedFeedType {
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is USavedFeedTypeUnknownValue;
+
+  /// Returns known value if this data is known, otherwise null.
+  KnownSavedFeedType? get knownValue =>
+      isKnownValue ? this.data as KnownSavedFeedType : null;
+
+  /// Returns unknown value if this data is unknown, otherwise null.
+  String? get unknownValue => isUnknownValue ? this.data as String : null;
 }

@@ -78,4 +78,11 @@ extension ContentLabelPrefVisibilityExtension on ContentLabelPrefVisibility {
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UContentLabelPrefVisibilityUnknownValue;
+
+  /// Returns known value if this data is known, otherwise null.
+  KnownContentLabelPrefVisibility? get knownValue =>
+      isKnownValue ? this.data as KnownContentLabelPrefVisibility : null;
+
+  /// Returns unknown value if this data is unknown, otherwise null.
+  String? get unknownValue => isUnknownValue ? this.data as String : null;
 }

@@ -104,6 +104,18 @@ final class LexGenKnownValues {
       ..writeln()
       ..writeln('  /// Returns true if this is unknown value, otherwise false.')
       ..writeln('  bool get isUnknownValue => this is U${name}UnknownValue;')
+      ..writeln()
+      ..writeln(
+          '  /// Returns known value if this data is known, otherwise null.')
+      ..writeln('  Known$name? get knownValue => isKnownValue')
+      ..writeln('    ? this.data as Known$name')
+      ..writeln('    : null;')
+      ..writeln()
+      ..writeln(
+          '  /// Returns unknown value if this data is unknown, otherwise null.')
+      ..writeln('  String? get unknownValue => isUnknownValue')
+      ..writeln('    ? this.data as String')
+      ..writeln('    : null;')
       ..writeln('}');
 
     return buffer.toString();
