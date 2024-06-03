@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:atproto_core/src/utils/annotations.dart';
+import 'annotations.dart';
 import 'blob_ref.dart';
 
 part 'blob.freezed.dart';
