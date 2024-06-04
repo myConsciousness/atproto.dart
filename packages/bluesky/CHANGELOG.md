@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.2
+
+- Add default labeler did for `.getLabelerHeaders`. No need to aware.
+
 ## v0.16.1
 
 - Fixed moderation `.getLabelDefinitions` method. Now it works even if users don't have LabelersPref in their preferences.
