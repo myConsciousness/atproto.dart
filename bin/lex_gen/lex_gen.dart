@@ -104,7 +104,7 @@ final class LexGen {
   }
 
   String _getExportOutputPath(final NSID docId) {
-    return 'packages/${getPackageName(docId.toString())}/lib/${docId.toString().split('.').map(toLowerCamelCase).join('/')}.dart';
+    return 'packages/${getPackageName(docId.toString())}/lib/${docId.toString().split('.').map(toLowerCamelCase).join('_')}.dart';
   }
 
   void _addExportPath(
