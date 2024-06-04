@@ -64,13 +64,14 @@ final class LexNamingConvention {
       }
     }
 
-    final lexiconRoot = lexicon.split('#').first.split('.').take(2).join('.');
+    final rootDocId = lexicon.split('#').first;
+    final packageName = rootDocId.split('.').map(toLowerCamelCase).join('_');
 
     // Package Import
-    if (lexiconRoot == 'com.atproto') {
-      return 'package:atproto/atproto.dart';
-    } else if (lexiconRoot == 'app.bsky') {
-      return 'package:bluesky/bluesky.dart';
+    if (rootDocId.startsWith('com.atproto.')) {
+      return 'package:atproto/$packageName.dart';
+    } else if (rootDocId.startsWith('app.bsky.')) {
+      return 'package:bluesky/$packageName.dart';
     }
 
     throw UnimplementedError(baseDocId.toString());
