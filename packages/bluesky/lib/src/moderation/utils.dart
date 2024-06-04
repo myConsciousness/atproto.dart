@@ -266,5 +266,5 @@ Map<String, String> getLabelerHeaders(final ModerationPrefs? prefs) {
 
 Map<String, String> _getLabelerHeaders(final List<String> dids) => {
       'atproto-accept-labelers':
-          dids.take(10).map((str) => '$str;redact').join(', '),
+          dids.toSet().take(10).map((str) => '$str;redact').join(', '),
     };
