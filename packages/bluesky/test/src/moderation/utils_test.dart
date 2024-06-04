@@ -13,7 +13,13 @@ import 'package:bluesky/src/moderation/utils.dart';
 void main() {
   group('.getLabelerHeaders', () {
     test('case1', () {
-      expect(getLabelerHeaders(null).isEmpty, isTrue);
+      final actual = getLabelerHeaders(null);
+
+      expect(actual.containsKey('atproto-accept-labelers'), isTrue);
+      expect(
+        actual['atproto-accept-labelers'],
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact',
+      );
     });
 
     test('case2', () {
@@ -24,7 +30,13 @@ void main() {
         hiddenPosts: const [],
       );
 
-      expect(getLabelerHeaders(emptyPref).isEmpty, isTrue);
+      final actual = getLabelerHeaders(emptyPref);
+
+      expect(actual.containsKey('atproto-accept-labelers'), isTrue);
+      expect(
+        actual['atproto-accept-labelers'],
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact',
+      );
     });
 
     test('case3', () {
@@ -41,7 +53,10 @@ void main() {
       ));
 
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
-      expect(actual['atproto-accept-labelers'], 'did:aaaa;redact');
+      expect(
+        actual['atproto-accept-labelers'],
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact',
+      );
     });
 
     test('case4', () {
@@ -64,7 +79,32 @@ void main() {
       expect(actual.containsKey('atproto-accept-labelers'), isTrue);
       expect(
         actual['atproto-accept-labelers'],
-        'did:aaaa;redact, did:bbbb;redact',
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact, '
+        'did:bbbb;redact',
+      );
+    });
+
+    test('case5', () {
+      final actual = getLabelerHeaders(ModerationPrefs(
+        labels: const {},
+        labelers: const [
+          ModerationPrefsLabeler(
+            did: 'did:aaaa',
+            labels: {},
+          ),
+          ModerationPrefsLabeler(
+            did: 'did:aaaa',
+            labels: {},
+          )
+        ],
+        mutedWords: const [],
+        hiddenPosts: const [],
+      ));
+
+      expect(actual.containsKey('atproto-accept-labelers'), isTrue);
+      expect(
+        actual['atproto-accept-labelers'],
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact',
       );
     });
   });

@@ -130,9 +130,10 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
 extension LabelerServiceExtension on LabelerService {
   Future<Map<String, List<InterpretedLabelValueDefinition>>>
       getLabelDefinitions(final ModerationPrefs prefs) async {
-    final dids = <String>[
+    final dids = <String>{
+      _kBskyLabelerDid, // need when they don't have LabelersPref in their pref
       ...prefs.labelers.map((e) => e.did),
-    ];
+    }.toList();
 
     final labelers = await getServices(
       dids: dids,
@@ -253,15 +254,17 @@ extension PreferencesExtension on Preferences {
 }
 
 Map<String, String> getLabelerHeaders(final ModerationPrefs? prefs) {
-  if (prefs == null) return const {};
-  if (prefs.labelers.isEmpty) return const {};
+  if (prefs == null || prefs.labelers.isEmpty) {
+    return _getLabelerHeaders(const [_kBskyLabelerDid]);
+  }
 
-  return {
-    'atproto-accept-labelers': prefs.labelers
-        .map((e) => e.did)
-        .where((e) => e.startsWith('did:'))
-        .take(10)
-        .map((str) => '$str;redact')
-        .join(', '),
-  };
+  return _getLabelerHeaders([
+    _kBskyLabelerDid,
+    ...prefs.labelers.map((e) => e.did).where((e) => e.startsWith('did:'))
+  ]);
 }
+
+Map<String, String> _getLabelerHeaders(final List<String> dids) => {
+      'atproto-accept-labelers':
+          dids.toSet().take(10).map((str) => '$str;redact').join(', '),
+    };
