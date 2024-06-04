@@ -155,7 +155,7 @@ DataType getDataType(
   }
 
   if (type == 'union') return const DataType(name: 'String');
-  if (type == 'bytes') return const DataType(name: 'Uint8List');
+  if (type == 'bytes') return const DataType(name: 'List<int>');
 
   throw UnimplementedError(type);
 }

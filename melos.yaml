@@ -52,7 +52,11 @@ scripts:
   lex_gen:
     run: |
       dart run ./bin/lex_gen/lex_gen.dart
-      cd packages/bluesky
+      cd packages/atproto
+      dart format .
+      dart run import_sorter:main
+      dart run build_runner build
+      cd ../bluesky
       dart format .
       dart run import_sorter:main
       dart run build_runner build

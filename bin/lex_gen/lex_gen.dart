@@ -15,7 +15,7 @@ import 'rules/utils.dart';
 import 'types/context.dart';
 
 const _supportedLexicons = [
-  // 'com.atproto',
+  'com.atproto',
   'app.bsky',
   // 'chat.bsky',
 ];
