@@ -10,5 +10,4 @@
 // Lex Object Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/create_invite_codes/output.dart';
-export 'package:atproto/src/services/types/server/create_invite_codes/account_codes.dart';
+export 'package:atproto/src/services/types/admin/update_subject_status/output.dart';

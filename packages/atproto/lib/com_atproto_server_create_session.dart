@@ -10,5 +10,5 @@
 // Lex Object Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/create_invite_codes/output.dart';
-export 'package:atproto/src/services/types/server/create_invite_codes/account_codes.dart';
+export 'package:atproto/src/services/types/server/create_session/output.dart';
+export 'package:atproto/src/services/types/server/create_session/main_status.dart';

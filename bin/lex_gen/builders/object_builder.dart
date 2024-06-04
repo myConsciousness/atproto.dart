@@ -51,6 +51,23 @@ final class LexGenObjectBuilder {
 
         return _getObjectProperties(object);
       },
+      xrpcProcedure: (data) {
+        final object = data.output?.schema?.whenOrNull(object: (data) => data);
+        if (object == null) return const <LexGenObjectProperty>[]; // RefVariant
+
+        if (object.properties?.length == 1) {
+          final refVariant = object.properties?.values.first
+              .whenOrNull(refVariant: (data) => data);
+          final ref = refVariant?.whenOrNull(ref: (data) => data);
+
+          if (ref != null && ref.ref != null) {
+            // final refObject = getRef(docId, ref.ref!);
+            return const <LexGenObjectProperty>[]; //! Ignore ref now.
+          }
+        }
+
+        return _getObjectProperties(object);
+      },
     );
 
     return properties ?? const [];
