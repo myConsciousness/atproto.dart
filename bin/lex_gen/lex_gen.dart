@@ -12,6 +12,7 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import 'builders/object_builder.dart';
 import 'rules/utils.dart';
+import '../utils.dart';
 import 'types/context.dart';
 
 const _supportedLexicons = [
@@ -20,7 +21,7 @@ const _supportedLexicons = [
   // 'chat.bsky',
 ];
 
-const _kTypesPath = 'lib/src/services/types';
+const _kTypesPath = 'src/services/types';
 
 void main(List<String> args) => const LexGen().execute();
 
@@ -29,7 +30,9 @@ final class LexGen {
 
   void execute() {
     for (final package in _supportedLexicons) {
-      final dir = Directory('packages/${getPackageName(package)}/$_kTypesPath');
+      final dir = Directory(
+        'packages/${getPackageName(package)}/lib/$_kTypesPath',
+      );
       if (dir.existsSync()) {
         dir.deleteSync(recursive: true);
       }
@@ -37,6 +40,7 @@ final class LexGen {
 
     final mainRelatedDocIds = _loadMainRelatedDocIds();
 
+    final exports = <NSID, List<String>>{};
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
 
@@ -58,23 +62,61 @@ final class LexGen {
             ..createSync(recursive: true)
             ..writeAsStringSync(object.toString());
 
+          _addExportPath(exports, docId, object.filePath);
+
           for (final property in object.properties) {
             if (property.knownValues != null) {
               File(_getOutputFilePath(docId, property.knownValues!.filePath))
                 ..createSync(recursive: true)
                 ..writeAsStringSync(property.knownValues.toString());
+
+              _addExportPath(exports, docId, property.knownValues!.filePath);
             }
           }
         }
       });
     }
+
+    exports.forEach((docId, exports) {
+      final buffer = StringBuffer()
+        ..writeln(getFileHeader('Lex Object Generator'))
+        ..writeln()
+        ..writeln(exports.join('\n'));
+
+      File(_getExportOutputPath(docId))
+        ..createSync(recursive: true)
+        ..writeAsStringSync(buffer.toString());
+    });
   }
 
   String _getOutputFilePath(
     final NSID docId,
-    final filePath,
+    final String filePath,
   ) {
-    return 'packages/${getPackageName(docId.toString())}/$_kTypesPath/$filePath';
+    return 'packages/${getPackageName(docId.toString())}/lib/$_kTypesPath/${filePath.split('/').map(toLowerCamelCase).join('/')}';
+  }
+
+  String _getExportFilePath(
+    final NSID docId,
+    final String filePath,
+  ) {
+    return "export 'package:${getPackageName(docId.toString())}/$_kTypesPath/${filePath.split('/').map(toLowerCamelCase).join('/')}';";
+  }
+
+  String _getExportOutputPath(final NSID docId) {
+    return 'packages/${getPackageName(docId.toString())}/lib/${docId.toString().split('.').map(toLowerCamelCase).join('/')}.dart';
+  }
+
+  void _addExportPath(
+    final Map<NSID, List<String>> exports,
+    final NSID docId,
+    final String filePath,
+  ) {
+    if (exports.containsKey(docId)) {
+      exports[docId]!.add(_getExportFilePath(docId, filePath));
+    } else {
+      exports[docId] = [_getExportFilePath(docId, filePath)];
+    }
   }
 
   List<String> _loadMainRelatedDocIds() {
