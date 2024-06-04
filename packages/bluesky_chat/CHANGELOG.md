@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Bump `bluesky`.
+
 ## v0.2.0
 
 - Bump `atproto_core`, `atproto`, `bluesky`.

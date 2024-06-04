@@ -130,9 +130,10 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
 extension LabelerServiceExtension on LabelerService {
   Future<Map<String, List<InterpretedLabelValueDefinition>>>
       getLabelDefinitions(final ModerationPrefs prefs) async {
-    final dids = <String>[
+    final dids = <String>{
+      _kBskyLabelerDid, // need when they don't have LabelersPref in their pref
       ...prefs.labelers.map((e) => e.did),
-    ];
+    }.toList();
 
     final labelers = await getServices(
       dids: dids,
