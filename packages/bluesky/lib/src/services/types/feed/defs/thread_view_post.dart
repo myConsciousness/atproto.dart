@@ -20,7 +20,7 @@ import 'post_view.dart';
 part 'thread_view_post.freezed.dart';
 part 'thread_view_post.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
 class ThreadViewPost with _$ThreadViewPost {
   @jsonSerializable

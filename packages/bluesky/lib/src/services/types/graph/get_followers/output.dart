@@ -20,7 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers#main
 @freezed
 class GetFollowersOutput with _$GetFollowersOutput {
   @jsonSerializable

@@ -20,7 +20,7 @@ import '../../graph/defs/list_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists#main
 @freezed
 class GetListsOutput with _$GetListsOutput {
   @jsonSerializable

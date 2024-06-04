@@ -23,7 +23,9 @@ import 'label_value_definition_strings.dart';
 part 'label_value_definition.freezed.dart';
 part 'label_value_definition.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinition
+/// Declares a label value and its expected interpertations and behaviors.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinition
 @freezed
 class LabelValueDefinition with _$LabelValueDefinition {
   @jsonSerializable

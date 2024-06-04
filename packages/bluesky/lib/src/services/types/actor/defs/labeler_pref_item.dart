@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'labeler_pref_item.freezed.dart';
 part 'labeler_pref_item.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerprefitem
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerprefitem
 @freezed
 class LabelerPrefItem with _$LabelerPrefItem {
   @jsonSerializable

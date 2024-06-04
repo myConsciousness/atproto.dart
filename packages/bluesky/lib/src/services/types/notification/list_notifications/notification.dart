@@ -22,7 +22,7 @@ import 'notification_reason.dart';
 part 'notification.freezed.dart';
 part 'notification.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#notification
+/// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#notification
 @freezed
 class Notification with _$Notification {
   @jsonSerializable

@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'main.freezed.dart';
 part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
 @freezed
 class StrongRef with _$StrongRef {
   @jsonSerializable

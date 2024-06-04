@@ -20,7 +20,7 @@ import '../../server/defs/invite_code.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes#main
 @freezed
 class GetInviteCodesOutput with _$GetInviteCodesOutput {
   @jsonSerializable

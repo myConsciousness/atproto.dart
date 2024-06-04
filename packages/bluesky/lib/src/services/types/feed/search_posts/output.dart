@@ -20,7 +20,7 @@ import '../../feed/defs/post_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts#main
 @freezed
 class SearchPostsOutput with _$SearchPostsOutput {
   @jsonSerializable

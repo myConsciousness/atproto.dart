@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'record_blob.freezed.dart';
 part 'record_blob.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#recordblob
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#recordblob
 @freezed
 class RecordBlob with _$RecordBlob {
   @jsonSerializable

@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'create.freezed.dart';
 part 'create.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
+/// Operation which creates a new record.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
 class Create with _$Create {
   @jsonSerializable

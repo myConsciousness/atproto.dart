@@ -21,7 +21,7 @@ import '../../graph/defs/list_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList#main
 @freezed
 class GetListOutput with _$GetListOutput {
   @jsonSerializable

@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'mention.freezed.dart';
 part 'mention.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
+/// Facet feature for mention of another account. The text is usually a handle, including a '@' prefix, but the facet reference is a DID.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
 class FacetMention with _$FacetMention {
   @jsonSerializable

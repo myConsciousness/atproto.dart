@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'adult_content_pref.freezed.dart';
 part 'adult_content_pref.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#adultcontentpref
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#adultcontentpref
 @freezed
 class AdultContentPref with _$AdultContentPref {
   @jsonSerializable

@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'contact.freezed.dart';
 part 'contact.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#contact
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#contact
 @freezed
 class Contact with _$Contact {
   @jsonSerializable

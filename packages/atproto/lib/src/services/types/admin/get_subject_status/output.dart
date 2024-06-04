@@ -20,7 +20,7 @@ import '../../admin/defs/status_attr.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus#main
 @freezed
 class GetSubjectStatusOutput with _$GetSubjectStatusOutput {
   @jsonSerializable

@@ -20,7 +20,9 @@ import 'repo_op_action.dart';
 part 'repo_op.freezed.dart';
 part 'repo_op.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#repoop
+/// A repo operation, ie a mutation of a single record.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#repoop
 @freezed
 class RepoOp with _$RepoOp {
   @jsonSerializable

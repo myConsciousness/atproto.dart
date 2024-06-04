@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'update.freezed.dart';
 part 'update.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
+/// Operation which updates an existing record.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
 class Update with _$Update {
   @jsonSerializable

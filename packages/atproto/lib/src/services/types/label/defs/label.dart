@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'label.freezed.dart';
 part 'label.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
+/// Metadata tag on an atproto resource (eg, repo or record).
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
 class Label with _$Label {
   @jsonSerializable

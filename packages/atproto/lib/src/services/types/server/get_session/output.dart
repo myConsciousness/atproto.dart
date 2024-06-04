@@ -20,7 +20,7 @@ import 'main_status.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#main
 @freezed
 class GetSessionOutput with _$GetSessionOutput {
   @jsonSerializable

@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'interests_pref.freezed.dart';
 part 'interests_pref.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#interestspref
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#interestspref
 @freezed
 class InterestsPref with _$InterestsPref {
   @jsonSerializable

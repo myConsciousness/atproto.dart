@@ -20,7 +20,7 @@ import 'saved_feed.dart';
 part 'saved_feeds_pref_v2.freezed.dart';
 part 'saved_feeds_pref_v2.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeedsprefv2
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeedsprefv2
 @freezed
 class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
   @jsonSerializable

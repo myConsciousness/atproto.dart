@@ -20,7 +20,7 @@ import '../../actor/defs/viewer_state.dart';
 part 'blocked_author.freezed.dart';
 part 'blocked_author.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedauthor
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedauthor
 @freezed
 class BlockedAuthor with _$BlockedAuthor {
   @jsonSerializable

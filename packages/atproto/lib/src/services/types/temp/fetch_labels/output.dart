@@ -20,7 +20,7 @@ import '../../label/defs/label.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels#main
 @freezed
 class FetchLabelsOutput with _$FetchLabelsOutput {
   @jsonSerializable

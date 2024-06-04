@@ -20,7 +20,7 @@ import 'info_name.dart';
 part 'info.freezed.dart';
 part 'info.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#info
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#info
 @freezed
 class Info with _$Info {
   @jsonSerializable

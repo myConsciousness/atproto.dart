@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'status_attr.freezed.dart';
 part 'status_attr.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#statusattr
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#statusattr
 @freezed
 class StatusAttr with _$StatusAttr {
   @jsonSerializable

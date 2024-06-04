@@ -20,7 +20,7 @@ import 'account_codes.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#main
 @freezed
 class CreateInviteCodesOutput with _$CreateInviteCodesOutput {
   @jsonSerializable

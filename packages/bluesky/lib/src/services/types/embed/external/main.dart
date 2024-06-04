@@ -20,7 +20,9 @@ import 'external.dart';
 part 'main.freezed.dart';
 part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#main
+/// A representation of some externally linked content (eg, a URL and 'card'), embedded in a Bluesky record (eg, a post).
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#main
 @freezed
 class External with _$External {
   @jsonSerializable

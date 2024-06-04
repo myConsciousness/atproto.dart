@@ -20,7 +20,9 @@ import 'account_status.dart';
 part 'account.freezed.dart';
 part 'account.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#account
+/// Represents a change to an account's status on a host (eg, PDS or Relay). The semantics of this event are that the status is at the host which emitted the event, not necessarily that at the currently active PDS. Eg, a Relay takedown would emit a takedown with active=false, even if the PDS is still active.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#account
 @freezed
 class Account with _$Account {
   @jsonSerializable

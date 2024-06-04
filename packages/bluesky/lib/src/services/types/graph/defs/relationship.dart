@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
+/// lists the bi-directional graph relationships between one actor (not indicated in the object), and the target actors (the DID included in the object)
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
 class Relationship with _$Relationship {
   @jsonSerializable

@@ -20,7 +20,7 @@ import '../../graph/defs/list_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes#main
 @freezed
 class GetListMutesOutput with _$GetListMutesOutput {
   @jsonSerializable

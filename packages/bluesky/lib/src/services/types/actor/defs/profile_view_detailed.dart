@@ -22,7 +22,7 @@ import 'viewer_state.dart';
 part 'profile_view_detailed.freezed.dart';
 part 'profile_view_detailed.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileviewdetailed
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileviewdetailed
 @freezed
 class ProfileViewDetailed with _$ProfileViewDetailed {
   @jsonSerializable

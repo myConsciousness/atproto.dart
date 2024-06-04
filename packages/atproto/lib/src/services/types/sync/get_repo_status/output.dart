@@ -20,7 +20,7 @@ import 'main_status.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus#main
 @freezed
 class GetRepoStatusOutput with _$GetRepoStatusOutput {
   @jsonSerializable

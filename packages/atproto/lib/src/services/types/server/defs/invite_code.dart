@@ -20,7 +20,7 @@ import 'invite_code_use.dart';
 part 'invite_code.freezed.dart';
 part 'invite_code.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecode
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecode
 @freezed
 class InviteCode with _$InviteCode {
   @jsonSerializable

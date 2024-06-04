@@ -20,7 +20,7 @@ import 'labeler_pref_item.dart';
 part 'labelers_pref.freezed.dart';
 part 'labelers_pref.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerspref
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerspref
 @freezed
 class LabelersPref with _$LabelersPref {
   @jsonSerializable

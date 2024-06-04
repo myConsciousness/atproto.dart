@@ -20,7 +20,7 @@ import 'repo.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#main
 @freezed
 class ListReposOutput with _$ListReposOutput {
   @jsonSerializable

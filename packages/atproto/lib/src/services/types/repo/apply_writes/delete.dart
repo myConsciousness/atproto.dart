@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'delete.freezed.dart';
 part 'delete.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
+/// Operation which deletes an existing record.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
 class Delete with _$Delete {
   @jsonSerializable

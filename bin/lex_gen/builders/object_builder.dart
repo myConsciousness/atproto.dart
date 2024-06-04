@@ -24,11 +24,27 @@ final class LexGenObjectBuilder {
     final convention = LexNamingConvention(context);
 
     return LexGenObject(
-        description: getReferencePath(context),
-        name: convention.getObjectName(),
-        fileName: convention.getFileName(),
-        properties: properties,
-        filePath: convention.getFilePath());
+      description: _getDescription(),
+      name: convention.getObjectName(),
+      fileName: convention.getFileName(),
+      properties: properties,
+      filePath: convention.getFilePath(),
+    );
+  }
+
+  String _getDescription() {
+    final buffer = StringBuffer();
+
+    final def = context.def;
+    if (def is ULexUserTypeObject && def.data.description != null) {
+      buffer
+        ..writeln('/// ${def.data.description}')
+        ..writeln('///');
+    }
+
+    buffer.write('/// ${getReferencePath(context)}');
+
+    return buffer.toString();
   }
 
   List<LexGenObjectProperty> _getProperties() {

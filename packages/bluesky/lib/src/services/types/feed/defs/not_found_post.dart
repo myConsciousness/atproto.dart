@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'not_found_post.freezed.dart';
 part 'not_found_post.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#notfoundpost
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#notfoundpost
 @freezed
 class NotFoundPost with _$NotFoundPost {
   @jsonSerializable

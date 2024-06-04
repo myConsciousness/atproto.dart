@@ -20,7 +20,9 @@ import 'repo_op.dart';
 part 'commit.freezed.dart';
 part 'commit.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
+/// Represents an update of repository state. Note that empty commits are allowed, which include no repo data changes, but an update to rev and signature.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
 class Commit with _$Commit {
   @jsonSerializable

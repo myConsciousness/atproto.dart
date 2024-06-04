@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'generator_viewer_state.freezed.dart';
 part 'generator_viewer_state.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorviewerstate
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorviewerstate
 @freezed
 class GeneratorViewerState with _$GeneratorViewerState {
   @jsonSerializable

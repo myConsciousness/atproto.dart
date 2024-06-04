@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'not_found_actor.freezed.dart';
 part 'not_found_actor.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
+/// indicates that a handle or DID could not be resolved
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
 class NotFoundActor with _$NotFoundActor {
   @jsonSerializable

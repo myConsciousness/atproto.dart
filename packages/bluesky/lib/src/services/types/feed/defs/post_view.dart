@@ -23,7 +23,7 @@ import 'viewer_state.dart';
 part 'post_view.freezed.dart';
 part 'post_view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
 class PostView with _$PostView {
   @jsonSerializable

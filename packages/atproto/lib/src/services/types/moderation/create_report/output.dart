@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport#main
 @freezed
 class CreateReportOutput with _$CreateReportOutput {
   @jsonSerializable

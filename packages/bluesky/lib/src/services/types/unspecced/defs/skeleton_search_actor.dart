@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'skeleton_search_actor.freezed.dart';
 part 'skeleton_search_actor.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
 class SkeletonSearchActor with _$SkeletonSearchActor {
   @jsonSerializable

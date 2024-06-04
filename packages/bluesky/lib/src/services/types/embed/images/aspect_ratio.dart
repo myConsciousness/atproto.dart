@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'aspect_ratio.freezed.dart';
 part 'aspect_ratio.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
+/// width:height represents an aspect ratio. It may be approximate, and may not correspond to absolute dimensions in any given unit.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed
 class ImagesAspectRatio with _$ImagesAspectRatio {
   @jsonSerializable

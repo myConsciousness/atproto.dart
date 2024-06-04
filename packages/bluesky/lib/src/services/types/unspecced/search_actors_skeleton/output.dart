@@ -20,7 +20,7 @@ import '../../unspecced/defs/skeleton_search_actor.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton#main
 @freezed
 class SearchActorsSkeletonOutput with _$SearchActorsSkeletonOutput {
   @jsonSerializable

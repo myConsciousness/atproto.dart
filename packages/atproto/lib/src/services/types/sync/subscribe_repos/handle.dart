@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'handle.freezed.dart';
 part 'handle.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
+/// DEPRECATED -- Use #identity event instead
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
 class Handle with _$Handle {
   @jsonSerializable

@@ -23,7 +23,7 @@ import 'list_viewer_state.dart';
 part 'list_view.freezed.dart';
 part 'list_view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listview
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listview
 @freezed
 class ListView with _$ListView {
   @jsonSerializable

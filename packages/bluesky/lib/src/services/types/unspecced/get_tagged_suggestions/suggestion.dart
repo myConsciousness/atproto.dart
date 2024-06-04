@@ -20,7 +20,7 @@ import 'suggestion_subject_type.dart';
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 class Suggestion with _$Suggestion {
   @jsonSerializable

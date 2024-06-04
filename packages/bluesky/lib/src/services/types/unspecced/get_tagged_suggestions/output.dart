@@ -20,7 +20,7 @@ import 'suggestion.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#main
 @freezed
 class GetTaggedSuggestionsOutput with _$GetTaggedSuggestionsOutput {
   @jsonSerializable

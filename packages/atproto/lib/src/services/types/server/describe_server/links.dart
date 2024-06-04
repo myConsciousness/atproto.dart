@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'links.freezed.dart';
 part 'links.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#links
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#links
 @freezed
 class Links with _$Links {
   @jsonSerializable

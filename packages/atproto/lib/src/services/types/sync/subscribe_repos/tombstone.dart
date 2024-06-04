@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'tombstone.freezed.dart';
 part 'tombstone.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
+/// DEPRECATED -- Use #account event instead
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
 class Tombstone with _$Tombstone {
   @jsonSerializable

@@ -20,7 +20,7 @@ import '../../server/defs/invite_code.dart';
 part 'account_view.freezed.dart';
 part 'account_view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#accountview
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#accountview
 @freezed
 class AccountView with _$AccountView {
   @jsonSerializable

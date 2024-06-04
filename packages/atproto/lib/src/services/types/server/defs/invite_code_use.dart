@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'invite_code_use.freezed.dart';
 part 'invite_code_use.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecodeuse
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecodeuse
 @freezed
 class InviteCodeUse with _$InviteCodeUse {
   @jsonSerializable

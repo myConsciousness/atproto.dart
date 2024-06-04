@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'text_slice.freezed.dart';
 part 'text_slice.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#textslice
+/// Deprecated. Use app.bsky.richtext instead -- A text segment. Start is inclusive, end is exclusive. Indices are for utf16-encoded strings.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#textslice
 @freezed
 class TextSlice with _$TextSlice {
   @jsonSerializable

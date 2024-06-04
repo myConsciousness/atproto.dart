@@ -20,7 +20,7 @@ import 'image.dart';
 part 'main.freezed.dart';
 part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#main
 @freezed
 class Images with _$Images {
   @jsonSerializable

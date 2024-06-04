@@ -20,7 +20,9 @@ import 'byte_slice.dart';
 part 'main.freezed.dart';
 part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
+/// Annotation of a sub-string within rich text.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 class Facet with _$Facet {
   @jsonSerializable

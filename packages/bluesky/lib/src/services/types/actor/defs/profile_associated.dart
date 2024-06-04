@@ -20,7 +20,7 @@ import 'profile_associated_chat.dart';
 part 'profile_associated.freezed.dart';
 part 'profile_associated.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociated
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociated
 @freezed
 class ProfileAssociated with _$ProfileAssociated {
   @jsonSerializable

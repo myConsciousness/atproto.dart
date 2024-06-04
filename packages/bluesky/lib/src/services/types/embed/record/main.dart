@@ -18,7 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'main.freezed.dart';
 part 'main.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
 class Record with _$Record {
   @jsonSerializable

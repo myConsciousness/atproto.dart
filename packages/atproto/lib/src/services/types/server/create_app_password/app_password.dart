@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'app_password.freezed.dart';
 part 'app_password.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword#apppassword
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword#apppassword
 @freezed
 class AppPassword with _$AppPassword {
   @jsonSerializable

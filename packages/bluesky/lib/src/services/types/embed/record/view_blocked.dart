@@ -20,7 +20,7 @@ import '../../feed/defs/blocked_author.dart';
 part 'view_blocked.freezed.dart';
 part 'view_blocked.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
 class RecordViewBlocked with _$RecordViewBlocked {
   @jsonSerializable

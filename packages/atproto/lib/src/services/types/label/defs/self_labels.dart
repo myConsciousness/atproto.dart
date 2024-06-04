@@ -20,7 +20,9 @@ import 'self_label.dart';
 part 'self_labels.freezed.dart';
 part 'self_labels.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabels
+/// Metadata tags on an atproto record, published by the author within the record.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabels
 @freezed
 class SelfLabels with _$SelfLabels {
   @jsonSerializable

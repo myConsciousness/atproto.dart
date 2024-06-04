@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'labeler_viewer_state.freezed.dart';
 part 'labeler_viewer_state.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerviewerstate
+/// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerviewerstate
 @freezed
 class LabelerViewerState with _$LabelerViewerState {
   @jsonSerializable

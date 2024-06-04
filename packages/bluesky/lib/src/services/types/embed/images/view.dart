@@ -20,7 +20,7 @@ import 'view_image.dart';
 part 'view.freezed.dart';
 part 'view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
 class ImagesView with _$ImagesView {
   @jsonSerializable

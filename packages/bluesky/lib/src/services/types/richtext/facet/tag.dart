@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'tag.freezed.dart';
 part 'tag.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
+/// Facet feature for a hashtag. The text usually includes a '#' prefix, but the facet reference should not (except in the case of 'double hash tags').
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
 class FacetTag with _$FacetTag {
   @jsonSerializable

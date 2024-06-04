@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'label_value_definition_strings.freezed.dart';
 part 'label_value_definition_strings.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinitionstrings
+/// Strings which describe the label in the UI, localized into a specific language.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinitionstrings
 @freezed
 class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   @jsonSerializable

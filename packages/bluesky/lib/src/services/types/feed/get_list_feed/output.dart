@@ -20,7 +20,7 @@ import '../../feed/defs/feed_view_post.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed#main
 @freezed
 class GetListFeedOutput with _$GetListFeedOutput {
   @jsonSerializable

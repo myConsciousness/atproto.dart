@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'repo_blob_ref.freezed.dart';
 part 'repo_blob_ref.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#repoblobref
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#repoblobref
 @freezed
 class RepoBlobRef with _$RepoBlobRef {
   @jsonSerializable

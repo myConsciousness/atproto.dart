@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'self_label.freezed.dart';
 part 'self_label.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
+/// Metadata tag on an atproto record, published by the author within the record. Note that schemas should use #selfLabels, not #selfLabel.
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
 class SelfLabel with _$SelfLabel {
   @jsonSerializable

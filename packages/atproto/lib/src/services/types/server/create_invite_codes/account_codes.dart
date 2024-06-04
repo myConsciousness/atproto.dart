@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'account_codes.freezed.dart';
 part 'account_codes.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#accountcodes
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#accountcodes
 @freezed
 class AccountCodes with _$AccountCodes {
   @jsonSerializable

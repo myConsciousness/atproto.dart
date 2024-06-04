@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'view_not_found.freezed.dart';
 part 'view_not_found.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
 class RecordViewNotFound with _$RecordViewNotFound {
   @jsonSerializable

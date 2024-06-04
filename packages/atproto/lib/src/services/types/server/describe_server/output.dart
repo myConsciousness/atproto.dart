@@ -21,7 +21,7 @@ import 'links.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#main
 @freezed
 class DescribeServerOutput with _$DescribeServerOutput {
   @jsonSerializable

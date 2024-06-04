@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'record.freezed.dart';
 part 'record.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords#record
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords#record
 @freezed
 class Record with _$Record {
   @jsonSerializable

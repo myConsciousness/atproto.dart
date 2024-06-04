@@ -20,7 +20,7 @@ import '../../admin/defs/account_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos#main
 @freezed
 class GetAccountInfosOutput with _$GetAccountInfosOutput {
   @jsonSerializable

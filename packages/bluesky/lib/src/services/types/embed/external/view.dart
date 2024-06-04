@@ -20,7 +20,7 @@ import 'view_external.dart';
 part 'view.freezed.dart';
 part 'view.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#view
+/// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#view
 @freezed
 class ExternalView with _$ExternalView {
   @jsonSerializable

@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
 @freezed
 class ResolveHandleOutput with _$ResolveHandleOutput {
   @jsonSerializable

@@ -17,7 +17,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'migrate.freezed.dart';
 part 'migrate.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
+/// DEPRECATED -- Use #account event instead
+///
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
 class Migrate with _$Migrate {
   @jsonSerializable

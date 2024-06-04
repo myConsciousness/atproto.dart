@@ -20,7 +20,7 @@ import '../../label/defs/label.dart';
 part 'labels.freezed.dart';
 part 'labels.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
 class Labels with _$Labels {
   @jsonSerializable

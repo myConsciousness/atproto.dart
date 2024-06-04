@@ -20,7 +20,7 @@ import '../../label/defs/label.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#main
 @freezed
 class QueryLabelsOutput with _$QueryLabelsOutput {
   @jsonSerializable

@@ -21,7 +21,7 @@ import 'list_viewer_state.dart';
 part 'list_view_basic.freezed.dart';
 part 'list_view_basic.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewbasic
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewbasic
 @freezed
 class ListViewBasic with _$ListViewBasic {
   @jsonSerializable

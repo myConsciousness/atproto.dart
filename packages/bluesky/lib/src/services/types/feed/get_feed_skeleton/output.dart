@@ -20,7 +20,7 @@ import '../../feed/defs/skeleton_feed_post.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton#main
 @freezed
 class GetFeedSkeletonOutput with _$GetFeedSkeletonOutput {
   @jsonSerializable

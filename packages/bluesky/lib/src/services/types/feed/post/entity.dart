@@ -20,7 +20,9 @@ import 'text_slice.dart';
 part 'entity.freezed.dart';
 part 'entity.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#entity
+/// Deprecated: use facets instead.
+///
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#entity
 @freezed
 class Entity with _$Entity {
   @jsonSerializable

@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus#main
 @freezed
 class CheckAccountStatusOutput with _$CheckAccountStatusOutput {
   @jsonSerializable

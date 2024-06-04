@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'skeleton_feed_post.freezed.dart';
 part 'skeleton_feed_post.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
 class SkeletonFeedPost with _$SkeletonFeedPost {
   @jsonSerializable

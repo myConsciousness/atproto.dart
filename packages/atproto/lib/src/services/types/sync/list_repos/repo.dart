@@ -20,7 +20,7 @@ import 'repo_status.dart';
 part 'repo.freezed.dart';
 part 'repo.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#repo
+/// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#repo
 @freezed
 class Repo with _$Repo {
   @jsonSerializable

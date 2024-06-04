@@ -54,7 +54,7 @@ final class LexGenObject {
     buffer.writeln("part '$fileName.g.dart';");
     buffer.writeln();
     if (description != null && description!.isNotEmpty) {
-      buffer.writeln('// $description');
+      buffer.writeln(description);
     }
     buffer.writeln('@freezed');
     buffer.writeln('class $name with _\$$name {');

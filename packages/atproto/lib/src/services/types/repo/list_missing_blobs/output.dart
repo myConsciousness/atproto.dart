@@ -20,7 +20,7 @@ import 'record_blob.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#main
+/// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#main
 @freezed
 class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
   @jsonSerializable

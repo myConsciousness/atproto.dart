@@ -20,7 +20,7 @@ import '../../actor/defs/profile_view_basic.dart';
 part 'reason_repost.freezed.dart';
 part 'reason_repost.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#reasonrepost
+/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#reasonrepost
 @freezed
 class ReasonRepost with _$ReasonRepost {
   @jsonSerializable

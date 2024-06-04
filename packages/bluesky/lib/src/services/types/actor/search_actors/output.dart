@@ -20,7 +20,7 @@ import '../../actor/defs/profile_view.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#main
 @freezed
 class SearchActorsOutput with _$SearchActorsOutput {
   @jsonSerializable

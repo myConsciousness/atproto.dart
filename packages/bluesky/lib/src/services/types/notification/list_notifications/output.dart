@@ -20,7 +20,7 @@ import 'notification.dart';
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#main
 @freezed
 class ListNotificationsOutput with _$ListNotificationsOutput {
   @jsonSerializable
