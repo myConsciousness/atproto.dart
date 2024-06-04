@@ -21,7 +21,8 @@ Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Suggestion {
   String get tag => throw _privateConstructorUsedError;
-  String get subjectType => throw _privateConstructorUsedError;
+  @SuggestionSubjectTypeConverter()
+  SuggestionSubjectType get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,12 @@ abstract class $SuggestionCopyWith<$Res> {
           Suggestion value, $Res Function(Suggestion) then) =
       _$SuggestionCopyWithImpl<$Res, Suggestion>;
   @useResult
-  $Res call({String tag, String subjectType, String subject});
+  $Res call(
+      {String tag,
+      @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
+      String subject});
+
+  $SuggestionSubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -64,12 +70,20 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SuggestionSubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SuggestionSubjectTypeCopyWith<$Res> get subjectType {
+    return $SuggestionSubjectTypeCopyWith<$Res>(_value.subjectType, (value) {
+      return _then(_value.copyWith(subjectType: value) as $Val);
+    });
   }
 }
 
@@ -81,7 +95,13 @@ abstract class _$$SuggestionImplCopyWith<$Res>
       __$$SuggestionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tag, String subjectType, String subject});
+  $Res call(
+      {String tag,
+      @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
+      String subject});
+
+  @override
+  $SuggestionSubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -107,7 +127,7 @@ class __$$SuggestionImplCopyWithImpl<$Res>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SuggestionSubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -121,7 +141,9 @@ class __$$SuggestionImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$SuggestionImpl implements _Suggestion {
   const _$SuggestionImpl(
-      {required this.tag, required this.subjectType, required this.subject});
+      {required this.tag,
+      @SuggestionSubjectTypeConverter() required this.subjectType,
+      required this.subject});
 
   factory _$SuggestionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SuggestionImplFromJson(json);
@@ -129,7 +151,8 @@ class _$SuggestionImpl implements _Suggestion {
   @override
   final String tag;
   @override
-  final String subjectType;
+  @SuggestionSubjectTypeConverter()
+  final SuggestionSubjectType subjectType;
   @override
   final String subject;
 
@@ -170,7 +193,8 @@ class _$SuggestionImpl implements _Suggestion {
 abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
       {required final String tag,
-      required final String subjectType,
+      @SuggestionSubjectTypeConverter()
+      required final SuggestionSubjectType subjectType,
       required final String subject}) = _$SuggestionImpl;
 
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
@@ -179,7 +203,8 @@ abstract class _Suggestion implements Suggestion {
   @override
   String get tag;
   @override
-  String get subjectType;
+  @SuggestionSubjectTypeConverter()
+  SuggestionSubjectType get subjectType;
   @override
   String get subject;
   @override

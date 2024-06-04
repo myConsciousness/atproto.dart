@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'profile_associated_chat_allow_incoming.dart';
+
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
 
@@ -22,7 +25,8 @@ part 'profile_associated_chat.g.dart';
 class ProfileAssociatedChat with _$ProfileAssociatedChat {
   @jsonSerializable
   const factory ProfileAssociatedChat({
-    required String allowIncoming,
+    @ProfileAssociatedChatAllowIncomingConverter()
+    required ProfileAssociatedChatAllowIncoming allowIncoming,
   }) = _ProfileAssociatedChat;
 
   factory ProfileAssociatedChat.fromJson(Map<String, Object?> json) =>

@@ -68,9 +68,9 @@ enum KnownNotificationReason {
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue);
+///   print(object.knownValue); // => KnownNotificationReason or null
 /// } else if (object.isUnknownValue) {
-///   print(object.unknownValue);
+///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed

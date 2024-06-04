@@ -14,7 +14,10 @@ _$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$SuggestionImpl(
           tag: $checkedConvert('tag', (v) => v as String),
-          subjectType: $checkedConvert('subjectType', (v) => v as String),
+          subjectType: $checkedConvert(
+              'subjectType',
+              (v) =>
+                  const SuggestionSubjectTypeConverter().fromJson(v as String)),
           subject: $checkedConvert('subject', (v) => v as String),
         );
         return val;
@@ -24,6 +27,7 @@ _$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$SuggestionImplToJson(_$SuggestionImpl instance) =>
     <String, dynamic>{
       'tag': instance.tag,
-      'subjectType': instance.subjectType,
+      'subjectType':
+          const SuggestionSubjectTypeConverter().toJson(instance.subjectType),
       'subject': instance.subject,
     };

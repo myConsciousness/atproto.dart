@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../actor/defs/profile_view.dart';
+import 'notification_reason.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';
@@ -31,7 +32,7 @@ class Notification with _$Notification {
     required ProfileView author,
 
     /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
-    required String reason,
+    @NotificationReasonConverter() required NotificationReason reason,
     @AtUriConverter() AtUri? reasonSubject,
     required Map<String, dynamic> record,
     required bool isRead,

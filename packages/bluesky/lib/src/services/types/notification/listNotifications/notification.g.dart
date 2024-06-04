@@ -18,7 +18,8 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert('author',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
-          reason: $checkedConvert('reason', (v) => v as String),
+          reason: $checkedConvert('reason',
+              (v) => const NotificationReasonConverter().fromJson(v as String)),
           reasonSubject: $checkedConvert(
               'reasonSubject',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -46,7 +47,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
-    'reason': instance.reason,
+    'reason': const NotificationReasonConverter().toJson(instance.reason),
   };
 
   void writeNotNull(String key, dynamic value) {

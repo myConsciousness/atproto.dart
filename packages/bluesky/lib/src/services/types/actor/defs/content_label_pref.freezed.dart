@@ -23,7 +23,9 @@ mixin _$ContentLabelPref {
   /// Which labeler does this preference apply to? If undefined, applies globally.
   String? get labelerDid => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
-  String get visibility => throw _privateConstructorUsedError;
+  @ContentLabelPrefVisibilityConverter()
+  ContentLabelPrefVisibility get visibility =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +39,13 @@ abstract class $ContentLabelPrefCopyWith<$Res> {
           ContentLabelPref value, $Res Function(ContentLabelPref) then) =
       _$ContentLabelPrefCopyWithImpl<$Res, ContentLabelPref>;
   @useResult
-  $Res call({String? labelerDid, String label, String visibility});
+  $Res call(
+      {String? labelerDid,
+      String label,
+      @ContentLabelPrefVisibilityConverter()
+      ContentLabelPrefVisibility visibility});
+
+  $ContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 }
 
 /// @nodoc
@@ -69,8 +77,17 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ContentLabelPrefVisibility,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ContentLabelPrefVisibilityCopyWith<$Res> get visibility {
+    return $ContentLabelPrefVisibilityCopyWith<$Res>(_value.visibility,
+        (value) {
+      return _then(_value.copyWith(visibility: value) as $Val);
+    });
   }
 }
 
@@ -82,7 +99,14 @@ abstract class _$$ContentLabelPrefImplCopyWith<$Res>
       __$$ContentLabelPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? labelerDid, String label, String visibility});
+  $Res call(
+      {String? labelerDid,
+      String label,
+      @ContentLabelPrefVisibilityConverter()
+      ContentLabelPrefVisibility visibility});
+
+  @override
+  $ContentLabelPrefVisibilityCopyWith<$Res> get visibility;
 }
 
 /// @nodoc
@@ -112,7 +136,7 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
       visibility: null == visibility
           ? _value.visibility
           : visibility // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ContentLabelPrefVisibility,
     ));
   }
 }
@@ -122,7 +146,9 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
 @jsonSerializable
 class _$ContentLabelPrefImpl implements _ContentLabelPref {
   const _$ContentLabelPrefImpl(
-      {this.labelerDid, required this.label, required this.visibility});
+      {this.labelerDid,
+      required this.label,
+      @ContentLabelPrefVisibilityConverter() required this.visibility});
 
   factory _$ContentLabelPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContentLabelPrefImplFromJson(json);
@@ -133,7 +159,8 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
   @override
   final String label;
   @override
-  final String visibility;
+  @ContentLabelPrefVisibilityConverter()
+  final ContentLabelPrefVisibility visibility;
 
   @override
   String toString() {
@@ -173,9 +200,11 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
 
 abstract class _ContentLabelPref implements ContentLabelPref {
   const factory _ContentLabelPref(
-      {final String? labelerDid,
-      required final String label,
-      required final String visibility}) = _$ContentLabelPrefImpl;
+          {final String? labelerDid,
+          required final String label,
+          @ContentLabelPrefVisibilityConverter()
+          required final ContentLabelPrefVisibility visibility}) =
+      _$ContentLabelPrefImpl;
 
   factory _ContentLabelPref.fromJson(Map<String, dynamic> json) =
       _$ContentLabelPrefImpl.fromJson;
@@ -187,7 +216,8 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   @override
   String get label;
   @override
-  String get visibility;
+  @ContentLabelPrefVisibilityConverter()
+  ContentLabelPrefVisibility get visibility;
   @override
   @JsonKey(ignore: true)
   _$$ContentLabelPrefImplCopyWith<_$ContentLabelPrefImpl> get copyWith =>

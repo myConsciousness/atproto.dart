@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'suggestion_subject_type.dart';
+
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
 
@@ -23,7 +26,8 @@ class Suggestion with _$Suggestion {
   @jsonSerializable
   const factory Suggestion({
     required String tag,
-    required String subjectType,
+    @SuggestionSubjectTypeConverter()
+    required SuggestionSubjectType subjectType,
     required String subject,
   }) = _Suggestion;
 

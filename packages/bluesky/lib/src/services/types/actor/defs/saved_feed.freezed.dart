@@ -21,7 +21,8 @@ SavedFeed _$SavedFeedFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SavedFeed {
   String get id => throw _privateConstructorUsedError;
-  String get type => throw _privateConstructorUsedError;
+  @SavedFeedTypeConverter()
+  SavedFeedType get type => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
   bool get pinned => throw _privateConstructorUsedError;
 
@@ -36,7 +37,13 @@ abstract class $SavedFeedCopyWith<$Res> {
   factory $SavedFeedCopyWith(SavedFeed value, $Res Function(SavedFeed) then) =
       _$SavedFeedCopyWithImpl<$Res, SavedFeed>;
   @useResult
-  $Res call({String id, String type, String value, bool pinned});
+  $Res call(
+      {String id,
+      @SavedFeedTypeConverter() SavedFeedType type,
+      String value,
+      bool pinned});
+
+  $SavedFeedTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -65,7 +72,7 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SavedFeedType,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -75,6 +82,14 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $SavedFeedTypeCopyWith<$Res> get type {
+    return $SavedFeedTypeCopyWith<$Res>(_value.type, (value) {
+      return _then(_value.copyWith(type: value) as $Val);
+    });
   }
 }
 
@@ -86,7 +101,14 @@ abstract class _$$SavedFeedImplCopyWith<$Res>
       __$$SavedFeedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String type, String value, bool pinned});
+  $Res call(
+      {String id,
+      @SavedFeedTypeConverter() SavedFeedType type,
+      String value,
+      bool pinned});
+
+  @override
+  $SavedFeedTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -113,7 +135,7 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as String,
+              as SavedFeedType,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -132,7 +154,7 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
 class _$SavedFeedImpl implements _SavedFeed {
   const _$SavedFeedImpl(
       {required this.id,
-      required this.type,
+      @SavedFeedTypeConverter() required this.type,
       required this.value,
       required this.pinned});
 
@@ -142,7 +164,8 @@ class _$SavedFeedImpl implements _SavedFeed {
   @override
   final String id;
   @override
-  final String type;
+  @SavedFeedTypeConverter()
+  final SavedFeedType type;
   @override
   final String value;
   @override
@@ -185,7 +208,7 @@ class _$SavedFeedImpl implements _SavedFeed {
 abstract class _SavedFeed implements SavedFeed {
   const factory _SavedFeed(
       {required final String id,
-      required final String type,
+      @SavedFeedTypeConverter() required final SavedFeedType type,
       required final String value,
       required final bool pinned}) = _$SavedFeedImpl;
 
@@ -195,7 +218,8 @@ abstract class _SavedFeed implements SavedFeed {
   @override
   String get id;
   @override
-  String get type;
+  @SavedFeedTypeConverter()
+  SavedFeedType get type;
   @override
   String get value;
   @override

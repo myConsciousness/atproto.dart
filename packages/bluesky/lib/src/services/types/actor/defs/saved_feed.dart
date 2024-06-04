@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'saved_feed_type.dart';
+
 part 'saved_feed.freezed.dart';
 part 'saved_feed.g.dart';
 
@@ -23,7 +26,7 @@ class SavedFeed with _$SavedFeed {
   @jsonSerializable
   const factory SavedFeed({
     required String id,
-    required String type,
+    @SavedFeedTypeConverter() required SavedFeedType type,
     required String value,
     required bool pinned,
   }) = _SavedFeed;

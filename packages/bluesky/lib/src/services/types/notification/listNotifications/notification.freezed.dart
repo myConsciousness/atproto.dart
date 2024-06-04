@@ -26,7 +26,8 @@ mixin _$Notification {
   ProfileView get author => throw _privateConstructorUsedError;
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
-  String get reason => throw _privateConstructorUsedError;
+  @NotificationReasonConverter()
+  NotificationReason get reason => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get reasonSubject => throw _privateConstructorUsedError;
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
@@ -50,7 +51,7 @@ abstract class $NotificationCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
-      String reason,
+      @NotificationReasonConverter() NotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
@@ -58,6 +59,7 @@ abstract class $NotificationCopyWith<$Res> {
       List<Label> labels});
 
   $ProfileViewCopyWith<$Res> get author;
+  $NotificationReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
@@ -99,7 +101,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -130,6 +132,14 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $NotificationReasonCopyWith<$Res> get reason {
+    return $NotificationReasonCopyWith<$Res>(_value.reason, (value) {
+      return _then(_value.copyWith(reason: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -144,7 +154,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
-      String reason,
+      @NotificationReasonConverter() NotificationReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
@@ -153,6 +163,8 @@ abstract class _$$NotificationImplCopyWith<$Res>
 
   @override
   $ProfileViewCopyWith<$Res> get author;
+  @override
+  $NotificationReasonCopyWith<$Res> get reason;
 }
 
 /// @nodoc
@@ -192,7 +204,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
       reason: null == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NotificationReason,
       reasonSubject: freezed == reasonSubject
           ? _value.reasonSubject
           : reasonSubject // ignore: cast_nullable_to_non_nullable
@@ -225,7 +237,7 @@ class _$NotificationImpl implements _Notification {
       {@AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
-      required this.reason,
+      @NotificationReasonConverter() required this.reason,
       @AtUriConverter() this.reasonSubject,
       required final Map<String, dynamic> record,
       required this.isRead,
@@ -247,7 +259,8 @@ class _$NotificationImpl implements _Notification {
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
   @override
-  final String reason;
+  @NotificationReasonConverter()
+  final NotificationReason reason;
   @override
   @AtUriConverter()
   final AtUri? reasonSubject;
@@ -328,7 +341,7 @@ abstract class _Notification implements Notification {
       {@AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView author,
-      required final String reason,
+      @NotificationReasonConverter() required final NotificationReason reason,
       @AtUriConverter() final AtUri? reasonSubject,
       required final Map<String, dynamic> record,
       required final bool isRead,
@@ -348,7 +361,8 @@ abstract class _Notification implements Notification {
   @override
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
-  String get reason;
+  @NotificationReasonConverter()
+  NotificationReason get reason;
   @override
   @AtUriConverter()
   AtUri? get reasonSubject;

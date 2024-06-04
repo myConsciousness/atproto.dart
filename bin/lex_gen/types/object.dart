@@ -31,12 +31,13 @@ final class LexGenObject {
   String toString() {
     assert(properties.isNotEmpty);
 
-    // Distinct
-    final importPaths = properties
-        .map((e) => e.type.importPath)
-        .where((e) => e != null)
-        .toSet()
-        .toList();
+    // merge and distinct
+    final importPaths = [
+      ...properties.map((e) => e.type.importPath),
+      ...properties
+          .where((e) => e.knownValues != null)
+          .map((e) => '${e.knownValues!.fileName}.dart')
+    ].where((e) => e != null).toSet().toList();
 
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Object Generator'));
@@ -96,6 +97,17 @@ final class LexGenObjectProperty {
 
   @override
   String toString() {
+    if (knownValues != null) {
+      return _toString('${knownValues!.name}Converter', knownValues!.name);
+    }
+
+    return _toString(type.converter, type.name);
+  }
+
+  String _toString(
+    String? converter,
+    String typeName,
+  ) {
     final buffer = StringBuffer();
 
     if (description != null && description!.isNotEmpty) {
@@ -103,22 +115,22 @@ final class LexGenObjectProperty {
       buffer.writeln('/// $description');
     }
 
-    if (type.converter != null) {
-      buffer.write('@${type.converter}()');
+    if (converter != null) {
+      buffer.write('@$converter()');
       buffer.write(' ');
     }
 
     if (isRequired) {
       buffer.write('required');
       buffer.write(' ');
-      buffer.write(type.name);
+      buffer.write(typeName);
       buffer.write(' ');
     } else {
       if (defaultValue != null) {
-        buffer.write('@Default($defaultValue) ${type.name}');
+        buffer.write('@Default($defaultValue) $typeName');
         buffer.write(' ');
       } else {
-        buffer.write('${type.name}?');
+        buffer.write('$typeName?');
         buffer.write(' ');
       }
     }

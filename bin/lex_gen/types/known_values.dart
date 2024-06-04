@@ -32,9 +32,9 @@ String _getUnionDartDoc(final String name) =>
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue);
+///   print(object.knownValue); // => Known$name or null
 /// } else if (object.isUnknownValue) {
-///   print(object.unknownValue);
+///   print(object.unknownValue); // => String or null
 /// }
 /// ```''';
 

@@ -16,7 +16,10 @@ _$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
         final val = _$ContentLabelPrefImpl(
           labelerDid: $checkedConvert('labelerDid', (v) => v as String?),
           label: $checkedConvert('label', (v) => v as String),
-          visibility: $checkedConvert('visibility', (v) => v as String),
+          visibility: $checkedConvert(
+              'visibility',
+              (v) => const ContentLabelPrefVisibilityConverter()
+                  .fromJson(v as String)),
         );
         return val;
       },
@@ -34,6 +37,7 @@ Map<String, dynamic> _$$ContentLabelPrefImplToJson(
 
   writeNotNull('labelerDid', instance.labelerDid);
   val['label'] = instance.label;
-  val['visibility'] = instance.visibility;
+  val['visibility'] =
+      const ContentLabelPrefVisibilityConverter().toJson(instance.visibility);
   return val;
 }

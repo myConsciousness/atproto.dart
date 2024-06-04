@@ -14,7 +14,10 @@ _$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileAssociatedChatImpl(
-          allowIncoming: $checkedConvert('allowIncoming', (v) => v as String),
+          allowIncoming: $checkedConvert(
+              'allowIncoming',
+              (v) => const ProfileAssociatedChatAllowIncomingConverter()
+                  .fromJson(v as String)),
         );
         return val;
       },
@@ -23,5 +26,6 @@ _$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
 Map<String, dynamic> _$$ProfileAssociatedChatImplToJson(
         _$ProfileAssociatedChatImpl instance) =>
     <String, dynamic>{
-      'allowIncoming': instance.allowIncoming,
+      'allowIncoming': const ProfileAssociatedChatAllowIncomingConverter()
+          .toJson(instance.allowIncoming),
     };

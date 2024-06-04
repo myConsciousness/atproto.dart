@@ -21,7 +21,9 @@ ProfileAssociatedChat _$ProfileAssociatedChatFromJson(
 
 /// @nodoc
 mixin _$ProfileAssociatedChat {
-  String get allowIncoming => throw _privateConstructorUsedError;
+  @ProfileAssociatedChatAllowIncomingConverter()
+  ProfileAssociatedChatAllowIncoming get allowIncoming =>
+      throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +37,11 @@ abstract class $ProfileAssociatedChatCopyWith<$Res> {
           $Res Function(ProfileAssociatedChat) then) =
       _$ProfileAssociatedChatCopyWithImpl<$Res, ProfileAssociatedChat>;
   @useResult
-  $Res call({String allowIncoming});
+  $Res call(
+      {@ProfileAssociatedChatAllowIncomingConverter()
+      ProfileAssociatedChatAllowIncoming allowIncoming});
+
+  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -58,8 +64,17 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ProfileAssociatedChatAllowIncoming,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming {
+    return $ProfileAssociatedChatAllowIncomingCopyWith<$Res>(
+        _value.allowIncoming, (value) {
+      return _then(_value.copyWith(allowIncoming: value) as $Val);
+    });
   }
 }
 
@@ -72,7 +87,12 @@ abstract class _$$ProfileAssociatedChatImplCopyWith<$Res>
       __$$ProfileAssociatedChatImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String allowIncoming});
+  $Res call(
+      {@ProfileAssociatedChatAllowIncomingConverter()
+      ProfileAssociatedChatAllowIncoming allowIncoming});
+
+  @override
+  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -93,7 +113,7 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ProfileAssociatedChatAllowIncoming,
     ));
   }
 }
@@ -102,13 +122,16 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
 
 @jsonSerializable
 class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
-  const _$ProfileAssociatedChatImpl({required this.allowIncoming});
+  const _$ProfileAssociatedChatImpl(
+      {@ProfileAssociatedChatAllowIncomingConverter()
+      required this.allowIncoming});
 
   factory _$ProfileAssociatedChatImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedChatImplFromJson(json);
 
   @override
-  final String allowIncoming;
+  @ProfileAssociatedChatAllowIncomingConverter()
+  final ProfileAssociatedChatAllowIncoming allowIncoming;
 
   @override
   String toString() {
@@ -144,14 +167,17 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
 }
 
 abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
-  const factory _ProfileAssociatedChat({required final String allowIncoming}) =
+  const factory _ProfileAssociatedChat(
+          {@ProfileAssociatedChatAllowIncomingConverter()
+          required final ProfileAssociatedChatAllowIncoming allowIncoming}) =
       _$ProfileAssociatedChatImpl;
 
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedChatImpl.fromJson;
 
   @override
-  String get allowIncoming;
+  @ProfileAssociatedChatAllowIncomingConverter()
+  ProfileAssociatedChatAllowIncoming get allowIncoming;
   @override
   @JsonKey(ignore: true)
   _$$ProfileAssociatedChatImplCopyWith<_$ProfileAssociatedChatImpl>
