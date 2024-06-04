@@ -83,5 +83,29 @@ void main() {
         'did:bbbb;redact',
       );
     });
+
+    test('case5', () {
+      final actual = getLabelerHeaders(ModerationPrefs(
+        labels: const {},
+        labelers: const [
+          ModerationPrefsLabeler(
+            did: 'did:aaaa',
+            labels: {},
+          ),
+          ModerationPrefsLabeler(
+            did: 'did:aaaa',
+            labels: {},
+          )
+        ],
+        mutedWords: const [],
+        hiddenPosts: const [],
+      ));
+
+      expect(actual.containsKey('atproto-accept-labelers'), isTrue);
+      expect(
+        actual['atproto-accept-labelers'],
+        'did:plc:ar7c4by46qjdydhdevvrndac;redact, did:aaaa;redact',
+      );
+    });
   });
 }
