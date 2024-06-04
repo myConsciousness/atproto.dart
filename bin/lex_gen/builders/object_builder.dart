@@ -60,8 +60,7 @@ final class LexGenObjectBuilder {
           final ref = refVariant?.whenOrNull(ref: (data) => data);
 
           if (ref != null && ref.ref != null) {
-            // final refObject = getRef(docId, ref.ref!);
-            return const <LexGenObjectProperty>[]; //! Ignore ref now.
+            return const <LexGenObjectProperty>[];
           }
         }
 
@@ -77,8 +76,7 @@ final class LexGenObjectBuilder {
           final ref = refVariant?.whenOrNull(ref: (data) => data);
 
           if (ref != null && ref.ref != null) {
-            // final refObject = getRef(docId, ref.ref!);
-            return const <LexGenObjectProperty>[]; //! Ignore ref now.
+            return const <LexGenObjectProperty>[];
           }
         }
 
