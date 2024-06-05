@@ -2375,6 +2375,10 @@ const comAtprotoAdminUpdateSubjectStatus = <String, dynamic>{
             "takedown": {
               "type": "ref",
               "ref": "com.atproto.admin.defs#statusAttr"
+            },
+            "deactivated": {
+              "type": "ref",
+              "ref": "com.atproto.admin.defs#statusAttr"
             }
           }
         }
