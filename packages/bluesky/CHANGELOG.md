@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.4
+
+- Minor improvement for `.getModerationPrefs`. No need to aware.
+
 ## v0.16.3
 
 - Minor improvement for `.getLabelerHeaders`. No need to aware.

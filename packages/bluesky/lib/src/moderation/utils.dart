@@ -171,14 +171,9 @@ extension PreferencesExtension on Preferences {
           adultContentEnabled = preference.data.isEnabled;
           break;
         case UPreferenceLabelersPref():
-          labelers.addAll([
-            ...appLabelers.map(
-              (e) => {'did': e, 'labels': <String, LabelPreference>{}},
-            ),
-            ...preference.data.labelers.map(
-              (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-            )
-          ]);
+          labelers.addAll(preference.data.labelers.map(
+            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+          ));
           break;
         case UPreferenceMutedWords():
           mutedWords.addAll(preference.data.items);
@@ -210,10 +205,14 @@ extension PreferencesExtension on Preferences {
     return ModerationPrefs(
       adultContentEnabled: adultContentEnabled,
       labels: {
-        ...kDefaultLabelSettings.map((k, v) => MapEntry(k.name, v)),
+        ...kDefaultLabelSettings.map((k, v) => MapEntry(k.value, v)),
         ...labels,
       },
-      labelers: labelers
+      labelers: [
+        ...appLabelers
+            .map((e) => {'did': e, 'labels': <String, LabelPreference>{}}),
+        ...labelers,
+      ]
           .map(
             (e) => ModerationPrefsLabeler(
               did: e['did'],
