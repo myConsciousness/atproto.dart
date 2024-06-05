@@ -28,8 +28,8 @@ mixin _$RefreshSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @MainStatusConverter()
-  MainStatus? get status => throw _privateConstructorUsedError;
+  @RefreshSessionStatusConverter()
+  RefreshSessionStatus? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,9 +50,9 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String did,
       Map<String, dynamic> didDoc,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @RefreshSessionStatusConverter() RefreshSessionStatus? status});
 
-  $MainStatusCopyWith<$Res>? get status;
+  $RefreshSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -105,18 +105,18 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as RefreshSessionStatus?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MainStatusCopyWith<$Res>? get status {
+  $RefreshSessionStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $MainStatusCopyWith<$Res>(_value.status!, (value) {
+    return $RefreshSessionStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -137,10 +137,10 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String did,
       Map<String, dynamic> didDoc,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @RefreshSessionStatusConverter() RefreshSessionStatus? status});
 
   @override
-  $MainStatusCopyWith<$Res>? get status;
+  $RefreshSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -190,7 +190,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as RefreshSessionStatus?,
     ));
   }
 }
@@ -206,7 +206,7 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.did,
       final Map<String, dynamic> didDoc = const {},
       this.active = false,
-      @MainStatusConverter() this.status})
+      @RefreshSessionStatusConverter() this.status})
       : _didDoc = didDoc;
 
   factory _$RefreshSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -235,8 +235,8 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
 
   /// Hosting status of the account. If not specified, then assume 'active'.
   @override
-  @MainStatusConverter()
-  final MainStatus? status;
+  @RefreshSessionStatusConverter()
+  final RefreshSessionStatus? status;
 
   @override
   String toString() {
@@ -282,14 +282,14 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
 
 abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   const factory _RefreshSessionOutput(
-          {required final String accessJwt,
-          required final String refreshJwt,
-          required final String handle,
-          required final String did,
-          final Map<String, dynamic> didDoc,
-          final bool active,
-          @MainStatusConverter() final MainStatus? status}) =
-      _$RefreshSessionOutputImpl;
+      {required final String accessJwt,
+      required final String refreshJwt,
+      required final String handle,
+      required final String did,
+      final Map<String, dynamic> didDoc,
+      final bool active,
+      @RefreshSessionStatusConverter()
+      final RefreshSessionStatus? status}) = _$RefreshSessionOutputImpl;
 
   factory _RefreshSessionOutput.fromJson(Map<String, dynamic> json) =
       _$RefreshSessionOutputImpl.fromJson;
@@ -309,8 +309,8 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   @override
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @MainStatusConverter()
-  MainStatus? get status;
+  @RefreshSessionStatusConverter()
+  RefreshSessionStatus? get status;
   @override
   @JsonKey(ignore: true)
   _$$RefreshSessionOutputImplCopyWith<_$RefreshSessionOutputImpl>

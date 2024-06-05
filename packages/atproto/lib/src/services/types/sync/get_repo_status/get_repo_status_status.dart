@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'main_status.freezed.dart';
+part 'get_repo_status_status.freezed.dart';
 
-enum KnownMainStatus {
+enum KnownGetRepoStatusStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -26,9 +26,9 @@ enum KnownMainStatus {
 
   final String value;
 
-  const KnownMainStatus(this.value);
+  const KnownGetRepoStatusStatus(this.value);
 
-  static KnownMainStatus? valueOf(final String value) {
+  static KnownGetRepoStatusStatus? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -56,57 +56,58 @@ enum KnownMainStatus {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownMainStatus
+///   knownValue: (data) => data, // => KnownGetRepoStatusStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownMainStatus or null
+///   print(object.knownValue); // => KnownGetRepoStatusStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class MainStatus with _$MainStatus {
-  const factory MainStatus.knownValue({
-    required KnownMainStatus data,
-  }) = UMainStatusKnownValue;
+class GetRepoStatusStatus with _$GetRepoStatusStatus {
+  const factory GetRepoStatusStatus.knownValue({
+    required KnownGetRepoStatusStatus data,
+  }) = UGetRepoStatusStatusKnownValue;
 
-  const factory MainStatus.unknownValue({
+  const factory GetRepoStatusStatus.unknownValue({
     required String data,
-  }) = UMainStatusUnknownValue;
+  }) = UGetRepoStatusStatusUnknownValue;
 }
 
-final class MainStatusConverter implements JsonConverter<MainStatus, String> {
-  const MainStatusConverter();
+final class GetRepoStatusStatusConverter
+    implements JsonConverter<GetRepoStatusStatus, String> {
+  const GetRepoStatusStatusConverter();
 
   @override
-  MainStatus fromJson(String json) {
-    final knownValue = KnownMainStatus.valueOf(json);
+  GetRepoStatusStatus fromJson(String json) {
+    final knownValue = KnownGetRepoStatusStatus.valueOf(json);
 
     return knownValue != null
-        ? MainStatus.knownValue(data: knownValue)
-        : MainStatus.unknownValue(data: json);
+        ? GetRepoStatusStatus.knownValue(data: knownValue)
+        : GetRepoStatusStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(MainStatus object) => object.when(
+  String toJson(GetRepoStatusStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension MainStatusExtension on MainStatus {
+extension GetRepoStatusStatusExtension on GetRepoStatusStatus {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UMainStatusKnownValue;
+  bool get isKnownValue => this is UGetRepoStatusStatusKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UMainStatusUnknownValue;
+  bool get isUnknownValue => this is UGetRepoStatusStatusUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownMainStatus? get knownValue =>
-      isKnownValue ? this.data as KnownMainStatus : null;
+  KnownGetRepoStatusStatus? get knownValue =>
+      isKnownValue ? this.data as KnownGetRepoStatusStatus : null;
 
   /// Returns unknown value if this data is unknown, otherwise null.
   String? get unknownValue => isUnknownValue ? this.data as String : null;

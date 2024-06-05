@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'main_status.freezed.dart';
+part 'create_session_status.freezed.dart';
 
-enum KnownMainStatus {
+enum KnownCreateSessionStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
@@ -26,9 +26,9 @@ enum KnownMainStatus {
 
   final String value;
 
-  const KnownMainStatus(this.value);
+  const KnownCreateSessionStatus(this.value);
 
-  static KnownMainStatus? valueOf(final String value) {
+  static KnownCreateSessionStatus? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -56,57 +56,58 @@ enum KnownMainStatus {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownMainStatus
+///   knownValue: (data) => data, // => KnownCreateSessionStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownMainStatus or null
+///   print(object.knownValue); // => KnownCreateSessionStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class MainStatus with _$MainStatus {
-  const factory MainStatus.knownValue({
-    required KnownMainStatus data,
-  }) = UMainStatusKnownValue;
+class CreateSessionStatus with _$CreateSessionStatus {
+  const factory CreateSessionStatus.knownValue({
+    required KnownCreateSessionStatus data,
+  }) = UCreateSessionStatusKnownValue;
 
-  const factory MainStatus.unknownValue({
+  const factory CreateSessionStatus.unknownValue({
     required String data,
-  }) = UMainStatusUnknownValue;
+  }) = UCreateSessionStatusUnknownValue;
 }
 
-final class MainStatusConverter implements JsonConverter<MainStatus, String> {
-  const MainStatusConverter();
+final class CreateSessionStatusConverter
+    implements JsonConverter<CreateSessionStatus, String> {
+  const CreateSessionStatusConverter();
 
   @override
-  MainStatus fromJson(String json) {
-    final knownValue = KnownMainStatus.valueOf(json);
+  CreateSessionStatus fromJson(String json) {
+    final knownValue = KnownCreateSessionStatus.valueOf(json);
 
     return knownValue != null
-        ? MainStatus.knownValue(data: knownValue)
-        : MainStatus.unknownValue(data: json);
+        ? CreateSessionStatus.knownValue(data: knownValue)
+        : CreateSessionStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(MainStatus object) => object.when(
+  String toJson(CreateSessionStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension MainStatusExtension on MainStatus {
+extension CreateSessionStatusExtension on CreateSessionStatus {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UMainStatusKnownValue;
+  bool get isKnownValue => this is UCreateSessionStatusKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UMainStatusUnknownValue;
+  bool get isUnknownValue => this is UCreateSessionStatusUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownMainStatus? get knownValue =>
-      isKnownValue ? this.data as KnownMainStatus : null;
+  KnownCreateSessionStatus? get knownValue =>
+      isKnownValue ? this.data as KnownCreateSessionStatus : null;
 
   /// Returns unknown value if this data is unknown, otherwise null.
   String? get unknownValue => isUnknownValue ? this.data as String : null;

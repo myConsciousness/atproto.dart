@@ -112,7 +112,9 @@ final class LexGenObjectBuilder {
           name: entry.key,
           knownValues: LexKnownValuesBuilder(
             context.docId,
-            context.defName,
+            context.defName == 'main'
+                ? context.docId.toString().split('.').last
+                : context.defName,
             entry.key,
             property['knownValues'] ?? const [],
           ).build(),

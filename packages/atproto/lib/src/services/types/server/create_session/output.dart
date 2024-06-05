@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'main_status.dart';
+import 'create_session_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -36,7 +36,7 @@ class CreateSessionOutput with _$CreateSessionOutput {
     @Default(false) bool active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-    @MainStatusConverter() MainStatus? status,
+    @CreateSessionStatusConverter() CreateSessionStatus? status,
   }) = _CreateSessionOutput;
 
   factory CreateSessionOutput.fromJson(Map<String, Object?> json) =>

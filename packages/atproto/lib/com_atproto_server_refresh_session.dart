@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/server/refresh_session/output.dart';
-export 'package:atproto/src/services/types/server/refresh_session/main_status.dart';
+export 'package:atproto/src/services/types/server/refresh_session/refresh_session_status.dart';

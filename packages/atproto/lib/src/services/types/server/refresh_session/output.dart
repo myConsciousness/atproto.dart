@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'main_status.dart';
+import 'refresh_session_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -33,7 +33,7 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
     @Default(false) bool active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.
-    @MainStatusConverter() MainStatus? status,
+    @RefreshSessionStatusConverter() RefreshSessionStatus? status,
   }) = _RefreshSessionOutput;
 
   factory RefreshSessionOutput.fromJson(Map<String, Object?> json) =>

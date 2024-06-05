@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/server/create_session/output.dart';
-export 'package:atproto/src/services/types/server/create_session/main_status.dart';
+export 'package:atproto/src/services/types/server/create_session/create_session_status.dart';

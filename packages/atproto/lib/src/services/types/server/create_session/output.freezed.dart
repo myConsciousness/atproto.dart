@@ -31,8 +31,8 @@ mixin _$CreateSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status => throw _privateConstructorUsedError;
+  @CreateSessionStatusConverter()
+  CreateSessionStatus? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,9 +56,9 @@ abstract class $CreateSessionOutputCopyWith<$Res> {
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @CreateSessionStatusConverter() CreateSessionStatus? status});
 
-  $MainStatusCopyWith<$Res>? get status;
+  $CreateSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -125,18 +125,18 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as CreateSessionStatus?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MainStatusCopyWith<$Res>? get status {
+  $CreateSessionStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $MainStatusCopyWith<$Res>(_value.status!, (value) {
+    return $CreateSessionStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -160,10 +160,10 @@ abstract class _$$CreateSessionOutputImplCopyWith<$Res>
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @CreateSessionStatusConverter() CreateSessionStatus? status});
 
   @override
-  $MainStatusCopyWith<$Res>? get status;
+  $CreateSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -228,7 +228,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as CreateSessionStatus?,
     ));
   }
 }
@@ -247,7 +247,7 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
       this.emailConfirmed = false,
       this.emailAuthFactor = false,
       this.active = false,
-      @MainStatusConverter() this.status})
+      @CreateSessionStatusConverter() this.status})
       : _didDoc = didDoc;
 
   factory _$CreateSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -284,8 +284,8 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @MainStatusConverter()
-  final MainStatus? status;
+  @CreateSessionStatusConverter()
+  final CreateSessionStatus? status;
 
   @override
   String toString() {
@@ -354,7 +354,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
           final bool emailConfirmed,
           final bool emailAuthFactor,
           final bool active,
-          @MainStatusConverter() final MainStatus? status}) =
+          @CreateSessionStatusConverter() final CreateSessionStatus? status}) =
       _$CreateSessionOutputImpl;
 
   factory _CreateSessionOutput.fromJson(Map<String, dynamic> json) =
@@ -381,8 +381,8 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status;
+  @CreateSessionStatusConverter()
+  CreateSessionStatus? get status;
   @override
   @JsonKey(ignore: true)
   _$$CreateSessionOutputImplCopyWith<_$CreateSessionOutputImpl> get copyWith =>

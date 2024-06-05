@@ -29,8 +29,8 @@ mixin _$GetSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status => throw _privateConstructorUsedError;
+  @GetSessionStatusConverter()
+  GetSessionStatus? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,9 +52,9 @@ abstract class $GetSessionOutputCopyWith<$Res> {
       bool emailAuthFactor,
       Map<String, dynamic> didDoc,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @GetSessionStatusConverter() GetSessionStatus? status});
 
-  $MainStatusCopyWith<$Res>? get status;
+  $GetSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -111,18 +111,18 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as GetSessionStatus?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $MainStatusCopyWith<$Res>? get status {
+  $GetSessionStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $MainStatusCopyWith<$Res>(_value.status!, (value) {
+    return $GetSessionStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -144,10 +144,10 @@ abstract class _$$GetSessionOutputImplCopyWith<$Res>
       bool emailAuthFactor,
       Map<String, dynamic> didDoc,
       bool active,
-      @MainStatusConverter() MainStatus? status});
+      @GetSessionStatusConverter() GetSessionStatus? status});
 
   @override
-  $MainStatusCopyWith<$Res>? get status;
+  $GetSessionStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -202,7 +202,7 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as GetSessionStatus?,
     ));
   }
 }
@@ -219,7 +219,7 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       this.emailAuthFactor = false,
       final Map<String, dynamic> didDoc = const {},
       this.active = false,
-      @MainStatusConverter() this.status})
+      @GetSessionStatusConverter() this.status})
       : _didDoc = didDoc;
 
   factory _$GetSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -252,8 +252,8 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @MainStatusConverter()
-  final MainStatus? status;
+  @GetSessionStatusConverter()
+  final GetSessionStatus? status;
 
   @override
   String toString() {
@@ -314,7 +314,7 @@ abstract class _GetSessionOutput implements GetSessionOutput {
           final bool emailAuthFactor,
           final Map<String, dynamic> didDoc,
           final bool active,
-          @MainStatusConverter() final MainStatus? status}) =
+          @GetSessionStatusConverter() final GetSessionStatus? status}) =
       _$GetSessionOutputImpl;
 
   factory _GetSessionOutput.fromJson(Map<String, dynamic> json) =
@@ -337,8 +337,8 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status;
+  @GetSessionStatusConverter()
+  GetSessionStatus? get status;
   @override
   @JsonKey(ignore: true)
   _$$GetSessionOutputImplCopyWith<_$GetSessionOutputImpl> get copyWith =>

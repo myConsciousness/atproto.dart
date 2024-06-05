@@ -18,8 +18,8 @@ _$GetRepoStatusOutputImpl _$$GetRepoStatusOutputImplFromJson(Map json) =>
           active: $checkedConvert('active', (v) => v as bool),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, MainStatus>(
-                  v, const MainStatusConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, GetRepoStatusStatus>(
+                  v, const GetRepoStatusStatusConverter().fromJson)),
           rev: $checkedConvert('rev', (v) => v as String?),
         );
         return val;
@@ -41,8 +41,8 @@ Map<String, dynamic> _$$GetRepoStatusOutputImplToJson(
 
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, MainStatus>(
-          instance.status, const MainStatusConverter().toJson));
+      _$JsonConverterToJson<String, GetRepoStatusStatus>(
+          instance.status, const GetRepoStatusStatusConverter().toJson));
   writeNotNull('rev', instance.rev);
   return val;
 }

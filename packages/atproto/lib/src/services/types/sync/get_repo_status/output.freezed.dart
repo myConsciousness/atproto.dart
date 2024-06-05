@@ -24,8 +24,8 @@ mixin _$GetRepoStatusOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status => throw _privateConstructorUsedError;
+  @GetRepoStatusStatusConverter()
+  GetRepoStatusStatus? get status => throw _privateConstructorUsedError;
 
   /// Optional field, the current rev of the repo, if active=true
   String? get rev => throw _privateConstructorUsedError;
@@ -45,10 +45,10 @@ abstract class $GetRepoStatusOutputCopyWith<$Res> {
   $Res call(
       {String did,
       bool active,
-      @MainStatusConverter() MainStatus? status,
+      @GetRepoStatusStatusConverter() GetRepoStatusStatus? status,
       String? rev});
 
-  $MainStatusCopyWith<$Res>? get status;
+  $GetRepoStatusStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as GetRepoStatusStatus?,
       rev: freezed == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -91,12 +91,12 @@ class _$GetRepoStatusOutputCopyWithImpl<$Res, $Val extends GetRepoStatusOutput>
 
   @override
   @pragma('vm:prefer-inline')
-  $MainStatusCopyWith<$Res>? get status {
+  $GetRepoStatusStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $MainStatusCopyWith<$Res>(_value.status!, (value) {
+    return $GetRepoStatusStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -113,11 +113,11 @@ abstract class _$$GetRepoStatusOutputImplCopyWith<$Res>
   $Res call(
       {String did,
       bool active,
-      @MainStatusConverter() MainStatus? status,
+      @GetRepoStatusStatusConverter() GetRepoStatusStatus? status,
       String? rev});
 
   @override
-  $MainStatusCopyWith<$Res>? get status;
+  $GetRepoStatusStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -148,7 +148,7 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as MainStatus?,
+              as GetRepoStatusStatus?,
       rev: freezed == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
   const _$GetRepoStatusOutputImpl(
       {required this.did,
       required this.active,
-      @MainStatusConverter() this.status,
+      @GetRepoStatusStatusConverter() this.status,
       this.rev});
 
   factory _$GetRepoStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -177,8 +177,8 @@ class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @MainStatusConverter()
-  final MainStatus? status;
+  @GetRepoStatusStatusConverter()
+  final GetRepoStatusStatus? status;
 
   /// Optional field, the current rev of the repo, if active=true
   @override
@@ -223,7 +223,7 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   const factory _GetRepoStatusOutput(
       {required final String did,
       required final bool active,
-      @MainStatusConverter() final MainStatus? status,
+      @GetRepoStatusStatusConverter() final GetRepoStatusStatus? status,
       final String? rev}) = _$GetRepoStatusOutputImpl;
 
   factory _GetRepoStatusOutput.fromJson(Map<String, dynamic> json) =
@@ -236,8 +236,8 @@ abstract class _GetRepoStatusOutput implements GetRepoStatusOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @MainStatusConverter()
-  MainStatus? get status;
+  @GetRepoStatusStatusConverter()
+  GetRepoStatusStatus? get status;
   @override
 
   /// Optional field, the current rev of the repo, if active=true
