@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'update.freezed.dart';
 part 'update.g.dart';
@@ -22,8 +24,14 @@ part 'update.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
 class Update with _$Update {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Update({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.repo.applyWrites#update`
+    @Default(comAtprotoRepoApplyWritesUpdate)
+    @JsonKey(name: r'$type')
+    String $type,
     required String collection,
     required String rkey,
     required Map<String, dynamic> value,

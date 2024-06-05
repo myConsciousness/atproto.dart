@@ -96,7 +96,7 @@ class __$$GetPostsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetPostsOutputImpl implements _GetPostsOutput {
   const _$GetPostsOutputImpl({required final List<PostView> posts})
       : _posts = posts;

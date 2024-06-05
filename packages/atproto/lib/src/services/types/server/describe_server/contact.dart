@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'contact.freezed.dart';
 part 'contact.g.dart';
@@ -20,8 +22,14 @@ part 'contact.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#contact
 @freezed
 class Contact with _$Contact {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Contact({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.server.describeServer#contact`
+    @Default(comAtprotoServerDescribeServerContact)
+    @JsonKey(name: r'$type')
+    String $type,
     String? email,
   }) = _Contact;
 

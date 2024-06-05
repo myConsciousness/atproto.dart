@@ -20,6 +20,12 @@ InterestsPref _$InterestsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InterestsPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#interestsPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// A list of tags which describe the account owner's interests gathered during onboarding.
   List<String> get tags => throw _privateConstructorUsedError;
 
@@ -35,7 +41,7 @@ abstract class $InterestsPrefCopyWith<$Res> {
           InterestsPref value, $Res Function(InterestsPref) then) =
       _$InterestsPrefCopyWithImpl<$Res, InterestsPref>;
   @useResult
-  $Res call({List<String> tags});
+  $Res call({@JsonKey(name: r'$type') String $type, List<String> tags});
 }
 
 /// @nodoc
@@ -51,9 +57,14 @@ class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tags = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tags: null == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -70,7 +81,7 @@ abstract class _$$InterestsPrefImplCopyWith<$Res>
       __$$InterestsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> tags});
+  $Res call({@JsonKey(name: r'$type') String $type, List<String> tags});
 }
 
 /// @nodoc
@@ -84,9 +95,14 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tags = null,
   }) {
     return _then(_$InterestsPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tags: null == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -97,12 +113,22 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$InterestsPrefImpl implements _InterestsPref {
-  const _$InterestsPrefImpl({required final List<String> tags}) : _tags = tags;
+  const _$InterestsPrefImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsInterestsPref,
+      required final List<String> tags})
+      : _tags = tags;
 
   factory _$InterestsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$InterestsPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#interestsPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// A list of tags which describe the account owner's interests gathered during onboarding.
   final List<String> _tags;
@@ -117,7 +143,7 @@ class _$InterestsPrefImpl implements _InterestsPref {
 
   @override
   String toString() {
-    return 'InterestsPref(tags: $tags)';
+    return 'InterestsPref(\$type: ${$type}, tags: $tags)';
   }
 
   @override
@@ -125,13 +151,14 @@ class _$InterestsPrefImpl implements _InterestsPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InterestsPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._tags, _tags));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_tags));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_tags));
 
   @JsonKey(ignore: true)
   @override
@@ -148,12 +175,20 @@ class _$InterestsPrefImpl implements _InterestsPref {
 }
 
 abstract class _InterestsPref implements InterestsPref {
-  const factory _InterestsPref({required final List<String> tags}) =
-      _$InterestsPrefImpl;
+  const factory _InterestsPref(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<String> tags}) = _$InterestsPrefImpl;
 
   factory _InterestsPref.fromJson(Map<String, dynamic> json) =
       _$InterestsPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#interestsPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// A list of tags which describe the account owner's interests gathered during onboarding.

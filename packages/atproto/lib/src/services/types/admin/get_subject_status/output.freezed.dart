@@ -155,7 +155,7 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   const _$GetSubjectStatusOutputImpl(
       {required this.subject, this.takedown, this.deactivated});

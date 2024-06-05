@@ -20,6 +20,11 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listRecords#record`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $RecordCopyWith<$Res> {
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      String cid,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -52,11 +60,16 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -81,7 +94,10 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri, String cid, Map<String, dynamic> value});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      String cid,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -95,11 +111,16 @@ class __$$RecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? value = null,
   }) {
     return _then(_$RecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -118,10 +139,11 @@ class __$$RecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordImpl implements _Record {
   const _$RecordImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoRepoListRecordsRecord,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required final Map<String, dynamic> value})
       : _value = value;
@@ -129,6 +151,12 @@ class _$RecordImpl implements _Record {
   factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listRecords#record`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -144,7 +172,7 @@ class _$RecordImpl implements _Record {
 
   @override
   String toString() {
-    return 'Record(uri: $uri, cid: $cid, value: $value)';
+    return 'Record(\$type: ${$type}, uri: $uri, cid: $cid, value: $value)';
   }
 
   @override
@@ -152,6 +180,7 @@ class _$RecordImpl implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._value, _value));
@@ -159,8 +188,8 @@ class _$RecordImpl implements _Record {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, uri, cid, const DeepCollectionEquality().hash(_value));
+  int get hashCode => Object.hash(runtimeType, $type, uri, cid,
+      const DeepCollectionEquality().hash(_value));
 
   @JsonKey(ignore: true)
   @override
@@ -178,12 +207,20 @@ class _$RecordImpl implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final Map<String, dynamic> value}) = _$RecordImpl;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listRecords#record`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

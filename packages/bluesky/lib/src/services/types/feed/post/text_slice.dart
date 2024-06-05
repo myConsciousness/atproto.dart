@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'text_slice.freezed.dart';
 part 'text_slice.g.dart';
@@ -22,8 +24,12 @@ part 'text_slice.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#textslice
 @freezed
 class TextSlice with _$TextSlice {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory TextSlice({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.post#textSlice`
+    @Default(appBskyFeedPostTextSlice) @JsonKey(name: r'$type') String $type,
     required int start,
     required int end,
   }) = _TextSlice;

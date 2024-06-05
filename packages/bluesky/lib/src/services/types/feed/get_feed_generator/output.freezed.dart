@@ -140,7 +140,7 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
   const _$GetFeedGeneratorOutputImpl(
       {required this.view, required this.isOnline, required this.isValid});

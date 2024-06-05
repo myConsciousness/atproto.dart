@@ -20,6 +20,11 @@ StatusAttr _$StatusAttrFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StatusAttr {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#statusAttr`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   bool get applied => throw _privateConstructorUsedError;
   String? get ref => throw _privateConstructorUsedError;
 
@@ -35,7 +40,7 @@ abstract class $StatusAttrCopyWith<$Res> {
           StatusAttr value, $Res Function(StatusAttr) then) =
       _$StatusAttrCopyWithImpl<$Res, StatusAttr>;
   @useResult
-  $Res call({bool applied, String? ref});
+  $Res call({@JsonKey(name: r'$type') String $type, bool applied, String? ref});
 }
 
 /// @nodoc
@@ -51,10 +56,15 @@ class _$StatusAttrCopyWithImpl<$Res, $Val extends StatusAttr>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? applied = null,
     Object? ref = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       applied: null == applied
           ? _value.applied
           : applied // ignore: cast_nullable_to_non_nullable
@@ -75,7 +85,7 @@ abstract class _$$StatusAttrImplCopyWith<$Res>
       __$$StatusAttrImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool applied, String? ref});
+  $Res call({@JsonKey(name: r'$type') String $type, bool applied, String? ref});
 }
 
 /// @nodoc
@@ -89,10 +99,15 @@ class __$$StatusAttrImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? applied = null,
     Object? ref = freezed,
   }) {
     return _then(_$StatusAttrImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       applied: null == applied
           ? _value.applied
           : applied // ignore: cast_nullable_to_non_nullable
@@ -107,13 +122,22 @@ class __$$StatusAttrImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$StatusAttrImpl implements _StatusAttr {
-  const _$StatusAttrImpl({required this.applied, this.ref});
+  const _$StatusAttrImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoAdminDefsStatusAttr,
+      required this.applied,
+      this.ref});
 
   factory _$StatusAttrImpl.fromJson(Map<String, dynamic> json) =>
       _$$StatusAttrImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#statusAttr`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final bool applied;
   @override
@@ -121,7 +145,7 @@ class _$StatusAttrImpl implements _StatusAttr {
 
   @override
   String toString() {
-    return 'StatusAttr(applied: $applied, ref: $ref)';
+    return 'StatusAttr(\$type: ${$type}, applied: $applied, ref: $ref)';
   }
 
   @override
@@ -129,13 +153,14 @@ class _$StatusAttrImpl implements _StatusAttr {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StatusAttrImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.applied, applied) || other.applied == applied) &&
             (identical(other.ref, ref) || other.ref == ref));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, applied, ref);
+  int get hashCode => Object.hash(runtimeType, $type, applied, ref);
 
   @JsonKey(ignore: true)
   @override
@@ -152,12 +177,21 @@ class _$StatusAttrImpl implements _StatusAttr {
 }
 
 abstract class _StatusAttr implements StatusAttr {
-  const factory _StatusAttr({required final bool applied, final String? ref}) =
-      _$StatusAttrImpl;
+  const factory _StatusAttr(
+      {@JsonKey(name: r'$type') final String $type,
+      required final bool applied,
+      final String? ref}) = _$StatusAttrImpl;
 
   factory _StatusAttr.fromJson(Map<String, dynamic> json) =
       _$StatusAttrImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#statusAttr`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   bool get applied;
   @override

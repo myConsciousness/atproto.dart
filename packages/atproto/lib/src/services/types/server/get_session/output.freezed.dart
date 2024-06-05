@@ -209,7 +209,7 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSessionOutputImpl implements _GetSessionOutput {
   const _$GetSessionOutputImpl(
       {required this.handle,

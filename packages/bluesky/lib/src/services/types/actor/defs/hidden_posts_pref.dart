@@ -14,14 +14,24 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'hidden_posts_pref.freezed.dart';
 part 'hidden_posts_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#hiddenpostspref
 @freezed
 class HiddenPostsPref with _$HiddenPostsPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory HiddenPostsPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#hiddenPostsPref`
+    @Default(appBskyActorDefsHiddenPostsPref)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// A list of URIs of posts the account owner has hidden.
     @AtUriConverter() required List<AtUri> items,
   }) = _HiddenPostsPref;

@@ -112,7 +112,7 @@ class __$$GetSuggestedFeedsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSuggestedFeedsOutputImpl implements _GetSuggestedFeedsOutput {
   const _$GetSuggestedFeedsOutputImpl(
       {this.cursor, required final List<GeneratorView> feeds})

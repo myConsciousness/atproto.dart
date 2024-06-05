@@ -20,6 +20,11 @@ ReasonRepost _$ReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReasonRepost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#reasonRepost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   ProfileViewBasic get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -35,7 +40,10 @@ abstract class $ReasonRepostCopyWith<$Res> {
           ReasonRepost value, $Res Function(ReasonRepost) then) =
       _$ReasonRepostCopyWithImpl<$Res, ReasonRepost>;
   @useResult
-  $Res call({ProfileViewBasic by, DateTime indexedAt});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      ProfileViewBasic by,
+      DateTime indexedAt});
 
   $ProfileViewBasicCopyWith<$Res> get by;
 }
@@ -53,10 +61,15 @@ class _$ReasonRepostCopyWithImpl<$Res, $Val extends ReasonRepost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? by = null,
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
@@ -85,7 +98,10 @@ abstract class _$$ReasonRepostImplCopyWith<$Res>
       __$$ReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfileViewBasic by, DateTime indexedAt});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      ProfileViewBasic by,
+      DateTime indexedAt});
 
   @override
   $ProfileViewBasicCopyWith<$Res> get by;
@@ -102,10 +118,15 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? by = null,
     Object? indexedAt = null,
   }) {
     return _then(_$ReasonRepostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       by: null == by
           ? _value.by
           : by // ignore: cast_nullable_to_non_nullable
@@ -120,13 +141,22 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ReasonRepostImpl implements _ReasonRepost {
-  const _$ReasonRepostImpl({required this.by, required this.indexedAt});
+  const _$ReasonRepostImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReasonRepost,
+      required this.by,
+      required this.indexedAt});
 
   factory _$ReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReasonRepostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#reasonRepost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final ProfileViewBasic by;
   @override
@@ -134,7 +164,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 
   @override
   String toString() {
-    return 'ReasonRepost(by: $by, indexedAt: $indexedAt)';
+    return 'ReasonRepost(\$type: ${$type}, by: $by, indexedAt: $indexedAt)';
   }
 
   @override
@@ -142,6 +172,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReasonRepostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.by, by) || other.by == by) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt));
@@ -149,7 +180,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, by, indexedAt);
+  int get hashCode => Object.hash(runtimeType, $type, by, indexedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -167,12 +198,20 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 
 abstract class _ReasonRepost implements ReasonRepost {
   const factory _ReasonRepost(
-      {required final ProfileViewBasic by,
+      {@JsonKey(name: r'$type') final String $type,
+      required final ProfileViewBasic by,
       required final DateTime indexedAt}) = _$ReasonRepostImpl;
 
   factory _ReasonRepost.fromJson(Map<String, dynamic> json) =
       _$ReasonRepostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#reasonRepost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   ProfileViewBasic get by;
   @override

@@ -20,6 +20,12 @@ PersonalDetailsPref _$PersonalDetailsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PersonalDetailsPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#personalDetailsPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The birth date of account owner.
   DateTime? get birthDate => throw _privateConstructorUsedError;
 
@@ -35,7 +41,7 @@ abstract class $PersonalDetailsPrefCopyWith<$Res> {
           PersonalDetailsPref value, $Res Function(PersonalDetailsPref) then) =
       _$PersonalDetailsPrefCopyWithImpl<$Res, PersonalDetailsPref>;
   @useResult
-  $Res call({DateTime? birthDate});
+  $Res call({@JsonKey(name: r'$type') String $type, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -51,9 +57,14 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? birthDate = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
@@ -70,7 +81,7 @@ abstract class _$$PersonalDetailsPrefImplCopyWith<$Res>
       __$$PersonalDetailsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime? birthDate});
+  $Res call({@JsonKey(name: r'$type') String $type, DateTime? birthDate});
 }
 
 /// @nodoc
@@ -84,9 +95,14 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? birthDate = freezed,
   }) {
     return _then(_$PersonalDetailsPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       birthDate: freezed == birthDate
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
@@ -97,12 +113,22 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
-  const _$PersonalDetailsPrefImpl({this.birthDate});
+  const _$PersonalDetailsPrefImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyActorDefsPersonalDetailsPref,
+      this.birthDate});
 
   factory _$PersonalDetailsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$PersonalDetailsPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#personalDetailsPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The birth date of account owner.
   @override
@@ -110,7 +136,7 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
 
   @override
   String toString() {
-    return 'PersonalDetailsPref(birthDate: $birthDate)';
+    return 'PersonalDetailsPref(\$type: ${$type}, birthDate: $birthDate)';
   }
 
   @override
@@ -118,13 +144,14 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PersonalDetailsPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.birthDate, birthDate) ||
                 other.birthDate == birthDate));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, birthDate);
+  int get hashCode => Object.hash(runtimeType, $type, birthDate);
 
   @JsonKey(ignore: true)
   @override
@@ -142,12 +169,20 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
 }
 
 abstract class _PersonalDetailsPref implements PersonalDetailsPref {
-  const factory _PersonalDetailsPref({final DateTime? birthDate}) =
-      _$PersonalDetailsPrefImpl;
+  const factory _PersonalDetailsPref(
+      {@JsonKey(name: r'$type') final String $type,
+      final DateTime? birthDate}) = _$PersonalDetailsPrefImpl;
 
   factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) =
       _$PersonalDetailsPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#personalDetailsPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The birth date of account owner.

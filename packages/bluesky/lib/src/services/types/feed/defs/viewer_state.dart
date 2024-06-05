@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'viewer_state.freezed.dart';
 part 'viewer_state.g.dart';
 
@@ -22,8 +25,12 @@ part 'viewer_state.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#viewerstate
 @freezed
 class ViewerState with _$ViewerState {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#viewerState`
+    @Default(appBskyFeedDefsViewerState) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() AtUri? repost,
     @AtUriConverter() AtUri? like,
     @Default(false) bool replyDisabled,

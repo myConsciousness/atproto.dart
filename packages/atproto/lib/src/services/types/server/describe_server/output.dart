@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -24,7 +23,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#main
 @freezed
 class DescribeServerOutput with _$DescribeServerOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory DescribeServerOutput({
     /// If true, an invite code must be supplied to create an account on this instance.
     @Default(false) bool inviteCodeRequired,

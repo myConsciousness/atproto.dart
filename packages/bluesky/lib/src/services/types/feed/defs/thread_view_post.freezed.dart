@@ -20,6 +20,11 @@ ThreadViewPost _$ThreadViewPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadViewPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadViewPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   PostView get post => throw _privateConstructorUsedError;
   String? get parent => throw _privateConstructorUsedError;
   List<String> get replies => throw _privateConstructorUsedError;
@@ -36,7 +41,11 @@ abstract class $ThreadViewPostCopyWith<$Res> {
           ThreadViewPost value, $Res Function(ThreadViewPost) then) =
       _$ThreadViewPostCopyWithImpl<$Res, ThreadViewPost>;
   @useResult
-  $Res call({PostView post, String? parent, List<String> replies});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      PostView post,
+      String? parent,
+      List<String> replies});
 
   $PostViewCopyWith<$Res> get post;
 }
@@ -54,11 +63,16 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? parent = freezed,
     Object? replies = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -91,7 +105,11 @@ abstract class _$$ThreadViewPostImplCopyWith<$Res>
       __$$ThreadViewPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({PostView post, String? parent, List<String> replies});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      PostView post,
+      String? parent,
+      List<String> replies});
 
   @override
   $PostViewCopyWith<$Res> get post;
@@ -108,11 +126,16 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? parent = freezed,
     Object? replies = null,
   }) {
     return _then(_$ThreadViewPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -131,15 +154,24 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ThreadViewPostImpl implements _ThreadViewPost {
   const _$ThreadViewPostImpl(
-      {required this.post, this.parent, final List<String> replies = const []})
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadViewPost,
+      required this.post,
+      this.parent,
+      final List<String> replies = const []})
       : _replies = replies;
 
   factory _$ThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadViewPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final PostView post;
   @override
@@ -155,7 +187,7 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
 
   @override
   String toString() {
-    return 'ThreadViewPost(post: $post, parent: $parent, replies: $replies)';
+    return 'ThreadViewPost(\$type: ${$type}, post: $post, parent: $parent, replies: $replies)';
   }
 
   @override
@@ -163,6 +195,7 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadViewPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.parent, parent) || other.parent == parent) &&
             const DeepCollectionEquality().equals(other._replies, _replies));
@@ -170,8 +203,8 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, post, parent, const DeepCollectionEquality().hash(_replies));
+  int get hashCode => Object.hash(runtimeType, $type, post, parent,
+      const DeepCollectionEquality().hash(_replies));
 
   @JsonKey(ignore: true)
   @override
@@ -190,13 +223,21 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
 
 abstract class _ThreadViewPost implements ThreadViewPost {
   const factory _ThreadViewPost(
-      {required final PostView post,
+      {@JsonKey(name: r'$type') final String $type,
+      required final PostView post,
       final String? parent,
       final List<String> replies}) = _$ThreadViewPostImpl;
 
   factory _ThreadViewPost.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadViewPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   PostView get post;
   @override

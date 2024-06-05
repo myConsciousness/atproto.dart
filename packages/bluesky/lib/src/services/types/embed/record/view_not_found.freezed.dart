@@ -20,6 +20,11 @@ RecordViewNotFound _$RecordViewNotFoundFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordViewNotFound {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewNotFound`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $RecordViewNotFoundCopyWith<$Res> {
           RecordViewNotFound value, $Res Function(RecordViewNotFound) then) =
       _$RecordViewNotFoundCopyWithImpl<$Res, RecordViewNotFound>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool notFound});
 }
 
 /// @nodoc
@@ -52,10 +60,15 @@ class _$RecordViewNotFoundCopyWithImpl<$Res, $Val extends RecordViewNotFound>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -76,7 +89,10 @@ abstract class _$$RecordViewNotFoundImplCopyWith<$Res>
       __$$RecordViewNotFoundImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool notFound});
 }
 
 /// @nodoc
@@ -90,10 +106,15 @@ class __$$RecordViewNotFoundImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
   }) {
     return _then(_$RecordViewNotFoundImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -108,14 +129,22 @@ class __$$RecordViewNotFoundImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
   const _$RecordViewNotFoundImpl(
-      {@AtUriConverter() required this.uri, required this.notFound});
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordViewNotFound,
+      @AtUriConverter() required this.uri,
+      required this.notFound});
 
   factory _$RecordViewNotFoundImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewNotFoundImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewNotFound`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -124,7 +153,7 @@ class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
 
   @override
   String toString() {
-    return 'RecordViewNotFound(uri: $uri, notFound: $notFound)';
+    return 'RecordViewNotFound(\$type: ${$type}, uri: $uri, notFound: $notFound)';
   }
 
   @override
@@ -132,6 +161,7 @@ class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordViewNotFoundImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.notFound, notFound) ||
                 other.notFound == notFound));
@@ -139,7 +169,7 @@ class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, notFound);
+  int get hashCode => Object.hash(runtimeType, $type, uri, notFound);
 
   @JsonKey(ignore: true)
   @override
@@ -158,12 +188,20 @@ class _$RecordViewNotFoundImpl implements _RecordViewNotFound {
 
 abstract class _RecordViewNotFound implements RecordViewNotFound {
   const factory _RecordViewNotFound(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final bool notFound}) = _$RecordViewNotFoundImpl;
 
   factory _RecordViewNotFound.fromJson(Map<String, dynamic> json) =
       _$RecordViewNotFoundImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewNotFound`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

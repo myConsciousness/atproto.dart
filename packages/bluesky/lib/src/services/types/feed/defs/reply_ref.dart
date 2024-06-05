@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
 
 part 'reply_ref.freezed.dart';
@@ -23,8 +23,12 @@ part 'reply_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#replyref
 @freezed
 class ReplyRef with _$ReplyRef {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ReplyRef({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#replyRef`
+    @Default(appBskyFeedDefsReplyRef) @JsonKey(name: r'$type') String $type,
     required String root,
     required String parent,
 

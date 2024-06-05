@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'handle.freezed.dart';
 part 'handle.g.dart';
@@ -22,8 +24,14 @@ part 'handle.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
 class Handle with _$Handle {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Handle({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#handle`
+    @Default(comAtprotoSyncSubscribeReposHandle)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required String did,
     required String handle,

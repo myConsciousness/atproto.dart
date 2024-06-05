@@ -20,6 +20,11 @@ InviteCode _$InviteCodeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InviteCode {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCode`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get code => throw _privateConstructorUsedError;
   int get available => throw _privateConstructorUsedError;
   bool get disabled => throw _privateConstructorUsedError;
@@ -41,7 +46,8 @@ abstract class $InviteCodeCopyWith<$Res> {
       _$InviteCodeCopyWithImpl<$Res, InviteCode>;
   @useResult
   $Res call(
-      {String code,
+      {@JsonKey(name: r'$type') String $type,
+      String code,
       int available,
       bool disabled,
       String forAccount,
@@ -63,6 +69,7 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? code = null,
     Object? available = null,
     Object? disabled = null,
@@ -72,6 +79,10 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
     Object? uses = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -113,7 +124,8 @@ abstract class _$$InviteCodeImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String code,
+      {@JsonKey(name: r'$type') String $type,
+      String code,
       int available,
       bool disabled,
       String forAccount,
@@ -133,6 +145,7 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? code = null,
     Object? available = null,
     Object? disabled = null,
@@ -142,6 +155,10 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
     Object? uses = null,
   }) {
     return _then(_$InviteCodeImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       code: null == code
           ? _value.code
           : code // ignore: cast_nullable_to_non_nullable
@@ -176,10 +193,11 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$InviteCodeImpl implements _InviteCode {
   const _$InviteCodeImpl(
-      {required this.code,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoServerDefsInviteCode,
+      required this.code,
       required this.available,
       required this.disabled,
       required this.forAccount,
@@ -191,6 +209,12 @@ class _$InviteCodeImpl implements _InviteCode {
   factory _$InviteCodeImpl.fromJson(Map<String, dynamic> json) =>
       _$$InviteCodeImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCode`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String code;
   @override
@@ -213,7 +237,7 @@ class _$InviteCodeImpl implements _InviteCode {
 
   @override
   String toString() {
-    return 'InviteCode(code: $code, available: $available, disabled: $disabled, forAccount: $forAccount, createdBy: $createdBy, createdAt: $createdAt, uses: $uses)';
+    return 'InviteCode(\$type: ${$type}, code: $code, available: $available, disabled: $disabled, forAccount: $forAccount, createdBy: $createdBy, createdAt: $createdAt, uses: $uses)';
   }
 
   @override
@@ -221,6 +245,7 @@ class _$InviteCodeImpl implements _InviteCode {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InviteCodeImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.code, code) || other.code == code) &&
             (identical(other.available, available) ||
                 other.available == available) &&
@@ -239,6 +264,7 @@ class _$InviteCodeImpl implements _InviteCode {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       code,
       available,
       disabled,
@@ -263,7 +289,8 @@ class _$InviteCodeImpl implements _InviteCode {
 
 abstract class _InviteCode implements InviteCode {
   const factory _InviteCode(
-      {required final String code,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String code,
       required final int available,
       required final bool disabled,
       required final String forAccount,
@@ -274,6 +301,13 @@ abstract class _InviteCode implements InviteCode {
   factory _InviteCode.fromJson(Map<String, dynamic> json) =
       _$InviteCodeImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCode`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get code;
   @override

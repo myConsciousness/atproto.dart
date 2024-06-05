@@ -25,6 +25,9 @@ final class LexGenObjectBuilder {
 
     return LexGenObject(
       description: _getDescription(),
+      namespace: context.defName == 'main'
+          ? null // Input/Output
+          : '${context.docId.toString()}#${context.defName}',
       name: convention.getObjectName(),
       fileName: convention.getFileName(),
       properties: properties,

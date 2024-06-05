@@ -78,7 +78,11 @@ DataType getDataType(
     return const DataType(name: 'DateTime');
   }
   if (type == 'string' && format == 'at-uri') {
-    return const DataType(name: 'AtUri', converter: 'AtUriConverter');
+    return const DataType(
+      name: 'AtUri',
+      importPath: 'package:atproto_core/atproto_core.dart',
+      converter: 'AtUriConverter',
+    );
   }
 
   if (type == 'string') return const DataType(name: 'String');
@@ -89,7 +93,11 @@ DataType getDataType(
   if (type == 'unknown') return const DataType(name: 'Map<String, dynamic>');
 
   if (type == 'blob') {
-    return const DataType(name: 'Blob', converter: 'BlobConverter');
+    return const DataType(
+      name: 'Blob',
+      importPath: 'package:atproto_core/atproto_core.dart',
+      converter: 'BlobConverter',
+    );
   }
 
   if (type == 'array') {

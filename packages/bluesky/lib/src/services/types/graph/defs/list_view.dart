@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 import '../../richtext/facet/main.dart';
 import 'list_viewer_state.dart';
@@ -26,8 +27,12 @@ part 'list_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listview
 @freezed
 class ListView with _$ListView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ListView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.defs#listView`
+    @Default(appBskyGraphDefsListView) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView creator,

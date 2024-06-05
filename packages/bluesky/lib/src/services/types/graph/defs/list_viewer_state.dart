@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'list_viewer_state.freezed.dart';
 part 'list_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewerstate
 @freezed
 class ListViewerState with _$ListViewerState {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ListViewerState({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.defs#listViewerState`
+    @Default(appBskyGraphDefsListViewerState)
+    @JsonKey(name: r'$type')
+    String $type,
     @Default(false) bool muted,
     @AtUriConverter() AtUri? blocked,
   }) = _ListViewerState;

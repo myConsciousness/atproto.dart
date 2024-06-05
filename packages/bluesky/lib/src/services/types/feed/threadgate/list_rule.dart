@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'list_rule.freezed.dart';
 part 'list_rule.g.dart';
 
@@ -22,8 +25,14 @@ part 'list_rule.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#listrule
 @freezed
 class ListRule with _$ListRule {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ListRule({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.threadgate#listRule`
+    @Default(appBskyFeedThreadgateListRule)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri list,
   }) = _ListRule;
 

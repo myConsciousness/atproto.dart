@@ -20,6 +20,12 @@ MutedWordsPref _$MutedWordsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$MutedWordsPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#mutedWordsPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// A list of words the account owner has muted.
   List<MutedWord> get items => throw _privateConstructorUsedError;
 
@@ -35,7 +41,7 @@ abstract class $MutedWordsPrefCopyWith<$Res> {
           MutedWordsPref value, $Res Function(MutedWordsPref) then) =
       _$MutedWordsPrefCopyWithImpl<$Res, MutedWordsPref>;
   @useResult
-  $Res call({List<MutedWord> items});
+  $Res call({@JsonKey(name: r'$type') String $type, List<MutedWord> items});
 }
 
 /// @nodoc
@@ -51,9 +57,14 @@ class _$MutedWordsPrefCopyWithImpl<$Res, $Val extends MutedWordsPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -70,7 +81,7 @@ abstract class _$$MutedWordsPrefImplCopyWith<$Res>
       __$$MutedWordsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<MutedWord> items});
+  $Res call({@JsonKey(name: r'$type') String $type, List<MutedWord> items});
 }
 
 /// @nodoc
@@ -84,9 +95,14 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_$MutedWordsPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -97,13 +113,22 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$MutedWordsPrefImpl implements _MutedWordsPref {
-  const _$MutedWordsPrefImpl({required final List<MutedWord> items})
+  const _$MutedWordsPrefImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsMutedWordsPref,
+      required final List<MutedWord> items})
       : _items = items;
 
   factory _$MutedWordsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$MutedWordsPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#mutedWordsPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// A list of words the account owner has muted.
   final List<MutedWord> _items;
@@ -118,7 +143,7 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
 
   @override
   String toString() {
-    return 'MutedWordsPref(items: $items)';
+    return 'MutedWordsPref(\$type: ${$type}, items: $items)';
   }
 
   @override
@@ -126,13 +151,14 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MutedWordsPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_items));
 
   @JsonKey(ignore: true)
   @override
@@ -150,12 +176,20 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
 }
 
 abstract class _MutedWordsPref implements MutedWordsPref {
-  const factory _MutedWordsPref({required final List<MutedWord> items}) =
-      _$MutedWordsPrefImpl;
+  const factory _MutedWordsPref(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<MutedWord> items}) = _$MutedWordsPrefImpl;
 
   factory _MutedWordsPref.fromJson(Map<String, dynamic> json) =
       _$MutedWordsPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#mutedWordsPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// A list of words the account owner has muted.

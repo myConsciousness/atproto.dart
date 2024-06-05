@@ -20,6 +20,11 @@ Links _$LinksFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Links {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#links`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String? get privacyPolicy => throw _privateConstructorUsedError;
   String? get termsOfService => throw _privateConstructorUsedError;
 
@@ -33,7 +38,10 @@ abstract class $LinksCopyWith<$Res> {
   factory $LinksCopyWith(Links value, $Res Function(Links) then) =
       _$LinksCopyWithImpl<$Res, Links>;
   @useResult
-  $Res call({String? privacyPolicy, String? termsOfService});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String? privacyPolicy,
+      String? termsOfService});
 }
 
 /// @nodoc
@@ -49,10 +57,15 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       privacyPolicy: freezed == privacyPolicy
           ? _value.privacyPolicy
           : privacyPolicy // ignore: cast_nullable_to_non_nullable
@@ -72,7 +85,10 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
       __$$LinksImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? privacyPolicy, String? termsOfService});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String? privacyPolicy,
+      String? termsOfService});
 }
 
 /// @nodoc
@@ -86,10 +102,15 @@ class __$$LinksImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
   }) {
     return _then(_$LinksImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       privacyPolicy: freezed == privacyPolicy
           ? _value.privacyPolicy
           : privacyPolicy // ignore: cast_nullable_to_non_nullable
@@ -104,13 +125,23 @@ class __$$LinksImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LinksImpl implements _Links {
-  const _$LinksImpl({this.privacyPolicy, this.termsOfService});
+  const _$LinksImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoServerDescribeServerLinks,
+      this.privacyPolicy,
+      this.termsOfService});
 
   factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
       _$$LinksImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#links`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String? privacyPolicy;
   @override
@@ -118,7 +149,7 @@ class _$LinksImpl implements _Links {
 
   @override
   String toString() {
-    return 'Links(privacyPolicy: $privacyPolicy, termsOfService: $termsOfService)';
+    return 'Links(\$type: ${$type}, privacyPolicy: $privacyPolicy, termsOfService: $termsOfService)';
   }
 
   @override
@@ -126,6 +157,7 @@ class _$LinksImpl implements _Links {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LinksImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.privacyPolicy, privacyPolicy) ||
                 other.privacyPolicy == privacyPolicy) &&
             (identical(other.termsOfService, termsOfService) ||
@@ -134,7 +166,8 @@ class _$LinksImpl implements _Links {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, privacyPolicy, termsOfService);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, privacyPolicy, termsOfService);
 
   @JsonKey(ignore: true)
   @override
@@ -152,11 +185,19 @@ class _$LinksImpl implements _Links {
 
 abstract class _Links implements Links {
   const factory _Links(
-      {final String? privacyPolicy,
+      {@JsonKey(name: r'$type') final String $type,
+      final String? privacyPolicy,
       final String? termsOfService}) = _$LinksImpl;
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#links`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String? get privacyPolicy;
   @override

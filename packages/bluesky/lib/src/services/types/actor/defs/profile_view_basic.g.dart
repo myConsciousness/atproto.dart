@@ -14,6 +14,8 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileViewBasicImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsProfileViewBasic),
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String?),
@@ -45,6 +47,7 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
 Map<String, dynamic> _$$ProfileViewBasicImplToJson(
     _$ProfileViewBasicImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
     'handle': instance.handle,
   };

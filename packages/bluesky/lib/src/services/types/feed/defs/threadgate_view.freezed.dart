@@ -20,6 +20,11 @@ ThreadgateView _$ThreadgateViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadgateView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadgateView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
@@ -39,7 +44,8 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       _$ThreadgateViewCopyWithImpl<$Res, ThreadgateView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? uri,
       String? cid,
       Map<String, dynamic> record,
       List<ListViewBasic> lists});
@@ -58,12 +64,17 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = freezed,
     Object? cid = freezed,
     Object? record = null,
     Object? lists = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: freezed == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -93,7 +104,8 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? uri,
       String? cid,
       Map<String, dynamic> record,
       List<ListViewBasic> lists});
@@ -110,12 +122,17 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = freezed,
     Object? cid = freezed,
     Object? record = null,
     Object? lists = null,
   }) {
     return _then(_$ThreadgateViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: freezed == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -138,10 +155,11 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ThreadgateViewImpl implements _ThreadgateView {
   const _$ThreadgateViewImpl(
-      {@AtUriConverter() this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadgateView,
+      @AtUriConverter() this.uri,
       this.cid,
       final Map<String, dynamic> record = const {},
       final List<ListViewBasic> lists = const []})
@@ -151,6 +169,12 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadgateView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri? uri;
@@ -176,7 +200,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 
   @override
   String toString() {
-    return 'ThreadgateView(uri: $uri, cid: $cid, record: $record, lists: $lists)';
+    return 'ThreadgateView(\$type: ${$type}, uri: $uri, cid: $cid, record: $record, lists: $lists)';
   }
 
   @override
@@ -184,6 +208,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadgateViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             const DeepCollectionEquality().equals(other._record, _record) &&
@@ -194,6 +219,7 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       uri,
       cid,
       const DeepCollectionEquality().hash(_record),
@@ -216,7 +242,8 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 
 abstract class _ThreadgateView implements ThreadgateView {
   const factory _ThreadgateView(
-      {@AtUriConverter() final AtUri? uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() final AtUri? uri,
       final String? cid,
       final Map<String, dynamic> record,
       final List<ListViewBasic> lists}) = _$ThreadgateViewImpl;
@@ -224,6 +251,13 @@ abstract class _ThreadgateView implements ThreadgateView {
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
       _$ThreadgateViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#threadgateView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri? get uri;

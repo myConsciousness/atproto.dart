@@ -20,6 +20,11 @@ Info _$InfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Info {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#info`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @InfoNameConverter()
   InfoName get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
@@ -34,7 +39,10 @@ abstract class $InfoCopyWith<$Res> {
   factory $InfoCopyWith(Info value, $Res Function(Info) then) =
       _$InfoCopyWithImpl<$Res, Info>;
   @useResult
-  $Res call({@InfoNameConverter() InfoName name, String? message});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @InfoNameConverter() InfoName name,
+      String? message});
 
   $InfoNameCopyWith<$Res> get name;
 }
@@ -52,10 +60,15 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? name = null,
     Object? message = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -83,7 +96,10 @@ abstract class _$$InfoImplCopyWith<$Res> implements $InfoCopyWith<$Res> {
       __$$InfoImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@InfoNameConverter() InfoName name, String? message});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @InfoNameConverter() InfoName name,
+      String? message});
 
   @override
   $InfoNameCopyWith<$Res> get name;
@@ -99,10 +115,15 @@ class __$$InfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? name = null,
     Object? message = freezed,
   }) {
     return _then(_$InfoImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -117,13 +138,22 @@ class __$$InfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$InfoImpl implements _Info {
-  const _$InfoImpl({@InfoNameConverter() required this.name, this.message});
+  const _$InfoImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoLabelSubscribeLabelsInfo,
+      @InfoNameConverter() required this.name,
+      this.message});
 
   factory _$InfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$InfoImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#info`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @InfoNameConverter()
   final InfoName name;
@@ -132,7 +162,7 @@ class _$InfoImpl implements _Info {
 
   @override
   String toString() {
-    return 'Info(name: $name, message: $message)';
+    return 'Info(\$type: ${$type}, name: $name, message: $message)';
   }
 
   @override
@@ -140,13 +170,14 @@ class _$InfoImpl implements _Info {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InfoImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, message);
+  int get hashCode => Object.hash(runtimeType, $type, name, message);
 
   @JsonKey(ignore: true)
   @override
@@ -164,11 +195,19 @@ class _$InfoImpl implements _Info {
 
 abstract class _Info implements Info {
   const factory _Info(
-      {@InfoNameConverter() required final InfoName name,
+      {@JsonKey(name: r'$type') final String $type,
+      @InfoNameConverter() required final InfoName name,
       final String? message}) = _$InfoImpl;
 
   factory _Info.fromJson(Map<String, dynamic> json) = _$InfoImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#info`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @InfoNameConverter()
   InfoName get name;

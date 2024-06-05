@@ -121,7 +121,7 @@ class __$$GetRecordOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetRecordOutputImpl implements _GetRecordOutput {
   const _$GetRecordOutputImpl(
       {@AtUriConverter() required this.uri,

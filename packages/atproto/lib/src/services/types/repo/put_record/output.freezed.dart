@@ -108,7 +108,7 @@ class __$$PutRecordOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$PutRecordOutputImpl implements _PutRecordOutput {
   const _$PutRecordOutputImpl(
       {@AtUriConverter() required this.uri, required this.cid});

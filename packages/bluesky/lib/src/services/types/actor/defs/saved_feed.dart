@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'saved_feed_type.dart';
 
 part 'saved_feed.freezed.dart';
@@ -23,8 +23,12 @@ part 'saved_feed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeed
 @freezed
 class SavedFeed with _$SavedFeed {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SavedFeed({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#savedFeed`
+    @Default(appBskyActorDefsSavedFeed) @JsonKey(name: r'$type') String $type,
     required String id,
     @SavedFeedTypeConverter() required SavedFeedType type,
     required String value,

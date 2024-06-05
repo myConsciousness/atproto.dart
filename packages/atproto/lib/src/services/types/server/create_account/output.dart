@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -20,7 +19,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAccount#main
 @freezed
 class CreateAccountOutput with _$CreateAccountOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory CreateAccountOutput({
     required String accessJwt,
     required String refreshJwt,

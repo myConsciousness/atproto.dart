@@ -20,6 +20,11 @@ RecordViewBlocked _$RecordViewBlockedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordViewBlocked {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewBlocked`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
@@ -37,7 +42,11 @@ abstract class $RecordViewBlockedCopyWith<$Res> {
           RecordViewBlocked value, $Res Function(RecordViewBlocked) then) =
       _$RecordViewBlockedCopyWithImpl<$Res, RecordViewBlocked>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -55,11 +64,16 @@ class _$RecordViewBlockedCopyWithImpl<$Res, $Val extends RecordViewBlocked>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -92,7 +106,11 @@ abstract class _$$RecordViewBlockedImplCopyWith<$Res>
       __$$RecordViewBlockedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -109,11 +127,16 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
   }) {
     return _then(_$RecordViewBlockedImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -132,16 +155,23 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordViewBlockedImpl implements _RecordViewBlocked {
   const _$RecordViewBlockedImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordViewBlocked,
+      @AtUriConverter() required this.uri,
       required this.blocked,
       required this.author});
 
   factory _$RecordViewBlockedImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewBlockedImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewBlocked`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -152,7 +182,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
 
   @override
   String toString() {
-    return 'RecordViewBlocked(uri: $uri, blocked: $blocked, author: $author)';
+    return 'RecordViewBlocked(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
@@ -160,6 +190,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordViewBlockedImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
             (identical(other.author, author) || other.author == author));
@@ -167,7 +198,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, blocked, author);
+  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author);
 
   @JsonKey(ignore: true)
   @override
@@ -186,13 +217,21 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
 
 abstract class _RecordViewBlocked implements RecordViewBlocked {
   const factory _RecordViewBlocked(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final bool blocked,
       required final BlockedAuthor author}) = _$RecordViewBlockedImpl;
 
   factory _RecordViewBlocked.fromJson(Map<String, dynamic> json) =
       _$RecordViewBlockedImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#viewBlocked`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

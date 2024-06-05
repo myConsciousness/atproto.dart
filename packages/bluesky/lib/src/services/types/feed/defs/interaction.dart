@@ -14,14 +14,21 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'interaction.freezed.dart';
 part 'interaction.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#interaction
 @freezed
 class Interaction with _$Interaction {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Interaction({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#interaction`
+    @Default(appBskyFeedDefsInteraction) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() AtUri? item,
     String? event,
 

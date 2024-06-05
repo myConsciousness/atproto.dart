@@ -12,10 +12,10 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_label_defs.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'profile_associated.dart';
 import 'viewer_state.dart';
 
@@ -25,8 +25,14 @@ part 'profile_view_basic.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileviewbasic
 @freezed
 class ProfileViewBasic with _$ProfileViewBasic {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileViewBasic({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#profileViewBasic`
+    @Default(appBskyActorDefsProfileViewBasic)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
     required String handle,
     String? displayName,

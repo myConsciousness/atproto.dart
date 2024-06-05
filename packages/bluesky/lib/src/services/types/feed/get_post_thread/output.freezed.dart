@@ -96,7 +96,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   const _$GetPostThreadOutputImpl({required this.thread});
 

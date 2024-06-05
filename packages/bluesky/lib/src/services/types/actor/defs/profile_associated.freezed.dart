@@ -20,6 +20,11 @@ ProfileAssociated _$ProfileAssociatedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProfileAssociated {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociated`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get lists => throw _privateConstructorUsedError;
   int get feedgens => throw _privateConstructorUsedError;
   bool get labeler => throw _privateConstructorUsedError;
@@ -38,7 +43,11 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       _$ProfileAssociatedCopyWithImpl<$Res, ProfileAssociated>;
   @useResult
   $Res call(
-      {int lists, int feedgens, bool labeler, ProfileAssociatedChat? chat});
+      {@JsonKey(name: r'$type') String $type,
+      int lists,
+      int feedgens,
+      bool labeler,
+      ProfileAssociatedChat? chat});
 
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
 }
@@ -56,12 +65,17 @@ class _$ProfileAssociatedCopyWithImpl<$Res, $Val extends ProfileAssociated>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? lists = null,
     Object? feedgens = null,
     Object? labeler = null,
     Object? chat = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -103,7 +117,11 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int lists, int feedgens, bool labeler, ProfileAssociatedChat? chat});
+      {@JsonKey(name: r'$type') String $type,
+      int lists,
+      int feedgens,
+      bool labeler,
+      ProfileAssociatedChat? chat});
 
   @override
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
@@ -120,12 +138,17 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? lists = null,
     Object? feedgens = null,
     Object? labeler = null,
     Object? chat = freezed,
   }) {
     return _then(_$ProfileAssociatedImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       lists: null == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -148,14 +171,24 @@ class __$$ProfileAssociatedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ProfileAssociatedImpl implements _ProfileAssociated {
   const _$ProfileAssociatedImpl(
-      {this.lists = 0, this.feedgens = 0, this.labeler = false, this.chat});
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsProfileAssociated,
+      this.lists = 0,
+      this.feedgens = 0,
+      this.labeler = false,
+      this.chat});
 
   factory _$ProfileAssociatedImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociated`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @JsonKey()
   final int lists;
@@ -170,7 +203,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
   @override
   String toString() {
-    return 'ProfileAssociated(lists: $lists, feedgens: $feedgens, labeler: $labeler, chat: $chat)';
+    return 'ProfileAssociated(\$type: ${$type}, lists: $lists, feedgens: $feedgens, labeler: $labeler, chat: $chat)';
   }
 
   @override
@@ -178,6 +211,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileAssociatedImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.lists, lists) || other.lists == lists) &&
             (identical(other.feedgens, feedgens) ||
                 other.feedgens == feedgens) &&
@@ -187,7 +221,8 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, lists, feedgens, labeler, chat);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, lists, feedgens, labeler, chat);
 
   @JsonKey(ignore: true)
   @override
@@ -206,7 +241,8 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
 
 abstract class _ProfileAssociated implements ProfileAssociated {
   const factory _ProfileAssociated(
-      {final int lists,
+      {@JsonKey(name: r'$type') final String $type,
+      final int lists,
       final int feedgens,
       final bool labeler,
       final ProfileAssociatedChat? chat}) = _$ProfileAssociatedImpl;
@@ -214,6 +250,13 @@ abstract class _ProfileAssociated implements ProfileAssociated {
   factory _ProfileAssociated.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociated`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get lists;
   @override

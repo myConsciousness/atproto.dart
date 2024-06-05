@@ -107,7 +107,7 @@ class __$$StrongRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$StrongRefImpl implements _StrongRef {
   const _$StrongRefImpl(
       {@AtUriConverter() required this.uri, required this.cid});

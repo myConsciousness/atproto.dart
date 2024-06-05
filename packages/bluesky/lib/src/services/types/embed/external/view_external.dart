@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'view_external.freezed.dart';
 part 'view_external.g.dart';
@@ -20,8 +22,14 @@ part 'view_external.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#viewexternal
 @freezed
 class ExternalViewExternal with _$ExternalViewExternal {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ExternalViewExternal({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.external#viewExternal`
+    @Default(appBskyEmbedExternalViewExternal)
+    @JsonKey(name: r'$type')
+    String $type,
     required String uri,
     required String title,
     required String description,

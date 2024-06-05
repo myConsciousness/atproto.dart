@@ -13,6 +13,8 @@ _$ImagesViewImpl _$$ImagesViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ImagesViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesView),
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)
@@ -26,5 +28,6 @@ _$ImagesViewImpl _$$ImagesViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ImagesViewImplToJson(_$ImagesViewImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'images': instance.images.map((e) => e.toJson()).toList(),
     };

@@ -107,7 +107,7 @@ class __$$GetActorLikesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetActorLikesOutputImpl implements _GetActorLikesOutput {
   const _$GetActorLikesOutputImpl(
       {this.cursor, required final List<FeedViewPost> feed})

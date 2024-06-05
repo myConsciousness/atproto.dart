@@ -13,6 +13,8 @@ _$ImagesImageImpl _$$ImagesImageImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ImagesImageImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesImage),
           image: $checkedConvert('image',
               (v) => const BlobConverter().fromJson(v as Map<String, dynamic>)),
           alt: $checkedConvert('alt', (v) => v as String),
@@ -29,6 +31,7 @@ _$ImagesImageImpl _$$ImagesImageImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ImagesImageImplToJson(_$ImagesImageImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'image': const BlobConverter().toJson(instance.image),
     'alt': instance.alt,
   };

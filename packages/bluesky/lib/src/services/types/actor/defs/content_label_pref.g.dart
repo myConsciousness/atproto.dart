@@ -14,6 +14,8 @@ _$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ContentLabelPrefImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsContentLabelPref),
           labelerDid: $checkedConvert('labelerDid', (v) => v as String?),
           label: $checkedConvert('label', (v) => v as String),
           visibility: $checkedConvert(
@@ -27,7 +29,9 @@ _$ContentLabelPrefImpl _$$ContentLabelPrefImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$ContentLabelPrefImplToJson(
     _$ContentLabelPrefImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

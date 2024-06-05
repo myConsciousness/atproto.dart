@@ -103,7 +103,7 @@ class __$$SearchActorsTypeaheadOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SearchActorsTypeaheadOutputImpl
     implements _SearchActorsTypeaheadOutput {
   const _$SearchActorsTypeaheadOutputImpl(

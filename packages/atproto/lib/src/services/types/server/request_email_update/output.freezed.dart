@@ -101,7 +101,7 @@ class __$$RequestEmailUpdateOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RequestEmailUpdateOutputImpl implements _RequestEmailUpdateOutput {
   const _$RequestEmailUpdateOutputImpl({required this.tokenRequired});
 

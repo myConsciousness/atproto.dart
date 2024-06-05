@@ -20,6 +20,11 @@ Feed _$FeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Feed {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.describeFeedGenerator#feed`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -33,7 +38,8 @@ abstract class $FeedCopyWith<$Res> {
   factory $FeedCopyWith(Feed value, $Res Function(Feed) then) =
       _$FeedCopyWithImpl<$Res, Feed>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -49,9 +55,14 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -67,7 +78,8 @@ abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
       __$$FeedImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -80,9 +92,14 @@ class __$$FeedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_$FeedImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -93,20 +110,29 @@ class __$$FeedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FeedImpl implements _Feed {
-  const _$FeedImpl({@AtUriConverter() required this.uri});
+  const _$FeedImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyFeedDescribeFeedGeneratorFeed,
+      @AtUriConverter() required this.uri});
 
   factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.describeFeedGenerator#feed`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
 
   @override
   String toString() {
-    return 'Feed(uri: $uri)';
+    return 'Feed(\$type: ${$type}, uri: $uri)';
   }
 
   @override
@@ -114,12 +140,13 @@ class _$FeedImpl implements _Feed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeedImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri);
+  int get hashCode => Object.hash(runtimeType, $type, uri);
 
   @JsonKey(ignore: true)
   @override
@@ -136,11 +163,19 @@ class _$FeedImpl implements _Feed {
 }
 
 abstract class _Feed implements Feed {
-  const factory _Feed({@AtUriConverter() required final AtUri uri}) =
-      _$FeedImpl;
+  const factory _Feed(
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri}) = _$FeedImpl;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.describeFeedGenerator#feed`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

@@ -14,6 +14,8 @@ _$SkeletonReasonRepostImpl _$$SkeletonReasonRepostImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SkeletonReasonRepostImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyFeedDefsSkeletonReasonRepost),
           repost: $checkedConvert(
               'repost', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -24,5 +26,6 @@ _$SkeletonReasonRepostImpl _$$SkeletonReasonRepostImplFromJson(Map json) =>
 Map<String, dynamic> _$$SkeletonReasonRepostImplToJson(
         _$SkeletonReasonRepostImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'repost': const AtUriConverter().toJson(instance.repost),
     };

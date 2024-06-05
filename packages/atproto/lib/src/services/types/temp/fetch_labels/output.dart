@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels#main
 @freezed
 class FetchLabelsOutput with _$FetchLabelsOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FetchLabelsOutput({
     required List<Label> labels,
   }) = _FetchLabelsOutput;

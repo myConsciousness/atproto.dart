@@ -20,6 +20,11 @@ BlockedAuthor _$BlockedAuthorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedAuthor {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedAuthor`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   ViewerState get viewer => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $BlockedAuthorCopyWith<$Res> {
           BlockedAuthor value, $Res Function(BlockedAuthor) then) =
       _$BlockedAuthorCopyWithImpl<$Res, BlockedAuthor>;
   @useResult
-  $Res call({String did, ViewerState viewer});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String did, ViewerState viewer});
 
   $ViewerStateCopyWith<$Res> get viewer;
 }
@@ -53,10 +59,15 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? viewer = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -85,7 +96,8 @@ abstract class _$$BlockedAuthorImplCopyWith<$Res>
       __$$BlockedAuthorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, ViewerState viewer});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String did, ViewerState viewer});
 
   @override
   $ViewerStateCopyWith<$Res> get viewer;
@@ -102,10 +114,15 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? viewer = null,
   }) {
     return _then(_$BlockedAuthorImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -120,14 +137,22 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$BlockedAuthorImpl implements _BlockedAuthor {
   const _$BlockedAuthorImpl(
-      {required this.did, this.viewer = const ViewerState()});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedAuthor,
+      required this.did,
+      this.viewer = const ViewerState()});
 
   factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedAuthorImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedAuthor`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
   @override
@@ -136,7 +161,7 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
 
   @override
   String toString() {
-    return 'BlockedAuthor(did: $did, viewer: $viewer)';
+    return 'BlockedAuthor(\$type: ${$type}, did: $did, viewer: $viewer)';
   }
 
   @override
@@ -144,13 +169,14 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlockedAuthorImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.viewer, viewer) || other.viewer == viewer));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, viewer);
+  int get hashCode => Object.hash(runtimeType, $type, did, viewer);
 
   @JsonKey(ignore: true)
   @override
@@ -168,12 +194,20 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
 
 abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
-      {required final String did,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did,
       final ViewerState viewer}) = _$BlockedAuthorImpl;
 
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
       _$BlockedAuthorImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedAuthor`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

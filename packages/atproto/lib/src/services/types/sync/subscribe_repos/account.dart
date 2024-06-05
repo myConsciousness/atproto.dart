@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'account_status.dart';
 
 part 'account.freezed.dart';
@@ -25,8 +25,14 @@ part 'account.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#account
 @freezed
 class Account with _$Account {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Account({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#account`
+    @Default(comAtprotoSyncSubscribeReposAccount)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required String did,
     required DateTime time,

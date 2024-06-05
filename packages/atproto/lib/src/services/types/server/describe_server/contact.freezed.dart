@@ -20,6 +20,11 @@ Contact _$ContactFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Contact {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#contact`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +37,7 @@ abstract class $ContactCopyWith<$Res> {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
       _$ContactCopyWithImpl<$Res, Contact>;
   @useResult
-  $Res call({String? email});
+  $Res call({@JsonKey(name: r'$type') String $type, String? email});
 }
 
 /// @nodoc
@@ -48,9 +53,14 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? email = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -66,7 +76,7 @@ abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
       __$$ContactImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? email});
+  $Res call({@JsonKey(name: r'$type') String $type, String? email});
 }
 
 /// @nodoc
@@ -80,9 +90,14 @@ class __$$ContactImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? email = freezed,
   }) {
     return _then(_$ContactImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -93,19 +108,28 @@ class __$$ContactImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ContactImpl implements _Contact {
-  const _$ContactImpl({this.email});
+  const _$ContactImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoServerDescribeServerContact,
+      this.email});
 
   factory _$ContactImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContactImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#contact`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String? email;
 
   @override
   String toString() {
-    return 'Contact(email: $email)';
+    return 'Contact(\$type: ${$type}, email: $email)';
   }
 
   @override
@@ -113,12 +137,13 @@ class _$ContactImpl implements _Contact {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContactImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.email, email) || other.email == email));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, email);
+  int get hashCode => Object.hash(runtimeType, $type, email);
 
   @JsonKey(ignore: true)
   @override
@@ -135,10 +160,19 @@ class _$ContactImpl implements _Contact {
 }
 
 abstract class _Contact implements Contact {
-  const factory _Contact({final String? email}) = _$ContactImpl;
+  const factory _Contact(
+      {@JsonKey(name: r'$type') final String $type,
+      final String? email}) = _$ContactImpl;
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$ContactImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.describeServer#contact`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String? get email;
   @override

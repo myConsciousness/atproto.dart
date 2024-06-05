@@ -20,6 +20,12 @@ HiddenPostsPref _$HiddenPostsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$HiddenPostsPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#hiddenPostsPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// A list of URIs of posts the account owner has hidden.
   @AtUriConverter()
   List<AtUri> get items => throw _privateConstructorUsedError;
@@ -36,7 +42,9 @@ abstract class $HiddenPostsPrefCopyWith<$Res> {
           HiddenPostsPref value, $Res Function(HiddenPostsPref) then) =
       _$HiddenPostsPrefCopyWithImpl<$Res, HiddenPostsPref>;
   @useResult
-  $Res call({@AtUriConverter() List<AtUri> items});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -52,9 +60,14 @@ class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -71,7 +84,9 @@ abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
       __$$HiddenPostsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() List<AtUri> items});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() List<AtUri> items});
 }
 
 /// @nodoc
@@ -85,9 +100,14 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_$HiddenPostsPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -98,14 +118,22 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   const _$HiddenPostsPrefImpl(
-      {@AtUriConverter() required final List<AtUri> items})
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsHiddenPostsPref,
+      @AtUriConverter() required final List<AtUri> items})
       : _items = items;
 
   factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$HiddenPostsPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#hiddenPostsPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// A list of URIs of posts the account owner has hidden.
   final List<AtUri> _items;
@@ -121,7 +149,7 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 
   @override
   String toString() {
-    return 'HiddenPostsPref(items: $items)';
+    return 'HiddenPostsPref(\$type: ${$type}, items: $items)';
   }
 
   @override
@@ -129,13 +157,14 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HiddenPostsPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_items));
 
   @JsonKey(ignore: true)
   @override
@@ -154,12 +183,20 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 
 abstract class _HiddenPostsPref implements HiddenPostsPref {
   const factory _HiddenPostsPref(
-          {@AtUriConverter() required final List<AtUri> items}) =
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final List<AtUri> items}) =
       _$HiddenPostsPrefImpl;
 
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
       _$HiddenPostsPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#hiddenPostsPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// A list of URIs of posts the account owner has hidden.

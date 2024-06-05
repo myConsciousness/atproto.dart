@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../server/defs/invite_code.dart';
 
 part 'account_view.freezed.dart';
@@ -23,8 +23,14 @@ part 'account_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#accountview
 @freezed
 class AccountView with _$AccountView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory AccountView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.admin.defs#accountView`
+    @Default(comAtprotoAdminDefsAccountView)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
     required String handle,
     String? email,

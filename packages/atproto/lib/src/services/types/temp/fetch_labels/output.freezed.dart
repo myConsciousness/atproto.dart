@@ -96,7 +96,7 @@ class __$$FetchLabelsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FetchLabelsOutputImpl implements _FetchLabelsOutput {
   const _$FetchLabelsOutputImpl({required final List<Label> labels})
       : _labels = labels;

@@ -96,7 +96,7 @@ class __$$GetHeadOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetHeadOutputImpl implements _GetHeadOutput {
   const _$GetHeadOutputImpl({required this.root});
 

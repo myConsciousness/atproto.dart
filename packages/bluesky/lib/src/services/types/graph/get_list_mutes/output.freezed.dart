@@ -107,7 +107,7 @@ class __$$GetListMutesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetListMutesOutputImpl implements _GetListMutesOutput {
   const _$GetListMutesOutputImpl(
       {this.cursor, required final List<ListView> lists})

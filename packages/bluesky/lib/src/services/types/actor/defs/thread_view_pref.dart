@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'thread_view_pref_sort.dart';
 
 part 'thread_view_pref.freezed.dart';
@@ -23,8 +23,15 @@ part 'thread_view_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#threadviewpref
 @freezed
 class ThreadViewPref with _$ThreadViewPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#threadViewPref`
+    @Default(appBskyActorDefsThreadViewPref)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// Sorting mode for threads.
     @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
 

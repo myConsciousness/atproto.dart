@@ -20,6 +20,11 @@ ExternalExternal _$ExternalExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ExternalExternal {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#external`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -39,7 +44,8 @@ abstract class $ExternalExternalCopyWith<$Res> {
       _$ExternalExternalCopyWithImpl<$Res, ExternalExternal>;
   @useResult
   $Res call(
-      {String uri,
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
       String title,
       String description,
       @BlobConverter() Blob? thumb});
@@ -60,12 +66,17 @@ class _$ExternalExternalCopyWithImpl<$Res, $Val extends ExternalExternal>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -107,7 +118,8 @@ abstract class _$$ExternalExternalImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String uri,
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
       String title,
       String description,
       @BlobConverter() Blob? thumb});
@@ -127,12 +139,17 @@ class __$$ExternalExternalImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
   }) {
     return _then(_$ExternalExternalImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -155,10 +172,11 @@ class __$$ExternalExternalImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ExternalExternalImpl implements _ExternalExternal {
   const _$ExternalExternalImpl(
-      {required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternalExternal,
+      required this.uri,
       required this.title,
       required this.description,
       @BlobConverter() this.thumb});
@@ -166,6 +184,12 @@ class _$ExternalExternalImpl implements _ExternalExternal {
   factory _$ExternalExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalExternalImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#external`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String uri;
   @override
@@ -178,7 +202,7 @@ class _$ExternalExternalImpl implements _ExternalExternal {
 
   @override
   String toString() {
-    return 'ExternalExternal(uri: $uri, title: $title, description: $description, thumb: $thumb)';
+    return 'ExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb)';
   }
 
   @override
@@ -186,6 +210,7 @@ class _$ExternalExternalImpl implements _ExternalExternal {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExternalExternalImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -195,7 +220,8 @@ class _$ExternalExternalImpl implements _ExternalExternal {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, title, description, thumb);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, uri, title, description, thumb);
 
   @JsonKey(ignore: true)
   @override
@@ -214,7 +240,8 @@ class _$ExternalExternalImpl implements _ExternalExternal {
 
 abstract class _ExternalExternal implements ExternalExternal {
   const factory _ExternalExternal(
-      {required final String uri,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String uri,
       required final String title,
       required final String description,
       @BlobConverter() final Blob? thumb}) = _$ExternalExternalImpl;
@@ -222,6 +249,13 @@ abstract class _ExternalExternal implements ExternalExternal {
   factory _ExternalExternal.fromJson(Map<String, dynamic> json) =
       _$ExternalExternalImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#external`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get uri;
   @override

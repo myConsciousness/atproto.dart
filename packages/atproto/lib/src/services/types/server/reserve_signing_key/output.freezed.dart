@@ -102,7 +102,7 @@ class __$$ReserveSigningKeyOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
   const _$ReserveSigningKeyOutputImpl({required this.signingKey});
 

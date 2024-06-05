@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'byte_slice.freezed.dart';
 part 'byte_slice.g.dart';
@@ -22,8 +24,14 @@ part 'byte_slice.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#byteslice
 @freezed
 class FacetByteSlice with _$FacetByteSlice {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FacetByteSlice({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.richtext.facet#byteSlice`
+    @Default(appBskyRichtextFacetByteSlice)
+    @JsonKey(name: r'$type')
+    String $type,
     required int byteStart,
     required int byteEnd,
   }) = _FacetByteSlice;

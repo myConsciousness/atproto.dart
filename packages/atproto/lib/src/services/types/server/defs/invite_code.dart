@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'invite_code_use.dart';
 
 part 'invite_code.freezed.dart';
@@ -23,8 +23,14 @@ part 'invite_code.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecode
 @freezed
 class InviteCode with _$InviteCode {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory InviteCode({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.server.defs#inviteCode`
+    @Default(comAtprotoServerDefsInviteCode)
+    @JsonKey(name: r'$type')
+    String $type,
     required String code,
     required int available,
     required bool disabled,

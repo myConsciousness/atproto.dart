@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'feed.freezed.dart';
 part 'feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#feed
 @freezed
 class Feed with _$Feed {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Feed({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.describeFeedGenerator#feed`
+    @Default(appBskyFeedDescribeFeedGeneratorFeed)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
   }) = _Feed;
 

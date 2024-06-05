@@ -13,6 +13,11 @@ _$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$SuggestionImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  appBskyUnspeccedGetTaggedSuggestionsSuggestion),
           tag: $checkedConvert('tag', (v) => v as String),
           subjectType: $checkedConvert(
               'subjectType',
@@ -26,6 +31,7 @@ _$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$SuggestionImplToJson(_$SuggestionImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'tag': instance.tag,
       'subjectType':
           const SuggestionSubjectTypeConverter().toJson(instance.subjectType),

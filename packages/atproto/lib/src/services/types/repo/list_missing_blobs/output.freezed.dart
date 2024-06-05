@@ -112,7 +112,7 @@ class __$$ListMissingBlobsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
   const _$ListMissingBlobsOutputImpl(
       {this.cursor, required final List<RecordBlob> blobs})

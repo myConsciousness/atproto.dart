@@ -103,7 +103,7 @@ class __$$GetAccountInviteCodesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetAccountInviteCodesOutputImpl
     implements _GetAccountInviteCodesOutput {
   const _$GetAccountInviteCodesOutputImpl(

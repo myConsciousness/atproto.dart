@@ -12,8 +12,10 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';
@@ -21,8 +23,12 @@ part 'reply_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#replyref
 @freezed
 class ReplyRef with _$ReplyRef {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ReplyRef({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.post#replyRef`
+    @Default(appBskyFeedPostReplyRef) @JsonKey(name: r'$type') String $type,
     required StrongRef root,
     required StrongRef parent,
   }) = _ReplyRef;

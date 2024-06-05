@@ -13,6 +13,8 @@ _$LinksImpl _$$LinksImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LinksImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorLinks),
           privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
           termsOfService:
               $checkedConvert('termsOfService', (v) => v as String?),
@@ -22,7 +24,9 @@ _$LinksImpl _$$LinksImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

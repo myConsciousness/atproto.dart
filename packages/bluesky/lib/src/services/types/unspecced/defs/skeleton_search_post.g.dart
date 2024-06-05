@@ -14,6 +14,8 @@ _$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SkeletonSearchPostImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchPost),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -24,5 +26,6 @@ _$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
 Map<String, dynamic> _$$SkeletonSearchPostImplToJson(
         _$SkeletonSearchPostImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
     };

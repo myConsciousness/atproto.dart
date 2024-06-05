@@ -13,6 +13,8 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$InviteCodeImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoServerDefsInviteCode),
           code: $checkedConvert('code', (v) => v as String),
           available: $checkedConvert('available', (v) => (v as num).toInt()),
           disabled: $checkedConvert('disabled', (v) => v as bool),
@@ -33,6 +35,7 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$InviteCodeImplToJson(_$InviteCodeImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'code': instance.code,
       'available': instance.available,
       'disabled': instance.disabled,

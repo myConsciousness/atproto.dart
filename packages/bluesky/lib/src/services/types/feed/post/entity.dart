@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'text_slice.dart';
 
 part 'entity.freezed.dart';
@@ -25,8 +25,12 @@ part 'entity.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#entity
 @freezed
 class Entity with _$Entity {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Entity({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.post#entity`
+    @Default(appBskyFeedPostEntity) @JsonKey(name: r'$type') String $type,
     required TextSlice index,
 
     /// Expected values are 'mention' and 'link'.

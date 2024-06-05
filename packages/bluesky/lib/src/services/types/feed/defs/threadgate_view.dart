@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../graph/defs/list_view_basic.dart';
 
 part 'threadgate_view.freezed.dart';
@@ -23,8 +24,14 @@ part 'threadgate_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadgateview
 @freezed
 class ThreadgateView with _$ThreadgateView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ThreadgateView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#threadgateView`
+    @Default(appBskyFeedDefsThreadgateView)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() AtUri? uri,
     String? cid,
     @Default({}) Map<String, dynamic> record,

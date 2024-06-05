@@ -107,7 +107,7 @@ class __$$GetTimelineOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetTimelineOutputImpl implements _GetTimelineOutput {
   const _$GetTimelineOutputImpl(
       {this.cursor, required final List<FeedViewPost> feed})

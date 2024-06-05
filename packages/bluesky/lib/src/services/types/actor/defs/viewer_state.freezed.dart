@@ -20,6 +20,11 @@ ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ViewerState {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#viewerState`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
   ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
   bool get blockedBy => throw _privateConstructorUsedError;
@@ -44,7 +49,8 @@ abstract class $ViewerStateCopyWith<$Res> {
       _$ViewerStateCopyWithImpl<$Res, ViewerState>;
   @useResult
   $Res call(
-      {bool muted,
+      {@JsonKey(name: r'$type') String $type,
+      bool muted,
       ListViewBasic? mutedByList,
       bool blockedBy,
       @AtUriConverter() AtUri? blocking,
@@ -69,6 +75,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? muted = null,
     Object? mutedByList = freezed,
     Object? blockedBy = null,
@@ -78,6 +85,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? followedBy = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -143,7 +154,8 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool muted,
+      {@JsonKey(name: r'$type') String $type,
+      bool muted,
       ListViewBasic? mutedByList,
       bool blockedBy,
       @AtUriConverter() AtUri? blocking,
@@ -168,6 +180,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? muted = null,
     Object? mutedByList = freezed,
     Object? blockedBy = null,
@@ -177,6 +190,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? followedBy = freezed,
   }) {
     return _then(_$ViewerStateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -211,10 +228,11 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
-      {this.muted = false,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsViewerState,
+      this.muted = false,
       this.mutedByList,
       this.blockedBy = false,
       @AtUriConverter() this.blocking,
@@ -225,6 +243,12 @@ class _$ViewerStateImpl implements _ViewerState {
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#viewerState`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @JsonKey()
   final bool muted;
@@ -247,7 +271,7 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @override
   String toString() {
-    return 'ViewerState(muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy)';
+    return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy)';
   }
 
   @override
@@ -255,6 +279,7 @@ class _$ViewerStateImpl implements _ViewerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ViewerStateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.muted, muted) || other.muted == muted) &&
             (identical(other.mutedByList, mutedByList) ||
                 other.mutedByList == mutedByList) &&
@@ -272,8 +297,8 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, muted, mutedByList, blockedBy,
-      blocking, blockingByList, following, followedBy);
+  int get hashCode => Object.hash(runtimeType, $type, muted, mutedByList,
+      blockedBy, blocking, blockingByList, following, followedBy);
 
   @JsonKey(ignore: true)
   @override
@@ -291,7 +316,8 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {final bool muted,
+      {@JsonKey(name: r'$type') final String $type,
+      final bool muted,
       final ListViewBasic? mutedByList,
       final bool blockedBy,
       @AtUriConverter() final AtUri? blocking,
@@ -302,6 +328,13 @@ abstract class _ViewerState implements ViewerState {
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#viewerState`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   bool get muted;
   @override

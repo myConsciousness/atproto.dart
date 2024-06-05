@@ -13,6 +13,8 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LabelersPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsLabelersPref),
           labelers: $checkedConvert(
               'labelers',
               (v) => (v as List<dynamic>)
@@ -26,5 +28,6 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LabelersPrefImplToJson(_$LabelersPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'labelers': instance.labelers.map((e) => e.toJson()).toList(),
     };

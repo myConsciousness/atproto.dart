@@ -14,6 +14,8 @@ _$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileAssociatedChatImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat),
           allowIncoming: $checkedConvert(
               'allowIncoming',
               (v) => const ProfileAssociatedChatAllowIncomingConverter()
@@ -26,6 +28,7 @@ _$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
 Map<String, dynamic> _$$ProfileAssociatedChatImplToJson(
         _$ProfileAssociatedChatImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'allowIncoming': const ProfileAssociatedChatAllowIncomingConverter()
           .toJson(instance.allowIncoming),
     };

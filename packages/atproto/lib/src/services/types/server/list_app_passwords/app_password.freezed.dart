@@ -20,6 +20,11 @@ AppPassword _$AppPasswordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AppPassword {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.listAppPasswords#appPassword`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get privileged => throw _privateConstructorUsedError;
@@ -36,7 +41,11 @@ abstract class $AppPasswordCopyWith<$Res> {
           AppPassword value, $Res Function(AppPassword) then) =
       _$AppPasswordCopyWithImpl<$Res, AppPassword>;
   @useResult
-  $Res call({String name, DateTime createdAt, bool privileged});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String name,
+      DateTime createdAt,
+      bool privileged});
 }
 
 /// @nodoc
@@ -52,11 +61,16 @@ class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? name = null,
     Object? createdAt = null,
     Object? privileged = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -81,7 +95,11 @@ abstract class _$$AppPasswordImplCopyWith<$Res>
       __$$AppPasswordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, DateTime createdAt, bool privileged});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String name,
+      DateTime createdAt,
+      bool privileged});
 }
 
 /// @nodoc
@@ -95,11 +113,16 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? name = null,
     Object? createdAt = null,
     Object? privileged = null,
   }) {
     return _then(_$AppPasswordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -118,14 +141,24 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$AppPasswordImpl implements _AppPassword {
   const _$AppPasswordImpl(
-      {required this.name, required this.createdAt, this.privileged = false});
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoServerListAppPasswordsAppPassword,
+      required this.name,
+      required this.createdAt,
+      this.privileged = false});
 
   factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppPasswordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.listAppPasswords#appPassword`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String name;
   @override
@@ -136,7 +169,7 @@ class _$AppPasswordImpl implements _AppPassword {
 
   @override
   String toString() {
-    return 'AppPassword(name: $name, createdAt: $createdAt, privileged: $privileged)';
+    return 'AppPassword(\$type: ${$type}, name: $name, createdAt: $createdAt, privileged: $privileged)';
   }
 
   @override
@@ -144,6 +177,7 @@ class _$AppPasswordImpl implements _AppPassword {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AppPasswordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -153,7 +187,8 @@ class _$AppPasswordImpl implements _AppPassword {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, createdAt, privileged);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, name, createdAt, privileged);
 
   @JsonKey(ignore: true)
   @override
@@ -171,13 +206,21 @@ class _$AppPasswordImpl implements _AppPassword {
 
 abstract class _AppPassword implements AppPassword {
   const factory _AppPassword(
-      {required final String name,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String name,
       required final DateTime createdAt,
       final bool privileged}) = _$AppPasswordImpl;
 
   factory _AppPassword.fromJson(Map<String, dynamic> json) =
       _$AppPasswordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.listAppPasswords#appPassword`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get name;
   @override

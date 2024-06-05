@@ -117,7 +117,7 @@ class __$$FacetImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FacetImpl implements _Facet {
   const _$FacetImpl({required this.index, required final List<String> features})
       : _features = features;

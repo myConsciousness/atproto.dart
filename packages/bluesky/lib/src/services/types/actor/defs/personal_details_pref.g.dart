@@ -14,6 +14,8 @@ _$PersonalDetailsPrefImpl _$$PersonalDetailsPrefImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$PersonalDetailsPrefImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsPersonalDetailsPref),
           birthDate: $checkedConvert('birthDate',
               (v) => v == null ? null : DateTime.parse(v as String)),
         );
@@ -23,7 +25,9 @@ _$PersonalDetailsPrefImpl _$$PersonalDetailsPrefImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$PersonalDetailsPrefImplToJson(
     _$PersonalDetailsPrefImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

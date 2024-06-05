@@ -107,7 +107,7 @@ class __$$ListBlobsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListBlobsOutputImpl implements _ListBlobsOutput {
   const _$ListBlobsOutputImpl({this.cursor, required final List<String> cids})
       : _cids = cids;

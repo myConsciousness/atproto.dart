@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -25,7 +24,7 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
 class Facet with _$Facet {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Facet({
     required FacetByteSlice index,
     required List<String> features,

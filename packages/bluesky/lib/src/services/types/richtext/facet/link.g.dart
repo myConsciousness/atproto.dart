@@ -13,6 +13,8 @@ _$FacetLinkImpl _$$FacetLinkImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetLinkImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacetLink),
           uri: $checkedConvert('uri', (v) => v as String),
         );
         return val;
@@ -21,5 +23,6 @@ _$FacetLinkImpl _$$FacetLinkImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FacetLinkImplToJson(_$FacetLinkImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': instance.uri,
     };

@@ -20,6 +20,12 @@ Label _$LabelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Label {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#label`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The AT Protocol version of the label object.
   int get ver => throw _privateConstructorUsedError;
 
@@ -58,7 +64,8 @@ abstract class $LabelCopyWith<$Res> {
       _$LabelCopyWithImpl<$Res, Label>;
   @useResult
   $Res call(
-      {int ver,
+      {@JsonKey(name: r'$type') String $type,
+      int ver,
       String src,
       String uri,
       String? cid,
@@ -82,6 +89,7 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? ver = null,
     Object? src = null,
     Object? uri = null,
@@ -93,6 +101,10 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
     Object? sig = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       ver: null == ver
           ? _value.ver
           : ver // ignore: cast_nullable_to_non_nullable
@@ -141,7 +153,8 @@ abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int ver,
+      {@JsonKey(name: r'$type') String $type,
+      int ver,
       String src,
       String uri,
       String? cid,
@@ -163,6 +176,7 @@ class __$$LabelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? ver = null,
     Object? src = null,
     Object? uri = null,
@@ -174,6 +188,10 @@ class __$$LabelImplCopyWithImpl<$Res>
     Object? sig = null,
   }) {
     return _then(_$LabelImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       ver: null == ver
           ? _value.ver
           : ver // ignore: cast_nullable_to_non_nullable
@@ -216,10 +234,11 @@ class __$$LabelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelImpl implements _Label {
   const _$LabelImpl(
-      {this.ver = 0,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsLabel,
+      this.ver = 0,
       required this.src,
       required this.uri,
       this.cid,
@@ -232,6 +251,13 @@ class _$LabelImpl implements _Label {
 
   factory _$LabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#label`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The AT Protocol version of the label object.
   @override
@@ -281,7 +307,7 @@ class _$LabelImpl implements _Label {
 
   @override
   String toString() {
-    return 'Label(ver: $ver, src: $src, uri: $uri, cid: $cid, val: $val, neg: $neg, cts: $cts, exp: $exp, sig: $sig)';
+    return 'Label(\$type: ${$type}, ver: $ver, src: $src, uri: $uri, cid: $cid, val: $val, neg: $neg, cts: $cts, exp: $exp, sig: $sig)';
   }
 
   @override
@@ -289,6 +315,7 @@ class _$LabelImpl implements _Label {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.ver, ver) || other.ver == ver) &&
             (identical(other.src, src) || other.src == src) &&
             (identical(other.uri, uri) || other.uri == uri) &&
@@ -302,8 +329,8 @@ class _$LabelImpl implements _Label {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, ver, src, uri, cid, val, neg,
-      cts, exp, const DeepCollectionEquality().hash(_sig));
+  int get hashCode => Object.hash(runtimeType, $type, ver, src, uri, cid, val,
+      neg, cts, exp, const DeepCollectionEquality().hash(_sig));
 
   @JsonKey(ignore: true)
   @override
@@ -321,7 +348,8 @@ class _$LabelImpl implements _Label {
 
 abstract class _Label implements Label {
   const factory _Label(
-      {final int ver,
+      {@JsonKey(name: r'$type') final String $type,
+      final int ver,
       required final String src,
       required final String uri,
       final String? cid,
@@ -333,6 +361,13 @@ abstract class _Label implements Label {
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#label`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The AT Protocol version of the label object.

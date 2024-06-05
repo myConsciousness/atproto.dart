@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
 class RecordWithMedia with _$RecordWithMedia {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RecordWithMedia({
     required Record record,
     required String media,

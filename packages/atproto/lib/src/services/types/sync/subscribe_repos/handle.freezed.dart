@@ -20,6 +20,11 @@ Handle _$HandleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Handle {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#handle`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
@@ -35,7 +40,12 @@ abstract class $HandleCopyWith<$Res> {
   factory $HandleCopyWith(Handle value, $Res Function(Handle) then) =
       _$HandleCopyWithImpl<$Res, Handle>;
   @useResult
-  $Res call({int seq, String did, String handle, DateTime time});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      String handle,
+      DateTime time});
 }
 
 /// @nodoc
@@ -51,12 +61,17 @@ class _$HandleCopyWithImpl<$Res, $Val extends Handle>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? handle = null,
     Object? time = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -84,7 +99,12 @@ abstract class _$$HandleImplCopyWith<$Res> implements $HandleCopyWith<$Res> {
       __$$HandleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int seq, String did, String handle, DateTime time});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      String handle,
+      DateTime time});
 }
 
 /// @nodoc
@@ -98,12 +118,17 @@ class __$$HandleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? handle = null,
     Object? time = null,
   }) {
     return _then(_$HandleImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -126,10 +151,11 @@ class __$$HandleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$HandleImpl implements _Handle {
   const _$HandleImpl(
-      {required this.seq,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposHandle,
+      required this.seq,
       required this.did,
       required this.handle,
       required this.time});
@@ -137,6 +163,12 @@ class _$HandleImpl implements _Handle {
   factory _$HandleImpl.fromJson(Map<String, dynamic> json) =>
       _$$HandleImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#handle`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int seq;
   @override
@@ -148,7 +180,7 @@ class _$HandleImpl implements _Handle {
 
   @override
   String toString() {
-    return 'Handle(seq: $seq, did: $did, handle: $handle, time: $time)';
+    return 'Handle(\$type: ${$type}, seq: $seq, did: $did, handle: $handle, time: $time)';
   }
 
   @override
@@ -156,6 +188,7 @@ class _$HandleImpl implements _Handle {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$HandleImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
@@ -164,7 +197,7 @@ class _$HandleImpl implements _Handle {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, seq, did, handle, time);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, handle, time);
 
   @JsonKey(ignore: true)
   @override
@@ -182,13 +215,21 @@ class _$HandleImpl implements _Handle {
 
 abstract class _Handle implements Handle {
   const factory _Handle(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final String did,
       required final String handle,
       required final DateTime time}) = _$HandleImpl;
 
   factory _Handle.fromJson(Map<String, dynamic> json) = _$HandleImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#handle`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get seq;
   @override

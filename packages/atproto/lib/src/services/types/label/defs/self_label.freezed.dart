@@ -20,6 +20,12 @@ SelfLabel _$SelfLabelFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SelfLabel {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabel`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The short string name of the value or type of this label.
   String get val => throw _privateConstructorUsedError;
 
@@ -34,7 +40,7 @@ abstract class $SelfLabelCopyWith<$Res> {
   factory $SelfLabelCopyWith(SelfLabel value, $Res Function(SelfLabel) then) =
       _$SelfLabelCopyWithImpl<$Res, SelfLabel>;
   @useResult
-  $Res call({String val});
+  $Res call({@JsonKey(name: r'$type') String $type, String val});
 }
 
 /// @nodoc
@@ -50,9 +56,14 @@ class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? val = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       val: null == val
           ? _value.val
           : val // ignore: cast_nullable_to_non_nullable
@@ -69,7 +80,7 @@ abstract class _$$SelfLabelImplCopyWith<$Res>
       __$$SelfLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String val});
+  $Res call({@JsonKey(name: r'$type') String $type, String val});
 }
 
 /// @nodoc
@@ -83,9 +94,14 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? val = null,
   }) {
     return _then(_$SelfLabelImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       val: null == val
           ? _value.val
           : val // ignore: cast_nullable_to_non_nullable
@@ -96,12 +112,21 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SelfLabelImpl implements _SelfLabel {
-  const _$SelfLabelImpl({required this.val});
+  const _$SelfLabelImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsSelfLabel,
+      required this.val});
 
   factory _$SelfLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfLabelImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabel`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The short string name of the value or type of this label.
   @override
@@ -109,7 +134,7 @@ class _$SelfLabelImpl implements _SelfLabel {
 
   @override
   String toString() {
-    return 'SelfLabel(val: $val)';
+    return 'SelfLabel(\$type: ${$type}, val: $val)';
   }
 
   @override
@@ -117,12 +142,13 @@ class _$SelfLabelImpl implements _SelfLabel {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelfLabelImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.val, val) || other.val == val));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, val);
+  int get hashCode => Object.hash(runtimeType, $type, val);
 
   @JsonKey(ignore: true)
   @override
@@ -139,11 +165,20 @@ class _$SelfLabelImpl implements _SelfLabel {
 }
 
 abstract class _SelfLabel implements SelfLabel {
-  const factory _SelfLabel({required final String val}) = _$SelfLabelImpl;
+  const factory _SelfLabel(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String val}) = _$SelfLabelImpl;
 
   factory _SelfLabel.fromJson(Map<String, dynamic> json) =
       _$SelfLabelImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabel`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The short string name of the value or type of this label.

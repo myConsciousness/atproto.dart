@@ -13,6 +13,8 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LabelImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoLabelDefsLabel),
           ver: $checkedConvert('ver', (v) => (v as num?)?.toInt() ?? 0),
           src: $checkedConvert('src', (v) => v as String),
           uri: $checkedConvert('uri', (v) => v as String),
@@ -36,6 +38,7 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LabelImplToJson(_$LabelImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'ver': instance.ver,
     'src': instance.src,
     'uri': instance.uri,

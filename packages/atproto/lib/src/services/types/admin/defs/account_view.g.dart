@@ -13,6 +13,8 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AccountViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoAdminDefsAccountView),
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
@@ -52,6 +54,7 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$AccountViewImplToJson(_$AccountViewImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
     'handle': instance.handle,
   };

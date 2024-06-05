@@ -4,16 +4,14 @@
 
 // 🌎 Project imports:
 import '../../utils.dart';
+import '../rules/utils.dart';
 import 'data_type.dart';
 import 'known_values.dart';
-
-const _kCorePackage = "import 'package:atproto_core/atproto_core.dart';";
-const _kFreezedAnnotationPackage =
-    "import 'package:freezed_annotation/freezed_annotation.dart';";
 
 final class LexGenObject {
   const LexGenObject({
     this.description,
+    this.namespace,
     required this.name,
     required this.fileName,
     required this.properties,
@@ -21,6 +19,7 @@ final class LexGenObject {
   });
 
   final String? description;
+  final String? namespace;
   final String name;
   final String fileName;
   final List<LexGenObjectProperty> properties;
@@ -42,8 +41,12 @@ final class LexGenObject {
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Object Generator'));
     buffer.writeln();
-    buffer.writeln(_kCorePackage);
-    buffer.writeln(_kFreezedAnnotationPackage);
+    buffer.writeln(
+        "import 'package:freezed_annotation/freezed_annotation.dart';");
+    buffer.writeln();
+    if (namespace != null) {
+      buffer.writeln("import '../../../../ids.g.dart';");
+    }
     for (final importPath in importPaths) {
       buffer
         ..writeln()
@@ -58,15 +61,26 @@ final class LexGenObject {
     }
     buffer.writeln('@freezed');
     buffer.writeln('class $name with _\$$name {');
-    buffer.writeln('  @jsonSerializable');
-    buffer.write('  const factory $name({');
-    buffer.writeln();
-    for (final property in properties) {
-      buffer
-        ..writeln()
-        ..write(property.toString());
+    buffer.writeln('  @JsonSerializable(includeIfNull: false)');
+    buffer.writeln('  const factory $name({');
+    if (namespace != null) {
+      final id = toFirstLower(namespace!
+          .split('.')
+          .map(toFirstUpper)
+          .join()
+          .split('#')
+          .map(toFirstUpper)
+          .join());
+
+      buffer.writeln('    /// The unique namespace for this lex object.');
+      buffer.writeln('    ///');
+      buffer.writeln('    /// `$namespace`');
+      buffer.writeln(
+          "    @Default($id) @JsonKey(name: r'\$type') String \$type,");
     }
-    buffer.writeln();
+    for (final property in properties) {
+      buffer.writeln(property.toString());
+    }
     buffer.writeln('  }) = _$name;');
     buffer.writeln();
     buffer.writeln('  factory $name.fromJson(Map<String, Object?> json) =>');

@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
 
 part 'view_record.freezed.dart';
@@ -24,8 +25,14 @@ part 'view_record.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewrecord
 @freezed
 class RecordViewRecord with _$RecordViewRecord {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RecordViewRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.record#viewRecord`
+    @Default(appBskyEmbedRecordViewRecord)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileViewBasic author,

@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../feed/defs/blocked_author.dart';
 
 part 'view_blocked.freezed.dart';
@@ -23,8 +24,14 @@ part 'view_blocked.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
 class RecordViewBlocked with _$RecordViewBlocked {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RecordViewBlocked({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.record#viewBlocked`
+    @Default(appBskyEmbedRecordViewBlocked)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
     required bool blocked,
     required BlockedAuthor author,

@@ -20,6 +20,11 @@ SavedFeed _$SavedFeedFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavedFeed {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeed`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
   @SavedFeedTypeConverter()
   SavedFeedType get type => throw _privateConstructorUsedError;
@@ -38,7 +43,8 @@ abstract class $SavedFeedCopyWith<$Res> {
       _$SavedFeedCopyWithImpl<$Res, SavedFeed>;
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: r'$type') String $type,
+      String id,
       @SavedFeedTypeConverter() SavedFeedType type,
       String value,
       bool pinned});
@@ -59,12 +65,17 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? id = null,
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -102,7 +113,8 @@ abstract class _$$SavedFeedImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: r'$type') String $type,
+      String id,
       @SavedFeedTypeConverter() SavedFeedType type,
       String value,
       bool pinned});
@@ -122,12 +134,17 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? id = null,
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
   }) {
     return _then(_$SavedFeedImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -150,10 +167,11 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SavedFeedImpl implements _SavedFeed {
   const _$SavedFeedImpl(
-      {required this.id,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeed,
+      required this.id,
       @SavedFeedTypeConverter() required this.type,
       required this.value,
       required this.pinned});
@@ -161,6 +179,12 @@ class _$SavedFeedImpl implements _SavedFeed {
   factory _$SavedFeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$SavedFeedImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeed`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String id;
   @override
@@ -173,7 +197,7 @@ class _$SavedFeedImpl implements _SavedFeed {
 
   @override
   String toString() {
-    return 'SavedFeed(id: $id, type: $type, value: $value, pinned: $pinned)';
+    return 'SavedFeed(\$type: ${$type}, id: $id, type: $type, value: $value, pinned: $pinned)';
   }
 
   @override
@@ -181,6 +205,7 @@ class _$SavedFeedImpl implements _SavedFeed {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavedFeedImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value) &&
@@ -189,7 +214,7 @@ class _$SavedFeedImpl implements _SavedFeed {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, id, type, value, pinned);
+  int get hashCode => Object.hash(runtimeType, $type, id, type, value, pinned);
 
   @JsonKey(ignore: true)
   @override
@@ -207,7 +232,8 @@ class _$SavedFeedImpl implements _SavedFeed {
 
 abstract class _SavedFeed implements SavedFeed {
   const factory _SavedFeed(
-      {required final String id,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String id,
       @SavedFeedTypeConverter() required final SavedFeedType type,
       required final String value,
       required final bool pinned}) = _$SavedFeedImpl;
@@ -215,6 +241,13 @@ abstract class _SavedFeed implements SavedFeed {
   factory _SavedFeed.fromJson(Map<String, dynamic> json) =
       _$SavedFeedImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeed`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get id;
   @override

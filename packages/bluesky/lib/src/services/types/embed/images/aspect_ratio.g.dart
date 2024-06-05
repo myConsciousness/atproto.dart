@@ -14,6 +14,8 @@ _$ImagesAspectRatioImpl _$$ImagesAspectRatioImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ImagesAspectRatioImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesAspectRatio),
           width: $checkedConvert('width', (v) => (v as num).toInt()),
           height: $checkedConvert('height', (v) => (v as num).toInt()),
         );
@@ -24,6 +26,7 @@ _$ImagesAspectRatioImpl _$$ImagesAspectRatioImplFromJson(Map json) =>
 Map<String, dynamic> _$$ImagesAspectRatioImplToJson(
         _$ImagesAspectRatioImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'width': instance.width,
       'height': instance.height,
     };

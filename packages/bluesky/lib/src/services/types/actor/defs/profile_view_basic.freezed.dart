@@ -20,6 +20,11 @@ ProfileViewBasic _$ProfileViewBasicFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProfileViewBasic {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileViewBasic`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
@@ -41,7 +46,8 @@ abstract class $ProfileViewBasicCopyWith<$Res> {
       _$ProfileViewBasicCopyWithImpl<$Res, ProfileViewBasic>;
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String handle,
       String? displayName,
       String? avatar,
@@ -66,6 +72,7 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? handle = null,
     Object? displayName = freezed,
@@ -75,6 +82,10 @@ class _$ProfileViewBasicCopyWithImpl<$Res, $Val extends ProfileViewBasic>
     Object? labels = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -132,7 +143,8 @@ abstract class _$$ProfileViewBasicImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String handle,
       String? displayName,
       String? avatar,
@@ -157,6 +169,7 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? handle = null,
     Object? displayName = freezed,
@@ -166,6 +179,10 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
     Object? labels = null,
   }) {
     return _then(_$ProfileViewBasicImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -200,10 +217,11 @@ class __$$ProfileViewBasicImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ProfileViewBasicImpl implements _ProfileViewBasic {
   const _$ProfileViewBasicImpl(
-      {required this.did,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsProfileViewBasic,
+      required this.did,
       required this.handle,
       this.displayName,
       this.avatar,
@@ -215,6 +233,12 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
   factory _$ProfileViewBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileViewBasicImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileViewBasic`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
   @override
@@ -240,7 +264,7 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
 
   @override
   String toString() {
-    return 'ProfileViewBasic(did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
+    return 'ProfileViewBasic(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, avatar: $avatar, associated: $associated, viewer: $viewer, labels: $labels)';
   }
 
   @override
@@ -248,6 +272,7 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileViewBasicImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.displayName, displayName) ||
@@ -261,8 +286,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, handle, displayName, avatar,
-      associated, viewer, const DeepCollectionEquality().hash(_labels));
+  int get hashCode => Object.hash(runtimeType, $type, did, handle, displayName,
+      avatar, associated, viewer, const DeepCollectionEquality().hash(_labels));
 
   @JsonKey(ignore: true)
   @override
@@ -281,7 +306,8 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
 
 abstract class _ProfileViewBasic implements ProfileViewBasic {
   const factory _ProfileViewBasic(
-      {required final String did,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did,
       required final String handle,
       final String? displayName,
       final String? avatar,
@@ -292,6 +318,13 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
   factory _ProfileViewBasic.fromJson(Map<String, dynamic> json) =
       _$ProfileViewBasicImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileViewBasic`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

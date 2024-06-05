@@ -20,6 +20,11 @@ FacetLink _$FacetLinkFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetLink {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#link`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +38,7 @@ abstract class $FacetLinkCopyWith<$Res> {
   factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) then) =
       _$FacetLinkCopyWithImpl<$Res, FacetLink>;
   @useResult
-  $Res call({String uri});
+  $Res call({@JsonKey(name: r'$type') String $type, String uri});
 }
 
 /// @nodoc
@@ -49,9 +54,14 @@ class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -68,7 +78,7 @@ abstract class _$$FacetLinkImplCopyWith<$Res>
       __$$FacetLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uri});
+  $Res call({@JsonKey(name: r'$type') String $type, String uri});
 }
 
 /// @nodoc
@@ -82,9 +92,14 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_$FacetLinkImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -95,19 +110,27 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FacetLinkImpl implements _FacetLink {
-  const _$FacetLinkImpl({required this.uri});
+  const _$FacetLinkImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetLink,
+      required this.uri});
 
   factory _$FacetLinkImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetLinkImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#link`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String uri;
 
   @override
   String toString() {
-    return 'FacetLink(uri: $uri)';
+    return 'FacetLink(\$type: ${$type}, uri: $uri)';
   }
 
   @override
@@ -115,12 +138,13 @@ class _$FacetLinkImpl implements _FacetLink {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FacetLinkImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri);
+  int get hashCode => Object.hash(runtimeType, $type, uri);
 
   @JsonKey(ignore: true)
   @override
@@ -137,11 +161,20 @@ class _$FacetLinkImpl implements _FacetLink {
 }
 
 abstract class _FacetLink implements FacetLink {
-  const factory _FacetLink({required final String uri}) = _$FacetLinkImpl;
+  const factory _FacetLink(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String uri}) = _$FacetLinkImpl;
 
   factory _FacetLink.fromJson(Map<String, dynamic> json) =
       _$FacetLinkImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#link`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get uri;
   @override

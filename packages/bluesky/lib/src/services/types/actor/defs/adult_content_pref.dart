@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'adult_content_pref.freezed.dart';
 part 'adult_content_pref.g.dart';
@@ -20,8 +22,14 @@ part 'adult_content_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#adultcontentpref
 @freezed
 class AdultContentPref with _$AdultContentPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory AdultContentPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#adultContentPref`
+    @Default(appBskyActorDefsAdultContentPref)
+    @JsonKey(name: r'$type')
+    String $type,
     required bool enabled,
   }) = _AdultContentPref;
 

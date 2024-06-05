@@ -106,7 +106,7 @@ class __$$RecordImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordImpl implements _Record {
   const _$RecordImpl({required this.record});
 

@@ -20,6 +20,11 @@ SkeletonReasonRepost _$SkeletonReasonRepostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonReasonRepost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonReasonRepost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get repost => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $SkeletonReasonRepostCopyWith<$Res> {
           $Res Function(SkeletonReasonRepost) then) =
       _$SkeletonReasonRepostCopyWithImpl<$Res, SkeletonReasonRepost>;
   @useResult
-  $Res call({@AtUriConverter() AtUri repost});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -52,9 +58,14 @@ class _$SkeletonReasonRepostCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? repost = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       repost: null == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -71,7 +82,8 @@ abstract class _$$SkeletonReasonRepostImplCopyWith<$Res>
       __$$SkeletonReasonRepostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri repost});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri repost});
 }
 
 /// @nodoc
@@ -85,9 +97,14 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? repost = null,
   }) {
     return _then(_$SkeletonReasonRepostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       repost: null == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -98,20 +115,29 @@ class __$$SkeletonReasonRepostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
-  const _$SkeletonReasonRepostImpl({@AtUriConverter() required this.repost});
+  const _$SkeletonReasonRepostImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyFeedDefsSkeletonReasonRepost,
+      @AtUriConverter() required this.repost});
 
   factory _$SkeletonReasonRepostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonReasonRepostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonReasonRepost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri repost;
 
   @override
   String toString() {
-    return 'SkeletonReasonRepost(repost: $repost)';
+    return 'SkeletonReasonRepost(\$type: ${$type}, repost: $repost)';
   }
 
   @override
@@ -119,12 +145,13 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonReasonRepostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.repost, repost) || other.repost == repost));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, repost);
+  int get hashCode => Object.hash(runtimeType, $type, repost);
 
   @JsonKey(ignore: true)
   @override
@@ -144,12 +171,20 @@ class _$SkeletonReasonRepostImpl implements _SkeletonReasonRepost {
 
 abstract class _SkeletonReasonRepost implements SkeletonReasonRepost {
   const factory _SkeletonReasonRepost(
-          {@AtUriConverter() required final AtUri repost}) =
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri repost}) =
       _$SkeletonReasonRepostImpl;
 
   factory _SkeletonReasonRepost.fromJson(Map<String, dynamic> json) =
       _$SkeletonReasonRepostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonReasonRepost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get repost;

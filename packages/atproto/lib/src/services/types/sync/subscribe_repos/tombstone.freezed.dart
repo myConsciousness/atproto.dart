@@ -20,6 +20,11 @@ Tombstone _$TombstoneFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tombstone {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#tombstone`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
@@ -35,7 +40,11 @@ abstract class $TombstoneCopyWith<$Res> {
   factory $TombstoneCopyWith(Tombstone value, $Res Function(Tombstone) then) =
       _$TombstoneCopyWithImpl<$Res, Tombstone>;
   @useResult
-  $Res call({int seq, String did, DateTime time});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      DateTime time});
 }
 
 /// @nodoc
@@ -51,11 +60,16 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -80,7 +94,11 @@ abstract class _$$TombstoneImplCopyWith<$Res>
       __$$TombstoneImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int seq, String did, DateTime time});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      DateTime time});
 }
 
 /// @nodoc
@@ -94,11 +112,16 @@ class __$$TombstoneImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
   }) {
     return _then(_$TombstoneImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -117,14 +140,24 @@ class __$$TombstoneImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$TombstoneImpl implements _Tombstone {
   const _$TombstoneImpl(
-      {required this.seq, required this.did, required this.time});
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoSyncSubscribeReposTombstone,
+      required this.seq,
+      required this.did,
+      required this.time});
 
   factory _$TombstoneImpl.fromJson(Map<String, dynamic> json) =>
       _$$TombstoneImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#tombstone`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int seq;
   @override
@@ -134,7 +167,7 @@ class _$TombstoneImpl implements _Tombstone {
 
   @override
   String toString() {
-    return 'Tombstone(seq: $seq, did: $did, time: $time)';
+    return 'Tombstone(\$type: ${$type}, seq: $seq, did: $did, time: $time)';
   }
 
   @override
@@ -142,6 +175,7 @@ class _$TombstoneImpl implements _Tombstone {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TombstoneImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.time, time) || other.time == time));
@@ -149,7 +183,7 @@ class _$TombstoneImpl implements _Tombstone {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, seq, did, time);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, time);
 
   @JsonKey(ignore: true)
   @override
@@ -167,13 +201,21 @@ class _$TombstoneImpl implements _Tombstone {
 
 abstract class _Tombstone implements Tombstone {
   const factory _Tombstone(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final String did,
       required final DateTime time}) = _$TombstoneImpl;
 
   factory _Tombstone.fromJson(Map<String, dynamic> json) =
       _$TombstoneImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#tombstone`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get seq;
   @override

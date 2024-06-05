@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#main
 @freezed
 class CreateInviteCodesOutput with _$CreateInviteCodesOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory CreateInviteCodesOutput({
     required List<AccountCodes> codes,
   }) = _CreateInviteCodesOutput;

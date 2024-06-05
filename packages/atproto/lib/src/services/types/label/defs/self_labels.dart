@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'self_label.dart';
 
 part 'self_labels.freezed.dart';
@@ -25,8 +25,14 @@ part 'self_labels.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabels
 @freezed
 class SelfLabels with _$SelfLabels {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SelfLabels({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.defs#selfLabels`
+    @Default(comAtprotoLabelDefsSelfLabels)
+    @JsonKey(name: r'$type')
+    String $type,
     required List<SelfLabel> values,
   }) = _SelfLabels;
 

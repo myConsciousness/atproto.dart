@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 import '../../richtext/facet/main.dart';
 import 'generator_viewer_state.dart';
@@ -26,8 +27,14 @@ part 'generator_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorview
 @freezed
 class GeneratorView with _$GeneratorView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GeneratorView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#generatorView`
+    @Default(appBskyFeedDefsGeneratorView)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required String did,

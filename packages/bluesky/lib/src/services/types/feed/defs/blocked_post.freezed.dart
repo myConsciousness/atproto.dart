@@ -20,6 +20,11 @@ BlockedPost _$BlockedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockedPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
@@ -37,7 +42,11 @@ abstract class $BlockedPostCopyWith<$Res> {
           BlockedPost value, $Res Function(BlockedPost) then) =
       _$BlockedPostCopyWithImpl<$Res, BlockedPost>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -55,11 +64,16 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -92,7 +106,11 @@ abstract class _$$BlockedPostImplCopyWith<$Res>
       __$$BlockedPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool blocked, BlockedAuthor author});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool blocked,
+      BlockedAuthor author});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -109,11 +127,16 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
   }) {
     return _then(_$BlockedPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -132,16 +155,23 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$BlockedPostImpl implements _BlockedPost {
   const _$BlockedPostImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedPost,
+      @AtUriConverter() required this.uri,
       required this.blocked,
       required this.author});
 
   factory _$BlockedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -152,7 +182,7 @@ class _$BlockedPostImpl implements _BlockedPost {
 
   @override
   String toString() {
-    return 'BlockedPost(uri: $uri, blocked: $blocked, author: $author)';
+    return 'BlockedPost(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author)';
   }
 
   @override
@@ -160,6 +190,7 @@ class _$BlockedPostImpl implements _BlockedPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlockedPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
             (identical(other.author, author) || other.author == author));
@@ -167,7 +198,7 @@ class _$BlockedPostImpl implements _BlockedPost {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, blocked, author);
+  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author);
 
   @JsonKey(ignore: true)
   @override
@@ -185,13 +216,21 @@ class _$BlockedPostImpl implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final bool blocked,
       required final BlockedAuthor author}) = _$BlockedPostImpl;
 
   factory _BlockedPost.fromJson(Map<String, dynamic> json) =
       _$BlockedPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#blockedPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

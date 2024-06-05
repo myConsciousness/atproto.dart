@@ -120,7 +120,7 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordWithMediaImpl implements _RecordWithMedia {
   const _$RecordWithMediaImpl({required this.record, required this.media});
 

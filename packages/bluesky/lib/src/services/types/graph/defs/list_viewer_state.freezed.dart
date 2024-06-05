@@ -20,6 +20,11 @@ ListViewerState _$ListViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListViewerState {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listViewerState`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get blocked => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $ListViewerStateCopyWith<$Res> {
           ListViewerState value, $Res Function(ListViewerState) then) =
       _$ListViewerStateCopyWithImpl<$Res, ListViewerState>;
   @useResult
-  $Res call({bool muted, @AtUriConverter() AtUri? blocked});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      bool muted,
+      @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -52,10 +60,15 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -76,7 +89,10 @@ abstract class _$$ListViewerStateImplCopyWith<$Res>
       __$$ListViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool muted, @AtUriConverter() AtUri? blocked});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      bool muted,
+      @AtUriConverter() AtUri? blocked});
 }
 
 /// @nodoc
@@ -90,10 +106,15 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
   }) {
     return _then(_$ListViewerStateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       muted: null == muted
           ? _value.muted
           : muted // ignore: cast_nullable_to_non_nullable
@@ -108,14 +129,22 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListViewerStateImpl implements _ListViewerState {
   const _$ListViewerStateImpl(
-      {this.muted = false, @AtUriConverter() this.blocked});
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListViewerState,
+      this.muted = false,
+      @AtUriConverter() this.blocked});
 
   factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewerStateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listViewerState`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @JsonKey()
   final bool muted;
@@ -125,7 +154,7 @@ class _$ListViewerStateImpl implements _ListViewerState {
 
   @override
   String toString() {
-    return 'ListViewerState(muted: $muted, blocked: $blocked)';
+    return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked)';
   }
 
   @override
@@ -133,13 +162,14 @@ class _$ListViewerStateImpl implements _ListViewerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListViewerStateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.muted, muted) || other.muted == muted) &&
             (identical(other.blocked, blocked) || other.blocked == blocked));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, muted, blocked);
+  int get hashCode => Object.hash(runtimeType, $type, muted, blocked);
 
   @JsonKey(ignore: true)
   @override
@@ -158,12 +188,20 @@ class _$ListViewerStateImpl implements _ListViewerState {
 
 abstract class _ListViewerState implements ListViewerState {
   const factory _ListViewerState(
-      {final bool muted,
+      {@JsonKey(name: r'$type') final String $type,
+      final bool muted,
       @AtUriConverter() final AtUri? blocked}) = _$ListViewerStateImpl;
 
   factory _ListViewerState.fromJson(Map<String, dynamic> json) =
       _$ListViewerStateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listViewerState`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   bool get muted;
   @override

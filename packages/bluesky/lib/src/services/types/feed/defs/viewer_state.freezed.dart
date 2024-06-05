@@ -20,6 +20,11 @@ ViewerState _$ViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ViewerState {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#viewerState`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get repost => throw _privateConstructorUsedError;
   @AtUriConverter()
@@ -39,7 +44,8 @@ abstract class $ViewerStateCopyWith<$Res> {
       _$ViewerStateCopyWithImpl<$Res, ViewerState>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? repost,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
       bool replyDisabled});
 }
@@ -57,11 +63,16 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? repost = freezed,
     Object? like = freezed,
     Object? replyDisabled = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -87,7 +98,8 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? repost,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
       bool replyDisabled});
 }
@@ -103,11 +115,16 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? repost = freezed,
     Object? like = freezed,
     Object? replyDisabled = null,
   }) {
     return _then(_$ViewerStateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       repost: freezed == repost
           ? _value.repost
           : repost // ignore: cast_nullable_to_non_nullable
@@ -126,16 +143,23 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
-      {@AtUriConverter() this.repost,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsViewerState,
+      @AtUriConverter() this.repost,
       @AtUriConverter() this.like,
       this.replyDisabled = false});
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#viewerState`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri? repost;
@@ -148,7 +172,7 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @override
   String toString() {
-    return 'ViewerState(repost: $repost, like: $like, replyDisabled: $replyDisabled)';
+    return 'ViewerState(\$type: ${$type}, repost: $repost, like: $like, replyDisabled: $replyDisabled)';
   }
 
   @override
@@ -156,6 +180,7 @@ class _$ViewerStateImpl implements _ViewerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ViewerStateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.replyDisabled, replyDisabled) ||
@@ -164,7 +189,8 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, repost, like, replyDisabled);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, repost, like, replyDisabled);
 
   @JsonKey(ignore: true)
   @override
@@ -182,13 +208,21 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {@AtUriConverter() final AtUri? repost,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() final AtUri? repost,
       @AtUriConverter() final AtUri? like,
       final bool replyDisabled}) = _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#viewerState`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri? get repost;

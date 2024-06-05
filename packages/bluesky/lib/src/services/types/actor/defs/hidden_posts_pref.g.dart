@@ -14,6 +14,8 @@ _$HiddenPostsPrefImpl _$$HiddenPostsPrefImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$HiddenPostsPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsHiddenPostsPref),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
@@ -27,5 +29,6 @@ _$HiddenPostsPrefImpl _$$HiddenPostsPrefImplFromJson(Map json) =>
 Map<String, dynamic> _$$HiddenPostsPrefImplToJson(
         _$HiddenPostsPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'items': instance.items.map(const AtUriConverter().toJson).toList(),
     };

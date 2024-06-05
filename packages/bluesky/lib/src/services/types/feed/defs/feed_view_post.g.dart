@@ -13,6 +13,8 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FeedViewPostImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsFeedViewPost),
           post: $checkedConvert('post',
               (v) => PostView.fromJson(Map<String, Object?>.from(v as Map))),
           reply: $checkedConvert(
@@ -29,6 +31,7 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'post': instance.post.toJson(),
   };
 

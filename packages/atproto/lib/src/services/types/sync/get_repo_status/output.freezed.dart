@@ -159,7 +159,7 @@ class __$$GetRepoStatusOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetRepoStatusOutputImpl implements _GetRepoStatusOutput {
   const _$GetRepoStatusOutputImpl(
       {required this.did,

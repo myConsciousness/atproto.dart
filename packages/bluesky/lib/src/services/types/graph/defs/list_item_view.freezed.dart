@@ -20,6 +20,11 @@ ListItemView _$ListItemViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListItemView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listItemView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   ProfileView get subject => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $ListItemViewCopyWith<$Res> {
           ListItemView value, $Res Function(ListItemView) then) =
       _$ListItemViewCopyWithImpl<$Res, ListItemView>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, ProfileView subject});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      ProfileView subject});
 
   $ProfileViewCopyWith<$Res> get subject;
 }
@@ -54,10 +62,15 @@ class _$ListItemViewCopyWithImpl<$Res, $Val extends ListItemView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? subject = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -86,7 +99,10 @@ abstract class _$$ListItemViewImplCopyWith<$Res>
       __$$ListItemViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, ProfileView subject});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      ProfileView subject});
 
   @override
   $ProfileViewCopyWith<$Res> get subject;
@@ -103,10 +119,15 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? subject = null,
   }) {
     return _then(_$ListItemViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -121,14 +142,22 @@ class __$$ListItemViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListItemViewImpl implements _ListItemView {
   const _$ListItemViewImpl(
-      {@AtUriConverter() required this.uri, required this.subject});
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListItemView,
+      @AtUriConverter() required this.uri,
+      required this.subject});
 
   factory _$ListItemViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListItemViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listItemView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -137,7 +166,7 @@ class _$ListItemViewImpl implements _ListItemView {
 
   @override
   String toString() {
-    return 'ListItemView(uri: $uri, subject: $subject)';
+    return 'ListItemView(\$type: ${$type}, uri: $uri, subject: $subject)';
   }
 
   @override
@@ -145,13 +174,14 @@ class _$ListItemViewImpl implements _ListItemView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListItemViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.subject, subject) || other.subject == subject));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, subject);
+  int get hashCode => Object.hash(runtimeType, $type, uri, subject);
 
   @JsonKey(ignore: true)
   @override
@@ -169,12 +199,20 @@ class _$ListItemViewImpl implements _ListItemView {
 
 abstract class _ListItemView implements ListItemView {
   const factory _ListItemView(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final ProfileView subject}) = _$ListItemViewImpl;
 
   factory _ListItemView.fromJson(Map<String, dynamic> json) =
       _$ListItemViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#listItemView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

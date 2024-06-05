@@ -110,7 +110,7 @@ class __$$UploadBlobOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$UploadBlobOutputImpl implements _UploadBlobOutput {
   const _$UploadBlobOutputImpl({@BlobConverter() required this.blob});
 

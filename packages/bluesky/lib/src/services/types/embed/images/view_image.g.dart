@@ -14,6 +14,8 @@ _$ImagesViewImageImpl _$$ImagesViewImageImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ImagesViewImageImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedImagesViewImage),
           thumb: $checkedConvert('thumb', (v) => v as String),
           fullsize: $checkedConvert('fullsize', (v) => v as String),
           alt: $checkedConvert('alt', (v) => v as String),
@@ -31,6 +33,7 @@ _$ImagesViewImageImpl _$$ImagesViewImageImplFromJson(Map json) =>
 Map<String, dynamic> _$$ImagesViewImageImplToJson(
     _$ImagesViewImageImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'thumb': instance.thumb,
     'fullsize': instance.fullsize,
     'alt': instance.alt,

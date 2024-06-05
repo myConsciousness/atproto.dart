@@ -207,7 +207,7 @@ class __$$CheckAccountStatusOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
   const _$CheckAccountStatusOutputImpl(
       {required this.activated,

@@ -125,7 +125,7 @@ class __$$SearchPostsSkeletonOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
   const _$SearchPostsSkeletonOutputImpl(
       {this.cursor,

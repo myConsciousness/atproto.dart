@@ -20,6 +20,11 @@ ListRule _$ListRuleFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRule {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate#listRule`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
 
@@ -34,7 +39,8 @@ abstract class $ListRuleCopyWith<$Res> {
   factory $ListRuleCopyWith(ListRule value, $Res Function(ListRule) then) =
       _$ListRuleCopyWithImpl<$Res, ListRule>;
   @useResult
-  $Res call({@AtUriConverter() AtUri list});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri list});
 }
 
 /// @nodoc
@@ -50,9 +56,14 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? list = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -69,7 +80,8 @@ abstract class _$$ListRuleImplCopyWith<$Res>
       __$$ListRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri list});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri list});
 }
 
 /// @nodoc
@@ -83,9 +95,14 @@ class __$$ListRuleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? list = null,
   }) {
     return _then(_$ListRuleImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       list: null == list
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
@@ -96,20 +113,28 @@ class __$$ListRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListRuleImpl implements _ListRule {
-  const _$ListRuleImpl({@AtUriConverter() required this.list});
+  const _$ListRuleImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateListRule,
+      @AtUriConverter() required this.list});
 
   factory _$ListRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRuleImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate#listRule`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri list;
 
   @override
   String toString() {
-    return 'ListRule(list: $list)';
+    return 'ListRule(\$type: ${$type}, list: $list)';
   }
 
   @override
@@ -117,12 +142,13 @@ class _$ListRuleImpl implements _ListRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListRuleImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.list, list) || other.list == list));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, list);
+  int get hashCode => Object.hash(runtimeType, $type, list);
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +165,20 @@ class _$ListRuleImpl implements _ListRule {
 }
 
 abstract class _ListRule implements ListRule {
-  const factory _ListRule({@AtUriConverter() required final AtUri list}) =
-      _$ListRuleImpl;
+  const factory _ListRule(
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri list}) = _$ListRuleImpl;
 
   factory _ListRule.fromJson(Map<String, dynamic> json) =
       _$ListRuleImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate#listRule`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get list;

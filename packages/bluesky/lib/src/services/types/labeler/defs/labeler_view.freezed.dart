@@ -20,6 +20,11 @@ LabelerView _$LabelerViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -42,7 +47,8 @@ abstract class $LabelerViewCopyWith<$Res> {
       _$LabelerViewCopyWithImpl<$Res, LabelerView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       int likeCount,
@@ -67,6 +73,7 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? creator = null,
@@ -76,6 +83,10 @@ class _$LabelerViewCopyWithImpl<$Res, $Val extends LabelerView>
     Object? labels = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -133,7 +144,8 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileView creator,
       int likeCount,
@@ -158,6 +170,7 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? creator = null,
@@ -167,6 +180,10 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
     Object? labels = null,
   }) {
     return _then(_$LabelerViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -201,10 +218,11 @@ class __$$LabelerViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelerViewImpl implements _LabelerView {
   const _$LabelerViewImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerView,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.creator,
       this.likeCount = 0,
@@ -216,6 +234,12 @@ class _$LabelerViewImpl implements _LabelerView {
   factory _$LabelerViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -242,7 +266,7 @@ class _$LabelerViewImpl implements _LabelerView {
 
   @override
   String toString() {
-    return 'LabelerView(uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt, labels: $labels)';
+    return 'LabelerView(\$type: ${$type}, uri: $uri, cid: $cid, creator: $creator, likeCount: $likeCount, viewer: $viewer, indexedAt: $indexedAt, labels: $labels)';
   }
 
   @override
@@ -250,6 +274,7 @@ class _$LabelerViewImpl implements _LabelerView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.creator, creator) || other.creator == creator) &&
@@ -263,8 +288,16 @@ class _$LabelerViewImpl implements _LabelerView {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid, creator, likeCount,
-      viewer, indexedAt, const DeepCollectionEquality().hash(_labels));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      uri,
+      cid,
+      creator,
+      likeCount,
+      viewer,
+      indexedAt,
+      const DeepCollectionEquality().hash(_labels));
 
   @JsonKey(ignore: true)
   @override
@@ -282,7 +315,8 @@ class _$LabelerViewImpl implements _LabelerView {
 
 abstract class _LabelerView implements LabelerView {
   const factory _LabelerView(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView creator,
       final int likeCount,
@@ -293,6 +327,13 @@ abstract class _LabelerView implements LabelerView {
   factory _LabelerView.fromJson(Map<String, dynamic> json) =
       _$LabelerViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

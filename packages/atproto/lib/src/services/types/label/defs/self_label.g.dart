@@ -13,6 +13,8 @@ _$SelfLabelImpl _$$SelfLabelImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$SelfLabelImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoLabelDefsSelfLabel),
           val: $checkedConvert('val', (v) => v as String),
         );
         return val;
@@ -21,5 +23,6 @@ _$SelfLabelImpl _$$SelfLabelImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$SelfLabelImplToJson(_$SelfLabelImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'val': instance.val,
     };

@@ -147,7 +147,7 @@ class __$$GetRecommendedDidCredentialsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetRecommendedDidCredentialsOutputImpl
     implements _GetRecommendedDidCredentialsOutput {
   const _$GetRecommendedDidCredentialsOutputImpl(

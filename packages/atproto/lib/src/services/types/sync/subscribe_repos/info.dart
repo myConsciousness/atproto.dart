@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'info_name.dart';
 
 part 'info.freezed.dart';
@@ -23,8 +23,14 @@ part 'info.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#info
 @freezed
 class Info with _$Info {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Info({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#info`
+    @Default(comAtprotoSyncSubscribeReposInfo)
+    @JsonKey(name: r'$type')
+    String $type,
     @InfoNameConverter() required InfoName name,
     String? message,
   }) = _Info;

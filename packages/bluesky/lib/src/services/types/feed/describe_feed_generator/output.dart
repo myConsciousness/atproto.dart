@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -24,7 +23,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#main
 @freezed
 class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory DescribeFeedGeneratorOutput({
     required String did,
     required List<Feed> feeds,

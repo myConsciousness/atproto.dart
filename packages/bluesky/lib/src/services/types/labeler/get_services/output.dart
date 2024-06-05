@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -20,7 +19,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices#main
 @freezed
 class GetServicesOutput with _$GetServicesOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetServicesOutput({
     required List<String> views,
   }) = _GetServicesOutput;

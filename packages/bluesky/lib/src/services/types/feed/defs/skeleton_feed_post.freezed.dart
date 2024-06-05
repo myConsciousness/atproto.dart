@@ -20,6 +20,11 @@ SkeletonFeedPost _$SkeletonFeedPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonFeedPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonFeedPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
@@ -40,7 +45,10 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
       _$SkeletonFeedPostCopyWithImpl<$Res, SkeletonFeedPost>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post, String? reason, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri post,
+      String? reason,
+      String? feedContext});
 }
 
 /// @nodoc
@@ -56,11 +64,16 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? reason = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -86,7 +99,10 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post, String? reason, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri post,
+      String? reason,
+      String? feedContext});
 }
 
 /// @nodoc
@@ -100,11 +116,16 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? reason = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_$SkeletonFeedPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -123,14 +144,23 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   const _$SkeletonFeedPostImpl(
-      {@AtUriConverter() required this.post, this.reason, this.feedContext});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsSkeletonFeedPost,
+      @AtUriConverter() required this.post,
+      this.reason,
+      this.feedContext});
 
   factory _$SkeletonFeedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonFeedPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonFeedPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri post;
@@ -143,7 +173,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
   @override
   String toString() {
-    return 'SkeletonFeedPost(post: $post, reason: $reason, feedContext: $feedContext)';
+    return 'SkeletonFeedPost(\$type: ${$type}, post: $post, reason: $reason, feedContext: $feedContext)';
   }
 
   @override
@@ -151,6 +181,7 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonFeedPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reason, reason) || other.reason == reason) &&
             (identical(other.feedContext, feedContext) ||
@@ -159,7 +190,8 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, post, reason, feedContext);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, post, reason, feedContext);
 
   @JsonKey(ignore: true)
   @override
@@ -178,13 +210,21 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
 abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   const factory _SkeletonFeedPost(
-      {@AtUriConverter() required final AtUri post,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri post,
       final String? reason,
       final String? feedContext}) = _$SkeletonFeedPostImpl;
 
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) =
       _$SkeletonFeedPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#skeletonFeedPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get post;

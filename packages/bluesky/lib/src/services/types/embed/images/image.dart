@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'aspect_ratio.dart';
 
 part 'image.freezed.dart';
@@ -23,8 +24,12 @@ part 'image.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#image
 @freezed
 class ImagesImage with _$ImagesImage {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ImagesImage({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.images#image`
+    @Default(appBskyEmbedImagesImage) @JsonKey(name: r'$type') String $type,
     @BlobConverter() required Blob image,
 
     /// Alt text description of the image, for accessibility.

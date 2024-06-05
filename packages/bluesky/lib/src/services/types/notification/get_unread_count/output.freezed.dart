@@ -97,7 +97,7 @@ class __$$GetUnreadCountOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetUnreadCountOutputImpl implements _GetUnreadCountOutput {
   const _$GetUnreadCountOutputImpl({required this.count});
 

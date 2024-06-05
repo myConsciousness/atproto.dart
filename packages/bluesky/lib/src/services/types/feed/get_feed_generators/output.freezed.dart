@@ -101,7 +101,7 @@ class __$$GetFeedGeneratorsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetFeedGeneratorsOutputImpl implements _GetFeedGeneratorsOutput {
   const _$GetFeedGeneratorsOutputImpl(
       {required final List<GeneratorView> feeds})

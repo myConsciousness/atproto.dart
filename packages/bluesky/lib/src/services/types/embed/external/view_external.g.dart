@@ -14,6 +14,8 @@ _$ExternalViewExternalImpl _$$ExternalViewExternalImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ExternalViewExternalImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyEmbedExternalViewExternal),
           uri: $checkedConvert('uri', (v) => v as String),
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -26,6 +28,7 @@ _$ExternalViewExternalImpl _$$ExternalViewExternalImplFromJson(Map json) =>
 Map<String, dynamic> _$$ExternalViewExternalImplToJson(
     _$ExternalViewExternalImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'uri': instance.uri,
     'title': instance.title,
     'description': instance.description,

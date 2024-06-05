@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -20,7 +19,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs#main
 @freezed
 class ListBlobsOutput with _$ListBlobsOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ListBlobsOutput({
     String? cursor,
     required List<String> cids,

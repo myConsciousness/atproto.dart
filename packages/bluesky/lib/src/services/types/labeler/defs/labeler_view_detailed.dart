@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 import 'labeler_policies.dart';
 import 'labeler_viewer_state.dart';
@@ -26,8 +27,14 @@ part 'labeler_view_detailed.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerviewdetailed
 @freezed
 class LabelerViewDetailed with _$LabelerViewDetailed {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerViewDetailed({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.labeler.defs#labelerViewDetailed`
+    @Default(appBskyLabelerDefsLabelerViewDetailed)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView creator,

@@ -20,6 +20,11 @@ Create _$CreateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Create {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#create`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get collection => throw _privateConstructorUsedError;
   String? get rkey => throw _privateConstructorUsedError;
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
@@ -34,7 +39,11 @@ abstract class $CreateCopyWith<$Res> {
   factory $CreateCopyWith(Create value, $Res Function(Create) then) =
       _$CreateCopyWithImpl<$Res, Create>;
   @useResult
-  $Res call({String collection, String? rkey, Map<String, dynamic> value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String collection,
+      String? rkey,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -50,11 +59,16 @@ class _$CreateCopyWithImpl<$Res, $Val extends Create>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = freezed,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -78,7 +92,11 @@ abstract class _$$CreateImplCopyWith<$Res> implements $CreateCopyWith<$Res> {
       __$$CreateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String collection, String? rkey, Map<String, dynamic> value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String collection,
+      String? rkey,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -92,11 +110,16 @@ class __$$CreateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = freezed,
     Object? value = null,
   }) {
     return _then(_$CreateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -115,10 +138,11 @@ class __$$CreateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateImpl implements _Create {
   const _$CreateImpl(
-      {required this.collection,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesCreate,
+      required this.collection,
       this.rkey,
       required final Map<String, dynamic> value})
       : _value = value;
@@ -126,6 +150,12 @@ class _$CreateImpl implements _Create {
   factory _$CreateImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#create`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String collection;
   @override
@@ -140,7 +170,7 @@ class _$CreateImpl implements _Create {
 
   @override
   String toString() {
-    return 'Create(collection: $collection, rkey: $rkey, value: $value)';
+    return 'Create(\$type: ${$type}, collection: $collection, rkey: $rkey, value: $value)';
   }
 
   @override
@@ -148,6 +178,7 @@ class _$CreateImpl implements _Create {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
@@ -156,7 +187,7 @@ class _$CreateImpl implements _Create {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, collection, rkey,
+  int get hashCode => Object.hash(runtimeType, $type, collection, rkey,
       const DeepCollectionEquality().hash(_value));
 
   @JsonKey(ignore: true)
@@ -175,12 +206,20 @@ class _$CreateImpl implements _Create {
 
 abstract class _Create implements Create {
   const factory _Create(
-      {required final String collection,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String collection,
       final String? rkey,
       required final Map<String, dynamic> value}) = _$CreateImpl;
 
   factory _Create.fromJson(Map<String, dynamic> json) = _$CreateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#create`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get collection;
   @override

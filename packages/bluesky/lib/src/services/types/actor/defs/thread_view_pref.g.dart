@@ -13,6 +13,8 @@ _$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ThreadViewPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsThreadViewPref),
           sort: $checkedConvert(
               'sort',
               (v) => _$JsonConverterFromJson<String, ThreadViewPrefSort>(
@@ -26,7 +28,9 @@ _$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ThreadViewPrefImplToJson(
     _$ThreadViewPrefImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

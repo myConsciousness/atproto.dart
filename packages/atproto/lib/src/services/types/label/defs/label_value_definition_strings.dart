@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'label_value_definition_strings.freezed.dart';
 part 'label_value_definition_strings.g.dart';
@@ -22,8 +24,15 @@ part 'label_value_definition_strings.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinitionstrings
 @freezed
 class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory LabelValueDefinitionStrings({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.defs#labelValueDefinitionStrings`
+    @Default(comAtprotoLabelDefsLabelValueDefinitionStrings)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The code of the language these strings are written in.
     required String lang,
 

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'feed_view_pref.freezed.dart';
 part 'feed_view_pref.g.dart';
@@ -20,8 +22,15 @@ part 'feed_view_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#feedviewpref
 @freezed
 class FeedViewPref with _$FeedViewPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FeedViewPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#feedViewPref`
+    @Default(appBskyActorDefsFeedViewPref)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The URI of the feed, or an identifier which describes the feed.
     required String feed,
 

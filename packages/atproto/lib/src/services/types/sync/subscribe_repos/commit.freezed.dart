@@ -20,6 +20,12 @@ Commit _$CommitFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Commit {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#commit`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The stream sequence number of this message.
   int get seq => throw _privateConstructorUsedError;
 
@@ -63,7 +69,8 @@ abstract class $CommitCopyWith<$Res> {
       _$CommitCopyWithImpl<$Res, Commit>;
   @useResult
   $Res call(
-      {int seq,
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
       bool rebase,
       bool tooBig,
       String repo,
@@ -90,6 +97,7 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? rebase = null,
     Object? tooBig = null,
@@ -104,6 +112,10 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
     Object? time = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -164,7 +176,8 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int seq,
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
       bool rebase,
       bool tooBig,
       String repo,
@@ -189,6 +202,7 @@ class __$$CommitImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? rebase = null,
     Object? tooBig = null,
@@ -203,6 +217,10 @@ class __$$CommitImplCopyWithImpl<$Res>
     Object? time = null,
   }) {
     return _then(_$CommitImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -257,10 +275,11 @@ class __$$CommitImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CommitImpl implements _Commit {
   const _$CommitImpl(
-      {required this.seq,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposCommit,
+      required this.seq,
       required this.rebase,
       required this.tooBig,
       required this.repo,
@@ -278,6 +297,13 @@ class _$CommitImpl implements _Commit {
 
   factory _$CommitImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommitImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#commit`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The stream sequence number of this message.
   @override
@@ -344,7 +370,7 @@ class _$CommitImpl implements _Commit {
 
   @override
   String toString() {
-    return 'Commit(seq: $seq, rebase: $rebase, tooBig: $tooBig, repo: $repo, commit: $commit, prev: $prev, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time)';
+    return 'Commit(\$type: ${$type}, seq: $seq, rebase: $rebase, tooBig: $tooBig, repo: $repo, commit: $commit, prev: $prev, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time)';
   }
 
   @override
@@ -352,6 +378,7 @@ class _$CommitImpl implements _Commit {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CommitImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.rebase, rebase) || other.rebase == rebase) &&
             (identical(other.tooBig, tooBig) || other.tooBig == tooBig) &&
@@ -370,6 +397,7 @@ class _$CommitImpl implements _Commit {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       seq,
       rebase,
       tooBig,
@@ -399,7 +427,8 @@ class _$CommitImpl implements _Commit {
 
 abstract class _Commit implements Commit {
   const factory _Commit(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final bool rebase,
       required final bool tooBig,
       required final String repo,
@@ -414,6 +443,13 @@ abstract class _Commit implements Commit {
 
   factory _Commit.fromJson(Map<String, dynamic> json) = _$CommitImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#commit`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The stream sequence number of this message.

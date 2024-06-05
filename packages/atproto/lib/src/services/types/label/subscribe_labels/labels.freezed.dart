@@ -20,6 +20,11 @@ Labels _$LabelsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Labels {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#labels`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   List<Label> get labels => throw _privateConstructorUsedError;
 
@@ -33,7 +38,8 @@ abstract class $LabelsCopyWith<$Res> {
   factory $LabelsCopyWith(Labels value, $Res Function(Labels) then) =
       _$LabelsCopyWithImpl<$Res, Labels>;
   @useResult
-  $Res call({int seq, List<Label> labels});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, int seq, List<Label> labels});
 }
 
 /// @nodoc
@@ -49,10 +55,15 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? labels = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -72,7 +83,8 @@ abstract class _$$LabelsImplCopyWith<$Res> implements $LabelsCopyWith<$Res> {
       __$$LabelsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int seq, List<Label> labels});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, int seq, List<Label> labels});
 }
 
 /// @nodoc
@@ -86,10 +98,15 @@ class __$$LabelsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? labels = null,
   }) {
     return _then(_$LabelsImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -104,14 +121,24 @@ class __$$LabelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelsImpl implements _Labels {
-  const _$LabelsImpl({required this.seq, required final List<Label> labels})
+  const _$LabelsImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoLabelSubscribeLabelsLabels,
+      required this.seq,
+      required final List<Label> labels})
       : _labels = labels;
 
   factory _$LabelsImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelsImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#labels`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int seq;
   final List<Label> _labels;
@@ -124,7 +151,7 @@ class _$LabelsImpl implements _Labels {
 
   @override
   String toString() {
-    return 'Labels(seq: $seq, labels: $labels)';
+    return 'Labels(\$type: ${$type}, seq: $seq, labels: $labels)';
   }
 
   @override
@@ -132,6 +159,7 @@ class _$LabelsImpl implements _Labels {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelsImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             const DeepCollectionEquality().equals(other._labels, _labels));
   }
@@ -139,7 +167,7 @@ class _$LabelsImpl implements _Labels {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, seq, const DeepCollectionEquality().hash(_labels));
+      runtimeType, $type, seq, const DeepCollectionEquality().hash(_labels));
 
   @JsonKey(ignore: true)
   @override
@@ -157,11 +185,19 @@ class _$LabelsImpl implements _Labels {
 
 abstract class _Labels implements Labels {
   const factory _Labels(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final List<Label> labels}) = _$LabelsImpl;
 
   factory _Labels.fromJson(Map<String, dynamic> json) = _$LabelsImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.subscribeLabels#labels`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get seq;
   @override

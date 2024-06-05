@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'labeler_viewer_state.freezed.dart';
 part 'labeler_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerviewerstate
 @freezed
 class LabelerViewerState with _$LabelerViewerState {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerViewerState({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.labeler.defs#labelerViewerState`
+    @Default(appBskyLabelerDefsLabelerViewerState)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() AtUri? like,
   }) = _LabelerViewerState;
 

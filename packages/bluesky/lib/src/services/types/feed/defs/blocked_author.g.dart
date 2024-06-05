@@ -13,6 +13,8 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$BlockedAuthorImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedAuthor),
           did: $checkedConvert('did', (v) => v as String),
           viewer: $checkedConvert(
               'viewer',
@@ -26,6 +28,7 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
       'viewer': instance.viewer.toJson(),
     };

@@ -13,6 +13,8 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ViewerStateImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsViewerState),
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
               'mutedByList',
@@ -46,6 +48,7 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'muted': instance.muted,
   };
 

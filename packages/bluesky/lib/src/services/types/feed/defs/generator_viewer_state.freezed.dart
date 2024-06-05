@@ -20,6 +20,11 @@ GeneratorViewerState _$GeneratorViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorViewerState {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorViewerState`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $GeneratorViewerStateCopyWith<$Res> {
           $Res Function(GeneratorViewerState) then) =
       _$GeneratorViewerStateCopyWithImpl<$Res, GeneratorViewerState>;
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -52,9 +58,14 @@ class _$GeneratorViewerStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? like = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -71,7 +82,8 @@ abstract class _$$GeneratorViewerStateImplCopyWith<$Res>
       __$$GeneratorViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -85,9 +97,14 @@ class __$$GeneratorViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? like = freezed,
   }) {
     return _then(_$GeneratorViewerStateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -98,20 +115,29 @@ class __$$GeneratorViewerStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
-  const _$GeneratorViewerStateImpl({@AtUriConverter() this.like});
+  const _$GeneratorViewerStateImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyFeedDefsGeneratorViewerState,
+      @AtUriConverter() this.like});
 
   factory _$GeneratorViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorViewerStateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorViewerState`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri? like;
 
   @override
   String toString() {
-    return 'GeneratorViewerState(like: $like)';
+    return 'GeneratorViewerState(\$type: ${$type}, like: $like)';
   }
 
   @override
@@ -119,12 +145,13 @@ class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeneratorViewerStateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.like, like) || other.like == like));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, like);
+  int get hashCode => Object.hash(runtimeType, $type, like);
 
   @JsonKey(ignore: true)
   @override
@@ -143,12 +170,20 @@ class _$GeneratorViewerStateImpl implements _GeneratorViewerState {
 }
 
 abstract class _GeneratorViewerState implements GeneratorViewerState {
-  const factory _GeneratorViewerState({@AtUriConverter() final AtUri? like}) =
-      _$GeneratorViewerStateImpl;
+  const factory _GeneratorViewerState(
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() final AtUri? like}) = _$GeneratorViewerStateImpl;
 
   factory _GeneratorViewerState.fromJson(Map<String, dynamic> json) =
       _$GeneratorViewerStateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorViewerState`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri? get like;

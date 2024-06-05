@@ -20,6 +20,11 @@ ExternalView _$ExternalViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ExternalView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#view`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   ExternalViewExternal get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,8 @@ abstract class $ExternalViewCopyWith<$Res> {
           ExternalView value, $Res Function(ExternalView) then) =
       _$ExternalViewCopyWithImpl<$Res, ExternalView>;
   @useResult
-  $Res call({ExternalViewExternal external});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, ExternalViewExternal external});
 
   $ExternalViewExternalCopyWith<$Res> get external;
 }
@@ -52,9 +58,14 @@ class _$ExternalViewCopyWithImpl<$Res, $Val extends ExternalView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? external = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
@@ -79,7 +90,8 @@ abstract class _$$ExternalViewImplCopyWith<$Res>
       __$$ExternalViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ExternalViewExternal external});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, ExternalViewExternal external});
 
   @override
   $ExternalViewExternalCopyWith<$Res> get external;
@@ -96,9 +108,14 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? external = null,
   }) {
     return _then(_$ExternalViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
@@ -109,19 +126,27 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ExternalViewImpl implements _ExternalView {
-  const _$ExternalViewImpl({required this.external});
+  const _$ExternalViewImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternalView,
+      required this.external});
 
   factory _$ExternalViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#view`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final ExternalViewExternal external;
 
   @override
   String toString() {
-    return 'ExternalView(external: $external)';
+    return 'ExternalView(\$type: ${$type}, external: $external)';
   }
 
   @override
@@ -129,13 +154,14 @@ class _$ExternalViewImpl implements _ExternalView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExternalViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.external, external) ||
                 other.external == external));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, external);
+  int get hashCode => Object.hash(runtimeType, $type, external);
 
   @JsonKey(ignore: true)
   @override
@@ -152,12 +178,20 @@ class _$ExternalViewImpl implements _ExternalView {
 }
 
 abstract class _ExternalView implements ExternalView {
-  const factory _ExternalView({required final ExternalViewExternal external}) =
-      _$ExternalViewImpl;
+  const factory _ExternalView(
+      {@JsonKey(name: r'$type') final String $type,
+      required final ExternalViewExternal external}) = _$ExternalViewImpl;
 
   factory _ExternalView.fromJson(Map<String, dynamic> json) =
       _$ExternalViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#view`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   ExternalViewExternal get external;
   @override

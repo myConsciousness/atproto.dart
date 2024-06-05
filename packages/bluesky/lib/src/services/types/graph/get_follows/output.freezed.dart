@@ -131,7 +131,7 @@ class __$$GetFollowsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetFollowsOutputImpl implements _GetFollowsOutput {
   const _$GetFollowsOutputImpl(
       {required this.subject,

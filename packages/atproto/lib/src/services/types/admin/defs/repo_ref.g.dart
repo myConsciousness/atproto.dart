@@ -13,6 +13,8 @@ _$RepoRefImpl _$$RepoRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RepoRefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoAdminDefsRepoRef),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
@@ -21,5 +23,6 @@ _$RepoRefImpl _$$RepoRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RepoRefImplToJson(_$RepoRefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
     };

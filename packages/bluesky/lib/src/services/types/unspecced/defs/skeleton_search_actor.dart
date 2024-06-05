@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'skeleton_search_actor.freezed.dart';
 part 'skeleton_search_actor.g.dart';
@@ -20,8 +22,14 @@ part 'skeleton_search_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
 class SkeletonSearchActor with _$SkeletonSearchActor {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchActor({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.unspecced.defs#skeletonSearchActor`
+    @Default(appBskyUnspeccedDefsSkeletonSearchActor)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
   }) = _SkeletonSearchActor;
 

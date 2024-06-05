@@ -13,6 +13,8 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$PostViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsPostView),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -57,6 +59,7 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),

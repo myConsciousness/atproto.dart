@@ -20,6 +20,11 @@ AdultContentPref _$AdultContentPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AdultContentPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#adultContentPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   bool get enabled => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $AdultContentPrefCopyWith<$Res> {
           AdultContentPref value, $Res Function(AdultContentPref) then) =
       _$AdultContentPrefCopyWithImpl<$Res, AdultContentPref>;
   @useResult
-  $Res call({bool enabled});
+  $Res call({@JsonKey(name: r'$type') String $type, bool enabled});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$AdultContentPrefCopyWithImpl<$Res, $Val extends AdultContentPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? enabled = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       enabled: null == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$AdultContentPrefImplCopyWith<$Res>
       __$$AdultContentPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool enabled});
+  $Res call({@JsonKey(name: r'$type') String $type, bool enabled});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? enabled = null,
   }) {
     return _then(_$AdultContentPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       enabled: null == enabled
           ? _value.enabled
           : enabled // ignore: cast_nullable_to_non_nullable
@@ -96,19 +111,27 @@ class __$$AdultContentPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$AdultContentPrefImpl implements _AdultContentPref {
-  const _$AdultContentPrefImpl({required this.enabled});
+  const _$AdultContentPrefImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsAdultContentPref,
+      required this.enabled});
 
   factory _$AdultContentPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$AdultContentPrefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#adultContentPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final bool enabled;
 
   @override
   String toString() {
-    return 'AdultContentPref(enabled: $enabled)';
+    return 'AdultContentPref(\$type: ${$type}, enabled: $enabled)';
   }
 
   @override
@@ -116,12 +139,13 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AdultContentPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.enabled, enabled) || other.enabled == enabled));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, enabled);
+  int get hashCode => Object.hash(runtimeType, $type, enabled);
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +163,20 @@ class _$AdultContentPrefImpl implements _AdultContentPref {
 }
 
 abstract class _AdultContentPref implements AdultContentPref {
-  const factory _AdultContentPref({required final bool enabled}) =
-      _$AdultContentPrefImpl;
+  const factory _AdultContentPref(
+      {@JsonKey(name: r'$type') final String $type,
+      required final bool enabled}) = _$AdultContentPrefImpl;
 
   factory _AdultContentPref.fromJson(Map<String, dynamic> json) =
       _$AdultContentPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#adultContentPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   bool get enabled;
   @override

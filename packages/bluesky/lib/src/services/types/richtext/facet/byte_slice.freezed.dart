@@ -20,6 +20,11 @@ FacetByteSlice _$FacetByteSliceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetByteSlice {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#byteSlice`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get byteStart => throw _privateConstructorUsedError;
   int get byteEnd => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $FacetByteSliceCopyWith<$Res> {
           FacetByteSlice value, $Res Function(FacetByteSlice) then) =
       _$FacetByteSliceCopyWithImpl<$Res, FacetByteSlice>;
   @useResult
-  $Res call({int byteStart, int byteEnd});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, int byteStart, int byteEnd});
 }
 
 /// @nodoc
@@ -51,10 +57,15 @@ class _$FacetByteSliceCopyWithImpl<$Res, $Val extends FacetByteSlice>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? byteStart = null,
     Object? byteEnd = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       byteStart: null == byteStart
           ? _value.byteStart
           : byteStart // ignore: cast_nullable_to_non_nullable
@@ -75,7 +86,8 @@ abstract class _$$FacetByteSliceImplCopyWith<$Res>
       __$$FacetByteSliceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int byteStart, int byteEnd});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, int byteStart, int byteEnd});
 }
 
 /// @nodoc
@@ -89,10 +101,15 @@ class __$$FacetByteSliceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? byteStart = null,
     Object? byteEnd = null,
   }) {
     return _then(_$FacetByteSliceImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       byteStart: null == byteStart
           ? _value.byteStart
           : byteStart // ignore: cast_nullable_to_non_nullable
@@ -107,13 +124,22 @@ class __$$FacetByteSliceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FacetByteSliceImpl implements _FacetByteSlice {
-  const _$FacetByteSliceImpl({required this.byteStart, required this.byteEnd});
+  const _$FacetByteSliceImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetByteSlice,
+      required this.byteStart,
+      required this.byteEnd});
 
   factory _$FacetByteSliceImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetByteSliceImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#byteSlice`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int byteStart;
   @override
@@ -121,7 +147,7 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
 
   @override
   String toString() {
-    return 'FacetByteSlice(byteStart: $byteStart, byteEnd: $byteEnd)';
+    return 'FacetByteSlice(\$type: ${$type}, byteStart: $byteStart, byteEnd: $byteEnd)';
   }
 
   @override
@@ -129,6 +155,7 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FacetByteSliceImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.byteStart, byteStart) ||
                 other.byteStart == byteStart) &&
             (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd));
@@ -136,7 +163,7 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, byteStart, byteEnd);
+  int get hashCode => Object.hash(runtimeType, $type, byteStart, byteEnd);
 
   @JsonKey(ignore: true)
   @override
@@ -155,12 +182,20 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
 
 abstract class _FacetByteSlice implements FacetByteSlice {
   const factory _FacetByteSlice(
-      {required final int byteStart,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int byteStart,
       required final int byteEnd}) = _$FacetByteSliceImpl;
 
   factory _FacetByteSlice.fromJson(Map<String, dynamic> json) =
       _$FacetByteSliceImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#byteSlice`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get byteStart;
   @override

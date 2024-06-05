@@ -13,6 +13,8 @@ _$FeedViewPrefImpl _$$FeedViewPrefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FeedViewPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsFeedViewPref),
           feed: $checkedConvert('feed', (v) => v as String),
           hideReplies:
               $checkedConvert('hideReplies', (v) => v as bool? ?? false),
@@ -31,6 +33,7 @@ _$FeedViewPrefImpl _$$FeedViewPrefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FeedViewPrefImplToJson(_$FeedViewPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'feed': instance.feed,
       'hideReplies': instance.hideReplies,
       'hideRepliesByUnfollowed': instance.hideRepliesByUnfollowed,

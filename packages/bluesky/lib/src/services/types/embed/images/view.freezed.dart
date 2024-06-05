@@ -20,6 +20,11 @@ ImagesView _$ImagesViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#view`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   List<ImagesViewImage> get images => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,8 @@ abstract class $ImagesViewCopyWith<$Res> {
           ImagesView value, $Res Function(ImagesView) then) =
       _$ImagesViewCopyWithImpl<$Res, ImagesView>;
   @useResult
-  $Res call({List<ImagesViewImage> images});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, List<ImagesViewImage> images});
 }
 
 /// @nodoc
@@ -50,9 +56,14 @@ class _$ImagesViewCopyWithImpl<$Res, $Val extends ImagesView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? images = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       images: null == images
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
@@ -69,7 +80,8 @@ abstract class _$$ImagesViewImplCopyWith<$Res>
       __$$ImagesViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ImagesViewImage> images});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, List<ImagesViewImage> images});
 }
 
 /// @nodoc
@@ -83,9 +95,14 @@ class __$$ImagesViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? images = null,
   }) {
     return _then(_$ImagesViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       images: null == images
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
@@ -96,14 +113,22 @@ class __$$ImagesViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ImagesViewImpl implements _ImagesView {
-  const _$ImagesViewImpl({required final List<ImagesViewImage> images})
+  const _$ImagesViewImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesView,
+      required final List<ImagesViewImage> images})
       : _images = images;
 
   factory _$ImagesViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#view`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<ImagesViewImage> _images;
   @override
   List<ImagesViewImage> get images {
@@ -114,7 +139,7 @@ class _$ImagesViewImpl implements _ImagesView {
 
   @override
   String toString() {
-    return 'ImagesView(images: $images)';
+    return 'ImagesView(\$type: ${$type}, images: $images)';
   }
 
   @override
@@ -122,13 +147,14 @@ class _$ImagesViewImpl implements _ImagesView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImagesViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._images, _images));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_images));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_images));
 
   @JsonKey(ignore: true)
   @override
@@ -145,12 +171,20 @@ class _$ImagesViewImpl implements _ImagesView {
 }
 
 abstract class _ImagesView implements ImagesView {
-  const factory _ImagesView({required final List<ImagesViewImage> images}) =
-      _$ImagesViewImpl;
+  const factory _ImagesView(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<ImagesViewImage> images}) = _$ImagesViewImpl;
 
   factory _ImagesView.fromJson(Map<String, dynamic> json) =
       _$ImagesViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#view`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   List<ImagesViewImage> get images;
   @override

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'app_password.freezed.dart';
 part 'app_password.g.dart';
@@ -20,8 +22,14 @@ part 'app_password.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword#apppassword
 @freezed
 class AppPassword with _$AppPassword {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory AppPassword({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.server.createAppPassword#appPassword`
+    @Default(comAtprotoServerCreateAppPasswordAppPassword)
+    @JsonKey(name: r'$type')
+    String $type,
     required String name,
     required String password,
     required DateTime createdAt,

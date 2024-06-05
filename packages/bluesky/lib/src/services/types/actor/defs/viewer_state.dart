@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../graph/defs/list_view_basic.dart';
 
 part 'viewer_state.freezed.dart';
@@ -25,8 +26,12 @@ part 'viewer_state.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#viewerstate
 @freezed
 class ViewerState with _$ViewerState {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#viewerState`
+    @Default(appBskyActorDefsViewerState) @JsonKey(name: r'$type') String $type,
     @Default(false) bool muted,
     ListViewBasic? mutedByList,
     @Default(false) bool blockedBy,

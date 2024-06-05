@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -24,7 +23,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList#main
 @freezed
 class GetListOutput with _$GetListOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetListOutput({
     String? cursor,
     required ListView list,

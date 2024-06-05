@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'labeler_pref_item.freezed.dart';
 part 'labeler_pref_item.g.dart';
@@ -20,8 +22,14 @@ part 'labeler_pref_item.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerprefitem
 @freezed
 class LabelerPrefItem with _$LabelerPrefItem {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory LabelerPrefItem({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#labelerPrefItem`
+    @Default(appBskyActorDefsLabelerPrefItem)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
   }) = _LabelerPrefItem;
 

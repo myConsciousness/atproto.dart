@@ -107,7 +107,7 @@ class __$$ListRecordsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListRecordsOutputImpl implements _ListRecordsOutput {
   const _$ListRecordsOutputImpl(
       {this.cursor, required final List<Record> records})

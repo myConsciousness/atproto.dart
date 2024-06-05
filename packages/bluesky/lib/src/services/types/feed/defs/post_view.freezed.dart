@@ -20,6 +20,11 @@ PostView _$PostViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#postView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -46,7 +51,8 @@ abstract class $PostViewCopyWith<$Res> {
       _$PostViewCopyWithImpl<$Res, PostView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
@@ -77,6 +83,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? author = null,
@@ -91,6 +98,10 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
     Object? threadgate = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -176,7 +187,8 @@ abstract class _$$PostViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
@@ -208,6 +220,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? author = null,
@@ -222,6 +235,10 @@ class __$$PostViewImplCopyWithImpl<$Res>
     Object? threadgate = null,
   }) {
     return _then(_$PostViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -276,10 +293,11 @@ class __$$PostViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$PostViewImpl implements _PostView {
   const _$PostViewImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsPostView,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       required final Map<String, dynamic> record,
@@ -297,6 +315,12 @@ class _$PostViewImpl implements _PostView {
   factory _$PostViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#postView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -343,7 +367,7 @@ class _$PostViewImpl implements _PostView {
 
   @override
   String toString() {
-    return 'PostView(uri: $uri, cid: $cid, author: $author, record: $record, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, threadgate: $threadgate)';
+    return 'PostView(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, record: $record, embed: $embed, replyCount: $replyCount, repostCount: $repostCount, likeCount: $likeCount, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, threadgate: $threadgate)';
   }
 
   @override
@@ -351,6 +375,7 @@ class _$PostViewImpl implements _PostView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.author, author) || other.author == author) &&
@@ -374,6 +399,7 @@ class _$PostViewImpl implements _PostView {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       uri,
       cid,
       author,
@@ -403,7 +429,8 @@ class _$PostViewImpl implements _PostView {
 
 abstract class _PostView implements PostView {
   const factory _PostView(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileViewBasic author,
       required final Map<String, dynamic> record,
@@ -419,6 +446,13 @@ abstract class _PostView implements PostView {
   factory _PostView.fromJson(Map<String, dynamic> json) =
       _$PostViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#postView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

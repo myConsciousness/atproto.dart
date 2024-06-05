@@ -20,6 +20,11 @@ Identity _$IdentityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Identity {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#identity`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
@@ -38,7 +43,12 @@ abstract class $IdentityCopyWith<$Res> {
   factory $IdentityCopyWith(Identity value, $Res Function(Identity) then) =
       _$IdentityCopyWithImpl<$Res, Identity>;
   @useResult
-  $Res call({int seq, String did, DateTime time, String? handle});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      DateTime time,
+      String? handle});
 }
 
 /// @nodoc
@@ -54,12 +64,17 @@ class _$IdentityCopyWithImpl<$Res, $Val extends Identity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
     Object? handle = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -88,7 +103,12 @@ abstract class _$$IdentityImplCopyWith<$Res>
       __$$IdentityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int seq, String did, DateTime time, String? handle});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      String did,
+      DateTime time,
+      String? handle});
 }
 
 /// @nodoc
@@ -102,12 +122,17 @@ class __$$IdentityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
     Object? handle = freezed,
   }) {
     return _then(_$IdentityImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -130,14 +155,25 @@ class __$$IdentityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$IdentityImpl implements _Identity {
   const _$IdentityImpl(
-      {required this.seq, required this.did, required this.time, this.handle});
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoSyncSubscribeReposIdentity,
+      required this.seq,
+      required this.did,
+      required this.time,
+      this.handle});
 
   factory _$IdentityImpl.fromJson(Map<String, dynamic> json) =>
       _$$IdentityImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#identity`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int seq;
   @override
@@ -151,7 +187,7 @@ class _$IdentityImpl implements _Identity {
 
   @override
   String toString() {
-    return 'Identity(seq: $seq, did: $did, time: $time, handle: $handle)';
+    return 'Identity(\$type: ${$type}, seq: $seq, did: $did, time: $time, handle: $handle)';
   }
 
   @override
@@ -159,6 +195,7 @@ class _$IdentityImpl implements _Identity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$IdentityImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.time, time) || other.time == time) &&
@@ -167,7 +204,7 @@ class _$IdentityImpl implements _Identity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, seq, did, time, handle);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, time, handle);
 
   @JsonKey(ignore: true)
   @override
@@ -185,7 +222,8 @@ class _$IdentityImpl implements _Identity {
 
 abstract class _Identity implements Identity {
   const factory _Identity(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final String did,
       required final DateTime time,
       final String? handle}) = _$IdentityImpl;
@@ -193,6 +231,13 @@ abstract class _Identity implements Identity {
   factory _Identity.fromJson(Map<String, dynamic> json) =
       _$IdentityImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#identity`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get seq;
   @override

@@ -20,6 +20,11 @@ ExternalViewExternal _$ExternalViewExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ExternalViewExternal {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#viewExternal`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
@@ -37,7 +42,12 @@ abstract class $ExternalViewExternalCopyWith<$Res> {
           $Res Function(ExternalViewExternal) then) =
       _$ExternalViewExternalCopyWithImpl<$Res, ExternalViewExternal>;
   @useResult
-  $Res call({String uri, String title, String description, String? thumb});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
+      String title,
+      String description,
+      String? thumb});
 }
 
 /// @nodoc
@@ -54,12 +64,17 @@ class _$ExternalViewExternalCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -88,7 +103,12 @@ abstract class _$$ExternalViewExternalImplCopyWith<$Res>
       __$$ExternalViewExternalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String uri, String title, String description, String? thumb});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
+      String title,
+      String description,
+      String? thumb});
 }
 
 /// @nodoc
@@ -102,12 +122,17 @@ class __$$ExternalViewExternalImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
   }) {
     return _then(_$ExternalViewExternalImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -130,10 +155,11 @@ class __$$ExternalViewExternalImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ExternalViewExternalImpl implements _ExternalViewExternal {
   const _$ExternalViewExternalImpl(
-      {required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternalViewExternal,
+      required this.uri,
       required this.title,
       required this.description,
       this.thumb});
@@ -141,6 +167,12 @@ class _$ExternalViewExternalImpl implements _ExternalViewExternal {
   factory _$ExternalViewExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalViewExternalImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#viewExternal`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String uri;
   @override
@@ -152,7 +184,7 @@ class _$ExternalViewExternalImpl implements _ExternalViewExternal {
 
   @override
   String toString() {
-    return 'ExternalViewExternal(uri: $uri, title: $title, description: $description, thumb: $thumb)';
+    return 'ExternalViewExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb)';
   }
 
   @override
@@ -160,6 +192,7 @@ class _$ExternalViewExternalImpl implements _ExternalViewExternal {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExternalViewExternalImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -169,7 +202,8 @@ class _$ExternalViewExternalImpl implements _ExternalViewExternal {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, title, description, thumb);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, uri, title, description, thumb);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +223,8 @@ class _$ExternalViewExternalImpl implements _ExternalViewExternal {
 
 abstract class _ExternalViewExternal implements ExternalViewExternal {
   const factory _ExternalViewExternal(
-      {required final String uri,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String uri,
       required final String title,
       required final String description,
       final String? thumb}) = _$ExternalViewExternalImpl;
@@ -197,6 +232,13 @@ abstract class _ExternalViewExternal implements ExternalViewExternal {
   factory _ExternalViewExternal.fromJson(Map<String, dynamic> json) =
       _$ExternalViewExternalImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external#viewExternal`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get uri;
   @override

@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'profile_associated_chat.dart';
 
 part 'profile_associated.freezed.dart';
@@ -23,8 +23,14 @@ part 'profile_associated.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociated
 @freezed
 class ProfileAssociated with _$ProfileAssociated {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociated({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#profileAssociated`
+    @Default(appBskyActorDefsProfileAssociated)
+    @JsonKey(name: r'$type')
+    String $type,
     @Default(0) int lists,
     @Default(0) int feedgens,
     @Default(false) bool labeler,

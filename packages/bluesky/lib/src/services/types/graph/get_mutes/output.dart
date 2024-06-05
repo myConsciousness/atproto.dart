@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes#main
 @freezed
 class GetMutesOutput with _$GetMutesOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetMutesOutput({
     String? cursor,
     required List<ProfileView> mutes,

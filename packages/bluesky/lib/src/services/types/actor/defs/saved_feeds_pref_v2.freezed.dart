@@ -20,6 +20,11 @@ SavedFeedsPrefV2 _$SavedFeedsPrefV2FromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavedFeedsPrefV2 {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPrefV2`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   List<SavedFeed> get items => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $SavedFeedsPrefV2CopyWith<$Res> {
           SavedFeedsPrefV2 value, $Res Function(SavedFeedsPrefV2) then) =
       _$SavedFeedsPrefV2CopyWithImpl<$Res, SavedFeedsPrefV2>;
   @useResult
-  $Res call({List<SavedFeed> items});
+  $Res call({@JsonKey(name: r'$type') String $type, List<SavedFeed> items});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$SavedFeedsPrefV2CopyWithImpl<$Res, $Val extends SavedFeedsPrefV2>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$SavedFeedsPrefV2ImplCopyWith<$Res>
       __$$SavedFeedsPrefV2ImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<SavedFeed> items});
+  $Res call({@JsonKey(name: r'$type') String $type, List<SavedFeed> items});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$SavedFeedsPrefV2ImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? items = null,
   }) {
     return _then(_$SavedFeedsPrefV2Impl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       items: null == items
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
@@ -96,14 +111,22 @@ class __$$SavedFeedsPrefV2ImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
-  const _$SavedFeedsPrefV2Impl({required final List<SavedFeed> items})
+  const _$SavedFeedsPrefV2Impl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeedsPrefV2,
+      required final List<SavedFeed> items})
       : _items = items;
 
   factory _$SavedFeedsPrefV2Impl.fromJson(Map<String, dynamic> json) =>
       _$$SavedFeedsPrefV2ImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPrefV2`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<SavedFeed> _items;
   @override
   List<SavedFeed> get items {
@@ -114,7 +137,7 @@ class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
 
   @override
   String toString() {
-    return 'SavedFeedsPrefV2(items: $items)';
+    return 'SavedFeedsPrefV2(\$type: ${$type}, items: $items)';
   }
 
   @override
@@ -122,13 +145,14 @@ class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavedFeedsPrefV2Impl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._items, _items));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_items));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_items));
 
   @JsonKey(ignore: true)
   @override
@@ -146,12 +170,20 @@ class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
 }
 
 abstract class _SavedFeedsPrefV2 implements SavedFeedsPrefV2 {
-  const factory _SavedFeedsPrefV2({required final List<SavedFeed> items}) =
-      _$SavedFeedsPrefV2Impl;
+  const factory _SavedFeedsPrefV2(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<SavedFeed> items}) = _$SavedFeedsPrefV2Impl;
 
   factory _SavedFeedsPrefV2.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPrefV2Impl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPrefV2`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   List<SavedFeed> get items;
   @override

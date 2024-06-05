@@ -13,6 +13,8 @@ _$ReasonRepostImpl _$$ReasonRepostImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ReasonRepostImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsReasonRepost),
           by: $checkedConvert(
               'by',
               (v) => ProfileViewBasic.fromJson(
@@ -26,6 +28,7 @@ _$ReasonRepostImpl _$$ReasonRepostImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ReasonRepostImplToJson(_$ReasonRepostImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'by': instance.by.toJson(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

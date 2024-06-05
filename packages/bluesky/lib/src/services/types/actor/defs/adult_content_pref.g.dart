@@ -14,6 +14,8 @@ _$AdultContentPrefImpl _$$AdultContentPrefImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$AdultContentPrefImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsAdultContentPref),
           enabled: $checkedConvert('enabled', (v) => v as bool),
         );
         return val;
@@ -23,5 +25,6 @@ _$AdultContentPrefImpl _$$AdultContentPrefImplFromJson(Map json) =>
 Map<String, dynamic> _$$AdultContentPrefImplToJson(
         _$AdultContentPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'enabled': instance.enabled,
     };

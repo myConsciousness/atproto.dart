@@ -14,6 +14,8 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$RecordViewRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewRecord),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -52,6 +54,7 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$RecordViewRecordImplToJson(
         _$RecordViewRecordImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'author': instance.author.toJson(),

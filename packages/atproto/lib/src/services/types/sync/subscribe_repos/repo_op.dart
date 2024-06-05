@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'repo_op_action.dart';
 
 part 'repo_op.freezed.dart';
@@ -25,8 +25,14 @@ part 'repo_op.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#repoop
 @freezed
 class RepoOp with _$RepoOp {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RepoOp({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#repoOp`
+    @Default(comAtprotoSyncSubscribeReposRepoOp)
+    @JsonKey(name: r'$type')
+    String $type,
     @RepoOpActionConverter() required RepoOpAction action,
     required String path,
 

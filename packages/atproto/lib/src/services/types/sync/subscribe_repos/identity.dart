@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'identity.freezed.dart';
 part 'identity.g.dart';
@@ -22,8 +24,14 @@ part 'identity.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#identity
 @freezed
 class Identity with _$Identity {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Identity({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#identity`
+    @Default(comAtprotoSyncSubscribeReposIdentity)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required String did,
     required DateTime time,

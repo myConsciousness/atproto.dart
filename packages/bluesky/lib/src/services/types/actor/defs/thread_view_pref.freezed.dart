@@ -20,6 +20,12 @@ ThreadViewPref _$ThreadViewPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadViewPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#threadViewPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Sorting mode for threads.
   @ThreadViewPrefSortConverter()
   ThreadViewPrefSort? get sort => throw _privateConstructorUsedError;
@@ -40,7 +46,8 @@ abstract class $ThreadViewPrefCopyWith<$Res> {
       _$ThreadViewPrefCopyWithImpl<$Res, ThreadViewPref>;
   @useResult
   $Res call(
-      {@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
+      {@JsonKey(name: r'$type') String $type,
+      @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers});
 
   $ThreadViewPrefSortCopyWith<$Res>? get sort;
@@ -59,10 +66,15 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? sort = freezed,
     Object? prioritizeFollowedUsers = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
@@ -96,7 +108,8 @@ abstract class _$$ThreadViewPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
+      {@JsonKey(name: r'$type') String $type,
+      @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
       bool prioritizeFollowedUsers});
 
   @override
@@ -114,10 +127,15 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? sort = freezed,
     Object? prioritizeFollowedUsers = null,
   }) {
     return _then(_$ThreadViewPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
@@ -132,14 +150,22 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ThreadViewPrefImpl implements _ThreadViewPref {
   const _$ThreadViewPrefImpl(
-      {@ThreadViewPrefSortConverter() this.sort,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsThreadViewPref,
+      @ThreadViewPrefSortConverter() this.sort,
       this.prioritizeFollowedUsers = false});
 
   factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#threadViewPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Sorting mode for threads.
   @override
@@ -153,7 +179,7 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
   @override
   String toString() {
-    return 'ThreadViewPref(sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers)';
+    return 'ThreadViewPref(\$type: ${$type}, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers)';
   }
 
   @override
@@ -161,6 +187,7 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadViewPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.sort, sort) || other.sort == sort) &&
             (identical(
                     other.prioritizeFollowedUsers, prioritizeFollowedUsers) ||
@@ -169,7 +196,8 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, sort, prioritizeFollowedUsers);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, sort, prioritizeFollowedUsers);
 
   @JsonKey(ignore: true)
   @override
@@ -188,12 +216,20 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
 abstract class _ThreadViewPref implements ThreadViewPref {
   const factory _ThreadViewPref(
-      {@ThreadViewPrefSortConverter() final ThreadViewPrefSort? sort,
+      {@JsonKey(name: r'$type') final String $type,
+      @ThreadViewPrefSortConverter() final ThreadViewPrefSort? sort,
       final bool prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
 
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#threadViewPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Sorting mode for threads.

@@ -20,6 +20,11 @@ Account _$AccountFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Account {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#account`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
@@ -42,7 +47,8 @@ abstract class $AccountCopyWith<$Res> {
       _$AccountCopyWithImpl<$Res, Account>;
   @useResult
   $Res call(
-      {int seq,
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
       String did,
       DateTime time,
       bool active,
@@ -64,6 +70,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
@@ -71,6 +78,10 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -115,7 +126,8 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int seq,
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
       String did,
       DateTime time,
       bool active,
@@ -136,6 +148,7 @@ class __$$AccountImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? seq = null,
     Object? did = null,
     Object? time = null,
@@ -143,6 +156,10 @@ class __$$AccountImplCopyWithImpl<$Res>
     Object? status = freezed,
   }) {
     return _then(_$AccountImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       seq: null == seq
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
@@ -169,10 +186,12 @@ class __$$AccountImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$AccountImpl implements _Account {
   const _$AccountImpl(
-      {required this.seq,
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoSyncSubscribeReposAccount,
+      required this.seq,
       required this.did,
       required this.time,
       required this.active,
@@ -181,6 +200,12 @@ class _$AccountImpl implements _Account {
   factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#account`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int seq;
   @override
@@ -199,7 +224,7 @@ class _$AccountImpl implements _Account {
 
   @override
   String toString() {
-    return 'Account(seq: $seq, did: $did, time: $time, active: $active, status: $status)';
+    return 'Account(\$type: ${$type}, seq: $seq, did: $did, time: $time, active: $active, status: $status)';
   }
 
   @override
@@ -207,6 +232,7 @@ class _$AccountImpl implements _Account {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.time, time) || other.time == time) &&
@@ -216,7 +242,8 @@ class _$AccountImpl implements _Account {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, seq, did, time, active, status);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, seq, did, time, active, status);
 
   @JsonKey(ignore: true)
   @override
@@ -234,7 +261,8 @@ class _$AccountImpl implements _Account {
 
 abstract class _Account implements Account {
   const factory _Account(
-      {required final int seq,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
       required final String did,
       required final DateTime time,
       required final bool active,
@@ -242,6 +270,13 @@ abstract class _Account implements Account {
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.subscribeRepos#account`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get seq;
   @override

@@ -20,6 +20,11 @@ NotFoundPost _$NotFoundPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#notFoundPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $NotFoundPostCopyWith<$Res> {
           NotFoundPost value, $Res Function(NotFoundPost) then) =
       _$NotFoundPostCopyWithImpl<$Res, NotFoundPost>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool notFound});
 }
 
 /// @nodoc
@@ -52,10 +60,15 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -76,7 +89,10 @@ abstract class _$$NotFoundPostImplCopyWith<$Res>
       __$$NotFoundPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      bool notFound});
 }
 
 /// @nodoc
@@ -90,10 +106,15 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
   }) {
     return _then(_$NotFoundPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -108,14 +129,22 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$NotFoundPostImpl implements _NotFoundPost {
   const _$NotFoundPostImpl(
-      {@AtUriConverter() required this.uri, required this.notFound});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsNotFoundPost,
+      @AtUriConverter() required this.uri,
+      required this.notFound});
 
   factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotFoundPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#notFoundPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -124,7 +153,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
   @override
   String toString() {
-    return 'NotFoundPost(uri: $uri, notFound: $notFound)';
+    return 'NotFoundPost(\$type: ${$type}, uri: $uri, notFound: $notFound)';
   }
 
   @override
@@ -132,6 +161,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotFoundPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.notFound, notFound) ||
                 other.notFound == notFound));
@@ -139,7 +169,7 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, notFound);
+  int get hashCode => Object.hash(runtimeType, $type, uri, notFound);
 
   @JsonKey(ignore: true)
   @override
@@ -157,12 +187,20 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final bool notFound}) = _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
       _$NotFoundPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#notFoundPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

@@ -13,6 +13,8 @@ _$FacetMentionImpl _$$FacetMentionImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetMentionImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacetMention),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
@@ -21,5 +23,6 @@ _$FacetMentionImpl _$$FacetMentionImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FacetMentionImplToJson(_$FacetMentionImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
     };

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'mention.freezed.dart';
 part 'mention.g.dart';
@@ -22,8 +24,12 @@ part 'mention.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
 class FacetMention with _$FacetMention {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FacetMention({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.richtext.facet#mention`
+    @Default(appBskyRichtextFacetMention) @JsonKey(name: r'$type') String $type,
     required String did,
   }) = _FacetMention;
 

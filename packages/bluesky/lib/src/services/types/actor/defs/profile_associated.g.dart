@@ -14,6 +14,8 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ProfileAssociatedImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyActorDefsProfileAssociated),
           lists: $checkedConvert('lists', (v) => (v as num?)?.toInt() ?? 0),
           feedgens:
               $checkedConvert('feedgens', (v) => (v as num?)?.toInt() ?? 0),
@@ -32,6 +34,7 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
 Map<String, dynamic> _$$ProfileAssociatedImplToJson(
     _$ProfileAssociatedImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'lists': instance.lists,
     'feedgens': instance.feedgens,
     'labeler': instance.labeler,

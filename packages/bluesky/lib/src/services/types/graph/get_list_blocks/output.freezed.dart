@@ -107,7 +107,7 @@ class __$$GetListBlocksOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetListBlocksOutputImpl implements _GetListBlocksOutput {
   const _$GetListBlocksOutputImpl(
       {this.cursor, required final List<ListView> lists})

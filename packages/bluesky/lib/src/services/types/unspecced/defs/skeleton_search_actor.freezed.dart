@@ -20,6 +20,11 @@ SkeletonSearchActor _$SkeletonSearchActorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonSearchActor {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchActor`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $SkeletonSearchActorCopyWith<$Res> {
           SkeletonSearchActor value, $Res Function(SkeletonSearchActor) then) =
       _$SkeletonSearchActorCopyWithImpl<$Res, SkeletonSearchActor>;
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$SkeletonSearchActorCopyWithImpl<$Res, $Val extends SkeletonSearchActor>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$SkeletonSearchActorImplCopyWith<$Res>
       __$$SkeletonSearchActorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_$SkeletonSearchActorImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -96,19 +111,28 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
-  const _$SkeletonSearchActorImpl({required this.did});
+  const _$SkeletonSearchActorImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyUnspeccedDefsSkeletonSearchActor,
+      required this.did});
 
   factory _$SkeletonSearchActorImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonSearchActorImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchActor`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
   @override
   String toString() {
-    return 'SkeletonSearchActor(did: $did)';
+    return 'SkeletonSearchActor(\$type: ${$type}, did: $did)';
   }
 
   @override
@@ -116,12 +140,13 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonSearchActorImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(runtimeType, $type, did);
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +164,20 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
 }
 
 abstract class _SkeletonSearchActor implements SkeletonSearchActor {
-  const factory _SkeletonSearchActor({required final String did}) =
-      _$SkeletonSearchActorImpl;
+  const factory _SkeletonSearchActor(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did}) = _$SkeletonSearchActorImpl;
 
   factory _SkeletonSearchActor.fromJson(Map<String, dynamic> json) =
       _$SkeletonSearchActorImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchActor`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

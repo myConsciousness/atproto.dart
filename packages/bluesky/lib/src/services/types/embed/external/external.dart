@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'external.freezed.dart';
 part 'external.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
 @freezed
 class ExternalExternal with _$ExternalExternal {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ExternalExternal({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.external#external`
+    @Default(appBskyEmbedExternalExternal)
+    @JsonKey(name: r'$type')
+    String $type,
     required String uri,
     required String title,
     required String description,

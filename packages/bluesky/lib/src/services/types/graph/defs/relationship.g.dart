@@ -13,6 +13,8 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RelationshipImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphDefsRelationship),
           did: $checkedConvert('did', (v) => v as String),
           following: $checkedConvert(
               'following',
@@ -29,6 +31,7 @@ _$RelationshipImpl _$$RelationshipImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RelationshipImplToJson(_$RelationshipImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
   };
 

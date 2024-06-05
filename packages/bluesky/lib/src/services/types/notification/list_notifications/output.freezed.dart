@@ -125,7 +125,7 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   const _$ListNotificationsOutputImpl(
       {this.cursor,

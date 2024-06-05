@@ -13,6 +13,8 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoListRecordsRecord),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -25,6 +27,7 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'value': instance.value,

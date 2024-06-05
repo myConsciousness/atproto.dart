@@ -13,6 +13,8 @@ _$ListRuleImpl _$$ListRuleImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ListRuleImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedThreadgateListRule),
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -22,5 +24,6 @@ _$ListRuleImpl _$$ListRuleImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListRuleImplToJson(_$ListRuleImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'list': const AtUriConverter().toJson(instance.list),
     };

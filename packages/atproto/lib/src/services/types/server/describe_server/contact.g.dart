@@ -13,6 +13,8 @@ _$ContactImpl _$$ContactImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ContactImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoServerDescribeServerContact),
           email: $checkedConvert('email', (v) => v as String?),
         );
         return val;
@@ -20,7 +22,9 @@ _$ContactImpl _$$ContactImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$ContactImplToJson(_$ContactImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

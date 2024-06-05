@@ -108,7 +108,7 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   const _$GetInviteCodesOutputImpl(
       {this.cursor, required final List<InviteCode> codes})

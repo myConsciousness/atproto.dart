@@ -20,6 +20,11 @@ NotFoundActor _$NotFoundActorFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$NotFoundActor {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#notFoundActor`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get actor => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $NotFoundActorCopyWith<$Res> {
           NotFoundActor value, $Res Function(NotFoundActor) then) =
       _$NotFoundActorCopyWithImpl<$Res, NotFoundActor>;
   @useResult
-  $Res call({String actor, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String actor, bool notFound});
 }
 
 /// @nodoc
@@ -51,10 +57,15 @@ class _$NotFoundActorCopyWithImpl<$Res, $Val extends NotFoundActor>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? actor = null,
     Object? notFound = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
@@ -75,7 +86,8 @@ abstract class _$$NotFoundActorImplCopyWith<$Res>
       __$$NotFoundActorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String actor, bool notFound});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String actor, bool notFound});
 }
 
 /// @nodoc
@@ -89,10 +101,15 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? actor = null,
     Object? notFound = null,
   }) {
     return _then(_$NotFoundActorImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       actor: null == actor
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
@@ -107,13 +124,22 @@ class __$$NotFoundActorImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$NotFoundActorImpl implements _NotFoundActor {
-  const _$NotFoundActorImpl({required this.actor, required this.notFound});
+  const _$NotFoundActorImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsNotFoundActor,
+      required this.actor,
+      required this.notFound});
 
   factory _$NotFoundActorImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotFoundActorImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#notFoundActor`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String actor;
   @override
@@ -121,7 +147,7 @@ class _$NotFoundActorImpl implements _NotFoundActor {
 
   @override
   String toString() {
-    return 'NotFoundActor(actor: $actor, notFound: $notFound)';
+    return 'NotFoundActor(\$type: ${$type}, actor: $actor, notFound: $notFound)';
   }
 
   @override
@@ -129,6 +155,7 @@ class _$NotFoundActorImpl implements _NotFoundActor {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotFoundActorImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.actor, actor) || other.actor == actor) &&
             (identical(other.notFound, notFound) ||
                 other.notFound == notFound));
@@ -136,7 +163,7 @@ class _$NotFoundActorImpl implements _NotFoundActor {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, actor, notFound);
+  int get hashCode => Object.hash(runtimeType, $type, actor, notFound);
 
   @JsonKey(ignore: true)
   @override
@@ -154,12 +181,20 @@ class _$NotFoundActorImpl implements _NotFoundActor {
 
 abstract class _NotFoundActor implements NotFoundActor {
   const factory _NotFoundActor(
-      {required final String actor,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String actor,
       required final bool notFound}) = _$NotFoundActorImpl;
 
   factory _NotFoundActor.fromJson(Map<String, dynamic> json) =
       _$NotFoundActorImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#notFoundActor`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get actor;
   @override

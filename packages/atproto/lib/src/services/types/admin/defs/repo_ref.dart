@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'repo_ref.freezed.dart';
 part 'repo_ref.g.dart';
@@ -20,8 +22,12 @@ part 'repo_ref.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#reporef
 @freezed
 class RepoRef with _$RepoRef {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RepoRef({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.admin.defs#repoRef`
+    @Default(comAtprotoAdminDefsRepoRef) @JsonKey(name: r'$type') String $type,
     required String did,
   }) = _RepoRef;
 

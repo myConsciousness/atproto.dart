@@ -123,7 +123,7 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
   const _$CheckSignupQueueOutputImpl(
       {required this.activated,

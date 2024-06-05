@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/viewer_state.dart';
 
 part 'blocked_author.freezed.dart';
@@ -23,8 +23,14 @@ part 'blocked_author.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedauthor
 @freezed
 class BlockedAuthor with _$BlockedAuthor {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory BlockedAuthor({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#blockedAuthor`
+    @Default(appBskyFeedDefsBlockedAuthor)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
     @Default(ViewerState()) ViewerState viewer,
   }) = _BlockedAuthor;

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'status_attr.freezed.dart';
 part 'status_attr.g.dart';
@@ -20,8 +22,14 @@ part 'status_attr.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#statusattr
 @freezed
 class StatusAttr with _$StatusAttr {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory StatusAttr({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.admin.defs#statusAttr`
+    @Default(comAtprotoAdminDefsStatusAttr)
+    @JsonKey(name: r'$type')
+    String $type,
     required bool applied,
     String? ref,
   }) = _StatusAttr;

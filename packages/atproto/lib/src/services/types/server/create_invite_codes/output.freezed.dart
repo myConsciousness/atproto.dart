@@ -101,7 +101,7 @@ class __$$CreateInviteCodesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
   const _$CreateInviteCodesOutputImpl({required final List<AccountCodes> codes})
       : _codes = codes;

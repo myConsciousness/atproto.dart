@@ -14,6 +14,8 @@ _$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SkeletonFeedPostImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsSkeletonFeedPost),
           post: $checkedConvert(
               'post', (v) => const AtUriConverter().fromJson(v as String)),
           reason: $checkedConvert('reason', (v) => v as String?),
@@ -26,6 +28,7 @@ _$SkeletonFeedPostImpl _$$SkeletonFeedPostImplFromJson(Map json) =>
 Map<String, dynamic> _$$SkeletonFeedPostImplToJson(
     _$SkeletonFeedPostImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'post': const AtUriConverter().toJson(instance.post),
   };
 

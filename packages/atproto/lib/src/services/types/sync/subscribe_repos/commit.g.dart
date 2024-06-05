@@ -13,6 +13,8 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$CommitImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoSyncSubscribeReposCommit),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           rebase: $checkedConvert('rebase', (v) => v as bool),
           tooBig: $checkedConvert('tooBig', (v) => v as bool),
@@ -41,6 +43,7 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'seq': instance.seq,
     'rebase': instance.rebase,
     'tooBig': instance.tooBig,

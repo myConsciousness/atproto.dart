@@ -20,6 +20,11 @@ Entity _$EntityFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Entity {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#entity`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   TextSlice get index => throw _privateConstructorUsedError;
 
   /// Expected values are 'mention' and 'link'.
@@ -36,7 +41,11 @@ abstract class $EntityCopyWith<$Res> {
   factory $EntityCopyWith(Entity value, $Res Function(Entity) then) =
       _$EntityCopyWithImpl<$Res, Entity>;
   @useResult
-  $Res call({TextSlice index, String type, String value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      TextSlice index,
+      String type,
+      String value});
 
   $TextSliceCopyWith<$Res> get index;
 }
@@ -54,11 +63,16 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? index = null,
     Object? type = null,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -90,7 +104,11 @@ abstract class _$$EntityImplCopyWith<$Res> implements $EntityCopyWith<$Res> {
       __$$EntityImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({TextSlice index, String type, String value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      TextSlice index,
+      String type,
+      String value});
 
   @override
   $TextSliceCopyWith<$Res> get index;
@@ -107,11 +125,16 @@ class __$$EntityImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? index = null,
     Object? type = null,
     Object? value = null,
   }) {
     return _then(_$EntityImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -130,14 +153,23 @@ class __$$EntityImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$EntityImpl implements _Entity {
   const _$EntityImpl(
-      {required this.index, required this.type, required this.value});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedPostEntity,
+      required this.index,
+      required this.type,
+      required this.value});
 
   factory _$EntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$EntityImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#entity`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final TextSlice index;
 
@@ -149,7 +181,7 @@ class _$EntityImpl implements _Entity {
 
   @override
   String toString() {
-    return 'Entity(index: $index, type: $type, value: $value)';
+    return 'Entity(\$type: ${$type}, index: $index, type: $type, value: $value)';
   }
 
   @override
@@ -157,6 +189,7 @@ class _$EntityImpl implements _Entity {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$EntityImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value));
@@ -164,7 +197,7 @@ class _$EntityImpl implements _Entity {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, index, type, value);
+  int get hashCode => Object.hash(runtimeType, $type, index, type, value);
 
   @JsonKey(ignore: true)
   @override
@@ -182,12 +215,20 @@ class _$EntityImpl implements _Entity {
 
 abstract class _Entity implements Entity {
   const factory _Entity(
-      {required final TextSlice index,
+      {@JsonKey(name: r'$type') final String $type,
+      required final TextSlice index,
       required final String type,
       required final String value}) = _$EntityImpl;
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$EntityImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#entity`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   TextSlice get index;
   @override

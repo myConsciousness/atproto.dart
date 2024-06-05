@@ -13,6 +13,8 @@ _$RepoBlobRefImpl _$$RepoBlobRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RepoBlobRefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoAdminDefsRepoBlobRef),
           did: $checkedConvert('did', (v) => v as String),
           cid: $checkedConvert('cid', (v) => v as String),
           recordUri: $checkedConvert(
@@ -26,6 +28,7 @@ _$RepoBlobRefImpl _$$RepoBlobRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RepoBlobRefImplToJson(_$RepoBlobRefImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
     'cid': instance.cid,
   };

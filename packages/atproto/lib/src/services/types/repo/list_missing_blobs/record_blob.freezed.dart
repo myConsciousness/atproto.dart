@@ -20,6 +20,11 @@ RecordBlob _$RecordBlobFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordBlob {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listMissingBlobs#recordBlob`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get recordUri => throw _privateConstructorUsedError;
@@ -36,7 +41,10 @@ abstract class $RecordBlobCopyWith<$Res> {
           RecordBlob value, $Res Function(RecordBlob) then) =
       _$RecordBlobCopyWithImpl<$Res, RecordBlob>;
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri recordUri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String cid,
+      @AtUriConverter() AtUri recordUri});
 }
 
 /// @nodoc
@@ -52,10 +60,15 @@ class _$RecordBlobCopyWithImpl<$Res, $Val extends RecordBlob>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? cid = null,
     Object? recordUri = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -76,7 +89,10 @@ abstract class _$$RecordBlobImplCopyWith<$Res>
       __$$RecordBlobImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, @AtUriConverter() AtUri recordUri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String cid,
+      @AtUriConverter() AtUri recordUri});
 }
 
 /// @nodoc
@@ -90,10 +106,15 @@ class __$$RecordBlobImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? cid = null,
     Object? recordUri = null,
   }) {
     return _then(_$RecordBlobImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       cid: null == cid
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
@@ -108,14 +129,23 @@ class __$$RecordBlobImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordBlobImpl implements _RecordBlob {
   const _$RecordBlobImpl(
-      {required this.cid, @AtUriConverter() required this.recordUri});
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoRepoListMissingBlobsRecordBlob,
+      required this.cid,
+      @AtUriConverter() required this.recordUri});
 
   factory _$RecordBlobImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordBlobImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listMissingBlobs#recordBlob`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String cid;
   @override
@@ -124,7 +154,7 @@ class _$RecordBlobImpl implements _RecordBlob {
 
   @override
   String toString() {
-    return 'RecordBlob(cid: $cid, recordUri: $recordUri)';
+    return 'RecordBlob(\$type: ${$type}, cid: $cid, recordUri: $recordUri)';
   }
 
   @override
@@ -132,6 +162,7 @@ class _$RecordBlobImpl implements _RecordBlob {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordBlobImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.recordUri, recordUri) ||
                 other.recordUri == recordUri));
@@ -139,7 +170,7 @@ class _$RecordBlobImpl implements _RecordBlob {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cid, recordUri);
+  int get hashCode => Object.hash(runtimeType, $type, cid, recordUri);
 
   @JsonKey(ignore: true)
   @override
@@ -157,12 +188,20 @@ class _$RecordBlobImpl implements _RecordBlob {
 
 abstract class _RecordBlob implements RecordBlob {
   const factory _RecordBlob(
-      {required final String cid,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String cid,
       @AtUriConverter() required final AtUri recordUri}) = _$RecordBlobImpl;
 
   factory _RecordBlob.fromJson(Map<String, dynamic> json) =
       _$RecordBlobImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.listMissingBlobs#recordBlob`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get cid;
   @override

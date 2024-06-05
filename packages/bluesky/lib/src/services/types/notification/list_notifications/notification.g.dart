@@ -13,6 +13,11 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$NotificationImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  appBskyNotificationListNotificationsNotification),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -44,6 +49,7 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),

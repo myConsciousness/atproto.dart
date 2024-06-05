@@ -126,7 +126,7 @@ class __$$SearchActorsSkeletonOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
   const _$SearchActorsSkeletonOutputImpl(
       {this.cursor,

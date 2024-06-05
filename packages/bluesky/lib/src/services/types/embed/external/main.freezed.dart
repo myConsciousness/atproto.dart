@@ -108,7 +108,7 @@ class __$$ExternalImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ExternalImpl implements _External {
   const _$ExternalImpl({required this.external});
 

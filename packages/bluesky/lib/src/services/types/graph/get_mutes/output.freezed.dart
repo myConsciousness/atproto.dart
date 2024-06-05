@@ -107,7 +107,7 @@ class __$$GetMutesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetMutesOutputImpl implements _GetMutesOutput {
   const _$GetMutesOutputImpl(
       {this.cursor, required final List<ProfileView> mutes})

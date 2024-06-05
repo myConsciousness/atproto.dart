@@ -13,6 +13,8 @@ _$LabelsImpl _$$LabelsImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LabelsImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoLabelSubscribeLabelsLabels),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           labels: $checkedConvert(
               'labels',
@@ -27,6 +29,7 @@ _$LabelsImpl _$$LabelsImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LabelsImplToJson(_$LabelsImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'seq': instance.seq,
       'labels': instance.labels.map((e) => e.toJson()).toList(),
     };

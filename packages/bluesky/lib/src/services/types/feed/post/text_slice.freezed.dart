@@ -20,6 +20,11 @@ TextSlice _$TextSliceFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$TextSlice {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#textSlice`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get start => throw _privateConstructorUsedError;
   int get end => throw _privateConstructorUsedError;
 
@@ -34,7 +39,7 @@ abstract class $TextSliceCopyWith<$Res> {
   factory $TextSliceCopyWith(TextSlice value, $Res Function(TextSlice) then) =
       _$TextSliceCopyWithImpl<$Res, TextSlice>;
   @useResult
-  $Res call({int start, int end});
+  $Res call({@JsonKey(name: r'$type') String $type, int start, int end});
 }
 
 /// @nodoc
@@ -50,10 +55,15 @@ class _$TextSliceCopyWithImpl<$Res, $Val extends TextSlice>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? start = null,
     Object? end = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -74,7 +84,7 @@ abstract class _$$TextSliceImplCopyWith<$Res>
       __$$TextSliceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int start, int end});
+  $Res call({@JsonKey(name: r'$type') String $type, int start, int end});
 }
 
 /// @nodoc
@@ -88,10 +98,15 @@ class __$$TextSliceImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? start = null,
     Object? end = null,
   }) {
     return _then(_$TextSliceImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       start: null == start
           ? _value.start
           : start // ignore: cast_nullable_to_non_nullable
@@ -106,13 +121,22 @@ class __$$TextSliceImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$TextSliceImpl implements _TextSlice {
-  const _$TextSliceImpl({required this.start, required this.end});
+  const _$TextSliceImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedPostTextSlice,
+      required this.start,
+      required this.end});
 
   factory _$TextSliceImpl.fromJson(Map<String, dynamic> json) =>
       _$$TextSliceImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#textSlice`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int start;
   @override
@@ -120,7 +144,7 @@ class _$TextSliceImpl implements _TextSlice {
 
   @override
   String toString() {
-    return 'TextSlice(start: $start, end: $end)';
+    return 'TextSlice(\$type: ${$type}, start: $start, end: $end)';
   }
 
   @override
@@ -128,13 +152,14 @@ class _$TextSliceImpl implements _TextSlice {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$TextSliceImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.start, start) || other.start == start) &&
             (identical(other.end, end) || other.end == end));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, start, end);
+  int get hashCode => Object.hash(runtimeType, $type, start, end);
 
   @JsonKey(ignore: true)
   @override
@@ -151,12 +176,21 @@ class _$TextSliceImpl implements _TextSlice {
 }
 
 abstract class _TextSlice implements TextSlice {
-  const factory _TextSlice({required final int start, required final int end}) =
-      _$TextSliceImpl;
+  const factory _TextSlice(
+      {@JsonKey(name: r'$type') final String $type,
+      required final int start,
+      required final int end}) = _$TextSliceImpl;
 
   factory _TextSlice.fromJson(Map<String, dynamic> json) =
       _$TextSliceImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#textSlice`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get start;
   @override

@@ -20,6 +20,11 @@ SkeletonSearchPost _$SkeletonSearchPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SkeletonSearchPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $SkeletonSearchPostCopyWith<$Res> {
           SkeletonSearchPost value, $Res Function(SkeletonSearchPost) then) =
       _$SkeletonSearchPostCopyWithImpl<$Res, SkeletonSearchPost>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -51,9 +57,14 @@ class _$SkeletonSearchPostCopyWithImpl<$Res, $Val extends SkeletonSearchPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -70,7 +81,8 @@ abstract class _$$SkeletonSearchPostImplCopyWith<$Res>
       __$$SkeletonSearchPostImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
 }
 
 /// @nodoc
@@ -84,9 +96,14 @@ class __$$SkeletonSearchPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
   }) {
     return _then(_$SkeletonSearchPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -97,20 +114,29 @@ class __$$SkeletonSearchPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
-  const _$SkeletonSearchPostImpl({@AtUriConverter() required this.uri});
+  const _$SkeletonSearchPostImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyUnspeccedDefsSkeletonSearchPost,
+      @AtUriConverter() required this.uri});
 
   factory _$SkeletonSearchPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonSearchPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
 
   @override
   String toString() {
-    return 'SkeletonSearchPost(uri: $uri)';
+    return 'SkeletonSearchPost(\$type: ${$type}, uri: $uri)';
   }
 
   @override
@@ -118,12 +144,13 @@ class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SkeletonSearchPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri);
+  int get hashCode => Object.hash(runtimeType, $type, uri);
 
   @JsonKey(ignore: true)
   @override
@@ -142,11 +169,19 @@ class _$SkeletonSearchPostImpl implements _SkeletonSearchPost {
 
 abstract class _SkeletonSearchPost implements SkeletonSearchPost {
   const factory _SkeletonSearchPost(
-      {@AtUriConverter() required final AtUri uri}) = _$SkeletonSearchPostImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri}) = _$SkeletonSearchPostImpl;
 
   factory _SkeletonSearchPost.fromJson(Map<String, dynamic> json) =
       _$SkeletonSearchPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.defs#skeletonSearchPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

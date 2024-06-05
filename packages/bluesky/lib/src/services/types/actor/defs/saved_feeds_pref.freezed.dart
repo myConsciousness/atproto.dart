@@ -20,6 +20,11 @@ SavedFeedsPref _$SavedFeedsPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SavedFeedsPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   List<AtUri> get pinned => throw _privateConstructorUsedError;
   @AtUriConverter()
@@ -39,7 +44,8 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
       _$SavedFeedsPrefCopyWithImpl<$Res, SavedFeedsPref>;
   @useResult
   $Res call(
-      {@AtUriConverter() List<AtUri> pinned,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
       int timelineIndex});
 }
@@ -57,11 +63,16 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       pinned: null == pinned
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
@@ -87,7 +98,8 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() List<AtUri> pinned,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
       int timelineIndex});
 }
@@ -103,11 +115,16 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
   }) {
     return _then(_$SavedFeedsPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       pinned: null == pinned
           ? _value._pinned
           : pinned // ignore: cast_nullable_to_non_nullable
@@ -126,10 +143,11 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   const _$SavedFeedsPrefImpl(
-      {@AtUriConverter() required final List<AtUri> pinned,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeedsPref,
+      @AtUriConverter() required final List<AtUri> pinned,
       @AtUriConverter() required final List<AtUri> saved,
       this.timelineIndex = 0})
       : _pinned = pinned,
@@ -138,6 +156,12 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   factory _$SavedFeedsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$SavedFeedsPrefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<AtUri> _pinned;
   @override
   @AtUriConverter()
@@ -162,7 +186,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
   @override
   String toString() {
-    return 'SavedFeedsPref(pinned: $pinned, saved: $saved, timelineIndex: $timelineIndex)';
+    return 'SavedFeedsPref(\$type: ${$type}, pinned: $pinned, saved: $saved, timelineIndex: $timelineIndex)';
   }
 
   @override
@@ -170,6 +194,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SavedFeedsPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._pinned, _pinned) &&
             const DeepCollectionEquality().equals(other._saved, _saved) &&
             (identical(other.timelineIndex, timelineIndex) ||
@@ -180,6 +205,7 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       const DeepCollectionEquality().hash(_pinned),
       const DeepCollectionEquality().hash(_saved),
       timelineIndex);
@@ -201,13 +227,21 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
 abstract class _SavedFeedsPref implements SavedFeedsPref {
   const factory _SavedFeedsPref(
-      {@AtUriConverter() required final List<AtUri> pinned,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final List<AtUri> pinned,
       @AtUriConverter() required final List<AtUri> saved,
       final int timelineIndex}) = _$SavedFeedsPrefImpl;
 
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#savedFeedsPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   List<AtUri> get pinned;

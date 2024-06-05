@@ -107,7 +107,7 @@ class __$$ListReposOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListReposOutputImpl implements _ListReposOutput {
   const _$ListReposOutputImpl({this.cursor, required final List<Repo> repos})
       : _repos = repos;

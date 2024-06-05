@@ -20,6 +20,12 @@ LabelValueDefinition _$LabelValueDefinitionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelValueDefinition {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinition`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
   String get identifier => throw _privateConstructorUsedError;
 
@@ -55,7 +61,8 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
       _$LabelValueDefinitionCopyWithImpl<$Res, LabelValueDefinition>;
   @useResult
   $Res call(
-      {String identifier,
+      {@JsonKey(name: r'$type') String $type,
+      String identifier,
       @LabelValueDefinitionSeverityConverter()
       LabelValueDefinitionSeverity severity,
       @LabelValueDefinitionBlursConverter() LabelValueDefinitionBlurs blurs,
@@ -83,6 +90,7 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? identifier = null,
     Object? severity = null,
     Object? blurs = null,
@@ -91,6 +99,10 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
     Object? locales = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -158,7 +170,8 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String identifier,
+      {@JsonKey(name: r'$type') String $type,
+      String identifier,
       @LabelValueDefinitionSeverityConverter()
       LabelValueDefinitionSeverity severity,
       @LabelValueDefinitionBlursConverter() LabelValueDefinitionBlurs blurs,
@@ -186,6 +199,7 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? identifier = null,
     Object? severity = null,
     Object? blurs = null,
@@ -194,6 +208,10 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
     Object? locales = null,
   }) {
     return _then(_$LabelValueDefinitionImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       identifier: null == identifier
           ? _value.identifier
           : identifier // ignore: cast_nullable_to_non_nullable
@@ -224,10 +242,12 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   const _$LabelValueDefinitionImpl(
-      {required this.identifier,
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoLabelDefsLabelValueDefinition,
+      required this.identifier,
       @LabelValueDefinitionSeverityConverter() required this.severity,
       @LabelValueDefinitionBlursConverter() required this.blurs,
       @LabelValueDefinitionDefaultSettingConverter() this.defaultSetting,
@@ -237,6 +257,13 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
   factory _$LabelValueDefinitionImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelValueDefinitionImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinition`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
   @override
@@ -271,7 +298,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
   @override
   String toString() {
-    return 'LabelValueDefinition(identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
+    return 'LabelValueDefinition(\$type: ${$type}, identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
   }
 
   @override
@@ -279,6 +306,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelValueDefinitionImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.identifier, identifier) ||
                 other.identifier == identifier) &&
             (identical(other.severity, severity) ||
@@ -293,8 +321,15 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, identifier, severity, blurs,
-      defaultSetting, adultOnly, const DeepCollectionEquality().hash(_locales));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      identifier,
+      severity,
+      blurs,
+      defaultSetting,
+      adultOnly,
+      const DeepCollectionEquality().hash(_locales));
 
   @JsonKey(ignore: true)
   @override
@@ -314,7 +349,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
 
 abstract class _LabelValueDefinition implements LabelValueDefinition {
   const factory _LabelValueDefinition(
-          {required final String identifier,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String identifier,
           @LabelValueDefinitionSeverityConverter()
           required final LabelValueDefinitionSeverity severity,
           @LabelValueDefinitionBlursConverter()
@@ -328,6 +364,13 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) =
       _$LabelValueDefinitionImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinition`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).

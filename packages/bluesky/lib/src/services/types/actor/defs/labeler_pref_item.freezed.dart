@@ -20,6 +20,11 @@ LabelerPrefItem _$LabelerPrefItemFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerPrefItem {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelerPrefItem`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $LabelerPrefItemCopyWith<$Res> {
           LabelerPrefItem value, $Res Function(LabelerPrefItem) then) =
       _$LabelerPrefItemCopyWithImpl<$Res, LabelerPrefItem>;
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$LabelerPrefItemCopyWithImpl<$Res, $Val extends LabelerPrefItem>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$LabelerPrefItemImplCopyWith<$Res>
       __$$LabelerPrefItemImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$LabelerPrefItemImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_$LabelerPrefItemImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -96,19 +111,27 @@ class __$$LabelerPrefItemImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelerPrefItemImpl implements _LabelerPrefItem {
-  const _$LabelerPrefItemImpl({required this.did});
+  const _$LabelerPrefItemImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsLabelerPrefItem,
+      required this.did});
 
   factory _$LabelerPrefItemImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerPrefItemImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelerPrefItem`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
   @override
   String toString() {
-    return 'LabelerPrefItem(did: $did)';
+    return 'LabelerPrefItem(\$type: ${$type}, did: $did)';
   }
 
   @override
@@ -116,12 +139,13 @@ class _$LabelerPrefItemImpl implements _LabelerPrefItem {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerPrefItemImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(runtimeType, $type, did);
 
   @JsonKey(ignore: true)
   @override
@@ -139,12 +163,20 @@ class _$LabelerPrefItemImpl implements _LabelerPrefItem {
 }
 
 abstract class _LabelerPrefItem implements LabelerPrefItem {
-  const factory _LabelerPrefItem({required final String did}) =
-      _$LabelerPrefItemImpl;
+  const factory _LabelerPrefItem(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did}) = _$LabelerPrefItemImpl;
 
   factory _LabelerPrefItem.fromJson(Map<String, dynamic> json) =
       _$LabelerPrefItemImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelerPrefItem`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

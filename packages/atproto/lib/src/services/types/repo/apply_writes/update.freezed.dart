@@ -20,6 +20,11 @@ Update _$UpdateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Update {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#update`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get collection => throw _privateConstructorUsedError;
   String get rkey => throw _privateConstructorUsedError;
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
@@ -34,7 +39,11 @@ abstract class $UpdateCopyWith<$Res> {
   factory $UpdateCopyWith(Update value, $Res Function(Update) then) =
       _$UpdateCopyWithImpl<$Res, Update>;
   @useResult
-  $Res call({String collection, String rkey, Map<String, dynamic> value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String collection,
+      String rkey,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -50,11 +59,16 @@ class _$UpdateCopyWithImpl<$Res, $Val extends Update>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -78,7 +92,11 @@ abstract class _$$UpdateImplCopyWith<$Res> implements $UpdateCopyWith<$Res> {
       __$$UpdateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String collection, String rkey, Map<String, dynamic> value});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String collection,
+      String rkey,
+      Map<String, dynamic> value});
 }
 
 /// @nodoc
@@ -92,11 +110,16 @@ class __$$UpdateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
   }) {
     return _then(_$UpdateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -115,10 +138,11 @@ class __$$UpdateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$UpdateImpl implements _Update {
   const _$UpdateImpl(
-      {required this.collection,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesUpdate,
+      required this.collection,
       required this.rkey,
       required final Map<String, dynamic> value})
       : _value = value;
@@ -126,6 +150,12 @@ class _$UpdateImpl implements _Update {
   factory _$UpdateImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#update`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String collection;
   @override
@@ -140,7 +170,7 @@ class _$UpdateImpl implements _Update {
 
   @override
   String toString() {
-    return 'Update(collection: $collection, rkey: $rkey, value: $value)';
+    return 'Update(\$type: ${$type}, collection: $collection, rkey: $rkey, value: $value)';
   }
 
   @override
@@ -148,6 +178,7 @@ class _$UpdateImpl implements _Update {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UpdateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
@@ -156,7 +187,7 @@ class _$UpdateImpl implements _Update {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, collection, rkey,
+  int get hashCode => Object.hash(runtimeType, $type, collection, rkey,
       const DeepCollectionEquality().hash(_value));
 
   @JsonKey(ignore: true)
@@ -175,12 +206,20 @@ class _$UpdateImpl implements _Update {
 
 abstract class _Update implements Update {
   const factory _Update(
-      {required final String collection,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String collection,
       required final String rkey,
       required final Map<String, dynamic> value}) = _$UpdateImpl;
 
   factory _Update.fromJson(Map<String, dynamic> json) = _$UpdateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#update`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get collection;
   @override

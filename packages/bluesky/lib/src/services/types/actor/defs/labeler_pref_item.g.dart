@@ -14,6 +14,8 @@ _$LabelerPrefItemImpl _$$LabelerPrefItemImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$LabelerPrefItemImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsLabelerPrefItem),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
@@ -23,5 +25,6 @@ _$LabelerPrefItemImpl _$$LabelerPrefItemImplFromJson(Map json) =>
 Map<String, dynamic> _$$LabelerPrefItemImplToJson(
         _$LabelerPrefItemImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
     };

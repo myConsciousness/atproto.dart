@@ -111,7 +111,7 @@ class __$$GetFeedSkeletonOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetFeedSkeletonOutputImpl implements _GetFeedSkeletonOutput {
   const _$GetFeedSkeletonOutputImpl(
       {this.cursor, required final List<SkeletonFeedPost> feed})

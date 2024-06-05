@@ -111,7 +111,7 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
   const _$GetLatestCommitOutputImpl({required this.cid, required this.rev});
 

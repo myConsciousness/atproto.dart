@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'account_codes.freezed.dart';
 part 'account_codes.g.dart';
@@ -20,8 +22,14 @@ part 'account_codes.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#accountcodes
 @freezed
 class AccountCodes with _$AccountCodes {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory AccountCodes({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.server.createInviteCodes#accountCodes`
+    @Default(comAtprotoServerCreateInviteCodesAccountCodes)
+    @JsonKey(name: r'$type')
+    String $type,
     required String account,
     required List<String> codes,
   }) = _AccountCodes;

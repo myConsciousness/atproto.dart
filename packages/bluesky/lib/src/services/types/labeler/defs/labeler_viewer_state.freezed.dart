@@ -20,6 +20,11 @@ LabelerViewerState _$LabelerViewerStateFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerViewerState {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerViewerState`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $LabelerViewerStateCopyWith<$Res> {
           LabelerViewerState value, $Res Function(LabelerViewerState) then) =
       _$LabelerViewerStateCopyWithImpl<$Res, LabelerViewerState>;
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -51,9 +57,14 @@ class _$LabelerViewerStateCopyWithImpl<$Res, $Val extends LabelerViewerState>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? like = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -70,7 +81,8 @@ abstract class _$$LabelerViewerStateImplCopyWith<$Res>
       __$$LabelerViewerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri? like});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
 }
 
 /// @nodoc
@@ -84,9 +96,14 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? like = freezed,
   }) {
     return _then(_$LabelerViewerStateImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       like: freezed == like
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
@@ -97,20 +114,29 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelerViewerStateImpl implements _LabelerViewerState {
-  const _$LabelerViewerStateImpl({@AtUriConverter() this.like});
+  const _$LabelerViewerStateImpl(
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyLabelerDefsLabelerViewerState,
+      @AtUriConverter() this.like});
 
   factory _$LabelerViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerViewerStateImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerViewerState`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri? like;
 
   @override
   String toString() {
-    return 'LabelerViewerState(like: $like)';
+    return 'LabelerViewerState(\$type: ${$type}, like: $like)';
   }
 
   @override
@@ -118,12 +144,13 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerViewerStateImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.like, like) || other.like == like));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, like);
+  int get hashCode => Object.hash(runtimeType, $type, like);
 
   @JsonKey(ignore: true)
   @override
@@ -141,12 +168,20 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
 }
 
 abstract class _LabelerViewerState implements LabelerViewerState {
-  const factory _LabelerViewerState({@AtUriConverter() final AtUri? like}) =
-      _$LabelerViewerStateImpl;
+  const factory _LabelerViewerState(
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() final AtUri? like}) = _$LabelerViewerStateImpl;
 
   factory _LabelerViewerState.fromJson(Map<String, dynamic> json) =
       _$LabelerViewerStateImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerViewerState`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri? get like;

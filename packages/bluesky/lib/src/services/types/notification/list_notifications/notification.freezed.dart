@@ -20,6 +20,11 @@ Notification _$NotificationFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Notification {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.notification.listNotifications#notification`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -48,7 +53,8 @@ abstract class $NotificationCopyWith<$Res> {
       _$NotificationCopyWithImpl<$Res, Notification>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
       @NotificationReasonConverter() NotificationReason reason,
@@ -75,6 +81,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? author = null,
@@ -86,6 +93,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? labels = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -151,7 +162,8 @@ abstract class _$$NotificationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       ProfileView author,
       @NotificationReasonConverter() NotificationReason reason,
@@ -178,6 +190,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? author = null,
@@ -189,6 +202,10 @@ class __$$NotificationImplCopyWithImpl<$Res>
     Object? labels = null,
   }) {
     return _then(_$NotificationImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -231,10 +248,12 @@ class __$$NotificationImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$NotificationImpl implements _Notification {
   const _$NotificationImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyNotificationListNotificationsNotification,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
       @NotificationReasonConverter() required this.reason,
@@ -249,6 +268,12 @@ class _$NotificationImpl implements _Notification {
   factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotificationImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.notification.listNotifications#notification`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -287,7 +312,7 @@ class _$NotificationImpl implements _Notification {
 
   @override
   String toString() {
-    return 'Notification(uri: $uri, cid: $cid, author: $author, reason: $reason, reasonSubject: $reasonSubject, record: $record, isRead: $isRead, indexedAt: $indexedAt, labels: $labels)';
+    return 'Notification(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, reason: $reason, reasonSubject: $reasonSubject, record: $record, isRead: $isRead, indexedAt: $indexedAt, labels: $labels)';
   }
 
   @override
@@ -295,6 +320,7 @@ class _$NotificationImpl implements _Notification {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$NotificationImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.author, author) || other.author == author) &&
@@ -312,6 +338,7 @@ class _$NotificationImpl implements _Notification {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       uri,
       cid,
       author,
@@ -338,7 +365,8 @@ class _$NotificationImpl implements _Notification {
 
 abstract class _Notification implements Notification {
   const factory _Notification(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileView author,
       @NotificationReasonConverter() required final NotificationReason reason,
@@ -351,6 +379,13 @@ abstract class _Notification implements Notification {
   factory _Notification.fromJson(Map<String, dynamic> json) =
       _$NotificationImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.notification.listNotifications#notification`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

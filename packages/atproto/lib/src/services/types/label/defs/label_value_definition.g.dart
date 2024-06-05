@@ -14,6 +14,8 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$LabelValueDefinitionImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoLabelDefsLabelValueDefinition),
           identifier: $checkedConvert('identifier', (v) => v as String),
           severity: $checkedConvert(
               'severity',
@@ -45,6 +47,7 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
 Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
     _$LabelValueDefinitionImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'identifier': instance.identifier,
     'severity':
         const LabelValueDefinitionSeverityConverter().toJson(instance.severity),

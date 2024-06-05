@@ -20,6 +20,11 @@ FacetMention _$FacetMentionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetMention {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#mention`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $FacetMentionCopyWith<$Res> {
           FacetMention value, $Res Function(FacetMention) then) =
       _$FacetMentionCopyWithImpl<$Res, FacetMention>;
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$FacetMentionCopyWithImpl<$Res, $Val extends FacetMention>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$FacetMentionImplCopyWith<$Res>
       __$$FacetMentionImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$FacetMentionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_$FacetMentionImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -96,19 +111,27 @@ class __$$FacetMentionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FacetMentionImpl implements _FacetMention {
-  const _$FacetMentionImpl({required this.did});
+  const _$FacetMentionImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetMention,
+      required this.did});
 
   factory _$FacetMentionImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetMentionImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#mention`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
   @override
   String toString() {
-    return 'FacetMention(did: $did)';
+    return 'FacetMention(\$type: ${$type}, did: $did)';
   }
 
   @override
@@ -116,12 +139,13 @@ class _$FacetMentionImpl implements _FacetMention {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FacetMentionImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(runtimeType, $type, did);
 
   @JsonKey(ignore: true)
   @override
@@ -138,11 +162,20 @@ class _$FacetMentionImpl implements _FacetMention {
 }
 
 abstract class _FacetMention implements FacetMention {
-  const factory _FacetMention({required final String did}) = _$FacetMentionImpl;
+  const factory _FacetMention(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did}) = _$FacetMentionImpl;
 
   factory _FacetMention.fromJson(Map<String, dynamic> json) =
       _$FacetMentionImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#mention`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

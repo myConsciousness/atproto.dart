@@ -20,6 +20,11 @@ AccountCodes _$AccountCodesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountCodes {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.createInviteCodes#accountCodes`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get account => throw _privateConstructorUsedError;
   List<String> get codes => throw _privateConstructorUsedError;
 
@@ -35,7 +40,10 @@ abstract class $AccountCodesCopyWith<$Res> {
           AccountCodes value, $Res Function(AccountCodes) then) =
       _$AccountCodesCopyWithImpl<$Res, AccountCodes>;
   @useResult
-  $Res call({String account, List<String> codes});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String account,
+      List<String> codes});
 }
 
 /// @nodoc
@@ -51,10 +59,15 @@ class _$AccountCodesCopyWithImpl<$Res, $Val extends AccountCodes>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? account = null,
     Object? codes = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -75,7 +88,10 @@ abstract class _$$AccountCodesImplCopyWith<$Res>
       __$$AccountCodesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String account, List<String> codes});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String account,
+      List<String> codes});
 }
 
 /// @nodoc
@@ -89,10 +105,15 @@ class __$$AccountCodesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? account = null,
     Object? codes = null,
   }) {
     return _then(_$AccountCodesImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       account: null == account
           ? _value.account
           : account // ignore: cast_nullable_to_non_nullable
@@ -107,15 +128,24 @@ class __$$AccountCodesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$AccountCodesImpl implements _AccountCodes {
   const _$AccountCodesImpl(
-      {required this.account, required final List<String> codes})
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoServerCreateInviteCodesAccountCodes,
+      required this.account,
+      required final List<String> codes})
       : _codes = codes;
 
   factory _$AccountCodesImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountCodesImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.createInviteCodes#accountCodes`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String account;
   final List<String> _codes;
@@ -128,7 +158,7 @@ class _$AccountCodesImpl implements _AccountCodes {
 
   @override
   String toString() {
-    return 'AccountCodes(account: $account, codes: $codes)';
+    return 'AccountCodes(\$type: ${$type}, account: $account, codes: $codes)';
   }
 
   @override
@@ -136,6 +166,7 @@ class _$AccountCodesImpl implements _AccountCodes {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountCodesImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.account, account) || other.account == account) &&
             const DeepCollectionEquality().equals(other._codes, _codes));
   }
@@ -143,7 +174,7 @@ class _$AccountCodesImpl implements _AccountCodes {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, account, const DeepCollectionEquality().hash(_codes));
+      runtimeType, $type, account, const DeepCollectionEquality().hash(_codes));
 
   @JsonKey(ignore: true)
   @override
@@ -161,12 +192,20 @@ class _$AccountCodesImpl implements _AccountCodes {
 
 abstract class _AccountCodes implements AccountCodes {
   const factory _AccountCodes(
-      {required final String account,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String account,
       required final List<String> codes}) = _$AccountCodesImpl;
 
   factory _AccountCodes.fromJson(Map<String, dynamic> json) =
       _$AccountCodesImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.createInviteCodes#accountCodes`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get account;
   @override

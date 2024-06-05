@@ -13,6 +13,8 @@ _$SavedFeedsPrefImpl _$$SavedFeedsPrefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$SavedFeedsPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeedsPref),
           pinned: $checkedConvert(
               'pinned',
               (v) => (v as List<dynamic>)
@@ -33,6 +35,7 @@ _$SavedFeedsPrefImpl _$$SavedFeedsPrefImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$SavedFeedsPrefImplToJson(
         _$SavedFeedsPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'pinned': instance.pinned.map(const AtUriConverter().toJson).toList(),
       'saved': instance.saved.map(const AtUriConverter().toJson).toList(),
       'timelineIndex': instance.timelineIndex,

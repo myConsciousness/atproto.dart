@@ -13,6 +13,8 @@ _$FacetByteSliceImpl _$$FacetByteSliceImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetByteSliceImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacetByteSlice),
           byteStart: $checkedConvert('byteStart', (v) => (v as num).toInt()),
           byteEnd: $checkedConvert('byteEnd', (v) => (v as num).toInt()),
         );
@@ -23,6 +25,7 @@ _$FacetByteSliceImpl _$$FacetByteSliceImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$FacetByteSliceImplToJson(
         _$FacetByteSliceImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'byteStart': instance.byteStart,
       'byteEnd': instance.byteEnd,
     };

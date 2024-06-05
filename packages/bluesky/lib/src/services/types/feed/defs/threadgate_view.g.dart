@@ -13,6 +13,8 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ThreadgateViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsThreadgateView),
           uri: $checkedConvert(
               'uri',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -40,7 +42,9 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ThreadgateViewImplToJson(
     _$ThreadgateViewImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

@@ -138,7 +138,7 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
   const _$GetRepostedByOutputImpl(
       {@AtUriConverter() required this.uri,

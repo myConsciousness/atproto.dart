@@ -20,6 +20,11 @@ RepoRef _$RepoRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepoRef {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#repoRef`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +37,7 @@ abstract class $RepoRefCopyWith<$Res> {
   factory $RepoRefCopyWith(RepoRef value, $Res Function(RepoRef) then) =
       _$RepoRefCopyWithImpl<$Res, RepoRef>;
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -48,9 +53,14 @@ class _$RepoRefCopyWithImpl<$Res, $Val extends RepoRef>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -66,7 +76,7 @@ abstract class _$$RepoRefImplCopyWith<$Res> implements $RepoRefCopyWith<$Res> {
       __$$RepoRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call({@JsonKey(name: r'$type') String $type, String did});
 }
 
 /// @nodoc
@@ -80,9 +90,14 @@ class __$$RepoRefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
   }) {
     return _then(_$RepoRefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -93,19 +108,27 @@ class __$$RepoRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RepoRefImpl implements _RepoRef {
-  const _$RepoRefImpl({required this.did});
+  const _$RepoRefImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoAdminDefsRepoRef,
+      required this.did});
 
   factory _$RepoRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoRefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#repoRef`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
   @override
   String toString() {
-    return 'RepoRef(did: $did)';
+    return 'RepoRef(\$type: ${$type}, did: $did)';
   }
 
   @override
@@ -113,12 +136,13 @@ class _$RepoRefImpl implements _RepoRef {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepoRefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(runtimeType, $type, did);
 
   @JsonKey(ignore: true)
   @override
@@ -135,10 +159,19 @@ class _$RepoRefImpl implements _RepoRef {
 }
 
 abstract class _RepoRef implements RepoRef {
-  const factory _RepoRef({required final String did}) = _$RepoRefImpl;
+  const factory _RepoRef(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did}) = _$RepoRefImpl;
 
   factory _RepoRef.fromJson(Map<String, dynamic> json) = _$RepoRefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#repoRef`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

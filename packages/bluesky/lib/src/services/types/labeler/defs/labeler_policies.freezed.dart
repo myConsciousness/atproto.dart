@@ -20,6 +20,12 @@ LabelerPolicies _$LabelerPoliciesFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelerPolicies {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerPolicies`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The label values which this labeler publishes. May include global or custom labels.
   List<String> get labelValues => throw _privateConstructorUsedError;
 
@@ -40,7 +46,8 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
       _$LabelerPoliciesCopyWithImpl<$Res, LabelerPolicies>;
   @useResult
   $Res call(
-      {List<String> labelValues,
+      {@JsonKey(name: r'$type') String $type,
+      List<String> labelValues,
       List<LabelValueDefinition> labelValueDefinitions});
 }
 
@@ -57,10 +64,15 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelValues = null,
     Object? labelValueDefinitions = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelValues: null == labelValues
           ? _value.labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
@@ -82,7 +94,8 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String> labelValues,
+      {@JsonKey(name: r'$type') String $type,
+      List<String> labelValues,
       List<LabelValueDefinition> labelValueDefinitions});
 }
 
@@ -97,10 +110,15 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelValues = null,
     Object? labelValueDefinitions = null,
   }) {
     return _then(_$LabelerPoliciesImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelValues: null == labelValues
           ? _value._labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
@@ -115,16 +133,24 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
-      {required final List<String> labelValues,
+      {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerPolicies,
+      required final List<String> labelValues,
       final List<LabelValueDefinition> labelValueDefinitions = const []})
       : _labelValues = labelValues,
         _labelValueDefinitions = labelValueDefinitions;
 
   factory _$LabelerPoliciesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerPoliciesImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerPolicies`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The label values which this labeler publishes. May include global or custom labels.
   final List<String> _labelValues;
@@ -152,7 +178,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
 
   @override
   String toString() {
-    return 'LabelerPolicies(labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
+    return 'LabelerPolicies(\$type: ${$type}, labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
   }
 
   @override
@@ -160,6 +186,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelerPoliciesImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality()
                 .equals(other._labelValues, _labelValues) &&
             const DeepCollectionEquality()
@@ -170,6 +197,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       const DeepCollectionEquality().hash(_labelValues),
       const DeepCollectionEquality().hash(_labelValueDefinitions));
 
@@ -190,13 +218,21 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
 
 abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
-          {required final List<String> labelValues,
+          {@JsonKey(name: r'$type') final String $type,
+          required final List<String> labelValues,
           final List<LabelValueDefinition> labelValueDefinitions}) =
       _$LabelerPoliciesImpl;
 
   factory _LabelerPolicies.fromJson(Map<String, dynamic> json) =
       _$LabelerPoliciesImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.defs#labelerPolicies`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The label values which this labeler publishes. May include global or custom labels.

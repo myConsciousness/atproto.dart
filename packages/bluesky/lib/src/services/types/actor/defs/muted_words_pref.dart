@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'muted_word.dart';
 
 part 'muted_words_pref.freezed.dart';
@@ -23,8 +23,15 @@ part 'muted_words_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#mutedwordspref
 @freezed
 class MutedWordsPref with _$MutedWordsPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory MutedWordsPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#mutedWordsPref`
+    @Default(appBskyActorDefsMutedWordsPref)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// A list of words the account owner has muted.
     required List<MutedWord> items,
   }) = _MutedWordsPref;

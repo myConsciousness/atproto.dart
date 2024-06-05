@@ -13,6 +13,8 @@ _$HandleImpl _$$HandleImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$HandleImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoSyncSubscribeReposHandle),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
@@ -24,6 +26,7 @@ _$HandleImpl _$$HandleImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$HandleImplToJson(_$HandleImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'seq': instance.seq,
       'did': instance.did,
       'handle': instance.handle,

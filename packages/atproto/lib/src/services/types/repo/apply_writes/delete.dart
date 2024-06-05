@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'delete.freezed.dart';
 part 'delete.g.dart';
@@ -22,8 +24,14 @@ part 'delete.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
 class Delete with _$Delete {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Delete({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.repo.applyWrites#delete`
+    @Default(comAtprotoRepoApplyWritesDelete)
+    @JsonKey(name: r'$type')
+    String $type,
     required String collection,
     required String rkey,
   }) = _Delete;

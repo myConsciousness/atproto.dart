@@ -163,7 +163,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateReportOutputImpl implements _CreateReportOutput {
   const _$CreateReportOutputImpl(
       {required this.id,

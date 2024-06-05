@@ -13,6 +13,8 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ReplyRefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsReplyRef),
           root: $checkedConvert('root', (v) => v as String),
           parent: $checkedConvert('parent', (v) => v as String),
           grandparentAuthor: $checkedConvert(
@@ -28,6 +30,7 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'root': instance.root,
     'parent': instance.parent,
   };

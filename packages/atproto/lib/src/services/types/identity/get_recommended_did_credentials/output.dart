@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -21,7 +20,7 @@ part 'output.g.dart';
 @freezed
 class GetRecommendedDidCredentialsOutput
     with _$GetRecommendedDidCredentialsOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetRecommendedDidCredentialsOutput({
     /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
     @Default([]) List<String> rotationKeys,

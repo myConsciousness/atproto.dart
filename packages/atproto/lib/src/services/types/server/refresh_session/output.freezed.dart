@@ -197,7 +197,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
   const _$RefreshSessionOutputImpl(
       {required this.accessJwt,

@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'repo_blob_ref.freezed.dart';
 part 'repo_blob_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#repoblobref
 @freezed
 class RepoBlobRef with _$RepoBlobRef {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RepoBlobRef({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.admin.defs#repoBlobRef`
+    @Default(comAtprotoAdminDefsRepoBlobRef)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
     required String cid,
     @AtUriConverter() AtUri? recordUri,

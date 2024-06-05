@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'blocked_author.dart';
 
 part 'blocked_post.freezed.dart';
@@ -23,8 +24,12 @@ part 'blocked_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedpost
 @freezed
 class BlockedPost with _$BlockedPost {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory BlockedPost({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#blockedPost`
+    @Default(appBskyFeedDefsBlockedPost) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() required AtUri uri,
     required bool blocked,
     required BlockedAuthor author,

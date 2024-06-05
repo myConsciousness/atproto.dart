@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'self_label.freezed.dart';
 part 'self_label.g.dart';
@@ -22,8 +24,15 @@ part 'self_label.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
 class SelfLabel with _$SelfLabel {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SelfLabel({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.defs#selfLabel`
+    @Default(comAtprotoLabelDefsSelfLabel)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The short string name of the value or type of this label.
     required String val,
   }) = _SelfLabel;

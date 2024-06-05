@@ -12,7 +12,6 @@
 
 // 📦 Package imports:
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'main.freezed.dart';
@@ -21,7 +20,7 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
 class Record with _$Record {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Record({
     required StrongRef record,
   }) = _Record;

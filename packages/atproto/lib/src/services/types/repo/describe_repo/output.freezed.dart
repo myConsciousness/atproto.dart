@@ -156,7 +156,7 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
   const _$DescribeRepoOutputImpl(
       {required this.handle,

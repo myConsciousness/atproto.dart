@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus#main
 @freezed
 class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory UpdateSubjectStatusOutput({
     required String subject,
     StatusAttr? takedown,

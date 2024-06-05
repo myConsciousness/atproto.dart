@@ -13,6 +13,8 @@ _$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RepoImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoSyncListReposRepo),
           did: $checkedConvert('did', (v) => v as String),
           head: $checkedConvert('head', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
@@ -28,6 +30,7 @@ _$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RepoImplToJson(_$RepoImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
     'head': instance.head,
     'rev': instance.rev,

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'aspect_ratio.freezed.dart';
 part 'aspect_ratio.g.dart';
@@ -22,8 +24,14 @@ part 'aspect_ratio.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed
 class ImagesAspectRatio with _$ImagesAspectRatio {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ImagesAspectRatio({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.images#aspectRatio`
+    @Default(appBskyEmbedImagesAspectRatio)
+    @JsonKey(name: r'$type')
+    String $type,
     required int width,
     required int height,
   }) = _ImagesAspectRatio;

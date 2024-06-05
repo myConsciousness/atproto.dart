@@ -20,6 +20,11 @@ Interaction _$InteractionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Interaction {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#interaction`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get item => throw _privateConstructorUsedError;
   String? get event => throw _privateConstructorUsedError;
@@ -40,7 +45,10 @@ abstract class $InteractionCopyWith<$Res> {
       _$InteractionCopyWithImpl<$Res, Interaction>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? item, String? event, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? item,
+      String? event,
+      String? feedContext});
 }
 
 /// @nodoc
@@ -56,11 +64,16 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       item: freezed == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -86,7 +99,10 @@ abstract class _$$InteractionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri? item, String? event, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? item,
+      String? event,
+      String? feedContext});
 }
 
 /// @nodoc
@@ -100,11 +116,16 @@ class __$$InteractionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_$InteractionImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       item: freezed == item
           ? _value.item
           : item // ignore: cast_nullable_to_non_nullable
@@ -123,14 +144,23 @@ class __$$InteractionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$InteractionImpl implements _Interaction {
   const _$InteractionImpl(
-      {@AtUriConverter() this.item, this.event, this.feedContext});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsInteraction,
+      @AtUriConverter() this.item,
+      this.event,
+      this.feedContext});
 
   factory _$InteractionImpl.fromJson(Map<String, dynamic> json) =>
       _$$InteractionImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#interaction`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri? item;
@@ -143,7 +173,7 @@ class _$InteractionImpl implements _Interaction {
 
   @override
   String toString() {
-    return 'Interaction(item: $item, event: $event, feedContext: $feedContext)';
+    return 'Interaction(\$type: ${$type}, item: $item, event: $event, feedContext: $feedContext)';
   }
 
   @override
@@ -151,6 +181,7 @@ class _$InteractionImpl implements _Interaction {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InteractionImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.item, item) || other.item == item) &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.feedContext, feedContext) ||
@@ -159,7 +190,7 @@ class _$InteractionImpl implements _Interaction {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, item, event, feedContext);
+  int get hashCode => Object.hash(runtimeType, $type, item, event, feedContext);
 
   @JsonKey(ignore: true)
   @override
@@ -177,13 +208,21 @@ class _$InteractionImpl implements _Interaction {
 
 abstract class _Interaction implements Interaction {
   const factory _Interaction(
-      {@AtUriConverter() final AtUri? item,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() final AtUri? item,
       final String? event,
       final String? feedContext}) = _$InteractionImpl;
 
   factory _Interaction.fromJson(Map<String, dynamic> json) =
       _$InteractionImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#interaction`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri? get item;

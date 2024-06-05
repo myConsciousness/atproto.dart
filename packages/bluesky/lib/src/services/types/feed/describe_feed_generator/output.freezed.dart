@@ -138,7 +138,7 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$DescribeFeedGeneratorOutputImpl
     implements _DescribeFeedGeneratorOutput {
   const _$DescribeFeedGeneratorOutputImpl(

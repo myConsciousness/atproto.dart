@@ -107,7 +107,7 @@ class __$$QueryLabelsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
   const _$QueryLabelsOutputImpl(
       {this.cursor, required final List<Label> labels})

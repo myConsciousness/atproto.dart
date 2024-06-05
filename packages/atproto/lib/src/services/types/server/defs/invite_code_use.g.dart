@@ -13,6 +13,8 @@ _$InviteCodeUseImpl _$$InviteCodeUseImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$InviteCodeUseImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoServerDefsInviteCodeUse),
           usedBy: $checkedConvert('usedBy', (v) => v as String),
           usedAt: $checkedConvert('usedAt', (v) => DateTime.parse(v as String)),
         );
@@ -22,6 +24,7 @@ _$InviteCodeUseImpl _$$InviteCodeUseImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$InviteCodeUseImplToJson(_$InviteCodeUseImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'usedBy': instance.usedBy,
       'usedAt': instance.usedAt.toIso8601String(),
     };

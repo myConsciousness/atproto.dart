@@ -13,6 +13,8 @@ _$MutedWordsPrefImpl _$$MutedWordsPrefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$MutedWordsPrefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsMutedWordsPref),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
@@ -27,5 +29,6 @@ _$MutedWordsPrefImpl _$$MutedWordsPrefImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$MutedWordsPrefImplToJson(
         _$MutedWordsPrefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'items': instance.items.map((e) => e.toJson()).toList(),
     };

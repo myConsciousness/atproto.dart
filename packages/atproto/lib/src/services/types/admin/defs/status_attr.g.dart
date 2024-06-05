@@ -13,6 +13,8 @@ _$StatusAttrImpl _$$StatusAttrImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$StatusAttrImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoAdminDefsStatusAttr),
           applied: $checkedConvert('applied', (v) => v as bool),
           ref: $checkedConvert('ref', (v) => v as String?),
         );
@@ -22,6 +24,7 @@ _$StatusAttrImpl _$$StatusAttrImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$StatusAttrImplToJson(_$StatusAttrImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'applied': instance.applied,
   };
 

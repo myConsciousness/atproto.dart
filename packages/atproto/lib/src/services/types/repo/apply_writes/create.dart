@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'create.freezed.dart';
 part 'create.g.dart';
@@ -22,8 +24,14 @@ part 'create.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
 class Create with _$Create {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Create({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.repo.applyWrites#create`
+    @Default(comAtprotoRepoApplyWritesCreate)
+    @JsonKey(name: r'$type')
+    String $type,
     required String collection,
     String? rkey,
     required Map<String, dynamic> value,

@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'suggestion_subject_type.dart';
 
 part 'suggestion.freezed.dart';
@@ -23,8 +23,14 @@ part 'suggestion.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
 class Suggestion with _$Suggestion {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Suggestion({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+    @Default(appBskyUnspeccedGetTaggedSuggestionsSuggestion)
+    @JsonKey(name: r'$type')
+    String $type,
     required String tag,
     @SuggestionSubjectTypeConverter()
     required SuggestionSubjectType subjectType,

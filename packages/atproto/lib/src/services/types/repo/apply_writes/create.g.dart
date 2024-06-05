@@ -13,6 +13,8 @@ _$CreateImpl _$$CreateImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$CreateImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesCreate),
           collection: $checkedConvert('collection', (v) => v as String),
           rkey: $checkedConvert('rkey', (v) => v as String?),
           value: $checkedConvert(
@@ -24,6 +26,7 @@ _$CreateImpl _$$CreateImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$CreateImplToJson(_$CreateImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'collection': instance.collection,
   };
 

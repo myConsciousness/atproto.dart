@@ -20,6 +20,11 @@ SelfLabels _$SelfLabelsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$SelfLabels {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabels`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   List<SelfLabel> get values => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $SelfLabelsCopyWith<$Res> {
           SelfLabels value, $Res Function(SelfLabels) then) =
       _$SelfLabelsCopyWithImpl<$Res, SelfLabels>;
   @useResult
-  $Res call({List<SelfLabel> values});
+  $Res call({@JsonKey(name: r'$type') String $type, List<SelfLabel> values});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$SelfLabelsCopyWithImpl<$Res, $Val extends SelfLabels>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? values = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       values: null == values
           ? _value.values
           : values // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$SelfLabelsImplCopyWith<$Res>
       __$$SelfLabelsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<SelfLabel> values});
+  $Res call({@JsonKey(name: r'$type') String $type, List<SelfLabel> values});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$SelfLabelsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? values = null,
   }) {
     return _then(_$SelfLabelsImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       values: null == values
           ? _value._values
           : values // ignore: cast_nullable_to_non_nullable
@@ -96,14 +111,22 @@ class __$$SelfLabelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SelfLabelsImpl implements _SelfLabels {
-  const _$SelfLabelsImpl({required final List<SelfLabel> values})
+  const _$SelfLabelsImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsSelfLabels,
+      required final List<SelfLabel> values})
       : _values = values;
 
   factory _$SelfLabelsImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfLabelsImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabels`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<SelfLabel> _values;
   @override
   List<SelfLabel> get values {
@@ -114,7 +137,7 @@ class _$SelfLabelsImpl implements _SelfLabels {
 
   @override
   String toString() {
-    return 'SelfLabels(values: $values)';
+    return 'SelfLabels(\$type: ${$type}, values: $values)';
   }
 
   @override
@@ -122,13 +145,14 @@ class _$SelfLabelsImpl implements _SelfLabels {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SelfLabelsImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._values, _values));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_values));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_values));
 
   @JsonKey(ignore: true)
   @override
@@ -145,12 +169,20 @@ class _$SelfLabelsImpl implements _SelfLabels {
 }
 
 abstract class _SelfLabels implements SelfLabels {
-  const factory _SelfLabels({required final List<SelfLabel> values}) =
-      _$SelfLabelsImpl;
+  const factory _SelfLabels(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<SelfLabel> values}) = _$SelfLabelsImpl;
 
   factory _SelfLabels.fromJson(Map<String, dynamic> json) =
       _$SelfLabelsImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#selfLabels`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   List<SelfLabel> get values;
   @override

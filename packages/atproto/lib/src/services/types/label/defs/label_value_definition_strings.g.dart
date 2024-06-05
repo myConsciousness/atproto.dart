@@ -15,6 +15,11 @@ _$LabelValueDefinitionStringsImpl _$$LabelValueDefinitionStringsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$LabelValueDefinitionStringsImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  comAtprotoLabelDefsLabelValueDefinitionStrings),
           lang: $checkedConvert('lang', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
@@ -26,6 +31,7 @@ _$LabelValueDefinitionStringsImpl _$$LabelValueDefinitionStringsImplFromJson(
 Map<String, dynamic> _$$LabelValueDefinitionStringsImplToJson(
         _$LabelValueDefinitionStringsImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'lang': instance.lang,
       'name': instance.name,
       'description': instance.description,

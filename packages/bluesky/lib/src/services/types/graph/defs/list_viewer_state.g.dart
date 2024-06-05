@@ -14,6 +14,8 @@ _$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListViewerStateImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphDefsListViewerState),
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           blocked: $checkedConvert(
               'blocked',
@@ -27,6 +29,7 @@ _$ListViewerStateImpl _$$ListViewerStateImplFromJson(Map json) =>
 Map<String, dynamic> _$$ListViewerStateImplToJson(
     _$ListViewerStateImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'muted': instance.muted,
   };
 

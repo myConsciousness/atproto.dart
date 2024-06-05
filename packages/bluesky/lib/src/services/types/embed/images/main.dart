@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#main
 @freezed
 class Images with _$Images {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Images({
     required List<ImagesImage> images,
   }) = _Images;

@@ -20,6 +20,11 @@ Relationship _$RelationshipFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Relationship {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#relationship`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   /// if the actor follows this DID, this is the AT-URI of the follow record
@@ -43,7 +48,8 @@ abstract class $RelationshipCopyWith<$Res> {
       _$RelationshipCopyWithImpl<$Res, Relationship>;
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy});
 }
@@ -61,11 +67,16 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -91,7 +102,8 @@ abstract class _$$RelationshipImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy});
 }
@@ -107,11 +119,16 @@ class __$$RelationshipImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
   }) {
     return _then(_$RelationshipImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -130,16 +147,23 @@ class __$$RelationshipImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RelationshipImpl implements _Relationship {
   const _$RelationshipImpl(
-      {required this.did,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsRelationship,
+      required this.did,
       @AtUriConverter() this.following,
       @AtUriConverter() this.followedBy});
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$RelationshipImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#relationship`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
@@ -155,7 +179,7 @@ class _$RelationshipImpl implements _Relationship {
 
   @override
   String toString() {
-    return 'Relationship(did: $did, following: $following, followedBy: $followedBy)';
+    return 'Relationship(\$type: ${$type}, did: $did, following: $following, followedBy: $followedBy)';
   }
 
   @override
@@ -163,6 +187,7 @@ class _$RelationshipImpl implements _Relationship {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RelationshipImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.following, following) ||
                 other.following == following) &&
@@ -172,7 +197,8 @@ class _$RelationshipImpl implements _Relationship {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, following, followedBy);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, did, following, followedBy);
 
   @JsonKey(ignore: true)
   @override
@@ -190,13 +216,21 @@ class _$RelationshipImpl implements _Relationship {
 
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
-      {required final String did,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did,
       @AtUriConverter() final AtUri? following,
       @AtUriConverter() final AtUri? followedBy}) = _$RelationshipImpl;
 
   factory _Relationship.fromJson(Map<String, dynamic> json) =
       _$RelationshipImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.defs#relationship`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

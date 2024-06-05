@@ -20,6 +20,11 @@ RecordView _$RecordViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#view`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,7 @@ abstract class $RecordViewCopyWith<$Res> {
           RecordView value, $Res Function(RecordView) then) =
       _$RecordViewCopyWithImpl<$Res, RecordView>;
   @useResult
-  $Res call({String record});
+  $Res call({@JsonKey(name: r'$type') String $type, String record});
 }
 
 /// @nodoc
@@ -50,9 +55,14 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -69,7 +79,7 @@ abstract class _$$RecordViewImplCopyWith<$Res>
       __$$RecordViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String record});
+  $Res call({@JsonKey(name: r'$type') String $type, String record});
 }
 
 /// @nodoc
@@ -83,9 +93,14 @@ class __$$RecordViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
   }) {
     return _then(_$RecordViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -96,19 +111,27 @@ class __$$RecordViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordViewImpl implements _RecordView {
-  const _$RecordViewImpl({required this.record});
+  const _$RecordViewImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordView,
+      required this.record});
 
   factory _$RecordViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#view`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String record;
 
   @override
   String toString() {
-    return 'RecordView(record: $record)';
+    return 'RecordView(\$type: ${$type}, record: $record)';
   }
 
   @override
@@ -116,12 +139,13 @@ class _$RecordViewImpl implements _RecordView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record);
+  int get hashCode => Object.hash(runtimeType, $type, record);
 
   @JsonKey(ignore: true)
   @override
@@ -138,11 +162,20 @@ class _$RecordViewImpl implements _RecordView {
 }
 
 abstract class _RecordView implements RecordView {
-  const factory _RecordView({required final String record}) = _$RecordViewImpl;
+  const factory _RecordView(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String record}) = _$RecordViewImpl;
 
   factory _RecordView.fromJson(Map<String, dynamic> json) =
       _$RecordViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record#view`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get record;
   @override

@@ -120,7 +120,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   const _$SearchPostsOutputImpl(
       {this.cursor, this.hitsTotal = 0, required final List<PostView> posts})

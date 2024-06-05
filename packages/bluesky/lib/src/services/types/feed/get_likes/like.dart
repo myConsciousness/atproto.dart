@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 
 part 'like.freezed.dart';
@@ -23,8 +23,12 @@ part 'like.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes#like
 @freezed
 class Like with _$Like {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Like({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.getLikes#like`
+    @Default(appBskyFeedGetLikesLike) @JsonKey(name: r'$type') String $type,
     required DateTime indexedAt,
     required DateTime createdAt,
     required ProfileView actor,

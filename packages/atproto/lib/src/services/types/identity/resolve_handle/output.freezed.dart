@@ -96,7 +96,7 @@ class __$$ResolveHandleOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ResolveHandleOutputImpl implements _ResolveHandleOutput {
   const _$ResolveHandleOutputImpl({required this.did});
 

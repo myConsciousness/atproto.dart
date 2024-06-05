@@ -154,7 +154,7 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateAccountOutputImpl implements _CreateAccountOutput {
   const _$CreateAccountOutputImpl(
       {required this.accessJwt,

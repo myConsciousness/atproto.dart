@@ -21,6 +21,11 @@ ProfileAssociatedChat _$ProfileAssociatedChatFromJson(
 
 /// @nodoc
 mixin _$ProfileAssociatedChat {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociatedChat`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @ProfileAssociatedChatAllowIncomingConverter()
   ProfileAssociatedChatAllowIncoming get allowIncoming =>
       throw _privateConstructorUsedError;
@@ -38,7 +43,8 @@ abstract class $ProfileAssociatedChatCopyWith<$Res> {
       _$ProfileAssociatedChatCopyWithImpl<$Res, ProfileAssociatedChat>;
   @useResult
   $Res call(
-      {@ProfileAssociatedChatAllowIncomingConverter()
+      {@JsonKey(name: r'$type') String $type,
+      @ProfileAssociatedChatAllowIncomingConverter()
       ProfileAssociatedChatAllowIncoming allowIncoming});
 
   $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
@@ -58,9 +64,14 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? allowIncoming = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
@@ -88,7 +99,8 @@ abstract class _$$ProfileAssociatedChatImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@ProfileAssociatedChatAllowIncomingConverter()
+      {@JsonKey(name: r'$type') String $type,
+      @ProfileAssociatedChatAllowIncomingConverter()
       ProfileAssociatedChatAllowIncoming allowIncoming});
 
   @override
@@ -107,9 +119,14 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? allowIncoming = null,
   }) {
     return _then(_$ProfileAssociatedChatImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
@@ -120,22 +137,30 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
   const _$ProfileAssociatedChatImpl(
-      {@ProfileAssociatedChatAllowIncomingConverter()
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyActorDefsProfileAssociatedChat,
+      @ProfileAssociatedChatAllowIncomingConverter()
       required this.allowIncoming});
 
   factory _$ProfileAssociatedChatImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedChatImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociatedChat`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @ProfileAssociatedChatAllowIncomingConverter()
   final ProfileAssociatedChatAllowIncoming allowIncoming;
 
   @override
   String toString() {
-    return 'ProfileAssociatedChat(allowIncoming: $allowIncoming)';
+    return 'ProfileAssociatedChat(\$type: ${$type}, allowIncoming: $allowIncoming)';
   }
 
   @override
@@ -143,13 +168,14 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileAssociatedChatImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.allowIncoming, allowIncoming) ||
                 other.allowIncoming == allowIncoming));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, allowIncoming);
+  int get hashCode => Object.hash(runtimeType, $type, allowIncoming);
 
   @JsonKey(ignore: true)
   @override
@@ -168,13 +194,21 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
 
 abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
   const factory _ProfileAssociatedChat(
-          {@ProfileAssociatedChatAllowIncomingConverter()
+          {@JsonKey(name: r'$type') final String $type,
+          @ProfileAssociatedChatAllowIncomingConverter()
           required final ProfileAssociatedChatAllowIncoming allowIncoming}) =
       _$ProfileAssociatedChatImpl;
 
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedChatImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#profileAssociatedChat`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @ProfileAssociatedChatAllowIncomingConverter()
   ProfileAssociatedChatAllowIncoming get allowIncoming;

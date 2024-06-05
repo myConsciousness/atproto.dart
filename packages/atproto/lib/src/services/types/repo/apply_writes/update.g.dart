@@ -13,6 +13,8 @@ _$UpdateImpl _$$UpdateImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$UpdateImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesUpdate),
           collection: $checkedConvert('collection', (v) => v as String),
           rkey: $checkedConvert('rkey', (v) => v as String),
           value: $checkedConvert(
@@ -24,6 +26,7 @@ _$UpdateImpl _$$UpdateImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$UpdateImplToJson(_$UpdateImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'collection': instance.collection,
       'rkey': instance.rkey,
       'value': instance.value,

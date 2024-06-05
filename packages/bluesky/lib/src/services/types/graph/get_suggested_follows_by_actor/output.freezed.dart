@@ -103,7 +103,7 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSuggestedFollowsByActorOutputImpl
     implements _GetSuggestedFollowsByActorOutput {
   const _$GetSuggestedFollowsByActorOutputImpl(

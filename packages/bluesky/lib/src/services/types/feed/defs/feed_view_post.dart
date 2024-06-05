@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'post_view.dart';
 import 'reply_ref.dart';
 
@@ -24,8 +24,12 @@ part 'feed_view_post.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
 class FeedViewPost with _$FeedViewPost {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FeedViewPost({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#feedViewPost`
+    @Default(appBskyFeedDefsFeedViewPost) @JsonKey(name: r'$type') String $type,
     required PostView post,
     ReplyRef? reply,
     String? reason,

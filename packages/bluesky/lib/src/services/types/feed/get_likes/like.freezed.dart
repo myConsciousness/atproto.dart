@@ -20,6 +20,11 @@ Like _$LikeFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Like {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.getLikes#like`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   ProfileView get actor => throw _privateConstructorUsedError;
@@ -34,7 +39,11 @@ abstract class $LikeCopyWith<$Res> {
   factory $LikeCopyWith(Like value, $Res Function(Like) then) =
       _$LikeCopyWithImpl<$Res, Like>;
   @useResult
-  $Res call({DateTime indexedAt, DateTime createdAt, ProfileView actor});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      DateTime indexedAt,
+      DateTime createdAt,
+      ProfileView actor});
 
   $ProfileViewCopyWith<$Res> get actor;
 }
@@ -52,11 +61,16 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? indexedAt = null,
     Object? createdAt = null,
     Object? actor = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -88,7 +102,11 @@ abstract class _$$LikeImplCopyWith<$Res> implements $LikeCopyWith<$Res> {
       __$$LikeImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({DateTime indexedAt, DateTime createdAt, ProfileView actor});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      DateTime indexedAt,
+      DateTime createdAt,
+      ProfileView actor});
 
   @override
   $ProfileViewCopyWith<$Res> get actor;
@@ -104,11 +122,16 @@ class __$$LikeImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? indexedAt = null,
     Object? createdAt = null,
     Object? actor = null,
   }) {
     return _then(_$LikeImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -127,14 +150,23 @@ class __$$LikeImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LikeImpl implements _Like {
   const _$LikeImpl(
-      {required this.indexedAt, required this.createdAt, required this.actor});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedGetLikesLike,
+      required this.indexedAt,
+      required this.createdAt,
+      required this.actor});
 
   factory _$LikeImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikeImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.getLikes#like`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final DateTime indexedAt;
   @override
@@ -144,7 +176,7 @@ class _$LikeImpl implements _Like {
 
   @override
   String toString() {
-    return 'Like(indexedAt: $indexedAt, createdAt: $createdAt, actor: $actor)';
+    return 'Like(\$type: ${$type}, indexedAt: $indexedAt, createdAt: $createdAt, actor: $actor)';
   }
 
   @override
@@ -152,6 +184,7 @@ class _$LikeImpl implements _Like {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LikeImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
             (identical(other.createdAt, createdAt) ||
@@ -161,7 +194,8 @@ class _$LikeImpl implements _Like {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, indexedAt, createdAt, actor);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, indexedAt, createdAt, actor);
 
   @JsonKey(ignore: true)
   @override
@@ -179,12 +213,20 @@ class _$LikeImpl implements _Like {
 
 abstract class _Like implements Like {
   const factory _Like(
-      {required final DateTime indexedAt,
+      {@JsonKey(name: r'$type') final String $type,
+      required final DateTime indexedAt,
       required final DateTime createdAt,
       required final ProfileView actor}) = _$LikeImpl;
 
   factory _Like.fromJson(Map<String, dynamic> json) = _$LikeImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.getLikes#like`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   DateTime get indexedAt;
   @override

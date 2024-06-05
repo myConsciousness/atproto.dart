@@ -14,6 +14,8 @@ _$SkeletonSearchActorImpl _$$SkeletonSearchActorImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$SkeletonSearchActorImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchActor),
           did: $checkedConvert('did', (v) => v as String),
         );
         return val;
@@ -23,5 +25,6 @@ _$SkeletonSearchActorImpl _$$SkeletonSearchActorImplFromJson(Map json) =>
 Map<String, dynamic> _$$SkeletonSearchActorImplToJson(
         _$SkeletonSearchActorImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'did': instance.did,
     };

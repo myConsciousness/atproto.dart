@@ -102,7 +102,7 @@ class __$$GetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
   const _$GetTaggedSuggestionsOutputImpl(
       {required final List<Suggestion> suggestions})

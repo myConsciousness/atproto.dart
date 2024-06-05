@@ -102,7 +102,7 @@ class __$$SignPlcOperationOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SignPlcOperationOutputImpl implements _SignPlcOperationOutput {
   const _$SignPlcOperationOutputImpl(
       {required final Map<String, dynamic> operation})

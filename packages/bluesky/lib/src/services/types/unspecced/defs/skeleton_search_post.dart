@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'skeleton_search_post.freezed.dart';
 part 'skeleton_search_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
 class SkeletonSearchPost with _$SkeletonSearchPost {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchPost({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.unspecced.defs#skeletonSearchPost`
+    @Default(appBskyUnspeccedDefsSkeletonSearchPost)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
   }) = _SkeletonSearchPost;
 

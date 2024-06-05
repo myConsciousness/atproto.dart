@@ -131,7 +131,7 @@ class __$$GetListOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetListOutputImpl implements _GetListOutput {
   const _$GetListOutputImpl(
       {this.cursor,

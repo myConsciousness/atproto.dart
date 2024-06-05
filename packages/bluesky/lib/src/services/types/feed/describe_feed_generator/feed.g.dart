@@ -13,6 +13,8 @@ _$FeedImpl _$$FeedImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FeedImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyFeedDescribeFeedGeneratorFeed),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
         );
@@ -22,5 +24,6 @@ _$FeedImpl _$$FeedImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FeedImplToJson(_$FeedImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
     };

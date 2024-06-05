@@ -20,6 +20,11 @@ FacetTag _$FacetTagFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FacetTag {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#tag`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +38,7 @@ abstract class $FacetTagCopyWith<$Res> {
   factory $FacetTagCopyWith(FacetTag value, $Res Function(FacetTag) then) =
       _$FacetTagCopyWithImpl<$Res, FacetTag>;
   @useResult
-  $Res call({String tag});
+  $Res call({@JsonKey(name: r'$type') String $type, String tag});
 }
 
 /// @nodoc
@@ -49,9 +54,14 @@ class _$FacetTagCopyWithImpl<$Res, $Val extends FacetTag>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tag = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tag: null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -68,7 +78,7 @@ abstract class _$$FacetTagImplCopyWith<$Res>
       __$$FacetTagImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String tag});
+  $Res call({@JsonKey(name: r'$type') String $type, String tag});
 }
 
 /// @nodoc
@@ -82,9 +92,14 @@ class __$$FacetTagImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tag = null,
   }) {
     return _then(_$FacetTagImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tag: null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -95,19 +110,27 @@ class __$$FacetTagImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FacetTagImpl implements _FacetTag {
-  const _$FacetTagImpl({required this.tag});
+  const _$FacetTagImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetTag,
+      required this.tag});
 
   factory _$FacetTagImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetTagImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#tag`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String tag;
 
   @override
   String toString() {
-    return 'FacetTag(tag: $tag)';
+    return 'FacetTag(\$type: ${$type}, tag: $tag)';
   }
 
   @override
@@ -115,12 +138,13 @@ class _$FacetTagImpl implements _FacetTag {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FacetTagImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.tag, tag) || other.tag == tag));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, tag);
+  int get hashCode => Object.hash(runtimeType, $type, tag);
 
   @JsonKey(ignore: true)
   @override
@@ -137,11 +161,20 @@ class _$FacetTagImpl implements _FacetTag {
 }
 
 abstract class _FacetTag implements FacetTag {
-  const factory _FacetTag({required final String tag}) = _$FacetTagImpl;
+  const factory _FacetTag(
+      {@JsonKey(name: r'$type') final String $type,
+      required final String tag}) = _$FacetTagImpl;
 
   factory _FacetTag.fromJson(Map<String, dynamic> json) =
       _$FacetTagImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet#tag`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get tag;
   @override

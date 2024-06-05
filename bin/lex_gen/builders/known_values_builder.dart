@@ -11,12 +11,14 @@ import '../types/known_values.dart';
 
 final class LexKnownValuesBuilder {
   const LexKnownValuesBuilder({
+    this.description,
     required this.docId,
     required this.defName,
     this.propertyName,
     required this.knownValues,
   });
 
+  final String? description;
   final NSID docId;
   final String defName;
   final String? propertyName;
@@ -36,6 +38,7 @@ final class LexKnownValuesBuilder {
         docId.toString().split('.').sublist(2).join('.').replaceAll('.', '/');
 
     return LexGenKnownValues(
+      description: description,
       name: objectName,
       elements: elements,
       fileName: fileName,

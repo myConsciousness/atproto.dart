@@ -21,6 +21,12 @@ LabelValueDefinitionStrings _$LabelValueDefinitionStringsFromJson(
 
 /// @nodoc
 mixin _$LabelValueDefinitionStrings {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinitionStrings`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The code of the language these strings are written in.
   String get lang => throw _privateConstructorUsedError;
 
@@ -44,7 +50,11 @@ abstract class $LabelValueDefinitionStringsCopyWith<$Res> {
       _$LabelValueDefinitionStringsCopyWithImpl<$Res,
           LabelValueDefinitionStrings>;
   @useResult
-  $Res call({String lang, String name, String description});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String lang,
+      String name,
+      String description});
 }
 
 /// @nodoc
@@ -61,11 +71,16 @@ class _$LabelValueDefinitionStringsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? lang = null,
     Object? name = null,
     Object? description = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -91,7 +106,11 @@ abstract class _$$LabelValueDefinitionStringsImplCopyWith<$Res>
       __$$LabelValueDefinitionStringsImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String lang, String name, String description});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String lang,
+      String name,
+      String description});
 }
 
 /// @nodoc
@@ -107,11 +126,16 @@ class __$$LabelValueDefinitionStringsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? lang = null,
     Object? name = null,
     Object? description = null,
   }) {
     return _then(_$LabelValueDefinitionStringsImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       lang: null == lang
           ? _value.lang
           : lang // ignore: cast_nullable_to_non_nullable
@@ -130,15 +154,26 @@ class __$$LabelValueDefinitionStringsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelValueDefinitionStringsImpl
     implements _LabelValueDefinitionStrings {
   const _$LabelValueDefinitionStringsImpl(
-      {required this.lang, required this.name, required this.description});
+      {@JsonKey(name: r'$type')
+      this.$type = comAtprotoLabelDefsLabelValueDefinitionStrings,
+      required this.lang,
+      required this.name,
+      required this.description});
 
   factory _$LabelValueDefinitionStringsImpl.fromJson(
           Map<String, dynamic> json) =>
       _$$LabelValueDefinitionStringsImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinitionStrings`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The code of the language these strings are written in.
   @override
@@ -154,7 +189,7 @@ class _$LabelValueDefinitionStringsImpl
 
   @override
   String toString() {
-    return 'LabelValueDefinitionStrings(lang: $lang, name: $name, description: $description)';
+    return 'LabelValueDefinitionStrings(\$type: ${$type}, lang: $lang, name: $name, description: $description)';
   }
 
   @override
@@ -162,6 +197,7 @@ class _$LabelValueDefinitionStringsImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelValueDefinitionStringsImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -170,7 +206,7 @@ class _$LabelValueDefinitionStringsImpl
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, lang, name, description);
+  int get hashCode => Object.hash(runtimeType, $type, lang, name, description);
 
   @JsonKey(ignore: true)
   @override
@@ -190,13 +226,21 @@ class _$LabelValueDefinitionStringsImpl
 abstract class _LabelValueDefinitionStrings
     implements LabelValueDefinitionStrings {
   const factory _LabelValueDefinitionStrings(
-      {required final String lang,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String lang,
       required final String name,
       required final String description}) = _$LabelValueDefinitionStringsImpl;
 
   factory _LabelValueDefinitionStrings.fromJson(Map<String, dynamic> json) =
       _$LabelValueDefinitionStringsImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.label.defs#labelValueDefinitionStrings`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The code of the language these strings are written in.

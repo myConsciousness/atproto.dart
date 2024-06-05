@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#main
 @freezed
 class GetSessionOutput with _$GetSessionOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetSessionOutput({
     required String handle,
     required String did,

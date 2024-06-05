@@ -235,7 +235,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateSessionOutputImpl implements _CreateSessionOutput {
   const _$CreateSessionOutputImpl(
       {required this.accessJwt,

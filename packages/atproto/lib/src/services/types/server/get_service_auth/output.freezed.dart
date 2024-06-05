@@ -97,7 +97,7 @@ class __$$GetServiceAuthOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetServiceAuthOutputImpl implements _GetServiceAuthOutput {
   const _$GetServiceAuthOutputImpl({required this.token});
 

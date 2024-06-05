@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'repo_status.dart';
 
 part 'repo.freezed.dart';
@@ -23,8 +23,12 @@ part 'repo.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#repo
 @freezed
 class Repo with _$Repo {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Repo({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.listRepos#repo`
+    @Default(comAtprotoSyncListReposRepo) @JsonKey(name: r'$type') String $type,
     required String did,
 
     /// Current repo commit CID

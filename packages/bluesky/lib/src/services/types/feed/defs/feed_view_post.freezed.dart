@@ -20,6 +20,11 @@ FeedViewPost _$FeedViewPostFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedViewPost {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#feedViewPost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   PostView get post => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
@@ -40,7 +45,11 @@ abstract class $FeedViewPostCopyWith<$Res> {
       _$FeedViewPostCopyWithImpl<$Res, FeedViewPost>;
   @useResult
   $Res call(
-      {PostView post, ReplyRef? reply, String? reason, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      PostView post,
+      ReplyRef? reply,
+      String? reason,
+      String? feedContext});
 
   $PostViewCopyWith<$Res> get post;
   $ReplyRefCopyWith<$Res>? get reply;
@@ -59,12 +68,17 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? reply = freezed,
     Object? reason = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -114,7 +128,11 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {PostView post, ReplyRef? reply, String? reason, String? feedContext});
+      {@JsonKey(name: r'$type') String $type,
+      PostView post,
+      ReplyRef? reply,
+      String? reason,
+      String? feedContext});
 
   @override
   $PostViewCopyWith<$Res> get post;
@@ -133,12 +151,17 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? reply = freezed,
     Object? reason = freezed,
     Object? feedContext = freezed,
   }) {
     return _then(_$FeedViewPostImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -161,14 +184,24 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FeedViewPostImpl implements _FeedViewPost {
   const _$FeedViewPostImpl(
-      {required this.post, this.reply, this.reason, this.feedContext});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsFeedViewPost,
+      required this.post,
+      this.reply,
+      this.reason,
+      this.feedContext});
 
   factory _$FeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPostImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#feedViewPost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final PostView post;
   @override
@@ -182,7 +215,7 @@ class _$FeedViewPostImpl implements _FeedViewPost {
 
   @override
   String toString() {
-    return 'FeedViewPost(post: $post, reply: $reply, reason: $reason, feedContext: $feedContext)';
+    return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, reason: $reason, feedContext: $feedContext)';
   }
 
   @override
@@ -190,6 +223,7 @@ class _$FeedViewPostImpl implements _FeedViewPost {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeedViewPostImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.reason, reason) || other.reason == reason) &&
@@ -200,7 +234,7 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, post, reply, reason, feedContext);
+      Object.hash(runtimeType, $type, post, reply, reason, feedContext);
 
   @JsonKey(ignore: true)
   @override
@@ -218,7 +252,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
 
 abstract class _FeedViewPost implements FeedViewPost {
   const factory _FeedViewPost(
-      {required final PostView post,
+      {@JsonKey(name: r'$type') final String $type,
+      required final PostView post,
       final ReplyRef? reply,
       final String? reason,
       final String? feedContext}) = _$FeedViewPostImpl;
@@ -226,6 +261,13 @@ abstract class _FeedViewPost implements FeedViewPost {
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) =
       _$FeedViewPostImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#feedViewPost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   PostView get post;
   @override

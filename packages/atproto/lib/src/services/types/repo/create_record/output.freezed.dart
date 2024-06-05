@@ -108,7 +108,7 @@ class __$$CreateRecordOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$CreateRecordOutputImpl implements _CreateRecordOutput {
   const _$CreateRecordOutputImpl(
       {@AtUriConverter() required this.uri, required this.cid});

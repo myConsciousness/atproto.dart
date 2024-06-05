@@ -13,6 +13,10 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AppPasswordImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ?? comAtprotoServerListAppPasswordsAppPassword),
           name: $checkedConvert('name', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
@@ -24,6 +28,7 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'name': instance.name,
       'createdAt': instance.createdAt.toIso8601String(),
       'privileged': instance.privileged,

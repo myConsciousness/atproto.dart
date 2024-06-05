@@ -20,7 +20,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord#main
 @freezed
 class GetRecordOutput with _$GetRecordOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetRecordOutput({
     @AtUriConverter() required AtUri uri,
     String? cid,

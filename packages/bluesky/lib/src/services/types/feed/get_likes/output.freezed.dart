@@ -138,7 +138,7 @@ class __$$GetLikesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetLikesOutputImpl implements _GetLikesOutput {
   const _$GetLikesOutputImpl(
       {@AtUriConverter() required this.uri,

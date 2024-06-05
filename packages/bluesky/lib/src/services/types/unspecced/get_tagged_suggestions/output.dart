@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#main
 @freezed
 class GetTaggedSuggestionsOutput with _$GetTaggedSuggestionsOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetTaggedSuggestionsOutput({
     required List<Suggestion> suggestions,
   }) = _GetTaggedSuggestionsOutput;

@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'tombstone.freezed.dart';
 part 'tombstone.g.dart';
@@ -22,8 +24,14 @@ part 'tombstone.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
 class Tombstone with _$Tombstone {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Tombstone({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#tombstone`
+    @Default(comAtprotoSyncSubscribeReposTombstone)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required String did,
     required DateTime time,

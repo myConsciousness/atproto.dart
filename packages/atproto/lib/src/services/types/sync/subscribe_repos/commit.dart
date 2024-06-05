@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'repo_op.dart';
 
 part 'commit.freezed.dart';
@@ -25,8 +25,15 @@ part 'commit.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
 class Commit with _$Commit {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Commit({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#commit`
+    @Default(comAtprotoSyncSubscribeReposCommit)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The stream sequence number of this message.
     required int seq,
 

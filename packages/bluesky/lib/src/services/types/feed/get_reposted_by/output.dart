@@ -23,7 +23,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getRepostedBy#main
 @freezed
 class GetRepostedByOutput with _$GetRepostedByOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetRepostedByOutput({
     @AtUriConverter() required AtUri uri,
     String? cid,

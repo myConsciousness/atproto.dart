@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'generator_viewer_state.freezed.dart';
 part 'generator_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorviewerstate
 @freezed
 class GeneratorViewerState with _$GeneratorViewerState {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GeneratorViewerState({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#generatorViewerState`
+    @Default(appBskyFeedDefsGeneratorViewerState)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() AtUri? like,
   }) = _GeneratorViewerState;
 

@@ -96,7 +96,7 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetServicesOutputImpl implements _GetServicesOutput {
   const _$GetServicesOutputImpl({required final List<String> views})
       : _views = views;

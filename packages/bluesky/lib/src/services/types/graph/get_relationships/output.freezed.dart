@@ -112,7 +112,7 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
   const _$GetRelationshipsOutputImpl(
       {this.actor, required final List<String> relationships})

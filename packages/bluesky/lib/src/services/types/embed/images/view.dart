@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'view_image.dart';
 
 part 'view.freezed.dart';
@@ -23,8 +23,12 @@ part 'view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
 class ImagesView with _$ImagesView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ImagesView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.images#view`
+    @Default(appBskyEmbedImagesView) @JsonKey(name: r'$type') String $type,
     required List<ImagesViewImage> images,
   }) = _ImagesView;
 

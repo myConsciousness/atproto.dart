@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../label/defs/label.dart';
 
 part 'labels.freezed.dart';
@@ -23,8 +23,14 @@ part 'labels.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
 class Labels with _$Labels {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Labels({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.subscribeLabels#labels`
+    @Default(comAtprotoLabelSubscribeLabelsLabels)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required List<Label> labels,
   }) = _Labels;

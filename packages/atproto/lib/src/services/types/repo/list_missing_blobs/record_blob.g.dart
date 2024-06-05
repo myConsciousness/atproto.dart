@@ -13,6 +13,8 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RecordBlobImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoRepoListMissingBlobsRecordBlob),
           cid: $checkedConvert('cid', (v) => v as String),
           recordUri: $checkedConvert(
               'recordUri', (v) => const AtUriConverter().fromJson(v as String)),
@@ -23,6 +25,7 @@ _$RecordBlobImpl _$$RecordBlobImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RecordBlobImplToJson(_$RecordBlobImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'cid': instance.cid,
       'recordUri': const AtUriConverter().toJson(instance.recordUri),
     };

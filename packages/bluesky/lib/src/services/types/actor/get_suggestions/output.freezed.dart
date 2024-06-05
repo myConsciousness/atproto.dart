@@ -108,7 +108,7 @@ class __$$GetSuggestionsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
   const _$GetSuggestionsOutputImpl(
       {this.cursor, required final List<ProfileView> actors})

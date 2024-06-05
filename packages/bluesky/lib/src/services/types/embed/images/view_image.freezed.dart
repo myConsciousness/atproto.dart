@@ -20,6 +20,12 @@ ImagesViewImage _$ImagesViewImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesViewImage {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#viewImage`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
   String get thumb => throw _privateConstructorUsedError;
 
@@ -43,7 +49,8 @@ abstract class $ImagesViewImageCopyWith<$Res> {
       _$ImagesViewImageCopyWithImpl<$Res, ImagesViewImage>;
   @useResult
   $Res call(
-      {String thumb,
+      {@JsonKey(name: r'$type') String $type,
+      String thumb,
       String fullsize,
       String alt,
       ImagesAspectRatio? aspectRatio});
@@ -64,12 +71,17 @@ class _$ImagesViewImageCopyWithImpl<$Res, $Val extends ImagesViewImage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? thumb = null,
     Object? fullsize = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       thumb: null == thumb
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
@@ -111,7 +123,8 @@ abstract class _$$ImagesViewImageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String thumb,
+      {@JsonKey(name: r'$type') String $type,
+      String thumb,
       String fullsize,
       String alt,
       ImagesAspectRatio? aspectRatio});
@@ -131,12 +144,17 @@ class __$$ImagesViewImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? thumb = null,
     Object? fullsize = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
   }) {
     return _then(_$ImagesViewImageImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       thumb: null == thumb
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
@@ -159,16 +177,24 @@ class __$$ImagesViewImageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ImagesViewImageImpl implements _ImagesViewImage {
   const _$ImagesViewImageImpl(
-      {required this.thumb,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesViewImage,
+      required this.thumb,
       required this.fullsize,
       required this.alt,
       this.aspectRatio});
 
   factory _$ImagesViewImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesViewImageImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#viewImage`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
   @override
@@ -186,7 +212,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
 
   @override
   String toString() {
-    return 'ImagesViewImage(thumb: $thumb, fullsize: $fullsize, alt: $alt, aspectRatio: $aspectRatio)';
+    return 'ImagesViewImage(\$type: ${$type}, thumb: $thumb, fullsize: $fullsize, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -194,6 +220,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImagesViewImageImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.thumb, thumb) || other.thumb == thumb) &&
             (identical(other.fullsize, fullsize) ||
                 other.fullsize == fullsize) &&
@@ -205,7 +232,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   @JsonKey(ignore: true)
   @override
   int get hashCode =>
-      Object.hash(runtimeType, thumb, fullsize, alt, aspectRatio);
+      Object.hash(runtimeType, $type, thumb, fullsize, alt, aspectRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -224,7 +251,8 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
 
 abstract class _ImagesViewImage implements ImagesViewImage {
   const factory _ImagesViewImage(
-      {required final String thumb,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String thumb,
       required final String fullsize,
       required final String alt,
       final ImagesAspectRatio? aspectRatio}) = _$ImagesViewImageImpl;
@@ -232,6 +260,13 @@ abstract class _ImagesViewImage implements ImagesViewImage {
   factory _ImagesViewImage.fromJson(Map<String, dynamic> json) =
       _$ImagesViewImageImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#viewImage`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.

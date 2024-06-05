@@ -20,6 +20,11 @@ RecordWithMediaView _$RecordWithMediaViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordWithMediaView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia#view`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   RecordView get record => throw _privateConstructorUsedError;
   String get media => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
           RecordWithMediaView value, $Res Function(RecordWithMediaView) then) =
       _$RecordWithMediaViewCopyWithImpl<$Res, RecordWithMediaView>;
   @useResult
-  $Res call({RecordView record, String media});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, RecordView record, String media});
 
   $RecordViewCopyWith<$Res> get record;
 }
@@ -53,10 +59,15 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
     Object? media = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -85,7 +96,8 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
       __$$RecordWithMediaViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({RecordView record, String media});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, RecordView record, String media});
 
   @override
   $RecordViewCopyWith<$Res> get record;
@@ -102,10 +114,15 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
     Object? media = null,
   }) {
     return _then(_$RecordWithMediaViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -120,13 +137,22 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
-  const _$RecordWithMediaViewImpl({required this.record, required this.media});
+  const _$RecordWithMediaViewImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMediaView,
+      required this.record,
+      required this.media});
 
   factory _$RecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia#view`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final RecordView record;
   @override
@@ -134,7 +160,7 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
 
   @override
   String toString() {
-    return 'RecordWithMediaView(record: $record, media: $media)';
+    return 'RecordWithMediaView(\$type: ${$type}, record: $record, media: $media)';
   }
 
   @override
@@ -142,13 +168,14 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordWithMediaViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record, media);
+  int get hashCode => Object.hash(runtimeType, $type, record, media);
 
   @JsonKey(ignore: true)
   @override
@@ -167,12 +194,20 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
 
 abstract class _RecordWithMediaView implements RecordWithMediaView {
   const factory _RecordWithMediaView(
-      {required final RecordView record,
+      {@JsonKey(name: r'$type') final String $type,
+      required final RecordView record,
       required final String media}) = _$RecordWithMediaViewImpl;
 
   factory _RecordWithMediaView.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia#view`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   RecordView get record;
   @override

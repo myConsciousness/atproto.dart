@@ -20,6 +20,12 @@ ContentLabelPref _$ContentLabelPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ContentLabelPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#contentLabelPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Which labeler does this preference apply to? If undefined, applies globally.
   String? get labelerDid => throw _privateConstructorUsedError;
   String get label => throw _privateConstructorUsedError;
@@ -40,7 +46,8 @@ abstract class $ContentLabelPrefCopyWith<$Res> {
       _$ContentLabelPrefCopyWithImpl<$Res, ContentLabelPref>;
   @useResult
   $Res call(
-      {String? labelerDid,
+      {@JsonKey(name: r'$type') String $type,
+      String? labelerDid,
       String label,
       @ContentLabelPrefVisibilityConverter()
       ContentLabelPrefVisibility visibility});
@@ -61,11 +68,16 @@ class _$ContentLabelPrefCopyWithImpl<$Res, $Val extends ContentLabelPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelerDid = freezed,
     Object? label = null,
     Object? visibility = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelerDid: freezed == labelerDid
           ? _value.labelerDid
           : labelerDid // ignore: cast_nullable_to_non_nullable
@@ -100,7 +112,8 @@ abstract class _$$ContentLabelPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? labelerDid,
+      {@JsonKey(name: r'$type') String $type,
+      String? labelerDid,
       String label,
       @ContentLabelPrefVisibilityConverter()
       ContentLabelPrefVisibility visibility});
@@ -120,11 +133,16 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelerDid = freezed,
     Object? label = null,
     Object? visibility = null,
   }) {
     return _then(_$ContentLabelPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelerDid: freezed == labelerDid
           ? _value.labelerDid
           : labelerDid // ignore: cast_nullable_to_non_nullable
@@ -143,15 +161,23 @@ class __$$ContentLabelPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ContentLabelPrefImpl implements _ContentLabelPref {
   const _$ContentLabelPrefImpl(
-      {this.labelerDid,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsContentLabelPref,
+      this.labelerDid,
       required this.label,
       @ContentLabelPrefVisibilityConverter() required this.visibility});
 
   factory _$ContentLabelPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContentLabelPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#contentLabelPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Which labeler does this preference apply to? If undefined, applies globally.
   @override
@@ -164,7 +190,7 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
 
   @override
   String toString() {
-    return 'ContentLabelPref(labelerDid: $labelerDid, label: $label, visibility: $visibility)';
+    return 'ContentLabelPref(\$type: ${$type}, labelerDid: $labelerDid, label: $label, visibility: $visibility)';
   }
 
   @override
@@ -172,6 +198,7 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ContentLabelPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.labelerDid, labelerDid) ||
                 other.labelerDid == labelerDid) &&
             (identical(other.label, label) || other.label == label) &&
@@ -181,7 +208,8 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, labelerDid, label, visibility);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, labelerDid, label, visibility);
 
   @JsonKey(ignore: true)
   @override
@@ -200,7 +228,8 @@ class _$ContentLabelPrefImpl implements _ContentLabelPref {
 
 abstract class _ContentLabelPref implements ContentLabelPref {
   const factory _ContentLabelPref(
-          {final String? labelerDid,
+          {@JsonKey(name: r'$type') final String $type,
+          final String? labelerDid,
           required final String label,
           @ContentLabelPrefVisibilityConverter()
           required final ContentLabelPrefVisibility visibility}) =
@@ -209,6 +238,13 @@ abstract class _ContentLabelPref implements ContentLabelPref {
   factory _ContentLabelPref.fromJson(Map<String, dynamic> json) =
       _$ContentLabelPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#contentLabelPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Which labeler does this preference apply to? If undefined, applies globally.

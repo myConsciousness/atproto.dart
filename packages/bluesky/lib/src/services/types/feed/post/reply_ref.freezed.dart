@@ -20,6 +20,11 @@ ReplyRef _$ReplyRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ReplyRef {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#replyRef`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   StrongRef get root => throw _privateConstructorUsedError;
   StrongRef get parent => throw _privateConstructorUsedError;
 
@@ -34,7 +39,10 @@ abstract class $ReplyRefCopyWith<$Res> {
   factory $ReplyRefCopyWith(ReplyRef value, $Res Function(ReplyRef) then) =
       _$ReplyRefCopyWithImpl<$Res, ReplyRef>;
   @useResult
-  $Res call({StrongRef root, StrongRef parent});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      StrongRef root,
+      StrongRef parent});
 
   $StrongRefCopyWith<$Res> get root;
   $StrongRefCopyWith<$Res> get parent;
@@ -53,10 +61,15 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? root = null,
     Object? parent = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -93,7 +106,10 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
       __$$ReplyRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StrongRef root, StrongRef parent});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      StrongRef root,
+      StrongRef parent});
 
   @override
   $StrongRefCopyWith<$Res> get root;
@@ -112,10 +128,15 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? root = null,
     Object? parent = null,
   }) {
     return _then(_$ReplyRefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
@@ -130,13 +151,22 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ReplyRefImpl implements _ReplyRef {
-  const _$ReplyRefImpl({required this.root, required this.parent});
+  const _$ReplyRefImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedPostReplyRef,
+      required this.root,
+      required this.parent});
 
   factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReplyRefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#replyRef`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final StrongRef root;
   @override
@@ -144,7 +174,7 @@ class _$ReplyRefImpl implements _ReplyRef {
 
   @override
   String toString() {
-    return 'ReplyRef(root: $root, parent: $parent)';
+    return 'ReplyRef(\$type: ${$type}, root: $root, parent: $parent)';
   }
 
   @override
@@ -152,13 +182,14 @@ class _$ReplyRefImpl implements _ReplyRef {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ReplyRefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, root, parent);
+  int get hashCode => Object.hash(runtimeType, $type, root, parent);
 
   @JsonKey(ignore: true)
   @override
@@ -176,12 +207,20 @@ class _$ReplyRefImpl implements _ReplyRef {
 
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
-      {required final StrongRef root,
+      {@JsonKey(name: r'$type') final String $type,
+      required final StrongRef root,
       required final StrongRef parent}) = _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
       _$ReplyRefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post#replyRef`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   StrongRef get root;
   @override

@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 import 'notification_reason.dart';
 
@@ -25,8 +26,14 @@ part 'notification.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#notification
 @freezed
 class Notification with _$Notification {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Notification({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.notification.listNotifications#notification`
+    @Default(appBskyNotificationListNotificationsNotification)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileView author,

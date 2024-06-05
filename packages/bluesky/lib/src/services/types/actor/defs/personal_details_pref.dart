@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'personal_details_pref.freezed.dart';
 part 'personal_details_pref.g.dart';
@@ -20,8 +22,15 @@ part 'personal_details_pref.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#personaldetailspref
 @freezed
 class PersonalDetailsPref with _$PersonalDetailsPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory PersonalDetailsPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#personalDetailsPref`
+    @Default(appBskyActorDefsPersonalDetailsPref)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The birth date of account owner.
     DateTime? birthDate,
   }) = _PersonalDetailsPref;

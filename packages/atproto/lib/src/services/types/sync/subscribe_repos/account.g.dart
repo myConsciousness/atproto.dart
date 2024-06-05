@@ -13,6 +13,8 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AccountImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? comAtprotoSyncSubscribeReposAccount),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
@@ -28,6 +30,7 @@ _$AccountImpl _$$AccountImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$AccountImplToJson(_$AccountImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'seq': instance.seq,
     'did': instance.did,
     'time': instance.time.toIso8601String(),

@@ -20,6 +20,11 @@ GeneratorView _$GeneratorViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -48,7 +53,8 @@ abstract class $GeneratorViewCopyWith<$Res> {
       _$GeneratorViewCopyWithImpl<$Res, GeneratorView>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       String did,
       ProfileView creator,
@@ -79,6 +85,7 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? did = null,
@@ -94,6 +101,10 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
     Object? indexedAt = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -175,7 +186,8 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri uri,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
       String cid,
       String did,
       ProfileView creator,
@@ -206,6 +218,7 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
     Object? did = null,
@@ -221,6 +234,10 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
     Object? indexedAt = null,
   }) {
     return _then(_$GeneratorViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -279,10 +296,11 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GeneratorViewImpl implements _GeneratorView {
   const _$GeneratorViewImpl(
-      {@AtUriConverter() required this.uri,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsGeneratorView,
+      @AtUriConverter() required this.uri,
       required this.cid,
       required this.did,
       required this.creator,
@@ -301,6 +319,12 @@ class _$GeneratorViewImpl implements _GeneratorView {
   factory _$GeneratorViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -349,7 +373,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
 
   @override
   String toString() {
-    return 'GeneratorView(uri: $uri, cid: $cid, did: $did, creator: $creator, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, acceptsInteractions: $acceptsInteractions, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'GeneratorView(\$type: ${$type}, uri: $uri, cid: $cid, did: $did, creator: $creator, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, likeCount: $likeCount, acceptsInteractions: $acceptsInteractions, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
   }
 
   @override
@@ -357,6 +381,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeneratorViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.did, did) || other.did == did) &&
@@ -382,6 +407,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       uri,
       cid,
       did,
@@ -412,7 +438,8 @@ class _$GeneratorViewImpl implements _GeneratorView {
 
 abstract class _GeneratorView implements GeneratorView {
   const factory _GeneratorView(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String did,
       required final ProfileView creator,
@@ -429,6 +456,13 @@ abstract class _GeneratorView implements GeneratorView {
   factory _GeneratorView.fromJson(Map<String, dynamic> json) =
       _$GeneratorViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.defs#generatorView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

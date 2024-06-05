@@ -52,6 +52,7 @@ final class LexGen {
         // Known Values
         if (def is ULexUserTypeString && def.data.knownValues != null) {
           final object = LexKnownValuesBuilder(
+            description: def.data.description,
             docId: docId,
             defName: defName,
             knownValues: def.data.knownValues ?? const [],

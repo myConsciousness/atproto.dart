@@ -13,6 +13,8 @@ _$SelfLabelsImpl _$$SelfLabelsImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$SelfLabelsImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoLabelDefsSelfLabels),
           values: $checkedConvert(
               'values',
               (v) => (v as List<dynamic>)
@@ -26,5 +28,6 @@ _$SelfLabelsImpl _$$SelfLabelsImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$SelfLabelsImplToJson(_$SelfLabelsImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'values': instance.values.map((e) => e.toJson()).toList(),
     };

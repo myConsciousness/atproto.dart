@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'relationship.freezed.dart';
 part 'relationship.g.dart';
 
@@ -22,8 +25,14 @@ part 'relationship.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
 class Relationship with _$Relationship {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Relationship({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.defs#relationship`
+    @Default(appBskyGraphDefsRelationship)
+    @JsonKey(name: r'$type')
+    String $type,
     required String did,
 
     /// if the actor follows this DID, this is the AT-URI of the follow record

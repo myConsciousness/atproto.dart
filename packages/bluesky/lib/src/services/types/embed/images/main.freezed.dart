@@ -93,7 +93,7 @@ class __$$ImagesImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ImagesImpl implements _Images {
   const _$ImagesImpl({required final List<ImagesImage> images})
       : _images = images;

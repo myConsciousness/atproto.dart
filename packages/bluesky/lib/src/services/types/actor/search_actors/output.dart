@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#main
 @freezed
 class SearchActorsOutput with _$SearchActorsOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SearchActorsOutput({
     String? cursor,
     required List<ProfileView> actors,

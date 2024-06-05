@@ -20,6 +20,12 @@ FeedViewPref _$FeedViewPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FeedViewPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#feedViewPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The URI of the feed, or an identifier which describes the feed.
   String get feed => throw _privateConstructorUsedError;
 
@@ -51,7 +57,8 @@ abstract class $FeedViewPrefCopyWith<$Res> {
       _$FeedViewPrefCopyWithImpl<$Res, FeedViewPref>;
   @useResult
   $Res call(
-      {String feed,
+      {@JsonKey(name: r'$type') String $type,
+      String feed,
       bool hideReplies,
       bool hideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
@@ -72,6 +79,7 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? feed = null,
     Object? hideReplies = null,
     Object? hideRepliesByUnfollowed = null,
@@ -80,6 +88,10 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
     Object? hideQuotePosts = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
@@ -117,7 +129,8 @@ abstract class _$$FeedViewPrefImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String feed,
+      {@JsonKey(name: r'$type') String $type,
+      String feed,
       bool hideReplies,
       bool hideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
@@ -136,6 +149,7 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? feed = null,
     Object? hideReplies = null,
     Object? hideRepliesByUnfollowed = null,
@@ -144,6 +158,10 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
     Object? hideQuotePosts = null,
   }) {
     return _then(_$FeedViewPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       feed: null == feed
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
@@ -174,10 +192,11 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$FeedViewPrefImpl implements _FeedViewPref {
   const _$FeedViewPrefImpl(
-      {required this.feed,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsFeedViewPref,
+      required this.feed,
       this.hideReplies = false,
       this.hideRepliesByUnfollowed = true,
       this.hideRepliesByLikeCount = 0,
@@ -186,6 +205,13 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
   factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPrefImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#feedViewPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The URI of the feed, or an identifier which describes the feed.
   @override
@@ -218,7 +244,7 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
   @override
   String toString() {
-    return 'FeedViewPref(feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts)';
+    return 'FeedViewPref(\$type: ${$type}, feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts)';
   }
 
   @override
@@ -226,6 +252,7 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FeedViewPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.feed, feed) || other.feed == feed) &&
             (identical(other.hideReplies, hideReplies) ||
                 other.hideReplies == hideReplies) &&
@@ -244,6 +271,7 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       feed,
       hideReplies,
       hideRepliesByUnfollowed,
@@ -267,7 +295,8 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
 abstract class _FeedViewPref implements FeedViewPref {
   const factory _FeedViewPref(
-      {required final String feed,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String feed,
       final bool hideReplies,
       final bool hideRepliesByUnfollowed,
       final int hideRepliesByLikeCount,
@@ -277,6 +306,13 @@ abstract class _FeedViewPref implements FeedViewPref {
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) =
       _$FeedViewPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#feedViewPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The URI of the feed, or an identifier which describes the feed.

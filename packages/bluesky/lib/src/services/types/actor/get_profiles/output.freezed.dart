@@ -96,7 +96,7 @@ class __$$GetProfilesOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetProfilesOutputImpl implements _GetProfilesOutput {
   const _$GetProfilesOutputImpl(
       {required final List<ProfileViewDetailed> profiles})

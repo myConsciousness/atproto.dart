@@ -20,6 +20,11 @@ Delete _$DeleteFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Delete {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#delete`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get collection => throw _privateConstructorUsedError;
   String get rkey => throw _privateConstructorUsedError;
 
@@ -33,7 +38,8 @@ abstract class $DeleteCopyWith<$Res> {
   factory $DeleteCopyWith(Delete value, $Res Function(Delete) then) =
       _$DeleteCopyWithImpl<$Res, Delete>;
   @useResult
-  $Res call({String collection, String rkey});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String collection, String rkey});
 }
 
 /// @nodoc
@@ -49,10 +55,15 @@ class _$DeleteCopyWithImpl<$Res, $Val extends Delete>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -72,7 +83,8 @@ abstract class _$$DeleteImplCopyWith<$Res> implements $DeleteCopyWith<$Res> {
       __$$DeleteImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String collection, String rkey});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String collection, String rkey});
 }
 
 /// @nodoc
@@ -86,10 +98,15 @@ class __$$DeleteImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? collection = null,
     Object? rkey = null,
   }) {
     return _then(_$DeleteImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -104,13 +121,22 @@ class __$$DeleteImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$DeleteImpl implements _Delete {
-  const _$DeleteImpl({required this.collection, required this.rkey});
+  const _$DeleteImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesDelete,
+      required this.collection,
+      required this.rkey});
 
   factory _$DeleteImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeleteImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#delete`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String collection;
   @override
@@ -118,7 +144,7 @@ class _$DeleteImpl implements _Delete {
 
   @override
   String toString() {
-    return 'Delete(collection: $collection, rkey: $rkey)';
+    return 'Delete(\$type: ${$type}, collection: $collection, rkey: $rkey)';
   }
 
   @override
@@ -126,6 +152,7 @@ class _$DeleteImpl implements _Delete {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeleteImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey));
@@ -133,7 +160,7 @@ class _$DeleteImpl implements _Delete {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, collection, rkey);
+  int get hashCode => Object.hash(runtimeType, $type, collection, rkey);
 
   @JsonKey(ignore: true)
   @override
@@ -151,11 +178,19 @@ class _$DeleteImpl implements _Delete {
 
 abstract class _Delete implements Delete {
   const factory _Delete(
-      {required final String collection,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String collection,
       required final String rkey}) = _$DeleteImpl;
 
   factory _Delete.fromJson(Map<String, dynamic> json) = _$DeleteImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.applyWrites#delete`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get collection;
   @override

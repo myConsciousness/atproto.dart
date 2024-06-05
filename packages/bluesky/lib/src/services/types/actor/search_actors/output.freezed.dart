@@ -107,7 +107,7 @@ class __$$SearchActorsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SearchActorsOutputImpl implements _SearchActorsOutput {
   const _$SearchActorsOutputImpl(
       {this.cursor, required final List<ProfileView> actors})

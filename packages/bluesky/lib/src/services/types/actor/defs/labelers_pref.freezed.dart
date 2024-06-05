@@ -20,6 +20,11 @@ LabelersPref _$LabelersPrefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LabelersPref {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelersPref`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   List<LabelerPrefItem> get labelers => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -34,7 +39,8 @@ abstract class $LabelersPrefCopyWith<$Res> {
           LabelersPref value, $Res Function(LabelersPref) then) =
       _$LabelersPrefCopyWithImpl<$Res, LabelersPref>;
   @useResult
-  $Res call({List<LabelerPrefItem> labelers});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, List<LabelerPrefItem> labelers});
 }
 
 /// @nodoc
@@ -50,9 +56,14 @@ class _$LabelersPrefCopyWithImpl<$Res, $Val extends LabelersPref>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelers = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelers: null == labelers
           ? _value.labelers
           : labelers // ignore: cast_nullable_to_non_nullable
@@ -69,7 +80,8 @@ abstract class _$$LabelersPrefImplCopyWith<$Res>
       __$$LabelersPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<LabelerPrefItem> labelers});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, List<LabelerPrefItem> labelers});
 }
 
 /// @nodoc
@@ -83,9 +95,14 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? labelers = null,
   }) {
     return _then(_$LabelersPrefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       labelers: null == labelers
           ? _value._labelers
           : labelers // ignore: cast_nullable_to_non_nullable
@@ -96,14 +113,22 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$LabelersPrefImpl implements _LabelersPref {
-  const _$LabelersPrefImpl({required final List<LabelerPrefItem> labelers})
+  const _$LabelersPrefImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsLabelersPref,
+      required final List<LabelerPrefItem> labelers})
       : _labelers = labelers;
 
   factory _$LabelersPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelersPrefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelersPref`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<LabelerPrefItem> _labelers;
   @override
   List<LabelerPrefItem> get labelers {
@@ -114,7 +139,7 @@ class _$LabelersPrefImpl implements _LabelersPref {
 
   @override
   String toString() {
-    return 'LabelersPref(labelers: $labelers)';
+    return 'LabelersPref(\$type: ${$type}, labelers: $labelers)';
   }
 
   @override
@@ -122,13 +147,14 @@ class _$LabelersPrefImpl implements _LabelersPref {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LabelersPrefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality().equals(other._labelers, _labelers));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_labelers));
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_labelers));
 
   @JsonKey(ignore: true)
   @override
@@ -145,12 +171,20 @@ class _$LabelersPrefImpl implements _LabelersPref {
 }
 
 abstract class _LabelersPref implements LabelersPref {
-  const factory _LabelersPref({required final List<LabelerPrefItem> labelers}) =
-      _$LabelersPrefImpl;
+  const factory _LabelersPref(
+      {@JsonKey(name: r'$type') final String $type,
+      required final List<LabelerPrefItem> labelers}) = _$LabelersPrefImpl;
 
   factory _LabelersPref.fromJson(Map<String, dynamic> json) =
       _$LabelersPrefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#labelersPref`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   List<LabelerPrefItem> get labelers;
   @override

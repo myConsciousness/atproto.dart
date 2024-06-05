@@ -13,6 +13,8 @@ _$FacetTagImpl _$$FacetTagImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetTagImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacetTag),
           tag: $checkedConvert('tag', (v) => v as String),
         );
         return val;
@@ -21,5 +23,6 @@ _$FacetTagImpl _$$FacetTagImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FacetTagImplToJson(_$FacetTagImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'tag': instance.tag,
     };

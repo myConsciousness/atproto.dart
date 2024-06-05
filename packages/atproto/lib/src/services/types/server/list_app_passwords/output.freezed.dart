@@ -101,7 +101,7 @@ class __$$ListAppPasswordsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
   const _$ListAppPasswordsOutputImpl(
       {required final List<AppPassword> passwords})

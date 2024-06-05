@@ -13,6 +13,8 @@ _$InteractionImpl _$$InteractionImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$InteractionImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsInteraction),
           item: $checkedConvert(
               'item',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -25,7 +27,9 @@ _$InteractionImpl _$$InteractionImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$InteractionImplToJson(_$InteractionImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

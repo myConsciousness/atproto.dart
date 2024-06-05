@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeed#main
 @freezed
 class GetFeedOutput with _$GetFeedOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory GetFeedOutput({
     String? cursor,
     required List<FeedViewPost> feed,

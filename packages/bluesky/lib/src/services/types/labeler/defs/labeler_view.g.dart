@@ -13,6 +13,8 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LabelerViewImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyLabelerDefsLabelerView),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -43,6 +45,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'creator': instance.creator.toJson(),

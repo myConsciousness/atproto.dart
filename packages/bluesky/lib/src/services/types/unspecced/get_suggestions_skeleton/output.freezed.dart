@@ -114,7 +114,7 @@ class __$$GetSuggestionsSkeletonOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetSuggestionsSkeletonOutputImpl
     implements _GetSuggestionsSkeletonOutput {
   const _$GetSuggestionsSkeletonOutputImpl(

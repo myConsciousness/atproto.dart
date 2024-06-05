@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'label.freezed.dart';
 part 'label.g.dart';
@@ -22,8 +24,13 @@ part 'label.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
 class Label with _$Label {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Label({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.defs#label`
+    @Default(comAtprotoLabelDefsLabel) @JsonKey(name: r'$type') String $type,
+
     /// The AT Protocol version of the label object.
     @Default(0) int ver,
 

@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'record_blob.freezed.dart';
 part 'record_blob.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#recordblob
 @freezed
 class RecordBlob with _$RecordBlob {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory RecordBlob({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.repo.listMissingBlobs#recordBlob`
+    @Default(comAtprotoRepoListMissingBlobsRecordBlob)
+    @JsonKey(name: r'$type')
+    String $type,
     required String cid,
     @AtUriConverter() required AtUri recordUri,
   }) = _RecordBlob;

@@ -14,14 +14,23 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'saved_feeds_pref.freezed.dart';
 part 'saved_feeds_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeedspref
 @freezed
 class SavedFeedsPref with _$SavedFeedsPref {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory SavedFeedsPref({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#savedFeedsPref`
+    @Default(appBskyActorDefsSavedFeedsPref)
+    @JsonKey(name: r'$type')
+    String $type,
     @AtUriConverter() required List<AtUri> pinned,
     @AtUriConverter() required List<AtUri> saved,
     @Default(0) int timelineIndex,

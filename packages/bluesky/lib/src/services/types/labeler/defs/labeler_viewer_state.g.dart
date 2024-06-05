@@ -14,6 +14,8 @@ _$LabelerViewerStateImpl _$$LabelerViewerStateImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$LabelerViewerStateImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyLabelerDefsLabelerViewerState),
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -25,7 +27,9 @@ _$LabelerViewerStateImpl _$$LabelerViewerStateImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$LabelerViewerStateImplToJson(
     _$LabelerViewerStateImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

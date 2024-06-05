@@ -20,7 +20,7 @@ part 'main.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
 @freezed
 class StrongRef with _$StrongRef {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory StrongRef({
     @AtUriConverter() required AtUri uri,
     required String cid,

@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -20,7 +19,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo#main
 @freezed
 class DescribeRepoOutput with _$DescribeRepoOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory DescribeRepoOutput({
     required String handle,
     required String did,

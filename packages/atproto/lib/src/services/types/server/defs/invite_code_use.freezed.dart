@@ -20,6 +20,11 @@ InviteCodeUse _$InviteCodeUseFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$InviteCodeUse {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCodeUse`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get usedBy => throw _privateConstructorUsedError;
   DateTime get usedAt => throw _privateConstructorUsedError;
 
@@ -35,7 +40,8 @@ abstract class $InviteCodeUseCopyWith<$Res> {
           InviteCodeUse value, $Res Function(InviteCodeUse) then) =
       _$InviteCodeUseCopyWithImpl<$Res, InviteCodeUse>;
   @useResult
-  $Res call({String usedBy, DateTime usedAt});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String usedBy, DateTime usedAt});
 }
 
 /// @nodoc
@@ -51,10 +57,15 @@ class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? usedBy = null,
     Object? usedAt = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       usedBy: null == usedBy
           ? _value.usedBy
           : usedBy // ignore: cast_nullable_to_non_nullable
@@ -75,7 +86,8 @@ abstract class _$$InviteCodeUseImplCopyWith<$Res>
       __$$InviteCodeUseImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String usedBy, DateTime usedAt});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type, String usedBy, DateTime usedAt});
 }
 
 /// @nodoc
@@ -89,10 +101,15 @@ class __$$InviteCodeUseImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? usedBy = null,
     Object? usedAt = null,
   }) {
     return _then(_$InviteCodeUseImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       usedBy: null == usedBy
           ? _value.usedBy
           : usedBy // ignore: cast_nullable_to_non_nullable
@@ -107,13 +124,22 @@ class __$$InviteCodeUseImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$InviteCodeUseImpl implements _InviteCodeUse {
-  const _$InviteCodeUseImpl({required this.usedBy, required this.usedAt});
+  const _$InviteCodeUseImpl(
+      {@JsonKey(name: r'$type') this.$type = comAtprotoServerDefsInviteCodeUse,
+      required this.usedBy,
+      required this.usedAt});
 
   factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
       _$$InviteCodeUseImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCodeUse`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String usedBy;
   @override
@@ -121,7 +147,7 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
 
   @override
   String toString() {
-    return 'InviteCodeUse(usedBy: $usedBy, usedAt: $usedAt)';
+    return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt)';
   }
 
   @override
@@ -129,13 +155,14 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$InviteCodeUseImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
             (identical(other.usedAt, usedAt) || other.usedAt == usedAt));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, usedBy, usedAt);
+  int get hashCode => Object.hash(runtimeType, $type, usedBy, usedAt);
 
   @JsonKey(ignore: true)
   @override
@@ -153,12 +180,20 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
 
 abstract class _InviteCodeUse implements InviteCodeUse {
   const factory _InviteCodeUse(
-      {required final String usedBy,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String usedBy,
       required final DateTime usedAt}) = _$InviteCodeUseImpl;
 
   factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =
       _$InviteCodeUseImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.server.defs#inviteCodeUse`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get usedBy;
   @override

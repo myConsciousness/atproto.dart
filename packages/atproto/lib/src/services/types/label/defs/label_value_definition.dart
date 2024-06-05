@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'label_value_definition_blurs.dart';
 import 'label_value_definition_default_setting.dart';
 import 'label_value_definition_severity.dart';
@@ -28,8 +28,15 @@ part 'label_value_definition.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinition
 @freezed
 class LabelValueDefinition with _$LabelValueDefinition {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory LabelValueDefinition({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.label.defs#labelValueDefinition`
+    @Default(comAtprotoLabelDefsLabelValueDefinition)
+    @JsonKey(name: r'$type')
+    String $type,
+
     /// The value of the label being defined. Must only include lowercase ascii and the '-' character ([a-z-]+).
     required String identifier,
 

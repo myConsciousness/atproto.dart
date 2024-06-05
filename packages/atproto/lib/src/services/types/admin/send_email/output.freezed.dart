@@ -96,7 +96,7 @@ class __$$SendEmailOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SendEmailOutputImpl implements _SendEmailOutput {
   const _$SendEmailOutputImpl({required this.sent});
 

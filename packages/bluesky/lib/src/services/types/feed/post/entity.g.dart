@@ -13,6 +13,8 @@ _$EntityImpl _$$EntityImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$EntityImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedPostEntity),
           index: $checkedConvert('index',
               (v) => TextSlice.fromJson(Map<String, Object?>.from(v as Map))),
           type: $checkedConvert('type', (v) => v as String),
@@ -24,6 +26,7 @@ _$EntityImpl _$$EntityImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$EntityImplToJson(_$EntityImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'index': instance.index.toJson(),
       'type': instance.type,
       'value': instance.value,

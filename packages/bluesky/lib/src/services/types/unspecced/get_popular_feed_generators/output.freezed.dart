@@ -114,7 +114,7 @@ class __$$GetPopularFeedGeneratorsOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetPopularFeedGeneratorsOutputImpl
     implements _GetPopularFeedGeneratorsOutput {
   const _$GetPopularFeedGeneratorsOutputImpl(

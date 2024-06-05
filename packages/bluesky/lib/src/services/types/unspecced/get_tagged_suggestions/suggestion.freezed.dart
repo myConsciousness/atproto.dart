@@ -20,6 +20,11 @@ Suggestion _$SuggestionFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Suggestion {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
   @SuggestionSubjectTypeConverter()
   SuggestionSubjectType get subjectType => throw _privateConstructorUsedError;
@@ -38,7 +43,8 @@ abstract class $SuggestionCopyWith<$Res> {
       _$SuggestionCopyWithImpl<$Res, Suggestion>;
   @useResult
   $Res call(
-      {String tag,
+      {@JsonKey(name: r'$type') String $type,
+      String tag,
       @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
       String subject});
 
@@ -58,11 +64,16 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tag = null,
     Object? subjectType = null,
     Object? subject = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tag: null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -96,7 +107,8 @@ abstract class _$$SuggestionImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String tag,
+      {@JsonKey(name: r'$type') String $type,
+      String tag,
       @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
       String subject});
 
@@ -115,11 +127,16 @@ class __$$SuggestionImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? tag = null,
     Object? subjectType = null,
     Object? subject = null,
   }) {
     return _then(_$SuggestionImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       tag: null == tag
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
@@ -138,16 +155,24 @@ class __$$SuggestionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$SuggestionImpl implements _Suggestion {
   const _$SuggestionImpl(
-      {required this.tag,
+      {@JsonKey(name: r'$type')
+      this.$type = appBskyUnspeccedGetTaggedSuggestionsSuggestion,
+      required this.tag,
       @SuggestionSubjectTypeConverter() required this.subjectType,
       required this.subject});
 
   factory _$SuggestionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SuggestionImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String tag;
   @override
@@ -158,7 +183,7 @@ class _$SuggestionImpl implements _Suggestion {
 
   @override
   String toString() {
-    return 'Suggestion(tag: $tag, subjectType: $subjectType, subject: $subject)';
+    return 'Suggestion(\$type: ${$type}, tag: $tag, subjectType: $subjectType, subject: $subject)';
   }
 
   @override
@@ -166,6 +191,7 @@ class _$SuggestionImpl implements _Suggestion {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SuggestionImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.subjectType, subjectType) ||
                 other.subjectType == subjectType) &&
@@ -174,7 +200,8 @@ class _$SuggestionImpl implements _Suggestion {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, tag, subjectType, subject);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, tag, subjectType, subject);
 
   @JsonKey(ignore: true)
   @override
@@ -192,7 +219,8 @@ class _$SuggestionImpl implements _Suggestion {
 
 abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
-      {required final String tag,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String tag,
       @SuggestionSubjectTypeConverter()
       required final SuggestionSubjectType subjectType,
       required final String subject}) = _$SuggestionImpl;
@@ -200,6 +228,13 @@ abstract class _Suggestion implements Suggestion {
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
       _$SuggestionImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.unspecced.getTaggedSuggestions#suggestion`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get tag;
   @override

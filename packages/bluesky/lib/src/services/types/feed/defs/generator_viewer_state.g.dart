@@ -14,6 +14,8 @@ _$GeneratorViewerStateImpl _$$GeneratorViewerStateImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GeneratorViewerStateImpl(
+          $type: $checkedConvert(r'$type',
+              (v) => v as String? ?? appBskyFeedDefsGeneratorViewerState),
           like: $checkedConvert(
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -25,7 +27,9 @@ _$GeneratorViewerStateImpl _$$GeneratorViewerStateImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$GeneratorViewerStateImplToJson(
     _$GeneratorViewerStateImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

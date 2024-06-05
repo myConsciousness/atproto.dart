@@ -20,6 +20,11 @@ Repo _$RepoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Repo {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.listRepos#repo`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
   /// Current repo commit CID
@@ -42,7 +47,8 @@ abstract class $RepoCopyWith<$Res> {
       _$RepoCopyWithImpl<$Res, Repo>;
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String head,
       String rev,
       bool active,
@@ -64,6 +70,7 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? head = null,
     Object? rev = null,
@@ -71,6 +78,10 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
     Object? status = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -115,7 +126,8 @@ abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String head,
       String rev,
       bool active,
@@ -135,6 +147,7 @@ class __$$RepoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? head = null,
     Object? rev = null,
@@ -142,6 +155,10 @@ class __$$RepoImplCopyWithImpl<$Res>
     Object? status = freezed,
   }) {
     return _then(_$RepoImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -168,10 +185,11 @@ class __$$RepoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$RepoImpl implements _Repo {
   const _$RepoImpl(
-      {required this.did,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoSyncListReposRepo,
+      required this.did,
       required this.head,
       required this.rev,
       this.active = false,
@@ -180,6 +198,12 @@ class _$RepoImpl implements _Repo {
   factory _$RepoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.listRepos#repo`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
 
@@ -199,7 +223,7 @@ class _$RepoImpl implements _Repo {
 
   @override
   String toString() {
-    return 'Repo(did: $did, head: $head, rev: $rev, active: $active, status: $status)';
+    return 'Repo(\$type: ${$type}, did: $did, head: $head, rev: $rev, active: $active, status: $status)';
   }
 
   @override
@@ -207,6 +231,7 @@ class _$RepoImpl implements _Repo {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepoImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.head, head) || other.head == head) &&
             (identical(other.rev, rev) || other.rev == rev) &&
@@ -216,7 +241,8 @@ class _$RepoImpl implements _Repo {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did, head, rev, active, status);
+  int get hashCode =>
+      Object.hash(runtimeType, $type, did, head, rev, active, status);
 
   @JsonKey(ignore: true)
   @override
@@ -234,7 +260,8 @@ class _$RepoImpl implements _Repo {
 
 abstract class _Repo implements Repo {
   const factory _Repo(
-      {required final String did,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did,
       required final String head,
       required final String rev,
       final bool active,
@@ -242,6 +269,13 @@ abstract class _Repo implements Repo {
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$RepoImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.sync.listRepos#repo`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

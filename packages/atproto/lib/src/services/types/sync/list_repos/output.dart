@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -23,7 +22,7 @@ part 'output.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#main
 @freezed
 class ListReposOutput with _$ListReposOutput {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ListReposOutput({
     String? cursor,
     required List<Repo> repos,

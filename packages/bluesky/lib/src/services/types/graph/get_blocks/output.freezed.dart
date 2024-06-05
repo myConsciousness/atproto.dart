@@ -107,7 +107,7 @@ class __$$GetBlocksOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetBlocksOutputImpl implements _GetBlocksOutput {
   const _$GetBlocksOutputImpl(
       {this.cursor, required final List<ProfileView> blocks})

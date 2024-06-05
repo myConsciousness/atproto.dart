@@ -20,6 +20,11 @@ AccountView _$AccountViewFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$AccountView {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#accountView`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
@@ -46,7 +51,8 @@ abstract class $AccountViewCopyWith<$Res> {
       _$AccountViewCopyWithImpl<$Res, AccountView>;
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String handle,
       String? email,
       List<Map<String, dynamic>> relatedRecords,
@@ -74,6 +80,7 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
@@ -87,6 +94,10 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
     Object? deactivatedAt = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -156,7 +167,8 @@ abstract class _$$AccountViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String handle,
       String? email,
       List<Map<String, dynamic>> relatedRecords,
@@ -183,6 +195,7 @@ class __$$AccountViewImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
@@ -196,6 +209,10 @@ class __$$AccountViewImplCopyWithImpl<$Res>
     Object? deactivatedAt = freezed,
   }) {
     return _then(_$AccountViewImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -246,10 +263,11 @@ class __$$AccountViewImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$AccountViewImpl implements _AccountView {
   const _$AccountViewImpl(
-      {required this.did,
+      {@JsonKey(name: r'$type') this.$type = comAtprotoAdminDefsAccountView,
+      required this.did,
       required this.handle,
       this.email,
       final List<Map<String, dynamic>> relatedRecords = const [],
@@ -266,6 +284,12 @@ class _$AccountViewImpl implements _AccountView {
   factory _$AccountViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountViewImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#accountView`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
   @override
@@ -306,7 +330,7 @@ class _$AccountViewImpl implements _AccountView {
 
   @override
   String toString() {
-    return 'AccountView(did: $did, handle: $handle, email: $email, relatedRecords: $relatedRecords, indexedAt: $indexedAt, invitedBy: $invitedBy, invites: $invites, invitesDisabled: $invitesDisabled, emailConfirmedAt: $emailConfirmedAt, inviteNote: $inviteNote, deactivatedAt: $deactivatedAt)';
+    return 'AccountView(\$type: ${$type}, did: $did, handle: $handle, email: $email, relatedRecords: $relatedRecords, indexedAt: $indexedAt, invitedBy: $invitedBy, invites: $invites, invitesDisabled: $invitesDisabled, emailConfirmedAt: $emailConfirmedAt, inviteNote: $inviteNote, deactivatedAt: $deactivatedAt)';
   }
 
   @override
@@ -314,6 +338,7 @@ class _$AccountViewImpl implements _AccountView {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$AccountViewImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.email, email) || other.email == email) &&
@@ -338,6 +363,7 @@ class _$AccountViewImpl implements _AccountView {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       did,
       handle,
       email,
@@ -366,7 +392,8 @@ class _$AccountViewImpl implements _AccountView {
 
 abstract class _AccountView implements AccountView {
   const factory _AccountView(
-      {required final String did,
+      {@JsonKey(name: r'$type') final String $type,
+      required final String did,
       required final String handle,
       final String? email,
       final List<Map<String, dynamic>> relatedRecords,
@@ -381,6 +408,13 @@ abstract class _AccountView implements AccountView {
   factory _AccountView.fromJson(Map<String, dynamic> json) =
       _$AccountViewImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.admin.defs#accountView`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

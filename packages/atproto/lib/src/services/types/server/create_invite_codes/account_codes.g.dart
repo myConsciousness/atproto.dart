@@ -13,6 +13,11 @@ _$AccountCodesImpl _$$AccountCodesImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$AccountCodesImpl(
+          $type: $checkedConvert(
+              r'$type',
+              (v) =>
+                  v as String? ??
+                  comAtprotoServerCreateInviteCodesAccountCodes),
           account: $checkedConvert('account', (v) => v as String),
           codes: $checkedConvert('codes',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -23,6 +28,7 @@ _$AccountCodesImpl _$$AccountCodesImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$AccountCodesImplToJson(_$AccountCodesImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'account': instance.account,
       'codes': instance.codes,
     };

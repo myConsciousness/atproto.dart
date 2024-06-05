@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'link.freezed.dart';
 part 'link.g.dart';
@@ -22,8 +24,12 @@ part 'link.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
 class FacetLink with _$FacetLink {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory FacetLink({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.richtext.facet#link`
+    @Default(appBskyRichtextFacetLink) @JsonKey(name: r'$type') String $type,
     required String uri,
   }) = _FacetLink;
 

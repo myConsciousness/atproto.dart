@@ -20,6 +20,11 @@ ImagesImage _$ImagesImageFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesImage {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#image`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob get image => throw _privateConstructorUsedError;
 
@@ -40,7 +45,8 @@ abstract class $ImagesImageCopyWith<$Res> {
       _$ImagesImageCopyWithImpl<$Res, ImagesImage>;
   @useResult
   $Res call(
-      {@BlobConverter() Blob image,
+      {@JsonKey(name: r'$type') String $type,
+      @BlobConverter() Blob image,
       String alt,
       ImagesAspectRatio? aspectRatio});
 
@@ -61,11 +67,16 @@ class _$ImagesImageCopyWithImpl<$Res, $Val extends ImagesImage>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? image = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -111,7 +122,8 @@ abstract class _$$ImagesImageImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@BlobConverter() Blob image,
+      {@JsonKey(name: r'$type') String $type,
+      @BlobConverter() Blob image,
       String alt,
       ImagesAspectRatio? aspectRatio});
 
@@ -132,11 +144,16 @@ class __$$ImagesImageImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? image = null,
     Object? alt = null,
     Object? aspectRatio = freezed,
   }) {
     return _then(_$ImagesImageImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       image: null == image
           ? _value.image
           : image // ignore: cast_nullable_to_non_nullable
@@ -155,16 +172,23 @@ class __$$ImagesImageImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ImagesImageImpl implements _ImagesImage {
   const _$ImagesImageImpl(
-      {@BlobConverter() required this.image,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesImage,
+      @BlobConverter() required this.image,
       required this.alt,
       this.aspectRatio});
 
   factory _$ImagesImageImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesImageImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#image`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @BlobConverter()
   final Blob image;
@@ -177,7 +201,7 @@ class _$ImagesImageImpl implements _ImagesImage {
 
   @override
   String toString() {
-    return 'ImagesImage(image: $image, alt: $alt, aspectRatio: $aspectRatio)';
+    return 'ImagesImage(\$type: ${$type}, image: $image, alt: $alt, aspectRatio: $aspectRatio)';
   }
 
   @override
@@ -185,6 +209,7 @@ class _$ImagesImageImpl implements _ImagesImage {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImagesImageImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.image, image) || other.image == image) &&
             (identical(other.alt, alt) || other.alt == alt) &&
             (identical(other.aspectRatio, aspectRatio) ||
@@ -193,7 +218,7 @@ class _$ImagesImageImpl implements _ImagesImage {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, image, alt, aspectRatio);
+  int get hashCode => Object.hash(runtimeType, $type, image, alt, aspectRatio);
 
   @JsonKey(ignore: true)
   @override
@@ -211,13 +236,21 @@ class _$ImagesImageImpl implements _ImagesImage {
 
 abstract class _ImagesImage implements ImagesImage {
   const factory _ImagesImage(
-      {@BlobConverter() required final Blob image,
+      {@JsonKey(name: r'$type') final String $type,
+      @BlobConverter() required final Blob image,
       required final String alt,
       final ImagesAspectRatio? aspectRatio}) = _$ImagesImageImpl;
 
   factory _ImagesImage.fromJson(Map<String, dynamic> json) =
       _$ImagesImageImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#image`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @BlobConverter()
   Blob get image;

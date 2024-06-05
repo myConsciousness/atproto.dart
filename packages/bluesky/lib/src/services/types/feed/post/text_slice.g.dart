@@ -13,6 +13,8 @@ _$TextSliceImpl _$$TextSliceImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$TextSliceImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedPostTextSlice),
           start: $checkedConvert('start', (v) => (v as num).toInt()),
           end: $checkedConvert('end', (v) => (v as num).toInt()),
         );
@@ -22,6 +24,7 @@ _$TextSliceImpl _$$TextSliceImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$TextSliceImplToJson(_$TextSliceImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'start': instance.start,
       'end': instance.end,
     };

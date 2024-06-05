@@ -100,7 +100,7 @@ class __$$GetAccountInfosOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
   const _$GetAccountInfosOutputImpl({required final List<AccountView> infos})
       : _infos = infos;

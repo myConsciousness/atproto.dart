@@ -197,7 +197,7 @@ class __$$DescribeServerOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$DescribeServerOutputImpl implements _DescribeServerOutput {
   const _$DescribeServerOutputImpl(
       {this.inviteCodeRequired = false,

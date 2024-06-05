@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'migrate.freezed.dart';
 part 'migrate.g.dart';
@@ -22,8 +24,14 @@ part 'migrate.g.dart';
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
 class Migrate with _$Migrate {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory Migrate({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.sync.subscribeRepos#migrate`
+    @Default(comAtprotoSyncSubscribeReposMigrate)
+    @JsonKey(name: r'$type')
+    String $type,
     required int seq,
     required String did,
     required String migrateTo,

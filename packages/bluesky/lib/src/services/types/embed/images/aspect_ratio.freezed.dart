@@ -20,6 +20,11 @@ ImagesAspectRatio _$ImagesAspectRatioFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ImagesAspectRatio {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#aspectRatio`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
 
@@ -35,7 +40,7 @@ abstract class $ImagesAspectRatioCopyWith<$Res> {
           ImagesAspectRatio value, $Res Function(ImagesAspectRatio) then) =
       _$ImagesAspectRatioCopyWithImpl<$Res, ImagesAspectRatio>;
   @useResult
-  $Res call({int width, int height});
+  $Res call({@JsonKey(name: r'$type') String $type, int width, int height});
 }
 
 /// @nodoc
@@ -51,10 +56,15 @@ class _$ImagesAspectRatioCopyWithImpl<$Res, $Val extends ImagesAspectRatio>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? width = null,
     Object? height = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -75,7 +85,7 @@ abstract class _$$ImagesAspectRatioImplCopyWith<$Res>
       __$$ImagesAspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int width, int height});
+  $Res call({@JsonKey(name: r'$type') String $type, int width, int height});
 }
 
 /// @nodoc
@@ -89,10 +99,15 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? width = null,
     Object? height = null,
   }) {
     return _then(_$ImagesAspectRatioImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       width: null == width
           ? _value.width
           : width // ignore: cast_nullable_to_non_nullable
@@ -107,13 +122,22 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
-  const _$ImagesAspectRatioImpl({required this.width, required this.height});
+  const _$ImagesAspectRatioImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesAspectRatio,
+      required this.width,
+      required this.height});
 
   factory _$ImagesAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesAspectRatioImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#aspectRatio`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final int width;
   @override
@@ -121,7 +145,7 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
 
   @override
   String toString() {
-    return 'ImagesAspectRatio(width: $width, height: $height)';
+    return 'ImagesAspectRatio(\$type: ${$type}, width: $width, height: $height)';
   }
 
   @override
@@ -129,13 +153,14 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ImagesAspectRatioImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.width, width) || other.width == width) &&
             (identical(other.height, height) || other.height == height));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, width, height);
+  int get hashCode => Object.hash(runtimeType, $type, width, height);
 
   @JsonKey(ignore: true)
   @override
@@ -154,12 +179,20 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
 
 abstract class _ImagesAspectRatio implements ImagesAspectRatio {
   const factory _ImagesAspectRatio(
-      {required final int width,
+      {@JsonKey(name: r'$type') final String $type,
+      required final int width,
       required final int height}) = _$ImagesAspectRatioImpl;
 
   factory _ImagesAspectRatio.fromJson(Map<String, dynamic> json) =
       _$ImagesAspectRatioImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.images#aspectRatio`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   int get width;
   @override

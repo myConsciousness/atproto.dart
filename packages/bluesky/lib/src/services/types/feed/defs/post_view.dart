@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
 import 'threadgate_view.dart';
 import 'viewer_state.dart';
@@ -26,8 +27,12 @@ part 'post_view.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
 class PostView with _$PostView {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory PostView({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.defs#postView`
+    @Default(appBskyFeedDefsPostView) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
     required ProfileViewBasic author,

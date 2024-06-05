@@ -129,7 +129,7 @@ class __$$UpdateSubjectStatusOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
   const _$UpdateSubjectStatusOutputImpl({required this.subject, this.takedown});
 

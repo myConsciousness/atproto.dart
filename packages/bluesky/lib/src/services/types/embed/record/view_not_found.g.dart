@@ -14,6 +14,8 @@ _$RecordViewNotFoundImpl _$$RecordViewNotFoundImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$RecordViewNotFoundImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedRecordViewNotFound),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           notFound: $checkedConvert('notFound', (v) => v as bool),
@@ -25,6 +27,7 @@ _$RecordViewNotFoundImpl _$$RecordViewNotFoundImplFromJson(Map json) =>
 Map<String, dynamic> _$$RecordViewNotFoundImplToJson(
         _$RecordViewNotFoundImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'notFound': instance.notFound,
     };

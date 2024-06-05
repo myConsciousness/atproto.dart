@@ -11,10 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'aspect_ratio.dart';
 
 part 'view_image.freezed.dart';
@@ -23,8 +23,13 @@ part 'view_image.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#viewimage
 @freezed
 class ImagesViewImage with _$ImagesViewImage {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory ImagesViewImage({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.images#viewImage`
+    @Default(appBskyEmbedImagesViewImage) @JsonKey(name: r'$type') String $type,
+
     /// Fully-qualified URL where a thumbnail of the image can be fetched. For example, CDN location provided by the App View.
     required String thumb,
 

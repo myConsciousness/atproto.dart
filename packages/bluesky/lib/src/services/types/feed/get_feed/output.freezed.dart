@@ -107,7 +107,7 @@ class __$$GetFeedOutputImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-@jsonSerializable
+@JsonSerializable(includeIfNull: false)
 class _$GetFeedOutputImpl implements _GetFeedOutput {
   const _$GetFeedOutputImpl(
       {this.cursor, required final List<FeedViewPost> feed})

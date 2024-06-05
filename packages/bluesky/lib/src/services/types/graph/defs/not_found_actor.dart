@@ -11,8 +11,10 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
 
 part 'not_found_actor.freezed.dart';
 part 'not_found_actor.g.dart';
@@ -22,8 +24,14 @@ part 'not_found_actor.g.dart';
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
 class NotFoundActor with _$NotFoundActor {
-  @jsonSerializable
+  @JsonSerializable(includeIfNull: false)
   const factory NotFoundActor({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.defs#notFoundActor`
+    @Default(appBskyGraphDefsNotFoundActor)
+    @JsonKey(name: r'$type')
+    String $type,
     required String actor,
     required bool notFound,
   }) = _NotFoundActor;
