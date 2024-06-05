@@ -10,16 +10,16 @@ import '../rules/utils.dart';
 import '../types/known_values.dart';
 
 final class LexKnownValuesBuilder {
-  const LexKnownValuesBuilder(
-    this.docId,
-    this.defName,
+  const LexKnownValuesBuilder({
+    required this.docId,
+    required this.defName,
     this.propertyName,
-    this.knownValues,
-  );
+    required this.knownValues,
+  });
 
   final NSID docId;
   final String defName;
-  final String propertyName;
+  final String? propertyName;
   final List<String> knownValues;
 
   LexGenKnownValues? build() {
@@ -28,7 +28,9 @@ final class LexKnownValuesBuilder {
     final elements = _getElements();
     if (elements.isEmpty) return null;
 
-    final objectName = '${toFirstUpper(defName)}${toFirstUpper(propertyName)}';
+    final objectName = propertyName != null
+        ? '${toFirstUpper(defName)}${toFirstUpper(propertyName!)}'
+        : toFirstUpper(defName);
     final fileName = toLowerCamelCase(objectName);
     final path =
         docId.toString().split('.').sublist(2).join('.').replaceAll('.', '/');
@@ -62,10 +64,10 @@ final class LexKnownValuesBuilder {
       } else {
         String name = knownValue;
         if (name.startsWith('!')) {
-          name = name.substring(1); // Remove unnecessary sign`.
+          name = name.substring(1); // Remove unnecessary sign.
         }
         if (name.contains('-')) {
-          name = knownValue.split('-').map(toFirstUpper).join();
+          name = name.split('-').map(toFirstUpper).join();
         }
 
         elements.add(

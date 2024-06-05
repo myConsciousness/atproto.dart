@@ -10,9 +10,10 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
+import '../utils.dart';
+import 'builders/known_values_builder.dart';
 import 'builders/object_builder.dart';
 import 'rules/utils.dart';
-import '../utils.dart';
 import 'types/context.dart';
 
 const _supportedLexicons = [
@@ -48,29 +49,45 @@ final class LexGen {
 
       final docId = doc.id;
       doc.defs.forEach((defName, def) {
-        final object = LexGenObjectBuilder(
-          LexGenContext(
+        // Known Values
+        if (def is ULexUserTypeString && def.data.knownValues != null) {
+          final object = LexKnownValuesBuilder(
+            docId: docId,
+            defName: defName,
+            knownValues: def.data.knownValues ?? const [],
+          ).build();
+
+          if (object != null) {
+            File(_getOutputFilePath(docId, object.filePath))
+              ..createSync(recursive: true)
+              ..writeAsStringSync(object.toString());
+
+            _addExportPath(exports, docId, object.filePath);
+          }
+        } // Lex Object
+        else {
+          final object = LexGenObjectBuilder(LexGenContext(
             docId: docId,
             defName: defName,
             def: def,
             mainRelatedDocIds: mainRelatedDocIds,
-          ),
-        ).build();
+          )).build();
 
-        if (object != null) {
-          File(_getOutputFilePath(docId, object.filePath))
-            ..createSync(recursive: true)
-            ..writeAsStringSync(object.toString());
+          if (object != null) {
+            File(_getOutputFilePath(docId, object.filePath))
+              ..createSync(recursive: true)
+              ..writeAsStringSync(object.toString());
 
-          _addExportPath(exports, docId, object.filePath);
+            _addExportPath(exports, docId, object.filePath);
 
-          for (final property in object.properties) {
-            if (property.knownValues != null) {
-              File(_getOutputFilePath(docId, property.knownValues!.filePath))
-                ..createSync(recursive: true)
-                ..writeAsStringSync(property.knownValues.toString());
+            for (final property in object.properties) {
+              if (property.knownValues != null) {
+                File(_getOutputFilePath(docId, property.knownValues!.filePath))
+                  ..createSync(recursive: true)
+                  ..writeAsStringSync(property.knownValues.toString());
 
-              _addExportPath(exports, docId, property.knownValues!.filePath);
+                _addExportPath(exports, docId, property.knownValues!.filePath);
+              }
             }
           }
         }

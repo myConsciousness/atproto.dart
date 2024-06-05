@@ -29,6 +29,7 @@ export 'package:bluesky/src/services/types/actor/defs/feed_view_pref.dart';
 export 'package:bluesky/src/services/types/actor/defs/thread_view_pref.dart';
 export 'package:bluesky/src/services/types/actor/defs/thread_view_pref_sort.dart';
 export 'package:bluesky/src/services/types/actor/defs/interests_pref.dart';
+export 'package:bluesky/src/services/types/actor/defs/muted_word_target.dart';
 export 'package:bluesky/src/services/types/actor/defs/muted_word.dart';
 export 'package:bluesky/src/services/types/actor/defs/muted_words_pref.dart';
 export 'package:bluesky/src/services/types/actor/defs/hidden_posts_pref.dart';

@@ -52,7 +52,9 @@ final class LexGenObjectBuilder {
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) return const <LexGenObjectProperty>[]; // RefVariant
+        if (object == null) {
+          return const <LexGenObjectProperty>[]; // RefVariant
+        }
 
         if (object.properties?.length == 1) {
           final refVariant = object.properties?.values.first
@@ -68,7 +70,9 @@ final class LexGenObjectBuilder {
       },
       xrpcProcedure: (data) {
         final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) return const <LexGenObjectProperty>[]; // RefVariant
+        if (object == null) {
+          return const <LexGenObjectProperty>[]; // RefVariant
+        }
 
         if (object.properties?.length == 1) {
           final refVariant = object.properties?.values.first
@@ -111,12 +115,12 @@ final class LexGenObjectBuilder {
           type: dataType,
           name: entry.key,
           knownValues: LexKnownValuesBuilder(
-            context.docId,
-            context.defName == 'main'
+            docId: context.docId,
+            defName: context.defName == 'main'
                 ? context.docId.toString().split('.').last
                 : context.defName,
-            entry.key,
-            property['knownValues'] ?? const [],
+            propertyName: entry.key,
+            knownValues: property['knownValues'] ?? const [],
           ).build(),
           defaultValue: getDefaultValue(
             property['default'],

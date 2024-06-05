@@ -18,3 +18,4 @@ export 'package:atproto/src/services/types/label/defs/label_value_definition_sev
 export 'package:atproto/src/services/types/label/defs/label_value_definition_blurs.dart';
 export 'package:atproto/src/services/types/label/defs/label_value_definition_default_setting.dart';
 export 'package:atproto/src/services/types/label/defs/label_value_definition_strings.dart';
+export 'package:atproto/src/services/types/label/defs/label_value.dart';
