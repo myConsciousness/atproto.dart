@@ -8783,6 +8783,50 @@ const toolsOzoneModerationQueryStatuses = <String, dynamic>{
   }
 };
 
+/// `tools.ozone.server.getConfig`
+const toolsOzoneServerGetConfig = <String, dynamic>{
+  "lexicon": 1,
+  "id": "tools.ozone.server.getConfig",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description": "Get details about ozone's server configuration.",
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "properties": {
+            "appview": {"type": "ref", "ref": "#serviceConfig"},
+            "pds": {"type": "ref", "ref": "#serviceConfig"},
+            "blobDivert": {"type": "ref", "ref": "#serviceConfig"},
+            "chat": {"type": "ref", "ref": "#serviceConfig"},
+            "viewer": {"type": "ref", "ref": "#viewerConfig"}
+          }
+        }
+      }
+    },
+    "serviceConfig": {
+      "type": "object",
+      "properties": {
+        "url": {"type": "string", "format": "uri"}
+      }
+    },
+    "viewerConfig": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "type": "string",
+          "knownValues": [
+            "tools.ozone.team.defs#roleAdmin",
+            "tools.ozone.team.defs#roleModerator",
+            "tools.ozone.team.defs#roleTriage"
+          ]
+        }
+      }
+    }
+  }
+};
+
 /// `tools.ozone.communication.createTemplate`
 const toolsOzoneCommunicationCreateTemplate = <String, dynamic>{
   "lexicon": 1,
@@ -9145,6 +9189,7 @@ const lexicons = <Map<String, dynamic>>[
   toolsOzoneModerationDefs,
   toolsOzoneModerationGetEvent,
   toolsOzoneModerationQueryStatuses,
+  toolsOzoneServerGetConfig,
   toolsOzoneCommunicationCreateTemplate,
   toolsOzoneCommunicationDeleteTemplate,
   toolsOzoneCommunicationListTemplates,
