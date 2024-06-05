@@ -33,11 +33,10 @@ final class UnionObject {
 
     buffer.writeln(getFileHeader('Lex Object Generator'));
     buffer.writeln();
-    buffer.writeln("import 'package:atproto_core/atproto_core.dart' as core;");
     buffer.writeln(
         "import 'package:freezed_annotation/freezed_annotation.dart';");
     buffer.writeln();
-    buffer.writeln("import '../../../ids.g.dart' as ids;");
+    buffer.writeln("import '../../../../ids.g.dart' as ids;");
     for (final importPath in importPaths) {
       buffer
         ..writeln()
@@ -74,7 +73,15 @@ final class UnionObject {
     buffer.writeln("      final type = json[r'\$type'];");
     buffer.writeln();
     for (final ref in refs) {
-      buffer.writeln('      if (type == ids.${ref.namespace}) {');
+      final id = toFirstLower(ref.namespace!
+          .split('.')
+          .map(toFirstUpper)
+          .join()
+          .split('#')
+          .map(toFirstUpper)
+          .join());
+
+      buffer.writeln('      if (type == ids.$id) {');
       buffer.writeln('        return $name.${toFirstLower(ref.name)}(');
       buffer.writeln('          data: ${ref.name}.fromJson(json);');
       buffer.writeln('        );');
