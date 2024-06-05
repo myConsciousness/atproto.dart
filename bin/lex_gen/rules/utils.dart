@@ -10,6 +10,7 @@ import 'package:lexicon/lexicon.dart';
 import '../rules/naming_convention.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
+import '../types/ref.dart';
 
 String toLowerCamelCase(final String input) {
   return input
@@ -44,7 +45,7 @@ String getReferencePath(final LexGenContext context) {
   return 'https://atprotodart.com/docs/lexicons/$service#${context.defName.toLowerCase()}';
 }
 
-LexUserType? getRef(final NSID docId, final String ref) {
+Ref? getRef(final NSID docId, final String ref) {
   final baseLexiconId = _getLexiconId(docId, ref);
 
   for (final lexicon in lexicons) {
@@ -54,7 +55,11 @@ LexUserType? getRef(final NSID docId, final String ref) {
       final lexiconId = _getLexiconId(doc.id, '#${entry.key}');
 
       if (lexiconId == baseLexiconId) {
-        return entry.value;
+        return Ref(
+          docId: doc.id,
+          defName: entry.key,
+          def: entry.value,
+        );
       }
     }
   }
@@ -108,7 +113,7 @@ DataType getDataType(
   if (type == 'ref') {
     if (ref == null) throw ArgumentError.notNull('ref');
 
-    final refDef = getRef(context.docId, ref);
+    final refDef = getRef(context.docId, ref)?.def;
     if (refDef is ULexUserTypeString) {
       return const DataType(name: 'String');
     }
@@ -177,9 +182,9 @@ String? getDefaultValue(
   }
 
   if (ref != null) {
-    final requiredProperties = getRef(docId, ref)!.whenOrNull(
-      object: (data) => data.requiredProperties ?? const [],
-    );
+    final requiredProperties = getRef(docId, ref)!.def.whenOrNull(
+          object: (data) => data.requiredProperties ?? const [],
+        );
 
     if (requiredProperties == null || requiredProperties.isEmpty) {
       // There is no required properties.
