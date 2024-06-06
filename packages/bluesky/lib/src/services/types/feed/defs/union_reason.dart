@@ -20,7 +20,7 @@ import 'skeleton_reason_repost.dart';
 part 'union_reason.freezed.dart';
 
 @freezed
-class UReason with _$UReason {
+final class UReason with _$UReason {
   const factory UReason.skeletonReasonRepost({
     required SkeletonReasonRepost data,
   }) = UReasonSkeletonReasonRepost;

@@ -21,7 +21,8 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor#main
 @freezed
-class GetSuggestedFollowsByActorOutput with _$GetSuggestedFollowsByActorOutput {
+final class GetSuggestedFollowsByActorOutput
+    with _$GetSuggestedFollowsByActorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestedFollowsByActorOutput({
     required List<ProfileView> suggestions,

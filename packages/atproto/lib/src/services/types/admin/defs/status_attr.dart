@@ -21,7 +21,7 @@ part 'status_attr.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#statusattr
 @freezed
-class StatusAttr with _$StatusAttr {
+final class StatusAttr with _$StatusAttr {
   @JsonSerializable(includeIfNull: false)
   const factory StatusAttr({
     /// The unique namespace for this lex object.

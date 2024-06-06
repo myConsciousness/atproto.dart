@@ -23,7 +23,7 @@ part 'threadgate_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadgateview
 @freezed
-class ThreadgateView with _$ThreadgateView {
+final class ThreadgateView with _$ThreadgateView {
   @JsonSerializable(includeIfNull: false)
   const factory ThreadgateView({
     /// The unique namespace for this lex object.

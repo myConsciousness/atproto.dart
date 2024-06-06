@@ -66,7 +66,7 @@ enum KnownName {
 /// }
 /// ```
 @freezed
-class UName with _$UName {
+final class UName with _$UName {
   const factory UName.knownValue({
     required KnownName data,
   }) = UNameKnownValue;

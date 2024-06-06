@@ -22,7 +22,7 @@ part 'profile_associated_chat.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociatedchat
 @freezed
-class ProfileAssociatedChat with _$ProfileAssociatedChat {
+final class ProfileAssociatedChat with _$ProfileAssociatedChat {
   @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociatedChat({
     /// The unique namespace for this lex object.

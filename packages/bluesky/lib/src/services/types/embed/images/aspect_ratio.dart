@@ -23,7 +23,7 @@ part 'aspect_ratio.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#aspectratio
 @freezed
-class ImagesAspectRatio with _$ImagesAspectRatio {
+final class ImagesAspectRatio with _$ImagesAspectRatio {
   @JsonSerializable(includeIfNull: false)
   const factory ImagesAspectRatio({
     /// The unique namespace for this lex object.

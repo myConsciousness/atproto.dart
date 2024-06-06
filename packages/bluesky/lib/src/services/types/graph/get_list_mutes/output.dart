@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes#main
 @freezed
-class GetListMutesOutput with _$GetListMutesOutput {
+final class GetListMutesOutput with _$GetListMutesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetListMutesOutput({
     String? cursor,

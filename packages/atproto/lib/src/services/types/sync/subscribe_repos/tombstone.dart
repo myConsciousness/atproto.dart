@@ -23,7 +23,7 @@ part 'tombstone.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#tombstone
 @freezed
-class Tombstone with _$Tombstone {
+final class Tombstone with _$Tombstone {
   @JsonSerializable(includeIfNull: false)
   const factory Tombstone({
     /// The unique namespace for this lex object.

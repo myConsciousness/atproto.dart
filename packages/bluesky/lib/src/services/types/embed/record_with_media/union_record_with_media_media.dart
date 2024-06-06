@@ -21,7 +21,7 @@ import '../../embed/images/view.dart';
 part 'union_record_with_media_media.freezed.dart';
 
 @freezed
-class URecordWithMediaMedia with _$URecordWithMediaMedia {
+final class URecordWithMediaMedia with _$URecordWithMediaMedia {
   const factory URecordWithMediaMedia.imagesView({
     required ImagesView data,
   }) = URecordWithMediaMediaImagesView;

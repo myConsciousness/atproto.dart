@@ -22,7 +22,7 @@ part 'thread_view_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#threadviewpref
 @freezed
-class ThreadViewPref with _$ThreadViewPref {
+final class ThreadViewPref with _$ThreadViewPref {
   @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPref({
     /// The unique namespace for this lex object.

@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows#main
 @freezed
-class GetFollowsOutput with _$GetFollowsOutput {
+final class GetFollowsOutput with _$GetFollowsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFollowsOutput({
     required ProfileView subject,

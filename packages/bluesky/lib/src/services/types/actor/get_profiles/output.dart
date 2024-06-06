@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles#main
 @freezed
-class GetProfilesOutput with _$GetProfilesOutput {
+final class GetProfilesOutput with _$GetProfilesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetProfilesOutput({
     required List<ProfileViewDetailed> profiles,

@@ -19,7 +19,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
-class Record with _$Record {
+final class Record with _$Record {
   @JsonSerializable(includeIfNull: false)
   const factory Record({
     required StrongRef record,

@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/sendEmail#main
 @freezed
-class SendEmailOutput with _$SendEmailOutput {
+final class SendEmailOutput with _$SendEmailOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SendEmailOutput({
     required bool sent,

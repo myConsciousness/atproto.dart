@@ -70,7 +70,7 @@ enum KnownType {
 /// }
 /// ```
 @freezed
-class UType with _$UType {
+final class UType with _$UType {
   const factory UType.knownValue({
     required KnownType data,
   }) = UTypeKnownValue;

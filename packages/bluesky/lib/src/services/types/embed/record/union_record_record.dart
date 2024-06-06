@@ -25,7 +25,7 @@ import 'view_record.dart';
 part 'union_record_record.freezed.dart';
 
 @freezed
-class URecordRecord with _$URecordRecord {
+final class URecordRecord with _$URecordRecord {
   const factory URecordRecord.recordViewRecord({
     required RecordViewRecord data,
   }) = URecordRecordRecordViewRecord;

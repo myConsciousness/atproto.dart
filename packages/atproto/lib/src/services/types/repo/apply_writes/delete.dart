@@ -23,7 +23,7 @@ part 'delete.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#delete
 @freezed
-class Delete with _$Delete {
+final class Delete with _$Delete {
   @JsonSerializable(includeIfNull: false)
   const factory Delete({
     /// The unique namespace for this lex object.

@@ -24,7 +24,7 @@ part 'viewer_state.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#viewerstate
 @freezed
-class ViewerState with _$ViewerState {
+final class ViewerState with _$ViewerState {
   @JsonSerializable(includeIfNull: false)
   const factory ViewerState({
     /// The unique namespace for this lex object.

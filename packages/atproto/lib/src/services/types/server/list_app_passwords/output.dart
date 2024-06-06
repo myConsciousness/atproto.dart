@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords#main
 @freezed
-class ListAppPasswordsOutput with _$ListAppPasswordsOutput {
+final class ListAppPasswordsOutput with _$ListAppPasswordsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListAppPasswordsOutput({
     required List<AppPassword> passwords,

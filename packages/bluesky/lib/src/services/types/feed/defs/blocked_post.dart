@@ -23,7 +23,7 @@ part 'blocked_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedpost
 @freezed
-class BlockedPost with _$BlockedPost {
+final class BlockedPost with _$BlockedPost {
   @JsonSerializable(includeIfNull: false)
   const factory BlockedPost({
     /// The unique namespace for this lex object.

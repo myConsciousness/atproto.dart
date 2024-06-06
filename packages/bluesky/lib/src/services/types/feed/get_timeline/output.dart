@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getTimeline#main
 @freezed
-class GetTimelineOutput with _$GetTimelineOutput {
+final class GetTimelineOutput with _$GetTimelineOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetTimelineOutput({
     String? cursor,

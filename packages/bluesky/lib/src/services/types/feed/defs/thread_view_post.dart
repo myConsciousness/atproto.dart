@@ -24,7 +24,7 @@ part 'thread_view_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#threadviewpost
 @freezed
-class ThreadViewPost with _$ThreadViewPost {
+final class ThreadViewPost with _$ThreadViewPost {
   @JsonSerializable(includeIfNull: false)
   const factory ThreadViewPost({
     /// The unique namespace for this lex object.

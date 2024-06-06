@@ -25,7 +25,7 @@ part 'notification.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#notification
 @freezed
-class Notification with _$Notification {
+final class Notification with _$Notification {
   @JsonSerializable(includeIfNull: false)
   const factory Notification({
     /// The unique namespace for this lex object.

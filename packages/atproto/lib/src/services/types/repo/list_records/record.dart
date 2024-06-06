@@ -22,7 +22,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords#record
 @freezed
-class Record with _$Record {
+final class Record with _$Record {
   @JsonSerializable(includeIfNull: false)
   const factory Record({
     /// The unique namespace for this lex object.

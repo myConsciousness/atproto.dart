@@ -21,7 +21,7 @@ part 'personal_details_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#personaldetailspref
 @freezed
-class PersonalDetailsPref with _$PersonalDetailsPref {
+final class PersonalDetailsPref with _$PersonalDetailsPref {
   @JsonSerializable(includeIfNull: false)
   const factory PersonalDetailsPref({
     /// The unique namespace for this lex object.

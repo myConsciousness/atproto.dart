@@ -22,7 +22,7 @@ part 'not_found_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#notfoundpost
 @freezed
-class NotFoundPost with _$NotFoundPost {
+final class NotFoundPost with _$NotFoundPost {
   @JsonSerializable(includeIfNull: false)
   const factory NotFoundPost({
     /// The unique namespace for this lex object.

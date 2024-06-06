@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks#main
 @freezed
-class GetBlocksOutput with _$GetBlocksOutput {
+final class GetBlocksOutput with _$GetBlocksOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetBlocksOutput({
     String? cursor,

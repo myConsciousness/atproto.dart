@@ -23,7 +23,7 @@ part 'interaction.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#interaction
 @freezed
-class Interaction with _$Interaction {
+final class Interaction with _$Interaction {
   @JsonSerializable(includeIfNull: false)
   const factory Interaction({
     /// The unique namespace for this lex object.

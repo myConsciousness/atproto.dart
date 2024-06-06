@@ -23,7 +23,7 @@ part 'text_slice.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#textslice
 @freezed
-class TextSlice with _$TextSlice {
+final class TextSlice with _$TextSlice {
   @JsonSerializable(includeIfNull: false)
   const factory TextSlice({
     /// The unique namespace for this lex object.

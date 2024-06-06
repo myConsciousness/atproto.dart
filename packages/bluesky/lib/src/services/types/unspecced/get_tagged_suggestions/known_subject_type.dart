@@ -68,7 +68,7 @@ enum KnownSubjectType {
 /// }
 /// ```
 @freezed
-class USubjectType with _$USubjectType {
+final class USubjectType with _$USubjectType {
   const factory USubjectType.knownValue({
     required KnownSubjectType data,
   }) = USubjectTypeKnownValue;

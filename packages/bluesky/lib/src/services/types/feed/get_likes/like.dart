@@ -22,7 +22,7 @@ part 'like.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes#like
 @freezed
-class Like with _$Like {
+final class Like with _$Like {
   @JsonSerializable(includeIfNull: false)
   const factory Like({
     /// The unique namespace for this lex object.

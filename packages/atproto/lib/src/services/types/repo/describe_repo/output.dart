@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo#main
 @freezed
-class DescribeRepoOutput with _$DescribeRepoOutput {
+final class DescribeRepoOutput with _$DescribeRepoOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeRepoOutput({
     required String handle,

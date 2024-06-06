@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getLikes#main
 @freezed
-class GetLikesOutput with _$GetLikesOutput {
+final class GetLikesOutput with _$GetLikesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetLikesOutput({
     @AtUriConverter() required AtUri uri,

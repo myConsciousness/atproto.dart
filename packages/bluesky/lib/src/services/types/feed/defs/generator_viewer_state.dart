@@ -22,7 +22,7 @@ part 'generator_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorviewerstate
 @freezed
-class GeneratorViewerState with _$GeneratorViewerState {
+final class GeneratorViewerState with _$GeneratorViewerState {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorViewerState({
     /// The unique namespace for this lex object.

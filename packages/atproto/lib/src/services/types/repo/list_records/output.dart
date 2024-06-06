@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords#main
 @freezed
-class ListRecordsOutput with _$ListRecordsOutput {
+final class ListRecordsOutput with _$ListRecordsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecordsOutput({
     String? cursor,

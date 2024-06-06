@@ -22,7 +22,7 @@ part 'view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#view
 @freezed
-class RecordView with _$RecordView {
+final class RecordView with _$RecordView {
   @JsonSerializable(includeIfNull: false)
   const factory RecordView({
     /// The unique namespace for this lex object.

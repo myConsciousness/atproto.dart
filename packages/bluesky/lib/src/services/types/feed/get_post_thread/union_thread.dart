@@ -22,7 +22,7 @@ import '../../feed/defs/thread_view_post.dart';
 part 'union_thread.freezed.dart';
 
 @freezed
-class UThread with _$UThread {
+final class UThread with _$UThread {
   const factory UThread.threadViewPost({
     required ThreadViewPost data,
   }) = UThreadThreadViewPost;

@@ -22,7 +22,7 @@ part 'reply_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#replyref
 @freezed
-class ReplyRef with _$ReplyRef {
+final class ReplyRef with _$ReplyRef {
   @JsonSerializable(includeIfNull: false)
   const factory ReplyRef({
     /// The unique namespace for this lex object.

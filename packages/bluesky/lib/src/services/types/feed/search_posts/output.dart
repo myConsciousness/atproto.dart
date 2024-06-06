@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/searchPosts#main
 @freezed
-class SearchPostsOutput with _$SearchPostsOutput {
+final class SearchPostsOutput with _$SearchPostsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchPostsOutput({
     String? cursor,

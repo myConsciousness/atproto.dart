@@ -23,7 +23,7 @@ part 'self_label.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#selflabel
 @freezed
-class SelfLabel with _$SelfLabel {
+final class SelfLabel with _$SelfLabel {
   @JsonSerializable(includeIfNull: false)
   const factory SelfLabel({
     /// The unique namespace for this lex object.

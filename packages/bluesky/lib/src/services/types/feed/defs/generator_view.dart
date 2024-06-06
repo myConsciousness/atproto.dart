@@ -26,7 +26,7 @@ part 'generator_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#generatorview
 @freezed
-class GeneratorView with _$GeneratorView {
+final class GeneratorView with _$GeneratorView {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorView({
     /// The unique namespace for this lex object.

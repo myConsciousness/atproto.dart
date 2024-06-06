@@ -23,7 +23,7 @@ part 'label.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#label
 @freezed
-class Label with _$Label {
+final class Label with _$Label {
   @JsonSerializable(includeIfNull: false)
   const factory Label({
     /// The unique namespace for this lex object.

@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators#main
 @freezed
-class GetFeedGeneratorsOutput with _$GetFeedGeneratorsOutput {
+final class GetFeedGeneratorsOutput with _$GetFeedGeneratorsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedGeneratorsOutput({
     required List<GeneratorView> feeds,

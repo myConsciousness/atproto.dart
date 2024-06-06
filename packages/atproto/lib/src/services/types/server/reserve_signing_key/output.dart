@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey#main
 @freezed
-class ReserveSigningKeyOutput with _$ReserveSigningKeyOutput {
+final class ReserveSigningKeyOutput with _$ReserveSigningKeyOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ReserveSigningKeyOutput({
     /// The public key for the reserved signing key, in did:key serialization.

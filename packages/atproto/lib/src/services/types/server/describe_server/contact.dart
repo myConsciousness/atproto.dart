@@ -21,7 +21,7 @@ part 'contact.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#contact
 @freezed
-class Contact with _$Contact {
+final class Contact with _$Contact {
   @JsonSerializable(includeIfNull: false)
   const factory Contact({
     /// The unique namespace for this lex object.

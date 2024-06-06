@@ -22,7 +22,7 @@ import 'thread_view_post.dart';
 part 'union_parent.freezed.dart';
 
 @freezed
-class UParent with _$UParent {
+final class UParent with _$UParent {
   const factory UParent.threadViewPost({
     required ThreadViewPost data,
   }) = UParentThreadViewPost;

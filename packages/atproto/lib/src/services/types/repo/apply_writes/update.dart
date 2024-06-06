@@ -23,7 +23,7 @@ part 'update.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#update
 @freezed
-class Update with _$Update {
+final class Update with _$Update {
   @JsonSerializable(includeIfNull: false)
   const factory Update({
     /// The unique namespace for this lex object.

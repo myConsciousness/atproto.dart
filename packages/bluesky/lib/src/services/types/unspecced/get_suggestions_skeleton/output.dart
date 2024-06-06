@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton#main
 @freezed
-class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
+final class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestionsSkeletonOutput({
     String? cursor,

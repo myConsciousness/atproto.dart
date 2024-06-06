@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator#main
 @freezed
-class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
+final class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedGeneratorOutput({
     required GeneratorView view,

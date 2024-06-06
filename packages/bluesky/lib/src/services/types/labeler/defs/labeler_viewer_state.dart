@@ -22,7 +22,7 @@ part 'labeler_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerviewerstate
 @freezed
-class LabelerViewerState with _$LabelerViewerState {
+final class LabelerViewerState with _$LabelerViewerState {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerViewerState({
     /// The unique namespace for this lex object.

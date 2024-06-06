@@ -22,7 +22,7 @@ part 'saved_feeds_pref_v2.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#savedfeedsprefv2
 @freezed
-class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
+final class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
   @JsonSerializable(includeIfNull: false)
   const factory SavedFeedsPrefV2({
     /// The unique namespace for this lex object.

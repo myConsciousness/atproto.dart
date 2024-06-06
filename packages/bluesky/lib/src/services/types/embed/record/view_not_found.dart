@@ -22,7 +22,7 @@ part 'view_not_found.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewnotfound
 @freezed
-class RecordViewNotFound with _$RecordViewNotFound {
+final class RecordViewNotFound with _$RecordViewNotFound {
   @JsonSerializable(includeIfNull: false)
   const factory RecordViewNotFound({
     /// The unique namespace for this lex object.

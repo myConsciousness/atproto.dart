@@ -24,7 +24,7 @@ part 'relationship.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#relationship
 @freezed
-class Relationship with _$Relationship {
+final class Relationship with _$Relationship {
   @JsonSerializable(includeIfNull: false)
   const factory Relationship({
     /// The unique namespace for this lex object.

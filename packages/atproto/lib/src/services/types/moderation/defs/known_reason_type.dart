@@ -91,7 +91,7 @@ enum KnownReasonType {
 /// }
 /// ```
 @freezed
-class UReasonType with _$UReasonType {
+final class UReasonType with _$UReasonType {
   const factory UReasonType.knownValue({
     required KnownReasonType data,
   }) = UReasonTypeKnownValue;

@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getListFeed#main
 @freezed
-class GetListFeedOutput with _$GetListFeedOutput {
+final class GetListFeedOutput with _$GetListFeedOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetListFeedOutput({
     String? cursor,

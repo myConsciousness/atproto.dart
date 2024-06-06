@@ -24,7 +24,7 @@ part 'feed_view_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#feedviewpost
 @freezed
-class FeedViewPost with _$FeedViewPost {
+final class FeedViewPost with _$FeedViewPost {
   @JsonSerializable(includeIfNull: false)
   const factory FeedViewPost({
     /// The unique namespace for this lex object.

@@ -26,7 +26,7 @@ part 'list_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listview
 @freezed
-class ListView with _$ListView {
+final class ListView with _$ListView {
   @JsonSerializable(includeIfNull: false)
   const factory ListView({
     /// The unique namespace for this lex object.

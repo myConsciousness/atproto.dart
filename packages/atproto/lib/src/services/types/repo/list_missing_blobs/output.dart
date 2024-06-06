@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#main
 @freezed
-class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
+final class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListMissingBlobsOutput({
     String? cursor,

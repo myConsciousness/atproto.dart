@@ -23,7 +23,7 @@ part 'not_found_actor.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#notfoundactor
 @freezed
-class NotFoundActor with _$NotFoundActor {
+final class NotFoundActor with _$NotFoundActor {
   @JsonSerializable(includeIfNull: false)
   const factory NotFoundActor({
     /// The unique namespace for this lex object.

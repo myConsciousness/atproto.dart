@@ -22,7 +22,7 @@ part 'labelers_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerspref
 @freezed
-class LabelersPref with _$LabelersPref {
+final class LabelersPref with _$LabelersPref {
   @JsonSerializable(includeIfNull: false)
   const factory LabelersPref({
     /// The unique namespace for this lex object.

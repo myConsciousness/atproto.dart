@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus#main
 @freezed
-class GetRepoStatusOutput with _$GetRepoStatusOutput {
+final class GetRepoStatusOutput with _$GetRepoStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetRepoStatusOutput({
     required String did,

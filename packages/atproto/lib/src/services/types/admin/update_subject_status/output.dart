@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus#main
 @freezed
-class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
+final class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory UpdateSubjectStatusOutput({
     @USubjectConverter() required USubject subject,

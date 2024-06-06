@@ -23,7 +23,7 @@ part 'mention.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#mention
 @freezed
-class FacetMention with _$FacetMention {
+final class FacetMention with _$FacetMention {
   @JsonSerializable(includeIfNull: false)
   const factory FacetMention({
     /// The unique namespace for this lex object.

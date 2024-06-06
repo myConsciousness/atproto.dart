@@ -22,7 +22,7 @@ part 'skeleton_search_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchpost
 @freezed
-class SkeletonSearchPost with _$SkeletonSearchPost {
+final class SkeletonSearchPost with _$SkeletonSearchPost {
   @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchPost({
     /// The unique namespace for this lex object.

@@ -22,7 +22,7 @@ part 'skeleton_reason_repost.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonreasonrepost
 @freezed
-class SkeletonReasonRepost with _$SkeletonReasonRepost {
+final class SkeletonReasonRepost with _$SkeletonReasonRepost {
   @JsonSerializable(includeIfNull: false)
   const factory SkeletonReasonRepost({
     /// The unique namespace for this lex object.

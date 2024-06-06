@@ -68,7 +68,7 @@ final class LexGenObject {
       buffer.writeln(description);
     }
     buffer.writeln('@freezed');
-    buffer.writeln('class $name with _\$$name {');
+    buffer.writeln('final class $name with _\$$name {');
     buffer.writeln('  @JsonSerializable(includeIfNull: false)');
     buffer.writeln('  const factory $name({');
     if (namespace != null) {

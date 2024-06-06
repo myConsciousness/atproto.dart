@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCode#main
 @freezed
-class CreateInviteCodeOutput with _$CreateInviteCodeOutput {
+final class CreateInviteCodeOutput with _$CreateInviteCodeOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateInviteCodeOutput({
     required String code,

@@ -22,7 +22,7 @@ import 'thread_view_post.dart';
 part 'union_reply.freezed.dart';
 
 @freezed
-class UReply with _$UReply {
+final class UReply with _$UReply {
   const factory UReply.threadViewPost({
     required ThreadViewPost data,
   }) = UReplyThreadViewPost;

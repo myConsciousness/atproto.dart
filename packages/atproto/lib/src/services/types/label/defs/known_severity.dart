@@ -70,7 +70,7 @@ enum KnownSeverity {
 /// }
 /// ```
 @freezed
-class USeverity with _$USeverity {
+final class USeverity with _$USeverity {
   const factory USeverity.knownValue({
     required KnownSeverity data,
   }) = USeverityKnownValue;

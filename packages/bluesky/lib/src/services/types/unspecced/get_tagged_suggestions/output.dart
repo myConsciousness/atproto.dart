@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#main
 @freezed
-class GetTaggedSuggestionsOutput with _$GetTaggedSuggestionsOutput {
+final class GetTaggedSuggestionsOutput with _$GetTaggedSuggestionsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetTaggedSuggestionsOutput({
     required List<Suggestion> suggestions,

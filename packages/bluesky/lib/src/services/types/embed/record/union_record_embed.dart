@@ -23,7 +23,7 @@ import 'view.dart';
 part 'union_record_embed.freezed.dart';
 
 @freezed
-class URecordEmbed with _$URecordEmbed {
+final class URecordEmbed with _$URecordEmbed {
   const factory URecordEmbed.imagesView({
     required ImagesView data,
   }) = URecordEmbedImagesView;

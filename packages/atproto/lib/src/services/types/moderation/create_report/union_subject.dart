@@ -21,7 +21,7 @@ import '../../repo/strong_ref/main.dart';
 part 'union_subject.freezed.dart';
 
 @freezed
-class USubject with _$USubject {
+final class USubject with _$USubject {
   const factory USubject.repoRef({
     required RepoRef data,
   }) = USubjectRepoRef;

@@ -23,7 +23,7 @@ part 'migrate.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#migrate
 @freezed
-class Migrate with _$Migrate {
+final class Migrate with _$Migrate {
   @JsonSerializable(includeIfNull: false)
   const factory Migrate({
     /// The unique namespace for this lex object.

@@ -22,7 +22,7 @@ import 'tag.dart';
 part 'union_facet_featuy.freezed.dart';
 
 @freezed
-class UFacetFeatuy with _$UFacetFeatuy {
+final class UFacetFeatuy with _$UFacetFeatuy {
   const factory UFacetFeatuy.facetMention({
     required FacetMention data,
   }) = UFacetFeatuyFacetMention;

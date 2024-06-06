@@ -21,7 +21,7 @@ part 'links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#links
 @freezed
-class Links with _$Links {
+final class Links with _$Links {
   @JsonSerializable(includeIfNull: false)
   const factory Links({
     /// The unique namespace for this lex object.

@@ -23,7 +23,7 @@ part 'create.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#create
 @freezed
-class Create with _$Create {
+final class Create with _$Create {
   @JsonSerializable(includeIfNull: false)
   const factory Create({
     /// The unique namespace for this lex object.

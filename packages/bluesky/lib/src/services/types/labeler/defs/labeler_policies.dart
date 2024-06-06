@@ -22,7 +22,7 @@ part 'labeler_policies.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerpolicies
 @freezed
-class LabelerPolicies with _$LabelerPolicies {
+final class LabelerPolicies with _$LabelerPolicies {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerPolicies({
     /// The unique namespace for this lex object.

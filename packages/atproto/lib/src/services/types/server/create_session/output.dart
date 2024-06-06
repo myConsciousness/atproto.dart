@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createSession#main
 @freezed
-class CreateSessionOutput with _$CreateSessionOutput {
+final class CreateSessionOutput with _$CreateSessionOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateSessionOutput({
     required String accessJwt,

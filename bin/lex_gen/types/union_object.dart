@@ -49,7 +49,7 @@ final class LexUnionObject {
 
     // Union Object
     buffer.writeln('@freezed');
-    buffer.writeln('class U$name with _\$U$name {');
+    buffer.writeln('final class U$name with _\$U$name {');
     for (final ref in refs) {
       buffer.writeln('  const factory U$name.${toFirstLower(ref.name!)}({');
       buffer.writeln('    required ${ref.name} data,');

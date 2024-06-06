@@ -22,7 +22,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
-class RecordWithMedia with _$RecordWithMedia {
+final class RecordWithMedia with _$RecordWithMedia {
   @JsonSerializable(includeIfNull: false)
   const factory RecordWithMedia({
     required Record record,

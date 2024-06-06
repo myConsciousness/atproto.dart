@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth#main
 @freezed
-class GetServiceAuthOutput with _$GetServiceAuthOutput {
+final class GetServiceAuthOutput with _$GetServiceAuthOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetServiceAuthOutput({
     required String token,

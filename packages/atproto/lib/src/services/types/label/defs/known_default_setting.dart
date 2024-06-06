@@ -70,7 +70,7 @@ enum KnownDefaultSetting {
 /// }
 /// ```
 @freezed
-class UDefaultSetting with _$UDefaultSetting {
+final class UDefaultSetting with _$UDefaultSetting {
   const factory UDefaultSetting.knownValue({
     required KnownDefaultSetting data,
   }) = UDefaultSettingKnownValue;

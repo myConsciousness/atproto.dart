@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#main
 @freezed
-class SearchActorsOutput with _$SearchActorsOutput {
+final class SearchActorsOutput with _$SearchActorsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsOutput({
     String? cursor,

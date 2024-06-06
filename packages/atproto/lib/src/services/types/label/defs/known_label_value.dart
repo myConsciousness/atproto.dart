@@ -86,7 +86,7 @@ enum KnownLabelValue {
 /// }
 /// ```
 @freezed
-class ULabelValue with _$ULabelValue {
+final class ULabelValue with _$ULabelValue {
   const factory ULabelValue.knownValue({
     required KnownLabelValue data,
   }) = ULabelValueKnownValue;

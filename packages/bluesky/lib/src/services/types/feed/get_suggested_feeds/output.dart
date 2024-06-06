@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getSuggestedFeeds#main
 @freezed
-class GetSuggestedFeedsOutput with _$GetSuggestedFeedsOutput {
+final class GetSuggestedFeedsOutput with _$GetSuggestedFeedsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestedFeedsOutput({
     String? cursor,

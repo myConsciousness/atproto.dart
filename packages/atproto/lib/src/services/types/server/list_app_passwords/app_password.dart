@@ -21,7 +21,7 @@ part 'app_password.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords#apppassword
 @freezed
-class AppPassword with _$AppPassword {
+final class AppPassword with _$AppPassword {
   @JsonSerializable(includeIfNull: false)
   const factory AppPassword({
     /// The unique namespace for this lex object.

@@ -22,7 +22,7 @@ part 'list_viewer_state.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewerstate
 @freezed
-class ListViewerState with _$ListViewerState {
+final class ListViewerState with _$ListViewerState {
   @JsonSerializable(includeIfNull: false)
   const factory ListViewerState({
     /// The unique namespace for this lex object.

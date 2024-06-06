@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getAccountInviteCodes#main
 @freezed
-class GetAccountInviteCodesOutput with _$GetAccountInviteCodesOutput {
+final class GetAccountInviteCodesOutput with _$GetAccountInviteCodesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetAccountInviteCodesOutput({
     required List<InviteCode> codes,

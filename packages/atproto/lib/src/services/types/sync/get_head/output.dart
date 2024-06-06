@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getHead#main
 @freezed
-class GetHeadOutput with _$GetHeadOutput {
+final class GetHeadOutput with _$GetHeadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetHeadOutput({
     required String root,

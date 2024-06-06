@@ -24,7 +24,7 @@ part 'main.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-class Facet with _$Facet {
+final class Facet with _$Facet {
   @JsonSerializable(includeIfNull: false)
   const factory Facet({
     required FacetByteSlice index,

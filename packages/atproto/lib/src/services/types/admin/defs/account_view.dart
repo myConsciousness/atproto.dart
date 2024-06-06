@@ -22,7 +22,7 @@ part 'account_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#accountview
 @freezed
-class AccountView with _$AccountView {
+final class AccountView with _$AccountView {
   @JsonSerializable(includeIfNull: false)
   const factory AccountView({
     /// The unique namespace for this lex object.

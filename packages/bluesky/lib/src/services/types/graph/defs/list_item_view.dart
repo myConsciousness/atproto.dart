@@ -23,7 +23,7 @@ part 'list_item_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listitemview
 @freezed
-class ListItemView with _$ListItemView {
+final class ListItemView with _$ListItemView {
   @JsonSerializable(includeIfNull: false)
   const factory ListItemView({
     /// The unique namespace for this lex object.

@@ -23,7 +23,7 @@ part 'label_value_definition_strings.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/defs#labelvaluedefinitionstrings
 @freezed
-class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
+final class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
   @JsonSerializable(includeIfNull: false)
   const factory LabelValueDefinitionStrings({
     /// The unique namespace for this lex object.

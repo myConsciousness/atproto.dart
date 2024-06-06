@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getAuthorFeed#main
 @freezed
-class GetAuthorFeedOutput with _$GetAuthorFeedOutput {
+final class GetAuthorFeedOutput with _$GetAuthorFeedOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetAuthorFeedOutput({
     String? cursor,

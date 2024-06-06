@@ -70,7 +70,7 @@ enum KnownAction {
 /// }
 /// ```
 @freezed
-class UAction with _$UAction {
+final class UAction with _$UAction {
   const factory UAction.knownValue({
     required KnownAction data,
   }) = UActionKnownValue;

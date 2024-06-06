@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#main
 @freezed
-class ListNotificationsOutput with _$ListNotificationsOutput {
+final class ListNotificationsOutput with _$ListNotificationsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListNotificationsOutput({
     String? cursor,

@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit#main
 @freezed
-class GetLatestCommitOutput with _$GetLatestCommitOutput {
+final class GetLatestCommitOutput with _$GetLatestCommitOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetLatestCommitOutput({
     required String cid,

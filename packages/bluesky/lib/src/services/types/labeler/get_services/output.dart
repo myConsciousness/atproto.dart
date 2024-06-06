@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices#main
 @freezed
-class GetServicesOutput with _$GetServicesOutput {
+final class GetServicesOutput with _$GetServicesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetServicesOutput({
     @UViewConverter() required List<UView> views,

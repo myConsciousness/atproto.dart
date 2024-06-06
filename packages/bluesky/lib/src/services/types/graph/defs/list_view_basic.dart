@@ -24,7 +24,7 @@ part 'list_view_basic.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/defs#listviewbasic
 @freezed
-class ListViewBasic with _$ListViewBasic {
+final class ListViewBasic with _$ListViewBasic {
   @JsonSerializable(includeIfNull: false)
   const factory ListViewBasic({
     /// The unique namespace for this lex object.

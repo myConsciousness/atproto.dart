@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus#main
 @freezed
-class CheckAccountStatusOutput with _$CheckAccountStatusOutput {
+final class CheckAccountStatusOutput with _$CheckAccountStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CheckAccountStatusOutput({
     required bool activated,

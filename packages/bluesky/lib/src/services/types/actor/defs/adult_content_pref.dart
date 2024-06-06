@@ -21,7 +21,7 @@ part 'adult_content_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#adultcontentpref
 @freezed
-class AdultContentPref with _$AdultContentPref {
+final class AdultContentPref with _$AdultContentPref {
   @JsonSerializable(includeIfNull: false)
   const factory AdultContentPref({
     /// The unique namespace for this lex object.

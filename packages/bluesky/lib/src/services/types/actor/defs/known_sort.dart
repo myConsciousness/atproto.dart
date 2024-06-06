@@ -72,7 +72,7 @@ enum KnownSort {
 /// }
 /// ```
 @freezed
-class USort with _$USort {
+final class USort with _$USort {
   const factory USort.knownValue({
     required KnownSort data,
   }) = USortKnownValue;

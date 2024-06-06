@@ -71,7 +71,7 @@ enum KnownListPurpose {
 /// }
 /// ```
 @freezed
-class UListPurpose with _$UListPurpose {
+final class UListPurpose with _$UListPurpose {
   const factory UListPurpose.knownValue({
     required KnownListPurpose data,
   }) = UListPurposeKnownValue;

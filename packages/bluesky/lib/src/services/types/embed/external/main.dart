@@ -23,7 +23,7 @@ part 'main.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#main
 @freezed
-class External with _$External {
+final class External with _$External {
   @JsonSerializable(includeIfNull: false)
   const factory External({
     required ExternalExternal external,

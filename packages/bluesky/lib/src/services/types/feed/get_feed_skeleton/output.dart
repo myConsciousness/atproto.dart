@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedSkeleton#main
 @freezed
-class GetFeedSkeletonOutput with _$GetFeedSkeletonOutput {
+final class GetFeedSkeletonOutput with _$GetFeedSkeletonOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedSkeletonOutput({
     String? cursor,

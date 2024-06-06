@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#main
 @freezed
-class DescribeServerOutput with _$DescribeServerOutput {
+final class DescribeServerOutput with _$DescribeServerOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeServerOutput({
     /// If true, an invite code must be supplied to create an account on this instance.

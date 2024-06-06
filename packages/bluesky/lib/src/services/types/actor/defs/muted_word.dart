@@ -23,7 +23,7 @@ part 'muted_word.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#mutedword
 @freezed
-class MutedWord with _$MutedWord {
+final class MutedWord with _$MutedWord {
   @JsonSerializable(includeIfNull: false)
   const factory MutedWord({
     /// The unique namespace for this lex object.
