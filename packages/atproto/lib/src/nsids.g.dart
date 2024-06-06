@@ -44,6 +44,9 @@ const comAtprotoAdminGetInviteCodes = NSID(ids.comAtprotoAdminGetInviteCodes);
 const comAtprotoAdminGetSubjectStatus =
     NSID(ids.comAtprotoAdminGetSubjectStatus);
 
+/// `com.atproto.admin.searchAccounts`
+const comAtprotoAdminSearchAccounts = NSID(ids.comAtprotoAdminSearchAccounts);
+
 /// `com.atproto.admin.sendEmail`
 const comAtprotoAdminSendEmail = NSID(ids.comAtprotoAdminSendEmail);
 
