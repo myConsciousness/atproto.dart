@@ -68,3 +68,51 @@ final class UViewConverter
         unknown: (data) => data,
       );
 }
+
+extension UViewExtension on UView {
+  /// Returns true if this data is [LabelerView], otherwise false.
+  bool get isLabelerView => this is UViewLabelerView;
+
+  /// Returns true if this data is not [LabelerView], otherwise false.
+  bool get isNotLabelerView => this is! UViewLabelerView;
+
+  /// Returns true if this data is [LabelerViewDetailed], otherwise false.
+  bool get isLabelerViewDetailed => this is UViewLabelerViewDetailed;
+
+  /// Returns true if this data is not [LabelerViewDetailed], otherwise false.
+  bool get isNotLabelerViewDetailed => this is! UViewLabelerViewDetailed;
+
+  /// Returns true if this data is unknown object, otherwise false.
+  bool get isUnknown => this is UViewUnknown;
+
+  /// Returns true if this data is not unknown object, otherwise false.
+  bool get isNotUnknown => this is! UViewUnknown;
+
+  /// Returns this data as [LabelerView].
+  ///
+  /// Make sure to check if this object is [LabelerView] with [isLabelerView].
+  LabelerView get labelerView => this.data as LabelerView;
+
+  /// Returns [LabelerView] if this data is [LabelerView], otherwise null.
+  LabelerView? get labelerViewOrNull =>
+      isLabelerView ? this.data as LabelerView : null;
+
+  /// Returns this data as [LabelerViewDetailed].
+  ///
+  /// Make sure to check if this object is [LabelerViewDetailed] with [isLabelerViewDetailed].
+  LabelerViewDetailed get labelerViewDetailed =>
+      this.data as LabelerViewDetailed;
+
+  /// Returns [LabelerViewDetailed] if this data is [LabelerViewDetailed], otherwise null.
+  LabelerViewDetailed? get labelerViewDetailedOrNull =>
+      isLabelerViewDetailed ? this.data as LabelerViewDetailed : null;
+
+  /// Returns this data as JSON object.
+  ///
+  /// Make sure to check if this object is unknown with [isUnknown].
+  Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
+
+  /// Returns JSON object if this data is unknown, otherwise null.
+  Map<String, dynamic>? get unknownOrNull =>
+      isUnknown ? this.data as Map<String, dynamic> : null;
+}

@@ -97,8 +97,14 @@ extension UNameExtension on UName {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UNameKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! UNameKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UNameUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! UNameUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownName? get knownValue => isKnownValue ? this.data as KnownName : null;

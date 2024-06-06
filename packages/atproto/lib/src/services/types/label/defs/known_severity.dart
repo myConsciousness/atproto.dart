@@ -101,8 +101,14 @@ extension USeverityExtension on USeverity {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is USeverityKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! USeverityKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is USeverityUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! USeverityUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownSeverity? get knownValue =>

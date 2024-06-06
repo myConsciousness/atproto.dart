@@ -68,3 +68,50 @@ final class URelationshipConverter
         unknown: (data) => data,
       );
 }
+
+extension URelationshipExtension on URelationship {
+  /// Returns true if this data is [Relationship], otherwise false.
+  bool get isRelationship => this is URelationshipRelationship;
+
+  /// Returns true if this data is not [Relationship], otherwise false.
+  bool get isNotRelationship => this is! URelationshipRelationship;
+
+  /// Returns true if this data is [NotFoundActor], otherwise false.
+  bool get isNotFoundActor => this is URelationshipNotFoundActor;
+
+  /// Returns true if this data is not [NotFoundActor], otherwise false.
+  bool get isNotNotFoundActor => this is! URelationshipNotFoundActor;
+
+  /// Returns true if this data is unknown object, otherwise false.
+  bool get isUnknown => this is URelationshipUnknown;
+
+  /// Returns true if this data is not unknown object, otherwise false.
+  bool get isNotUnknown => this is! URelationshipUnknown;
+
+  /// Returns this data as [Relationship].
+  ///
+  /// Make sure to check if this object is [Relationship] with [isRelationship].
+  Relationship get relationship => this.data as Relationship;
+
+  /// Returns [Relationship] if this data is [Relationship], otherwise null.
+  Relationship? get relationshipOrNull =>
+      isRelationship ? this.data as Relationship : null;
+
+  /// Returns this data as [NotFoundActor].
+  ///
+  /// Make sure to check if this object is [NotFoundActor] with [isNotFoundActor].
+  NotFoundActor get notFoundActor => this.data as NotFoundActor;
+
+  /// Returns [NotFoundActor] if this data is [NotFoundActor], otherwise null.
+  NotFoundActor? get notFoundActorOrNull =>
+      isNotFoundActor ? this.data as NotFoundActor : null;
+
+  /// Returns this data as JSON object.
+  ///
+  /// Make sure to check if this object is unknown with [isUnknown].
+  Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
+
+  /// Returns JSON object if this data is unknown, otherwise null.
+  Map<String, dynamic>? get unknownOrNull =>
+      isUnknown ? this.data as Map<String, dynamic> : null;
+}

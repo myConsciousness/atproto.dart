@@ -107,8 +107,14 @@ extension UReasonExtension on UReason {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UReasonKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! UReasonKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UReasonUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! UReasonUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownReason? get knownValue => isKnownValue ? this.data as KnownReason : null;

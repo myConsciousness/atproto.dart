@@ -107,6 +107,65 @@ final class LexUnionObject {
     buffer.writeln('  );');
     buffer.writeln('}');
 
+    // Extension
+    buffer
+      ..writeln()
+      ..writeln('extension U${name}Extension on U$name {');
+    for (final ref in refs) {
+      buffer
+        ..writeln()
+        ..writeln(
+            '  /// Returns true if this data is [${ref.name}], otherwise false.')
+        ..writeln('  bool get is${ref.name} => this is U$name${ref.name};')
+        ..writeln()
+        ..writeln(
+            '  /// Returns true if this data is not [${ref.name}], otherwise false.')
+        ..writeln('  bool get isNot${ref.name} => this is! U$name${ref.name};');
+    }
+    buffer
+      ..writeln()
+      ..writeln(
+          '  /// Returns true if this data is unknown object, otherwise false.')
+      ..writeln('  bool get isUnknown => this is U${name}Unknown;')
+      ..writeln()
+      ..writeln()
+      ..writeln(
+          '  /// Returns true if this data is not unknown object, otherwise false.')
+      ..writeln('  bool get isNotUnknown => this is! U${name}Unknown;')
+      ..writeln();
+    for (final ref in refs) {
+      buffer
+        ..writeln()
+        ..writeln('  /// Returns this data as [${ref.name}].')
+        ..writeln('  ///')
+        ..writeln(
+            '  /// Make sure to check if this object is [${ref.name}] with [is${ref.name}].')
+        ..writeln('  ${ref.name} get ${toFirstLower(ref.name!)} => '
+            'this.data as ${ref.name};')
+        ..writeln()
+        ..writeln(
+            '  /// Returns [${ref.name}] if this data is [${ref.name}], otherwise null.')
+        ..writeln('  ${ref.name}? get ${toFirstLower(ref.name!)}OrNull => '
+            'is${ref.name}')
+        ..writeln('    ? this.data as ${ref.name}')
+        ..writeln('    : null;');
+    }
+    buffer
+      ..writeln()
+      ..writeln('  /// Returns this data as JSON object.')
+      ..writeln('  ///')
+      ..writeln(
+          '  /// Make sure to check if this object is unknown with [isUnknown].')
+      ..writeln('  Map<String, dynamic> get unknown => '
+          'this.data as Map<String, dynamic>;')
+      ..writeln()
+      ..writeln(
+          '  /// Returns JSON object if this data is unknown, otherwise null.')
+      ..writeln('  Map<String, dynamic>? get unknownOrNull => isUnknown')
+      ..writeln('    ? this.data as Map<String, dynamic>')
+      ..writeln('    : null;')
+      ..writeln('}');
+
     return buffer.toString();
   }
 }

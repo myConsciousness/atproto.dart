@@ -57,3 +57,36 @@ final class UReasonConverter
         unknown: (data) => data,
       );
 }
+
+extension UReasonExtension on UReason {
+  /// Returns true if this data is [SkeletonReasonRepost], otherwise false.
+  bool get isSkeletonReasonRepost => this is UReasonSkeletonReasonRepost;
+
+  /// Returns true if this data is not [SkeletonReasonRepost], otherwise false.
+  bool get isNotSkeletonReasonRepost => this is! UReasonSkeletonReasonRepost;
+
+  /// Returns true if this data is unknown object, otherwise false.
+  bool get isUnknown => this is UReasonUnknown;
+
+  /// Returns true if this data is not unknown object, otherwise false.
+  bool get isNotUnknown => this is! UReasonUnknown;
+
+  /// Returns this data as [SkeletonReasonRepost].
+  ///
+  /// Make sure to check if this object is [SkeletonReasonRepost] with [isSkeletonReasonRepost].
+  SkeletonReasonRepost get skeletonReasonRepost =>
+      this.data as SkeletonReasonRepost;
+
+  /// Returns [SkeletonReasonRepost] if this data is [SkeletonReasonRepost], otherwise null.
+  SkeletonReasonRepost? get skeletonReasonRepostOrNull =>
+      isSkeletonReasonRepost ? this.data as SkeletonReasonRepost : null;
+
+  /// Returns this data as JSON object.
+  ///
+  /// Make sure to check if this object is unknown with [isUnknown].
+  Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
+
+  /// Returns JSON object if this data is unknown, otherwise null.
+  Map<String, dynamic>? get unknownOrNull =>
+      isUnknown ? this.data as Map<String, dynamic> : null;
+}

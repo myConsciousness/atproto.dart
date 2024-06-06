@@ -101,8 +101,14 @@ extension UTypeExtension on UType {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UTypeKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! UTypeKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UTypeUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! UTypeUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownType? get knownValue => isKnownValue ? this.data as KnownType : null;

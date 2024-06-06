@@ -102,8 +102,14 @@ extension UAllowIncomingExtension on UAllowIncoming {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UAllowIncomingKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! UAllowIncomingKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UAllowIncomingUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! UAllowIncomingUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownAllowIncoming? get knownValue =>

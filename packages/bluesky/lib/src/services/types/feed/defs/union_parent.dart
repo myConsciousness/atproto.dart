@@ -79,3 +79,65 @@ final class UParentConverter
         unknown: (data) => data,
       );
 }
+
+extension UParentExtension on UParent {
+  /// Returns true if this data is [ThreadViewPost], otherwise false.
+  bool get isThreadViewPost => this is UParentThreadViewPost;
+
+  /// Returns true if this data is not [ThreadViewPost], otherwise false.
+  bool get isNotThreadViewPost => this is! UParentThreadViewPost;
+
+  /// Returns true if this data is [NotFoundPost], otherwise false.
+  bool get isNotFoundPost => this is UParentNotFoundPost;
+
+  /// Returns true if this data is not [NotFoundPost], otherwise false.
+  bool get isNotNotFoundPost => this is! UParentNotFoundPost;
+
+  /// Returns true if this data is [BlockedPost], otherwise false.
+  bool get isBlockedPost => this is UParentBlockedPost;
+
+  /// Returns true if this data is not [BlockedPost], otherwise false.
+  bool get isNotBlockedPost => this is! UParentBlockedPost;
+
+  /// Returns true if this data is unknown object, otherwise false.
+  bool get isUnknown => this is UParentUnknown;
+
+  /// Returns true if this data is not unknown object, otherwise false.
+  bool get isNotUnknown => this is! UParentUnknown;
+
+  /// Returns this data as [ThreadViewPost].
+  ///
+  /// Make sure to check if this object is [ThreadViewPost] with [isThreadViewPost].
+  ThreadViewPost get threadViewPost => this.data as ThreadViewPost;
+
+  /// Returns [ThreadViewPost] if this data is [ThreadViewPost], otherwise null.
+  ThreadViewPost? get threadViewPostOrNull =>
+      isThreadViewPost ? this.data as ThreadViewPost : null;
+
+  /// Returns this data as [NotFoundPost].
+  ///
+  /// Make sure to check if this object is [NotFoundPost] with [isNotFoundPost].
+  NotFoundPost get notFoundPost => this.data as NotFoundPost;
+
+  /// Returns [NotFoundPost] if this data is [NotFoundPost], otherwise null.
+  NotFoundPost? get notFoundPostOrNull =>
+      isNotFoundPost ? this.data as NotFoundPost : null;
+
+  /// Returns this data as [BlockedPost].
+  ///
+  /// Make sure to check if this object is [BlockedPost] with [isBlockedPost].
+  BlockedPost get blockedPost => this.data as BlockedPost;
+
+  /// Returns [BlockedPost] if this data is [BlockedPost], otherwise null.
+  BlockedPost? get blockedPostOrNull =>
+      isBlockedPost ? this.data as BlockedPost : null;
+
+  /// Returns this data as JSON object.
+  ///
+  /// Make sure to check if this object is unknown with [isUnknown].
+  Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
+
+  /// Returns JSON object if this data is unknown, otherwise null.
+  Map<String, dynamic>? get unknownOrNull =>
+      isUnknown ? this.data as Map<String, dynamic> : null;
+}

@@ -90,3 +90,81 @@ final class UEmbedConverter
         unknown: (data) => data,
       );
 }
+
+extension UEmbedExtension on UEmbed {
+  /// Returns true if this data is [ImagesView], otherwise false.
+  bool get isImagesView => this is UEmbedImagesView;
+
+  /// Returns true if this data is not [ImagesView], otherwise false.
+  bool get isNotImagesView => this is! UEmbedImagesView;
+
+  /// Returns true if this data is [ExternalView], otherwise false.
+  bool get isExternalView => this is UEmbedExternalView;
+
+  /// Returns true if this data is not [ExternalView], otherwise false.
+  bool get isNotExternalView => this is! UEmbedExternalView;
+
+  /// Returns true if this data is [RecordView], otherwise false.
+  bool get isRecordView => this is UEmbedRecordView;
+
+  /// Returns true if this data is not [RecordView], otherwise false.
+  bool get isNotRecordView => this is! UEmbedRecordView;
+
+  /// Returns true if this data is [RecordWithMediaView], otherwise false.
+  bool get isRecordWithMediaView => this is UEmbedRecordWithMediaView;
+
+  /// Returns true if this data is not [RecordWithMediaView], otherwise false.
+  bool get isNotRecordWithMediaView => this is! UEmbedRecordWithMediaView;
+
+  /// Returns true if this data is unknown object, otherwise false.
+  bool get isUnknown => this is UEmbedUnknown;
+
+  /// Returns true if this data is not unknown object, otherwise false.
+  bool get isNotUnknown => this is! UEmbedUnknown;
+
+  /// Returns this data as [ImagesView].
+  ///
+  /// Make sure to check if this object is [ImagesView] with [isImagesView].
+  ImagesView get imagesView => this.data as ImagesView;
+
+  /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
+  ImagesView? get imagesViewOrNull =>
+      isImagesView ? this.data as ImagesView : null;
+
+  /// Returns this data as [ExternalView].
+  ///
+  /// Make sure to check if this object is [ExternalView] with [isExternalView].
+  ExternalView get externalView => this.data as ExternalView;
+
+  /// Returns [ExternalView] if this data is [ExternalView], otherwise null.
+  ExternalView? get externalViewOrNull =>
+      isExternalView ? this.data as ExternalView : null;
+
+  /// Returns this data as [RecordView].
+  ///
+  /// Make sure to check if this object is [RecordView] with [isRecordView].
+  RecordView get recordView => this.data as RecordView;
+
+  /// Returns [RecordView] if this data is [RecordView], otherwise null.
+  RecordView? get recordViewOrNull =>
+      isRecordView ? this.data as RecordView : null;
+
+  /// Returns this data as [RecordWithMediaView].
+  ///
+  /// Make sure to check if this object is [RecordWithMediaView] with [isRecordWithMediaView].
+  RecordWithMediaView get recordWithMediaView =>
+      this.data as RecordWithMediaView;
+
+  /// Returns [RecordWithMediaView] if this data is [RecordWithMediaView], otherwise null.
+  RecordWithMediaView? get recordWithMediaViewOrNull =>
+      isRecordWithMediaView ? this.data as RecordWithMediaView : null;
+
+  /// Returns this data as JSON object.
+  ///
+  /// Make sure to check if this object is unknown with [isUnknown].
+  Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
+
+  /// Returns JSON object if this data is unknown, otherwise null.
+  Map<String, dynamic>? get unknownOrNull =>
+      isUnknown ? this.data as Map<String, dynamic> : null;
+}

@@ -133,8 +133,17 @@ final class LexGenKnownValues {
       ..writeln('  /// Returns true if this is known value, otherwise false.')
       ..writeln('  bool get isKnownValue => this is U${name}KnownValue;')
       ..writeln()
+      ..writeln(
+          '  /// Returns true if this is not known value, otherwise false.')
+      ..writeln('  bool get isNotKnownValue => this is! U${name}KnownValue;')
+      ..writeln()
       ..writeln('  /// Returns true if this is unknown value, otherwise false.')
       ..writeln('  bool get isUnknownValue => this is U${name}UnknownValue;')
+      ..writeln()
+      ..writeln(
+          '  /// Returns true if this is not unknown value, otherwise false.')
+      ..writeln(
+          '  bool get isNotUnknownValue => this is! U${name}UnknownValue;')
       ..writeln()
       ..writeln(
           '  /// Returns known value if this data is known, otherwise null.')

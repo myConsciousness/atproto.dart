@@ -117,8 +117,14 @@ extension ULabelValueExtension on ULabelValue {
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is ULabelValueKnownValue;
 
+  /// Returns true if this is not known value, otherwise false.
+  bool get isNotKnownValue => this is! ULabelValueKnownValue;
+
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is ULabelValueUnknownValue;
+
+  /// Returns true if this is not unknown value, otherwise false.
+  bool get isNotUnknownValue => this is! ULabelValueUnknownValue;
 
   /// Returns known value if this data is known, otherwise null.
   KnownLabelValue? get knownValue =>
