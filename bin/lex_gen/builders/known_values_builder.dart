@@ -60,7 +60,7 @@ final class LexKnownValuesBuilder {
     for (final knownValue in knownValues) {
       if (knownValue.contains('.') && knownValue.contains('#')) {
         final segments = knownValue.split('#');
-        final refToken = getRef(NSID(segments.first), segments.last)?.def;
+        final refToken = getRef(docId, knownValue)?.def;
 
         if (refToken is ULexUserTypeToken) {
           elements.add(

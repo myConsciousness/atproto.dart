@@ -27,7 +27,8 @@ mixin _$Interaction {
   String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get item => throw _privateConstructorUsedError;
-  String? get event => throw _privateConstructorUsedError;
+  @UEventConverter()
+  UEvent? get event => throw _privateConstructorUsedError;
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext => throw _privateConstructorUsedError;
@@ -47,8 +48,10 @@ abstract class $InteractionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
-      String? event,
+      @UEventConverter() UEvent? event,
       String? feedContext});
+
+  $UEventCopyWith<$Res>? get event;
 }
 
 /// @nodoc
@@ -81,12 +84,24 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UEvent?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UEventCopyWith<$Res>? get event {
+    if (_value.event == null) {
+      return null;
+    }
+
+    return $UEventCopyWith<$Res>(_value.event!, (value) {
+      return _then(_value.copyWith(event: value) as $Val);
+    });
   }
 }
 
@@ -101,8 +116,11 @@ abstract class _$$InteractionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
-      String? event,
+      @UEventConverter() UEvent? event,
       String? feedContext});
+
+  @override
+  $UEventCopyWith<$Res>? get event;
 }
 
 /// @nodoc
@@ -133,7 +151,7 @@ class __$$InteractionImplCopyWithImpl<$Res>
       event: freezed == event
           ? _value.event
           : event // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UEvent?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -149,7 +167,7 @@ class _$InteractionImpl implements _Interaction {
   const _$InteractionImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsInteraction,
       @AtUriConverter() this.item,
-      this.event,
+      @UEventConverter() this.event,
       this.feedContext});
 
   factory _$InteractionImpl.fromJson(Map<String, dynamic> json) =>
@@ -165,7 +183,8 @@ class _$InteractionImpl implements _Interaction {
   @AtUriConverter()
   final AtUri? item;
   @override
-  final String? event;
+  @UEventConverter()
+  final UEvent? event;
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   @override
@@ -210,7 +229,7 @@ abstract class _Interaction implements Interaction {
   const factory _Interaction(
       {@JsonKey(name: r'$type') final String $type,
       @AtUriConverter() final AtUri? item,
-      final String? event,
+      @UEventConverter() final UEvent? event,
       final String? feedContext}) = _$InteractionImpl;
 
   factory _Interaction.fromJson(Map<String, dynamic> json) =
@@ -227,7 +246,8 @@ abstract class _Interaction implements Interaction {
   @AtUriConverter()
   AtUri? get item;
   @override
-  String? get event;
+  @UEventConverter()
+  UEvent? get event;
   @override
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.

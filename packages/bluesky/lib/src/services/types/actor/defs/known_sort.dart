@@ -26,10 +26,12 @@ enum KnownSort {
   random('random'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownSort(this.value);
 
+  /// Returns [KnownSort] associated with [value], otherwise null.
   static KnownSort? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -112,9 +114,20 @@ extension USortExtension on USort {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! USortUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownSort get knownValue => this.data as KnownSort;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownSort? get knownValue => isKnownValue ? this.data as KnownSort : null;
+  KnownSort? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownSort : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

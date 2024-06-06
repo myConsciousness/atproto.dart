@@ -26,10 +26,12 @@ enum KnownVisibility {
   hide('hide'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownVisibility(this.value);
 
+  /// Returns [KnownVisibility] associated with [value], otherwise null.
   static KnownVisibility? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -112,10 +114,20 @@ extension UVisibilityExtension on UVisibility {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UVisibilityUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownVisibility get knownValue => this.data as KnownVisibility;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownVisibility? get knownValue =>
+  KnownVisibility? get knownValueOrNull =>
       isKnownValue ? this.data as KnownVisibility : null;
 
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
+
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

@@ -24,10 +24,12 @@ enum KnownType {
   timeline('timeline'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownType(this.value);
 
+  /// Returns [KnownType] associated with [value], otherwise null.
   static KnownType? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -110,9 +112,20 @@ extension UTypeExtension on UType {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UTypeUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownType get knownValue => this.data as KnownType;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownType? get knownValue => isKnownValue ? this.data as KnownType : null;
+  KnownType? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownType : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

@@ -10,5 +10,4 @@
 // Lex Object Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/get_session/output.dart';
-export 'package:atproto/src/services/types/server/get_session/known_status.dart';
+export 'package:atproto/src/services/types/moderation/defs/known_reason_type.dart';

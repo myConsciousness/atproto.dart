@@ -22,10 +22,12 @@ enum KnownMutedWordTarget {
   tag('tag'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownMutedWordTarget(this.value);
 
+  /// Returns [KnownMutedWordTarget] associated with [value], otherwise null.
   static KnownMutedWordTarget? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -109,10 +111,20 @@ extension UMutedWordTargetExtension on UMutedWordTarget {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UMutedWordTargetUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownMutedWordTarget get knownValue => this.data as KnownMutedWordTarget;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownMutedWordTarget? get knownValue =>
+  KnownMutedWordTarget? get knownValueOrNull =>
       isKnownValue ? this.data as KnownMutedWordTarget : null;
 
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
+
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_statu.dart';
+import 'known_status.dart';
 
 part 'account.freezed.dart';
 part 'account.g.dart';
@@ -41,7 +41,7 @@ class Account with _$Account {
     required bool active,
 
     /// If active=false, this optional field indicates a reason for why the account is not active.
-    @UStatuConverter() UStatu? status,
+    @UStatusConverter() UStatus? status,
   }) = _Account;
 
   factory Account.fromJson(Map<String, Object?> json) =>

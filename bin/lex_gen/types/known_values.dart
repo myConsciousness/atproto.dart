@@ -73,10 +73,13 @@ final class LexGenKnownValues {
     }
     buffer.writeln('  ;');
     buffer.writeln();
+    buffer.writeln('  /// JSON value based on lexicon.');
     buffer.writeln('  final String value;');
     buffer.writeln();
     buffer.writeln('  const Known$name(this.value);');
     buffer.writeln();
+    buffer.writeln(
+        '  /// Returns [Known$name] associated with [value], otherwise null.');
     buffer.writeln('  static Known$name? valueOf(final String value) {');
     buffer.writeln('    for (final \$value in values) {');
     buffer.writeln('      if (\$value.value == value) {');
@@ -145,15 +148,26 @@ final class LexGenKnownValues {
       ..writeln(
           '  bool get isNotUnknownValue => this is! U${name}UnknownValue;')
       ..writeln()
+      ..writeln('  /// Returns known value.')
+      ..writeln('  ///')
+      ..writeln(
+          '  /// Make sure to check if this object is known value with [isKnownValue].')
+      ..writeln('  Known$name get knownValue => this.data as Known$name;')
       ..writeln(
           '  /// Returns known value if this data is known, otherwise null.')
-      ..writeln('  Known$name? get knownValue => isKnownValue')
+      ..writeln('  Known$name? get knownValueOrNull => isKnownValue')
       ..writeln('    ? this.data as Known$name')
       ..writeln('    : null;')
       ..writeln()
+      ..writeln('  /// Returns unknown value.')
+      ..writeln('  ///')
+      ..writeln(
+          '  /// Make sure to check if this object is unknown value with [isUnknownValue].')
+      ..writeln('  String get unknownValue => this.data as String;')
+      ..writeln()
       ..writeln(
           '  /// Returns unknown value if this data is unknown, otherwise null.')
-      ..writeln('  String? get unknownValue => isUnknownValue')
+      ..writeln('  String? get unknownValueOrNull => isUnknownValue')
       ..writeln('    ? this.data as String')
       ..writeln('    : null;')
       ..writeln('}');

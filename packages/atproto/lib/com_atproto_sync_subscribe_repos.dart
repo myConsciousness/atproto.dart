@@ -13,7 +13,7 @@
 export 'package:atproto/src/services/types/sync/subscribe_repos/commit.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/identity.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/account.dart';
-export 'package:atproto/src/services/types/sync/subscribe_repos/known_statu.dart';
+export 'package:atproto/src/services/types/sync/subscribe_repos/known_status.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/handle.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/migrate.dart';
 export 'package:atproto/src/services/types/sync/subscribe_repos/tombstone.dart';

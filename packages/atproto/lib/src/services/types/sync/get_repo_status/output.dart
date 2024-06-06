@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'known_statu.dart';
+import 'known_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
@@ -28,7 +28,7 @@ class GetRepoStatusOutput with _$GetRepoStatusOutput {
     required bool active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-    @UStatuConverter() UStatu? status,
+    @UStatusConverter() UStatus? status,
 
     /// Optional field, the current rev of the repo, if active=true
     String? rev,

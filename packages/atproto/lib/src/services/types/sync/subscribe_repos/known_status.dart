@@ -13,22 +13,26 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_statu.freezed.dart';
+part 'known_status.freezed.dart';
 
-enum KnownStatu {
+enum KnownStatus {
   @JsonValue('takendown')
   takendown('takendown'),
   @JsonValue('suspended')
   suspended('suspended'),
+  @JsonValue('deleted')
+  deleted('deleted'),
   @JsonValue('deactivated')
   deactivated('deactivated'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
-  const KnownStatu(this.value);
+  const KnownStatus(this.value);
 
-  static KnownStatu? valueOf(final String value) {
+  /// Returns [KnownStatus] associated with [value], otherwise null.
+  static KnownStatus? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -56,63 +60,74 @@ enum KnownStatu {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownStatu
+///   knownValue: (data) => data, // => KnownStatus
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownStatu or null
+///   print(object.knownValue); // => KnownStatus or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UStatu with _$UStatu {
-  const factory UStatu.knownValue({
-    required KnownStatu data,
-  }) = UStatuKnownValue;
+class UStatus with _$UStatus {
+  const factory UStatus.knownValue({
+    required KnownStatus data,
+  }) = UStatusKnownValue;
 
-  const factory UStatu.unknownValue({
+  const factory UStatus.unknownValue({
     required String data,
-  }) = UStatuUnknownValue;
+  }) = UStatusUnknownValue;
 }
 
-final class UStatuConverter implements JsonConverter<UStatu, String> {
-  const UStatuConverter();
+final class UStatusConverter implements JsonConverter<UStatus, String> {
+  const UStatusConverter();
 
   @override
-  UStatu fromJson(String json) {
-    final knownValue = KnownStatu.valueOf(json);
+  UStatus fromJson(String json) {
+    final knownValue = KnownStatus.valueOf(json);
 
     return knownValue != null
-        ? UStatu.knownValue(data: knownValue)
-        : UStatu.unknownValue(data: json);
+        ? UStatus.knownValue(data: knownValue)
+        : UStatus.unknownValue(data: json);
   }
 
   @override
-  String toJson(UStatu object) => object.when(
+  String toJson(UStatus object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension UStatuExtension on UStatu {
+extension UStatusExtension on UStatus {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UStatuKnownValue;
+  bool get isKnownValue => this is UStatusKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UStatuKnownValue;
+  bool get isNotKnownValue => this is! UStatusKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UStatuUnknownValue;
+  bool get isUnknownValue => this is UStatusUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UStatuUnknownValue;
+  bool get isNotUnknownValue => this is! UStatusUnknownValue;
+
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownStatus get knownValue => this.data as KnownStatus;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownStatu? get knownValue => isKnownValue ? this.data as KnownStatu : null;
+  KnownStatus? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownStatus : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

@@ -13,40 +13,25 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_label_value.freezed.dart';
+part 'known_list_purpose.freezed.dart';
 
-enum KnownLabelValue {
-  @JsonValue('!hide')
-  hide('!hide'),
-  @JsonValue('!no-promote')
-  noPromote('!no-promote'),
-  @JsonValue('!warn')
-  warn('!warn'),
-  @JsonValue('!no-unauthenticated')
-  noUnauthenticated('!no-unauthenticated'),
-  @JsonValue('dmca-violation')
-  dmcaViolation('dmca-violation'),
-  @JsonValue('doxxing')
-  doxxing('doxxing'),
-  @JsonValue('porn')
-  porn('porn'),
-  @JsonValue('sexual')
-  sexual('sexual'),
-  @JsonValue('nudity')
-  nudity('nudity'),
-  @JsonValue('nsfl')
-  nsfl('nsfl'),
-  @JsonValue('gore')
-  gore('gore'),
+enum KnownListPurpose {
+  /// A list of actors to apply an aggregate moderation action (mute/block) on.
+  @JsonValue('app.bsky.graph.defs#modlist')
+  modlist('app.bsky.graph.defs#modlist'),
+
+  /// A list of actors used for curation purposes such as list feeds or interaction gating.
+  @JsonValue('app.bsky.graph.defs#curatelist')
+  curatelist('app.bsky.graph.defs#curatelist'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownLabelValue(this.value);
+  const KnownListPurpose(this.value);
 
-  /// Returns [KnownLabelValue] associated with [value], otherwise null.
-  static KnownLabelValue? valueOf(final String value) {
+  /// Returns [KnownListPurpose] associated with [value], otherwise null.
+  static KnownListPurpose? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -74,68 +59,69 @@ enum KnownLabelValue {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownLabelValue
+///   knownValue: (data) => data, // => KnownListPurpose
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownLabelValue or null
+///   print(object.knownValue); // => KnownListPurpose or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class ULabelValue with _$ULabelValue {
-  const factory ULabelValue.knownValue({
-    required KnownLabelValue data,
-  }) = ULabelValueKnownValue;
+class UListPurpose with _$UListPurpose {
+  const factory UListPurpose.knownValue({
+    required KnownListPurpose data,
+  }) = UListPurposeKnownValue;
 
-  const factory ULabelValue.unknownValue({
+  const factory UListPurpose.unknownValue({
     required String data,
-  }) = ULabelValueUnknownValue;
+  }) = UListPurposeUnknownValue;
 }
 
-final class ULabelValueConverter implements JsonConverter<ULabelValue, String> {
-  const ULabelValueConverter();
+final class UListPurposeConverter
+    implements JsonConverter<UListPurpose, String> {
+  const UListPurposeConverter();
 
   @override
-  ULabelValue fromJson(String json) {
-    final knownValue = KnownLabelValue.valueOf(json);
+  UListPurpose fromJson(String json) {
+    final knownValue = KnownListPurpose.valueOf(json);
 
     return knownValue != null
-        ? ULabelValue.knownValue(data: knownValue)
-        : ULabelValue.unknownValue(data: json);
+        ? UListPurpose.knownValue(data: knownValue)
+        : UListPurpose.unknownValue(data: json);
   }
 
   @override
-  String toJson(ULabelValue object) => object.when(
+  String toJson(UListPurpose object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension ULabelValueExtension on ULabelValue {
+extension UListPurposeExtension on UListPurpose {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is ULabelValueKnownValue;
+  bool get isKnownValue => this is UListPurposeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! ULabelValueKnownValue;
+  bool get isNotKnownValue => this is! UListPurposeKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is ULabelValueUnknownValue;
+  bool get isUnknownValue => this is UListPurposeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! ULabelValueUnknownValue;
+  bool get isNotUnknownValue => this is! UListPurposeUnknownValue;
 
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownLabelValue get knownValue => this.data as KnownLabelValue;
+  KnownListPurpose get knownValue => this.data as KnownListPurpose;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownLabelValue? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownLabelValue : null;
+  KnownListPurpose? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownListPurpose : null;
 
   /// Returns unknown value.
   ///

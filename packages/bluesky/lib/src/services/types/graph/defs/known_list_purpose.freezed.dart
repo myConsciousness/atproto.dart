@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'known_statu.dart';
+part of 'known_list_purpose.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,58 +15,59 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UStatu {
+mixin _$UListPurpose {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownStatu data) knownValue,
+    required TResult Function(KnownListPurpose data) knownValue,
     required TResult Function(String data) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownStatu data)? knownValue,
+    TResult? Function(KnownListPurpose data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownStatu data)? knownValue,
+    TResult Function(KnownListPurpose data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UStatuKnownValue value) knownValue,
-    required TResult Function(UStatuUnknownValue value) unknownValue,
+    required TResult Function(UListPurposeKnownValue value) knownValue,
+    required TResult Function(UListPurposeUnknownValue value) unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UStatuKnownValue value)? knownValue,
-    TResult? Function(UStatuUnknownValue value)? unknownValue,
+    TResult? Function(UListPurposeKnownValue value)? knownValue,
+    TResult? Function(UListPurposeUnknownValue value)? unknownValue,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UStatuKnownValue value)? knownValue,
-    TResult Function(UStatuUnknownValue value)? unknownValue,
+    TResult Function(UListPurposeKnownValue value)? knownValue,
+    TResult Function(UListPurposeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UStatuCopyWith<$Res> {
-  factory $UStatuCopyWith(UStatu value, $Res Function(UStatu) then) =
-      _$UStatuCopyWithImpl<$Res, UStatu>;
+abstract class $UListPurposeCopyWith<$Res> {
+  factory $UListPurposeCopyWith(
+          UListPurpose value, $Res Function(UListPurpose) then) =
+      _$UListPurposeCopyWithImpl<$Res, UListPurpose>;
 }
 
 /// @nodoc
-class _$UStatuCopyWithImpl<$Res, $Val extends UStatu>
-    implements $UStatuCopyWith<$Res> {
-  _$UStatuCopyWithImpl(this._value, this._then);
+class _$UListPurposeCopyWithImpl<$Res, $Val extends UListPurpose>
+    implements $UListPurposeCopyWith<$Res> {
+  _$UListPurposeCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -75,20 +76,22 @@ class _$UStatuCopyWithImpl<$Res, $Val extends UStatu>
 }
 
 /// @nodoc
-abstract class _$$UStatuKnownValueImplCopyWith<$Res> {
-  factory _$$UStatuKnownValueImplCopyWith(_$UStatuKnownValueImpl value,
-          $Res Function(_$UStatuKnownValueImpl) then) =
-      __$$UStatuKnownValueImplCopyWithImpl<$Res>;
+abstract class _$$UListPurposeKnownValueImplCopyWith<$Res> {
+  factory _$$UListPurposeKnownValueImplCopyWith(
+          _$UListPurposeKnownValueImpl value,
+          $Res Function(_$UListPurposeKnownValueImpl) then) =
+      __$$UListPurposeKnownValueImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({KnownStatu data});
+  $Res call({KnownListPurpose data});
 }
 
 /// @nodoc
-class __$$UStatuKnownValueImplCopyWithImpl<$Res>
-    extends _$UStatuCopyWithImpl<$Res, _$UStatuKnownValueImpl>
-    implements _$$UStatuKnownValueImplCopyWith<$Res> {
-  __$$UStatuKnownValueImplCopyWithImpl(_$UStatuKnownValueImpl _value,
-      $Res Function(_$UStatuKnownValueImpl) _then)
+class __$$UListPurposeKnownValueImplCopyWithImpl<$Res>
+    extends _$UListPurposeCopyWithImpl<$Res, _$UListPurposeKnownValueImpl>
+    implements _$$UListPurposeKnownValueImplCopyWith<$Res> {
+  __$$UListPurposeKnownValueImplCopyWithImpl(
+      _$UListPurposeKnownValueImpl _value,
+      $Res Function(_$UListPurposeKnownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -96,33 +99,33 @@ class __$$UStatuKnownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UStatuKnownValueImpl(
+    return _then(_$UListPurposeKnownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as KnownStatu,
+              as KnownListPurpose,
     ));
   }
 }
 
 /// @nodoc
 
-class _$UStatuKnownValueImpl implements UStatuKnownValue {
-  const _$UStatuKnownValueImpl({required this.data});
+class _$UListPurposeKnownValueImpl implements UListPurposeKnownValue {
+  const _$UListPurposeKnownValueImpl({required this.data});
 
   @override
-  final KnownStatu data;
+  final KnownListPurpose data;
 
   @override
   String toString() {
-    return 'UStatu.knownValue(data: $data)';
+    return 'UListPurpose.knownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UStatuKnownValueImpl &&
+            other is _$UListPurposeKnownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -132,14 +135,14 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UStatuKnownValueImplCopyWith<_$UStatuKnownValueImpl> get copyWith =>
-      __$$UStatuKnownValueImplCopyWithImpl<_$UStatuKnownValueImpl>(
-          this, _$identity);
+  _$$UListPurposeKnownValueImplCopyWith<_$UListPurposeKnownValueImpl>
+      get copyWith => __$$UListPurposeKnownValueImplCopyWithImpl<
+          _$UListPurposeKnownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownStatu data) knownValue,
+    required TResult Function(KnownListPurpose data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return knownValue(data);
@@ -148,7 +151,7 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownStatu data)? knownValue,
+    TResult? Function(KnownListPurpose data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return knownValue?.call(data);
@@ -157,7 +160,7 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownStatu data)? knownValue,
+    TResult Function(KnownListPurpose data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -170,8 +173,8 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UStatuKnownValue value) knownValue,
-    required TResult Function(UStatuUnknownValue value) unknownValue,
+    required TResult Function(UListPurposeKnownValue value) knownValue,
+    required TResult Function(UListPurposeUnknownValue value) unknownValue,
   }) {
     return knownValue(this);
   }
@@ -179,8 +182,8 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UStatuKnownValue value)? knownValue,
-    TResult? Function(UStatuUnknownValue value)? unknownValue,
+    TResult? Function(UListPurposeKnownValue value)? knownValue,
+    TResult? Function(UListPurposeUnknownValue value)? unknownValue,
   }) {
     return knownValue?.call(this);
   }
@@ -188,8 +191,8 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UStatuKnownValue value)? knownValue,
-    TResult Function(UStatuUnknownValue value)? unknownValue,
+    TResult Function(UListPurposeKnownValue value)? knownValue,
+    TResult Function(UListPurposeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (knownValue != null) {
@@ -199,32 +202,34 @@ class _$UStatuKnownValueImpl implements UStatuKnownValue {
   }
 }
 
-abstract class UStatuKnownValue implements UStatu {
-  const factory UStatuKnownValue({required final KnownStatu data}) =
-      _$UStatuKnownValueImpl;
+abstract class UListPurposeKnownValue implements UListPurpose {
+  const factory UListPurposeKnownValue({required final KnownListPurpose data}) =
+      _$UListPurposeKnownValueImpl;
 
   @override
-  KnownStatu get data;
+  KnownListPurpose get data;
   @JsonKey(ignore: true)
-  _$$UStatuKnownValueImplCopyWith<_$UStatuKnownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UListPurposeKnownValueImplCopyWith<_$UListPurposeKnownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UStatuUnknownValueImplCopyWith<$Res> {
-  factory _$$UStatuUnknownValueImplCopyWith(_$UStatuUnknownValueImpl value,
-          $Res Function(_$UStatuUnknownValueImpl) then) =
-      __$$UStatuUnknownValueImplCopyWithImpl<$Res>;
+abstract class _$$UListPurposeUnknownValueImplCopyWith<$Res> {
+  factory _$$UListPurposeUnknownValueImplCopyWith(
+          _$UListPurposeUnknownValueImpl value,
+          $Res Function(_$UListPurposeUnknownValueImpl) then) =
+      __$$UListPurposeUnknownValueImplCopyWithImpl<$Res>;
   @useResult
   $Res call({String data});
 }
 
 /// @nodoc
-class __$$UStatuUnknownValueImplCopyWithImpl<$Res>
-    extends _$UStatuCopyWithImpl<$Res, _$UStatuUnknownValueImpl>
-    implements _$$UStatuUnknownValueImplCopyWith<$Res> {
-  __$$UStatuUnknownValueImplCopyWithImpl(_$UStatuUnknownValueImpl _value,
-      $Res Function(_$UStatuUnknownValueImpl) _then)
+class __$$UListPurposeUnknownValueImplCopyWithImpl<$Res>
+    extends _$UListPurposeCopyWithImpl<$Res, _$UListPurposeUnknownValueImpl>
+    implements _$$UListPurposeUnknownValueImplCopyWith<$Res> {
+  __$$UListPurposeUnknownValueImplCopyWithImpl(
+      _$UListPurposeUnknownValueImpl _value,
+      $Res Function(_$UListPurposeUnknownValueImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -232,7 +237,7 @@ class __$$UStatuUnknownValueImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UStatuUnknownValueImpl(
+    return _then(_$UListPurposeUnknownValueImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -243,22 +248,22 @@ class __$$UStatuUnknownValueImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
-  const _$UStatuUnknownValueImpl({required this.data});
+class _$UListPurposeUnknownValueImpl implements UListPurposeUnknownValue {
+  const _$UListPurposeUnknownValueImpl({required this.data});
 
   @override
   final String data;
 
   @override
   String toString() {
-    return 'UStatu.unknownValue(data: $data)';
+    return 'UListPurpose.unknownValue(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UStatuUnknownValueImpl &&
+            other is _$UListPurposeUnknownValueImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -268,14 +273,14 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UStatuUnknownValueImplCopyWith<_$UStatuUnknownValueImpl> get copyWith =>
-      __$$UStatuUnknownValueImplCopyWithImpl<_$UStatuUnknownValueImpl>(
-          this, _$identity);
+  _$$UListPurposeUnknownValueImplCopyWith<_$UListPurposeUnknownValueImpl>
+      get copyWith => __$$UListPurposeUnknownValueImplCopyWithImpl<
+          _$UListPurposeUnknownValueImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(KnownStatu data) knownValue,
+    required TResult Function(KnownListPurpose data) knownValue,
     required TResult Function(String data) unknownValue,
   }) {
     return unknownValue(data);
@@ -284,7 +289,7 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(KnownStatu data)? knownValue,
+    TResult? Function(KnownListPurpose data)? knownValue,
     TResult? Function(String data)? unknownValue,
   }) {
     return unknownValue?.call(data);
@@ -293,7 +298,7 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(KnownStatu data)? knownValue,
+    TResult Function(KnownListPurpose data)? knownValue,
     TResult Function(String data)? unknownValue,
     required TResult orElse(),
   }) {
@@ -306,8 +311,8 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UStatuKnownValue value) knownValue,
-    required TResult Function(UStatuUnknownValue value) unknownValue,
+    required TResult Function(UListPurposeKnownValue value) knownValue,
+    required TResult Function(UListPurposeUnknownValue value) unknownValue,
   }) {
     return unknownValue(this);
   }
@@ -315,8 +320,8 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UStatuKnownValue value)? knownValue,
-    TResult? Function(UStatuUnknownValue value)? unknownValue,
+    TResult? Function(UListPurposeKnownValue value)? knownValue,
+    TResult? Function(UListPurposeUnknownValue value)? unknownValue,
   }) {
     return unknownValue?.call(this);
   }
@@ -324,8 +329,8 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UStatuKnownValue value)? knownValue,
-    TResult Function(UStatuUnknownValue value)? unknownValue,
+    TResult Function(UListPurposeKnownValue value)? knownValue,
+    TResult Function(UListPurposeUnknownValue value)? unknownValue,
     required TResult orElse(),
   }) {
     if (unknownValue != null) {
@@ -335,13 +340,13 @@ class _$UStatuUnknownValueImpl implements UStatuUnknownValue {
   }
 }
 
-abstract class UStatuUnknownValue implements UStatu {
-  const factory UStatuUnknownValue({required final String data}) =
-      _$UStatuUnknownValueImpl;
+abstract class UListPurposeUnknownValue implements UListPurpose {
+  const factory UListPurposeUnknownValue({required final String data}) =
+      _$UListPurposeUnknownValueImpl;
 
   @override
   String get data;
   @JsonKey(ignore: true)
-  _$$UStatuUnknownValueImplCopyWith<_$UStatuUnknownValueImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UListPurposeUnknownValueImplCopyWith<_$UListPurposeUnknownValueImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

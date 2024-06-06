@@ -24,10 +24,12 @@ enum KnownDefaultSetting {
   hide('hide'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownDefaultSetting(this.value);
 
+  /// Returns [KnownDefaultSetting] associated with [value], otherwise null.
   static KnownDefaultSetting? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -111,10 +113,20 @@ extension UDefaultSettingExtension on UDefaultSetting {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UDefaultSettingUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownDefaultSetting get knownValue => this.data as KnownDefaultSetting;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownDefaultSetting? get knownValue =>
+  KnownDefaultSetting? get knownValueOrNull =>
       isKnownValue ? this.data as KnownDefaultSetting : null;
 
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
+
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

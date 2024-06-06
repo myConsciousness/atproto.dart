@@ -24,10 +24,12 @@ enum KnownAllowIncoming {
   following('following'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownAllowIncoming(this.value);
 
+  /// Returns [KnownAllowIncoming] associated with [value], otherwise null.
   static KnownAllowIncoming? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -111,10 +113,20 @@ extension UAllowIncomingExtension on UAllowIncoming {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UAllowIncomingUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownAllowIncoming get knownValue => this.data as KnownAllowIncoming;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownAllowIncoming? get knownValue =>
+  KnownAllowIncoming? get knownValueOrNull =>
       isKnownValue ? this.data as KnownAllowIncoming : null;
 
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
+
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

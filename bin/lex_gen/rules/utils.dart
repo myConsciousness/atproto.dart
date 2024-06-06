@@ -13,7 +13,11 @@ import '../types/data_type.dart';
 import '../types/union_object.dart';
 import '../types/ref.dart';
 
+const _kExceptionSingular = ['status'];
+
 String getSingular(String plural) {
+  if (_kExceptionSingular.contains(plural)) return plural;
+
   // Check if the word follows the plural rules
   if (plural.endsWith('ies')) {
     // If it ends with 'ies', and the preceding letter is a consonant

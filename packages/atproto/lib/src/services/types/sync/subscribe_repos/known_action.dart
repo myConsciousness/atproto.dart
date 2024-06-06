@@ -24,10 +24,12 @@ enum KnownAction {
   delete('delete'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownAction(this.value);
 
+  /// Returns [KnownAction] associated with [value], otherwise null.
   static KnownAction? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -110,9 +112,20 @@ extension UActionExtension on UAction {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UActionUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownAction get knownValue => this.data as KnownAction;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownAction? get knownValue => isKnownValue ? this.data as KnownAction : null;
+  KnownAction? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownAction : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

@@ -30,10 +30,12 @@ enum KnownReason {
   quote('quote'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownReason(this.value);
 
+  /// Returns [KnownReason] associated with [value], otherwise null.
   static KnownReason? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -116,9 +118,20 @@ extension UReasonExtension on UReason {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UReasonUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownReason get knownValue => this.data as KnownReason;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownReason? get knownValue => isKnownValue ? this.data as KnownReason : null;
+  KnownReason? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownReason : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

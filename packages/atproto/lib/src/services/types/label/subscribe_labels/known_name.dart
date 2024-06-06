@@ -20,10 +20,12 @@ enum KnownName {
   outdatedCursor('OutdatedCursor'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownName(this.value);
 
+  /// Returns [KnownName] associated with [value], otherwise null.
   static KnownName? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -106,9 +108,20 @@ extension UNameExtension on UName {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! UNameUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownName get knownValue => this.data as KnownName;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownName? get knownValue => isKnownValue ? this.data as KnownName : null;
+  KnownName? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownName : null;
+
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

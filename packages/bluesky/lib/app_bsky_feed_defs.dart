@@ -30,3 +30,4 @@ export 'package:bluesky/src/services/types/feed/defs/skeleton_feed_post.dart';
 export 'package:bluesky/src/services/types/feed/defs/skeleton_reason_repost.dart';
 export 'package:bluesky/src/services/types/feed/defs/threadgate_view.dart';
 export 'package:bluesky/src/services/types/feed/defs/interaction.dart';
+export 'package:bluesky/src/services/types/feed/defs/known_event.dart';

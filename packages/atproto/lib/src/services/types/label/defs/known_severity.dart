@@ -24,10 +24,12 @@ enum KnownSeverity {
   none('none'),
   ;
 
+  /// JSON value based on lexicon.
   final String value;
 
   const KnownSeverity(this.value);
 
+  /// Returns [KnownSeverity] associated with [value], otherwise null.
   static KnownSeverity? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
@@ -110,10 +112,20 @@ extension USeverityExtension on USeverity {
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => this is! USeverityUnknownValue;
 
+  /// Returns known value.
+  ///
+  /// Make sure to check if this object is known value with [isKnownValue].
+  KnownSeverity get knownValue => this.data as KnownSeverity;
+
   /// Returns known value if this data is known, otherwise null.
-  KnownSeverity? get knownValue =>
+  KnownSeverity? get knownValueOrNull =>
       isKnownValue ? this.data as KnownSeverity : null;
 
+  /// Returns unknown value.
+  ///
+  /// Make sure to check if this object is unknown value with [isUnknownValue].
+  String get unknownValue => this.data as String;
+
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValue => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
 }

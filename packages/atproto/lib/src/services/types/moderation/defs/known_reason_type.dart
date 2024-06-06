@@ -13,40 +13,45 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_label_value.freezed.dart';
+part 'known_reason_type.freezed.dart';
 
-enum KnownLabelValue {
-  @JsonValue('!hide')
-  hide('!hide'),
-  @JsonValue('!no-promote')
-  noPromote('!no-promote'),
-  @JsonValue('!warn')
-  warn('!warn'),
-  @JsonValue('!no-unauthenticated')
-  noUnauthenticated('!no-unauthenticated'),
-  @JsonValue('dmca-violation')
-  dmcaViolation('dmca-violation'),
-  @JsonValue('doxxing')
-  doxxing('doxxing'),
-  @JsonValue('porn')
-  porn('porn'),
-  @JsonValue('sexual')
-  sexual('sexual'),
-  @JsonValue('nudity')
-  nudity('nudity'),
-  @JsonValue('nsfl')
-  nsfl('nsfl'),
-  @JsonValue('gore')
-  gore('gore'),
+enum KnownReasonType {
+  /// Spam: frequent unwanted promotion, replies, mentions
+  @JsonValue('com.atproto.moderation.defs#reasonSpam')
+  reasonSpam('com.atproto.moderation.defs#reasonSpam'),
+
+  /// Direct violation of server rules, laws, terms of service
+  @JsonValue('com.atproto.moderation.defs#reasonViolation')
+  reasonViolation('com.atproto.moderation.defs#reasonViolation'),
+
+  /// Misleading identity, affiliation, or content
+  @JsonValue('com.atproto.moderation.defs#reasonMisleading')
+  reasonMisleading('com.atproto.moderation.defs#reasonMisleading'),
+
+  /// Unwanted or mislabeled sexual content
+  @JsonValue('com.atproto.moderation.defs#reasonSexual')
+  reasonSexual('com.atproto.moderation.defs#reasonSexual'),
+
+  /// Rude, harassing, explicit, or otherwise unwelcoming behavior
+  @JsonValue('com.atproto.moderation.defs#reasonRude')
+  reasonRude('com.atproto.moderation.defs#reasonRude'),
+
+  /// Other: reports not falling under another report category
+  @JsonValue('com.atproto.moderation.defs#reasonOther')
+  reasonOther('com.atproto.moderation.defs#reasonOther'),
+
+  /// Appeal: appeal a previously taken moderation action
+  @JsonValue('com.atproto.moderation.defs#reasonAppeal')
+  reasonAppeal('com.atproto.moderation.defs#reasonAppeal'),
   ;
 
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownLabelValue(this.value);
+  const KnownReasonType(this.value);
 
-  /// Returns [KnownLabelValue] associated with [value], otherwise null.
-  static KnownLabelValue? valueOf(final String value) {
+  /// Returns [KnownReasonType] associated with [value], otherwise null.
+  static KnownReasonType? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -74,68 +79,68 @@ enum KnownLabelValue {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownLabelValue
+///   knownValue: (data) => data, // => KnownReasonType
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownLabelValue or null
+///   print(object.knownValue); // => KnownReasonType or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class ULabelValue with _$ULabelValue {
-  const factory ULabelValue.knownValue({
-    required KnownLabelValue data,
-  }) = ULabelValueKnownValue;
+class UReasonType with _$UReasonType {
+  const factory UReasonType.knownValue({
+    required KnownReasonType data,
+  }) = UReasonTypeKnownValue;
 
-  const factory ULabelValue.unknownValue({
+  const factory UReasonType.unknownValue({
     required String data,
-  }) = ULabelValueUnknownValue;
+  }) = UReasonTypeUnknownValue;
 }
 
-final class ULabelValueConverter implements JsonConverter<ULabelValue, String> {
-  const ULabelValueConverter();
+final class UReasonTypeConverter implements JsonConverter<UReasonType, String> {
+  const UReasonTypeConverter();
 
   @override
-  ULabelValue fromJson(String json) {
-    final knownValue = KnownLabelValue.valueOf(json);
+  UReasonType fromJson(String json) {
+    final knownValue = KnownReasonType.valueOf(json);
 
     return knownValue != null
-        ? ULabelValue.knownValue(data: knownValue)
-        : ULabelValue.unknownValue(data: json);
+        ? UReasonType.knownValue(data: knownValue)
+        : UReasonType.unknownValue(data: json);
   }
 
   @override
-  String toJson(ULabelValue object) => object.when(
+  String toJson(UReasonType object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension ULabelValueExtension on ULabelValue {
+extension UReasonTypeExtension on UReasonType {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is ULabelValueKnownValue;
+  bool get isKnownValue => this is UReasonTypeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! ULabelValueKnownValue;
+  bool get isNotKnownValue => this is! UReasonTypeKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is ULabelValueUnknownValue;
+  bool get isUnknownValue => this is UReasonTypeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! ULabelValueUnknownValue;
+  bool get isNotUnknownValue => this is! UReasonTypeUnknownValue;
 
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownLabelValue get knownValue => this.data as KnownLabelValue;
+  KnownReasonType get knownValue => this.data as KnownReasonType;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownLabelValue? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownLabelValue : null;
+  KnownReasonType? get knownValueOrNull =>
+      isKnownValue ? this.data as KnownReasonType : null;
 
   /// Returns unknown value.
   ///

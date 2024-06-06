@@ -33,8 +33,8 @@ mixin _$Account {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a reason for why the account is not active.
-  @UStatuConverter()
-  UStatu? get status => throw _privateConstructorUsedError;
+  @UStatusConverter()
+  UStatus? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,9 +52,9 @@ abstract class $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UStatuConverter() UStatu? status});
+      @UStatusConverter() UStatus? status});
 
-  $UStatuCopyWith<$Res>? get status;
+  $UStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -101,18 +101,18 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatu?,
+              as UStatus?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $UStatuCopyWith<$Res>? get status {
+  $UStatusCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $UStatuCopyWith<$Res>(_value.status!, (value) {
+    return $UStatusCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -131,10 +131,10 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UStatuConverter() UStatu? status});
+      @UStatusConverter() UStatus? status});
 
   @override
-  $UStatuCopyWith<$Res>? get status;
+  $UStatusCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -179,7 +179,7 @@ class __$$AccountImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as UStatu?,
+              as UStatus?,
     ));
   }
 }
@@ -195,7 +195,7 @@ class _$AccountImpl implements _Account {
       required this.did,
       required this.time,
       required this.active,
-      @UStatuConverter() this.status});
+      @UStatusConverter() this.status});
 
   factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountImplFromJson(json);
@@ -219,8 +219,8 @@ class _$AccountImpl implements _Account {
 
   /// If active=false, this optional field indicates a reason for why the account is not active.
   @override
-  @UStatuConverter()
-  final UStatu? status;
+  @UStatusConverter()
+  final UStatus? status;
 
   @override
   String toString() {
@@ -266,7 +266,7 @@ abstract class _Account implements Account {
       required final String did,
       required final DateTime time,
       required final bool active,
-      @UStatuConverter() final UStatu? status}) = _$AccountImpl;
+      @UStatusConverter() final UStatus? status}) = _$AccountImpl;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
 
@@ -290,8 +290,8 @@ abstract class _Account implements Account {
   @override
 
   /// If active=false, this optional field indicates a reason for why the account is not active.
-  @UStatuConverter()
-  UStatu? get status;
+  @UStatusConverter()
+  UStatus? get status;
   @override
   @JsonKey(ignore: true)
   _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>
