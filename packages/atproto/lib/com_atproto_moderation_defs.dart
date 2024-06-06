@@ -7,7 +7,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// Lex Object Generator
+// Lex Generator
 // **************************************************************************
 
 export 'package:atproto/src/services/types/moderation/defs/known_reason_type.dart';

@@ -7,7 +7,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// Lex Object Generator
+// Lex Generator
 // **************************************************************************
 
 export 'package:atproto/src/services/types/server/create_app_password/app_password.dart';

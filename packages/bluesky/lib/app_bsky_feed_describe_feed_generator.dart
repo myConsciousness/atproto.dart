@@ -7,7 +7,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// Lex Object Generator
+// Lex Generator
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/feed/describe_feed_generator/output.dart';

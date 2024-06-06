@@ -105,7 +105,7 @@ final class LexGen {
 
     exports.forEach((docId, exports) {
       final buffer = StringBuffer()
-        ..writeln(getFileHeader('Lex Object Generator'))
+        ..writeln(getFileHeader('Lex Generator'))
         ..writeln()
         ..writeln(exports.join('\n'));
 

@@ -59,7 +59,7 @@ final class LexGenKnownValues {
     final buffer = StringBuffer();
 
     buffer
-      ..writeln(getFileHeader('Lex Object Generator'))
+      ..writeln(getFileHeader('Lex Generator'))
       ..writeln()
       ..writeln(_kFreezedAnnotationPackage)
       ..writeln()

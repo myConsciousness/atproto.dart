@@ -35,7 +35,7 @@ final class LexUnionObject {
         .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
         .toList();
 
-    buffer.writeln(getFileHeader('Lex Object Generator'));
+    buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
     buffer.writeln(
         "import 'package:freezed_annotation/freezed_annotation.dart';");

@@ -47,7 +47,7 @@ final class LexGenObject {
         .toList();
 
     final buffer = StringBuffer();
-    buffer.writeln(getFileHeader('Lex Object Generator'));
+    buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
     buffer.writeln(
         "import 'package:freezed_annotation/freezed_annotation.dart';");
