@@ -33,7 +33,7 @@ final class LabelerPolicies with _$LabelerPolicies {
     String $type,
 
     /// The label values which this labeler publishes. May include global or custom labels.
-    required List<String> labelValues,
+    @ULabelValueConverter() required List<ULabelValue> labelValues,
 
     /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
     @Default([]) List<LabelValueDefinition> labelValueDefinitions,

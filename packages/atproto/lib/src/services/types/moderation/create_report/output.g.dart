@@ -15,7 +15,8 @@ _$CreateReportOutputImpl _$$CreateReportOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$CreateReportOutputImpl(
           id: $checkedConvert('id', (v) => (v as num).toInt()),
-          reasonType: $checkedConvert('reasonType', (v) => v as String),
+          reasonType: $checkedConvert('reasonType',
+              (v) => const UReasonTypeConverter().fromJson(v as String)),
           reason: $checkedConvert('reason', (v) => v as String?),
           subject: $checkedConvert(
               'subject',
@@ -33,7 +34,7 @@ Map<String, dynamic> _$$CreateReportOutputImplToJson(
     _$CreateReportOutputImpl instance) {
   final val = <String, dynamic>{
     'id': instance.id,
-    'reasonType': instance.reasonType,
+    'reasonType': const UReasonTypeConverter().toJson(instance.reasonType),
   };
 
   void writeNotNull(String key, dynamic value) {

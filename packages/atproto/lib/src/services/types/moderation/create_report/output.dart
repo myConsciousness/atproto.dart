@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../moderation/defs/known_reason_type.dart';
 import 'union_subject.dart';
 
 part 'output.freezed.dart';
@@ -25,7 +26,7 @@ final class CreateReportOutput with _$CreateReportOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateReportOutput({
     required int id,
-    required String reasonType,
+    @UReasonTypeConverter() required UReasonType reasonType,
     String? reason,
     @USubjectConverter() required USubject subject,
     required String reportedBy,

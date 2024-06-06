@@ -159,9 +159,8 @@ DataType getDataType(
     if (ref == null) throw ArgumentError.notNull('ref');
 
     final refDef = getRef(context.docId, ref)?.def;
-    if (refDef is ULexUserTypeString) {
-      return const DataType(name: 'String');
-    }
+    final isKnownValues =
+        refDef is ULexUserTypeString && refDef.data.knownValues != null;
 
     LexGenContext refContext;
     if (ref.contains('#')) {
@@ -196,11 +195,13 @@ DataType getDataType(
       );
     }
 
-    final convention = LexNamingConvention(refContext);
+    final convention = LexNamingConvention(refContext, isKnownValues);
+    final objectName = convention.getObjectName();
 
     return DataType(
-      name: convention.getObjectName(),
+      name: objectName,
       importPath: convention.getRelativeImportPath(context.docId),
+      converter: isKnownValues ? '${objectName}Converter' : null,
     );
   }
 

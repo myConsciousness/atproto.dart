@@ -30,7 +30,8 @@ mixin _$MutedWord {
   String get value => throw _privateConstructorUsedError;
 
   /// The intended targets of the muted word.
-  List<String> get targets => throw _privateConstructorUsedError;
+  @UMutedWordTargetConverter()
+  List<UMutedWordTarget> get targets => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -46,7 +47,7 @@ abstract class $MutedWordCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String value,
-      List<String> targets});
+      @UMutedWordTargetConverter() List<UMutedWordTarget> targets});
 }
 
 /// @nodoc
@@ -78,7 +79,7 @@ class _$MutedWordCopyWithImpl<$Res, $Val extends MutedWord>
       targets: null == targets
           ? _value.targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UMutedWordTarget>,
     ) as $Val);
   }
 }
@@ -94,7 +95,7 @@ abstract class _$$MutedWordImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String value,
-      List<String> targets});
+      @UMutedWordTargetConverter() List<UMutedWordTarget> targets});
 }
 
 /// @nodoc
@@ -124,7 +125,7 @@ class __$$MutedWordImplCopyWithImpl<$Res>
       targets: null == targets
           ? _value._targets
           : targets // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UMutedWordTarget>,
     ));
   }
 }
@@ -136,7 +137,8 @@ class _$MutedWordImpl implements _MutedWord {
   const _$MutedWordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsMutedWord,
       required this.value,
-      required final List<String> targets})
+      @UMutedWordTargetConverter()
+      required final List<UMutedWordTarget> targets})
       : _targets = targets;
 
   factory _$MutedWordImpl.fromJson(Map<String, dynamic> json) =>
@@ -154,11 +156,12 @@ class _$MutedWordImpl implements _MutedWord {
   final String value;
 
   /// The intended targets of the muted word.
-  final List<String> _targets;
+  final List<UMutedWordTarget> _targets;
 
   /// The intended targets of the muted word.
   @override
-  List<String> get targets {
+  @UMutedWordTargetConverter()
+  List<UMutedWordTarget> get targets {
     if (_targets is EqualUnmodifiableListView) return _targets;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_targets);
@@ -202,7 +205,8 @@ abstract class _MutedWord implements MutedWord {
   const factory _MutedWord(
       {@JsonKey(name: r'$type') final String $type,
       required final String value,
-      required final List<String> targets}) = _$MutedWordImpl;
+      @UMutedWordTargetConverter()
+      required final List<UMutedWordTarget> targets}) = _$MutedWordImpl;
 
   factory _MutedWord.fromJson(Map<String, dynamic> json) =
       _$MutedWordImpl.fromJson;
@@ -221,7 +225,8 @@ abstract class _MutedWord implements MutedWord {
   @override
 
   /// The intended targets of the muted word.
-  List<String> get targets;
+  @UMutedWordTargetConverter()
+  List<UMutedWordTarget> get targets;
   @override
   @JsonKey(ignore: true)
   _$$MutedWordImplCopyWith<_$MutedWordImpl> get copyWith =>

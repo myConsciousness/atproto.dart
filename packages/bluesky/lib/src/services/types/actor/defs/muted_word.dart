@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import 'known_muted_word_target.dart';
 
 part 'muted_word.freezed.dart';
 part 'muted_word.g.dart';
@@ -35,7 +36,7 @@ final class MutedWord with _$MutedWord {
     required String value,
 
     /// The intended targets of the muted word.
-    required List<String> targets,
+    @UMutedWordTargetConverter() required List<UMutedWordTarget> targets,
   }) = _MutedWord;
 
   factory MutedWord.fromJson(Map<String, Object?> json) =>

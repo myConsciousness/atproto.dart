@@ -30,7 +30,8 @@ mixin _$ListView {
   String get cid => throw _privateConstructorUsedError;
   ProfileView get creator => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
+  @UListPurposeConverter()
+  UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   List<Facet> get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
@@ -55,7 +56,7 @@ abstract class $ListViewCopyWith<$Res> {
       String cid,
       ProfileView creator,
       String name,
-      String purpose,
+      @UListPurposeConverter() UListPurpose purpose,
       String? description,
       List<Facet> descriptionFacets,
       String? avatar,
@@ -64,6 +65,7 @@ abstract class $ListViewCopyWith<$Res> {
       DateTime indexedAt});
 
   $ProfileViewCopyWith<$Res> get creator;
+  $UListPurposeCopyWith<$Res> get purpose;
   $ListViewerStateCopyWith<$Res> get viewer;
 }
 
@@ -117,7 +119,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UListPurpose,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -155,6 +157,14 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
 
   @override
   @pragma('vm:prefer-inline')
+  $UListPurposeCopyWith<$Res> get purpose {
+    return $UListPurposeCopyWith<$Res>(_value.purpose, (value) {
+      return _then(_value.copyWith(purpose: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ListViewerStateCopyWith<$Res> get viewer {
     return $ListViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
@@ -176,7 +186,7 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String cid,
       ProfileView creator,
       String name,
-      String purpose,
+      @UListPurposeConverter() UListPurpose purpose,
       String? description,
       List<Facet> descriptionFacets,
       String? avatar,
@@ -186,6 +196,8 @@ abstract class _$$ListViewImplCopyWith<$Res>
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
+  @override
+  $UListPurposeCopyWith<$Res> get purpose;
   @override
   $ListViewerStateCopyWith<$Res> get viewer;
 }
@@ -238,7 +250,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UListPurpose,
       description: freezed == description
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
@@ -277,7 +289,7 @@ class _$ListViewImpl implements _ListView {
       required this.cid,
       required this.creator,
       required this.name,
-      required this.purpose,
+      @UListPurposeConverter() required this.purpose,
       this.description,
       final List<Facet> descriptionFacets = const [],
       this.avatar,
@@ -306,7 +318,8 @@ class _$ListViewImpl implements _ListView {
   @override
   final String name;
   @override
-  final String purpose;
+  @UListPurposeConverter()
+  final UListPurpose purpose;
   @override
   final String? description;
   final List<Facet> _descriptionFacets;
@@ -401,7 +414,7 @@ abstract class _ListView implements ListView {
       required final String cid,
       required final ProfileView creator,
       required final String name,
-      required final String purpose,
+      @UListPurposeConverter() required final UListPurpose purpose,
       final String? description,
       final List<Facet> descriptionFacets,
       final String? avatar,
@@ -429,7 +442,8 @@ abstract class _ListView implements ListView {
   @override
   String get name;
   @override
-  String get purpose;
+  @UListPurposeConverter()
+  UListPurpose get purpose;
   @override
   String? get description;
   @override

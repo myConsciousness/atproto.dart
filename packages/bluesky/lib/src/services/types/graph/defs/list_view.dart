@@ -19,6 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
 import '../../richtext/facet/main.dart';
+import 'known_list_purpose.dart';
 import 'list_viewer_state.dart';
 
 part 'list_view.freezed.dart';
@@ -37,7 +38,7 @@ final class ListView with _$ListView {
     required String cid,
     required ProfileView creator,
     required String name,
-    required String purpose,
+    @UListPurposeConverter() required UListPurpose purpose,
     String? description,
     @Default([]) List<Facet> descriptionFacets,
     String? avatar,

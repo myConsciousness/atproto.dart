@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import 'known_list_purpose.dart';
 import 'list_viewer_state.dart';
 
 part 'list_view_basic.freezed.dart';
@@ -36,7 +37,7 @@ final class ListViewBasic with _$ListViewBasic {
     @AtUriConverter() required AtUri uri,
     required String cid,
     required String name,
-    required String purpose,
+    @UListPurposeConverter() required UListPurpose purpose,
     String? avatar,
     @Default([]) List<Label> labels,
     @Default(ListViewerState()) ListViewerState viewer,

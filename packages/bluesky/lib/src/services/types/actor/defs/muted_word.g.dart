@@ -16,8 +16,12 @@ _$MutedWordImpl _$$MutedWordImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsMutedWord),
           value: $checkedConvert('value', (v) => v as String),
-          targets: $checkedConvert('targets',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          targets: $checkedConvert(
+              'targets',
+              (v) => (v as List<dynamic>)
+                  .map((e) =>
+                      const UMutedWordTargetConverter().fromJson(e as String))
+                  .toList()),
         );
         return val;
       },
@@ -27,5 +31,7 @@ Map<String, dynamic> _$$MutedWordImplToJson(_$MutedWordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'value': instance.value,
-      'targets': instance.targets,
+      'targets': instance.targets
+          .map(const UMutedWordTargetConverter().toJson)
+          .toList(),
     };

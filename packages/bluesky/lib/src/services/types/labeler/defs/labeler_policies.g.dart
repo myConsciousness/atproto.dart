@@ -16,8 +16,12 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
         final val = _$LabelerPoliciesImpl(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyLabelerDefsLabelerPolicies),
-          labelValues: $checkedConvert('labelValues',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          labelValues: $checkedConvert(
+              'labelValues',
+              (v) => (v as List<dynamic>)
+                  .map(
+                      (e) => const ULabelValueConverter().fromJson(e as String))
+                  .toList()),
           labelValueDefinitions: $checkedConvert(
               'labelValueDefinitions',
               (v) =>
@@ -35,7 +39,9 @@ Map<String, dynamic> _$$LabelerPoliciesImplToJson(
         _$LabelerPoliciesImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'labelValues': instance.labelValues,
+      'labelValues': instance.labelValues
+          .map(const ULabelValueConverter().toJson)
+          .toList(),
       'labelValueDefinitions':
           instance.labelValueDefinitions.map((e) => e.toJson()).toList(),
     };

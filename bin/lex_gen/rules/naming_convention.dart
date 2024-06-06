@@ -10,16 +10,22 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 
 final class LexNamingConvention {
-  const LexNamingConvention(this.context);
+  const LexNamingConvention(
+    this.context, [
+    this.isKnownValue = false,
+  ]);
 
   final LexGenContext context;
+  final bool isKnownValue;
 
   String getObjectName() {
     final lexicon = _lexicon;
     final segments = lexicon.split('.');
 
     if (lexicon.contains('#')) {
-      return toFirstUpper(lexicon.split('#').last);
+      return isKnownValue
+          ? 'U${toFirstUpper(lexicon.split('#').last)}'
+          : toFirstUpper(lexicon.split('#').last);
     }
 
     return '${toFirstUpper(segments.last)}Output';
@@ -40,7 +46,9 @@ final class LexNamingConvention {
     final segments = lexicon.split('#').first.split('.');
     final fileName = getFileName();
 
-    return '${segments.sublist(2).join('/')}/$fileName.dart';
+    return isKnownValue
+        ? '${segments.sublist(2).join('/')}/known_$fileName.dart'
+        : '${segments.sublist(2).join('/')}/$fileName.dart';
   }
 
   String getRelativeImportPath(final NSID baseDocId) {
@@ -55,12 +63,14 @@ final class LexNamingConvention {
       final fileName = getFileName();
       if (docId == baseSegments.join('.')) {
         // The same folder.
-        return '$fileName.dart';
+        return isKnownValue ? 'known_$fileName.dart' : '$fileName.dart';
       } else {
         // The another folder.
         final path = docId.split('.').sublist(2).join('/');
 
-        return '../../$path/$fileName.dart';
+        return isKnownValue
+            ? '../../$path/known_$fileName.dart'
+            : '../../$path/$fileName.dart';
       }
     }
 

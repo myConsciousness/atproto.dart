@@ -21,7 +21,8 @@ CreateReportOutput _$CreateReportOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateReportOutput {
   int get id => throw _privateConstructorUsedError;
-  String get reasonType => throw _privateConstructorUsedError;
+  @UReasonTypeConverter()
+  UReasonType get reasonType => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
   @USubjectConverter()
   USubject get subject => throw _privateConstructorUsedError;
@@ -42,12 +43,13 @@ abstract class $CreateReportOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {int id,
-      String reasonType,
+      @UReasonTypeConverter() UReasonType reasonType,
       String? reason,
       @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt});
 
+  $UReasonTypeCopyWith<$Res> get reasonType;
   $USubjectCopyWith<$Res> get subject;
 }
 
@@ -79,7 +81,7 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
       reasonType: null == reasonType
           ? _value.reasonType
           : reasonType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UReasonType,
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -101,6 +103,14 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
 
   @override
   @pragma('vm:prefer-inline')
+  $UReasonTypeCopyWith<$Res> get reasonType {
+    return $UReasonTypeCopyWith<$Res>(_value.reasonType, (value) {
+      return _then(_value.copyWith(reasonType: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $USubjectCopyWith<$Res> get subject {
     return $USubjectCopyWith<$Res>(_value.subject, (value) {
       return _then(_value.copyWith(subject: value) as $Val);
@@ -118,12 +128,14 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {int id,
-      String reasonType,
+      @UReasonTypeConverter() UReasonType reasonType,
       String? reason,
       @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt});
 
+  @override
+  $UReasonTypeCopyWith<$Res> get reasonType;
   @override
   $USubjectCopyWith<$Res> get subject;
 }
@@ -154,7 +166,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
       reasonType: null == reasonType
           ? _value.reasonType
           : reasonType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UReasonType,
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
@@ -181,7 +193,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
 class _$CreateReportOutputImpl implements _CreateReportOutput {
   const _$CreateReportOutputImpl(
       {required this.id,
-      required this.reasonType,
+      @UReasonTypeConverter() required this.reasonType,
       this.reason,
       @USubjectConverter() required this.subject,
       required this.reportedBy,
@@ -193,7 +205,8 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
   @override
   final int id;
   @override
-  final String reasonType;
+  @UReasonTypeConverter()
+  final UReasonType reasonType;
   @override
   final String? reason;
   @override
@@ -248,7 +261,7 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
 abstract class _CreateReportOutput implements CreateReportOutput {
   const factory _CreateReportOutput(
       {required final int id,
-      required final String reasonType,
+      @UReasonTypeConverter() required final UReasonType reasonType,
       final String? reason,
       @USubjectConverter() required final USubject subject,
       required final String reportedBy,
@@ -260,7 +273,8 @@ abstract class _CreateReportOutput implements CreateReportOutput {
   @override
   int get id;
   @override
-  String get reasonType;
+  @UReasonTypeConverter()
+  UReasonType get reasonType;
   @override
   String? get reason;
   @override

@@ -29,7 +29,8 @@ mixin _$ListViewBasic {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
-  String get purpose => throw _privateConstructorUsedError;
+  @UListPurposeConverter()
+  UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   List<Label> get labels => throw _privateConstructorUsedError;
   ListViewerState get viewer => throw _privateConstructorUsedError;
@@ -52,12 +53,13 @@ abstract class $ListViewBasicCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       String cid,
       String name,
-      String purpose,
+      @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
       List<Label> labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
+  $UListPurposeCopyWith<$Res> get purpose;
   $ListViewerStateCopyWith<$Res> get viewer;
 }
 
@@ -104,7 +106,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UListPurpose,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -122,6 +124,14 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UListPurposeCopyWith<$Res> get purpose {
+    return $UListPurposeCopyWith<$Res>(_value.purpose, (value) {
+      return _then(_value.copyWith(purpose: value) as $Val);
+    });
   }
 
   @override
@@ -146,12 +156,14 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       String cid,
       String name,
-      String purpose,
+      @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
       List<Label> labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
+  @override
+  $UListPurposeCopyWith<$Res> get purpose;
   @override
   $ListViewerStateCopyWith<$Res> get viewer;
 }
@@ -197,7 +209,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UListPurpose,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -227,7 +239,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       @AtUriConverter() required this.uri,
       required this.cid,
       required this.name,
-      required this.purpose,
+      @UListPurposeConverter() required this.purpose,
       this.avatar,
       final List<Label> labels = const [],
       this.viewer = const ListViewerState(),
@@ -251,7 +263,8 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   @override
   final String name;
   @override
-  final String purpose;
+  @UListPurposeConverter()
+  final UListPurpose purpose;
   @override
   final String? avatar;
   final List<Label> _labels;
@@ -316,7 +329,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final String name,
-      required final String purpose,
+      @UListPurposeConverter() required final UListPurpose purpose,
       final String? avatar,
       final List<Label> labels,
       final ListViewerState viewer,
@@ -340,7 +353,8 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   String get name;
   @override
-  String get purpose;
+  @UListPurposeConverter()
+  UListPurpose get purpose;
   @override
   String? get avatar;
   @override

@@ -21,7 +21,8 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
           creator: $checkedConvert('creator',
               (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
           name: $checkedConvert('name', (v) => v as String),
-          purpose: $checkedConvert('purpose', (v) => v as String),
+          purpose: $checkedConvert('purpose',
+              (v) => const UListPurposeConverter().fromJson(v as String)),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
@@ -60,7 +61,7 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
     'cid': instance.cid,
     'creator': instance.creator.toJson(),
     'name': instance.name,
-    'purpose': instance.purpose,
+    'purpose': const UListPurposeConverter().toJson(instance.purpose),
   };
 
   void writeNotNull(String key, dynamic value) {

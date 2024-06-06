@@ -27,7 +27,8 @@ mixin _$LabelerPolicies {
   String get $type => throw _privateConstructorUsedError;
 
   /// The label values which this labeler publishes. May include global or custom labels.
-  List<String> get labelValues => throw _privateConstructorUsedError;
+  @ULabelValueConverter()
+  List<ULabelValue> get labelValues => throw _privateConstructorUsedError;
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   List<LabelValueDefinition> get labelValueDefinitions =>
@@ -47,7 +48,7 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<String> labelValues,
+      @ULabelValueConverter() List<ULabelValue> labelValues,
       List<LabelValueDefinition> labelValueDefinitions});
 }
 
@@ -76,7 +77,7 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
       labelValues: null == labelValues
           ? _value.labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<ULabelValue>,
       labelValueDefinitions: null == labelValueDefinitions
           ? _value.labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
@@ -95,7 +96,7 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<String> labelValues,
+      @ULabelValueConverter() List<ULabelValue> labelValues,
       List<LabelValueDefinition> labelValueDefinitions});
 }
 
@@ -122,7 +123,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
       labelValues: null == labelValues
           ? _value._labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<ULabelValue>,
       labelValueDefinitions: null == labelValueDefinitions
           ? _value._labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
@@ -137,7 +138,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
 class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerPolicies,
-      required final List<String> labelValues,
+      @ULabelValueConverter() required final List<ULabelValue> labelValues,
       final List<LabelValueDefinition> labelValueDefinitions = const []})
       : _labelValues = labelValues,
         _labelValueDefinitions = labelValueDefinitions;
@@ -153,11 +154,12 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   final String $type;
 
   /// The label values which this labeler publishes. May include global or custom labels.
-  final List<String> _labelValues;
+  final List<ULabelValue> _labelValues;
 
   /// The label values which this labeler publishes. May include global or custom labels.
   @override
-  List<String> get labelValues {
+  @ULabelValueConverter()
+  List<ULabelValue> get labelValues {
     if (_labelValues is EqualUnmodifiableListView) return _labelValues;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_labelValues);
@@ -219,7 +221,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
 abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
           {@JsonKey(name: r'$type') final String $type,
-          required final List<String> labelValues,
+          @ULabelValueConverter() required final List<ULabelValue> labelValues,
           final List<LabelValueDefinition> labelValueDefinitions}) =
       _$LabelerPoliciesImpl;
 
@@ -236,7 +238,8 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   @override
 
   /// The label values which this labeler publishes. May include global or custom labels.
-  List<String> get labelValues;
+  @ULabelValueConverter()
+  List<ULabelValue> get labelValues;
   @override
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
