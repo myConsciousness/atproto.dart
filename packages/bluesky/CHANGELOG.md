@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.16.5
+
+- Fixed a bug that prevented toJson on freezed objects from `atproto_core`.
+
 ## v0.16.4
 
 - Minor improvement for `.getModerationPrefs`. No need to aware.

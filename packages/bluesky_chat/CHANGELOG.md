@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.5
+
+- Fixed a bug that prevented toJson on freezed objects from `atproto_core`.
+
 ## v0.2.4
 
 - Bump `bluesky`.
