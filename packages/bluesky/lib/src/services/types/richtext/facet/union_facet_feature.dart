@@ -19,60 +19,60 @@ import 'link.dart';
 import 'mention.dart';
 import 'tag.dart';
 
-part 'union_facet_featuy.freezed.dart';
+part 'union_facet_feature.freezed.dart';
 
 @freezed
-final class UFacetFeatuy with _$UFacetFeatuy {
-  const factory UFacetFeatuy.facetMention({
+final class UFacetFeature with _$UFacetFeature {
+  const factory UFacetFeature.facetMention({
     required FacetMention data,
-  }) = UFacetFeatuyFacetMention;
+  }) = UFacetFeatureFacetMention;
 
-  const factory UFacetFeatuy.facetLink({
+  const factory UFacetFeature.facetLink({
     required FacetLink data,
-  }) = UFacetFeatuyFacetLink;
+  }) = UFacetFeatureFacetLink;
 
-  const factory UFacetFeatuy.facetTag({
+  const factory UFacetFeature.facetTag({
     required FacetTag data,
-  }) = UFacetFeatuyFacetTag;
+  }) = UFacetFeatureFacetTag;
 
-  const factory UFacetFeatuy.unknown({
+  const factory UFacetFeature.unknown({
     required Map<String, dynamic> data,
-  }) = UFacetFeatuyUnknown;
+  }) = UFacetFeatureUnknown;
 }
 
-final class UFacetFeatuyConverter
-    implements JsonConverter<UFacetFeatuy, Map<String, dynamic>> {
-  const UFacetFeatuyConverter();
+final class UFacetFeatureConverter
+    implements JsonConverter<UFacetFeature, Map<String, dynamic>> {
+  const UFacetFeatureConverter();
 
   @override
-  UFacetFeatuy fromJson(Map<String, dynamic> json) {
+  UFacetFeature fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == ids.appBskyRichtextFacetMention) {
-        return UFacetFeatuy.facetMention(
+        return UFacetFeature.facetMention(
           data: FacetMention.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetLink) {
-        return UFacetFeatuy.facetLink(
+        return UFacetFeature.facetLink(
           data: FacetLink.fromJson(json),
         );
       }
       if (type == ids.appBskyRichtextFacetTag) {
-        return UFacetFeatuy.facetTag(
+        return UFacetFeature.facetTag(
           data: FacetTag.fromJson(json),
         );
       }
 
-      return UFacetFeatuy.unknown(data: json);
+      return UFacetFeature.unknown(data: json);
     } catch (_) {
-      return UFacetFeatuy.unknown(data: json);
+      return UFacetFeature.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UFacetFeatuy object) => object.when(
+  Map<String, dynamic> toJson(UFacetFeature object) => object.when(
         facetMention: (data) => data.toJson(),
         facetLink: (data) => data.toJson(),
         facetTag: (data) => data.toJson(),
@@ -80,33 +80,33 @@ final class UFacetFeatuyConverter
       );
 }
 
-extension UFacetFeatuyExtension on UFacetFeatuy {
+extension UFacetFeatureExtension on UFacetFeature {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const UFacetFeatuyConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UFacetFeatureConverter().toJson(this);
 
   /// Returns true if this data is [FacetMention], otherwise false.
-  bool get isFacetMention => this is UFacetFeatuyFacetMention;
+  bool get isFacetMention => this is UFacetFeatureFacetMention;
 
   /// Returns true if this data is not [FacetMention], otherwise false.
-  bool get isNotFacetMention => this is! UFacetFeatuyFacetMention;
+  bool get isNotFacetMention => this is! UFacetFeatureFacetMention;
 
   /// Returns true if this data is [FacetLink], otherwise false.
-  bool get isFacetLink => this is UFacetFeatuyFacetLink;
+  bool get isFacetLink => this is UFacetFeatureFacetLink;
 
   /// Returns true if this data is not [FacetLink], otherwise false.
-  bool get isNotFacetLink => this is! UFacetFeatuyFacetLink;
+  bool get isNotFacetLink => this is! UFacetFeatureFacetLink;
 
   /// Returns true if this data is [FacetTag], otherwise false.
-  bool get isFacetTag => this is UFacetFeatuyFacetTag;
+  bool get isFacetTag => this is UFacetFeatureFacetTag;
 
   /// Returns true if this data is not [FacetTag], otherwise false.
-  bool get isNotFacetTag => this is! UFacetFeatuyFacetTag;
+  bool get isNotFacetTag => this is! UFacetFeatureFacetTag;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UFacetFeatuyUnknown;
+  bool get isUnknown => this is UFacetFeatureUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UFacetFeatuyUnknown;
+  bool get isNotUnknown => this is! UFacetFeatureUnknown;
 
   /// Returns this data as [FacetMention].
   ///

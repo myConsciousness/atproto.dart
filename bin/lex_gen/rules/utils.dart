@@ -25,6 +25,9 @@ String getSingular(String plural) {
     if (_isConsonant(plural[plural.length - 4])) {
       return '${plural.substring(0, plural.length - 3)}y';
     }
+  } else if (plural.endsWith('s')) {
+    // If it ends with 's', remove 's' to get the singular form
+    return plural.substring(0, plural.length - 1);
   } else if (plural.endsWith('es')) {
     // If it ends with 'es', and the preceding letter is a consonant
     // change 'ies' to 'y'
@@ -34,9 +37,6 @@ String getSingular(String plural) {
       // If the preceding letter is a vowel, remove 'es'
       return plural.substring(0, plural.length - 2);
     }
-  } else if (plural.endsWith('s')) {
-    // If it ends with 's', remove 's' to get the singular form
-    return plural.substring(0, plural.length - 1);
   }
 
   // If none of the rules apply, return the original word

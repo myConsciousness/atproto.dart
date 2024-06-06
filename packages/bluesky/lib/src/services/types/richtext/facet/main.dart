@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import 'byte_slice.dart';
-import 'union_facet_featuy.dart';
+import 'union_facet_feature.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';
@@ -33,7 +33,7 @@ final class Facet with _$Facet {
     /// `app.bsky.richtext.facet`
     @Default(appBskyRichtextFacet) @JsonKey(name: r'$type') String $type,
     required FacetByteSlice index,
-    @UFacetFeatuyConverter() required List<UFacetFeatuy> features,
+    @UFacetFeatureConverter() required List<UFacetFeature> features,
   }) = _Facet;
 
   factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);
