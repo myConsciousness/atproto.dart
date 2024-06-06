@@ -11,3 +11,4 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/admin/get_subject_status/output.dart';
+export 'package:atproto/src/services/types/admin/get_subject_status/union_subject.dart';

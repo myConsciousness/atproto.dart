@@ -31,8 +31,8 @@ _$GetSessionOutputImpl _$$GetSessionOutputImplFromJson(Map json) =>
           active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, GetSessionStatus>(
-                  v, const GetSessionStatusConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UStatu>(
+                  v, const UStatuConverter().fromJson)),
         );
         return val;
       },
@@ -58,8 +58,8 @@ Map<String, dynamic> _$$GetSessionOutputImplToJson(
   val['active'] = instance.active;
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, GetSessionStatus>(
-          instance.status, const GetSessionStatusConverter().toJson));
+      _$JsonConverterToJson<String, UStatu>(
+          instance.status, const UStatuConverter().toJson));
   return val;
 }
 

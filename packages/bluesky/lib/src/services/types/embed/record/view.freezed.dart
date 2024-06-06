@@ -25,7 +25,8 @@ mixin _$RecordView {
   /// `app.bsky.embed.record#view`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  String get record => throw _privateConstructorUsedError;
+  @URecordRecordConverter()
+  URecordRecord get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -39,7 +40,11 @@ abstract class $RecordViewCopyWith<$Res> {
           RecordView value, $Res Function(RecordView) then) =
       _$RecordViewCopyWithImpl<$Res, RecordView>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String record});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @URecordRecordConverter() URecordRecord record});
+
+  $URecordRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -66,8 +71,16 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordRecord,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $URecordRecordCopyWith<$Res> get record {
+    return $URecordRecordCopyWith<$Res>(_value.record, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
   }
 }
 
@@ -79,7 +92,12 @@ abstract class _$$RecordViewImplCopyWith<$Res>
       __$$RecordViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String record});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @URecordRecordConverter() URecordRecord record});
+
+  @override
+  $URecordRecordCopyWith<$Res> get record;
 }
 
 /// @nodoc
@@ -104,7 +122,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordRecord,
     ));
   }
 }
@@ -115,7 +133,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
 class _$RecordViewImpl implements _RecordView {
   const _$RecordViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordView,
-      required this.record});
+      @URecordRecordConverter() required this.record});
 
   factory _$RecordViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewImplFromJson(json);
@@ -127,7 +145,8 @@ class _$RecordViewImpl implements _RecordView {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  final String record;
+  @URecordRecordConverter()
+  final URecordRecord record;
 
   @override
   String toString() {
@@ -163,8 +182,9 @@ class _$RecordViewImpl implements _RecordView {
 
 abstract class _RecordView implements RecordView {
   const factory _RecordView(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String record}) = _$RecordViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @URecordRecordConverter() required final URecordRecord record}) =
+      _$RecordViewImpl;
 
   factory _RecordView.fromJson(Map<String, dynamic> json) =
       _$RecordViewImpl.fromJson;
@@ -177,7 +197,8 @@ abstract class _RecordView implements RecordView {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  String get record;
+  @URecordRecordConverter()
+  URecordRecord get record;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewImplCopyWith<_$RecordViewImpl> get copyWith =>

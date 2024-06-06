@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'content_label_pref_visibility.dart';
+import 'known_visibility.dart';
 
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';
@@ -35,8 +35,7 @@ class ContentLabelPref with _$ContentLabelPref {
     /// Which labeler does this preference apply to? If undefined, applies globally.
     String? labelerDid,
     required String label,
-    @ContentLabelPrefVisibilityConverter()
-    required ContentLabelPrefVisibility visibility,
+    @UVisibilityConverter() required UVisibility visibility,
   }) = _ContentLabelPref;
 
   factory ContentLabelPref.fromJson(Map<String, Object?> json) =>

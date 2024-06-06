@@ -12,4 +12,4 @@
 
 export 'package:atproto/src/services/types/label/subscribe_labels/labels.dart';
 export 'package:atproto/src/services/types/label/subscribe_labels/info.dart';
-export 'package:atproto/src/services/types/label/subscribe_labels/info_name.dart';
+export 'package:atproto/src/services/types/label/subscribe_labels/known_name.dart';

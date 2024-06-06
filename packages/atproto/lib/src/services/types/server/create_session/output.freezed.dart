@@ -31,8 +31,8 @@ mixin _$CreateSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @CreateSessionStatusConverter()
-  CreateSessionStatus? get status => throw _privateConstructorUsedError;
+  @UStatuConverter()
+  UStatu? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,9 +56,9 @@ abstract class $CreateSessionOutputCopyWith<$Res> {
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @CreateSessionStatusConverter() CreateSessionStatus? status});
+      @UStatuConverter() UStatu? status});
 
-  $CreateSessionStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -125,18 +125,18 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CreateSessionStatus?,
+              as UStatu?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $CreateSessionStatusCopyWith<$Res>? get status {
+  $UStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $CreateSessionStatusCopyWith<$Res>(_value.status!, (value) {
+    return $UStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -160,10 +160,10 @@ abstract class _$$CreateSessionOutputImplCopyWith<$Res>
       bool emailConfirmed,
       bool emailAuthFactor,
       bool active,
-      @CreateSessionStatusConverter() CreateSessionStatus? status});
+      @UStatuConverter() UStatu? status});
 
   @override
-  $CreateSessionStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -228,7 +228,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as CreateSessionStatus?,
+              as UStatu?,
     ));
   }
 }
@@ -247,7 +247,7 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
       this.emailConfirmed = false,
       this.emailAuthFactor = false,
       this.active = false,
-      @CreateSessionStatusConverter() this.status})
+      @UStatuConverter() this.status})
       : _didDoc = didDoc;
 
   factory _$CreateSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -284,8 +284,8 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @CreateSessionStatusConverter()
-  final CreateSessionStatus? status;
+  @UStatuConverter()
+  final UStatu? status;
 
   @override
   String toString() {
@@ -345,17 +345,16 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
 
 abstract class _CreateSessionOutput implements CreateSessionOutput {
   const factory _CreateSessionOutput(
-          {required final String accessJwt,
-          required final String refreshJwt,
-          required final String handle,
-          required final String did,
-          final Map<String, dynamic> didDoc,
-          final String? email,
-          final bool emailConfirmed,
-          final bool emailAuthFactor,
-          final bool active,
-          @CreateSessionStatusConverter() final CreateSessionStatus? status}) =
-      _$CreateSessionOutputImpl;
+      {required final String accessJwt,
+      required final String refreshJwt,
+      required final String handle,
+      required final String did,
+      final Map<String, dynamic> didDoc,
+      final String? email,
+      final bool emailConfirmed,
+      final bool emailAuthFactor,
+      final bool active,
+      @UStatuConverter() final UStatu? status}) = _$CreateSessionOutputImpl;
 
   factory _CreateSessionOutput.fromJson(Map<String, dynamic> json) =
       _$CreateSessionOutputImpl.fromJson;
@@ -381,8 +380,8 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @CreateSessionStatusConverter()
-  CreateSessionStatus? get status;
+  @UStatuConverter()
+  UStatu? get status;
   @override
   @JsonKey(ignore: true)
   _$$CreateSessionOutputImplCopyWith<_$CreateSessionOutputImpl> get copyWith =>

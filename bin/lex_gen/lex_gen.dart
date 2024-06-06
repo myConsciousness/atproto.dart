@@ -89,6 +89,14 @@ final class LexGen {
 
                 _addExportPath(exports, docId, property.knownValues!.filePath);
               }
+
+              if (property.union != null) {
+                File(_getOutputFilePath(docId, property.union!.filePath))
+                  ..createSync(recursive: true)
+                  ..writeAsStringSync(property.union.toString());
+
+                _addExportPath(exports, docId, property.union!.filePath);
+              }
             }
           }
         }
@@ -130,8 +138,11 @@ final class LexGen {
     final NSID docId,
     final String filePath,
   ) {
+    final exportFilePath = _getExportFilePath(docId, filePath);
     if (exports.containsKey(docId)) {
-      exports[docId]!.add(_getExportFilePath(docId, filePath));
+      if (!exports[docId]!.contains(exportFilePath)) {
+        exports[docId]!.add(exportFilePath);
+      }
     } else {
       exports[docId] = [_getExportFilePath(docId, filePath)];
     }

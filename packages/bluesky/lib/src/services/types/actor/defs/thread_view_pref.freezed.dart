@@ -27,8 +27,8 @@ mixin _$ThreadViewPref {
   String get $type => throw _privateConstructorUsedError;
 
   /// Sorting mode for threads.
-  @ThreadViewPrefSortConverter()
-  ThreadViewPrefSort? get sort => throw _privateConstructorUsedError;
+  @USortConverter()
+  USort? get sort => throw _privateConstructorUsedError;
 
   /// Show followed users at the top of all replies.
   bool get prioritizeFollowedUsers => throw _privateConstructorUsedError;
@@ -47,10 +47,10 @@ abstract class $ThreadViewPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
+      @USortConverter() USort? sort,
       bool prioritizeFollowedUsers});
 
-  $ThreadViewPrefSortCopyWith<$Res>? get sort;
+  $USortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPrefSort?,
+              as USort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -88,12 +88,12 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
 
   @override
   @pragma('vm:prefer-inline')
-  $ThreadViewPrefSortCopyWith<$Res>? get sort {
+  $USortCopyWith<$Res>? get sort {
     if (_value.sort == null) {
       return null;
     }
 
-    return $ThreadViewPrefSortCopyWith<$Res>(_value.sort!, (value) {
+    return $USortCopyWith<$Res>(_value.sort!, (value) {
       return _then(_value.copyWith(sort: value) as $Val);
     });
   }
@@ -109,11 +109,11 @@ abstract class _$$ThreadViewPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @ThreadViewPrefSortConverter() ThreadViewPrefSort? sort,
+      @USortConverter() USort? sort,
       bool prioritizeFollowedUsers});
 
   @override
-  $ThreadViewPrefSortCopyWith<$Res>? get sort;
+  $USortCopyWith<$Res>? get sort;
 }
 
 /// @nodoc
@@ -139,7 +139,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
       sort: freezed == sort
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
-              as ThreadViewPrefSort?,
+              as USort?,
       prioritizeFollowedUsers: null == prioritizeFollowedUsers
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
@@ -154,7 +154,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
 class _$ThreadViewPrefImpl implements _ThreadViewPref {
   const _$ThreadViewPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsThreadViewPref,
-      @ThreadViewPrefSortConverter() this.sort,
+      @USortConverter() this.sort,
       this.prioritizeFollowedUsers = false});
 
   factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
@@ -169,8 +169,8 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
   /// Sorting mode for threads.
   @override
-  @ThreadViewPrefSortConverter()
-  final ThreadViewPrefSort? sort;
+  @USortConverter()
+  final USort? sort;
 
   /// Show followed users at the top of all replies.
   @override
@@ -217,7 +217,7 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 abstract class _ThreadViewPref implements ThreadViewPref {
   const factory _ThreadViewPref(
       {@JsonKey(name: r'$type') final String $type,
-      @ThreadViewPrefSortConverter() final ThreadViewPrefSort? sort,
+      @USortConverter() final USort? sort,
       final bool prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
 
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) =
@@ -233,8 +233,8 @@ abstract class _ThreadViewPref implements ThreadViewPref {
   @override
 
   /// Sorting mode for threads.
-  @ThreadViewPrefSortConverter()
-  ThreadViewPrefSort? get sort;
+  @USortConverter()
+  USort? get sort;
   @override
 
   /// Show followed users at the top of all replies.

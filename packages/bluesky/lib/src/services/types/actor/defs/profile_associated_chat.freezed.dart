@@ -26,9 +26,8 @@ mixin _$ProfileAssociatedChat {
   /// `app.bsky.actor.defs#profileAssociatedChat`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  @ProfileAssociatedChatAllowIncomingConverter()
-  ProfileAssociatedChatAllowIncoming get allowIncoming =>
-      throw _privateConstructorUsedError;
+  @UAllowIncomingConverter()
+  UAllowIncoming get allowIncoming => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,10 +43,9 @@ abstract class $ProfileAssociatedChatCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @ProfileAssociatedChatAllowIncomingConverter()
-      ProfileAssociatedChatAllowIncoming allowIncoming});
+      @UAllowIncomingConverter() UAllowIncoming allowIncoming});
 
-  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
+  $UAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -75,15 +73,14 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociatedChatAllowIncoming,
+              as UAllowIncoming,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming {
-    return $ProfileAssociatedChatAllowIncomingCopyWith<$Res>(
-        _value.allowIncoming, (value) {
+  $UAllowIncomingCopyWith<$Res> get allowIncoming {
+    return $UAllowIncomingCopyWith<$Res>(_value.allowIncoming, (value) {
       return _then(_value.copyWith(allowIncoming: value) as $Val);
     });
   }
@@ -100,11 +97,10 @@ abstract class _$$ProfileAssociatedChatImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @ProfileAssociatedChatAllowIncomingConverter()
-      ProfileAssociatedChatAllowIncoming allowIncoming});
+      @UAllowIncomingConverter() UAllowIncoming allowIncoming});
 
   @override
-  $ProfileAssociatedChatAllowIncomingCopyWith<$Res> get allowIncoming;
+  $UAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -130,7 +126,7 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as ProfileAssociatedChatAllowIncoming,
+              as UAllowIncoming,
     ));
   }
 }
@@ -142,8 +138,7 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
   const _$ProfileAssociatedChatImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyActorDefsProfileAssociatedChat,
-      @ProfileAssociatedChatAllowIncomingConverter()
-      required this.allowIncoming});
+      @UAllowIncomingConverter() required this.allowIncoming});
 
   factory _$ProfileAssociatedChatImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedChatImplFromJson(json);
@@ -155,8 +150,8 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  @ProfileAssociatedChatAllowIncomingConverter()
-  final ProfileAssociatedChatAllowIncoming allowIncoming;
+  @UAllowIncomingConverter()
+  final UAllowIncoming allowIncoming;
 
   @override
   String toString() {
@@ -195,8 +190,8 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
 abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
   const factory _ProfileAssociatedChat(
           {@JsonKey(name: r'$type') final String $type,
-          @ProfileAssociatedChatAllowIncomingConverter()
-          required final ProfileAssociatedChatAllowIncoming allowIncoming}) =
+          @UAllowIncomingConverter()
+          required final UAllowIncoming allowIncoming}) =
       _$ProfileAssociatedChatImpl;
 
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) =
@@ -210,8 +205,8 @@ abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  @ProfileAssociatedChatAllowIncomingConverter()
-  ProfileAssociatedChatAllowIncoming get allowIncoming;
+  @UAllowIncomingConverter()
+  UAllowIncoming get allowIncoming;
   @override
   @JsonKey(ignore: true)
   _$$ProfileAssociatedChatImplCopyWith<_$ProfileAssociatedChatImpl>

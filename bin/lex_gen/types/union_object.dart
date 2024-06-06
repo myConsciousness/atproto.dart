@@ -7,8 +7,8 @@ import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
 
-final class UnionObject {
-  const UnionObject({
+final class LexUnionObject {
+  const LexUnionObject({
     this.description,
     required this.name,
     required this.refs,
@@ -28,8 +28,12 @@ final class UnionObject {
     final buffer = StringBuffer();
 
     // distinct
-    final importPaths =
-        refs.map((e) => e.importPath).where((e) => e != null).toSet().toList();
+    final importPaths = refs
+        .map((e) => e.importPath)
+        .where((e) => e != null)
+        .toSet()
+        .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
+        .toList();
 
     buffer.writeln(getFileHeader('Lex Object Generator'));
     buffer.writeln();
@@ -38,37 +42,35 @@ final class UnionObject {
     buffer.writeln();
     buffer.writeln("import '../../../../ids.g.dart' as ids;");
     for (final importPath in importPaths) {
-      buffer
-        ..writeln()
-        ..write("import '$importPath';");
+      buffer.writeln("import '$importPath';");
     }
     buffer.writeln("part '$fileName.freezed.dart';");
     buffer.writeln();
 
     // Union Object
     buffer.writeln('@freezed');
-    buffer.write('class $name with _\$$name {');
+    buffer.writeln('class U$name with _\$U$name {');
     for (final ref in refs) {
-      buffer.writeln();
-      buffer.writeln('  const factory $name.${toFirstLower(ref.name)}({');
+      buffer.writeln('  const factory U$name.${toFirstLower(ref.name!)}({');
       buffer.writeln('    required ${ref.name} data,');
-      buffer.write('  }) = U$name${ref.name};');
+      buffer.writeln('  }) = U$name${ref.name};');
+      buffer.writeln();
     }
     buffer.writeln();
-    buffer.writeln('  const factory $name.unknown({');
+    buffer.writeln('  const factory U$name.unknown({');
     buffer.writeln('    required Map<String, dynamic> data,');
     buffer.write('  }) = U${name}Unknown;');
     buffer.writeln('}');
 
     // Converter
     buffer.writeln();
-    buffer.writeln('final class ${name}Converter');
-    buffer
-        .writeln('    implements JsonConverter<$name, Map<String, dynamic>> {');
-    buffer.writeln('  const $name();');
+    buffer.writeln('final class U${name}Converter');
+    buffer.writeln(
+        '    implements JsonConverter<U$name, Map<String, dynamic>> {');
+    buffer.writeln('  const U${name}Converter();');
     buffer.writeln();
     buffer.writeln('  @override');
-    buffer.writeln('  $name fromJson(Map<String, dynamic> json) {');
+    buffer.writeln('  U$name fromJson(Map<String, dynamic> json) {');
     buffer.writeln('    try {');
     buffer.writeln("      final type = json[r'\$type'];");
     buffer.writeln();
@@ -82,23 +84,24 @@ final class UnionObject {
           .join());
 
       buffer.writeln('      if (type == ids.$id) {');
-      buffer.writeln('        return $name.${toFirstLower(ref.name)}(');
-      buffer.writeln('          data: ${ref.name}.fromJson(json);');
+      buffer.writeln('        return U$name.${toFirstLower(ref.name!)}(');
+      buffer.writeln('          data: ${ref.name}.fromJson(json),');
       buffer.writeln('        );');
       buffer.writeln('      }');
     }
     buffer.writeln();
-    buffer.writeln('      return $name.unknown(data: json);');
+    buffer.writeln('      return U$name.unknown(data: json);');
     buffer.writeln('    } catch (_) {');
-    buffer.writeln('      return $name.unknown(data: json);');
+    buffer.writeln('      return U$name.unknown(data: json);');
     buffer.writeln('    }');
     buffer.writeln('  }');
     buffer.writeln();
     buffer.writeln('  @override');
-    buffer.write(
-        '  Map<String, dynamic> toJson(Preference object) => object.when(');
+    buffer.writeln(
+        '  Map<String, dynamic> toJson(U$name object) => object.when(');
     for (final ref in refs) {
-      buffer.writeln('    ${toFirstLower(ref.name)}: (data) => data.toJson(),');
+      buffer
+          .writeln('    ${toFirstLower(ref.name!)}: (data) => data.toJson(),');
     }
     buffer.writeln('    unknown: (data) => data,');
     buffer.writeln('  );');

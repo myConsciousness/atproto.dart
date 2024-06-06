@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'union_view.dart';
+
 part 'output.freezed.dart';
 part 'output.g.dart';
 
@@ -21,7 +24,7 @@ part 'output.g.dart';
 class GetServicesOutput with _$GetServicesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetServicesOutput({
-    required List<String> views,
+    @UViewConverter() required List<UView> views,
   }) = _GetServicesOutput;
 
   factory GetServicesOutput.fromJson(Map<String, Object?> json) =>

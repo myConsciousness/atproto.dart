@@ -33,8 +33,8 @@ mixin _$Repo {
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @RepoStatusConverter()
-  RepoStatus? get status => throw _privateConstructorUsedError;
+  @UStatuConverter()
+  UStatu? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -52,9 +52,9 @@ abstract class $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @RepoStatusConverter() RepoStatus? status});
+      @UStatuConverter() UStatu? status});
 
-  $RepoStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -101,18 +101,18 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as RepoStatus?,
+              as UStatu?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RepoStatusCopyWith<$Res>? get status {
+  $UStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $RepoStatusCopyWith<$Res>(_value.status!, (value) {
+    return $UStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -131,10 +131,10 @@ abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @RepoStatusConverter() RepoStatus? status});
+      @UStatuConverter() UStatu? status});
 
   @override
-  $RepoStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -178,7 +178,7 @@ class __$$RepoImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as RepoStatus?,
+              as UStatu?,
     ));
   }
 }
@@ -193,7 +193,7 @@ class _$RepoImpl implements _Repo {
       required this.head,
       required this.rev,
       this.active = false,
-      @RepoStatusConverter() this.status});
+      @UStatuConverter() this.status});
 
   factory _$RepoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoImplFromJson(json);
@@ -218,8 +218,8 @@ class _$RepoImpl implements _Repo {
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
-  @RepoStatusConverter()
-  final RepoStatus? status;
+  @UStatuConverter()
+  final UStatu? status;
 
   @override
   String toString() {
@@ -265,7 +265,7 @@ abstract class _Repo implements Repo {
       required final String head,
       required final String rev,
       final bool active,
-      @RepoStatusConverter() final RepoStatus? status}) = _$RepoImpl;
+      @UStatuConverter() final UStatu? status}) = _$RepoImpl;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$RepoImpl.fromJson;
 
@@ -289,8 +289,8 @@ abstract class _Repo implements Repo {
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
-  @RepoStatusConverter()
-  RepoStatus? get status;
+  @UStatuConverter()
+  UStatu? get status;
   @override
   @JsonKey(ignore: true)
   _$$RepoImplCopyWith<_$RepoImpl> get copyWith =>

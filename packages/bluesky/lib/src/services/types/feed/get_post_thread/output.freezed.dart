@@ -20,7 +20,8 @@ GetPostThreadOutput _$GetPostThreadOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetPostThreadOutput {
-  String get thread => throw _privateConstructorUsedError;
+  @UThreadConverter()
+  UThread get thread => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,9 @@ abstract class $GetPostThreadOutputCopyWith<$Res> {
           GetPostThreadOutput value, $Res Function(GetPostThreadOutput) then) =
       _$GetPostThreadOutputCopyWithImpl<$Res, GetPostThreadOutput>;
   @useResult
-  $Res call({String thread});
+  $Res call({@UThreadConverter() UThread thread});
+
+  $UThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -56,8 +59,16 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UThread,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UThreadCopyWith<$Res> get thread {
+    return $UThreadCopyWith<$Res>(_value.thread, (value) {
+      return _then(_value.copyWith(thread: value) as $Val);
+    });
   }
 }
 
@@ -69,7 +80,10 @@ abstract class _$$GetPostThreadOutputImplCopyWith<$Res>
       __$$GetPostThreadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String thread});
+  $Res call({@UThreadConverter() UThread thread});
+
+  @override
+  $UThreadCopyWith<$Res> get thread;
 }
 
 /// @nodoc
@@ -89,7 +103,7 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UThread,
     ));
   }
 }
@@ -98,13 +112,14 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
-  const _$GetPostThreadOutputImpl({required this.thread});
+  const _$GetPostThreadOutputImpl({@UThreadConverter() required this.thread});
 
   factory _$GetPostThreadOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetPostThreadOutputImplFromJson(json);
 
   @override
-  final String thread;
+  @UThreadConverter()
+  final UThread thread;
 
   @override
   String toString() {
@@ -139,14 +154,16 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
 }
 
 abstract class _GetPostThreadOutput implements GetPostThreadOutput {
-  const factory _GetPostThreadOutput({required final String thread}) =
+  const factory _GetPostThreadOutput(
+          {@UThreadConverter() required final UThread thread}) =
       _$GetPostThreadOutputImpl;
 
   factory _GetPostThreadOutput.fromJson(Map<String, dynamic> json) =
       _$GetPostThreadOutputImpl.fromJson;
 
   @override
-  String get thread;
+  @UThreadConverter()
+  UThread get thread;
   @override
   @JsonKey(ignore: true)
   _$$GetPostThreadOutputImplCopyWith<_$GetPostThreadOutputImpl> get copyWith =>

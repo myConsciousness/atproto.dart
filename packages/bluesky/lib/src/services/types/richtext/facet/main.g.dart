@@ -17,8 +17,12 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
               'index',
               (v) =>
                   FacetByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
-          features: $checkedConvert('features',
-              (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          features: $checkedConvert(
+              'features',
+              (v) => (v as List<dynamic>)
+                  .map((e) => const UFacetFeatuyConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
         );
         return val;
       },
@@ -27,5 +31,6 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
     <String, dynamic>{
       'index': instance.index.toJson(),
-      'features': instance.features,
+      'features':
+          instance.features.map(const UFacetFeatuyConverter().toJson).toList(),
     };

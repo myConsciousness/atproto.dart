@@ -22,7 +22,10 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
               (v) => v == null
                   ? null
                   : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
-          reason: $checkedConvert('reason', (v) => v as String?),
+          reason: $checkedConvert(
+              'reason',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UReason>(
+                  v, const UReasonConverter().fromJson)),
           feedContext: $checkedConvert('feedContext', (v) => v as String?),
         );
         return val;
@@ -42,7 +45,22 @@ Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
   }
 
   writeNotNull('reply', instance.reply?.toJson());
-  writeNotNull('reason', instance.reason);
+  writeNotNull(
+      'reason',
+      _$JsonConverterToJson<Map<String, dynamic>, UReason>(
+          instance.reason, const UReasonConverter().toJson));
   writeNotNull('feedContext', instance.feedContext);
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/types/sync/get_repo_status/output.dart';
-export 'package:atproto/src/services/types/sync/get_repo_status/get_repo_status_status.dart';
+export 'package:atproto/src/services/types/sync/get_repo_status/known_statu.dart';

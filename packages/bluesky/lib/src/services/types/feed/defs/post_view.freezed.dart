@@ -30,7 +30,8 @@ mixin _$PostView {
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
-  String? get embed => throw _privateConstructorUsedError;
+  @UEmbedConverter()
+  UEmbed? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
@@ -56,7 +57,7 @@ abstract class $PostViewCopyWith<$Res> {
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
-      String? embed,
+      @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -66,6 +67,7 @@ abstract class $PostViewCopyWith<$Res> {
       ThreadgateView threadgate});
 
   $ProfileViewBasicCopyWith<$Res> get author;
+  $UEmbedCopyWith<$Res>? get embed;
   $ViewerStateCopyWith<$Res> get viewer;
   $ThreadgateViewCopyWith<$Res> get threadgate;
 }
@@ -121,7 +123,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -163,6 +165,18 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
 
   @override
   @pragma('vm:prefer-inline')
+  $UEmbedCopyWith<$Res>? get embed {
+    if (_value.embed == null) {
+      return null;
+    }
+
+    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+      return _then(_value.copyWith(embed: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $ViewerStateCopyWith<$Res> get viewer {
     return $ViewerStateCopyWith<$Res>(_value.viewer, (value) {
       return _then(_value.copyWith(viewer: value) as $Val);
@@ -192,7 +206,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       String cid,
       ProfileViewBasic author,
       Map<String, dynamic> record,
-      String? embed,
+      @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -203,6 +217,8 @@ abstract class _$$PostViewImplCopyWith<$Res>
 
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
+  @override
+  $UEmbedCopyWith<$Res>? get embed;
   @override
   $ViewerStateCopyWith<$Res> get viewer;
   @override
@@ -258,7 +274,7 @@ class __$$PostViewImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UEmbed?,
       replyCount: null == replyCount
           ? _value.replyCount
           : replyCount // ignore: cast_nullable_to_non_nullable
@@ -301,7 +317,7 @@ class _$PostViewImpl implements _PostView {
       required this.cid,
       required this.author,
       required final Map<String, dynamic> record,
-      this.embed,
+      @UEmbedConverter() this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
@@ -337,7 +353,8 @@ class _$PostViewImpl implements _PostView {
   }
 
   @override
-  final String? embed;
+  @UEmbedConverter()
+  final UEmbed? embed;
   @override
   @JsonKey()
   final int replyCount;
@@ -434,7 +451,7 @@ abstract class _PostView implements PostView {
       required final String cid,
       required final ProfileViewBasic author,
       required final Map<String, dynamic> record,
-      final String? embed,
+      @UEmbedConverter() final UEmbed? embed,
       final int replyCount,
       final int repostCount,
       final int likeCount,
@@ -463,7 +480,8 @@ abstract class _PostView implements PostView {
   @override
   Map<String, dynamic> get record;
   @override
-  String? get embed;
+  @UEmbedConverter()
+  UEmbed? get embed;
   @override
   int get replyCount;
   @override

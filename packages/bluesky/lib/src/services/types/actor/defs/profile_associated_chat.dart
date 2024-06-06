@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'profile_associated_chat_allow_incoming.dart';
+import 'known_allow_incoming.dart';
 
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';
@@ -31,8 +31,7 @@ class ProfileAssociatedChat with _$ProfileAssociatedChat {
     @Default(appBskyActorDefsProfileAssociatedChat)
     @JsonKey(name: r'$type')
     String $type,
-    @ProfileAssociatedChatAllowIncomingConverter()
-    required ProfileAssociatedChatAllowIncoming allowIncoming,
+    @UAllowIncomingConverter() required UAllowIncoming allowIncoming,
   }) = _ProfileAssociatedChat;
 
   factory ProfileAssociatedChat.fromJson(Map<String, Object?> json) =>

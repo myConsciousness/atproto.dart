@@ -16,8 +16,8 @@ _$SavedFeedImpl _$$SavedFeedImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyActorDefsSavedFeed),
           id: $checkedConvert('id', (v) => v as String),
-          type: $checkedConvert('type',
-              (v) => const SavedFeedTypeConverter().fromJson(v as String)),
+          type: $checkedConvert(
+              'type', (v) => const UTypeConverter().fromJson(v as String)),
           value: $checkedConvert('value', (v) => v as String),
           pinned: $checkedConvert('pinned', (v) => v as bool),
         );
@@ -29,7 +29,7 @@ Map<String, dynamic> _$$SavedFeedImplToJson(_$SavedFeedImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'id': instance.id,
-      'type': const SavedFeedTypeConverter().toJson(instance.type),
+      'type': const UTypeConverter().toJson(instance.type),
       'value': instance.value,
       'pinned': instance.pinned,
     };

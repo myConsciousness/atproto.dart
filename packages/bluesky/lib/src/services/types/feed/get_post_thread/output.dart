@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'union_thread.dart';
+
 part 'output.freezed.dart';
 part 'output.g.dart';
 
@@ -21,7 +24,7 @@ part 'output.g.dart';
 class GetPostThreadOutput with _$GetPostThreadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostThreadOutput({
-    required String thread,
+    @UThreadConverter() required UThread thread,
   }) = _GetPostThreadOutput;
 
   factory GetPostThreadOutput.fromJson(Map<String, Object?> json) =>

@@ -19,6 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
 import 'threadgate_view.dart';
+import 'union_embed.dart';
 import 'viewer_state.dart';
 
 part 'post_view.freezed.dart';
@@ -37,7 +38,7 @@ class PostView with _$PostView {
     required String cid,
     required ProfileViewBasic author,
     required Map<String, dynamic> record,
-    String? embed,
+    @UEmbedConverter() UEmbed? embed,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,

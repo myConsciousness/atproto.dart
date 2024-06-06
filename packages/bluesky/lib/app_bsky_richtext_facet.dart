@@ -11,6 +11,7 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/richtext/facet/main.dart';
+export 'package:bluesky/src/services/types/richtext/facet/union_facet_featuy.dart';
 export 'package:bluesky/src/services/types/richtext/facet/mention.dart';
 export 'package:bluesky/src/services/types/richtext/facet/link.dart';
 export 'package:bluesky/src/services/types/richtext/facet/tag.dart';

@@ -16,6 +16,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
+import 'union_parent.dart';
+import 'union_root.dart';
 
 part 'reply_ref.freezed.dart';
 part 'reply_ref.g.dart';
@@ -29,8 +31,8 @@ class ReplyRef with _$ReplyRef {
     ///
     /// `app.bsky.feed.defs#replyRef`
     @Default(appBskyFeedDefsReplyRef) @JsonKey(name: r'$type') String $type,
-    required String root,
-    required String parent,
+    @URootConverter() required URoot root,
+    @UParentConverter() required UParent parent,
 
     /// When parent is a reply to another post, this is the author of that post.
     ProfileViewBasic? grandparentAuthor,

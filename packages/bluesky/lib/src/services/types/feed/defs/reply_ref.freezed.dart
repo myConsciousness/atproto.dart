@@ -25,8 +25,10 @@ mixin _$ReplyRef {
   /// `app.bsky.feed.defs#replyRef`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  String get root => throw _privateConstructorUsedError;
-  String get parent => throw _privateConstructorUsedError;
+  @URootConverter()
+  URoot get root => throw _privateConstructorUsedError;
+  @UParentConverter()
+  UParent get parent => throw _privateConstructorUsedError;
 
   /// When parent is a reply to another post, this is the author of that post.
   ProfileViewBasic? get grandparentAuthor => throw _privateConstructorUsedError;
@@ -44,10 +46,12 @@ abstract class $ReplyRefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String root,
-      String parent,
+      @URootConverter() URoot root,
+      @UParentConverter() UParent parent,
       ProfileViewBasic? grandparentAuthor});
 
+  $URootCopyWith<$Res> get root;
+  $UParentCopyWith<$Res> get parent;
   $ProfileViewBasicCopyWith<$Res>? get grandparentAuthor;
 }
 
@@ -77,16 +81,32 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URoot,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UParent,
       grandparentAuthor: freezed == grandparentAuthor
           ? _value.grandparentAuthor
           : grandparentAuthor // ignore: cast_nullable_to_non_nullable
               as ProfileViewBasic?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $URootCopyWith<$Res> get root {
+    return $URootCopyWith<$Res>(_value.root, (value) {
+      return _then(_value.copyWith(root: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UParentCopyWith<$Res> get parent {
+    return $UParentCopyWith<$Res>(_value.parent, (value) {
+      return _then(_value.copyWith(parent: value) as $Val);
+    });
   }
 
   @override
@@ -112,10 +132,14 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String root,
-      String parent,
+      @URootConverter() URoot root,
+      @UParentConverter() UParent parent,
       ProfileViewBasic? grandparentAuthor});
 
+  @override
+  $URootCopyWith<$Res> get root;
+  @override
+  $UParentCopyWith<$Res> get parent;
   @override
   $ProfileViewBasicCopyWith<$Res>? get grandparentAuthor;
 }
@@ -144,11 +168,11 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URoot,
       parent: null == parent
           ? _value.parent
           : parent // ignore: cast_nullable_to_non_nullable
-              as String,
+              as UParent,
       grandparentAuthor: freezed == grandparentAuthor
           ? _value.grandparentAuthor
           : grandparentAuthor // ignore: cast_nullable_to_non_nullable
@@ -163,8 +187,8 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
 class _$ReplyRefImpl implements _ReplyRef {
   const _$ReplyRefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReplyRef,
-      required this.root,
-      required this.parent,
+      @URootConverter() required this.root,
+      @UParentConverter() required this.parent,
       this.grandparentAuthor});
 
   factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
@@ -177,9 +201,11 @@ class _$ReplyRefImpl implements _ReplyRef {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  final String root;
+  @URootConverter()
+  final URoot root;
   @override
-  final String parent;
+  @UParentConverter()
+  final UParent parent;
 
   /// When parent is a reply to another post, this is the author of that post.
   @override
@@ -224,8 +250,8 @@ class _$ReplyRefImpl implements _ReplyRef {
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
       {@JsonKey(name: r'$type') final String $type,
-      required final String root,
-      required final String parent,
+      @URootConverter() required final URoot root,
+      @UParentConverter() required final UParent parent,
       final ProfileViewBasic? grandparentAuthor}) = _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
@@ -239,9 +265,11 @@ abstract class _ReplyRef implements ReplyRef {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  String get root;
+  @URootConverter()
+  URoot get root;
   @override
-  String get parent;
+  @UParentConverter()
+  UParent get parent;
   @override
 
   /// When parent is a reply to another post, this is the author of that post.

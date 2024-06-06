@@ -26,8 +26,8 @@ mixin _$SavedFeed {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   String get id => throw _privateConstructorUsedError;
-  @SavedFeedTypeConverter()
-  SavedFeedType get type => throw _privateConstructorUsedError;
+  @UTypeConverter()
+  UType get type => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
   bool get pinned => throw _privateConstructorUsedError;
 
@@ -45,11 +45,11 @@ abstract class $SavedFeedCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String id,
-      @SavedFeedTypeConverter() SavedFeedType type,
+      @UTypeConverter() UType type,
       String value,
       bool pinned});
 
-  $SavedFeedTypeCopyWith<$Res> get type;
+  $UTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -83,7 +83,7 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SavedFeedType,
+              as UType,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -97,8 +97,8 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
 
   @override
   @pragma('vm:prefer-inline')
-  $SavedFeedTypeCopyWith<$Res> get type {
-    return $SavedFeedTypeCopyWith<$Res>(_value.type, (value) {
+  $UTypeCopyWith<$Res> get type {
+    return $UTypeCopyWith<$Res>(_value.type, (value) {
       return _then(_value.copyWith(type: value) as $Val);
     });
   }
@@ -115,12 +115,12 @@ abstract class _$$SavedFeedImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String id,
-      @SavedFeedTypeConverter() SavedFeedType type,
+      @UTypeConverter() UType type,
       String value,
       bool pinned});
 
   @override
-  $SavedFeedTypeCopyWith<$Res> get type;
+  $UTypeCopyWith<$Res> get type;
 }
 
 /// @nodoc
@@ -152,7 +152,7 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as SavedFeedType,
+              as UType,
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ class _$SavedFeedImpl implements _SavedFeed {
   const _$SavedFeedImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeed,
       required this.id,
-      @SavedFeedTypeConverter() required this.type,
+      @UTypeConverter() required this.type,
       required this.value,
       required this.pinned});
 
@@ -188,8 +188,8 @@ class _$SavedFeedImpl implements _SavedFeed {
   @override
   final String id;
   @override
-  @SavedFeedTypeConverter()
-  final SavedFeedType type;
+  @UTypeConverter()
+  final UType type;
   @override
   final String value;
   @override
@@ -234,7 +234,7 @@ abstract class _SavedFeed implements SavedFeed {
   const factory _SavedFeed(
       {@JsonKey(name: r'$type') final String $type,
       required final String id,
-      @SavedFeedTypeConverter() required final SavedFeedType type,
+      @UTypeConverter() required final UType type,
       required final String value,
       required final bool pinned}) = _$SavedFeedImpl;
 
@@ -251,8 +251,8 @@ abstract class _SavedFeed implements SavedFeed {
   @override
   String get id;
   @override
-  @SavedFeedTypeConverter()
-  SavedFeedType get type;
+  @UTypeConverter()
+  UType get type;
   @override
   String get value;
   @override

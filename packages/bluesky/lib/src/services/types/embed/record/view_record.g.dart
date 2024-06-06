@@ -42,7 +42,10 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
           embeds: $checkedConvert(
               'embeds',
               (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
+                  (v as List<dynamic>?)
+                      ?.map((e) => const URecordEmbedConverter()
+                          .fromJson(e as Map<String, dynamic>))
+                      .toList() ??
                   const []),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
@@ -63,6 +66,7 @@ Map<String, dynamic> _$$RecordViewRecordImplToJson(
       'replyCount': instance.replyCount,
       'repostCount': instance.repostCount,
       'likeCount': instance.likeCount,
-      'embeds': instance.embeds,
+      'embeds':
+          instance.embeds.map(const URecordEmbedConverter().toJson).toList(),
       'indexedAt': instance.indexedAt.toIso8601String(),
     };

@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../embed/record/view.dart';
+import 'union_record_with_media_media.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -32,7 +33,7 @@ class RecordWithMediaView with _$RecordWithMediaView {
     @JsonKey(name: r'$type')
     String $type,
     required RecordView record,
-    required String media,
+    @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
   }) = _RecordWithMediaView;
 
   factory RecordWithMediaView.fromJson(Map<String, Object?> json) =>

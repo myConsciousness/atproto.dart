@@ -14,7 +14,10 @@ _$GetPostThreadOutputImpl _$$GetPostThreadOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetPostThreadOutputImpl(
-          thread: $checkedConvert('thread', (v) => v as String),
+          thread: $checkedConvert(
+              'thread',
+              (v) =>
+                  const UThreadConverter().fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -23,5 +26,5 @@ _$GetPostThreadOutputImpl _$$GetPostThreadOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetPostThreadOutputImplToJson(
         _$GetPostThreadOutputImpl instance) =>
     <String, dynamic>{
-      'thread': instance.thread,
+      'thread': const UThreadConverter().toJson(instance.thread),
     };

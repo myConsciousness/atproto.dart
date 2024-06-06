@@ -16,7 +16,7 @@ _$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposInfo),
           name: $checkedConvert(
-              'name', (v) => const InfoNameConverter().fromJson(v as String)),
+              'name', (v) => const UNameConverter().fromJson(v as String)),
           message: $checkedConvert('message', (v) => v as String?),
         );
         return val;
@@ -26,7 +26,7 @@ _$InfoImpl _$$InfoImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$InfoImplToJson(_$InfoImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'name': const InfoNameConverter().toJson(instance.name),
+    'name': const UNameConverter().toJson(instance.name),
   };
 
   void writeNotNull(String key, dynamic value) {

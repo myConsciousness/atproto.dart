@@ -10,7 +10,37 @@ import 'package:lexicon/lexicon.dart';
 import '../rules/naming_convention.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
+import '../types/union_object.dart';
 import '../types/ref.dart';
+
+String getSingular(String plural) {
+  // Check if the word follows the plural rules
+  if (plural.endsWith('ies')) {
+    // If it ends with 'ies', and the preceding letter is a consonant
+    // change 'ies' to 'y'
+    if (_isConsonant(plural[plural.length - 4])) {
+      return '${plural.substring(0, plural.length - 3)}y';
+    }
+  } else if (plural.endsWith('es')) {
+    // If it ends with 'es', and the preceding letter is a consonant
+    // change 'ies' to 'y'
+    if (_isConsonant(plural[plural.length - 3])) {
+      return '${plural.substring(0, plural.length - 3)}y';
+    } else {
+      // If the preceding letter is a vowel, remove 'es'
+      return plural.substring(0, plural.length - 2);
+    }
+  } else if (plural.endsWith('s')) {
+    // If it ends with 's', remove 's' to get the singular form
+    return plural.substring(0, plural.length - 1);
+  }
+
+  // If none of the rules apply, return the original word
+  return plural;
+}
+
+/// Function to check if a character is a consonant
+bool _isConsonant(String char) => !'aeiou'.contains(char.toLowerCase());
 
 String toLowerCamelCase(final String input) {
   return input
@@ -73,6 +103,7 @@ DataType getDataType(
   required String? format,
   required String? ref,
   required Map<String, dynamic>? items,
+  LexUnionObject? arrayUnion,
 }) {
   if (type == 'string' && format == 'datetime') {
     return const DataType(name: 'DateTime');
@@ -89,6 +120,7 @@ DataType getDataType(
   if (type == 'integer') return const DataType(name: 'int');
   if (type == 'boolean') return const DataType(name: 'bool');
 
+  if (type == 'bytes') return const DataType(name: 'List<int>');
   if (type == 'cid-link') return const DataType(name: 'String');
   if (type == 'unknown') return const DataType(name: 'Map<String, dynamic>');
 
@@ -109,6 +141,7 @@ DataType getDataType(
       format: items['format'],
       ref: items['ref'],
       items: items,
+      arrayUnion: arrayUnion,
     );
 
     return DataType(
@@ -167,8 +200,9 @@ DataType getDataType(
     );
   }
 
-  if (type == 'union') return const DataType(name: 'String');
-  if (type == 'bytes') return const DataType(name: 'List<int>');
+  if (type == 'union') {
+    return const DataType();
+  }
 
   throw UnimplementedError(type);
 }
@@ -183,9 +217,9 @@ String? getDefaultValue(
     return defaultValue != null ? defaultValue.toString() : '0';
   } else if (type.name == 'bool') {
     return defaultValue != null ? defaultValue.toString() : 'false';
-  } else if (type.name.startsWith('List<')) {
+  } else if (type.name?.startsWith('List<') ?? false) {
     return '[]';
-  } else if (type.name.startsWith('Map<')) {
+  } else if (type.name?.startsWith('Map<') ?? false) {
     return '{}';
   }
 

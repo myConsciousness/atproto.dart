@@ -21,7 +21,8 @@ GetSubjectStatusOutput _$GetSubjectStatusOutputFromJson(
 
 /// @nodoc
 mixin _$GetSubjectStatusOutput {
-  String get subject => throw _privateConstructorUsedError;
+  @USubjectConverter()
+  USubject get subject => throw _privateConstructorUsedError;
   StatusAttr? get takedown => throw _privateConstructorUsedError;
   StatusAttr? get deactivated => throw _privateConstructorUsedError;
 
@@ -37,8 +38,12 @@ abstract class $GetSubjectStatusOutputCopyWith<$Res> {
           $Res Function(GetSubjectStatusOutput) then) =
       _$GetSubjectStatusOutputCopyWithImpl<$Res, GetSubjectStatusOutput>;
   @useResult
-  $Res call({String subject, StatusAttr? takedown, StatusAttr? deactivated});
+  $Res call(
+      {@USubjectConverter() USubject subject,
+      StatusAttr? takedown,
+      StatusAttr? deactivated});
 
+  $USubjectCopyWith<$Res> get subject;
   $StatusAttrCopyWith<$Res>? get takedown;
   $StatusAttrCopyWith<$Res>? get deactivated;
 }
@@ -65,7 +70,7 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -75,6 +80,14 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
           : deactivated // ignore: cast_nullable_to_non_nullable
               as StatusAttr?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $USubjectCopyWith<$Res> get subject {
+    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+      return _then(_value.copyWith(subject: value) as $Val);
+    });
   }
 
   @override
@@ -111,8 +124,13 @@ abstract class _$$GetSubjectStatusOutputImplCopyWith<$Res>
       __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, StatusAttr? takedown, StatusAttr? deactivated});
+  $Res call(
+      {@USubjectConverter() USubject subject,
+      StatusAttr? takedown,
+      StatusAttr? deactivated});
 
+  @override
+  $USubjectCopyWith<$Res> get subject;
   @override
   $StatusAttrCopyWith<$Res>? get takedown;
   @override
@@ -140,7 +158,7 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -158,13 +176,16 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   const _$GetSubjectStatusOutputImpl(
-      {required this.subject, this.takedown, this.deactivated});
+      {@USubjectConverter() required this.subject,
+      this.takedown,
+      this.deactivated});
 
   factory _$GetSubjectStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetSubjectStatusOutputImplFromJson(json);
 
   @override
-  final String subject;
+  @USubjectConverter()
+  final USubject subject;
   @override
   final StatusAttr? takedown;
   @override
@@ -208,7 +229,7 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
 
 abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   const factory _GetSubjectStatusOutput(
-      {required final String subject,
+      {@USubjectConverter() required final USubject subject,
       final StatusAttr? takedown,
       final StatusAttr? deactivated}) = _$GetSubjectStatusOutputImpl;
 
@@ -216,7 +237,8 @@ abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
       _$GetSubjectStatusOutputImpl.fromJson;
 
   @override
-  String get subject;
+  @USubjectConverter()
+  USubject get subject;
   @override
   StatusAttr? get takedown;
   @override

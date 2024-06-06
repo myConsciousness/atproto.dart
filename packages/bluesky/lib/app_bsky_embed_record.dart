@@ -12,6 +12,8 @@
 
 export 'package:bluesky/src/services/types/embed/record/main.dart';
 export 'package:bluesky/src/services/types/embed/record/view.dart';
+export 'package:bluesky/src/services/types/embed/record/union_record_record.dart';
 export 'package:bluesky/src/services/types/embed/record/view_record.dart';
+export 'package:bluesky/src/services/types/embed/record/union_record_embed.dart';
 export 'package:bluesky/src/services/types/embed/record/view_not_found.dart';
 export 'package:bluesky/src/services/types/embed/record/view_blocked.dart';

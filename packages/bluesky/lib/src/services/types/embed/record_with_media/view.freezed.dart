@@ -26,7 +26,8 @@ mixin _$RecordWithMediaView {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   RecordView get record => throw _privateConstructorUsedError;
-  String get media => throw _privateConstructorUsedError;
+  @URecordWithMediaMediaConverter()
+  URecordWithMediaMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -41,9 +42,12 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
       _$RecordWithMediaViewCopyWithImpl<$Res, RecordWithMediaView>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, RecordView record, String media});
+      {@JsonKey(name: r'$type') String $type,
+      RecordView record,
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   $RecordViewCopyWith<$Res> get record;
+  $URecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -75,7 +79,7 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordWithMediaMedia,
     ) as $Val);
   }
 
@@ -84,6 +88,14 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
   $RecordViewCopyWith<$Res> get record {
     return $RecordViewCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $URecordWithMediaMediaCopyWith<$Res> get media {
+    return $URecordWithMediaMediaCopyWith<$Res>(_value.media, (value) {
+      return _then(_value.copyWith(media: value) as $Val);
     });
   }
 }
@@ -97,10 +109,14 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, RecordView record, String media});
+      {@JsonKey(name: r'$type') String $type,
+      RecordView record,
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   @override
   $RecordViewCopyWith<$Res> get record;
+  @override
+  $URecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -130,7 +146,7 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordWithMediaMedia,
     ));
   }
 }
@@ -142,7 +158,7 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   const _$RecordWithMediaViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMediaView,
       required this.record,
-      required this.media});
+      @URecordWithMediaMediaConverter() required this.media});
 
   factory _$RecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaViewImplFromJson(json);
@@ -156,7 +172,8 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   @override
   final RecordView record;
   @override
-  final String media;
+  @URecordWithMediaMediaConverter()
+  final URecordWithMediaMedia media;
 
   @override
   String toString() {
@@ -196,7 +213,8 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
   const factory _RecordWithMediaView(
       {@JsonKey(name: r'$type') final String $type,
       required final RecordView record,
-      required final String media}) = _$RecordWithMediaViewImpl;
+      @URecordWithMediaMediaConverter()
+      required final URecordWithMediaMedia media}) = _$RecordWithMediaViewImpl;
 
   factory _RecordWithMediaView.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaViewImpl.fromJson;
@@ -211,7 +229,8 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
   @override
   RecordView get record;
   @override
-  String get media;
+  @URecordWithMediaMediaConverter()
+  URecordWithMediaMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$RecordWithMediaViewImplCopyWith<_$RecordWithMediaViewImpl> get copyWith =>

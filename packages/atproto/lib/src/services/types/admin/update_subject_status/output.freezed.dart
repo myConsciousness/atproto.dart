@@ -21,7 +21,8 @@ UpdateSubjectStatusOutput _$UpdateSubjectStatusOutputFromJson(
 
 /// @nodoc
 mixin _$UpdateSubjectStatusOutput {
-  String get subject => throw _privateConstructorUsedError;
+  @USubjectConverter()
+  USubject get subject => throw _privateConstructorUsedError;
   StatusAttr? get takedown => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,8 +37,9 @@ abstract class $UpdateSubjectStatusOutputCopyWith<$Res> {
           $Res Function(UpdateSubjectStatusOutput) then) =
       _$UpdateSubjectStatusOutputCopyWithImpl<$Res, UpdateSubjectStatusOutput>;
   @useResult
-  $Res call({String subject, StatusAttr? takedown});
+  $Res call({@USubjectConverter() USubject subject, StatusAttr? takedown});
 
+  $USubjectCopyWith<$Res> get subject;
   $StatusAttrCopyWith<$Res>? get takedown;
 }
 
@@ -62,12 +64,20 @@ class _$UpdateSubjectStatusOutputCopyWithImpl<$Res,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
               as StatusAttr?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $USubjectCopyWith<$Res> get subject {
+    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+      return _then(_value.copyWith(subject: value) as $Val);
+    });
   }
 
   @override
@@ -92,8 +102,10 @@ abstract class _$$UpdateSubjectStatusOutputImplCopyWith<$Res>
       __$$UpdateSubjectStatusOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, StatusAttr? takedown});
+  $Res call({@USubjectConverter() USubject subject, StatusAttr? takedown});
 
+  @override
+  $USubjectCopyWith<$Res> get subject;
   @override
   $StatusAttrCopyWith<$Res>? get takedown;
 }
@@ -118,7 +130,7 @@ class __$$UpdateSubjectStatusOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       takedown: freezed == takedown
           ? _value.takedown
           : takedown // ignore: cast_nullable_to_non_nullable
@@ -131,13 +143,15 @@ class __$$UpdateSubjectStatusOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
-  const _$UpdateSubjectStatusOutputImpl({required this.subject, this.takedown});
+  const _$UpdateSubjectStatusOutputImpl(
+      {@USubjectConverter() required this.subject, this.takedown});
 
   factory _$UpdateSubjectStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateSubjectStatusOutputImplFromJson(json);
 
   @override
-  final String subject;
+  @USubjectConverter()
+  final USubject subject;
   @override
   final StatusAttr? takedown;
 
@@ -177,14 +191,15 @@ class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
 
 abstract class _UpdateSubjectStatusOutput implements UpdateSubjectStatusOutput {
   const factory _UpdateSubjectStatusOutput(
-      {required final String subject,
+      {@USubjectConverter() required final USubject subject,
       final StatusAttr? takedown}) = _$UpdateSubjectStatusOutputImpl;
 
   factory _UpdateSubjectStatusOutput.fromJson(Map<String, dynamic> json) =
       _$UpdateSubjectStatusOutputImpl.fromJson;
 
   @override
-  String get subject;
+  @USubjectConverter()
+  USubject get subject;
   @override
   StatusAttr? get takedown;
   @override

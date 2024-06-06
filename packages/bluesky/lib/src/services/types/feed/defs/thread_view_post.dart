@@ -16,6 +16,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import 'post_view.dart';
+import 'union_parent.dart';
+import 'union_reply.dart';
 
 part 'thread_view_post.freezed.dart';
 part 'thread_view_post.g.dart';
@@ -32,8 +34,8 @@ class ThreadViewPost with _$ThreadViewPost {
     @JsonKey(name: r'$type')
     String $type,
     required PostView post,
-    String? parent,
-    @Default([]) List<String> replies,
+    @UParentConverter() UParent? parent,
+    @UReplyConverter() @Default([]) List<UReply> replies,
   }) = _ThreadViewPost;
 
   factory ThreadViewPost.fromJson(Map<String, Object?> json) =>

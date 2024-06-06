@@ -93,12 +93,12 @@ final class LexGenKnownValues {
       ..writeln()
       ..writeln(_getUnionDartDoc(name))
       ..writeln('@freezed')
-      ..writeln('class $name with _\$$name {')
-      ..writeln('  const factory $name.knownValue({')
+      ..writeln('class U$name with _\$U$name {')
+      ..writeln('  const factory U$name.knownValue({')
       ..writeln('    required Known$name data,')
       ..writeln('  }) = U${name}KnownValue;')
       ..writeln()
-      ..writeln('  const factory $name.unknownValue({')
+      ..writeln('  const factory U$name.unknownValue({')
       ..writeln('    required String data,')
       ..writeln('  }) = U${name}UnknownValue;')
       ..writeln('}');
@@ -106,21 +106,21 @@ final class LexGenKnownValues {
     // Converter
     buffer
       ..writeln()
-      ..writeln('final class ${name}Converter '
-          'implements JsonConverter<$name, String> {')
-      ..writeln('  const ${name}Converter();')
+      ..writeln('final class U${name}Converter '
+          'implements JsonConverter<U$name, String> {')
+      ..writeln('  const U${name}Converter();')
       ..writeln()
       ..writeln('  @override')
-      ..writeln('  $name fromJson(String json) {')
+      ..writeln('  U$name fromJson(String json) {')
       ..writeln('      final knownValue = Known$name.valueOf(json);')
       ..writeln()
       ..writeln('      return knownValue != null')
-      ..writeln('              ? $name.knownValue(data: knownValue)')
-      ..writeln('              : $name.unknownValue(data: json);')
+      ..writeln('              ? U$name.knownValue(data: knownValue)')
+      ..writeln('              : U$name.unknownValue(data: json);')
       ..writeln('  }')
       ..writeln()
       ..writeln('  @override')
-      ..writeln('  String toJson($name object) => object.when(')
+      ..writeln('  String toJson(U$name object) => object.when(')
       ..writeln('        knownValue: (data) => data.value,')
       ..writeln('        unknownValue: (data) => data,')
       ..writeln('     );')
@@ -129,7 +129,7 @@ final class LexGenKnownValues {
     // Extension
     buffer
       ..writeln()
-      ..writeln('extension ${name}Extension on $name {')
+      ..writeln('extension U${name}Extension on U$name {')
       ..writeln('  /// Returns true if this is known value, otherwise false.')
       ..writeln('  bool get isKnownValue => this is U${name}KnownValue;')
       ..writeln()

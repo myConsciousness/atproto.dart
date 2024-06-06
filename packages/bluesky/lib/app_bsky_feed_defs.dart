@@ -11,11 +11,16 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/types/feed/defs/post_view.dart';
+export 'package:bluesky/src/services/types/feed/defs/union_embed.dart';
 export 'package:bluesky/src/services/types/feed/defs/viewer_state.dart';
 export 'package:bluesky/src/services/types/feed/defs/feed_view_post.dart';
+export 'package:bluesky/src/services/types/feed/defs/union_reason.dart';
 export 'package:bluesky/src/services/types/feed/defs/reply_ref.dart';
+export 'package:bluesky/src/services/types/feed/defs/union_root.dart';
+export 'package:bluesky/src/services/types/feed/defs/union_parent.dart';
 export 'package:bluesky/src/services/types/feed/defs/reason_repost.dart';
 export 'package:bluesky/src/services/types/feed/defs/thread_view_post.dart';
+export 'package:bluesky/src/services/types/feed/defs/union_reply.dart';
 export 'package:bluesky/src/services/types/feed/defs/not_found_post.dart';
 export 'package:bluesky/src/services/types/feed/defs/blocked_post.dart';
 export 'package:bluesky/src/services/types/feed/defs/blocked_author.dart';

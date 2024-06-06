@@ -5,13 +5,13 @@
 final class DataType {
   const DataType({
     this.namespace,
-    required this.name,
+    this.name,
     this.importPath,
     this.converter,
   });
 
   final String? namespace;
-  final String name;
+  final String? name;
   final String? importPath;
   final String? converter;
 }

@@ -16,7 +16,10 @@ _$RecordWithMediaImpl _$$RecordWithMediaImplFromJson(Map json) =>
         final val = _$RecordWithMediaImpl(
           record: $checkedConvert('record',
               (v) => Record.fromJson(Map<String, Object?>.from(v as Map))),
-          media: $checkedConvert('media', (v) => v as String),
+          media: $checkedConvert(
+              'media',
+              (v) => const URecordWithMediaMediaConverter()
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -26,5 +29,5 @@ Map<String, dynamic> _$$RecordWithMediaImplToJson(
         _$RecordWithMediaImpl instance) =>
     <String, dynamic>{
       'record': instance.record.toJson(),
-      'media': instance.media,
+      'media': const URecordWithMediaMediaConverter().toJson(instance.media),
     };

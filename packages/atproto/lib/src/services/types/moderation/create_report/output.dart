@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'union_subject.dart';
+
 part 'output.freezed.dart';
 part 'output.g.dart';
 
@@ -24,7 +27,7 @@ class CreateReportOutput with _$CreateReportOutput {
     required int id,
     required String reasonType,
     String? reason,
-    required String subject,
+    @USubjectConverter() required USubject subject,
     required String reportedBy,
     required DateTime createdAt,
   }) = _CreateReportOutput;

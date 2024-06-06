@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import 'byte_slice.dart';
+import 'union_facet_featuy.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';
@@ -27,7 +28,7 @@ class Facet with _$Facet {
   @JsonSerializable(includeIfNull: false)
   const factory Facet({
     required FacetByteSlice index,
-    required List<String> features,
+    @UFacetFeatuyConverter() required List<UFacetFeatuy> features,
   }) = _Facet;
 
   factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);

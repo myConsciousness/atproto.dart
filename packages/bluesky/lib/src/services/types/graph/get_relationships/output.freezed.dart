@@ -22,7 +22,8 @@ GetRelationshipsOutput _$GetRelationshipsOutputFromJson(
 /// @nodoc
 mixin _$GetRelationshipsOutput {
   String? get actor => throw _privateConstructorUsedError;
-  List<String> get relationships => throw _privateConstructorUsedError;
+  @URelationshipConverter()
+  List<URelationship> get relationships => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +37,9 @@ abstract class $GetRelationshipsOutputCopyWith<$Res> {
           $Res Function(GetRelationshipsOutput) then) =
       _$GetRelationshipsOutputCopyWithImpl<$Res, GetRelationshipsOutput>;
   @useResult
-  $Res call({String? actor, List<String> relationships});
+  $Res call(
+      {String? actor,
+      @URelationshipConverter() List<URelationship> relationships});
 }
 
 /// @nodoc
@@ -64,7 +67,7 @@ class _$GetRelationshipsOutputCopyWithImpl<$Res,
       relationships: null == relationships
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<URelationship>,
     ) as $Val);
   }
 }
@@ -78,7 +81,9 @@ abstract class _$$GetRelationshipsOutputImplCopyWith<$Res>
       __$$GetRelationshipsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? actor, List<String> relationships});
+  $Res call(
+      {String? actor,
+      @URelationshipConverter() List<URelationship> relationships});
 }
 
 /// @nodoc
@@ -105,7 +110,7 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
       relationships: null == relationships
           ? _value._relationships
           : relationships // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<URelationship>,
     ));
   }
 }
@@ -115,7 +120,9 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
   const _$GetRelationshipsOutputImpl(
-      {this.actor, required final List<String> relationships})
+      {this.actor,
+      @URelationshipConverter()
+      required final List<URelationship> relationships})
       : _relationships = relationships;
 
   factory _$GetRelationshipsOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -123,9 +130,10 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
 
   @override
   final String? actor;
-  final List<String> _relationships;
+  final List<URelationship> _relationships;
   @override
-  List<String> get relationships {
+  @URelationshipConverter()
+  List<URelationship> get relationships {
     if (_relationships is EqualUnmodifiableListView) return _relationships;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_relationships);
@@ -168,7 +176,9 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
 
 abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   const factory _GetRelationshipsOutput(
-          {final String? actor, required final List<String> relationships}) =
+          {final String? actor,
+          @URelationshipConverter()
+          required final List<URelationship> relationships}) =
       _$GetRelationshipsOutputImpl;
 
   factory _GetRelationshipsOutput.fromJson(Map<String, dynamic> json) =
@@ -177,7 +187,8 @@ abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   @override
   String? get actor;
   @override
-  List<String> get relationships;
+  @URelationshipConverter()
+  List<URelationship> get relationships;
   @override
   @JsonKey(ignore: true)
   _$$GetRelationshipsOutputImplCopyWith<_$GetRelationshipsOutputImpl>

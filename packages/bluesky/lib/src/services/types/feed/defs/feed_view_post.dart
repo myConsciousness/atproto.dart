@@ -17,6 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../ids.g.dart';
 import 'post_view.dart';
 import 'reply_ref.dart';
+import 'union_reason.dart';
 
 part 'feed_view_post.freezed.dart';
 part 'feed_view_post.g.dart';
@@ -32,7 +33,7 @@ class FeedViewPost with _$FeedViewPost {
     @Default(appBskyFeedDefsFeedViewPost) @JsonKey(name: r'$type') String $type,
     required PostView post,
     ReplyRef? reply,
-    String? reason,
+    @UReasonConverter() UReason? reason,
 
     /// Context provided by feed generator that may be passed back alongside interactions.
     String? feedContext,

@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../embed/record/main.dart';
+import 'union_record_with_media_media.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';
@@ -25,7 +26,7 @@ class RecordWithMedia with _$RecordWithMedia {
   @JsonSerializable(includeIfNull: false)
   const factory RecordWithMedia({
     required Record record,
-    required String media,
+    @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
   }) = _RecordWithMedia;
 
   factory RecordWithMedia.fromJson(Map<String, Object?> json) =>

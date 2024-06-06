@@ -15,7 +15,10 @@ _$RecordViewImpl _$$RecordViewImplFromJson(Map json) => $checkedCreate(
         final val = _$RecordViewImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecordView),
-          record: $checkedConvert('record', (v) => v as String),
+          record: $checkedConvert(
+              'record',
+              (v) => const URecordRecordConverter()
+                  .fromJson(v as Map<String, dynamic>)),
         );
         return val;
       },
@@ -24,5 +27,5 @@ _$RecordViewImpl _$$RecordViewImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RecordViewImplToJson(_$RecordViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'record': instance.record,
+      'record': const URecordRecordConverter().toJson(instance.record),
     };

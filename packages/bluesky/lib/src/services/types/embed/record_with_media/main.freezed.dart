@@ -21,7 +21,8 @@ RecordWithMedia _$RecordWithMediaFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$RecordWithMedia {
   Record get record => throw _privateConstructorUsedError;
-  String get media => throw _privateConstructorUsedError;
+  @URecordWithMediaMediaConverter()
+  URecordWithMediaMedia get media => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,9 +36,12 @@ abstract class $RecordWithMediaCopyWith<$Res> {
           RecordWithMedia value, $Res Function(RecordWithMedia) then) =
       _$RecordWithMediaCopyWithImpl<$Res, RecordWithMedia>;
   @useResult
-  $Res call({Record record, String media});
+  $Res call(
+      {Record record,
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   $RecordCopyWith<$Res> get record;
+  $URecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -64,7 +68,7 @@ class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordWithMediaMedia,
     ) as $Val);
   }
 
@@ -73,6 +77,14 @@ class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
   $RecordCopyWith<$Res> get record {
     return $RecordCopyWith<$Res>(_value.record, (value) {
       return _then(_value.copyWith(record: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $URecordWithMediaMediaCopyWith<$Res> get media {
+    return $URecordWithMediaMediaCopyWith<$Res>(_value.media, (value) {
+      return _then(_value.copyWith(media: value) as $Val);
     });
   }
 }
@@ -85,10 +97,14 @@ abstract class _$$RecordWithMediaImplCopyWith<$Res>
       __$$RecordWithMediaImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Record record, String media});
+  $Res call(
+      {Record record,
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   @override
   $RecordCopyWith<$Res> get record;
+  @override
+  $URecordWithMediaMediaCopyWith<$Res> get media;
 }
 
 /// @nodoc
@@ -113,7 +129,7 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
       media: null == media
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
-              as String,
+              as URecordWithMediaMedia,
     ));
   }
 }
@@ -122,7 +138,9 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$RecordWithMediaImpl implements _RecordWithMedia {
-  const _$RecordWithMediaImpl({required this.record, required this.media});
+  const _$RecordWithMediaImpl(
+      {required this.record,
+      @URecordWithMediaMediaConverter() required this.media});
 
   factory _$RecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaImplFromJson(json);
@@ -130,7 +148,8 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
   @override
   final Record record;
   @override
-  final String media;
+  @URecordWithMediaMediaConverter()
+  final URecordWithMediaMedia media;
 
   @override
   String toString() {
@@ -168,7 +187,8 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
 abstract class _RecordWithMedia implements RecordWithMedia {
   const factory _RecordWithMedia(
       {required final Record record,
-      required final String media}) = _$RecordWithMediaImpl;
+      @URecordWithMediaMediaConverter()
+      required final URecordWithMediaMedia media}) = _$RecordWithMediaImpl;
 
   factory _RecordWithMedia.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaImpl.fromJson;
@@ -176,7 +196,8 @@ abstract class _RecordWithMedia implements RecordWithMedia {
   @override
   Record get record;
   @override
-  String get media;
+  @URecordWithMediaMediaConverter()
+  URecordWithMediaMedia get media;
   @override
   @JsonKey(ignore: true)
   _$$RecordWithMediaImplCopyWith<_$RecordWithMediaImpl> get copyWith =>

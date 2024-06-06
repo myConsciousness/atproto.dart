@@ -15,6 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import 'union_record_record.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';
@@ -28,7 +29,7 @@ class RecordView with _$RecordView {
     ///
     /// `app.bsky.embed.record#view`
     @Default(appBskyEmbedRecordView) @JsonKey(name: r'$type') String $type,
-    required String record,
+    @URecordRecordConverter() required URecordRecord record,
   }) = _RecordView;
 
   factory RecordView.fromJson(Map<String, Object?> json) =>

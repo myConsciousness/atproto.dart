@@ -23,7 +23,8 @@ mixin _$CreateReportOutput {
   int get id => throw _privateConstructorUsedError;
   String get reasonType => throw _privateConstructorUsedError;
   String? get reason => throw _privateConstructorUsedError;
-  String get subject => throw _privateConstructorUsedError;
+  @USubjectConverter()
+  USubject get subject => throw _privateConstructorUsedError;
   String get reportedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -43,9 +44,11 @@ abstract class $CreateReportOutputCopyWith<$Res> {
       {int id,
       String reasonType,
       String? reason,
-      String subject,
+      @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt});
+
+  $USubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -84,7 +87,7 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -94,6 +97,14 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $USubjectCopyWith<$Res> get subject {
+    return $USubjectCopyWith<$Res>(_value.subject, (value) {
+      return _then(_value.copyWith(subject: value) as $Val);
+    });
   }
 }
 
@@ -109,9 +120,12 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
       {int id,
       String reasonType,
       String? reason,
-      String subject,
+      @USubjectConverter() USubject subject,
       String reportedBy,
       DateTime createdAt});
+
+  @override
+  $USubjectCopyWith<$Res> get subject;
 }
 
 /// @nodoc
@@ -148,7 +162,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
-              as String,
+              as USubject,
       reportedBy: null == reportedBy
           ? _value.reportedBy
           : reportedBy // ignore: cast_nullable_to_non_nullable
@@ -169,7 +183,7 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
       {required this.id,
       required this.reasonType,
       this.reason,
-      required this.subject,
+      @USubjectConverter() required this.subject,
       required this.reportedBy,
       required this.createdAt});
 
@@ -183,7 +197,8 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
   @override
   final String? reason;
   @override
-  final String subject;
+  @USubjectConverter()
+  final USubject subject;
   @override
   final String reportedBy;
   @override
@@ -235,7 +250,7 @@ abstract class _CreateReportOutput implements CreateReportOutput {
       {required final int id,
       required final String reasonType,
       final String? reason,
-      required final String subject,
+      @USubjectConverter() required final USubject subject,
       required final String reportedBy,
       required final DateTime createdAt}) = _$CreateReportOutputImpl;
 
@@ -249,7 +264,8 @@ abstract class _CreateReportOutput implements CreateReportOutput {
   @override
   String? get reason;
   @override
-  String get subject;
+  @USubjectConverter()
+  USubject get subject;
   @override
   String get reportedBy;
   @override

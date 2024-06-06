@@ -12,4 +12,4 @@
 
 export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/output.dart';
 export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/suggestion.dart';
-export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/suggestion_subject_type.dart';
+export 'package:bluesky/src/services/types/unspecced/get_tagged_suggestions/known_subject_type.dart';

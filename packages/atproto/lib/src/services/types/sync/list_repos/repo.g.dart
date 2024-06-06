@@ -21,8 +21,8 @@ _$RepoImpl _$$RepoImplFromJson(Map json) => $checkedCreate(
           active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
-              (v) => _$JsonConverterFromJson<String, RepoStatus>(
-                  v, const RepoStatusConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, UStatu>(
+                  v, const UStatuConverter().fromJson)),
         );
         return val;
       },
@@ -45,8 +45,8 @@ Map<String, dynamic> _$$RepoImplToJson(_$RepoImpl instance) {
 
   writeNotNull(
       'status',
-      _$JsonConverterToJson<String, RepoStatus>(
-          instance.status, const RepoStatusConverter().toJson));
+      _$JsonConverterToJson<String, UStatu>(
+          instance.status, const UStatuConverter().toJson));
   return val;
 }
 

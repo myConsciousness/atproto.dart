@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import 'union_relationship.dart';
+
 part 'output.freezed.dart';
 part 'output.g.dart';
 
@@ -22,7 +25,7 @@ class GetRelationshipsOutput with _$GetRelationshipsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetRelationshipsOutput({
     String? actor,
-    required List<String> relationships,
+    @URelationshipConverter() required List<URelationship> relationships,
   }) = _GetRelationshipsOutput;
 
   factory GetRelationshipsOutput.fromJson(Map<String, Object?> json) =>

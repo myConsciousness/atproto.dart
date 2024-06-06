@@ -36,7 +36,8 @@ mixin _$RecordViewRecord {
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
-  List<String> get embeds => throw _privateConstructorUsedError;
+  @URecordEmbedConverter()
+  List<URecordEmbed> get embeds => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       int replyCount,
       int repostCount,
       int likeCount,
-      List<String> embeds,
+      @URecordEmbedConverter() List<URecordEmbed> embeds,
       DateTime indexedAt});
 
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -132,7 +133,7 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
       embeds: null == embeds
           ? _value.embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<URecordEmbed>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -167,7 +168,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       int replyCount,
       int repostCount,
       int likeCount,
-      List<String> embeds,
+      @URecordEmbedConverter() List<URecordEmbed> embeds,
       DateTime indexedAt});
 
   @override
@@ -237,7 +238,7 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
       embeds: null == embeds
           ? _value._embeds
           : embeds // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<URecordEmbed>,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -260,7 +261,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
-      final List<String> embeds = const [],
+      @URecordEmbedConverter() final List<URecordEmbed> embeds = const [],
       required this.indexedAt})
       : _value = value,
         _labels = labels,
@@ -312,10 +313,11 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   @override
   @JsonKey()
   final int likeCount;
-  final List<String> _embeds;
+  final List<URecordEmbed> _embeds;
   @override
   @JsonKey()
-  List<String> get embeds {
+  @URecordEmbedConverter()
+  List<URecordEmbed> get embeds {
     if (_embeds is EqualUnmodifiableListView) return _embeds;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_embeds);
@@ -393,7 +395,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
       final int replyCount,
       final int repostCount,
       final int likeCount,
-      final List<String> embeds,
+      @URecordEmbedConverter() final List<URecordEmbed> embeds,
       required final DateTime indexedAt}) = _$RecordViewRecordImpl;
 
   factory _RecordViewRecord.fromJson(Map<String, dynamic> json) =
@@ -426,7 +428,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
   int get likeCount;
   @override
-  List<String> get embeds;
+  @URecordEmbedConverter()
+  List<URecordEmbed> get embeds;
   @override
   DateTime get indexedAt;
   @override

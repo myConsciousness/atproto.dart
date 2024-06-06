@@ -12,4 +12,4 @@
 
 export 'package:bluesky/src/services/types/notification/list_notifications/output.dart';
 export 'package:bluesky/src/services/types/notification/list_notifications/notification.dart';
-export 'package:bluesky/src/services/types/notification/list_notifications/notification_reason.dart';
+export 'package:bluesky/src/services/types/notification/list_notifications/known_reason.dart';

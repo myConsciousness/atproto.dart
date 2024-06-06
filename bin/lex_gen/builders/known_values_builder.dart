@@ -13,14 +13,14 @@ final class LexKnownValuesBuilder {
   const LexKnownValuesBuilder({
     this.description,
     required this.docId,
-    required this.defName,
+    this.defName,
     this.propertyName,
     required this.knownValues,
   });
 
   final String? description;
   final NSID docId;
-  final String defName;
+  final String? defName;
   final String? propertyName;
   final List<String> knownValues;
 
@@ -30,10 +30,17 @@ final class LexKnownValuesBuilder {
     final elements = _getElements();
     if (elements.isEmpty) return null;
 
-    final objectName = propertyName != null
-        ? '${toFirstUpper(defName)}${toFirstUpper(propertyName!)}'
-        : toFirstUpper(defName);
-    final fileName = toLowerCamelCase(objectName);
+    String objectName;
+    if (propertyName != null && defName != null) {
+      objectName = '${toFirstUpper(defName!)}'
+          '${getSingular(toFirstUpper(propertyName!))}';
+    } else if (propertyName != null) {
+      objectName = toFirstUpper(getSingular(propertyName!));
+    } else {
+      objectName = toFirstUpper(defName!);
+    }
+
+    final fileName = 'known_${toLowerCamelCase(objectName)}';
     final path =
         docId.toString().split('.').sublist(2).join('.').replaceAll('.', '/');
 

@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'info_name.dart';
+import 'known_name.dart';
 
 part 'info.freezed.dart';
 part 'info.g.dart';
@@ -31,7 +31,7 @@ class Info with _$Info {
     @Default(comAtprotoSyncSubscribeReposInfo)
     @JsonKey(name: r'$type')
     String $type,
-    @InfoNameConverter() required InfoName name,
+    @UNameConverter() required UName name,
     String? message,
   }) = _Info;
 

@@ -27,7 +27,8 @@ mixin _$FeedViewPost {
   String get $type => throw _privateConstructorUsedError;
   PostView get post => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  String? get reason => throw _privateConstructorUsedError;
+  @UReasonConverter()
+  UReason? get reason => throw _privateConstructorUsedError;
 
   /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
@@ -48,11 +49,12 @@ abstract class $FeedViewPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       PostView post,
       ReplyRef? reply,
-      String? reason,
+      @UReasonConverter() UReason? reason,
       String? feedContext});
 
   $PostViewCopyWith<$Res> get post;
   $ReplyRefCopyWith<$Res>? get reply;
+  $UReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -90,7 +92,7 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -117,6 +119,18 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
       return _then(_value.copyWith(reply: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $UReasonCopyWith<$Res>? get reason {
+    if (_value.reason == null) {
+      return null;
+    }
+
+    return $UReasonCopyWith<$Res>(_value.reason!, (value) {
+      return _then(_value.copyWith(reason: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -131,13 +145,15 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       PostView post,
       ReplyRef? reply,
-      String? reason,
+      @UReasonConverter() UReason? reason,
       String? feedContext});
 
   @override
   $PostViewCopyWith<$Res> get post;
   @override
   $ReplyRefCopyWith<$Res>? get reply;
+  @override
+  $UReasonCopyWith<$Res>? get reason;
 }
 
 /// @nodoc
@@ -173,7 +189,7 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
       reason: freezed == reason
           ? _value.reason
           : reason // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as UReason?,
       feedContext: freezed == feedContext
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
@@ -190,7 +206,7 @@ class _$FeedViewPostImpl implements _FeedViewPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsFeedViewPost,
       required this.post,
       this.reply,
-      this.reason,
+      @UReasonConverter() this.reason,
       this.feedContext});
 
   factory _$FeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
@@ -207,7 +223,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @override
   final ReplyRef? reply;
   @override
-  final String? reason;
+  @UReasonConverter()
+  final UReason? reason;
 
   /// Context provided by feed generator that may be passed back alongside interactions.
   @override
@@ -255,7 +272,7 @@ abstract class _FeedViewPost implements FeedViewPost {
       {@JsonKey(name: r'$type') final String $type,
       required final PostView post,
       final ReplyRef? reply,
-      final String? reason,
+      @UReasonConverter() final UReason? reason,
       final String? feedContext}) = _$FeedViewPostImpl;
 
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) =
@@ -273,7 +290,8 @@ abstract class _FeedViewPost implements FeedViewPost {
   @override
   ReplyRef? get reply;
   @override
-  String? get reason;
+  @UReasonConverter()
+  UReason? get reason;
   @override
 
   /// Context provided by feed generator that may be passed back alongside interactions.

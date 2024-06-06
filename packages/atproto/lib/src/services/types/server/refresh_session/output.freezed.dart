@@ -28,8 +28,8 @@ mixin _$RefreshSessionOutput {
   bool get active => throw _privateConstructorUsedError;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @RefreshSessionStatusConverter()
-  RefreshSessionStatus? get status => throw _privateConstructorUsedError;
+  @UStatuConverter()
+  UStatu? get status => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -50,9 +50,9 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String did,
       Map<String, dynamic> didDoc,
       bool active,
-      @RefreshSessionStatusConverter() RefreshSessionStatus? status});
+      @UStatuConverter() UStatu? status});
 
-  $RefreshSessionStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -105,18 +105,18 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as RefreshSessionStatus?,
+              as UStatu?,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $RefreshSessionStatusCopyWith<$Res>? get status {
+  $UStatuCopyWith<$Res>? get status {
     if (_value.status == null) {
       return null;
     }
 
-    return $RefreshSessionStatusCopyWith<$Res>(_value.status!, (value) {
+    return $UStatuCopyWith<$Res>(_value.status!, (value) {
       return _then(_value.copyWith(status: value) as $Val);
     });
   }
@@ -137,10 +137,10 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String did,
       Map<String, dynamic> didDoc,
       bool active,
-      @RefreshSessionStatusConverter() RefreshSessionStatus? status});
+      @UStatuConverter() UStatu? status});
 
   @override
-  $RefreshSessionStatusCopyWith<$Res>? get status;
+  $UStatuCopyWith<$Res>? get status;
 }
 
 /// @nodoc
@@ -190,7 +190,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
-              as RefreshSessionStatus?,
+              as UStatu?,
     ));
   }
 }
@@ -206,7 +206,7 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.did,
       final Map<String, dynamic> didDoc = const {},
       this.active = false,
-      @RefreshSessionStatusConverter() this.status})
+      @UStatuConverter() this.status})
       : _didDoc = didDoc;
 
   factory _$RefreshSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -235,8 +235,8 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
 
   /// Hosting status of the account. If not specified, then assume 'active'.
   @override
-  @RefreshSessionStatusConverter()
-  final RefreshSessionStatus? status;
+  @UStatuConverter()
+  final UStatu? status;
 
   @override
   String toString() {
@@ -288,8 +288,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
       required final String did,
       final Map<String, dynamic> didDoc,
       final bool active,
-      @RefreshSessionStatusConverter()
-      final RefreshSessionStatus? status}) = _$RefreshSessionOutputImpl;
+      @UStatuConverter() final UStatu? status}) = _$RefreshSessionOutputImpl;
 
   factory _RefreshSessionOutput.fromJson(Map<String, dynamic> json) =
       _$RefreshSessionOutputImpl.fromJson;
@@ -309,8 +308,8 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   @override
 
   /// Hosting status of the account. If not specified, then assume 'active'.
-  @RefreshSessionStatusConverter()
-  RefreshSessionStatus? get status;
+  @UStatuConverter()
+  UStatu? get status;
   @override
   @JsonKey(ignore: true)
   _$$RefreshSessionOutputImplCopyWith<_$RefreshSessionOutputImpl>

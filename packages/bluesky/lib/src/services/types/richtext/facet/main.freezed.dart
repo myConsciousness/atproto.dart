@@ -21,7 +21,8 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$Facet {
   FacetByteSlice get index => throw _privateConstructorUsedError;
-  List<String> get features => throw _privateConstructorUsedError;
+  @UFacetFeatuyConverter()
+  List<UFacetFeatuy> get features => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -33,7 +34,9 @@ abstract class $FacetCopyWith<$Res> {
   factory $FacetCopyWith(Facet value, $Res Function(Facet) then) =
       _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
-  $Res call({FacetByteSlice index, List<String> features});
+  $Res call(
+      {FacetByteSlice index,
+      @UFacetFeatuyConverter() List<UFacetFeatuy> features});
 
   $FacetByteSliceCopyWith<$Res> get index;
 }
@@ -62,7 +65,7 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
       features: null == features
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UFacetFeatuy>,
     ) as $Val);
   }
 
@@ -82,7 +85,9 @@ abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
       __$$FacetImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FacetByteSlice index, List<String> features});
+  $Res call(
+      {FacetByteSlice index,
+      @UFacetFeatuyConverter() List<UFacetFeatuy> features});
 
   @override
   $FacetByteSliceCopyWith<$Res> get index;
@@ -110,7 +115,7 @@ class __$$FacetImplCopyWithImpl<$Res>
       features: null == features
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UFacetFeatuy>,
     ));
   }
 }
@@ -119,7 +124,9 @@ class __$$FacetImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$FacetImpl implements _Facet {
-  const _$FacetImpl({required this.index, required final List<String> features})
+  const _$FacetImpl(
+      {required this.index,
+      @UFacetFeatuyConverter() required final List<UFacetFeatuy> features})
       : _features = features;
 
   factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
@@ -127,9 +134,10 @@ class _$FacetImpl implements _Facet {
 
   @override
   final FacetByteSlice index;
-  final List<String> _features;
+  final List<UFacetFeatuy> _features;
   @override
-  List<String> get features {
+  @UFacetFeatuyConverter()
+  List<UFacetFeatuy> get features {
     if (_features is EqualUnmodifiableListView) return _features;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_features);
@@ -171,14 +179,16 @@ class _$FacetImpl implements _Facet {
 abstract class _Facet implements Facet {
   const factory _Facet(
       {required final FacetByteSlice index,
-      required final List<String> features}) = _$FacetImpl;
+      @UFacetFeatuyConverter()
+      required final List<UFacetFeatuy> features}) = _$FacetImpl;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
 
   @override
   FacetByteSlice get index;
   @override
-  List<String> get features;
+  @UFacetFeatuyConverter()
+  List<UFacetFeatuy> get features;
   @override
   @JsonKey(ignore: true)
   _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>

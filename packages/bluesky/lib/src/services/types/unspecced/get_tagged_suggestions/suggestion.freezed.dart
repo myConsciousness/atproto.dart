@@ -26,8 +26,8 @@ mixin _$Suggestion {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
-  @SuggestionSubjectTypeConverter()
-  SuggestionSubjectType get subjectType => throw _privateConstructorUsedError;
+  @USubjectTypeConverter()
+  USubjectType get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,10 +45,10 @@ abstract class $SuggestionCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String tag,
-      @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
+      @USubjectTypeConverter() USubjectType subjectType,
       String subject});
 
-  $SuggestionSubjectTypeCopyWith<$Res> get subjectType;
+  $USubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -81,7 +81,7 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as SuggestionSubjectType,
+              as USubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -91,8 +91,8 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
 
   @override
   @pragma('vm:prefer-inline')
-  $SuggestionSubjectTypeCopyWith<$Res> get subjectType {
-    return $SuggestionSubjectTypeCopyWith<$Res>(_value.subjectType, (value) {
+  $USubjectTypeCopyWith<$Res> get subjectType {
+    return $USubjectTypeCopyWith<$Res>(_value.subjectType, (value) {
       return _then(_value.copyWith(subjectType: value) as $Val);
     });
   }
@@ -109,11 +109,11 @@ abstract class _$$SuggestionImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String tag,
-      @SuggestionSubjectTypeConverter() SuggestionSubjectType subjectType,
+      @USubjectTypeConverter() USubjectType subjectType,
       String subject});
 
   @override
-  $SuggestionSubjectTypeCopyWith<$Res> get subjectType;
+  $USubjectTypeCopyWith<$Res> get subjectType;
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$$SuggestionImplCopyWithImpl<$Res>
       subjectType: null == subjectType
           ? _value.subjectType
           : subjectType // ignore: cast_nullable_to_non_nullable
-              as SuggestionSubjectType,
+              as USubjectType,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _$SuggestionImpl implements _Suggestion {
       {@JsonKey(name: r'$type')
       this.$type = appBskyUnspeccedGetTaggedSuggestionsSuggestion,
       required this.tag,
-      @SuggestionSubjectTypeConverter() required this.subjectType,
+      @USubjectTypeConverter() required this.subjectType,
       required this.subject});
 
   factory _$SuggestionImpl.fromJson(Map<String, dynamic> json) =>
@@ -176,8 +176,8 @@ class _$SuggestionImpl implements _Suggestion {
   @override
   final String tag;
   @override
-  @SuggestionSubjectTypeConverter()
-  final SuggestionSubjectType subjectType;
+  @USubjectTypeConverter()
+  final USubjectType subjectType;
   @override
   final String subject;
 
@@ -221,8 +221,7 @@ abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
       {@JsonKey(name: r'$type') final String $type,
       required final String tag,
-      @SuggestionSubjectTypeConverter()
-      required final SuggestionSubjectType subjectType,
+      @USubjectTypeConverter() required final USubjectType subjectType,
       required final String subject}) = _$SuggestionImpl;
 
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
@@ -238,8 +237,8 @@ abstract class _Suggestion implements Suggestion {
   @override
   String get tag;
   @override
-  @SuggestionSubjectTypeConverter()
-  SuggestionSubjectType get subjectType;
+  @USubjectTypeConverter()
+  USubjectType get subjectType;
   @override
   String get subject;
   @override

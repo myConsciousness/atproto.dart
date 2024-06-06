@@ -18,6 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
+import 'union_record_embed.dart';
 
 part 'view_record.freezed.dart';
 part 'view_record.g.dart';
@@ -43,7 +44,7 @@ class RecordViewRecord with _$RecordViewRecord {
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
-    @Default([]) List<String> embeds,
+    @URecordEmbedConverter() @Default([]) List<URecordEmbed> embeds,
     required DateTime indexedAt,
   }) = _RecordViewRecord;
 

@@ -20,7 +20,8 @@ GetServicesOutput _$GetServicesOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetServicesOutput {
-  List<String> get views => throw _privateConstructorUsedError;
+  @UViewConverter()
+  List<UView> get views => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -34,7 +35,7 @@ abstract class $GetServicesOutputCopyWith<$Res> {
           GetServicesOutput value, $Res Function(GetServicesOutput) then) =
       _$GetServicesOutputCopyWithImpl<$Res, GetServicesOutput>;
   @useResult
-  $Res call({List<String> views});
+  $Res call({@UViewConverter() List<UView> views});
 }
 
 /// @nodoc
@@ -56,7 +57,7 @@ class _$GetServicesOutputCopyWithImpl<$Res, $Val extends GetServicesOutput>
       views: null == views
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UView>,
     ) as $Val);
   }
 }
@@ -69,7 +70,7 @@ abstract class _$$GetServicesOutputImplCopyWith<$Res>
       __$$GetServicesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<String> views});
+  $Res call({@UViewConverter() List<UView> views});
 }
 
 /// @nodoc
@@ -89,7 +90,7 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
       views: null == views
           ? _value._views
           : views // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<UView>,
     ));
   }
 }
@@ -98,15 +99,17 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetServicesOutputImpl implements _GetServicesOutput {
-  const _$GetServicesOutputImpl({required final List<String> views})
+  const _$GetServicesOutputImpl(
+      {@UViewConverter() required final List<UView> views})
       : _views = views;
 
   factory _$GetServicesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetServicesOutputImplFromJson(json);
 
-  final List<String> _views;
+  final List<UView> _views;
   @override
-  List<String> get views {
+  @UViewConverter()
+  List<UView> get views {
     if (_views is EqualUnmodifiableListView) return _views;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_views);
@@ -146,14 +149,16 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
 }
 
 abstract class _GetServicesOutput implements GetServicesOutput {
-  const factory _GetServicesOutput({required final List<String> views}) =
+  const factory _GetServicesOutput(
+          {@UViewConverter() required final List<UView> views}) =
       _$GetServicesOutputImpl;
 
   factory _GetServicesOutput.fromJson(Map<String, dynamic> json) =
       _$GetServicesOutputImpl.fromJson;
 
   @override
-  List<String> get views;
+  @UViewConverter()
+  List<UView> get views;
   @override
   @JsonKey(ignore: true)
   _$$GetServicesOutputImplCopyWith<_$GetServicesOutputImpl> get copyWith =>

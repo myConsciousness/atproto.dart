@@ -17,8 +17,8 @@ _$ThreadViewPrefImpl _$$ThreadViewPrefImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyActorDefsThreadViewPref),
           sort: $checkedConvert(
               'sort',
-              (v) => _$JsonConverterFromJson<String, ThreadViewPrefSort>(
-                  v, const ThreadViewPrefSortConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<String, USort>(
+                  v, const USortConverter().fromJson)),
           prioritizeFollowedUsers: $checkedConvert(
               'prioritizeFollowedUsers', (v) => v as bool? ?? false),
         );
@@ -40,8 +40,8 @@ Map<String, dynamic> _$$ThreadViewPrefImplToJson(
 
   writeNotNull(
       'sort',
-      _$JsonConverterToJson<String, ThreadViewPrefSort>(
-          instance.sort, const ThreadViewPrefSortConverter().toJson));
+      _$JsonConverterToJson<String, USort>(
+          instance.sort, const USortConverter().toJson));
   val['prioritizeFollowedUsers'] = instance.prioritizeFollowedUsers;
   return val;
 }

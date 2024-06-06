@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'suggestion_subject_type.dart';
+import 'known_subject_type.dart';
 
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';
@@ -32,8 +32,7 @@ class Suggestion with _$Suggestion {
     @JsonKey(name: r'$type')
     String $type,
     required String tag,
-    @SuggestionSubjectTypeConverter()
-    required SuggestionSubjectType subjectType,
+    @USubjectTypeConverter() required USubjectType subjectType,
     required String subject,
   }) = _Suggestion;
 

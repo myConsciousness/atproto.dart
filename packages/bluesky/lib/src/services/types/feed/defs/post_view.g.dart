@@ -24,7 +24,10 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
                   Map<String, Object?>.from(v as Map))),
           record: $checkedConvert(
               'record', (v) => Map<String, dynamic>.from(v as Map)),
-          embed: $checkedConvert('embed', (v) => v as String?),
+          embed: $checkedConvert(
+              'embed',
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
+                  v, const UEmbedConverter().fromJson)),
           replyCount:
               $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
           repostCount:
@@ -72,7 +75,10 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
     }
   }
 
-  writeNotNull('embed', instance.embed);
+  writeNotNull(
+      'embed',
+      _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
+          instance.embed, const UEmbedConverter().toJson));
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
@@ -82,3 +88,15 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   val['threadgate'] = instance.threadgate.toJson();
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

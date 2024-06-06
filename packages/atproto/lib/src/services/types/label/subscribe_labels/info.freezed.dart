@@ -25,8 +25,8 @@ mixin _$Info {
   /// `com.atproto.label.subscribeLabels#info`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  @InfoNameConverter()
-  InfoName get name => throw _privateConstructorUsedError;
+  @UNameConverter()
+  UName get name => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -41,10 +41,10 @@ abstract class $InfoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @InfoNameConverter() InfoName name,
+      @UNameConverter() UName name,
       String? message});
 
-  $InfoNameCopyWith<$Res> get name;
+  $UNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -72,7 +72,7 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as InfoName,
+              as UName,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -82,8 +82,8 @@ class _$InfoCopyWithImpl<$Res, $Val extends Info>
 
   @override
   @pragma('vm:prefer-inline')
-  $InfoNameCopyWith<$Res> get name {
-    return $InfoNameCopyWith<$Res>(_value.name, (value) {
+  $UNameCopyWith<$Res> get name {
+    return $UNameCopyWith<$Res>(_value.name, (value) {
       return _then(_value.copyWith(name: value) as $Val);
     });
   }
@@ -98,11 +98,11 @@ abstract class _$$InfoImplCopyWith<$Res> implements $InfoCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @InfoNameConverter() InfoName name,
+      @UNameConverter() UName name,
       String? message});
 
   @override
-  $InfoNameCopyWith<$Res> get name;
+  $UNameCopyWith<$Res> get name;
 }
 
 /// @nodoc
@@ -127,7 +127,7 @@ class __$$InfoImplCopyWithImpl<$Res>
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
-              as InfoName,
+              as UName,
       message: freezed == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ class __$$InfoImplCopyWithImpl<$Res>
 class _$InfoImpl implements _Info {
   const _$InfoImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoLabelSubscribeLabelsInfo,
-      @InfoNameConverter() required this.name,
+      @UNameConverter() required this.name,
       this.message});
 
   factory _$InfoImpl.fromJson(Map<String, dynamic> json) =>
@@ -155,8 +155,8 @@ class _$InfoImpl implements _Info {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  @InfoNameConverter()
-  final InfoName name;
+  @UNameConverter()
+  final UName name;
   @override
   final String? message;
 
@@ -196,7 +196,7 @@ class _$InfoImpl implements _Info {
 abstract class _Info implements Info {
   const factory _Info(
       {@JsonKey(name: r'$type') final String $type,
-      @InfoNameConverter() required final InfoName name,
+      @UNameConverter() required final UName name,
       final String? message}) = _$InfoImpl;
 
   factory _Info.fromJson(Map<String, dynamic> json) = _$InfoImpl.fromJson;
@@ -209,8 +209,8 @@ abstract class _Info implements Info {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  @InfoNameConverter()
-  InfoName get name;
+  @UNameConverter()
+  UName get name;
   @override
   String? get message;
   @override

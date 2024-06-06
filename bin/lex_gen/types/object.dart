@@ -7,6 +7,7 @@ import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
 import 'known_values.dart';
+import 'union_object.dart';
 
 final class LexGenObject {
   const LexGenObject({
@@ -35,8 +36,15 @@ final class LexGenObject {
       ...properties.map((e) => e.type.importPath),
       ...properties
           .where((e) => e.knownValues != null)
-          .map((e) => '${e.knownValues!.fileName}.dart')
-    ].where((e) => e != null).toSet().toList();
+          .map((e) => '${e.knownValues!.fileName}.dart'),
+      ...properties
+          .where((e) => e.union != null)
+          .map((e) => '${e.union!.fileName}.dart')
+    ]
+        .where((e) => e != null)
+        .toSet()
+        .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
+        .toList();
 
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Object Generator'));
@@ -97,7 +105,9 @@ final class LexGenObjectProperty {
     this.isRequired = false,
     required this.type,
     required this.name,
+    this.array = false,
     this.knownValues,
+    this.union,
     this.defaultValue,
   });
 
@@ -106,16 +116,29 @@ final class LexGenObjectProperty {
   final DataType type;
   final String name;
 
+  final bool array;
+
   final LexGenKnownValues? knownValues;
+  final LexUnionObject? union;
   final String? defaultValue;
 
   @override
   String toString() {
     if (knownValues != null) {
-      return _toString('${knownValues!.name}Converter', knownValues!.name);
+      return _toString(
+        'U${knownValues!.name}Converter',
+        array ? 'List<U${knownValues!.name}>' : 'U${knownValues!.name}',
+      );
     }
 
-    return _toString(type.converter, type.name);
+    if (union != null) {
+      return _toString(
+        'U${union!.name}Converter',
+        array ? 'List<U${union!.name}>' : 'U${union!.name}',
+      );
+    }
+
+    return _toString(type.converter, type.name!);
   }
 
   String _toString(

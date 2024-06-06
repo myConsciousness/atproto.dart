@@ -11,6 +11,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/object.dart';
 import 'known_values_builder.dart';
+import 'union_object_builder.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(this.context);
@@ -103,12 +104,23 @@ final class LexGenObjectBuilder {
 
     for (final entry in object.properties!.entries) {
       final property = entry.value.toJson();
+      final union = LexUnionObjectBuilder(
+        docId: context.docId,
+        defName: context.mainRelatedDocIds.contains(context.docId.toString())
+            ? context.docId.toString().split('.').last
+            : null,
+        propertyName: entry.key,
+        refs: property['refs'] ?? property['items']?['refs'] ?? const [],
+        mainRelatedDocIds: context.mainRelatedDocIds,
+      ).build();
+
       final dataType = getDataType(
         context,
         type: property['type'],
         format: property['format'],
         ref: property['ref'],
         items: property['items'],
+        arrayUnion: union,
       );
 
       properties.add(
@@ -117,14 +129,17 @@ final class LexGenObjectBuilder {
           isRequired: requiredProperties.contains(entry.key),
           type: dataType,
           name: entry.key,
+          array: property['items'] != null,
           knownValues: LexKnownValuesBuilder(
             docId: context.docId,
-            defName: context.defName == 'main'
-                ? context.docId.toString().split('.').last
-                : context.defName,
+            defName:
+                context.mainRelatedDocIds.contains(context.docId.toString())
+                    ? context.docId.toString().split('.').last
+                    : null,
             propertyName: entry.key,
             knownValues: property['knownValues'] ?? const [],
           ).build(),
+          union: union,
           defaultValue: getDefaultValue(
             property['default'],
             dataType,
