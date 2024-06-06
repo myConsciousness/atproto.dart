@@ -20,6 +20,11 @@ Facet _$FacetFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Facet {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   FacetByteSlice get index => throw _privateConstructorUsedError;
   @UFacetFeatuyConverter()
   List<UFacetFeatuy> get features => throw _privateConstructorUsedError;
@@ -35,7 +40,8 @@ abstract class $FacetCopyWith<$Res> {
       _$FacetCopyWithImpl<$Res, Facet>;
   @useResult
   $Res call(
-      {FacetByteSlice index,
+      {@JsonKey(name: r'$type') String $type,
+      FacetByteSlice index,
       @UFacetFeatuyConverter() List<UFacetFeatuy> features});
 
   $FacetByteSliceCopyWith<$Res> get index;
@@ -54,10 +60,15 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? index = null,
     Object? features = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -86,7 +97,8 @@ abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {FacetByteSlice index,
+      {@JsonKey(name: r'$type') String $type,
+      FacetByteSlice index,
       @UFacetFeatuyConverter() List<UFacetFeatuy> features});
 
   @override
@@ -104,10 +116,15 @@ class __$$FacetImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? index = null,
     Object? features = null,
   }) {
     return _then(_$FacetImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       index: null == index
           ? _value.index
           : index // ignore: cast_nullable_to_non_nullable
@@ -125,13 +142,20 @@ class __$$FacetImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$FacetImpl implements _Facet {
   const _$FacetImpl(
-      {required this.index,
+      {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacet,
+      required this.index,
       @UFacetFeatuyConverter() required final List<UFacetFeatuy> features})
       : _features = features;
 
   factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final FacetByteSlice index;
   final List<UFacetFeatuy> _features;
@@ -145,7 +169,7 @@ class _$FacetImpl implements _Facet {
 
   @override
   String toString() {
-    return 'Facet(index: $index, features: $features)';
+    return 'Facet(\$type: ${$type}, index: $index, features: $features)';
   }
 
   @override
@@ -153,14 +177,15 @@ class _$FacetImpl implements _Facet {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FacetImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.index, index) || other.index == index) &&
             const DeepCollectionEquality().equals(other._features, _features));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, index, const DeepCollectionEquality().hash(_features));
+  int get hashCode => Object.hash(runtimeType, $type, index,
+      const DeepCollectionEquality().hash(_features));
 
   @JsonKey(ignore: true)
   @override
@@ -178,12 +203,20 @@ class _$FacetImpl implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {required final FacetByteSlice index,
+      {@JsonKey(name: r'$type') final String $type,
+      required final FacetByteSlice index,
       @UFacetFeatuyConverter()
       required final List<UFacetFeatuy> features}) = _$FacetImpl;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.richtext.facet`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   FacetByteSlice get index;
   @override

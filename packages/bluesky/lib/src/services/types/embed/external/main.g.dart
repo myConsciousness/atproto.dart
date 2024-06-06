@@ -13,6 +13,8 @@ _$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ExternalImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyEmbedExternal),
           external: $checkedConvert(
               'external',
               (v) => ExternalExternal.fromJson(
@@ -24,5 +26,6 @@ _$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ExternalImplToJson(_$ExternalImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'external': instance.external.toJson(),
     };

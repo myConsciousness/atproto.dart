@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import '../../embed/record/main.dart';
 import 'union_record_with_media_media.dart';
 
@@ -25,6 +26,10 @@ part 'main.g.dart';
 final class RecordWithMedia with _$RecordWithMedia {
   @JsonSerializable(includeIfNull: false)
   const factory RecordWithMedia({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.recordWithMedia`
+    @Default(appBskyEmbedRecordWithMedia) @JsonKey(name: r'$type') String $type,
     required Record record,
     @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
   }) = _RecordWithMedia;

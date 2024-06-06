@@ -20,6 +20,11 @@ StrongRef _$StrongRefFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$StrongRef {
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.strongRef`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
@@ -35,7 +40,10 @@ abstract class $StrongRefCopyWith<$Res> {
   factory $StrongRefCopyWith(StrongRef value, $Res Function(StrongRef) then) =
       _$StrongRefCopyWithImpl<$Res, StrongRef>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, String cid});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      String cid});
 }
 
 /// @nodoc
@@ -51,10 +59,15 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -75,7 +88,10 @@ abstract class _$$StrongRefImplCopyWith<$Res>
       __$$StrongRefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, String cid});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      String cid});
 }
 
 /// @nodoc
@@ -89,10 +105,15 @@ class __$$StrongRefImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? uri = null,
     Object? cid = null,
   }) {
     return _then(_$StrongRefImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       uri: null == uri
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
@@ -110,11 +131,19 @@ class __$$StrongRefImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$StrongRefImpl implements _StrongRef {
   const _$StrongRefImpl(
-      {@AtUriConverter() required this.uri, required this.cid});
+      {@JsonKey(name: r'$type') this.$type = comAtprotoRepoStrongRef,
+      @AtUriConverter() required this.uri,
+      required this.cid});
 
   factory _$StrongRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$StrongRefImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.strongRef`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @AtUriConverter()
   final AtUri uri;
@@ -123,7 +152,7 @@ class _$StrongRefImpl implements _StrongRef {
 
   @override
   String toString() {
-    return 'StrongRef(uri: $uri, cid: $cid)';
+    return 'StrongRef(\$type: ${$type}, uri: $uri, cid: $cid)';
   }
 
   @override
@@ -131,13 +160,14 @@ class _$StrongRefImpl implements _StrongRef {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$StrongRefImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid);
+  int get hashCode => Object.hash(runtimeType, $type, uri, cid);
 
   @JsonKey(ignore: true)
   @override
@@ -155,12 +185,20 @@ class _$StrongRefImpl implements _StrongRef {
 
 abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
-      {@AtUriConverter() required final AtUri uri,
+      {@JsonKey(name: r'$type') final String $type,
+      @AtUriConverter() required final AtUri uri,
       required final String cid}) = _$StrongRefImpl;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
       _$StrongRefImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `com.atproto.repo.strongRef`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @AtUriConverter()
   AtUri get uri;

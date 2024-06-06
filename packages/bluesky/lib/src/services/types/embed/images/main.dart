@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'image.dart';
 
 part 'main.freezed.dart';
@@ -24,6 +25,10 @@ part 'main.g.dart';
 final class Images with _$Images {
   @JsonSerializable(includeIfNull: false)
   const factory Images({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.images`
+    @Default(appBskyEmbedImages) @JsonKey(name: r'$type') String $type,
     required List<ImagesImage> images,
   }) = _Images;
 

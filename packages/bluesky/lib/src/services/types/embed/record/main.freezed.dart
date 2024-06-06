@@ -20,6 +20,11 @@ Record _$RecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Record {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   StrongRef get record => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -32,7 +37,7 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
-  $Res call({StrongRef record});
+  $Res call({@JsonKey(name: r'$type') String $type, StrongRef record});
 
   $StrongRefCopyWith<$Res> get record;
 }
@@ -50,9 +55,14 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -76,7 +86,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$$RecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StrongRef record});
+  $Res call({@JsonKey(name: r'$type') String $type, StrongRef record});
 
   @override
   $StrongRefCopyWith<$Res> get record;
@@ -93,9 +103,14 @@ class __$$RecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
   }) {
     return _then(_$RecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -108,17 +123,25 @@ class __$$RecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$RecordImpl implements _Record {
-  const _$RecordImpl({required this.record});
+  const _$RecordImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecord,
+      required this.record});
 
   factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final StrongRef record;
 
   @override
   String toString() {
-    return 'Record(record: $record)';
+    return 'Record(\$type: ${$type}, record: $record)';
   }
 
   @override
@@ -126,12 +149,13 @@ class _$RecordImpl implements _Record {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record);
+  int get hashCode => Object.hash(runtimeType, $type, record);
 
   @JsonKey(ignore: true)
   @override
@@ -148,10 +172,19 @@ class _$RecordImpl implements _Record {
 }
 
 abstract class _Record implements Record {
-  const factory _Record({required final StrongRef record}) = _$RecordImpl;
+  const factory _Record(
+      {@JsonKey(name: r'$type') final String $type,
+      required final StrongRef record}) = _$RecordImpl;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.record`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   StrongRef get record;
   @override

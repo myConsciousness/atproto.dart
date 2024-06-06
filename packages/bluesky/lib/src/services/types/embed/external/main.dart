@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../ids.g.dart';
 import 'external.dart';
 
 part 'main.freezed.dart';
@@ -26,6 +27,10 @@ part 'main.g.dart';
 final class External with _$External {
   @JsonSerializable(includeIfNull: false)
   const factory External({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.external`
+    @Default(appBskyEmbedExternal) @JsonKey(name: r'$type') String $type,
     required ExternalExternal external,
   }) = _External;
 

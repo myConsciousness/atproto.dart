@@ -14,6 +14,9 @@
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -22,6 +25,10 @@ part 'main.g.dart';
 final class Record with _$Record {
   @JsonSerializable(includeIfNull: false)
   const factory Record({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.embed.record`
+    @Default(appBskyEmbedRecord) @JsonKey(name: r'$type') String $type,
     required StrongRef record,
   }) = _Record;
 

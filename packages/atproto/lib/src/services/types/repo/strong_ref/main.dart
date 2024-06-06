@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../ids.g.dart';
+
 part 'main.freezed.dart';
 part 'main.g.dart';
 
@@ -22,6 +25,10 @@ part 'main.g.dart';
 final class StrongRef with _$StrongRef {
   @JsonSerializable(includeIfNull: false)
   const factory StrongRef({
+    /// The unique namespace for this lex object.
+    ///
+    /// `com.atproto.repo.strongRef`
+    @Default(comAtprotoRepoStrongRef) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
   }) = _StrongRef;

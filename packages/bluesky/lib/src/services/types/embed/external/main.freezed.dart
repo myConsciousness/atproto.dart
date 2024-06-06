@@ -20,6 +20,11 @@ External _$ExternalFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$External {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   ExternalExternal get external => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -33,7 +38,7 @@ abstract class $ExternalCopyWith<$Res> {
   factory $ExternalCopyWith(External value, $Res Function(External) then) =
       _$ExternalCopyWithImpl<$Res, External>;
   @useResult
-  $Res call({ExternalExternal external});
+  $Res call({@JsonKey(name: r'$type') String $type, ExternalExternal external});
 
   $ExternalExternalCopyWith<$Res> get external;
 }
@@ -51,9 +56,14 @@ class _$ExternalCopyWithImpl<$Res, $Val extends External>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? external = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
@@ -78,7 +88,7 @@ abstract class _$$ExternalImplCopyWith<$Res>
       __$$ExternalImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ExternalExternal external});
+  $Res call({@JsonKey(name: r'$type') String $type, ExternalExternal external});
 
   @override
   $ExternalExternalCopyWith<$Res> get external;
@@ -95,9 +105,14 @@ class __$$ExternalImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? external = null,
   }) {
     return _then(_$ExternalImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       external: null == external
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
@@ -110,17 +125,25 @@ class __$$ExternalImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$ExternalImpl implements _External {
-  const _$ExternalImpl({required this.external});
+  const _$ExternalImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternal,
+      required this.external});
 
   factory _$ExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final ExternalExternal external;
 
   @override
   String toString() {
-    return 'External(external: $external)';
+    return 'External(\$type: ${$type}, external: $external)';
   }
 
   @override
@@ -128,13 +151,14 @@ class _$ExternalImpl implements _External {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ExternalImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.external, external) ||
                 other.external == external));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, external);
+  int get hashCode => Object.hash(runtimeType, $type, external);
 
   @JsonKey(ignore: true)
   @override
@@ -151,12 +175,20 @@ class _$ExternalImpl implements _External {
 }
 
 abstract class _External implements External {
-  const factory _External({required final ExternalExternal external}) =
-      _$ExternalImpl;
+  const factory _External(
+      {@JsonKey(name: r'$type') final String $type,
+      required final ExternalExternal external}) = _$ExternalImpl;
 
   factory _External.fromJson(Map<String, dynamic> json) =
       _$ExternalImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.external`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   ExternalExternal get external;
   @override

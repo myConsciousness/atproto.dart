@@ -13,6 +13,8 @@ _$StrongRefImpl _$$StrongRefImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$StrongRefImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? comAtprotoRepoStrongRef),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
@@ -23,6 +25,7 @@ _$StrongRefImpl _$$StrongRefImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$StrongRefImplToJson(_$StrongRefImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
     };

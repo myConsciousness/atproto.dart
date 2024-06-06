@@ -13,6 +13,8 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FacetImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyRichtextFacet),
           index: $checkedConvert(
               'index',
               (v) =>
@@ -30,6 +32,7 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'index': instance.index.toJson(),
       'features':
           instance.features.map(const UFacetFeatuyConverter().toJson).toList(),

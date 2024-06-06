@@ -24,11 +24,16 @@ final class LexGenObjectBuilder {
 
     final convention = LexNamingConvention(context);
 
+    String? namespace;
+    if (context.def is ULexUserTypeObject) {
+      namespace = context.defName == 'main'
+          ? context.docId.toString()
+          : '${context.docId.toString()}#${context.defName}';
+    }
+
     return LexGenObject(
       description: _getDescription(),
-      namespace: context.defName == 'main'
-          ? null // Input/Output
-          : '${context.docId.toString()}#${context.defName}',
+      namespace: namespace,
       name: convention.getObjectName(),
       fileName: convention.getFileName(),
       properties: properties,

@@ -20,6 +20,11 @@ RecordWithMedia _$RecordWithMediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RecordWithMedia {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   Record get record => throw _privateConstructorUsedError;
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media => throw _privateConstructorUsedError;
@@ -37,7 +42,8 @@ abstract class $RecordWithMediaCopyWith<$Res> {
       _$RecordWithMediaCopyWithImpl<$Res, RecordWithMedia>;
   @useResult
   $Res call(
-      {Record record,
+      {@JsonKey(name: r'$type') String $type,
+      Record record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   $RecordCopyWith<$Res> get record;
@@ -57,10 +63,15 @@ class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
     Object? media = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -98,7 +109,8 @@ abstract class _$$RecordWithMediaImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {Record record,
+      {@JsonKey(name: r'$type') String $type,
+      Record record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
 
   @override
@@ -118,10 +130,15 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? record = null,
     Object? media = null,
   }) {
     return _then(_$RecordWithMediaImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -139,12 +156,19 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$RecordWithMediaImpl implements _RecordWithMedia {
   const _$RecordWithMediaImpl(
-      {required this.record,
+      {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMedia,
+      required this.record,
       @URecordWithMediaMediaConverter() required this.media});
 
   factory _$RecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final Record record;
   @override
@@ -153,7 +177,7 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
 
   @override
   String toString() {
-    return 'RecordWithMedia(record: $record, media: $media)';
+    return 'RecordWithMedia(\$type: ${$type}, record: $record, media: $media)';
   }
 
   @override
@@ -161,13 +185,14 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RecordWithMediaImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record) &&
             (identical(other.media, media) || other.media == media));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, record, media);
+  int get hashCode => Object.hash(runtimeType, $type, record, media);
 
   @JsonKey(ignore: true)
   @override
@@ -186,13 +211,21 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
 
 abstract class _RecordWithMedia implements RecordWithMedia {
   const factory _RecordWithMedia(
-      {required final Record record,
+      {@JsonKey(name: r'$type') final String $type,
+      required final Record record,
       @URecordWithMediaMediaConverter()
       required final URecordWithMediaMedia media}) = _$RecordWithMediaImpl;
 
   factory _RecordWithMedia.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.embed.recordWithMedia`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   Record get record;
   @override
