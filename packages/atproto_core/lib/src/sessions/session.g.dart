@@ -1,23 +1,38 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: non_constant_identifier_names
+
 part of 'session.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SessionImpl _$$SessionImplFromJson(Map<String, dynamic> json) =>
-    _$SessionImpl(
-      did: json['did'] as String,
-      handle: json['handle'] as String,
-      email: json['email'] as String?,
-      isEmailConfirmed: json['emailConfirmed'] as bool? ?? false,
-      emailAuthFactor: json['emailAuthFactor'] as bool? ?? false,
-      accessJwt: json['accessJwt'] as String,
-      refreshJwt: json['refreshJwt'] as String,
-      didDoc: json['didDoc'] as Map<String, dynamic>?,
-      active: json['active'] as bool? ?? true,
-      status: json['status'] as String?,
+_$SessionImpl _$$SessionImplFromJson(Map json) => $checkedCreate(
+      r'_$SessionImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$SessionImpl(
+          did: $checkedConvert('did', (v) => v as String),
+          handle: $checkedConvert('handle', (v) => v as String),
+          email: $checkedConvert('email', (v) => v as String?),
+          isEmailConfirmed:
+              $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
+          emailAuthFactor:
+              $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
+          accessJwt: $checkedConvert('accessJwt', (v) => v as String),
+          refreshJwt: $checkedConvert('refreshJwt', (v) => v as String),
+          didDoc: $checkedConvert(
+              'didDoc',
+              (v) => (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  )),
+          active: $checkedConvert('active', (v) => v as bool? ?? true),
+          status: $checkedConvert('status', (v) => v as String?),
+        );
+        return val;
+      },
+      fieldKeyMap: const {'isEmailConfirmed': 'emailConfirmed'},
     );
 
 Map<String, dynamic> _$$SessionImplToJson(_$SessionImpl instance) {

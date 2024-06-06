@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.2.1
+
+- Merge latest lexicons definitions.
+
 ## v0.2.0
 
 - Merge latest lexicons definitions.

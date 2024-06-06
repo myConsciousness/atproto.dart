@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.0.19
+
+- Fixed a bug that prevented toJson on freezed objects from `atproto_core`.
+
 ## v0.0.18
 
 - Bump `atproto_core`.

@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.12.1
+
+- Fixed a bug that prevented toJson on freezed objects from `atproto_core`.
+
 ## v0.12.0
 
 - Add `.active` and `.status` properties on `Session` and `CurrentSession` objects. ([#1516](https://github.com/myConsciousness/atproto.dart/pull/1516))
