@@ -81,6 +81,9 @@ final class UFacetFeatuyConverter
 }
 
 extension UFacetFeatuyExtension on UFacetFeatuy {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const UFacetFeatuyConverter().toJson(this);
+
   /// Returns true if this data is [FacetMention], otherwise false.
   bool get isFacetMention => this is UFacetFeatuyFacetMention;
 

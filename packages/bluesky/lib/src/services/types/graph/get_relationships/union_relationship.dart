@@ -70,6 +70,9 @@ final class URelationshipConverter
 }
 
 extension URelationshipExtension on URelationship {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const URelationshipConverter().toJson(this);
+
   /// Returns true if this data is [Relationship], otherwise false.
   bool get isRelationship => this is URelationshipRelationship;
 

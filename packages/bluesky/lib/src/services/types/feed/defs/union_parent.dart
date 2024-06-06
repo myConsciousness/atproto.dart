@@ -81,6 +81,9 @@ final class UParentConverter
 }
 
 extension UParentExtension on UParent {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const UParentConverter().toJson(this);
+
   /// Returns true if this data is [ThreadViewPost], otherwise false.
   bool get isThreadViewPost => this is UParentThreadViewPost;
 

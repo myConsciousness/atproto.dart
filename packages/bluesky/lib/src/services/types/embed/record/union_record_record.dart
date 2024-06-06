@@ -114,6 +114,9 @@ final class URecordRecordConverter
 }
 
 extension URecordRecordExtension on URecordRecord {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const URecordRecordConverter().toJson(this);
+
   /// Returns true if this data is [RecordViewRecord], otherwise false.
   bool get isRecordViewRecord => this is URecordRecordRecordViewRecord;
 

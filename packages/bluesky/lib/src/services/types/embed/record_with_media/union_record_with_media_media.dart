@@ -70,6 +70,10 @@ final class URecordWithMediaMediaConverter
 }
 
 extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() =>
+      const URecordWithMediaMediaConverter().toJson(this);
+
   /// Returns true if this data is [ImagesView], otherwise false.
   bool get isImagesView => this is URecordWithMediaMediaImagesView;
 

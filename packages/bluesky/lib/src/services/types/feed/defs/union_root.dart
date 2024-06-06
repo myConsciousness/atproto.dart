@@ -81,6 +81,9 @@ final class URootConverter
 }
 
 extension URootExtension on URoot {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const URootConverter().toJson(this);
+
   /// Returns true if this data is [PostView], otherwise false.
   bool get isPostView => this is URootPostView;
 

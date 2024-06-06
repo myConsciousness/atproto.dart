@@ -81,6 +81,9 @@ final class UThreadConverter
 }
 
 extension UThreadExtension on UThread {
+  /// Returns JSON representation
+  Map<String, dynamic> toJson() => const UThreadConverter().toJson(this);
+
   /// Returns true if this data is [ThreadViewPost], otherwise false.
   bool get isThreadViewPost => this is UThreadThreadViewPost;
 
