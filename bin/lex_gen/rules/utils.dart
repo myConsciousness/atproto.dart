@@ -103,6 +103,7 @@ Ref? getRef(final NSID docId, final String ref) {
 
 DataType getDataType(
   final LexGenContext context, {
+  required String propertyName,
   required String? type,
   required String? format,
   required String? ref,
@@ -126,7 +127,20 @@ DataType getDataType(
 
   if (type == 'bytes') return const DataType(name: 'List<int>');
   if (type == 'cid-link') return const DataType(name: 'String');
-  if (type == 'unknown') return const DataType(name: 'Map<String, dynamic>');
+
+  if (type == 'unknown') {
+    if (propertyName == 'record' && context.defName.endsWith('View')) {
+      final objectName = context.defName.split('View').first;
+      final path = context.docId.toString().split('.').sublist(2, 3).first;
+
+      return DataType(
+        name: '${toFirstUpper(objectName)}Record',
+        importPath: '../../$path/$objectName/record.dart',
+      );
+    }
+
+    return const DataType(name: 'Map<String, dynamic>');
+  }
 
   if (type == 'blob') {
     return const DataType(
@@ -141,6 +155,7 @@ DataType getDataType(
 
     final type = getDataType(
       context,
+      propertyName: propertyName,
       type: items['type'],
       format: items['format'],
       ref: items['ref'],

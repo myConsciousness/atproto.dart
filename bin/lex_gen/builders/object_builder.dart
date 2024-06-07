@@ -108,6 +108,7 @@ final class LexGenObjectBuilder {
 
         final dataType = getDataType(
           context,
+          propertyName: propertyName,
           type: propertyJson['type'],
           format: propertyJson['format'],
           ref: propertyJson['ref'],
@@ -171,6 +172,7 @@ final class LexGenObjectBuilder {
 
     final dataType = getDataType(
       context,
+      propertyName: name,
       type: property['type'],
       format: property['format'],
       ref: property['ref'],

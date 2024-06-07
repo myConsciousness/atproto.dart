@@ -29,7 +29,7 @@ mixin _$PostView {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   ProfileViewBasic get author => throw _privateConstructorUsedError;
-  Map<String, dynamic> get record => throw _privateConstructorUsedError;
+  PostRecord get record => throw _privateConstructorUsedError;
   @UEmbedConverter()
   UEmbed? get embed => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
@@ -56,7 +56,7 @@ abstract class $PostViewCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
-      Map<String, dynamic> record,
+      PostRecord record,
       @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
@@ -67,6 +67,7 @@ abstract class $PostViewCopyWith<$Res> {
       ThreadgateView threadgate});
 
   $ProfileViewBasicCopyWith<$Res> get author;
+  $PostRecordCopyWith<$Res> get record;
   $UEmbedCopyWith<$Res>? get embed;
   $ViewerStateCopyWith<$Res> get viewer;
   $ThreadgateViewCopyWith<$Res> get threadgate;
@@ -119,7 +120,7 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as PostRecord,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -165,6 +166,14 @@ class _$PostViewCopyWithImpl<$Res, $Val extends PostView>
 
   @override
   @pragma('vm:prefer-inline')
+  $PostRecordCopyWith<$Res> get record {
+    return $PostRecordCopyWith<$Res>(_value.record, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
   $UEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
@@ -205,7 +214,7 @@ abstract class _$$PostViewImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       String cid,
       ProfileViewBasic author,
-      Map<String, dynamic> record,
+      PostRecord record,
       @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
@@ -217,6 +226,8 @@ abstract class _$$PostViewImplCopyWith<$Res>
 
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
+  @override
+  $PostRecordCopyWith<$Res> get record;
   @override
   $UEmbedCopyWith<$Res>? get embed;
   @override
@@ -268,9 +279,9 @@ class __$$PostViewImplCopyWithImpl<$Res>
           : author // ignore: cast_nullable_to_non_nullable
               as ProfileViewBasic,
       record: null == record
-          ? _value._record
+          ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as PostRecord,
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
@@ -316,7 +327,7 @@ class _$PostViewImpl implements _PostView {
       @AtUriConverter() required this.uri,
       required this.cid,
       required this.author,
-      required final Map<String, dynamic> record,
+      required this.record,
       @UEmbedConverter() this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
@@ -325,8 +336,7 @@ class _$PostViewImpl implements _PostView {
       this.viewer = const ViewerState(),
       final List<Label>? labels,
       this.threadgate = const ThreadgateView()})
-      : _record = record,
-        _labels = labels;
+      : _labels = labels;
 
   factory _$PostViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostViewImplFromJson(json);
@@ -344,14 +354,8 @@ class _$PostViewImpl implements _PostView {
   final String cid;
   @override
   final ProfileViewBasic author;
-  final Map<String, dynamic> _record;
   @override
-  Map<String, dynamic> get record {
-    if (_record is EqualUnmodifiableMapView) return _record;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_record);
-  }
-
+  final PostRecord record;
   @override
   @UEmbedConverter()
   final UEmbed? embed;
@@ -397,7 +401,7 @@ class _$PostViewImpl implements _PostView {
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.author, author) || other.author == author) &&
-            const DeepCollectionEquality().equals(other._record, _record) &&
+            (identical(other.record, record) || other.record == record) &&
             (identical(other.embed, embed) || other.embed == embed) &&
             (identical(other.replyCount, replyCount) ||
                 other.replyCount == replyCount) &&
@@ -421,7 +425,7 @@ class _$PostViewImpl implements _PostView {
       uri,
       cid,
       author,
-      const DeepCollectionEquality().hash(_record),
+      record,
       embed,
       replyCount,
       repostCount,
@@ -451,7 +455,7 @@ abstract class _PostView implements PostView {
       @AtUriConverter() required final AtUri uri,
       required final String cid,
       required final ProfileViewBasic author,
-      required final Map<String, dynamic> record,
+      required final PostRecord record,
       @UEmbedConverter() final UEmbed? embed,
       final int replyCount,
       final int repostCount,
@@ -479,7 +483,7 @@ abstract class _PostView implements PostView {
   @override
   ProfileViewBasic get author;
   @override
-  Map<String, dynamic> get record;
+  PostRecord get record;
   @override
   @UEmbedConverter()
   UEmbed? get embed;

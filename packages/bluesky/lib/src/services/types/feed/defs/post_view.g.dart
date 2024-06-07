@@ -22,8 +22,8 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
               'author',
               (v) => ProfileViewBasic.fromJson(
                   Map<String, Object?>.from(v as Map))),
-          record: $checkedConvert(
-              'record', (v) => Map<String, dynamic>.from(v as Map)),
+          record: $checkedConvert('record',
+              (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
@@ -64,7 +64,7 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'author': instance.author.toJson(),
-    'record': instance.record,
+    'record': instance.record.toJson(),
   };
 
   void writeNotNull(String key, dynamic value) {

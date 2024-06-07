@@ -28,7 +28,7 @@ mixin _$ThreadgateView {
   @AtUriConverter()
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
-  Map<String, dynamic>? get record => throw _privateConstructorUsedError;
+  ThreadgateRecord? get record => throw _privateConstructorUsedError;
   List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -47,8 +47,10 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? uri,
       String? cid,
-      Map<String, dynamic>? record,
+      ThreadgateRecord? record,
       List<ListViewBasic>? lists});
+
+  $ThreadgateRecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
@@ -86,12 +88,24 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
       record: freezed == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as ThreadgateRecord?,
       lists: freezed == lists
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
               as List<ListViewBasic>?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ThreadgateRecordCopyWith<$Res>? get record {
+    if (_value.record == null) {
+      return null;
+    }
+
+    return $ThreadgateRecordCopyWith<$Res>(_value.record!, (value) {
+      return _then(_value.copyWith(record: value) as $Val);
+    });
   }
 }
 
@@ -107,8 +121,11 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? uri,
       String? cid,
-      Map<String, dynamic>? record,
+      ThreadgateRecord? record,
       List<ListViewBasic>? lists});
+
+  @override
+  $ThreadgateRecordCopyWith<$Res>? get record;
 }
 
 /// @nodoc
@@ -142,9 +159,9 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
       record: freezed == record
-          ? _value._record
+          ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>?,
+              as ThreadgateRecord?,
       lists: freezed == lists
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
@@ -161,10 +178,9 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadgateView,
       @AtUriConverter() this.uri,
       this.cid,
-      final Map<String, dynamic>? record,
+      this.record,
       final List<ListViewBasic>? lists})
-      : _record = record,
-        _lists = lists;
+      : _lists = lists;
 
   factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateViewImplFromJson(json);
@@ -180,16 +196,8 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   final AtUri? uri;
   @override
   final String? cid;
-  final Map<String, dynamic>? _record;
   @override
-  Map<String, dynamic>? get record {
-    final value = _record;
-    if (value == null) return null;
-    if (_record is EqualUnmodifiableMapView) return _record;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(value);
-  }
-
+  final ThreadgateRecord? record;
   final List<ListViewBasic>? _lists;
   @override
   List<ListViewBasic>? get lists {
@@ -213,18 +221,13 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
-            const DeepCollectionEquality().equals(other._record, _record) &&
+            (identical(other.record, record) || other.record == record) &&
             const DeepCollectionEquality().equals(other._lists, _lists));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      $type,
-      uri,
-      cid,
-      const DeepCollectionEquality().hash(_record),
+  int get hashCode => Object.hash(runtimeType, $type, uri, cid, record,
       const DeepCollectionEquality().hash(_lists));
 
   @JsonKey(ignore: true)
@@ -247,7 +250,7 @@ abstract class _ThreadgateView implements ThreadgateView {
       {@JsonKey(name: r'$type') final String $type,
       @AtUriConverter() final AtUri? uri,
       final String? cid,
-      final Map<String, dynamic>? record,
+      final ThreadgateRecord? record,
       final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
 
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
@@ -266,7 +269,7 @@ abstract class _ThreadgateView implements ThreadgateView {
   @override
   String? get cid;
   @override
-  Map<String, dynamic>? get record;
+  ThreadgateRecord? get record;
   @override
   List<ListViewBasic>? get lists;
   @override

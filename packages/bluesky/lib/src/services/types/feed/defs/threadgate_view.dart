@@ -16,6 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import '../../feed/threadgate/record.dart';
 import '../../graph/defs/list_view_basic.dart';
 
 part 'threadgate_view.freezed.dart';
@@ -34,7 +35,7 @@ final class ThreadgateView with _$ThreadgateView {
     String $type,
     @AtUriConverter() AtUri? uri,
     String? cid,
-    Map<String, dynamic>? record,
+    ThreadgateRecord? record,
     List<ListViewBasic>? lists,
   }) = _ThreadgateView;
 
