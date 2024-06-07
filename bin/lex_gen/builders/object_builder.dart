@@ -60,88 +60,77 @@ final class LexGenObjectBuilder {
     final properties = context.def!.whenOrNull(
       object: (data) => _getObjectProperties(data),
       xrpcQuery: (data) {
-        final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) {
-          return const <LexGenObjectProperty>[]; // RefVariant
-        }
-
-        if (object.properties?.length == 1) {
-          final propertyEntry = object.properties!.entries.first;
-          final propertyJson = propertyEntry.value.toJson();
-          final propertyName = propertyEntry.key;
-
-          final ref = propertyEntry.value
-              .whenOrNull(refVariant: (data) => data)
-              ?.whenOrNull(ref: (data) => data);
-
-          if (ref != null && ref.ref != null) {
-            final $ref = getRef(context.docId, ref.ref!);
-            final refDefJson = $ref!.def.toJson();
-
-            final union = LexUnionObjectBuilder(
-              docId: $ref.docId,
-              defName: context.mainRelatedDocIds.contains($ref.docId.toString())
-                  ? context.docId.toString().split('.').last
-                  : null,
-              propertyName: $ref.defName,
-              refs: refDefJson['refs'] ??
-                  refDefJson['items']?['refs'] ??
-                  const [],
-              mainRelatedDocIds: context.mainRelatedDocIds,
-            ).build();
-
-            final dataType = getDataType(
-              context,
-              type: propertyJson['type'],
-              format: propertyJson['format'],
-              ref: propertyJson['ref'],
-              items: propertyJson['items'],
-              arrayUnion: union,
-            );
-
-            return <LexGenObjectProperty>[
-              LexGenObjectProperty(
-                description: propertyJson['description'],
-                isRequired:
-                    object.requiredProperties?.contains(propertyName) ?? false,
-                type: dataType,
-                name: propertyName,
-                array: refDefJson['items'] != null,
-                union: union,
-                defaultValue: getDefaultValue(
-                  propertyJson['default'],
-                  dataType,
-                  context.docId,
-                  propertyJson['ref'],
-                ),
-              )
-            ];
-          }
-        }
-
-        return _getObjectProperties(object);
+        return _getObjectPropertiesFromXrpcBody(data.output);
       },
       xrpcProcedure: (data) {
-        final object = data.output?.schema?.whenOrNull(object: (data) => data);
-        if (object == null) {
-          return const <LexGenObjectProperty>[]; // RefVariant
-        }
-
-        if (object.properties?.length == 1) {
-          final refVariant = object.properties?.values.first
-              .whenOrNull(refVariant: (data) => data);
-          final ref = refVariant?.whenOrNull(ref: (data) => data);
-
-          if (ref != null && ref.ref != null) {
-            return const <LexGenObjectProperty>[];
-          }
-        }
-
-        return _getObjectProperties(object);
+        return _getObjectPropertiesFromXrpcBody(data.output);
       },
     );
 
     return properties ?? const [];
+  }
+
+  List<LexGenObjectProperty> _getObjectPropertiesFromXrpcBody(
+    final LexXrpcBody? body,
+  ) {
+    final object = body?.schema?.whenOrNull(object: (data) => data);
+    if (object == null) {
+      return const <LexGenObjectProperty>[]; // RefVariant
+    }
+
+    if (object.properties?.length == 1) {
+      final propertyEntry = object.properties!.entries.first;
+      final propertyJson = propertyEntry.value.toJson();
+      final propertyName = propertyEntry.key;
+
+      final ref = propertyEntry.value
+          .whenOrNull(refVariant: (data) => data)
+          ?.whenOrNull(ref: (data) => data);
+
+      if (ref != null && ref.ref != null) {
+        final $ref = getRef(context.docId, ref.ref!);
+        final refDefJson = $ref!.def.toJson();
+
+        final union = LexUnionObjectBuilder(
+          docId: $ref.docId,
+          defName: context.mainRelatedDocIds.contains($ref.docId.toString())
+              ? context.docId.toString().split('.').last
+              : null,
+          propertyName: $ref.defName,
+          refs: refDefJson['refs'] ?? refDefJson['items']?['refs'] ?? const [],
+          mainRelatedDocIds: context.mainRelatedDocIds,
+        ).build();
+
+        final dataType = getDataType(
+          context,
+          type: propertyJson['type'],
+          format: propertyJson['format'],
+          ref: propertyJson['ref'],
+          items: propertyJson['items'],
+          arrayUnion: union,
+        );
+
+        return <LexGenObjectProperty>[
+          LexGenObjectProperty(
+            description: propertyJson['description'],
+            isRequired:
+                object.requiredProperties?.contains(propertyName) ?? false,
+            type: dataType,
+            name: propertyName,
+            array: refDefJson['items'] != null,
+            union: union,
+            defaultValue: getDefaultValue(
+              propertyJson['default'],
+              dataType,
+              context.docId,
+              propertyJson['ref'],
+            ),
+          )
+        ];
+      }
+    }
+
+    return _getObjectProperties(object);
   }
 
   List<LexGenObjectProperty> _getObjectProperties(final LexObject object) {
