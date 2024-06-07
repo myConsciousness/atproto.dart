@@ -25,7 +25,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#main
 @freezed
-final class PostRecord with _$PostRecord {
+class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
     /// The primary post content. May be an empty string, if there are embeds.

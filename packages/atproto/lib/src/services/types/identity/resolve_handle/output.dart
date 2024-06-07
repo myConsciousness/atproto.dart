@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
 @freezed
-final class ResolveHandleOutput with _$ResolveHandleOutput {
+class ResolveHandleOutput with _$ResolveHandleOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ResolveHandleOutput({
     required String did,

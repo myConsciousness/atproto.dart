@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listBlobs#main
 @freezed
-final class ListBlobsOutput with _$ListBlobsOutput {
+class ListBlobsOutput with _$ListBlobsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListBlobsOutput({
     String? cursor,

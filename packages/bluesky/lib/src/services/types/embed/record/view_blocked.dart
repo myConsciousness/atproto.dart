@@ -23,7 +23,7 @@ part 'view_blocked.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#viewblocked
 @freezed
-final class RecordViewBlocked with _$RecordViewBlocked {
+class RecordViewBlocked with _$RecordViewBlocked {
   @JsonSerializable(includeIfNull: false)
   const factory RecordViewBlocked({
     /// The unique namespace for this lex object.

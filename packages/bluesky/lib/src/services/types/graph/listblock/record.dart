@@ -19,7 +19,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock#main
 @freezed
-final class ListblockRecord with _$ListblockRecord {
+class ListblockRecord with _$ListblockRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListblockRecord({
     /// Reference (AT-URI) to the mod list record.

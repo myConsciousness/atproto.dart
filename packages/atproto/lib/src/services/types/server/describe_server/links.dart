@@ -21,7 +21,7 @@ part 'links.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer#links
 @freezed
-final class Links with _$Links {
+class Links with _$Links {
   @JsonSerializable(includeIfNull: false)
   const factory Links({
     /// The unique namespace for this lex object.

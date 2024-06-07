@@ -72,7 +72,7 @@ enum KnownStatus {
 /// }
 /// ```
 @freezed
-final class UStatus with _$UStatus {
+class UStatus with _$UStatus {
   const factory UStatus.knownValue({
     required KnownStatus data,
   }) = UStatusKnownValue;

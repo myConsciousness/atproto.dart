@@ -22,7 +22,7 @@ part 'profile_associated.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileassociated
 @freezed
-final class ProfileAssociated with _$ProfileAssociated {
+class ProfileAssociated with _$ProfileAssociated {
   @JsonSerializable(includeIfNull: false)
   const factory ProfileAssociated({
     /// The unique namespace for this lex object.

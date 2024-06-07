@@ -19,7 +19,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob#main
 @freezed
-final class UploadBlobOutput with _$UploadBlobOutput {
+class UploadBlobOutput with _$UploadBlobOutput {
   @JsonSerializable(includeIfNull: false)
   const factory UploadBlobOutput({
     @BlobConverter() required Blob blob,

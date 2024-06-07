@@ -21,8 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators#main
 @freezed
-final class GetPopularFeedGeneratorsOutput
-    with _$GetPopularFeedGeneratorsOutput {
+class GetPopularFeedGeneratorsOutput with _$GetPopularFeedGeneratorsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPopularFeedGeneratorsOutput({
     String? cursor,

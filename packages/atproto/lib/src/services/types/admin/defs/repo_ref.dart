@@ -21,7 +21,7 @@ part 'repo_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#reporef
 @freezed
-final class RepoRef with _$RepoRef {
+class RepoRef with _$RepoRef {
   @JsonSerializable(includeIfNull: false)
   const factory RepoRef({
     /// The unique namespace for this lex object.

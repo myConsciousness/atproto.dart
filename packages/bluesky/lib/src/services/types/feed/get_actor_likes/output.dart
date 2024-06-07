@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getActorLikes#main
 @freezed
-final class GetActorLikesOutput with _$GetActorLikesOutput {
+class GetActorLikesOutput with _$GetActorLikesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetActorLikesOutput({
     String? cursor,

@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton#main
 @freezed
-final class SearchPostsSkeletonOutput with _$SearchPostsSkeletonOutput {
+class SearchPostsSkeletonOutput with _$SearchPostsSkeletonOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchPostsSkeletonOutput({
     String? cursor,

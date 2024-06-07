@@ -22,7 +22,7 @@ part 'repo_blob_ref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/defs#repoblobref
 @freezed
-final class RepoBlobRef with _$RepoBlobRef {
+class RepoBlobRef with _$RepoBlobRef {
   @JsonSerializable(includeIfNull: false)
   const factory RepoBlobRef({
     /// The unique namespace for this lex object.

@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials#main
 @freezed
-final class GetRecommendedDidCredentialsOutput
+class GetRecommendedDidCredentialsOutput
     with _$GetRecommendedDidCredentialsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetRecommendedDidCredentialsOutput({

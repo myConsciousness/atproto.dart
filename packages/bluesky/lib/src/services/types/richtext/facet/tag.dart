@@ -23,7 +23,7 @@ part 'tag.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#tag
 @freezed
-final class FacetTag with _$FacetTag {
+class FacetTag with _$FacetTag {
   @JsonSerializable(includeIfNull: false)
   const factory FacetTag({
     /// The unique namespace for this lex object.

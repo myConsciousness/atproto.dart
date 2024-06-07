@@ -21,7 +21,7 @@ import 'mention_rule.dart';
 part 'union_allow.freezed.dart';
 
 @freezed
-final class UAllow with _$UAllow {
+class UAllow with _$UAllow {
   const factory UAllow.mentionRule({
     required MentionRule data,
   }) = UAllowMentionRule;

@@ -22,7 +22,7 @@ part 'suggestion.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#suggestion
 @freezed
-final class Suggestion with _$Suggestion {
+class Suggestion with _$Suggestion {
   @JsonSerializable(includeIfNull: false)
   const factory Suggestion({
     /// The unique namespace for this lex object.

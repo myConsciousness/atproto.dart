@@ -22,7 +22,7 @@ part 'invite_code.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/defs#invitecode
 @freezed
-final class InviteCode with _$InviteCode {
+class InviteCode with _$InviteCode {
   @JsonSerializable(includeIfNull: false)
   const factory InviteCode({
     /// The unique namespace for this lex object.

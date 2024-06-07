@@ -21,7 +21,7 @@ part 'interests_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#interestspref
 @freezed
-final class InterestsPref with _$InterestsPref {
+class InterestsPref with _$InterestsPref {
   @JsonSerializable(includeIfNull: false)
   const factory InterestsPref({
     /// The unique namespace for this lex object.

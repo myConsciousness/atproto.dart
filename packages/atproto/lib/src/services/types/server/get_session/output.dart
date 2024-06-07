@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession#main
 @freezed
-final class GetSessionOutput with _$GetSessionOutput {
+class GetSessionOutput with _$GetSessionOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSessionOutput({
     required String handle,

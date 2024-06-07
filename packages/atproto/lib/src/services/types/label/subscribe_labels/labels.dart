@@ -22,7 +22,7 @@ part 'labels.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#labels
 @freezed
-final class Labels with _$Labels {
+class Labels with _$Labels {
   @JsonSerializable(includeIfNull: false)
   const factory Labels({
     /// The unique namespace for this lex object.

@@ -24,7 +24,7 @@ part 'repo_op.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#repoop
 @freezed
-final class RepoOp with _$RepoOp {
+class RepoOp with _$RepoOp {
   @JsonSerializable(includeIfNull: false)
   const factory RepoOp({
     /// The unique namespace for this lex object.

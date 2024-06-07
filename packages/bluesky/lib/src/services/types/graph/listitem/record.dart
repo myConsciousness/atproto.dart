@@ -19,7 +19,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem#main
 @freezed
-final class ListitemRecord with _$ListitemRecord {
+class ListitemRecord with _$ListitemRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListitemRecord({
     /// The account which is included on the list.

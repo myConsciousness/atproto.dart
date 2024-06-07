@@ -24,7 +24,7 @@ part 'list_rule.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#listrule
 @freezed
-final class ListRule with _$ListRule {
+class ListRule with _$ListRule {
   @JsonSerializable(includeIfNull: false)
   const factory ListRule({
     /// The unique namespace for this lex object.

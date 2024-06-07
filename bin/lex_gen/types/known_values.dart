@@ -96,7 +96,7 @@ final class LexGenKnownValues {
       ..writeln()
       ..writeln(_getUnionDartDoc(name))
       ..writeln('@freezed')
-      ..writeln('final class U$name with _\$U$name {')
+      ..writeln('class U$name with _\$U$name {')
       ..writeln('  const factory U$name.knownValue({')
       ..writeln('    required Known$name data,')
       ..writeln('  }) = U${name}KnownValue;')

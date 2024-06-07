@@ -23,7 +23,7 @@ part 'byte_slice.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#byteslice
 @freezed
-final class FacetByteSlice with _$FacetByteSlice {
+class FacetByteSlice with _$FacetByteSlice {
   @JsonSerializable(includeIfNull: false)
   const factory FacetByteSlice({
     /// The unique namespace for this lex object.

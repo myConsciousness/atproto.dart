@@ -22,7 +22,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#main
 @freezed
-final class Images with _$Images {
+class Images with _$Images {
   @JsonSerializable(includeIfNull: false)
   const factory Images({
     /// The unique namespace for this lex object.

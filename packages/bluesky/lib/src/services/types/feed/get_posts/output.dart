@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts#main
 @freezed
-final class GetPostsOutput with _$GetPostsOutput {
+class GetPostsOutput with _$GetPostsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostsOutput({
     required List<PostView> posts,

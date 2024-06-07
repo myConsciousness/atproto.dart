@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation#main
 @freezed
-final class SignPlcOperationOutput with _$SignPlcOperationOutput {
+class SignPlcOperationOutput with _$SignPlcOperationOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SignPlcOperationOutput({
     /// A signed DID PLC operation.

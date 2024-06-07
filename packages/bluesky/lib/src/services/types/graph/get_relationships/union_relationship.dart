@@ -20,7 +20,7 @@ import '../../graph/defs/relationship.dart';
 part 'union_relationship.freezed.dart';
 
 @freezed
-final class URelationship with _$URelationship {
+class URelationship with _$URelationship {
   const factory URelationship.relationship({
     required Relationship data,
   }) = URelationshipRelationship;

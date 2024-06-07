@@ -21,7 +21,7 @@ part 'feed_view_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#feedviewpref
 @freezed
-final class FeedViewPref with _$FeedViewPref {
+class FeedViewPref with _$FeedViewPref {
   @JsonSerializable(includeIfNull: false)
   const factory FeedViewPref({
     /// The unique namespace for this lex object.

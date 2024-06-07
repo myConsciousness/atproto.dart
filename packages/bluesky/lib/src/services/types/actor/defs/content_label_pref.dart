@@ -22,7 +22,7 @@ part 'content_label_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#contentlabelpref
 @freezed
-final class ContentLabelPref with _$ContentLabelPref {
+class ContentLabelPref with _$ContentLabelPref {
   @JsonSerializable(includeIfNull: false)
   const factory ContentLabelPref({
     /// The unique namespace for this lex object.

@@ -72,7 +72,7 @@ enum KnownVisibility {
 /// }
 /// ```
 @freezed
-final class UVisibility with _$UVisibility {
+class UVisibility with _$UVisibility {
   const factory UVisibility.knownValue({
     required KnownVisibility data,
   }) = UVisibilityKnownValue;

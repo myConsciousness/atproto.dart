@@ -25,7 +25,7 @@ part 'main.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#main
 @freezed
-final class Facet with _$Facet {
+class Facet with _$Facet {
   @JsonSerializable(includeIfNull: false)
   const factory Facet({
     /// The unique namespace for this lex object.

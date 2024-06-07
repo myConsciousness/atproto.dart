@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate#main
 @freezed
-final class RequestEmailUpdateOutput with _$RequestEmailUpdateOutput {
+class RequestEmailUpdateOutput with _$RequestEmailUpdateOutput {
   @JsonSerializable(includeIfNull: false)
   const factory RequestEmailUpdateOutput({
     required bool tokenRequired,

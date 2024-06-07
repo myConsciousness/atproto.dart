@@ -68,7 +68,7 @@ enum KnownMutedWordTarget {
 /// }
 /// ```
 @freezed
-final class UMutedWordTarget with _$UMutedWordTarget {
+class UMutedWordTarget with _$UMutedWordTarget {
   const factory UMutedWordTarget.knownValue({
     required KnownMutedWordTarget data,
   }) = UMutedWordTargetKnownValue;

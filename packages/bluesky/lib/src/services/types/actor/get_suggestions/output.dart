@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions#main
 @freezed
-final class GetSuggestionsOutput with _$GetSuggestionsOutput {
+class GetSuggestionsOutput with _$GetSuggestionsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestionsOutput({
     String? cursor,

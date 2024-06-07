@@ -22,7 +22,7 @@ part 'hidden_posts_pref.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#hiddenpostspref
 @freezed
-final class HiddenPostsPref with _$HiddenPostsPref {
+class HiddenPostsPref with _$HiddenPostsPref {
   @JsonSerializable(includeIfNull: false)
   const factory HiddenPostsPref({
     /// The unique namespace for this lex object.

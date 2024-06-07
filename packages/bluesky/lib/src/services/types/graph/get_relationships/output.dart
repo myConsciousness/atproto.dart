@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships#main
 @freezed
-final class GetRelationshipsOutput with _$GetRelationshipsOutput {
+class GetRelationshipsOutput with _$GetRelationshipsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetRelationshipsOutput({
     String? actor,

@@ -22,7 +22,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#main
 @freezed
-final class ThreadgateRecord with _$ThreadgateRecord {
+class ThreadgateRecord with _$ThreadgateRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ThreadgateRecord({
     /// Reference (AT-URI) to the post record.

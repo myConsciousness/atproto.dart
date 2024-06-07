@@ -19,7 +19,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like#main
 @freezed
-final class LikeRecord with _$LikeRecord {
+class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
     required StrongRef subject,

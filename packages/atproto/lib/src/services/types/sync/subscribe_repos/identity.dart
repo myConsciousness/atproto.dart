@@ -23,7 +23,7 @@ part 'identity.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#identity
 @freezed
-final class Identity with _$Identity {
+class Identity with _$Identity {
   @JsonSerializable(includeIfNull: false)
   const factory Identity({
     /// The unique namespace for this lex object.

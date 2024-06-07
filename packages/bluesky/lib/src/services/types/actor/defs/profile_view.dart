@@ -24,7 +24,7 @@ part 'profile_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#profileview
 @freezed
-final class ProfileView with _$ProfileView {
+class ProfileView with _$ProfileView {
   @JsonSerializable(includeIfNull: false)
   const factory ProfileView({
     /// The unique namespace for this lex object.

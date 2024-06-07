@@ -17,7 +17,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'union_label.freezed.dart';
 
 @freezed
-final class ULabel with _$ULabel {
+class ULabel with _$ULabel {
   const factory ULabel.selfLabels({
     required SelfLabels data,
   }) = ULabelSelfLabels;

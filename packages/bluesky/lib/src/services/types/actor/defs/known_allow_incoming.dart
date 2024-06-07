@@ -70,7 +70,7 @@ enum KnownAllowIncoming {
 /// }
 /// ```
 @freezed
-final class UAllowIncoming with _$UAllowIncoming {
+class UAllowIncoming with _$UAllowIncoming {
   const factory UAllowIncoming.knownValue({
     required KnownAllowIncoming data,
   }) = UAllowIncomingKnownValue;

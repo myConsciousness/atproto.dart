@@ -19,7 +19,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost#main
 @freezed
-final class RepostRecord with _$RepostRecord {
+class RepostRecord with _$RepostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
     required StrongRef subject,

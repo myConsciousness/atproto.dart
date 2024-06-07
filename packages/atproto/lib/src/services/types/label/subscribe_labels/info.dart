@@ -22,7 +22,7 @@ part 'info.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#info
 @freezed
-final class Info with _$Info {
+class Info with _$Info {
   @JsonSerializable(includeIfNull: false)
   const factory Info({
     /// The unique namespace for this lex object.

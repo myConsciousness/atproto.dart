@@ -70,7 +70,7 @@ enum KnownBlur {
 /// }
 /// ```
 @freezed
-final class UBlur with _$UBlur {
+class UBlur with _$UBlur {
   const factory UBlur.knownValue({
     required KnownBlur data,
   }) = UBlurKnownValue;

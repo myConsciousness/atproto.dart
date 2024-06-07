@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#main
 @freezed
-final class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
+class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeFeedGeneratorOutput({
     required String did,

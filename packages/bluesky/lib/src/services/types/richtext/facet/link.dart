@@ -23,7 +23,7 @@ part 'link.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/richtext/facet#link
 @freezed
-final class FacetLink with _$FacetLink {
+class FacetLink with _$FacetLink {
   @JsonSerializable(includeIfNull: false)
   const factory FacetLink({
     /// The unique namespace for this lex object.

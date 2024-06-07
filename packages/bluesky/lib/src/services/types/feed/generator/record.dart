@@ -23,7 +23,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/generator#main
 @freezed
-final class GeneratorRecord with _$GeneratorRecord {
+class GeneratorRecord with _$GeneratorRecord {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorRecord({
     required String did,

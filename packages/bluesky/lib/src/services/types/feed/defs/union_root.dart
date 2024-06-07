@@ -21,7 +21,7 @@ import 'post_view.dart';
 part 'union_root.freezed.dart';
 
 @freezed
-final class URoot with _$URoot {
+class URoot with _$URoot {
   const factory URoot.postView({
     required PostView data,
   }) = URootPostView;

@@ -20,7 +20,7 @@ import '../../labeler/defs/labeler_view_detailed.dart';
 part 'union_view.freezed.dart';
 
 @freezed
-final class UView with _$UView {
+class UView with _$UView {
   const factory UView.labelerView({
     required LabelerView data,
   }) = UViewLabelerView;

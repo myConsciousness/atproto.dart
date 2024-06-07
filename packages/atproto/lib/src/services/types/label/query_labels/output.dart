@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#main
 @freezed
-final class QueryLabelsOutput with _$QueryLabelsOutput {
+class QueryLabelsOutput with _$QueryLabelsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory QueryLabelsOutput({
     String? cursor,

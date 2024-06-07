@@ -24,7 +24,7 @@ part 'commit.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#commit
 @freezed
-final class Commit with _$Commit {
+class Commit with _$Commit {
   @JsonSerializable(includeIfNull: false)
   const factory Commit({
     /// The unique namespace for this lex object.

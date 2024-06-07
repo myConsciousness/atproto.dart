@@ -23,7 +23,7 @@ part 'handle.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#handle
 @freezed
-final class Handle with _$Handle {
+class Handle with _$Handle {
   @JsonSerializable(includeIfNull: false)
   const factory Handle({
     /// The unique namespace for this lex object.

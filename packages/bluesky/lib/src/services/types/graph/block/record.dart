@@ -18,7 +18,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block#main
 @freezed
-final class BlockRecord with _$BlockRecord {
+class BlockRecord with _$BlockRecord {
   @JsonSerializable(includeIfNull: false)
   const factory BlockRecord({
     /// DID of the account to be blocked.

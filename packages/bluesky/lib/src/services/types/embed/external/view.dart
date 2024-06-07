@@ -22,7 +22,7 @@ part 'view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#view
 @freezed
-final class ExternalView with _$ExternalView {
+class ExternalView with _$ExternalView {
   @JsonSerializable(includeIfNull: false)
   const factory ExternalView({
     /// The unique namespace for this lex object.

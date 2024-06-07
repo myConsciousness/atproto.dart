@@ -19,7 +19,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord#main
 @freezed
-final class CreateRecordOutput with _$CreateRecordOutput {
+class CreateRecordOutput with _$CreateRecordOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateRecordOutput({
     @AtUriConverter() required AtUri uri,

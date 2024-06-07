@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences#main
 @freezed
-final class GetPreferencesOutput with _$GetPreferencesOutput {
+class GetPreferencesOutput with _$GetPreferencesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPreferencesOutput({
     @UPreferenceConverter() required List<UPreference> preferences,

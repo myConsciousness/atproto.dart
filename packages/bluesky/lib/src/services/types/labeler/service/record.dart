@@ -22,7 +22,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service#main
 @freezed
-final class ServiceRecord with _$ServiceRecord {
+class ServiceRecord with _$ServiceRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ServiceRecord({
     required LabelerPolicies policies,

@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels#main
 @freezed
-final class FetchLabelsOutput with _$FetchLabelsOutput {
+class FetchLabelsOutput with _$FetchLabelsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory FetchLabelsOutput({
     required List<Label> labels,

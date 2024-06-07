@@ -22,7 +22,7 @@ part 'record_blob.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#recordblob
 @freezed
-final class RecordBlob with _$RecordBlob {
+class RecordBlob with _$RecordBlob {
   @JsonSerializable(includeIfNull: false)
   const factory RecordBlob({
     /// The unique namespace for this lex object.

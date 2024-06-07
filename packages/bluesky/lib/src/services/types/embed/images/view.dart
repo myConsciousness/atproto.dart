@@ -22,7 +22,7 @@ part 'view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/images#view
 @freezed
-final class ImagesView with _$ImagesView {
+class ImagesView with _$ImagesView {
   @JsonSerializable(includeIfNull: false)
   const factory ImagesView({
     /// The unique namespace for this lex object.

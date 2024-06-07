@@ -23,7 +23,7 @@ part 'mention_rule.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#mentionrule
 @freezed
-final class MentionRule with _$MentionRule {
+class MentionRule with _$MentionRule {
   @JsonSerializable(includeIfNull: false)
   const factory MentionRule({
     /// The unique namespace for this lex object.

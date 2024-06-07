@@ -22,7 +22,7 @@ part 'feed.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator#feed
 @freezed
-final class Feed with _$Feed {
+class Feed with _$Feed {
   @JsonSerializable(includeIfNull: false)
   const factory Feed({
     /// The unique namespace for this lex object.

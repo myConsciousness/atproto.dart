@@ -21,7 +21,7 @@ import 'tag.dart';
 part 'union_facet_feature.freezed.dart';
 
 @freezed
-final class UFacetFeature with _$UFacetFeature {
+class UFacetFeature with _$UFacetFeature {
   const factory UFacetFeature.facetMention({
     required FacetMention data,
   }) = UFacetFeatureFacetMention;

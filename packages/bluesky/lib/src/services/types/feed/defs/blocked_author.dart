@@ -22,7 +22,7 @@ part 'blocked_author.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#blockedauthor
 @freezed
-final class BlockedAuthor with _$BlockedAuthor {
+class BlockedAuthor with _$BlockedAuthor {
   @JsonSerializable(includeIfNull: false)
   const factory BlockedAuthor({
     /// The unique namespace for this lex object.

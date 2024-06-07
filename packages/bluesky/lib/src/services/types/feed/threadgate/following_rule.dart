@@ -23,7 +23,7 @@ part 'following_rule.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/threadgate#followingrule
 @freezed
-final class FollowingRule with _$FollowingRule {
+class FollowingRule with _$FollowingRule {
   @JsonSerializable(includeIfNull: false)
   const factory FollowingRule({
     /// The unique namespace for this lex object.

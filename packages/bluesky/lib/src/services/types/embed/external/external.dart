@@ -22,7 +22,7 @@ part 'external.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/external#external
 @freezed
-final class ExternalExternal with _$ExternalExternal {
+class ExternalExternal with _$ExternalExternal {
   @JsonSerializable(includeIfNull: false)
   const factory ExternalExternal({
     /// The unique namespace for this lex object.

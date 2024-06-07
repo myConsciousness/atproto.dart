@@ -24,7 +24,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list#main
 @freezed
-final class ListRecord with _$ListRecord {
+class ListRecord with _$ListRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecord({
     /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)

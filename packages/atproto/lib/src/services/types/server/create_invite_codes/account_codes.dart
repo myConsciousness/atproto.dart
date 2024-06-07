@@ -21,7 +21,7 @@ part 'account_codes.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createInviteCodes#accountcodes
 @freezed
-final class AccountCodes with _$AccountCodes {
+class AccountCodes with _$AccountCodes {
   @JsonSerializable(includeIfNull: false)
   const factory AccountCodes({
     /// The unique namespace for this lex object.

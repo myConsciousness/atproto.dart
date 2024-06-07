@@ -23,7 +23,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/recordWithMedia#main
 @freezed
-final class RecordWithMedia with _$RecordWithMedia {
+class RecordWithMedia with _$RecordWithMedia {
   @JsonSerializable(includeIfNull: false)
   const factory RecordWithMedia({
     /// The unique namespace for this lex object.

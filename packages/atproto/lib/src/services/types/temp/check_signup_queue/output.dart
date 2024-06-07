@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue#main
 @freezed
-final class CheckSignupQueueOutput with _$CheckSignupQueueOutput {
+class CheckSignupQueueOutput with _$CheckSignupQueueOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CheckSignupQueueOutput({
     required bool activated,

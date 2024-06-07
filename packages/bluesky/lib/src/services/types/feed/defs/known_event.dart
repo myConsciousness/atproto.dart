@@ -111,7 +111,7 @@ enum KnownEvent {
 /// }
 /// ```
 @freezed
-final class UEvent with _$UEvent {
+class UEvent with _$UEvent {
   const factory UEvent.knownValue({
     required KnownEvent data,
   }) = UEventKnownValue;

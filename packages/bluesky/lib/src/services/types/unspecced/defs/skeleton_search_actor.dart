@@ -21,7 +21,7 @@ part 'skeleton_search_actor.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/defs#skeletonsearchactor
 @freezed
-final class SkeletonSearchActor with _$SkeletonSearchActor {
+class SkeletonSearchActor with _$SkeletonSearchActor {
   @JsonSerializable(includeIfNull: false)
   const factory SkeletonSearchActor({
     /// The unique namespace for this lex object.

@@ -24,7 +24,7 @@ part 'account.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos#account
 @freezed
-final class Account with _$Account {
+class Account with _$Account {
   @JsonSerializable(includeIfNull: false)
   const factory Account({
     /// The unique namespace for this lex object.

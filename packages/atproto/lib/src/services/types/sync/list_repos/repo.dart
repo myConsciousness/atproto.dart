@@ -22,7 +22,7 @@ part 'repo.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/sync/listRepos#repo
 @freezed
-final class Repo with _$Repo {
+class Repo with _$Repo {
   @JsonSerializable(includeIfNull: false)
   const factory Repo({
     /// The unique namespace for this lex object.

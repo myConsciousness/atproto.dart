@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPostThread#main
 @freezed
-final class GetPostThreadOutput with _$GetPostThreadOutput {
+class GetPostThreadOutput with _$GetPostThreadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostThreadOutput({
     @UThreadConverter() required UThread thread,

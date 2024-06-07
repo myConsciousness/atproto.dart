@@ -22,7 +22,7 @@ part 'reason_repost.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#reasonrepost
 @freezed
-final class ReasonRepost with _$ReasonRepost {
+class ReasonRepost with _$ReasonRepost {
   @JsonSerializable(includeIfNull: false)
   const factory ReasonRepost({
     /// The unique namespace for this lex object.

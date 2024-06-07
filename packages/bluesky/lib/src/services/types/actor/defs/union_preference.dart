@@ -28,7 +28,7 @@ import 'thread_view_pref.dart';
 part 'union_preference.freezed.dart';
 
 @freezed
-final class UPreference with _$UPreference {
+class UPreference with _$UPreference {
   const factory UPreference.adultContentPref({
     required AdultContentPref data,
   }) = UPreferenceAdultContentPref;

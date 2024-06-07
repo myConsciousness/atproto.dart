@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport#main
 @freezed
-final class CreateReportOutput with _$CreateReportOutput {
+class CreateReportOutput with _$CreateReportOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateReportOutput({
     required int id,

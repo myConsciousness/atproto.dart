@@ -24,7 +24,7 @@ part 'entity.g.dart';
 ///
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post#entity
 @freezed
-final class Entity with _$Entity {
+class Entity with _$Entity {
   @JsonSerializable(includeIfNull: false)
   const factory Entity({
     /// The unique namespace for this lex object.

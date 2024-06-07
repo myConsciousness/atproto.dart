@@ -22,7 +22,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/embed/record#main
 @freezed
-final class Record with _$Record {
+class Record with _$Record {
   @JsonSerializable(includeIfNull: false)
   const factory Record({
     /// The unique namespace for this lex object.

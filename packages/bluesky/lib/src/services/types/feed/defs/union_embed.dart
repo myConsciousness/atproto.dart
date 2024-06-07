@@ -22,7 +22,7 @@ import '../../embed/record_with_media/view.dart';
 part 'union_embed.freezed.dart';
 
 @freezed
-final class UEmbed with _$UEmbed {
+class UEmbed with _$UEmbed {
   const factory UEmbed.imagesView({
     required ImagesView data,
   }) = UEmbedImagesView;

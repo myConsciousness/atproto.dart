@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession#main
 @freezed
-final class RefreshSessionOutput with _$RefreshSessionOutput {
+class RefreshSessionOutput with _$RefreshSessionOutput {
   @JsonSerializable(includeIfNull: false)
   const factory RefreshSessionOutput({
     required String accessJwt,

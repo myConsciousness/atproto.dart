@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead#main
 @freezed
-final class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
+class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsTypeaheadOutput({
     required List<ProfileViewBasic> actors,

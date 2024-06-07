@@ -28,7 +28,7 @@ part 'post_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#postview
 @freezed
-final class PostView with _$PostView {
+class PostView with _$PostView {
   @JsonSerializable(includeIfNull: false)
   const factory PostView({
     /// The unique namespace for this lex object.

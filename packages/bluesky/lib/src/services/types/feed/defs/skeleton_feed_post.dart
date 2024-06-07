@@ -23,7 +23,7 @@ part 'skeleton_feed_post.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#skeletonfeedpost
 @freezed
-final class SkeletonFeedPost with _$SkeletonFeedPost {
+class SkeletonFeedPost with _$SkeletonFeedPost {
   @JsonSerializable(includeIfNull: false)
   const factory SkeletonFeedPost({
     /// The unique namespace for this lex object.

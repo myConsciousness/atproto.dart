@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos#main
 @freezed
-final class GetAccountInfosOutput with _$GetAccountInfosOutput {
+class GetAccountInfosOutput with _$GetAccountInfosOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetAccountInfosOutput({
     required List<AccountView> infos,

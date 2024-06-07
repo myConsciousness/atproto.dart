@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAccount#main
 @freezed
-final class CreateAccountOutput with _$CreateAccountOutput {
+class CreateAccountOutput with _$CreateAccountOutput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateAccountOutput({
     required String accessJwt,

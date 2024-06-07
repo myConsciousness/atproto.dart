@@ -22,7 +22,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile#main
 @freezed
-final class ProfileRecord with _$ProfileRecord {
+class ProfileRecord with _$ProfileRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ProfileRecord({
     String? displayName,

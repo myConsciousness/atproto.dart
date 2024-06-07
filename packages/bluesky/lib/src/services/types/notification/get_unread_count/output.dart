@@ -18,7 +18,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount#main
 @freezed
-final class GetUnreadCountOutput with _$GetUnreadCountOutput {
+class GetUnreadCountOutput with _$GetUnreadCountOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetUnreadCountOutput({
     required int count,

@@ -21,7 +21,7 @@ part 'labeler_pref_item.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#labelerprefitem
 @freezed
-final class LabelerPrefItem with _$LabelerPrefItem {
+class LabelerPrefItem with _$LabelerPrefItem {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerPrefItem({
     /// The unique namespace for this lex object.

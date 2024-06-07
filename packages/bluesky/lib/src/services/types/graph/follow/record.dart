@@ -18,7 +18,7 @@ part 'record.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow#main
 @freezed
-final class FollowRecord with _$FollowRecord {
+class FollowRecord with _$FollowRecord {
   @JsonSerializable(includeIfNull: false)
   const factory FollowRecord({
     required String subject,

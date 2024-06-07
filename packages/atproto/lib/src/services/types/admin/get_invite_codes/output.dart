@@ -21,7 +21,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes#main
 @freezed
-final class GetInviteCodesOutput with _$GetInviteCodesOutput {
+class GetInviteCodesOutput with _$GetInviteCodesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetInviteCodesOutput({
     String? cursor,

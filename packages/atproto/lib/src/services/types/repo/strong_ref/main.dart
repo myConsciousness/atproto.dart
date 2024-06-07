@@ -22,7 +22,7 @@ part 'main.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/com/atproto/repo/strongRef#main
 @freezed
-final class StrongRef with _$StrongRef {
+class StrongRef with _$StrongRef {
   @JsonSerializable(includeIfNull: false)
   const factory StrongRef({
     /// The unique namespace for this lex object.

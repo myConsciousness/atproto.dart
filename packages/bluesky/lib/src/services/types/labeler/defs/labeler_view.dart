@@ -25,7 +25,7 @@ part 'labeler_view.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/defs#labelerview
 @freezed
-final class LabelerView with _$LabelerView {
+class LabelerView with _$LabelerView {
   @JsonSerializable(includeIfNull: false)
   const factory LabelerView({
     /// The unique namespace for this lex object.

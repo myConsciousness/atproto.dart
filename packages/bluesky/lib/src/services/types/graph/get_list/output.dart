@@ -22,7 +22,7 @@ part 'output.g.dart';
 
 /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList#main
 @freezed
-final class GetListOutput with _$GetListOutput {
+class GetListOutput with _$GetListOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetListOutput({
     String? cursor,
