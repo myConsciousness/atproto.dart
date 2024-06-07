@@ -18,12 +18,10 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
               'post', (v) => const AtUriConverter().fromJson(v as String)),
           allow: $checkedConvert(
               'allow',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => const UAllowConverter()
-                          .fromJson(e as Map<String, dynamic>))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const UAllowConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -32,9 +30,19 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$ThreadgateRecordImplToJson(
-        _$ThreadgateRecordImpl instance) =>
-    <String, dynamic>{
-      'post': const AtUriConverter().toJson(instance.post),
-      'allow': instance.allow.map(const UAllowConverter().toJson).toList(),
-      'createdAt': instance.createdAt.toIso8601String(),
-    };
+    _$ThreadgateRecordImpl instance) {
+  final val = <String, dynamic>{
+    'post': const AtUriConverter().toJson(instance.post),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull(
+      'allow', instance.allow?.map(const UAllowConverter().toJson).toList());
+  val['createdAt'] = instance.createdAt.toIso8601String();
+  return val;
+}

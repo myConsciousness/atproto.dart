@@ -39,7 +39,7 @@ final class ListViewBasic with _$ListViewBasic {
     required String name,
     @UListPurposeConverter() required UListPurpose purpose,
     String? avatar,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
     @Default(ListViewerState()) ListViewerState viewer,
     DateTime? indexedAt,
   }) = _ListViewBasic;

@@ -35,7 +35,7 @@ final class ThreadViewPost with _$ThreadViewPost {
     String $type,
     required PostView post,
     @UParentConverter() UParent? parent,
-    @UReplyConverter() @Default([]) List<UReply> replies,
+    @UReplyConverter() List<UReply>? replies,
   }) = _ThreadViewPost;
 
   factory ThreadViewPost.fromJson(Map<String, Object?> json) =>

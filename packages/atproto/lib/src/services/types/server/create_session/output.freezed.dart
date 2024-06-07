@@ -24,7 +24,7 @@ mixin _$CreateSessionOutput {
   String get refreshJwt => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
   bool get emailConfirmed => throw _privateConstructorUsedError;
   bool get emailAuthFactor => throw _privateConstructorUsedError;
@@ -51,7 +51,7 @@ abstract class $CreateSessionOutputCopyWith<$Res> {
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       String? email,
       bool emailConfirmed,
       bool emailAuthFactor,
@@ -78,7 +78,7 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? email = freezed,
     Object? emailConfirmed = null,
     Object? emailAuthFactor = null,
@@ -102,10 +102,10 @@ class _$CreateSessionOutputCopyWithImpl<$Res, $Val extends CreateSessionOutput>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -155,7 +155,7 @@ abstract class _$$CreateSessionOutputImplCopyWith<$Res>
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       String? email,
       bool emailConfirmed,
       bool emailAuthFactor,
@@ -181,7 +181,7 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? email = freezed,
     Object? emailConfirmed = null,
     Object? emailAuthFactor = null,
@@ -205,10 +205,10 @@ class __$$CreateSessionOutputImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
@@ -242,7 +242,7 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
       required this.refreshJwt,
       required this.handle,
       required this.did,
-      final Map<String, dynamic> didDoc = const {},
+      final Map<String, dynamic>? didDoc,
       this.email,
       this.emailConfirmed = false,
       this.emailAuthFactor = false,
@@ -261,13 +261,14 @@ class _$CreateSessionOutputImpl implements _CreateSessionOutput {
   final String handle;
   @override
   final String did;
-  final Map<String, dynamic> _didDoc;
+  final Map<String, dynamic>? _didDoc;
   @override
-  @JsonKey()
-  Map<String, dynamic> get didDoc {
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
     if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_didDoc);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -349,7 +350,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
       required final String refreshJwt,
       required final String handle,
       required final String did,
-      final Map<String, dynamic> didDoc,
+      final Map<String, dynamic>? didDoc,
       final String? email,
       final bool emailConfirmed,
       final bool emailAuthFactor,
@@ -368,7 +369,7 @@ abstract class _CreateSessionOutput implements CreateSessionOutput {
   @override
   String get did;
   @override
-  Map<String, dynamic> get didDoc;
+  Map<String, dynamic>? get didDoc;
   @override
   String? get email;
   @override

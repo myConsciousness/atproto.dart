@@ -40,11 +40,11 @@ final class RecordViewRecord with _$RecordViewRecord {
 
     /// The record data itself.
     required Map<String, dynamic> value,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,
-    @URecordEmbedConverter() @Default([]) List<URecordEmbed> embeds,
+    @URecordEmbedConverter() List<URecordEmbed>? embeds,
     required DateTime indexedAt,
   }) = _RecordViewRecord;
 

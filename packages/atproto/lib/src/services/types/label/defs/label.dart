@@ -56,7 +56,7 @@ final class Label with _$Label {
     DateTime? exp,
 
     /// Signature of dag-cbor encoded label.
-    @Default([]) List<int> sig,
+    List<int>? sig,
   }) = _Label;
 
   factory Label.fromJson(Map<String, Object?> json) => _$LabelFromJson(json);

@@ -39,7 +39,7 @@ final class ProfileView with _$ProfileView {
     @Default(ProfileAssociated()) ProfileAssociated associated,
     DateTime? indexedAt,
     @Default(ViewerState()) ViewerState viewer,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
   }) = _ProfileView;
 
   factory ProfileView.fromJson(Map<String, Object?> json) =>

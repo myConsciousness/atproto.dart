@@ -32,21 +32,21 @@ final class PostRecord with _$PostRecord {
     required String text,
 
     /// DEPRECATED: replaced by app.bsky.richtext.facet.
-    @Default([]) List<Entity> entities,
+    List<Entity>? entities,
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
-    @Default([]) List<Facet> facets,
+    List<Facet>? facets,
     ReplyRef? reply,
     @UEmbedConverter() UEmbed? embed,
 
     /// Indicates human language of post primary text content.
-    @Default([]) List<String> langs,
+    List<String>? langs,
 
     /// Self-label values for this post. Effectively content warnings.
     @ULabelConverter() ULabel? labels,
 
     /// Additional hashtags, in addition to any included in post text and facets.
-    @Default([]) List<String> tags,
+    List<String>? tags,
 
     /// Client-declared timestamp when this post was originally created.
     required DateTime createdAt,

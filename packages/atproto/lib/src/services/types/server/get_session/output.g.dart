@@ -23,11 +23,9 @@ _$GetSessionOutputImpl _$$GetSessionOutputImplFromJson(Map json) =>
               $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
           didDoc: $checkedConvert(
               'didDoc',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
           active: $checkedConvert('active', (v) => v as bool? ?? false),
           status: $checkedConvert(
               'status',
@@ -54,7 +52,7 @@ Map<String, dynamic> _$$GetSessionOutputImplToJson(
   writeNotNull('email', instance.email);
   val['emailConfirmed'] = instance.emailConfirmed;
   val['emailAuthFactor'] = instance.emailAuthFactor;
-  val['didDoc'] = instance.didDoc;
+  writeNotNull('didDoc', instance.didDoc);
   val['active'] = instance.active;
   writeNotNull(
       'status',

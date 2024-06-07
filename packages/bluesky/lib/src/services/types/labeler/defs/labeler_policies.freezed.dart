@@ -31,7 +31,7 @@ mixin _$LabelerPolicies {
   List<ULabelValue> get labelValues => throw _privateConstructorUsedError;
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
-  List<LabelValueDefinition> get labelValueDefinitions =>
+  List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -49,7 +49,7 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
-      List<LabelValueDefinition> labelValueDefinitions});
+      List<LabelValueDefinition>? labelValueDefinitions});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
   $Res call({
     Object? $type = null,
     Object? labelValues = null,
-    Object? labelValueDefinitions = null,
+    Object? labelValueDefinitions = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -78,10 +78,10 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
           ? _value.labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
               as List<ULabelValue>,
-      labelValueDefinitions: null == labelValueDefinitions
+      labelValueDefinitions: freezed == labelValueDefinitions
           ? _value.labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
-              as List<LabelValueDefinition>,
+              as List<LabelValueDefinition>?,
     ) as $Val);
   }
 }
@@ -97,7 +97,7 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
-      List<LabelValueDefinition> labelValueDefinitions});
+      List<LabelValueDefinition>? labelValueDefinitions});
 }
 
 /// @nodoc
@@ -113,7 +113,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? labelValues = null,
-    Object? labelValueDefinitions = null,
+    Object? labelValueDefinitions = freezed,
   }) {
     return _then(_$LabelerPoliciesImpl(
       $type: null == $type
@@ -124,10 +124,10 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
           ? _value._labelValues
           : labelValues // ignore: cast_nullable_to_non_nullable
               as List<ULabelValue>,
-      labelValueDefinitions: null == labelValueDefinitions
+      labelValueDefinitions: freezed == labelValueDefinitions
           ? _value._labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
-              as List<LabelValueDefinition>,
+              as List<LabelValueDefinition>?,
     ));
   }
 }
@@ -139,7 +139,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerPolicies,
       @ULabelValueConverter() required final List<ULabelValue> labelValues,
-      final List<LabelValueDefinition> labelValueDefinitions = const []})
+      final List<LabelValueDefinition>? labelValueDefinitions})
       : _labelValues = labelValues,
         _labelValueDefinitions = labelValueDefinitions;
 
@@ -166,16 +166,17 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   }
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
-  final List<LabelValueDefinition> _labelValueDefinitions;
+  final List<LabelValueDefinition>? _labelValueDefinitions;
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   @override
-  @JsonKey()
-  List<LabelValueDefinition> get labelValueDefinitions {
+  List<LabelValueDefinition>? get labelValueDefinitions {
+    final value = _labelValueDefinitions;
+    if (value == null) return null;
     if (_labelValueDefinitions is EqualUnmodifiableListView)
       return _labelValueDefinitions;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labelValueDefinitions);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -222,7 +223,7 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
           {@JsonKey(name: r'$type') final String $type,
           @ULabelValueConverter() required final List<ULabelValue> labelValues,
-          final List<LabelValueDefinition> labelValueDefinitions}) =
+          final List<LabelValueDefinition>? labelValueDefinitions}) =
       _$LabelerPoliciesImpl;
 
   factory _LabelerPolicies.fromJson(Map<String, dynamic> json) =
@@ -243,7 +244,7 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   @override
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
-  List<LabelValueDefinition> get labelValueDefinitions;
+  List<LabelValueDefinition>? get labelValueDefinitions;
   @override
   @JsonKey(ignore: true)
   _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>

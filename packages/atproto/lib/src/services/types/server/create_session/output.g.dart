@@ -20,11 +20,9 @@ _$CreateSessionOutputImpl _$$CreateSessionOutputImplFromJson(Map json) =>
           did: $checkedConvert('did', (v) => v as String),
           didDoc: $checkedConvert(
               'didDoc',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
           email: $checkedConvert('email', (v) => v as String?),
           emailConfirmed:
               $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
@@ -47,7 +45,6 @@ Map<String, dynamic> _$$CreateSessionOutputImplToJson(
     'refreshJwt': instance.refreshJwt,
     'handle': instance.handle,
     'did': instance.did,
-    'didDoc': instance.didDoc,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -56,6 +53,7 @@ Map<String, dynamic> _$$CreateSessionOutputImplToJson(
     }
   }
 
+  writeNotNull('didDoc', instance.didDoc);
   writeNotNull('email', instance.email);
   val['emailConfirmed'] = instance.emailConfirmed;
   val['emailAuthFactor'] = instance.emailAuthFactor;

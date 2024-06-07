@@ -51,7 +51,7 @@ mixin _$Label {
   DateTime? get exp => throw _privateConstructorUsedError;
 
   /// Signature of dag-cbor encoded label.
-  List<int> get sig => throw _privateConstructorUsedError;
+  List<int>? get sig => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -73,7 +73,7 @@ abstract class $LabelCopyWith<$Res> {
       bool neg,
       DateTime cts,
       DateTime? exp,
-      List<int> sig});
+      List<int>? sig});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
     Object? neg = null,
     Object? cts = null,
     Object? exp = freezed,
-    Object? sig = null,
+    Object? sig = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -137,10 +137,10 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
           ? _value.exp
           : exp // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      sig: null == sig
+      sig: freezed == sig
           ? _value.sig
           : sig // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int>?,
     ) as $Val);
   }
 }
@@ -162,7 +162,7 @@ abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
       bool neg,
       DateTime cts,
       DateTime? exp,
-      List<int> sig});
+      List<int>? sig});
 }
 
 /// @nodoc
@@ -185,7 +185,7 @@ class __$$LabelImplCopyWithImpl<$Res>
     Object? neg = null,
     Object? cts = null,
     Object? exp = freezed,
-    Object? sig = null,
+    Object? sig = freezed,
   }) {
     return _then(_$LabelImpl(
       $type: null == $type
@@ -224,10 +224,10 @@ class __$$LabelImplCopyWithImpl<$Res>
           ? _value.exp
           : exp // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      sig: null == sig
+      sig: freezed == sig
           ? _value._sig
           : sig // ignore: cast_nullable_to_non_nullable
-              as List<int>,
+              as List<int>?,
     ));
   }
 }
@@ -246,7 +246,7 @@ class _$LabelImpl implements _Label {
       this.neg = false,
       required this.cts,
       this.exp,
-      final List<int> sig = const []})
+      final List<int>? sig})
       : _sig = sig;
 
   factory _$LabelImpl.fromJson(Map<String, dynamic> json) =>
@@ -294,15 +294,16 @@ class _$LabelImpl implements _Label {
   final DateTime? exp;
 
   /// Signature of dag-cbor encoded label.
-  final List<int> _sig;
+  final List<int>? _sig;
 
   /// Signature of dag-cbor encoded label.
   @override
-  @JsonKey()
-  List<int> get sig {
+  List<int>? get sig {
+    final value = _sig;
+    if (value == null) return null;
     if (_sig is EqualUnmodifiableListView) return _sig;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_sig);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -357,7 +358,7 @@ abstract class _Label implements Label {
       final bool neg,
       required final DateTime cts,
       final DateTime? exp,
-      final List<int> sig}) = _$LabelImpl;
+      final List<int>? sig}) = _$LabelImpl;
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
 
@@ -403,7 +404,7 @@ abstract class _Label implements Label {
   @override
 
   /// Signature of dag-cbor encoded label.
-  List<int> get sig;
+  List<int>? get sig;
   @override
   @JsonKey(ignore: true)
   _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>

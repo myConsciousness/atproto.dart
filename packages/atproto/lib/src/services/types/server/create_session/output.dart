@@ -28,7 +28,7 @@ final class CreateSessionOutput with _$CreateSessionOutput {
     required String refreshJwt,
     required String handle,
     required String did,
-    @Default({}) Map<String, dynamic> didDoc,
+    Map<String, dynamic>? didDoc,
     String? email,
     @Default(false) bool emailConfirmed,
     @Default(false) bool emailAuthFactor,

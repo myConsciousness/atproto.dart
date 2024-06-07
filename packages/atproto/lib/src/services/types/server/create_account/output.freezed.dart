@@ -28,7 +28,7 @@ mixin _$CreateAccountOutput {
   String get did => throw _privateConstructorUsedError;
 
   /// Complete DID document.
-  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -47,7 +47,7 @@ abstract class $CreateAccountOutputCopyWith<$Res> {
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc});
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -67,7 +67,7 @@ class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_value.copyWith(
       accessJwt: null == accessJwt
@@ -86,10 +86,10 @@ class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -107,7 +107,7 @@ abstract class _$$CreateAccountOutputImplCopyWith<$Res>
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc});
+      Map<String, dynamic>? didDoc});
 }
 
 /// @nodoc
@@ -125,7 +125,7 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
   }) {
     return _then(_$CreateAccountOutputImpl(
       accessJwt: null == accessJwt
@@ -144,10 +144,10 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -161,7 +161,7 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
       required this.refreshJwt,
       required this.handle,
       required this.did,
-      final Map<String, dynamic> didDoc = const {}})
+      final Map<String, dynamic>? didDoc})
       : _didDoc = didDoc;
 
   factory _$CreateAccountOutputImpl.fromJson(Map<String, dynamic> json) =>
@@ -179,15 +179,16 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
   final String did;
 
   /// Complete DID document.
-  final Map<String, dynamic> _didDoc;
+  final Map<String, dynamic>? _didDoc;
 
   /// Complete DID document.
   @override
-  @JsonKey()
-  Map<String, dynamic> get didDoc {
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
     if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_didDoc);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -235,7 +236,7 @@ abstract class _CreateAccountOutput implements CreateAccountOutput {
       required final String refreshJwt,
       required final String handle,
       required final String did,
-      final Map<String, dynamic> didDoc}) = _$CreateAccountOutputImpl;
+      final Map<String, dynamic>? didDoc}) = _$CreateAccountOutputImpl;
 
   factory _CreateAccountOutput.fromJson(Map<String, dynamic> json) =
       _$CreateAccountOutputImpl.fromJson;
@@ -253,7 +254,7 @@ abstract class _CreateAccountOutput implements CreateAccountOutput {
   @override
 
   /// Complete DID document.
-  Map<String, dynamic> get didDoc;
+  Map<String, dynamic>? get didDoc;
   @override
   @JsonKey(ignore: true)
   _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>

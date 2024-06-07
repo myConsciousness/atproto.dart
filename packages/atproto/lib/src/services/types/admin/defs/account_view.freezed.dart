@@ -28,11 +28,11 @@ mixin _$AccountView {
   String get did => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  List<Map<String, dynamic>> get relatedRecords =>
+  List<Map<String, dynamic>>? get relatedRecords =>
       throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   InviteCode? get invitedBy => throw _privateConstructorUsedError;
-  List<InviteCode> get invites => throw _privateConstructorUsedError;
+  List<InviteCode>? get invites => throw _privateConstructorUsedError;
   bool get invitesDisabled => throw _privateConstructorUsedError;
   DateTime? get emailConfirmedAt => throw _privateConstructorUsedError;
   String? get inviteNote => throw _privateConstructorUsedError;
@@ -55,10 +55,10 @@ abstract class $AccountViewCopyWith<$Res> {
       String did,
       String handle,
       String? email,
-      List<Map<String, dynamic>> relatedRecords,
+      List<Map<String, dynamic>>? relatedRecords,
       DateTime indexedAt,
       InviteCode? invitedBy,
-      List<InviteCode> invites,
+      List<InviteCode>? invites,
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
@@ -84,10 +84,10 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
-    Object? relatedRecords = null,
+    Object? relatedRecords = freezed,
     Object? indexedAt = null,
     Object? invitedBy = freezed,
-    Object? invites = null,
+    Object? invites = freezed,
     Object? invitesDisabled = null,
     Object? emailConfirmedAt = freezed,
     Object? inviteNote = freezed,
@@ -110,10 +110,10 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      relatedRecords: null == relatedRecords
+      relatedRecords: freezed == relatedRecords
           ? _value.relatedRecords
           : relatedRecords // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
+              as List<Map<String, dynamic>>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -122,10 +122,10 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
           ? _value.invitedBy
           : invitedBy // ignore: cast_nullable_to_non_nullable
               as InviteCode?,
-      invites: null == invites
+      invites: freezed == invites
           ? _value.invites
           : invites // ignore: cast_nullable_to_non_nullable
-              as List<InviteCode>,
+              as List<InviteCode>?,
       invitesDisabled: null == invitesDisabled
           ? _value.invitesDisabled
           : invitesDisabled // ignore: cast_nullable_to_non_nullable
@@ -171,10 +171,10 @@ abstract class _$$AccountViewImplCopyWith<$Res>
       String did,
       String handle,
       String? email,
-      List<Map<String, dynamic>> relatedRecords,
+      List<Map<String, dynamic>>? relatedRecords,
       DateTime indexedAt,
       InviteCode? invitedBy,
-      List<InviteCode> invites,
+      List<InviteCode>? invites,
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
@@ -199,10 +199,10 @@ class __$$AccountViewImplCopyWithImpl<$Res>
     Object? did = null,
     Object? handle = null,
     Object? email = freezed,
-    Object? relatedRecords = null,
+    Object? relatedRecords = freezed,
     Object? indexedAt = null,
     Object? invitedBy = freezed,
-    Object? invites = null,
+    Object? invites = freezed,
     Object? invitesDisabled = null,
     Object? emailConfirmedAt = freezed,
     Object? inviteNote = freezed,
@@ -225,10 +225,10 @@ class __$$AccountViewImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      relatedRecords: null == relatedRecords
+      relatedRecords: freezed == relatedRecords
           ? _value._relatedRecords
           : relatedRecords // ignore: cast_nullable_to_non_nullable
-              as List<Map<String, dynamic>>,
+              as List<Map<String, dynamic>>?,
       indexedAt: null == indexedAt
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
@@ -237,10 +237,10 @@ class __$$AccountViewImplCopyWithImpl<$Res>
           ? _value.invitedBy
           : invitedBy // ignore: cast_nullable_to_non_nullable
               as InviteCode?,
-      invites: null == invites
+      invites: freezed == invites
           ? _value._invites
           : invites // ignore: cast_nullable_to_non_nullable
-              as List<InviteCode>,
+              as List<InviteCode>?,
       invitesDisabled: null == invitesDisabled
           ? _value.invitesDisabled
           : invitesDisabled // ignore: cast_nullable_to_non_nullable
@@ -270,10 +270,10 @@ class _$AccountViewImpl implements _AccountView {
       required this.did,
       required this.handle,
       this.email,
-      final List<Map<String, dynamic>> relatedRecords = const [],
+      final List<Map<String, dynamic>>? relatedRecords,
       required this.indexedAt,
       this.invitedBy,
-      final List<InviteCode> invites = const [],
+      final List<InviteCode>? invites,
       this.invitesDisabled = false,
       this.emailConfirmedAt,
       this.inviteNote,
@@ -296,26 +296,28 @@ class _$AccountViewImpl implements _AccountView {
   final String handle;
   @override
   final String? email;
-  final List<Map<String, dynamic>> _relatedRecords;
+  final List<Map<String, dynamic>>? _relatedRecords;
   @override
-  @JsonKey()
-  List<Map<String, dynamic>> get relatedRecords {
+  List<Map<String, dynamic>>? get relatedRecords {
+    final value = _relatedRecords;
+    if (value == null) return null;
     if (_relatedRecords is EqualUnmodifiableListView) return _relatedRecords;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_relatedRecords);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
   final DateTime indexedAt;
   @override
   final InviteCode? invitedBy;
-  final List<InviteCode> _invites;
+  final List<InviteCode>? _invites;
   @override
-  @JsonKey()
-  List<InviteCode> get invites {
+  List<InviteCode>? get invites {
+    final value = _invites;
+    if (value == null) return null;
     if (_invites is EqualUnmodifiableListView) return _invites;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_invites);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -396,10 +398,10 @@ abstract class _AccountView implements AccountView {
       required final String did,
       required final String handle,
       final String? email,
-      final List<Map<String, dynamic>> relatedRecords,
+      final List<Map<String, dynamic>>? relatedRecords,
       required final DateTime indexedAt,
       final InviteCode? invitedBy,
-      final List<InviteCode> invites,
+      final List<InviteCode>? invites,
       final bool invitesDisabled,
       final DateTime? emailConfirmedAt,
       final String? inviteNote,
@@ -422,13 +424,13 @@ abstract class _AccountView implements AccountView {
   @override
   String? get email;
   @override
-  List<Map<String, dynamic>> get relatedRecords;
+  List<Map<String, dynamic>>? get relatedRecords;
   @override
   DateTime get indexedAt;
   @override
   InviteCode? get invitedBy;
   @override
-  List<InviteCode> get invites;
+  List<InviteCode>? get invites;
   @override
   bool get invitesDisabled;
   @override

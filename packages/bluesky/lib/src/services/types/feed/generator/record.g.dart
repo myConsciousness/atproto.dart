@@ -19,12 +19,10 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Facet.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           avatar: $checkedConvert(
               'avatar',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, Blob>(
@@ -56,8 +54,8 @@ Map<String, dynamic> _$$GeneratorRecordImplToJson(
   }
 
   writeNotNull('description', instance.description);
-  val['descriptionFacets'] =
-      instance.descriptionFacets.map((e) => e.toJson()).toList();
+  writeNotNull('descriptionFacets',
+      instance.descriptionFacets?.map((e) => e.toJson()).toList());
   writeNotNull(
       'avatar',
       _$JsonConverterToJson<Map<String, dynamic>, Blob>(

@@ -33,7 +33,7 @@ mixin _$LabelerViewDetailed {
   int get likeCount => throw _privateConstructorUsedError;
   LabelerViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -56,7 +56,7 @@ abstract class $LabelerViewDetailedCopyWith<$Res> {
       int likeCount,
       LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label> labels});
+      List<Label>? labels});
 
   $ProfileViewCopyWith<$Res> get creator;
   $LabelerPoliciesCopyWith<$Res> get policies;
@@ -84,7 +84,7 @@ class _$LabelerViewDetailedCopyWithImpl<$Res, $Val extends LabelerViewDetailed>
     Object? likeCount = null,
     Object? viewer = null,
     Object? indexedAt = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -119,10 +119,10 @@ class _$LabelerViewDetailedCopyWithImpl<$Res, $Val extends LabelerViewDetailed>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ) as $Val);
   }
 
@@ -168,7 +168,7 @@ abstract class _$$LabelerViewDetailedImplCopyWith<$Res>
       int likeCount,
       LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label> labels});
+      List<Label>? labels});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
@@ -197,7 +197,7 @@ class __$$LabelerViewDetailedImplCopyWithImpl<$Res>
     Object? likeCount = null,
     Object? viewer = null,
     Object? indexedAt = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_$LabelerViewDetailedImpl(
       $type: null == $type
@@ -232,10 +232,10 @@ class __$$LabelerViewDetailedImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ));
   }
 }
@@ -254,7 +254,7 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
       this.likeCount = 0,
       this.viewer = const LabelerViewerState(),
       required this.indexedAt,
-      final List<Label> labels = const []})
+      final List<Label>? labels})
       : _labels = labels;
 
   factory _$LabelerViewDetailedImpl.fromJson(Map<String, dynamic> json) =>
@@ -283,13 +283,14 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
   final LabelerViewerState viewer;
   @override
   final DateTime indexedAt;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  @JsonKey()
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -355,7 +356,7 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
       final int likeCount,
       final LabelerViewerState viewer,
       required final DateTime indexedAt,
-      final List<Label> labels}) = _$LabelerViewDetailedImpl;
+      final List<Label>? labels}) = _$LabelerViewDetailedImpl;
 
   factory _LabelerViewDetailed.fromJson(Map<String, dynamic> json) =
       _$LabelerViewDetailedImpl.fromJson;
@@ -383,7 +384,7 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
   @override
   DateTime get indexedAt;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   @JsonKey(ignore: true)
   _$$LabelerViewDetailedImplCopyWith<_$LabelerViewDetailedImpl> get copyWith =>

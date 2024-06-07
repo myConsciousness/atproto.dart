@@ -24,7 +24,7 @@ mixin _$RefreshSessionOutput {
   String get refreshJwt => throw _privateConstructorUsedError;
   String get handle => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
-  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
   /// Hosting status of the account. If not specified, then assume 'active'.
@@ -48,7 +48,7 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       bool active,
       @UStatusConverter() UStatus? status});
 
@@ -73,7 +73,7 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
   }) {
@@ -94,10 +94,10 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -135,7 +135,7 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       bool active,
       @UStatusConverter() UStatus? status});
 
@@ -158,7 +158,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
     Object? refreshJwt = null,
     Object? handle = null,
     Object? did = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
   }) {
@@ -179,10 +179,10 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.refreshJwt,
       required this.handle,
       required this.did,
-      final Map<String, dynamic> didDoc = const {},
+      final Map<String, dynamic>? didDoc,
       this.active = false,
       @UStatusConverter() this.status})
       : _didDoc = didDoc;
@@ -220,13 +220,14 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
   final String handle;
   @override
   final String did;
-  final Map<String, dynamic> _didDoc;
+  final Map<String, dynamic>? _didDoc;
   @override
-  @JsonKey()
-  Map<String, dynamic> get didDoc {
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
     if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_didDoc);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -286,7 +287,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
       required final String refreshJwt,
       required final String handle,
       required final String did,
-      final Map<String, dynamic> didDoc,
+      final Map<String, dynamic>? didDoc,
       final bool active,
       @UStatusConverter() final UStatus? status}) = _$RefreshSessionOutputImpl;
 
@@ -302,7 +303,7 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   @override
   String get did;
   @override
-  Map<String, dynamic> get didDoc;
+  Map<String, dynamic>? get didDoc;
   @override
   bool get active;
   @override

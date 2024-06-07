@@ -29,7 +29,7 @@ final class CreateAccountOutput with _$CreateAccountOutput {
     required String did,
 
     /// Complete DID document.
-    @Default({}) Map<String, dynamic> didDoc,
+    Map<String, dynamic>? didDoc,
   }) = _CreateAccountOutput;
 
   factory CreateAccountOutput.fromJson(Map<String, Object?> json) =>

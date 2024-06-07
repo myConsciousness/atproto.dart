@@ -23,7 +23,7 @@ mixin _$GeneratorRecord {
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet> get descriptionFacets => throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
 
@@ -51,7 +51,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       {String did,
       String displayName,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
@@ -77,7 +77,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? did = null,
     Object? displayName = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
@@ -96,10 +96,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -156,7 +156,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       {String did,
       String displayName,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
@@ -182,7 +182,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? did = null,
     Object? displayName = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
@@ -201,10 +201,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -233,7 +233,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       {required this.did,
       required this.displayName,
       this.description,
-      final List<Facet> descriptionFacets = const [],
+      final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       this.acceptsInteractions = false,
       @ULabelConverter() this.labels,
@@ -249,14 +249,15 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   final String displayName;
   @override
   final String? description;
-  final List<Facet> _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  @JsonKey()
-  List<Facet> get descriptionFacets {
+  List<Facet>? get descriptionFacets {
+    final value = _descriptionFacets;
+    if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
       return _descriptionFacets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descriptionFacets);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -333,7 +334,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
       {required final String did,
       required final String displayName,
       final String? description,
-      final List<Facet> descriptionFacets,
+      final List<Facet>? descriptionFacets,
       @BlobConverter() final Blob? avatar,
       final bool acceptsInteractions,
       @ULabelConverter() final ULabel? labels,
@@ -349,7 +350,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
   String? get description;
   @override
-  List<Facet> get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   @BlobConverter()
   Blob? get avatar;

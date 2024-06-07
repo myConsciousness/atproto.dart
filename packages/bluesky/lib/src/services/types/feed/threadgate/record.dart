@@ -27,7 +27,7 @@ final class ThreadgateRecord with _$ThreadgateRecord {
   const factory ThreadgateRecord({
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
-    @UAllowConverter() @Default([]) List<UAllow> allow,
+    @UAllowConverter() List<UAllow>? allow,
     required DateTime createdAt,
   }) = _ThreadgateRecord;
 

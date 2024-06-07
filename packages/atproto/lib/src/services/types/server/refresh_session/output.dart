@@ -28,7 +28,7 @@ final class RefreshSessionOutput with _$RefreshSessionOutput {
     required String refreshJwt,
     required String handle,
     required String did,
-    @Default({}) Map<String, dynamic> didDoc,
+    Map<String, dynamic>? didDoc,
     @Default(false) bool active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.

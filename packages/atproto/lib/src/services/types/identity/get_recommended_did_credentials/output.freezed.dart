@@ -22,11 +22,11 @@ GetRecommendedDidCredentialsOutput _$GetRecommendedDidCredentialsOutputFromJson(
 /// @nodoc
 mixin _$GetRecommendedDidCredentialsOutput {
   /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
-  List<String> get rotationKeys => throw _privateConstructorUsedError;
-  List<String> get alsoKnownAs => throw _privateConstructorUsedError;
-  Map<String, dynamic> get verificationMethods =>
+  List<String>? get rotationKeys => throw _privateConstructorUsedError;
+  List<String>? get alsoKnownAs => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get verificationMethods =>
       throw _privateConstructorUsedError;
-  Map<String, dynamic> get services => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get services => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -44,10 +44,10 @@ abstract class $GetRecommendedDidCredentialsOutputCopyWith<$Res> {
           GetRecommendedDidCredentialsOutput>;
   @useResult
   $Res call(
-      {List<String> rotationKeys,
-      List<String> alsoKnownAs,
-      Map<String, dynamic> verificationMethods,
-      Map<String, dynamic> services});
+      {List<String>? rotationKeys,
+      List<String>? alsoKnownAs,
+      Map<String, dynamic>? verificationMethods,
+      Map<String, dynamic>? services});
 }
 
 /// @nodoc
@@ -64,28 +64,28 @@ class _$GetRecommendedDidCredentialsOutputCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rotationKeys = null,
-    Object? alsoKnownAs = null,
-    Object? verificationMethods = null,
-    Object? services = null,
+    Object? rotationKeys = freezed,
+    Object? alsoKnownAs = freezed,
+    Object? verificationMethods = freezed,
+    Object? services = freezed,
   }) {
     return _then(_value.copyWith(
-      rotationKeys: null == rotationKeys
+      rotationKeys: freezed == rotationKeys
           ? _value.rotationKeys
           : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      alsoKnownAs: null == alsoKnownAs
+              as List<String>?,
+      alsoKnownAs: freezed == alsoKnownAs
           ? _value.alsoKnownAs
           : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethods: null == verificationMethods
+              as List<String>?,
+      verificationMethods: freezed == verificationMethods
           ? _value.verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      services: null == services
+              as Map<String, dynamic>?,
+      services: freezed == services
           ? _value.services
           : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ) as $Val);
   }
 }
@@ -100,10 +100,10 @@ abstract class _$$GetRecommendedDidCredentialsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<String> rotationKeys,
-      List<String> alsoKnownAs,
-      Map<String, dynamic> verificationMethods,
-      Map<String, dynamic> services});
+      {List<String>? rotationKeys,
+      List<String>? alsoKnownAs,
+      Map<String, dynamic>? verificationMethods,
+      Map<String, dynamic>? services});
 }
 
 /// @nodoc
@@ -119,28 +119,28 @@ class __$$GetRecommendedDidCredentialsOutputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? rotationKeys = null,
-    Object? alsoKnownAs = null,
-    Object? verificationMethods = null,
-    Object? services = null,
+    Object? rotationKeys = freezed,
+    Object? alsoKnownAs = freezed,
+    Object? verificationMethods = freezed,
+    Object? services = freezed,
   }) {
     return _then(_$GetRecommendedDidCredentialsOutputImpl(
-      rotationKeys: null == rotationKeys
+      rotationKeys: freezed == rotationKeys
           ? _value._rotationKeys
           : rotationKeys // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      alsoKnownAs: null == alsoKnownAs
+              as List<String>?,
+      alsoKnownAs: freezed == alsoKnownAs
           ? _value._alsoKnownAs
           : alsoKnownAs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
-      verificationMethods: null == verificationMethods
+              as List<String>?,
+      verificationMethods: freezed == verificationMethods
           ? _value._verificationMethods
           : verificationMethods // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
-      services: null == services
+              as Map<String, dynamic>?,
+      services: freezed == services
           ? _value._services
           : services // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
     ));
   }
 }
@@ -151,10 +151,10 @@ class __$$GetRecommendedDidCredentialsOutputImplCopyWithImpl<$Res>
 class _$GetRecommendedDidCredentialsOutputImpl
     implements _GetRecommendedDidCredentialsOutput {
   const _$GetRecommendedDidCredentialsOutputImpl(
-      {final List<String> rotationKeys = const [],
-      final List<String> alsoKnownAs = const [],
-      final Map<String, dynamic> verificationMethods = const {},
-      final Map<String, dynamic> services = const {}})
+      {final List<String>? rotationKeys,
+      final List<String>? alsoKnownAs,
+      final Map<String, dynamic>? verificationMethods,
+      final Map<String, dynamic>? services})
       : _rotationKeys = rotationKeys,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
@@ -165,43 +165,47 @@ class _$GetRecommendedDidCredentialsOutputImpl
       _$$GetRecommendedDidCredentialsOutputImplFromJson(json);
 
   /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
-  final List<String> _rotationKeys;
+  final List<String>? _rotationKeys;
 
   /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
   @override
-  @JsonKey()
-  List<String> get rotationKeys {
+  List<String>? get rotationKeys {
+    final value = _rotationKeys;
+    if (value == null) return null;
     if (_rotationKeys is EqualUnmodifiableListView) return _rotationKeys;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_rotationKeys);
+    return EqualUnmodifiableListView(value);
   }
 
-  final List<String> _alsoKnownAs;
+  final List<String>? _alsoKnownAs;
   @override
-  @JsonKey()
-  List<String> get alsoKnownAs {
+  List<String>? get alsoKnownAs {
+    final value = _alsoKnownAs;
+    if (value == null) return null;
     if (_alsoKnownAs is EqualUnmodifiableListView) return _alsoKnownAs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_alsoKnownAs);
+    return EqualUnmodifiableListView(value);
   }
 
-  final Map<String, dynamic> _verificationMethods;
+  final Map<String, dynamic>? _verificationMethods;
   @override
-  @JsonKey()
-  Map<String, dynamic> get verificationMethods {
+  Map<String, dynamic>? get verificationMethods {
+    final value = _verificationMethods;
+    if (value == null) return null;
     if (_verificationMethods is EqualUnmodifiableMapView)
       return _verificationMethods;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_verificationMethods);
+    return EqualUnmodifiableMapView(value);
   }
 
-  final Map<String, dynamic> _services;
+  final Map<String, dynamic>? _services;
   @override
-  @JsonKey()
-  Map<String, dynamic> get services {
+  Map<String, dynamic>? get services {
+    final value = _services;
+    if (value == null) return null;
     if (_services is EqualUnmodifiableMapView) return _services;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_services);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -251,10 +255,10 @@ class _$GetRecommendedDidCredentialsOutputImpl
 abstract class _GetRecommendedDidCredentialsOutput
     implements GetRecommendedDidCredentialsOutput {
   const factory _GetRecommendedDidCredentialsOutput(
-          {final List<String> rotationKeys,
-          final List<String> alsoKnownAs,
-          final Map<String, dynamic> verificationMethods,
-          final Map<String, dynamic> services}) =
+          {final List<String>? rotationKeys,
+          final List<String>? alsoKnownAs,
+          final Map<String, dynamic>? verificationMethods,
+          final Map<String, dynamic>? services}) =
       _$GetRecommendedDidCredentialsOutputImpl;
 
   factory _GetRecommendedDidCredentialsOutput.fromJson(
@@ -264,13 +268,13 @@ abstract class _GetRecommendedDidCredentialsOutput
   @override
 
   /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
-  List<String> get rotationKeys;
+  List<String>? get rotationKeys;
   @override
-  List<String> get alsoKnownAs;
+  List<String>? get alsoKnownAs;
   @override
-  Map<String, dynamic> get verificationMethods;
+  Map<String, dynamic>? get verificationMethods;
   @override
-  Map<String, dynamic> get services;
+  Map<String, dynamic>? get services;
   @override
   @JsonKey(ignore: true)
   _$$GetRecommendedDidCredentialsOutputImplCopyWith<

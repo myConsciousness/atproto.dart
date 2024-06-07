@@ -32,11 +32,11 @@ mixin _$GeneratorView {
   ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet> get descriptionFacets => throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   bool get acceptsInteractions => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   GeneratorViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -60,11 +60,11 @@ abstract class $GeneratorViewCopyWith<$Res> {
       ProfileView creator,
       String displayName,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       bool acceptsInteractions,
-      List<Label> labels,
+      List<Label>? labels,
       GeneratorViewerState viewer,
       DateTime indexedAt});
 
@@ -92,11 +92,11 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
     Object? creator = null,
     Object? displayName = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? likeCount = null,
     Object? acceptsInteractions = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -129,10 +129,10 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -145,10 +145,10 @@ class _$GeneratorViewCopyWithImpl<$Res, $Val extends GeneratorView>
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
               as bool,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -193,11 +193,11 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
       ProfileView creator,
       String displayName,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       bool acceptsInteractions,
-      List<Label> labels,
+      List<Label>? labels,
       GeneratorViewerState viewer,
       DateTime indexedAt});
 
@@ -225,11 +225,11 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
     Object? creator = null,
     Object? displayName = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? likeCount = null,
     Object? acceptsInteractions = null,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
   }) {
@@ -262,10 +262,10 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -278,10 +278,10 @@ class __$$GeneratorViewImplCopyWithImpl<$Res>
           ? _value.acceptsInteractions
           : acceptsInteractions // ignore: cast_nullable_to_non_nullable
               as bool,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -306,11 +306,11 @@ class _$GeneratorViewImpl implements _GeneratorView {
       required this.creator,
       required this.displayName,
       this.description,
-      final List<Facet> descriptionFacets = const [],
+      final List<Facet>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
       this.acceptsInteractions = false,
-      final List<Label> labels = const [],
+      final List<Label>? labels,
       this.viewer = const GeneratorViewerState(),
       required this.indexedAt})
       : _descriptionFacets = descriptionFacets,
@@ -338,14 +338,15 @@ class _$GeneratorViewImpl implements _GeneratorView {
   final String displayName;
   @override
   final String? description;
-  final List<Facet> _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  @JsonKey()
-  List<Facet> get descriptionFacets {
+  List<Facet>? get descriptionFacets {
+    final value = _descriptionFacets;
+    if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
       return _descriptionFacets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descriptionFacets);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -356,13 +357,14 @@ class _$GeneratorViewImpl implements _GeneratorView {
   @override
   @JsonKey()
   final bool acceptsInteractions;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  @JsonKey()
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -445,11 +447,11 @@ abstract class _GeneratorView implements GeneratorView {
       required final ProfileView creator,
       required final String displayName,
       final String? description,
-      final List<Facet> descriptionFacets,
+      final List<Facet>? descriptionFacets,
       final String? avatar,
       final int likeCount,
       final bool acceptsInteractions,
-      final List<Label> labels,
+      final List<Label>? labels,
       final GeneratorViewerState viewer,
       required final DateTime indexedAt}) = _$GeneratorViewImpl;
 
@@ -477,7 +479,7 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   String? get description;
   @override
-  List<Facet> get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override
@@ -485,7 +487,7 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   bool get acceptsInteractions;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   GeneratorViewerState get viewer;
   @override

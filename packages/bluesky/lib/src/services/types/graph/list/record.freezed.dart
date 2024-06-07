@@ -27,7 +27,7 @@ mixin _$ListRecord {
   /// Display name for list; can not be empty.
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
-  List<Facet> get descriptionFacets => throw _privateConstructorUsedError;
+  List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
   @ULabelConverter()
@@ -50,7 +50,7 @@ abstract class $ListRecordCopyWith<$Res> {
       {@UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt});
@@ -76,7 +76,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     Object? purpose = null,
     Object? name = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
@@ -94,10 +94,10 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value.descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       {@UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
-      List<Facet> descriptionFacets,
+      List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt});
@@ -185,7 +185,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
     Object? purpose = null,
     Object? name = null,
     Object? description = freezed,
-    Object? descriptionFacets = null,
+    Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
@@ -203,10 +203,10 @@ class __$$ListRecordImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String?,
-      descriptionFacets: null == descriptionFacets
+      descriptionFacets: freezed == descriptionFacets
           ? _value._descriptionFacets
           : descriptionFacets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       avatar: freezed == avatar
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
@@ -231,7 +231,7 @@ class _$ListRecordImpl implements _ListRecord {
       {@UListPurposeConverter() required this.purpose,
       required this.name,
       this.description,
-      final List<Facet> descriptionFacets = const [],
+      final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       @ULabelConverter() this.labels,
       required this.createdAt})
@@ -250,14 +250,15 @@ class _$ListRecordImpl implements _ListRecord {
   final String name;
   @override
   final String? description;
-  final List<Facet> _descriptionFacets;
+  final List<Facet>? _descriptionFacets;
   @override
-  @JsonKey()
-  List<Facet> get descriptionFacets {
+  List<Facet>? get descriptionFacets {
+    final value = _descriptionFacets;
+    if (value == null) return null;
     if (_descriptionFacets is EqualUnmodifiableListView)
       return _descriptionFacets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_descriptionFacets);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -322,7 +323,7 @@ abstract class _ListRecord implements ListRecord {
       {@UListPurposeConverter() required final UListPurpose purpose,
       required final String name,
       final String? description,
-      final List<Facet> descriptionFacets,
+      final List<Facet>? descriptionFacets,
       @BlobConverter() final Blob? avatar,
       @ULabelConverter() final ULabel? labels,
       required final DateTime createdAt}) = _$ListRecordImpl;
@@ -342,7 +343,7 @@ abstract class _ListRecord implements ListRecord {
   @override
   String? get description;
   @override
-  List<Facet> get descriptionFacets;
+  List<Facet>? get descriptionFacets;
   @override
   @BlobConverter()
   Blob? get avatar;

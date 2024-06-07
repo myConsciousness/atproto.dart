@@ -32,7 +32,7 @@ mixin _$ListViewBasic {
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
@@ -55,7 +55,7 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
-      List<Label> labels,
+      List<Label>? labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
@@ -82,7 +82,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -111,10 +111,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -158,7 +158,7 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
-      List<Label> labels,
+      List<Label>? labels,
       ListViewerState viewer,
       DateTime? indexedAt});
 
@@ -185,7 +185,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? name = null,
     Object? purpose = null,
     Object? avatar = freezed,
-    Object? labels = null,
+    Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
   }) {
@@ -214,10 +214,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value.avatar
           : avatar // ignore: cast_nullable_to_non_nullable
               as String?,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
       viewer: null == viewer
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
@@ -241,7 +241,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       required this.name,
       @UListPurposeConverter() required this.purpose,
       this.avatar,
-      final List<Label> labels = const [],
+      final List<Label>? labels,
       this.viewer = const ListViewerState(),
       this.indexedAt})
       : _labels = labels;
@@ -267,13 +267,14 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   final UListPurpose purpose;
   @override
   final String? avatar;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  @JsonKey()
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -331,7 +332,7 @@ abstract class _ListViewBasic implements ListViewBasic {
       required final String name,
       @UListPurposeConverter() required final UListPurpose purpose,
       final String? avatar,
-      final List<Label> labels,
+      final List<Label>? labels,
       final ListViewerState viewer,
       final DateTime? indexedAt}) = _$ListViewBasicImpl;
 
@@ -358,7 +359,7 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   String? get avatar;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   ListViewerState get viewer;
   @override

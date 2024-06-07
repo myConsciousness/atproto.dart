@@ -37,27 +37,34 @@ _$LabelerViewDetailedImpl _$$LabelerViewDetailedImplFromJson(Map json) =>
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           labels: $checkedConvert(
               'labels',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Label.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$LabelerViewDetailedImplToJson(
-        _$LabelerViewDetailedImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'cid': instance.cid,
-      'creator': instance.creator.toJson(),
-      'policies': instance.policies.toJson(),
-      'likeCount': instance.likeCount,
-      'viewer': instance.viewer.toJson(),
-      'indexedAt': instance.indexedAt.toIso8601String(),
-      'labels': instance.labels.map((e) => e.toJson()).toList(),
-    };
+    _$LabelerViewDetailedImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'uri': const AtUriConverter().toJson(instance.uri),
+    'cid': instance.cid,
+    'creator': instance.creator.toJson(),
+    'policies': instance.policies.toJson(),
+    'likeCount': instance.likeCount,
+    'viewer': instance.viewer.toJson(),
+    'indexedAt': instance.indexedAt.toIso8601String(),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  return val;
+}

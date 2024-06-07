@@ -33,7 +33,7 @@ final class ListRecord with _$ListRecord {
     /// Display name for list; can not be empty.
     required String name,
     String? description,
-    @Default([]) List<Facet> descriptionFacets,
+    List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
     @ULabelConverter() ULabel? labels,
     required DateTime createdAt,

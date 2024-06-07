@@ -25,7 +25,7 @@ mixin _$GetSessionOutput {
   String? get email => throw _privateConstructorUsedError;
   bool get emailConfirmed => throw _privateConstructorUsedError;
   bool get emailAuthFactor => throw _privateConstructorUsedError;
-  Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
+  Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
@@ -50,7 +50,7 @@ abstract class $GetSessionOutputCopyWith<$Res> {
       String? email,
       bool emailConfirmed,
       bool emailAuthFactor,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       bool active,
       @UStatusConverter() UStatus? status});
 
@@ -75,7 +75,7 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
     Object? email = freezed,
     Object? emailConfirmed = null,
     Object? emailAuthFactor = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
   }) {
@@ -100,10 +100,10 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
               as bool,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -142,7 +142,7 @@ abstract class _$$GetSessionOutputImplCopyWith<$Res>
       String? email,
       bool emailConfirmed,
       bool emailAuthFactor,
-      Map<String, dynamic> didDoc,
+      Map<String, dynamic>? didDoc,
       bool active,
       @UStatusConverter() UStatus? status});
 
@@ -166,7 +166,7 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
     Object? email = freezed,
     Object? emailConfirmed = null,
     Object? emailAuthFactor = null,
-    Object? didDoc = null,
+    Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
   }) {
@@ -191,10 +191,10 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
               as bool,
-      didDoc: null == didDoc
+      didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as Map<String, dynamic>?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -217,7 +217,7 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       this.email,
       this.emailConfirmed = false,
       this.emailAuthFactor = false,
-      final Map<String, dynamic> didDoc = const {},
+      final Map<String, dynamic>? didDoc,
       this.active = false,
       @UStatusConverter() this.status})
       : _didDoc = didDoc;
@@ -237,13 +237,14 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
   @override
   @JsonKey()
   final bool emailAuthFactor;
-  final Map<String, dynamic> _didDoc;
+  final Map<String, dynamic>? _didDoc;
   @override
-  @JsonKey()
-  Map<String, dynamic> get didDoc {
+  Map<String, dynamic>? get didDoc {
+    final value = _didDoc;
+    if (value == null) return null;
     if (_didDoc is EqualUnmodifiableMapView) return _didDoc;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_didDoc);
+    return EqualUnmodifiableMapView(value);
   }
 
   @override
@@ -312,7 +313,7 @@ abstract class _GetSessionOutput implements GetSessionOutput {
       final String? email,
       final bool emailConfirmed,
       final bool emailAuthFactor,
-      final Map<String, dynamic> didDoc,
+      final Map<String, dynamic>? didDoc,
       final bool active,
       @UStatusConverter() final UStatus? status}) = _$GetSessionOutputImpl;
 
@@ -330,7 +331,7 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   @override
   bool get emailAuthFactor;
   @override
-  Map<String, dynamic> get didDoc;
+  Map<String, dynamic>? get didDoc;
   @override
   bool get active;
   @override

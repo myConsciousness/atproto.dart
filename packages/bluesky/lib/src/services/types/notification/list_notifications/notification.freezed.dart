@@ -38,7 +38,7 @@ mixin _$Notification {
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -62,7 +62,7 @@ abstract class $NotificationCopyWith<$Res> {
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label> labels});
+      List<Label>? labels});
 
   $ProfileViewCopyWith<$Res> get author;
   $UReasonCopyWith<$Res> get reason;
@@ -90,7 +90,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? record = null,
     Object? isRead = null,
     Object? indexedAt = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -129,10 +129,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ) as $Val);
   }
 
@@ -171,7 +171,7 @@ abstract class _$$NotificationImplCopyWith<$Res>
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label> labels});
+      List<Label>? labels});
 
   @override
   $ProfileViewCopyWith<$Res> get author;
@@ -199,7 +199,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
     Object? record = null,
     Object? isRead = null,
     Object? indexedAt = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_$NotificationImpl(
       $type: null == $type
@@ -238,10 +238,10 @@ class __$$NotificationImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ));
   }
 }
@@ -261,7 +261,7 @@ class _$NotificationImpl implements _Notification {
       required final Map<String, dynamic> record,
       required this.isRead,
       required this.indexedAt,
-      final List<Label> labels = const []})
+      final List<Label>? labels})
       : _record = record,
         _labels = labels;
 
@@ -301,13 +301,14 @@ class _$NotificationImpl implements _Notification {
   final bool isRead;
   @override
   final DateTime indexedAt;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  @JsonKey()
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -374,7 +375,7 @@ abstract class _Notification implements Notification {
       required final Map<String, dynamic> record,
       required final bool isRead,
       required final DateTime indexedAt,
-      final List<Label> labels}) = _$NotificationImpl;
+      final List<Label>? labels}) = _$NotificationImpl;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
       _$NotificationImpl.fromJson;
@@ -408,7 +409,7 @@ abstract class _Notification implements Notification {
   @override
   DateTime get indexedAt;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   @JsonKey(ignore: true)
   _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>

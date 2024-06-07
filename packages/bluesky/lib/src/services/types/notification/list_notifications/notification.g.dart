@@ -36,12 +36,10 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           labels: $checkedConvert(
               'labels',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Label.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
         );
         return val;
       },
@@ -69,7 +67,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   val['record'] = instance.record;
   val['isRead'] = instance.isRead;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
-  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   return val;
 }
 

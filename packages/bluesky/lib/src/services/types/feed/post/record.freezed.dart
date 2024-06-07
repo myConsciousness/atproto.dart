@@ -24,23 +24,23 @@ mixin _$PostRecord {
   String get text => throw _privateConstructorUsedError;
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  List<Entity> get entities => throw _privateConstructorUsedError;
+  List<Entity>? get entities => throw _privateConstructorUsedError;
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
-  List<Facet> get facets => throw _privateConstructorUsedError;
+  List<Facet>? get facets => throw _privateConstructorUsedError;
   ReplyRef? get reply => throw _privateConstructorUsedError;
   @UEmbedConverter()
   UEmbed? get embed => throw _privateConstructorUsedError;
 
   /// Indicates human language of post primary text content.
-  List<String> get langs => throw _privateConstructorUsedError;
+  List<String>? get langs => throw _privateConstructorUsedError;
 
   /// Self-label values for this post. Effectively content warnings.
   @ULabelConverter()
   ULabel? get labels => throw _privateConstructorUsedError;
 
   /// Additional hashtags, in addition to any included in post text and facets.
-  List<String> get tags => throw _privateConstructorUsedError;
+  List<String>? get tags => throw _privateConstructorUsedError;
 
   /// Client-declared timestamp when this post was originally created.
   DateTime get createdAt => throw _privateConstructorUsedError;
@@ -59,13 +59,13 @@ abstract class $PostRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
-      List<Entity> entities,
-      List<Facet> facets,
+      List<Entity>? entities,
+      List<Facet>? facets,
       ReplyRef? reply,
       @UEmbedConverter() UEmbed? embed,
-      List<String> langs,
+      List<String>? langs,
       @ULabelConverter() ULabel? labels,
-      List<String> tags,
+      List<String>? tags,
       DateTime createdAt});
 
   $ReplyRefCopyWith<$Res>? get reply;
@@ -87,13 +87,13 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
   @override
   $Res call({
     Object? text = null,
-    Object? entities = null,
-    Object? facets = null,
+    Object? entities = freezed,
+    Object? facets = freezed,
     Object? reply = freezed,
     Object? embed = freezed,
-    Object? langs = null,
+    Object? langs = freezed,
     Object? labels = freezed,
-    Object? tags = null,
+    Object? tags = freezed,
     Object? createdAt = null,
   }) {
     return _then(_value.copyWith(
@@ -101,14 +101,14 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      entities: null == entities
+      entities: freezed == entities
           ? _value.entities
           : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>,
-      facets: null == facets
+              as List<Entity>?,
+      facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
@@ -117,18 +117,18 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UEmbed?,
-      langs: null == langs
+      langs: freezed == langs
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as ULabel?,
-      tags: null == tags
+      tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -183,13 +183,13 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {String text,
-      List<Entity> entities,
-      List<Facet> facets,
+      List<Entity>? entities,
+      List<Facet>? facets,
       ReplyRef? reply,
       @UEmbedConverter() UEmbed? embed,
-      List<String> langs,
+      List<String>? langs,
       @ULabelConverter() ULabel? labels,
-      List<String> tags,
+      List<String>? tags,
       DateTime createdAt});
 
   @override
@@ -212,13 +212,13 @@ class __$$PostRecordImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
-    Object? entities = null,
-    Object? facets = null,
+    Object? entities = freezed,
+    Object? facets = freezed,
     Object? reply = freezed,
     Object? embed = freezed,
-    Object? langs = null,
+    Object? langs = freezed,
     Object? labels = freezed,
-    Object? tags = null,
+    Object? tags = freezed,
     Object? createdAt = null,
   }) {
     return _then(_$PostRecordImpl(
@@ -226,14 +226,14 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      entities: null == entities
+      entities: freezed == entities
           ? _value._entities
           : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>,
-      facets: null == facets
+              as List<Entity>?,
+      facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
-              as List<Facet>,
+              as List<Facet>?,
       reply: freezed == reply
           ? _value.reply
           : reply // ignore: cast_nullable_to_non_nullable
@@ -242,18 +242,18 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
               as UEmbed?,
-      langs: null == langs
+      langs: freezed == langs
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as ULabel?,
-      tags: null == tags
+      tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<String>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -268,13 +268,13 @@ class __$$PostRecordImplCopyWithImpl<$Res>
 class _$PostRecordImpl implements _PostRecord {
   const _$PostRecordImpl(
       {required this.text,
-      final List<Entity> entities = const [],
-      final List<Facet> facets = const [],
+      final List<Entity>? entities,
+      final List<Facet>? facets,
       this.reply,
       @UEmbedConverter() this.embed,
-      final List<String> langs = const [],
+      final List<String>? langs,
       @ULabelConverter() this.labels,
-      final List<String> tags = const [],
+      final List<String>? tags,
       required this.createdAt})
       : _entities = entities,
         _facets = facets,
@@ -289,27 +289,29 @@ class _$PostRecordImpl implements _PostRecord {
   final String text;
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  final List<Entity> _entities;
+  final List<Entity>? _entities;
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
   @override
-  @JsonKey()
-  List<Entity> get entities {
+  List<Entity>? get entities {
+    final value = _entities;
+    if (value == null) return null;
     if (_entities is EqualUnmodifiableListView) return _entities;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_entities);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
-  final List<Facet> _facets;
+  final List<Facet>? _facets;
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
   @override
-  @JsonKey()
-  List<Facet> get facets {
+  List<Facet>? get facets {
+    final value = _facets;
+    if (value == null) return null;
     if (_facets is EqualUnmodifiableListView) return _facets;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_facets);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -319,15 +321,16 @@ class _$PostRecordImpl implements _PostRecord {
   final UEmbed? embed;
 
   /// Indicates human language of post primary text content.
-  final List<String> _langs;
+  final List<String>? _langs;
 
   /// Indicates human language of post primary text content.
   @override
-  @JsonKey()
-  List<String> get langs {
+  List<String>? get langs {
+    final value = _langs;
+    if (value == null) return null;
     if (_langs is EqualUnmodifiableListView) return _langs;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_langs);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Self-label values for this post. Effectively content warnings.
@@ -336,15 +339,16 @@ class _$PostRecordImpl implements _PostRecord {
   final ULabel? labels;
 
   /// Additional hashtags, in addition to any included in post text and facets.
-  final List<String> _tags;
+  final List<String>? _tags;
 
   /// Additional hashtags, in addition to any included in post text and facets.
   @override
-  @JsonKey()
-  List<String> get tags {
+  List<String>? get tags {
+    final value = _tags;
+    if (value == null) return null;
     if (_tags is EqualUnmodifiableListView) return _tags;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_tags);
+    return EqualUnmodifiableListView(value);
   }
 
   /// Client-declared timestamp when this post was originally created.
@@ -404,13 +408,13 @@ class _$PostRecordImpl implements _PostRecord {
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
       {required final String text,
-      final List<Entity> entities,
-      final List<Facet> facets,
+      final List<Entity>? entities,
+      final List<Facet>? facets,
       final ReplyRef? reply,
       @UEmbedConverter() final UEmbed? embed,
-      final List<String> langs,
+      final List<String>? langs,
       @ULabelConverter() final ULabel? labels,
-      final List<String> tags,
+      final List<String>? tags,
       required final DateTime createdAt}) = _$PostRecordImpl;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
@@ -423,11 +427,11 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  List<Entity> get entities;
+  List<Entity>? get entities;
   @override
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
-  List<Facet> get facets;
+  List<Facet>? get facets;
   @override
   ReplyRef? get reply;
   @override
@@ -436,7 +440,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// Indicates human language of post primary text content.
-  List<String> get langs;
+  List<String>? get langs;
   @override
 
   /// Self-label values for this post. Effectively content warnings.
@@ -445,7 +449,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// Additional hashtags, in addition to any included in post text and facets.
-  List<String> get tags;
+  List<String>? get tags;
   @override
 
   /// Client-declared timestamp when this post was originally created.

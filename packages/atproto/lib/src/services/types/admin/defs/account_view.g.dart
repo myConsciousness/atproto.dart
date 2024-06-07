@@ -20,11 +20,9 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
           email: $checkedConvert('email', (v) => v as String?),
           relatedRecords: $checkedConvert(
               'relatedRecords',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => Map<String, dynamic>.from(e as Map))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => Map<String, dynamic>.from(e as Map))
+                  .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           invitedBy: $checkedConvert(
@@ -34,12 +32,10 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
                   : InviteCode.fromJson(Map<String, Object?>.from(v as Map))),
           invites: $checkedConvert(
               'invites',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => InviteCode.fromJson(
-                          Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      InviteCode.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           invitesDisabled:
               $checkedConvert('invitesDisabled', (v) => v as bool? ?? false),
           emailConfirmedAt: $checkedConvert('emailConfirmedAt',
@@ -66,10 +62,10 @@ Map<String, dynamic> _$$AccountViewImplToJson(_$AccountViewImpl instance) {
   }
 
   writeNotNull('email', instance.email);
-  val['relatedRecords'] = instance.relatedRecords;
+  writeNotNull('relatedRecords', instance.relatedRecords);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   writeNotNull('invitedBy', instance.invitedBy?.toJson());
-  val['invites'] = instance.invites.map((e) => e.toJson()).toList();
+  writeNotNull('invites', instance.invites?.map((e) => e.toJson()).toList());
   val['invitesDisabled'] = instance.invitesDisabled;
   writeNotNull(
       'emailConfirmedAt', instance.emailConfirmedAt?.toIso8601String());

@@ -20,22 +20,29 @@ _$CreateAccountOutputImpl _$$CreateAccountOutputImplFromJson(Map json) =>
           did: $checkedConvert('did', (v) => v as String),
           didDoc: $checkedConvert(
               'didDoc',
-              (v) =>
-                  (v as Map?)?.map(
+              (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
-                  ) ??
-                  const {}),
+                  )),
         );
         return val;
       },
     );
 
 Map<String, dynamic> _$$CreateAccountOutputImplToJson(
-        _$CreateAccountOutputImpl instance) =>
-    <String, dynamic>{
-      'accessJwt': instance.accessJwt,
-      'refreshJwt': instance.refreshJwt,
-      'handle': instance.handle,
-      'did': instance.did,
-      'didDoc': instance.didDoc,
-    };
+    _$CreateAccountOutputImpl instance) {
+  final val = <String, dynamic>{
+    'accessJwt': instance.accessJwt,
+    'refreshJwt': instance.refreshJwt,
+    'handle': instance.handle,
+    'did': instance.did,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('didDoc', instance.didDoc);
+  return val;
+}

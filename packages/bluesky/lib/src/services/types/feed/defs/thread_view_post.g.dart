@@ -23,12 +23,10 @@ _$ThreadViewPostImpl _$$ThreadViewPostImplFromJson(Map json) => $checkedCreate(
                   v, const UParentConverter().fromJson)),
           replies: $checkedConvert(
               'replies',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => const UReplyConverter()
-                          .fromJson(e as Map<String, dynamic>))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const UReplyConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
         );
         return val;
       },
@@ -51,8 +49,8 @@ Map<String, dynamic> _$$ThreadViewPostImplToJson(
       'parent',
       _$JsonConverterToJson<Map<String, dynamic>, UParent>(
           instance.parent, const UParentConverter().toJson));
-  val['replies'] =
-      instance.replies.map(const UReplyConverter().toJson).toList();
+  writeNotNull('replies',
+      instance.replies?.map(const UReplyConverter().toJson).toList());
   return val;
 }
 

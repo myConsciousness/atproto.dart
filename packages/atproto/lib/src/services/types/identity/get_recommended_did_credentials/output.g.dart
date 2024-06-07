@@ -18,37 +18,39 @@ _$GetRecommendedDidCredentialsOutputImpl
               rotationKeys: $checkedConvert(
                   'rotationKeys',
                   (v) =>
-                      (v as List<dynamic>?)?.map((e) => e as String).toList() ??
-                      const []),
+                      (v as List<dynamic>?)?.map((e) => e as String).toList()),
               alsoKnownAs: $checkedConvert(
                   'alsoKnownAs',
                   (v) =>
-                      (v as List<dynamic>?)?.map((e) => e as String).toList() ??
-                      const []),
+                      (v as List<dynamic>?)?.map((e) => e as String).toList()),
               verificationMethods: $checkedConvert(
                   'verificationMethods',
-                  (v) =>
-                      (v as Map?)?.map(
+                  (v) => (v as Map?)?.map(
                         (k, e) => MapEntry(k as String, e),
-                      ) ??
-                      const {}),
+                      )),
               services: $checkedConvert(
                   'services',
-                  (v) =>
-                      (v as Map?)?.map(
+                  (v) => (v as Map?)?.map(
                         (k, e) => MapEntry(k as String, e),
-                      ) ??
-                      const {}),
+                      )),
             );
             return val;
           },
         );
 
 Map<String, dynamic> _$$GetRecommendedDidCredentialsOutputImplToJson(
-        _$GetRecommendedDidCredentialsOutputImpl instance) =>
-    <String, dynamic>{
-      'rotationKeys': instance.rotationKeys,
-      'alsoKnownAs': instance.alsoKnownAs,
-      'verificationMethods': instance.verificationMethods,
-      'services': instance.services,
-    };
+    _$GetRecommendedDidCredentialsOutputImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('rotationKeys', instance.rotationKeys);
+  writeNotNull('alsoKnownAs', instance.alsoKnownAs);
+  writeNotNull('verificationMethods', instance.verificationMethods);
+  writeNotNull('services', instance.services);
+  return val;
+}

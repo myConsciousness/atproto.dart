@@ -40,9 +40,9 @@ final class ListView with _$ListView {
     required String name,
     @UListPurposeConverter() required UListPurpose purpose,
     String? description,
-    @Default([]) List<Facet> descriptionFacets,
+    List<Facet>? descriptionFacets,
     String? avatar,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
     @Default(ListViewerState()) ListViewerState viewer,
     required DateTime indexedAt,
   }) = _ListView;

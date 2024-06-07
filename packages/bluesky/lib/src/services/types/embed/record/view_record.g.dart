@@ -27,12 +27,10 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
               'value', (v) => Map<String, dynamic>.from(v as Map)),
           labels: $checkedConvert(
               'labels',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Label.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           replyCount:
               $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
           repostCount:
@@ -41,12 +39,10 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           embeds: $checkedConvert(
               'embeds',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) => const URecordEmbedConverter()
-                          .fromJson(e as Map<String, dynamic>))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) => const URecordEmbedConverter()
+                      .fromJson(e as Map<String, dynamic>))
+                  .toList()),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
         );
@@ -55,18 +51,27 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$RecordViewRecordImplToJson(
-        _$RecordViewRecordImpl instance) =>
-    <String, dynamic>{
-      r'$type': instance.$type,
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'cid': instance.cid,
-      'author': instance.author.toJson(),
-      'value': instance.value,
-      'labels': instance.labels.map((e) => e.toJson()).toList(),
-      'replyCount': instance.replyCount,
-      'repostCount': instance.repostCount,
-      'likeCount': instance.likeCount,
-      'embeds':
-          instance.embeds.map(const URecordEmbedConverter().toJson).toList(),
-      'indexedAt': instance.indexedAt.toIso8601String(),
-    };
+    _$RecordViewRecordImpl instance) {
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+    'uri': const AtUriConverter().toJson(instance.uri),
+    'cid': instance.cid,
+    'author': instance.author.toJson(),
+    'value': instance.value,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['replyCount'] = instance.replyCount;
+  val['repostCount'] = instance.repostCount;
+  val['likeCount'] = instance.likeCount;
+  writeNotNull('embeds',
+      instance.embeds?.map(const URecordEmbedConverter().toJson).toList());
+  val['indexedAt'] = instance.indexedAt.toIso8601String();
+  return val;
+}

@@ -33,7 +33,7 @@ mixin _$ProfileView {
   ProfileAssociated get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
   ViewerState get viewer => throw _privateConstructorUsedError;
-  List<Label> get labels => throw _privateConstructorUsedError;
+  List<Label>? get labels => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -57,7 +57,7 @@ abstract class $ProfileViewCopyWith<$Res> {
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label> labels});
+      List<Label>? labels});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
   $ViewerStateCopyWith<$Res> get viewer;
@@ -85,7 +85,7 @@ class _$ProfileViewCopyWithImpl<$Res, $Val extends ProfileView>
     Object? associated = null,
     Object? indexedAt = freezed,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -124,10 +124,10 @@ class _$ProfileViewCopyWithImpl<$Res, $Val extends ProfileView>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: null == labels
+      labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ) as $Val);
   }
 
@@ -166,7 +166,7 @@ abstract class _$$ProfileViewImplCopyWith<$Res>
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label> labels});
+      List<Label>? labels});
 
   @override
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -194,7 +194,7 @@ class __$$ProfileViewImplCopyWithImpl<$Res>
     Object? associated = null,
     Object? indexedAt = freezed,
     Object? viewer = null,
-    Object? labels = null,
+    Object? labels = freezed,
   }) {
     return _then(_$ProfileViewImpl(
       $type: null == $type
@@ -233,10 +233,10 @@ class __$$ProfileViewImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
-      labels: null == labels
+      labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as List<Label>,
+              as List<Label>?,
     ));
   }
 }
@@ -255,7 +255,7 @@ class _$ProfileViewImpl implements _ProfileView {
       this.associated = const ProfileAssociated(),
       this.indexedAt,
       this.viewer = const ViewerState(),
-      final List<Label> labels = const []})
+      final List<Label>? labels})
       : _labels = labels;
 
   factory _$ProfileViewImpl.fromJson(Map<String, dynamic> json) =>
@@ -285,13 +285,14 @@ class _$ProfileViewImpl implements _ProfileView {
   @override
   @JsonKey()
   final ViewerState viewer;
-  final List<Label> _labels;
+  final List<Label>? _labels;
   @override
-  @JsonKey()
-  List<Label> get labels {
+  List<Label>? get labels {
+    final value = _labels;
+    if (value == null) return null;
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_labels);
+    return EqualUnmodifiableListView(value);
   }
 
   @override
@@ -360,7 +361,7 @@ abstract class _ProfileView implements ProfileView {
       final ProfileAssociated associated,
       final DateTime? indexedAt,
       final ViewerState viewer,
-      final List<Label> labels}) = _$ProfileViewImpl;
+      final List<Label>? labels}) = _$ProfileViewImpl;
 
   factory _ProfileView.fromJson(Map<String, dynamic> json) =
       _$ProfileViewImpl.fromJson;
@@ -389,7 +390,7 @@ abstract class _ProfileView implements ProfileView {
   @override
   ViewerState get viewer;
   @override
-  List<Label> get labels;
+  List<Label>? get labels;
   @override
   @JsonKey(ignore: true)
   _$$ProfileViewImplCopyWith<_$ProfileViewImpl> get copyWith =>

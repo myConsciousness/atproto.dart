@@ -39,7 +39,7 @@ final class ProfileViewBasic with _$ProfileViewBasic {
     String? avatar,
     @Default(ProfileAssociated()) ProfileAssociated associated,
     @Default(ViewerState()) ViewerState viewer,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
   }) = _ProfileViewBasic;
 
   factory ProfileViewBasic.fromJson(Map<String, Object?> json) =>

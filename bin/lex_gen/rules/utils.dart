@@ -219,13 +219,9 @@ String? getDefaultValue(
   final String? ref,
 ) {
   if (type.name == 'int') {
-    return defaultValue != null ? defaultValue.toString() : '0';
+    return defaultValue?.toString() ?? '0';
   } else if (type.name == 'bool') {
-    return defaultValue != null ? defaultValue.toString() : 'false';
-  } else if (type.name?.startsWith('List<') ?? false) {
-    return '[]';
-  } else if (type.name?.startsWith('Map<') ?? false) {
-    return '{}';
+    return defaultValue?.toString() ?? 'false';
   }
 
   if (ref != null) {

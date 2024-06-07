@@ -16,20 +16,16 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
           text: $checkedConvert('text', (v) => v as String),
           entities: $checkedConvert(
               'entities',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Entity.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Entity.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           facets: $checkedConvert(
               'facets',
-              (v) =>
-                  (v as List<dynamic>?)
-                      ?.map((e) =>
-                          Facet.fromJson(Map<String, Object?>.from(e as Map)))
-                      .toList() ??
-                  const []),
+              (v) => (v as List<dynamic>?)
+                  ?.map((e) =>
+                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  .toList()),
           reply: $checkedConvert(
               'reply',
               (v) => v == null
@@ -39,20 +35,14 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
                   v, const UEmbedConverter().fromJson)),
-          langs: $checkedConvert(
-              'langs',
-              (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
-                  const []),
+          langs: $checkedConvert('langs',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           labels: $checkedConvert(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
                   v, const ULabelConverter().fromJson)),
-          tags: $checkedConvert(
-              'tags',
-              (v) =>
-                  (v as List<dynamic>?)?.map((e) => e as String).toList() ??
-                  const []),
+          tags: $checkedConvert('tags',
+              (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );
@@ -63,8 +53,6 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
   final val = <String, dynamic>{
     'text': instance.text,
-    'entities': instance.entities.map((e) => e.toJson()).toList(),
-    'facets': instance.facets.map((e) => e.toJson()).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -73,17 +61,19 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
     }
   }
 
+  writeNotNull('entities', instance.entities?.map((e) => e.toJson()).toList());
+  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
   writeNotNull('reply', instance.reply?.toJson());
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
           instance.embed, const UEmbedConverter().toJson));
-  val['langs'] = instance.langs;
+  writeNotNull('langs', instance.langs);
   writeNotNull(
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
           instance.labels, const ULabelConverter().toJson));
-  val['tags'] = instance.tags;
+  writeNotNull('tags', instance.tags);
   val['createdAt'] = instance.createdAt.toIso8601String();
   return val;
 }

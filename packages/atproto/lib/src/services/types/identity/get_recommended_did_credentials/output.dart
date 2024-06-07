@@ -23,10 +23,10 @@ final class GetRecommendedDidCredentialsOutput
   @JsonSerializable(includeIfNull: false)
   const factory GetRecommendedDidCredentialsOutput({
     /// Recommended rotation keys for PLC dids. Should be undefined (or ignored) for did:webs.
-    @Default([]) List<String> rotationKeys,
-    @Default([]) List<String> alsoKnownAs,
-    @Default({}) Map<String, dynamic> verificationMethods,
-    @Default({}) Map<String, dynamic> services,
+    List<String>? rotationKeys,
+    List<String>? alsoKnownAs,
+    Map<String, dynamic>? verificationMethods,
+    Map<String, dynamic>? services,
   }) = _GetRecommendedDidCredentialsOutput;
 
   factory GetRecommendedDidCredentialsOutput.fromJson(

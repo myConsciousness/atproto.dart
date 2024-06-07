@@ -42,7 +42,7 @@ final class LabelerViewDetailed with _$LabelerViewDetailed {
     @Default(0) int likeCount,
     @Default(LabelerViewerState()) LabelerViewerState viewer,
     required DateTime indexedAt,
-    @Default([]) List<Label> labels,
+    List<Label>? labels,
   }) = _LabelerViewDetailed;
 
   factory LabelerViewDetailed.fromJson(Map<String, Object?> json) =>
