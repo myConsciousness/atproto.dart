@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'union_relationship.dart';
+import '../../graph/get_relationships/union_relationship.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

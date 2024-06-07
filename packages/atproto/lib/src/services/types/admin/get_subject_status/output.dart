@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../admin/defs/status_attr.dart';
-import 'union_subject.dart';
+import '../../admin/get_subject_status/union_subject.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

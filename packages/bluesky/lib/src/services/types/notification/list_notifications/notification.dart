@@ -18,7 +18,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view.dart';
-import 'known_reason.dart';
+import '../../notification/list_notifications/known_reason.dart';
 
 part 'notification.freezed.dart';
 part 'notification.g.dart';

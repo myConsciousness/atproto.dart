@@ -15,9 +15,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_blur.dart';
-import 'known_default_setting.dart';
-import 'known_severity.dart';
+import '../../label/defs/known_blur.dart';
+import '../../label/defs/known_default_setting.dart';
+import '../../label/defs/known_severity.dart';
 import 'label_value_definition_strings.dart';
 
 part 'label_value_definition.freezed.dart';

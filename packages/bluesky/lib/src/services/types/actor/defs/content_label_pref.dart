@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_visibility.dart';
+import '../../actor/defs/known_visibility.dart';
 
 part 'content_label_pref.freezed.dart';
 part 'content_label_pref.g.dart';

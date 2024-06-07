@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../embed/record/view.dart';
-import 'union_record_with_media_media.dart';
+import '../../embed/record_with_media/union_record_with_media_media.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';

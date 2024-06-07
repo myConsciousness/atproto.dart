@@ -18,8 +18,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
 import '../../actor/defs/profile_view_basic.dart';
+import '../../feed/defs/union_embed.dart';
 import 'threadgate_view.dart';
-import 'union_embed.dart';
 import 'viewer_state.dart';
 
 part 'post_view.freezed.dart';

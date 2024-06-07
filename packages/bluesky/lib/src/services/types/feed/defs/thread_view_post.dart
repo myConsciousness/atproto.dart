@@ -15,9 +15,9 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import '../../feed/defs/union_parent.dart';
+import '../../feed/defs/union_reply.dart';
 import 'post_view.dart';
-import 'union_parent.dart';
-import 'union_reply.dart';
 
 part 'thread_view_post.freezed.dart';
 part 'thread_view_post.g.dart';

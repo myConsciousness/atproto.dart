@@ -66,12 +66,56 @@ final class LexGenObjectBuilder {
         }
 
         if (object.properties?.length == 1) {
-          final refVariant = object.properties?.values.first
-              .whenOrNull(refVariant: (data) => data);
-          final ref = refVariant?.whenOrNull(ref: (data) => data);
+          final propertyEntry = object.properties!.entries.first;
+          final propertyJson = propertyEntry.value.toJson();
+          final propertyName = propertyEntry.key;
+
+          final ref = propertyEntry.value
+              .whenOrNull(refVariant: (data) => data)
+              ?.whenOrNull(ref: (data) => data);
 
           if (ref != null && ref.ref != null) {
-            return const <LexGenObjectProperty>[];
+            final $ref = getRef(context.docId, ref.ref!);
+            final refDefJson = $ref!.def.toJson();
+
+            final union = LexUnionObjectBuilder(
+              docId: $ref.docId,
+              defName: context.mainRelatedDocIds.contains($ref.docId.toString())
+                  ? context.docId.toString().split('.').last
+                  : null,
+              propertyName: $ref.defName,
+              refs: refDefJson['refs'] ??
+                  refDefJson['items']?['refs'] ??
+                  const [],
+              mainRelatedDocIds: context.mainRelatedDocIds,
+            ).build();
+
+            final dataType = getDataType(
+              context,
+              type: propertyJson['type'],
+              format: propertyJson['format'],
+              ref: propertyJson['ref'],
+              items: propertyJson['items'],
+              arrayUnion: union,
+            );
+
+            return <LexGenObjectProperty>[
+              LexGenObjectProperty(
+                description: propertyJson['description'],
+                isRequired:
+                    object.requiredProperties?.contains(propertyName) ?? false,
+                type: dataType,
+                name: propertyName,
+                array: refDefJson['items'] != null,
+                union: union,
+                defaultValue: getDefaultValue(
+                  propertyJson['default'],
+                  dataType,
+                  context.docId,
+                  propertyJson['ref'],
+                ),
+              )
+            ];
           }
         }
 
@@ -104,57 +148,63 @@ final class LexGenObjectBuilder {
     if (object.properties == null) return const [];
 
     final properties = <LexGenObjectProperty>[];
-
     final requiredProperties = object.requiredProperties ?? const [];
 
     for (final entry in object.properties!.entries) {
-      final property = entry.value.toJson();
-      final union = LexUnionObjectBuilder(
-        docId: context.docId,
-        defName: context.mainRelatedDocIds.contains(context.docId.toString())
-            ? context.docId.toString().split('.').last
-            : null,
-        propertyName: entry.key,
-        refs: property['refs'] ?? property['items']?['refs'] ?? const [],
-        mainRelatedDocIds: context.mainRelatedDocIds,
-      ).build();
-
-      final dataType = getDataType(
-        context,
-        type: property['type'],
-        format: property['format'],
-        ref: property['ref'],
-        items: property['items'],
-        arrayUnion: union,
-      );
-
       properties.add(
-        LexGenObjectProperty(
-          description: property['description'],
-          isRequired: requiredProperties.contains(entry.key),
-          type: dataType,
-          name: entry.key,
-          array: property['items'] != null,
-          knownValues: LexKnownValuesBuilder(
-            docId: context.docId,
-            defName:
-                context.mainRelatedDocIds.contains(context.docId.toString())
-                    ? context.docId.toString().split('.').last
-                    : null,
-            propertyName: entry.key,
-            knownValues: property['knownValues'] ?? const [],
-          ).build(),
-          union: union,
-          defaultValue: getDefaultValue(
-            property['default'],
-            dataType,
-            context.docId,
-            property['ref'],
-          ),
-        ),
+        _getObjectProperty(entry.key, entry.value, requiredProperties),
       );
     }
 
     return properties;
+  }
+
+  LexGenObjectProperty _getObjectProperty(
+    final String name,
+    final LexObjectProperty value,
+    final List<String> requiredProperties,
+  ) {
+    final property = value.toJson();
+    final union = LexUnionObjectBuilder(
+      docId: context.docId,
+      defName: context.mainRelatedDocIds.contains(context.docId.toString())
+          ? context.docId.toString().split('.').last
+          : null,
+      propertyName: name,
+      refs: property['refs'] ?? property['items']?['refs'] ?? const [],
+      mainRelatedDocIds: context.mainRelatedDocIds,
+    ).build();
+
+    final dataType = getDataType(
+      context,
+      type: property['type'],
+      format: property['format'],
+      ref: property['ref'],
+      items: property['items'],
+      arrayUnion: union,
+    );
+
+    return LexGenObjectProperty(
+      description: property['description'],
+      isRequired: requiredProperties.contains(name),
+      type: dataType,
+      name: name,
+      array: property['items'] != null,
+      knownValues: LexKnownValuesBuilder(
+        docId: context.docId,
+        defName: context.mainRelatedDocIds.contains(context.docId.toString())
+            ? context.docId.toString().split('.').last
+            : null,
+        propertyName: name,
+        knownValues: property['knownValues'] ?? const [],
+      ).build(),
+      union: union,
+      defaultValue: getDefaultValue(
+        property['default'],
+        dataType,
+        context.docId,
+        property['ref'],
+      ),
+    );
   }
 }

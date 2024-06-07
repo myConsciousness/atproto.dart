@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'known_status.dart';
+import '../../server/refresh_session/known_status.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'union_thread.dart';
+import '../../feed/get_post_thread/union_thread.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

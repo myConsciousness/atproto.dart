@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_sort.dart';
+import '../../actor/defs/known_sort.dart';
 
 part 'thread_view_pref.freezed.dart';
 part 'thread_view_pref.g.dart';

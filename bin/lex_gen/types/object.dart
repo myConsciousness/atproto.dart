@@ -31,20 +31,18 @@ final class LexGenObject {
   String toString() {
     assert(properties.isNotEmpty);
 
-    // merge and distinct
-    final importPaths = [
-      ...properties.map((e) => e.type.importPath),
-      ...properties
-          .where((e) => e.knownValues != null)
-          .map((e) => '${e.knownValues!.fileName}.dart'),
-      ...properties
-          .where((e) => e.union != null)
-          .map((e) => '${e.union!.fileName}.dart')
-    ]
-        .where((e) => e != null)
-        .toSet()
-        .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
-        .toList();
+    final importPaths = <String?>[];
+    for (final property in properties) {
+      if (property.knownValues == null && property.union == null) {
+        importPaths.add(property.type.importPath);
+      } else {
+        if (property.knownValues != null) {
+          importPaths.add('../../${property.knownValues!.filePath}');
+        } else if (property.union != null) {
+          importPaths.add('../../${property.union!.filePath}');
+        }
+      }
+    }
 
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Generator'));
@@ -55,7 +53,11 @@ final class LexGenObject {
     if (namespace != null) {
       buffer.writeln("import '../../../../ids.g.dart';");
     }
-    for (final importPath in importPaths) {
+    for (final importPath in importPaths
+        .where((e) => e != null)
+        .toSet()
+        .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
+        .toList()) {
       buffer
         ..writeln()
         ..write("import '$importPath';");

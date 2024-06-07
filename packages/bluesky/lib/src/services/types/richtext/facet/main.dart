@@ -15,8 +15,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
+import '../../richtext/facet/union_facet_feature.dart';
 import 'byte_slice.dart';
-import 'union_facet_feature.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';

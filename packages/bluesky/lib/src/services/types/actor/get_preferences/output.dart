@@ -14,25 +14,19 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../moderation/create_report/union_subject.dart';
-import '../../moderation/defs/known_reason_type.dart';
+import '../../actor/defs/union_preference.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences#main
 @freezed
-final class CreateReportOutput with _$CreateReportOutput {
+final class GetPreferencesOutput with _$GetPreferencesOutput {
   @JsonSerializable(includeIfNull: false)
-  const factory CreateReportOutput({
-    required int id,
-    @UReasonTypeConverter() required UReasonType reasonType,
-    String? reason,
-    @USubjectConverter() required USubject subject,
-    required String reportedBy,
-    required DateTime createdAt,
-  }) = _CreateReportOutput;
+  const factory GetPreferencesOutput({
+    @UPreferenceConverter() required List<UPreference> preferences,
+  }) = _GetPreferencesOutput;
 
-  factory CreateReportOutput.fromJson(Map<String, Object?> json) =>
-      _$CreateReportOutputFromJson(json);
+  factory GetPreferencesOutput.fromJson(Map<String, Object?> json) =>
+      _$GetPreferencesOutputFromJson(json);
 }

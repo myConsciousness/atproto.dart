@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'union_view.dart';
+import '../../labeler/get_services/union_view.dart';
 
 part 'output.freezed.dart';
 part 'output.g.dart';

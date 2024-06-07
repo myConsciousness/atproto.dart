@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_type.dart';
+import '../../actor/defs/known_type.dart';
 
 part 'saved_feed.freezed.dart';
 part 'saved_feed.g.dart';

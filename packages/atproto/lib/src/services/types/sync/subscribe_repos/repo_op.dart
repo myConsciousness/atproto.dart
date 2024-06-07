@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../ids.g.dart';
-import 'known_action.dart';
+import '../../sync/subscribe_repos/known_action.dart';
 
 part 'repo_op.freezed.dart';
 part 'repo_op.g.dart';
