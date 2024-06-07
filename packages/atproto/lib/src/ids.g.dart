@@ -52,6 +52,9 @@ const comAtprotoAdminGetInviteCodes = 'com.atproto.admin.getInviteCodes';
 /// `com.atproto.admin.getSubjectStatus`
 const comAtprotoAdminGetSubjectStatus = 'com.atproto.admin.getSubjectStatus';
 
+/// `com.atproto.admin.searchAccounts`
+const comAtprotoAdminSearchAccounts = 'com.atproto.admin.searchAccounts';
+
 /// `com.atproto.admin.sendEmail`
 const comAtprotoAdminSendEmail = 'com.atproto.admin.sendEmail';
 
