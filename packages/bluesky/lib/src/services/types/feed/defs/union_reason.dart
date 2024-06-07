@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import 'skeleton_reason_repost.dart';
 
 part 'union_reason.freezed.dart';
@@ -39,7 +38,7 @@ final class UReasonConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyFeedDefsSkeletonReasonRepost) {
+      if (type == 'app.bsky.feed.defs#skeletonReasonRepost') {
         return UReason.skeletonReasonRepost(
           data: SkeletonReasonRepost.fromJson(json),
         );

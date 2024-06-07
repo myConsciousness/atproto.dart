@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import 'link.dart';
 import 'mention.dart';
 import 'tag.dart';
@@ -49,17 +48,17 @@ final class UFacetFeatureConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyRichtextFacetMention) {
+      if (type == 'app.bsky.richtext.facet#mention') {
         return UFacetFeature.facetMention(
           data: FacetMention.fromJson(json),
         );
       }
-      if (type == ids.appBskyRichtextFacetLink) {
+      if (type == 'app.bsky.richtext.facet#link') {
         return UFacetFeature.facetLink(
           data: FacetLink.fromJson(json),
         );
       }
-      if (type == ids.appBskyRichtextFacetTag) {
+      if (type == 'app.bsky.richtext.facet#tag') {
         return UFacetFeature.facetTag(
           data: FacetTag.fromJson(json),
         );

@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import 'adult_content_pref.dart';
 import 'content_label_pref.dart';
 import 'feed_view_pref.dart';
@@ -84,52 +83,52 @@ final class UPreferenceConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyActorDefsAdultContentPref) {
+      if (type == 'app.bsky.actor.defs#adultContentPref') {
         return UPreference.adultContentPref(
           data: AdultContentPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsContentLabelPref) {
+      if (type == 'app.bsky.actor.defs#contentLabelPref') {
         return UPreference.contentLabelPref(
           data: ContentLabelPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsSavedFeedsPref) {
+      if (type == 'app.bsky.actor.defs#savedFeedsPref') {
         return UPreference.savedFeedsPref(
           data: SavedFeedsPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsSavedFeedsPrefV2) {
+      if (type == 'app.bsky.actor.defs#savedFeedsPrefV2') {
         return UPreference.savedFeedsPrefV2(
           data: SavedFeedsPrefV2.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsPersonalDetailsPref) {
+      if (type == 'app.bsky.actor.defs#personalDetailsPref') {
         return UPreference.personalDetailsPref(
           data: PersonalDetailsPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsFeedViewPref) {
+      if (type == 'app.bsky.actor.defs#feedViewPref') {
         return UPreference.feedViewPref(
           data: FeedViewPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsThreadViewPref) {
+      if (type == 'app.bsky.actor.defs#threadViewPref') {
         return UPreference.threadViewPref(
           data: ThreadViewPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsInterestsPref) {
+      if (type == 'app.bsky.actor.defs#interestsPref') {
         return UPreference.interestsPref(
           data: InterestsPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsMutedWordsPref) {
+      if (type == 'app.bsky.actor.defs#mutedWordsPref') {
         return UPreference.mutedWordsPref(
           data: MutedWordsPref.fromJson(json),
         );
       }
-      if (type == ids.appBskyActorDefsHiddenPostsPref) {
+      if (type == 'app.bsky.actor.defs#hiddenPostsPref') {
         return UPreference.hiddenPostsPref(
           data: HiddenPostsPref.fromJson(json),
         );

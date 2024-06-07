@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../embed/external/main.dart';
 import '../../embed/images/main.dart';
 import '../../embed/record/main.dart';
@@ -54,22 +53,22 @@ final class UEmbedConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyEmbedImages) {
+      if (type == 'app.bsky.embed.images') {
         return UEmbed.images(
           data: Images.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedExternal) {
+      if (type == 'app.bsky.embed.external') {
         return UEmbed.external(
           data: External.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedRecord) {
+      if (type == 'app.bsky.embed.record') {
         return UEmbed.record(
           data: Record.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedRecordWithMedia) {
+      if (type == 'app.bsky.embed.recordWithMedia') {
         return UEmbed.recordWithMedia(
           data: RecordWithMedia.fromJson(json),
         );

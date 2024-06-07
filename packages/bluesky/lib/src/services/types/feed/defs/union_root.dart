@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import 'blocked_post.dart';
 import 'not_found_post.dart';
 import 'post_view.dart';
@@ -49,17 +48,17 @@ final class URootConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyFeedDefsPostView) {
+      if (type == 'app.bsky.feed.defs#postView') {
         return URoot.postView(
           data: PostView.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedDefsNotFoundPost) {
+      if (type == 'app.bsky.feed.defs#notFoundPost') {
         return URoot.notFoundPost(
           data: NotFoundPost.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedDefsBlockedPost) {
+      if (type == 'app.bsky.feed.defs#blockedPost') {
         return URoot.blockedPost(
           data: BlockedPost.fromJson(json),
         );

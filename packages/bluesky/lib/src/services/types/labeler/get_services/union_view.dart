@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../labeler/defs/labeler_view.dart';
 import '../../labeler/defs/labeler_view_detailed.dart';
 
@@ -44,12 +43,12 @@ final class UViewConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyLabelerDefsLabelerView) {
+      if (type == 'app.bsky.labeler.defs#labelerView') {
         return UView.labelerView(
           data: LabelerView.fromJson(json),
         );
       }
-      if (type == ids.appBskyLabelerDefsLabelerViewDetailed) {
+      if (type == 'app.bsky.labeler.defs#labelerViewDetailed') {
         return UView.labelerViewDetailed(
           data: LabelerViewDetailed.fromJson(json),
         );

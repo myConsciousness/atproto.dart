@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../embed/external/view.dart';
 import '../../embed/images/view.dart';
 
@@ -44,12 +43,12 @@ final class URecordWithMediaMediaConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyEmbedImagesView) {
+      if (type == 'app.bsky.embed.images#view') {
         return URecordWithMediaMedia.imagesView(
           data: ImagesView.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedExternalView) {
+      if (type == 'app.bsky.embed.external#view') {
         return URecordWithMediaMedia.externalView(
           data: ExternalView.fromJson(json),
         );

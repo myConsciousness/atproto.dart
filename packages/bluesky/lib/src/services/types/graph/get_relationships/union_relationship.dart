@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../graph/defs/not_found_actor.dart';
 import '../../graph/defs/relationship.dart';
 
@@ -44,12 +43,12 @@ final class URelationshipConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyGraphDefsRelationship) {
+      if (type == 'app.bsky.graph.defs#relationship') {
         return URelationship.relationship(
           data: Relationship.fromJson(json),
         );
       }
-      if (type == ids.appBskyGraphDefsNotFoundActor) {
+      if (type == 'app.bsky.graph.defs#notFoundActor') {
         return URelationship.notFoundActor(
           data: NotFoundActor.fromJson(json),
         );

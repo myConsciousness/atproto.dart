@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../feed/defs/generator_view.dart';
 import '../../graph/defs/list_view.dart';
 import '../../labeler/defs/labeler_view.dart';
@@ -64,32 +63,32 @@ final class URecordRecordConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyEmbedRecordViewRecord) {
+      if (type == 'app.bsky.embed.record#viewRecord') {
         return URecordRecord.recordViewRecord(
           data: RecordViewRecord.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedRecordViewNotFound) {
+      if (type == 'app.bsky.embed.record#viewNotFound') {
         return URecordRecord.recordViewNotFound(
           data: RecordViewNotFound.fromJson(json),
         );
       }
-      if (type == ids.appBskyEmbedRecordViewBlocked) {
+      if (type == 'app.bsky.embed.record#viewBlocked') {
         return URecordRecord.recordViewBlocked(
           data: RecordViewBlocked.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedDefsGeneratorView) {
+      if (type == 'app.bsky.feed.defs#generatorView') {
         return URecordRecord.generatorView(
           data: GeneratorView.fromJson(json),
         );
       }
-      if (type == ids.appBskyGraphDefsListView) {
+      if (type == 'app.bsky.graph.defs#listView') {
         return URecordRecord.listView(
           data: ListView.fromJson(json),
         );
       }
-      if (type == ids.appBskyLabelerDefsLabelerView) {
+      if (type == 'app.bsky.labeler.defs#labelerView') {
         return URecordRecord.labelerView(
           data: LabelerView.fromJson(json),
         );

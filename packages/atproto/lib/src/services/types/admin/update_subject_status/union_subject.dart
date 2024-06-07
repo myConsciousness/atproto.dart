@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../admin/defs/repo_blob_ref.dart';
 import '../../admin/defs/repo_ref.dart';
 import '../../repo/strong_ref/main.dart';
@@ -49,17 +48,17 @@ final class USubjectConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.comAtprotoAdminDefsRepoRef) {
+      if (type == 'com.atproto.admin.defs#repoRef') {
         return USubject.repoRef(
           data: RepoRef.fromJson(json),
         );
       }
-      if (type == ids.comAtprotoRepoStrongRef) {
+      if (type == 'com.atproto.repo.strongRef') {
         return USubject.strongRef(
           data: StrongRef.fromJson(json),
         );
       }
-      if (type == ids.comAtprotoAdminDefsRepoBlobRef) {
+      if (type == 'com.atproto.admin.defs#repoBlobRef') {
         return USubject.repoBlobRef(
           data: RepoBlobRef.fromJson(json),
         );

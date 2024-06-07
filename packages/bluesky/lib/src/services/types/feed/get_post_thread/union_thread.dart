@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import '../../feed/defs/blocked_post.dart';
 import '../../feed/defs/not_found_post.dart';
 import '../../feed/defs/thread_view_post.dart';
@@ -49,17 +48,17 @@ final class UThreadConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyFeedDefsThreadViewPost) {
+      if (type == 'app.bsky.feed.defs#threadViewPost') {
         return UThread.threadViewPost(
           data: ThreadViewPost.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedDefsNotFoundPost) {
+      if (type == 'app.bsky.feed.defs#notFoundPost') {
         return UThread.notFoundPost(
           data: NotFoundPost.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedDefsBlockedPost) {
+      if (type == 'app.bsky.feed.defs#blockedPost') {
         return UThread.blockedPost(
           data: BlockedPost.fromJson(json),
         );

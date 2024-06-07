@@ -14,9 +14,6 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
-
 part 'union_label.freezed.dart';
 
 @freezed
@@ -39,7 +36,7 @@ final class ULabelConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.comAtprotoLabelDefsSelfLabels) {
+      if (type == 'com.atproto.label.defs#selfLabels') {
         return ULabel.selfLabels(
           data: SelfLabels.fromJson(json),
         );

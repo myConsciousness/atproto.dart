@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart' as ids;
 import 'following_rule.dart';
 import 'list_rule.dart';
 import 'mention_rule.dart';
@@ -49,17 +48,17 @@ final class UAllowConverter
     try {
       final type = json[r'$type'];
 
-      if (type == ids.appBskyFeedThreadgateMentionRule) {
+      if (type == 'app.bsky.feed.threadgate#mentionRule') {
         return UAllow.mentionRule(
           data: MentionRule.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedThreadgateFollowingRule) {
+      if (type == 'app.bsky.feed.threadgate#followingRule') {
         return UAllow.followingRule(
           data: FollowingRule.fromJson(json),
         );
       }
-      if (type == ids.appBskyFeedThreadgateListRule) {
+      if (type == 'app.bsky.feed.threadgate#listRule') {
         return UAllow.listRule(
           data: ListRule.fromJson(json),
         );
