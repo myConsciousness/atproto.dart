@@ -20,7 +20,7 @@ final class LexGenObjectBuilder {
 
   LexGenObject? build() {
     final properties = _getProperties();
-    if (properties.isEmpty) return null; // RefVariant, no need to create.
+    if (properties == null) return null; // RefVariant, no need to create.
 
     final convention = LexNamingConvention(context);
 
@@ -56,7 +56,7 @@ final class LexGenObjectBuilder {
     return buffer.toString();
   }
 
-  List<LexGenObjectProperty> _getProperties() {
+  List<LexGenObjectProperty>? _getProperties() {
     final properties = context.def!.whenOrNull(
       object: _getObjectProperties,
       xrpcQuery: (data) {
@@ -68,15 +68,19 @@ final class LexGenObjectBuilder {
       record: (data) => _getObjectProperties(data.record),
     );
 
-    return properties ?? const [];
+    return properties;
   }
 
-  List<LexGenObjectProperty> _getObjectPropertiesFromXrpcBody(
+  List<LexGenObjectProperty>? _getObjectPropertiesFromXrpcBody(
     final LexXrpcBody? body,
   ) {
     final object = body?.schema?.whenOrNull(object: (data) => data);
     if (object == null) {
-      return const <LexGenObjectProperty>[]; // RefVariant
+      return null; // RefVariant
+    }
+
+    if (object.properties?.isEmpty ?? true) {
+      return null; // Empty output
     }
 
     if (object.properties?.length == 1) {

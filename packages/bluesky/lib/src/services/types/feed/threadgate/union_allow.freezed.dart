@@ -16,7 +16,7 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$UAllow {
-  InvalidType get data => throw _privateConstructorUsedError;
+  Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(MentionRule data) mentionRule,
@@ -93,6 +93,8 @@ abstract class _$$UAllowMentionRuleImplCopyWith<$Res> {
       __$$UAllowMentionRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MentionRule data});
+
+  $MentionRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -106,14 +108,22 @@ class __$$UAllowMentionRuleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$UAllowMentionRuleImpl(
-      data: freezed == data
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as MentionRule,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $MentionRuleCopyWith<$Res> get data {
+    return $MentionRuleCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
@@ -135,12 +145,11 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UAllowMentionRuleImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
@@ -242,6 +251,8 @@ abstract class _$$UAllowFollowingRuleImplCopyWith<$Res> {
       __$$UAllowFollowingRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FollowingRule data});
+
+  $FollowingRuleCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -255,14 +266,22 @@ class __$$UAllowFollowingRuleImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? data = freezed,
+    Object? data = null,
   }) {
     return _then(_$UAllowFollowingRuleImpl(
-      data: freezed == data
+      data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
               as FollowingRule,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $FollowingRuleCopyWith<$Res> get data {
+    return $FollowingRuleCopyWith<$Res>(_value.data, (value) {
+      return _then(_value.copyWith(data: value));
+    });
   }
 }
 
@@ -284,12 +303,11 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$UAllowFollowingRuleImpl &&
-            const DeepCollectionEquality().equals(other.data, data));
+            (identical(other.data, data) || other.data == data));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(data));
+  int get hashCode => Object.hash(runtimeType, data);
 
   @JsonKey(ignore: true)
   @override
