@@ -10,6 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/feed/threadgate/record.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/union_allow.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/list_rule.dart';
+export 'package:bluesky/src/services/types/feed/generator/record.dart';
+export 'package:bluesky/src/services/types/feed/generator/union_label.dart';

@@ -58,13 +58,14 @@ final class LexGenObjectBuilder {
 
   List<LexGenObjectProperty> _getProperties() {
     final properties = context.def!.whenOrNull(
-      object: (data) => _getObjectProperties(data),
+      object: _getObjectProperties,
       xrpcQuery: (data) {
         return _getObjectPropertiesFromXrpcBody(data.output);
       },
       xrpcProcedure: (data) {
         return _getObjectPropertiesFromXrpcBody(data.output);
       },
+      record: (data) => _getObjectProperties(data.record),
     );
 
     return properties ?? const [];

@@ -28,11 +28,20 @@ final class LexNamingConvention {
           : toFirstUpper(lexicon.split('#').last);
     }
 
+    if (context.def is ULexUserTypeRecord) {
+      return '${toFirstUpper(segments.last)}Record';
+    }
+
     return '${toFirstUpper(segments.last)}Output';
   }
 
   String getFileName() {
     final segments = context.docId.toString().split('.');
+
+    if (context.def is ULexUserTypeRecord) {
+      return 'record';
+    }
+
     if (!segments.last.startsWith('defs') && !_lexicon.contains('#')) {
       return 'output';
     }

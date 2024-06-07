@@ -10,6 +10,9 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:bluesky/src/services/types/feed/post/record.dart';
+export 'package:bluesky/src/services/types/feed/post/union_embed.dart';
+export 'package:bluesky/src/services/types/feed/post/union_label.dart';
 export 'package:bluesky/src/services/types/feed/post/reply_ref.dart';
 export 'package:bluesky/src/services/types/feed/post/entity.dart';
 export 'package:bluesky/src/services/types/feed/post/text_slice.dart';

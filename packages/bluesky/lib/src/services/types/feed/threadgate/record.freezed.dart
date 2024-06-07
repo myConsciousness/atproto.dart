@@ -1,0 +1,217 @@
+// coverage:ignore-file
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
+
+part of 'record.dart';
+
+// **************************************************************************
+// FreezedGenerator
+// **************************************************************************
+
+T _$identity<T>(T value) => value;
+
+final _privateConstructorUsedError = UnsupportedError(
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
+
+ThreadgateRecord _$ThreadgateRecordFromJson(Map<String, dynamic> json) {
+  return _ThreadgateRecord.fromJson(json);
+}
+
+/// @nodoc
+mixin _$ThreadgateRecord {
+  /// Reference (AT-URI) to the post record.
+  @AtUriConverter()
+  AtUri get post => throw _privateConstructorUsedError;
+  @UAllowConverter()
+  List<UAllow> get allow => throw _privateConstructorUsedError;
+  DateTime get createdAt => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $ThreadgateRecordCopyWith<ThreadgateRecord> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $ThreadgateRecordCopyWith<$Res> {
+  factory $ThreadgateRecordCopyWith(
+          ThreadgateRecord value, $Res Function(ThreadgateRecord) then) =
+      _$ThreadgateRecordCopyWithImpl<$Res, ThreadgateRecord>;
+  @useResult
+  $Res call(
+      {@AtUriConverter() AtUri post,
+      @UAllowConverter() List<UAllow> allow,
+      DateTime createdAt});
+}
+
+/// @nodoc
+class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
+    implements $ThreadgateRecordCopyWith<$Res> {
+  _$ThreadgateRecordCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? post = null,
+    Object? allow = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_value.copyWith(
+      post: null == post
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      allow: null == allow
+          ? _value.allow
+          : allow // ignore: cast_nullable_to_non_nullable
+              as List<UAllow>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$ThreadgateRecordImplCopyWith<$Res>
+    implements $ThreadgateRecordCopyWith<$Res> {
+  factory _$$ThreadgateRecordImplCopyWith(_$ThreadgateRecordImpl value,
+          $Res Function(_$ThreadgateRecordImpl) then) =
+      __$$ThreadgateRecordImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call(
+      {@AtUriConverter() AtUri post,
+      @UAllowConverter() List<UAllow> allow,
+      DateTime createdAt});
+}
+
+/// @nodoc
+class __$$ThreadgateRecordImplCopyWithImpl<$Res>
+    extends _$ThreadgateRecordCopyWithImpl<$Res, _$ThreadgateRecordImpl>
+    implements _$$ThreadgateRecordImplCopyWith<$Res> {
+  __$$ThreadgateRecordImplCopyWithImpl(_$ThreadgateRecordImpl _value,
+      $Res Function(_$ThreadgateRecordImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? post = null,
+    Object? allow = null,
+    Object? createdAt = null,
+  }) {
+    return _then(_$ThreadgateRecordImpl(
+      post: null == post
+          ? _value.post
+          : post // ignore: cast_nullable_to_non_nullable
+              as AtUri,
+      allow: null == allow
+          ? _value._allow
+          : allow // ignore: cast_nullable_to_non_nullable
+              as List<UAllow>,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+    ));
+  }
+}
+
+/// @nodoc
+
+@JsonSerializable(includeIfNull: false)
+class _$ThreadgateRecordImpl implements _ThreadgateRecord {
+  const _$ThreadgateRecordImpl(
+      {@AtUriConverter() required this.post,
+      @UAllowConverter() final List<UAllow> allow = const [],
+      required this.createdAt})
+      : _allow = allow;
+
+  factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ThreadgateRecordImplFromJson(json);
+
+  /// Reference (AT-URI) to the post record.
+  @override
+  @AtUriConverter()
+  final AtUri post;
+  final List<UAllow> _allow;
+  @override
+  @JsonKey()
+  @UAllowConverter()
+  List<UAllow> get allow {
+    if (_allow is EqualUnmodifiableListView) return _allow;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_allow);
+  }
+
+  @override
+  final DateTime createdAt;
+
+  @override
+  String toString() {
+    return 'ThreadgateRecord(post: $post, allow: $allow, createdAt: $createdAt)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ThreadgateRecordImpl &&
+            (identical(other.post, post) || other.post == post) &&
+            const DeepCollectionEquality().equals(other._allow, _allow) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, post,
+      const DeepCollectionEquality().hash(_allow), createdAt);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
+      __$$ThreadgateRecordImplCopyWithImpl<_$ThreadgateRecordImpl>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$ThreadgateRecordImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _ThreadgateRecord implements ThreadgateRecord {
+  const factory _ThreadgateRecord(
+      {@AtUriConverter() required final AtUri post,
+      @UAllowConverter() final List<UAllow> allow,
+      required final DateTime createdAt}) = _$ThreadgateRecordImpl;
+
+  factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
+      _$ThreadgateRecordImpl.fromJson;
+
+  @override
+
+  /// Reference (AT-URI) to the post record.
+  @AtUriConverter()
+  AtUri get post;
+  @override
+  @UAllowConverter()
+  List<UAllow> get allow;
+  @override
+  DateTime get createdAt;
+  @override
+  @JsonKey(ignore: true)
+  _$$ThreadgateRecordImplCopyWith<_$ThreadgateRecordImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
