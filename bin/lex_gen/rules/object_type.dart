@@ -6,6 +6,7 @@ enum ObjectType {
   params,
   input,
   output,
+  message,
   object,
   record,
 }
