@@ -8,6 +8,7 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../rules/naming_convention.dart';
+import '../rules/object_type.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
 import '../types/union_object.dart';
@@ -236,7 +237,14 @@ String? getDefaultValue(
   final DataType type,
   final NSID docId,
   final String? ref,
+  final ObjectType objectType,
 ) {
+  if (objectType == ObjectType.params ||
+      objectType == ObjectType.input ||
+      objectType == ObjectType.output) {
+    return null;
+  }
+
   if (type.name == 'int') {
     return defaultValue?.toString() ?? '0';
   } else if (type.name == 'bool') {

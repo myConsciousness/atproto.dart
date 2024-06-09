@@ -21,8 +21,8 @@ part 'params.g.dart';
 class FetchLabelsParams with _$FetchLabelsParams {
   @JsonSerializable(includeIfNull: false)
   const factory FetchLabelsParams({
-    @Default(0) int since,
-    @Default(50) int limit,
+    int? since,
+    int? limit,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

@@ -14,8 +14,7 @@ _$GetPopularFeedGeneratorsParamsImpl
           json,
           ($checkedConvert) {
             final val = _$GetPopularFeedGeneratorsParamsImpl(
-              limit:
-                  $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+              limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
               cursor: $checkedConvert('cursor', (v) => v as String?),
               query: $checkedConvert('query', (v) => v as String?),
               $unknown: $checkedConvert(
@@ -32,9 +31,7 @@ _$GetPopularFeedGeneratorsParamsImpl
 
 Map<String, dynamic> _$$GetPopularFeedGeneratorsParamsImplToJson(
     _$GetPopularFeedGeneratorsParamsImpl instance) {
-  final val = <String, dynamic>{
-    'limit': instance.limit,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -42,6 +39,7 @@ Map<String, dynamic> _$$GetPopularFeedGeneratorsParamsImplToJson(
     }
   }
 
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   writeNotNull('query', instance.query);
   val[r'$unknown'] = instance.$unknown;

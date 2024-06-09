@@ -24,7 +24,7 @@ mixin _$GetFeedSkeletonParams {
   /// Reference to feed generator record describing the specific feed being requested.
   @AtUriConverter()
   AtUri get feed => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +45,7 @@ abstract class $GetFeedSkeletonParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {@AtUriConverter() AtUri feed,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -65,7 +65,7 @@ class _$GetFeedSkeletonParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? feed = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -74,10 +74,10 @@ class _$GetFeedSkeletonParamsCopyWithImpl<$Res,
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -101,7 +101,7 @@ abstract class _$$GetFeedSkeletonParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {@AtUriConverter() AtUri feed,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -119,7 +119,7 @@ class __$$GetFeedSkeletonParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? feed = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -128,10 +128,10 @@ class __$$GetFeedSkeletonParamsImplCopyWithImpl<$Res>
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -150,7 +150,7 @@ class __$$GetFeedSkeletonParamsImplCopyWithImpl<$Res>
 class _$GetFeedSkeletonParamsImpl implements _GetFeedSkeletonParams {
   const _$GetFeedSkeletonParamsImpl(
       {@AtUriConverter() required this.feed,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -164,8 +164,7 @@ class _$GetFeedSkeletonParamsImpl implements _GetFeedSkeletonParams {
   @AtUriConverter()
   final AtUri feed;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -220,7 +219,7 @@ class _$GetFeedSkeletonParamsImpl implements _GetFeedSkeletonParams {
 abstract class _GetFeedSkeletonParams implements GetFeedSkeletonParams {
   const factory _GetFeedSkeletonParams(
           {@AtUriConverter() required final AtUri feed,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetFeedSkeletonParamsImpl;
@@ -234,7 +233,7 @@ abstract class _GetFeedSkeletonParams implements GetFeedSkeletonParams {
   @AtUriConverter()
   AtUri get feed;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

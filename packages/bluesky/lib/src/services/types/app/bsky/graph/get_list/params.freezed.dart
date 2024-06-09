@@ -23,7 +23,7 @@ mixin _$GetListParams {
   /// Reference (AT-URI) of the list record to hydrate.
   @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,7 +44,7 @@ abstract class $GetListParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {@AtUriConverter() AtUri list,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -63,7 +63,7 @@ class _$GetListParamsCopyWithImpl<$Res, $Val extends GetListParams>
   @override
   $Res call({
     Object? list = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -72,10 +72,10 @@ class _$GetListParamsCopyWithImpl<$Res, $Val extends GetListParams>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$GetListParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {@AtUriConverter() AtUri list,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -115,7 +115,7 @@ class __$$GetListParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? list = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -124,10 +124,10 @@ class __$$GetListParamsImplCopyWithImpl<$Res>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ class __$$GetListParamsImplCopyWithImpl<$Res>
 class _$GetListParamsImpl implements _GetListParams {
   const _$GetListParamsImpl(
       {@AtUriConverter() required this.list,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -160,8 +160,7 @@ class _$GetListParamsImpl implements _GetListParams {
   @AtUriConverter()
   final AtUri list;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -215,7 +214,7 @@ class _$GetListParamsImpl implements _GetListParams {
 abstract class _GetListParams implements GetListParams {
   const factory _GetListParams(
           {@AtUriConverter() required final AtUri list,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListParamsImpl;
@@ -229,7 +228,7 @@ abstract class _GetListParams implements GetListParams {
   @AtUriConverter()
   AtUri get list;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

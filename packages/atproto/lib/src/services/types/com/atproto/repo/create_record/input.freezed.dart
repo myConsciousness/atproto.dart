@@ -30,7 +30,7 @@ mixin _$CreateRecordInput {
   String? get rkey => throw _privateConstructorUsedError;
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
-  bool get validate => throw _privateConstructorUsedError;
+  bool? get validate => throw _privateConstructorUsedError;
 
   /// The record itself. Must contain a $type field.
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
@@ -58,7 +58,7 @@ abstract class $CreateRecordInputCopyWith<$Res> {
       {String repo,
       String collection,
       String? rkey,
-      bool validate,
+      bool? validate,
       Map<String, dynamic> record,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -80,7 +80,7 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
     Object? repo = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? record = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
@@ -98,10 +98,10 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ abstract class _$$CreateRecordInputImplCopyWith<$Res>
       {String repo,
       String collection,
       String? rkey,
-      bool validate,
+      bool? validate,
       Map<String, dynamic> record,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -150,7 +150,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
     Object? repo = null,
     Object? collection = null,
     Object? rkey = freezed,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? record = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
@@ -168,10 +168,10 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String?,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       record: null == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -196,7 +196,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
       {required this.repo,
       required this.collection,
       this.rkey,
-      this.validate = true,
+      this.validate,
       required final Map<String, dynamic> record,
       this.swapCommit,
       @JsonKey(name: r'$unknown')
@@ -221,8 +221,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
   @override
-  @JsonKey()
-  final bool validate;
+  final bool? validate;
 
   /// The record itself. Must contain a $type field.
   final Map<String, dynamic> _record;
@@ -305,7 +304,7 @@ abstract class _CreateRecordInput implements CreateRecordInput {
           {required final String repo,
           required final String collection,
           final String? rkey,
-          final bool validate,
+          final bool? validate,
           required final Map<String, dynamic> record,
           final String? swapCommit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -329,7 +328,7 @@ abstract class _CreateRecordInput implements CreateRecordInput {
   @override
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
-  bool get validate;
+  bool? get validate;
   @override
 
   /// The record itself. Must contain a $type field.

@@ -23,10 +23,10 @@ mixin _$GetSessionOutput {
   String get handle => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
-  bool get emailConfirmed => throw _privateConstructorUsedError;
-  bool get emailAuthFactor => throw _privateConstructorUsedError;
+  bool? get emailConfirmed => throw _privateConstructorUsedError;
+  bool? get emailAuthFactor => throw _privateConstructorUsedError;
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
-  bool get active => throw _privateConstructorUsedError;
+  bool? get active => throw _privateConstructorUsedError;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @UStatusConverter()
@@ -52,10 +52,10 @@ abstract class $GetSessionOutputCopyWith<$Res> {
       {String handle,
       String did,
       String? email,
-      bool emailConfirmed,
-      bool emailAuthFactor,
+      bool? emailConfirmed,
+      bool? emailAuthFactor,
       Map<String, dynamic>? didDoc,
-      bool active,
+      bool? active,
       @UStatusConverter() UStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -78,10 +78,10 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
     Object? handle = null,
     Object? did = null,
     Object? email = freezed,
-    Object? emailConfirmed = null,
-    Object? emailAuthFactor = null,
+    Object? emailConfirmed = freezed,
+    Object? emailAuthFactor = freezed,
     Object? didDoc = freezed,
-    Object? active = null,
+    Object? active = freezed,
     Object? status = freezed,
     Object? $unknown = null,
   }) {
@@ -98,22 +98,22 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      emailConfirmed: null == emailConfirmed
+      emailConfirmed: freezed == emailConfirmed
           ? _value.emailConfirmed
           : emailConfirmed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      emailAuthFactor: null == emailAuthFactor
+              as bool?,
+      emailAuthFactor: freezed == emailAuthFactor
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       didDoc: freezed == didDoc
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      active: null == active
+      active: freezed == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -150,10 +150,10 @@ abstract class _$$GetSessionOutputImplCopyWith<$Res>
       {String handle,
       String did,
       String? email,
-      bool emailConfirmed,
-      bool emailAuthFactor,
+      bool? emailConfirmed,
+      bool? emailAuthFactor,
       Map<String, dynamic>? didDoc,
-      bool active,
+      bool? active,
       @UStatusConverter() UStatus? status,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -175,10 +175,10 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? did = null,
     Object? email = freezed,
-    Object? emailConfirmed = null,
-    Object? emailAuthFactor = null,
+    Object? emailConfirmed = freezed,
+    Object? emailAuthFactor = freezed,
     Object? didDoc = freezed,
-    Object? active = null,
+    Object? active = freezed,
     Object? status = freezed,
     Object? $unknown = null,
   }) {
@@ -195,22 +195,22 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      emailConfirmed: null == emailConfirmed
+      emailConfirmed: freezed == emailConfirmed
           ? _value.emailConfirmed
           : emailConfirmed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      emailAuthFactor: null == emailAuthFactor
+              as bool?,
+      emailAuthFactor: freezed == emailAuthFactor
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       didDoc: freezed == didDoc
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
-      active: null == active
+      active: freezed == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       status: freezed == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
@@ -231,10 +231,10 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       {required this.handle,
       required this.did,
       this.email,
-      this.emailConfirmed = false,
-      this.emailAuthFactor = false,
+      this.emailConfirmed,
+      this.emailAuthFactor,
       final Map<String, dynamic>? didDoc,
-      this.active = false,
+      this.active,
       @UStatusConverter() this.status,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -251,11 +251,9 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
   @override
   final String? email;
   @override
-  @JsonKey()
-  final bool emailConfirmed;
+  final bool? emailConfirmed;
   @override
-  @JsonKey()
-  final bool emailAuthFactor;
+  final bool? emailAuthFactor;
   final Map<String, dynamic>? _didDoc;
   @override
   Map<String, dynamic>? get didDoc {
@@ -267,8 +265,7 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
   }
 
   @override
-  @JsonKey()
-  final bool active;
+  final bool? active;
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @override
@@ -344,10 +341,10 @@ abstract class _GetSessionOutput implements GetSessionOutput {
           {required final String handle,
           required final String did,
           final String? email,
-          final bool emailConfirmed,
-          final bool emailAuthFactor,
+          final bool? emailConfirmed,
+          final bool? emailAuthFactor,
           final Map<String, dynamic>? didDoc,
-          final bool active,
+          final bool? active,
           @UStatusConverter() final UStatus? status,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSessionOutputImpl;
@@ -362,13 +359,13 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   @override
   String? get email;
   @override
-  bool get emailConfirmed;
+  bool? get emailConfirmed;
   @override
-  bool get emailAuthFactor;
+  bool? get emailAuthFactor;
   @override
   Map<String, dynamic>? get didDoc;
   @override
-  bool get active;
+  bool? get active;
   @override
 
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.

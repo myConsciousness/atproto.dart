@@ -15,7 +15,7 @@ _$CreateAppPasswordInputImpl _$$CreateAppPasswordInputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$CreateAppPasswordInputImpl(
           name: $checkedConvert('name', (v) => v as String),
-          privileged: $checkedConvert('privileged', (v) => v as bool? ?? false),
+          privileged: $checkedConvert('privileged', (v) => v as bool?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -29,9 +29,18 @@ _$CreateAppPasswordInputImpl _$$CreateAppPasswordInputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$CreateAppPasswordInputImplToJson(
-        _$CreateAppPasswordInputImpl instance) =>
-    <String, dynamic>{
-      'name': instance.name,
-      'privileged': instance.privileged,
-      r'$unknown': instance.$unknown,
-    };
+    _$CreateAppPasswordInputImpl instance) {
+  final val = <String, dynamic>{
+    'name': instance.name,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('privileged', instance.privileged);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

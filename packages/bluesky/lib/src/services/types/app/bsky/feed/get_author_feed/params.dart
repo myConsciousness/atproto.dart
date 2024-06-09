@@ -25,7 +25,7 @@ class GetAuthorFeedParams with _$GetAuthorFeedParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetAuthorFeedParams({
     required String actor,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Combinations of post/repost types to include in response.

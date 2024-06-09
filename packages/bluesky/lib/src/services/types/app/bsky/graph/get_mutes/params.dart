@@ -21,7 +21,7 @@ part 'params.g.dart';
 class GetMutesParams with _$GetMutesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetMutesParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

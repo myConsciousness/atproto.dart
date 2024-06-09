@@ -26,7 +26,7 @@ class QueryLabelsParams with _$QueryLabelsParams {
 
     /// Optional list of label sources (DIDs) to filter on.
     List<String>? sources,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

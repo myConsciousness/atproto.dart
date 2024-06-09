@@ -21,7 +21,7 @@ part 'params.g.dart';
 class GetSuggestedFeedsParams with _$GetSuggestedFeedsParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestedFeedsParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

@@ -50,7 +50,7 @@ mixin _$SearchPostsParams {
 
   /// Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.
   List<String>? get tag => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   String? get cursor => throw _privateConstructorUsedError;
@@ -82,7 +82,7 @@ abstract class $SearchPostsParamsCopyWith<$Res> {
       String? domain,
       String? url,
       List<String>? tag,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -112,7 +112,7 @@ class _$SearchPostsParamsCopyWithImpl<$Res, $Val extends SearchPostsParams>
     Object? domain = freezed,
     Object? url = freezed,
     Object? tag = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -157,10 +157,10 @@ class _$SearchPostsParamsCopyWithImpl<$Res, $Val extends SearchPostsParams>
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -204,7 +204,7 @@ abstract class _$$SearchPostsParamsImplCopyWith<$Res>
       String? domain,
       String? url,
       List<String>? tag,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -233,7 +233,7 @@ class __$$SearchPostsParamsImplCopyWithImpl<$Res>
     Object? domain = freezed,
     Object? url = freezed,
     Object? tag = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -278,10 +278,10 @@ class __$$SearchPostsParamsImplCopyWithImpl<$Res>
           ? _value._tag
           : tag // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -309,7 +309,7 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
       this.domain,
       this.url,
       final List<String>? tag,
-      this.limit = 25,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -370,8 +370,7 @@ class _$SearchPostsParamsImpl implements _SearchPostsParams {
   }
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   @override
@@ -460,7 +459,7 @@ abstract class _SearchPostsParams implements SearchPostsParams {
           final String? domain,
           final String? url,
           final List<String>? tag,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchPostsParamsImpl;
@@ -510,7 +509,7 @@ abstract class _SearchPostsParams implements SearchPostsParams {
   /// Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.
   List<String>? get tag;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.

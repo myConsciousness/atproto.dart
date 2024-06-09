@@ -25,7 +25,7 @@ mixin _$CreateAppPasswordInput {
   String get name => throw _privateConstructorUsedError;
 
   /// If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.
-  bool get privileged => throw _privateConstructorUsedError;
+  bool? get privileged => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -45,7 +45,7 @@ abstract class $CreateAppPasswordInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String name,
-      bool privileged,
+      bool? privileged,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -64,7 +64,7 @@ class _$CreateAppPasswordInputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? name = null,
-    Object? privileged = null,
+    Object? privileged = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -72,10 +72,10 @@ class _$CreateAppPasswordInputCopyWithImpl<$Res,
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      privileged: null == privileged
+      privileged: freezed == privileged
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -95,7 +95,7 @@ abstract class _$$CreateAppPasswordInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String name,
-      bool privileged,
+      bool? privileged,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -113,7 +113,7 @@ class __$$CreateAppPasswordInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? name = null,
-    Object? privileged = null,
+    Object? privileged = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$CreateAppPasswordInputImpl(
@@ -121,10 +121,10 @@ class __$$CreateAppPasswordInputImplCopyWithImpl<$Res>
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      privileged: null == privileged
+      privileged: freezed == privileged
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ class __$$CreateAppPasswordInputImplCopyWithImpl<$Res>
 class _$CreateAppPasswordInputImpl implements _CreateAppPasswordInput {
   const _$CreateAppPasswordInputImpl(
       {required this.name,
-      this.privileged = false,
+      this.privileged,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -153,8 +153,7 @@ class _$CreateAppPasswordInputImpl implements _CreateAppPasswordInput {
 
   /// If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.
   @override
-  @JsonKey()
-  final bool privileged;
+  final bool? privileged;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -207,7 +206,7 @@ class _$CreateAppPasswordInputImpl implements _CreateAppPasswordInput {
 abstract class _CreateAppPasswordInput implements CreateAppPasswordInput {
   const factory _CreateAppPasswordInput(
           {required final String name,
-          final bool privileged,
+          final bool? privileged,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$CreateAppPasswordInputImpl;
 
@@ -221,7 +220,7 @@ abstract class _CreateAppPasswordInput implements CreateAppPasswordInput {
   @override
 
   /// If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.
-  bool get privileged;
+  bool? get privileged;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

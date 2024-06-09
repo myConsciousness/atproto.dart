@@ -17,7 +17,7 @@ _$CreateRecordInputImpl _$$CreateRecordInputImplFromJson(Map json) =>
           repo: $checkedConvert('repo', (v) => v as String),
           collection: $checkedConvert('collection', (v) => v as String),
           rkey: $checkedConvert('rkey', (v) => v as String?),
-          validate: $checkedConvert('validate', (v) => v as bool? ?? true),
+          validate: $checkedConvert('validate', (v) => v as bool?),
           record: $checkedConvert(
               'record', (v) => Map<String, dynamic>.from(v as Map)),
           swapCommit: $checkedConvert('swapCommit', (v) => v as String?),
@@ -47,7 +47,7 @@ Map<String, dynamic> _$$CreateRecordInputImplToJson(
   }
 
   writeNotNull('rkey', instance.rkey);
-  val['validate'] = instance.validate;
+  writeNotNull('validate', instance.validate);
   val['record'] = instance.record;
   writeNotNull('swapCommit', instance.swapCommit);
   val[r'$unknown'] = instance.$unknown;

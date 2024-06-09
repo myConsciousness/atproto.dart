@@ -21,7 +21,7 @@ ListMissingBlobsParams _$ListMissingBlobsParamsFromJson(
 
 /// @nodoc
 mixin _$ListMissingBlobsParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +41,7 @@ abstract class $ListMissingBlobsParamsCopyWith<$Res> {
       _$ListMissingBlobsParamsCopyWithImpl<$Res, ListMissingBlobsParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -60,15 +60,15 @@ class _$ListMissingBlobsParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -91,7 +91,7 @@ abstract class _$$ListMissingBlobsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -109,15 +109,15 @@ class __$$ListMissingBlobsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ListMissingBlobsParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -135,7 +135,7 @@ class __$$ListMissingBlobsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListMissingBlobsParamsImpl implements _ListMissingBlobsParams {
   const _$ListMissingBlobsParamsImpl(
-      {this.limit = 500,
+      {this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -145,8 +145,7 @@ class _$ListMissingBlobsParamsImpl implements _ListMissingBlobsParams {
       _$$ListMissingBlobsParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -199,7 +198,7 @@ class _$ListMissingBlobsParamsImpl implements _ListMissingBlobsParams {
 
 abstract class _ListMissingBlobsParams implements ListMissingBlobsParams {
   const factory _ListMissingBlobsParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListMissingBlobsParamsImpl;
@@ -208,7 +207,7 @@ abstract class _ListMissingBlobsParams implements ListMissingBlobsParams {
       _$ListMissingBlobsParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

@@ -21,7 +21,7 @@ part 'params.g.dart';
 class ListReposParams with _$ListReposParams {
   @JsonSerializable(includeIfNull: false)
   const factory ListReposParams({
-    @Default(500) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

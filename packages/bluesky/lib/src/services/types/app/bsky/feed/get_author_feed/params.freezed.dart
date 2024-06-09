@@ -21,7 +21,7 @@ GetAuthorFeedParams _$GetAuthorFeedParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetAuthorFeedParams {
   String get actor => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Combinations of post/repost types to include in response.
@@ -46,7 +46,7 @@ abstract class $GetAuthorFeedParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @UFilterConverter() UFilter? filter,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -68,7 +68,7 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? filter = freezed,
     Object? $unknown = null,
@@ -78,10 +78,10 @@ class _$GetAuthorFeedParamsCopyWithImpl<$Res, $Val extends GetAuthorFeedParams>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -120,7 +120,7 @@ abstract class _$$GetAuthorFeedParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @UFilterConverter() UFilter? filter,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -141,7 +141,7 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? filter = freezed,
     Object? $unknown = null,
@@ -151,10 +151,10 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -177,7 +177,7 @@ class __$$GetAuthorFeedParamsImplCopyWithImpl<$Res>
 class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
   const _$GetAuthorFeedParamsImpl(
       {required this.actor,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @UFilterConverter() this.filter,
       @JsonKey(name: r'$unknown')
@@ -190,8 +190,7 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
   @override
   final String actor;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -252,7 +251,7 @@ class _$GetAuthorFeedParamsImpl implements _GetAuthorFeedParams {
 abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
   const factory _GetAuthorFeedParams(
           {required final String actor,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @UFilterConverter() final UFilter? filter,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -264,7 +263,7 @@ abstract class _GetAuthorFeedParams implements GetAuthorFeedParams {
   @override
   String get actor;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

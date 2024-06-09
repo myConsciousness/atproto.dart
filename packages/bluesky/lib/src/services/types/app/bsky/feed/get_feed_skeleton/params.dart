@@ -24,7 +24,7 @@ class GetFeedSkeletonParams with _$GetFeedSkeletonParams {
   const factory GetFeedSkeletonParams({
     /// Reference to feed generator record describing the specific feed being requested.
     @AtUriConverter() required AtUri feed,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

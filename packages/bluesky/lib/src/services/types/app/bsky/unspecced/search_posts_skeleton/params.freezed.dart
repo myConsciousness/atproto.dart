@@ -54,7 +54,7 @@ mixin _$SearchPostsSkeletonParams {
 
   /// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
   String? get viewer => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   String? get cursor => throw _privateConstructorUsedError;
@@ -87,7 +87,7 @@ abstract class $SearchPostsSkeletonParamsCopyWith<$Res> {
       String? url,
       List<String>? tag,
       String? viewer,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -119,7 +119,7 @@ class _$SearchPostsSkeletonParamsCopyWithImpl<$Res,
     Object? url = freezed,
     Object? tag = freezed,
     Object? viewer = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -168,10 +168,10 @@ class _$SearchPostsSkeletonParamsCopyWithImpl<$Res,
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -217,7 +217,7 @@ abstract class _$$SearchPostsSkeletonParamsImplCopyWith<$Res>
       String? url,
       List<String>? tag,
       String? viewer,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -249,7 +249,7 @@ class __$$SearchPostsSkeletonParamsImplCopyWithImpl<$Res>
     Object? url = freezed,
     Object? tag = freezed,
     Object? viewer = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -298,10 +298,10 @@ class __$$SearchPostsSkeletonParamsImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -330,7 +330,7 @@ class _$SearchPostsSkeletonParamsImpl implements _SearchPostsSkeletonParams {
       this.url,
       final List<String>? tag,
       this.viewer,
-      this.limit = 25,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -394,8 +394,7 @@ class _$SearchPostsSkeletonParamsImpl implements _SearchPostsSkeletonParams {
   @override
   final String? viewer;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   @override
@@ -487,7 +486,7 @@ abstract class _SearchPostsSkeletonParams implements SearchPostsSkeletonParams {
           final String? url,
           final List<String>? tag,
           final String? viewer,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchPostsSkeletonParamsImpl;
@@ -541,7 +540,7 @@ abstract class _SearchPostsSkeletonParams implements SearchPostsSkeletonParams {
   /// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
   String? get viewer;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.

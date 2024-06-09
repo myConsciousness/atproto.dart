@@ -22,7 +22,7 @@ GetTimelineParams _$GetTimelineParamsFromJson(Map<String, dynamic> json) {
 mixin _$GetTimelineParams {
   /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
   String? get algorithm => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +43,7 @@ abstract class $GetTimelineParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String? algorithm,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -62,7 +62,7 @@ class _$GetTimelineParamsCopyWithImpl<$Res, $Val extends GetTimelineParams>
   @override
   $Res call({
     Object? algorithm = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -71,10 +71,10 @@ class _$GetTimelineParamsCopyWithImpl<$Res, $Val extends GetTimelineParams>
           ? _value.algorithm
           : algorithm // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$GetTimelineParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? algorithm,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -114,7 +114,7 @@ class __$$GetTimelineParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? algorithm = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -123,10 +123,10 @@ class __$$GetTimelineParamsImplCopyWithImpl<$Res>
           ? _value.algorithm
           : algorithm // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -145,7 +145,7 @@ class __$$GetTimelineParamsImplCopyWithImpl<$Res>
 class _$GetTimelineParamsImpl implements _GetTimelineParams {
   const _$GetTimelineParamsImpl(
       {this.algorithm,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -158,8 +158,7 @@ class _$GetTimelineParamsImpl implements _GetTimelineParams {
   @override
   final String? algorithm;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -215,7 +214,7 @@ class _$GetTimelineParamsImpl implements _GetTimelineParams {
 abstract class _GetTimelineParams implements GetTimelineParams {
   const factory _GetTimelineParams(
           {final String? algorithm,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetTimelineParamsImpl;
@@ -228,7 +227,7 @@ abstract class _GetTimelineParams implements GetTimelineParams {
   /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
   String? get algorithm;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

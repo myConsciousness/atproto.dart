@@ -28,7 +28,7 @@ class ApplyWritesInput with _$ApplyWritesInput {
     required String repo,
 
     /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
-    @Default(true) bool validate,
+    bool? validate,
     @UWriteConverter() required List<UWrite> writes,
 
     /// If provided, the entire operation will fail if the current repo commit CID does not match this value. Used to prevent conflicting repo mutations.

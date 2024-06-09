@@ -24,7 +24,7 @@ class GetListFeedParams with _$GetListFeedParams {
   const factory GetListFeedParams({
     /// Reference (AT-URI) to the list record.
     @AtUriConverter() required AtUri list,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

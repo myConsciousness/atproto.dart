@@ -22,7 +22,7 @@ SearchAccountsParams _$SearchAccountsParamsFromJson(Map<String, dynamic> json) {
 mixin _$SearchAccountsParams {
   String? get email => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -43,7 +43,7 @@ abstract class $SearchAccountsParamsCopyWith<$Res> {
   $Res call(
       {String? email,
       String? cursor,
-      int limit,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -63,7 +63,7 @@ class _$SearchAccountsParamsCopyWithImpl<$Res,
   $Res call({
     Object? email = freezed,
     Object? cursor = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -75,10 +75,10 @@ class _$SearchAccountsParamsCopyWithImpl<$Res,
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$SearchAccountsParamsImplCopyWith<$Res>
   $Res call(
       {String? email,
       String? cursor,
-      int limit,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -115,7 +115,7 @@ class __$$SearchAccountsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? email = freezed,
     Object? cursor = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$SearchAccountsParamsImpl(
@@ -127,10 +127,10 @@ class __$$SearchAccountsParamsImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ class _$SearchAccountsParamsImpl implements _SearchAccountsParams {
   const _$SearchAccountsParamsImpl(
       {this.email,
       this.cursor,
-      this.limit = 50,
+      this.limit,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -159,8 +159,7 @@ class _$SearchAccountsParamsImpl implements _SearchAccountsParams {
   @override
   final String? cursor;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -215,7 +214,7 @@ abstract class _SearchAccountsParams implements SearchAccountsParams {
   const factory _SearchAccountsParams(
           {final String? email,
           final String? cursor,
-          final int limit,
+          final int? limit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchAccountsParamsImpl;
 
@@ -227,7 +226,7 @@ abstract class _SearchAccountsParams implements SearchAccountsParams {
   @override
   String? get cursor;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

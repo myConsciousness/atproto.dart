@@ -30,7 +30,7 @@ _$SearchPostsSkeletonParamsImpl _$$SearchPostsSkeletonParamsImplFromJson(
           tag: $checkedConvert('tag',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           viewer: $checkedConvert('viewer', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -69,7 +69,7 @@ Map<String, dynamic> _$$SearchPostsSkeletonParamsImplToJson(
   writeNotNull('url', instance.url);
   writeNotNull('tag', instance.tag);
   writeNotNull('viewer', instance.viewer);
-  val['limit'] = instance.limit;
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

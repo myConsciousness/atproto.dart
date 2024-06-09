@@ -21,7 +21,7 @@ GetActorLikesParams _$GetActorLikesParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetActorLikesParams {
   String get actor => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +42,7 @@ abstract class $GetActorLikesParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -61,7 +61,7 @@ class _$GetActorLikesParamsCopyWithImpl<$Res, $Val extends GetActorLikesParams>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -70,10 +70,10 @@ class _$GetActorLikesParamsCopyWithImpl<$Res, $Val extends GetActorLikesParams>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -96,7 +96,7 @@ abstract class _$$GetActorLikesParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -113,7 +113,7 @@ class __$$GetActorLikesParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -122,10 +122,10 @@ class __$$GetActorLikesParamsImplCopyWithImpl<$Res>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ class __$$GetActorLikesParamsImplCopyWithImpl<$Res>
 class _$GetActorLikesParamsImpl implements _GetActorLikesParams {
   const _$GetActorLikesParamsImpl(
       {required this.actor,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -156,8 +156,7 @@ class _$GetActorLikesParamsImpl implements _GetActorLikesParams {
   @override
   final String actor;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -212,7 +211,7 @@ class _$GetActorLikesParamsImpl implements _GetActorLikesParams {
 abstract class _GetActorLikesParams implements GetActorLikesParams {
   const factory _GetActorLikesParams(
           {required final String actor,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetActorLikesParamsImpl;
@@ -223,7 +222,7 @@ abstract class _GetActorLikesParams implements GetActorLikesParams {
   @override
   String get actor;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

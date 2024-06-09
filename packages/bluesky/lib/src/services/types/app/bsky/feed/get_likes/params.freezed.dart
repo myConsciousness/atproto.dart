@@ -26,7 +26,7 @@ mixin _$GetLikesParams {
 
   /// CID of the subject record (aka, specific version of record), to filter likes.
   String? get cid => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -48,7 +48,7 @@ abstract class $GetLikesParamsCopyWith<$Res> {
   $Res call(
       {@AtUriConverter() AtUri uri,
       String? cid,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -68,7 +68,7 @@ class _$GetLikesParamsCopyWithImpl<$Res, $Val extends GetLikesParams>
   $Res call({
     Object? uri = null,
     Object? cid = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -81,10 +81,10 @@ class _$GetLikesParamsCopyWithImpl<$Res, $Val extends GetLikesParams>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$GetLikesParamsImplCopyWith<$Res>
   $Res call(
       {@AtUriConverter() AtUri uri,
       String? cid,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -126,7 +126,7 @@ class __$$GetLikesParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
     Object? cid = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -139,10 +139,10 @@ class __$$GetLikesParamsImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$GetLikesParamsImpl implements _GetLikesParams {
   const _$GetLikesParamsImpl(
       {@AtUriConverter() required this.uri,
       this.cid,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -180,8 +180,7 @@ class _$GetLikesParamsImpl implements _GetLikesParams {
   @override
   final String? cid;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -238,7 +237,7 @@ abstract class _GetLikesParams implements GetLikesParams {
   const factory _GetLikesParams(
           {@AtUriConverter() required final AtUri uri,
           final String? cid,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetLikesParamsImpl;
@@ -256,7 +255,7 @@ abstract class _GetLikesParams implements GetLikesParams {
   /// CID of the subject record (aka, specific version of record), to filter likes.
   String? get cid;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

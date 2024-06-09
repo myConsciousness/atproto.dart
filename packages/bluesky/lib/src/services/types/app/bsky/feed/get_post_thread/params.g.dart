@@ -16,9 +16,9 @@ _$GetPostThreadParamsImpl _$$GetPostThreadParamsImplFromJson(Map json) =>
         final val = _$GetPostThreadParamsImpl(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
-          depth: $checkedConvert('depth', (v) => (v as num?)?.toInt() ?? 6),
-          parentHeight: $checkedConvert(
-              'parentHeight', (v) => (v as num?)?.toInt() ?? 80),
+          depth: $checkedConvert('depth', (v) => (v as num?)?.toInt()),
+          parentHeight:
+              $checkedConvert('parentHeight', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -32,10 +32,19 @@ _$GetPostThreadParamsImpl _$$GetPostThreadParamsImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GetPostThreadParamsImplToJson(
-        _$GetPostThreadParamsImpl instance) =>
-    <String, dynamic>{
-      'uri': const AtUriConverter().toJson(instance.uri),
-      'depth': instance.depth,
-      'parentHeight': instance.parentHeight,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetPostThreadParamsImpl instance) {
+  final val = <String, dynamic>{
+    'uri': const AtUriConverter().toJson(instance.uri),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('depth', instance.depth);
+  writeNotNull('parentHeight', instance.parentHeight);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

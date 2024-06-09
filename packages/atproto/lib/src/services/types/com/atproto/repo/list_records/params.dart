@@ -28,7 +28,7 @@ class ListRecordsParams with _$ListRecordsParams {
     required String collection,
 
     /// The number of records to return.
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
@@ -42,7 +42,7 @@ class ListRecordsParams with _$ListRecordsParams {
     String? rkeyEnd,
 
     /// Flag to reverse the order of the returned records.
-    @Default(false) bool reverse,
+    bool? reverse,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

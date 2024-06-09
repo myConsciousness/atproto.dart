@@ -21,10 +21,10 @@ part 'params.g.dart';
 class GetAccountInviteCodesParams with _$GetAccountInviteCodesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetAccountInviteCodesParams({
-    @Default(true) bool includeUsed,
+    bool? includeUsed,
 
     /// Controls whether any new 'earned' but not 'created' invites should be created.
-    @Default(true) bool createAvailable,
+    bool? createAvailable,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

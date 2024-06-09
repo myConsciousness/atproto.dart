@@ -15,7 +15,7 @@ _$GetSuggestedFeedsParamsImpl _$$GetSuggestedFeedsParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$GetSuggestedFeedsParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -31,9 +31,7 @@ _$GetSuggestedFeedsParamsImpl _$$GetSuggestedFeedsParamsImplFromJson(
 
 Map<String, dynamic> _$$GetSuggestedFeedsParamsImplToJson(
     _$GetSuggestedFeedsParamsImpl instance) {
-  final val = <String, dynamic>{
-    'limit': instance.limit,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -41,6 +39,7 @@ Map<String, dynamic> _$$GetSuggestedFeedsParamsImplToJson(
     }
   }
 
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

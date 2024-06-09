@@ -20,7 +20,7 @@ GetBlocksParams _$GetBlocksParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetBlocksParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +40,7 @@ abstract class $GetBlocksParamsCopyWith<$Res> {
       _$GetBlocksParamsCopyWithImpl<$Res, GetBlocksParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -58,15 +58,15 @@ class _$GetBlocksParamsCopyWithImpl<$Res, $Val extends GetBlocksParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$GetBlocksParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -104,15 +104,15 @@ class __$$GetBlocksParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetBlocksParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ class __$$GetBlocksParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetBlocksParamsImpl implements _GetBlocksParams {
   const _$GetBlocksParamsImpl(
-      {this.limit = 50,
+      {this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -140,8 +140,7 @@ class _$GetBlocksParamsImpl implements _GetBlocksParams {
       _$$GetBlocksParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -194,7 +193,7 @@ class _$GetBlocksParamsImpl implements _GetBlocksParams {
 
 abstract class _GetBlocksParams implements GetBlocksParams {
   const factory _GetBlocksParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetBlocksParamsImpl;
@@ -203,7 +202,7 @@ abstract class _GetBlocksParams implements GetBlocksParams {
       _$GetBlocksParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

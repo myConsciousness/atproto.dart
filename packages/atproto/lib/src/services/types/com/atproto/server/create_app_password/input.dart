@@ -25,7 +25,7 @@ class CreateAppPasswordInput with _$CreateAppPasswordInput {
     required String name,
 
     /// If an app password has 'privileged' access to possibly sensitive account state. Meant for use with trusted clients.
-    @Default(false) bool privileged,
+    bool? privileged,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

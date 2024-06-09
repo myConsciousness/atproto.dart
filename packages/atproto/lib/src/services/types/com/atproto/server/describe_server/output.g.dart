@@ -15,20 +15,20 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$DescribeServerOutputImpl(
           inviteCodeRequired:
-              $checkedConvert('inviteCodeRequired', (v) => v as bool? ?? false),
-          phoneVerificationRequired: $checkedConvert(
-              'phoneVerificationRequired', (v) => v as bool? ?? false),
+              $checkedConvert('inviteCodeRequired', (v) => v as bool?),
+          phoneVerificationRequired:
+              $checkedConvert('phoneVerificationRequired', (v) => v as bool?),
           availableUserDomains: $checkedConvert('availableUserDomains',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           links: $checkedConvert(
               'links',
               (v) => v == null
-                  ? const Links()
+                  ? null
                   : Links.fromJson(Map<String, Object?>.from(v as Map))),
           contact: $checkedConvert(
               'contact',
               (v) => v == null
-                  ? const Contact()
+                  ? null
                   : Contact.fromJson(Map<String, Object?>.from(v as Map))),
           did: $checkedConvert('did', (v) => v as String),
           $unknown: $checkedConvert(
@@ -44,13 +44,21 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$DescribeServerOutputImplToJson(
-        _$DescribeServerOutputImpl instance) =>
-    <String, dynamic>{
-      'inviteCodeRequired': instance.inviteCodeRequired,
-      'phoneVerificationRequired': instance.phoneVerificationRequired,
-      'availableUserDomains': instance.availableUserDomains,
-      'links': instance.links.toJson(),
-      'contact': instance.contact.toJson(),
-      'did': instance.did,
-      r'$unknown': instance.$unknown,
-    };
+    _$DescribeServerOutputImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('inviteCodeRequired', instance.inviteCodeRequired);
+  writeNotNull('phoneVerificationRequired', instance.phoneVerificationRequired);
+  val['availableUserDomains'] = instance.availableUserDomains;
+  writeNotNull('links', instance.links?.toJson());
+  writeNotNull('contact', instance.contact?.toJson());
+  val['did'] = instance.did;
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

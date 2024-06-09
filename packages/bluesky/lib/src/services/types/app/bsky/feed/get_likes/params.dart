@@ -27,7 +27,7 @@ class GetLikesParams with _$GetLikesParams {
 
     /// CID of the subject record (aka, specific version of record), to filter likes.
     String? cid,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

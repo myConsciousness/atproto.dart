@@ -21,7 +21,7 @@ part 'params.g.dart';
 class ListMissingBlobsParams with _$ListMissingBlobsParams {
   @JsonSerializable(includeIfNull: false)
   const factory ListMissingBlobsParams({
-    @Default(500) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

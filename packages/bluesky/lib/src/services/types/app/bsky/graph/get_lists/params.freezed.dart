@@ -22,7 +22,7 @@ GetListsParams _$GetListsParamsFromJson(Map<String, dynamic> json) {
 mixin _$GetListsParams {
   /// The account (actor) to enumerate lists from.
   String get actor => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +43,7 @@ abstract class $GetListsParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -62,7 +62,7 @@ class _$GetListsParamsCopyWithImpl<$Res, $Val extends GetListsParams>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -71,10 +71,10 @@ class _$GetListsParamsCopyWithImpl<$Res, $Val extends GetListsParams>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -97,7 +97,7 @@ abstract class _$$GetListsParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String actor,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -114,7 +114,7 @@ class __$$GetListsParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actor = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -123,10 +123,10 @@ class __$$GetListsParamsImplCopyWithImpl<$Res>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -145,7 +145,7 @@ class __$$GetListsParamsImplCopyWithImpl<$Res>
 class _$GetListsParamsImpl implements _GetListsParams {
   const _$GetListsParamsImpl(
       {required this.actor,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -158,8 +158,7 @@ class _$GetListsParamsImpl implements _GetListsParams {
   @override
   final String actor;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -214,7 +213,7 @@ class _$GetListsParamsImpl implements _GetListsParams {
 abstract class _GetListsParams implements GetListsParams {
   const factory _GetListsParams(
           {required final String actor,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListsParamsImpl;
@@ -227,7 +226,7 @@ abstract class _GetListsParams implements GetListsParams {
   /// The account (actor) to enumerate lists from.
   String get actor;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

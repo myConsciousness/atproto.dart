@@ -31,7 +31,7 @@ class CreateRecordInput with _$CreateRecordInput {
     String? rkey,
 
     /// Can be set to 'false' to skip Lexicon schema validation of record data.
-    @Default(true) bool validate,
+    bool? validate,
 
     /// The record itself. Must contain a $type field.
     required Map<String, dynamic> record,

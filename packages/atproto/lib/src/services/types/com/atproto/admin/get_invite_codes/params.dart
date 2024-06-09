@@ -25,7 +25,7 @@ class GetInviteCodesParams with _$GetInviteCodesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetInviteCodesParams({
     @USortConverter() USort? sort,
-    @Default(100) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

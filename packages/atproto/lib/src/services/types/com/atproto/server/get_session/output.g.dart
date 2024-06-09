@@ -17,16 +17,15 @@ _$GetSessionOutputImpl _$$GetSessionOutputImplFromJson(Map json) =>
           handle: $checkedConvert('handle', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
           email: $checkedConvert('email', (v) => v as String?),
-          emailConfirmed:
-              $checkedConvert('emailConfirmed', (v) => v as bool? ?? false),
+          emailConfirmed: $checkedConvert('emailConfirmed', (v) => v as bool?),
           emailAuthFactor:
-              $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
+              $checkedConvert('emailAuthFactor', (v) => v as bool?),
           didDoc: $checkedConvert(
               'didDoc',
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
-          active: $checkedConvert('active', (v) => v as bool? ?? false),
+          active: $checkedConvert('active', (v) => v as bool?),
           status: $checkedConvert(
               'status',
               (v) => _$JsonConverterFromJson<String, UStatus>(
@@ -57,10 +56,10 @@ Map<String, dynamic> _$$GetSessionOutputImplToJson(
   }
 
   writeNotNull('email', instance.email);
-  val['emailConfirmed'] = instance.emailConfirmed;
-  val['emailAuthFactor'] = instance.emailAuthFactor;
+  writeNotNull('emailConfirmed', instance.emailConfirmed);
+  writeNotNull('emailAuthFactor', instance.emailAuthFactor);
   writeNotNull('didDoc', instance.didDoc);
-  val['active'] = instance.active;
+  writeNotNull('active', instance.active);
   writeNotNull(
       'status',
       _$JsonConverterToJson<String, UStatus>(

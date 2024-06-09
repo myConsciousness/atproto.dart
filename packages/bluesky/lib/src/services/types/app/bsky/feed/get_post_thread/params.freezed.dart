@@ -25,10 +25,10 @@ mixin _$GetPostThreadParams {
   AtUri get uri => throw _privateConstructorUsedError;
 
   /// How many levels of reply depth should be included in response.
-  int get depth => throw _privateConstructorUsedError;
+  int? get depth => throw _privateConstructorUsedError;
 
   /// How many levels of parent (and grandparent, etc) post to include.
-  int get parentHeight => throw _privateConstructorUsedError;
+  int? get parentHeight => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -48,8 +48,8 @@ abstract class $GetPostThreadParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {@AtUriConverter() AtUri uri,
-      int depth,
-      int parentHeight,
+      int? depth,
+      int? parentHeight,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -67,8 +67,8 @@ class _$GetPostThreadParamsCopyWithImpl<$Res, $Val extends GetPostThreadParams>
   @override
   $Res call({
     Object? uri = null,
-    Object? depth = null,
-    Object? parentHeight = null,
+    Object? depth = freezed,
+    Object? parentHeight = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -76,14 +76,14 @@ class _$GetPostThreadParamsCopyWithImpl<$Res, $Val extends GetPostThreadParams>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      depth: null == depth
+      depth: freezed == depth
           ? _value.depth
           : depth // ignore: cast_nullable_to_non_nullable
-              as int,
-      parentHeight: null == parentHeight
+              as int?,
+      parentHeight: freezed == parentHeight
           ? _value.parentHeight
           : parentHeight // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -102,8 +102,8 @@ abstract class _$$GetPostThreadParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {@AtUriConverter() AtUri uri,
-      int depth,
-      int parentHeight,
+      int? depth,
+      int? parentHeight,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -119,8 +119,8 @@ class __$$GetPostThreadParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? uri = null,
-    Object? depth = null,
-    Object? parentHeight = null,
+    Object? depth = freezed,
+    Object? parentHeight = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetPostThreadParamsImpl(
@@ -128,14 +128,14 @@ class __$$GetPostThreadParamsImplCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
-      depth: null == depth
+      depth: freezed == depth
           ? _value.depth
           : depth // ignore: cast_nullable_to_non_nullable
-              as int,
-      parentHeight: null == parentHeight
+              as int?,
+      parentHeight: freezed == parentHeight
           ? _value.parentHeight
           : parentHeight // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -150,8 +150,8 @@ class __$$GetPostThreadParamsImplCopyWithImpl<$Res>
 class _$GetPostThreadParamsImpl implements _GetPostThreadParams {
   const _$GetPostThreadParamsImpl(
       {@AtUriConverter() required this.uri,
-      this.depth = 6,
-      this.parentHeight = 80,
+      this.depth,
+      this.parentHeight,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -166,13 +166,11 @@ class _$GetPostThreadParamsImpl implements _GetPostThreadParams {
 
   /// How many levels of reply depth should be included in response.
   @override
-  @JsonKey()
-  final int depth;
+  final int? depth;
 
   /// How many levels of parent (and grandparent, etc) post to include.
   @override
-  @JsonKey()
-  final int parentHeight;
+  final int? parentHeight;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -226,8 +224,8 @@ class _$GetPostThreadParamsImpl implements _GetPostThreadParams {
 abstract class _GetPostThreadParams implements GetPostThreadParams {
   const factory _GetPostThreadParams(
           {@AtUriConverter() required final AtUri uri,
-          final int depth,
-          final int parentHeight,
+          final int? depth,
+          final int? parentHeight,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPostThreadParamsImpl;
 
@@ -242,11 +240,11 @@ abstract class _GetPostThreadParams implements GetPostThreadParams {
   @override
 
   /// How many levels of reply depth should be included in response.
-  int get depth;
+  int? get depth;
   @override
 
   /// How many levels of parent (and grandparent, etc) post to include.
-  int get parentHeight;
+  int? get parentHeight;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

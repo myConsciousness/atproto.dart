@@ -16,8 +16,7 @@ _$SearchActorsSkeletonOutputImpl _$$SearchActorsSkeletonOutputImplFromJson(
       ($checkedConvert) {
         final val = _$SearchActorsSkeletonOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          hitsTotal:
-              $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt() ?? 0),
+          hitsTotal: $checkedConvert('hitsTotal', (v) => (v as num?)?.toInt()),
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
@@ -47,7 +46,7 @@ Map<String, dynamic> _$$SearchActorsSkeletonOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['hitsTotal'] = instance.hitsTotal;
+  writeNotNull('hitsTotal', instance.hitsTotal);
   val['actors'] = instance.actors.map((e) => e.toJson()).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;

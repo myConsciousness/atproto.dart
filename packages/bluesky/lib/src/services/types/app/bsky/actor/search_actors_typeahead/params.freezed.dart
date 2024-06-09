@@ -27,7 +27,7 @@ mixin _$SearchActorsTypeaheadParams {
 
   /// Search query prefix; not a full query string.
   String? get q => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -50,7 +50,7 @@ abstract class $SearchActorsTypeaheadParamsCopyWith<$Res> {
   $Res call(
       {@Deprecated('DEPRECATED: use `q` instead.') String? term,
       String? q,
-      int limit,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -70,7 +70,7 @@ class _$SearchActorsTypeaheadParamsCopyWithImpl<$Res,
   $Res call({
     Object? term = freezed,
     Object? q = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -82,10 +82,10 @@ class _$SearchActorsTypeaheadParamsCopyWithImpl<$Res,
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -106,7 +106,7 @@ abstract class _$$SearchActorsTypeaheadParamsImplCopyWith<$Res>
   $Res call(
       {@Deprecated('DEPRECATED: use `q` instead.') String? term,
       String? q,
-      int limit,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -125,7 +125,7 @@ class __$$SearchActorsTypeaheadParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? term = freezed,
     Object? q = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$SearchActorsTypeaheadParamsImpl(
@@ -137,10 +137,10 @@ class __$$SearchActorsTypeaheadParamsImplCopyWithImpl<$Res>
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -157,7 +157,7 @@ class _$SearchActorsTypeaheadParamsImpl
   const _$SearchActorsTypeaheadParamsImpl(
       {@Deprecated('DEPRECATED: use `q` instead.') this.term,
       this.q,
-      this.limit = 10,
+      this.limit,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -175,8 +175,7 @@ class _$SearchActorsTypeaheadParamsImpl
   @override
   final String? q;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -231,7 +230,7 @@ abstract class _SearchActorsTypeaheadParams
   const factory _SearchActorsTypeaheadParams(
           {@Deprecated('DEPRECATED: use `q` instead.') final String? term,
           final String? q,
-          final int limit,
+          final int? limit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsTypeaheadParamsImpl;
 
@@ -248,7 +247,7 @@ abstract class _SearchActorsTypeaheadParams
   /// Search query prefix; not a full query string.
   String? get q;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

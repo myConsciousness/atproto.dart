@@ -20,7 +20,7 @@ ListReposParams _$ListReposParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListReposParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +40,7 @@ abstract class $ListReposParamsCopyWith<$Res> {
       _$ListReposParamsCopyWithImpl<$Res, ListReposParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -58,15 +58,15 @@ class _$ListReposParamsCopyWithImpl<$Res, $Val extends ListReposParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$ListReposParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -104,15 +104,15 @@ class __$$ListReposParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ListReposParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ class __$$ListReposParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListReposParamsImpl implements _ListReposParams {
   const _$ListReposParamsImpl(
-      {this.limit = 500,
+      {this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -140,8 +140,7 @@ class _$ListReposParamsImpl implements _ListReposParams {
       _$$ListReposParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -194,7 +193,7 @@ class _$ListReposParamsImpl implements _ListReposParams {
 
 abstract class _ListReposParams implements ListReposParams {
   const factory _ListReposParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListReposParamsImpl;
@@ -203,7 +202,7 @@ abstract class _ListReposParams implements ListReposParams {
       _$ListReposParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

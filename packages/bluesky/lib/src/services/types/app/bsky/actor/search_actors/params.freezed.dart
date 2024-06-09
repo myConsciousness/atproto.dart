@@ -26,7 +26,7 @@ mixin _$SearchActorsParams {
 
   /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
   String? get q => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -48,7 +48,7 @@ abstract class $SearchActorsParamsCopyWith<$Res> {
   $Res call(
       {@Deprecated('DEPRECATED: use `q` instead.') String? term,
       String? q,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -68,7 +68,7 @@ class _$SearchActorsParamsCopyWithImpl<$Res, $Val extends SearchActorsParams>
   $Res call({
     Object? term = freezed,
     Object? q = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -81,10 +81,10 @@ class _$SearchActorsParamsCopyWithImpl<$Res, $Val extends SearchActorsParams>
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$SearchActorsParamsImplCopyWith<$Res>
   $Res call(
       {@Deprecated('DEPRECATED: use `q` instead.') String? term,
       String? q,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -126,7 +126,7 @@ class __$$SearchActorsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? term = freezed,
     Object? q = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -139,10 +139,10 @@ class __$$SearchActorsParamsImplCopyWithImpl<$Res>
           ? _value.q
           : q // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
   const _$SearchActorsParamsImpl(
       {@Deprecated('DEPRECATED: use `q` instead.') this.term,
       this.q,
-      this.limit = 25,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -180,8 +180,7 @@ class _$SearchActorsParamsImpl implements _SearchActorsParams {
   @override
   final String? q;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -238,7 +237,7 @@ abstract class _SearchActorsParams implements SearchActorsParams {
   const factory _SearchActorsParams(
           {@Deprecated('DEPRECATED: use `q` instead.') final String? term,
           final String? q,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsParamsImpl;
@@ -256,7 +255,7 @@ abstract class _SearchActorsParams implements SearchActorsParams {
   /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
   String? get q;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

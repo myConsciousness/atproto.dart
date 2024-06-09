@@ -14,8 +14,8 @@ _$FetchLabelsParamsImpl _$$FetchLabelsParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$FetchLabelsParamsImpl(
-          since: $checkedConvert('since', (v) => (v as num?)?.toInt() ?? 0),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          since: $checkedConvert('since', (v) => (v as num?)?.toInt()),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -29,9 +29,17 @@ _$FetchLabelsParamsImpl _$$FetchLabelsParamsImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$FetchLabelsParamsImplToJson(
-        _$FetchLabelsParamsImpl instance) =>
-    <String, dynamic>{
-      'since': instance.since,
-      'limit': instance.limit,
-      r'$unknown': instance.$unknown,
-    };
+    _$FetchLabelsParamsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('since', instance.since);
+  writeNotNull('limit', instance.limit);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

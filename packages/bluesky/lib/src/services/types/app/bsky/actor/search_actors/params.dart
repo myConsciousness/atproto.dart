@@ -26,7 +26,7 @@ class SearchActorsParams with _$SearchActorsParams {
 
     /// Search query string. Syntax, phrase, boolean, and faceting is unspecified, but Lucene query syntax is recommended.
     String? q,
-    @Default(25) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

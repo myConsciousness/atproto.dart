@@ -21,7 +21,7 @@ GetPopularFeedGeneratorsParams _$GetPopularFeedGeneratorsParamsFromJson(
 
 /// @nodoc
 mixin _$GetPopularFeedGeneratorsParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   String? get query => throw _privateConstructorUsedError;
 
@@ -44,7 +44,7 @@ abstract class $GetPopularFeedGeneratorsParamsCopyWith<$Res> {
           GetPopularFeedGeneratorsParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       String? query,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -64,16 +64,16 @@ class _$GetPopularFeedGeneratorsParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? query = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$$GetPopularFeedGeneratorsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       String? query,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -119,16 +119,16 @@ class __$$GetPopularFeedGeneratorsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? query = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetPopularFeedGeneratorsParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -151,7 +151,7 @@ class __$$GetPopularFeedGeneratorsParamsImplCopyWithImpl<$Res>
 class _$GetPopularFeedGeneratorsParamsImpl
     implements _GetPopularFeedGeneratorsParams {
   const _$GetPopularFeedGeneratorsParamsImpl(
-      {this.limit = 50,
+      {this.limit,
       this.cursor,
       this.query,
       @JsonKey(name: r'$unknown')
@@ -163,8 +163,7 @@ class _$GetPopularFeedGeneratorsParamsImpl
       _$$GetPopularFeedGeneratorsParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
   @override
@@ -222,7 +221,7 @@ class _$GetPopularFeedGeneratorsParamsImpl
 abstract class _GetPopularFeedGeneratorsParams
     implements GetPopularFeedGeneratorsParams {
   const factory _GetPopularFeedGeneratorsParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           final String? query,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -232,7 +231,7 @@ abstract class _GetPopularFeedGeneratorsParams
       _$GetPopularFeedGeneratorsParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

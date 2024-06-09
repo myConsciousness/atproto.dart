@@ -17,7 +17,7 @@ _$GetRepostedByParamsImpl _$$GetRepostedByParamsImplFromJson(Map json) =>
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$GetRepostedByParamsImplToJson(
   }
 
   writeNotNull('cid', instance.cid);
-  val['limit'] = instance.limit;
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -26,19 +26,19 @@ class DescribeServerOutput with _$DescribeServerOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeServerOutput({
     /// If true, an invite code must be supplied to create an account on this instance.
-    @Default(false) bool inviteCodeRequired,
+    bool? inviteCodeRequired,
 
     /// If true, a phone verification token must be supplied to create an account on this instance.
-    @Default(false) bool phoneVerificationRequired,
+    bool? phoneVerificationRequired,
 
     /// List of domain suffixes that can be used in account handles.
     required List<String> availableUserDomains,
 
     /// URLs of service policy documents.
-    @LinksConverter() @Default(Links()) Links links,
+    @LinksConverter() Links? links,
 
     /// Contact information
-    @ContactConverter() @Default(Contact()) Contact contact,
+    @ContactConverter() Contact? contact,
     required String did,
 
     /// Contains unknown objects not defined in Lexicon.

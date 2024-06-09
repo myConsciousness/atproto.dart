@@ -23,7 +23,7 @@ class GetFeedParams with _$GetFeedParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedParams({
     @AtUriConverter() required AtUri feed,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

@@ -28,8 +28,8 @@ mixin _$SearchActorsSkeletonParams {
   String? get viewer => throw _privateConstructorUsedError;
 
   /// If true, acts as fast/simple 'typeahead' query.
-  bool get typeahead => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  bool? get typeahead => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   String? get cursor => throw _privateConstructorUsedError;
@@ -54,8 +54,8 @@ abstract class $SearchActorsSkeletonParamsCopyWith<$Res> {
   $Res call(
       {String q,
       String? viewer,
-      bool typeahead,
-      int limit,
+      bool? typeahead,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -76,8 +76,8 @@ class _$SearchActorsSkeletonParamsCopyWithImpl<$Res,
   $Res call({
     Object? q = null,
     Object? viewer = freezed,
-    Object? typeahead = null,
-    Object? limit = null,
+    Object? typeahead = freezed,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -90,14 +90,14 @@ class _$SearchActorsSkeletonParamsCopyWithImpl<$Res,
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeahead: null == typeahead
+      typeahead: freezed == typeahead
           ? _value.typeahead
           : typeahead // ignore: cast_nullable_to_non_nullable
-              as bool,
-      limit: null == limit
+              as bool?,
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -122,8 +122,8 @@ abstract class _$$SearchActorsSkeletonParamsImplCopyWith<$Res>
   $Res call(
       {String q,
       String? viewer,
-      bool typeahead,
-      int limit,
+      bool? typeahead,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -143,8 +143,8 @@ class __$$SearchActorsSkeletonParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? q = null,
     Object? viewer = freezed,
-    Object? typeahead = null,
-    Object? limit = null,
+    Object? typeahead = freezed,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -157,14 +157,14 @@ class __$$SearchActorsSkeletonParamsImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      typeahead: null == typeahead
+      typeahead: freezed == typeahead
           ? _value.typeahead
           : typeahead // ignore: cast_nullable_to_non_nullable
-              as bool,
-      limit: null == limit
+              as bool?,
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -184,8 +184,8 @@ class _$SearchActorsSkeletonParamsImpl implements _SearchActorsSkeletonParams {
   const _$SearchActorsSkeletonParamsImpl(
       {required this.q,
       this.viewer,
-      this.typeahead = false,
-      this.limit = 25,
+      this.typeahead,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -205,11 +205,9 @@ class _$SearchActorsSkeletonParamsImpl implements _SearchActorsSkeletonParams {
 
   /// If true, acts as fast/simple 'typeahead' query.
   @override
-  @JsonKey()
-  final bool typeahead;
+  final bool? typeahead;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
   @override
@@ -271,8 +269,8 @@ abstract class _SearchActorsSkeletonParams
   const factory _SearchActorsSkeletonParams(
           {required final String q,
           final String? viewer,
-          final bool typeahead,
-          final int limit,
+          final bool? typeahead,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsSkeletonParamsImpl;
@@ -291,9 +289,9 @@ abstract class _SearchActorsSkeletonParams
   @override
 
   /// If true, acts as fast/simple 'typeahead' query.
-  bool get typeahead;
+  bool? get typeahead;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.

@@ -16,7 +16,7 @@ _$GetServicesParamsImpl _$$GetServicesParamsImplFromJson(Map json) =>
         final val = _$GetServicesParamsImpl(
           dids: $checkedConvert('dids',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
-          detailed: $checkedConvert('detailed', (v) => v as bool? ?? false),
+          detailed: $checkedConvert('detailed', (v) => v as bool?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -30,9 +30,18 @@ _$GetServicesParamsImpl _$$GetServicesParamsImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$GetServicesParamsImplToJson(
-        _$GetServicesParamsImpl instance) =>
-    <String, dynamic>{
-      'dids': instance.dids,
-      'detailed': instance.detailed,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetServicesParamsImpl instance) {
+  final val = <String, dynamic>{
+    'dids': instance.dids,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('detailed', instance.detailed);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

@@ -20,8 +20,8 @@ FetchLabelsParams _$FetchLabelsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FetchLabelsParams {
-  int get since => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get since => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -40,8 +40,8 @@ abstract class $FetchLabelsParamsCopyWith<$Res> {
       _$FetchLabelsParamsCopyWithImpl<$Res, FetchLabelsParams>;
   @useResult
   $Res call(
-      {int since,
-      int limit,
+      {int? since,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -58,19 +58,19 @@ class _$FetchLabelsParamsCopyWithImpl<$Res, $Val extends FetchLabelsParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? since = null,
-    Object? limit = null,
+    Object? since = freezed,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      since: null == since
+      since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
-              as int,
-      limit: null == limit
+              as int?,
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -88,8 +88,8 @@ abstract class _$$FetchLabelsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int since,
-      int limit,
+      {int? since,
+      int? limit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -104,19 +104,19 @@ class __$$FetchLabelsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? since = null,
-    Object? limit = null,
+    Object? since = freezed,
+    Object? limit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$FetchLabelsParamsImpl(
-      since: null == since
+      since: freezed == since
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
-              as int,
-      limit: null == limit
+              as int?,
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -130,8 +130,8 @@ class __$$FetchLabelsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$FetchLabelsParamsImpl implements _FetchLabelsParams {
   const _$FetchLabelsParamsImpl(
-      {this.since = 0,
-      this.limit = 50,
+      {this.since,
+      this.limit,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -140,11 +140,9 @@ class _$FetchLabelsParamsImpl implements _FetchLabelsParams {
       _$$FetchLabelsParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int since;
+  final int? since;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -195,8 +193,8 @@ class _$FetchLabelsParamsImpl implements _FetchLabelsParams {
 
 abstract class _FetchLabelsParams implements FetchLabelsParams {
   const factory _FetchLabelsParams(
-          {final int since,
-          final int limit,
+          {final int? since,
+          final int? limit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$FetchLabelsParamsImpl;
 
@@ -204,9 +202,9 @@ abstract class _FetchLabelsParams implements FetchLabelsParams {
       _$FetchLabelsParamsImpl.fromJson;
 
   @override
-  int get since;
+  int? get since;
   @override
-  int get limit;
+  int? get limit;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -24,7 +24,7 @@ mixin _$ApplyWritesInput {
   String get repo => throw _privateConstructorUsedError;
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
-  bool get validate => throw _privateConstructorUsedError;
+  bool? get validate => throw _privateConstructorUsedError;
   @UWriteConverter()
   List<UWrite> get writes => throw _privateConstructorUsedError;
 
@@ -49,7 +49,7 @@ abstract class $ApplyWritesInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      bool validate,
+      bool? validate,
       @UWriteConverter() List<UWrite> writes,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -69,7 +69,7 @@ class _$ApplyWritesInputCopyWithImpl<$Res, $Val extends ApplyWritesInput>
   @override
   $Res call({
     Object? repo = null,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? writes = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
@@ -79,10 +79,10 @@ class _$ApplyWritesInputCopyWithImpl<$Res, $Val extends ApplyWritesInput>
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       writes: null == writes
           ? _value.writes
           : writes // ignore: cast_nullable_to_non_nullable
@@ -109,7 +109,7 @@ abstract class _$$ApplyWritesInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      bool validate,
+      bool? validate,
       @UWriteConverter() List<UWrite> writes,
       String? swapCommit,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -127,7 +127,7 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? repo = null,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? writes = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
@@ -137,10 +137,10 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       writes: null == writes
           ? _value._writes
           : writes // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
 class _$ApplyWritesInputImpl implements _ApplyWritesInput {
   const _$ApplyWritesInputImpl(
       {required this.repo,
-      this.validate = true,
+      this.validate,
       @UWriteConverter() required final List<UWrite> writes,
       this.swapCommit,
       @JsonKey(name: r'$unknown')
@@ -180,8 +180,7 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   @override
-  @JsonKey()
-  final bool validate;
+  final bool? validate;
   final List<UWrite> _writes;
   @override
   @UWriteConverter()
@@ -254,7 +253,7 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
 abstract class _ApplyWritesInput implements ApplyWritesInput {
   const factory _ApplyWritesInput(
           {required final String repo,
-          final bool validate,
+          final bool? validate,
           @UWriteConverter() required final List<UWrite> writes,
           final String? swapCommit,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -270,7 +269,7 @@ abstract class _ApplyWritesInput implements ApplyWritesInput {
   @override
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
-  bool get validate;
+  bool? get validate;
   @override
   @UWriteConverter()
   List<UWrite> get writes;

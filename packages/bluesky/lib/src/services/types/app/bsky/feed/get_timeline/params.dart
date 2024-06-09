@@ -23,7 +23,7 @@ class GetTimelineParams with _$GetTimelineParams {
   const factory GetTimelineParams({
     /// Variant 'algorithm' for timeline. Implementation-specific. NOTE: most feed flexibility has been moved to feed generator mechanism.
     String? algorithm,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

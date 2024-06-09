@@ -21,7 +21,7 @@ part 'params.g.dart';
 class GetSuggestionsParams with _$GetSuggestionsParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestionsParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

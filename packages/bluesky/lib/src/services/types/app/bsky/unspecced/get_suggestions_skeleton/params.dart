@@ -23,7 +23,7 @@ class GetSuggestionsSkeletonParams with _$GetSuggestionsSkeletonParams {
   const factory GetSuggestionsSkeletonParams({
     /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
     String? viewer,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

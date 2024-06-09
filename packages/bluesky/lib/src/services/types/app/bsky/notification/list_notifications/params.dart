@@ -21,7 +21,7 @@ part 'params.g.dart';
 class ListNotificationsParams with _$ListNotificationsParams {
   @JsonSerializable(includeIfNull: false)
   const factory ListNotificationsParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
     DateTime? seenAt,
 

@@ -15,7 +15,7 @@ _$ListNotificationsParamsImpl _$$ListNotificationsParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$ListNotificationsParamsImpl(
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           seenAt: $checkedConvert(
               'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),
@@ -33,9 +33,7 @@ _$ListNotificationsParamsImpl _$$ListNotificationsParamsImplFromJson(
 
 Map<String, dynamic> _$$ListNotificationsParamsImplToJson(
     _$ListNotificationsParamsImpl instance) {
-  final val = <String, dynamic>{
-    'limit': instance.limit,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -43,6 +41,7 @@ Map<String, dynamic> _$$ListNotificationsParamsImplToJson(
     }
   }
 
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   writeNotNull('seenAt', instance.seenAt?.toIso8601String());
   val[r'$unknown'] = instance.$unknown;

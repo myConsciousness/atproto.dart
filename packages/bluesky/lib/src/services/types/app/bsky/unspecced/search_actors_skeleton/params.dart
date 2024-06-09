@@ -28,8 +28,8 @@ class SearchActorsSkeletonParams with _$SearchActorsSkeletonParams {
     String? viewer,
 
     /// If true, acts as fast/simple 'typeahead' query.
-    @Default(false) bool typeahead,
-    @Default(25) int limit,
+    bool? typeahead,
+    int? limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,

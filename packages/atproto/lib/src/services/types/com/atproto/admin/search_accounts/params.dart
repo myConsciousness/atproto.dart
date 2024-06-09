@@ -23,7 +23,7 @@ class SearchAccountsParams with _$SearchAccountsParams {
   const factory SearchAccountsParams({
     String? email,
     String? cursor,
-    @Default(50) int limit,
+    int? limit,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

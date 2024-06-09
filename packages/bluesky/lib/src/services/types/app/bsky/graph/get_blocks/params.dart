@@ -21,7 +21,7 @@ part 'params.g.dart';
 class GetBlocksParams with _$GetBlocksParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetBlocksParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

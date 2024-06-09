@@ -16,7 +16,7 @@ _$UpdateEmailInputImpl _$$UpdateEmailInputImplFromJson(Map json) =>
         final val = _$UpdateEmailInputImpl(
           email: $checkedConvert('email', (v) => v as String),
           emailAuthFactor:
-              $checkedConvert('emailAuthFactor', (v) => v as bool? ?? false),
+              $checkedConvert('emailAuthFactor', (v) => v as bool?),
           token: $checkedConvert('token', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -34,7 +34,6 @@ Map<String, dynamic> _$$UpdateEmailInputImplToJson(
     _$UpdateEmailInputImpl instance) {
   final val = <String, dynamic>{
     'email': instance.email,
-    'emailAuthFactor': instance.emailAuthFactor,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -43,6 +42,7 @@ Map<String, dynamic> _$$UpdateEmailInputImplToJson(
     }
   }
 
+  writeNotNull('emailAuthFactor', instance.emailAuthFactor);
   writeNotNull('token', instance.token);
   val[r'$unknown'] = instance.$unknown;
   return val;

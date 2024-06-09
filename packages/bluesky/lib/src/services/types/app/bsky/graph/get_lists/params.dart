@@ -23,7 +23,7 @@ class GetListsParams with _$GetListsParams {
   const factory GetListsParams({
     /// The account (actor) to enumerate lists from.
     required String actor,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

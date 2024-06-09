@@ -66,7 +66,7 @@ final class LexGenObjectBuilder {
   Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties() {
     final properties = context.def!.whenOrNull(
       object: (data) => {
-        ObjectType.object: _getObjectProperties(data),
+        ObjectType.object: _getObjectProperties(data, ObjectType.object),
       },
       xrpcQuery: (data) {
         return {
@@ -83,7 +83,12 @@ final class LexGenObjectBuilder {
           ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
         };
       },
-      record: (data) => {ObjectType.record: _getObjectProperties(data.record)},
+      record: (data) => {
+        ObjectType.record: _getObjectProperties(
+          data.record,
+          ObjectType.record,
+        )
+      },
     );
 
     return properties;
@@ -148,13 +153,17 @@ final class LexGenObjectBuilder {
               dataType,
               context.docId,
               propertyJson['ref'],
+              ObjectType.output,
             ),
           )
         ];
       }
     }
 
-    return _getObjectProperties(object);
+    return _getObjectProperties(
+      object,
+      ObjectType.output,
+    );
   }
 
   List<LexGenObjectProperty>? _getObjectPropertiesFromXrpcParameters(
@@ -171,6 +180,7 @@ final class LexGenObjectBuilder {
           entry.key,
           entry.value.toJson(),
           requiredProperties,
+          ObjectType.params,
         ),
       );
     }
@@ -180,6 +190,7 @@ final class LexGenObjectBuilder {
 
   List<LexGenObjectProperty> _getObjectProperties(
     final LexObject object,
+    final ObjectType objectType,
   ) {
     if (object.properties == null) return const [];
 
@@ -192,6 +203,7 @@ final class LexGenObjectBuilder {
           entry.key,
           entry.value.toJson(),
           requiredProperties,
+          objectType,
         ),
       );
     }
@@ -203,6 +215,7 @@ final class LexGenObjectBuilder {
     final String name,
     final Map<String, dynamic> value,
     final List<String> requiredProperties,
+    final ObjectType objectType,
   ) {
     final property = value;
     final union = LexUnionObjectBuilder(
@@ -245,6 +258,7 @@ final class LexGenObjectBuilder {
         dataType,
         context.docId,
         property['ref'],
+        objectType,
       ),
     );
   }

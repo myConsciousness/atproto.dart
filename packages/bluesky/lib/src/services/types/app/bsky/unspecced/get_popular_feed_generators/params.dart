@@ -21,7 +21,7 @@ part 'params.g.dart';
 class GetPopularFeedGeneratorsParams with _$GetPopularFeedGeneratorsParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetPopularFeedGeneratorsParams({
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
     String? query,
 

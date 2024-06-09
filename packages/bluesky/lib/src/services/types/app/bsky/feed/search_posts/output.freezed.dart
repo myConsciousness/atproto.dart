@@ -23,7 +23,7 @@ mixin _$SearchPostsOutput {
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int get hitsTotal => throw _privateConstructorUsedError;
+  int? get hitsTotal => throw _privateConstructorUsedError;
   @PostViewConverter()
   List<PostView> get posts => throw _privateConstructorUsedError;
 
@@ -45,7 +45,7 @@ abstract class $SearchPostsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      int hitsTotal,
+      int? hitsTotal,
       @PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -64,7 +64,7 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = null,
+    Object? hitsTotal = freezed,
     Object? posts = null,
     Object? $unknown = null,
   }) {
@@ -73,10 +73,10 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: null == hitsTotal
+      hitsTotal: freezed == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$$SearchPostsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      int hitsTotal,
+      int? hitsTotal,
       @PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -116,7 +116,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? cursor = freezed,
-    Object? hitsTotal = null,
+    Object? hitsTotal = freezed,
     Object? posts = null,
     Object? $unknown = null,
   }) {
@@ -125,10 +125,10 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
               as String?,
-      hitsTotal: null == hitsTotal
+      hitsTotal: freezed == hitsTotal
           ? _value.hitsTotal
           : hitsTotal // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
@@ -147,7 +147,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
 class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   const _$SearchPostsOutputImpl(
       {this.cursor,
-      this.hitsTotal = 0,
+      this.hitsTotal,
       @PostViewConverter() required final List<PostView> posts,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -162,8 +162,7 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   @override
-  @JsonKey()
-  final int hitsTotal;
+  final int? hitsTotal;
   final List<PostView> _posts;
   @override
   @PostViewConverter()
@@ -229,7 +228,7 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 abstract class _SearchPostsOutput implements SearchPostsOutput {
   const factory _SearchPostsOutput(
           {final String? cursor,
-          final int hitsTotal,
+          final int? hitsTotal,
           @PostViewConverter() required final List<PostView> posts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchPostsOutputImpl;
@@ -242,7 +241,7 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   @override
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-  int get hitsTotal;
+  int? get hitsTotal;
   @override
   @PostViewConverter()
   List<PostView> get posts;

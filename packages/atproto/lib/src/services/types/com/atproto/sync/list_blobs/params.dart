@@ -26,7 +26,7 @@ class ListBlobsParams with _$ListBlobsParams {
 
     /// Optional revision of the repo to list blobs since.
     String? since,
-    @Default(500) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

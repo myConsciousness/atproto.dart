@@ -16,7 +16,7 @@ _$SearchAccountsParamsImpl _$$SearchAccountsParamsImplFromJson(Map json) =>
         final val = _$SearchAccountsParamsImpl(
           email: $checkedConvert('email', (v) => v as String?),
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -41,7 +41,7 @@ Map<String, dynamic> _$$SearchAccountsParamsImplToJson(
 
   writeNotNull('email', instance.email);
   writeNotNull('cursor', instance.cursor);
-  val['limit'] = instance.limit;
+  writeNotNull('limit', instance.limit);
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

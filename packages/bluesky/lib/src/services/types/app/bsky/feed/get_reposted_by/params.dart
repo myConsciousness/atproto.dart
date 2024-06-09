@@ -27,7 +27,7 @@ class GetRepostedByParams with _$GetRepostedByParams {
 
     /// If supplied, filters to reposts of specific version (by CID) of the post record.
     String? cid,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

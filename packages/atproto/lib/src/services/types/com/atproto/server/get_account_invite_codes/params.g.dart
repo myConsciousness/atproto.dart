@@ -15,10 +15,9 @@ _$GetAccountInviteCodesParamsImpl _$$GetAccountInviteCodesParamsImplFromJson(
       json,
       ($checkedConvert) {
         final val = _$GetAccountInviteCodesParamsImpl(
-          includeUsed:
-              $checkedConvert('includeUsed', (v) => v as bool? ?? true),
+          includeUsed: $checkedConvert('includeUsed', (v) => v as bool?),
           createAvailable:
-              $checkedConvert('createAvailable', (v) => v as bool? ?? true),
+              $checkedConvert('createAvailable', (v) => v as bool?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -32,9 +31,17 @@ _$GetAccountInviteCodesParamsImpl _$$GetAccountInviteCodesParamsImplFromJson(
     );
 
 Map<String, dynamic> _$$GetAccountInviteCodesParamsImplToJson(
-        _$GetAccountInviteCodesParamsImpl instance) =>
-    <String, dynamic>{
-      'includeUsed': instance.includeUsed,
-      'createAvailable': instance.createAvailable,
-      r'$unknown': instance.$unknown,
-    };
+    _$GetAccountInviteCodesParamsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('includeUsed', instance.includeUsed);
+  writeNotNull('createAvailable', instance.createAvailable);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

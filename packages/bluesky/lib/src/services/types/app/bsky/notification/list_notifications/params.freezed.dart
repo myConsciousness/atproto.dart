@@ -21,7 +21,7 @@ ListNotificationsParams _$ListNotificationsParamsFromJson(
 
 /// @nodoc
 mixin _$ListNotificationsParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
@@ -42,7 +42,7 @@ abstract class $ListNotificationsParamsCopyWith<$Res> {
       _$ListNotificationsParamsCopyWithImpl<$Res, ListNotificationsParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       DateTime? seenAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -62,16 +62,16 @@ class _$ListNotificationsParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? seenAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$ListNotificationsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       DateTime? seenAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -117,16 +117,16 @@ class __$$ListNotificationsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? seenAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ListNotificationsParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ class __$$ListNotificationsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListNotificationsParamsImpl implements _ListNotificationsParams {
   const _$ListNotificationsParamsImpl(
-      {this.limit = 50,
+      {this.limit,
       this.cursor,
       this.seenAt,
       @JsonKey(name: r'$unknown')
@@ -159,8 +159,7 @@ class _$ListNotificationsParamsImpl implements _ListNotificationsParams {
       _$$ListNotificationsParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
   @override
@@ -216,7 +215,7 @@ class _$ListNotificationsParamsImpl implements _ListNotificationsParams {
 
 abstract class _ListNotificationsParams implements ListNotificationsParams {
   const factory _ListNotificationsParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           final DateTime? seenAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -226,7 +225,7 @@ abstract class _ListNotificationsParams implements ListNotificationsParams {
       _$ListNotificationsParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

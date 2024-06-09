@@ -22,7 +22,7 @@ class GetServicesParams with _$GetServicesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetServicesParams({
     required List<String> dids,
-    @Default(false) bool detailed,
+    bool? detailed,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

@@ -56,7 +56,7 @@ class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
 
     /// DID of the account making the request (not included for public/unauthenticated queries). Used for 'from:me' queries.
     String? viewer,
-    @Default(25) int limit,
+    int? limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,

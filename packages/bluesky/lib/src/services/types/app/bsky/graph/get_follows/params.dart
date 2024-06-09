@@ -22,7 +22,7 @@ class GetFollowsParams with _$GetFollowsParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetFollowsParams({
     required String actor,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

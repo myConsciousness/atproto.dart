@@ -20,7 +20,7 @@ GetSuggestionsParams _$GetSuggestionsParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetSuggestionsParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +40,7 @@ abstract class $GetSuggestionsParamsCopyWith<$Res> {
       _$GetSuggestionsParamsCopyWithImpl<$Res, GetSuggestionsParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -59,15 +59,15 @@ class _$GetSuggestionsParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -89,7 +89,7 @@ abstract class _$$GetSuggestionsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -105,15 +105,15 @@ class __$$GetSuggestionsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetSuggestionsParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -131,7 +131,7 @@ class __$$GetSuggestionsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetSuggestionsParamsImpl implements _GetSuggestionsParams {
   const _$GetSuggestionsParamsImpl(
-      {this.limit = 50,
+      {this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -141,8 +141,7 @@ class _$GetSuggestionsParamsImpl implements _GetSuggestionsParams {
       _$$GetSuggestionsParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -196,7 +195,7 @@ class _$GetSuggestionsParamsImpl implements _GetSuggestionsParams {
 
 abstract class _GetSuggestionsParams implements GetSuggestionsParams {
   const factory _GetSuggestionsParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestionsParamsImpl;
@@ -205,7 +204,7 @@ abstract class _GetSuggestionsParams implements GetSuggestionsParams {
       _$GetSuggestionsParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

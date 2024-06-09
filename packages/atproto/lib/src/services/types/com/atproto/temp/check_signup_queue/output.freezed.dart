@@ -22,8 +22,8 @@ CheckSignupQueueOutput _$CheckSignupQueueOutputFromJson(
 /// @nodoc
 mixin _$CheckSignupQueueOutput {
   bool get activated => throw _privateConstructorUsedError;
-  int get placeInQueue => throw _privateConstructorUsedError;
-  int get estimatedTimeMs => throw _privateConstructorUsedError;
+  int? get placeInQueue => throw _privateConstructorUsedError;
+  int? get estimatedTimeMs => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -43,8 +43,8 @@ abstract class $CheckSignupQueueOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {bool activated,
-      int placeInQueue,
-      int estimatedTimeMs,
+      int? placeInQueue,
+      int? estimatedTimeMs,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -63,8 +63,8 @@ class _$CheckSignupQueueOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? activated = null,
-    Object? placeInQueue = null,
-    Object? estimatedTimeMs = null,
+    Object? placeInQueue = freezed,
+    Object? estimatedTimeMs = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -72,14 +72,14 @@ class _$CheckSignupQueueOutputCopyWithImpl<$Res,
           ? _value.activated
           : activated // ignore: cast_nullable_to_non_nullable
               as bool,
-      placeInQueue: null == placeInQueue
+      placeInQueue: freezed == placeInQueue
           ? _value.placeInQueue
           : placeInQueue // ignore: cast_nullable_to_non_nullable
-              as int,
-      estimatedTimeMs: null == estimatedTimeMs
+              as int?,
+      estimatedTimeMs: freezed == estimatedTimeMs
           ? _value.estimatedTimeMs
           : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -99,8 +99,8 @@ abstract class _$$CheckSignupQueueOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {bool activated,
-      int placeInQueue,
-      int estimatedTimeMs,
+      int? placeInQueue,
+      int? estimatedTimeMs,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -118,8 +118,8 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? activated = null,
-    Object? placeInQueue = null,
-    Object? estimatedTimeMs = null,
+    Object? placeInQueue = freezed,
+    Object? estimatedTimeMs = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$CheckSignupQueueOutputImpl(
@@ -127,14 +127,14 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
           ? _value.activated
           : activated // ignore: cast_nullable_to_non_nullable
               as bool,
-      placeInQueue: null == placeInQueue
+      placeInQueue: freezed == placeInQueue
           ? _value.placeInQueue
           : placeInQueue // ignore: cast_nullable_to_non_nullable
-              as int,
-      estimatedTimeMs: null == estimatedTimeMs
+              as int?,
+      estimatedTimeMs: freezed == estimatedTimeMs
           ? _value.estimatedTimeMs
           : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -149,8 +149,8 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
 class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
   const _$CheckSignupQueueOutputImpl(
       {required this.activated,
-      this.placeInQueue = 0,
-      this.estimatedTimeMs = 0,
+      this.placeInQueue,
+      this.estimatedTimeMs,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -161,11 +161,9 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
   @override
   final bool activated;
   @override
-  @JsonKey()
-  final int placeInQueue;
+  final int? placeInQueue;
   @override
-  @JsonKey()
-  final int estimatedTimeMs;
+  final int? estimatedTimeMs;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -221,8 +219,8 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
 abstract class _CheckSignupQueueOutput implements CheckSignupQueueOutput {
   const factory _CheckSignupQueueOutput(
           {required final bool activated,
-          final int placeInQueue,
-          final int estimatedTimeMs,
+          final int? placeInQueue,
+          final int? estimatedTimeMs,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$CheckSignupQueueOutputImpl;
 
@@ -232,9 +230,9 @@ abstract class _CheckSignupQueueOutput implements CheckSignupQueueOutput {
   @override
   bool get activated;
   @override
-  int get placeInQueue;
+  int? get placeInQueue;
   @override
-  int get estimatedTimeMs;
+  int? get estimatedTimeMs;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

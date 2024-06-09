@@ -26,10 +26,10 @@ class GetPostThreadParams with _$GetPostThreadParams {
     @AtUriConverter() required AtUri uri,
 
     /// How many levels of reply depth should be included in response.
-    @Default(6) int depth,
+    int? depth,
 
     /// How many levels of parent (and grandparent, etc) post to include.
-    @Default(80) int parentHeight,
+    int? parentHeight,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

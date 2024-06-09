@@ -21,7 +21,7 @@ UpdateEmailInput _$UpdateEmailInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$UpdateEmailInput {
   String get email => throw _privateConstructorUsedError;
-  bool get emailAuthFactor => throw _privateConstructorUsedError;
+  bool? get emailAuthFactor => throw _privateConstructorUsedError;
 
   /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
   String? get token => throw _privateConstructorUsedError;
@@ -44,7 +44,7 @@ abstract class $UpdateEmailInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String email,
-      bool emailAuthFactor,
+      bool? emailAuthFactor,
       String? token,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -63,7 +63,7 @@ class _$UpdateEmailInputCopyWithImpl<$Res, $Val extends UpdateEmailInput>
   @override
   $Res call({
     Object? email = null,
-    Object? emailAuthFactor = null,
+    Object? emailAuthFactor = freezed,
     Object? token = freezed,
     Object? $unknown = null,
   }) {
@@ -72,10 +72,10 @@ class _$UpdateEmailInputCopyWithImpl<$Res, $Val extends UpdateEmailInput>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      emailAuthFactor: null == emailAuthFactor
+      emailAuthFactor: freezed == emailAuthFactor
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -98,7 +98,7 @@ abstract class _$$UpdateEmailInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String email,
-      bool emailAuthFactor,
+      bool? emailAuthFactor,
       String? token,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -115,7 +115,7 @@ class __$$UpdateEmailInputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? email = null,
-    Object? emailAuthFactor = null,
+    Object? emailAuthFactor = freezed,
     Object? token = freezed,
     Object? $unknown = null,
   }) {
@@ -124,10 +124,10 @@ class __$$UpdateEmailInputImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
-      emailAuthFactor: null == emailAuthFactor
+      emailAuthFactor: freezed == emailAuthFactor
           ? _value.emailAuthFactor
           : emailAuthFactor // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
@@ -146,7 +146,7 @@ class __$$UpdateEmailInputImplCopyWithImpl<$Res>
 class _$UpdateEmailInputImpl implements _UpdateEmailInput {
   const _$UpdateEmailInputImpl(
       {required this.email,
-      this.emailAuthFactor = false,
+      this.emailAuthFactor,
       this.token,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -158,8 +158,7 @@ class _$UpdateEmailInputImpl implements _UpdateEmailInput {
   @override
   final String email;
   @override
-  @JsonKey()
-  final bool emailAuthFactor;
+  final bool? emailAuthFactor;
 
   /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
   @override
@@ -217,7 +216,7 @@ class _$UpdateEmailInputImpl implements _UpdateEmailInput {
 abstract class _UpdateEmailInput implements UpdateEmailInput {
   const factory _UpdateEmailInput(
           {required final String email,
-          final bool emailAuthFactor,
+          final bool? emailAuthFactor,
           final String? token,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$UpdateEmailInputImpl;
@@ -228,7 +227,7 @@ abstract class _UpdateEmailInput implements UpdateEmailInput {
   @override
   String get email;
   @override
-  bool get emailAuthFactor;
+  bool? get emailAuthFactor;
   @override
 
   /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.

@@ -25,7 +25,7 @@ mixin _$QueryLabelsParams {
 
   /// Optional list of label sources (DIDs) to filter on.
   List<String>? get sources => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +47,7 @@ abstract class $QueryLabelsParamsCopyWith<$Res> {
   $Res call(
       {List<String> uriPatterns,
       List<String>? sources,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -67,7 +67,7 @@ class _$QueryLabelsParamsCopyWithImpl<$Res, $Val extends QueryLabelsParams>
   $Res call({
     Object? uriPatterns = null,
     Object? sources = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -80,10 +80,10 @@ class _$QueryLabelsParamsCopyWithImpl<$Res, $Val extends QueryLabelsParams>
           ? _value.sources
           : sources // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ abstract class _$$QueryLabelsParamsImplCopyWith<$Res>
   $Res call(
       {List<String> uriPatterns,
       List<String>? sources,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -125,7 +125,7 @@ class __$$QueryLabelsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? uriPatterns = null,
     Object? sources = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -138,10 +138,10 @@ class __$$QueryLabelsParamsImplCopyWithImpl<$Res>
           ? _value._sources
           : sources // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _$QueryLabelsParamsImpl implements _QueryLabelsParams {
   const _$QueryLabelsParamsImpl(
       {required final List<String> uriPatterns,
       final List<String>? sources,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -197,8 +197,7 @@ class _$QueryLabelsParamsImpl implements _QueryLabelsParams {
   }
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -261,7 +260,7 @@ abstract class _QueryLabelsParams implements QueryLabelsParams {
   const factory _QueryLabelsParams(
           {required final List<String> uriPatterns,
           final List<String>? sources,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$QueryLabelsParamsImpl;
@@ -278,7 +277,7 @@ abstract class _QueryLabelsParams implements QueryLabelsParams {
   /// Optional list of label sources (DIDs) to filter on.
   List<String>? get sources;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

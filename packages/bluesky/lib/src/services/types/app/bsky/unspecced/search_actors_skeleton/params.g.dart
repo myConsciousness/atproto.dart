@@ -17,8 +17,8 @@ _$SearchActorsSkeletonParamsImpl _$$SearchActorsSkeletonParamsImplFromJson(
         final val = _$SearchActorsSkeletonParamsImpl(
           q: $checkedConvert('q', (v) => v as String),
           viewer: $checkedConvert('viewer', (v) => v as String?),
-          typeahead: $checkedConvert('typeahead', (v) => v as bool? ?? false),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 25),
+          typeahead: $checkedConvert('typeahead', (v) => v as bool?),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -45,8 +45,8 @@ Map<String, dynamic> _$$SearchActorsSkeletonParamsImplToJson(
   }
 
   writeNotNull('viewer', instance.viewer);
-  val['typeahead'] = instance.typeahead;
-  val['limit'] = instance.limit;
+  writeNotNull('typeahead', instance.typeahead);
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -26,7 +26,7 @@ class SearchActorsTypeaheadParams with _$SearchActorsTypeaheadParams {
 
     /// Search query prefix; not a full query string.
     String? q,
-    @Default(10) int limit,
+    int? limit,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

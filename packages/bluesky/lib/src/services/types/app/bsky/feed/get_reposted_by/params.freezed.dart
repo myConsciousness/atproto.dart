@@ -26,7 +26,7 @@ mixin _$GetRepostedByParams {
 
   /// If supplied, filters to reposts of specific version (by CID) of the post record.
   String? get cid => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -48,7 +48,7 @@ abstract class $GetRepostedByParamsCopyWith<$Res> {
   $Res call(
       {@AtUriConverter() AtUri uri,
       String? cid,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -68,7 +68,7 @@ class _$GetRepostedByParamsCopyWithImpl<$Res, $Val extends GetRepostedByParams>
   $Res call({
     Object? uri = null,
     Object? cid = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -81,10 +81,10 @@ class _$GetRepostedByParamsCopyWithImpl<$Res, $Val extends GetRepostedByParams>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$GetRepostedByParamsImplCopyWith<$Res>
   $Res call(
       {@AtUriConverter() AtUri uri,
       String? cid,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -126,7 +126,7 @@ class __$$GetRepostedByParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
     Object? cid = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -139,10 +139,10 @@ class __$$GetRepostedByParamsImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class _$GetRepostedByParamsImpl implements _GetRepostedByParams {
   const _$GetRepostedByParamsImpl(
       {@AtUriConverter() required this.uri,
       this.cid,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -180,8 +180,7 @@ class _$GetRepostedByParamsImpl implements _GetRepostedByParams {
   @override
   final String? cid;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -238,7 +237,7 @@ abstract class _GetRepostedByParams implements GetRepostedByParams {
   const factory _GetRepostedByParams(
           {@AtUriConverter() required final AtUri uri,
           final String? cid,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetRepostedByParamsImpl;
@@ -256,7 +255,7 @@ abstract class _GetRepostedByParams implements GetRepostedByParams {
   /// If supplied, filters to reposts of specific version (by CID) of the post record.
   String? get cid;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

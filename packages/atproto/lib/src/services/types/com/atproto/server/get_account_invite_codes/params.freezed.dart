@@ -21,10 +21,10 @@ GetAccountInviteCodesParams _$GetAccountInviteCodesParamsFromJson(
 
 /// @nodoc
 mixin _$GetAccountInviteCodesParams {
-  bool get includeUsed => throw _privateConstructorUsedError;
+  bool? get includeUsed => throw _privateConstructorUsedError;
 
   /// Controls whether any new 'earned' but not 'created' invites should be created.
-  bool get createAvailable => throw _privateConstructorUsedError;
+  bool? get createAvailable => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -45,8 +45,8 @@ abstract class $GetAccountInviteCodesParamsCopyWith<$Res> {
           GetAccountInviteCodesParams>;
   @useResult
   $Res call(
-      {bool includeUsed,
-      bool createAvailable,
+      {bool? includeUsed,
+      bool? createAvailable,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -64,19 +64,19 @@ class _$GetAccountInviteCodesParamsCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? includeUsed = null,
-    Object? createAvailable = null,
+    Object? includeUsed = freezed,
+    Object? createAvailable = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      includeUsed: null == includeUsed
+      includeUsed: freezed == includeUsed
           ? _value.includeUsed
           : includeUsed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createAvailable: null == createAvailable
+              as bool?,
+      createAvailable: freezed == createAvailable
           ? _value.createAvailable
           : createAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -95,8 +95,8 @@ abstract class _$$GetAccountInviteCodesParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {bool includeUsed,
-      bool createAvailable,
+      {bool? includeUsed,
+      bool? createAvailable,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -113,19 +113,19 @@ class __$$GetAccountInviteCodesParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? includeUsed = null,
-    Object? createAvailable = null,
+    Object? includeUsed = freezed,
+    Object? createAvailable = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetAccountInviteCodesParamsImpl(
-      includeUsed: null == includeUsed
+      includeUsed: freezed == includeUsed
           ? _value.includeUsed
           : includeUsed // ignore: cast_nullable_to_non_nullable
-              as bool,
-      createAvailable: null == createAvailable
+              as bool?,
+      createAvailable: freezed == createAvailable
           ? _value.createAvailable
           : createAvailable // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -140,8 +140,8 @@ class __$$GetAccountInviteCodesParamsImplCopyWithImpl<$Res>
 class _$GetAccountInviteCodesParamsImpl
     implements _GetAccountInviteCodesParams {
   const _$GetAccountInviteCodesParamsImpl(
-      {this.includeUsed = true,
-      this.createAvailable = true,
+      {this.includeUsed,
+      this.createAvailable,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -151,13 +151,11 @@ class _$GetAccountInviteCodesParamsImpl
       _$$GetAccountInviteCodesParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final bool includeUsed;
+  final bool? includeUsed;
 
   /// Controls whether any new 'earned' but not 'created' invites should be created.
   @override
-  @JsonKey()
-  final bool createAvailable;
+  final bool? createAvailable;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -211,8 +209,8 @@ class _$GetAccountInviteCodesParamsImpl
 abstract class _GetAccountInviteCodesParams
     implements GetAccountInviteCodesParams {
   const factory _GetAccountInviteCodesParams(
-          {final bool includeUsed,
-          final bool createAvailable,
+          {final bool? includeUsed,
+          final bool? createAvailable,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetAccountInviteCodesParamsImpl;
 
@@ -220,11 +218,11 @@ abstract class _GetAccountInviteCodesParams
       _$GetAccountInviteCodesParamsImpl.fromJson;
 
   @override
-  bool get includeUsed;
+  bool? get includeUsed;
   @override
 
   /// Controls whether any new 'earned' but not 'created' invites should be created.
-  bool get createAvailable;
+  bool? get createAvailable;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -25,7 +25,7 @@ mixin _$ListBlobsParams {
 
   /// Optional revision of the repo to list blobs since.
   String? get since => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +47,7 @@ abstract class $ListBlobsParamsCopyWith<$Res> {
   $Res call(
       {String did,
       String? since,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -67,7 +67,7 @@ class _$ListBlobsParamsCopyWithImpl<$Res, $Val extends ListBlobsParams>
   $Res call({
     Object? did = null,
     Object? since = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -80,10 +80,10 @@ class _$ListBlobsParamsCopyWithImpl<$Res, $Val extends ListBlobsParams>
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -107,7 +107,7 @@ abstract class _$$ListBlobsParamsImplCopyWith<$Res>
   $Res call(
       {String did,
       String? since,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -125,7 +125,7 @@ class __$$ListBlobsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? did = null,
     Object? since = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -138,10 +138,10 @@ class __$$ListBlobsParamsImplCopyWithImpl<$Res>
           ? _value.since
           : since // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -161,7 +161,7 @@ class _$ListBlobsParamsImpl implements _ListBlobsParams {
   const _$ListBlobsParamsImpl(
       {required this.did,
       this.since,
-      this.limit = 500,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -178,8 +178,7 @@ class _$ListBlobsParamsImpl implements _ListBlobsParams {
   @override
   final String? since;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -236,7 +235,7 @@ abstract class _ListBlobsParams implements ListBlobsParams {
   const factory _ListBlobsParams(
           {required final String did,
           final String? since,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListBlobsParamsImpl;
@@ -253,7 +252,7 @@ abstract class _ListBlobsParams implements ListBlobsParams {
   /// Optional revision of the repo to list blobs since.
   String? get since;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

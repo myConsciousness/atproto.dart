@@ -16,7 +16,7 @@ _$ListBlobsParamsImpl _$$ListBlobsParamsImplFromJson(Map json) =>
         final val = _$ListBlobsParamsImpl(
           did: $checkedConvert('did', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 500),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -43,7 +43,7 @@ Map<String, dynamic> _$$ListBlobsParamsImplToJson(
   }
 
   writeNotNull('since', instance.since);
-  val['limit'] = instance.limit;
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -22,7 +22,7 @@ class UpdateEmailInput with _$UpdateEmailInput {
   @JsonSerializable(includeIfNull: false)
   const factory UpdateEmailInput({
     required String email,
-    @Default(false) bool emailAuthFactor,
+    bool? emailAuthFactor,
 
     /// Requires a token from com.atproto.sever.requestEmailUpdate if the account's email has been confirmed.
     String? token,

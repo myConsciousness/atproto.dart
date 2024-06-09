@@ -27,10 +27,10 @@ class GetSessionOutput with _$GetSessionOutput {
     required String handle,
     required String did,
     String? email,
-    @Default(false) bool emailConfirmed,
-    @Default(false) bool emailAuthFactor,
+    bool? emailConfirmed,
+    bool? emailAuthFactor,
     Map<String, dynamic>? didDoc,
-    @Default(false) bool active,
+    bool? active,
 
     /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
     @UStatusConverter() UStatus? status,

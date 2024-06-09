@@ -31,7 +31,7 @@ class PutRecordInput with _$PutRecordInput {
     required String rkey,
 
     /// Can be set to 'false' to skip Lexicon schema validation of record data.
-    @Default(true) bool validate,
+    bool? validate,
 
     /// The record to write.
     required Map<String, dynamic> record,

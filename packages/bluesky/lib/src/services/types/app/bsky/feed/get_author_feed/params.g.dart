@@ -15,7 +15,7 @@ _$GetAuthorFeedParamsImpl _$$GetAuthorFeedParamsImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$GetAuthorFeedParamsImpl(
           actor: $checkedConvert('actor', (v) => v as String),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           filter: $checkedConvert(
               'filter',
@@ -37,7 +37,6 @@ Map<String, dynamic> _$$GetAuthorFeedParamsImplToJson(
     _$GetAuthorFeedParamsImpl instance) {
   final val = <String, dynamic>{
     'actor': instance.actor,
-    'limit': instance.limit,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -46,6 +45,7 @@ Map<String, dynamic> _$$GetAuthorFeedParamsImplToJson(
     }
   }
 
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   writeNotNull(
       'filter',

@@ -22,7 +22,7 @@ class GetActorLikesParams with _$GetActorLikesParams {
   @JsonSerializable(includeIfNull: false)
   const factory GetActorLikesParams({
     required String actor,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.

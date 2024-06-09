@@ -16,7 +16,7 @@ _$GetSuggestionsSkeletonParamsImpl _$$GetSuggestionsSkeletonParamsImplFromJson(
       ($checkedConvert) {
         final val = _$GetSuggestionsSkeletonParamsImpl(
           viewer: $checkedConvert('viewer', (v) => v as String?),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -41,7 +41,7 @@ Map<String, dynamic> _$$GetSuggestionsSkeletonParamsImplToJson(
   }
 
   writeNotNull('viewer', instance.viewer);
-  val['limit'] = instance.limit;
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

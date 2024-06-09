@@ -53,7 +53,7 @@ class SearchPostsParams with _$SearchPostsParams {
 
     /// Filter to posts with the given tag (hashtag), based on rich-text facet or tag field. Do not include the hash (#) prefix. Multiple tags can be specified, with 'AND' matching.
     List<String>? tag,
-    @Default(25) int limit,
+    int? limit,
 
     /// Optional pagination mechanism; may not necessarily allow scrolling through entire result set.
     String? cursor,

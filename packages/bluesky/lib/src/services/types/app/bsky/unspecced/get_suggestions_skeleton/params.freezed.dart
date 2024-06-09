@@ -23,7 +23,7 @@ GetSuggestionsSkeletonParams _$GetSuggestionsSkeletonParamsFromJson(
 mixin _$GetSuggestionsSkeletonParams {
   /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
   String? get viewer => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -46,7 +46,7 @@ abstract class $GetSuggestionsSkeletonParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String? viewer,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -66,7 +66,7 @@ class _$GetSuggestionsSkeletonParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? viewer = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -75,10 +75,10 @@ class _$GetSuggestionsSkeletonParamsCopyWithImpl<$Res,
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -102,7 +102,7 @@ abstract class _$$GetSuggestionsSkeletonParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? viewer,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -121,7 +121,7 @@ class __$$GetSuggestionsSkeletonParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? viewer = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -130,10 +130,10 @@ class __$$GetSuggestionsSkeletonParamsImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as String?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -153,7 +153,7 @@ class _$GetSuggestionsSkeletonParamsImpl
     implements _GetSuggestionsSkeletonParams {
   const _$GetSuggestionsSkeletonParamsImpl(
       {this.viewer,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -167,8 +167,7 @@ class _$GetSuggestionsSkeletonParamsImpl
   @override
   final String? viewer;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -225,7 +224,7 @@ abstract class _GetSuggestionsSkeletonParams
     implements GetSuggestionsSkeletonParams {
   const factory _GetSuggestionsSkeletonParams(
           {final String? viewer,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestionsSkeletonParamsImpl;
@@ -238,7 +237,7 @@ abstract class _GetSuggestionsSkeletonParams
   /// DID of the account making the request (not included for public/unauthenticated queries). Used to boost followed accounts in ranking.
   String? get viewer;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

@@ -27,7 +27,7 @@ class SearchPostsSkeletonOutput with _$SearchPostsSkeletonOutput {
     String? cursor,
 
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
-    @Default(0) int hitsTotal,
+    int? hitsTotal,
     @SkeletonSearchPostConverter() required List<SkeletonSearchPost> posts,
 
     /// Contains unknown objects not defined in Lexicon.

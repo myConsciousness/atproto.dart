@@ -27,7 +27,7 @@ mixin _$ListRecordsParams {
   String get collection => throw _privateConstructorUsedError;
 
   /// The number of records to return.
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)
@@ -41,7 +41,7 @@ mixin _$ListRecordsParams {
   String? get rkeyEnd => throw _privateConstructorUsedError;
 
   /// Flag to reverse the order of the returned records.
-  bool get reverse => throw _privateConstructorUsedError;
+  bool? get reverse => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -62,7 +62,7 @@ abstract class $ListRecordsParamsCopyWith<$Res> {
   $Res call(
       {String repo,
       String collection,
-      int limit,
+      int? limit,
       String? cursor,
       @Deprecated(
           'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
@@ -70,7 +70,7 @@ abstract class $ListRecordsParamsCopyWith<$Res> {
       @Deprecated(
           'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
       String? rkeyEnd,
-      bool reverse,
+      bool? reverse,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,11 +89,11 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
   $Res call({
     Object? repo = null,
     Object? collection = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? rkeyStart = freezed,
     Object? rkeyEnd = freezed,
-    Object? reverse = null,
+    Object? reverse = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -105,10 +105,10 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -121,10 +121,10 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
           ? _value.rkeyEnd
           : rkeyEnd // ignore: cast_nullable_to_non_nullable
               as String?,
-      reverse: null == reverse
+      reverse: freezed == reverse
           ? _value.reverse
           : reverse // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -144,7 +144,7 @@ abstract class _$$ListRecordsParamsImplCopyWith<$Res>
   $Res call(
       {String repo,
       String collection,
-      int limit,
+      int? limit,
       String? cursor,
       @Deprecated(
           'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
@@ -152,7 +152,7 @@ abstract class _$$ListRecordsParamsImplCopyWith<$Res>
       @Deprecated(
           'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
       String? rkeyEnd,
-      bool reverse,
+      bool? reverse,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -169,11 +169,11 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
   $Res call({
     Object? repo = null,
     Object? collection = null,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? rkeyStart = freezed,
     Object? rkeyEnd = freezed,
-    Object? reverse = null,
+    Object? reverse = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ListRecordsParamsImpl(
@@ -185,10 +185,10 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
               as String,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -201,10 +201,10 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
           ? _value.rkeyEnd
           : rkeyEnd // ignore: cast_nullable_to_non_nullable
               as String?,
-      reverse: null == reverse
+      reverse: freezed == reverse
           ? _value.reverse
           : reverse // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -220,7 +220,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
   const _$ListRecordsParamsImpl(
       {required this.repo,
       required this.collection,
-      this.limit = 50,
+      this.limit,
       this.cursor,
       @Deprecated(
           'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
@@ -228,7 +228,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
       @Deprecated(
           'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
       this.rkeyEnd,
-      this.reverse = false,
+      this.reverse,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -246,8 +246,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
   /// The number of records to return.
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -265,8 +264,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
   /// Flag to reverse the order of the returned records.
   @override
-  @JsonKey()
-  final bool reverse;
+  final bool? reverse;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -334,7 +332,7 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   const factory _ListRecordsParams(
       {required final String repo,
       required final String collection,
-      final int limit,
+      final int? limit,
       final String? cursor,
       @Deprecated(
           'DEPRECATED: The lowest sort-ordered rkey to start from (exclusive)')
@@ -342,7 +340,7 @@ abstract class _ListRecordsParams implements ListRecordsParams {
       @Deprecated(
           'DEPRECATED: The highest sort-ordered rkey to stop at (exclusive)')
       final String? rkeyEnd,
-      final bool reverse,
+      final bool? reverse,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown}) = _$ListRecordsParamsImpl;
 
@@ -360,7 +358,7 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   @override
 
   /// The number of records to return.
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override
@@ -378,7 +376,7 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   @override
 
   /// Flag to reverse the order of the returned records.
-  bool get reverse;
+  bool? get reverse;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

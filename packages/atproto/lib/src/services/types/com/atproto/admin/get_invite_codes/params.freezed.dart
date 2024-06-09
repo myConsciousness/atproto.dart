@@ -22,7 +22,7 @@ GetInviteCodesParams _$GetInviteCodesParamsFromJson(Map<String, dynamic> json) {
 mixin _$GetInviteCodesParams {
   @USortConverter()
   USort? get sort => throw _privateConstructorUsedError;
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +43,7 @@ abstract class $GetInviteCodesParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {@USortConverter() USort? sort,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -65,7 +65,7 @@ class _$GetInviteCodesParamsCopyWithImpl<$Res,
   @override
   $Res call({
     Object? sort = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -74,10 +74,10 @@ class _$GetInviteCodesParamsCopyWithImpl<$Res,
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as USort?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -112,7 +112,7 @@ abstract class _$$GetInviteCodesParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {@USortConverter() USort? sort,
-      int limit,
+      int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -132,7 +132,7 @@ class __$$GetInviteCodesParamsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sort = freezed,
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
@@ -141,10 +141,10 @@ class __$$GetInviteCodesParamsImplCopyWithImpl<$Res>
           ? _value.sort
           : sort // ignore: cast_nullable_to_non_nullable
               as USort?,
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -163,7 +163,7 @@ class __$$GetInviteCodesParamsImplCopyWithImpl<$Res>
 class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
   const _$GetInviteCodesParamsImpl(
       {@USortConverter() this.sort,
-      this.limit = 100,
+      this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -176,8 +176,7 @@ class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
   @USortConverter()
   final USort? sort;
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -233,7 +232,7 @@ class _$GetInviteCodesParamsImpl implements _GetInviteCodesParams {
 abstract class _GetInviteCodesParams implements GetInviteCodesParams {
   const factory _GetInviteCodesParams(
           {@USortConverter() final USort? sort,
-          final int limit,
+          final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetInviteCodesParamsImpl;
@@ -245,7 +244,7 @@ abstract class _GetInviteCodesParams implements GetInviteCodesParams {
   @USortConverter()
   USort? get sort;
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

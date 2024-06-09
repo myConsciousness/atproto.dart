@@ -16,7 +16,7 @@ _$GetListFeedParamsImpl _$$GetListFeedParamsImplFromJson(Map json) =>
         final val = _$GetListFeedParamsImpl(
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
-          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt() ?? 50),
+          limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -34,7 +34,6 @@ Map<String, dynamic> _$$GetListFeedParamsImplToJson(
     _$GetListFeedParamsImpl instance) {
   final val = <String, dynamic>{
     'list': const AtUriConverter().toJson(instance.list),
-    'limit': instance.limit,
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -43,6 +42,7 @@ Map<String, dynamic> _$$GetListFeedParamsImplToJson(
     }
   }
 
+  writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   val[r'$unknown'] = instance.$unknown;
   return val;

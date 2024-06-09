@@ -20,7 +20,7 @@ GetListMutesParams _$GetListMutesParamsFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetListMutesParams {
-  int get limit => throw _privateConstructorUsedError;
+  int? get limit => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +40,7 @@ abstract class $GetListMutesParamsCopyWith<$Res> {
       _$GetListMutesParamsCopyWithImpl<$Res, GetListMutesParams>;
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -58,15 +58,15 @@ class _$GetListMutesParamsCopyWithImpl<$Res, $Val extends GetListMutesParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -88,7 +88,7 @@ abstract class _$$GetListMutesParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {int limit,
+      {int? limit,
       String? cursor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -104,15 +104,15 @@ class __$$GetListMutesParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? limit = null,
+    Object? limit = freezed,
     Object? cursor = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetListMutesParamsImpl(
-      limit: null == limit
+      limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
-              as int,
+              as int?,
       cursor: freezed == cursor
           ? _value.cursor
           : cursor // ignore: cast_nullable_to_non_nullable
@@ -130,7 +130,7 @@ class __$$GetListMutesParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetListMutesParamsImpl implements _GetListMutesParams {
   const _$GetListMutesParamsImpl(
-      {this.limit = 50,
+      {this.limit,
       this.cursor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -140,8 +140,7 @@ class _$GetListMutesParamsImpl implements _GetListMutesParams {
       _$$GetListMutesParamsImplFromJson(json);
 
   @override
-  @JsonKey()
-  final int limit;
+  final int? limit;
   @override
   final String? cursor;
 
@@ -194,7 +193,7 @@ class _$GetListMutesParamsImpl implements _GetListMutesParams {
 
 abstract class _GetListMutesParams implements GetListMutesParams {
   const factory _GetListMutesParams(
-          {final int limit,
+          {final int? limit,
           final String? cursor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListMutesParamsImpl;
@@ -203,7 +202,7 @@ abstract class _GetListMutesParams implements GetListMutesParams {
       _$GetListMutesParamsImpl.fromJson;
 
   @override
-  int get limit;
+  int? get limit;
   @override
   String? get cursor;
   @override

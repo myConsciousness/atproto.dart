@@ -30,7 +30,7 @@ mixin _$PutRecordInput {
   String get rkey => throw _privateConstructorUsedError;
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
-  bool get validate => throw _privateConstructorUsedError;
+  bool? get validate => throw _privateConstructorUsedError;
 
   /// The record to write.
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
@@ -61,7 +61,7 @@ abstract class $PutRecordInputCopyWith<$Res> {
       {String repo,
       String collection,
       String rkey,
-      bool validate,
+      bool? validate,
       Map<String, dynamic> record,
       String? swapRecord,
       String? swapCommit,
@@ -84,7 +84,7 @@ class _$PutRecordInputCopyWithImpl<$Res, $Val extends PutRecordInput>
     Object? repo = null,
     Object? collection = null,
     Object? rkey = null,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? record = null,
     Object? swapRecord = freezed,
     Object? swapCommit = freezed,
@@ -103,10 +103,10 @@ class _$PutRecordInputCopyWithImpl<$Res, $Val extends PutRecordInput>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       record: null == record
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
@@ -139,7 +139,7 @@ abstract class _$$PutRecordInputImplCopyWith<$Res>
       {String repo,
       String collection,
       String rkey,
-      bool validate,
+      bool? validate,
       Map<String, dynamic> record,
       String? swapRecord,
       String? swapCommit,
@@ -160,7 +160,7 @@ class __$$PutRecordInputImplCopyWithImpl<$Res>
     Object? repo = null,
     Object? collection = null,
     Object? rkey = null,
-    Object? validate = null,
+    Object? validate = freezed,
     Object? record = null,
     Object? swapRecord = freezed,
     Object? swapCommit = freezed,
@@ -179,10 +179,10 @@ class __$$PutRecordInputImplCopyWithImpl<$Res>
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
               as String,
-      validate: null == validate
+      validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
       record: null == record
           ? _value._record
           : record // ignore: cast_nullable_to_non_nullable
@@ -211,7 +211,7 @@ class _$PutRecordInputImpl implements _PutRecordInput {
       {required this.repo,
       required this.collection,
       required this.rkey,
-      this.validate = true,
+      this.validate,
       required final Map<String, dynamic> record,
       this.swapRecord,
       this.swapCommit,
@@ -237,8 +237,7 @@ class _$PutRecordInputImpl implements _PutRecordInput {
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
   @override
-  @JsonKey()
-  final bool validate;
+  final bool? validate;
 
   /// The record to write.
   final Map<String, dynamic> _record;
@@ -328,7 +327,7 @@ abstract class _PutRecordInput implements PutRecordInput {
           {required final String repo,
           required final String collection,
           required final String rkey,
-          final bool validate,
+          final bool? validate,
           required final Map<String, dynamic> record,
           final String? swapRecord,
           final String? swapCommit,
@@ -353,7 +352,7 @@ abstract class _PutRecordInput implements PutRecordInput {
   @override
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data.
-  bool get validate;
+  bool? get validate;
   @override
 
   /// The record to write.

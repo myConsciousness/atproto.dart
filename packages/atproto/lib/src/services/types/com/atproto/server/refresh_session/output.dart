@@ -29,7 +29,7 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
     required String handle,
     required String did,
     Map<String, dynamic>? didDoc,
-    @Default(false) bool active,
+    bool? active,
 
     /// Hosting status of the account. If not specified, then assume 'active'.
     @UStatusConverter() UStatus? status,

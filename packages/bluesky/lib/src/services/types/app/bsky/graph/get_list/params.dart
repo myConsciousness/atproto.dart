@@ -24,7 +24,7 @@ class GetListParams with _$GetListParams {
   const factory GetListParams({
     /// Reference (AT-URI) of the list record to hydrate.
     @AtUriConverter() required AtUri list,
-    @Default(50) int limit,
+    int? limit,
     String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.
