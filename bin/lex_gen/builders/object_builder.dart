@@ -18,7 +18,7 @@ final class LexGenObjectBuilder {
 
   final LexGenContext context;
 
-  LexGenObject? build() {
+  List<LexGenObject>? build() {
     final properties = _getProperties();
     if (properties == null) return null; // RefVariant, no need to create.
 
@@ -31,14 +31,19 @@ final class LexGenObjectBuilder {
           : '${context.docId.toString()}#${context.defName}';
     }
 
-    return LexGenObject(
-      description: _getDescription(),
-      namespace: namespace,
-      name: convention.getObjectName(),
-      fileName: convention.getFileName(),
-      properties: properties,
-      filePath: convention.getFilePath(),
-    );
+    return properties
+        .where((e) => e != null)
+        .map(
+          (e) => LexGenObject(
+            description: _getDescription(),
+            namespace: namespace,
+            name: convention.getObjectName(),
+            fileName: convention.getFileName(),
+            properties: e!,
+            filePath: convention.getFilePath(),
+          ),
+        )
+        .toList();
   }
 
   String _getDescription() {
@@ -56,16 +61,16 @@ final class LexGenObjectBuilder {
     return buffer.toString();
   }
 
-  List<LexGenObjectProperty>? _getProperties() {
+  List<List<LexGenObjectProperty>?>? _getProperties() {
     final properties = context.def!.whenOrNull(
-      object: _getObjectProperties,
+      object: (data) => [_getObjectProperties(data)],
       xrpcQuery: (data) {
-        return _getObjectPropertiesFromXrpcBody(data.output);
+        return [_getObjectPropertiesFromXrpcBody(data.output)];
       },
       xrpcProcedure: (data) {
-        return _getObjectPropertiesFromXrpcBody(data.output);
+        return [_getObjectPropertiesFromXrpcBody(data.output)];
       },
-      record: (data) => _getObjectProperties(data.record),
+      record: (data) => [_getObjectProperties(data.record)],
     );
 
     return properties;

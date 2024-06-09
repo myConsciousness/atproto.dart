@@ -67,35 +67,39 @@ final class LexGen {
           }
         } // Lex Object
         else {
-          final object = LexGenObjectBuilder(LexGenContext(
+          final objects = LexGenObjectBuilder(LexGenContext(
             docId: docId,
             defName: defName,
             def: def,
             mainRelatedDocIds: mainRelatedDocIds,
           )).build();
 
-          if (object != null) {
-            File(_getOutputFilePath(docId, object.filePath))
-              ..createSync(recursive: true)
-              ..writeAsStringSync(object.toString());
+          if (objects != null) {
+            for (final object in objects) {
+              File(_getOutputFilePath(docId, object.filePath))
+                ..createSync(recursive: true)
+                ..writeAsStringSync(object.toString());
 
-            _addExportPath(exports, docId, object.filePath);
+              _addExportPath(exports, docId, object.filePath);
 
-            for (final property in object.properties) {
-              if (property.knownValues != null) {
-                File(_getOutputFilePath(docId, property.knownValues!.filePath))
-                  ..createSync(recursive: true)
-                  ..writeAsStringSync(property.knownValues.toString());
+              for (final property in object.properties) {
+                if (property.knownValues != null) {
+                  File(
+                      _getOutputFilePath(docId, property.knownValues!.filePath))
+                    ..createSync(recursive: true)
+                    ..writeAsStringSync(property.knownValues.toString());
 
-                _addExportPath(exports, docId, property.knownValues!.filePath);
-              }
+                  _addExportPath(
+                      exports, docId, property.knownValues!.filePath);
+                }
 
-              if (property.union != null) {
-                File(_getOutputFilePath(docId, property.union!.filePath))
-                  ..createSync(recursive: true)
-                  ..writeAsStringSync(property.union.toString());
+                if (property.union != null) {
+                  File(_getOutputFilePath(docId, property.union!.filePath))
+                    ..createSync(recursive: true)
+                    ..writeAsStringSync(property.union.toString());
 
-                _addExportPath(exports, docId, property.union!.filePath);
+                  _addExportPath(exports, docId, property.union!.filePath);
+                }
               }
             }
           }
