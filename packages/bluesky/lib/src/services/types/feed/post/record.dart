@@ -32,6 +32,7 @@ class PostRecord with _$PostRecord {
     required String text,
 
     /// DEPRECATED: replaced by app.bsky.richtext.facet.
+    @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
     List<Entity>? entities,
 
     /// Annotations of text (mentions, URLs, hashtags, etc)

@@ -24,6 +24,7 @@ mixin _$PostRecord {
   String get text => throw _privateConstructorUsedError;
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
+  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
   List<Entity>? get entities => throw _privateConstructorUsedError;
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
@@ -63,6 +64,7 @@ abstract class $PostRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
+      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
       List<Entity>? entities,
       List<Facet>? facets,
       ReplyRef? reply,
@@ -193,6 +195,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {String text,
+      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
       List<Entity>? entities,
       List<Facet>? facets,
       ReplyRef? reply,
@@ -284,6 +287,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
 class _$PostRecordImpl implements _PostRecord {
   const _$PostRecordImpl(
       {required this.text,
+      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
       final List<Entity>? entities,
       final List<Facet>? facets,
       this.reply,
@@ -312,6 +316,7 @@ class _$PostRecordImpl implements _PostRecord {
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
   @override
+  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
   List<Entity>? get entities {
     final value = _entities;
     if (value == null) return null;
@@ -441,6 +446,7 @@ class _$PostRecordImpl implements _PostRecord {
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
           {required final String text,
+          @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
           final List<Entity>? entities,
           final List<Facet>? facets,
           final ReplyRef? reply,
@@ -462,6 +468,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
+  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
   List<Entity>? get entities;
   @override
 

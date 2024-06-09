@@ -30,6 +30,7 @@ mixin _$Commit {
   int get seq => throw _privateConstructorUsedError;
 
   /// DEPRECATED -- unused
+  @Deprecated('DEPRECATED -- unused')
   bool get rebase => throw _privateConstructorUsedError;
 
   /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
@@ -42,6 +43,8 @@ mixin _$Commit {
   String get commit => throw _privateConstructorUsedError;
 
   /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
+  @Deprecated(
+      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
   String? get prev => throw _privateConstructorUsedError;
 
   /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
@@ -75,10 +78,12 @@ abstract class $CommitCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      bool rebase,
+      @Deprecated('DEPRECATED -- unused') bool rebase,
       bool tooBig,
       String repo,
       String commit,
+      @Deprecated(
+          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
       String? prev,
       String rev,
       String since,
@@ -188,10 +193,12 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      bool rebase,
+      @Deprecated('DEPRECATED -- unused') bool rebase,
       bool tooBig,
       String repo,
       String commit,
+      @Deprecated(
+          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
       String? prev,
       String rev,
       String since,
@@ -296,10 +303,12 @@ class _$CommitImpl implements _Commit {
   const _$CommitImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposCommit,
       required this.seq,
-      required this.rebase,
+      @Deprecated('DEPRECATED -- unused') required this.rebase,
       required this.tooBig,
       required this.repo,
       required this.commit,
+      @Deprecated(
+          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
       this.prev,
       required this.rev,
       required this.since,
@@ -330,6 +339,7 @@ class _$CommitImpl implements _Commit {
 
   /// DEPRECATED -- unused
   @override
+  @Deprecated('DEPRECATED -- unused')
   final bool rebase;
 
   /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
@@ -346,6 +356,8 @@ class _$CommitImpl implements _Commit {
 
   /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
   @override
+  @Deprecated(
+      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
   final String? prev;
 
   /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
@@ -460,21 +472,23 @@ class _$CommitImpl implements _Commit {
 
 abstract class _Commit implements Commit {
   const factory _Commit(
-          {@JsonKey(name: r'$type') final String $type,
-          required final int seq,
-          required final bool rebase,
-          required final bool tooBig,
-          required final String repo,
-          required final String commit,
-          final String? prev,
-          required final String rev,
-          required final String since,
-          required final List<int> blocks,
-          required final List<RepoOp> ops,
-          required final List<String> blobs,
-          required final DateTime time,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$CommitImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      required final int seq,
+      @Deprecated('DEPRECATED -- unused') required final bool rebase,
+      required final bool tooBig,
+      required final String repo,
+      required final String commit,
+      @Deprecated(
+          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
+      final String? prev,
+      required final String rev,
+      required final String since,
+      required final List<int> blocks,
+      required final List<RepoOp> ops,
+      required final List<String> blobs,
+      required final DateTime time,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$CommitImpl;
 
   factory _Commit.fromJson(Map<String, dynamic> json) = _$CommitImpl.fromJson;
 
@@ -492,6 +506,7 @@ abstract class _Commit implements Commit {
   @override
 
   /// DEPRECATED -- unused
+  @Deprecated('DEPRECATED -- unused')
   bool get rebase;
   @override
 
@@ -508,6 +523,8 @@ abstract class _Commit implements Commit {
   @override
 
   /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
+  @Deprecated(
+      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
   String? get prev;
   @override
 

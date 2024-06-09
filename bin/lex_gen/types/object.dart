@@ -219,6 +219,11 @@ final class LexGenObjectProperty {
     if (description != null && description!.isNotEmpty) {
       buffer.write('    '); // Comments will not be formatted
       buffer.writeln('/// $description');
+
+      if (description!.toLowerCase().contains('deprecated')) {
+        buffer.write("@Deprecated('$description')");
+        buffer.write(' ');
+      }
     }
 
     if (converter != null) {

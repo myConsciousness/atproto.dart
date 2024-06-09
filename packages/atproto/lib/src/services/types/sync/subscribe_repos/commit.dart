@@ -38,7 +38,7 @@ class Commit with _$Commit {
     required int seq,
 
     /// DEPRECATED -- unused
-    required bool rebase,
+    @Deprecated('DEPRECATED -- unused') required bool rebase,
 
     /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
     required bool tooBig,
@@ -50,6 +50,8 @@ class Commit with _$Commit {
     required String commit,
 
     /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
+    @Deprecated(
+        'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
     String? prev,
 
     /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
