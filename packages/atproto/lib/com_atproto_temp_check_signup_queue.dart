@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/temp/check_signup_queue/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/temp/check_signup_queue/output.dart';

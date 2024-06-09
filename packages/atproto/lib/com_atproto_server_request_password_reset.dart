@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/request_password_reset/input.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/request_password_reset/input.dart';

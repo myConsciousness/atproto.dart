@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/reserve_signing_key/input.dart';
-export 'package:atproto/src/services/types/com/atproto/server/reserve_signing_key/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/reserve_signing_key/input.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/reserve_signing_key/output.dart';

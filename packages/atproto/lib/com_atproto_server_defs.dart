@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/defs/invite_code.dart';
-export 'package:atproto/src/services/types/com/atproto/server/defs/invite_code_use.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/defs/invite_code.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/defs/invite_code_use.dart';

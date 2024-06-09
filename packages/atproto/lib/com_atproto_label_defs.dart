@@ -10,12 +10,12 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/label/defs/label.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/self_labels.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/self_label.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/known_severity.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/known_blur.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/known_default_setting.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/label_value_definition_strings.dart';
-export 'package:atproto/src/services/types/com/atproto/label/defs/known_label_value.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/label.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/self_labels.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/self_label.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/label_value_definition.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/known_severity.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/known_blur.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/known_default_setting.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/label_value_definition_strings.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label/defs/known_label_value.dart';

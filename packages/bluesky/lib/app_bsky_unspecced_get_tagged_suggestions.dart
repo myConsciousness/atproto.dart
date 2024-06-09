@@ -10,7 +10,7 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/unspecced/get_tagged_suggestions/params.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/get_tagged_suggestions/output.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/get_tagged_suggestions/suggestion.dart';
-export 'package:bluesky/src/services/types/app/bsky/unspecced/get_tagged_suggestions/known_subject_type.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/params.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/output.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/suggestion.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/known_subject_type.dart';

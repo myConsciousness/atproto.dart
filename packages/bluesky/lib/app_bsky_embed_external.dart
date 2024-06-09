@@ -10,7 +10,7 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/embed/external/main.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/external/external.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/external/view.dart';
-export 'package:bluesky/src/services/types/app/bsky/embed/external/view_external.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/external/main.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/external/external.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/external/view.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/embed/external/view_external.dart';

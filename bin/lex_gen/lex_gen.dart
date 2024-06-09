@@ -22,7 +22,7 @@ const _supportedLexicons = [
   // 'chat.bsky',
 ];
 
-const _kTypesPath = 'src/services/types';
+const _kTypesPath = 'src/services/gen_types';
 
 void main(List<String> args) => const LexGen().execute();
 

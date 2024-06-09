@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/get_latest_commit/params.dart';
-export 'package:atproto/src/services/types/com/atproto/sync/get_latest_commit/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/get_latest_commit/params.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/get_latest_commit/output.dart';

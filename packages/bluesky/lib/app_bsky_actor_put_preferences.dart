@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/actor/put_preferences/input.dart';
-export 'package:bluesky/src/services/types/app/bsky/actor/defs/union_preference.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/put_preferences/input.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';

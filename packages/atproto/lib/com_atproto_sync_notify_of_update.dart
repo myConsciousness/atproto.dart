@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/notify_of_update/input.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/notify_of_update/input.dart';

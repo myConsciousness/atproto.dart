@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/sync/get_blob/params.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync/get_blob/params.dart';

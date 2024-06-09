@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/app/bsky/feed/get_suggested_feeds/params.dart';
-export 'package:bluesky/src/services/types/app/bsky/feed/get_suggested_feeds/output.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/get_suggested_feeds/params.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/get_suggested_feeds/output.dart';

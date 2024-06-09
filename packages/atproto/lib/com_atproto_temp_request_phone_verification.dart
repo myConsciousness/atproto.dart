@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/temp/request_phone_verification/input.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/temp/request_phone_verification/input.dart';

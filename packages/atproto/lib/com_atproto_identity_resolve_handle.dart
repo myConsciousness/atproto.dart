@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/identity/resolve_handle/params.dart';
-export 'package:atproto/src/services/types/com/atproto/identity/resolve_handle/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/identity/resolve_handle/params.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/identity/resolve_handle/output.dart';

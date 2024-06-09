@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/com/atproto/server/get_service_auth/params.dart';
-export 'package:atproto/src/services/types/com/atproto/server/get_service_auth/output.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/get_service_auth/params.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server/get_service_auth/output.dart';
