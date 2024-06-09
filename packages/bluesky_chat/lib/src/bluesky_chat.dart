@@ -12,6 +12,10 @@ import 'services/convo_service.dart';
 import 'services/moderation_service.dart';
 import 'services/service_context.dart';
 
+const _kBskyChatProxyHeaders = <String, String>{
+  'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat'
+};
+
 /// Provides `chat.bsky.*` services.
 sealed class BlueskyChat {
   /// Returns the new instance of [BlueskyChat].
@@ -29,7 +33,10 @@ sealed class BlueskyChat {
       _BlueskyChat(
         BlueskyChatServiceContext(
           atproto: atp.ATProto.fromSession(
-            headers: headers,
+            headers: {
+              ...?headers,
+              ..._kBskyChatProxyHeaders,
+            },
             session,
             protocol: protocol,
             service: service,
@@ -39,45 +46,14 @@ sealed class BlueskyChat {
             mockedGetClient: mockedGetClient,
             mockedPostClient: mockedPostClient,
           ),
-          headers: headers,
+          headers: {
+            ...?headers,
+            ..._kBskyChatProxyHeaders,
+          },
           protocol: protocol,
           service: service,
           relayService: relayService,
           session: session,
-          timeout: timeout,
-          retryConfig: retryConfig,
-          mockedGetClient: mockedGetClient,
-          mockedPostClient: mockedPostClient,
-        ),
-      );
-
-  /// Returns the new instance of [_BlueskyChat] as anonymous.
-  factory BlueskyChat.anonymous({
-    final Map<String, String>? headers,
-    final core.Protocol? protocol,
-    final String? service,
-    final String? relayService,
-    final Duration? timeout,
-    final core.RetryConfig? retryConfig,
-    final core.GetClient? mockedGetClient,
-    final core.PostClient? mockedPostClient,
-  }) =>
-      _BlueskyChat(
-        BlueskyChatServiceContext(
-          atproto: atp.ATProto.anonymous(
-            headers: headers,
-            protocol: protocol,
-            service: service,
-            relayService: relayService,
-            timeout: timeout,
-            retryConfig: retryConfig,
-            mockedGetClient: mockedGetClient,
-            mockedPostClient: mockedPostClient,
-          ),
-          headers: headers,
-          protocol: protocol,
-          service: service,
-          relayService: relayService,
           timeout: timeout,
           retryConfig: retryConfig,
           mockedGetClient: mockedGetClient,

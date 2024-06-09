@@ -19,7 +19,7 @@ Future<void> main() async {
     final atproto = ATProto.fromSession(
       session.data,
 
-      //! The default is `bsky.social`
+      //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
 
       //! The default is `bsky.network`

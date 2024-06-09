@@ -12,7 +12,7 @@ Future<void> main() async {
       //! First you need to establish session with ATP server.
       await _session,
 
-      //! The default is `bsky.social`
+      //! The default is `bsky.social`, or resolve dynamically based on session
       service: 'SERVICE_NAME',
 
       //! The default is `bsky.network`

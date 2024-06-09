@@ -129,7 +129,27 @@
         "code",
         "content",
         "test",
-        "ideas" 
+        "ideas"
+      ]
+    },
+    {
+      "login": "hidea",
+      "name": "YU-KI Hidea",
+      "avatar_url": "https://avatars.githubusercontent.com/u/196294?v=4",
+      "profile": "https://hidea.hatenablog.com/",
+      "contributions": [
+        "code",
+        "content",
+        "platform"
+      ]
+    },
+    {
+      "login": "lukehmcc",
+      "name": "Covalent",
+      "avatar_url": "https://avatars.githubusercontent.com/u/58121030?v=4",
+      "profile": "https://github.com/lukehmcc",
+      "contributions": [
+        "ideas"
       ]
     }
   ],
