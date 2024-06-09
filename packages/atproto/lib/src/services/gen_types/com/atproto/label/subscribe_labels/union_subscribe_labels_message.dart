@@ -17,55 +17,55 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../com/atproto/label/subscribe_labels/info.dart';
 import '../../../../com/atproto/label/subscribe_labels/labels.dart';
 
-part 'union_message.freezed.dart';
+part 'union_subscribe_labels_message.freezed.dart';
 
 @freezed
-class UMessage with _$UMessage {
-  const factory UMessage.labels({
+class USubscribeLabelsMessage with _$USubscribeLabelsMessage {
+  const factory USubscribeLabelsMessage.labels({
     required Labels data,
-  }) = UMessageLabels;
+  }) = USubscribeLabelsMessageLabels;
 
-  const factory UMessage.info({
+  const factory USubscribeLabelsMessage.info({
     required Info data,
-  }) = UMessageInfo;
+  }) = USubscribeLabelsMessageInfo;
 
-  const factory UMessage.unknown({
+  const factory USubscribeLabelsMessage.unknown({
     required Map<String, dynamic> data,
-  }) = UMessageUnknown;
+  }) = USubscribeLabelsMessageUnknown;
 }
 
-final class UMessageConverter
-    implements JsonConverter<UMessage, Map<String, dynamic>> {
-  const UMessageConverter();
+final class USubscribeLabelsMessageConverter
+    implements JsonConverter<USubscribeLabelsMessage, Map<String, dynamic>> {
+  const USubscribeLabelsMessageConverter();
 
   @override
-  UMessage fromJson(Map<String, dynamic> json) {
+  USubscribeLabelsMessage fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == '#labels') {
-        return UMessage.labels(
+        return USubscribeLabelsMessage.labels(
           data: Labels.fromJson(
             const LabelsConverter().fromJson(json),
           ),
         );
       }
       if (type == '#info') {
-        return UMessage.info(
+        return USubscribeLabelsMessage.info(
           data: Info.fromJson(
             const InfoConverter().fromJson(json),
           ),
         );
       }
 
-      return UMessage.unknown(data: json);
+      return USubscribeLabelsMessage.unknown(data: json);
     } catch (_) {
-      return UMessage.unknown(data: json);
+      return USubscribeLabelsMessage.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UMessage object) => object.when(
+  Map<String, dynamic> toJson(USubscribeLabelsMessage object) => object.when(
         labels: (data) => const LabelsConverter().toJson(
           data.toJson(),
         ),
@@ -76,24 +76,25 @@ final class UMessageConverter
       );
 }
 
-extension UMessageExtension on UMessage {
+extension USubscribeLabelsMessageExtension on USubscribeLabelsMessage {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const UMessageConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const USubscribeLabelsMessageConverter().toJson(this);
 
   /// Returns true if this data is [Labels], otherwise false.
-  bool get isLabels => this is UMessageLabels;
+  bool get isLabels => this is USubscribeLabelsMessageLabels;
 
   /// Returns true if this data is not [Labels], otherwise false.
   bool get isNotLabels => !isLabels;
 
   /// Returns true if this data is [Info], otherwise false.
-  bool get isInfo => this is UMessageInfo;
+  bool get isInfo => this is USubscribeLabelsMessageInfo;
 
   /// Returns true if this data is not [Info], otherwise false.
   bool get isNotInfo => !isInfo;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UMessageUnknown;
+  bool get isUnknown => this is USubscribeLabelsMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

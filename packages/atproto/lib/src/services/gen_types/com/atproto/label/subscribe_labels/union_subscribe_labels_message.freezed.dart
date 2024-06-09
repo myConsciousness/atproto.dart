@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_message.dart';
+part of 'union_subscribe_labels_message.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UMessage {
+mixin _$USubscribeLabelsMessage {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -41,38 +41,40 @@ mixin _$UMessage {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UMessageLabels value) labels,
-    required TResult Function(UMessageInfo value) info,
-    required TResult Function(UMessageUnknown value) unknown,
+    required TResult Function(USubscribeLabelsMessageLabels value) labels,
+    required TResult Function(USubscribeLabelsMessageInfo value) info,
+    required TResult Function(USubscribeLabelsMessageUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UMessageLabels value)? labels,
-    TResult? Function(UMessageInfo value)? info,
-    TResult? Function(UMessageUnknown value)? unknown,
+    TResult? Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult? Function(USubscribeLabelsMessageInfo value)? info,
+    TResult? Function(USubscribeLabelsMessageUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UMessageLabels value)? labels,
-    TResult Function(UMessageInfo value)? info,
-    TResult Function(UMessageUnknown value)? unknown,
+    TResult Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult Function(USubscribeLabelsMessageInfo value)? info,
+    TResult Function(USubscribeLabelsMessageUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UMessageCopyWith<$Res> {
-  factory $UMessageCopyWith(UMessage value, $Res Function(UMessage) then) =
-      _$UMessageCopyWithImpl<$Res, UMessage>;
+abstract class $USubscribeLabelsMessageCopyWith<$Res> {
+  factory $USubscribeLabelsMessageCopyWith(USubscribeLabelsMessage value,
+          $Res Function(USubscribeLabelsMessage) then) =
+      _$USubscribeLabelsMessageCopyWithImpl<$Res, USubscribeLabelsMessage>;
 }
 
 /// @nodoc
-class _$UMessageCopyWithImpl<$Res, $Val extends UMessage>
-    implements $UMessageCopyWith<$Res> {
-  _$UMessageCopyWithImpl(this._value, this._then);
+class _$USubscribeLabelsMessageCopyWithImpl<$Res,
+        $Val extends USubscribeLabelsMessage>
+    implements $USubscribeLabelsMessageCopyWith<$Res> {
+  _$USubscribeLabelsMessageCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -81,10 +83,11 @@ class _$UMessageCopyWithImpl<$Res, $Val extends UMessage>
 }
 
 /// @nodoc
-abstract class _$$UMessageLabelsImplCopyWith<$Res> {
-  factory _$$UMessageLabelsImplCopyWith(_$UMessageLabelsImpl value,
-          $Res Function(_$UMessageLabelsImpl) then) =
-      __$$UMessageLabelsImplCopyWithImpl<$Res>;
+abstract class _$$USubscribeLabelsMessageLabelsImplCopyWith<$Res> {
+  factory _$$USubscribeLabelsMessageLabelsImplCopyWith(
+          _$USubscribeLabelsMessageLabelsImpl value,
+          $Res Function(_$USubscribeLabelsMessageLabelsImpl) then) =
+      __$$USubscribeLabelsMessageLabelsImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Labels data});
 
@@ -92,11 +95,13 @@ abstract class _$$UMessageLabelsImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UMessageLabelsImplCopyWithImpl<$Res>
-    extends _$UMessageCopyWithImpl<$Res, _$UMessageLabelsImpl>
-    implements _$$UMessageLabelsImplCopyWith<$Res> {
-  __$$UMessageLabelsImplCopyWithImpl(
-      _$UMessageLabelsImpl _value, $Res Function(_$UMessageLabelsImpl) _then)
+class __$$USubscribeLabelsMessageLabelsImplCopyWithImpl<$Res>
+    extends _$USubscribeLabelsMessageCopyWithImpl<$Res,
+        _$USubscribeLabelsMessageLabelsImpl>
+    implements _$$USubscribeLabelsMessageLabelsImplCopyWith<$Res> {
+  __$$USubscribeLabelsMessageLabelsImplCopyWithImpl(
+      _$USubscribeLabelsMessageLabelsImpl _value,
+      $Res Function(_$USubscribeLabelsMessageLabelsImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -104,7 +109,7 @@ class __$$UMessageLabelsImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UMessageLabelsImpl(
+    return _then(_$USubscribeLabelsMessageLabelsImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -123,22 +128,23 @@ class __$$UMessageLabelsImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMessageLabelsImpl implements UMessageLabels {
-  const _$UMessageLabelsImpl({required this.data});
+class _$USubscribeLabelsMessageLabelsImpl
+    implements USubscribeLabelsMessageLabels {
+  const _$USubscribeLabelsMessageLabelsImpl({required this.data});
 
   @override
   final Labels data;
 
   @override
   String toString() {
-    return 'UMessage.labels(data: $data)';
+    return 'USubscribeLabelsMessage.labels(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UMessageLabelsImpl &&
+            other is _$USubscribeLabelsMessageLabelsImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -148,9 +154,10 @@ class _$UMessageLabelsImpl implements UMessageLabels {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UMessageLabelsImplCopyWith<_$UMessageLabelsImpl> get copyWith =>
-      __$$UMessageLabelsImplCopyWithImpl<_$UMessageLabelsImpl>(
-          this, _$identity);
+  _$$USubscribeLabelsMessageLabelsImplCopyWith<
+          _$USubscribeLabelsMessageLabelsImpl>
+      get copyWith => __$$USubscribeLabelsMessageLabelsImplCopyWithImpl<
+          _$USubscribeLabelsMessageLabelsImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -189,9 +196,9 @@ class _$UMessageLabelsImpl implements UMessageLabels {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UMessageLabels value) labels,
-    required TResult Function(UMessageInfo value) info,
-    required TResult Function(UMessageUnknown value) unknown,
+    required TResult Function(USubscribeLabelsMessageLabels value) labels,
+    required TResult Function(USubscribeLabelsMessageInfo value) info,
+    required TResult Function(USubscribeLabelsMessageUnknown value) unknown,
   }) {
     return labels(this);
   }
@@ -199,9 +206,9 @@ class _$UMessageLabelsImpl implements UMessageLabels {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UMessageLabels value)? labels,
-    TResult? Function(UMessageInfo value)? info,
-    TResult? Function(UMessageUnknown value)? unknown,
+    TResult? Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult? Function(USubscribeLabelsMessageInfo value)? info,
+    TResult? Function(USubscribeLabelsMessageUnknown value)? unknown,
   }) {
     return labels?.call(this);
   }
@@ -209,9 +216,9 @@ class _$UMessageLabelsImpl implements UMessageLabels {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UMessageLabels value)? labels,
-    TResult Function(UMessageInfo value)? info,
-    TResult Function(UMessageUnknown value)? unknown,
+    TResult Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult Function(USubscribeLabelsMessageInfo value)? info,
+    TResult Function(USubscribeLabelsMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (labels != null) {
@@ -221,22 +228,25 @@ class _$UMessageLabelsImpl implements UMessageLabels {
   }
 }
 
-abstract class UMessageLabels implements UMessage {
-  const factory UMessageLabels({required final Labels data}) =
-      _$UMessageLabelsImpl;
+abstract class USubscribeLabelsMessageLabels
+    implements USubscribeLabelsMessage {
+  const factory USubscribeLabelsMessageLabels({required final Labels data}) =
+      _$USubscribeLabelsMessageLabelsImpl;
 
   @override
   Labels get data;
   @JsonKey(ignore: true)
-  _$$UMessageLabelsImplCopyWith<_$UMessageLabelsImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribeLabelsMessageLabelsImplCopyWith<
+          _$USubscribeLabelsMessageLabelsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UMessageInfoImplCopyWith<$Res> {
-  factory _$$UMessageInfoImplCopyWith(
-          _$UMessageInfoImpl value, $Res Function(_$UMessageInfoImpl) then) =
-      __$$UMessageInfoImplCopyWithImpl<$Res>;
+abstract class _$$USubscribeLabelsMessageInfoImplCopyWith<$Res> {
+  factory _$$USubscribeLabelsMessageInfoImplCopyWith(
+          _$USubscribeLabelsMessageInfoImpl value,
+          $Res Function(_$USubscribeLabelsMessageInfoImpl) then) =
+      __$$USubscribeLabelsMessageInfoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Info data});
 
@@ -244,11 +254,13 @@ abstract class _$$UMessageInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UMessageInfoImplCopyWithImpl<$Res>
-    extends _$UMessageCopyWithImpl<$Res, _$UMessageInfoImpl>
-    implements _$$UMessageInfoImplCopyWith<$Res> {
-  __$$UMessageInfoImplCopyWithImpl(
-      _$UMessageInfoImpl _value, $Res Function(_$UMessageInfoImpl) _then)
+class __$$USubscribeLabelsMessageInfoImplCopyWithImpl<$Res>
+    extends _$USubscribeLabelsMessageCopyWithImpl<$Res,
+        _$USubscribeLabelsMessageInfoImpl>
+    implements _$$USubscribeLabelsMessageInfoImplCopyWith<$Res> {
+  __$$USubscribeLabelsMessageInfoImplCopyWithImpl(
+      _$USubscribeLabelsMessageInfoImpl _value,
+      $Res Function(_$USubscribeLabelsMessageInfoImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -256,7 +268,7 @@ class __$$UMessageInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UMessageInfoImpl(
+    return _then(_$USubscribeLabelsMessageInfoImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -275,22 +287,22 @@ class __$$UMessageInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMessageInfoImpl implements UMessageInfo {
-  const _$UMessageInfoImpl({required this.data});
+class _$USubscribeLabelsMessageInfoImpl implements USubscribeLabelsMessageInfo {
+  const _$USubscribeLabelsMessageInfoImpl({required this.data});
 
   @override
   final Info data;
 
   @override
   String toString() {
-    return 'UMessage.info(data: $data)';
+    return 'USubscribeLabelsMessage.info(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UMessageInfoImpl &&
+            other is _$USubscribeLabelsMessageInfoImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -300,8 +312,9 @@ class _$UMessageInfoImpl implements UMessageInfo {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UMessageInfoImplCopyWith<_$UMessageInfoImpl> get copyWith =>
-      __$$UMessageInfoImplCopyWithImpl<_$UMessageInfoImpl>(this, _$identity);
+  _$$USubscribeLabelsMessageInfoImplCopyWith<_$USubscribeLabelsMessageInfoImpl>
+      get copyWith => __$$USubscribeLabelsMessageInfoImplCopyWithImpl<
+          _$USubscribeLabelsMessageInfoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -340,9 +353,9 @@ class _$UMessageInfoImpl implements UMessageInfo {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UMessageLabels value) labels,
-    required TResult Function(UMessageInfo value) info,
-    required TResult Function(UMessageUnknown value) unknown,
+    required TResult Function(USubscribeLabelsMessageLabels value) labels,
+    required TResult Function(USubscribeLabelsMessageInfo value) info,
+    required TResult Function(USubscribeLabelsMessageUnknown value) unknown,
   }) {
     return info(this);
   }
@@ -350,9 +363,9 @@ class _$UMessageInfoImpl implements UMessageInfo {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UMessageLabels value)? labels,
-    TResult? Function(UMessageInfo value)? info,
-    TResult? Function(UMessageUnknown value)? unknown,
+    TResult? Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult? Function(USubscribeLabelsMessageInfo value)? info,
+    TResult? Function(USubscribeLabelsMessageUnknown value)? unknown,
   }) {
     return info?.call(this);
   }
@@ -360,9 +373,9 @@ class _$UMessageInfoImpl implements UMessageInfo {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UMessageLabels value)? labels,
-    TResult Function(UMessageInfo value)? info,
-    TResult Function(UMessageUnknown value)? unknown,
+    TResult Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult Function(USubscribeLabelsMessageInfo value)? info,
+    TResult Function(USubscribeLabelsMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (info != null) {
@@ -372,31 +385,35 @@ class _$UMessageInfoImpl implements UMessageInfo {
   }
 }
 
-abstract class UMessageInfo implements UMessage {
-  const factory UMessageInfo({required final Info data}) = _$UMessageInfoImpl;
+abstract class USubscribeLabelsMessageInfo implements USubscribeLabelsMessage {
+  const factory USubscribeLabelsMessageInfo({required final Info data}) =
+      _$USubscribeLabelsMessageInfoImpl;
 
   @override
   Info get data;
   @JsonKey(ignore: true)
-  _$$UMessageInfoImplCopyWith<_$UMessageInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribeLabelsMessageInfoImplCopyWith<_$USubscribeLabelsMessageInfoImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UMessageUnknownImplCopyWith<$Res> {
-  factory _$$UMessageUnknownImplCopyWith(_$UMessageUnknownImpl value,
-          $Res Function(_$UMessageUnknownImpl) then) =
-      __$$UMessageUnknownImplCopyWithImpl<$Res>;
+abstract class _$$USubscribeLabelsMessageUnknownImplCopyWith<$Res> {
+  factory _$$USubscribeLabelsMessageUnknownImplCopyWith(
+          _$USubscribeLabelsMessageUnknownImpl value,
+          $Res Function(_$USubscribeLabelsMessageUnknownImpl) then) =
+      __$$USubscribeLabelsMessageUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UMessageUnknownImplCopyWithImpl<$Res>
-    extends _$UMessageCopyWithImpl<$Res, _$UMessageUnknownImpl>
-    implements _$$UMessageUnknownImplCopyWith<$Res> {
-  __$$UMessageUnknownImplCopyWithImpl(
-      _$UMessageUnknownImpl _value, $Res Function(_$UMessageUnknownImpl) _then)
+class __$$USubscribeLabelsMessageUnknownImplCopyWithImpl<$Res>
+    extends _$USubscribeLabelsMessageCopyWithImpl<$Res,
+        _$USubscribeLabelsMessageUnknownImpl>
+    implements _$$USubscribeLabelsMessageUnknownImplCopyWith<$Res> {
+  __$$USubscribeLabelsMessageUnknownImplCopyWithImpl(
+      _$USubscribeLabelsMessageUnknownImpl _value,
+      $Res Function(_$USubscribeLabelsMessageUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -404,7 +421,7 @@ class __$$UMessageUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UMessageUnknownImpl(
+    return _then(_$USubscribeLabelsMessageUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -415,8 +432,10 @@ class __$$UMessageUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UMessageUnknownImpl implements UMessageUnknown {
-  const _$UMessageUnknownImpl({required final Map<String, dynamic> data})
+class _$USubscribeLabelsMessageUnknownImpl
+    implements USubscribeLabelsMessageUnknown {
+  const _$USubscribeLabelsMessageUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -429,14 +448,14 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
 
   @override
   String toString() {
-    return 'UMessage.unknown(data: $data)';
+    return 'USubscribeLabelsMessage.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UMessageUnknownImpl &&
+            other is _$USubscribeLabelsMessageUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -447,9 +466,10 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UMessageUnknownImplCopyWith<_$UMessageUnknownImpl> get copyWith =>
-      __$$UMessageUnknownImplCopyWithImpl<_$UMessageUnknownImpl>(
-          this, _$identity);
+  _$$USubscribeLabelsMessageUnknownImplCopyWith<
+          _$USubscribeLabelsMessageUnknownImpl>
+      get copyWith => __$$USubscribeLabelsMessageUnknownImplCopyWithImpl<
+          _$USubscribeLabelsMessageUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -488,9 +508,9 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UMessageLabels value) labels,
-    required TResult Function(UMessageInfo value) info,
-    required TResult Function(UMessageUnknown value) unknown,
+    required TResult Function(USubscribeLabelsMessageLabels value) labels,
+    required TResult Function(USubscribeLabelsMessageInfo value) info,
+    required TResult Function(USubscribeLabelsMessageUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -498,9 +518,9 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UMessageLabels value)? labels,
-    TResult? Function(UMessageInfo value)? info,
-    TResult? Function(UMessageUnknown value)? unknown,
+    TResult? Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult? Function(USubscribeLabelsMessageInfo value)? info,
+    TResult? Function(USubscribeLabelsMessageUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -508,9 +528,9 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UMessageLabels value)? labels,
-    TResult Function(UMessageInfo value)? info,
-    TResult Function(UMessageUnknown value)? unknown,
+    TResult Function(USubscribeLabelsMessageLabels value)? labels,
+    TResult Function(USubscribeLabelsMessageInfo value)? info,
+    TResult Function(USubscribeLabelsMessageUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -520,13 +540,16 @@ class _$UMessageUnknownImpl implements UMessageUnknown {
   }
 }
 
-abstract class UMessageUnknown implements UMessage {
-  const factory UMessageUnknown({required final Map<String, dynamic> data}) =
-      _$UMessageUnknownImpl;
+abstract class USubscribeLabelsMessageUnknown
+    implements USubscribeLabelsMessage {
+  const factory USubscribeLabelsMessageUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$USubscribeLabelsMessageUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UMessageUnknownImplCopyWith<_$UMessageUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$USubscribeLabelsMessageUnknownImplCopyWith<
+          _$USubscribeLabelsMessageUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

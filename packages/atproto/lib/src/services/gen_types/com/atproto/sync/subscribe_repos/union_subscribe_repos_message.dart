@@ -22,110 +22,110 @@ import '../../../../com/atproto/sync/subscribe_repos/info.dart';
 import '../../../../com/atproto/sync/subscribe_repos/migrate.dart';
 import '../../../../com/atproto/sync/subscribe_repos/tombstone.dart';
 
-part 'union_message.freezed.dart';
+part 'union_subscribe_repos_message.freezed.dart';
 
 @freezed
-class UMessage with _$UMessage {
-  const factory UMessage.commit({
+class USubscribeReposMessage with _$USubscribeReposMessage {
+  const factory USubscribeReposMessage.commit({
     required Commit data,
-  }) = UMessageCommit;
+  }) = USubscribeReposMessageCommit;
 
-  const factory UMessage.identity({
+  const factory USubscribeReposMessage.identity({
     required Identity data,
-  }) = UMessageIdentity;
+  }) = USubscribeReposMessageIdentity;
 
-  const factory UMessage.account({
+  const factory USubscribeReposMessage.account({
     required Account data,
-  }) = UMessageAccount;
+  }) = USubscribeReposMessageAccount;
 
-  const factory UMessage.handle({
+  const factory USubscribeReposMessage.handle({
     required Handle data,
-  }) = UMessageHandle;
+  }) = USubscribeReposMessageHandle;
 
-  const factory UMessage.migrate({
+  const factory USubscribeReposMessage.migrate({
     required Migrate data,
-  }) = UMessageMigrate;
+  }) = USubscribeReposMessageMigrate;
 
-  const factory UMessage.tombstone({
+  const factory USubscribeReposMessage.tombstone({
     required Tombstone data,
-  }) = UMessageTombstone;
+  }) = USubscribeReposMessageTombstone;
 
-  const factory UMessage.info({
+  const factory USubscribeReposMessage.info({
     required Info data,
-  }) = UMessageInfo;
+  }) = USubscribeReposMessageInfo;
 
-  const factory UMessage.unknown({
+  const factory USubscribeReposMessage.unknown({
     required Map<String, dynamic> data,
-  }) = UMessageUnknown;
+  }) = USubscribeReposMessageUnknown;
 }
 
-final class UMessageConverter
-    implements JsonConverter<UMessage, Map<String, dynamic>> {
-  const UMessageConverter();
+final class USubscribeReposMessageConverter
+    implements JsonConverter<USubscribeReposMessage, Map<String, dynamic>> {
+  const USubscribeReposMessageConverter();
 
   @override
-  UMessage fromJson(Map<String, dynamic> json) {
+  USubscribeReposMessage fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == '#commit') {
-        return UMessage.commit(
+        return USubscribeReposMessage.commit(
           data: Commit.fromJson(
             const CommitConverter().fromJson(json),
           ),
         );
       }
       if (type == '#identity') {
-        return UMessage.identity(
+        return USubscribeReposMessage.identity(
           data: Identity.fromJson(
             const IdentityConverter().fromJson(json),
           ),
         );
       }
       if (type == '#account') {
-        return UMessage.account(
+        return USubscribeReposMessage.account(
           data: Account.fromJson(
             const AccountConverter().fromJson(json),
           ),
         );
       }
       if (type == '#handle') {
-        return UMessage.handle(
+        return USubscribeReposMessage.handle(
           data: Handle.fromJson(
             const HandleConverter().fromJson(json),
           ),
         );
       }
       if (type == '#migrate') {
-        return UMessage.migrate(
+        return USubscribeReposMessage.migrate(
           data: Migrate.fromJson(
             const MigrateConverter().fromJson(json),
           ),
         );
       }
       if (type == '#tombstone') {
-        return UMessage.tombstone(
+        return USubscribeReposMessage.tombstone(
           data: Tombstone.fromJson(
             const TombstoneConverter().fromJson(json),
           ),
         );
       }
       if (type == '#info') {
-        return UMessage.info(
+        return USubscribeReposMessage.info(
           data: Info.fromJson(
             const InfoConverter().fromJson(json),
           ),
         );
       }
 
-      return UMessage.unknown(data: json);
+      return USubscribeReposMessage.unknown(data: json);
     } catch (_) {
-      return UMessage.unknown(data: json);
+      return USubscribeReposMessage.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UMessage object) => object.when(
+  Map<String, dynamic> toJson(USubscribeReposMessage object) => object.when(
         commit: (data) => const CommitConverter().toJson(
           data.toJson(),
         ),
@@ -151,54 +151,55 @@ final class UMessageConverter
       );
 }
 
-extension UMessageExtension on UMessage {
+extension USubscribeReposMessageExtension on USubscribeReposMessage {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const UMessageConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const USubscribeReposMessageConverter().toJson(this);
 
   /// Returns true if this data is [Commit], otherwise false.
-  bool get isCommit => this is UMessageCommit;
+  bool get isCommit => this is USubscribeReposMessageCommit;
 
   /// Returns true if this data is not [Commit], otherwise false.
   bool get isNotCommit => !isCommit;
 
   /// Returns true if this data is [Identity], otherwise false.
-  bool get isIdentity => this is UMessageIdentity;
+  bool get isIdentity => this is USubscribeReposMessageIdentity;
 
   /// Returns true if this data is not [Identity], otherwise false.
   bool get isNotIdentity => !isIdentity;
 
   /// Returns true if this data is [Account], otherwise false.
-  bool get isAccount => this is UMessageAccount;
+  bool get isAccount => this is USubscribeReposMessageAccount;
 
   /// Returns true if this data is not [Account], otherwise false.
   bool get isNotAccount => !isAccount;
 
   /// Returns true if this data is [Handle], otherwise false.
-  bool get isHandle => this is UMessageHandle;
+  bool get isHandle => this is USubscribeReposMessageHandle;
 
   /// Returns true if this data is not [Handle], otherwise false.
   bool get isNotHandle => !isHandle;
 
   /// Returns true if this data is [Migrate], otherwise false.
-  bool get isMigrate => this is UMessageMigrate;
+  bool get isMigrate => this is USubscribeReposMessageMigrate;
 
   /// Returns true if this data is not [Migrate], otherwise false.
   bool get isNotMigrate => !isMigrate;
 
   /// Returns true if this data is [Tombstone], otherwise false.
-  bool get isTombstone => this is UMessageTombstone;
+  bool get isTombstone => this is USubscribeReposMessageTombstone;
 
   /// Returns true if this data is not [Tombstone], otherwise false.
   bool get isNotTombstone => !isTombstone;
 
   /// Returns true if this data is [Info], otherwise false.
-  bool get isInfo => this is UMessageInfo;
+  bool get isInfo => this is USubscribeReposMessageInfo;
 
   /// Returns true if this data is not [Info], otherwise false.
   bool get isNotInfo => !isInfo;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UMessageUnknown;
+  bool get isUnknown => this is USubscribeReposMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

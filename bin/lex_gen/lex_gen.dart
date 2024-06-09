@@ -56,9 +56,11 @@ final class LexGen {
               ?.whenOrNull(refUnion: (data) => data);
 
           if (unionRef != null) {
+            final objectName = toFirstUpper(docId.toString().split('.').last);
+
             final object = LexUnionObjectBuilder(
               docId: docId,
-              propertyName: 'message',
+              propertyName: '${objectName}Message',
               refs: unionRef.refs ?? const [],
               mainRelatedDocIds: mainRelatedDocIds,
               useOnlyDefNameAsNamespace: true,
