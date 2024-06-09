@@ -3,6 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:test/test.dart';
 
 // 🌎 Project imports:
@@ -13,19 +14,40 @@ import 'package:bluesky_chat/src/services/moderation_service.dart';
 
 void main() {
   test('.actor', () {
-    final chat = BlueskyChat.anonymous();
+    final chat = BlueskyChat.fromSession(
+      Session(
+        did: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        handle: 'shinyakato.dev',
+        accessJwt: '1234',
+        refreshJwt: '1234',
+      ),
+    );
 
     expect(chat.actor, isA<ActorService>());
   });
 
   test('.convo', () {
-    final chat = BlueskyChat.anonymous();
+    final chat = BlueskyChat.fromSession(
+      Session(
+        did: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        handle: 'shinyakato.dev',
+        accessJwt: '1234',
+        refreshJwt: '1234',
+      ),
+    );
 
     expect(chat.convo, isA<ConvoService>());
   });
 
   test('.moderation', () {
-    final chat = BlueskyChat.anonymous();
+    final chat = BlueskyChat.fromSession(
+      Session(
+        did: 'did:plc:iijrtk7ocored6zuziwmqq3c',
+        handle: 'shinyakato.dev',
+        accessJwt: '1234',
+        refreshJwt: '1234',
+      ),
+    );
 
     expect(chat.moderation, isA<ModerationService>());
   });
