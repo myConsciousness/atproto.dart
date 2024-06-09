@@ -103,13 +103,13 @@ extension USubjectTypeExtension on USubjectType {
   bool get isKnownValue => this is USubjectTypeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! USubjectTypeKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is USubjectTypeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! USubjectTypeUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -117,8 +117,7 @@ extension USubjectTypeExtension on USubjectType {
   KnownSubjectType get knownValue => this.data as KnownSubjectType;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSubjectType? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownSubjectType : null;
+  KnownSubjectType? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -126,5 +125,5 @@ extension USubjectTypeExtension on USubjectType {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

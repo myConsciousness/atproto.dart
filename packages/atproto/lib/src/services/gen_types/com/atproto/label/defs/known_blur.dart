@@ -104,13 +104,13 @@ extension UBlurExtension on UBlur {
   bool get isKnownValue => this is UBlurKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UBlurKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UBlurUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UBlurUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -118,8 +118,7 @@ extension UBlurExtension on UBlur {
   KnownBlur get knownValue => this.data as KnownBlur;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownBlur? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownBlur : null;
+  KnownBlur? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -127,5 +126,5 @@ extension UBlurExtension on UBlur {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

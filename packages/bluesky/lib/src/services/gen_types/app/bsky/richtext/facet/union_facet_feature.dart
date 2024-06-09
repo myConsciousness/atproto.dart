@@ -99,25 +99,25 @@ extension UFacetFeatureExtension on UFacetFeature {
   bool get isFacetMention => this is UFacetFeatureFacetMention;
 
   /// Returns true if this data is not [FacetMention], otherwise false.
-  bool get isNotFacetMention => this is! UFacetFeatureFacetMention;
+  bool get isNotFacetMention => !isFacetMention;
 
   /// Returns true if this data is [FacetLink], otherwise false.
   bool get isFacetLink => this is UFacetFeatureFacetLink;
 
   /// Returns true if this data is not [FacetLink], otherwise false.
-  bool get isNotFacetLink => this is! UFacetFeatureFacetLink;
+  bool get isNotFacetLink => !isFacetLink;
 
   /// Returns true if this data is [FacetTag], otherwise false.
   bool get isFacetTag => this is UFacetFeatureFacetTag;
 
   /// Returns true if this data is not [FacetTag], otherwise false.
-  bool get isNotFacetTag => this is! UFacetFeatureFacetTag;
+  bool get isNotFacetTag => !isFacetTag;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UFacetFeatureUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UFacetFeatureUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [FacetMention].
   ///
@@ -125,8 +125,7 @@ extension UFacetFeatureExtension on UFacetFeature {
   FacetMention get facetMention => this.data as FacetMention;
 
   /// Returns [FacetMention] if this data is [FacetMention], otherwise null.
-  FacetMention? get facetMentionOrNull =>
-      isFacetMention ? this.data as FacetMention : null;
+  FacetMention? get facetMentionOrNull => isFacetMention ? facetMention : null;
 
   /// Returns this data as [FacetLink].
   ///
@@ -134,7 +133,7 @@ extension UFacetFeatureExtension on UFacetFeature {
   FacetLink get facetLink => this.data as FacetLink;
 
   /// Returns [FacetLink] if this data is [FacetLink], otherwise null.
-  FacetLink? get facetLinkOrNull => isFacetLink ? this.data as FacetLink : null;
+  FacetLink? get facetLinkOrNull => isFacetLink ? facetLink : null;
 
   /// Returns this data as [FacetTag].
   ///
@@ -142,7 +141,7 @@ extension UFacetFeatureExtension on UFacetFeature {
   FacetTag get facetTag => this.data as FacetTag;
 
   /// Returns [FacetTag] if this data is [FacetTag], otherwise null.
-  FacetTag? get facetTagOrNull => isFacetTag ? this.data as FacetTag : null;
+  FacetTag? get facetTagOrNull => isFacetTag ? facetTag : null;
 
   /// Returns this data as JSON object.
   ///
@@ -150,6 +149,5 @@ extension UFacetFeatureExtension on UFacetFeature {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

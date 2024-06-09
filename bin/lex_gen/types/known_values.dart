@@ -138,15 +138,14 @@ final class LexGenKnownValues {
       ..writeln()
       ..writeln(
           '  /// Returns true if this is not known value, otherwise false.')
-      ..writeln('  bool get isNotKnownValue => this is! U${name}KnownValue;')
+      ..writeln('  bool get isNotKnownValue => !isKnownValue;')
       ..writeln()
       ..writeln('  /// Returns true if this is unknown value, otherwise false.')
       ..writeln('  bool get isUnknownValue => this is U${name}UnknownValue;')
       ..writeln()
       ..writeln(
           '  /// Returns true if this is not unknown value, otherwise false.')
-      ..writeln(
-          '  bool get isNotUnknownValue => this is! U${name}UnknownValue;')
+      ..writeln('  bool get isNotUnknownValue => !isUnknownValue;')
       ..writeln()
       ..writeln('  /// Returns known value.')
       ..writeln('  ///')
@@ -156,7 +155,7 @@ final class LexGenKnownValues {
       ..writeln(
           '  /// Returns known value if this data is known, otherwise null.')
       ..writeln('  Known$name? get knownValueOrNull => isKnownValue')
-      ..writeln('    ? this.data as Known$name')
+      ..writeln('    ? knownValue')
       ..writeln('    : null;')
       ..writeln()
       ..writeln('  /// Returns unknown value.')
@@ -168,7 +167,7 @@ final class LexGenKnownValues {
       ..writeln(
           '  /// Returns unknown value if this data is unknown, otherwise null.')
       ..writeln('  String? get unknownValueOrNull => isUnknownValue')
-      ..writeln('    ? this.data as String')
+      ..writeln('    ? unknownValue')
       ..writeln('    : null;')
       ..writeln('}');
 

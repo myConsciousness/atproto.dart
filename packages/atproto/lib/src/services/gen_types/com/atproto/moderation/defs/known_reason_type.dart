@@ -125,13 +125,13 @@ extension UReasonTypeExtension on UReasonType {
   bool get isKnownValue => this is UReasonTypeKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UReasonTypeKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UReasonTypeUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UReasonTypeUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -139,8 +139,7 @@ extension UReasonTypeExtension on UReasonType {
   KnownReasonType get knownValue => this.data as KnownReasonType;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownReasonType? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownReasonType : null;
+  KnownReasonType? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -148,5 +147,5 @@ extension UReasonTypeExtension on UReasonType {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

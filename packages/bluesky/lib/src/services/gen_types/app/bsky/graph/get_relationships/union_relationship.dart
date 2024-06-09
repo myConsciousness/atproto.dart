@@ -84,19 +84,19 @@ extension URelationshipExtension on URelationship {
   bool get isRelationship => this is URelationshipRelationship;
 
   /// Returns true if this data is not [Relationship], otherwise false.
-  bool get isNotRelationship => this is! URelationshipRelationship;
+  bool get isNotRelationship => !isRelationship;
 
   /// Returns true if this data is [NotFoundActor], otherwise false.
   bool get isNotFoundActor => this is URelationshipNotFoundActor;
 
   /// Returns true if this data is not [NotFoundActor], otherwise false.
-  bool get isNotNotFoundActor => this is! URelationshipNotFoundActor;
+  bool get isNotNotFoundActor => !isNotFoundActor;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URelationshipUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! URelationshipUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [Relationship].
   ///
@@ -104,8 +104,7 @@ extension URelationshipExtension on URelationship {
   Relationship get relationship => this.data as Relationship;
 
   /// Returns [Relationship] if this data is [Relationship], otherwise null.
-  Relationship? get relationshipOrNull =>
-      isRelationship ? this.data as Relationship : null;
+  Relationship? get relationshipOrNull => isRelationship ? relationship : null;
 
   /// Returns this data as [NotFoundActor].
   ///
@@ -114,7 +113,7 @@ extension URelationshipExtension on URelationship {
 
   /// Returns [NotFoundActor] if this data is [NotFoundActor], otherwise null.
   NotFoundActor? get notFoundActorOrNull =>
-      isNotFoundActor ? this.data as NotFoundActor : null;
+      isNotFoundActor ? notFoundActor : null;
 
   /// Returns this data as JSON object.
   ///
@@ -122,6 +121,5 @@ extension URelationshipExtension on URelationship {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

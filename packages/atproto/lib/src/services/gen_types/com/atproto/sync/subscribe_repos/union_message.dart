@@ -159,49 +159,49 @@ extension UMessageExtension on UMessage {
   bool get isCommit => this is UMessageCommit;
 
   /// Returns true if this data is not [Commit], otherwise false.
-  bool get isNotCommit => this is! UMessageCommit;
+  bool get isNotCommit => !isCommit;
 
   /// Returns true if this data is [Identity], otherwise false.
   bool get isIdentity => this is UMessageIdentity;
 
   /// Returns true if this data is not [Identity], otherwise false.
-  bool get isNotIdentity => this is! UMessageIdentity;
+  bool get isNotIdentity => !isIdentity;
 
   /// Returns true if this data is [Account], otherwise false.
   bool get isAccount => this is UMessageAccount;
 
   /// Returns true if this data is not [Account], otherwise false.
-  bool get isNotAccount => this is! UMessageAccount;
+  bool get isNotAccount => !isAccount;
 
   /// Returns true if this data is [Handle], otherwise false.
   bool get isHandle => this is UMessageHandle;
 
   /// Returns true if this data is not [Handle], otherwise false.
-  bool get isNotHandle => this is! UMessageHandle;
+  bool get isNotHandle => !isHandle;
 
   /// Returns true if this data is [Migrate], otherwise false.
   bool get isMigrate => this is UMessageMigrate;
 
   /// Returns true if this data is not [Migrate], otherwise false.
-  bool get isNotMigrate => this is! UMessageMigrate;
+  bool get isNotMigrate => !isMigrate;
 
   /// Returns true if this data is [Tombstone], otherwise false.
   bool get isTombstone => this is UMessageTombstone;
 
   /// Returns true if this data is not [Tombstone], otherwise false.
-  bool get isNotTombstone => this is! UMessageTombstone;
+  bool get isNotTombstone => !isTombstone;
 
   /// Returns true if this data is [Info], otherwise false.
   bool get isInfo => this is UMessageInfo;
 
   /// Returns true if this data is not [Info], otherwise false.
-  bool get isNotInfo => this is! UMessageInfo;
+  bool get isNotInfo => !isInfo;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UMessageUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [Commit].
   ///
@@ -209,7 +209,7 @@ extension UMessageExtension on UMessage {
   Commit get commit => this.data as Commit;
 
   /// Returns [Commit] if this data is [Commit], otherwise null.
-  Commit? get commitOrNull => isCommit ? this.data as Commit : null;
+  Commit? get commitOrNull => isCommit ? commit : null;
 
   /// Returns this data as [Identity].
   ///
@@ -217,7 +217,7 @@ extension UMessageExtension on UMessage {
   Identity get identity => this.data as Identity;
 
   /// Returns [Identity] if this data is [Identity], otherwise null.
-  Identity? get identityOrNull => isIdentity ? this.data as Identity : null;
+  Identity? get identityOrNull => isIdentity ? identity : null;
 
   /// Returns this data as [Account].
   ///
@@ -225,7 +225,7 @@ extension UMessageExtension on UMessage {
   Account get account => this.data as Account;
 
   /// Returns [Account] if this data is [Account], otherwise null.
-  Account? get accountOrNull => isAccount ? this.data as Account : null;
+  Account? get accountOrNull => isAccount ? account : null;
 
   /// Returns this data as [Handle].
   ///
@@ -233,7 +233,7 @@ extension UMessageExtension on UMessage {
   Handle get handle => this.data as Handle;
 
   /// Returns [Handle] if this data is [Handle], otherwise null.
-  Handle? get handleOrNull => isHandle ? this.data as Handle : null;
+  Handle? get handleOrNull => isHandle ? handle : null;
 
   /// Returns this data as [Migrate].
   ///
@@ -241,7 +241,7 @@ extension UMessageExtension on UMessage {
   Migrate get migrate => this.data as Migrate;
 
   /// Returns [Migrate] if this data is [Migrate], otherwise null.
-  Migrate? get migrateOrNull => isMigrate ? this.data as Migrate : null;
+  Migrate? get migrateOrNull => isMigrate ? migrate : null;
 
   /// Returns this data as [Tombstone].
   ///
@@ -249,7 +249,7 @@ extension UMessageExtension on UMessage {
   Tombstone get tombstone => this.data as Tombstone;
 
   /// Returns [Tombstone] if this data is [Tombstone], otherwise null.
-  Tombstone? get tombstoneOrNull => isTombstone ? this.data as Tombstone : null;
+  Tombstone? get tombstoneOrNull => isTombstone ? tombstone : null;
 
   /// Returns this data as [Info].
   ///
@@ -257,7 +257,7 @@ extension UMessageExtension on UMessage {
   Info get info => this.data as Info;
 
   /// Returns [Info] if this data is [Info], otherwise null.
-  Info? get infoOrNull => isInfo ? this.data as Info : null;
+  Info? get infoOrNull => isInfo ? info : null;
 
   /// Returns this data as JSON object.
   ///
@@ -265,6 +265,5 @@ extension UMessageExtension on UMessage {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

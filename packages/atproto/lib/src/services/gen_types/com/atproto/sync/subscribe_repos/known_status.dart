@@ -106,13 +106,13 @@ extension UStatusExtension on UStatus {
   bool get isKnownValue => this is UStatusKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UStatusKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UStatusUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UStatusUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -120,8 +120,7 @@ extension UStatusExtension on UStatus {
   KnownStatus get knownValue => this.data as KnownStatus;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownStatus? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownStatus : null;
+  KnownStatus? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -129,5 +128,5 @@ extension UStatusExtension on UStatus {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

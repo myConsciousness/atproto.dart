@@ -85,19 +85,19 @@ extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
   bool get isImagesView => this is URecordWithMediaMediaImagesView;
 
   /// Returns true if this data is not [ImagesView], otherwise false.
-  bool get isNotImagesView => this is! URecordWithMediaMediaImagesView;
+  bool get isNotImagesView => !isImagesView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
   bool get isExternalView => this is URecordWithMediaMediaExternalView;
 
   /// Returns true if this data is not [ExternalView], otherwise false.
-  bool get isNotExternalView => this is! URecordWithMediaMediaExternalView;
+  bool get isNotExternalView => !isExternalView;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URecordWithMediaMediaUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! URecordWithMediaMediaUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [ImagesView].
   ///
@@ -105,8 +105,7 @@ extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
   ImagesView get imagesView => this.data as ImagesView;
 
   /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
-  ImagesView? get imagesViewOrNull =>
-      isImagesView ? this.data as ImagesView : null;
+  ImagesView? get imagesViewOrNull => isImagesView ? imagesView : null;
 
   /// Returns this data as [ExternalView].
   ///
@@ -114,8 +113,7 @@ extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
   ExternalView get externalView => this.data as ExternalView;
 
   /// Returns [ExternalView] if this data is [ExternalView], otherwise null.
-  ExternalView? get externalViewOrNull =>
-      isExternalView ? this.data as ExternalView : null;
+  ExternalView? get externalViewOrNull => isExternalView ? externalView : null;
 
   /// Returns this data as JSON object.
   ///
@@ -123,6 +121,5 @@ extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

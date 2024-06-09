@@ -106,13 +106,13 @@ extension UFilterExtension on UFilter {
   bool get isKnownValue => this is UFilterKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UFilterKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UFilterUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UFilterUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -120,8 +120,7 @@ extension UFilterExtension on UFilter {
   KnownFilter get knownValue => this.data as KnownFilter;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownFilter? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownFilter : null;
+  KnownFilter? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -129,5 +128,5 @@ extension UFilterExtension on UFilter {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

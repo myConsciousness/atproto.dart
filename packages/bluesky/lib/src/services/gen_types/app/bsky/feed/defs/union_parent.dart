@@ -99,25 +99,25 @@ extension UParentExtension on UParent {
   bool get isThreadViewPost => this is UParentThreadViewPost;
 
   /// Returns true if this data is not [ThreadViewPost], otherwise false.
-  bool get isNotThreadViewPost => this is! UParentThreadViewPost;
+  bool get isNotThreadViewPost => !isThreadViewPost;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
   bool get isNotFoundPost => this is UParentNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
-  bool get isNotNotFoundPost => this is! UParentNotFoundPost;
+  bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
   bool get isBlockedPost => this is UParentBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
-  bool get isNotBlockedPost => this is! UParentBlockedPost;
+  bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UParentUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UParentUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [ThreadViewPost].
   ///
@@ -126,7 +126,7 @@ extension UParentExtension on UParent {
 
   /// Returns [ThreadViewPost] if this data is [ThreadViewPost], otherwise null.
   ThreadViewPost? get threadViewPostOrNull =>
-      isThreadViewPost ? this.data as ThreadViewPost : null;
+      isThreadViewPost ? threadViewPost : null;
 
   /// Returns this data as [NotFoundPost].
   ///
@@ -134,8 +134,7 @@ extension UParentExtension on UParent {
   NotFoundPost get notFoundPost => this.data as NotFoundPost;
 
   /// Returns [NotFoundPost] if this data is [NotFoundPost], otherwise null.
-  NotFoundPost? get notFoundPostOrNull =>
-      isNotFoundPost ? this.data as NotFoundPost : null;
+  NotFoundPost? get notFoundPostOrNull => isNotFoundPost ? notFoundPost : null;
 
   /// Returns this data as [BlockedPost].
   ///
@@ -143,8 +142,7 @@ extension UParentExtension on UParent {
   BlockedPost get blockedPost => this.data as BlockedPost;
 
   /// Returns [BlockedPost] if this data is [BlockedPost], otherwise null.
-  BlockedPost? get blockedPostOrNull =>
-      isBlockedPost ? this.data as BlockedPost : null;
+  BlockedPost? get blockedPostOrNull => isBlockedPost ? blockedPost : null;
 
   /// Returns this data as JSON object.
   ///
@@ -152,6 +150,5 @@ extension UParentExtension on UParent {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

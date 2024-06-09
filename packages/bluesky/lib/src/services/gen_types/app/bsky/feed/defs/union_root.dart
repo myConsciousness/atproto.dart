@@ -99,25 +99,25 @@ extension URootExtension on URoot {
   bool get isPostView => this is URootPostView;
 
   /// Returns true if this data is not [PostView], otherwise false.
-  bool get isNotPostView => this is! URootPostView;
+  bool get isNotPostView => !isPostView;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
   bool get isNotFoundPost => this is URootNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
-  bool get isNotNotFoundPost => this is! URootNotFoundPost;
+  bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
   bool get isBlockedPost => this is URootBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
-  bool get isNotBlockedPost => this is! URootBlockedPost;
+  bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URootUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! URootUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [PostView].
   ///
@@ -125,7 +125,7 @@ extension URootExtension on URoot {
   PostView get postView => this.data as PostView;
 
   /// Returns [PostView] if this data is [PostView], otherwise null.
-  PostView? get postViewOrNull => isPostView ? this.data as PostView : null;
+  PostView? get postViewOrNull => isPostView ? postView : null;
 
   /// Returns this data as [NotFoundPost].
   ///
@@ -133,8 +133,7 @@ extension URootExtension on URoot {
   NotFoundPost get notFoundPost => this.data as NotFoundPost;
 
   /// Returns [NotFoundPost] if this data is [NotFoundPost], otherwise null.
-  NotFoundPost? get notFoundPostOrNull =>
-      isNotFoundPost ? this.data as NotFoundPost : null;
+  NotFoundPost? get notFoundPostOrNull => isNotFoundPost ? notFoundPost : null;
 
   /// Returns this data as [BlockedPost].
   ///
@@ -142,8 +141,7 @@ extension URootExtension on URoot {
   BlockedPost get blockedPost => this.data as BlockedPost;
 
   /// Returns [BlockedPost] if this data is [BlockedPost], otherwise null.
-  BlockedPost? get blockedPostOrNull =>
-      isBlockedPost ? this.data as BlockedPost : null;
+  BlockedPost? get blockedPostOrNull => isBlockedPost ? blockedPost : null;
 
   /// Returns this data as JSON object.
   ///
@@ -151,6 +149,5 @@ extension URootExtension on URoot {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

@@ -99,25 +99,25 @@ extension UReplyExtension on UReply {
   bool get isThreadViewPost => this is UReplyThreadViewPost;
 
   /// Returns true if this data is not [ThreadViewPost], otherwise false.
-  bool get isNotThreadViewPost => this is! UReplyThreadViewPost;
+  bool get isNotThreadViewPost => !isThreadViewPost;
 
   /// Returns true if this data is [NotFoundPost], otherwise false.
   bool get isNotFoundPost => this is UReplyNotFoundPost;
 
   /// Returns true if this data is not [NotFoundPost], otherwise false.
-  bool get isNotNotFoundPost => this is! UReplyNotFoundPost;
+  bool get isNotNotFoundPost => !isNotFoundPost;
 
   /// Returns true if this data is [BlockedPost], otherwise false.
   bool get isBlockedPost => this is UReplyBlockedPost;
 
   /// Returns true if this data is not [BlockedPost], otherwise false.
-  bool get isNotBlockedPost => this is! UReplyBlockedPost;
+  bool get isNotBlockedPost => !isBlockedPost;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UReplyUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UReplyUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [ThreadViewPost].
   ///
@@ -126,7 +126,7 @@ extension UReplyExtension on UReply {
 
   /// Returns [ThreadViewPost] if this data is [ThreadViewPost], otherwise null.
   ThreadViewPost? get threadViewPostOrNull =>
-      isThreadViewPost ? this.data as ThreadViewPost : null;
+      isThreadViewPost ? threadViewPost : null;
 
   /// Returns this data as [NotFoundPost].
   ///
@@ -134,8 +134,7 @@ extension UReplyExtension on UReply {
   NotFoundPost get notFoundPost => this.data as NotFoundPost;
 
   /// Returns [NotFoundPost] if this data is [NotFoundPost], otherwise null.
-  NotFoundPost? get notFoundPostOrNull =>
-      isNotFoundPost ? this.data as NotFoundPost : null;
+  NotFoundPost? get notFoundPostOrNull => isNotFoundPost ? notFoundPost : null;
 
   /// Returns this data as [BlockedPost].
   ///
@@ -143,8 +142,7 @@ extension UReplyExtension on UReply {
   BlockedPost get blockedPost => this.data as BlockedPost;
 
   /// Returns [BlockedPost] if this data is [BlockedPost], otherwise null.
-  BlockedPost? get blockedPostOrNull =>
-      isBlockedPost ? this.data as BlockedPost : null;
+  BlockedPost? get blockedPostOrNull => isBlockedPost ? blockedPost : null;
 
   /// Returns this data as JSON object.
   ///
@@ -152,6 +150,5 @@ extension UReplyExtension on UReply {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

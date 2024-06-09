@@ -104,13 +104,13 @@ extension USeverityExtension on USeverity {
   bool get isKnownValue => this is USeverityKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! USeverityKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is USeverityUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! USeverityUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -118,8 +118,7 @@ extension USeverityExtension on USeverity {
   KnownSeverity get knownValue => this.data as KnownSeverity;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownSeverity? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownSeverity : null;
+  KnownSeverity? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -127,5 +126,5 @@ extension USeverityExtension on USeverity {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

@@ -205,67 +205,67 @@ extension UPreferenceExtension on UPreference {
   bool get isAdultContentPref => this is UPreferenceAdultContentPref;
 
   /// Returns true if this data is not [AdultContentPref], otherwise false.
-  bool get isNotAdultContentPref => this is! UPreferenceAdultContentPref;
+  bool get isNotAdultContentPref => !isAdultContentPref;
 
   /// Returns true if this data is [ContentLabelPref], otherwise false.
   bool get isContentLabelPref => this is UPreferenceContentLabelPref;
 
   /// Returns true if this data is not [ContentLabelPref], otherwise false.
-  bool get isNotContentLabelPref => this is! UPreferenceContentLabelPref;
+  bool get isNotContentLabelPref => !isContentLabelPref;
 
   /// Returns true if this data is [SavedFeedsPref], otherwise false.
   bool get isSavedFeedsPref => this is UPreferenceSavedFeedsPref;
 
   /// Returns true if this data is not [SavedFeedsPref], otherwise false.
-  bool get isNotSavedFeedsPref => this is! UPreferenceSavedFeedsPref;
+  bool get isNotSavedFeedsPref => !isSavedFeedsPref;
 
   /// Returns true if this data is [SavedFeedsPrefV2], otherwise false.
   bool get isSavedFeedsPrefV2 => this is UPreferenceSavedFeedsPrefV2;
 
   /// Returns true if this data is not [SavedFeedsPrefV2], otherwise false.
-  bool get isNotSavedFeedsPrefV2 => this is! UPreferenceSavedFeedsPrefV2;
+  bool get isNotSavedFeedsPrefV2 => !isSavedFeedsPrefV2;
 
   /// Returns true if this data is [PersonalDetailsPref], otherwise false.
   bool get isPersonalDetailsPref => this is UPreferencePersonalDetailsPref;
 
   /// Returns true if this data is not [PersonalDetailsPref], otherwise false.
-  bool get isNotPersonalDetailsPref => this is! UPreferencePersonalDetailsPref;
+  bool get isNotPersonalDetailsPref => !isPersonalDetailsPref;
 
   /// Returns true if this data is [FeedViewPref], otherwise false.
   bool get isFeedViewPref => this is UPreferenceFeedViewPref;
 
   /// Returns true if this data is not [FeedViewPref], otherwise false.
-  bool get isNotFeedViewPref => this is! UPreferenceFeedViewPref;
+  bool get isNotFeedViewPref => !isFeedViewPref;
 
   /// Returns true if this data is [ThreadViewPref], otherwise false.
   bool get isThreadViewPref => this is UPreferenceThreadViewPref;
 
   /// Returns true if this data is not [ThreadViewPref], otherwise false.
-  bool get isNotThreadViewPref => this is! UPreferenceThreadViewPref;
+  bool get isNotThreadViewPref => !isThreadViewPref;
 
   /// Returns true if this data is [InterestsPref], otherwise false.
   bool get isInterestsPref => this is UPreferenceInterestsPref;
 
   /// Returns true if this data is not [InterestsPref], otherwise false.
-  bool get isNotInterestsPref => this is! UPreferenceInterestsPref;
+  bool get isNotInterestsPref => !isInterestsPref;
 
   /// Returns true if this data is [MutedWordsPref], otherwise false.
   bool get isMutedWordsPref => this is UPreferenceMutedWordsPref;
 
   /// Returns true if this data is not [MutedWordsPref], otherwise false.
-  bool get isNotMutedWordsPref => this is! UPreferenceMutedWordsPref;
+  bool get isNotMutedWordsPref => !isMutedWordsPref;
 
   /// Returns true if this data is [HiddenPostsPref], otherwise false.
   bool get isHiddenPostsPref => this is UPreferenceHiddenPostsPref;
 
   /// Returns true if this data is not [HiddenPostsPref], otherwise false.
-  bool get isNotHiddenPostsPref => this is! UPreferenceHiddenPostsPref;
+  bool get isNotHiddenPostsPref => !isHiddenPostsPref;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UPreferenceUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UPreferenceUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [AdultContentPref].
   ///
@@ -274,7 +274,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [AdultContentPref] if this data is [AdultContentPref], otherwise null.
   AdultContentPref? get adultContentPrefOrNull =>
-      isAdultContentPref ? this.data as AdultContentPref : null;
+      isAdultContentPref ? adultContentPref : null;
 
   /// Returns this data as [ContentLabelPref].
   ///
@@ -283,7 +283,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [ContentLabelPref] if this data is [ContentLabelPref], otherwise null.
   ContentLabelPref? get contentLabelPrefOrNull =>
-      isContentLabelPref ? this.data as ContentLabelPref : null;
+      isContentLabelPref ? contentLabelPref : null;
 
   /// Returns this data as [SavedFeedsPref].
   ///
@@ -292,7 +292,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [SavedFeedsPref] if this data is [SavedFeedsPref], otherwise null.
   SavedFeedsPref? get savedFeedsPrefOrNull =>
-      isSavedFeedsPref ? this.data as SavedFeedsPref : null;
+      isSavedFeedsPref ? savedFeedsPref : null;
 
   /// Returns this data as [SavedFeedsPrefV2].
   ///
@@ -301,7 +301,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [SavedFeedsPrefV2] if this data is [SavedFeedsPrefV2], otherwise null.
   SavedFeedsPrefV2? get savedFeedsPrefV2OrNull =>
-      isSavedFeedsPrefV2 ? this.data as SavedFeedsPrefV2 : null;
+      isSavedFeedsPrefV2 ? savedFeedsPrefV2 : null;
 
   /// Returns this data as [PersonalDetailsPref].
   ///
@@ -311,7 +311,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [PersonalDetailsPref] if this data is [PersonalDetailsPref], otherwise null.
   PersonalDetailsPref? get personalDetailsPrefOrNull =>
-      isPersonalDetailsPref ? this.data as PersonalDetailsPref : null;
+      isPersonalDetailsPref ? personalDetailsPref : null;
 
   /// Returns this data as [FeedViewPref].
   ///
@@ -319,8 +319,7 @@ extension UPreferenceExtension on UPreference {
   FeedViewPref get feedViewPref => this.data as FeedViewPref;
 
   /// Returns [FeedViewPref] if this data is [FeedViewPref], otherwise null.
-  FeedViewPref? get feedViewPrefOrNull =>
-      isFeedViewPref ? this.data as FeedViewPref : null;
+  FeedViewPref? get feedViewPrefOrNull => isFeedViewPref ? feedViewPref : null;
 
   /// Returns this data as [ThreadViewPref].
   ///
@@ -329,7 +328,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [ThreadViewPref] if this data is [ThreadViewPref], otherwise null.
   ThreadViewPref? get threadViewPrefOrNull =>
-      isThreadViewPref ? this.data as ThreadViewPref : null;
+      isThreadViewPref ? threadViewPref : null;
 
   /// Returns this data as [InterestsPref].
   ///
@@ -338,7 +337,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [InterestsPref] if this data is [InterestsPref], otherwise null.
   InterestsPref? get interestsPrefOrNull =>
-      isInterestsPref ? this.data as InterestsPref : null;
+      isInterestsPref ? interestsPref : null;
 
   /// Returns this data as [MutedWordsPref].
   ///
@@ -347,7 +346,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [MutedWordsPref] if this data is [MutedWordsPref], otherwise null.
   MutedWordsPref? get mutedWordsPrefOrNull =>
-      isMutedWordsPref ? this.data as MutedWordsPref : null;
+      isMutedWordsPref ? mutedWordsPref : null;
 
   /// Returns this data as [HiddenPostsPref].
   ///
@@ -356,7 +355,7 @@ extension UPreferenceExtension on UPreference {
 
   /// Returns [HiddenPostsPref] if this data is [HiddenPostsPref], otherwise null.
   HiddenPostsPref? get hiddenPostsPrefOrNull =>
-      isHiddenPostsPref ? this.data as HiddenPostsPref : null;
+      isHiddenPostsPref ? hiddenPostsPref : null;
 
   /// Returns this data as JSON object.
   ///
@@ -364,6 +363,5 @@ extension UPreferenceExtension on UPreference {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

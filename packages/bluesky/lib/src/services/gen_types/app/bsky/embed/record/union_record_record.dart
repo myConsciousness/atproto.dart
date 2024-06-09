@@ -145,43 +145,43 @@ extension URecordRecordExtension on URecordRecord {
   bool get isRecordViewRecord => this is URecordRecordRecordViewRecord;
 
   /// Returns true if this data is not [RecordViewRecord], otherwise false.
-  bool get isNotRecordViewRecord => this is! URecordRecordRecordViewRecord;
+  bool get isNotRecordViewRecord => !isRecordViewRecord;
 
   /// Returns true if this data is [RecordViewNotFound], otherwise false.
   bool get isRecordViewNotFound => this is URecordRecordRecordViewNotFound;
 
   /// Returns true if this data is not [RecordViewNotFound], otherwise false.
-  bool get isNotRecordViewNotFound => this is! URecordRecordRecordViewNotFound;
+  bool get isNotRecordViewNotFound => !isRecordViewNotFound;
 
   /// Returns true if this data is [RecordViewBlocked], otherwise false.
   bool get isRecordViewBlocked => this is URecordRecordRecordViewBlocked;
 
   /// Returns true if this data is not [RecordViewBlocked], otherwise false.
-  bool get isNotRecordViewBlocked => this is! URecordRecordRecordViewBlocked;
+  bool get isNotRecordViewBlocked => !isRecordViewBlocked;
 
   /// Returns true if this data is [GeneratorView], otherwise false.
   bool get isGeneratorView => this is URecordRecordGeneratorView;
 
   /// Returns true if this data is not [GeneratorView], otherwise false.
-  bool get isNotGeneratorView => this is! URecordRecordGeneratorView;
+  bool get isNotGeneratorView => !isGeneratorView;
 
   /// Returns true if this data is [ListView], otherwise false.
   bool get isListView => this is URecordRecordListView;
 
   /// Returns true if this data is not [ListView], otherwise false.
-  bool get isNotListView => this is! URecordRecordListView;
+  bool get isNotListView => !isListView;
 
   /// Returns true if this data is [LabelerView], otherwise false.
   bool get isLabelerView => this is URecordRecordLabelerView;
 
   /// Returns true if this data is not [LabelerView], otherwise false.
-  bool get isNotLabelerView => this is! URecordRecordLabelerView;
+  bool get isNotLabelerView => !isLabelerView;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URecordRecordUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! URecordRecordUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [RecordViewRecord].
   ///
@@ -190,7 +190,7 @@ extension URecordRecordExtension on URecordRecord {
 
   /// Returns [RecordViewRecord] if this data is [RecordViewRecord], otherwise null.
   RecordViewRecord? get recordViewRecordOrNull =>
-      isRecordViewRecord ? this.data as RecordViewRecord : null;
+      isRecordViewRecord ? recordViewRecord : null;
 
   /// Returns this data as [RecordViewNotFound].
   ///
@@ -199,7 +199,7 @@ extension URecordRecordExtension on URecordRecord {
 
   /// Returns [RecordViewNotFound] if this data is [RecordViewNotFound], otherwise null.
   RecordViewNotFound? get recordViewNotFoundOrNull =>
-      isRecordViewNotFound ? this.data as RecordViewNotFound : null;
+      isRecordViewNotFound ? recordViewNotFound : null;
 
   /// Returns this data as [RecordViewBlocked].
   ///
@@ -208,7 +208,7 @@ extension URecordRecordExtension on URecordRecord {
 
   /// Returns [RecordViewBlocked] if this data is [RecordViewBlocked], otherwise null.
   RecordViewBlocked? get recordViewBlockedOrNull =>
-      isRecordViewBlocked ? this.data as RecordViewBlocked : null;
+      isRecordViewBlocked ? recordViewBlocked : null;
 
   /// Returns this data as [GeneratorView].
   ///
@@ -217,7 +217,7 @@ extension URecordRecordExtension on URecordRecord {
 
   /// Returns [GeneratorView] if this data is [GeneratorView], otherwise null.
   GeneratorView? get generatorViewOrNull =>
-      isGeneratorView ? this.data as GeneratorView : null;
+      isGeneratorView ? generatorView : null;
 
   /// Returns this data as [ListView].
   ///
@@ -225,7 +225,7 @@ extension URecordRecordExtension on URecordRecord {
   ListView get listView => this.data as ListView;
 
   /// Returns [ListView] if this data is [ListView], otherwise null.
-  ListView? get listViewOrNull => isListView ? this.data as ListView : null;
+  ListView? get listViewOrNull => isListView ? listView : null;
 
   /// Returns this data as [LabelerView].
   ///
@@ -233,8 +233,7 @@ extension URecordRecordExtension on URecordRecord {
   LabelerView get labelerView => this.data as LabelerView;
 
   /// Returns [LabelerView] if this data is [LabelerView], otherwise null.
-  LabelerView? get labelerViewOrNull =>
-      isLabelerView ? this.data as LabelerView : null;
+  LabelerView? get labelerViewOrNull => isLabelerView ? labelerView : null;
 
   /// Returns this data as JSON object.
   ///
@@ -242,6 +241,5 @@ extension URecordRecordExtension on URecordRecord {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

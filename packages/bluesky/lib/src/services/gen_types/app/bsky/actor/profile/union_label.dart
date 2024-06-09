@@ -67,13 +67,13 @@ extension ULabelExtension on ULabel {
   bool get isSelfLabels => this is ULabelSelfLabels;
 
   /// Returns true if this data is not [SelfLabels], otherwise false.
-  bool get isNotSelfLabels => this is! ULabelSelfLabels;
+  bool get isNotSelfLabels => !isSelfLabels;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is ULabelUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! ULabelUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [SelfLabels].
   ///
@@ -81,8 +81,7 @@ extension ULabelExtension on ULabel {
   SelfLabels get selfLabels => this.data as SelfLabels;
 
   /// Returns [SelfLabels] if this data is [SelfLabels], otherwise null.
-  SelfLabels? get selfLabelsOrNull =>
-      isSelfLabels ? this.data as SelfLabels : null;
+  SelfLabels? get selfLabelsOrNull => isSelfLabels ? selfLabels : null;
 
   /// Returns this data as JSON object.
   ///
@@ -90,6 +89,5 @@ extension ULabelExtension on ULabel {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

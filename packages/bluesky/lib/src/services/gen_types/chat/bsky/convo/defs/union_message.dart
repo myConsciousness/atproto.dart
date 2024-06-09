@@ -85,19 +85,19 @@ extension UMessageExtension on UMessage {
   bool get isMessageView => this is UMessageMessageView;
 
   /// Returns true if this data is not [MessageView], otherwise false.
-  bool get isNotMessageView => this is! UMessageMessageView;
+  bool get isNotMessageView => !isMessageView;
 
   /// Returns true if this data is [DeletedMessageView], otherwise false.
   bool get isDeletedMessageView => this is UMessageDeletedMessageView;
 
   /// Returns true if this data is not [DeletedMessageView], otherwise false.
-  bool get isNotDeletedMessageView => this is! UMessageDeletedMessageView;
+  bool get isNotDeletedMessageView => !isDeletedMessageView;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UMessageUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [MessageView].
   ///
@@ -105,8 +105,7 @@ extension UMessageExtension on UMessage {
   MessageView get messageView => this.data as MessageView;
 
   /// Returns [MessageView] if this data is [MessageView], otherwise null.
-  MessageView? get messageViewOrNull =>
-      isMessageView ? this.data as MessageView : null;
+  MessageView? get messageViewOrNull => isMessageView ? messageView : null;
 
   /// Returns this data as [DeletedMessageView].
   ///
@@ -115,7 +114,7 @@ extension UMessageExtension on UMessage {
 
   /// Returns [DeletedMessageView] if this data is [DeletedMessageView], otherwise null.
   DeletedMessageView? get deletedMessageViewOrNull =>
-      isDeletedMessageView ? this.data as DeletedMessageView : null;
+      isDeletedMessageView ? deletedMessageView : null;
 
   /// Returns this data as JSON object.
   ///
@@ -123,6 +122,5 @@ extension UMessageExtension on UMessage {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

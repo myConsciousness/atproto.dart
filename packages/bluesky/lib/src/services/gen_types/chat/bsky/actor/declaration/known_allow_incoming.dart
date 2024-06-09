@@ -105,13 +105,13 @@ extension UAllowIncomingExtension on UAllowIncoming {
   bool get isKnownValue => this is UAllowIncomingKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UAllowIncomingKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UAllowIncomingUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UAllowIncomingUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -119,8 +119,7 @@ extension UAllowIncomingExtension on UAllowIncoming {
   KnownAllowIncoming get knownValue => this.data as KnownAllowIncoming;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownAllowIncoming? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownAllowIncoming : null;
+  KnownAllowIncoming? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -128,5 +127,5 @@ extension UAllowIncomingExtension on UAllowIncoming {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

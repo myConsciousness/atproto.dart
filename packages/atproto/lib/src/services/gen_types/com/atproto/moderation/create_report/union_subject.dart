@@ -84,19 +84,19 @@ extension USubjectExtension on USubject {
   bool get isRepoRef => this is USubjectRepoRef;
 
   /// Returns true if this data is not [RepoRef], otherwise false.
-  bool get isNotRepoRef => this is! USubjectRepoRef;
+  bool get isNotRepoRef => !isRepoRef;
 
   /// Returns true if this data is [StrongRef], otherwise false.
   bool get isStrongRef => this is USubjectStrongRef;
 
   /// Returns true if this data is not [StrongRef], otherwise false.
-  bool get isNotStrongRef => this is! USubjectStrongRef;
+  bool get isNotStrongRef => !isStrongRef;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is USubjectUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! USubjectUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [RepoRef].
   ///
@@ -104,7 +104,7 @@ extension USubjectExtension on USubject {
   RepoRef get repoRef => this.data as RepoRef;
 
   /// Returns [RepoRef] if this data is [RepoRef], otherwise null.
-  RepoRef? get repoRefOrNull => isRepoRef ? this.data as RepoRef : null;
+  RepoRef? get repoRefOrNull => isRepoRef ? repoRef : null;
 
   /// Returns this data as [StrongRef].
   ///
@@ -112,7 +112,7 @@ extension USubjectExtension on USubject {
   StrongRef get strongRef => this.data as StrongRef;
 
   /// Returns [StrongRef] if this data is [StrongRef], otherwise null.
-  StrongRef? get strongRefOrNull => isStrongRef ? this.data as StrongRef : null;
+  StrongRef? get strongRefOrNull => isStrongRef ? strongRef : null;
 
   /// Returns this data as JSON object.
   ///
@@ -120,6 +120,5 @@ extension USubjectExtension on USubject {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

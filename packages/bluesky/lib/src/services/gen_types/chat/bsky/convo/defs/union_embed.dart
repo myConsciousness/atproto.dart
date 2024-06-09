@@ -69,13 +69,13 @@ extension UEmbedExtension on UEmbed {
   bool get isRecordView => this is UEmbedRecordView;
 
   /// Returns true if this data is not [RecordView], otherwise false.
-  bool get isNotRecordView => this is! UEmbedRecordView;
+  bool get isNotRecordView => !isRecordView;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UEmbedUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [RecordView].
   ///
@@ -83,8 +83,7 @@ extension UEmbedExtension on UEmbed {
   RecordView get recordView => this.data as RecordView;
 
   /// Returns [RecordView] if this data is [RecordView], otherwise null.
-  RecordView? get recordViewOrNull =>
-      isRecordView ? this.data as RecordView : null;
+  RecordView? get recordViewOrNull => isRecordView ? recordView : null;
 
   /// Returns this data as JSON object.
   ///
@@ -92,6 +91,5 @@ extension UEmbedExtension on UEmbed {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

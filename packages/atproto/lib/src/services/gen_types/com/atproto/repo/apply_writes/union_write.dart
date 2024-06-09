@@ -99,25 +99,25 @@ extension UWriteExtension on UWrite {
   bool get isCreate => this is UWriteCreate;
 
   /// Returns true if this data is not [Create], otherwise false.
-  bool get isNotCreate => this is! UWriteCreate;
+  bool get isNotCreate => !isCreate;
 
   /// Returns true if this data is [Update], otherwise false.
   bool get isUpdate => this is UWriteUpdate;
 
   /// Returns true if this data is not [Update], otherwise false.
-  bool get isNotUpdate => this is! UWriteUpdate;
+  bool get isNotUpdate => !isUpdate;
 
   /// Returns true if this data is [Delete], otherwise false.
   bool get isDelete => this is UWriteDelete;
 
   /// Returns true if this data is not [Delete], otherwise false.
-  bool get isNotDelete => this is! UWriteDelete;
+  bool get isNotDelete => !isDelete;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UWriteUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UWriteUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [Create].
   ///
@@ -125,7 +125,7 @@ extension UWriteExtension on UWrite {
   Create get create => this.data as Create;
 
   /// Returns [Create] if this data is [Create], otherwise null.
-  Create? get createOrNull => isCreate ? this.data as Create : null;
+  Create? get createOrNull => isCreate ? create : null;
 
   /// Returns this data as [Update].
   ///
@@ -133,7 +133,7 @@ extension UWriteExtension on UWrite {
   Update get update => this.data as Update;
 
   /// Returns [Update] if this data is [Update], otherwise null.
-  Update? get updateOrNull => isUpdate ? this.data as Update : null;
+  Update? get updateOrNull => isUpdate ? update : null;
 
   /// Returns this data as [Delete].
   ///
@@ -141,7 +141,7 @@ extension UWriteExtension on UWrite {
   Delete get delete => this.data as Delete;
 
   /// Returns [Delete] if this data is [Delete], otherwise null.
-  Delete? get deleteOrNull => isDelete ? this.data as Delete : null;
+  Delete? get deleteOrNull => isDelete ? delete : null;
 
   /// Returns this data as JSON object.
   ///
@@ -149,6 +149,5 @@ extension UWriteExtension on UWrite {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

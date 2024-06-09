@@ -105,13 +105,13 @@ extension UDefaultSettingExtension on UDefaultSetting {
   bool get isKnownValue => this is UDefaultSettingKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UDefaultSettingKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UDefaultSettingUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UDefaultSettingUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -119,8 +119,7 @@ extension UDefaultSettingExtension on UDefaultSetting {
   KnownDefaultSetting get knownValue => this.data as KnownDefaultSetting;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownDefaultSetting? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownDefaultSetting : null;
+  KnownDefaultSetting? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -128,5 +127,5 @@ extension UDefaultSettingExtension on UDefaultSetting {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

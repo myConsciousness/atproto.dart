@@ -70,13 +70,13 @@ extension UReasonExtension on UReason {
   bool get isSkeletonReasonRepost => this is UReasonSkeletonReasonRepost;
 
   /// Returns true if this data is not [SkeletonReasonRepost], otherwise false.
-  bool get isNotSkeletonReasonRepost => this is! UReasonSkeletonReasonRepost;
+  bool get isNotSkeletonReasonRepost => !isSkeletonReasonRepost;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UReasonUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UReasonUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [SkeletonReasonRepost].
   ///
@@ -86,7 +86,7 @@ extension UReasonExtension on UReason {
 
   /// Returns [SkeletonReasonRepost] if this data is [SkeletonReasonRepost], otherwise null.
   SkeletonReasonRepost? get skeletonReasonRepostOrNull =>
-      isSkeletonReasonRepost ? this.data as SkeletonReasonRepost : null;
+      isSkeletonReasonRepost ? skeletonReasonRepost : null;
 
   /// Returns this data as JSON object.
   ///
@@ -94,6 +94,5 @@ extension UReasonExtension on UReason {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

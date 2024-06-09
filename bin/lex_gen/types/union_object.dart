@@ -118,7 +118,7 @@ final class LexUnionObject {
         ..writeln()
         ..writeln(
             '  /// Returns true if this data is not [${ref.name}], otherwise false.')
-        ..writeln('  bool get isNot${ref.name} => this is! U$name${ref.name};');
+        ..writeln('  bool get isNot${ref.name} => !is${ref.name};');
     }
     buffer
       ..writeln()
@@ -129,7 +129,7 @@ final class LexUnionObject {
       ..writeln()
       ..writeln(
           '  /// Returns true if this data is not unknown object, otherwise false.')
-      ..writeln('  bool get isNotUnknown => this is! U${name}Unknown;')
+      ..writeln('  bool get isNotUnknown => !isUnknown;')
       ..writeln();
     for (final ref in refs) {
       buffer
@@ -145,7 +145,7 @@ final class LexUnionObject {
             '  /// Returns [${ref.name}] if this data is [${ref.name}], otherwise null.')
         ..writeln('  ${ref.name}? get ${toFirstLower(ref.name!)}OrNull => '
             'is${ref.name}')
-        ..writeln('    ? this.data as ${ref.name}')
+        ..writeln('    ? ${toFirstLower(ref.name!)}')
         ..writeln('    : null;');
     }
     buffer
@@ -160,7 +160,7 @@ final class LexUnionObject {
       ..writeln(
           '  /// Returns JSON object if this data is unknown, otherwise null.')
       ..writeln('  Map<String, dynamic>? get unknownOrNull => isUnknown')
-      ..writeln('    ? this.data as Map<String, dynamic>')
+      ..writeln('    ? unknown')
       ..writeln('    : null;')
       ..writeln('}');
 

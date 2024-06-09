@@ -113,31 +113,31 @@ extension ULogExtension on ULog {
   bool get isLogBeginConvo => this is ULogLogBeginConvo;
 
   /// Returns true if this data is not [LogBeginConvo], otherwise false.
-  bool get isNotLogBeginConvo => this is! ULogLogBeginConvo;
+  bool get isNotLogBeginConvo => !isLogBeginConvo;
 
   /// Returns true if this data is [LogLeaveConvo], otherwise false.
   bool get isLogLeaveConvo => this is ULogLogLeaveConvo;
 
   /// Returns true if this data is not [LogLeaveConvo], otherwise false.
-  bool get isNotLogLeaveConvo => this is! ULogLogLeaveConvo;
+  bool get isNotLogLeaveConvo => !isLogLeaveConvo;
 
   /// Returns true if this data is [LogCreateMessage], otherwise false.
   bool get isLogCreateMessage => this is ULogLogCreateMessage;
 
   /// Returns true if this data is not [LogCreateMessage], otherwise false.
-  bool get isNotLogCreateMessage => this is! ULogLogCreateMessage;
+  bool get isNotLogCreateMessage => !isLogCreateMessage;
 
   /// Returns true if this data is [LogDeleteMessage], otherwise false.
   bool get isLogDeleteMessage => this is ULogLogDeleteMessage;
 
   /// Returns true if this data is not [LogDeleteMessage], otherwise false.
-  bool get isNotLogDeleteMessage => this is! ULogLogDeleteMessage;
+  bool get isNotLogDeleteMessage => !isLogDeleteMessage;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is ULogUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! ULogUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [LogBeginConvo].
   ///
@@ -146,7 +146,7 @@ extension ULogExtension on ULog {
 
   /// Returns [LogBeginConvo] if this data is [LogBeginConvo], otherwise null.
   LogBeginConvo? get logBeginConvoOrNull =>
-      isLogBeginConvo ? this.data as LogBeginConvo : null;
+      isLogBeginConvo ? logBeginConvo : null;
 
   /// Returns this data as [LogLeaveConvo].
   ///
@@ -155,7 +155,7 @@ extension ULogExtension on ULog {
 
   /// Returns [LogLeaveConvo] if this data is [LogLeaveConvo], otherwise null.
   LogLeaveConvo? get logLeaveConvoOrNull =>
-      isLogLeaveConvo ? this.data as LogLeaveConvo : null;
+      isLogLeaveConvo ? logLeaveConvo : null;
 
   /// Returns this data as [LogCreateMessage].
   ///
@@ -164,7 +164,7 @@ extension ULogExtension on ULog {
 
   /// Returns [LogCreateMessage] if this data is [LogCreateMessage], otherwise null.
   LogCreateMessage? get logCreateMessageOrNull =>
-      isLogCreateMessage ? this.data as LogCreateMessage : null;
+      isLogCreateMessage ? logCreateMessage : null;
 
   /// Returns this data as [LogDeleteMessage].
   ///
@@ -173,7 +173,7 @@ extension ULogExtension on ULog {
 
   /// Returns [LogDeleteMessage] if this data is [LogDeleteMessage], otherwise null.
   LogDeleteMessage? get logDeleteMessageOrNull =>
-      isLogDeleteMessage ? this.data as LogDeleteMessage : null;
+      isLogDeleteMessage ? logDeleteMessage : null;
 
   /// Returns this data as JSON object.
   ///
@@ -181,6 +181,5 @@ extension ULogExtension on ULog {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

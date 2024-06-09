@@ -115,31 +115,31 @@ extension URecordEmbedExtension on URecordEmbed {
   bool get isImagesView => this is URecordEmbedImagesView;
 
   /// Returns true if this data is not [ImagesView], otherwise false.
-  bool get isNotImagesView => this is! URecordEmbedImagesView;
+  bool get isNotImagesView => !isImagesView;
 
   /// Returns true if this data is [ExternalView], otherwise false.
   bool get isExternalView => this is URecordEmbedExternalView;
 
   /// Returns true if this data is not [ExternalView], otherwise false.
-  bool get isNotExternalView => this is! URecordEmbedExternalView;
+  bool get isNotExternalView => !isExternalView;
 
   /// Returns true if this data is [RecordView], otherwise false.
   bool get isRecordView => this is URecordEmbedRecordView;
 
   /// Returns true if this data is not [RecordView], otherwise false.
-  bool get isNotRecordView => this is! URecordEmbedRecordView;
+  bool get isNotRecordView => !isRecordView;
 
   /// Returns true if this data is [RecordWithMediaView], otherwise false.
   bool get isRecordWithMediaView => this is URecordEmbedRecordWithMediaView;
 
   /// Returns true if this data is not [RecordWithMediaView], otherwise false.
-  bool get isNotRecordWithMediaView => this is! URecordEmbedRecordWithMediaView;
+  bool get isNotRecordWithMediaView => !isRecordWithMediaView;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is URecordEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! URecordEmbedUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [ImagesView].
   ///
@@ -147,8 +147,7 @@ extension URecordEmbedExtension on URecordEmbed {
   ImagesView get imagesView => this.data as ImagesView;
 
   /// Returns [ImagesView] if this data is [ImagesView], otherwise null.
-  ImagesView? get imagesViewOrNull =>
-      isImagesView ? this.data as ImagesView : null;
+  ImagesView? get imagesViewOrNull => isImagesView ? imagesView : null;
 
   /// Returns this data as [ExternalView].
   ///
@@ -156,8 +155,7 @@ extension URecordEmbedExtension on URecordEmbed {
   ExternalView get externalView => this.data as ExternalView;
 
   /// Returns [ExternalView] if this data is [ExternalView], otherwise null.
-  ExternalView? get externalViewOrNull =>
-      isExternalView ? this.data as ExternalView : null;
+  ExternalView? get externalViewOrNull => isExternalView ? externalView : null;
 
   /// Returns this data as [RecordView].
   ///
@@ -165,8 +163,7 @@ extension URecordEmbedExtension on URecordEmbed {
   RecordView get recordView => this.data as RecordView;
 
   /// Returns [RecordView] if this data is [RecordView], otherwise null.
-  RecordView? get recordViewOrNull =>
-      isRecordView ? this.data as RecordView : null;
+  RecordView? get recordViewOrNull => isRecordView ? recordView : null;
 
   /// Returns this data as [RecordWithMediaView].
   ///
@@ -176,7 +173,7 @@ extension URecordEmbedExtension on URecordEmbed {
 
   /// Returns [RecordWithMediaView] if this data is [RecordWithMediaView], otherwise null.
   RecordWithMediaView? get recordWithMediaViewOrNull =>
-      isRecordWithMediaView ? this.data as RecordWithMediaView : null;
+      isRecordWithMediaView ? recordWithMediaView : null;
 
   /// Returns this data as JSON object.
   ///
@@ -184,6 +181,5 @@ extension URecordEmbedExtension on URecordEmbed {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

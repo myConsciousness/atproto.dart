@@ -99,25 +99,25 @@ extension UAllowExtension on UAllow {
   bool get isMentionRule => this is UAllowMentionRule;
 
   /// Returns true if this data is not [MentionRule], otherwise false.
-  bool get isNotMentionRule => this is! UAllowMentionRule;
+  bool get isNotMentionRule => !isMentionRule;
 
   /// Returns true if this data is [FollowingRule], otherwise false.
   bool get isFollowingRule => this is UAllowFollowingRule;
 
   /// Returns true if this data is not [FollowingRule], otherwise false.
-  bool get isNotFollowingRule => this is! UAllowFollowingRule;
+  bool get isNotFollowingRule => !isFollowingRule;
 
   /// Returns true if this data is [ListRule], otherwise false.
   bool get isListRule => this is UAllowListRule;
 
   /// Returns true if this data is not [ListRule], otherwise false.
-  bool get isNotListRule => this is! UAllowListRule;
+  bool get isNotListRule => !isListRule;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UAllowUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UAllowUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [MentionRule].
   ///
@@ -125,8 +125,7 @@ extension UAllowExtension on UAllow {
   MentionRule get mentionRule => this.data as MentionRule;
 
   /// Returns [MentionRule] if this data is [MentionRule], otherwise null.
-  MentionRule? get mentionRuleOrNull =>
-      isMentionRule ? this.data as MentionRule : null;
+  MentionRule? get mentionRuleOrNull => isMentionRule ? mentionRule : null;
 
   /// Returns this data as [FollowingRule].
   ///
@@ -135,7 +134,7 @@ extension UAllowExtension on UAllow {
 
   /// Returns [FollowingRule] if this data is [FollowingRule], otherwise null.
   FollowingRule? get followingRuleOrNull =>
-      isFollowingRule ? this.data as FollowingRule : null;
+      isFollowingRule ? followingRule : null;
 
   /// Returns this data as [ListRule].
   ///
@@ -143,7 +142,7 @@ extension UAllowExtension on UAllow {
   ListRule get listRule => this.data as ListRule;
 
   /// Returns [ListRule] if this data is [ListRule], otherwise null.
-  ListRule? get listRuleOrNull => isListRule ? this.data as ListRule : null;
+  ListRule? get listRuleOrNull => isListRule ? listRule : null;
 
   /// Returns this data as JSON object.
   ///
@@ -151,6 +150,5 @@ extension UAllowExtension on UAllow {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

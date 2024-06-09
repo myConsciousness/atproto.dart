@@ -100,13 +100,13 @@ extension UNameExtension on UName {
   bool get isKnownValue => this is UNameKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UNameKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UNameUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UNameUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -114,8 +114,7 @@ extension UNameExtension on UName {
   KnownName get knownValue => this.data as KnownName;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownName? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownName : null;
+  KnownName? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -123,5 +122,5 @@ extension UNameExtension on UName {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

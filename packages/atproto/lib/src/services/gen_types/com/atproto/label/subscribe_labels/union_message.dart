@@ -84,19 +84,19 @@ extension UMessageExtension on UMessage {
   bool get isLabels => this is UMessageLabels;
 
   /// Returns true if this data is not [Labels], otherwise false.
-  bool get isNotLabels => this is! UMessageLabels;
+  bool get isNotLabels => !isLabels;
 
   /// Returns true if this data is [Info], otherwise false.
   bool get isInfo => this is UMessageInfo;
 
   /// Returns true if this data is not [Info], otherwise false.
-  bool get isNotInfo => this is! UMessageInfo;
+  bool get isNotInfo => !isInfo;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UMessageUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UMessageUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [Labels].
   ///
@@ -104,7 +104,7 @@ extension UMessageExtension on UMessage {
   Labels get labels => this.data as Labels;
 
   /// Returns [Labels] if this data is [Labels], otherwise null.
-  Labels? get labelsOrNull => isLabels ? this.data as Labels : null;
+  Labels? get labelsOrNull => isLabels ? labels : null;
 
   /// Returns this data as [Info].
   ///
@@ -112,7 +112,7 @@ extension UMessageExtension on UMessage {
   Info get info => this.data as Info;
 
   /// Returns [Info] if this data is [Info], otherwise null.
-  Info? get infoOrNull => isInfo ? this.data as Info : null;
+  Info? get infoOrNull => isInfo ? info : null;
 
   /// Returns this data as JSON object.
   ///
@@ -120,6 +120,5 @@ extension UMessageExtension on UMessage {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

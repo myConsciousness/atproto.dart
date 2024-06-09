@@ -120,13 +120,13 @@ extension ULabelValueExtension on ULabelValue {
   bool get isKnownValue => this is ULabelValueKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! ULabelValueKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is ULabelValueUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! ULabelValueUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -134,8 +134,7 @@ extension ULabelValueExtension on ULabelValue {
   KnownLabelValue get knownValue => this.data as KnownLabelValue;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownLabelValue? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownLabelValue : null;
+  KnownLabelValue? get knownValueOrNull => isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -143,5 +142,5 @@ extension ULabelValueExtension on ULabelValue {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }

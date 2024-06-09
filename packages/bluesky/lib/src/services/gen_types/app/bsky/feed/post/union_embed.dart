@@ -114,31 +114,31 @@ extension UEmbedExtension on UEmbed {
   bool get isImages => this is UEmbedImages;
 
   /// Returns true if this data is not [Images], otherwise false.
-  bool get isNotImages => this is! UEmbedImages;
+  bool get isNotImages => !isImages;
 
   /// Returns true if this data is [External], otherwise false.
   bool get isExternal => this is UEmbedExternal;
 
   /// Returns true if this data is not [External], otherwise false.
-  bool get isNotExternal => this is! UEmbedExternal;
+  bool get isNotExternal => !isExternal;
 
   /// Returns true if this data is [Record], otherwise false.
   bool get isRecord => this is UEmbedRecord;
 
   /// Returns true if this data is not [Record], otherwise false.
-  bool get isNotRecord => this is! UEmbedRecord;
+  bool get isNotRecord => !isRecord;
 
   /// Returns true if this data is [RecordWithMedia], otherwise false.
   bool get isRecordWithMedia => this is UEmbedRecordWithMedia;
 
   /// Returns true if this data is not [RecordWithMedia], otherwise false.
-  bool get isNotRecordWithMedia => this is! UEmbedRecordWithMedia;
+  bool get isNotRecordWithMedia => !isRecordWithMedia;
 
   /// Returns true if this data is unknown object, otherwise false.
   bool get isUnknown => this is UEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
-  bool get isNotUnknown => this is! UEmbedUnknown;
+  bool get isNotUnknown => !isUnknown;
 
   /// Returns this data as [Images].
   ///
@@ -146,7 +146,7 @@ extension UEmbedExtension on UEmbed {
   Images get images => this.data as Images;
 
   /// Returns [Images] if this data is [Images], otherwise null.
-  Images? get imagesOrNull => isImages ? this.data as Images : null;
+  Images? get imagesOrNull => isImages ? images : null;
 
   /// Returns this data as [External].
   ///
@@ -154,7 +154,7 @@ extension UEmbedExtension on UEmbed {
   External get external => this.data as External;
 
   /// Returns [External] if this data is [External], otherwise null.
-  External? get externalOrNull => isExternal ? this.data as External : null;
+  External? get externalOrNull => isExternal ? external : null;
 
   /// Returns this data as [Record].
   ///
@@ -162,7 +162,7 @@ extension UEmbedExtension on UEmbed {
   Record get record => this.data as Record;
 
   /// Returns [Record] if this data is [Record], otherwise null.
-  Record? get recordOrNull => isRecord ? this.data as Record : null;
+  Record? get recordOrNull => isRecord ? record : null;
 
   /// Returns this data as [RecordWithMedia].
   ///
@@ -171,7 +171,7 @@ extension UEmbedExtension on UEmbed {
 
   /// Returns [RecordWithMedia] if this data is [RecordWithMedia], otherwise null.
   RecordWithMedia? get recordWithMediaOrNull =>
-      isRecordWithMedia ? this.data as RecordWithMedia : null;
+      isRecordWithMedia ? recordWithMedia : null;
 
   /// Returns this data as JSON object.
   ///
@@ -179,6 +179,5 @@ extension UEmbedExtension on UEmbed {
   Map<String, dynamic> get unknown => this.data as Map<String, dynamic>;
 
   /// Returns JSON object if this data is unknown, otherwise null.
-  Map<String, dynamic>? get unknownOrNull =>
-      isUnknown ? this.data as Map<String, dynamic> : null;
+  Map<String, dynamic>? get unknownOrNull => isUnknown ? unknown : null;
 }

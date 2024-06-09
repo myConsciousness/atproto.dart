@@ -103,13 +103,13 @@ extension UMutedWordTargetExtension on UMutedWordTarget {
   bool get isKnownValue => this is UMutedWordTargetKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
-  bool get isNotKnownValue => this is! UMutedWordTargetKnownValue;
+  bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
   bool get isUnknownValue => this is UMutedWordTargetUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
-  bool get isNotUnknownValue => this is! UMutedWordTargetUnknownValue;
+  bool get isNotUnknownValue => !isUnknownValue;
 
   /// Returns known value.
   ///
@@ -118,7 +118,7 @@ extension UMutedWordTargetExtension on UMutedWordTarget {
 
   /// Returns known value if this data is known, otherwise null.
   KnownMutedWordTarget? get knownValueOrNull =>
-      isKnownValue ? this.data as KnownMutedWordTarget : null;
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///
@@ -126,5 +126,5 @@ extension UMutedWordTargetExtension on UMutedWordTarget {
   String get unknownValue => this.data as String;
 
   /// Returns unknown value if this data is unknown, otherwise null.
-  String? get unknownValueOrNull => isUnknownValue ? this.data as String : null;
+  String? get unknownValueOrNull => isUnknownValue ? unknownValue : null;
 }
