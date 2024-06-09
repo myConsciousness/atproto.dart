@@ -25,7 +25,7 @@ class GetListMutesOutput with _$GetListMutesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetListMutesOutput({
     String? cursor,
-    required List<ListView> lists,
+    @ListViewConverter() required List<ListView> lists,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

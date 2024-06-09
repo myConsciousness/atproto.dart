@@ -31,6 +31,7 @@ mixin _$ReplyRef {
   UParent get parent => throw _privateConstructorUsedError;
 
   /// When parent is a reply to another post, this is the author of that post.
+  @ProfileViewBasicConverter()
   ProfileViewBasic? get grandparentAuthor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -52,7 +53,7 @@ abstract class $ReplyRefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @URootConverter() URoot root,
       @UParentConverter() UParent parent,
-      ProfileViewBasic? grandparentAuthor,
+      @ProfileViewBasicConverter() ProfileViewBasic? grandparentAuthor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $URootCopyWith<$Res> get root;
@@ -144,7 +145,7 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @URootConverter() URoot root,
       @UParentConverter() UParent parent,
-      ProfileViewBasic? grandparentAuthor,
+      @ProfileViewBasicConverter() ProfileViewBasic? grandparentAuthor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -205,7 +206,7 @@ class _$ReplyRefImpl implements _ReplyRef {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReplyRef,
       @URootConverter() required this.root,
       @UParentConverter() required this.parent,
-      this.grandparentAuthor,
+      @ProfileViewBasicConverter() this.grandparentAuthor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -228,6 +229,7 @@ class _$ReplyRefImpl implements _ReplyRef {
 
   /// When parent is a reply to another post, this is the author of that post.
   @override
+  @ProfileViewBasicConverter()
   final ProfileViewBasic? grandparentAuthor;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -281,12 +283,12 @@ class _$ReplyRefImpl implements _ReplyRef {
 
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
-          {@JsonKey(name: r'$type') final String $type,
-          @URootConverter() required final URoot root,
-          @UParentConverter() required final UParent parent,
-          final ProfileViewBasic? grandparentAuthor,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$ReplyRefImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @URootConverter() required final URoot root,
+      @UParentConverter() required final UParent parent,
+      @ProfileViewBasicConverter() final ProfileViewBasic? grandparentAuthor,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
       _$ReplyRefImpl.fromJson;
@@ -307,6 +309,7 @@ abstract class _ReplyRef implements ReplyRef {
   @override
 
   /// When parent is a reply to another post, this is the author of that post.
+  @ProfileViewBasicConverter()
   ProfileViewBasic? get grandparentAuthor;
   @override
 

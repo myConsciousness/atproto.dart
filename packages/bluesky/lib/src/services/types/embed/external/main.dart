@@ -31,7 +31,7 @@ class External with _$External {
     ///
     /// `app.bsky.embed.external`
     @Default(appBskyEmbedExternal) @JsonKey(name: r'$type') String $type,
-    required ExternalExternal external,
+    @ExternalExternalConverter() required ExternalExternal external,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

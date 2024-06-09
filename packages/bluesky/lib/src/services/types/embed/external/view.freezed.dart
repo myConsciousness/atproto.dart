@@ -25,6 +25,7 @@ mixin _$ExternalView {
   /// `app.bsky.embed.external#view`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @ExternalViewExternalConverter()
   ExternalViewExternal get external => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $ExternalViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ExternalViewExternal external,
+      @ExternalViewExternalConverter() ExternalViewExternal external,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ExternalViewExternalCopyWith<$Res> get external;
@@ -103,7 +104,7 @@ abstract class _$$ExternalViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ExternalViewExternal external,
+      @ExternalViewExternalConverter() ExternalViewExternal external,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -148,7 +149,7 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
 class _$ExternalViewImpl implements _ExternalView {
   const _$ExternalViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternalView,
-      required this.external,
+      @ExternalViewExternalConverter() required this.external,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -163,6 +164,7 @@ class _$ExternalViewImpl implements _ExternalView {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @ExternalViewExternalConverter()
   final ExternalViewExternal external;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -215,6 +217,7 @@ class _$ExternalViewImpl implements _ExternalView {
 abstract class _ExternalView implements ExternalView {
   const factory _ExternalView(
           {@JsonKey(name: r'$type') final String $type,
+          @ExternalViewExternalConverter()
           required final ExternalViewExternal external,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ExternalViewImpl;
@@ -230,6 +233,7 @@ abstract class _ExternalView implements ExternalView {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @ExternalViewExternalConverter()
   ExternalViewExternal get external;
   @override
 

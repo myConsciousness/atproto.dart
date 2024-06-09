@@ -31,7 +31,7 @@ class Entity with _$Entity {
     ///
     /// `app.bsky.feed.post#entity`
     @Default(appBskyFeedPostEntity) @JsonKey(name: r'$type') String $type,
-    required TextSlice index,
+    @TextSliceConverter() required TextSlice index,
 
     /// Expected values are 'mention' and 'link'.
     required String type,

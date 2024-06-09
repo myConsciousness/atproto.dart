@@ -24,6 +24,7 @@ mixin _$GetLikesOutput {
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  @LikeConverter()
   List<Like> get likes => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -46,7 +47,7 @@ abstract class $GetLikesOutputCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<Like> likes,
+      @LikeConverter() List<Like> likes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -106,7 +107,7 @@ abstract class _$$GetLikesOutputImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<Like> likes,
+      @LikeConverter() List<Like> likes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -160,7 +161,7 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
       {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
-      required final List<Like> likes,
+      @LikeConverter() required final List<Like> likes,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _likes = likes,
@@ -178,6 +179,7 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
   final String? cursor;
   final List<Like> _likes;
   @override
+  @LikeConverter()
   List<Like> get likes {
     if (_likes is EqualUnmodifiableListView) return _likes;
     // ignore: implicit_dynamic_type
@@ -243,7 +245,7 @@ abstract class _GetLikesOutput implements GetLikesOutput {
           {@AtUriConverter() required final AtUri uri,
           final String? cid,
           final String? cursor,
-          required final List<Like> likes,
+          @LikeConverter() required final List<Like> likes,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetLikesOutputImpl;
 
@@ -258,6 +260,7 @@ abstract class _GetLikesOutput implements GetLikesOutput {
   @override
   String? get cursor;
   @override
+  @LikeConverter()
   List<Like> get likes;
   @override
 

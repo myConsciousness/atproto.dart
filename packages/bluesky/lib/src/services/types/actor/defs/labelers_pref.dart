@@ -31,7 +31,7 @@ class LabelersPref with _$LabelersPref {
     @Default(appBskyActorDefsLabelersPref)
     @JsonKey(name: r'$type')
     String $type,
-    required List<LabelerPrefItem> labelers,
+    @LabelerPrefItemConverter() required List<LabelerPrefItem> labelers,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

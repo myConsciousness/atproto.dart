@@ -29,7 +29,7 @@ class Images with _$Images {
     ///
     /// `app.bsky.embed.images`
     @Default(appBskyEmbedImages) @JsonKey(name: r'$type') String $type,
-    required List<ImagesImage> images,
+    @ImagesImageConverter() required List<ImagesImage> images,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

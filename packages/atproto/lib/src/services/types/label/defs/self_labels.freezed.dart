@@ -25,6 +25,7 @@ mixin _$SelfLabels {
   /// `com.atproto.label.defs#selfLabels`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @SelfLabelConverter()
   List<SelfLabel> get values => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $SelfLabelsCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<SelfLabel> values,
+      @SelfLabelConverter() List<SelfLabel> values,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -93,7 +94,7 @@ abstract class _$$SelfLabelsImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<SelfLabel> values,
+      @SelfLabelConverter() List<SelfLabel> values,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -135,7 +136,7 @@ class __$$SelfLabelsImplCopyWithImpl<$Res>
 class _$SelfLabelsImpl implements _SelfLabels {
   const _$SelfLabelsImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsSelfLabels,
-      required final List<SelfLabel> values,
+      @SelfLabelConverter() required final List<SelfLabel> values,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _values = values,
@@ -152,6 +153,7 @@ class _$SelfLabelsImpl implements _SelfLabels {
   final String $type;
   final List<SelfLabel> _values;
   @override
+  @SelfLabelConverter()
   List<SelfLabel> get values {
     if (_values is EqualUnmodifiableListView) return _values;
     // ignore: implicit_dynamic_type
@@ -210,7 +212,7 @@ class _$SelfLabelsImpl implements _SelfLabels {
 abstract class _SelfLabels implements SelfLabels {
   const factory _SelfLabels(
           {@JsonKey(name: r'$type') final String $type,
-          required final List<SelfLabel> values,
+          @SelfLabelConverter() required final List<SelfLabel> values,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SelfLabelsImpl;
 
@@ -225,6 +227,7 @@ abstract class _SelfLabels implements SelfLabels {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @SelfLabelConverter()
   List<SelfLabel> get values;
   @override
 

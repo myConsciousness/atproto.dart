@@ -34,7 +34,7 @@ class ProfileAssociated with _$ProfileAssociated {
     @Default(0) int lists,
     @Default(0) int feedgens,
     @Default(false) bool labeler,
-    ProfileAssociatedChat? chat,
+    @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

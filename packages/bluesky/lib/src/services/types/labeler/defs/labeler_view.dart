@@ -36,11 +36,13 @@ class LabelerView with _$LabelerView {
     String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
-    required ProfileView creator,
+    @ProfileViewConverter() required ProfileView creator,
     @Default(0) int likeCount,
-    @Default(LabelerViewerState()) LabelerViewerState viewer,
+    @LabelerViewerStateConverter()
+    @Default(LabelerViewerState())
+    LabelerViewerState viewer,
     required DateTime indexedAt,
-    List<Label>? labels,
+    @LabelConverter() List<Label>? labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

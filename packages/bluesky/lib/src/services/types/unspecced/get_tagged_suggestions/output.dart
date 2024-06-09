@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetTaggedSuggestionsOutput with _$GetTaggedSuggestionsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetTaggedSuggestionsOutput({
-    required List<Suggestion> suggestions,
+    @SuggestionConverter() required List<Suggestion> suggestions,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

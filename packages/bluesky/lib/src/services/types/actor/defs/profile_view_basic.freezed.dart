@@ -29,8 +29,11 @@ mixin _$ProfileViewBasic {
   String get handle => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  @ProfileAssociatedConverter()
   ProfileAssociated get associated => throw _privateConstructorUsedError;
+  @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -55,9 +58,9 @@ abstract class $ProfileViewBasicCopyWith<$Res> {
       String handle,
       String? displayName,
       String? avatar,
-      ProfileAssociated associated,
-      ViewerState viewer,
-      List<Label>? labels,
+      @ProfileAssociatedConverter() ProfileAssociated associated,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -158,9 +161,9 @@ abstract class _$$ProfileViewBasicImplCopyWith<$Res>
       String handle,
       String? displayName,
       String? avatar,
-      ProfileAssociated associated,
-      ViewerState viewer,
-      List<Label>? labels,
+      @ProfileAssociatedConverter() ProfileAssociated associated,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -241,9 +244,9 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
       required this.handle,
       this.displayName,
       this.avatar,
-      this.associated = const ProfileAssociated(),
-      this.viewer = const ViewerState(),
-      final List<Label>? labels,
+      @ProfileAssociatedConverter() this.associated = const ProfileAssociated(),
+      @ViewerStateConverter() this.viewer = const ViewerState(),
+      @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -268,12 +271,15 @@ class _$ProfileViewBasicImpl implements _ProfileViewBasic {
   final String? avatar;
   @override
   @JsonKey()
+  @ProfileAssociatedConverter()
   final ProfileAssociated associated;
   @override
   @JsonKey()
+  @ViewerStateConverter()
   final ViewerState viewer;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -353,9 +359,9 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
           required final String handle,
           final String? displayName,
           final String? avatar,
-          final ProfileAssociated associated,
-          final ViewerState viewer,
-          final List<Label>? labels,
+          @ProfileAssociatedConverter() final ProfileAssociated associated,
+          @ViewerStateConverter() final ViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ProfileViewBasicImpl;
 
@@ -378,10 +384,13 @@ abstract class _ProfileViewBasic implements ProfileViewBasic {
   @override
   String? get avatar;
   @override
+  @ProfileAssociatedConverter()
   ProfileAssociated get associated;
   @override
+  @ViewerStateConverter()
   ViewerState get viewer;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
 

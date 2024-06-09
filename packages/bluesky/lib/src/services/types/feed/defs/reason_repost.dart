@@ -29,7 +29,7 @@ class ReasonRepost with _$ReasonRepost {
     ///
     /// `app.bsky.feed.defs#reasonRepost`
     @Default(appBskyFeedDefsReasonRepost) @JsonKey(name: r'$type') String $type,
-    required ProfileViewBasic by,
+    @ProfileViewBasicConverter() required ProfileViewBasic by,
     required DateTime indexedAt,
 
     /// Contains unknown objects not defined in Lexicon.

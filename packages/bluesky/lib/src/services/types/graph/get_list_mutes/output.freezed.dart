@@ -21,6 +21,7 @@ GetListMutesOutput _$GetListMutesOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetListMutesOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ListViewConverter()
   List<ListView> get lists => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetListMutesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetListMutesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetListMutesOutputImplCopyWithImpl<$Res>
 class _$GetListMutesOutputImpl implements _GetListMutesOutput {
   const _$GetListMutesOutputImpl(
       {this.cursor,
-      required final List<ListView> lists,
+      @ListViewConverter() required final List<ListView> lists,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _lists = lists,
@@ -144,6 +145,7 @@ class _$GetListMutesOutputImpl implements _GetListMutesOutput {
   final String? cursor;
   final List<ListView> _lists;
   @override
+  @ListViewConverter()
   List<ListView> get lists {
     if (_lists is EqualUnmodifiableListView) return _lists;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetListMutesOutputImpl implements _GetListMutesOutput {
 abstract class _GetListMutesOutput implements GetListMutesOutput {
   const factory _GetListMutesOutput(
           {final String? cursor,
-          required final List<ListView> lists,
+          @ListViewConverter() required final List<ListView> lists,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListMutesOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetListMutesOutput implements GetListMutesOutput {
   @override
   String? get cursor;
   @override
+  @ListViewConverter()
   List<ListView> get lists;
   @override
 

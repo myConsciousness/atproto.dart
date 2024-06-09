@@ -50,17 +50,23 @@ final class UAllowConverter
 
       if (type == 'app.bsky.feed.threadgate#mentionRule') {
         return UAllow.mentionRule(
-          data: MentionRule.fromJson(json),
+          data: MentionRule.fromJson(
+            const MentionRuleConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.threadgate#followingRule') {
         return UAllow.followingRule(
-          data: FollowingRule.fromJson(json),
+          data: FollowingRule.fromJson(
+            const FollowingRuleConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.threadgate#listRule') {
         return UAllow.listRule(
-          data: ListRule.fromJson(json),
+          data: ListRule.fromJson(
+            const ListRuleConverter().fromJson(json),
+          ),
         );
       }
 
@@ -72,9 +78,15 @@ final class UAllowConverter
 
   @override
   Map<String, dynamic> toJson(UAllow object) => object.when(
-        mentionRule: (data) => data.toJson(),
-        followingRule: (data) => data.toJson(),
-        listRule: (data) => data.toJson(),
+        mentionRule: (data) => const MentionRuleConverter().toJson(
+          data.toJson(),
+        ),
+        followingRule: (data) => const FollowingRuleConverter().toJson(
+          data.toJson(),
+        ),
+        listRule: (data) => const ListRuleConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

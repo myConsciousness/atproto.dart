@@ -25,7 +25,9 @@ mixin _$FeedViewPost {
   /// `app.bsky.feed.defs#feedViewPost`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @PostViewConverter()
   PostView get post => throw _privateConstructorUsedError;
+  @ReplyRefConverter()
   ReplyRef? get reply => throw _privateConstructorUsedError;
   @UReasonConverter()
   UReason? get reason => throw _privateConstructorUsedError;
@@ -51,8 +53,8 @@ abstract class $FeedViewPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      PostView post,
-      ReplyRef? reply,
+      @PostViewConverter() PostView post,
+      @ReplyRefConverter() ReplyRef? reply,
       @UReasonConverter() UReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -153,8 +155,8 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      PostView post,
-      ReplyRef? reply,
+      @PostViewConverter() PostView post,
+      @ReplyRefConverter() ReplyRef? reply,
       @UReasonConverter() UReason? reason,
       String? feedContext,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -220,8 +222,8 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
 class _$FeedViewPostImpl implements _FeedViewPost {
   const _$FeedViewPostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsFeedViewPost,
-      required this.post,
-      this.reply,
+      @PostViewConverter() required this.post,
+      @ReplyRefConverter() this.reply,
       @UReasonConverter() this.reason,
       this.feedContext,
       @JsonKey(name: r'$unknown')
@@ -238,8 +240,10 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @PostViewConverter()
   final PostView post;
   @override
+  @ReplyRefConverter()
   final ReplyRef? reply;
   @override
   @UReasonConverter()
@@ -302,8 +306,8 @@ class _$FeedViewPostImpl implements _FeedViewPost {
 abstract class _FeedViewPost implements FeedViewPost {
   const factory _FeedViewPost(
           {@JsonKey(name: r'$type') final String $type,
-          required final PostView post,
-          final ReplyRef? reply,
+          @PostViewConverter() required final PostView post,
+          @ReplyRefConverter() final ReplyRef? reply,
           @UReasonConverter() final UReason? reason,
           final String? feedContext,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -320,8 +324,10 @@ abstract class _FeedViewPost implements FeedViewPost {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @PostViewConverter()
   PostView get post;
   @override
+  @ReplyRefConverter()
   ReplyRef? get reply;
   @override
   @UReasonConverter()

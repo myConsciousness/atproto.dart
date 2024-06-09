@@ -20,6 +20,7 @@ LikeRecord _$LikeRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LikeRecord {
+  @StrongRefConverter()
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -40,7 +41,7 @@ abstract class $LikeRecordCopyWith<$Res> {
       _$LikeRecordCopyWithImpl<$Res, LikeRecord>;
   @useResult
   $Res call(
-      {StrongRef subject,
+      {@StrongRefConverter() StrongRef subject,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -98,7 +99,7 @@ abstract class _$$LikeRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {StrongRef subject,
+      {@StrongRefConverter() StrongRef subject,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -143,7 +144,7 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$LikeRecordImpl implements _LikeRecord {
   const _$LikeRecordImpl(
-      {required this.subject,
+      {@StrongRefConverter() required this.subject,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -153,6 +154,7 @@ class _$LikeRecordImpl implements _LikeRecord {
       _$$LikeRecordImplFromJson(json);
 
   @override
+  @StrongRefConverter()
   final StrongRef subject;
   @override
   final DateTime createdAt;
@@ -206,7 +208,7 @@ class _$LikeRecordImpl implements _LikeRecord {
 
 abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
-          {required final StrongRef subject,
+          {@StrongRefConverter() required final StrongRef subject,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LikeRecordImpl;
@@ -215,6 +217,7 @@ abstract class _LikeRecord implements LikeRecord {
       _$LikeRecordImpl.fromJson;
 
   @override
+  @StrongRefConverter()
   StrongRef get subject;
   @override
   DateTime get createdAt;

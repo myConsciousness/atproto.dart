@@ -28,6 +28,7 @@ mixin _$Notification {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get author => throw _privateConstructorUsedError;
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
@@ -38,6 +39,7 @@ mixin _$Notification {
   Map<String, dynamic> get record => throw _privateConstructorUsedError;
   bool get isRead => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -60,13 +62,13 @@ abstract class $NotificationCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView author,
+      @ProfileViewConverter() ProfileView author,
       @UReasonConverter() UReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get author;
@@ -175,13 +177,13 @@ abstract class _$$NotificationImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView author,
+      @ProfileViewConverter() ProfileView author,
       @UReasonConverter() UReason reason,
       @AtUriConverter() AtUri? reasonSubject,
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -271,13 +273,13 @@ class _$NotificationImpl implements _Notification {
       this.$type = appBskyNotificationListNotificationsNotification,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.author,
+      @ProfileViewConverter() required this.author,
       @UReasonConverter() required this.reason,
       @AtUriConverter() this.reasonSubject,
       required final Map<String, dynamic> record,
       required this.isRead,
       required this.indexedAt,
-      final List<Label>? labels,
+      @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _record = record,
@@ -299,6 +301,7 @@ class _$NotificationImpl implements _Notification {
   @override
   final String cid;
   @override
+  @ProfileViewConverter()
   final ProfileView author;
 
   /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
@@ -322,6 +325,7 @@ class _$NotificationImpl implements _Notification {
   final DateTime indexedAt;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -402,13 +406,13 @@ abstract class _Notification implements Notification {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileView author,
+          @ProfileViewConverter() required final ProfileView author,
           @UReasonConverter() required final UReason reason,
           @AtUriConverter() final AtUri? reasonSubject,
           required final Map<String, dynamic> record,
           required final bool isRead,
           required final DateTime indexedAt,
-          final List<Label>? labels,
+          @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$NotificationImpl;
 
@@ -428,6 +432,7 @@ abstract class _Notification implements Notification {
   @override
   String get cid;
   @override
+  @ProfileViewConverter()
   ProfileView get author;
   @override
 
@@ -444,6 +449,7 @@ abstract class _Notification implements Notification {
   @override
   DateTime get indexedAt;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
 

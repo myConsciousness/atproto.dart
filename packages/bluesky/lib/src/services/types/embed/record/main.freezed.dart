@@ -25,6 +25,7 @@ mixin _$Record {
   /// `app.bsky.embed.record`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @StrongRefConverter()
   StrongRef get record => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +44,7 @@ abstract class $RecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      StrongRef record,
+      @StrongRefConverter() StrongRef record,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $StrongRefCopyWith<$Res> get record;
@@ -100,7 +101,7 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      StrongRef record,
+      @StrongRefConverter() StrongRef record,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -145,7 +146,7 @@ class __$$RecordImplCopyWithImpl<$Res>
 class _$RecordImpl implements _Record {
   const _$RecordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecord,
-      required this.record,
+      @StrongRefConverter() required this.record,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -160,6 +161,7 @@ class _$RecordImpl implements _Record {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @StrongRefConverter()
   final StrongRef record;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -211,7 +213,7 @@ class _$RecordImpl implements _Record {
 abstract class _Record implements Record {
   const factory _Record(
           {@JsonKey(name: r'$type') final String $type,
-          required final StrongRef record,
+          @StrongRefConverter() required final StrongRef record,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$RecordImpl;
 
@@ -225,6 +227,7 @@ abstract class _Record implements Record {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @StrongRefConverter()
   StrongRef get record;
   @override
 

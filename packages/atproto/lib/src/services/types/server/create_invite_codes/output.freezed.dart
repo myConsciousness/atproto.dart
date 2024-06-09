@@ -21,6 +21,7 @@ CreateInviteCodesOutput _$CreateInviteCodesOutputFromJson(
 
 /// @nodoc
 mixin _$CreateInviteCodesOutput {
+  @AccountCodesConverter()
   List<AccountCodes> get codes => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +41,7 @@ abstract class $CreateInviteCodesOutputCopyWith<$Res> {
       _$CreateInviteCodesOutputCopyWithImpl<$Res, CreateInviteCodesOutput>;
   @useResult
   $Res call(
-      {List<AccountCodes> codes,
+      {@AccountCodesConverter() List<AccountCodes> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -84,7 +85,7 @@ abstract class _$$CreateInviteCodesOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<AccountCodes> codes,
+      {@AccountCodesConverter() List<AccountCodes> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -122,7 +123,7 @@ class __$$CreateInviteCodesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
   const _$CreateInviteCodesOutputImpl(
-      {required final List<AccountCodes> codes,
+      {@AccountCodesConverter() required final List<AccountCodes> codes,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _codes = codes,
@@ -133,6 +134,7 @@ class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
 
   final List<AccountCodes> _codes;
   @override
+  @AccountCodesConverter()
   List<AccountCodes> get codes {
     if (_codes is EqualUnmodifiableListView) return _codes;
     // ignore: implicit_dynamic_type
@@ -189,7 +191,7 @@ class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
 
 abstract class _CreateInviteCodesOutput implements CreateInviteCodesOutput {
   const factory _CreateInviteCodesOutput(
-          {required final List<AccountCodes> codes,
+          {@AccountCodesConverter() required final List<AccountCodes> codes,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$CreateInviteCodesOutputImpl;
 
@@ -197,6 +199,7 @@ abstract class _CreateInviteCodesOutput implements CreateInviteCodesOutput {
       _$CreateInviteCodesOutputImpl.fromJson;
 
   @override
+  @AccountCodesConverter()
   List<AccountCodes> get codes;
   @override
 

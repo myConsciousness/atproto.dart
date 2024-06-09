@@ -25,6 +25,7 @@ mixin _$Entity {
   /// `app.bsky.feed.post#entity`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @TextSliceConverter()
   TextSlice get index => throw _privateConstructorUsedError;
 
   /// Expected values are 'mention' and 'link'.
@@ -47,7 +48,7 @@ abstract class $EntityCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      TextSlice index,
+      @TextSliceConverter() TextSlice index,
       String type,
       String value,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -116,7 +117,7 @@ abstract class _$$EntityImplCopyWith<$Res> implements $EntityCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      TextSlice index,
+      @TextSliceConverter() TextSlice index,
       String type,
       String value,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -173,7 +174,7 @@ class __$$EntityImplCopyWithImpl<$Res>
 class _$EntityImpl implements _Entity {
   const _$EntityImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedPostEntity,
-      required this.index,
+      @TextSliceConverter() required this.index,
       required this.type,
       required this.value,
       @JsonKey(name: r'$unknown')
@@ -190,6 +191,7 @@ class _$EntityImpl implements _Entity {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @TextSliceConverter()
   final TextSlice index;
 
   /// Expected values are 'mention' and 'link'.
@@ -249,7 +251,7 @@ class _$EntityImpl implements _Entity {
 abstract class _Entity implements Entity {
   const factory _Entity(
           {@JsonKey(name: r'$type') final String $type,
-          required final TextSlice index,
+          @TextSliceConverter() required final TextSlice index,
           required final String type,
           required final String value,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -265,6 +267,7 @@ abstract class _Entity implements Entity {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @TextSliceConverter()
   TextSlice get index;
   @override
 

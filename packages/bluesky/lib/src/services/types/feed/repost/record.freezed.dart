@@ -20,6 +20,7 @@ RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostRecord {
+  @StrongRefConverter()
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
@@ -40,7 +41,7 @@ abstract class $RepostRecordCopyWith<$Res> {
       _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
   @useResult
   $Res call(
-      {StrongRef subject,
+      {@StrongRefConverter() StrongRef subject,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -98,7 +99,7 @@ abstract class _$$RepostRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {StrongRef subject,
+      {@StrongRefConverter() StrongRef subject,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -143,7 +144,7 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$RepostRecordImpl implements _RepostRecord {
   const _$RepostRecordImpl(
-      {required this.subject,
+      {@StrongRefConverter() required this.subject,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -153,6 +154,7 @@ class _$RepostRecordImpl implements _RepostRecord {
       _$$RepostRecordImplFromJson(json);
 
   @override
+  @StrongRefConverter()
   final StrongRef subject;
   @override
   final DateTime createdAt;
@@ -206,7 +208,7 @@ class _$RepostRecordImpl implements _RepostRecord {
 
 abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
-          {required final StrongRef subject,
+          {@StrongRefConverter() required final StrongRef subject,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$RepostRecordImpl;
@@ -215,6 +217,7 @@ abstract class _RepostRecord implements RepostRecord {
       _$RepostRecordImpl.fromJson;
 
   @override
+  @StrongRefConverter()
   StrongRef get subject;
   @override
   DateTime get createdAt;

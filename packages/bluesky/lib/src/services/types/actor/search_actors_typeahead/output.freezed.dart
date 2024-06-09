@@ -21,6 +21,7 @@ SearchActorsTypeaheadOutput _$SearchActorsTypeaheadOutputFromJson(
 
 /// @nodoc
 mixin _$SearchActorsTypeaheadOutput {
+  @ProfileViewBasicConverter()
   List<ProfileViewBasic> get actors => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +43,7 @@ abstract class $SearchActorsTypeaheadOutputCopyWith<$Res> {
           SearchActorsTypeaheadOutput>;
   @useResult
   $Res call(
-      {List<ProfileViewBasic> actors,
+      {@ProfileViewBasicConverter() List<ProfileViewBasic> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -86,7 +87,7 @@ abstract class _$$SearchActorsTypeaheadOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ProfileViewBasic> actors,
+      {@ProfileViewBasicConverter() List<ProfileViewBasic> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -125,7 +126,8 @@ class __$$SearchActorsTypeaheadOutputImplCopyWithImpl<$Res>
 class _$SearchActorsTypeaheadOutputImpl
     implements _SearchActorsTypeaheadOutput {
   const _$SearchActorsTypeaheadOutputImpl(
-      {required final List<ProfileViewBasic> actors,
+      {@ProfileViewBasicConverter()
+      required final List<ProfileViewBasic> actors,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _actors = actors,
@@ -137,6 +139,7 @@ class _$SearchActorsTypeaheadOutputImpl
 
   final List<ProfileViewBasic> _actors;
   @override
+  @ProfileViewBasicConverter()
   List<ProfileViewBasic> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -194,7 +197,8 @@ class _$SearchActorsTypeaheadOutputImpl
 abstract class _SearchActorsTypeaheadOutput
     implements SearchActorsTypeaheadOutput {
   const factory _SearchActorsTypeaheadOutput(
-          {required final List<ProfileViewBasic> actors,
+          {@ProfileViewBasicConverter()
+          required final List<ProfileViewBasic> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsTypeaheadOutputImpl;
 
@@ -202,6 +206,7 @@ abstract class _SearchActorsTypeaheadOutput
       _$SearchActorsTypeaheadOutputImpl.fromJson;
 
   @override
+  @ProfileViewBasicConverter()
   List<ProfileViewBasic> get actors;
   @override
 

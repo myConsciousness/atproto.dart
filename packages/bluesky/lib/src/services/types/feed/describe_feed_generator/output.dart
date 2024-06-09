@@ -26,8 +26,8 @@ class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeFeedGeneratorOutput({
     required String did,
-    required List<Feed> feeds,
-    @Default(Links()) Links links,
+    @FeedConverter() required List<Feed> feeds,
+    @LinksConverter() @Default(Links()) Links links,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

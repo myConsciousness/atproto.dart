@@ -25,7 +25,7 @@ class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListMissingBlobsOutput({
     String? cursor,
-    required List<RecordBlob> blobs,
+    @RecordBlobConverter() required List<RecordBlob> blobs,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

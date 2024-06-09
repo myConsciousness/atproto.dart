@@ -29,8 +29,8 @@ class ReplyRef with _$ReplyRef {
     ///
     /// `app.bsky.feed.post#replyRef`
     @Default(appBskyFeedPostReplyRef) @JsonKey(name: r'$type') String $type,
-    required StrongRef root,
-    required StrongRef parent,
+    @StrongRefConverter() required StrongRef root,
+    @StrongRefConverter() required StrongRef parent,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

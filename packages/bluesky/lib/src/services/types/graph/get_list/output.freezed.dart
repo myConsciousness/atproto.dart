@@ -21,7 +21,9 @@ GetListOutput _$GetListOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetListOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ListViewConverter()
   ListView get list => throw _privateConstructorUsedError;
+  @ListItemViewConverter()
   List<ListItemView> get items => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,8 +44,8 @@ abstract class $GetListOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      ListView list,
-      List<ListItemView> items,
+      @ListViewConverter() ListView list,
+      @ListItemViewConverter() List<ListItemView> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ListViewCopyWith<$Res> get list;
@@ -106,8 +108,8 @@ abstract class _$$GetListOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      ListView list,
-      List<ListItemView> items,
+      @ListViewConverter() ListView list,
+      @ListItemViewConverter() List<ListItemView> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -157,8 +159,8 @@ class __$$GetListOutputImplCopyWithImpl<$Res>
 class _$GetListOutputImpl implements _GetListOutput {
   const _$GetListOutputImpl(
       {this.cursor,
-      required this.list,
-      required final List<ListItemView> items,
+      @ListViewConverter() required this.list,
+      @ListItemViewConverter() required final List<ListItemView> items,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _items = items,
@@ -170,9 +172,11 @@ class _$GetListOutputImpl implements _GetListOutput {
   @override
   final String? cursor;
   @override
+  @ListViewConverter()
   final ListView list;
   final List<ListItemView> _items;
   @override
+  @ListItemViewConverter()
   List<ListItemView> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
@@ -233,8 +237,8 @@ class _$GetListOutputImpl implements _GetListOutput {
 abstract class _GetListOutput implements GetListOutput {
   const factory _GetListOutput(
           {final String? cursor,
-          required final ListView list,
-          required final List<ListItemView> items,
+          @ListViewConverter() required final ListView list,
+          @ListItemViewConverter() required final List<ListItemView> items,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListOutputImpl;
 
@@ -244,8 +248,10 @@ abstract class _GetListOutput implements GetListOutput {
   @override
   String? get cursor;
   @override
+  @ListViewConverter()
   ListView get list;
   @override
+  @ListItemViewConverter()
   List<ListItemView> get items;
   @override
 

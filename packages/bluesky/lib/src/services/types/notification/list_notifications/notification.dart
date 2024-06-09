@@ -36,7 +36,7 @@ class Notification with _$Notification {
     String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
-    required ProfileView author,
+    @ProfileViewConverter() required ProfileView author,
 
     /// Expected values are 'like', 'repost', 'follow', 'mention', 'reply', and 'quote'.
     @UReasonConverter() required UReason reason,
@@ -44,7 +44,7 @@ class Notification with _$Notification {
     required Map<String, dynamic> record,
     required bool isRead,
     required DateTime indexedAt,
-    List<Label>? labels,
+    @LabelConverter() List<Label>? labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

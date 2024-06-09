@@ -21,6 +21,7 @@ GetAccountInfosOutput _$GetAccountInfosOutputFromJson(
 
 /// @nodoc
 mixin _$GetAccountInfosOutput {
+  @AccountViewConverter()
   List<AccountView> get infos => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +41,7 @@ abstract class $GetAccountInfosOutputCopyWith<$Res> {
       _$GetAccountInfosOutputCopyWithImpl<$Res, GetAccountInfosOutput>;
   @useResult
   $Res call(
-      {List<AccountView> infos,
+      {@AccountViewConverter() List<AccountView> infos,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -84,7 +85,7 @@ abstract class _$$GetAccountInfosOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<AccountView> infos,
+      {@AccountViewConverter() List<AccountView> infos,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -121,7 +122,7 @@ class __$$GetAccountInfosOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
   const _$GetAccountInfosOutputImpl(
-      {required final List<AccountView> infos,
+      {@AccountViewConverter() required final List<AccountView> infos,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _infos = infos,
@@ -132,6 +133,7 @@ class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
 
   final List<AccountView> _infos;
   @override
+  @AccountViewConverter()
   List<AccountView> get infos {
     if (_infos is EqualUnmodifiableListView) return _infos;
     // ignore: implicit_dynamic_type
@@ -188,7 +190,7 @@ class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
 
 abstract class _GetAccountInfosOutput implements GetAccountInfosOutput {
   const factory _GetAccountInfosOutput(
-          {required final List<AccountView> infos,
+          {@AccountViewConverter() required final List<AccountView> infos,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetAccountInfosOutputImpl;
 
@@ -196,6 +198,7 @@ abstract class _GetAccountInfosOutput implements GetAccountInfosOutput {
       _$GetAccountInfosOutputImpl.fromJson;
 
   @override
+  @AccountViewConverter()
   List<AccountView> get infos;
   @override
 

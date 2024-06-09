@@ -31,7 +31,7 @@ class Like with _$Like {
     @Default(appBskyFeedGetLikesLike) @JsonKey(name: r'$type') String $type,
     required DateTime indexedAt,
     required DateTime createdAt,
-    required ProfileView actor,
+    @ProfileViewConverter() required ProfileView actor,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

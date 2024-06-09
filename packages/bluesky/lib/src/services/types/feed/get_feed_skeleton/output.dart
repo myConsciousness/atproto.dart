@@ -25,7 +25,7 @@ class GetFeedSkeletonOutput with _$GetFeedSkeletonOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedSkeletonOutput({
     String? cursor,
-    required List<SkeletonFeedPost> feed,
+    @SkeletonFeedPostConverter() required List<SkeletonFeedPost> feed,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

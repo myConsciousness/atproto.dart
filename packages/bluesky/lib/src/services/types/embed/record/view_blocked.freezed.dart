@@ -28,6 +28,7 @@ mixin _$RecordViewBlocked {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
+  @BlockedAuthorConverter()
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -50,7 +51,7 @@ abstract class $RecordViewBlockedCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author,
+      @BlockedAuthorConverter() BlockedAuthor author,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlockedAuthorCopyWith<$Res> get author;
@@ -120,7 +121,7 @@ abstract class _$$RecordViewBlockedImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author,
+      @BlockedAuthorConverter() BlockedAuthor author,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -177,7 +178,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordViewBlocked,
       @AtUriConverter() required this.uri,
       required this.blocked,
-      required this.author,
+      @BlockedAuthorConverter() required this.author,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -197,6 +198,7 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
   @override
   final bool blocked;
   @override
+  @BlockedAuthorConverter()
   final BlockedAuthor author;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -253,7 +255,7 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final bool blocked,
-          required final BlockedAuthor author,
+          @BlockedAuthorConverter() required final BlockedAuthor author,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$RecordViewBlockedImpl;
 
@@ -273,6 +275,7 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
   @override
   bool get blocked;
   @override
+  @BlockedAuthorConverter()
   BlockedAuthor get author;
   @override
 

@@ -55,22 +55,30 @@ final class URecordEmbedConverter
 
       if (type == 'app.bsky.embed.images#view') {
         return URecordEmbed.imagesView(
-          data: ImagesView.fromJson(json),
+          data: ImagesView.fromJson(
+            const ImagesViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.embed.external#view') {
         return URecordEmbed.externalView(
-          data: ExternalView.fromJson(json),
+          data: ExternalView.fromJson(
+            const ExternalViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.embed.record#view') {
         return URecordEmbed.recordView(
-          data: RecordView.fromJson(json),
+          data: RecordView.fromJson(
+            const RecordViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.embed.recordWithMedia#view') {
         return URecordEmbed.recordWithMediaView(
-          data: RecordWithMediaView.fromJson(json),
+          data: RecordWithMediaView.fromJson(
+            const RecordWithMediaViewConverter().fromJson(json),
+          ),
         );
       }
 
@@ -82,10 +90,19 @@ final class URecordEmbedConverter
 
   @override
   Map<String, dynamic> toJson(URecordEmbed object) => object.when(
-        imagesView: (data) => data.toJson(),
-        externalView: (data) => data.toJson(),
-        recordView: (data) => data.toJson(),
-        recordWithMediaView: (data) => data.toJson(),
+        imagesView: (data) => const ImagesViewConverter().toJson(
+          data.toJson(),
+        ),
+        externalView: (data) => const ExternalViewConverter().toJson(
+          data.toJson(),
+        ),
+        recordView: (data) => const RecordViewConverter().toJson(
+          data.toJson(),
+        ),
+        recordWithMediaView: (data) =>
+            const RecordWithMediaViewConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

@@ -20,6 +20,7 @@ ServiceRecord _$ServiceRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServiceRecord {
+  @LabelerPoliciesConverter()
   LabelerPolicies get policies => throw _privateConstructorUsedError;
   @ULabelConverter()
   ULabel? get labels => throw _privateConstructorUsedError;
@@ -42,7 +43,7 @@ abstract class $ServiceRecordCopyWith<$Res> {
       _$ServiceRecordCopyWithImpl<$Res, ServiceRecord>;
   @useResult
   $Res call(
-      {LabelerPolicies policies,
+      {@LabelerPoliciesConverter() LabelerPolicies policies,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -119,7 +120,7 @@ abstract class _$$ServiceRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {LabelerPolicies policies,
+      {@LabelerPoliciesConverter() LabelerPolicies policies,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -172,7 +173,7 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ServiceRecordImpl implements _ServiceRecord {
   const _$ServiceRecordImpl(
-      {required this.policies,
+      {@LabelerPoliciesConverter() required this.policies,
       @ULabelConverter() this.labels,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
@@ -183,6 +184,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
       _$$ServiceRecordImplFromJson(json);
 
   @override
+  @LabelerPoliciesConverter()
   final LabelerPolicies policies;
   @override
   @ULabelConverter()
@@ -241,7 +243,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 
 abstract class _ServiceRecord implements ServiceRecord {
   const factory _ServiceRecord(
-          {required final LabelerPolicies policies,
+          {@LabelerPoliciesConverter() required final LabelerPolicies policies,
           @ULabelConverter() final ULabel? labels,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -251,6 +253,7 @@ abstract class _ServiceRecord implements ServiceRecord {
       _$ServiceRecordImpl.fromJson;
 
   @override
+  @LabelerPoliciesConverter()
   LabelerPolicies get policies;
   @override
   @ULabelConverter()

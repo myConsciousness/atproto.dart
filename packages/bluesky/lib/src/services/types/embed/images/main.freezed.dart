@@ -25,6 +25,7 @@ mixin _$Images {
   /// `app.bsky.embed.images`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @ImagesImageConverter()
   List<ImagesImage> get images => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +44,7 @@ abstract class $ImagesCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<ImagesImage> images,
+      @ImagesImageConverter() List<ImagesImage> images,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -90,7 +91,7 @@ abstract class _$$ImagesImplCopyWith<$Res> implements $ImagesCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<ImagesImage> images,
+      @ImagesImageConverter() List<ImagesImage> images,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -132,7 +133,7 @@ class __$$ImagesImplCopyWithImpl<$Res>
 class _$ImagesImpl implements _Images {
   const _$ImagesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImages,
-      required final List<ImagesImage> images,
+      @ImagesImageConverter() required final List<ImagesImage> images,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _images = images,
@@ -149,6 +150,7 @@ class _$ImagesImpl implements _Images {
   final String $type;
   final List<ImagesImage> _images;
   @override
+  @ImagesImageConverter()
   List<ImagesImage> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
@@ -207,7 +209,7 @@ class _$ImagesImpl implements _Images {
 abstract class _Images implements Images {
   const factory _Images(
           {@JsonKey(name: r'$type') final String $type,
-          required final List<ImagesImage> images,
+          @ImagesImageConverter() required final List<ImagesImage> images,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ImagesImpl;
 
@@ -221,6 +223,7 @@ abstract class _Images implements Images {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @ImagesImageConverter()
   List<ImagesImage> get images;
   @override
 

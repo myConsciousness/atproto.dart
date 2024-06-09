@@ -23,6 +23,7 @@ mixin _$GeneratorRecord {
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @FacetConverter()
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
@@ -55,7 +56,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       {String did,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
@@ -166,7 +167,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       {String did,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
@@ -249,7 +250,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       {required this.did,
       required this.displayName,
       this.description,
-      final List<Facet>? descriptionFacets,
+      @FacetConverter() final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       this.acceptsInteractions = false,
       @ULabelConverter() this.labels,
@@ -270,6 +271,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   final String? description;
   final List<Facet>? _descriptionFacets;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
@@ -367,7 +369,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
           {required final String did,
           required final String displayName,
           final String? description,
-          final List<Facet>? descriptionFacets,
+          @FacetConverter() final List<Facet>? descriptionFacets,
           @BlobConverter() final Blob? avatar,
           final bool acceptsInteractions,
           @ULabelConverter() final ULabel? labels,
@@ -385,6 +387,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
   String? get description;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets;
   @override
   @BlobConverter()

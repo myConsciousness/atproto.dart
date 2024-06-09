@@ -25,6 +25,7 @@ mixin _$SearchActorsSkeletonOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +48,7 @@ abstract class $SearchActorsSkeletonOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<SkeletonSearchActor> actors,
+      @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -103,7 +104,7 @@ abstract class _$$SearchActorsSkeletonOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<SkeletonSearchActor> actors,
+      @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -153,6 +154,7 @@ class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
   const _$SearchActorsSkeletonOutputImpl(
       {this.cursor,
       this.hitsTotal = 0,
+      @SkeletonSearchActorConverter()
       required final List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -172,6 +174,7 @@ class _$SearchActorsSkeletonOutputImpl implements _SearchActorsSkeletonOutput {
   final int hitsTotal;
   final List<SkeletonSearchActor> _actors;
   @override
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -236,6 +239,7 @@ abstract class _SearchActorsSkeletonOutput
   const factory _SearchActorsSkeletonOutput(
           {final String? cursor,
           final int hitsTotal,
+          @SkeletonSearchActorConverter()
           required final List<SkeletonSearchActor> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsSkeletonOutputImpl;
@@ -250,6 +254,7 @@ abstract class _SearchActorsSkeletonOutput
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors;
   @override
 

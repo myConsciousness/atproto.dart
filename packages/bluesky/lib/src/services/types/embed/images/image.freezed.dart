@@ -30,6 +30,7 @@ mixin _$ImagesImage {
 
   /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
+  @ImagesAspectRatioConverter()
   ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -52,7 +53,7 @@ abstract class $ImagesImageCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @BlobConverter() Blob image,
       String alt,
-      ImagesAspectRatio? aspectRatio,
+      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res> get image;
@@ -135,7 +136,7 @@ abstract class _$$ImagesImageImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @BlobConverter() Blob image,
       String alt,
-      ImagesAspectRatio? aspectRatio,
+      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -194,7 +195,7 @@ class _$ImagesImageImpl implements _ImagesImage {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesImage,
       @BlobConverter() required this.image,
       required this.alt,
-      this.aspectRatio,
+      @ImagesAspectRatioConverter() this.aspectRatio,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -216,6 +217,7 @@ class _$ImagesImageImpl implements _ImagesImage {
   @override
   final String alt;
   @override
+  @ImagesAspectRatioConverter()
   final ImagesAspectRatio? aspectRatio;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -272,7 +274,7 @@ abstract class _ImagesImage implements ImagesImage {
           {@JsonKey(name: r'$type') final String $type,
           @BlobConverter() required final Blob image,
           required final String alt,
-          final ImagesAspectRatio? aspectRatio,
+          @ImagesAspectRatioConverter() final ImagesAspectRatio? aspectRatio,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ImagesImageImpl;
 
@@ -294,6 +296,7 @@ abstract class _ImagesImage implements ImagesImage {
   /// Alt text description of the image, for accessibility.
   String get alt;
   @override
+  @ImagesAspectRatioConverter()
   ImagesAspectRatio? get aspectRatio;
   @override
 

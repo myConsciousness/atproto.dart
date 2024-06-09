@@ -33,11 +33,12 @@ class PostRecord with _$PostRecord {
 
     /// DEPRECATED: replaced by app.bsky.richtext.facet.
     @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+    @EntityConverter()
     List<Entity>? entities,
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
-    List<Facet>? facets,
-    ReplyRef? reply,
+    @FacetConverter() List<Facet>? facets,
+    @ReplyRefConverter() ReplyRef? reply,
     @UEmbedConverter() UEmbed? embed,
 
     /// Indicates human language of post primary text content.

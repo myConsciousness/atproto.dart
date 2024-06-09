@@ -20,6 +20,7 @@ GetProfilesOutput _$GetProfilesOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetProfilesOutput {
+  @ProfileViewDetailedConverter()
   List<ProfileViewDetailed> get profiles => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -39,7 +40,7 @@ abstract class $GetProfilesOutputCopyWith<$Res> {
       _$GetProfilesOutputCopyWithImpl<$Res, GetProfilesOutput>;
   @useResult
   $Res call(
-      {List<ProfileViewDetailed> profiles,
+      {@ProfileViewDetailedConverter() List<ProfileViewDetailed> profiles,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -81,7 +82,7 @@ abstract class _$$GetProfilesOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ProfileViewDetailed> profiles,
+      {@ProfileViewDetailedConverter() List<ProfileViewDetailed> profiles,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -117,7 +118,8 @@ class __$$GetProfilesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetProfilesOutputImpl implements _GetProfilesOutput {
   const _$GetProfilesOutputImpl(
-      {required final List<ProfileViewDetailed> profiles,
+      {@ProfileViewDetailedConverter()
+      required final List<ProfileViewDetailed> profiles,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _profiles = profiles,
@@ -128,6 +130,7 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
 
   final List<ProfileViewDetailed> _profiles;
   @override
+  @ProfileViewDetailedConverter()
   List<ProfileViewDetailed> get profiles {
     if (_profiles is EqualUnmodifiableListView) return _profiles;
     // ignore: implicit_dynamic_type
@@ -184,7 +187,8 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
 
 abstract class _GetProfilesOutput implements GetProfilesOutput {
   const factory _GetProfilesOutput(
-          {required final List<ProfileViewDetailed> profiles,
+          {@ProfileViewDetailedConverter()
+          required final List<ProfileViewDetailed> profiles,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetProfilesOutputImpl;
 
@@ -192,6 +196,7 @@ abstract class _GetProfilesOutput implements GetProfilesOutput {
       _$GetProfilesOutputImpl.fromJson;
 
   @override
+  @ProfileViewDetailedConverter()
   List<ProfileViewDetailed> get profiles;
   @override
 

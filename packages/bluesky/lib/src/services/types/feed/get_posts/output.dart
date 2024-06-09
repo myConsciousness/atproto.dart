@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetPostsOutput with _$GetPostsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPostsOutput({
-    required List<PostView> posts,
+    @PostViewConverter() required List<PostView> posts,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

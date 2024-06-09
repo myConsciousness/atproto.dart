@@ -21,6 +21,7 @@ GetListBlocksOutput _$GetListBlocksOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetListBlocksOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ListViewConverter()
   List<ListView> get lists => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetListBlocksOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetListBlocksOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetListBlocksOutputImplCopyWithImpl<$Res>
 class _$GetListBlocksOutputImpl implements _GetListBlocksOutput {
   const _$GetListBlocksOutputImpl(
       {this.cursor,
-      required final List<ListView> lists,
+      @ListViewConverter() required final List<ListView> lists,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _lists = lists,
@@ -144,6 +145,7 @@ class _$GetListBlocksOutputImpl implements _GetListBlocksOutput {
   final String? cursor;
   final List<ListView> _lists;
   @override
+  @ListViewConverter()
   List<ListView> get lists {
     if (_lists is EqualUnmodifiableListView) return _lists;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetListBlocksOutputImpl implements _GetListBlocksOutput {
 abstract class _GetListBlocksOutput implements GetListBlocksOutput {
   const factory _GetListBlocksOutput(
           {final String? cursor,
-          required final List<ListView> lists,
+          @ListViewConverter() required final List<ListView> lists,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListBlocksOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetListBlocksOutput implements GetListBlocksOutput {
   @override
   String? get cursor;
   @override
+  @ListViewConverter()
   List<ListView> get lists;
   @override
 

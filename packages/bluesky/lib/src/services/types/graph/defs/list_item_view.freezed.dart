@@ -27,6 +27,7 @@ mixin _$ListItemView {
   String get $type => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get subject => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -48,7 +49,7 @@ abstract class $ListItemViewCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      ProfileView subject,
+      @ProfileViewConverter() ProfileView subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get subject;
@@ -112,7 +113,7 @@ abstract class _$$ListItemViewImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      ProfileView subject,
+      @ProfileViewConverter() ProfileView subject,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -163,7 +164,7 @@ class _$ListItemViewImpl implements _ListItemView {
   const _$ListItemViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListItemView,
       @AtUriConverter() required this.uri,
-      required this.subject,
+      @ProfileViewConverter() required this.subject,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -181,6 +182,7 @@ class _$ListItemViewImpl implements _ListItemView {
   @AtUriConverter()
   final AtUri uri;
   @override
+  @ProfileViewConverter()
   final ProfileView subject;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -234,7 +236,7 @@ abstract class _ListItemView implements ListItemView {
   const factory _ListItemView(
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
-          required final ProfileView subject,
+          @ProfileViewConverter() required final ProfileView subject,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListItemViewImpl;
 
@@ -252,6 +254,7 @@ abstract class _ListItemView implements ListItemView {
   @AtUriConverter()
   AtUri get uri;
   @override
+  @ProfileViewConverter()
   ProfileView get subject;
   @override
 

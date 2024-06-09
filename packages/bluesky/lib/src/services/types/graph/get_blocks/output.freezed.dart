@@ -21,6 +21,7 @@ GetBlocksOutput _$GetBlocksOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetBlocksOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get blocks => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetBlocksOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> blocks,
+      @ProfileViewConverter() List<ProfileView> blocks,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetBlocksOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> blocks,
+      @ProfileViewConverter() List<ProfileView> blocks,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetBlocksOutputImplCopyWithImpl<$Res>
 class _$GetBlocksOutputImpl implements _GetBlocksOutput {
   const _$GetBlocksOutputImpl(
       {this.cursor,
-      required final List<ProfileView> blocks,
+      @ProfileViewConverter() required final List<ProfileView> blocks,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _blocks = blocks,
@@ -144,6 +145,7 @@ class _$GetBlocksOutputImpl implements _GetBlocksOutput {
   final String? cursor;
   final List<ProfileView> _blocks;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get blocks {
     if (_blocks is EqualUnmodifiableListView) return _blocks;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetBlocksOutputImpl implements _GetBlocksOutput {
 abstract class _GetBlocksOutput implements GetBlocksOutput {
   const factory _GetBlocksOutput(
           {final String? cursor,
-          required final List<ProfileView> blocks,
+          @ProfileViewConverter() required final List<ProfileView> blocks,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetBlocksOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetBlocksOutput implements GetBlocksOutput {
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get blocks;
   @override
 

@@ -21,6 +21,7 @@ ListReposOutput _$ListReposOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListReposOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @RepoConverter()
   List<Repo> get repos => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $ListReposOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<Repo> repos,
+      @RepoConverter() List<Repo> repos,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$ListReposOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<Repo> repos,
+      @RepoConverter() List<Repo> repos,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$ListReposOutputImplCopyWithImpl<$Res>
 class _$ListReposOutputImpl implements _ListReposOutput {
   const _$ListReposOutputImpl(
       {this.cursor,
-      required final List<Repo> repos,
+      @RepoConverter() required final List<Repo> repos,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _repos = repos,
@@ -144,6 +145,7 @@ class _$ListReposOutputImpl implements _ListReposOutput {
   final String? cursor;
   final List<Repo> _repos;
   @override
+  @RepoConverter()
   List<Repo> get repos {
     if (_repos is EqualUnmodifiableListView) return _repos;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$ListReposOutputImpl implements _ListReposOutput {
 abstract class _ListReposOutput implements ListReposOutput {
   const factory _ListReposOutput(
           {final String? cursor,
-          required final List<Repo> repos,
+          @RepoConverter() required final List<Repo> repos,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListReposOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _ListReposOutput implements ListReposOutput {
   @override
   String? get cursor;
   @override
+  @RepoConverter()
   List<Repo> get repos;
   @override
 

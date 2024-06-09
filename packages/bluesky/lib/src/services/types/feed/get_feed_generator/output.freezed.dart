@@ -21,6 +21,7 @@ GetFeedGeneratorOutput _$GetFeedGeneratorOutputFromJson(
 
 /// @nodoc
 mixin _$GetFeedGeneratorOutput {
+  @GeneratorViewConverter()
   GeneratorView get view => throw _privateConstructorUsedError;
 
   /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
@@ -46,7 +47,7 @@ abstract class $GetFeedGeneratorOutputCopyWith<$Res> {
       _$GetFeedGeneratorOutputCopyWithImpl<$Res, GetFeedGeneratorOutput>;
   @useResult
   $Res call(
-      {GeneratorView view,
+      {@GeneratorViewConverter() GeneratorView view,
       bool isOnline,
       bool isValid,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -112,7 +113,7 @@ abstract class _$$GetFeedGeneratorOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {GeneratorView view,
+      {@GeneratorViewConverter() GeneratorView view,
       bool isOnline,
       bool isValid,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -165,7 +166,7 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
   const _$GetFeedGeneratorOutputImpl(
-      {required this.view,
+      {@GeneratorViewConverter() required this.view,
       required this.isOnline,
       required this.isValid,
       @JsonKey(name: r'$unknown')
@@ -176,6 +177,7 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
       _$$GetFeedGeneratorOutputImplFromJson(json);
 
   @override
+  @GeneratorViewConverter()
   final GeneratorView view;
 
   /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
@@ -237,7 +239,7 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
 
 abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
   const factory _GetFeedGeneratorOutput(
-          {required final GeneratorView view,
+          {@GeneratorViewConverter() required final GeneratorView view,
           required final bool isOnline,
           required final bool isValid,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -247,6 +249,7 @@ abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
       _$GetFeedGeneratorOutputImpl.fromJson;
 
   @override
+  @GeneratorViewConverter()
   GeneratorView get view;
   @override
 

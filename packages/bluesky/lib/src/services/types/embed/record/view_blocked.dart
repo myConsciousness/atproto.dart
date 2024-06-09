@@ -34,7 +34,7 @@ class RecordViewBlocked with _$RecordViewBlocked {
     String $type,
     @AtUriConverter() required AtUri uri,
     required bool blocked,
-    required BlockedAuthor author,
+    @BlockedAuthorConverter() required BlockedAuthor author,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

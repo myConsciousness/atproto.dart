@@ -28,10 +28,12 @@ mixin _$RecordViewRecord {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewBasicConverter()
   ProfileViewBasic get author => throw _privateConstructorUsedError;
 
   /// The record data itself.
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
   int get repostCount => throw _privateConstructorUsedError;
@@ -60,9 +62,9 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileViewBasic author,
+      @ProfileViewBasicConverter() ProfileViewBasic author,
       Map<String, dynamic> value,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -172,9 +174,9 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileViewBasic author,
+      @ProfileViewBasicConverter() ProfileViewBasic author,
       Map<String, dynamic> value,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       int replyCount,
       int repostCount,
       int likeCount,
@@ -271,9 +273,9 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordViewRecord,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.author,
+      @ProfileViewBasicConverter() required this.author,
       required final Map<String, dynamic> value,
-      final List<Label>? labels,
+      @LabelConverter() final List<Label>? labels,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
@@ -301,6 +303,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   @override
   final String cid;
   @override
+  @ProfileViewBasicConverter()
   final ProfileViewBasic author;
 
   /// The record data itself.
@@ -316,6 +319,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
 
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -424,9 +428,9 @@ abstract class _RecordViewRecord implements RecordViewRecord {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileViewBasic author,
+          @ProfileViewBasicConverter() required final ProfileViewBasic author,
           required final Map<String, dynamic> value,
-          final List<Label>? labels,
+          @LabelConverter() final List<Label>? labels,
           final int replyCount,
           final int repostCount,
           final int likeCount,
@@ -451,12 +455,14 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
   String get cid;
   @override
+  @ProfileViewBasicConverter()
   ProfileViewBasic get author;
   @override
 
   /// The record data itself.
   Map<String, dynamic> get value;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
   int get replyCount;

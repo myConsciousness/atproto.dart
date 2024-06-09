@@ -31,8 +31,8 @@ class FeedViewPost with _$FeedViewPost {
     ///
     /// `app.bsky.feed.defs#feedViewPost`
     @Default(appBskyFeedDefsFeedViewPost) @JsonKey(name: r'$type') String $type,
-    required PostView post,
-    ReplyRef? reply,
+    @PostViewConverter() required PostView post,
+    @ReplyRefConverter() ReplyRef? reply,
     @UReasonConverter() UReason? reason,
 
     /// Context provided by feed generator that may be passed back alongside interactions.

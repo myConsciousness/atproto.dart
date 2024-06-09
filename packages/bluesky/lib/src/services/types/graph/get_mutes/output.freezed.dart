@@ -21,6 +21,7 @@ GetMutesOutput _$GetMutesOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetMutesOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get mutes => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetMutesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> mutes,
+      @ProfileViewConverter() List<ProfileView> mutes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetMutesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> mutes,
+      @ProfileViewConverter() List<ProfileView> mutes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetMutesOutputImplCopyWithImpl<$Res>
 class _$GetMutesOutputImpl implements _GetMutesOutput {
   const _$GetMutesOutputImpl(
       {this.cursor,
-      required final List<ProfileView> mutes,
+      @ProfileViewConverter() required final List<ProfileView> mutes,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _mutes = mutes,
@@ -144,6 +145,7 @@ class _$GetMutesOutputImpl implements _GetMutesOutput {
   final String? cursor;
   final List<ProfileView> _mutes;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get mutes {
     if (_mutes is EqualUnmodifiableListView) return _mutes;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetMutesOutputImpl implements _GetMutesOutput {
 abstract class _GetMutesOutput implements GetMutesOutput {
   const factory _GetMutesOutput(
           {final String? cursor,
-          required final List<ProfileView> mutes,
+          @ProfileViewConverter() required final List<ProfileView> mutes,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetMutesOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetMutesOutput implements GetMutesOutput {
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get mutes;
   @override
 

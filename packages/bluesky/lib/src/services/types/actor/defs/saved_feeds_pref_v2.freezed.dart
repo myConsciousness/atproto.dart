@@ -25,6 +25,7 @@ mixin _$SavedFeedsPrefV2 {
   /// `app.bsky.actor.defs#savedFeedsPrefV2`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @SavedFeedConverter()
   List<SavedFeed> get items => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $SavedFeedsPrefV2CopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<SavedFeed> items,
+      @SavedFeedConverter() List<SavedFeed> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -93,7 +94,7 @@ abstract class _$$SavedFeedsPrefV2ImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<SavedFeed> items,
+      @SavedFeedConverter() List<SavedFeed> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -135,7 +136,7 @@ class __$$SavedFeedsPrefV2ImplCopyWithImpl<$Res>
 class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
   const _$SavedFeedsPrefV2Impl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeedsPrefV2,
-      required final List<SavedFeed> items,
+      @SavedFeedConverter() required final List<SavedFeed> items,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _items = items,
@@ -152,6 +153,7 @@ class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
   final String $type;
   final List<SavedFeed> _items;
   @override
+  @SavedFeedConverter()
   List<SavedFeed> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
@@ -211,7 +213,7 @@ class _$SavedFeedsPrefV2Impl implements _SavedFeedsPrefV2 {
 abstract class _SavedFeedsPrefV2 implements SavedFeedsPrefV2 {
   const factory _SavedFeedsPrefV2(
           {@JsonKey(name: r'$type') final String $type,
-          required final List<SavedFeed> items,
+          @SavedFeedConverter() required final List<SavedFeed> items,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SavedFeedsPrefV2Impl;
 
@@ -226,6 +228,7 @@ abstract class _SavedFeedsPrefV2 implements SavedFeedsPrefV2 {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @SavedFeedConverter()
   List<SavedFeed> get items;
   @override
 

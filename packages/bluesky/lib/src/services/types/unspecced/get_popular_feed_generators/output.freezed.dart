@@ -22,6 +22,7 @@ GetPopularFeedGeneratorsOutput _$GetPopularFeedGeneratorsOutputFromJson(
 /// @nodoc
 mixin _$GetPopularFeedGeneratorsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,7 +45,7 @@ abstract class $GetPopularFeedGeneratorsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<GeneratorView> feeds,
+      @GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -94,7 +95,7 @@ abstract class _$$GetPopularFeedGeneratorsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<GeneratorView> feeds,
+      @GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -139,7 +140,7 @@ class _$GetPopularFeedGeneratorsOutputImpl
     implements _GetPopularFeedGeneratorsOutput {
   const _$GetPopularFeedGeneratorsOutputImpl(
       {this.cursor,
-      required final List<GeneratorView> feeds,
+      @GeneratorViewConverter() required final List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feeds = feeds,
@@ -153,6 +154,7 @@ class _$GetPopularFeedGeneratorsOutputImpl
   final String? cursor;
   final List<GeneratorView> _feeds;
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
@@ -214,7 +216,7 @@ abstract class _GetPopularFeedGeneratorsOutput
     implements GetPopularFeedGeneratorsOutput {
   const factory _GetPopularFeedGeneratorsOutput(
           {final String? cursor,
-          required final List<GeneratorView> feeds,
+          @GeneratorViewConverter() required final List<GeneratorView> feeds,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPopularFeedGeneratorsOutputImpl;
 
@@ -224,6 +226,7 @@ abstract class _GetPopularFeedGeneratorsOutput
   @override
   String? get cursor;
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds;
   @override
 

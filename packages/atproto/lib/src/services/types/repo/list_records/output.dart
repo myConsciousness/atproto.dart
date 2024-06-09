@@ -25,7 +25,7 @@ class ListRecordsOutput with _$ListRecordsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecordsOutput({
     String? cursor,
-    required List<Record> records,
+    @RecordConverter() required List<Record> records,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

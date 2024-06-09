@@ -25,7 +25,7 @@ class GetPopularFeedGeneratorsOutput with _$GetPopularFeedGeneratorsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetPopularFeedGeneratorsOutput({
     String? cursor,
-    required List<GeneratorView> feeds,
+    @GeneratorViewConverter() required List<GeneratorView> feeds,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

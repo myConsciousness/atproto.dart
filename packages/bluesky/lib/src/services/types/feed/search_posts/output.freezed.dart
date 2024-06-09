@@ -24,6 +24,7 @@ mixin _$SearchPostsOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
+  @PostViewConverter()
   List<PostView> get posts => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $SearchPostsOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<PostView> posts,
+      @PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -99,7 +100,7 @@ abstract class _$$SearchPostsOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<PostView> posts,
+      @PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -147,7 +148,7 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   const _$SearchPostsOutputImpl(
       {this.cursor,
       this.hitsTotal = 0,
-      required final List<PostView> posts,
+      @PostViewConverter() required final List<PostView> posts,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _posts = posts,
@@ -165,6 +166,7 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   final int hitsTotal;
   final List<PostView> _posts;
   @override
+  @PostViewConverter()
   List<PostView> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
@@ -228,7 +230,7 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   const factory _SearchPostsOutput(
           {final String? cursor,
           final int hitsTotal,
-          required final List<PostView> posts,
+          @PostViewConverter() required final List<PostView> posts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchPostsOutputImpl;
 
@@ -242,6 +244,7 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
+  @PostViewConverter()
   List<PostView> get posts;
   @override
 

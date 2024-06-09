@@ -22,6 +22,7 @@ GetFeedSkeletonOutput _$GetFeedSkeletonOutputFromJson(
 /// @nodoc
 mixin _$GetFeedSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @SkeletonFeedPostConverter()
   List<SkeletonFeedPost> get feed => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +43,7 @@ abstract class $GetFeedSkeletonOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<SkeletonFeedPost> feed,
+      @SkeletonFeedPostConverter() List<SkeletonFeedPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -92,7 +93,7 @@ abstract class _$$GetFeedSkeletonOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<SkeletonFeedPost> feed,
+      @SkeletonFeedPostConverter() List<SkeletonFeedPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -135,7 +136,7 @@ class __$$GetFeedSkeletonOutputImplCopyWithImpl<$Res>
 class _$GetFeedSkeletonOutputImpl implements _GetFeedSkeletonOutput {
   const _$GetFeedSkeletonOutputImpl(
       {this.cursor,
-      required final List<SkeletonFeedPost> feed,
+      @SkeletonFeedPostConverter() required final List<SkeletonFeedPost> feed,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feed = feed,
@@ -148,6 +149,7 @@ class _$GetFeedSkeletonOutputImpl implements _GetFeedSkeletonOutput {
   final String? cursor;
   final List<SkeletonFeedPost> _feed;
   @override
+  @SkeletonFeedPostConverter()
   List<SkeletonFeedPost> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
@@ -206,10 +208,10 @@ class _$GetFeedSkeletonOutputImpl implements _GetFeedSkeletonOutput {
 
 abstract class _GetFeedSkeletonOutput implements GetFeedSkeletonOutput {
   const factory _GetFeedSkeletonOutput(
-          {final String? cursor,
-          required final List<SkeletonFeedPost> feed,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$GetFeedSkeletonOutputImpl;
+      {final String? cursor,
+      @SkeletonFeedPostConverter() required final List<SkeletonFeedPost> feed,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$GetFeedSkeletonOutputImpl;
 
   factory _GetFeedSkeletonOutput.fromJson(Map<String, dynamic> json) =
       _$GetFeedSkeletonOutputImpl.fromJson;
@@ -217,6 +219,7 @@ abstract class _GetFeedSkeletonOutput implements GetFeedSkeletonOutput {
   @override
   String? get cursor;
   @override
+  @SkeletonFeedPostConverter()
   List<SkeletonFeedPost> get feed;
   @override
 

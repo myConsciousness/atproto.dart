@@ -25,6 +25,7 @@ mixin _$ImagesView {
   /// `app.bsky.embed.images#view`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @ImagesViewImageConverter()
   List<ImagesViewImage> get images => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $ImagesViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<ImagesViewImage> images,
+      @ImagesViewImageConverter() List<ImagesViewImage> images,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -93,7 +94,7 @@ abstract class _$$ImagesViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<ImagesViewImage> images,
+      @ImagesViewImageConverter() List<ImagesViewImage> images,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -135,7 +136,7 @@ class __$$ImagesViewImplCopyWithImpl<$Res>
 class _$ImagesViewImpl implements _ImagesView {
   const _$ImagesViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesView,
-      required final List<ImagesViewImage> images,
+      @ImagesViewImageConverter() required final List<ImagesViewImage> images,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _images = images,
@@ -152,6 +153,7 @@ class _$ImagesViewImpl implements _ImagesView {
   final String $type;
   final List<ImagesViewImage> _images;
   @override
+  @ImagesViewImageConverter()
   List<ImagesViewImage> get images {
     if (_images is EqualUnmodifiableListView) return _images;
     // ignore: implicit_dynamic_type
@@ -209,10 +211,10 @@ class _$ImagesViewImpl implements _ImagesView {
 
 abstract class _ImagesView implements ImagesView {
   const factory _ImagesView(
-          {@JsonKey(name: r'$type') final String $type,
-          required final List<ImagesViewImage> images,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$ImagesViewImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @ImagesViewImageConverter() required final List<ImagesViewImage> images,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$ImagesViewImpl;
 
   factory _ImagesView.fromJson(Map<String, dynamic> json) =
       _$ImagesViewImpl.fromJson;
@@ -225,6 +227,7 @@ abstract class _ImagesView implements ImagesView {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @ImagesViewImageConverter()
   List<ImagesViewImage> get images;
   @override
 

@@ -25,6 +25,7 @@ mixin _$External {
   /// `app.bsky.embed.external`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @ExternalExternalConverter()
   ExternalExternal get external => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,7 +45,7 @@ abstract class $ExternalCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ExternalExternal external,
+      @ExternalExternalConverter() ExternalExternal external,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ExternalExternalCopyWith<$Res> get external;
@@ -102,7 +103,7 @@ abstract class _$$ExternalImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ExternalExternal external,
+      @ExternalExternalConverter() ExternalExternal external,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -147,7 +148,7 @@ class __$$ExternalImplCopyWithImpl<$Res>
 class _$ExternalImpl implements _External {
   const _$ExternalImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternal,
-      required this.external,
+      @ExternalExternalConverter() required this.external,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -162,6 +163,7 @@ class _$ExternalImpl implements _External {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @ExternalExternalConverter()
   final ExternalExternal external;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -214,7 +216,7 @@ class _$ExternalImpl implements _External {
 abstract class _External implements External {
   const factory _External(
           {@JsonKey(name: r'$type') final String $type,
-          required final ExternalExternal external,
+          @ExternalExternalConverter() required final ExternalExternal external,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ExternalImpl;
 
@@ -229,6 +231,7 @@ abstract class _External implements External {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @ExternalExternalConverter()
   ExternalExternal get external;
   @override
 

@@ -28,10 +28,13 @@ mixin _$LabelerView {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get creator => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  @LabelerViewerStateConverter()
   LabelerViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -54,11 +57,11 @@ abstract class $LabelerViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       int likeCount,
-      LabelerViewerState viewer,
+      @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get creator;
@@ -157,11 +160,11 @@ abstract class _$$LabelerViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       int likeCount,
-      LabelerViewerState viewer,
+      @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -240,11 +243,11 @@ class _$LabelerViewImpl implements _LabelerView {
       {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerView,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.creator,
+      @ProfileViewConverter() required this.creator,
       this.likeCount = 0,
-      this.viewer = const LabelerViewerState(),
+      @LabelerViewerStateConverter() this.viewer = const LabelerViewerState(),
       required this.indexedAt,
-      final List<Label>? labels,
+      @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -265,17 +268,20 @@ class _$LabelerViewImpl implements _LabelerView {
   @override
   final String cid;
   @override
+  @ProfileViewConverter()
   final ProfileView creator;
   @override
   @JsonKey()
   final int likeCount;
   @override
   @JsonKey()
+  @LabelerViewerStateConverter()
   final LabelerViewerState viewer;
   @override
   final DateTime indexedAt;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -352,11 +358,11 @@ abstract class _LabelerView implements LabelerView {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileView creator,
+          @ProfileViewConverter() required final ProfileView creator,
           final int likeCount,
-          final LabelerViewerState viewer,
+          @LabelerViewerStateConverter() final LabelerViewerState viewer,
           required final DateTime indexedAt,
-          final List<Label>? labels,
+          @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelerViewImpl;
 
@@ -376,14 +382,17 @@ abstract class _LabelerView implements LabelerView {
   @override
   String get cid;
   @override
+  @ProfileViewConverter()
   ProfileView get creator;
   @override
   int get likeCount;
   @override
+  @LabelerViewerStateConverter()
   LabelerViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
 

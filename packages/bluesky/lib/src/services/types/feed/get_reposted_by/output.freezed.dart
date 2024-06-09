@@ -24,6 +24,7 @@ mixin _$GetRepostedByOutput {
   AtUri get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get repostedBy => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -46,7 +47,7 @@ abstract class $GetRepostedByOutputCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<ProfileView> repostedBy,
+      @ProfileViewConverter() List<ProfileView> repostedBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -106,7 +107,7 @@ abstract class _$$GetRepostedByOutputImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<ProfileView> repostedBy,
+      @ProfileViewConverter() List<ProfileView> repostedBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -160,7 +161,7 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
       {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
-      required final List<ProfileView> repostedBy,
+      @ProfileViewConverter() required final List<ProfileView> repostedBy,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _repostedBy = repostedBy,
@@ -178,6 +179,7 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
   final String? cursor;
   final List<ProfileView> _repostedBy;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get repostedBy {
     if (_repostedBy is EqualUnmodifiableListView) return _repostedBy;
     // ignore: implicit_dynamic_type
@@ -244,7 +246,7 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
           {@AtUriConverter() required final AtUri uri,
           final String? cid,
           final String? cursor,
-          required final List<ProfileView> repostedBy,
+          @ProfileViewConverter() required final List<ProfileView> repostedBy,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetRepostedByOutputImpl;
 
@@ -259,6 +261,7 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get repostedBy;
   @override
 

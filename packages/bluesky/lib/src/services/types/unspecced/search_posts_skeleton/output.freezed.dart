@@ -25,6 +25,7 @@ mixin _$SearchPostsSkeletonOutput {
 
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal => throw _privateConstructorUsedError;
+  @SkeletonSearchPostConverter()
   List<SkeletonSearchPost> get posts => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -46,7 +47,7 @@ abstract class $SearchPostsSkeletonOutputCopyWith<$Res> {
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<SkeletonSearchPost> posts,
+      @SkeletonSearchPostConverter() List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -102,7 +103,7 @@ abstract class _$$SearchPostsSkeletonOutputImplCopyWith<$Res>
   $Res call(
       {String? cursor,
       int hitsTotal,
-      List<SkeletonSearchPost> posts,
+      @SkeletonSearchPostConverter() List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -152,6 +153,7 @@ class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
   const _$SearchPostsSkeletonOutputImpl(
       {this.cursor,
       this.hitsTotal = 0,
+      @SkeletonSearchPostConverter()
       required final List<SkeletonSearchPost> posts,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -170,6 +172,7 @@ class _$SearchPostsSkeletonOutputImpl implements _SearchPostsSkeletonOutput {
   final int hitsTotal;
   final List<SkeletonSearchPost> _posts;
   @override
+  @SkeletonSearchPostConverter()
   List<SkeletonSearchPost> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
@@ -233,6 +236,7 @@ abstract class _SearchPostsSkeletonOutput implements SearchPostsSkeletonOutput {
   const factory _SearchPostsSkeletonOutput(
           {final String? cursor,
           final int hitsTotal,
+          @SkeletonSearchPostConverter()
           required final List<SkeletonSearchPost> posts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchPostsSkeletonOutputImpl;
@@ -247,6 +251,7 @@ abstract class _SearchPostsSkeletonOutput implements SearchPostsSkeletonOutput {
   /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
   int get hitsTotal;
   @override
+  @SkeletonSearchPostConverter()
   List<SkeletonSearchPost> get posts;
   @override
 

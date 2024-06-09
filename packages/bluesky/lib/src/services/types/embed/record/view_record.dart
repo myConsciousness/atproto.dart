@@ -36,11 +36,11 @@ class RecordViewRecord with _$RecordViewRecord {
     String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
-    required ProfileViewBasic author,
+    @ProfileViewBasicConverter() required ProfileViewBasic author,
 
     /// The record data itself.
     required Map<String, dynamic> value,
-    List<Label>? labels,
+    @LabelConverter() List<Label>? labels,
     @Default(0) int replyCount,
     @Default(0) int repostCount,
     @Default(0) int likeCount,

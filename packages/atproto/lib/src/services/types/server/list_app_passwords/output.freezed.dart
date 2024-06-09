@@ -21,6 +21,7 @@ ListAppPasswordsOutput _$ListAppPasswordsOutputFromJson(
 
 /// @nodoc
 mixin _$ListAppPasswordsOutput {
+  @AppPasswordConverter()
   List<AppPassword> get passwords => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +41,7 @@ abstract class $ListAppPasswordsOutputCopyWith<$Res> {
       _$ListAppPasswordsOutputCopyWithImpl<$Res, ListAppPasswordsOutput>;
   @useResult
   $Res call(
-      {List<AppPassword> passwords,
+      {@AppPasswordConverter() List<AppPassword> passwords,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -84,7 +85,7 @@ abstract class _$$ListAppPasswordsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<AppPassword> passwords,
+      {@AppPasswordConverter() List<AppPassword> passwords,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -122,7 +123,7 @@ class __$$ListAppPasswordsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
   const _$ListAppPasswordsOutputImpl(
-      {required final List<AppPassword> passwords,
+      {@AppPasswordConverter() required final List<AppPassword> passwords,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _passwords = passwords,
@@ -133,6 +134,7 @@ class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
 
   final List<AppPassword> _passwords;
   @override
+  @AppPasswordConverter()
   List<AppPassword> get passwords {
     if (_passwords is EqualUnmodifiableListView) return _passwords;
     // ignore: implicit_dynamic_type
@@ -190,7 +192,7 @@ class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
 
 abstract class _ListAppPasswordsOutput implements ListAppPasswordsOutput {
   const factory _ListAppPasswordsOutput(
-          {required final List<AppPassword> passwords,
+          {@AppPasswordConverter() required final List<AppPassword> passwords,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListAppPasswordsOutputImpl;
 
@@ -198,6 +200,7 @@ abstract class _ListAppPasswordsOutput implements ListAppPasswordsOutput {
       _$ListAppPasswordsOutputImpl.fromJson;
 
   @override
+  @AppPasswordConverter()
   List<AppPassword> get passwords;
   @override
 

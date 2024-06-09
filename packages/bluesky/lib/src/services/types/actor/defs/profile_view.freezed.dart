@@ -30,9 +30,12 @@ mixin _$ProfileView {
   String? get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  @ProfileAssociatedConverter()
   ProfileAssociated get associated => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
+  @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -58,10 +61,10 @@ abstract class $ProfileViewCopyWith<$Res> {
       String? displayName,
       String? description,
       String? avatar,
-      ProfileAssociated associated,
+      @ProfileAssociatedConverter() ProfileAssociated associated,
       DateTime? indexedAt,
-      ViewerState viewer,
-      List<Label>? labels,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -173,10 +176,10 @@ abstract class _$$ProfileViewImplCopyWith<$Res>
       String? displayName,
       String? description,
       String? avatar,
-      ProfileAssociated associated,
+      @ProfileAssociatedConverter() ProfileAssociated associated,
       DateTime? indexedAt,
-      ViewerState viewer,
-      List<Label>? labels,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -268,10 +271,10 @@ class _$ProfileViewImpl implements _ProfileView {
       this.displayName,
       this.description,
       this.avatar,
-      this.associated = const ProfileAssociated(),
+      @ProfileAssociatedConverter() this.associated = const ProfileAssociated(),
       this.indexedAt,
-      this.viewer = const ViewerState(),
-      final List<Label>? labels,
+      @ViewerStateConverter() this.viewer = const ViewerState(),
+      @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -298,14 +301,17 @@ class _$ProfileViewImpl implements _ProfileView {
   final String? avatar;
   @override
   @JsonKey()
+  @ProfileAssociatedConverter()
   final ProfileAssociated associated;
   @override
   final DateTime? indexedAt;
   @override
   @JsonKey()
+  @ViewerStateConverter()
   final ViewerState viewer;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -391,10 +397,10 @@ abstract class _ProfileView implements ProfileView {
           final String? displayName,
           final String? description,
           final String? avatar,
-          final ProfileAssociated associated,
+          @ProfileAssociatedConverter() final ProfileAssociated associated,
           final DateTime? indexedAt,
-          final ViewerState viewer,
-          final List<Label>? labels,
+          @ViewerStateConverter() final ViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ProfileViewImpl;
 
@@ -419,12 +425,15 @@ abstract class _ProfileView implements ProfileView {
   @override
   String? get avatar;
   @override
+  @ProfileAssociatedConverter()
   ProfileAssociated get associated;
   @override
   DateTime? get indexedAt;
   @override
+  @ViewerStateConverter()
   ViewerState get viewer;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
 

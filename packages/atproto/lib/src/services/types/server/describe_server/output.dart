@@ -35,10 +35,10 @@ class DescribeServerOutput with _$DescribeServerOutput {
     required List<String> availableUserDomains,
 
     /// URLs of service policy documents.
-    @Default(Links()) Links links,
+    @LinksConverter() @Default(Links()) Links links,
 
     /// Contact information
-    @Default(Contact()) Contact contact,
+    @ContactConverter() @Default(Contact()) Contact contact,
     required String did,
 
     /// Contains unknown objects not defined in Lexicon.

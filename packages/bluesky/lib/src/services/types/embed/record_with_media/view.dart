@@ -32,7 +32,7 @@ class RecordWithMediaView with _$RecordWithMediaView {
     @Default(appBskyEmbedRecordWithMediaView)
     @JsonKey(name: r'$type')
     String $type,
-    required RecordView record,
+    @RecordViewConverter() required RecordView record,
     @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
 
     /// Contains unknown objects not defined in Lexicon.

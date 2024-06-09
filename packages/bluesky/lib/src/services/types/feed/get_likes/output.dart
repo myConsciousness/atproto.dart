@@ -28,7 +28,7 @@ class GetLikesOutput with _$GetLikesOutput {
     @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
-    required List<Like> likes,
+    @LikeConverter() required List<Like> likes,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

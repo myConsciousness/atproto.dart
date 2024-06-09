@@ -25,6 +25,7 @@ mixin _$LabelersPref {
   /// `app.bsky.actor.defs#labelersPref`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @LabelerPrefItemConverter()
   List<LabelerPrefItem> get labelers => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $LabelersPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<LabelerPrefItem> labelers,
+      @LabelerPrefItemConverter() List<LabelerPrefItem> labelers,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -93,7 +94,7 @@ abstract class _$$LabelersPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<LabelerPrefItem> labelers,
+      @LabelerPrefItemConverter() List<LabelerPrefItem> labelers,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -135,7 +136,7 @@ class __$$LabelersPrefImplCopyWithImpl<$Res>
 class _$LabelersPrefImpl implements _LabelersPref {
   const _$LabelersPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsLabelersPref,
-      required final List<LabelerPrefItem> labelers,
+      @LabelerPrefItemConverter() required final List<LabelerPrefItem> labelers,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labelers = labelers,
@@ -152,6 +153,7 @@ class _$LabelersPrefImpl implements _LabelersPref {
   final String $type;
   final List<LabelerPrefItem> _labelers;
   @override
+  @LabelerPrefItemConverter()
   List<LabelerPrefItem> get labelers {
     if (_labelers is EqualUnmodifiableListView) return _labelers;
     // ignore: implicit_dynamic_type
@@ -209,10 +211,10 @@ class _$LabelersPrefImpl implements _LabelersPref {
 
 abstract class _LabelersPref implements LabelersPref {
   const factory _LabelersPref(
-          {@JsonKey(name: r'$type') final String $type,
-          required final List<LabelerPrefItem> labelers,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$LabelersPrefImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @LabelerPrefItemConverter() required final List<LabelerPrefItem> labelers,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$LabelersPrefImpl;
 
   factory _LabelersPref.fromJson(Map<String, dynamic> json) =
       _$LabelersPrefImpl.fromJson;
@@ -225,6 +227,7 @@ abstract class _LabelersPref implements LabelersPref {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @LabelerPrefItemConverter()
   List<LabelerPrefItem> get labelers;
   @override
 

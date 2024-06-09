@@ -22,6 +22,7 @@ GetSuggestionsSkeletonOutput _$GetSuggestionsSkeletonOutputFromJson(
 /// @nodoc
 mixin _$GetSuggestionsSkeletonOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,7 +45,7 @@ abstract class $GetSuggestionsSkeletonOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<SkeletonSearchActor> actors,
+      @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -94,7 +95,7 @@ abstract class _$$GetSuggestionsSkeletonOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<SkeletonSearchActor> actors,
+      @SkeletonSearchActorConverter() List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -139,6 +140,7 @@ class _$GetSuggestionsSkeletonOutputImpl
     implements _GetSuggestionsSkeletonOutput {
   const _$GetSuggestionsSkeletonOutputImpl(
       {this.cursor,
+      @SkeletonSearchActorConverter()
       required final List<SkeletonSearchActor> actors,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -153,6 +155,7 @@ class _$GetSuggestionsSkeletonOutputImpl
   final String? cursor;
   final List<SkeletonSearchActor> _actors;
   @override
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -214,6 +217,7 @@ abstract class _GetSuggestionsSkeletonOutput
     implements GetSuggestionsSkeletonOutput {
   const factory _GetSuggestionsSkeletonOutput(
           {final String? cursor,
+          @SkeletonSearchActorConverter()
           required final List<SkeletonSearchActor> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestionsSkeletonOutputImpl;
@@ -224,6 +228,7 @@ abstract class _GetSuggestionsSkeletonOutput
   @override
   String? get cursor;
   @override
+  @SkeletonSearchActorConverter()
   List<SkeletonSearchActor> get actors;
   @override
 

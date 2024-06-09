@@ -26,8 +26,8 @@ class GetListOutput with _$GetListOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetListOutput({
     String? cursor,
-    required ListView list,
-    required List<ListItemView> items,
+    @ListViewConverter() required ListView list,
+    @ListItemViewConverter() required List<ListItemView> items,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

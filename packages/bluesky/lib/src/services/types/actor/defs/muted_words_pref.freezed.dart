@@ -27,6 +27,7 @@ mixin _$MutedWordsPref {
   String get $type => throw _privateConstructorUsedError;
 
   /// A list of words the account owner has muted.
+  @MutedWordConverter()
   List<MutedWord> get items => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +48,7 @@ abstract class $MutedWordsPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<MutedWord> items,
+      @MutedWordConverter() List<MutedWord> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -95,7 +96,7 @@ abstract class _$$MutedWordsPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      List<MutedWord> items,
+      @MutedWordConverter() List<MutedWord> items,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -137,7 +138,7 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
 class _$MutedWordsPrefImpl implements _MutedWordsPref {
   const _$MutedWordsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsMutedWordsPref,
-      required final List<MutedWord> items,
+      @MutedWordConverter() required final List<MutedWord> items,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _items = items,
@@ -158,6 +159,7 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
 
   /// A list of words the account owner has muted.
   @override
+  @MutedWordConverter()
   List<MutedWord> get items {
     if (_items is EqualUnmodifiableListView) return _items;
     // ignore: implicit_dynamic_type
@@ -217,7 +219,7 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
 abstract class _MutedWordsPref implements MutedWordsPref {
   const factory _MutedWordsPref(
           {@JsonKey(name: r'$type') final String $type,
-          required final List<MutedWord> items,
+          @MutedWordConverter() required final List<MutedWord> items,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$MutedWordsPrefImpl;
 
@@ -234,6 +236,7 @@ abstract class _MutedWordsPref implements MutedWordsPref {
   @override
 
   /// A list of words the account owner has muted.
+  @MutedWordConverter()
   List<MutedWord> get items;
   @override
 

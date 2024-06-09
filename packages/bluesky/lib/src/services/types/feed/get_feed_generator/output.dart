@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedGeneratorOutput({
-    required GeneratorView view,
+    @GeneratorViewConverter() required GeneratorView view,
 
     /// Indicates whether the feed generator service has been online recently, or else seems to be inactive.
     required bool isOnline,

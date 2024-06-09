@@ -22,6 +22,7 @@ ListNotificationsOutput _$ListNotificationsOutputFromJson(
 /// @nodoc
 mixin _$ListNotificationsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @NotificationConverter()
   List<Notification> get notifications => throw _privateConstructorUsedError;
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
@@ -43,7 +44,7 @@ abstract class $ListNotificationsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<Notification> notifications,
+      @NotificationConverter() List<Notification> notifications,
       DateTime? seenAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -99,7 +100,7 @@ abstract class _$$ListNotificationsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<Notification> notifications,
+      @NotificationConverter() List<Notification> notifications,
       DateTime? seenAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -149,7 +150,7 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
 class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   const _$ListNotificationsOutputImpl(
       {this.cursor,
-      required final List<Notification> notifications,
+      @NotificationConverter() required final List<Notification> notifications,
       this.seenAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -163,6 +164,7 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   final String? cursor;
   final List<Notification> _notifications;
   @override
+  @NotificationConverter()
   List<Notification> get notifications {
     if (_notifications is EqualUnmodifiableListView) return _notifications;
     // ignore: implicit_dynamic_type
@@ -227,11 +229,11 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
 
 abstract class _ListNotificationsOutput implements ListNotificationsOutput {
   const factory _ListNotificationsOutput(
-          {final String? cursor,
-          required final List<Notification> notifications,
-          final DateTime? seenAt,
-          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$ListNotificationsOutputImpl;
+      {final String? cursor,
+      @NotificationConverter() required final List<Notification> notifications,
+      final DateTime? seenAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$ListNotificationsOutputImpl;
 
   factory _ListNotificationsOutput.fromJson(Map<String, dynamic> json) =
       _$ListNotificationsOutputImpl.fromJson;
@@ -239,6 +241,7 @@ abstract class _ListNotificationsOutput implements ListNotificationsOutput {
   @override
   String? get cursor;
   @override
+  @NotificationConverter()
   List<Notification> get notifications;
   @override
   DateTime? get seenAt;

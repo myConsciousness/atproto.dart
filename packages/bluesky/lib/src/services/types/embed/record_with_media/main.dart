@@ -30,7 +30,7 @@ class RecordWithMedia with _$RecordWithMedia {
     ///
     /// `app.bsky.embed.recordWithMedia`
     @Default(appBskyEmbedRecordWithMedia) @JsonKey(name: r'$type') String $type,
-    required Record record,
+    @RecordConverter() required Record record,
     @URecordWithMediaMediaConverter() required URecordWithMediaMedia media,
 
     /// Contains unknown objects not defined in Lexicon.

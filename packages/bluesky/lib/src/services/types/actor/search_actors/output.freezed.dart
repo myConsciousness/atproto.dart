@@ -21,6 +21,7 @@ SearchActorsOutput _$SearchActorsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SearchActorsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get actors => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $SearchActorsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> actors,
+      @ProfileViewConverter() List<ProfileView> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$SearchActorsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> actors,
+      @ProfileViewConverter() List<ProfileView> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$SearchActorsOutputImplCopyWithImpl<$Res>
 class _$SearchActorsOutputImpl implements _SearchActorsOutput {
   const _$SearchActorsOutputImpl(
       {this.cursor,
-      required final List<ProfileView> actors,
+      @ProfileViewConverter() required final List<ProfileView> actors,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _actors = actors,
@@ -144,6 +145,7 @@ class _$SearchActorsOutputImpl implements _SearchActorsOutput {
   final String? cursor;
   final List<ProfileView> _actors;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$SearchActorsOutputImpl implements _SearchActorsOutput {
 abstract class _SearchActorsOutput implements SearchActorsOutput {
   const factory _SearchActorsOutput(
           {final String? cursor,
-          required final List<ProfileView> actors,
+          @ProfileViewConverter() required final List<ProfileView> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _SearchActorsOutput implements SearchActorsOutput {
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get actors;
   @override
 

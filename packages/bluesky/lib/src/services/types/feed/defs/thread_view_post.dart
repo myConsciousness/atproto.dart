@@ -33,7 +33,7 @@ class ThreadViewPost with _$ThreadViewPost {
     @Default(appBskyFeedDefsThreadViewPost)
     @JsonKey(name: r'$type')
     String $type,
-    required PostView post,
+    @PostViewConverter() required PostView post,
     @UParentConverter() UParent? parent,
     @UReplyConverter() List<UReply>? replies,
 

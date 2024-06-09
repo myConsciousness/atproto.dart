@@ -32,7 +32,7 @@ class Facet with _$Facet {
     ///
     /// `app.bsky.richtext.facet`
     @Default(appBskyRichtextFacet) @JsonKey(name: r'$type') String $type,
-    required FacetByteSlice index,
+    @FacetByteSliceConverter() required FacetByteSlice index,
     @UFacetFeatureConverter() required List<UFacetFeature> features,
 
     /// Contains unknown objects not defined in Lexicon.

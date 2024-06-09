@@ -34,6 +34,7 @@ mixin _$ImagesViewImage {
 
   /// Alt text description of the image, for accessibility.
   String get alt => throw _privateConstructorUsedError;
+  @ImagesAspectRatioConverter()
   ImagesAspectRatio? get aspectRatio => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -57,7 +58,7 @@ abstract class $ImagesViewImageCopyWith<$Res> {
       String thumb,
       String fullsize,
       String alt,
-      ImagesAspectRatio? aspectRatio,
+      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ImagesAspectRatioCopyWith<$Res>? get aspectRatio;
@@ -137,7 +138,7 @@ abstract class _$$ImagesViewImageImplCopyWith<$Res>
       String thumb,
       String fullsize,
       String alt,
-      ImagesAspectRatio? aspectRatio,
+      @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -200,7 +201,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
       required this.thumb,
       required this.fullsize,
       required this.alt,
-      this.aspectRatio,
+      @ImagesAspectRatioConverter() this.aspectRatio,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -227,6 +228,7 @@ class _$ImagesViewImageImpl implements _ImagesViewImage {
   @override
   final String alt;
   @override
+  @ImagesAspectRatioConverter()
   final ImagesAspectRatio? aspectRatio;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -287,7 +289,7 @@ abstract class _ImagesViewImage implements ImagesViewImage {
           required final String thumb,
           required final String fullsize,
           required final String alt,
-          final ImagesAspectRatio? aspectRatio,
+          @ImagesAspectRatioConverter() final ImagesAspectRatio? aspectRatio,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ImagesViewImageImpl;
 
@@ -314,6 +316,7 @@ abstract class _ImagesViewImage implements ImagesViewImage {
   /// Alt text description of the image, for accessibility.
   String get alt;
   @override
+  @ImagesAspectRatioConverter()
   ImagesAspectRatio? get aspectRatio;
   @override
 

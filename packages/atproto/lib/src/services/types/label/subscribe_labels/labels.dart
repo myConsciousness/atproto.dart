@@ -32,7 +32,7 @@ class Labels with _$Labels {
     @JsonKey(name: r'$type')
     String $type,
     required int seq,
-    required List<Label> labels,
+    @LabelConverter() required List<Label> labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

@@ -26,6 +26,7 @@ mixin _$BlockedAuthor {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
+  @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +48,7 @@ abstract class $BlockedAuthorCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String did,
-      ViewerState viewer,
+      @ViewerStateConverter() ViewerState viewer,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ViewerStateCopyWith<$Res> get viewer;
@@ -111,7 +112,7 @@ abstract class _$$BlockedAuthorImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String did,
-      ViewerState viewer,
+      @ViewerStateConverter() ViewerState viewer,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -162,7 +163,7 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   const _$BlockedAuthorImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedAuthor,
       required this.did,
-      this.viewer = const ViewerState(),
+      @ViewerStateConverter() this.viewer = const ViewerState(),
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -180,6 +181,7 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   final String did;
   @override
   @JsonKey()
+  @ViewerStateConverter()
   final ViewerState viewer;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -233,7 +235,7 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
           {@JsonKey(name: r'$type') final String $type,
           required final String did,
-          final ViewerState viewer,
+          @ViewerStateConverter() final ViewerState viewer,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$BlockedAuthorImpl;
 
@@ -250,6 +252,7 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   @override
   String get did;
   @override
+  @ViewerStateConverter()
   ViewerState get viewer;
   @override
 

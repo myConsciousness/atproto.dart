@@ -29,14 +29,18 @@ mixin _$GeneratorView {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get creator => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @FacetConverter()
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   bool get acceptsInteractions => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
+  @GeneratorViewerStateConverter()
   GeneratorViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -61,15 +65,15 @@ abstract class $GeneratorViewCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       String cid,
       String did,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       bool acceptsInteractions,
-      List<Label>? labels,
-      GeneratorViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @GeneratorViewerStateConverter() GeneratorViewerState viewer,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -200,15 +204,15 @@ abstract class _$$GeneratorViewImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       String cid,
       String did,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       String displayName,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
       int likeCount,
       bool acceptsInteractions,
-      List<Label>? labels,
-      GeneratorViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @GeneratorViewerStateConverter() GeneratorViewerState viewer,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -319,14 +323,15 @@ class _$GeneratorViewImpl implements _GeneratorView {
       @AtUriConverter() required this.uri,
       required this.cid,
       required this.did,
-      required this.creator,
+      @ProfileViewConverter() required this.creator,
       required this.displayName,
       this.description,
-      final List<Facet>? descriptionFacets,
+      @FacetConverter() final List<Facet>? descriptionFacets,
       this.avatar,
       this.likeCount = 0,
       this.acceptsInteractions = false,
-      final List<Label>? labels,
+      @LabelConverter() final List<Label>? labels,
+      @GeneratorViewerStateConverter()
       this.viewer = const GeneratorViewerState(),
       required this.indexedAt,
       @JsonKey(name: r'$unknown')
@@ -352,6 +357,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
   @override
   final String did;
   @override
+  @ProfileViewConverter()
   final ProfileView creator;
   @override
   final String displayName;
@@ -359,6 +365,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
   final String? description;
   final List<Facet>? _descriptionFacets;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
@@ -378,6 +385,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
   final bool acceptsInteractions;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -388,6 +396,7 @@ class _$GeneratorViewImpl implements _GeneratorView {
 
   @override
   @JsonKey()
+  @GeneratorViewerStateConverter()
   final GeneratorViewerState viewer;
   @override
   final DateTime indexedAt;
@@ -477,15 +486,15 @@ abstract class _GeneratorView implements GeneratorView {
           @AtUriConverter() required final AtUri uri,
           required final String cid,
           required final String did,
-          required final ProfileView creator,
+          @ProfileViewConverter() required final ProfileView creator,
           required final String displayName,
           final String? description,
-          final List<Facet>? descriptionFacets,
+          @FacetConverter() final List<Facet>? descriptionFacets,
           final String? avatar,
           final int likeCount,
           final bool acceptsInteractions,
-          final List<Label>? labels,
-          final GeneratorViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
+          @GeneratorViewerStateConverter() final GeneratorViewerState viewer,
           required final DateTime indexedAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GeneratorViewImpl;
@@ -508,12 +517,14 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   String get did;
   @override
+  @ProfileViewConverter()
   ProfileView get creator;
   @override
   String get displayName;
   @override
   String? get description;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
@@ -522,8 +533,10 @@ abstract class _GeneratorView implements GeneratorView {
   @override
   bool get acceptsInteractions;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
+  @GeneratorViewerStateConverter()
   GeneratorViewerState get viewer;
   @override
   DateTime get indexedAt;

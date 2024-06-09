@@ -28,7 +28,9 @@ mixin _$ThreadgateView {
   @AtUriConverter()
   AtUri? get uri => throw _privateConstructorUsedError;
   String? get cid => throw _privateConstructorUsedError;
+  @ThreadgateRecordConverter()
   ThreadgateRecord? get record => throw _privateConstructorUsedError;
+  @ListViewBasicConverter()
   List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -51,8 +53,8 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? uri,
       String? cid,
-      ThreadgateRecord? record,
-      List<ListViewBasic>? lists,
+      @ThreadgateRecordConverter() ThreadgateRecord? record,
+      @ListViewBasicConverter() List<ListViewBasic>? lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ThreadgateRecordCopyWith<$Res>? get record;
@@ -131,8 +133,8 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? uri,
       String? cid,
-      ThreadgateRecord? record,
-      List<ListViewBasic>? lists,
+      @ThreadgateRecordConverter() ThreadgateRecord? record,
+      @ListViewBasicConverter() List<ListViewBasic>? lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -194,8 +196,8 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadgateView,
       @AtUriConverter() this.uri,
       this.cid,
-      this.record,
-      final List<ListViewBasic>? lists,
+      @ThreadgateRecordConverter() this.record,
+      @ListViewBasicConverter() final List<ListViewBasic>? lists,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _lists = lists,
@@ -216,9 +218,11 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
   @override
   final String? cid;
   @override
+  @ThreadgateRecordConverter()
   final ThreadgateRecord? record;
   final List<ListViewBasic>? _lists;
   @override
+  @ListViewBasicConverter()
   List<ListViewBasic>? get lists {
     final value = _lists;
     if (value == null) return null;
@@ -288,8 +292,8 @@ abstract class _ThreadgateView implements ThreadgateView {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() final AtUri? uri,
           final String? cid,
-          final ThreadgateRecord? record,
-          final List<ListViewBasic>? lists,
+          @ThreadgateRecordConverter() final ThreadgateRecord? record,
+          @ListViewBasicConverter() final List<ListViewBasic>? lists,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ThreadgateViewImpl;
 
@@ -309,8 +313,10 @@ abstract class _ThreadgateView implements ThreadgateView {
   @override
   String? get cid;
   @override
+  @ThreadgateRecordConverter()
   ThreadgateRecord? get record;
   @override
+  @ListViewBasicConverter()
   List<ListViewBasic>? get lists;
   @override
 

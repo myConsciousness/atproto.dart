@@ -62,7 +62,7 @@ class Commit with _$Commit {
 
     /// CAR file containing relevant blocks, as a diff since the previous repo state.
     required List<int> blocks,
-    required List<RepoOp> ops,
+    @RepoOpConverter() required List<RepoOp> ops,
     required List<String> blobs,
 
     /// Timestamp of when this message was originally broadcast.

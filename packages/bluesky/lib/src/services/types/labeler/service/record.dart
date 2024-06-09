@@ -25,7 +25,7 @@ part 'record.g.dart';
 class ServiceRecord with _$ServiceRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ServiceRecord({
-    required LabelerPolicies policies,
+    @LabelerPoliciesConverter() required LabelerPolicies policies,
     @ULabelConverter() ULabel? labels,
     required DateTime createdAt,
 

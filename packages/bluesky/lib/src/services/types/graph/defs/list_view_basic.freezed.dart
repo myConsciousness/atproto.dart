@@ -32,7 +32,9 @@ mixin _$ListViewBasic {
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
+  @ListViewerStateConverter()
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
@@ -59,8 +61,8 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
-      List<Label>? labels,
-      ListViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ListViewerStateConverter() ListViewerState viewer,
       DateTime? indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -168,8 +170,8 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? avatar,
-      List<Label>? labels,
-      ListViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ListViewerStateConverter() ListViewerState viewer,
       DateTime? indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -257,8 +259,8 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       required this.name,
       @UListPurposeConverter() required this.purpose,
       this.avatar,
-      final List<Label>? labels,
-      this.viewer = const ListViewerState(),
+      @LabelConverter() final List<Label>? labels,
+      @ListViewerStateConverter() this.viewer = const ListViewerState(),
       this.indexedAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -288,6 +290,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   final String? avatar;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -298,6 +301,7 @@ class _$ListViewBasicImpl implements _ListViewBasic {
 
   @override
   @JsonKey()
+  @ListViewerStateConverter()
   final ListViewerState viewer;
   @override
   final DateTime? indexedAt;
@@ -374,8 +378,8 @@ abstract class _ListViewBasic implements ListViewBasic {
           required final String name,
           @UListPurposeConverter() required final UListPurpose purpose,
           final String? avatar,
-          final List<Label>? labels,
-          final ListViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
+          @ListViewerStateConverter() final ListViewerState viewer,
           final DateTime? indexedAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListViewBasicImpl;
@@ -403,8 +407,10 @@ abstract class _ListViewBasic implements ListViewBasic {
   @override
   String? get avatar;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
+  @ListViewerStateConverter()
   ListViewerState get viewer;
   @override
   DateTime? get indexedAt;

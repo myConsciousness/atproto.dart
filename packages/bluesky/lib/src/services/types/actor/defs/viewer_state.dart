@@ -33,10 +33,10 @@ class ViewerState with _$ViewerState {
     /// `app.bsky.actor.defs#viewerState`
     @Default(appBskyActorDefsViewerState) @JsonKey(name: r'$type') String $type,
     @Default(false) bool muted,
-    ListViewBasic? mutedByList,
+    @ListViewBasicConverter() ListViewBasic? mutedByList,
     @Default(false) bool blockedBy,
     @AtUriConverter() AtUri? blocking,
-    ListViewBasic? blockingByList,
+    @ListViewBasicConverter() ListViewBasic? blockingByList,
     @AtUriConverter() AtUri? following,
     @AtUriConverter() AtUri? followedBy,
 

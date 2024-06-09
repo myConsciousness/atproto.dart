@@ -21,6 +21,7 @@ QueryLabelsOutput _$QueryLabelsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$QueryLabelsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label> get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $QueryLabelsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<Label> labels,
+      @LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$QueryLabelsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<Label> labels,
+      @LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$QueryLabelsOutputImplCopyWithImpl<$Res>
 class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
   const _$QueryLabelsOutputImpl(
       {this.cursor,
-      required final List<Label> labels,
+      @LabelConverter() required final List<Label> labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -144,6 +145,7 @@ class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
   final String? cursor;
   final List<Label> _labels;
   @override
+  @LabelConverter()
   List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$QueryLabelsOutputImpl implements _QueryLabelsOutput {
 abstract class _QueryLabelsOutput implements QueryLabelsOutput {
   const factory _QueryLabelsOutput(
           {final String? cursor,
-          required final List<Label> labels,
+          @LabelConverter() required final List<Label> labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$QueryLabelsOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _QueryLabelsOutput implements QueryLabelsOutput {
   @override
   String? get cursor;
   @override
+  @LabelConverter()
   List<Label> get labels;
   @override
 

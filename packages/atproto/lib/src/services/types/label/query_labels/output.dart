@@ -25,7 +25,7 @@ class QueryLabelsOutput with _$QueryLabelsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory QueryLabelsOutput({
     String? cursor,
-    required List<Label> labels,
+    @LabelConverter() required List<Label> labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

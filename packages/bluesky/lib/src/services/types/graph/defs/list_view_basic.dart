@@ -39,8 +39,10 @@ class ListViewBasic with _$ListViewBasic {
     required String name,
     @UListPurposeConverter() required UListPurpose purpose,
     String? avatar,
-    List<Label>? labels,
-    @Default(ListViewerState()) ListViewerState viewer,
+    @LabelConverter() List<Label>? labels,
+    @ListViewerStateConverter()
+    @Default(ListViewerState())
+    ListViewerState viewer,
     DateTime? indexedAt,
 
     /// Contains unknown objects not defined in Lexicon.

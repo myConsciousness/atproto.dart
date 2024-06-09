@@ -37,7 +37,7 @@ class InviteCode with _$InviteCode {
     required String forAccount,
     required String createdBy,
     required DateTime createdAt,
-    required List<InviteCodeUse> uses,
+    @InviteCodeUseConverter() required List<InviteCodeUse> uses,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

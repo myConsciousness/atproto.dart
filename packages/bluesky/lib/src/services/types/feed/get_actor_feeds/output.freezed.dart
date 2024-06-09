@@ -21,6 +21,7 @@ GetActorFeedsOutput _$GetActorFeedsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetActorFeedsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetActorFeedsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<GeneratorView> feeds,
+      @GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetActorFeedsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<GeneratorView> feeds,
+      @GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetActorFeedsOutputImplCopyWithImpl<$Res>
 class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
   const _$GetActorFeedsOutputImpl(
       {this.cursor,
-      required final List<GeneratorView> feeds,
+      @GeneratorViewConverter() required final List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feeds = feeds,
@@ -144,6 +145,7 @@ class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
   final String? cursor;
   final List<GeneratorView> _feeds;
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
 abstract class _GetActorFeedsOutput implements GetActorFeedsOutput {
   const factory _GetActorFeedsOutput(
           {final String? cursor,
-          required final List<GeneratorView> feeds,
+          @GeneratorViewConverter() required final List<GeneratorView> feeds,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetActorFeedsOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetActorFeedsOutput implements GetActorFeedsOutput {
   @override
   String? get cursor;
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds;
   @override
 

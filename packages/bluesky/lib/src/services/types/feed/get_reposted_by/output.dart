@@ -28,7 +28,7 @@ class GetRepostedByOutput with _$GetRepostedByOutput {
     @AtUriConverter() required AtUri uri,
     String? cid,
     String? cursor,
-    required List<ProfileView> repostedBy,
+    @ProfileViewConverter() required List<ProfileView> repostedBy,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

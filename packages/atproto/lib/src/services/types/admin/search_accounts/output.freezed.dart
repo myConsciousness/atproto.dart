@@ -21,6 +21,7 @@ SearchAccountsOutput _$SearchAccountsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$SearchAccountsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @AccountViewConverter()
   List<AccountView> get accounts => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $SearchAccountsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<AccountView> accounts,
+      @AccountViewConverter() List<AccountView> accounts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -90,7 +91,7 @@ abstract class _$$SearchAccountsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<AccountView> accounts,
+      @AccountViewConverter() List<AccountView> accounts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -132,7 +133,7 @@ class __$$SearchAccountsOutputImplCopyWithImpl<$Res>
 class _$SearchAccountsOutputImpl implements _SearchAccountsOutput {
   const _$SearchAccountsOutputImpl(
       {this.cursor,
-      required final List<AccountView> accounts,
+      @AccountViewConverter() required final List<AccountView> accounts,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _accounts = accounts,
@@ -145,6 +146,7 @@ class _$SearchAccountsOutputImpl implements _SearchAccountsOutput {
   final String? cursor;
   final List<AccountView> _accounts;
   @override
+  @AccountViewConverter()
   List<AccountView> get accounts {
     if (_accounts is EqualUnmodifiableListView) return _accounts;
     // ignore: implicit_dynamic_type
@@ -205,7 +207,7 @@ class _$SearchAccountsOutputImpl implements _SearchAccountsOutput {
 abstract class _SearchAccountsOutput implements SearchAccountsOutput {
   const factory _SearchAccountsOutput(
           {final String? cursor,
-          required final List<AccountView> accounts,
+          @AccountViewConverter() required final List<AccountView> accounts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchAccountsOutputImpl;
 
@@ -215,6 +217,7 @@ abstract class _SearchAccountsOutput implements SearchAccountsOutput {
   @override
   String? get cursor;
   @override
+  @AccountViewConverter()
   List<AccountView> get accounts;
   @override
 

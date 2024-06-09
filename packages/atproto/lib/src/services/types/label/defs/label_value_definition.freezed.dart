@@ -43,6 +43,7 @@ mixin _$LabelValueDefinition {
 
   /// Does the user need to have adult content enabled in order to configure this label?
   bool get adultOnly => throw _privateConstructorUsedError;
+  @LabelValueDefinitionStringsConverter()
   List<LabelValueDefinitionStrings> get locales =>
       throw _privateConstructorUsedError;
 
@@ -69,6 +70,7 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
       @UBlurConverter() UBlur blurs,
       @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
       bool adultOnly,
+      @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -180,6 +182,7 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
       @UBlurConverter() UBlur blurs,
       @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
       bool adultOnly,
+      @LabelValueDefinitionStringsConverter()
       List<LabelValueDefinitionStrings> locales,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -260,6 +263,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       @UBlurConverter() required this.blurs,
       @UDefaultSettingConverter() this.defaultSetting,
       this.adultOnly = false,
+      @LabelValueDefinitionStringsConverter()
       required final List<LabelValueDefinitionStrings> locales,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -301,6 +305,7 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
   final bool adultOnly;
   final List<LabelValueDefinitionStrings> _locales;
   @override
+  @LabelValueDefinitionStringsConverter()
   List<LabelValueDefinitionStrings> get locales {
     if (_locales is EqualUnmodifiableListView) return _locales;
     // ignore: implicit_dynamic_type
@@ -380,6 +385,7 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
           @UBlurConverter() required final UBlur blurs,
           @UDefaultSettingConverter() final UDefaultSetting? defaultSetting,
           final bool adultOnly,
+          @LabelValueDefinitionStringsConverter()
           required final List<LabelValueDefinitionStrings> locales,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelValueDefinitionImpl;
@@ -418,6 +424,7 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   /// Does the user need to have adult content enabled in order to configure this label?
   bool get adultOnly;
   @override
+  @LabelValueDefinitionStringsConverter()
   List<LabelValueDefinitionStrings> get locales;
   @override
 

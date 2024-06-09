@@ -50,17 +50,23 @@ final class URootConverter
 
       if (type == 'app.bsky.feed.defs#postView') {
         return URoot.postView(
-          data: PostView.fromJson(json),
+          data: PostView.fromJson(
+            const PostViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.defs#notFoundPost') {
         return URoot.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: NotFoundPost.fromJson(
+            const NotFoundPostConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.defs#blockedPost') {
         return URoot.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: BlockedPost.fromJson(
+            const BlockedPostConverter().fromJson(json),
+          ),
         );
       }
 
@@ -72,9 +78,15 @@ final class URootConverter
 
   @override
   Map<String, dynamic> toJson(URoot object) => object.when(
-        postView: (data) => data.toJson(),
-        notFoundPost: (data) => data.toJson(),
-        blockedPost: (data) => data.toJson(),
+        postView: (data) => const PostViewConverter().toJson(
+          data.toJson(),
+        ),
+        notFoundPost: (data) => const NotFoundPostConverter().toJson(
+          data.toJson(),
+        ),
+        blockedPost: (data) => const BlockedPostConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

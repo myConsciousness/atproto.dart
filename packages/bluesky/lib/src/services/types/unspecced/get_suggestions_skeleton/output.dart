@@ -25,7 +25,7 @@ class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestionsSkeletonOutput({
     String? cursor,
-    required List<SkeletonSearchActor> actors,
+    @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

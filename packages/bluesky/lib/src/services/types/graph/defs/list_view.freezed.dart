@@ -28,14 +28,18 @@ mixin _$ListView {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get creator => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @FacetConverter()
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   String? get avatar => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
+  @ListViewerStateConverter()
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -58,14 +62,14 @@ abstract class $ListViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
-      List<Label>? labels,
-      ListViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -194,14 +198,14 @@ abstract class _$$ListViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
+      @ProfileViewConverter() ProfileView creator,
       String name,
       @UListPurposeConverter() UListPurpose purpose,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       String? avatar,
-      List<Label>? labels,
-      ListViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ListViewerStateConverter() ListViewerState viewer,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -303,14 +307,14 @@ class _$ListViewImpl implements _ListView {
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListView,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.creator,
+      @ProfileViewConverter() required this.creator,
       required this.name,
       @UListPurposeConverter() required this.purpose,
       this.description,
-      final List<Facet>? descriptionFacets,
+      @FacetConverter() final List<Facet>? descriptionFacets,
       this.avatar,
-      final List<Label>? labels,
-      this.viewer = const ListViewerState(),
+      @LabelConverter() final List<Label>? labels,
+      @ListViewerStateConverter() this.viewer = const ListViewerState(),
       required this.indexedAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -333,6 +337,7 @@ class _$ListViewImpl implements _ListView {
   @override
   final String cid;
   @override
+  @ProfileViewConverter()
   final ProfileView creator;
   @override
   final String name;
@@ -343,6 +348,7 @@ class _$ListViewImpl implements _ListView {
   final String? description;
   final List<Facet>? _descriptionFacets;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
@@ -356,6 +362,7 @@ class _$ListViewImpl implements _ListView {
   final String? avatar;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -366,6 +373,7 @@ class _$ListViewImpl implements _ListView {
 
   @override
   @JsonKey()
+  @ListViewerStateConverter()
   final ListViewerState viewer;
   @override
   final DateTime indexedAt;
@@ -447,14 +455,14 @@ abstract class _ListView implements ListView {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileView creator,
+          @ProfileViewConverter() required final ProfileView creator,
           required final String name,
           @UListPurposeConverter() required final UListPurpose purpose,
           final String? description,
-          final List<Facet>? descriptionFacets,
+          @FacetConverter() final List<Facet>? descriptionFacets,
           final String? avatar,
-          final List<Label>? labels,
-          final ListViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
+          @ListViewerStateConverter() final ListViewerState viewer,
           required final DateTime indexedAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListViewImpl;
@@ -475,6 +483,7 @@ abstract class _ListView implements ListView {
   @override
   String get cid;
   @override
+  @ProfileViewConverter()
   ProfileView get creator;
   @override
   String get name;
@@ -484,12 +493,15 @@ abstract class _ListView implements ListView {
   @override
   String? get description;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets;
   @override
   String? get avatar;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
+  @ListViewerStateConverter()
   ListViewerState get viewer;
   @override
   DateTime get indexedAt;

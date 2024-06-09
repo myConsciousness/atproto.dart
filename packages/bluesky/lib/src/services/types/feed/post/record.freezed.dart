@@ -25,10 +25,13 @@ mixin _$PostRecord {
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
   @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+  @EntityConverter()
   List<Entity>? get entities => throw _privateConstructorUsedError;
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
+  @FacetConverter()
   List<Facet>? get facets => throw _privateConstructorUsedError;
+  @ReplyRefConverter()
   ReplyRef? get reply => throw _privateConstructorUsedError;
   @UEmbedConverter()
   UEmbed? get embed => throw _privateConstructorUsedError;
@@ -65,9 +68,10 @@ abstract class $PostRecordCopyWith<$Res> {
   $Res call(
       {String text,
       @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+      @EntityConverter()
       List<Entity>? entities,
-      List<Facet>? facets,
-      ReplyRef? reply,
+      @FacetConverter() List<Facet>? facets,
+      @ReplyRefConverter() ReplyRef? reply,
       @UEmbedConverter() UEmbed? embed,
       List<String>? langs,
       @ULabelConverter() ULabel? labels,
@@ -196,9 +200,10 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   $Res call(
       {String text,
       @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+      @EntityConverter()
       List<Entity>? entities,
-      List<Facet>? facets,
-      ReplyRef? reply,
+      @FacetConverter() List<Facet>? facets,
+      @ReplyRefConverter() ReplyRef? reply,
       @UEmbedConverter() UEmbed? embed,
       List<String>? langs,
       @ULabelConverter() ULabel? labels,
@@ -288,9 +293,10 @@ class _$PostRecordImpl implements _PostRecord {
   const _$PostRecordImpl(
       {required this.text,
       @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+      @EntityConverter()
       final List<Entity>? entities,
-      final List<Facet>? facets,
-      this.reply,
+      @FacetConverter() final List<Facet>? facets,
+      @ReplyRefConverter() this.reply,
       @UEmbedConverter() this.embed,
       final List<String>? langs,
       @ULabelConverter() this.labels,
@@ -317,6 +323,7 @@ class _$PostRecordImpl implements _PostRecord {
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
   @override
   @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+  @EntityConverter()
   List<Entity>? get entities {
     final value = _entities;
     if (value == null) return null;
@@ -330,6 +337,7 @@ class _$PostRecordImpl implements _PostRecord {
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
   @override
+  @FacetConverter()
   List<Facet>? get facets {
     final value = _facets;
     if (value == null) return null;
@@ -339,6 +347,7 @@ class _$PostRecordImpl implements _PostRecord {
   }
 
   @override
+  @ReplyRefConverter()
   final ReplyRef? reply;
   @override
   @UEmbedConverter()
@@ -447,9 +456,10 @@ abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
           {required final String text,
           @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+          @EntityConverter()
           final List<Entity>? entities,
-          final List<Facet>? facets,
-          final ReplyRef? reply,
+          @FacetConverter() final List<Facet>? facets,
+          @ReplyRefConverter() final ReplyRef? reply,
           @UEmbedConverter() final UEmbed? embed,
           final List<String>? langs,
           @ULabelConverter() final ULabel? labels,
@@ -469,12 +479,15 @@ abstract class _PostRecord implements PostRecord {
 
   /// DEPRECATED: replaced by app.bsky.richtext.facet.
   @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
+  @EntityConverter()
   List<Entity>? get entities;
   @override
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
+  @FacetConverter()
   List<Facet>? get facets;
   @override
+  @ReplyRefConverter()
   ReplyRef? get reply;
   @override
   @UEmbedConverter()

@@ -35,8 +35,8 @@ class ThreadgateView with _$ThreadgateView {
     String $type,
     @AtUriConverter() AtUri? uri,
     String? cid,
-    ThreadgateRecord? record,
-    List<ListViewBasic>? lists,
+    @ThreadgateRecordConverter() ThreadgateRecord? record,
+    @ListViewBasicConverter() List<ListViewBasic>? lists,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

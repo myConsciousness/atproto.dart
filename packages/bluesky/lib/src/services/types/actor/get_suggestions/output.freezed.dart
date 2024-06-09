@@ -21,6 +21,7 @@ GetSuggestionsOutput _$GetSuggestionsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetSuggestionsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get actors => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetSuggestionsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> actors,
+      @ProfileViewConverter() List<ProfileView> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -90,7 +91,7 @@ abstract class _$$GetSuggestionsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ProfileView> actors,
+      @ProfileViewConverter() List<ProfileView> actors,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -132,7 +133,7 @@ class __$$GetSuggestionsOutputImplCopyWithImpl<$Res>
 class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
   const _$GetSuggestionsOutputImpl(
       {this.cursor,
-      required final List<ProfileView> actors,
+      @ProfileViewConverter() required final List<ProfileView> actors,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _actors = actors,
@@ -145,6 +146,7 @@ class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
   final String? cursor;
   final List<ProfileView> _actors;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get actors {
     if (_actors is EqualUnmodifiableListView) return _actors;
     // ignore: implicit_dynamic_type
@@ -205,7 +207,7 @@ class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
 abstract class _GetSuggestionsOutput implements GetSuggestionsOutput {
   const factory _GetSuggestionsOutput(
           {final String? cursor,
-          required final List<ProfileView> actors,
+          @ProfileViewConverter() required final List<ProfileView> actors,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestionsOutputImpl;
 
@@ -215,6 +217,7 @@ abstract class _GetSuggestionsOutput implements GetSuggestionsOutput {
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get actors;
   @override
 

@@ -50,17 +50,23 @@ final class UReplyConverter
 
       if (type == 'app.bsky.feed.defs#threadViewPost') {
         return UReply.threadViewPost(
-          data: ThreadViewPost.fromJson(json),
+          data: ThreadViewPost.fromJson(
+            const ThreadViewPostConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.defs#notFoundPost') {
         return UReply.notFoundPost(
-          data: NotFoundPost.fromJson(json),
+          data: NotFoundPost.fromJson(
+            const NotFoundPostConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.defs#blockedPost') {
         return UReply.blockedPost(
-          data: BlockedPost.fromJson(json),
+          data: BlockedPost.fromJson(
+            const BlockedPostConverter().fromJson(json),
+          ),
         );
       }
 
@@ -72,9 +78,15 @@ final class UReplyConverter
 
   @override
   Map<String, dynamic> toJson(UReply object) => object.when(
-        threadViewPost: (data) => data.toJson(),
-        notFoundPost: (data) => data.toJson(),
-        blockedPost: (data) => data.toJson(),
+        threadViewPost: (data) => const ThreadViewPostConverter().toJson(
+          data.toJson(),
+        ),
+        notFoundPost: (data) => const NotFoundPostConverter().toJson(
+          data.toJson(),
+        ),
+        blockedPost: (data) => const BlockedPostConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

@@ -28,7 +28,7 @@ class SearchActorsSkeletonOutput with _$SearchActorsSkeletonOutput {
 
     /// Count of search hits. Optional, may be rounded/truncated, and may not be possible to paginate through all hits.
     @Default(0) int hitsTotal,
-    required List<SkeletonSearchActor> actors,
+    @SkeletonSearchActorConverter() required List<SkeletonSearchActor> actors,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

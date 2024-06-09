@@ -32,7 +32,7 @@ class BlockedAuthor with _$BlockedAuthor {
     @JsonKey(name: r'$type')
     String $type,
     required String did,
-    @Default(ViewerState()) ViewerState viewer,
+    @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

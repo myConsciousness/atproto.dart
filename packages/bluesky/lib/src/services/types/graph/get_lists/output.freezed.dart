@@ -21,6 +21,7 @@ GetListsOutput _$GetListsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetListsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @ListViewConverter()
   List<ListView> get lists => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetListsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetListsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<ListView> lists,
+      @ListViewConverter() List<ListView> lists,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetListsOutputImplCopyWithImpl<$Res>
 class _$GetListsOutputImpl implements _GetListsOutput {
   const _$GetListsOutputImpl(
       {this.cursor,
-      required final List<ListView> lists,
+      @ListViewConverter() required final List<ListView> lists,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _lists = lists,
@@ -144,6 +145,7 @@ class _$GetListsOutputImpl implements _GetListsOutput {
   final String? cursor;
   final List<ListView> _lists;
   @override
+  @ListViewConverter()
   List<ListView> get lists {
     if (_lists is EqualUnmodifiableListView) return _lists;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetListsOutputImpl implements _GetListsOutput {
 abstract class _GetListsOutput implements GetListsOutput {
   const factory _GetListsOutput(
           {final String? cursor,
-          required final List<ListView> lists,
+          @ListViewConverter() required final List<ListView> lists,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetListsOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetListsOutput implements GetListsOutput {
   @override
   String? get cursor;
   @override
+  @ListViewConverter()
   List<ListView> get lists;
   @override
 

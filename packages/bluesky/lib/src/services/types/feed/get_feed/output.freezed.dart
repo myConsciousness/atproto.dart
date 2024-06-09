@@ -21,6 +21,7 @@ GetFeedOutput _$GetFeedOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetFeedOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetFeedOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<FeedViewPost> feed,
+      @FeedViewPostConverter() List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetFeedOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<FeedViewPost> feed,
+      @FeedViewPostConverter() List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetFeedOutputImplCopyWithImpl<$Res>
 class _$GetFeedOutputImpl implements _GetFeedOutput {
   const _$GetFeedOutputImpl(
       {this.cursor,
-      required final List<FeedViewPost> feed,
+      @FeedViewPostConverter() required final List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feed = feed,
@@ -144,6 +145,7 @@ class _$GetFeedOutputImpl implements _GetFeedOutput {
   final String? cursor;
   final List<FeedViewPost> _feed;
   @override
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
@@ -202,7 +204,7 @@ class _$GetFeedOutputImpl implements _GetFeedOutput {
 abstract class _GetFeedOutput implements GetFeedOutput {
   const factory _GetFeedOutput(
           {final String? cursor,
-          required final List<FeedViewPost> feed,
+          @FeedViewPostConverter() required final List<FeedViewPost> feed,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetFeedOutputImpl;
 
@@ -212,6 +214,7 @@ abstract class _GetFeedOutput implements GetFeedOutput {
   @override
   String? get cursor;
   @override
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed;
   @override
 

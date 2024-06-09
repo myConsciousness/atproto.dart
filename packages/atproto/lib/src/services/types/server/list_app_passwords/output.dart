@@ -24,7 +24,7 @@ part 'output.g.dart';
 class ListAppPasswordsOutput with _$ListAppPasswordsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListAppPasswordsOutput({
-    required List<AppPassword> passwords,
+    @AppPasswordConverter() required List<AppPassword> passwords,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

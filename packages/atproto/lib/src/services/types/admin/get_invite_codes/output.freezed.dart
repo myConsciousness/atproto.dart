@@ -21,6 +21,7 @@ GetInviteCodesOutput _$GetInviteCodesOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetInviteCodesOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @InviteCodeConverter()
   List<InviteCode> get codes => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetInviteCodesOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<InviteCode> codes,
+      @InviteCodeConverter() List<InviteCode> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -90,7 +91,7 @@ abstract class _$$GetInviteCodesOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<InviteCode> codes,
+      @InviteCodeConverter() List<InviteCode> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -132,7 +133,7 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
 class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   const _$GetInviteCodesOutputImpl(
       {this.cursor,
-      required final List<InviteCode> codes,
+      @InviteCodeConverter() required final List<InviteCode> codes,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _codes = codes,
@@ -145,6 +146,7 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   final String? cursor;
   final List<InviteCode> _codes;
   @override
+  @InviteCodeConverter()
   List<InviteCode> get codes {
     if (_codes is EqualUnmodifiableListView) return _codes;
     // ignore: implicit_dynamic_type
@@ -205,7 +207,7 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
 abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
   const factory _GetInviteCodesOutput(
           {final String? cursor,
-          required final List<InviteCode> codes,
+          @InviteCodeConverter() required final List<InviteCode> codes,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetInviteCodesOutputImpl;
 
@@ -215,6 +217,7 @@ abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
   @override
   String? get cursor;
   @override
+  @InviteCodeConverter()
   List<InviteCode> get codes;
   @override
 

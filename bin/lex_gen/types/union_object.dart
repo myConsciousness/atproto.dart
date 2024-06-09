@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: lines_longer_than_80_chars
+
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
@@ -76,7 +78,8 @@ final class LexUnionObject {
     for (final ref in refs) {
       buffer.writeln("      if (type == '${ref.namespace}') {");
       buffer.writeln('        return U$name.${toFirstLower(ref.name!)}(');
-      buffer.writeln('          data: ${ref.name}.fromJson(json),');
+      buffer.writeln(
+          '          data: ${ref.name}.fromJson(const ${ref.name}Converter().fromJson(json),),');
       buffer.writeln('        );');
       buffer.writeln('      }');
     }
@@ -91,8 +94,8 @@ final class LexUnionObject {
     buffer.writeln(
         '  Map<String, dynamic> toJson(U$name object) => object.when(');
     for (final ref in refs) {
-      buffer
-          .writeln('    ${toFirstLower(ref.name!)}: (data) => data.toJson(),');
+      buffer.writeln(
+          '    ${toFirstLower(ref.name!)}: (data) => const ${ref.name}Converter().toJson(data.toJson(),),');
     }
     buffer.writeln('    unknown: (data) => data,');
     buffer.writeln('  );');

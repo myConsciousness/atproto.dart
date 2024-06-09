@@ -65,32 +65,44 @@ final class URecordRecordConverter
 
       if (type == 'app.bsky.embed.record#viewRecord') {
         return URecordRecord.recordViewRecord(
-          data: RecordViewRecord.fromJson(json),
+          data: RecordViewRecord.fromJson(
+            const RecordViewRecordConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.embed.record#viewNotFound') {
         return URecordRecord.recordViewNotFound(
-          data: RecordViewNotFound.fromJson(json),
+          data: RecordViewNotFound.fromJson(
+            const RecordViewNotFoundConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.embed.record#viewBlocked') {
         return URecordRecord.recordViewBlocked(
-          data: RecordViewBlocked.fromJson(json),
+          data: RecordViewBlocked.fromJson(
+            const RecordViewBlockedConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.feed.defs#generatorView') {
         return URecordRecord.generatorView(
-          data: GeneratorView.fromJson(json),
+          data: GeneratorView.fromJson(
+            const GeneratorViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.graph.defs#listView') {
         return URecordRecord.listView(
-          data: ListView.fromJson(json),
+          data: ListView.fromJson(
+            const ListViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.labeler.defs#labelerView') {
         return URecordRecord.labelerView(
-          data: LabelerView.fromJson(json),
+          data: LabelerView.fromJson(
+            const LabelerViewConverter().fromJson(json),
+          ),
         );
       }
 
@@ -102,12 +114,25 @@ final class URecordRecordConverter
 
   @override
   Map<String, dynamic> toJson(URecordRecord object) => object.when(
-        recordViewRecord: (data) => data.toJson(),
-        recordViewNotFound: (data) => data.toJson(),
-        recordViewBlocked: (data) => data.toJson(),
-        generatorView: (data) => data.toJson(),
-        listView: (data) => data.toJson(),
-        labelerView: (data) => data.toJson(),
+        recordViewRecord: (data) => const RecordViewRecordConverter().toJson(
+          data.toJson(),
+        ),
+        recordViewNotFound: (data) =>
+            const RecordViewNotFoundConverter().toJson(
+          data.toJson(),
+        ),
+        recordViewBlocked: (data) => const RecordViewBlockedConverter().toJson(
+          data.toJson(),
+        ),
+        generatorView: (data) => const GeneratorViewConverter().toJson(
+          data.toJson(),
+        ),
+        listView: (data) => const ListViewConverter().toJson(
+          data.toJson(),
+        ),
+        labelerView: (data) => const LabelerViewConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

@@ -25,7 +25,7 @@ class SearchActorsOutput with _$SearchActorsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsOutput({
     String? cursor,
-    required List<ProfileView> actors,
+    @ProfileViewConverter() required List<ProfileView> actors,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

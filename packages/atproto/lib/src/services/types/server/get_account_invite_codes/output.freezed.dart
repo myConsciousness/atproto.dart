@@ -21,6 +21,7 @@ GetAccountInviteCodesOutput _$GetAccountInviteCodesOutputFromJson(
 
 /// @nodoc
 mixin _$GetAccountInviteCodesOutput {
+  @InviteCodeConverter()
   List<InviteCode> get codes => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +43,7 @@ abstract class $GetAccountInviteCodesOutputCopyWith<$Res> {
           GetAccountInviteCodesOutput>;
   @useResult
   $Res call(
-      {List<InviteCode> codes,
+      {@InviteCodeConverter() List<InviteCode> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -86,7 +87,7 @@ abstract class _$$GetAccountInviteCodesOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<InviteCode> codes,
+      {@InviteCodeConverter() List<InviteCode> codes,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -125,7 +126,7 @@ class __$$GetAccountInviteCodesOutputImplCopyWithImpl<$Res>
 class _$GetAccountInviteCodesOutputImpl
     implements _GetAccountInviteCodesOutput {
   const _$GetAccountInviteCodesOutputImpl(
-      {required final List<InviteCode> codes,
+      {@InviteCodeConverter() required final List<InviteCode> codes,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _codes = codes,
@@ -137,6 +138,7 @@ class _$GetAccountInviteCodesOutputImpl
 
   final List<InviteCode> _codes;
   @override
+  @InviteCodeConverter()
   List<InviteCode> get codes {
     if (_codes is EqualUnmodifiableListView) return _codes;
     // ignore: implicit_dynamic_type
@@ -194,7 +196,7 @@ class _$GetAccountInviteCodesOutputImpl
 abstract class _GetAccountInviteCodesOutput
     implements GetAccountInviteCodesOutput {
   const factory _GetAccountInviteCodesOutput(
-          {required final List<InviteCode> codes,
+          {@InviteCodeConverter() required final List<InviteCode> codes,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetAccountInviteCodesOutputImpl;
 
@@ -202,6 +204,7 @@ abstract class _GetAccountInviteCodesOutput
       _$GetAccountInviteCodesOutputImpl.fromJson;
 
   @override
+  @InviteCodeConverter()
   List<InviteCode> get codes;
   @override
 

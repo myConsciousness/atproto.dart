@@ -25,7 +25,7 @@ class GetInviteCodesOutput with _$GetInviteCodesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetInviteCodesOutput({
     String? cursor,
-    required List<InviteCode> codes,
+    @InviteCodeConverter() required List<InviteCode> codes,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

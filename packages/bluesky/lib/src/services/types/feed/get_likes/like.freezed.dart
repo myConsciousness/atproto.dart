@@ -27,6 +27,7 @@ mixin _$Like {
   String get $type => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get actor => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -47,7 +48,7 @@ abstract class $LikeCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       DateTime indexedAt,
       DateTime createdAt,
-      ProfileView actor,
+      @ProfileViewConverter() ProfileView actor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get actor;
@@ -116,7 +117,7 @@ abstract class _$$LikeImplCopyWith<$Res> implements $LikeCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       DateTime indexedAt,
       DateTime createdAt,
-      ProfileView actor,
+      @ProfileViewConverter() ProfileView actor,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -172,7 +173,7 @@ class _$LikeImpl implements _Like {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedGetLikesLike,
       required this.indexedAt,
       required this.createdAt,
-      required this.actor,
+      @ProfileViewConverter() required this.actor,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -191,6 +192,7 @@ class _$LikeImpl implements _Like {
   @override
   final DateTime createdAt;
   @override
+  @ProfileViewConverter()
   final ProfileView actor;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -248,7 +250,7 @@ abstract class _Like implements Like {
           {@JsonKey(name: r'$type') final String $type,
           required final DateTime indexedAt,
           required final DateTime createdAt,
-          required final ProfileView actor,
+          @ProfileViewConverter() required final ProfileView actor,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LikeImpl;
 
@@ -266,6 +268,7 @@ abstract class _Like implements Like {
   @override
   DateTime get createdAt;
   @override
+  @ProfileViewConverter()
   ProfileView get actor;
   @override
 

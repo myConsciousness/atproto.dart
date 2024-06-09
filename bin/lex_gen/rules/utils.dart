@@ -136,6 +136,7 @@ DataType getDataType(
       return DataType(
         name: '${toFirstUpper(objectName)}Record',
         importPath: '../../$path/$objectName/record.dart',
+        converter: '${toFirstUpper(objectName)}RecordConverter',
       );
     }
 
@@ -216,7 +217,7 @@ DataType getDataType(
     return DataType(
       name: objectName,
       importPath: convention.getRelativeImportPath(context.docId),
-      converter: isKnownValues ? '${objectName}Converter' : null,
+      converter: '${objectName}Converter',
     );
   }
 

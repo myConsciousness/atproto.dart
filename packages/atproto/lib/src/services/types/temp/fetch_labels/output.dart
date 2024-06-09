@@ -24,7 +24,7 @@ part 'output.g.dart';
 class FetchLabelsOutput with _$FetchLabelsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory FetchLabelsOutput({
-    required List<Label> labels,
+    @LabelConverter() required List<Label> labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

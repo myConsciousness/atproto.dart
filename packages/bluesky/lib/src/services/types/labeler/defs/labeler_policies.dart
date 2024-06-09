@@ -36,6 +36,7 @@ class LabelerPolicies with _$LabelerPolicies {
     @ULabelValueConverter() required List<ULabelValue> labelValues,
 
     /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+    @LabelValueDefinitionConverter()
     List<LabelValueDefinition>? labelValueDefinitions,
 
     /// Contains unknown objects not defined in Lexicon.

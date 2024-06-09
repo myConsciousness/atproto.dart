@@ -20,8 +20,10 @@ GetFollowsOutput _$GetFollowsOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetFollowsOutput {
+  @ProfileViewConverter()
   ProfileView get subject => throw _privateConstructorUsedError;
   String? get cursor => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   List<ProfileView> get follows => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,9 +43,9 @@ abstract class $GetFollowsOutputCopyWith<$Res> {
       _$GetFollowsOutputCopyWithImpl<$Res, GetFollowsOutput>;
   @useResult
   $Res call(
-      {ProfileView subject,
+      {@ProfileViewConverter() ProfileView subject,
       String? cursor,
-      List<ProfileView> follows,
+      @ProfileViewConverter() List<ProfileView> follows,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get subject;
@@ -105,9 +107,9 @@ abstract class _$$GetFollowsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {ProfileView subject,
+      {@ProfileViewConverter() ProfileView subject,
       String? cursor,
-      List<ProfileView> follows,
+      @ProfileViewConverter() List<ProfileView> follows,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -156,9 +158,9 @@ class __$$GetFollowsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetFollowsOutputImpl implements _GetFollowsOutput {
   const _$GetFollowsOutputImpl(
-      {required this.subject,
+      {@ProfileViewConverter() required this.subject,
       this.cursor,
-      required final List<ProfileView> follows,
+      @ProfileViewConverter() required final List<ProfileView> follows,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _follows = follows,
@@ -168,11 +170,13 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
       _$$GetFollowsOutputImplFromJson(json);
 
   @override
+  @ProfileViewConverter()
   final ProfileView subject;
   @override
   final String? cursor;
   final List<ProfileView> _follows;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get follows {
     if (_follows is EqualUnmodifiableListView) return _follows;
     // ignore: implicit_dynamic_type
@@ -233,9 +237,9 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
 
 abstract class _GetFollowsOutput implements GetFollowsOutput {
   const factory _GetFollowsOutput(
-          {required final ProfileView subject,
+          {@ProfileViewConverter() required final ProfileView subject,
           final String? cursor,
-          required final List<ProfileView> follows,
+          @ProfileViewConverter() required final List<ProfileView> follows,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetFollowsOutputImpl;
 
@@ -243,10 +247,12 @@ abstract class _GetFollowsOutput implements GetFollowsOutput {
       _$GetFollowsOutputImpl.fromJson;
 
   @override
+  @ProfileViewConverter()
   ProfileView get subject;
   @override
   String? get cursor;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get follows;
   @override
 

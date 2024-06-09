@@ -25,7 +25,7 @@ class SearchAccountsOutput with _$SearchAccountsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchAccountsOutput({
     String? cursor,
-    required List<AccountView> accounts,
+    @AccountViewConverter() required List<AccountView> accounts,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

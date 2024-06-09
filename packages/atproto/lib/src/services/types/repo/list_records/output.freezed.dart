@@ -21,6 +21,7 @@ ListRecordsOutput _$ListRecordsOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListRecordsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @RecordConverter()
   List<Record> get records => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $ListRecordsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<Record> records,
+      @RecordConverter() List<Record> records,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$ListRecordsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<Record> records,
+      @RecordConverter() List<Record> records,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$ListRecordsOutputImplCopyWithImpl<$Res>
 class _$ListRecordsOutputImpl implements _ListRecordsOutput {
   const _$ListRecordsOutputImpl(
       {this.cursor,
-      required final List<Record> records,
+      @RecordConverter() required final List<Record> records,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _records = records,
@@ -144,6 +145,7 @@ class _$ListRecordsOutputImpl implements _ListRecordsOutput {
   final String? cursor;
   final List<Record> _records;
   @override
+  @RecordConverter()
   List<Record> get records {
     if (_records is EqualUnmodifiableListView) return _records;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$ListRecordsOutputImpl implements _ListRecordsOutput {
 abstract class _ListRecordsOutput implements ListRecordsOutput {
   const factory _ListRecordsOutput(
           {final String? cursor,
-          required final List<Record> records,
+          @RecordConverter() required final List<Record> records,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListRecordsOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _ListRecordsOutput implements ListRecordsOutput {
   @override
   String? get cursor;
   @override
+  @RecordConverter()
   List<Record> get records;
   @override
 

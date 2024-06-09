@@ -38,15 +38,17 @@ class GeneratorView with _$GeneratorView {
     @AtUriConverter() required AtUri uri,
     required String cid,
     required String did,
-    required ProfileView creator,
+    @ProfileViewConverter() required ProfileView creator,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    @FacetConverter() List<Facet>? descriptionFacets,
     String? avatar,
     @Default(0) int likeCount,
     @Default(false) bool acceptsInteractions,
-    List<Label>? labels,
-    @Default(GeneratorViewerState()) GeneratorViewerState viewer,
+    @LabelConverter() List<Label>? labels,
+    @GeneratorViewerStateConverter()
+    @Default(GeneratorViewerState())
+    GeneratorViewerState viewer,
     required DateTime indexedAt,
 
     /// Contains unknown objects not defined in Lexicon.

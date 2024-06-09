@@ -25,6 +25,7 @@ mixin _$ReasonRepost {
   /// `app.bsky.feed.defs#reasonRepost`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @ProfileViewBasicConverter()
   ProfileViewBasic get by => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
@@ -46,7 +47,7 @@ abstract class $ReasonRepostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ProfileViewBasic by,
+      @ProfileViewBasicConverter() ProfileViewBasic by,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -110,7 +111,7 @@ abstract class _$$ReasonRepostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      ProfileViewBasic by,
+      @ProfileViewBasicConverter() ProfileViewBasic by,
       DateTime indexedAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -161,7 +162,7 @@ class __$$ReasonRepostImplCopyWithImpl<$Res>
 class _$ReasonRepostImpl implements _ReasonRepost {
   const _$ReasonRepostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReasonRepost,
-      required this.by,
+      @ProfileViewBasicConverter() required this.by,
       required this.indexedAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -177,6 +178,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @ProfileViewBasicConverter()
   final ProfileViewBasic by;
   @override
   final DateTime indexedAt;
@@ -232,7 +234,7 @@ class _$ReasonRepostImpl implements _ReasonRepost {
 abstract class _ReasonRepost implements ReasonRepost {
   const factory _ReasonRepost(
           {@JsonKey(name: r'$type') final String $type,
-          required final ProfileViewBasic by,
+          @ProfileViewBasicConverter() required final ProfileViewBasic by,
           required final DateTime indexedAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ReasonRepostImpl;
@@ -248,6 +250,7 @@ abstract class _ReasonRepost implements ReasonRepost {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @ProfileViewBasicConverter()
   ProfileViewBasic get by;
   @override
   DateTime get indexedAt;

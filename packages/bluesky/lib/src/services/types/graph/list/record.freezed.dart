@@ -27,6 +27,7 @@ mixin _$ListRecord {
   /// Display name for list; can not be empty.
   String get name => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
+  @FacetConverter()
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
@@ -54,7 +55,7 @@ abstract class $ListRecordCopyWith<$Res> {
       {@UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt,
@@ -168,7 +169,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       {@UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
-      List<Facet>? descriptionFacets,
+      @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
       DateTime createdAt,
@@ -247,7 +248,7 @@ class _$ListRecordImpl implements _ListRecord {
       {@UListPurposeConverter() required this.purpose,
       required this.name,
       this.description,
-      final List<Facet>? descriptionFacets,
+      @FacetConverter() final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       @ULabelConverter() this.labels,
       required this.createdAt,
@@ -271,6 +272,7 @@ class _$ListRecordImpl implements _ListRecord {
   final String? description;
   final List<Facet>? _descriptionFacets;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets {
     final value = _descriptionFacets;
     if (value == null) return null;
@@ -356,7 +358,7 @@ abstract class _ListRecord implements ListRecord {
           {@UListPurposeConverter() required final UListPurpose purpose,
           required final String name,
           final String? description,
-          final List<Facet>? descriptionFacets,
+          @FacetConverter() final List<Facet>? descriptionFacets,
           @BlobConverter() final Blob? avatar,
           @ULabelConverter() final ULabel? labels,
           required final DateTime createdAt,
@@ -378,6 +380,7 @@ abstract class _ListRecord implements ListRecord {
   @override
   String? get description;
   @override
+  @FacetConverter()
   List<Facet>? get descriptionFacets;
   @override
   @BlobConverter()

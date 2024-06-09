@@ -25,6 +25,7 @@ mixin _$RecordWithMediaView {
   /// `app.bsky.embed.recordWithMedia#view`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @RecordViewConverter()
   RecordView get record => throw _privateConstructorUsedError;
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media => throw _privateConstructorUsedError;
@@ -47,7 +48,7 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      RecordView record,
+      @RecordViewConverter() RecordView record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -120,7 +121,7 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      RecordView record,
+      @RecordViewConverter() RecordView record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -173,7 +174,7 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
 class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   const _$RecordWithMediaViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMediaView,
-      required this.record,
+      @RecordViewConverter() required this.record,
       @URecordWithMediaMediaConverter() required this.media,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -189,6 +190,7 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @RecordViewConverter()
   final RecordView record;
   @override
   @URecordWithMediaMediaConverter()
@@ -245,7 +247,7 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
 abstract class _RecordWithMediaView implements RecordWithMediaView {
   const factory _RecordWithMediaView(
           {@JsonKey(name: r'$type') final String $type,
-          required final RecordView record,
+          @RecordViewConverter() required final RecordView record,
           @URecordWithMediaMediaConverter()
           required final URecordWithMediaMedia media,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -262,6 +264,7 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @RecordViewConverter()
   RecordView get record;
   @override
   @URecordWithMediaMediaConverter()

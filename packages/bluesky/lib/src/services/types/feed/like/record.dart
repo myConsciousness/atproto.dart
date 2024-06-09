@@ -22,7 +22,7 @@ part 'record.g.dart';
 class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
-    required StrongRef subject,
+    @StrongRefConverter() required StrongRef subject,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.

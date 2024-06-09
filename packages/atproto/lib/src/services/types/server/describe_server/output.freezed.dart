@@ -30,9 +30,11 @@ mixin _$DescribeServerOutput {
   List<String> get availableUserDomains => throw _privateConstructorUsedError;
 
   /// URLs of service policy documents.
+  @LinksConverter()
   Links get links => throw _privateConstructorUsedError;
 
   /// Contact information
+  @ContactConverter()
   Contact get contact => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
@@ -56,8 +58,8 @@ abstract class $DescribeServerOutputCopyWith<$Res> {
       {bool inviteCodeRequired,
       bool phoneVerificationRequired,
       List<String> availableUserDomains,
-      Links links,
-      Contact contact,
+      @LinksConverter() Links links,
+      @ContactConverter() Contact contact,
       String did,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -148,8 +150,8 @@ abstract class _$$DescribeServerOutputImplCopyWith<$Res>
       {bool inviteCodeRequired,
       bool phoneVerificationRequired,
       List<String> availableUserDomains,
-      Links links,
-      Contact contact,
+      @LinksConverter() Links links,
+      @ContactConverter() Contact contact,
       String did,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -219,8 +221,8 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
       {this.inviteCodeRequired = false,
       this.phoneVerificationRequired = false,
       required final List<String> availableUserDomains,
-      this.links = const Links(),
-      this.contact = const Contact(),
+      @LinksConverter() this.links = const Links(),
+      @ContactConverter() this.contact = const Contact(),
       required this.did,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -255,11 +257,13 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
   /// URLs of service policy documents.
   @override
   @JsonKey()
+  @LinksConverter()
   final Links links;
 
   /// Contact information
   @override
   @JsonKey()
+  @ContactConverter()
   final Contact contact;
   @override
   final String did;
@@ -332,8 +336,8 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
           {final bool inviteCodeRequired,
           final bool phoneVerificationRequired,
           required final List<String> availableUserDomains,
-          final Links links,
-          final Contact contact,
+          @LinksConverter() final Links links,
+          @ContactConverter() final Contact contact,
           required final String did,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$DescribeServerOutputImpl;
@@ -356,10 +360,12 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
   @override
 
   /// URLs of service policy documents.
+  @LinksConverter()
   Links get links;
   @override
 
   /// Contact information
+  @ContactConverter()
   Contact get contact;
   @override
   String get did;

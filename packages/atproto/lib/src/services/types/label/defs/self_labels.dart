@@ -33,7 +33,7 @@ class SelfLabels with _$SelfLabels {
     @Default(comAtprotoLabelDefsSelfLabels)
     @JsonKey(name: r'$type')
     String $type,
-    required List<SelfLabel> values,
+    @SelfLabelConverter() required List<SelfLabel> values,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

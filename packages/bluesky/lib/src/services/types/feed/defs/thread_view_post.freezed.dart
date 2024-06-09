@@ -25,6 +25,7 @@ mixin _$ThreadViewPost {
   /// `app.bsky.feed.defs#threadViewPost`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @PostViewConverter()
   PostView get post => throw _privateConstructorUsedError;
   @UParentConverter()
   UParent? get parent => throw _privateConstructorUsedError;
@@ -49,7 +50,7 @@ abstract class $ThreadViewPostCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      PostView post,
+      @PostViewConverter() PostView post,
       @UParentConverter() UParent? parent,
       @UReplyConverter() List<UReply>? replies,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -132,7 +133,7 @@ abstract class _$$ThreadViewPostImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      PostView post,
+      @PostViewConverter() PostView post,
       @UParentConverter() UParent? parent,
       @UReplyConverter() List<UReply>? replies,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -191,7 +192,7 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
 class _$ThreadViewPostImpl implements _ThreadViewPost {
   const _$ThreadViewPostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadViewPost,
-      required this.post,
+      @PostViewConverter() required this.post,
       @UParentConverter() this.parent,
       @UReplyConverter() final List<UReply>? replies,
       @JsonKey(name: r'$unknown')
@@ -209,6 +210,7 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @PostViewConverter()
   final PostView post;
   @override
   @UParentConverter()
@@ -281,7 +283,7 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
 abstract class _ThreadViewPost implements ThreadViewPost {
   const factory _ThreadViewPost(
           {@JsonKey(name: r'$type') final String $type,
-          required final PostView post,
+          @PostViewConverter() required final PostView post,
           @UParentConverter() final UParent? parent,
           @UReplyConverter() final List<UReply>? replies,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -298,6 +300,7 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @PostViewConverter()
   PostView get post;
   @override
   @UParentConverter()

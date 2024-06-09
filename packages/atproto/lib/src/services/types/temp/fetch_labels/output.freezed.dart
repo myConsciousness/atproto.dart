@@ -20,6 +20,7 @@ FetchLabelsOutput _$FetchLabelsOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FetchLabelsOutput {
+  @LabelConverter()
   List<Label> get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -39,7 +40,7 @@ abstract class $FetchLabelsOutputCopyWith<$Res> {
       _$FetchLabelsOutputCopyWithImpl<$Res, FetchLabelsOutput>;
   @useResult
   $Res call(
-      {List<Label> labels,
+      {@LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -81,7 +82,7 @@ abstract class _$$FetchLabelsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Label> labels,
+      {@LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -117,7 +118,7 @@ class __$$FetchLabelsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$FetchLabelsOutputImpl implements _FetchLabelsOutput {
   const _$FetchLabelsOutputImpl(
-      {required final List<Label> labels,
+      {@LabelConverter() required final List<Label> labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -128,6 +129,7 @@ class _$FetchLabelsOutputImpl implements _FetchLabelsOutput {
 
   final List<Label> _labels;
   @override
+  @LabelConverter()
   List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
@@ -184,7 +186,7 @@ class _$FetchLabelsOutputImpl implements _FetchLabelsOutput {
 
 abstract class _FetchLabelsOutput implements FetchLabelsOutput {
   const factory _FetchLabelsOutput(
-          {required final List<Label> labels,
+          {@LabelConverter() required final List<Label> labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$FetchLabelsOutputImpl;
 
@@ -192,6 +194,7 @@ abstract class _FetchLabelsOutput implements FetchLabelsOutput {
       _$FetchLabelsOutputImpl.fromJson;
 
   @override
+  @LabelConverter()
   List<Label> get labels;
   @override
 

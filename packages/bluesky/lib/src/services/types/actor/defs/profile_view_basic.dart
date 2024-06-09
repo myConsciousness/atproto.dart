@@ -37,9 +37,11 @@ class ProfileViewBasic with _$ProfileViewBasic {
     required String handle,
     String? displayName,
     String? avatar,
-    @Default(ProfileAssociated()) ProfileAssociated associated,
-    @Default(ViewerState()) ViewerState viewer,
-    List<Label>? labels,
+    @ProfileAssociatedConverter()
+    @Default(ProfileAssociated())
+    ProfileAssociated associated,
+    @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
+    @LabelConverter() List<Label>? labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

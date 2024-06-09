@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetAccountInviteCodesOutput with _$GetAccountInviteCodesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetAccountInviteCodesOutput({
-    required List<InviteCode> codes,
+    @InviteCodeConverter() required List<InviteCode> codes,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

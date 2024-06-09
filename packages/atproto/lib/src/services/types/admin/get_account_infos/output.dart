@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetAccountInfosOutput with _$GetAccountInfosOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetAccountInfosOutput({
-    required List<AccountView> infos,
+    @AccountViewConverter() required List<AccountView> infos,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

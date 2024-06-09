@@ -36,14 +36,16 @@ class ListView with _$ListView {
     @Default(appBskyGraphDefsListView) @JsonKey(name: r'$type') String $type,
     @AtUriConverter() required AtUri uri,
     required String cid,
-    required ProfileView creator,
+    @ProfileViewConverter() required ProfileView creator,
     required String name,
     @UListPurposeConverter() required UListPurpose purpose,
     String? description,
-    List<Facet>? descriptionFacets,
+    @FacetConverter() List<Facet>? descriptionFacets,
     String? avatar,
-    List<Label>? labels,
-    @Default(ListViewerState()) ListViewerState viewer,
+    @LabelConverter() List<Label>? labels,
+    @ListViewerStateConverter()
+    @Default(ListViewerState())
+    ListViewerState viewer,
     required DateTime indexedAt,
 
     /// Contains unknown objects not defined in Lexicon.

@@ -21,6 +21,7 @@ GetSuggestedFollowsByActorOutput _$GetSuggestedFollowsByActorOutputFromJson(
 
 /// @nodoc
 mixin _$GetSuggestedFollowsByActorOutput {
+  @ProfileViewConverter()
   List<ProfileView> get suggestions => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +43,7 @@ abstract class $GetSuggestedFollowsByActorOutputCopyWith<$Res> {
           GetSuggestedFollowsByActorOutput>;
   @useResult
   $Res call(
-      {List<ProfileView> suggestions,
+      {@ProfileViewConverter() List<ProfileView> suggestions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -86,7 +87,7 @@ abstract class _$$GetSuggestedFollowsByActorOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ProfileView> suggestions,
+      {@ProfileViewConverter() List<ProfileView> suggestions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -125,7 +126,7 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
 class _$GetSuggestedFollowsByActorOutputImpl
     implements _GetSuggestedFollowsByActorOutput {
   const _$GetSuggestedFollowsByActorOutputImpl(
-      {required final List<ProfileView> suggestions,
+      {@ProfileViewConverter() required final List<ProfileView> suggestions,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _suggestions = suggestions,
@@ -137,6 +138,7 @@ class _$GetSuggestedFollowsByActorOutputImpl
 
   final List<ProfileView> _suggestions;
   @override
+  @ProfileViewConverter()
   List<ProfileView> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
     // ignore: implicit_dynamic_type
@@ -196,7 +198,7 @@ class _$GetSuggestedFollowsByActorOutputImpl
 abstract class _GetSuggestedFollowsByActorOutput
     implements GetSuggestedFollowsByActorOutput {
   const factory _GetSuggestedFollowsByActorOutput(
-          {required final List<ProfileView> suggestions,
+          {@ProfileViewConverter() required final List<ProfileView> suggestions,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestedFollowsByActorOutputImpl;
 
@@ -205,6 +207,7 @@ abstract class _GetSuggestedFollowsByActorOutput
       _$GetSuggestedFollowsByActorOutputImpl.fromJson;
 
   @override
+  @ProfileViewConverter()
   List<ProfileView> get suggestions;
   @override
 

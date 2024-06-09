@@ -24,9 +24,9 @@ part 'output.g.dart';
 class GetFollowsOutput with _$GetFollowsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFollowsOutput({
-    required ProfileView subject,
+    @ProfileViewConverter() required ProfileView subject,
     String? cursor,
-    required List<ProfileView> follows,
+    @ProfileViewConverter() required List<ProfileView> follows,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

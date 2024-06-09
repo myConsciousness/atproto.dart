@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetProfilesOutput with _$GetProfilesOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetProfilesOutput({
-    required List<ProfileViewDetailed> profiles,
+    @ProfileViewDetailedConverter() required List<ProfileViewDetailed> profiles,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

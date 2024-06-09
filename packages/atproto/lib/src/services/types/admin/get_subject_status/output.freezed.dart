@@ -23,7 +23,9 @@ GetSubjectStatusOutput _$GetSubjectStatusOutputFromJson(
 mixin _$GetSubjectStatusOutput {
   @USubjectConverter()
   USubject get subject => throw _privateConstructorUsedError;
+  @StatusAttrConverter()
   StatusAttr? get takedown => throw _privateConstructorUsedError;
+  @StatusAttrConverter()
   StatusAttr? get deactivated => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,8 +46,8 @@ abstract class $GetSubjectStatusOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@USubjectConverter() USubject subject,
-      StatusAttr? takedown,
-      StatusAttr? deactivated,
+      @StatusAttrConverter() StatusAttr? takedown,
+      @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USubjectCopyWith<$Res> get subject;
@@ -136,8 +138,8 @@ abstract class _$$GetSubjectStatusOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@USubjectConverter() USubject subject,
-      StatusAttr? takedown,
-      StatusAttr? deactivated,
+      @StatusAttrConverter() StatusAttr? takedown,
+      @StatusAttrConverter() StatusAttr? deactivated,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -193,8 +195,8 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
 class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   const _$GetSubjectStatusOutputImpl(
       {@USubjectConverter() required this.subject,
-      this.takedown,
-      this.deactivated,
+      @StatusAttrConverter() this.takedown,
+      @StatusAttrConverter() this.deactivated,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -206,8 +208,10 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   @USubjectConverter()
   final USubject subject;
   @override
+  @StatusAttrConverter()
   final StatusAttr? takedown;
   @override
+  @StatusAttrConverter()
   final StatusAttr? deactivated;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -263,8 +267,8 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
 abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   const factory _GetSubjectStatusOutput(
           {@USubjectConverter() required final USubject subject,
-          final StatusAttr? takedown,
-          final StatusAttr? deactivated,
+          @StatusAttrConverter() final StatusAttr? takedown,
+          @StatusAttrConverter() final StatusAttr? deactivated,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSubjectStatusOutputImpl;
 
@@ -275,8 +279,10 @@ abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   @USubjectConverter()
   USubject get subject;
   @override
+  @StatusAttrConverter()
   StatusAttr? get takedown;
   @override
+  @StatusAttrConverter()
   StatusAttr? get deactivated;
   @override
 

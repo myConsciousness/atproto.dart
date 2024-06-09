@@ -33,7 +33,7 @@ class ListItemView with _$ListItemView {
     @JsonKey(name: r'$type')
     String $type,
     @AtUriConverter() required AtUri uri,
-    required ProfileView subject,
+    @ProfileViewConverter() required ProfileView subject,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

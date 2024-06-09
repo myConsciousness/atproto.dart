@@ -26,7 +26,7 @@ class UpdateSubjectStatusOutput with _$UpdateSubjectStatusOutput {
   @JsonSerializable(includeIfNull: false)
   const factory UpdateSubjectStatusOutput({
     @USubjectConverter() required USubject subject,
-    StatusAttr? takedown,
+    @StatusAttrConverter() StatusAttr? takedown,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

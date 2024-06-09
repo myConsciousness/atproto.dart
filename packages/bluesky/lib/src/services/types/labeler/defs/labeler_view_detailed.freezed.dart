@@ -28,11 +28,15 @@ mixin _$LabelerViewDetailed {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewConverter()
   ProfileView get creator => throw _privateConstructorUsedError;
+  @LabelerPoliciesConverter()
   LabelerPolicies get policies => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
+  @LabelerViewerStateConverter()
   LabelerViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -55,12 +59,12 @@ abstract class $LabelerViewDetailedCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
-      LabelerPolicies policies,
+      @ProfileViewConverter() ProfileView creator,
+      @LabelerPoliciesConverter() LabelerPolicies policies,
       int likeCount,
-      LabelerViewerState viewer,
+      @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get creator;
@@ -173,12 +177,12 @@ abstract class _$$LabelerViewDetailedImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileView creator,
-      LabelerPolicies policies,
+      @ProfileViewConverter() ProfileView creator,
+      @LabelerPoliciesConverter() LabelerPolicies policies,
       int likeCount,
-      LabelerViewerState viewer,
+      @LabelerViewerStateConverter() LabelerViewerState viewer,
       DateTime indexedAt,
-      List<Label>? labels,
+      @LabelConverter() List<Label>? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -265,12 +269,12 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
       this.$type = appBskyLabelerDefsLabelerViewDetailed,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.creator,
-      required this.policies,
+      @ProfileViewConverter() required this.creator,
+      @LabelerPoliciesConverter() required this.policies,
       this.likeCount = 0,
-      this.viewer = const LabelerViewerState(),
+      @LabelerViewerStateConverter() this.viewer = const LabelerViewerState(),
       required this.indexedAt,
-      final List<Label>? labels,
+      @LabelConverter() final List<Label>? labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -291,19 +295,23 @@ class _$LabelerViewDetailedImpl implements _LabelerViewDetailed {
   @override
   final String cid;
   @override
+  @ProfileViewConverter()
   final ProfileView creator;
   @override
+  @LabelerPoliciesConverter()
   final LabelerPolicies policies;
   @override
   @JsonKey()
   final int likeCount;
   @override
   @JsonKey()
+  @LabelerViewerStateConverter()
   final LabelerViewerState viewer;
   @override
   final DateTime indexedAt;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -384,12 +392,12 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileView creator,
-          required final LabelerPolicies policies,
+          @ProfileViewConverter() required final ProfileView creator,
+          @LabelerPoliciesConverter() required final LabelerPolicies policies,
           final int likeCount,
-          final LabelerViewerState viewer,
+          @LabelerViewerStateConverter() final LabelerViewerState viewer,
           required final DateTime indexedAt,
-          final List<Label>? labels,
+          @LabelConverter() final List<Label>? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelerViewDetailedImpl;
 
@@ -409,16 +417,20 @@ abstract class _LabelerViewDetailed implements LabelerViewDetailed {
   @override
   String get cid;
   @override
+  @ProfileViewConverter()
   ProfileView get creator;
   @override
+  @LabelerPoliciesConverter()
   LabelerPolicies get policies;
   @override
   int get likeCount;
   @override
+  @LabelerViewerStateConverter()
   LabelerViewerState get viewer;
   @override
   DateTime get indexedAt;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
 

@@ -35,7 +35,7 @@ class ReplyRef with _$ReplyRef {
     @UParentConverter() required UParent parent,
 
     /// When parent is a reply to another post, this is the author of that post.
-    ProfileViewBasic? grandparentAuthor,
+    @ProfileViewBasicConverter() ProfileViewBasic? grandparentAuthor,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

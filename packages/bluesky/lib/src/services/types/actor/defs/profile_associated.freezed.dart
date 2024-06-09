@@ -28,6 +28,7 @@ mixin _$ProfileAssociated {
   int get lists => throw _privateConstructorUsedError;
   int get feedgens => throw _privateConstructorUsedError;
   bool get labeler => throw _privateConstructorUsedError;
+  @ProfileAssociatedChatConverter()
   ProfileAssociatedChat? get chat => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -51,7 +52,7 @@ abstract class $ProfileAssociatedCopyWith<$Res> {
       int lists,
       int feedgens,
       bool labeler,
-      ProfileAssociatedChat? chat,
+      @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileAssociatedChatCopyWith<$Res>? get chat;
@@ -131,7 +132,7 @@ abstract class _$$ProfileAssociatedImplCopyWith<$Res>
       int lists,
       int feedgens,
       bool labeler,
-      ProfileAssociatedChat? chat,
+      @ProfileAssociatedChatConverter() ProfileAssociatedChat? chat,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -194,7 +195,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
       this.lists = 0,
       this.feedgens = 0,
       this.labeler = false,
-      this.chat,
+      @ProfileAssociatedChatConverter() this.chat,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -218,6 +219,7 @@ class _$ProfileAssociatedImpl implements _ProfileAssociated {
   @JsonKey()
   final bool labeler;
   @override
+  @ProfileAssociatedChatConverter()
   final ProfileAssociatedChat? chat;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -277,7 +279,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
           final int lists,
           final int feedgens,
           final bool labeler,
-          final ProfileAssociatedChat? chat,
+          @ProfileAssociatedChatConverter() final ProfileAssociatedChat? chat,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ProfileAssociatedImpl;
 
@@ -298,6 +300,7 @@ abstract class _ProfileAssociated implements ProfileAssociated {
   @override
   bool get labeler;
   @override
+  @ProfileAssociatedChatConverter()
   ProfileAssociatedChat? get chat;
   @override
 

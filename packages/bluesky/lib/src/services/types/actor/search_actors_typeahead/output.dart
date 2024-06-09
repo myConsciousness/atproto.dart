@@ -24,7 +24,7 @@ part 'output.g.dart';
 class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
   @JsonSerializable(includeIfNull: false)
   const factory SearchActorsTypeaheadOutput({
-    required List<ProfileViewBasic> actors,
+    @ProfileViewBasicConverter() required List<ProfileViewBasic> actors,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

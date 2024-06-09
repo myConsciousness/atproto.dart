@@ -85,52 +85,72 @@ final class UPreferenceConverter
 
       if (type == 'app.bsky.actor.defs#adultContentPref') {
         return UPreference.adultContentPref(
-          data: AdultContentPref.fromJson(json),
+          data: AdultContentPref.fromJson(
+            const AdultContentPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#contentLabelPref') {
         return UPreference.contentLabelPref(
-          data: ContentLabelPref.fromJson(json),
+          data: ContentLabelPref.fromJson(
+            const ContentLabelPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#savedFeedsPref') {
         return UPreference.savedFeedsPref(
-          data: SavedFeedsPref.fromJson(json),
+          data: SavedFeedsPref.fromJson(
+            const SavedFeedsPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#savedFeedsPrefV2') {
         return UPreference.savedFeedsPrefV2(
-          data: SavedFeedsPrefV2.fromJson(json),
+          data: SavedFeedsPrefV2.fromJson(
+            const SavedFeedsPrefV2Converter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#personalDetailsPref') {
         return UPreference.personalDetailsPref(
-          data: PersonalDetailsPref.fromJson(json),
+          data: PersonalDetailsPref.fromJson(
+            const PersonalDetailsPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#feedViewPref') {
         return UPreference.feedViewPref(
-          data: FeedViewPref.fromJson(json),
+          data: FeedViewPref.fromJson(
+            const FeedViewPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#threadViewPref') {
         return UPreference.threadViewPref(
-          data: ThreadViewPref.fromJson(json),
+          data: ThreadViewPref.fromJson(
+            const ThreadViewPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#interestsPref') {
         return UPreference.interestsPref(
-          data: InterestsPref.fromJson(json),
+          data: InterestsPref.fromJson(
+            const InterestsPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#mutedWordsPref') {
         return UPreference.mutedWordsPref(
-          data: MutedWordsPref.fromJson(json),
+          data: MutedWordsPref.fromJson(
+            const MutedWordsPrefConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.actor.defs#hiddenPostsPref') {
         return UPreference.hiddenPostsPref(
-          data: HiddenPostsPref.fromJson(json),
+          data: HiddenPostsPref.fromJson(
+            const HiddenPostsPrefConverter().fromJson(json),
+          ),
         );
       }
 
@@ -142,16 +162,37 @@ final class UPreferenceConverter
 
   @override
   Map<String, dynamic> toJson(UPreference object) => object.when(
-        adultContentPref: (data) => data.toJson(),
-        contentLabelPref: (data) => data.toJson(),
-        savedFeedsPref: (data) => data.toJson(),
-        savedFeedsPrefV2: (data) => data.toJson(),
-        personalDetailsPref: (data) => data.toJson(),
-        feedViewPref: (data) => data.toJson(),
-        threadViewPref: (data) => data.toJson(),
-        interestsPref: (data) => data.toJson(),
-        mutedWordsPref: (data) => data.toJson(),
-        hiddenPostsPref: (data) => data.toJson(),
+        adultContentPref: (data) => const AdultContentPrefConverter().toJson(
+          data.toJson(),
+        ),
+        contentLabelPref: (data) => const ContentLabelPrefConverter().toJson(
+          data.toJson(),
+        ),
+        savedFeedsPref: (data) => const SavedFeedsPrefConverter().toJson(
+          data.toJson(),
+        ),
+        savedFeedsPrefV2: (data) => const SavedFeedsPrefV2Converter().toJson(
+          data.toJson(),
+        ),
+        personalDetailsPref: (data) =>
+            const PersonalDetailsPrefConverter().toJson(
+          data.toJson(),
+        ),
+        feedViewPref: (data) => const FeedViewPrefConverter().toJson(
+          data.toJson(),
+        ),
+        threadViewPref: (data) => const ThreadViewPrefConverter().toJson(
+          data.toJson(),
+        ),
+        interestsPref: (data) => const InterestsPrefConverter().toJson(
+          data.toJson(),
+        ),
+        mutedWordsPref: (data) => const MutedWordsPrefConverter().toJson(
+          data.toJson(),
+        ),
+        hiddenPostsPref: (data) => const HiddenPostsPrefConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

@@ -38,7 +38,7 @@ class ImagesViewImage with _$ImagesViewImage {
 
     /// Alt text description of the image, for accessibility.
     required String alt,
-    ImagesAspectRatio? aspectRatio,
+    @ImagesAspectRatioConverter() ImagesAspectRatio? aspectRatio,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

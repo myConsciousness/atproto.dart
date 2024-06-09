@@ -55,6 +55,7 @@ mixin _$Commit {
 
   /// CAR file containing relevant blocks, as a diff since the previous repo state.
   List<int> get blocks => throw _privateConstructorUsedError;
+  @RepoOpConverter()
   List<RepoOp> get ops => throw _privateConstructorUsedError;
   List<String> get blobs => throw _privateConstructorUsedError;
 
@@ -88,7 +89,7 @@ abstract class $CommitCopyWith<$Res> {
       String rev,
       String since,
       List<int> blocks,
-      List<RepoOp> ops,
+      @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
       DateTime time,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -203,7 +204,7 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
       String rev,
       String since,
       List<int> blocks,
-      List<RepoOp> ops,
+      @RepoOpConverter() List<RepoOp> ops,
       List<String> blobs,
       DateTime time,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -313,7 +314,7 @@ class _$CommitImpl implements _Commit {
       required this.rev,
       required this.since,
       required final List<int> blocks,
-      required final List<RepoOp> ops,
+      @RepoOpConverter() required final List<RepoOp> ops,
       required final List<String> blobs,
       required this.time,
       @JsonKey(name: r'$unknown')
@@ -381,6 +382,7 @@ class _$CommitImpl implements _Commit {
 
   final List<RepoOp> _ops;
   @override
+  @RepoOpConverter()
   List<RepoOp> get ops {
     if (_ops is EqualUnmodifiableListView) return _ops;
     // ignore: implicit_dynamic_type
@@ -484,7 +486,7 @@ abstract class _Commit implements Commit {
       required final String rev,
       required final String since,
       required final List<int> blocks,
-      required final List<RepoOp> ops,
+      @RepoOpConverter() required final List<RepoOp> ops,
       required final List<String> blobs,
       required final DateTime time,
       @JsonKey(name: r'$unknown')
@@ -539,6 +541,7 @@ abstract class _Commit implements Commit {
   /// CAR file containing relevant blocks, as a diff since the previous repo state.
   List<int> get blocks;
   @override
+  @RepoOpConverter()
   List<RepoOp> get ops;
   @override
   List<String> get blobs;

@@ -25,7 +25,7 @@ class ListReposOutput with _$ListReposOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListReposOutput({
     String? cursor,
-    required List<Repo> repos,
+    @RepoConverter() required List<Repo> repos,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

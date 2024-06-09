@@ -20,6 +20,7 @@ GetPostsOutput _$GetPostsOutputFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GetPostsOutput {
+  @PostViewConverter()
   List<PostView> get posts => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -39,7 +40,7 @@ abstract class $GetPostsOutputCopyWith<$Res> {
       _$GetPostsOutputCopyWithImpl<$Res, GetPostsOutput>;
   @useResult
   $Res call(
-      {List<PostView> posts,
+      {@PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -81,7 +82,7 @@ abstract class _$$GetPostsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<PostView> posts,
+      {@PostViewConverter() List<PostView> posts,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -117,7 +118,7 @@ class __$$GetPostsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetPostsOutputImpl implements _GetPostsOutput {
   const _$GetPostsOutputImpl(
-      {required final List<PostView> posts,
+      {@PostViewConverter() required final List<PostView> posts,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _posts = posts,
@@ -128,6 +129,7 @@ class _$GetPostsOutputImpl implements _GetPostsOutput {
 
   final List<PostView> _posts;
   @override
+  @PostViewConverter()
   List<PostView> get posts {
     if (_posts is EqualUnmodifiableListView) return _posts;
     // ignore: implicit_dynamic_type
@@ -184,7 +186,7 @@ class _$GetPostsOutputImpl implements _GetPostsOutput {
 
 abstract class _GetPostsOutput implements GetPostsOutput {
   const factory _GetPostsOutput(
-          {required final List<PostView> posts,
+          {@PostViewConverter() required final List<PostView> posts,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPostsOutputImpl;
 
@@ -192,6 +194,7 @@ abstract class _GetPostsOutput implements GetPostsOutput {
       _$GetPostsOutputImpl.fromJson;
 
   @override
+  @PostViewConverter()
   List<PostView> get posts;
   @override
 

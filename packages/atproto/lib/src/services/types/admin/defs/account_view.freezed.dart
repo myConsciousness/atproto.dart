@@ -31,7 +31,9 @@ mixin _$AccountView {
   List<Map<String, dynamic>>? get relatedRecords =>
       throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  @InviteCodeConverter()
   InviteCode? get invitedBy => throw _privateConstructorUsedError;
+  @InviteCodeConverter()
   List<InviteCode>? get invites => throw _privateConstructorUsedError;
   bool get invitesDisabled => throw _privateConstructorUsedError;
   DateTime? get emailConfirmedAt => throw _privateConstructorUsedError;
@@ -61,8 +63,8 @@ abstract class $AccountViewCopyWith<$Res> {
       String? email,
       List<Map<String, dynamic>>? relatedRecords,
       DateTime indexedAt,
-      InviteCode? invitedBy,
-      List<InviteCode>? invites,
+      @InviteCodeConverter() InviteCode? invitedBy,
+      @InviteCodeConverter() List<InviteCode>? invites,
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
@@ -183,8 +185,8 @@ abstract class _$$AccountViewImplCopyWith<$Res>
       String? email,
       List<Map<String, dynamic>>? relatedRecords,
       DateTime indexedAt,
-      InviteCode? invitedBy,
-      List<InviteCode>? invites,
+      @InviteCodeConverter() InviteCode? invitedBy,
+      @InviteCodeConverter() List<InviteCode>? invites,
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
@@ -288,8 +290,8 @@ class _$AccountViewImpl implements _AccountView {
       this.email,
       final List<Map<String, dynamic>>? relatedRecords,
       required this.indexedAt,
-      this.invitedBy,
-      final List<InviteCode>? invites,
+      @InviteCodeConverter() this.invitedBy,
+      @InviteCodeConverter() final List<InviteCode>? invites,
       this.invitesDisabled = false,
       this.emailConfirmedAt,
       this.inviteNote,
@@ -328,9 +330,11 @@ class _$AccountViewImpl implements _AccountView {
   @override
   final DateTime indexedAt;
   @override
+  @InviteCodeConverter()
   final InviteCode? invitedBy;
   final List<InviteCode>? _invites;
   @override
+  @InviteCodeConverter()
   List<InviteCode>? get invites {
     final value = _invites;
     if (value == null) return null;
@@ -433,8 +437,8 @@ abstract class _AccountView implements AccountView {
           final String? email,
           final List<Map<String, dynamic>>? relatedRecords,
           required final DateTime indexedAt,
-          final InviteCode? invitedBy,
-          final List<InviteCode>? invites,
+          @InviteCodeConverter() final InviteCode? invitedBy,
+          @InviteCodeConverter() final List<InviteCode>? invites,
           final bool invitesDisabled,
           final DateTime? emailConfirmedAt,
           final String? inviteNote,
@@ -463,8 +467,10 @@ abstract class _AccountView implements AccountView {
   @override
   DateTime get indexedAt;
   @override
+  @InviteCodeConverter()
   InviteCode? get invitedBy;
   @override
+  @InviteCodeConverter()
   List<InviteCode>? get invites;
   @override
   bool get invitesDisabled;

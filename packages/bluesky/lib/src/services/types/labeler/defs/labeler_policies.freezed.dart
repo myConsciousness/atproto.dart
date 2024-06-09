@@ -31,6 +31,7 @@ mixin _$LabelerPolicies {
   List<ULabelValue> get labelValues => throw _privateConstructorUsedError;
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
@@ -53,6 +54,7 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
+      @LabelValueDefinitionConverter()
       List<LabelValueDefinition>? labelValueDefinitions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -107,6 +109,7 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
+      @LabelValueDefinitionConverter()
       List<LabelValueDefinition>? labelValueDefinitions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -155,6 +158,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerPolicies,
       @ULabelValueConverter() required final List<ULabelValue> labelValues,
+      @LabelValueDefinitionConverter()
       final List<LabelValueDefinition>? labelValueDefinitions,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -189,6 +193,7 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   @override
+  @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions {
     final value = _labelValueDefinitions;
     if (value == null) return null;
@@ -256,6 +261,7 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
           {@JsonKey(name: r'$type') final String $type,
           @ULabelValueConverter() required final List<ULabelValue> labelValues,
+          @LabelValueDefinitionConverter()
           final List<LabelValueDefinition>? labelValueDefinitions,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelerPoliciesImpl;
@@ -278,6 +284,7 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   @override
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
+  @LabelValueDefinitionConverter()
   List<LabelValueDefinition>? get labelValueDefinitions;
   @override
 

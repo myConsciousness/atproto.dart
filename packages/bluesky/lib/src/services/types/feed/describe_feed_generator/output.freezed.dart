@@ -22,7 +22,9 @@ DescribeFeedGeneratorOutput _$DescribeFeedGeneratorOutputFromJson(
 /// @nodoc
 mixin _$DescribeFeedGeneratorOutput {
   String get did => throw _privateConstructorUsedError;
+  @FeedConverter()
   List<Feed> get feeds => throw _privateConstructorUsedError;
+  @LinksConverter()
   Links get links => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,8 +47,8 @@ abstract class $DescribeFeedGeneratorOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String did,
-      List<Feed> feeds,
-      Links links,
+      @FeedConverter() List<Feed> feeds,
+      @LinksConverter() Links links,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LinksCopyWith<$Res> get links;
@@ -111,8 +113,8 @@ abstract class _$$DescribeFeedGeneratorOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String did,
-      List<Feed> feeds,
-      Links links,
+      @FeedConverter() List<Feed> feeds,
+      @LinksConverter() Links links,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -165,8 +167,8 @@ class _$DescribeFeedGeneratorOutputImpl
     implements _DescribeFeedGeneratorOutput {
   const _$DescribeFeedGeneratorOutputImpl(
       {required this.did,
-      required final List<Feed> feeds,
-      this.links = const Links(),
+      @FeedConverter() required final List<Feed> feeds,
+      @LinksConverter() this.links = const Links(),
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feeds = feeds,
@@ -180,6 +182,7 @@ class _$DescribeFeedGeneratorOutputImpl
   final String did;
   final List<Feed> _feeds;
   @override
+  @FeedConverter()
   List<Feed> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
@@ -188,6 +191,7 @@ class _$DescribeFeedGeneratorOutputImpl
 
   @override
   @JsonKey()
+  @LinksConverter()
   final Links links;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -246,8 +250,8 @@ abstract class _DescribeFeedGeneratorOutput
     implements DescribeFeedGeneratorOutput {
   const factory _DescribeFeedGeneratorOutput(
           {required final String did,
-          required final List<Feed> feeds,
-          final Links links,
+          @FeedConverter() required final List<Feed> feeds,
+          @LinksConverter() final Links links,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$DescribeFeedGeneratorOutputImpl;
 
@@ -257,8 +261,10 @@ abstract class _DescribeFeedGeneratorOutput
   @override
   String get did;
   @override
+  @FeedConverter()
   List<Feed> get feeds;
   @override
+  @LinksConverter()
   Links get links;
   @override
 

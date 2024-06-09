@@ -25,7 +25,7 @@ class GetBlocksOutput with _$GetBlocksOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetBlocksOutput({
     String? cursor,
-    required List<ProfileView> blocks,
+    @ProfileViewConverter() required List<ProfileView> blocks,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

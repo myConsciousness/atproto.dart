@@ -29,7 +29,7 @@ class Record with _$Record {
     ///
     /// `app.bsky.embed.record`
     @Default(appBskyEmbedRecord) @JsonKey(name: r'$type') String $type,
-    required StrongRef record,
+    @StrongRefConverter() required StrongRef record,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

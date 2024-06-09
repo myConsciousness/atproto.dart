@@ -28,7 +28,9 @@ mixin _$PostView {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
+  @ProfileViewBasicConverter()
   ProfileViewBasic get author => throw _privateConstructorUsedError;
+  @PostRecordConverter()
   PostRecord get record => throw _privateConstructorUsedError;
   @UEmbedConverter()
   UEmbed? get embed => throw _privateConstructorUsedError;
@@ -36,8 +38,11 @@ mixin _$PostView {
   int get repostCount => throw _privateConstructorUsedError;
   int get likeCount => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
+  @ViewerStateConverter()
   ViewerState get viewer => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
+  @ThreadgateViewConverter()
   ThreadgateView get threadgate => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -59,16 +64,16 @@ abstract class $PostViewCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileViewBasic author,
-      PostRecord record,
+      @ProfileViewBasicConverter() ProfileViewBasic author,
+      @PostRecordConverter() PostRecord record,
       @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
       DateTime indexedAt,
-      ViewerState viewer,
-      List<Label>? labels,
-      ThreadgateView threadgate,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ThreadgateViewConverter() ThreadgateView threadgate,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewBasicCopyWith<$Res> get author;
@@ -223,16 +228,16 @@ abstract class _$$PostViewImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       String cid,
-      ProfileViewBasic author,
-      PostRecord record,
+      @ProfileViewBasicConverter() ProfileViewBasic author,
+      @PostRecordConverter() PostRecord record,
       @UEmbedConverter() UEmbed? embed,
       int replyCount,
       int repostCount,
       int likeCount,
       DateTime indexedAt,
-      ViewerState viewer,
-      List<Label>? labels,
-      ThreadgateView threadgate,
+      @ViewerStateConverter() ViewerState viewer,
+      @LabelConverter() List<Label>? labels,
+      @ThreadgateViewConverter() ThreadgateView threadgate,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -342,16 +347,16 @@ class _$PostViewImpl implements _PostView {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsPostView,
       @AtUriConverter() required this.uri,
       required this.cid,
-      required this.author,
-      required this.record,
+      @ProfileViewBasicConverter() required this.author,
+      @PostRecordConverter() required this.record,
       @UEmbedConverter() this.embed,
       this.replyCount = 0,
       this.repostCount = 0,
       this.likeCount = 0,
       required this.indexedAt,
-      this.viewer = const ViewerState(),
-      final List<Label>? labels,
-      this.threadgate = const ThreadgateView(),
+      @ViewerStateConverter() this.viewer = const ViewerState(),
+      @LabelConverter() final List<Label>? labels,
+      @ThreadgateViewConverter() this.threadgate = const ThreadgateView(),
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -372,8 +377,10 @@ class _$PostViewImpl implements _PostView {
   @override
   final String cid;
   @override
+  @ProfileViewBasicConverter()
   final ProfileViewBasic author;
   @override
+  @PostRecordConverter()
   final PostRecord record;
   @override
   @UEmbedConverter()
@@ -391,9 +398,11 @@ class _$PostViewImpl implements _PostView {
   final DateTime indexedAt;
   @override
   @JsonKey()
+  @ViewerStateConverter()
   final ViewerState viewer;
   final List<Label>? _labels;
   @override
+  @LabelConverter()
   List<Label>? get labels {
     final value = _labels;
     if (value == null) return null;
@@ -404,6 +413,7 @@ class _$PostViewImpl implements _PostView {
 
   @override
   @JsonKey()
+  @ThreadgateViewConverter()
   final ThreadgateView threadgate;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -487,16 +497,16 @@ abstract class _PostView implements PostView {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final String cid,
-          required final ProfileViewBasic author,
-          required final PostRecord record,
+          @ProfileViewBasicConverter() required final ProfileViewBasic author,
+          @PostRecordConverter() required final PostRecord record,
           @UEmbedConverter() final UEmbed? embed,
           final int replyCount,
           final int repostCount,
           final int likeCount,
           required final DateTime indexedAt,
-          final ViewerState viewer,
-          final List<Label>? labels,
-          final ThreadgateView threadgate,
+          @ViewerStateConverter() final ViewerState viewer,
+          @LabelConverter() final List<Label>? labels,
+          @ThreadgateViewConverter() final ThreadgateView threadgate,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$PostViewImpl;
 
@@ -516,8 +526,10 @@ abstract class _PostView implements PostView {
   @override
   String get cid;
   @override
+  @ProfileViewBasicConverter()
   ProfileViewBasic get author;
   @override
+  @PostRecordConverter()
   PostRecord get record;
   @override
   @UEmbedConverter()
@@ -531,10 +543,13 @@ abstract class _PostView implements PostView {
   @override
   DateTime get indexedAt;
   @override
+  @ViewerStateConverter()
   ViewerState get viewer;
   @override
+  @LabelConverter()
   List<Label>? get labels;
   @override
+  @ThreadgateViewConverter()
   ThreadgateView get threadgate;
   @override
 

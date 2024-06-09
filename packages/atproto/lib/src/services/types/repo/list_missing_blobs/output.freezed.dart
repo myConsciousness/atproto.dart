@@ -22,6 +22,7 @@ ListMissingBlobsOutput _$ListMissingBlobsOutputFromJson(
 /// @nodoc
 mixin _$ListMissingBlobsOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @RecordBlobConverter()
   List<RecordBlob> get blobs => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -42,7 +43,7 @@ abstract class $ListMissingBlobsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<RecordBlob> blobs,
+      @RecordBlobConverter() List<RecordBlob> blobs,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -92,7 +93,7 @@ abstract class _$$ListMissingBlobsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<RecordBlob> blobs,
+      @RecordBlobConverter() List<RecordBlob> blobs,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -136,7 +137,7 @@ class __$$ListMissingBlobsOutputImplCopyWithImpl<$Res>
 class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
   const _$ListMissingBlobsOutputImpl(
       {this.cursor,
-      required final List<RecordBlob> blobs,
+      @RecordBlobConverter() required final List<RecordBlob> blobs,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _blobs = blobs,
@@ -149,6 +150,7 @@ class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
   final String? cursor;
   final List<RecordBlob> _blobs;
   @override
+  @RecordBlobConverter()
   List<RecordBlob> get blobs {
     if (_blobs is EqualUnmodifiableListView) return _blobs;
     // ignore: implicit_dynamic_type
@@ -208,7 +210,7 @@ class _$ListMissingBlobsOutputImpl implements _ListMissingBlobsOutput {
 abstract class _ListMissingBlobsOutput implements ListMissingBlobsOutput {
   const factory _ListMissingBlobsOutput(
           {final String? cursor,
-          required final List<RecordBlob> blobs,
+          @RecordBlobConverter() required final List<RecordBlob> blobs,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListMissingBlobsOutputImpl;
 
@@ -218,6 +220,7 @@ abstract class _ListMissingBlobsOutput implements ListMissingBlobsOutput {
   @override
   String? get cursor;
   @override
+  @RecordBlobConverter()
   List<RecordBlob> get blobs;
   @override
 

@@ -25,7 +25,7 @@ class ListNotificationsOutput with _$ListNotificationsOutput {
   @JsonSerializable(includeIfNull: false)
   const factory ListNotificationsOutput({
     String? cursor,
-    required List<Notification> notifications,
+    @NotificationConverter() required List<Notification> notifications,
     DateTime? seenAt,
 
     /// Contains unknown objects not defined in Lexicon.

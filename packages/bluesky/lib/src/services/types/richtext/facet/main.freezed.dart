@@ -25,6 +25,7 @@ mixin _$Facet {
   /// `app.bsky.richtext.facet`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @FacetByteSliceConverter()
   FacetByteSlice get index => throw _privateConstructorUsedError;
   @UFacetFeatureConverter()
   List<UFacetFeature> get features => throw _privateConstructorUsedError;
@@ -45,7 +46,7 @@ abstract class $FacetCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      FacetByteSlice index,
+      @FacetByteSliceConverter() FacetByteSlice index,
       @UFacetFeatureConverter() List<UFacetFeature> features,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -108,7 +109,7 @@ abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      FacetByteSlice index,
+      @FacetByteSliceConverter() FacetByteSlice index,
       @UFacetFeatureConverter() List<UFacetFeature> features,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -159,7 +160,7 @@ class __$$FacetImplCopyWithImpl<$Res>
 class _$FacetImpl implements _Facet {
   const _$FacetImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacet,
-      required this.index,
+      @FacetByteSliceConverter() required this.index,
       @UFacetFeatureConverter() required final List<UFacetFeature> features,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -176,6 +177,7 @@ class _$FacetImpl implements _Facet {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @FacetByteSliceConverter()
   final FacetByteSlice index;
   final List<UFacetFeature> _features;
   @override
@@ -240,7 +242,7 @@ class _$FacetImpl implements _Facet {
 abstract class _Facet implements Facet {
   const factory _Facet(
           {@JsonKey(name: r'$type') final String $type,
-          required final FacetByteSlice index,
+          @FacetByteSliceConverter() required final FacetByteSlice index,
           @UFacetFeatureConverter() required final List<UFacetFeature> features,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$FacetImpl;
@@ -255,6 +257,7 @@ abstract class _Facet implements Facet {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @FacetByteSliceConverter()
   FacetByteSlice get index;
   @override
   @UFacetFeatureConverter()

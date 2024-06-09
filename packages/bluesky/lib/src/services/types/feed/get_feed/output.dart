@@ -25,7 +25,7 @@ class GetFeedOutput with _$GetFeedOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetFeedOutput({
     String? cursor,
-    required List<FeedViewPost> feed,
+    @FeedViewPostConverter() required List<FeedViewPost> feed,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

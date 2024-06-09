@@ -42,10 +42,12 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
     @Default(0) int followersCount,
     @Default(0) int followsCount,
     @Default(0) int postsCount,
-    @Default(ProfileAssociated()) ProfileAssociated associated,
+    @ProfileAssociatedConverter()
+    @Default(ProfileAssociated())
+    ProfileAssociated associated,
     DateTime? indexedAt,
-    @Default(ViewerState()) ViewerState viewer,
-    List<Label>? labels,
+    @ViewerStateConverter() @Default(ViewerState()) ViewerState viewer,
+    @LabelConverter() List<Label>? labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

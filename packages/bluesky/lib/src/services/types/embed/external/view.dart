@@ -29,7 +29,7 @@ class ExternalView with _$ExternalView {
     ///
     /// `app.bsky.embed.external#view`
     @Default(appBskyEmbedExternalView) @JsonKey(name: r'$type') String $type,
-    required ExternalViewExternal external,
+    @ExternalViewExternalConverter() required ExternalViewExternal external,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

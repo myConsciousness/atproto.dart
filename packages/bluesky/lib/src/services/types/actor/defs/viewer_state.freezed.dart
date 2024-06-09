@@ -26,10 +26,12 @@ mixin _$ViewerState {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   bool get muted => throw _privateConstructorUsedError;
+  @ListViewBasicConverter()
   ListViewBasic? get mutedByList => throw _privateConstructorUsedError;
   bool get blockedBy => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get blocking => throw _privateConstructorUsedError;
+  @ListViewBasicConverter()
   ListViewBasic? get blockingByList => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get following => throw _privateConstructorUsedError;
@@ -55,10 +57,10 @@ abstract class $ViewerStateCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool muted,
-      ListViewBasic? mutedByList,
+      @ListViewBasicConverter() ListViewBasic? mutedByList,
       bool blockedBy,
       @AtUriConverter() AtUri? blocking,
-      ListViewBasic? blockingByList,
+      @ListViewBasicConverter() ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -166,10 +168,10 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool muted,
-      ListViewBasic? mutedByList,
+      @ListViewBasicConverter() ListViewBasic? mutedByList,
       bool blockedBy,
       @AtUriConverter() AtUri? blocking,
-      ListViewBasic? blockingByList,
+      @ListViewBasicConverter() ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -249,10 +251,10 @@ class _$ViewerStateImpl implements _ViewerState {
   const _$ViewerStateImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsViewerState,
       this.muted = false,
-      this.mutedByList,
+      @ListViewBasicConverter() this.mutedByList,
       this.blockedBy = false,
       @AtUriConverter() this.blocking,
-      this.blockingByList,
+      @ListViewBasicConverter() this.blockingByList,
       @AtUriConverter() this.following,
       @AtUriConverter() this.followedBy,
       @JsonKey(name: r'$unknown')
@@ -272,6 +274,7 @@ class _$ViewerStateImpl implements _ViewerState {
   @JsonKey()
   final bool muted;
   @override
+  @ListViewBasicConverter()
   final ListViewBasic? mutedByList;
   @override
   @JsonKey()
@@ -280,6 +283,7 @@ class _$ViewerStateImpl implements _ViewerState {
   @AtUriConverter()
   final AtUri? blocking;
   @override
+  @ListViewBasicConverter()
   final ListViewBasic? blockingByList;
   @override
   @AtUriConverter()
@@ -359,10 +363,10 @@ abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
           {@JsonKey(name: r'$type') final String $type,
           final bool muted,
-          final ListViewBasic? mutedByList,
+          @ListViewBasicConverter() final ListViewBasic? mutedByList,
           final bool blockedBy,
           @AtUriConverter() final AtUri? blocking,
-          final ListViewBasic? blockingByList,
+          @ListViewBasicConverter() final ListViewBasic? blockingByList,
           @AtUriConverter() final AtUri? following,
           @AtUriConverter() final AtUri? followedBy,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -381,6 +385,7 @@ abstract class _ViewerState implements ViewerState {
   @override
   bool get muted;
   @override
+  @ListViewBasicConverter()
   ListViewBasic? get mutedByList;
   @override
   bool get blockedBy;
@@ -388,6 +393,7 @@ abstract class _ViewerState implements ViewerState {
   @AtUriConverter()
   AtUri? get blocking;
   @override
+  @ListViewBasicConverter()
   ListViewBasic? get blockingByList;
   @override
   @AtUriConverter()

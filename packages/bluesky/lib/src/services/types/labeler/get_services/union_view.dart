@@ -45,12 +45,16 @@ final class UViewConverter
 
       if (type == 'app.bsky.labeler.defs#labelerView') {
         return UView.labelerView(
-          data: LabelerView.fromJson(json),
+          data: LabelerView.fromJson(
+            const LabelerViewConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.labeler.defs#labelerViewDetailed') {
         return UView.labelerViewDetailed(
-          data: LabelerViewDetailed.fromJson(json),
+          data: LabelerViewDetailed.fromJson(
+            const LabelerViewDetailedConverter().fromJson(json),
+          ),
         );
       }
 
@@ -62,8 +66,13 @@ final class UViewConverter
 
   @override
   Map<String, dynamic> toJson(UView object) => object.when(
-        labelerView: (data) => data.toJson(),
-        labelerViewDetailed: (data) => data.toJson(),
+        labelerView: (data) => const LabelerViewConverter().toJson(
+          data.toJson(),
+        ),
+        labelerViewDetailed: (data) =>
+            const LabelerViewDetailedConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

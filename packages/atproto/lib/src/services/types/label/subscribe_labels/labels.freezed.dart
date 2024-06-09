@@ -26,6 +26,7 @@ mixin _$Labels {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
   int get seq => throw _privateConstructorUsedError;
+  @LabelConverter()
   List<Label> get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +46,7 @@ abstract class $LabelsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      List<Label> labels,
+      @LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -98,7 +99,7 @@ abstract class _$$LabelsImplCopyWith<$Res> implements $LabelsCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      List<Label> labels,
+      @LabelConverter() List<Label> labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -147,7 +148,7 @@ class _$LabelsImpl implements _Labels {
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoLabelSubscribeLabelsLabels,
       required this.seq,
-      required final List<Label> labels,
+      @LabelConverter() required final List<Label> labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _labels = labels,
@@ -166,6 +167,7 @@ class _$LabelsImpl implements _Labels {
   final int seq;
   final List<Label> _labels;
   @override
+  @LabelConverter()
   List<Label> get labels {
     if (_labels is EqualUnmodifiableListView) return _labels;
     // ignore: implicit_dynamic_type
@@ -227,7 +229,7 @@ abstract class _Labels implements Labels {
   const factory _Labels(
           {@JsonKey(name: r'$type') final String $type,
           required final int seq,
-          required final List<Label> labels,
+          @LabelConverter() required final List<Label> labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelsImpl;
 
@@ -243,6 +245,7 @@ abstract class _Labels implements Labels {
   @override
   int get seq;
   @override
+  @LabelConverter()
   List<Label> get labels;
   @override
 

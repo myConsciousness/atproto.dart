@@ -24,7 +24,7 @@ part 'output.g.dart';
 class GetSuggestedFollowsByActorOutput with _$GetSuggestedFollowsByActorOutput {
   @JsonSerializable(includeIfNull: false)
   const factory GetSuggestedFollowsByActorOutput({
-    required List<ProfileView> suggestions,
+    @ProfileViewConverter() required List<ProfileView> suggestions,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

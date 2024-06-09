@@ -40,7 +40,9 @@ final class UReasonConverter
 
       if (type == 'app.bsky.feed.defs#skeletonReasonRepost') {
         return UReason.skeletonReasonRepost(
-          data: SkeletonReasonRepost.fromJson(json),
+          data: SkeletonReasonRepost.fromJson(
+            const SkeletonReasonRepostConverter().fromJson(json),
+          ),
         );
       }
 
@@ -52,7 +54,10 @@ final class UReasonConverter
 
   @override
   Map<String, dynamic> toJson(UReason object) => object.when(
-        skeletonReasonRepost: (data) => data.toJson(),
+        skeletonReasonRepost: (data) =>
+            const SkeletonReasonRepostConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

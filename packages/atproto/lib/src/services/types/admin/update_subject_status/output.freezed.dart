@@ -23,6 +23,7 @@ UpdateSubjectStatusOutput _$UpdateSubjectStatusOutputFromJson(
 mixin _$UpdateSubjectStatusOutput {
   @USubjectConverter()
   USubject get subject => throw _privateConstructorUsedError;
+  @StatusAttrConverter()
   StatusAttr? get takedown => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -43,7 +44,7 @@ abstract class $UpdateSubjectStatusOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {@USubjectConverter() USubject subject,
-      StatusAttr? takedown,
+      @StatusAttrConverter() StatusAttr? takedown,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USubjectCopyWith<$Res> get subject;
@@ -116,7 +117,7 @@ abstract class _$$UpdateSubjectStatusOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {@USubjectConverter() USubject subject,
-      StatusAttr? takedown,
+      @StatusAttrConverter() StatusAttr? takedown,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -165,7 +166,7 @@ class __$$UpdateSubjectStatusOutputImplCopyWithImpl<$Res>
 class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
   const _$UpdateSubjectStatusOutputImpl(
       {@USubjectConverter() required this.subject,
-      this.takedown,
+      @StatusAttrConverter() this.takedown,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -177,6 +178,7 @@ class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
   @USubjectConverter()
   final USubject subject;
   @override
+  @StatusAttrConverter()
   final StatusAttr? takedown;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -230,7 +232,7 @@ class _$UpdateSubjectStatusOutputImpl implements _UpdateSubjectStatusOutput {
 abstract class _UpdateSubjectStatusOutput implements UpdateSubjectStatusOutput {
   const factory _UpdateSubjectStatusOutput(
           {@USubjectConverter() required final USubject subject,
-          final StatusAttr? takedown,
+          @StatusAttrConverter() final StatusAttr? takedown,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$UpdateSubjectStatusOutputImpl;
 
@@ -241,6 +243,7 @@ abstract class _UpdateSubjectStatusOutput implements UpdateSubjectStatusOutput {
   @USubjectConverter()
   USubject get subject;
   @override
+  @StatusAttrConverter()
   StatusAttr? get takedown;
   @override
 

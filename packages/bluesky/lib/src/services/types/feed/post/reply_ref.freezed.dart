@@ -25,7 +25,9 @@ mixin _$ReplyRef {
   /// `app.bsky.feed.post#replyRef`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @StrongRefConverter()
   StrongRef get root => throw _privateConstructorUsedError;
+  @StrongRefConverter()
   StrongRef get parent => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,8 +47,8 @@ abstract class $ReplyRefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      StrongRef root,
-      StrongRef parent,
+      @StrongRefConverter() StrongRef root,
+      @StrongRefConverter() StrongRef parent,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $StrongRefCopyWith<$Res> get root;
@@ -118,8 +120,8 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      StrongRef root,
-      StrongRef parent,
+      @StrongRefConverter() StrongRef root,
+      @StrongRefConverter() StrongRef parent,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -171,8 +173,8 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
 class _$ReplyRefImpl implements _ReplyRef {
   const _$ReplyRefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedPostReplyRef,
-      required this.root,
-      required this.parent,
+      @StrongRefConverter() required this.root,
+      @StrongRefConverter() required this.parent,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -187,8 +189,10 @@ class _$ReplyRefImpl implements _ReplyRef {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @StrongRefConverter()
   final StrongRef root;
   @override
+  @StrongRefConverter()
   final StrongRef parent;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -241,8 +245,8 @@ class _$ReplyRefImpl implements _ReplyRef {
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
           {@JsonKey(name: r'$type') final String $type,
-          required final StrongRef root,
-          required final StrongRef parent,
+          @StrongRefConverter() required final StrongRef root,
+          @StrongRefConverter() required final StrongRef parent,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ReplyRefImpl;
 
@@ -257,8 +261,10 @@ abstract class _ReplyRef implements ReplyRef {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @StrongRefConverter()
   StrongRef get root;
   @override
+  @StrongRefConverter()
   StrongRef get parent;
   @override
 

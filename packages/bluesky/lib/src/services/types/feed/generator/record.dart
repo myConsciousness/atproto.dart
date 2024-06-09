@@ -29,7 +29,7 @@ class GeneratorRecord with _$GeneratorRecord {
     required String did,
     required String displayName,
     String? description,
-    List<Facet>? descriptionFacets,
+    @FacetConverter() List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
 
     /// Declaration that a feed accepts feedback interactions from a client through app.bsky.feed.sendInteractions

@@ -22,7 +22,7 @@ part 'record.g.dart';
 class RepostRecord with _$RepostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
-    required StrongRef subject,
+    @StrongRefConverter() required StrongRef subject,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.

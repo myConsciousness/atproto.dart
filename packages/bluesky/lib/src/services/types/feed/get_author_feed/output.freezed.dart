@@ -21,6 +21,7 @@ GetAuthorFeedOutput _$GetAuthorFeedOutputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetAuthorFeedOutput {
   String? get cursor => throw _privateConstructorUsedError;
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetAuthorFeedOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? cursor,
-      List<FeedViewPost> feed,
+      @FeedViewPostConverter() List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -89,7 +90,7 @@ abstract class _$$GetAuthorFeedOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? cursor,
-      List<FeedViewPost> feed,
+      @FeedViewPostConverter() List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -131,7 +132,7 @@ class __$$GetAuthorFeedOutputImplCopyWithImpl<$Res>
 class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
   const _$GetAuthorFeedOutputImpl(
       {this.cursor,
-      required final List<FeedViewPost> feed,
+      @FeedViewPostConverter() required final List<FeedViewPost> feed,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feed = feed,
@@ -144,6 +145,7 @@ class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
   final String? cursor;
   final List<FeedViewPost> _feed;
   @override
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed {
     if (_feed is EqualUnmodifiableListView) return _feed;
     // ignore: implicit_dynamic_type
@@ -203,7 +205,7 @@ class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
 abstract class _GetAuthorFeedOutput implements GetAuthorFeedOutput {
   const factory _GetAuthorFeedOutput(
           {final String? cursor,
-          required final List<FeedViewPost> feed,
+          @FeedViewPostConverter() required final List<FeedViewPost> feed,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetAuthorFeedOutputImpl;
 
@@ -213,6 +215,7 @@ abstract class _GetAuthorFeedOutput implements GetAuthorFeedOutput {
   @override
   String? get cursor;
   @override
+  @FeedViewPostConverter()
   List<FeedViewPost> get feed;
   @override
 

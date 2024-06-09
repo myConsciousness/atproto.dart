@@ -28,6 +28,7 @@ mixin _$BlockedPost {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
   bool get blocked => throw _privateConstructorUsedError;
+  @BlockedAuthorConverter()
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -50,7 +51,7 @@ abstract class $BlockedPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author,
+      @BlockedAuthorConverter() BlockedAuthor author,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlockedAuthorCopyWith<$Res> get author;
@@ -120,7 +121,7 @@ abstract class _$$BlockedPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author,
+      @BlockedAuthorConverter() BlockedAuthor author,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -177,7 +178,7 @@ class _$BlockedPostImpl implements _BlockedPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedPost,
       @AtUriConverter() required this.uri,
       required this.blocked,
-      required this.author,
+      @BlockedAuthorConverter() required this.author,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -197,6 +198,7 @@ class _$BlockedPostImpl implements _BlockedPost {
   @override
   final bool blocked;
   @override
+  @BlockedAuthorConverter()
   final BlockedAuthor author;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -252,7 +254,7 @@ abstract class _BlockedPost implements BlockedPost {
           {@JsonKey(name: r'$type') final String $type,
           @AtUriConverter() required final AtUri uri,
           required final bool blocked,
-          required final BlockedAuthor author,
+          @BlockedAuthorConverter() required final BlockedAuthor author,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$BlockedPostImpl;
 
@@ -272,6 +274,7 @@ abstract class _BlockedPost implements BlockedPost {
   @override
   bool get blocked;
   @override
+  @BlockedAuthorConverter()
   BlockedAuthor get author;
   @override
 

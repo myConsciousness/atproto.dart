@@ -45,12 +45,16 @@ final class URelationshipConverter
 
       if (type == 'app.bsky.graph.defs#relationship') {
         return URelationship.relationship(
-          data: Relationship.fromJson(json),
+          data: Relationship.fromJson(
+            const RelationshipConverter().fromJson(json),
+          ),
         );
       }
       if (type == 'app.bsky.graph.defs#notFoundActor') {
         return URelationship.notFoundActor(
-          data: NotFoundActor.fromJson(json),
+          data: NotFoundActor.fromJson(
+            const NotFoundActorConverter().fromJson(json),
+          ),
         );
       }
 
@@ -62,8 +66,12 @@ final class URelationshipConverter
 
   @override
   Map<String, dynamic> toJson(URelationship object) => object.when(
-        relationship: (data) => data.toJson(),
-        notFoundActor: (data) => data.toJson(),
+        relationship: (data) => const RelationshipConverter().toJson(
+          data.toJson(),
+        ),
+        notFoundActor: (data) => const NotFoundActorConverter().toJson(
+          data.toJson(),
+        ),
         unknown: (data) => data,
       );
 }

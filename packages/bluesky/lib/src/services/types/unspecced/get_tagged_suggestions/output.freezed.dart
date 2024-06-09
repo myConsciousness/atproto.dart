@@ -21,6 +21,7 @@ GetTaggedSuggestionsOutput _$GetTaggedSuggestionsOutputFromJson(
 
 /// @nodoc
 mixin _$GetTaggedSuggestionsOutput {
+  @SuggestionConverter()
   List<Suggestion> get suggestions => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -41,7 +42,7 @@ abstract class $GetTaggedSuggestionsOutputCopyWith<$Res> {
           GetTaggedSuggestionsOutput>;
   @useResult
   $Res call(
-      {List<Suggestion> suggestions,
+      {@SuggestionConverter() List<Suggestion> suggestions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -85,7 +86,7 @@ abstract class _$$GetTaggedSuggestionsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<Suggestion> suggestions,
+      {@SuggestionConverter() List<Suggestion> suggestions,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -123,7 +124,7 @@ class __$$GetTaggedSuggestionsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
   const _$GetTaggedSuggestionsOutputImpl(
-      {required final List<Suggestion> suggestions,
+      {@SuggestionConverter() required final List<Suggestion> suggestions,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _suggestions = suggestions,
@@ -135,6 +136,7 @@ class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
 
   final List<Suggestion> _suggestions;
   @override
+  @SuggestionConverter()
   List<Suggestion> get suggestions {
     if (_suggestions is EqualUnmodifiableListView) return _suggestions;
     // ignore: implicit_dynamic_type
@@ -193,7 +195,7 @@ class _$GetTaggedSuggestionsOutputImpl implements _GetTaggedSuggestionsOutput {
 abstract class _GetTaggedSuggestionsOutput
     implements GetTaggedSuggestionsOutput {
   const factory _GetTaggedSuggestionsOutput(
-          {required final List<Suggestion> suggestions,
+          {@SuggestionConverter() required final List<Suggestion> suggestions,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetTaggedSuggestionsOutputImpl;
 
@@ -201,6 +203,7 @@ abstract class _GetTaggedSuggestionsOutput
       _$GetTaggedSuggestionsOutputImpl.fromJson;
 
   @override
+  @SuggestionConverter()
   List<Suggestion> get suggestions;
   @override
 

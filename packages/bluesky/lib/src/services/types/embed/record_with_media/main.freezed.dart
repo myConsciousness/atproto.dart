@@ -25,6 +25,7 @@ mixin _$RecordWithMedia {
   /// `app.bsky.embed.recordWithMedia`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
+  @RecordConverter()
   Record get record => throw _privateConstructorUsedError;
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media => throw _privateConstructorUsedError;
@@ -47,7 +48,7 @@ abstract class $RecordWithMediaCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      Record record,
+      @RecordConverter() Record record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -120,7 +121,7 @@ abstract class _$$RecordWithMediaImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      Record record,
+      @RecordConverter() Record record,
       @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -173,7 +174,7 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
 class _$RecordWithMediaImpl implements _RecordWithMedia {
   const _$RecordWithMediaImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMedia,
-      required this.record,
+      @RecordConverter() required this.record,
       @URecordWithMediaMediaConverter() required this.media,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -189,6 +190,7 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
   @JsonKey(name: r'$type')
   final String $type;
   @override
+  @RecordConverter()
   final Record record;
   @override
   @URecordWithMediaMediaConverter()
@@ -245,7 +247,7 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
 abstract class _RecordWithMedia implements RecordWithMedia {
   const factory _RecordWithMedia(
           {@JsonKey(name: r'$type') final String $type,
-          required final Record record,
+          @RecordConverter() required final Record record,
           @URecordWithMediaMediaConverter()
           required final URecordWithMediaMedia media,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -262,6 +264,7 @@ abstract class _RecordWithMedia implements RecordWithMedia {
   @JsonKey(name: r'$type')
   String get $type;
   @override
+  @RecordConverter()
   Record get record;
   @override
   @URecordWithMediaMediaConverter()

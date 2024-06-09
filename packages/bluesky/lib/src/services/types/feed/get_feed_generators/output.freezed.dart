@@ -21,6 +21,7 @@ GetFeedGeneratorsOutput _$GetFeedGeneratorsOutputFromJson(
 
 /// @nodoc
 mixin _$GetFeedGeneratorsOutput {
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -40,7 +41,7 @@ abstract class $GetFeedGeneratorsOutputCopyWith<$Res> {
       _$GetFeedGeneratorsOutputCopyWithImpl<$Res, GetFeedGeneratorsOutput>;
   @useResult
   $Res call(
-      {List<GeneratorView> feeds,
+      {@GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -84,7 +85,7 @@ abstract class _$$GetFeedGeneratorsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<GeneratorView> feeds,
+      {@GeneratorViewConverter() List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -122,7 +123,7 @@ class __$$GetFeedGeneratorsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetFeedGeneratorsOutputImpl implements _GetFeedGeneratorsOutput {
   const _$GetFeedGeneratorsOutputImpl(
-      {required final List<GeneratorView> feeds,
+      {@GeneratorViewConverter() required final List<GeneratorView> feeds,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _feeds = feeds,
@@ -133,6 +134,7 @@ class _$GetFeedGeneratorsOutputImpl implements _GetFeedGeneratorsOutput {
 
   final List<GeneratorView> _feeds;
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds {
     if (_feeds is EqualUnmodifiableListView) return _feeds;
     // ignore: implicit_dynamic_type
@@ -189,7 +191,7 @@ class _$GetFeedGeneratorsOutputImpl implements _GetFeedGeneratorsOutput {
 
 abstract class _GetFeedGeneratorsOutput implements GetFeedGeneratorsOutput {
   const factory _GetFeedGeneratorsOutput(
-          {required final List<GeneratorView> feeds,
+          {@GeneratorViewConverter() required final List<GeneratorView> feeds,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetFeedGeneratorsOutputImpl;
 
@@ -197,6 +199,7 @@ abstract class _GetFeedGeneratorsOutput implements GetFeedGeneratorsOutput {
       _$GetFeedGeneratorsOutputImpl.fromJson;
 
   @override
+  @GeneratorViewConverter()
   List<GeneratorView> get feeds;
   @override
 

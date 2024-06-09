@@ -51,6 +51,7 @@ class LabelValueDefinition with _$LabelValueDefinition {
 
     /// Does the user need to have adult content enabled in order to configure this label?
     @Default(false) bool adultOnly,
+    @LabelValueDefinitionStringsConverter()
     required List<LabelValueDefinitionStrings> locales,
 
     /// Contains unknown objects not defined in Lexicon.
