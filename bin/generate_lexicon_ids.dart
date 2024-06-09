@@ -9,11 +9,11 @@ import 'dart:io';
 // 🌎 Project imports:
 import 'utils.dart';
 
-const packages = [
-  'atproto',
-  'bluesky',
-  'bluesky_chat',
-];
+const packages = {
+  'atproto': ['com.atproto'],
+  'bluesky': ['app.bsky', 'chat.bsky'],
+  'bluesky_chat': ['chat.bsky'],
+};
 
 final _header = getFileHeader('Lexicon IDs Generator');
 
@@ -23,7 +23,9 @@ const _nsidsFileName = 'nsids.g.dart';
 void main() {
   final fields = _getFields();
 
-  for (final package in packages) {
+  for (final entry in packages.entries) {
+    final package = entry.key;
+
     final ids = StringBuffer()..writeln(_header);
     final nsids = StringBuffer()
       ..writeln(_header)
@@ -34,21 +36,23 @@ void main() {
       ..writeln('// 🌎 Project imports:')
       ..writeln("import '$_idsFileName' as ids;");
 
-    for (final field in fields) {
-      if (!field.value.startsWith(_toServiceName(package))) {
-        continue;
-      }
+    for (final lexicon in entry.value) {
+      for (final field in fields) {
+        if (!field.value.startsWith(lexicon)) {
+          continue;
+        }
 
-      ids
-        ..writeln()
-        ..writeln('/// `${field.value}`')
-        ..writeln("const ${field.name} = '${field.value}';");
-
-      if (!field.value.split('#').first.endsWith('defs')) {
-        nsids
+        ids
           ..writeln()
           ..writeln('/// `${field.value}`')
-          ..writeln("const ${field.name} = NSID(ids.${field.name});");
+          ..writeln("const ${field.name} = '${field.value}';");
+
+        if (!field.value.split('#').first.endsWith('defs')) {
+          nsids
+            ..writeln()
+            ..writeln('/// `${field.value}`')
+            ..writeln("const ${field.name} = NSID(ids.${field.name});");
+        }
       }
     }
 
