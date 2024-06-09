@@ -282,7 +282,7 @@ Future<void> main() async {
   final bluesky = bsky.Bluesky.fromSession(
     session.data,
 
-    // Add this.
+    // Add this, or resolve dynamically based on session.
     service: 'boobee.blue',
   );
 }

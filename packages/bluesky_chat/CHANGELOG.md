@@ -1,5 +1,13 @@
 # Release Note
 
+## v0.3.0
+
+- The `service` is automatically resolved from the DID Document of the given `Session`. ([#1543](https://github.com/myConsciousness/atproto.dart/pull/1543))
+  - If no authentication is performed and no `Session` is passed, the default `bsky.social` is used.
+  - If the user passes a specific `service`, it always respects the value of the user's `service`.
+  - If something wrong happens for some reason, it uses `bsky.social` as default.
+- Set `{'atproto-proxy': 'did:web:api.bsky.chat#bsky_chat'}` automatically. No need to pass it anymore. ([#1543](https://github.com/myConsciousness/atproto.dart/pull/1543))
+
 ## v0.2.5
 
 - Fixed a bug that prevented toJson on freezed objects from `atproto_core`.
