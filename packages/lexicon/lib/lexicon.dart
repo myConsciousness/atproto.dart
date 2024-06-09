@@ -34,3 +34,4 @@ export 'package:lexicon/src/types/xrpc/lex_xrpc_procedure.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_query.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_schema.dart';
 export 'package:lexicon/src/types/xrpc/lex_xrpc_subscription.dart';
+export 'package:lexicon/src/types/xrpc/lex_xrpc_subscription_message.dart';

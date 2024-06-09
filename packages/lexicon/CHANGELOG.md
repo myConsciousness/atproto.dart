@@ -1,5 +1,10 @@
 # Release Note
 
+## v0.2.2
+
+- Merge latest lexicons definitions.
+- Expose `LexXrpcSubscriptionMessage`.
+
 ## v0.2.1
 
 - Merge latest lexicons definitions.
