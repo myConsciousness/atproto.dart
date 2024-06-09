@@ -7,6 +7,7 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../rules/naming_convention.dart';
+import '../rules/object_type.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/object.dart';
@@ -22,8 +23,6 @@ final class LexGenObjectBuilder {
     final properties = _getProperties();
     if (properties == null) return null; // RefVariant, no need to create.
 
-    final convention = LexNamingConvention(context);
-
     String? namespace;
     if (context.def is ULexUserTypeObject) {
       namespace = context.defName == 'main'
@@ -31,19 +30,22 @@ final class LexGenObjectBuilder {
           : '${context.docId.toString()}#${context.defName}';
     }
 
-    return properties
-        .where((e) => e != null)
-        .map(
-          (e) => LexGenObject(
-            description: _getDescription(),
-            namespace: namespace,
-            name: convention.getObjectName(),
-            fileName: convention.getFileName(),
-            properties: e!,
-            filePath: convention.getFilePath(),
-          ),
+    return properties.entries.expand((e) {
+      if (e.value == null) return const <LexGenObject>[];
+
+      final convention = LexNamingConvention(context, objectType: e.key);
+
+      return [
+        LexGenObject(
+          description: _getDescription(),
+          namespace: namespace,
+          name: convention.getObjectName(),
+          fileName: convention.getFileName(),
+          properties: e.value!,
+          filePath: convention.getFilePath(),
         )
-        .toList();
+      ];
+    }).toList();
   }
 
   String _getDescription() {
@@ -61,16 +63,27 @@ final class LexGenObjectBuilder {
     return buffer.toString();
   }
 
-  List<List<LexGenObjectProperty>?>? _getProperties() {
+  Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties() {
     final properties = context.def!.whenOrNull(
-      object: (data) => [_getObjectProperties(data)],
+      object: (data) => {
+        ObjectType.object: _getObjectProperties(data),
+      },
       xrpcQuery: (data) {
-        return [_getObjectPropertiesFromXrpcBody(data.output)];
+        return {
+          ObjectType.params:
+              _getObjectPropertiesFromXrpcParameters(data.parameters),
+          ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
+        };
       },
       xrpcProcedure: (data) {
-        return [_getObjectPropertiesFromXrpcBody(data.output)];
+        return {
+          ObjectType.params:
+              _getObjectPropertiesFromXrpcParameters(data.parameters),
+          ObjectType.input: _getObjectPropertiesFromXrpcBody(data.input),
+          ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
+        };
       },
-      record: (data) => [_getObjectProperties(data.record)],
+      record: (data) => {ObjectType.record: _getObjectProperties(data.record)},
     );
 
     return properties;
@@ -144,7 +157,30 @@ final class LexGenObjectBuilder {
     return _getObjectProperties(object);
   }
 
-  List<LexGenObjectProperty> _getObjectProperties(final LexObject object) {
+  List<LexGenObjectProperty>? _getObjectPropertiesFromXrpcParameters(
+    final LexXrpcParameters? parameters,
+  ) {
+    if (parameters == null) return null;
+
+    final properties = <LexGenObjectProperty>[];
+    final requiredProperties = parameters.requiredProperties ?? const [];
+
+    for (final entry in parameters.properties!.entries) {
+      properties.add(
+        _getObjectProperty(
+          entry.key,
+          entry.value.toJson(),
+          requiredProperties,
+        ),
+      );
+    }
+
+    return properties;
+  }
+
+  List<LexGenObjectProperty> _getObjectProperties(
+    final LexObject object,
+  ) {
     if (object.properties == null) return const [];
 
     final properties = <LexGenObjectProperty>[];
@@ -152,7 +188,11 @@ final class LexGenObjectBuilder {
 
     for (final entry in object.properties!.entries) {
       properties.add(
-        _getObjectProperty(entry.key, entry.value, requiredProperties),
+        _getObjectProperty(
+          entry.key,
+          entry.value.toJson(),
+          requiredProperties,
+        ),
       );
     }
 
@@ -161,10 +201,10 @@ final class LexGenObjectBuilder {
 
   LexGenObjectProperty _getObjectProperty(
     final String name,
-    final LexObjectProperty value,
+    final Map<String, dynamic> value,
     final List<String> requiredProperties,
   ) {
-    final property = value.toJson();
+    final property = value;
     final union = LexUnionObjectBuilder(
       docId: context.docId,
       defName: context.mainRelatedDocIds.contains(context.docId.toString())

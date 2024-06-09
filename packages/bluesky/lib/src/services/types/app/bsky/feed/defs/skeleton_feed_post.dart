@@ -15,8 +15,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/union_reason.dart';
-import '../../../../ids.g.dart';
 
 part 'skeleton_feed_post.freezed.dart';
 part 'skeleton_feed_post.g.dart';

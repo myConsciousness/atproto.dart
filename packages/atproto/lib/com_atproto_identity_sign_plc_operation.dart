@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:atproto/src/services/types/com/atproto/identity/sign_plc_operation/input.dart';
 export 'package:atproto/src/services/types/com/atproto/identity/sign_plc_operation/output.dart';

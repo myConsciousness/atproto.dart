@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:atproto/src/services/types/com/atproto/server/create_account/input.dart';
 export 'package:atproto/src/services/types/com/atproto/server/create_account/output.dart';

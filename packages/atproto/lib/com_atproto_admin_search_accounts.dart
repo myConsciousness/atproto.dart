@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:atproto/src/services/types/com/atproto/admin/search_accounts/params.dart';
 export 'package:atproto/src/services/types/com/atproto/admin/search_accounts/output.dart';

@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:bluesky/src/services/types/app/bsky/graph/get_suggested_follows_by_actor/params.dart';
 export 'package:bluesky/src/services/types/app/bsky/graph/get_suggested_follows_by_actor/output.dart';

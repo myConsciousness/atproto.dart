@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/server/defs/invite_code_use.dart';
-import '../../../../ids.g.dart';
 
 part 'invite_code.freezed.dart';
 part 'invite_code.g.dart';

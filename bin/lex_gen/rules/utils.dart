@@ -211,7 +211,10 @@ DataType getDataType(
       );
     }
 
-    final convention = LexNamingConvention(refContext, isKnownValues);
+    final convention = LexNamingConvention(
+      refContext,
+      isKnownValue: isKnownValues,
+    );
     final objectName = convention.getObjectName();
 
     return DataType(

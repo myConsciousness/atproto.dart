@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/known_allow_incoming.dart';
-import '../../../../ids.g.dart';
 
 part 'profile_associated_chat.freezed.dart';
 part 'profile_associated_chat.g.dart';

@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/unspecced/get_tagged_suggestions/known_subject_type.dart';
-import '../../../../ids.g.dart';
 
 part 'suggestion.freezed.dart';
 part 'suggestion.g.dart';

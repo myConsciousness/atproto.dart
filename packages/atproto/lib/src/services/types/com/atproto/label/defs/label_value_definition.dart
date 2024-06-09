@@ -14,11 +14,11 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/label/defs/known_blur.dart';
 import '../../../../com/atproto/label/defs/known_default_setting.dart';
 import '../../../../com/atproto/label/defs/known_severity.dart';
 import '../../../../com/atproto/label/defs/label_value_definition_strings.dart';
-import '../../../../ids.g.dart';
 
 part 'label_value_definition.freezed.dart';
 part 'label_value_definition.g.dart';

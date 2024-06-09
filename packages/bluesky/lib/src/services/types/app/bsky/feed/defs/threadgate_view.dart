@@ -15,8 +15,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/list_view_basic.dart';
-import '../../../../ids.g.dart';
 import '../../feed/threadgate/record.dart';
 
 part 'threadgate_view.freezed.dart';

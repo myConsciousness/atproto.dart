@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/saved_feed.dart';
-import '../../../../ids.g.dart';
 
 part 'saved_feeds_pref_v2.freezed.dart';
 part 'saved_feeds_pref_v2.g.dart';

@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart';
+import '../../../../../../ids.g.dart';
 
 part 'text_slice.freezed.dart';
 part 'text_slice.g.dart';

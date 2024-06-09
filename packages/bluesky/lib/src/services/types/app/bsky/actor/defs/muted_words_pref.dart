@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/muted_word.dart';
-import '../../../../ids.g.dart';
 
 part 'muted_words_pref.freezed.dart';
 part 'muted_words_pref.g.dart';

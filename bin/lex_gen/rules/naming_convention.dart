@@ -7,16 +7,19 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../rules/utils.dart';
+import '../rules/object_type.dart';
 import '../types/context.dart';
 
 final class LexNamingConvention {
   const LexNamingConvention(
-    this.context, [
+    this.context, {
+    this.objectType,
     this.isKnownValue = false,
-  ]);
+  });
 
   final LexGenContext context;
   final bool isKnownValue;
+  final ObjectType? objectType;
 
   String getObjectName() {
     final lexicon = _lexicon;
@@ -32,7 +35,15 @@ final class LexNamingConvention {
       return '${toFirstUpper(segments.last)}Record';
     }
 
-    return '${toFirstUpper(segments.last)}Output';
+    if (objectType == ObjectType.params) {
+      return '${toFirstUpper(segments.last)}Params';
+    } else if (objectType == ObjectType.input) {
+      return '${toFirstUpper(segments.last)}Input';
+    } else if (objectType == ObjectType.output) {
+      return '${toFirstUpper(segments.last)}Output';
+    }
+
+    return toFirstUpper(segments.last);
   }
 
   String getFileName() {
@@ -43,7 +54,13 @@ final class LexNamingConvention {
     }
 
     if (!segments.last.startsWith('defs') && !_lexicon.contains('#')) {
-      return 'output';
+      if (objectType == ObjectType.params) {
+        return 'params';
+      } else if (objectType == ObjectType.input) {
+        return 'input';
+      } else if (objectType == ObjectType.output) {
+        return 'output';
+      }
     }
 
     return toLowerCamelCase(context.defName);

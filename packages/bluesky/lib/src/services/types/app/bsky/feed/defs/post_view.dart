@@ -16,11 +16,11 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../app/bsky/feed/defs/threadgate_view.dart';
 import '../../../../app/bsky/feed/defs/union_embed.dart';
 import '../../../../app/bsky/feed/defs/viewer_state.dart';
-import '../../../../ids.g.dart';
 import '../../feed/post/record.dart';
 
 part 'post_view.freezed.dart';

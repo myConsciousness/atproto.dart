@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:bluesky/src/services/types/app/bsky/actor/search_actors_typeahead/params.dart';
 export 'package:bluesky/src/services/types/app/bsky/actor/search_actors_typeahead/output.dart';

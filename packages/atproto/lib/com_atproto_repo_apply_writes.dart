@@ -10,6 +10,8 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:atproto/src/services/types/com/atproto/repo/apply_writes/input.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/apply_writes/union_write.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/apply_writes/create.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/apply_writes/update.dart';
 export 'package:atproto/src/services/types/com/atproto/repo/apply_writes/delete.dart';

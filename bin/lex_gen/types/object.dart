@@ -53,7 +53,7 @@ final class LexGenObject {
         "import 'package:freezed_annotation/freezed_annotation.dart';");
     buffer.writeln();
     if (namespace != null) {
-      buffer.writeln("import '../../../../ids.g.dart';");
+      buffer.writeln("import '../../../../../../ids.g.dart';");
     }
     for (final importPath in importPaths
         .where((e) => e != null)
@@ -234,7 +234,7 @@ final class LexGenObjectProperty {
       buffer.writeln('/// $description');
 
       if (description!.toLowerCase().contains('deprecated')) {
-        buffer.write("@Deprecated('$description')");
+        buffer.write("@Deprecated('${description!.replaceAll("'", "`")}')");
         buffer.write(' ');
       }
     }

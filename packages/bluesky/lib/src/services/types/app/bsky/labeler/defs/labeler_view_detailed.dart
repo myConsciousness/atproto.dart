@@ -16,10 +16,10 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view.dart';
 import '../../../../app/bsky/labeler/defs/labeler_policies.dart';
 import '../../../../app/bsky/labeler/defs/labeler_viewer_state.dart';
-import '../../../../ids.g.dart';
 
 part 'labeler_view_detailed.freezed.dart';
 part 'labeler_view_detailed.g.dart';

@@ -14,10 +14,10 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/post_view.dart';
 import '../../../../app/bsky/feed/defs/reply_ref.dart';
 import '../../../../app/bsky/feed/defs/union_reason.dart';
-import '../../../../ids.g.dart';
 
 part 'feed_view_post.freezed.dart';
 part 'feed_view_post.g.dart';

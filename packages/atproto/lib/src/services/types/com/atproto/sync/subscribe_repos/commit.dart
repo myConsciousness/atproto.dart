@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/sync/subscribe_repos/repo_op.dart';
-import '../../../../ids.g.dart';
 
 part 'commit.freezed.dart';
 part 'commit.g.dart';

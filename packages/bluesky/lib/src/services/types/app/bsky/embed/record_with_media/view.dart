@@ -14,9 +14,9 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/record/view.dart';
 import '../../../../app/bsky/embed/record_with_media/union_record_with_media_media.dart';
-import '../../../../ids.g.dart';
 
 part 'view.freezed.dart';
 part 'view.g.dart';

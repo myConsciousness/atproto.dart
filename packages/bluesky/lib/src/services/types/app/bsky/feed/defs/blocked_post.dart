@@ -15,8 +15,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/defs/blocked_author.dart';
-import '../../../../ids.g.dart';
 
 part 'blocked_post.freezed.dart';
 part 'blocked_post.g.dart';

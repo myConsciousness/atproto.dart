@@ -14,8 +14,8 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../com/atproto/label/defs/self_label.dart';
-import '../../../../ids.g.dart';
 
 part 'self_labels.freezed.dart';
 part 'self_labels.g.dart';

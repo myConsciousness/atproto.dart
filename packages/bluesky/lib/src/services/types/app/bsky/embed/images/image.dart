@@ -15,8 +15,8 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/embed/images/aspect_ratio.dart';
-import '../../../../ids.g.dart';
 
 part 'image.freezed.dart';
 part 'image.g.dart';

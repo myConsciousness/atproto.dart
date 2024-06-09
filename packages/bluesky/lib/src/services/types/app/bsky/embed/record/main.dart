@@ -15,7 +15,7 @@ import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../ids.g.dart';
+import '../../../../../../ids.g.dart';
 
 part 'main.freezed.dart';
 part 'main.g.dart';

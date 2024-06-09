@@ -10,4 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:bluesky/src/services/types/app/bsky/feed/get_timeline/params.dart';
 export 'package:bluesky/src/services/types/app/bsky/feed/get_timeline/output.dart';
