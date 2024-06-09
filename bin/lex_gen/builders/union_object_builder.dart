@@ -20,6 +20,7 @@ final class LexUnionObjectBuilder {
     this.propertyName,
     required this.refs,
     required this.mainRelatedDocIds,
+    this.useOnlyDefNameAsNamespace = false,
   });
 
   final String? description;
@@ -29,6 +30,7 @@ final class LexUnionObjectBuilder {
   final List<String> refs;
 
   final List<String> mainRelatedDocIds;
+  final bool useOnlyDefNameAsNamespace;
 
   LexUnionObject? build() {
     if (refs.isEmpty) return null;
@@ -98,10 +100,17 @@ final class LexUnionObjectBuilder {
 
       final convention = LexNamingConvention(refContext);
 
+      String namespace;
+      if (refDef!.defName != 'main') {
+        namespace = useOnlyDefNameAsNamespace
+            ? '#${refDef.defName}'
+            : '${refDef.docId}#${refDef.defName}';
+      } else {
+        namespace = refDef.docId.toString();
+      }
+
       types.add(DataType(
-        namespace: refDef!.defName != 'main'
-            ? '${refDef.docId}#${refDef.defName}'
-            : refDef.docId.toString(),
+        namespace: namespace,
         name: convention.getObjectName(),
         importPath: convention.getRelativeImportPath(docId),
       ));

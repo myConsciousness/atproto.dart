@@ -12,6 +12,7 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../utils.dart';
 import 'builders/known_values_builder.dart';
+import 'builders/union_object_builder.dart';
 import 'builders/object_builder.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
@@ -49,6 +50,30 @@ final class LexGen {
 
       final docId = doc.id;
       doc.defs.forEach((defName, def) {
+        if (def is ULexUserTypeXrpcSubscription) {
+          final unionRef = def.data.message?.schema
+              ?.whenOrNull(refVariant: (data) => data)
+              ?.whenOrNull(refUnion: (data) => data);
+
+          if (unionRef != null) {
+            final object = LexUnionObjectBuilder(
+              docId: docId,
+              propertyName: 'message',
+              refs: unionRef.refs ?? const [],
+              mainRelatedDocIds: mainRelatedDocIds,
+              useOnlyDefNameAsNamespace: true,
+            ).build();
+
+            if (object != null) {
+              File(_getOutputFilePath(docId, object.filePath))
+                ..createSync(recursive: true)
+                ..writeAsStringSync(object.toString());
+
+              _addExportPath(exports, docId, object.filePath);
+            }
+          }
+        }
+
         // Known Values
         if (def is ULexUserTypeString && def.data.knownValues != null) {
           final object = LexKnownValuesBuilder(
@@ -65,7 +90,8 @@ final class LexGen {
 
             _addExportPath(exports, docId, object.filePath);
           }
-        } // Lex Object
+        }
+        // Lex Object
         else {
           final objects = LexGenObjectBuilder(LexGenContext(
             docId: docId,
