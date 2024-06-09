@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/labeler/service/record.dart';
-export 'package:bluesky/src/services/types/labeler/service/union_label.dart';
+export 'package:bluesky/src/services/types/app/bsky/labeler/service/record.dart';
+export 'package:bluesky/src/services/types/app/bsky/labeler/service/union_label.dart';

@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/graph/get_mutes/output.dart';
+export 'package:bluesky/src/services/types/app/bsky/graph/get_mutes/output.dart';

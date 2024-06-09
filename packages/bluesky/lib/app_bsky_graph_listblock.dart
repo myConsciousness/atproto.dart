@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/graph/listblock/record.dart';
+export 'package:bluesky/src/services/types/app/bsky/graph/listblock/record.dart';

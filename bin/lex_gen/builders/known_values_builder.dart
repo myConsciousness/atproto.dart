@@ -41,8 +41,7 @@ final class LexKnownValuesBuilder {
     }
 
     final fileName = 'known_${toLowerCamelCase(objectName)}';
-    final path =
-        docId.toString().split('.').sublist(2).join('.').replaceAll('.', '/');
+    final path = docId.toString().replaceAll('.', '/');
 
     return LexGenKnownValues(
       description: description,

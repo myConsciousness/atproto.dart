@@ -10,8 +10,8 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/embed/images/main.dart';
-export 'package:bluesky/src/services/types/embed/images/image.dart';
-export 'package:bluesky/src/services/types/embed/images/aspect_ratio.dart';
-export 'package:bluesky/src/services/types/embed/images/view.dart';
-export 'package:bluesky/src/services/types/embed/images/view_image.dart';
+export 'package:bluesky/src/services/types/app/bsky/embed/images/main.dart';
+export 'package:bluesky/src/services/types/app/bsky/embed/images/image.dart';
+export 'package:bluesky/src/services/types/app/bsky/embed/images/aspect_ratio.dart';
+export 'package:bluesky/src/services/types/app/bsky/embed/images/view.dart';
+export 'package:bluesky/src/services/types/app/bsky/embed/images/view_image.dart';

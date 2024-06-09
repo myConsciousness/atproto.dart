@@ -10,6 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/notification/list_notifications/output.dart';
-export 'package:bluesky/src/services/types/notification/list_notifications/notification.dart';
-export 'package:bluesky/src/services/types/notification/list_notifications/known_reason.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/list_notifications/output.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/list_notifications/notification.dart';
+export 'package:bluesky/src/services/types/app/bsky/notification/list_notifications/known_reason.dart';

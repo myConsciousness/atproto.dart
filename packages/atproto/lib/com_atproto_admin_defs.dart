@@ -10,7 +10,7 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/admin/defs/status_attr.dart';
-export 'package:atproto/src/services/types/admin/defs/account_view.dart';
-export 'package:atproto/src/services/types/admin/defs/repo_ref.dart';
-export 'package:atproto/src/services/types/admin/defs/repo_blob_ref.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/defs/status_attr.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/defs/account_view.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/defs/repo_ref.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/defs/repo_blob_ref.dart';

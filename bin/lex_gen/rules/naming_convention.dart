@@ -56,8 +56,8 @@ final class LexNamingConvention {
     final fileName = getFileName();
 
     return isKnownValue
-        ? '${segments.sublist(2).join('/')}/known_$fileName.dart'
-        : '${segments.sublist(2).join('/')}/$fileName.dart';
+        ? '${segments.join('/')}/known_$fileName.dart'
+        : '${segments.join('/')}/$fileName.dart';
   }
 
   String getRelativeImportPath(final NSID baseDocId) {
@@ -68,19 +68,13 @@ final class LexNamingConvention {
 
     if (lexicon.startsWith(baseLexiconRoot)) {
       final docId = lexicon.split('#').first;
-
       final fileName = getFileName();
-      if (docId == baseSegments.join('.')) {
-        // The same folder.
-        return isKnownValue ? 'known_$fileName.dart' : '$fileName.dart';
-      } else {
-        // The another folder.
-        final path = docId.split('.').sublist(2).join('/');
 
-        return isKnownValue
-            ? '../../$path/known_$fileName.dart'
-            : '../../$path/$fileName.dart';
-      }
+      final path = docId.replaceAll('.', '/');
+
+      return isKnownValue
+          ? '../../../../$path/known_$fileName.dart'
+          : '../../../../$path/$fileName.dart';
     }
 
     final rootDocId = lexicon.split('#').first;

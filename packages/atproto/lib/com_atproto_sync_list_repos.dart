@@ -10,6 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/sync/list_repos/output.dart';
-export 'package:atproto/src/services/types/sync/list_repos/repo.dart';
-export 'package:atproto/src/services/types/sync/list_repos/known_status.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/list_repos/output.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/list_repos/repo.dart';
+export 'package:atproto/src/services/types/com/atproto/sync/list_repos/known_status.dart';

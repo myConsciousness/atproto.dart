@@ -10,6 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/describe_server/output.dart';
-export 'package:atproto/src/services/types/server/describe_server/links.dart';
-export 'package:atproto/src/services/types/server/describe_server/contact.dart';
+export 'package:atproto/src/services/types/com/atproto/server/describe_server/output.dart';
+export 'package:atproto/src/services/types/com/atproto/server/describe_server/links.dart';
+export 'package:atproto/src/services/types/com/atproto/server/describe_server/contact.dart';

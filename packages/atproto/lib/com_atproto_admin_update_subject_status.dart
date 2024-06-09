@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/admin/update_subject_status/output.dart';
-export 'package:atproto/src/services/types/admin/update_subject_status/union_subject.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/update_subject_status/output.dart';
+export 'package:atproto/src/services/types/com/atproto/admin/update_subject_status/union_subject.dart';

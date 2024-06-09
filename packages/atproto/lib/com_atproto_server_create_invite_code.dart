@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/create_invite_code/output.dart';
+export 'package:atproto/src/services/types/com/atproto/server/create_invite_code/output.dart';

@@ -39,9 +39,9 @@ final class LexGenObject {
         importPaths.add(property.type.importPath);
       } else {
         if (property.knownValues != null) {
-          importPaths.add('../../${property.knownValues!.filePath}');
+          importPaths.add('../../../../${property.knownValues!.filePath}');
         } else if (property.union != null) {
-          importPaths.add('../../${property.union!.filePath}');
+          importPaths.add('../../../../${property.union!.filePath}');
         }
       }
     }

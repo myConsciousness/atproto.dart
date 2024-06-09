@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/actor/get_profiles/output.dart';
+export 'package:bluesky/src/services/types/app/bsky/actor/get_profiles/output.dart';

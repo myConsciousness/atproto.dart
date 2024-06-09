@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/unspecced/defs/skeleton_search_post.dart';
-export 'package:bluesky/src/services/types/unspecced/defs/skeleton_search_actor.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/skeleton_search_post.dart';
+export 'package:bluesky/src/services/types/app/bsky/unspecced/defs/skeleton_search_actor.dart';

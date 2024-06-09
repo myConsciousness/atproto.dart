@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/repo/list_missing_blobs/output.dart';
-export 'package:atproto/src/services/types/repo/list_missing_blobs/record_blob.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/list_missing_blobs/output.dart';
+export 'package:atproto/src/services/types/com/atproto/repo/list_missing_blobs/record_blob.dart';

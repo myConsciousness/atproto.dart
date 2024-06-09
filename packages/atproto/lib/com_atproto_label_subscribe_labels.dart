@@ -10,6 +10,6 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/label/subscribe_labels/labels.dart';
-export 'package:atproto/src/services/types/label/subscribe_labels/info.dart';
-export 'package:atproto/src/services/types/label/subscribe_labels/known_name.dart';
+export 'package:atproto/src/services/types/com/atproto/label/subscribe_labels/labels.dart';
+export 'package:atproto/src/services/types/com/atproto/label/subscribe_labels/info.dart';
+export 'package:atproto/src/services/types/com/atproto/label/subscribe_labels/known_name.dart';

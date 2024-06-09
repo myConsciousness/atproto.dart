@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/feed/search_posts/output.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/search_posts/output.dart';

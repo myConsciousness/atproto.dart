@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/moderation/defs/known_reason_type.dart';
+export 'package:atproto/src/services/types/com/atproto/moderation/defs/known_reason_type.dart';

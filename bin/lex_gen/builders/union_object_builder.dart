@@ -47,7 +47,7 @@ final class LexUnionObjectBuilder {
     }
 
     final fileName = 'union_${toLowerCamelCase(objectName)}';
-    final path = docId.toString().split('.').sublist(2).join('/');
+    final path = docId.toString().replaceAll('.', '/');
 
     return LexUnionObject(
       description: description,

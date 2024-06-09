@@ -10,8 +10,8 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/feed/threadgate/record.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/union_allow.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/mention_rule.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/following_rule.dart';
-export 'package:bluesky/src/services/types/feed/threadgate/list_rule.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/record.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/union_allow.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/mention_rule.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/following_rule.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/threadgate/list_rule.dart';

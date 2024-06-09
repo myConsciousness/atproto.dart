@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/temp/fetch_labels/output.dart';
+export 'package:atproto/src/services/types/com/atproto/temp/fetch_labels/output.dart';

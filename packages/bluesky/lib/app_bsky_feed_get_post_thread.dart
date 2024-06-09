@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:bluesky/src/services/types/feed/get_post_thread/output.dart';
-export 'package:bluesky/src/services/types/feed/get_post_thread/union_thread.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/get_post_thread/output.dart';
+export 'package:bluesky/src/services/types/app/bsky/feed/get_post_thread/union_thread.dart';

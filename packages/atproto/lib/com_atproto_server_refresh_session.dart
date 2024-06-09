@@ -10,5 +10,5 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/server/refresh_session/output.dart';
-export 'package:atproto/src/services/types/server/refresh_session/known_status.dart';
+export 'package:atproto/src/services/types/com/atproto/server/refresh_session/output.dart';
+export 'package:atproto/src/services/types/com/atproto/server/refresh_session/known_status.dart';

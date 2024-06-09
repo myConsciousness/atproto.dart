@@ -10,4 +10,4 @@
 // Lex Generator
 // **************************************************************************
 
-export 'package:atproto/src/services/types/identity/get_recommended_did_credentials/output.dart';
+export 'package:atproto/src/services/types/com/atproto/identity/get_recommended_did_credentials/output.dart';
