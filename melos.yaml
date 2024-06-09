@@ -60,6 +60,10 @@ scripts:
       dart format .
       dart run import_sorter:main
       dart run build_runner build
+      cd ../bluesky_chat
+      dart format .
+      dart run import_sorter:main
+      dart run build_runner build
     description: Run `dart run build_runner build` in all packages.
 
   publish_all:

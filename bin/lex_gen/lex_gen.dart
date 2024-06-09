@@ -19,7 +19,7 @@ import 'types/context.dart';
 const _supportedLexicons = [
   'com.atproto',
   'app.bsky',
-  // 'chat.bsky',
+  'chat.bsky',
 ];
 
 const _kTypesPath = 'src/services/gen_types';

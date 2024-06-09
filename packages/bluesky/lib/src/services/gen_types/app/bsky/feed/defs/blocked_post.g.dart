@@ -1,0 +1,44 @@
+// GENERATED CODE - DO NOT MODIFY BY HAND
+
+// ignore_for_file: non_constant_identifier_names
+
+part of 'blocked_post.dart';
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+_$BlockedPostImpl _$$BlockedPostImplFromJson(Map json) => $checkedCreate(
+      r'_$BlockedPostImpl',
+      json,
+      ($checkedConvert) {
+        final val = _$BlockedPostImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedDefsBlockedPost),
+          uri: $checkedConvert(
+              'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          blocked: $checkedConvert('blocked', (v) => v as bool),
+          author: $checkedConvert(
+              'author',
+              (v) =>
+                  BlockedAuthor.fromJson(Map<String, Object?>.from(v as Map))),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
+        );
+        return val;
+      },
+    );
+
+Map<String, dynamic> _$$BlockedPostImplToJson(_$BlockedPostImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'uri': const AtUriConverter().toJson(instance.uri),
+      'blocked': instance.blocked,
+      'author': instance.author.toJson(),
+      r'$unknown': instance.$unknown,
+    };
