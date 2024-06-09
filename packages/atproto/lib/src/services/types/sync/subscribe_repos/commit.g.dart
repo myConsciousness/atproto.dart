@@ -36,6 +36,13 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
           blobs: $checkedConvert('blobs',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -64,5 +71,6 @@ Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
   val['ops'] = instance.ops.map((e) => e.toJson()).toList();
   val['blobs'] = instance.blobs;
   val['time'] = instance.time.toIso8601String();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

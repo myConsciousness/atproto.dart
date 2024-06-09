@@ -36,6 +36,10 @@ mixin _$LabelValueDefinitionStrings {
   /// A longer description of what the label means and why it might be applied.
   String get description => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelValueDefinitionStringsCopyWith<LabelValueDefinitionStrings>
@@ -54,7 +58,8 @@ abstract class $LabelValueDefinitionStringsCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String lang,
       String name,
-      String description});
+      String description,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -75,6 +80,7 @@ class _$LabelValueDefinitionStringsCopyWithImpl<$Res,
     Object? lang = null,
     Object? name = null,
     Object? description = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -93,6 +99,10 @@ class _$LabelValueDefinitionStringsCopyWithImpl<$Res,
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -110,7 +120,8 @@ abstract class _$$LabelValueDefinitionStringsImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String lang,
       String name,
-      String description});
+      String description,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -130,6 +141,7 @@ class __$$LabelValueDefinitionStringsImplCopyWithImpl<$Res>
     Object? lang = null,
     Object? name = null,
     Object? description = null,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelValueDefinitionStringsImpl(
       $type: null == $type
@@ -148,6 +160,10 @@ class __$$LabelValueDefinitionStringsImplCopyWithImpl<$Res>
           ? _value.description
           : description // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -162,7 +178,10 @@ class _$LabelValueDefinitionStringsImpl
       this.$type = comAtprotoLabelDefsLabelValueDefinitionStrings,
       required this.lang,
       required this.name,
-      required this.description});
+      required this.description,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$LabelValueDefinitionStringsImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -187,9 +206,21 @@ class _$LabelValueDefinitionStringsImpl
   @override
   final String description;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'LabelValueDefinitionStrings(\$type: ${$type}, lang: $lang, name: $name, description: $description)';
+    return 'LabelValueDefinitionStrings(\$type: ${$type}, lang: $lang, name: $name, description: $description, \$unknown: ${$unknown})';
   }
 
   @override
@@ -201,12 +232,14 @@ class _$LabelValueDefinitionStringsImpl
             (identical(other.lang, lang) || other.lang == lang) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
-                other.description == description));
+                other.description == description) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, lang, name, description);
+  int get hashCode => Object.hash(runtimeType, $type, lang, name, description,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -226,10 +259,12 @@ class _$LabelValueDefinitionStringsImpl
 abstract class _LabelValueDefinitionStrings
     implements LabelValueDefinitionStrings {
   const factory _LabelValueDefinitionStrings(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String lang,
-      required final String name,
-      required final String description}) = _$LabelValueDefinitionStringsImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String lang,
+          required final String name,
+          required final String description,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LabelValueDefinitionStringsImpl;
 
   factory _LabelValueDefinitionStrings.fromJson(Map<String, dynamic> json) =
       _$LabelValueDefinitionStringsImpl.fromJson;
@@ -253,6 +288,11 @@ abstract class _LabelValueDefinitionStrings
 
   /// A longer description of what the label means and why it might be applied.
   String get description;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelValueDefinitionStringsImplCopyWith<_$LabelValueDefinitionStringsImpl>

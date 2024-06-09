@@ -29,6 +29,10 @@ mixin _$StrongRef {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $StrongRefCopyWith<StrongRef> get copyWith =>
@@ -43,7 +47,8 @@ abstract class $StrongRefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      String cid});
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
     Object? $type = null,
     Object? uri = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -76,6 +82,10 @@ class _$StrongRefCopyWithImpl<$Res, $Val extends StrongRef>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -91,7 +101,8 @@ abstract class _$$StrongRefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      String cid});
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -108,6 +119,7 @@ class __$$StrongRefImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? uri = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_$StrongRefImpl(
       $type: null == $type
@@ -122,6 +134,10 @@ class __$$StrongRefImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -133,7 +149,10 @@ class _$StrongRefImpl implements _StrongRef {
   const _$StrongRefImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoRepoStrongRef,
       @AtUriConverter() required this.uri,
-      required this.cid});
+      required this.cid,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$StrongRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$StrongRefImplFromJson(json);
@@ -150,9 +169,21 @@ class _$StrongRefImpl implements _StrongRef {
   @override
   final String cid;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'StrongRef(\$type: ${$type}, uri: $uri, cid: $cid)';
+    return 'StrongRef(\$type: ${$type}, uri: $uri, cid: $cid, \$unknown: ${$unknown})';
   }
 
   @override
@@ -162,12 +193,14 @@ class _$StrongRefImpl implements _StrongRef {
             other is _$StrongRefImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.cid, cid) || other.cid == cid));
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, cid);
+  int get hashCode => Object.hash(runtimeType, $type, uri, cid,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -185,9 +218,11 @@ class _$StrongRefImpl implements _StrongRef {
 
 abstract class _StrongRef implements StrongRef {
   const factory _StrongRef(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid}) = _$StrongRefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final String cid,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$StrongRefImpl;
 
   factory _StrongRef.fromJson(Map<String, dynamic> json) =
       _$StrongRefImpl.fromJson;
@@ -204,6 +239,11 @@ abstract class _StrongRef implements StrongRef {
   AtUri get uri;
   @override
   String get cid;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$StrongRefImplCopyWith<_$StrongRefImpl> get copyWith =>

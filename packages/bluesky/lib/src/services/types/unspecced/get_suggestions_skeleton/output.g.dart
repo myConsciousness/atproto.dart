@@ -22,6 +22,13 @@ _$GetSuggestionsSkeletonOutputImpl _$$GetSuggestionsSkeletonOutputImplFromJson(
                   .map((e) => SkeletonSearchActor.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -39,5 +46,6 @@ Map<String, dynamic> _$$GetSuggestionsSkeletonOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   val['actors'] = instance.actors.map((e) => e.toJson()).toList();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

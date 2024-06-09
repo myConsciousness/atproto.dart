@@ -17,6 +17,13 @@ _$InterestsPrefImpl _$$InterestsPrefImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyActorDefsInterestsPref),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -26,4 +33,5 @@ Map<String, dynamic> _$$InterestsPrefImplToJson(_$InterestsPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'tags': instance.tags,
+      r'$unknown': instance.$unknown,
     };

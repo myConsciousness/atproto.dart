@@ -23,6 +23,10 @@ mixin _$FollowRecord {
   String get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FollowRecordCopyWith<FollowRecord> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $FollowRecordCopyWith<$Res> {
           FollowRecord value, $Res Function(FollowRecord) then) =
       _$FollowRecordCopyWithImpl<$Res, FollowRecord>;
   @useResult
-  $Res call({String subject, DateTime createdAt});
+  $Res call(
+      {String subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$FollowRecordCopyWithImpl<$Res, $Val extends FollowRecord>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -63,6 +71,10 @@ class _$FollowRecordCopyWithImpl<$Res, $Val extends FollowRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$FollowRecordImplCopyWith<$Res>
       __$$FollowRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, DateTime createdAt});
+  $Res call(
+      {String subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FollowRecordImpl(
       subject: null == subject
@@ -101,6 +117,10 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -109,7 +129,12 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$FollowRecordImpl implements _FollowRecord {
-  const _$FollowRecordImpl({required this.subject, required this.createdAt});
+  const _$FollowRecordImpl(
+      {required this.subject,
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FollowRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FollowRecordImplFromJson(json);
@@ -119,9 +144,21 @@ class _$FollowRecordImpl implements _FollowRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FollowRecord(subject: $subject, createdAt: $createdAt)';
+    return 'FollowRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -131,12 +168,14 @@ class _$FollowRecordImpl implements _FollowRecord {
             other is _$FollowRecordImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -154,8 +193,10 @@ class _$FollowRecordImpl implements _FollowRecord {
 
 abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
-      {required final String subject,
-      required final DateTime createdAt}) = _$FollowRecordImpl;
+          {required final String subject,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FollowRecordImpl;
 
   factory _FollowRecord.fromJson(Map<String, dynamic> json) =
       _$FollowRecordImpl.fromJson;
@@ -164,6 +205,11 @@ abstract class _FollowRecord implements FollowRecord {
   String get subject;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FollowRecordImplCopyWith<_$FollowRecordImpl> get copyWith =>

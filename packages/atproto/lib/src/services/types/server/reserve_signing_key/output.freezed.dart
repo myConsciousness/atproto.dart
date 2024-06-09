@@ -24,6 +24,10 @@ mixin _$ReserveSigningKeyOutput {
   /// The public key for the reserved signing key, in did:key serialization.
   String get signingKey => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReserveSigningKeyOutputCopyWith<ReserveSigningKeyOutput> get copyWith =>
@@ -36,7 +40,9 @@ abstract class $ReserveSigningKeyOutputCopyWith<$Res> {
           $Res Function(ReserveSigningKeyOutput) then) =
       _$ReserveSigningKeyOutputCopyWithImpl<$Res, ReserveSigningKeyOutput>;
   @useResult
-  $Res call({String signingKey});
+  $Res call(
+      {String signingKey,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,12 +60,17 @@ class _$ReserveSigningKeyOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? signingKey = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       signingKey: null == signingKey
           ? _value.signingKey
           : signingKey // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -73,7 +84,9 @@ abstract class _$$ReserveSigningKeyOutputImplCopyWith<$Res>
       __$$ReserveSigningKeyOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String signingKey});
+  $Res call(
+      {String signingKey,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -90,12 +103,17 @@ class __$$ReserveSigningKeyOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? signingKey = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ReserveSigningKeyOutputImpl(
       signingKey: null == signingKey
           ? _value.signingKey
           : signingKey // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -104,7 +122,11 @@ class __$$ReserveSigningKeyOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
-  const _$ReserveSigningKeyOutputImpl({required this.signingKey});
+  const _$ReserveSigningKeyOutputImpl(
+      {required this.signingKey,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ReserveSigningKeyOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReserveSigningKeyOutputImplFromJson(json);
@@ -113,9 +135,21 @@ class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
   @override
   final String signingKey;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ReserveSigningKeyOutput(signingKey: $signingKey)';
+    return 'ReserveSigningKeyOutput(signingKey: $signingKey, \$unknown: ${$unknown})';
   }
 
   @override
@@ -124,12 +158,14 @@ class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
         (other.runtimeType == runtimeType &&
             other is _$ReserveSigningKeyOutputImpl &&
             (identical(other.signingKey, signingKey) ||
-                other.signingKey == signingKey));
+                other.signingKey == signingKey) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, signingKey);
+  int get hashCode => Object.hash(
+      runtimeType, signingKey, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -147,7 +183,9 @@ class _$ReserveSigningKeyOutputImpl implements _ReserveSigningKeyOutput {
 }
 
 abstract class _ReserveSigningKeyOutput implements ReserveSigningKeyOutput {
-  const factory _ReserveSigningKeyOutput({required final String signingKey}) =
+  const factory _ReserveSigningKeyOutput(
+          {required final String signingKey,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ReserveSigningKeyOutputImpl;
 
   factory _ReserveSigningKeyOutput.fromJson(Map<String, dynamic> json) =
@@ -157,6 +195,11 @@ abstract class _ReserveSigningKeyOutput implements ReserveSigningKeyOutput {
 
   /// The public key for the reserved signing key, in did:key serialization.
   String get signingKey;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ReserveSigningKeyOutputImplCopyWith<_$ReserveSigningKeyOutputImpl>

@@ -23,6 +23,10 @@ GetAccountInfosOutput _$GetAccountInfosOutputFromJson(
 mixin _$GetAccountInfosOutput {
   List<AccountView> get infos => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetAccountInfosOutputCopyWith<GetAccountInfosOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $GetAccountInfosOutputCopyWith<$Res> {
           $Res Function(GetAccountInfosOutput) then) =
       _$GetAccountInfosOutputCopyWithImpl<$Res, GetAccountInfosOutput>;
   @useResult
-  $Res call({List<AccountView> infos});
+  $Res call(
+      {List<AccountView> infos,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,12 +59,17 @@ class _$GetAccountInfosOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? infos = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       infos: null == infos
           ? _value.infos
           : infos // ignore: cast_nullable_to_non_nullable
               as List<AccountView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -72,7 +83,9 @@ abstract class _$$GetAccountInfosOutputImplCopyWith<$Res>
       __$$GetAccountInfosOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AccountView> infos});
+  $Res call(
+      {List<AccountView> infos,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -88,12 +101,17 @@ class __$$GetAccountInfosOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? infos = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetAccountInfosOutputImpl(
       infos: null == infos
           ? _value._infos
           : infos // ignore: cast_nullable_to_non_nullable
               as List<AccountView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -102,8 +120,12 @@ class __$$GetAccountInfosOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
-  const _$GetAccountInfosOutputImpl({required final List<AccountView> infos})
-      : _infos = infos;
+  const _$GetAccountInfosOutputImpl(
+      {required final List<AccountView> infos,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _infos = infos,
+        _$unknown = $unknown;
 
   factory _$GetAccountInfosOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetAccountInfosOutputImplFromJson(json);
@@ -116,9 +138,21 @@ class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
     return EqualUnmodifiableListView(_infos);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetAccountInfosOutput(infos: $infos)';
+    return 'GetAccountInfosOutput(infos: $infos, \$unknown: ${$unknown})';
   }
 
   @override
@@ -126,13 +160,16 @@ class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetAccountInfosOutputImpl &&
-            const DeepCollectionEquality().equals(other._infos, _infos));
+            const DeepCollectionEquality().equals(other._infos, _infos) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_infos));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_infos),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -151,13 +188,20 @@ class _$GetAccountInfosOutputImpl implements _GetAccountInfosOutput {
 
 abstract class _GetAccountInfosOutput implements GetAccountInfosOutput {
   const factory _GetAccountInfosOutput(
-      {required final List<AccountView> infos}) = _$GetAccountInfosOutputImpl;
+          {required final List<AccountView> infos,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetAccountInfosOutputImpl;
 
   factory _GetAccountInfosOutput.fromJson(Map<String, dynamic> json) =
       _$GetAccountInfosOutputImpl.fromJson;
 
   @override
   List<AccountView> get infos;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetAccountInfosOutputImplCopyWith<_$GetAccountInfosOutputImpl>

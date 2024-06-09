@@ -32,6 +32,10 @@ mixin _$DescribeRepoOutput {
   /// Indicates if handle is currently valid (resolves bi-directionally)
   bool get handleIsCorrect => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DescribeRepoOutputCopyWith<DescribeRepoOutput> get copyWith =>
@@ -49,7 +53,8 @@ abstract class $DescribeRepoOutputCopyWith<$Res> {
       String did,
       Map<String, dynamic> didDoc,
       List<String> collections,
-      bool handleIsCorrect});
+      bool handleIsCorrect,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -70,6 +75,7 @@ class _$DescribeRepoOutputCopyWithImpl<$Res, $Val extends DescribeRepoOutput>
     Object? didDoc = null,
     Object? collections = null,
     Object? handleIsCorrect = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       handle: null == handle
@@ -92,6 +98,10 @@ class _$DescribeRepoOutputCopyWithImpl<$Res, $Val extends DescribeRepoOutput>
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -109,7 +119,8 @@ abstract class _$$DescribeRepoOutputImplCopyWith<$Res>
       String did,
       Map<String, dynamic> didDoc,
       List<String> collections,
-      bool handleIsCorrect});
+      bool handleIsCorrect,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -128,6 +139,7 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
     Object? didDoc = null,
     Object? collections = null,
     Object? handleIsCorrect = null,
+    Object? $unknown = null,
   }) {
     return _then(_$DescribeRepoOutputImpl(
       handle: null == handle
@@ -150,6 +162,10 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -163,9 +179,12 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
       required this.did,
       required final Map<String, dynamic> didDoc,
       required final List<String> collections,
-      required this.handleIsCorrect})
+      required this.handleIsCorrect,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _didDoc = didDoc,
-        _collections = collections;
+        _collections = collections,
+        _$unknown = $unknown;
 
   factory _$DescribeRepoOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$DescribeRepoOutputImplFromJson(json);
@@ -201,9 +220,21 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
   @override
   final bool handleIsCorrect;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'DescribeRepoOutput(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, handleIsCorrect: $handleIsCorrect)';
+    return 'DescribeRepoOutput(handle: $handle, did: $did, didDoc: $didDoc, collections: $collections, handleIsCorrect: $handleIsCorrect, \$unknown: ${$unknown})';
   }
 
   @override
@@ -217,7 +248,8 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
             const DeepCollectionEquality()
                 .equals(other._collections, _collections) &&
             (identical(other.handleIsCorrect, handleIsCorrect) ||
-                other.handleIsCorrect == handleIsCorrect));
+                other.handleIsCorrect == handleIsCorrect) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -228,7 +260,8 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
       did,
       const DeepCollectionEquality().hash(_didDoc),
       const DeepCollectionEquality().hash(_collections),
-      handleIsCorrect);
+      handleIsCorrect,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -247,11 +280,13 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
 
 abstract class _DescribeRepoOutput implements DescribeRepoOutput {
   const factory _DescribeRepoOutput(
-      {required final String handle,
-      required final String did,
-      required final Map<String, dynamic> didDoc,
-      required final List<String> collections,
-      required final bool handleIsCorrect}) = _$DescribeRepoOutputImpl;
+          {required final String handle,
+          required final String did,
+          required final Map<String, dynamic> didDoc,
+          required final List<String> collections,
+          required final bool handleIsCorrect,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$DescribeRepoOutputImpl;
 
   factory _DescribeRepoOutput.fromJson(Map<String, dynamic> json) =
       _$DescribeRepoOutputImpl.fromJson;
@@ -272,6 +307,11 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
 
   /// Indicates if handle is currently valid (resolves bi-directionally)
   bool get handleIsCorrect;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DescribeRepoOutputImplCopyWith<_$DescribeRepoOutputImpl> get copyWith =>

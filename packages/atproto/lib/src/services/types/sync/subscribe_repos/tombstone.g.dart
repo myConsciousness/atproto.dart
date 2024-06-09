@@ -18,6 +18,13 @@ _$TombstoneImpl _$$TombstoneImplFromJson(Map json) => $checkedCreate(
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
           did: $checkedConvert('did', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -29,4 +36,5 @@ Map<String, dynamic> _$$TombstoneImplToJson(_$TombstoneImpl instance) =>
       'seq': instance.seq,
       'did': instance.did,
       'time': instance.time.toIso8601String(),
+      r'$unknown': instance.$unknown,
     };

@@ -16,6 +16,13 @@ _$UploadBlobOutputImpl _$$UploadBlobOutputImplFromJson(Map json) =>
         final val = _$UploadBlobOutputImpl(
           blob: $checkedConvert('blob',
               (v) => const BlobConverter().fromJson(v as Map<String, dynamic>)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -25,4 +32,5 @@ Map<String, dynamic> _$$UploadBlobOutputImplToJson(
         _$UploadBlobOutputImpl instance) =>
     <String, dynamic>{
       'blob': const BlobConverter().toJson(instance.blob),
+      r'$unknown': instance.$unknown,
     };

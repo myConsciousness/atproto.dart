@@ -21,6 +21,13 @@ _$GetAuthorFeedOutputImpl _$$GetAuthorFeedOutputImplFromJson(Map json) =>
                   .map((e) => FeedViewPost.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -38,5 +45,6 @@ Map<String, dynamic> _$$GetAuthorFeedOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   val['feed'] = instance.feed.map((e) => e.toJson()).toList();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

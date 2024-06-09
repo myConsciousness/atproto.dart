@@ -23,6 +23,10 @@ mixin _$SearchActorsOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get actors => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchActorsOutputCopyWith<SearchActorsOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $SearchActorsOutputCopyWith<$Res> {
           SearchActorsOutput value, $Res Function(SearchActorsOutput) then) =
       _$SearchActorsOutputCopyWithImpl<$Res, SearchActorsOutput>;
   @useResult
-  $Res call({String? cursor, List<ProfileView> actors});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$SearchActorsOutputCopyWithImpl<$Res, $Val extends SearchActorsOutput>
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$SearchActorsOutputCopyWithImpl<$Res, $Val extends SearchActorsOutput>
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$SearchActorsOutputImplCopyWith<$Res>
       __$$SearchActorsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<ProfileView> actors});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$SearchActorsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SearchActorsOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$SearchActorsOutputImplCopyWithImpl<$Res>
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,8 +130,12 @@ class __$$SearchActorsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$SearchActorsOutputImpl implements _SearchActorsOutput {
   const _$SearchActorsOutputImpl(
-      {this.cursor, required final List<ProfileView> actors})
-      : _actors = actors;
+      {this.cursor,
+      required final List<ProfileView> actors,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _actors = actors,
+        _$unknown = $unknown;
 
   factory _$SearchActorsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchActorsOutputImplFromJson(json);
@@ -126,9 +150,21 @@ class _$SearchActorsOutputImpl implements _SearchActorsOutput {
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SearchActorsOutput(cursor: $cursor, actors: $actors)';
+    return 'SearchActorsOutput(cursor: $cursor, actors: $actors, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +173,17 @@ class _$SearchActorsOutputImpl implements _SearchActorsOutput {
         (other.runtimeType == runtimeType &&
             other is _$SearchActorsOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._actors, _actors));
+            const DeepCollectionEquality().equals(other._actors, _actors) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_actors));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_actors),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +202,10 @@ class _$SearchActorsOutputImpl implements _SearchActorsOutput {
 
 abstract class _SearchActorsOutput implements SearchActorsOutput {
   const factory _SearchActorsOutput(
-      {final String? cursor,
-      required final List<ProfileView> actors}) = _$SearchActorsOutputImpl;
+          {final String? cursor,
+          required final List<ProfileView> actors,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SearchActorsOutputImpl;
 
   factory _SearchActorsOutput.fromJson(Map<String, dynamic> json) =
       _$SearchActorsOutputImpl.fromJson;
@@ -172,6 +214,11 @@ abstract class _SearchActorsOutput implements SearchActorsOutput {
   String? get cursor;
   @override
   List<ProfileView> get actors;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SearchActorsOutputImplCopyWith<_$SearchActorsOutputImpl> get copyWith =>

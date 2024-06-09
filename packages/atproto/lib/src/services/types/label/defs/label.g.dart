@@ -29,6 +29,13 @@ _$LabelImpl _$$LabelImplFromJson(Map json) => $checkedCreate(
               (v) => (v as List<dynamic>?)
                   ?.map((e) => (e as num).toInt())
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -54,5 +61,6 @@ Map<String, dynamic> _$$LabelImplToJson(_$LabelImpl instance) {
   val['cts'] = instance.cts.toIso8601String();
   writeNotNull('exp', instance.exp?.toIso8601String());
   writeNotNull('sig', instance.sig);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

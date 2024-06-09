@@ -19,6 +19,13 @@ _$HandleImpl _$$HandleImplFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           handle: $checkedConvert('handle', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -31,4 +38,5 @@ Map<String, dynamic> _$$HandleImplToJson(_$HandleImpl instance) =>
       'did': instance.did,
       'handle': instance.handle,
       'time': instance.time.toIso8601String(),
+      r'$unknown': instance.$unknown,
     };

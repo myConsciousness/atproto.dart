@@ -28,6 +28,10 @@ mixin _$RecordView {
   @URecordRecordConverter()
   URecordRecord get record => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordViewCopyWith<RecordView> get copyWith =>
@@ -42,7 +46,8 @@ abstract class $RecordViewCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @URecordRecordConverter() URecordRecord record});
+      @URecordRecordConverter() URecordRecord record,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $URecordRecordCopyWith<$Res> get record;
 }
@@ -62,6 +67,7 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
   $Res call({
     Object? $type = null,
     Object? record = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -72,6 +78,10 @@ class _$RecordViewCopyWithImpl<$Res, $Val extends RecordView>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as URecordRecord,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -94,7 +104,8 @@ abstract class _$$RecordViewImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @URecordRecordConverter() URecordRecord record});
+      @URecordRecordConverter() URecordRecord record,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $URecordRecordCopyWith<$Res> get record;
@@ -113,6 +124,7 @@ class __$$RecordViewImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? record = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordViewImpl(
       $type: null == $type
@@ -123,6 +135,10 @@ class __$$RecordViewImplCopyWithImpl<$Res>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as URecordRecord,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -133,7 +149,10 @@ class __$$RecordViewImplCopyWithImpl<$Res>
 class _$RecordViewImpl implements _RecordView {
   const _$RecordViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordView,
-      @URecordRecordConverter() required this.record});
+      @URecordRecordConverter() required this.record,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewImplFromJson(json);
@@ -148,9 +167,21 @@ class _$RecordViewImpl implements _RecordView {
   @URecordRecordConverter()
   final URecordRecord record;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RecordView(\$type: ${$type}, record: $record)';
+    return 'RecordView(\$type: ${$type}, record: $record, \$unknown: ${$unknown})';
   }
 
   @override
@@ -159,12 +190,14 @@ class _$RecordViewImpl implements _RecordView {
         (other.runtimeType == runtimeType &&
             other is _$RecordViewImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.record, record) || other.record == record));
+            (identical(other.record, record) || other.record == record) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, record);
+  int get hashCode => Object.hash(runtimeType, $type, record,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -183,7 +216,8 @@ class _$RecordViewImpl implements _RecordView {
 abstract class _RecordView implements RecordView {
   const factory _RecordView(
           {@JsonKey(name: r'$type') final String $type,
-          @URecordRecordConverter() required final URecordRecord record}) =
+          @URecordRecordConverter() required final URecordRecord record,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$RecordViewImpl;
 
   factory _RecordView.fromJson(Map<String, dynamic> json) =
@@ -199,6 +233,11 @@ abstract class _RecordView implements RecordView {
   @override
   @URecordRecordConverter()
   URecordRecord get record;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewImplCopyWith<_$RecordViewImpl> get copyWith =>

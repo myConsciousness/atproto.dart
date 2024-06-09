@@ -31,6 +31,10 @@ mixin _$RefreshSessionOutput {
   @UStatusConverter()
   UStatus? get status => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RefreshSessionOutputCopyWith<RefreshSessionOutput> get copyWith =>
@@ -50,7 +54,8 @@ abstract class $RefreshSessionOutputCopyWith<$Res> {
       String did,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -76,6 +81,7 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
     Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       accessJwt: null == accessJwt
@@ -106,6 +112,10 @@ class _$RefreshSessionOutputCopyWithImpl<$Res,
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -137,7 +147,8 @@ abstract class _$$RefreshSessionOutputImplCopyWith<$Res>
       String did,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -161,6 +172,7 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
     Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$RefreshSessionOutputImpl(
       accessJwt: null == accessJwt
@@ -191,6 +203,10 @@ class __$$RefreshSessionOutputImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -206,8 +222,11 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
       required this.did,
       final Map<String, dynamic>? didDoc,
       this.active = false,
-      @UStatusConverter() this.status})
-      : _didDoc = didDoc;
+      @UStatusConverter() this.status,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _didDoc = didDoc,
+        _$unknown = $unknown;
 
   factory _$RefreshSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$RefreshSessionOutputImplFromJson(json);
@@ -239,9 +258,21 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
   @UStatusConverter()
   final UStatus? status;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, active: $active, status: $status)';
+    return 'RefreshSessionOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, active: $active, status: $status, \$unknown: ${$unknown})';
   }
 
   @override
@@ -257,13 +288,22 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
             (identical(other.active, active) || other.active == active) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
-      did, const DeepCollectionEquality().hash(_didDoc), active, status);
+  int get hashCode => Object.hash(
+      runtimeType,
+      accessJwt,
+      refreshJwt,
+      handle,
+      did,
+      const DeepCollectionEquality().hash(_didDoc),
+      active,
+      status,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -283,13 +323,15 @@ class _$RefreshSessionOutputImpl implements _RefreshSessionOutput {
 
 abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   const factory _RefreshSessionOutput(
-      {required final String accessJwt,
-      required final String refreshJwt,
-      required final String handle,
-      required final String did,
-      final Map<String, dynamic>? didDoc,
-      final bool active,
-      @UStatusConverter() final UStatus? status}) = _$RefreshSessionOutputImpl;
+          {required final String accessJwt,
+          required final String refreshJwt,
+          required final String handle,
+          required final String did,
+          final Map<String, dynamic>? didDoc,
+          final bool active,
+          @UStatusConverter() final UStatus? status,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RefreshSessionOutputImpl;
 
   factory _RefreshSessionOutput.fromJson(Map<String, dynamic> json) =
       _$RefreshSessionOutputImpl.fromJson;
@@ -311,6 +353,11 @@ abstract class _RefreshSessionOutput implements RefreshSessionOutput {
   /// Hosting status of the account. If not specified, then assume 'active'.
   @UStatusConverter()
   UStatus? get status;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RefreshSessionOutputImplCopyWith<_$RefreshSessionOutputImpl>

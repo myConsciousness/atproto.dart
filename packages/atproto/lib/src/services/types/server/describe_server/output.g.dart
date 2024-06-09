@@ -31,6 +31,13 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
                   ? const Contact()
                   : Contact.fromJson(Map<String, Object?>.from(v as Map))),
           did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -45,4 +52,5 @@ Map<String, dynamic> _$$DescribeServerOutputImplToJson(
       'links': instance.links.toJson(),
       'contact': instance.contact.toJson(),
       'did': instance.did,
+      r'$unknown': instance.$unknown,
     };

@@ -29,6 +29,10 @@ mixin _$Like {
   DateTime get createdAt => throw _privateConstructorUsedError;
   ProfileView get actor => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LikeCopyWith<Like> get copyWith => throw _privateConstructorUsedError;
@@ -43,7 +47,8 @@ abstract class $LikeCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       DateTime indexedAt,
       DateTime createdAt,
-      ProfileView actor});
+      ProfileView actor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get actor;
 }
@@ -65,6 +70,7 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
     Object? indexedAt = null,
     Object? createdAt = null,
     Object? actor = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -83,6 +89,10 @@ class _$LikeCopyWithImpl<$Res, $Val extends Like>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as ProfileView,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -106,7 +116,8 @@ abstract class _$$LikeImplCopyWith<$Res> implements $LikeCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       DateTime indexedAt,
       DateTime createdAt,
-      ProfileView actor});
+      ProfileView actor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get actor;
@@ -126,6 +137,7 @@ class __$$LikeImplCopyWithImpl<$Res>
     Object? indexedAt = null,
     Object? createdAt = null,
     Object? actor = null,
+    Object? $unknown = null,
   }) {
     return _then(_$LikeImpl(
       $type: null == $type
@@ -144,6 +156,10 @@ class __$$LikeImplCopyWithImpl<$Res>
           ? _value.actor
           : actor // ignore: cast_nullable_to_non_nullable
               as ProfileView,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -156,7 +172,10 @@ class _$LikeImpl implements _Like {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedGetLikesLike,
       required this.indexedAt,
       required this.createdAt,
-      required this.actor});
+      required this.actor,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$LikeImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikeImplFromJson(json);
@@ -174,9 +193,21 @@ class _$LikeImpl implements _Like {
   @override
   final ProfileView actor;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Like(\$type: ${$type}, indexedAt: $indexedAt, createdAt: $createdAt, actor: $actor)';
+    return 'Like(\$type: ${$type}, indexedAt: $indexedAt, createdAt: $createdAt, actor: $actor, \$unknown: ${$unknown})';
   }
 
   @override
@@ -189,13 +220,14 @@ class _$LikeImpl implements _Like {
                 other.indexedAt == indexedAt) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            (identical(other.actor, actor) || other.actor == actor));
+            (identical(other.actor, actor) || other.actor == actor) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, indexedAt, createdAt, actor);
+  int get hashCode => Object.hash(runtimeType, $type, indexedAt, createdAt,
+      actor, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -213,10 +245,12 @@ class _$LikeImpl implements _Like {
 
 abstract class _Like implements Like {
   const factory _Like(
-      {@JsonKey(name: r'$type') final String $type,
-      required final DateTime indexedAt,
-      required final DateTime createdAt,
-      required final ProfileView actor}) = _$LikeImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final DateTime indexedAt,
+          required final DateTime createdAt,
+          required final ProfileView actor,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LikeImpl;
 
   factory _Like.fromJson(Map<String, dynamic> json) = _$LikeImpl.fromJson;
 
@@ -233,6 +267,11 @@ abstract class _Like implements Like {
   DateTime get createdAt;
   @override
   ProfileView get actor;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LikeImplCopyWith<_$LikeImpl> get copyWith =>

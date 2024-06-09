@@ -23,6 +23,10 @@ mixin _$RepostRecord {
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepostRecordCopyWith<RepostRecord> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $RepostRecordCopyWith<$Res> {
           RepostRecord value, $Res Function(RepostRecord) then) =
       _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
   @useResult
-  $Res call({StrongRef subject, DateTime createdAt});
+  $Res call(
+      {StrongRef subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $StrongRefCopyWith<$Res> get subject;
 }
@@ -55,6 +62,7 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -65,6 +73,10 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -85,7 +97,10 @@ abstract class _$$RepostRecordImplCopyWith<$Res>
       __$$RepostRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StrongRef subject, DateTime createdAt});
+  $Res call(
+      {StrongRef subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $StrongRefCopyWith<$Res> get subject;
@@ -104,6 +119,7 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RepostRecordImpl(
       subject: null == subject
@@ -114,6 +130,10 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -122,7 +142,12 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$RepostRecordImpl implements _RepostRecord {
-  const _$RepostRecordImpl({required this.subject, required this.createdAt});
+  const _$RepostRecordImpl(
+      {required this.subject,
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RepostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepostRecordImplFromJson(json);
@@ -132,9 +157,21 @@ class _$RepostRecordImpl implements _RepostRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RepostRecord(subject: $subject, createdAt: $createdAt)';
+    return 'RepostRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -144,12 +181,14 @@ class _$RepostRecordImpl implements _RepostRecord {
             other is _$RepostRecordImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -167,8 +206,10 @@ class _$RepostRecordImpl implements _RepostRecord {
 
 abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
-      {required final StrongRef subject,
-      required final DateTime createdAt}) = _$RepostRecordImpl;
+          {required final StrongRef subject,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RepostRecordImpl;
 
   factory _RepostRecord.fromJson(Map<String, dynamic> json) =
       _$RepostRecordImpl.fromJson;
@@ -177,6 +218,11 @@ abstract class _RepostRecord implements RepostRecord {
   StrongRef get subject;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RepostRecordImplCopyWith<_$RepostRecordImpl> get copyWith =>

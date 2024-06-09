@@ -21,6 +21,13 @@ _$DescribeRepoOutputImpl _$$DescribeRepoOutputImplFromJson(Map json) =>
           collections: $checkedConvert('collections',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           handleIsCorrect: $checkedConvert('handleIsCorrect', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -34,4 +41,5 @@ Map<String, dynamic> _$$DescribeRepoOutputImplToJson(
       'didDoc': instance.didDoc,
       'collections': instance.collections,
       'handleIsCorrect': instance.handleIsCorrect,
+      r'$unknown': instance.$unknown,
     };

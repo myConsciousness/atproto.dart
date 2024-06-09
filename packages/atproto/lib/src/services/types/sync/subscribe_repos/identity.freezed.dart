@@ -32,6 +32,10 @@ mixin _$Identity {
   /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
   String? get handle => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $IdentityCopyWith<Identity> get copyWith =>
@@ -48,7 +52,8 @@ abstract class $IdentityCopyWith<$Res> {
       int seq,
       String did,
       DateTime time,
-      String? handle});
+      String? handle,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -69,6 +74,7 @@ class _$IdentityCopyWithImpl<$Res, $Val extends Identity>
     Object? did = null,
     Object? time = null,
     Object? handle = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -91,6 +97,10 @@ class _$IdentityCopyWithImpl<$Res, $Val extends Identity>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -108,7 +118,8 @@ abstract class _$$IdentityImplCopyWith<$Res>
       int seq,
       String did,
       DateTime time,
-      String? handle});
+      String? handle,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -127,6 +138,7 @@ class __$$IdentityImplCopyWithImpl<$Res>
     Object? did = null,
     Object? time = null,
     Object? handle = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$IdentityImpl(
       $type: null == $type
@@ -149,6 +161,10 @@ class __$$IdentityImplCopyWithImpl<$Res>
           ? _value.handle
           : handle // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -163,7 +179,10 @@ class _$IdentityImpl implements _Identity {
       required this.seq,
       required this.did,
       required this.time,
-      this.handle});
+      this.handle,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$IdentityImpl.fromJson(Map<String, dynamic> json) =>
       _$$IdentityImplFromJson(json);
@@ -185,9 +204,21 @@ class _$IdentityImpl implements _Identity {
   @override
   final String? handle;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Identity(\$type: ${$type}, seq: $seq, did: $did, time: $time, handle: $handle)';
+    return 'Identity(\$type: ${$type}, seq: $seq, did: $did, time: $time, handle: $handle, \$unknown: ${$unknown})';
   }
 
   @override
@@ -199,12 +230,14 @@ class _$IdentityImpl implements _Identity {
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.time, time) || other.time == time) &&
-            (identical(other.handle, handle) || other.handle == handle));
+            (identical(other.handle, handle) || other.handle == handle) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, seq, did, time, handle);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, time, handle,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -222,11 +255,13 @@ class _$IdentityImpl implements _Identity {
 
 abstract class _Identity implements Identity {
   const factory _Identity(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final String did,
-      required final DateTime time,
-      final String? handle}) = _$IdentityImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final String did,
+          required final DateTime time,
+          final String? handle,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$IdentityImpl;
 
   factory _Identity.fromJson(Map<String, dynamic> json) =
       _$IdentityImpl.fromJson;
@@ -248,6 +283,11 @@ abstract class _Identity implements Identity {
 
   /// The current handle for the account, or 'handle.invalid' if validation fails. This field is optional, might have been validated or passed-through from an upstream source. Semantics and behaviors for PDS vs Relay may evolve in the future; see atproto specs for more details.
   String? get handle;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$IdentityImplCopyWith<_$IdentityImpl> get copyWith =>

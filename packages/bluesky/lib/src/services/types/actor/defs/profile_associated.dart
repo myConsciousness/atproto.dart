@@ -35,8 +35,63 @@ class ProfileAssociated with _$ProfileAssociated {
     @Default(0) int feedgens,
     @Default(false) bool labeler,
     ProfileAssociatedChat? chat,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ProfileAssociated;
 
   factory ProfileAssociated.fromJson(Map<String, Object?> json) =>
       _$ProfileAssociatedFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  r'$type',
+  'lists',
+  'feedgens',
+  'labeler',
+  'chat',
+];
+
+final class ProfileAssociatedConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const ProfileAssociatedConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

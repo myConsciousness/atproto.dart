@@ -27,6 +27,10 @@ mixin _$ExternalView {
   String get $type => throw _privateConstructorUsedError;
   ExternalViewExternal get external => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ExternalViewCopyWith<ExternalView> get copyWith =>
@@ -40,7 +44,9 @@ abstract class $ExternalViewCopyWith<$Res> {
       _$ExternalViewCopyWithImpl<$Res, ExternalView>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, ExternalViewExternal external});
+      {@JsonKey(name: r'$type') String $type,
+      ExternalViewExternal external,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ExternalViewExternalCopyWith<$Res> get external;
 }
@@ -60,6 +66,7 @@ class _$ExternalViewCopyWithImpl<$Res, $Val extends ExternalView>
   $Res call({
     Object? $type = null,
     Object? external = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -70,6 +77,10 @@ class _$ExternalViewCopyWithImpl<$Res, $Val extends ExternalView>
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
               as ExternalViewExternal,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -91,7 +102,9 @@ abstract class _$$ExternalViewImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, ExternalViewExternal external});
+      {@JsonKey(name: r'$type') String $type,
+      ExternalViewExternal external,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ExternalViewExternalCopyWith<$Res> get external;
@@ -110,6 +123,7 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? external = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ExternalViewImpl(
       $type: null == $type
@@ -120,6 +134,10 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
           ? _value.external
           : external // ignore: cast_nullable_to_non_nullable
               as ExternalViewExternal,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -130,7 +148,10 @@ class __$$ExternalViewImplCopyWithImpl<$Res>
 class _$ExternalViewImpl implements _ExternalView {
   const _$ExternalViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedExternalView,
-      required this.external});
+      required this.external,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ExternalViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalViewImplFromJson(json);
@@ -144,9 +165,21 @@ class _$ExternalViewImpl implements _ExternalView {
   @override
   final ExternalViewExternal external;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ExternalView(\$type: ${$type}, external: $external)';
+    return 'ExternalView(\$type: ${$type}, external: $external, \$unknown: ${$unknown})';
   }
 
   @override
@@ -156,12 +189,14 @@ class _$ExternalViewImpl implements _ExternalView {
             other is _$ExternalViewImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.external, external) ||
-                other.external == external));
+                other.external == external) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, external);
+  int get hashCode => Object.hash(runtimeType, $type, external,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -179,8 +214,10 @@ class _$ExternalViewImpl implements _ExternalView {
 
 abstract class _ExternalView implements ExternalView {
   const factory _ExternalView(
-      {@JsonKey(name: r'$type') final String $type,
-      required final ExternalViewExternal external}) = _$ExternalViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final ExternalViewExternal external,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ExternalViewImpl;
 
   factory _ExternalView.fromJson(Map<String, dynamic> json) =
       _$ExternalViewImpl.fromJson;
@@ -194,6 +231,11 @@ abstract class _ExternalView implements ExternalView {
   String get $type;
   @override
   ExternalViewExternal get external;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ExternalViewImplCopyWith<_$ExternalViewImpl> get copyWith =>

@@ -29,6 +29,10 @@ mixin _$GetFeedGeneratorOutput {
   /// Indicates whether the feed generator service is compatible with the record declaration.
   bool get isValid => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetFeedGeneratorOutputCopyWith<GetFeedGeneratorOutput> get copyWith =>
@@ -41,7 +45,11 @@ abstract class $GetFeedGeneratorOutputCopyWith<$Res> {
           $Res Function(GetFeedGeneratorOutput) then) =
       _$GetFeedGeneratorOutputCopyWithImpl<$Res, GetFeedGeneratorOutput>;
   @useResult
-  $Res call({GeneratorView view, bool isOnline, bool isValid});
+  $Res call(
+      {GeneratorView view,
+      bool isOnline,
+      bool isValid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $GeneratorViewCopyWith<$Res> get view;
 }
@@ -63,6 +71,7 @@ class _$GetFeedGeneratorOutputCopyWithImpl<$Res,
     Object? view = null,
     Object? isOnline = null,
     Object? isValid = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       view: null == view
@@ -77,6 +86,10 @@ class _$GetFeedGeneratorOutputCopyWithImpl<$Res,
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -98,7 +111,11 @@ abstract class _$$GetFeedGeneratorOutputImplCopyWith<$Res>
       __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({GeneratorView view, bool isOnline, bool isValid});
+  $Res call(
+      {GeneratorView view,
+      bool isOnline,
+      bool isValid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $GeneratorViewCopyWith<$Res> get view;
@@ -120,6 +137,7 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
     Object? view = null,
     Object? isOnline = null,
     Object? isValid = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetFeedGeneratorOutputImpl(
       view: null == view
@@ -134,6 +152,10 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
           ? _value.isValid
           : isValid // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -143,7 +165,12 @@ class __$$GetFeedGeneratorOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
   const _$GetFeedGeneratorOutputImpl(
-      {required this.view, required this.isOnline, required this.isValid});
+      {required this.view,
+      required this.isOnline,
+      required this.isValid,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetFeedGeneratorOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetFeedGeneratorOutputImplFromJson(json);
@@ -159,9 +186,21 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
   @override
   final bool isValid;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetFeedGeneratorOutput(view: $view, isOnline: $isOnline, isValid: $isValid)';
+    return 'GetFeedGeneratorOutput(view: $view, isOnline: $isOnline, isValid: $isValid, \$unknown: ${$unknown})';
   }
 
   @override
@@ -172,12 +211,14 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
             (identical(other.view, view) || other.view == view) &&
             (identical(other.isOnline, isOnline) ||
                 other.isOnline == isOnline) &&
-            (identical(other.isValid, isValid) || other.isValid == isValid));
+            (identical(other.isValid, isValid) || other.isValid == isValid) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, view, isOnline, isValid);
+  int get hashCode => Object.hash(runtimeType, view, isOnline, isValid,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -196,9 +237,11 @@ class _$GetFeedGeneratorOutputImpl implements _GetFeedGeneratorOutput {
 
 abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
   const factory _GetFeedGeneratorOutput(
-      {required final GeneratorView view,
-      required final bool isOnline,
-      required final bool isValid}) = _$GetFeedGeneratorOutputImpl;
+          {required final GeneratorView view,
+          required final bool isOnline,
+          required final bool isValid,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetFeedGeneratorOutputImpl;
 
   factory _GetFeedGeneratorOutput.fromJson(Map<String, dynamic> json) =
       _$GetFeedGeneratorOutputImpl.fromJson;
@@ -213,6 +256,11 @@ abstract class _GetFeedGeneratorOutput implements GetFeedGeneratorOutput {
 
   /// Indicates whether the feed generator service is compatible with the record declaration.
   bool get isValid;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetFeedGeneratorOutputImplCopyWith<_$GetFeedGeneratorOutputImpl>

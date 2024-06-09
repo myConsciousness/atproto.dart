@@ -33,6 +33,10 @@ mixin _$Interaction {
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InteractionCopyWith<Interaction> get copyWith =>
@@ -49,7 +53,8 @@ abstract class $InteractionCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
       @UEventConverter() UEvent? event,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UEventCopyWith<$Res>? get event;
 }
@@ -71,6 +76,7 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -89,6 +95,10 @@ class _$InteractionCopyWithImpl<$Res, $Val extends Interaction>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -117,7 +127,8 @@ abstract class _$$InteractionImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? item,
       @UEventConverter() UEvent? event,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UEventCopyWith<$Res>? get event;
@@ -138,6 +149,7 @@ class __$$InteractionImplCopyWithImpl<$Res>
     Object? item = freezed,
     Object? event = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$InteractionImpl(
       $type: null == $type
@@ -156,6 +168,10 @@ class __$$InteractionImplCopyWithImpl<$Res>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -168,7 +184,10 @@ class _$InteractionImpl implements _Interaction {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsInteraction,
       @AtUriConverter() this.item,
       @UEventConverter() this.event,
-      this.feedContext});
+      this.feedContext,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$InteractionImpl.fromJson(Map<String, dynamic> json) =>
       _$$InteractionImplFromJson(json);
@@ -190,9 +209,21 @@ class _$InteractionImpl implements _Interaction {
   @override
   final String? feedContext;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Interaction(\$type: ${$type}, item: $item, event: $event, feedContext: $feedContext)';
+    return 'Interaction(\$type: ${$type}, item: $item, event: $event, feedContext: $feedContext, \$unknown: ${$unknown})';
   }
 
   @override
@@ -204,12 +235,14 @@ class _$InteractionImpl implements _Interaction {
             (identical(other.item, item) || other.item == item) &&
             (identical(other.event, event) || other.event == event) &&
             (identical(other.feedContext, feedContext) ||
-                other.feedContext == feedContext));
+                other.feedContext == feedContext) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, item, event, feedContext);
+  int get hashCode => Object.hash(runtimeType, $type, item, event, feedContext,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -227,10 +260,12 @@ class _$InteractionImpl implements _Interaction {
 
 abstract class _Interaction implements Interaction {
   const factory _Interaction(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() final AtUri? item,
-      @UEventConverter() final UEvent? event,
-      final String? feedContext}) = _$InteractionImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() final AtUri? item,
+          @UEventConverter() final UEvent? event,
+          final String? feedContext,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$InteractionImpl;
 
   factory _Interaction.fromJson(Map<String, dynamic> json) =
       _$InteractionImpl.fromJson;
@@ -252,6 +287,11 @@ abstract class _Interaction implements Interaction {
 
   /// Context on a feed item that was orginally supplied by the feed generator on getFeedSkeleton.
   String? get feedContext;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InteractionImplCopyWith<_$InteractionImpl> get copyWith =>

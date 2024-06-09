@@ -26,6 +26,10 @@ mixin _$GetLikesOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<Like> get likes => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetLikesOutputCopyWith<GetLikesOutput> get copyWith =>
@@ -42,7 +46,8 @@ abstract class $GetLikesOutputCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<Like> likes});
+      List<Like> likes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$GetLikesOutputCopyWithImpl<$Res, $Val extends GetLikesOutput>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? likes = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       uri: null == uri
@@ -80,6 +86,10 @@ class _$GetLikesOutputCopyWithImpl<$Res, $Val extends GetLikesOutput>
           ? _value.likes
           : likes // ignore: cast_nullable_to_non_nullable
               as List<Like>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -96,7 +106,8 @@ abstract class _$$GetLikesOutputImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<Like> likes});
+      List<Like> likes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -114,6 +125,7 @@ class __$$GetLikesOutputImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? likes = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetLikesOutputImpl(
       uri: null == uri
@@ -132,6 +144,10 @@ class __$$GetLikesOutputImplCopyWithImpl<$Res>
           ? _value._likes
           : likes // ignore: cast_nullable_to_non_nullable
               as List<Like>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -144,8 +160,11 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
       {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
-      required final List<Like> likes})
-      : _likes = likes;
+      required final List<Like> likes,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _likes = likes,
+        _$unknown = $unknown;
 
   factory _$GetLikesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetLikesOutputImplFromJson(json);
@@ -165,9 +184,21 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
     return EqualUnmodifiableListView(_likes);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetLikesOutput(uri: $uri, cid: $cid, cursor: $cursor, likes: $likes)';
+    return 'GetLikesOutput(uri: $uri, cid: $cid, cursor: $cursor, likes: $likes, \$unknown: ${$unknown})';
   }
 
   @override
@@ -178,13 +209,19 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._likes, _likes));
+            const DeepCollectionEquality().equals(other._likes, _likes) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid, cursor,
-      const DeepCollectionEquality().hash(_likes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      uri,
+      cid,
+      cursor,
+      const DeepCollectionEquality().hash(_likes),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -203,10 +240,12 @@ class _$GetLikesOutputImpl implements _GetLikesOutput {
 
 abstract class _GetLikesOutput implements GetLikesOutput {
   const factory _GetLikesOutput(
-      {@AtUriConverter() required final AtUri uri,
-      final String? cid,
-      final String? cursor,
-      required final List<Like> likes}) = _$GetLikesOutputImpl;
+          {@AtUriConverter() required final AtUri uri,
+          final String? cid,
+          final String? cursor,
+          required final List<Like> likes,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetLikesOutputImpl;
 
   factory _GetLikesOutput.fromJson(Map<String, dynamic> json) =
       _$GetLikesOutputImpl.fromJson;
@@ -220,6 +259,11 @@ abstract class _GetLikesOutput implements GetLikesOutput {
   String? get cursor;
   @override
   List<Like> get likes;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetLikesOutputImplCopyWith<_$GetLikesOutputImpl> get copyWith =>

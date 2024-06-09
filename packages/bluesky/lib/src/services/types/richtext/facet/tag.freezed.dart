@@ -27,6 +27,10 @@ mixin _$FacetTag {
   String get $type => throw _privateConstructorUsedError;
   String get tag => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FacetTagCopyWith<FacetTag> get copyWith =>
@@ -38,7 +42,10 @@ abstract class $FacetTagCopyWith<$Res> {
   factory $FacetTagCopyWith(FacetTag value, $Res Function(FacetTag) then) =
       _$FacetTagCopyWithImpl<$Res, FacetTag>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String tag});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String tag,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -56,6 +63,7 @@ class _$FacetTagCopyWithImpl<$Res, $Val extends FacetTag>
   $Res call({
     Object? $type = null,
     Object? tag = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -66,6 +74,10 @@ class _$FacetTagCopyWithImpl<$Res, $Val extends FacetTag>
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -78,7 +90,10 @@ abstract class _$$FacetTagImplCopyWith<$Res>
       __$$FacetTagImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String tag});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String tag,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -94,6 +109,7 @@ class __$$FacetTagImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? tag = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FacetTagImpl(
       $type: null == $type
@@ -104,6 +120,10 @@ class __$$FacetTagImplCopyWithImpl<$Res>
           ? _value.tag
           : tag // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -114,7 +134,10 @@ class __$$FacetTagImplCopyWithImpl<$Res>
 class _$FacetTagImpl implements _FacetTag {
   const _$FacetTagImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetTag,
-      required this.tag});
+      required this.tag,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FacetTagImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetTagImplFromJson(json);
@@ -128,9 +151,21 @@ class _$FacetTagImpl implements _FacetTag {
   @override
   final String tag;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FacetTag(\$type: ${$type}, tag: $tag)';
+    return 'FacetTag(\$type: ${$type}, tag: $tag, \$unknown: ${$unknown})';
   }
 
   @override
@@ -139,12 +174,14 @@ class _$FacetTagImpl implements _FacetTag {
         (other.runtimeType == runtimeType &&
             other is _$FacetTagImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.tag, tag) || other.tag == tag));
+            (identical(other.tag, tag) || other.tag == tag) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, tag);
+  int get hashCode => Object.hash(
+      runtimeType, $type, tag, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +199,10 @@ class _$FacetTagImpl implements _FacetTag {
 
 abstract class _FacetTag implements FacetTag {
   const factory _FacetTag(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String tag}) = _$FacetTagImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String tag,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FacetTagImpl;
 
   factory _FacetTag.fromJson(Map<String, dynamic> json) =
       _$FacetTagImpl.fromJson;
@@ -177,6 +216,11 @@ abstract class _FacetTag implements FacetTag {
   String get $type;
   @override
   String get tag;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FacetTagImplCopyWith<_$FacetTagImpl> get copyWith =>

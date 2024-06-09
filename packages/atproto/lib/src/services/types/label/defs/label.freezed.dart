@@ -53,6 +53,10 @@ mixin _$Label {
   /// Signature of dag-cbor encoded label.
   List<int>? get sig => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelCopyWith<Label> get copyWith => throw _privateConstructorUsedError;
@@ -73,7 +77,8 @@ abstract class $LabelCopyWith<$Res> {
       bool neg,
       DateTime cts,
       DateTime? exp,
-      List<int>? sig});
+      List<int>? sig,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -99,6 +104,7 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
     Object? cts = null,
     Object? exp = freezed,
     Object? sig = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -141,6 +147,10 @@ class _$LabelCopyWithImpl<$Res, $Val extends Label>
           ? _value.sig
           : sig // ignore: cast_nullable_to_non_nullable
               as List<int>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -162,7 +172,8 @@ abstract class _$$LabelImplCopyWith<$Res> implements $LabelCopyWith<$Res> {
       bool neg,
       DateTime cts,
       DateTime? exp,
-      List<int>? sig});
+      List<int>? sig,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -186,6 +197,7 @@ class __$$LabelImplCopyWithImpl<$Res>
     Object? cts = null,
     Object? exp = freezed,
     Object? sig = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelImpl(
       $type: null == $type
@@ -228,6 +240,10 @@ class __$$LabelImplCopyWithImpl<$Res>
           ? _value._sig
           : sig // ignore: cast_nullable_to_non_nullable
               as List<int>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -246,8 +262,11 @@ class _$LabelImpl implements _Label {
       this.neg = false,
       required this.cts,
       this.exp,
-      final List<int>? sig})
-      : _sig = sig;
+      final List<int>? sig,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _sig = sig,
+        _$unknown = $unknown;
 
   factory _$LabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelImplFromJson(json);
@@ -306,9 +325,21 @@ class _$LabelImpl implements _Label {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Label(\$type: ${$type}, ver: $ver, src: $src, uri: $uri, cid: $cid, val: $val, neg: $neg, cts: $cts, exp: $exp, sig: $sig)';
+    return 'Label(\$type: ${$type}, ver: $ver, src: $src, uri: $uri, cid: $cid, val: $val, neg: $neg, cts: $cts, exp: $exp, sig: $sig, \$unknown: ${$unknown})';
   }
 
   @override
@@ -325,13 +356,25 @@ class _$LabelImpl implements _Label {
             (identical(other.neg, neg) || other.neg == neg) &&
             (identical(other.cts, cts) || other.cts == cts) &&
             (identical(other.exp, exp) || other.exp == exp) &&
-            const DeepCollectionEquality().equals(other._sig, _sig));
+            const DeepCollectionEquality().equals(other._sig, _sig) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, ver, src, uri, cid, val,
-      neg, cts, exp, const DeepCollectionEquality().hash(_sig));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      ver,
+      src,
+      uri,
+      cid,
+      val,
+      neg,
+      cts,
+      exp,
+      const DeepCollectionEquality().hash(_sig),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -349,16 +392,18 @@ class _$LabelImpl implements _Label {
 
 abstract class _Label implements Label {
   const factory _Label(
-      {@JsonKey(name: r'$type') final String $type,
-      final int ver,
-      required final String src,
-      required final String uri,
-      final String? cid,
-      required final String val,
-      final bool neg,
-      required final DateTime cts,
-      final DateTime? exp,
-      final List<int>? sig}) = _$LabelImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final int ver,
+          required final String src,
+          required final String uri,
+          final String? cid,
+          required final String val,
+          final bool neg,
+          required final DateTime cts,
+          final DateTime? exp,
+          final List<int>? sig,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LabelImpl;
 
   factory _Label.fromJson(Map<String, dynamic> json) = _$LabelImpl.fromJson;
 
@@ -405,6 +450,11 @@ abstract class _Label implements Label {
 
   /// Signature of dag-cbor encoded label.
   List<int>? get sig;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelImplCopyWith<_$LabelImpl> get copyWith =>

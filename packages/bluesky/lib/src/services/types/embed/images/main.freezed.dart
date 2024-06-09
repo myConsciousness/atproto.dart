@@ -27,6 +27,10 @@ mixin _$Images {
   String get $type => throw _privateConstructorUsedError;
   List<ImagesImage> get images => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ImagesCopyWith<Images> get copyWith => throw _privateConstructorUsedError;
@@ -37,7 +41,10 @@ abstract class $ImagesCopyWith<$Res> {
   factory $ImagesCopyWith(Images value, $Res Function(Images) then) =
       _$ImagesCopyWithImpl<$Res, Images>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<ImagesImage> images});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<ImagesImage> images,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,6 +62,7 @@ class _$ImagesCopyWithImpl<$Res, $Val extends Images>
   $Res call({
     Object? $type = null,
     Object? images = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -65,6 +73,10 @@ class _$ImagesCopyWithImpl<$Res, $Val extends Images>
           ? _value.images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImagesImage>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$ImagesImplCopyWith<$Res> implements $ImagesCopyWith<$Res> {
       __$$ImagesImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<ImagesImage> images});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<ImagesImage> images,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$ImagesImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? images = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ImagesImpl(
       $type: null == $type
@@ -102,6 +118,10 @@ class __$$ImagesImplCopyWithImpl<$Res>
           ? _value._images
           : images // ignore: cast_nullable_to_non_nullable
               as List<ImagesImage>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -112,8 +132,11 @@ class __$$ImagesImplCopyWithImpl<$Res>
 class _$ImagesImpl implements _Images {
   const _$ImagesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImages,
-      required final List<ImagesImage> images})
-      : _images = images;
+      required final List<ImagesImage> images,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _images = images,
+        _$unknown = $unknown;
 
   factory _$ImagesImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesImplFromJson(json);
@@ -132,9 +155,21 @@ class _$ImagesImpl implements _Images {
     return EqualUnmodifiableListView(_images);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Images(\$type: ${$type}, images: $images)';
+    return 'Images(\$type: ${$type}, images: $images, \$unknown: ${$unknown})';
   }
 
   @override
@@ -143,13 +178,17 @@ class _$ImagesImpl implements _Images {
         (other.runtimeType == runtimeType &&
             other is _$ImagesImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            const DeepCollectionEquality().equals(other._images, _images));
+            const DeepCollectionEquality().equals(other._images, _images) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, $type, const DeepCollectionEquality().hash(_images));
+      runtimeType,
+      $type,
+      const DeepCollectionEquality().hash(_images),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -167,8 +206,10 @@ class _$ImagesImpl implements _Images {
 
 abstract class _Images implements Images {
   const factory _Images(
-      {@JsonKey(name: r'$type') final String $type,
-      required final List<ImagesImage> images}) = _$ImagesImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final List<ImagesImage> images,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ImagesImpl;
 
   factory _Images.fromJson(Map<String, dynamic> json) = _$ImagesImpl.fromJson;
 
@@ -181,6 +222,11 @@ abstract class _Images implements Images {
   String get $type;
   @override
   List<ImagesImage> get images;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ImagesImplCopyWith<_$ImagesImpl> get copyWith =>

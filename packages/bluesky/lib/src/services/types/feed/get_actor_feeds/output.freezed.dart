@@ -23,6 +23,10 @@ mixin _$GetActorFeedsOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetActorFeedsOutputCopyWith<GetActorFeedsOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetActorFeedsOutputCopyWith<$Res> {
           GetActorFeedsOutput value, $Res Function(GetActorFeedsOutput) then) =
       _$GetActorFeedsOutputCopyWithImpl<$Res, GetActorFeedsOutput>;
   @useResult
-  $Res call({String? cursor, List<GeneratorView> feeds});
+  $Res call(
+      {String? cursor,
+      List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$GetActorFeedsOutputCopyWithImpl<$Res, $Val extends GetActorFeedsOutput>
   $Res call({
     Object? cursor = freezed,
     Object? feeds = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$GetActorFeedsOutputCopyWithImpl<$Res, $Val extends GetActorFeedsOutput>
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<GeneratorView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$GetActorFeedsOutputImplCopyWith<$Res>
       __$$GetActorFeedsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<GeneratorView> feeds});
+  $Res call(
+      {String? cursor,
+      List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$GetActorFeedsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? feeds = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetActorFeedsOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$GetActorFeedsOutputImplCopyWithImpl<$Res>
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<GeneratorView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,8 +130,12 @@ class __$$GetActorFeedsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
   const _$GetActorFeedsOutputImpl(
-      {this.cursor, required final List<GeneratorView> feeds})
-      : _feeds = feeds;
+      {this.cursor,
+      required final List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _feeds = feeds,
+        _$unknown = $unknown;
 
   factory _$GetActorFeedsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetActorFeedsOutputImplFromJson(json);
@@ -126,9 +150,21 @@ class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
     return EqualUnmodifiableListView(_feeds);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetActorFeedsOutput(cursor: $cursor, feeds: $feeds)';
+    return 'GetActorFeedsOutput(cursor: $cursor, feeds: $feeds, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +173,17 @@ class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetActorFeedsOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._feeds, _feeds));
+            const DeepCollectionEquality().equals(other._feeds, _feeds) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_feeds));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_feeds),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +202,10 @@ class _$GetActorFeedsOutputImpl implements _GetActorFeedsOutput {
 
 abstract class _GetActorFeedsOutput implements GetActorFeedsOutput {
   const factory _GetActorFeedsOutput(
-      {final String? cursor,
-      required final List<GeneratorView> feeds}) = _$GetActorFeedsOutputImpl;
+          {final String? cursor,
+          required final List<GeneratorView> feeds,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetActorFeedsOutputImpl;
 
   factory _GetActorFeedsOutput.fromJson(Map<String, dynamic> json) =
       _$GetActorFeedsOutputImpl.fromJson;
@@ -172,6 +214,11 @@ abstract class _GetActorFeedsOutput implements GetActorFeedsOutput {
   String? get cursor;
   @override
   List<GeneratorView> get feeds;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetActorFeedsOutputImplCopyWith<_$GetActorFeedsOutputImpl> get copyWith =>

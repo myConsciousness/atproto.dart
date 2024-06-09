@@ -17,6 +17,13 @@ _$ListBlobsOutputImpl _$$ListBlobsOutputImplFromJson(Map json) =>
           cursor: $checkedConvert('cursor', (v) => v as String?),
           cids: $checkedConvert('cids',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -34,5 +41,6 @@ Map<String, dynamic> _$$ListBlobsOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   val['cids'] = instance.cids;
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

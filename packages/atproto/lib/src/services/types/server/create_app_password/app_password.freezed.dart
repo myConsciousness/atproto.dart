@@ -30,6 +30,10 @@ mixin _$AppPassword {
   DateTime get createdAt => throw _privateConstructorUsedError;
   bool get privileged => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AppPasswordCopyWith<AppPassword> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $AppPasswordCopyWith<$Res> {
       String name,
       String password,
       DateTime createdAt,
-      bool privileged});
+      bool privileged,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -68,6 +73,7 @@ class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
     Object? password = null,
     Object? createdAt = null,
     Object? privileged = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -90,6 +96,10 @@ class _$AppPasswordCopyWithImpl<$Res, $Val extends AppPassword>
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -107,7 +117,8 @@ abstract class _$$AppPasswordImplCopyWith<$Res>
       String name,
       String password,
       DateTime createdAt,
-      bool privileged});
+      bool privileged,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -126,6 +137,7 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
     Object? password = null,
     Object? createdAt = null,
     Object? privileged = null,
+    Object? $unknown = null,
   }) {
     return _then(_$AppPasswordImpl(
       $type: null == $type
@@ -148,6 +160,10 @@ class __$$AppPasswordImplCopyWithImpl<$Res>
           ? _value.privileged
           : privileged // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -162,7 +178,10 @@ class _$AppPasswordImpl implements _AppPassword {
       required this.name,
       required this.password,
       required this.createdAt,
-      this.privileged = false});
+      this.privileged = false,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$AppPasswordImpl.fromJson(Map<String, dynamic> json) =>
       _$$AppPasswordImplFromJson(json);
@@ -183,9 +202,21 @@ class _$AppPasswordImpl implements _AppPassword {
   @JsonKey()
   final bool privileged;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'AppPassword(\$type: ${$type}, name: $name, password: $password, createdAt: $createdAt, privileged: $privileged)';
+    return 'AppPassword(\$type: ${$type}, name: $name, password: $password, createdAt: $createdAt, privileged: $privileged, \$unknown: ${$unknown})';
   }
 
   @override
@@ -200,13 +231,14 @@ class _$AppPasswordImpl implements _AppPassword {
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.privileged, privileged) ||
-                other.privileged == privileged));
+                other.privileged == privileged) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, name, password, createdAt, privileged);
+  int get hashCode => Object.hash(runtimeType, $type, name, password, createdAt,
+      privileged, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -224,11 +256,13 @@ class _$AppPasswordImpl implements _AppPassword {
 
 abstract class _AppPassword implements AppPassword {
   const factory _AppPassword(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String name,
-      required final String password,
-      required final DateTime createdAt,
-      final bool privileged}) = _$AppPasswordImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String name,
+          required final String password,
+          required final DateTime createdAt,
+          final bool privileged,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$AppPasswordImpl;
 
   factory _AppPassword.fromJson(Map<String, dynamic> json) =
       _$AppPasswordImpl.fromJson;
@@ -248,6 +282,11 @@ abstract class _AppPassword implements AppPassword {
   DateTime get createdAt;
   @override
   bool get privileged;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$AppPasswordImplCopyWith<_$AppPasswordImpl> get copyWith =>

@@ -26,6 +26,10 @@ mixin _$GetRepostedByOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get repostedBy => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetRepostedByOutputCopyWith<GetRepostedByOutput> get copyWith =>
@@ -42,7 +46,8 @@ abstract class $GetRepostedByOutputCopyWith<$Res> {
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<ProfileView> repostedBy});
+      List<ProfileView> repostedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$GetRepostedByOutputCopyWithImpl<$Res, $Val extends GetRepostedByOutput>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? repostedBy = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       uri: null == uri
@@ -80,6 +86,10 @@ class _$GetRepostedByOutputCopyWithImpl<$Res, $Val extends GetRepostedByOutput>
           ? _value.repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -96,7 +106,8 @@ abstract class _$$GetRepostedByOutputImplCopyWith<$Res>
       {@AtUriConverter() AtUri uri,
       String? cid,
       String? cursor,
-      List<ProfileView> repostedBy});
+      List<ProfileView> repostedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -114,6 +125,7 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? cursor = freezed,
     Object? repostedBy = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetRepostedByOutputImpl(
       uri: null == uri
@@ -132,6 +144,10 @@ class __$$GetRepostedByOutputImplCopyWithImpl<$Res>
           ? _value._repostedBy
           : repostedBy // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -144,8 +160,11 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
       {@AtUriConverter() required this.uri,
       this.cid,
       this.cursor,
-      required final List<ProfileView> repostedBy})
-      : _repostedBy = repostedBy;
+      required final List<ProfileView> repostedBy,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _repostedBy = repostedBy,
+        _$unknown = $unknown;
 
   factory _$GetRepostedByOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetRepostedByOutputImplFromJson(json);
@@ -165,9 +184,21 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
     return EqualUnmodifiableListView(_repostedBy);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetRepostedByOutput(uri: $uri, cid: $cid, cursor: $cursor, repostedBy: $repostedBy)';
+    return 'GetRepostedByOutput(uri: $uri, cid: $cid, cursor: $cursor, repostedBy: $repostedBy, \$unknown: ${$unknown})';
   }
 
   @override
@@ -179,13 +210,19 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality()
-                .equals(other._repostedBy, _repostedBy));
+                .equals(other._repostedBy, _repostedBy) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid, cursor,
-      const DeepCollectionEquality().hash(_repostedBy));
+  int get hashCode => Object.hash(
+      runtimeType,
+      uri,
+      cid,
+      cursor,
+      const DeepCollectionEquality().hash(_repostedBy),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -204,10 +241,12 @@ class _$GetRepostedByOutputImpl implements _GetRepostedByOutput {
 
 abstract class _GetRepostedByOutput implements GetRepostedByOutput {
   const factory _GetRepostedByOutput(
-      {@AtUriConverter() required final AtUri uri,
-      final String? cid,
-      final String? cursor,
-      required final List<ProfileView> repostedBy}) = _$GetRepostedByOutputImpl;
+          {@AtUriConverter() required final AtUri uri,
+          final String? cid,
+          final String? cursor,
+          required final List<ProfileView> repostedBy,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetRepostedByOutputImpl;
 
   factory _GetRepostedByOutput.fromJson(Map<String, dynamic> json) =
       _$GetRepostedByOutputImpl.fromJson;
@@ -221,6 +260,11 @@ abstract class _GetRepostedByOutput implements GetRepostedByOutput {
   String? get cursor;
   @override
   List<ProfileView> get repostedBy;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRepostedByOutputImplCopyWith<_$GetRepostedByOutputImpl> get copyWith =>

@@ -27,6 +27,10 @@ mixin _$FacetLink {
   String get $type => throw _privateConstructorUsedError;
   String get uri => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FacetLinkCopyWith<FacetLink> get copyWith =>
@@ -38,7 +42,10 @@ abstract class $FacetLinkCopyWith<$Res> {
   factory $FacetLinkCopyWith(FacetLink value, $Res Function(FacetLink) then) =
       _$FacetLinkCopyWithImpl<$Res, FacetLink>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -56,6 +63,7 @@ class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
   $Res call({
     Object? $type = null,
     Object? uri = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -66,6 +74,10 @@ class _$FacetLinkCopyWithImpl<$Res, $Val extends FacetLink>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -78,7 +90,10 @@ abstract class _$$FacetLinkImplCopyWith<$Res>
       __$$FacetLinkImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String uri});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String uri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -94,6 +109,7 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? uri = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FacetLinkImpl(
       $type: null == $type
@@ -104,6 +120,10 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -114,7 +134,10 @@ class __$$FacetLinkImplCopyWithImpl<$Res>
 class _$FacetLinkImpl implements _FacetLink {
   const _$FacetLinkImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetLink,
-      required this.uri});
+      required this.uri,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FacetLinkImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetLinkImplFromJson(json);
@@ -128,9 +151,21 @@ class _$FacetLinkImpl implements _FacetLink {
   @override
   final String uri;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FacetLink(\$type: ${$type}, uri: $uri)';
+    return 'FacetLink(\$type: ${$type}, uri: $uri, \$unknown: ${$unknown})';
   }
 
   @override
@@ -139,12 +174,14 @@ class _$FacetLinkImpl implements _FacetLink {
         (other.runtimeType == runtimeType &&
             other is _$FacetLinkImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            (identical(other.uri, uri) || other.uri == uri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri);
+  int get hashCode => Object.hash(
+      runtimeType, $type, uri, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +199,10 @@ class _$FacetLinkImpl implements _FacetLink {
 
 abstract class _FacetLink implements FacetLink {
   const factory _FacetLink(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String uri}) = _$FacetLinkImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String uri,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FacetLinkImpl;
 
   factory _FacetLink.fromJson(Map<String, dynamic> json) =
       _$FacetLinkImpl.fromJson;
@@ -177,6 +216,11 @@ abstract class _FacetLink implements FacetLink {
   String get $type;
   @override
   String get uri;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FacetLinkImplCopyWith<_$FacetLinkImpl> get copyWith =>

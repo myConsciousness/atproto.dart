@@ -19,6 +19,13 @@ _$MigrateImpl _$$MigrateImplFromJson(Map json) => $checkedCreate(
           did: $checkedConvert('did', (v) => v as String),
           migrateTo: $checkedConvert('migrateTo', (v) => v as String),
           time: $checkedConvert('time', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -31,4 +38,5 @@ Map<String, dynamic> _$$MigrateImplToJson(_$MigrateImpl instance) =>
       'did': instance.did,
       'migrateTo': instance.migrateTo,
       'time': instance.time.toIso8601String(),
+      r'$unknown': instance.$unknown,
     };

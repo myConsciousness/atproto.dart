@@ -20,6 +20,13 @@ _$GetAccountInfosOutputImpl _$$GetAccountInfosOutputImplFromJson(Map json) =>
                   .map((e) =>
                       AccountView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -29,4 +36,5 @@ Map<String, dynamic> _$$GetAccountInfosOutputImplToJson(
         _$GetAccountInfosOutputImpl instance) =>
     <String, dynamic>{
       'infos': instance.infos.map((e) => e.toJson()).toList(),
+      r'$unknown': instance.$unknown,
     };

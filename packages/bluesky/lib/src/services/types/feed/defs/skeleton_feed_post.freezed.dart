@@ -33,6 +33,10 @@ mixin _$SkeletonFeedPost {
   /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SkeletonFeedPostCopyWith<SkeletonFeedPost> get copyWith =>
@@ -49,7 +53,8 @@ abstract class $SkeletonFeedPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
       @UReasonConverter() UReason? reason,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UReasonCopyWith<$Res>? get reason;
 }
@@ -71,6 +76,7 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
     Object? post = null,
     Object? reason = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -89,6 +95,10 @@ class _$SkeletonFeedPostCopyWithImpl<$Res, $Val extends SkeletonFeedPost>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -117,7 +127,8 @@ abstract class _$$SkeletonFeedPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri post,
       @UReasonConverter() UReason? reason,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UReasonCopyWith<$Res>? get reason;
@@ -138,6 +149,7 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
     Object? post = null,
     Object? reason = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$SkeletonFeedPostImpl(
       $type: null == $type
@@ -156,6 +168,10 @@ class __$$SkeletonFeedPostImplCopyWithImpl<$Res>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -168,7 +184,10 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsSkeletonFeedPost,
       @AtUriConverter() required this.post,
       @UReasonConverter() this.reason,
-      this.feedContext});
+      this.feedContext,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SkeletonFeedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonFeedPostImplFromJson(json);
@@ -190,9 +209,21 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
   @override
   final String? feedContext;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SkeletonFeedPost(\$type: ${$type}, post: $post, reason: $reason, feedContext: $feedContext)';
+    return 'SkeletonFeedPost(\$type: ${$type}, post: $post, reason: $reason, feedContext: $feedContext, \$unknown: ${$unknown})';
   }
 
   @override
@@ -204,13 +235,14 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
             (identical(other.post, post) || other.post == post) &&
             (identical(other.reason, reason) || other.reason == reason) &&
             (identical(other.feedContext, feedContext) ||
-                other.feedContext == feedContext));
+                other.feedContext == feedContext) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, post, reason, feedContext);
+  int get hashCode => Object.hash(runtimeType, $type, post, reason, feedContext,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -229,10 +261,12 @@ class _$SkeletonFeedPostImpl implements _SkeletonFeedPost {
 
 abstract class _SkeletonFeedPost implements SkeletonFeedPost {
   const factory _SkeletonFeedPost(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri post,
-      @UReasonConverter() final UReason? reason,
-      final String? feedContext}) = _$SkeletonFeedPostImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri post,
+          @UReasonConverter() final UReason? reason,
+          final String? feedContext,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SkeletonFeedPostImpl;
 
   factory _SkeletonFeedPost.fromJson(Map<String, dynamic> json) =
       _$SkeletonFeedPostImpl.fromJson;
@@ -254,6 +288,11 @@ abstract class _SkeletonFeedPost implements SkeletonFeedPost {
 
   /// Context that will be passed through to client and may be passed to feed generator back alongside interactions.
   String? get feedContext;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SkeletonFeedPostImplCopyWith<_$SkeletonFeedPostImpl> get copyWith =>

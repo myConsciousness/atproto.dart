@@ -27,6 +27,10 @@ mixin _$Contact {
   String get $type => throw _privateConstructorUsedError;
   String? get email => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ContactCopyWith<Contact> get copyWith => throw _privateConstructorUsedError;
@@ -37,7 +41,10 @@ abstract class $ContactCopyWith<$Res> {
   factory $ContactCopyWith(Contact value, $Res Function(Contact) then) =
       _$ContactCopyWithImpl<$Res, Contact>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String? email});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String? email,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,6 +62,7 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
   $Res call({
     Object? $type = null,
     Object? email = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -65,6 +73,10 @@ class _$ContactCopyWithImpl<$Res, $Val extends Contact>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$ContactImplCopyWith<$Res> implements $ContactCopyWith<$Res> {
       __$$ContactImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String? email});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String? email,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$ContactImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? email = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ContactImpl(
       $type: null == $type
@@ -102,6 +118,10 @@ class __$$ContactImplCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -113,7 +133,10 @@ class _$ContactImpl implements _Contact {
   const _$ContactImpl(
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoServerDescribeServerContact,
-      this.email});
+      this.email,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ContactImpl.fromJson(Map<String, dynamic> json) =>
       _$$ContactImplFromJson(json);
@@ -127,9 +150,21 @@ class _$ContactImpl implements _Contact {
   @override
   final String? email;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Contact(\$type: ${$type}, email: $email)';
+    return 'Contact(\$type: ${$type}, email: $email, \$unknown: ${$unknown})';
   }
 
   @override
@@ -138,12 +173,14 @@ class _$ContactImpl implements _Contact {
         (other.runtimeType == runtimeType &&
             other is _$ContactImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.email, email) || other.email == email) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, email);
+  int get hashCode => Object.hash(runtimeType, $type, email,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -161,8 +198,10 @@ class _$ContactImpl implements _Contact {
 
 abstract class _Contact implements Contact {
   const factory _Contact(
-      {@JsonKey(name: r'$type') final String $type,
-      final String? email}) = _$ContactImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final String? email,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ContactImpl;
 
   factory _Contact.fromJson(Map<String, dynamic> json) = _$ContactImpl.fromJson;
 
@@ -175,6 +214,11 @@ abstract class _Contact implements Contact {
   String get $type;
   @override
   String? get email;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ContactImplCopyWith<_$ContactImpl> get copyWith =>

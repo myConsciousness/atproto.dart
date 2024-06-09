@@ -30,6 +30,10 @@ mixin _$HiddenPostsPref {
   @AtUriConverter()
   List<AtUri> get items => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HiddenPostsPrefCopyWith<HiddenPostsPref> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $HiddenPostsPrefCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @AtUriConverter() List<AtUri> items});
+      @AtUriConverter() List<AtUri> items,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -62,6 +67,7 @@ class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
   $Res call({
     Object? $type = null,
     Object? items = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -72,6 +78,10 @@ class _$HiddenPostsPrefCopyWithImpl<$Res, $Val extends HiddenPostsPref>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -86,7 +96,8 @@ abstract class _$$HiddenPostsPrefImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @AtUriConverter() List<AtUri> items});
+      @AtUriConverter() List<AtUri> items,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -102,6 +113,7 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? items = null,
+    Object? $unknown = null,
   }) {
     return _then(_$HiddenPostsPrefImpl(
       $type: null == $type
@@ -112,6 +124,10 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<AtUri>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -122,8 +138,11 @@ class __$$HiddenPostsPrefImplCopyWithImpl<$Res>
 class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
   const _$HiddenPostsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsHiddenPostsPref,
-      @AtUriConverter() required final List<AtUri> items})
-      : _items = items;
+      @AtUriConverter() required final List<AtUri> items,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _items = items,
+        _$unknown = $unknown;
 
   factory _$HiddenPostsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$HiddenPostsPrefImplFromJson(json);
@@ -147,9 +166,21 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
     return EqualUnmodifiableListView(_items);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'HiddenPostsPref(\$type: ${$type}, items: $items)';
+    return 'HiddenPostsPref(\$type: ${$type}, items: $items, \$unknown: ${$unknown})';
   }
 
   @override
@@ -158,13 +189,17 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
         (other.runtimeType == runtimeType &&
             other is _$HiddenPostsPrefImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, $type, const DeepCollectionEquality().hash(_items));
+      runtimeType,
+      $type,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -184,7 +219,8 @@ class _$HiddenPostsPrefImpl implements _HiddenPostsPref {
 abstract class _HiddenPostsPref implements HiddenPostsPref {
   const factory _HiddenPostsPref(
           {@JsonKey(name: r'$type') final String $type,
-          @AtUriConverter() required final List<AtUri> items}) =
+          @AtUriConverter() required final List<AtUri> items,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$HiddenPostsPrefImpl;
 
   factory _HiddenPostsPref.fromJson(Map<String, dynamic> json) =
@@ -202,6 +238,11 @@ abstract class _HiddenPostsPref implements HiddenPostsPref {
   /// A list of URIs of posts the account owner has hidden.
   @AtUriConverter()
   List<AtUri> get items;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$HiddenPostsPrefImplCopyWith<_$HiddenPostsPrefImpl> get copyWith =>

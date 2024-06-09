@@ -23,6 +23,10 @@ RequestEmailUpdateOutput _$RequestEmailUpdateOutputFromJson(
 mixin _$RequestEmailUpdateOutput {
   bool get tokenRequired => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RequestEmailUpdateOutputCopyWith<RequestEmailUpdateOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $RequestEmailUpdateOutputCopyWith<$Res> {
           $Res Function(RequestEmailUpdateOutput) then) =
       _$RequestEmailUpdateOutputCopyWithImpl<$Res, RequestEmailUpdateOutput>;
   @useResult
-  $Res call({bool tokenRequired});
+  $Res call(
+      {bool tokenRequired,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,12 +59,17 @@ class _$RequestEmailUpdateOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? tokenRequired = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       tokenRequired: null == tokenRequired
           ? _value.tokenRequired
           : tokenRequired // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -72,7 +83,9 @@ abstract class _$$RequestEmailUpdateOutputImplCopyWith<$Res>
       __$$RequestEmailUpdateOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool tokenRequired});
+  $Res call(
+      {bool tokenRequired,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -89,12 +102,17 @@ class __$$RequestEmailUpdateOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? tokenRequired = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RequestEmailUpdateOutputImpl(
       tokenRequired: null == tokenRequired
           ? _value.tokenRequired
           : tokenRequired // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -103,7 +121,11 @@ class __$$RequestEmailUpdateOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$RequestEmailUpdateOutputImpl implements _RequestEmailUpdateOutput {
-  const _$RequestEmailUpdateOutputImpl({required this.tokenRequired});
+  const _$RequestEmailUpdateOutputImpl(
+      {required this.tokenRequired,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RequestEmailUpdateOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$RequestEmailUpdateOutputImplFromJson(json);
@@ -111,9 +133,21 @@ class _$RequestEmailUpdateOutputImpl implements _RequestEmailUpdateOutput {
   @override
   final bool tokenRequired;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RequestEmailUpdateOutput(tokenRequired: $tokenRequired)';
+    return 'RequestEmailUpdateOutput(tokenRequired: $tokenRequired, \$unknown: ${$unknown})';
   }
 
   @override
@@ -122,12 +156,14 @@ class _$RequestEmailUpdateOutputImpl implements _RequestEmailUpdateOutput {
         (other.runtimeType == runtimeType &&
             other is _$RequestEmailUpdateOutputImpl &&
             (identical(other.tokenRequired, tokenRequired) ||
-                other.tokenRequired == tokenRequired));
+                other.tokenRequired == tokenRequired) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, tokenRequired);
+  int get hashCode => Object.hash(runtimeType, tokenRequired,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -145,7 +181,9 @@ class _$RequestEmailUpdateOutputImpl implements _RequestEmailUpdateOutput {
 }
 
 abstract class _RequestEmailUpdateOutput implements RequestEmailUpdateOutput {
-  const factory _RequestEmailUpdateOutput({required final bool tokenRequired}) =
+  const factory _RequestEmailUpdateOutput(
+          {required final bool tokenRequired,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$RequestEmailUpdateOutputImpl;
 
   factory _RequestEmailUpdateOutput.fromJson(Map<String, dynamic> json) =
@@ -153,6 +191,11 @@ abstract class _RequestEmailUpdateOutput implements RequestEmailUpdateOutput {
 
   @override
   bool get tokenRequired;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RequestEmailUpdateOutputImplCopyWith<_$RequestEmailUpdateOutputImpl>

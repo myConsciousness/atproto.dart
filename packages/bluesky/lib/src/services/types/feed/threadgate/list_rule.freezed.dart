@@ -28,6 +28,10 @@ mixin _$ListRule {
   @AtUriConverter()
   AtUri get list => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListRuleCopyWith<ListRule> get copyWith =>
@@ -40,7 +44,9 @@ abstract class $ListRuleCopyWith<$Res> {
       _$ListRuleCopyWithImpl<$Res, ListRule>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri list});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri list,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +64,7 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
   $Res call({
     Object? $type = null,
     Object? list = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -68,6 +75,10 @@ class _$ListRuleCopyWithImpl<$Res, $Val extends ListRule>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -81,7 +92,9 @@ abstract class _$$ListRuleImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri list});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri list,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -97,6 +110,7 @@ class __$$ListRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? list = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListRuleImpl(
       $type: null == $type
@@ -107,6 +121,10 @@ class __$$ListRuleImplCopyWithImpl<$Res>
           ? _value.list
           : list // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -117,7 +135,10 @@ class __$$ListRuleImplCopyWithImpl<$Res>
 class _$ListRuleImpl implements _ListRule {
   const _$ListRuleImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateListRule,
-      @AtUriConverter() required this.list});
+      @AtUriConverter() required this.list,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ListRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRuleImplFromJson(json);
@@ -132,9 +153,21 @@ class _$ListRuleImpl implements _ListRule {
   @AtUriConverter()
   final AtUri list;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListRule(\$type: ${$type}, list: $list)';
+    return 'ListRule(\$type: ${$type}, list: $list, \$unknown: ${$unknown})';
   }
 
   @override
@@ -143,12 +176,14 @@ class _$ListRuleImpl implements _ListRule {
         (other.runtimeType == runtimeType &&
             other is _$ListRuleImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.list, list) || other.list == list));
+            (identical(other.list, list) || other.list == list) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, list);
+  int get hashCode => Object.hash(
+      runtimeType, $type, list, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -166,8 +201,10 @@ class _$ListRuleImpl implements _ListRule {
 
 abstract class _ListRule implements ListRule {
   const factory _ListRule(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri list}) = _$ListRuleImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri list,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListRuleImpl;
 
   factory _ListRule.fromJson(Map<String, dynamic> json) =
       _$ListRuleImpl.fromJson;
@@ -182,6 +219,11 @@ abstract class _ListRule implements ListRule {
   @override
   @AtUriConverter()
   AtUri get list;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListRuleImplCopyWith<_$ListRuleImpl> get copyWith =>

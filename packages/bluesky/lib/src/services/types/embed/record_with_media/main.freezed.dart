@@ -29,6 +29,10 @@ mixin _$RecordWithMedia {
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordWithMediaCopyWith<RecordWithMedia> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $RecordWithMediaCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       Record record,
-      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $RecordCopyWith<$Res> get record;
   $URecordWithMediaMediaCopyWith<$Res> get media;
@@ -66,6 +71,7 @@ class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -80,6 +86,10 @@ class _$RecordWithMediaCopyWithImpl<$Res, $Val extends RecordWithMedia>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -111,7 +121,8 @@ abstract class _$$RecordWithMediaImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       Record record,
-      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $RecordCopyWith<$Res> get record;
@@ -133,6 +144,7 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordWithMediaImpl(
       $type: null == $type
@@ -147,6 +159,10 @@ class __$$RecordWithMediaImplCopyWithImpl<$Res>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -158,7 +174,10 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
   const _$RecordWithMediaImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMedia,
       required this.record,
-      @URecordWithMediaMediaConverter() required this.media});
+      @URecordWithMediaMediaConverter() required this.media,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordWithMediaImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaImplFromJson(json);
@@ -175,9 +194,21 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
   @URecordWithMediaMediaConverter()
   final URecordWithMediaMedia media;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RecordWithMedia(\$type: ${$type}, record: $record, media: $media)';
+    return 'RecordWithMedia(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
   }
 
   @override
@@ -187,12 +218,14 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
             other is _$RecordWithMediaImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record) &&
-            (identical(other.media, media) || other.media == media));
+            (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, record, media);
+  int get hashCode => Object.hash(runtimeType, $type, record, media,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -211,10 +244,12 @@ class _$RecordWithMediaImpl implements _RecordWithMedia {
 
 abstract class _RecordWithMedia implements RecordWithMedia {
   const factory _RecordWithMedia(
-      {@JsonKey(name: r'$type') final String $type,
-      required final Record record,
-      @URecordWithMediaMediaConverter()
-      required final URecordWithMediaMedia media}) = _$RecordWithMediaImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final Record record,
+          @URecordWithMediaMediaConverter()
+          required final URecordWithMediaMedia media,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RecordWithMediaImpl;
 
   factory _RecordWithMedia.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaImpl.fromJson;
@@ -231,6 +266,11 @@ abstract class _RecordWithMedia implements RecordWithMedia {
   @override
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordWithMediaImplCopyWith<_$RecordWithMediaImpl> get copyWith =>

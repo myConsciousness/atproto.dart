@@ -33,6 +33,13 @@ _$GetRecommendedDidCredentialsOutputImpl
                   (v) => (v as Map?)?.map(
                         (k, e) => MapEntry(k as String, e),
                       )),
+              $unknown: $checkedConvert(
+                  r'$unknown',
+                  (v) =>
+                      (v as Map?)?.map(
+                        (k, e) => MapEntry(k as String, e),
+                      ) ??
+                      const {}),
             );
             return val;
           },
@@ -52,5 +59,6 @@ Map<String, dynamic> _$$GetRecommendedDidCredentialsOutputImplToJson(
   writeNotNull('alsoKnownAs', instance.alsoKnownAs);
   writeNotNull('verificationMethods', instance.verificationMethods);
   writeNotNull('services', instance.services);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

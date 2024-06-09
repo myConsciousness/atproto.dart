@@ -23,6 +23,10 @@ mixin _$GetPostThreadOutput {
   @UThreadConverter()
   UThread get thread => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetPostThreadOutputCopyWith<GetPostThreadOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $GetPostThreadOutputCopyWith<$Res> {
           GetPostThreadOutput value, $Res Function(GetPostThreadOutput) then) =
       _$GetPostThreadOutputCopyWithImpl<$Res, GetPostThreadOutput>;
   @useResult
-  $Res call({@UThreadConverter() UThread thread});
+  $Res call(
+      {@UThreadConverter() UThread thread,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UThreadCopyWith<$Res> get thread;
 }
@@ -54,12 +60,17 @@ class _$GetPostThreadOutputCopyWithImpl<$Res, $Val extends GetPostThreadOutput>
   @override
   $Res call({
     Object? thread = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UThread,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -80,7 +91,9 @@ abstract class _$$GetPostThreadOutputImplCopyWith<$Res>
       __$$GetPostThreadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@UThreadConverter() UThread thread});
+  $Res call(
+      {@UThreadConverter() UThread thread,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UThreadCopyWith<$Res> get thread;
@@ -98,12 +111,17 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? thread = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetPostThreadOutputImpl(
       thread: null == thread
           ? _value.thread
           : thread // ignore: cast_nullable_to_non_nullable
               as UThread,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -112,7 +130,11 @@ class __$$GetPostThreadOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
-  const _$GetPostThreadOutputImpl({@UThreadConverter() required this.thread});
+  const _$GetPostThreadOutputImpl(
+      {@UThreadConverter() required this.thread,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetPostThreadOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetPostThreadOutputImplFromJson(json);
@@ -121,9 +143,21 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
   @UThreadConverter()
   final UThread thread;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetPostThreadOutput(thread: $thread)';
+    return 'GetPostThreadOutput(thread: $thread, \$unknown: ${$unknown})';
   }
 
   @override
@@ -131,12 +165,14 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetPostThreadOutputImpl &&
-            (identical(other.thread, thread) || other.thread == thread));
+            (identical(other.thread, thread) || other.thread == thread) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, thread);
+  int get hashCode => Object.hash(
+      runtimeType, thread, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -155,7 +191,8 @@ class _$GetPostThreadOutputImpl implements _GetPostThreadOutput {
 
 abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   const factory _GetPostThreadOutput(
-          {@UThreadConverter() required final UThread thread}) =
+          {@UThreadConverter() required final UThread thread,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPostThreadOutputImpl;
 
   factory _GetPostThreadOutput.fromJson(Map<String, dynamic> json) =
@@ -164,6 +201,11 @@ abstract class _GetPostThreadOutput implements GetPostThreadOutput {
   @override
   @UThreadConverter()
   UThread get thread;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetPostThreadOutputImplCopyWith<_$GetPostThreadOutputImpl> get copyWith =>

@@ -53,6 +53,13 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
                   ? const ThreadgateView()
                   : ThreadgateView.fromJson(
                       Map<String, Object?>.from(v as Map))),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -84,6 +91,7 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   val['viewer'] = instance.viewer.toJson();
   writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
   val['threadgate'] = instance.threadgate.toJson();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

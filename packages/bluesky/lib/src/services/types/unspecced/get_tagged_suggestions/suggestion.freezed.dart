@@ -30,6 +30,10 @@ mixin _$Suggestion {
   USubjectType get subjectType => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SuggestionCopyWith<Suggestion> get copyWith =>
@@ -46,7 +50,8 @@ abstract class $SuggestionCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String tag,
       @USubjectTypeConverter() USubjectType subjectType,
-      String subject});
+      String subject,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USubjectTypeCopyWith<$Res> get subjectType;
 }
@@ -68,6 +73,7 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
     Object? tag = null,
     Object? subjectType = null,
     Object? subject = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,6 +92,10 @@ class _$SuggestionCopyWithImpl<$Res, $Val extends Suggestion>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -110,7 +120,8 @@ abstract class _$$SuggestionImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String tag,
       @USubjectTypeConverter() USubjectType subjectType,
-      String subject});
+      String subject,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $USubjectTypeCopyWith<$Res> get subjectType;
@@ -131,6 +142,7 @@ class __$$SuggestionImplCopyWithImpl<$Res>
     Object? tag = null,
     Object? subjectType = null,
     Object? subject = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SuggestionImpl(
       $type: null == $type
@@ -149,6 +161,10 @@ class __$$SuggestionImplCopyWithImpl<$Res>
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -162,7 +178,10 @@ class _$SuggestionImpl implements _Suggestion {
       this.$type = appBskyUnspeccedGetTaggedSuggestionsSuggestion,
       required this.tag,
       @USubjectTypeConverter() required this.subjectType,
-      required this.subject});
+      required this.subject,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SuggestionImpl.fromJson(Map<String, dynamic> json) =>
       _$$SuggestionImplFromJson(json);
@@ -181,9 +200,21 @@ class _$SuggestionImpl implements _Suggestion {
   @override
   final String subject;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Suggestion(\$type: ${$type}, tag: $tag, subjectType: $subjectType, subject: $subject)';
+    return 'Suggestion(\$type: ${$type}, tag: $tag, subjectType: $subjectType, subject: $subject, \$unknown: ${$unknown})';
   }
 
   @override
@@ -195,13 +226,14 @@ class _$SuggestionImpl implements _Suggestion {
             (identical(other.tag, tag) || other.tag == tag) &&
             (identical(other.subjectType, subjectType) ||
                 other.subjectType == subjectType) &&
-            (identical(other.subject, subject) || other.subject == subject));
+            (identical(other.subject, subject) || other.subject == subject) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, tag, subjectType, subject);
+  int get hashCode => Object.hash(runtimeType, $type, tag, subjectType, subject,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -219,10 +251,12 @@ class _$SuggestionImpl implements _Suggestion {
 
 abstract class _Suggestion implements Suggestion {
   const factory _Suggestion(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String tag,
-      @USubjectTypeConverter() required final USubjectType subjectType,
-      required final String subject}) = _$SuggestionImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String tag,
+          @USubjectTypeConverter() required final USubjectType subjectType,
+          required final String subject,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SuggestionImpl;
 
   factory _Suggestion.fromJson(Map<String, dynamic> json) =
       _$SuggestionImpl.fromJson;
@@ -241,6 +275,11 @@ abstract class _Suggestion implements Suggestion {
   USubjectType get subjectType;
   @override
   String get subject;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SuggestionImplCopyWith<_$SuggestionImpl> get copyWith =>

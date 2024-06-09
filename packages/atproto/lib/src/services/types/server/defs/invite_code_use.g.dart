@@ -17,6 +17,13 @@ _$InviteCodeUseImpl _$$InviteCodeUseImplFromJson(Map json) => $checkedCreate(
               (v) => v as String? ?? comAtprotoServerDefsInviteCodeUse),
           usedBy: $checkedConvert('usedBy', (v) => v as String),
           usedAt: $checkedConvert('usedAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -27,4 +34,5 @@ Map<String, dynamic> _$$InviteCodeUseImplToJson(_$InviteCodeUseImpl instance) =>
       r'$type': instance.$type,
       'usedBy': instance.usedBy,
       'usedAt': instance.usedAt.toIso8601String(),
+      r'$unknown': instance.$unknown,
     };

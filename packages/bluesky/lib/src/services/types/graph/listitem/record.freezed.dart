@@ -28,6 +28,10 @@ mixin _$ListitemRecord {
   AtUri get list => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListitemRecordCopyWith<ListitemRecord> get copyWith =>
@@ -40,7 +44,11 @@ abstract class $ListitemRecordCopyWith<$Res> {
           ListitemRecord value, $Res Function(ListitemRecord) then) =
       _$ListitemRecordCopyWithImpl<$Res, ListitemRecord>;
   @useResult
-  $Res call({String subject, @AtUriConverter() AtUri list, DateTime createdAt});
+  $Res call(
+      {String subject,
+      @AtUriConverter() AtUri list,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +67,7 @@ class _$ListitemRecordCopyWithImpl<$Res, $Val extends ListitemRecord>
     Object? subject = null,
     Object? list = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -73,6 +82,10 @@ class _$ListitemRecordCopyWithImpl<$Res, $Val extends ListitemRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -85,7 +98,11 @@ abstract class _$$ListitemRecordImplCopyWith<$Res>
       __$$ListitemRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, @AtUriConverter() AtUri list, DateTime createdAt});
+  $Res call(
+      {String subject,
+      @AtUriConverter() AtUri list,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -102,6 +119,7 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? list = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListitemRecordImpl(
       subject: null == subject
@@ -116,6 +134,10 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -127,7 +149,10 @@ class _$ListitemRecordImpl implements _ListitemRecord {
   const _$ListitemRecordImpl(
       {required this.subject,
       @AtUriConverter() required this.list,
-      required this.createdAt});
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ListitemRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListitemRecordImplFromJson(json);
@@ -143,9 +168,21 @@ class _$ListitemRecordImpl implements _ListitemRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListitemRecord(subject: $subject, list: $list, createdAt: $createdAt)';
+    return 'ListitemRecord(subject: $subject, list: $list, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -156,12 +193,14 @@ class _$ListitemRecordImpl implements _ListitemRecord {
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, list, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -180,9 +219,11 @@ class _$ListitemRecordImpl implements _ListitemRecord {
 
 abstract class _ListitemRecord implements ListitemRecord {
   const factory _ListitemRecord(
-      {required final String subject,
-      @AtUriConverter() required final AtUri list,
-      required final DateTime createdAt}) = _$ListitemRecordImpl;
+          {required final String subject,
+          @AtUriConverter() required final AtUri list,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListitemRecordImpl;
 
   factory _ListitemRecord.fromJson(Map<String, dynamic> json) =
       _$ListitemRecordImpl.fromJson;
@@ -198,6 +239,11 @@ abstract class _ListitemRecord implements ListitemRecord {
   AtUri get list;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListitemRecordImplCopyWith<_$ListitemRecordImpl> get copyWith =>

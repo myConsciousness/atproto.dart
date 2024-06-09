@@ -24,6 +24,10 @@ mixin _$CreateRecordOutput {
   AtUri get uri => throw _privateConstructorUsedError;
   String get cid => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreateRecordOutputCopyWith<CreateRecordOutput> get copyWith =>
@@ -36,7 +40,10 @@ abstract class $CreateRecordOutputCopyWith<$Res> {
           CreateRecordOutput value, $Res Function(CreateRecordOutput) then) =
       _$CreateRecordOutputCopyWithImpl<$Res, CreateRecordOutput>;
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, String cid});
+  $Res call(
+      {@AtUriConverter() AtUri uri,
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,6 +61,7 @@ class _$CreateRecordOutputCopyWithImpl<$Res, $Val extends CreateRecordOutput>
   $Res call({
     Object? uri = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       uri: null == uri
@@ -64,6 +72,10 @@ class _$CreateRecordOutputCopyWithImpl<$Res, $Val extends CreateRecordOutput>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$CreateRecordOutputImplCopyWith<$Res>
       __$$CreateRecordOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@AtUriConverter() AtUri uri, String cid});
+  $Res call(
+      {@AtUriConverter() AtUri uri,
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$CreateRecordOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? uri = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CreateRecordOutputImpl(
       uri: null == uri
@@ -102,6 +118,10 @@ class __$$CreateRecordOutputImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -111,7 +131,11 @@ class __$$CreateRecordOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$CreateRecordOutputImpl implements _CreateRecordOutput {
   const _$CreateRecordOutputImpl(
-      {@AtUriConverter() required this.uri, required this.cid});
+      {@AtUriConverter() required this.uri,
+      required this.cid,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$CreateRecordOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateRecordOutputImplFromJson(json);
@@ -122,9 +146,21 @@ class _$CreateRecordOutputImpl implements _CreateRecordOutput {
   @override
   final String cid;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CreateRecordOutput(uri: $uri, cid: $cid)';
+    return 'CreateRecordOutput(uri: $uri, cid: $cid, \$unknown: ${$unknown})';
   }
 
   @override
@@ -133,12 +169,14 @@ class _$CreateRecordOutputImpl implements _CreateRecordOutput {
         (other.runtimeType == runtimeType &&
             other is _$CreateRecordOutputImpl &&
             (identical(other.uri, uri) || other.uri == uri) &&
-            (identical(other.cid, cid) || other.cid == cid));
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, uri, cid);
+  int get hashCode => Object.hash(
+      runtimeType, uri, cid, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -157,8 +195,10 @@ class _$CreateRecordOutputImpl implements _CreateRecordOutput {
 
 abstract class _CreateRecordOutput implements CreateRecordOutput {
   const factory _CreateRecordOutput(
-      {@AtUriConverter() required final AtUri uri,
-      required final String cid}) = _$CreateRecordOutputImpl;
+          {@AtUriConverter() required final AtUri uri,
+          required final String cid,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CreateRecordOutputImpl;
 
   factory _CreateRecordOutput.fromJson(Map<String, dynamic> json) =
       _$CreateRecordOutputImpl.fromJson;
@@ -168,6 +208,11 @@ abstract class _CreateRecordOutput implements CreateRecordOutput {
   AtUri get uri;
   @override
   String get cid;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateRecordOutputImplCopyWith<_$CreateRecordOutputImpl> get copyWith =>

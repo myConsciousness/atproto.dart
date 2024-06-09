@@ -23,6 +23,10 @@ mixin _$ListReposOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<Repo> get repos => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListReposOutputCopyWith<ListReposOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $ListReposOutputCopyWith<$Res> {
           ListReposOutput value, $Res Function(ListReposOutput) then) =
       _$ListReposOutputCopyWithImpl<$Res, ListReposOutput>;
   @useResult
-  $Res call({String? cursor, List<Repo> repos});
+  $Res call(
+      {String? cursor,
+      List<Repo> repos,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$ListReposOutputCopyWithImpl<$Res, $Val extends ListReposOutput>
   $Res call({
     Object? cursor = freezed,
     Object? repos = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$ListReposOutputCopyWithImpl<$Res, $Val extends ListReposOutput>
           ? _value.repos
           : repos // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$ListReposOutputImplCopyWith<$Res>
       __$$ListReposOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<Repo> repos});
+  $Res call(
+      {String? cursor,
+      List<Repo> repos,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$ListReposOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? repos = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListReposOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$ListReposOutputImplCopyWithImpl<$Res>
           ? _value._repos
           : repos // ignore: cast_nullable_to_non_nullable
               as List<Repo>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -109,8 +129,13 @@ class __$$ListReposOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$ListReposOutputImpl implements _ListReposOutput {
-  const _$ListReposOutputImpl({this.cursor, required final List<Repo> repos})
-      : _repos = repos;
+  const _$ListReposOutputImpl(
+      {this.cursor,
+      required final List<Repo> repos,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _repos = repos,
+        _$unknown = $unknown;
 
   factory _$ListReposOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListReposOutputImplFromJson(json);
@@ -125,9 +150,21 @@ class _$ListReposOutputImpl implements _ListReposOutput {
     return EqualUnmodifiableListView(_repos);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListReposOutput(cursor: $cursor, repos: $repos)';
+    return 'ListReposOutput(cursor: $cursor, repos: $repos, \$unknown: ${$unknown})';
   }
 
   @override
@@ -136,13 +173,17 @@ class _$ListReposOutputImpl implements _ListReposOutput {
         (other.runtimeType == runtimeType &&
             other is _$ListReposOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._repos, _repos));
+            const DeepCollectionEquality().equals(other._repos, _repos) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_repos));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_repos),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -161,8 +202,10 @@ class _$ListReposOutputImpl implements _ListReposOutput {
 
 abstract class _ListReposOutput implements ListReposOutput {
   const factory _ListReposOutput(
-      {final String? cursor,
-      required final List<Repo> repos}) = _$ListReposOutputImpl;
+          {final String? cursor,
+          required final List<Repo> repos,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListReposOutputImpl;
 
   factory _ListReposOutput.fromJson(Map<String, dynamic> json) =
       _$ListReposOutputImpl.fromJson;
@@ -171,6 +214,11 @@ abstract class _ListReposOutput implements ListReposOutput {
   String? get cursor;
   @override
   List<Repo> get repos;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListReposOutputImplCopyWith<_$ListReposOutputImpl> get copyWith =>

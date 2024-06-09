@@ -21,6 +21,13 @@ _$HiddenPostsPrefImpl _$$HiddenPostsPrefImplFromJson(Map json) =>
               (v) => (v as List<dynamic>)
                   .map((e) => const AtUriConverter().fromJson(e as String))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -31,4 +38,5 @@ Map<String, dynamic> _$$HiddenPostsPrefImplToJson(
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items.map(const AtUriConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

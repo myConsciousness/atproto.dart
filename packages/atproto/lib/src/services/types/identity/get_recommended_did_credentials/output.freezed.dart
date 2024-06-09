@@ -28,6 +28,10 @@ mixin _$GetRecommendedDidCredentialsOutput {
       throw _privateConstructorUsedError;
   Map<String, dynamic>? get services => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetRecommendedDidCredentialsOutputCopyWith<
@@ -47,7 +51,8 @@ abstract class $GetRecommendedDidCredentialsOutputCopyWith<$Res> {
       {List<String>? rotationKeys,
       List<String>? alsoKnownAs,
       Map<String, dynamic>? verificationMethods,
-      Map<String, dynamic>? services});
+      Map<String, dynamic>? services,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -68,6 +73,7 @@ class _$GetRecommendedDidCredentialsOutputCopyWithImpl<$Res,
     Object? alsoKnownAs = freezed,
     Object? verificationMethods = freezed,
     Object? services = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       rotationKeys: freezed == rotationKeys
@@ -86,6 +92,10 @@ class _$GetRecommendedDidCredentialsOutputCopyWithImpl<$Res,
           ? _value.services
           : services // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -103,7 +113,8 @@ abstract class _$$GetRecommendedDidCredentialsOutputImplCopyWith<$Res>
       {List<String>? rotationKeys,
       List<String>? alsoKnownAs,
       Map<String, dynamic>? verificationMethods,
-      Map<String, dynamic>? services});
+      Map<String, dynamic>? services,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -123,6 +134,7 @@ class __$$GetRecommendedDidCredentialsOutputImplCopyWithImpl<$Res>
     Object? alsoKnownAs = freezed,
     Object? verificationMethods = freezed,
     Object? services = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$GetRecommendedDidCredentialsOutputImpl(
       rotationKeys: freezed == rotationKeys
@@ -141,6 +153,10 @@ class __$$GetRecommendedDidCredentialsOutputImplCopyWithImpl<$Res>
           ? _value._services
           : services // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -154,11 +170,14 @@ class _$GetRecommendedDidCredentialsOutputImpl
       {final List<String>? rotationKeys,
       final List<String>? alsoKnownAs,
       final Map<String, dynamic>? verificationMethods,
-      final Map<String, dynamic>? services})
+      final Map<String, dynamic>? services,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _rotationKeys = rotationKeys,
         _alsoKnownAs = alsoKnownAs,
         _verificationMethods = verificationMethods,
-        _services = services;
+        _services = services,
+        _$unknown = $unknown;
 
   factory _$GetRecommendedDidCredentialsOutputImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -208,9 +227,21 @@ class _$GetRecommendedDidCredentialsOutputImpl
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetRecommendedDidCredentialsOutput(rotationKeys: $rotationKeys, alsoKnownAs: $alsoKnownAs, verificationMethods: $verificationMethods, services: $services)';
+    return 'GetRecommendedDidCredentialsOutput(rotationKeys: $rotationKeys, alsoKnownAs: $alsoKnownAs, verificationMethods: $verificationMethods, services: $services, \$unknown: ${$unknown})';
   }
 
   @override
@@ -224,7 +255,8 @@ class _$GetRecommendedDidCredentialsOutputImpl
                 .equals(other._alsoKnownAs, _alsoKnownAs) &&
             const DeepCollectionEquality()
                 .equals(other._verificationMethods, _verificationMethods) &&
-            const DeepCollectionEquality().equals(other._services, _services));
+            const DeepCollectionEquality().equals(other._services, _services) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -234,7 +266,8 @@ class _$GetRecommendedDidCredentialsOutputImpl
       const DeepCollectionEquality().hash(_rotationKeys),
       const DeepCollectionEquality().hash(_alsoKnownAs),
       const DeepCollectionEquality().hash(_verificationMethods),
-      const DeepCollectionEquality().hash(_services));
+      const DeepCollectionEquality().hash(_services),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -258,7 +291,8 @@ abstract class _GetRecommendedDidCredentialsOutput
           {final List<String>? rotationKeys,
           final List<String>? alsoKnownAs,
           final Map<String, dynamic>? verificationMethods,
-          final Map<String, dynamic>? services}) =
+          final Map<String, dynamic>? services,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetRecommendedDidCredentialsOutputImpl;
 
   factory _GetRecommendedDidCredentialsOutput.fromJson(
@@ -275,6 +309,11 @@ abstract class _GetRecommendedDidCredentialsOutput
   Map<String, dynamic>? get verificationMethods;
   @override
   Map<String, dynamic>? get services;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRecommendedDidCredentialsOutputImplCopyWith<

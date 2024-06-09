@@ -22,6 +22,13 @@ _$MutedWordImpl _$$MutedWordImplFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       const UMutedWordTargetConverter().fromJson(e as String))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -34,4 +41,5 @@ Map<String, dynamic> _$$MutedWordImplToJson(_$MutedWordImpl instance) =>
       'targets': instance.targets
           .map(const UMutedWordTargetConverter().toJson)
           .toList(),
+      r'$unknown': instance.$unknown,
     };

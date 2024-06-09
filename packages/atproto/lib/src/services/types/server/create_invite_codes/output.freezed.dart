@@ -23,6 +23,10 @@ CreateInviteCodesOutput _$CreateInviteCodesOutputFromJson(
 mixin _$CreateInviteCodesOutput {
   List<AccountCodes> get codes => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreateInviteCodesOutputCopyWith<CreateInviteCodesOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $CreateInviteCodesOutputCopyWith<$Res> {
           $Res Function(CreateInviteCodesOutput) then) =
       _$CreateInviteCodesOutputCopyWithImpl<$Res, CreateInviteCodesOutput>;
   @useResult
-  $Res call({List<AccountCodes> codes});
+  $Res call(
+      {List<AccountCodes> codes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,12 +59,17 @@ class _$CreateInviteCodesOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? codes = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       codes: null == codes
           ? _value.codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<AccountCodes>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -72,7 +83,9 @@ abstract class _$$CreateInviteCodesOutputImplCopyWith<$Res>
       __$$CreateInviteCodesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AccountCodes> codes});
+  $Res call(
+      {List<AccountCodes> codes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -89,12 +102,17 @@ class __$$CreateInviteCodesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? codes = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CreateInviteCodesOutputImpl(
       codes: null == codes
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<AccountCodes>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -103,8 +121,12 @@ class __$$CreateInviteCodesOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
-  const _$CreateInviteCodesOutputImpl({required final List<AccountCodes> codes})
-      : _codes = codes;
+  const _$CreateInviteCodesOutputImpl(
+      {required final List<AccountCodes> codes,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _codes = codes,
+        _$unknown = $unknown;
 
   factory _$CreateInviteCodesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateInviteCodesOutputImplFromJson(json);
@@ -117,9 +139,21 @@ class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
     return EqualUnmodifiableListView(_codes);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CreateInviteCodesOutput(codes: $codes)';
+    return 'CreateInviteCodesOutput(codes: $codes, \$unknown: ${$unknown})';
   }
 
   @override
@@ -127,13 +161,16 @@ class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CreateInviteCodesOutputImpl &&
-            const DeepCollectionEquality().equals(other._codes, _codes));
+            const DeepCollectionEquality().equals(other._codes, _codes) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_codes));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_codes),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -152,7 +189,8 @@ class _$CreateInviteCodesOutputImpl implements _CreateInviteCodesOutput {
 
 abstract class _CreateInviteCodesOutput implements CreateInviteCodesOutput {
   const factory _CreateInviteCodesOutput(
-          {required final List<AccountCodes> codes}) =
+          {required final List<AccountCodes> codes,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$CreateInviteCodesOutputImpl;
 
   factory _CreateInviteCodesOutput.fromJson(Map<String, dynamic> json) =
@@ -160,6 +198,11 @@ abstract class _CreateInviteCodesOutput implements CreateInviteCodesOutput {
 
   @override
   List<AccountCodes> get codes;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateInviteCodesOutputImplCopyWith<_$CreateInviteCodesOutputImpl>

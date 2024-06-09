@@ -16,6 +16,13 @@ _$ContactImpl _$$ContactImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoServerDescribeServerContact),
           email: $checkedConvert('email', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -33,5 +40,6 @@ Map<String, dynamic> _$$ContactImplToJson(_$ContactImpl instance) {
   }
 
   writeNotNull('email', instance.email);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

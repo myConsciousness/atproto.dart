@@ -31,6 +31,10 @@ mixin _$ViewerState {
   AtUri? get like => throw _privateConstructorUsedError;
   bool get replyDisabled => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ViewerStateCopyWith<ViewerState> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $ViewerStateCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
-      bool replyDisabled});
+      bool replyDisabled,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -67,6 +72,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? repost = freezed,
     Object? like = freezed,
     Object? replyDisabled = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -85,6 +91,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -101,7 +111,8 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri? repost,
       @AtUriConverter() AtUri? like,
-      bool replyDisabled});
+      bool replyDisabled,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -119,6 +130,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? repost = freezed,
     Object? like = freezed,
     Object? replyDisabled = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ViewerStateImpl(
       $type: null == $type
@@ -137,6 +149,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.replyDisabled
           : replyDisabled // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -149,7 +165,10 @@ class _$ViewerStateImpl implements _ViewerState {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsViewerState,
       @AtUriConverter() this.repost,
       @AtUriConverter() this.like,
-      this.replyDisabled = false});
+      this.replyDisabled = false,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
@@ -170,9 +189,21 @@ class _$ViewerStateImpl implements _ViewerState {
   @JsonKey()
   final bool replyDisabled;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ViewerState(\$type: ${$type}, repost: $repost, like: $like, replyDisabled: $replyDisabled)';
+    return 'ViewerState(\$type: ${$type}, repost: $repost, like: $like, replyDisabled: $replyDisabled, \$unknown: ${$unknown})';
   }
 
   @override
@@ -184,13 +215,14 @@ class _$ViewerStateImpl implements _ViewerState {
             (identical(other.repost, repost) || other.repost == repost) &&
             (identical(other.like, like) || other.like == like) &&
             (identical(other.replyDisabled, replyDisabled) ||
-                other.replyDisabled == replyDisabled));
+                other.replyDisabled == replyDisabled) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, repost, like, replyDisabled);
+  int get hashCode => Object.hash(runtimeType, $type, repost, like,
+      replyDisabled, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -208,10 +240,12 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() final AtUri? repost,
-      @AtUriConverter() final AtUri? like,
-      final bool replyDisabled}) = _$ViewerStateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() final AtUri? repost,
+          @AtUriConverter() final AtUri? like,
+          final bool replyDisabled,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
@@ -231,6 +265,11 @@ abstract class _ViewerState implements ViewerState {
   AtUri? get like;
   @override
   bool get replyDisabled;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>

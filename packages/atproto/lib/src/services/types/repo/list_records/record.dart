@@ -34,7 +34,61 @@ class Record with _$Record {
     @AtUriConverter() required AtUri uri,
     required String cid,
     required Map<String, dynamic> value,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Record;
 
   factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  r'$type',
+  'uri',
+  'cid',
+  'value',
+];
+
+final class RecordConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const RecordConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

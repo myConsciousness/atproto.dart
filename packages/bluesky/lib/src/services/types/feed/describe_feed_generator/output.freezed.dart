@@ -25,6 +25,10 @@ mixin _$DescribeFeedGeneratorOutput {
   List<Feed> get feeds => throw _privateConstructorUsedError;
   Links get links => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DescribeFeedGeneratorOutputCopyWith<DescribeFeedGeneratorOutput>
@@ -39,7 +43,11 @@ abstract class $DescribeFeedGeneratorOutputCopyWith<$Res> {
       _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
           DescribeFeedGeneratorOutput>;
   @useResult
-  $Res call({String did, List<Feed> feeds, Links links});
+  $Res call(
+      {String did,
+      List<Feed> feeds,
+      Links links,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LinksCopyWith<$Res> get links;
 }
@@ -61,6 +69,7 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
     Object? did = null,
     Object? feeds = null,
     Object? links = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -75,6 +84,10 @@ class _$DescribeFeedGeneratorOutputCopyWithImpl<$Res,
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as Links,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -96,7 +109,11 @@ abstract class _$$DescribeFeedGeneratorOutputImplCopyWith<$Res>
       __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did, List<Feed> feeds, Links links});
+  $Res call(
+      {String did,
+      List<Feed> feeds,
+      Links links,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $LinksCopyWith<$Res> get links;
@@ -118,6 +135,7 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
     Object? did = null,
     Object? feeds = null,
     Object? links = null,
+    Object? $unknown = null,
   }) {
     return _then(_$DescribeFeedGeneratorOutputImpl(
       did: null == did
@@ -132,6 +150,10 @@ class __$$DescribeFeedGeneratorOutputImplCopyWithImpl<$Res>
           ? _value.links
           : links // ignore: cast_nullable_to_non_nullable
               as Links,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -144,8 +166,11 @@ class _$DescribeFeedGeneratorOutputImpl
   const _$DescribeFeedGeneratorOutputImpl(
       {required this.did,
       required final List<Feed> feeds,
-      this.links = const Links()})
-      : _feeds = feeds;
+      this.links = const Links(),
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _feeds = feeds,
+        _$unknown = $unknown;
 
   factory _$DescribeFeedGeneratorOutputImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -165,9 +190,21 @@ class _$DescribeFeedGeneratorOutputImpl
   @JsonKey()
   final Links links;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'DescribeFeedGeneratorOutput(did: $did, feeds: $feeds, links: $links)';
+    return 'DescribeFeedGeneratorOutput(did: $did, feeds: $feeds, links: $links, \$unknown: ${$unknown})';
   }
 
   @override
@@ -177,13 +214,18 @@ class _$DescribeFeedGeneratorOutputImpl
             other is _$DescribeFeedGeneratorOutputImpl &&
             (identical(other.did, did) || other.did == did) &&
             const DeepCollectionEquality().equals(other._feeds, _feeds) &&
-            (identical(other.links, links) || other.links == links));
+            (identical(other.links, links) || other.links == links) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, did, const DeepCollectionEquality().hash(_feeds), links);
+      runtimeType,
+      did,
+      const DeepCollectionEquality().hash(_feeds),
+      links,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -203,9 +245,11 @@ class _$DescribeFeedGeneratorOutputImpl
 abstract class _DescribeFeedGeneratorOutput
     implements DescribeFeedGeneratorOutput {
   const factory _DescribeFeedGeneratorOutput(
-      {required final String did,
-      required final List<Feed> feeds,
-      final Links links}) = _$DescribeFeedGeneratorOutputImpl;
+          {required final String did,
+          required final List<Feed> feeds,
+          final Links links,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$DescribeFeedGeneratorOutputImpl;
 
   factory _DescribeFeedGeneratorOutput.fromJson(Map<String, dynamic> json) =
       _$DescribeFeedGeneratorOutputImpl.fromJson;
@@ -216,6 +260,11 @@ abstract class _DescribeFeedGeneratorOutput
   List<Feed> get feeds;
   @override
   Links get links;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DescribeFeedGeneratorOutputImplCopyWith<_$DescribeFeedGeneratorOutputImpl>

@@ -17,6 +17,13 @@ _$NotFoundActorImpl _$$NotFoundActorImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyGraphDefsNotFoundActor),
           actor: $checkedConvert('actor', (v) => v as String),
           notFound: $checkedConvert('notFound', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -27,4 +34,5 @@ Map<String, dynamic> _$$NotFoundActorImplToJson(_$NotFoundActorImpl instance) =>
       r'$type': instance.$type,
       'actor': instance.actor,
       'notFound': instance.notFound,
+      r'$unknown': instance.$unknown,
     };

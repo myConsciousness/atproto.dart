@@ -23,6 +23,10 @@ mixin _$LikeRecord {
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LikeRecordCopyWith<LikeRecord> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $LikeRecordCopyWith<$Res> {
           LikeRecord value, $Res Function(LikeRecord) then) =
       _$LikeRecordCopyWithImpl<$Res, LikeRecord>;
   @useResult
-  $Res call({StrongRef subject, DateTime createdAt});
+  $Res call(
+      {StrongRef subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $StrongRefCopyWith<$Res> get subject;
 }
@@ -55,6 +62,7 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -65,6 +73,10 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -85,7 +97,10 @@ abstract class _$$LikeRecordImplCopyWith<$Res>
       __$$LikeRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({StrongRef subject, DateTime createdAt});
+  $Res call(
+      {StrongRef subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $StrongRefCopyWith<$Res> get subject;
@@ -104,6 +119,7 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$LikeRecordImpl(
       subject: null == subject
@@ -114,6 +130,10 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -122,7 +142,12 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$LikeRecordImpl implements _LikeRecord {
-  const _$LikeRecordImpl({required this.subject, required this.createdAt});
+  const _$LikeRecordImpl(
+      {required this.subject,
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$LikeRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikeRecordImplFromJson(json);
@@ -132,9 +157,21 @@ class _$LikeRecordImpl implements _LikeRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'LikeRecord(subject: $subject, createdAt: $createdAt)';
+    return 'LikeRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -144,12 +181,14 @@ class _$LikeRecordImpl implements _LikeRecord {
             other is _$LikeRecordImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -167,8 +206,10 @@ class _$LikeRecordImpl implements _LikeRecord {
 
 abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
-      {required final StrongRef subject,
-      required final DateTime createdAt}) = _$LikeRecordImpl;
+          {required final StrongRef subject,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LikeRecordImpl;
 
   factory _LikeRecord.fromJson(Map<String, dynamic> json) =
       _$LikeRecordImpl.fromJson;
@@ -177,6 +218,11 @@ abstract class _LikeRecord implements LikeRecord {
   StrongRef get subject;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LikeRecordImplCopyWith<_$LikeRecordImpl> get copyWith =>

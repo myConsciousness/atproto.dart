@@ -28,6 +28,10 @@ mixin _$Labels {
   int get seq => throw _privateConstructorUsedError;
   List<Label> get labels => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelsCopyWith<Labels> get copyWith => throw _privateConstructorUsedError;
@@ -39,7 +43,10 @@ abstract class $LabelsCopyWith<$Res> {
       _$LabelsCopyWithImpl<$Res, Labels>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, int seq, List<Label> labels});
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      List<Label> labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +65,7 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
     Object? $type = null,
     Object? seq = null,
     Object? labels = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -72,6 +80,10 @@ class _$LabelsCopyWithImpl<$Res, $Val extends Labels>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -84,7 +96,10 @@ abstract class _$$LabelsImplCopyWith<$Res> implements $LabelsCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, int seq, List<Label> labels});
+      {@JsonKey(name: r'$type') String $type,
+      int seq,
+      List<Label> labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -101,6 +116,7 @@ class __$$LabelsImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? seq = null,
     Object? labels = null,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelsImpl(
       $type: null == $type
@@ -115,6 +131,10 @@ class __$$LabelsImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -127,8 +147,11 @@ class _$LabelsImpl implements _Labels {
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoLabelSubscribeLabelsLabels,
       required this.seq,
-      required final List<Label> labels})
-      : _labels = labels;
+      required final List<Label> labels,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _labels = labels,
+        _$unknown = $unknown;
 
   factory _$LabelsImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelsImplFromJson(json);
@@ -149,9 +172,21 @@ class _$LabelsImpl implements _Labels {
     return EqualUnmodifiableListView(_labels);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Labels(\$type: ${$type}, seq: $seq, labels: $labels)';
+    return 'Labels(\$type: ${$type}, seq: $seq, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -161,13 +196,18 @@ class _$LabelsImpl implements _Labels {
             other is _$LabelsImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
-            const DeepCollectionEquality().equals(other._labels, _labels));
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, $type, seq, const DeepCollectionEquality().hash(_labels));
+      runtimeType,
+      $type,
+      seq,
+      const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -185,9 +225,11 @@ class _$LabelsImpl implements _Labels {
 
 abstract class _Labels implements Labels {
   const factory _Labels(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final List<Label> labels}) = _$LabelsImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final List<Label> labels,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LabelsImpl;
 
   factory _Labels.fromJson(Map<String, dynamic> json) = _$LabelsImpl.fromJson;
 
@@ -202,6 +244,11 @@ abstract class _Labels implements Labels {
   int get seq;
   @override
   List<Label> get labels;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelsImplCopyWith<_$LabelsImpl> get copyWith =>

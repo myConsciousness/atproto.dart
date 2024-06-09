@@ -24,6 +24,10 @@ mixin _$GetFollowersOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get followers => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetFollowersOutputCopyWith<GetFollowersOutput> get copyWith =>
@@ -36,7 +40,11 @@ abstract class $GetFollowersOutputCopyWith<$Res> {
           GetFollowersOutput value, $Res Function(GetFollowersOutput) then) =
       _$GetFollowersOutputCopyWithImpl<$Res, GetFollowersOutput>;
   @useResult
-  $Res call({ProfileView subject, String? cursor, List<ProfileView> followers});
+  $Res call(
+      {ProfileView subject,
+      String? cursor,
+      List<ProfileView> followers,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get subject;
 }
@@ -57,6 +65,7 @@ class _$GetFollowersOutputCopyWithImpl<$Res, $Val extends GetFollowersOutput>
     Object? subject = null,
     Object? cursor = freezed,
     Object? followers = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -71,6 +80,10 @@ class _$GetFollowersOutputCopyWithImpl<$Res, $Val extends GetFollowersOutput>
           ? _value.followers
           : followers // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -91,7 +104,11 @@ abstract class _$$GetFollowersOutputImplCopyWith<$Res>
       __$$GetFollowersOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfileView subject, String? cursor, List<ProfileView> followers});
+  $Res call(
+      {ProfileView subject,
+      String? cursor,
+      List<ProfileView> followers,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get subject;
@@ -111,6 +128,7 @@ class __$$GetFollowersOutputImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? cursor = freezed,
     Object? followers = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetFollowersOutputImpl(
       subject: null == subject
@@ -125,6 +143,10 @@ class __$$GetFollowersOutputImplCopyWithImpl<$Res>
           ? _value._followers
           : followers // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -136,8 +158,11 @@ class _$GetFollowersOutputImpl implements _GetFollowersOutput {
   const _$GetFollowersOutputImpl(
       {required this.subject,
       this.cursor,
-      required final List<ProfileView> followers})
-      : _followers = followers;
+      required final List<ProfileView> followers,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _followers = followers,
+        _$unknown = $unknown;
 
   factory _$GetFollowersOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetFollowersOutputImplFromJson(json);
@@ -154,9 +179,21 @@ class _$GetFollowersOutputImpl implements _GetFollowersOutput {
     return EqualUnmodifiableListView(_followers);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetFollowersOutput(subject: $subject, cursor: $cursor, followers: $followers)';
+    return 'GetFollowersOutput(subject: $subject, cursor: $cursor, followers: $followers, \$unknown: ${$unknown})';
   }
 
   @override
@@ -167,13 +204,18 @@ class _$GetFollowersOutputImpl implements _GetFollowersOutput {
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality()
-                .equals(other._followers, _followers));
+                .equals(other._followers, _followers) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, cursor,
-      const DeepCollectionEquality().hash(_followers));
+  int get hashCode => Object.hash(
+      runtimeType,
+      subject,
+      cursor,
+      const DeepCollectionEquality().hash(_followers),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -192,9 +234,11 @@ class _$GetFollowersOutputImpl implements _GetFollowersOutput {
 
 abstract class _GetFollowersOutput implements GetFollowersOutput {
   const factory _GetFollowersOutput(
-      {required final ProfileView subject,
-      final String? cursor,
-      required final List<ProfileView> followers}) = _$GetFollowersOutputImpl;
+          {required final ProfileView subject,
+          final String? cursor,
+          required final List<ProfileView> followers,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetFollowersOutputImpl;
 
   factory _GetFollowersOutput.fromJson(Map<String, dynamic> json) =
       _$GetFollowersOutputImpl.fromJson;
@@ -205,6 +249,11 @@ abstract class _GetFollowersOutput implements GetFollowersOutput {
   String? get cursor;
   @override
   List<ProfileView> get followers;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetFollowersOutputImplCopyWith<_$GetFollowersOutputImpl> get copyWith =>

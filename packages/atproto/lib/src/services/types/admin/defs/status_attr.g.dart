@@ -17,6 +17,13 @@ _$StatusAttrImpl _$$StatusAttrImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? comAtprotoAdminDefsStatusAttr),
           applied: $checkedConvert('applied', (v) => v as bool),
           ref: $checkedConvert('ref', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -35,5 +42,6 @@ Map<String, dynamic> _$$StatusAttrImplToJson(_$StatusAttrImpl instance) {
   }
 
   writeNotNull('ref', instance.ref);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

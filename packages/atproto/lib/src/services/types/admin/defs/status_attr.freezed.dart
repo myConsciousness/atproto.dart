@@ -28,6 +28,10 @@ mixin _$StatusAttr {
   bool get applied => throw _privateConstructorUsedError;
   String? get ref => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $StatusAttrCopyWith<StatusAttr> get copyWith =>
@@ -40,7 +44,11 @@ abstract class $StatusAttrCopyWith<$Res> {
           StatusAttr value, $Res Function(StatusAttr) then) =
       _$StatusAttrCopyWithImpl<$Res, StatusAttr>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, bool applied, String? ref});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      bool applied,
+      String? ref,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +67,7 @@ class _$StatusAttrCopyWithImpl<$Res, $Val extends StatusAttr>
     Object? $type = null,
     Object? applied = null,
     Object? ref = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -73,6 +82,10 @@ class _$StatusAttrCopyWithImpl<$Res, $Val extends StatusAttr>
           ? _value.ref
           : ref // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -85,7 +98,11 @@ abstract class _$$StatusAttrImplCopyWith<$Res>
       __$$StatusAttrImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, bool applied, String? ref});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      bool applied,
+      String? ref,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -102,6 +119,7 @@ class __$$StatusAttrImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? applied = null,
     Object? ref = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$StatusAttrImpl(
       $type: null == $type
@@ -116,6 +134,10 @@ class __$$StatusAttrImplCopyWithImpl<$Res>
           ? _value.ref
           : ref // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -127,7 +149,10 @@ class _$StatusAttrImpl implements _StatusAttr {
   const _$StatusAttrImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoAdminDefsStatusAttr,
       required this.applied,
-      this.ref});
+      this.ref,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$StatusAttrImpl.fromJson(Map<String, dynamic> json) =>
       _$$StatusAttrImplFromJson(json);
@@ -143,9 +168,21 @@ class _$StatusAttrImpl implements _StatusAttr {
   @override
   final String? ref;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'StatusAttr(\$type: ${$type}, applied: $applied, ref: $ref)';
+    return 'StatusAttr(\$type: ${$type}, applied: $applied, ref: $ref, \$unknown: ${$unknown})';
   }
 
   @override
@@ -155,12 +192,14 @@ class _$StatusAttrImpl implements _StatusAttr {
             other is _$StatusAttrImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.applied, applied) || other.applied == applied) &&
-            (identical(other.ref, ref) || other.ref == ref));
+            (identical(other.ref, ref) || other.ref == ref) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, applied, ref);
+  int get hashCode => Object.hash(runtimeType, $type, applied, ref,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -178,9 +217,11 @@ class _$StatusAttrImpl implements _StatusAttr {
 
 abstract class _StatusAttr implements StatusAttr {
   const factory _StatusAttr(
-      {@JsonKey(name: r'$type') final String $type,
-      required final bool applied,
-      final String? ref}) = _$StatusAttrImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final bool applied,
+          final String? ref,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$StatusAttrImpl;
 
   factory _StatusAttr.fromJson(Map<String, dynamic> json) =
       _$StatusAttrImpl.fromJson;
@@ -196,6 +237,11 @@ abstract class _StatusAttr implements StatusAttr {
   bool get applied;
   @override
   String? get ref;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$StatusAttrImplCopyWith<_$StatusAttrImpl> get copyWith =>

@@ -34,6 +34,10 @@ mixin _$LabelerPolicies {
   List<LabelValueDefinition>? get labelValueDefinitions =>
       throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelerPoliciesCopyWith<LabelerPolicies> get copyWith =>
@@ -49,7 +53,8 @@ abstract class $LabelerPoliciesCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
-      List<LabelValueDefinition>? labelValueDefinitions});
+      List<LabelValueDefinition>? labelValueDefinitions,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -68,6 +73,7 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
     Object? $type = null,
     Object? labelValues = null,
     Object? labelValueDefinitions = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -82,6 +88,10 @@ class _$LabelerPoliciesCopyWithImpl<$Res, $Val extends LabelerPolicies>
           ? _value.labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinition>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -97,7 +107,8 @@ abstract class _$$LabelerPoliciesImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @ULabelValueConverter() List<ULabelValue> labelValues,
-      List<LabelValueDefinition>? labelValueDefinitions});
+      List<LabelValueDefinition>? labelValueDefinitions,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -114,6 +125,7 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? labelValues = null,
     Object? labelValueDefinitions = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelerPoliciesImpl(
       $type: null == $type
@@ -128,6 +140,10 @@ class __$$LabelerPoliciesImplCopyWithImpl<$Res>
           ? _value._labelValueDefinitions
           : labelValueDefinitions // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinition>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -139,9 +155,12 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
   const _$LabelerPoliciesImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyLabelerDefsLabelerPolicies,
       @ULabelValueConverter() required final List<ULabelValue> labelValues,
-      final List<LabelValueDefinition>? labelValueDefinitions})
+      final List<LabelValueDefinition>? labelValueDefinitions,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _labelValues = labelValues,
-        _labelValueDefinitions = labelValueDefinitions;
+        _labelValueDefinitions = labelValueDefinitions,
+        _$unknown = $unknown;
 
   factory _$LabelerPoliciesImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerPoliciesImplFromJson(json);
@@ -179,9 +198,21 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'LabelerPolicies(\$type: ${$type}, labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions)';
+    return 'LabelerPolicies(\$type: ${$type}, labelValues: $labelValues, labelValueDefinitions: $labelValueDefinitions, \$unknown: ${$unknown})';
   }
 
   @override
@@ -193,7 +224,8 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
             const DeepCollectionEquality()
                 .equals(other._labelValues, _labelValues) &&
             const DeepCollectionEquality()
-                .equals(other._labelValueDefinitions, _labelValueDefinitions));
+                .equals(other._labelValueDefinitions, _labelValueDefinitions) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -202,7 +234,8 @@ class _$LabelerPoliciesImpl implements _LabelerPolicies {
       runtimeType,
       $type,
       const DeepCollectionEquality().hash(_labelValues),
-      const DeepCollectionEquality().hash(_labelValueDefinitions));
+      const DeepCollectionEquality().hash(_labelValueDefinitions),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -223,7 +256,8 @@ abstract class _LabelerPolicies implements LabelerPolicies {
   const factory _LabelerPolicies(
           {@JsonKey(name: r'$type') final String $type,
           @ULabelValueConverter() required final List<ULabelValue> labelValues,
-          final List<LabelValueDefinition>? labelValueDefinitions}) =
+          final List<LabelValueDefinition>? labelValueDefinitions,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelerPoliciesImpl;
 
   factory _LabelerPolicies.fromJson(Map<String, dynamic> json) =
@@ -245,6 +279,11 @@ abstract class _LabelerPolicies implements LabelerPolicies {
 
   /// Label values created by this labeler and scoped exclusively to it. Labels defined here will override global label definitions for this labeler.
   List<LabelValueDefinition>? get labelValueDefinitions;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelerPoliciesImplCopyWith<_$LabelerPoliciesImpl> get copyWith =>

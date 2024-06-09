@@ -29,6 +29,10 @@ mixin _$ListViewerState {
   @AtUriConverter()
   AtUri? get blocked => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListViewerStateCopyWith<ListViewerState> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $ListViewerStateCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool muted,
-      @AtUriConverter() AtUri? blocked});
+      @AtUriConverter() AtUri? blocked,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -63,6 +68,7 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
     Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,6 +83,10 @@ class _$ListViewerStateCopyWithImpl<$Res, $Val extends ListViewerState>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -92,7 +102,8 @@ abstract class _$$ListViewerStateImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       bool muted,
-      @AtUriConverter() AtUri? blocked});
+      @AtUriConverter() AtUri? blocked,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -109,6 +120,7 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? muted = null,
     Object? blocked = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ListViewerStateImpl(
       $type: null == $type
@@ -123,6 +135,10 @@ class __$$ListViewerStateImplCopyWithImpl<$Res>
           ? _value.blocked
           : blocked // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -134,7 +150,10 @@ class _$ListViewerStateImpl implements _ListViewerState {
   const _$ListViewerStateImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsListViewerState,
       this.muted = false,
-      @AtUriConverter() this.blocked});
+      @AtUriConverter() this.blocked,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ListViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewerStateImplFromJson(json);
@@ -152,9 +171,21 @@ class _$ListViewerStateImpl implements _ListViewerState {
   @AtUriConverter()
   final AtUri? blocked;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked)';
+    return 'ListViewerState(\$type: ${$type}, muted: $muted, blocked: $blocked, \$unknown: ${$unknown})';
   }
 
   @override
@@ -164,12 +195,14 @@ class _$ListViewerStateImpl implements _ListViewerState {
             other is _$ListViewerStateImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.muted, muted) || other.muted == muted) &&
-            (identical(other.blocked, blocked) || other.blocked == blocked));
+            (identical(other.blocked, blocked) || other.blocked == blocked) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, muted, blocked);
+  int get hashCode => Object.hash(runtimeType, $type, muted, blocked,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -188,9 +221,11 @@ class _$ListViewerStateImpl implements _ListViewerState {
 
 abstract class _ListViewerState implements ListViewerState {
   const factory _ListViewerState(
-      {@JsonKey(name: r'$type') final String $type,
-      final bool muted,
-      @AtUriConverter() final AtUri? blocked}) = _$ListViewerStateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final bool muted,
+          @AtUriConverter() final AtUri? blocked,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListViewerStateImpl;
 
   factory _ListViewerState.fromJson(Map<String, dynamic> json) =
       _$ListViewerStateImpl.fromJson;
@@ -207,6 +242,11 @@ abstract class _ListViewerState implements ListViewerState {
   @override
   @AtUriConverter()
   AtUri? get blocked;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListViewerStateImplCopyWith<_$ListViewerStateImpl> get copyWith =>

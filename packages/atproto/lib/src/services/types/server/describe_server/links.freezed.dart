@@ -28,6 +28,10 @@ mixin _$Links {
   String? get privacyPolicy => throw _privateConstructorUsedError;
   String? get termsOfService => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LinksCopyWith<Links> get copyWith => throw _privateConstructorUsedError;
@@ -41,7 +45,8 @@ abstract class $LinksCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String? privacyPolicy,
-      String? termsOfService});
+      String? termsOfService,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -60,6 +65,7 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
     Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -74,6 +80,10 @@ class _$LinksCopyWithImpl<$Res, $Val extends Links>
           ? _value.termsOfService
           : termsOfService // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -88,7 +98,8 @@ abstract class _$$LinksImplCopyWith<$Res> implements $LinksCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String? privacyPolicy,
-      String? termsOfService});
+      String? termsOfService,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -105,6 +116,7 @@ class __$$LinksImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? privacyPolicy = freezed,
     Object? termsOfService = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$LinksImpl(
       $type: null == $type
@@ -119,6 +131,10 @@ class __$$LinksImplCopyWithImpl<$Res>
           ? _value.termsOfService
           : termsOfService // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -131,7 +147,10 @@ class _$LinksImpl implements _Links {
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoServerDescribeServerLinks,
       this.privacyPolicy,
-      this.termsOfService});
+      this.termsOfService,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$LinksImpl.fromJson(Map<String, dynamic> json) =>
       _$$LinksImplFromJson(json);
@@ -147,9 +166,21 @@ class _$LinksImpl implements _Links {
   @override
   final String? termsOfService;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Links(\$type: ${$type}, privacyPolicy: $privacyPolicy, termsOfService: $termsOfService)';
+    return 'Links(\$type: ${$type}, privacyPolicy: $privacyPolicy, termsOfService: $termsOfService, \$unknown: ${$unknown})';
   }
 
   @override
@@ -161,13 +192,14 @@ class _$LinksImpl implements _Links {
             (identical(other.privacyPolicy, privacyPolicy) ||
                 other.privacyPolicy == privacyPolicy) &&
             (identical(other.termsOfService, termsOfService) ||
-                other.termsOfService == termsOfService));
+                other.termsOfService == termsOfService) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, privacyPolicy, termsOfService);
+  int get hashCode => Object.hash(runtimeType, $type, privacyPolicy,
+      termsOfService, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -185,9 +217,11 @@ class _$LinksImpl implements _Links {
 
 abstract class _Links implements Links {
   const factory _Links(
-      {@JsonKey(name: r'$type') final String $type,
-      final String? privacyPolicy,
-      final String? termsOfService}) = _$LinksImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final String? privacyPolicy,
+          final String? termsOfService,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LinksImpl;
 
   factory _Links.fromJson(Map<String, dynamic> json) = _$LinksImpl.fromJson;
 
@@ -202,6 +236,11 @@ abstract class _Links implements Links {
   String? get privacyPolicy;
   @override
   String? get termsOfService;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LinksImplCopyWith<_$LinksImpl> get copyWith =>

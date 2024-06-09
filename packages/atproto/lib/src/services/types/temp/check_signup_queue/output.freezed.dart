@@ -25,6 +25,10 @@ mixin _$CheckSignupQueueOutput {
   int get placeInQueue => throw _privateConstructorUsedError;
   int get estimatedTimeMs => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CheckSignupQueueOutputCopyWith<CheckSignupQueueOutput> get copyWith =>
@@ -37,7 +41,11 @@ abstract class $CheckSignupQueueOutputCopyWith<$Res> {
           $Res Function(CheckSignupQueueOutput) then) =
       _$CheckSignupQueueOutputCopyWithImpl<$Res, CheckSignupQueueOutput>;
   @useResult
-  $Res call({bool activated, int placeInQueue, int estimatedTimeMs});
+  $Res call(
+      {bool activated,
+      int placeInQueue,
+      int estimatedTimeMs,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -57,6 +65,7 @@ class _$CheckSignupQueueOutputCopyWithImpl<$Res,
     Object? activated = null,
     Object? placeInQueue = null,
     Object? estimatedTimeMs = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       activated: null == activated
@@ -71,6 +80,10 @@ class _$CheckSignupQueueOutputCopyWithImpl<$Res,
           ? _value.estimatedTimeMs
           : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -84,7 +97,11 @@ abstract class _$$CheckSignupQueueOutputImplCopyWith<$Res>
       __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool activated, int placeInQueue, int estimatedTimeMs});
+  $Res call(
+      {bool activated,
+      int placeInQueue,
+      int estimatedTimeMs,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -103,6 +120,7 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
     Object? activated = null,
     Object? placeInQueue = null,
     Object? estimatedTimeMs = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CheckSignupQueueOutputImpl(
       activated: null == activated
@@ -117,6 +135,10 @@ class __$$CheckSignupQueueOutputImplCopyWithImpl<$Res>
           ? _value.estimatedTimeMs
           : estimatedTimeMs // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -128,7 +150,10 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
   const _$CheckSignupQueueOutputImpl(
       {required this.activated,
       this.placeInQueue = 0,
-      this.estimatedTimeMs = 0});
+      this.estimatedTimeMs = 0,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$CheckSignupQueueOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CheckSignupQueueOutputImplFromJson(json);
@@ -142,9 +167,21 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
   @JsonKey()
   final int estimatedTimeMs;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CheckSignupQueueOutput(activated: $activated, placeInQueue: $placeInQueue, estimatedTimeMs: $estimatedTimeMs)';
+    return 'CheckSignupQueueOutput(activated: $activated, placeInQueue: $placeInQueue, estimatedTimeMs: $estimatedTimeMs, \$unknown: ${$unknown})';
   }
 
   @override
@@ -157,13 +194,14 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
             (identical(other.placeInQueue, placeInQueue) ||
                 other.placeInQueue == placeInQueue) &&
             (identical(other.estimatedTimeMs, estimatedTimeMs) ||
-                other.estimatedTimeMs == estimatedTimeMs));
+                other.estimatedTimeMs == estimatedTimeMs) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, activated, placeInQueue, estimatedTimeMs);
+  int get hashCode => Object.hash(runtimeType, activated, placeInQueue,
+      estimatedTimeMs, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +220,11 @@ class _$CheckSignupQueueOutputImpl implements _CheckSignupQueueOutput {
 
 abstract class _CheckSignupQueueOutput implements CheckSignupQueueOutput {
   const factory _CheckSignupQueueOutput(
-      {required final bool activated,
-      final int placeInQueue,
-      final int estimatedTimeMs}) = _$CheckSignupQueueOutputImpl;
+          {required final bool activated,
+          final int placeInQueue,
+          final int estimatedTimeMs,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CheckSignupQueueOutputImpl;
 
   factory _CheckSignupQueueOutput.fromJson(Map<String, dynamic> json) =
       _$CheckSignupQueueOutputImpl.fromJson;
@@ -195,6 +235,11 @@ abstract class _CheckSignupQueueOutput implements CheckSignupQueueOutput {
   int get placeInQueue;
   @override
   int get estimatedTimeMs;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CheckSignupQueueOutputImplCopyWith<_$CheckSignupQueueOutputImpl>

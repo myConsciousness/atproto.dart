@@ -25,6 +25,10 @@ mixin _$ListNotificationsOutput {
   List<Notification> get notifications => throw _privateConstructorUsedError;
   DateTime? get seenAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListNotificationsOutputCopyWith<ListNotificationsOutput> get copyWith =>
@@ -38,7 +42,10 @@ abstract class $ListNotificationsOutputCopyWith<$Res> {
       _$ListNotificationsOutputCopyWithImpl<$Res, ListNotificationsOutput>;
   @useResult
   $Res call(
-      {String? cursor, List<Notification> notifications, DateTime? seenAt});
+      {String? cursor,
+      List<Notification> notifications,
+      DateTime? seenAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +65,7 @@ class _$ListNotificationsOutputCopyWithImpl<$Res,
     Object? cursor = freezed,
     Object? notifications = null,
     Object? seenAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -72,6 +80,10 @@ class _$ListNotificationsOutputCopyWithImpl<$Res,
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -86,7 +98,10 @@ abstract class _$$ListNotificationsOutputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? cursor, List<Notification> notifications, DateTime? seenAt});
+      {String? cursor,
+      List<Notification> notifications,
+      DateTime? seenAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -105,6 +120,7 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? notifications = null,
     Object? seenAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ListNotificationsOutputImpl(
       cursor: freezed == cursor
@@ -119,6 +135,10 @@ class __$$ListNotificationsOutputImplCopyWithImpl<$Res>
           ? _value.seenAt
           : seenAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -130,8 +150,11 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   const _$ListNotificationsOutputImpl(
       {this.cursor,
       required final List<Notification> notifications,
-      this.seenAt})
-      : _notifications = notifications;
+      this.seenAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _notifications = notifications,
+        _$unknown = $unknown;
 
   factory _$ListNotificationsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListNotificationsOutputImplFromJson(json);
@@ -149,9 +172,21 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
   @override
   final DateTime? seenAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListNotificationsOutput(cursor: $cursor, notifications: $notifications, seenAt: $seenAt)';
+    return 'ListNotificationsOutput(cursor: $cursor, notifications: $notifications, seenAt: $seenAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -162,13 +197,18 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             const DeepCollectionEquality()
                 .equals(other._notifications, _notifications) &&
-            (identical(other.seenAt, seenAt) || other.seenAt == seenAt));
+            (identical(other.seenAt, seenAt) || other.seenAt == seenAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cursor,
-      const DeepCollectionEquality().hash(_notifications), seenAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_notifications),
+      seenAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -187,9 +227,11 @@ class _$ListNotificationsOutputImpl implements _ListNotificationsOutput {
 
 abstract class _ListNotificationsOutput implements ListNotificationsOutput {
   const factory _ListNotificationsOutput(
-      {final String? cursor,
-      required final List<Notification> notifications,
-      final DateTime? seenAt}) = _$ListNotificationsOutputImpl;
+          {final String? cursor,
+          required final List<Notification> notifications,
+          final DateTime? seenAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListNotificationsOutputImpl;
 
   factory _ListNotificationsOutput.fromJson(Map<String, dynamic> json) =
       _$ListNotificationsOutputImpl.fromJson;
@@ -200,6 +242,11 @@ abstract class _ListNotificationsOutput implements ListNotificationsOutput {
   List<Notification> get notifications;
   @override
   DateTime? get seenAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListNotificationsOutputImplCopyWith<_$ListNotificationsOutputImpl>

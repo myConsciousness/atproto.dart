@@ -21,6 +21,13 @@ _$AppPasswordImpl _$$AppPasswordImplFromJson(Map json) => $checkedCreate(
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           privileged: $checkedConvert('privileged', (v) => v as bool? ?? false),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -32,4 +39,5 @@ Map<String, dynamic> _$$AppPasswordImplToJson(_$AppPasswordImpl instance) =>
       'name': instance.name,
       'createdAt': instance.createdAt.toIso8601String(),
       'privileged': instance.privileged,
+      r'$unknown': instance.$unknown,
     };

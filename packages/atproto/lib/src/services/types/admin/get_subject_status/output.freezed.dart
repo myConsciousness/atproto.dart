@@ -26,6 +26,10 @@ mixin _$GetSubjectStatusOutput {
   StatusAttr? get takedown => throw _privateConstructorUsedError;
   StatusAttr? get deactivated => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetSubjectStatusOutputCopyWith<GetSubjectStatusOutput> get copyWith =>
@@ -41,7 +45,8 @@ abstract class $GetSubjectStatusOutputCopyWith<$Res> {
   $Res call(
       {@USubjectConverter() USubject subject,
       StatusAttr? takedown,
-      StatusAttr? deactivated});
+      StatusAttr? deactivated,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USubjectCopyWith<$Res> get subject;
   $StatusAttrCopyWith<$Res>? get takedown;
@@ -65,6 +70,7 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
     Object? subject = null,
     Object? takedown = freezed,
     Object? deactivated = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -79,6 +85,10 @@ class _$GetSubjectStatusOutputCopyWithImpl<$Res,
           ? _value.deactivated
           : deactivated // ignore: cast_nullable_to_non_nullable
               as StatusAttr?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -127,7 +137,8 @@ abstract class _$$GetSubjectStatusOutputImplCopyWith<$Res>
   $Res call(
       {@USubjectConverter() USubject subject,
       StatusAttr? takedown,
-      StatusAttr? deactivated});
+      StatusAttr? deactivated,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $USubjectCopyWith<$Res> get subject;
@@ -153,6 +164,7 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? takedown = freezed,
     Object? deactivated = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$GetSubjectStatusOutputImpl(
       subject: null == subject
@@ -167,6 +179,10 @@ class __$$GetSubjectStatusOutputImplCopyWithImpl<$Res>
           ? _value.deactivated
           : deactivated // ignore: cast_nullable_to_non_nullable
               as StatusAttr?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -178,7 +194,10 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   const _$GetSubjectStatusOutputImpl(
       {@USubjectConverter() required this.subject,
       this.takedown,
-      this.deactivated});
+      this.deactivated,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetSubjectStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetSubjectStatusOutputImplFromJson(json);
@@ -191,9 +210,21 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
   @override
   final StatusAttr? deactivated;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetSubjectStatusOutput(subject: $subject, takedown: $takedown, deactivated: $deactivated)';
+    return 'GetSubjectStatusOutput(subject: $subject, takedown: $takedown, deactivated: $deactivated, \$unknown: ${$unknown})';
   }
 
   @override
@@ -205,12 +236,14 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
             (identical(other.takedown, takedown) ||
                 other.takedown == takedown) &&
             (identical(other.deactivated, deactivated) ||
-                other.deactivated == deactivated));
+                other.deactivated == deactivated) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, takedown, deactivated);
+  int get hashCode => Object.hash(runtimeType, subject, takedown, deactivated,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -229,9 +262,11 @@ class _$GetSubjectStatusOutputImpl implements _GetSubjectStatusOutput {
 
 abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   const factory _GetSubjectStatusOutput(
-      {@USubjectConverter() required final USubject subject,
-      final StatusAttr? takedown,
-      final StatusAttr? deactivated}) = _$GetSubjectStatusOutputImpl;
+          {@USubjectConverter() required final USubject subject,
+          final StatusAttr? takedown,
+          final StatusAttr? deactivated,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetSubjectStatusOutputImpl;
 
   factory _GetSubjectStatusOutput.fromJson(Map<String, dynamic> json) =
       _$GetSubjectStatusOutputImpl.fromJson;
@@ -243,6 +278,11 @@ abstract class _GetSubjectStatusOutput implements GetSubjectStatusOutput {
   StatusAttr? get takedown;
   @override
   StatusAttr? get deactivated;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSubjectStatusOutputImplCopyWith<_$GetSubjectStatusOutputImpl>

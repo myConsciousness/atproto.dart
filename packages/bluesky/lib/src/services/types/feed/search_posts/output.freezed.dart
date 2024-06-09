@@ -26,6 +26,10 @@ mixin _$SearchPostsOutput {
   int get hitsTotal => throw _privateConstructorUsedError;
   List<PostView> get posts => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchPostsOutputCopyWith<SearchPostsOutput> get copyWith =>
@@ -38,7 +42,11 @@ abstract class $SearchPostsOutputCopyWith<$Res> {
           SearchPostsOutput value, $Res Function(SearchPostsOutput) then) =
       _$SearchPostsOutputCopyWithImpl<$Res, SearchPostsOutput>;
   @useResult
-  $Res call({String? cursor, int hitsTotal, List<PostView> posts});
+  $Res call(
+      {String? cursor,
+      int hitsTotal,
+      List<PostView> posts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -57,6 +65,7 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
     Object? cursor = freezed,
     Object? hitsTotal = null,
     Object? posts = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -71,6 +80,10 @@ class _$SearchPostsOutputCopyWithImpl<$Res, $Val extends SearchPostsOutput>
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -83,7 +96,11 @@ abstract class _$$SearchPostsOutputImplCopyWith<$Res>
       __$$SearchPostsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, int hitsTotal, List<PostView> posts});
+  $Res call(
+      {String? cursor,
+      int hitsTotal,
+      List<PostView> posts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -100,6 +117,7 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
     Object? cursor = freezed,
     Object? hitsTotal = null,
     Object? posts = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SearchPostsOutputImpl(
       cursor: freezed == cursor
@@ -114,6 +132,10 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -123,8 +145,13 @@ class __$$SearchPostsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$SearchPostsOutputImpl implements _SearchPostsOutput {
   const _$SearchPostsOutputImpl(
-      {this.cursor, this.hitsTotal = 0, required final List<PostView> posts})
-      : _posts = posts;
+      {this.cursor,
+      this.hitsTotal = 0,
+      required final List<PostView> posts,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _posts = posts,
+        _$unknown = $unknown;
 
   factory _$SearchPostsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$SearchPostsOutputImplFromJson(json);
@@ -144,9 +171,21 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
     return EqualUnmodifiableListView(_posts);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SearchPostsOutput(cursor: $cursor, hitsTotal: $hitsTotal, posts: $posts)';
+    return 'SearchPostsOutput(cursor: $cursor, hitsTotal: $hitsTotal, posts: $posts, \$unknown: ${$unknown})';
   }
 
   @override
@@ -157,13 +196,18 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
             (identical(other.hitsTotal, hitsTotal) ||
                 other.hitsTotal == hitsTotal) &&
-            const DeepCollectionEquality().equals(other._posts, _posts));
+            const DeepCollectionEquality().equals(other._posts, _posts) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cursor, hitsTotal,
-      const DeepCollectionEquality().hash(_posts));
+  int get hashCode => Object.hash(
+      runtimeType,
+      cursor,
+      hitsTotal,
+      const DeepCollectionEquality().hash(_posts),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +226,11 @@ class _$SearchPostsOutputImpl implements _SearchPostsOutput {
 
 abstract class _SearchPostsOutput implements SearchPostsOutput {
   const factory _SearchPostsOutput(
-      {final String? cursor,
-      final int hitsTotal,
-      required final List<PostView> posts}) = _$SearchPostsOutputImpl;
+          {final String? cursor,
+          final int hitsTotal,
+          required final List<PostView> posts,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SearchPostsOutputImpl;
 
   factory _SearchPostsOutput.fromJson(Map<String, dynamic> json) =
       _$SearchPostsOutputImpl.fromJson;
@@ -197,6 +243,11 @@ abstract class _SearchPostsOutput implements SearchPostsOutput {
   int get hitsTotal;
   @override
   List<PostView> get posts;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SearchPostsOutputImplCopyWith<_$SearchPostsOutputImpl> get copyWith =>

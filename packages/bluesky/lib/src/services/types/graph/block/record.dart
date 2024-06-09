@@ -24,8 +24,60 @@ class BlockRecord with _$BlockRecord {
     /// DID of the account to be blocked.
     required String subject,
     required DateTime createdAt,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _BlockRecord;
 
   factory BlockRecord.fromJson(Map<String, Object?> json) =>
       _$BlockRecordFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  'subject',
+  'createdAt',
+];
+
+final class BlockRecordConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const BlockRecordConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

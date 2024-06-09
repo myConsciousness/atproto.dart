@@ -23,6 +23,10 @@ ListAppPasswordsOutput _$ListAppPasswordsOutputFromJson(
 mixin _$ListAppPasswordsOutput {
   List<AppPassword> get passwords => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListAppPasswordsOutputCopyWith<ListAppPasswordsOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $ListAppPasswordsOutputCopyWith<$Res> {
           $Res Function(ListAppPasswordsOutput) then) =
       _$ListAppPasswordsOutputCopyWithImpl<$Res, ListAppPasswordsOutput>;
   @useResult
-  $Res call({List<AppPassword> passwords});
+  $Res call(
+      {List<AppPassword> passwords,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,12 +59,17 @@ class _$ListAppPasswordsOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? passwords = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       passwords: null == passwords
           ? _value.passwords
           : passwords // ignore: cast_nullable_to_non_nullable
               as List<AppPassword>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -72,7 +83,9 @@ abstract class _$$ListAppPasswordsOutputImplCopyWith<$Res>
       __$$ListAppPasswordsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<AppPassword> passwords});
+  $Res call(
+      {List<AppPassword> passwords,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -89,12 +102,17 @@ class __$$ListAppPasswordsOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? passwords = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListAppPasswordsOutputImpl(
       passwords: null == passwords
           ? _value._passwords
           : passwords // ignore: cast_nullable_to_non_nullable
               as List<AppPassword>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -104,8 +122,11 @@ class __$$ListAppPasswordsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
   const _$ListAppPasswordsOutputImpl(
-      {required final List<AppPassword> passwords})
-      : _passwords = passwords;
+      {required final List<AppPassword> passwords,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _passwords = passwords,
+        _$unknown = $unknown;
 
   factory _$ListAppPasswordsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListAppPasswordsOutputImplFromJson(json);
@@ -118,9 +139,21 @@ class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
     return EqualUnmodifiableListView(_passwords);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListAppPasswordsOutput(passwords: $passwords)';
+    return 'ListAppPasswordsOutput(passwords: $passwords, \$unknown: ${$unknown})';
   }
 
   @override
@@ -129,13 +162,16 @@ class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
         (other.runtimeType == runtimeType &&
             other is _$ListAppPasswordsOutputImpl &&
             const DeepCollectionEquality()
-                .equals(other._passwords, _passwords));
+                .equals(other._passwords, _passwords) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_passwords));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_passwords),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -154,7 +190,8 @@ class _$ListAppPasswordsOutputImpl implements _ListAppPasswordsOutput {
 
 abstract class _ListAppPasswordsOutput implements ListAppPasswordsOutput {
   const factory _ListAppPasswordsOutput(
-          {required final List<AppPassword> passwords}) =
+          {required final List<AppPassword> passwords,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListAppPasswordsOutputImpl;
 
   factory _ListAppPasswordsOutput.fromJson(Map<String, dynamic> json) =
@@ -162,6 +199,11 @@ abstract class _ListAppPasswordsOutput implements ListAppPasswordsOutput {
 
   @override
   List<AppPassword> get passwords;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListAppPasswordsOutputImplCopyWith<_$ListAppPasswordsOutputImpl>

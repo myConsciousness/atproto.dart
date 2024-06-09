@@ -28,6 +28,10 @@ mixin _$FacetByteSlice {
   int get byteStart => throw _privateConstructorUsedError;
   int get byteEnd => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FacetByteSliceCopyWith<FacetByteSlice> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $FacetByteSliceCopyWith<$Res> {
       _$FacetByteSliceCopyWithImpl<$Res, FacetByteSlice>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, int byteStart, int byteEnd});
+      {@JsonKey(name: r'$type') String $type,
+      int byteStart,
+      int byteEnd,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -60,6 +67,7 @@ class _$FacetByteSliceCopyWithImpl<$Res, $Val extends FacetByteSlice>
     Object? $type = null,
     Object? byteStart = null,
     Object? byteEnd = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -74,6 +82,10 @@ class _$FacetByteSliceCopyWithImpl<$Res, $Val extends FacetByteSlice>
           ? _value.byteEnd
           : byteEnd // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -87,7 +99,10 @@ abstract class _$$FacetByteSliceImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, int byteStart, int byteEnd});
+      {@JsonKey(name: r'$type') String $type,
+      int byteStart,
+      int byteEnd,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -104,6 +119,7 @@ class __$$FacetByteSliceImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? byteStart = null,
     Object? byteEnd = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FacetByteSliceImpl(
       $type: null == $type
@@ -118,6 +134,10 @@ class __$$FacetByteSliceImplCopyWithImpl<$Res>
           ? _value.byteEnd
           : byteEnd // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -129,7 +149,10 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
   const _$FacetByteSliceImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacetByteSlice,
       required this.byteStart,
-      required this.byteEnd});
+      required this.byteEnd,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FacetByteSliceImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetByteSliceImplFromJson(json);
@@ -145,9 +168,21 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
   @override
   final int byteEnd;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FacetByteSlice(\$type: ${$type}, byteStart: $byteStart, byteEnd: $byteEnd)';
+    return 'FacetByteSlice(\$type: ${$type}, byteStart: $byteStart, byteEnd: $byteEnd, \$unknown: ${$unknown})';
   }
 
   @override
@@ -158,12 +193,14 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.byteStart, byteStart) ||
                 other.byteStart == byteStart) &&
-            (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd));
+            (identical(other.byteEnd, byteEnd) || other.byteEnd == byteEnd) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, byteStart, byteEnd);
+  int get hashCode => Object.hash(runtimeType, $type, byteStart, byteEnd,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -182,9 +219,11 @@ class _$FacetByteSliceImpl implements _FacetByteSlice {
 
 abstract class _FacetByteSlice implements FacetByteSlice {
   const factory _FacetByteSlice(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int byteStart,
-      required final int byteEnd}) = _$FacetByteSliceImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int byteStart,
+          required final int byteEnd,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FacetByteSliceImpl;
 
   factory _FacetByteSlice.fromJson(Map<String, dynamic> json) =
       _$FacetByteSliceImpl.fromJson;
@@ -200,6 +239,11 @@ abstract class _FacetByteSlice implements FacetByteSlice {
   int get byteStart;
   @override
   int get byteEnd;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FacetByteSliceImplCopyWith<_$FacetByteSliceImpl> get copyWith =>

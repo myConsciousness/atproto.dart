@@ -17,6 +17,13 @@ _$SkeletonSearchActorImpl _$$SkeletonSearchActorImplFromJson(Map json) =>
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchActor),
           did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -27,4 +34,5 @@ Map<String, dynamic> _$$SkeletonSearchActorImplToJson(
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
+      r'$unknown': instance.$unknown,
     };

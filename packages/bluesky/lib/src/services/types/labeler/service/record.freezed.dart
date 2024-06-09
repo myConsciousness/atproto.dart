@@ -25,6 +25,10 @@ mixin _$ServiceRecord {
   ULabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ServiceRecordCopyWith<ServiceRecord> get copyWith =>
@@ -40,7 +44,8 @@ abstract class $ServiceRecordCopyWith<$Res> {
   $Res call(
       {LabelerPolicies policies,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LabelerPoliciesCopyWith<$Res> get policies;
   $ULabelCopyWith<$Res>? get labels;
@@ -62,6 +67,7 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
     Object? policies = null,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       policies: null == policies
@@ -76,6 +82,10 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -111,7 +121,8 @@ abstract class _$$ServiceRecordImplCopyWith<$Res>
   $Res call(
       {LabelerPolicies policies,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $LabelerPoliciesCopyWith<$Res> get policies;
@@ -133,6 +144,7 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
     Object? policies = null,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ServiceRecordImpl(
       policies: null == policies
@@ -147,6 +159,10 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -158,7 +174,10 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   const _$ServiceRecordImpl(
       {required this.policies,
       @ULabelConverter() this.labels,
-      required this.createdAt});
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ServiceRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceRecordImplFromJson(json);
@@ -171,9 +190,21 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ServiceRecord(policies: $policies, labels: $labels, createdAt: $createdAt)';
+    return 'ServiceRecord(policies: $policies, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -185,12 +216,14 @@ class _$ServiceRecordImpl implements _ServiceRecord {
                 other.policies == policies) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, policies, labels, createdAt);
+  int get hashCode => Object.hash(runtimeType, policies, labels, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -208,9 +241,11 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 
 abstract class _ServiceRecord implements ServiceRecord {
   const factory _ServiceRecord(
-      {required final LabelerPolicies policies,
-      @ULabelConverter() final ULabel? labels,
-      required final DateTime createdAt}) = _$ServiceRecordImpl;
+          {required final LabelerPolicies policies,
+          @ULabelConverter() final ULabel? labels,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ServiceRecordImpl;
 
   factory _ServiceRecord.fromJson(Map<String, dynamic> json) =
       _$ServiceRecordImpl.fromJson;
@@ -222,6 +257,11 @@ abstract class _ServiceRecord implements ServiceRecord {
   ULabel? get labels;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ServiceRecordImplCopyWith<_$ServiceRecordImpl> get copyWith =>

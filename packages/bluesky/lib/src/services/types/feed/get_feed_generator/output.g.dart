@@ -20,6 +20,13 @@ _$GetFeedGeneratorOutputImpl _$$GetFeedGeneratorOutputImplFromJson(Map json) =>
                   GeneratorView.fromJson(Map<String, Object?>.from(v as Map))),
           isOnline: $checkedConvert('isOnline', (v) => v as bool),
           isValid: $checkedConvert('isValid', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -31,4 +38,5 @@ Map<String, dynamic> _$$GetFeedGeneratorOutputImplToJson(
       'view': instance.view.toJson(),
       'isOnline': instance.isOnline,
       'isValid': instance.isValid,
+      r'$unknown': instance.$unknown,
     };

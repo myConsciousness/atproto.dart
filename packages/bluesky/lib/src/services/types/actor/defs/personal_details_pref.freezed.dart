@@ -29,6 +29,10 @@ mixin _$PersonalDetailsPref {
   /// The birth date of account owner.
   DateTime? get birthDate => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PersonalDetailsPrefCopyWith<PersonalDetailsPref> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $PersonalDetailsPrefCopyWith<$Res> {
           PersonalDetailsPref value, $Res Function(PersonalDetailsPref) then) =
       _$PersonalDetailsPrefCopyWithImpl<$Res, PersonalDetailsPref>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, DateTime? birthDate});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      DateTime? birthDate,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +66,7 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
   $Res call({
     Object? $type = null,
     Object? birthDate = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -69,6 +77,10 @@ class _$PersonalDetailsPrefCopyWithImpl<$Res, $Val extends PersonalDetailsPref>
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -81,7 +93,10 @@ abstract class _$$PersonalDetailsPrefImplCopyWith<$Res>
       __$$PersonalDetailsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, DateTime? birthDate});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      DateTime? birthDate,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -97,6 +112,7 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? birthDate = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$PersonalDetailsPrefImpl(
       $type: null == $type
@@ -107,6 +123,10 @@ class __$$PersonalDetailsPrefImplCopyWithImpl<$Res>
           ? _value.birthDate
           : birthDate // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -118,7 +138,10 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
   const _$PersonalDetailsPrefImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyActorDefsPersonalDetailsPref,
-      this.birthDate});
+      this.birthDate,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$PersonalDetailsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$PersonalDetailsPrefImplFromJson(json);
@@ -134,9 +157,21 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
   @override
   final DateTime? birthDate;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'PersonalDetailsPref(\$type: ${$type}, birthDate: $birthDate)';
+    return 'PersonalDetailsPref(\$type: ${$type}, birthDate: $birthDate, \$unknown: ${$unknown})';
   }
 
   @override
@@ -146,12 +181,14 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
             other is _$PersonalDetailsPrefImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.birthDate, birthDate) ||
-                other.birthDate == birthDate));
+                other.birthDate == birthDate) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, birthDate);
+  int get hashCode => Object.hash(runtimeType, $type, birthDate,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -170,8 +207,10 @@ class _$PersonalDetailsPrefImpl implements _PersonalDetailsPref {
 
 abstract class _PersonalDetailsPref implements PersonalDetailsPref {
   const factory _PersonalDetailsPref(
-      {@JsonKey(name: r'$type') final String $type,
-      final DateTime? birthDate}) = _$PersonalDetailsPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final DateTime? birthDate,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$PersonalDetailsPrefImpl;
 
   factory _PersonalDetailsPref.fromJson(Map<String, dynamic> json) =
       _$PersonalDetailsPrefImpl.fromJson;
@@ -187,6 +226,11 @@ abstract class _PersonalDetailsPref implements PersonalDetailsPref {
 
   /// The birth date of account owner.
   DateTime? get birthDate;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$PersonalDetailsPrefImplCopyWith<_$PersonalDetailsPrefImpl> get copyWith =>

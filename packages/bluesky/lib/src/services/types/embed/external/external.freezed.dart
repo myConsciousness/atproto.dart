@@ -31,6 +31,10 @@ mixin _$ExternalExternal {
   @BlobConverter()
   Blob? get thumb => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ExternalExternalCopyWith<ExternalExternal> get copyWith =>
@@ -48,7 +52,8 @@ abstract class $ExternalExternalCopyWith<$Res> {
       String uri,
       String title,
       String description,
-      @BlobConverter() Blob? thumb});
+      @BlobConverter() Blob? thumb,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res>? get thumb;
 }
@@ -71,6 +76,7 @@ class _$ExternalExternalCopyWithImpl<$Res, $Val extends ExternalExternal>
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -93,6 +99,10 @@ class _$ExternalExternalCopyWithImpl<$Res, $Val extends ExternalExternal>
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -122,7 +132,8 @@ abstract class _$$ExternalExternalImplCopyWith<$Res>
       String uri,
       String title,
       String description,
-      @BlobConverter() Blob? thumb});
+      @BlobConverter() Blob? thumb,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $BlobCopyWith<$Res>? get thumb;
@@ -144,6 +155,7 @@ class __$$ExternalExternalImplCopyWithImpl<$Res>
     Object? title = null,
     Object? description = null,
     Object? thumb = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ExternalExternalImpl(
       $type: null == $type
@@ -166,6 +178,10 @@ class __$$ExternalExternalImplCopyWithImpl<$Res>
           ? _value.thumb
           : thumb // ignore: cast_nullable_to_non_nullable
               as Blob?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -179,7 +195,10 @@ class _$ExternalExternalImpl implements _ExternalExternal {
       required this.uri,
       required this.title,
       required this.description,
-      @BlobConverter() this.thumb});
+      @BlobConverter() this.thumb,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ExternalExternalImpl.fromJson(Map<String, dynamic> json) =>
       _$$ExternalExternalImplFromJson(json);
@@ -200,9 +219,21 @@ class _$ExternalExternalImpl implements _ExternalExternal {
   @BlobConverter()
   final Blob? thumb;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb)';
+    return 'ExternalExternal(\$type: ${$type}, uri: $uri, title: $title, description: $description, thumb: $thumb, \$unknown: ${$unknown})';
   }
 
   @override
@@ -215,13 +246,14 @@ class _$ExternalExternalImpl implements _ExternalExternal {
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
                 other.description == description) &&
-            (identical(other.thumb, thumb) || other.thumb == thumb));
+            (identical(other.thumb, thumb) || other.thumb == thumb) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, uri, title, description, thumb);
+  int get hashCode => Object.hash(runtimeType, $type, uri, title, description,
+      thumb, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -240,11 +272,13 @@ class _$ExternalExternalImpl implements _ExternalExternal {
 
 abstract class _ExternalExternal implements ExternalExternal {
   const factory _ExternalExternal(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String uri,
-      required final String title,
-      required final String description,
-      @BlobConverter() final Blob? thumb}) = _$ExternalExternalImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String uri,
+          required final String title,
+          required final String description,
+          @BlobConverter() final Blob? thumb,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ExternalExternalImpl;
 
   factory _ExternalExternal.fromJson(Map<String, dynamic> json) =
       _$ExternalExternalImpl.fromJson;
@@ -265,6 +299,11 @@ abstract class _ExternalExternal implements ExternalExternal {
   @override
   @BlobConverter()
   Blob? get thumb;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ExternalExternalImplCopyWith<_$ExternalExternalImpl> get copyWith =>

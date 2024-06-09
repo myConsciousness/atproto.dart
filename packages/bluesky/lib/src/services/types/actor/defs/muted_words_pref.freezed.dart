@@ -29,6 +29,10 @@ mixin _$MutedWordsPref {
   /// A list of words the account owner has muted.
   List<MutedWord> get items => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MutedWordsPrefCopyWith<MutedWordsPref> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $MutedWordsPrefCopyWith<$Res> {
           MutedWordsPref value, $Res Function(MutedWordsPref) then) =
       _$MutedWordsPrefCopyWithImpl<$Res, MutedWordsPref>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<MutedWord> items});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<MutedWord> items,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +66,7 @@ class _$MutedWordsPrefCopyWithImpl<$Res, $Val extends MutedWordsPref>
   $Res call({
     Object? $type = null,
     Object? items = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -69,6 +77,10 @@ class _$MutedWordsPrefCopyWithImpl<$Res, $Val extends MutedWordsPref>
           ? _value.items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MutedWord>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -81,7 +93,10 @@ abstract class _$$MutedWordsPrefImplCopyWith<$Res>
       __$$MutedWordsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<MutedWord> items});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<MutedWord> items,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -97,6 +112,7 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? items = null,
+    Object? $unknown = null,
   }) {
     return _then(_$MutedWordsPrefImpl(
       $type: null == $type
@@ -107,6 +123,10 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
           ? _value._items
           : items // ignore: cast_nullable_to_non_nullable
               as List<MutedWord>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -117,8 +137,11 @@ class __$$MutedWordsPrefImplCopyWithImpl<$Res>
 class _$MutedWordsPrefImpl implements _MutedWordsPref {
   const _$MutedWordsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsMutedWordsPref,
-      required final List<MutedWord> items})
-      : _items = items;
+      required final List<MutedWord> items,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _items = items,
+        _$unknown = $unknown;
 
   factory _$MutedWordsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$MutedWordsPrefImplFromJson(json);
@@ -141,9 +164,21 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
     return EqualUnmodifiableListView(_items);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'MutedWordsPref(\$type: ${$type}, items: $items)';
+    return 'MutedWordsPref(\$type: ${$type}, items: $items, \$unknown: ${$unknown})';
   }
 
   @override
@@ -152,13 +187,17 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
         (other.runtimeType == runtimeType &&
             other is _$MutedWordsPrefImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            const DeepCollectionEquality().equals(other._items, _items));
+            const DeepCollectionEquality().equals(other._items, _items) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, $type, const DeepCollectionEquality().hash(_items));
+      runtimeType,
+      $type,
+      const DeepCollectionEquality().hash(_items),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -177,8 +216,10 @@ class _$MutedWordsPrefImpl implements _MutedWordsPref {
 
 abstract class _MutedWordsPref implements MutedWordsPref {
   const factory _MutedWordsPref(
-      {@JsonKey(name: r'$type') final String $type,
-      required final List<MutedWord> items}) = _$MutedWordsPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final List<MutedWord> items,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$MutedWordsPrefImpl;
 
   factory _MutedWordsPref.fromJson(Map<String, dynamic> json) =
       _$MutedWordsPrefImpl.fromJson;
@@ -194,6 +235,11 @@ abstract class _MutedWordsPref implements MutedWordsPref {
 
   /// A list of words the account owner has muted.
   List<MutedWord> get items;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MutedWordsPrefImplCopyWith<_$MutedWordsPrefImpl> get copyWith =>

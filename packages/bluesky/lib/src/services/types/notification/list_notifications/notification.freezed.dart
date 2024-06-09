@@ -40,6 +40,10 @@ mixin _$Notification {
   DateTime get indexedAt => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NotificationCopyWith<Notification> get copyWith =>
@@ -62,7 +66,8 @@ abstract class $NotificationCopyWith<$Res> {
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label>? labels});
+      List<Label>? labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get author;
   $UReasonCopyWith<$Res> get reason;
@@ -91,6 +96,7 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
     Object? isRead = null,
     Object? indexedAt = null,
     Object? labels = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -133,6 +139,10 @@ class _$NotificationCopyWithImpl<$Res, $Val extends Notification>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -171,7 +181,8 @@ abstract class _$$NotificationImplCopyWith<$Res>
       Map<String, dynamic> record,
       bool isRead,
       DateTime indexedAt,
-      List<Label>? labels});
+      List<Label>? labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get author;
@@ -200,6 +211,7 @@ class __$$NotificationImplCopyWithImpl<$Res>
     Object? isRead = null,
     Object? indexedAt = null,
     Object? labels = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$NotificationImpl(
       $type: null == $type
@@ -242,6 +254,10 @@ class __$$NotificationImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -261,9 +277,12 @@ class _$NotificationImpl implements _Notification {
       required final Map<String, dynamic> record,
       required this.isRead,
       required this.indexedAt,
-      final List<Label>? labels})
+      final List<Label>? labels,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _record = record,
-        _labels = labels;
+        _labels = labels,
+        _$unknown = $unknown;
 
   factory _$NotificationImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotificationImplFromJson(json);
@@ -311,9 +330,21 @@ class _$NotificationImpl implements _Notification {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Notification(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, reason: $reason, reasonSubject: $reasonSubject, record: $record, isRead: $isRead, indexedAt: $indexedAt, labels: $labels)';
+    return 'Notification(\$type: ${$type}, uri: $uri, cid: $cid, author: $author, reason: $reason, reasonSubject: $reasonSubject, record: $record, isRead: $isRead, indexedAt: $indexedAt, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -332,7 +363,8 @@ class _$NotificationImpl implements _Notification {
             (identical(other.isRead, isRead) || other.isRead == isRead) &&
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
-            const DeepCollectionEquality().equals(other._labels, _labels));
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -348,7 +380,8 @@ class _$NotificationImpl implements _Notification {
       const DeepCollectionEquality().hash(_record),
       isRead,
       indexedAt,
-      const DeepCollectionEquality().hash(_labels));
+      const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -366,16 +399,18 @@ class _$NotificationImpl implements _Notification {
 
 abstract class _Notification implements Notification {
   const factory _Notification(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      required final ProfileView author,
-      @UReasonConverter() required final UReason reason,
-      @AtUriConverter() final AtUri? reasonSubject,
-      required final Map<String, dynamic> record,
-      required final bool isRead,
-      required final DateTime indexedAt,
-      final List<Label>? labels}) = _$NotificationImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final String cid,
+          required final ProfileView author,
+          @UReasonConverter() required final UReason reason,
+          @AtUriConverter() final AtUri? reasonSubject,
+          required final Map<String, dynamic> record,
+          required final bool isRead,
+          required final DateTime indexedAt,
+          final List<Label>? labels,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$NotificationImpl;
 
   factory _Notification.fromJson(Map<String, dynamic> json) =
       _$NotificationImpl.fromJson;
@@ -410,6 +445,11 @@ abstract class _Notification implements Notification {
   DateTime get indexedAt;
   @override
   List<Label>? get labels;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$NotificationImplCopyWith<_$NotificationImpl> get copyWith =>

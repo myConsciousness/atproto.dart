@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: lines_longer_than_80_chars
+
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
@@ -66,6 +68,8 @@ final class LexGenObject {
     buffer.writeln("part '$fileName.freezed.dart';");
     buffer.writeln("part '$fileName.g.dart';");
     buffer.writeln();
+
+    // Object
     if (description != null && description!.isNotEmpty) {
       buffer.writeln(description);
     }
@@ -91,10 +95,73 @@ final class LexGenObject {
     for (final property in properties) {
       buffer.writeln(property.toString());
     }
+    buffer.writeln('    /// Contains unknown objects not defined in Lexicon.');
+    buffer.writeln("    @Default({}) @JsonKey(name: r'\$unknown') "
+        "Map<String, dynamic> \$unknown,");
     buffer.writeln('  }) = _$name;');
     buffer.writeln();
     buffer.writeln('  factory $name.fromJson(Map<String, Object?> json) =>');
     buffer.writeln('      _\$${name}FromJson(json);');
+    buffer.writeln('}');
+
+    // Converter
+    buffer.writeln();
+    buffer.writeln('const _kLexCompatibleProperties = <String>[');
+    if (namespace != null) {
+      buffer.writeln("  r'\$type',");
+    }
+    for (final property in properties) {
+      buffer.writeln("  '${property.name}',");
+    }
+    buffer.writeln('];');
+    buffer.writeln();
+    buffer.writeln('final class ${name}Converter implements');
+    buffer
+        .writeln('JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {');
+    buffer.writeln('  const ${name}Converter();');
+    buffer.writeln();
+    buffer.writeln('  @override');
+    buffer.writeln(
+        '  Map<String, dynamic> fromJson(Map<String, dynamic> json) {');
+    buffer
+        .writeln('    if (_kLexCompatibleProperties.length == json.length) {');
+    buffer.writeln('    return json;');
+    buffer.writeln('  }');
+    buffer.writeln();
+    buffer.writeln(
+        "    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{r'\$unknown': <String, dynamic>{}};");
+    buffer.writeln('    for (final key in json.keys) {');
+    buffer.writeln('      if (_kLexCompatibleProperties.contains(key)) {');
+    buffer.writeln(
+        '        lexCompatiblePropertiesWithUnknown[key] = json[key];');
+    buffer.writeln('      } else {');
+    buffer.writeln(
+        "        lexCompatiblePropertiesWithUnknown[r'\$unknown'][key] = json[key];");
+    buffer.writeln('      }');
+    buffer.writeln('    }');
+    buffer.writeln();
+    buffer.writeln('    return lexCompatiblePropertiesWithUnknown;');
+    buffer.writeln('  }');
+    buffer.writeln();
+    buffer.writeln('  @override');
+    buffer.writeln(
+        '  Map<String, dynamic> toJson(Map<String, dynamic> object) {');
+    buffer.writeln("    if (object[r'\$unknown']?.isEmpty ?? true) {");
+    buffer.writeln('      return object;');
+    buffer.writeln('    }');
+    buffer.writeln();
+    buffer.writeln('    final lexCompatibleProperties = <String, dynamic>{};');
+    buffer.writeln('    for (final key in object.keys) {');
+    buffer.writeln('      if (_kLexCompatibleProperties.contains(key)) {');
+    buffer.writeln('        lexCompatibleProperties[key] = object[key];');
+    buffer.writeln('      }');
+    buffer.writeln('    }');
+    buffer.writeln();
+    buffer.writeln('    return <String, dynamic>{');
+    buffer.writeln('      ...lexCompatibleProperties,');
+    buffer.writeln("      ...object[r'\$unknown'],");
+    buffer.writeln('    };');
+    buffer.writeln('  }');
     buffer.writeln('}');
 
     return buffer.toString();

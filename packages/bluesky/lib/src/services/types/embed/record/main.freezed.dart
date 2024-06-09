@@ -27,6 +27,10 @@ mixin _$Record {
   String get $type => throw _privateConstructorUsedError;
   StrongRef get record => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordCopyWith<Record> get copyWith => throw _privateConstructorUsedError;
@@ -37,7 +41,10 @@ abstract class $RecordCopyWith<$Res> {
   factory $RecordCopyWith(Record value, $Res Function(Record) then) =
       _$RecordCopyWithImpl<$Res, Record>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, StrongRef record});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      StrongRef record,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $StrongRefCopyWith<$Res> get record;
 }
@@ -57,6 +64,7 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
   $Res call({
     Object? $type = null,
     Object? record = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -67,6 +75,10 @@ class _$RecordCopyWithImpl<$Res, $Val extends Record>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as StrongRef,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -86,7 +98,10 @@ abstract class _$$RecordImplCopyWith<$Res> implements $RecordCopyWith<$Res> {
       __$$RecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, StrongRef record});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      StrongRef record,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $StrongRefCopyWith<$Res> get record;
@@ -105,6 +120,7 @@ class __$$RecordImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? record = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordImpl(
       $type: null == $type
@@ -115,6 +131,10 @@ class __$$RecordImplCopyWithImpl<$Res>
           ? _value.record
           : record // ignore: cast_nullable_to_non_nullable
               as StrongRef,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -125,7 +145,10 @@ class __$$RecordImplCopyWithImpl<$Res>
 class _$RecordImpl implements _Record {
   const _$RecordImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecord,
-      required this.record});
+      required this.record,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordImplFromJson(json);
@@ -139,9 +162,21 @@ class _$RecordImpl implements _Record {
   @override
   final StrongRef record;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Record(\$type: ${$type}, record: $record)';
+    return 'Record(\$type: ${$type}, record: $record, \$unknown: ${$unknown})';
   }
 
   @override
@@ -150,12 +185,14 @@ class _$RecordImpl implements _Record {
         (other.runtimeType == runtimeType &&
             other is _$RecordImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.record, record) || other.record == record));
+            (identical(other.record, record) || other.record == record) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, record);
+  int get hashCode => Object.hash(runtimeType, $type, record,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -173,8 +210,10 @@ class _$RecordImpl implements _Record {
 
 abstract class _Record implements Record {
   const factory _Record(
-      {@JsonKey(name: r'$type') final String $type,
-      required final StrongRef record}) = _$RecordImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final StrongRef record,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RecordImpl;
 
   factory _Record.fromJson(Map<String, dynamic> json) = _$RecordImpl.fromJson;
 
@@ -187,6 +226,11 @@ abstract class _Record implements Record {
   String get $type;
   @override
   StrongRef get record;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordImplCopyWith<_$RecordImpl> get copyWith =>

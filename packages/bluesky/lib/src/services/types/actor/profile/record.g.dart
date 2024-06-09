@@ -27,6 +27,13 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
                   v, const ULabelConverter().fromJson)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -55,6 +62,7 @@ Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
       'labels',
       _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
           instance.labels, const ULabelConverter().toJson));
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

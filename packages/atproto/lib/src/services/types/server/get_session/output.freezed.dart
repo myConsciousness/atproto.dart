@@ -32,6 +32,10 @@ mixin _$GetSessionOutput {
   @UStatusConverter()
   UStatus? get status => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetSessionOutputCopyWith<GetSessionOutput> get copyWith =>
@@ -52,7 +56,8 @@ abstract class $GetSessionOutputCopyWith<$Res> {
       bool emailAuthFactor,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -78,6 +83,7 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
     Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       handle: null == handle
@@ -112,6 +118,10 @@ class _$GetSessionOutputCopyWithImpl<$Res, $Val extends GetSessionOutput>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -144,7 +154,8 @@ abstract class _$$GetSessionOutputImplCopyWith<$Res>
       bool emailAuthFactor,
       Map<String, dynamic>? didDoc,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -169,6 +180,7 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
     Object? didDoc = freezed,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$GetSessionOutputImpl(
       handle: null == handle
@@ -203,6 +215,10 @@ class __$$GetSessionOutputImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -219,8 +235,11 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       this.emailAuthFactor = false,
       final Map<String, dynamic>? didDoc,
       this.active = false,
-      @UStatusConverter() this.status})
-      : _didDoc = didDoc;
+      @UStatusConverter() this.status,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _didDoc = didDoc,
+        _$unknown = $unknown;
 
   factory _$GetSessionOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetSessionOutputImplFromJson(json);
@@ -256,9 +275,21 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
   @UStatusConverter()
   final UStatus? status;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetSessionOutput(handle: $handle, did: $did, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, didDoc: $didDoc, active: $active, status: $status)';
+    return 'GetSessionOutput(handle: $handle, did: $did, email: $email, emailConfirmed: $emailConfirmed, emailAuthFactor: $emailAuthFactor, didDoc: $didDoc, active: $active, status: $status, \$unknown: ${$unknown})';
   }
 
   @override
@@ -275,7 +306,8 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
                 other.emailAuthFactor == emailAuthFactor) &&
             const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
             (identical(other.active, active) || other.active == active) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -289,7 +321,8 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
       emailAuthFactor,
       const DeepCollectionEquality().hash(_didDoc),
       active,
-      status);
+      status,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -308,14 +341,16 @@ class _$GetSessionOutputImpl implements _GetSessionOutput {
 
 abstract class _GetSessionOutput implements GetSessionOutput {
   const factory _GetSessionOutput(
-      {required final String handle,
-      required final String did,
-      final String? email,
-      final bool emailConfirmed,
-      final bool emailAuthFactor,
-      final Map<String, dynamic>? didDoc,
-      final bool active,
-      @UStatusConverter() final UStatus? status}) = _$GetSessionOutputImpl;
+          {required final String handle,
+          required final String did,
+          final String? email,
+          final bool emailConfirmed,
+          final bool emailAuthFactor,
+          final Map<String, dynamic>? didDoc,
+          final bool active,
+          @UStatusConverter() final UStatus? status,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetSessionOutputImpl;
 
   factory _GetSessionOutput.fromJson(Map<String, dynamic> json) =
       _$GetSessionOutputImpl.fromJson;
@@ -339,6 +374,11 @@ abstract class _GetSessionOutput implements GetSessionOutput {
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @UStatusConverter()
   UStatus? get status;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSessionOutputImplCopyWith<_$GetSessionOutputImpl> get copyWith =>

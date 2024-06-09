@@ -23,6 +23,10 @@ mixin _$GetMutesOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get mutes => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetMutesOutputCopyWith<GetMutesOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetMutesOutputCopyWith<$Res> {
           GetMutesOutput value, $Res Function(GetMutesOutput) then) =
       _$GetMutesOutputCopyWithImpl<$Res, GetMutesOutput>;
   @useResult
-  $Res call({String? cursor, List<ProfileView> mutes});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> mutes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$GetMutesOutputCopyWithImpl<$Res, $Val extends GetMutesOutput>
   $Res call({
     Object? cursor = freezed,
     Object? mutes = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$GetMutesOutputCopyWithImpl<$Res, $Val extends GetMutesOutput>
           ? _value.mutes
           : mutes // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$GetMutesOutputImplCopyWith<$Res>
       __$$GetMutesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<ProfileView> mutes});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> mutes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$GetMutesOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? mutes = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetMutesOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$GetMutesOutputImplCopyWithImpl<$Res>
           ? _value._mutes
           : mutes // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,8 +130,12 @@ class __$$GetMutesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetMutesOutputImpl implements _GetMutesOutput {
   const _$GetMutesOutputImpl(
-      {this.cursor, required final List<ProfileView> mutes})
-      : _mutes = mutes;
+      {this.cursor,
+      required final List<ProfileView> mutes,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _mutes = mutes,
+        _$unknown = $unknown;
 
   factory _$GetMutesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetMutesOutputImplFromJson(json);
@@ -126,9 +150,21 @@ class _$GetMutesOutputImpl implements _GetMutesOutput {
     return EqualUnmodifiableListView(_mutes);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetMutesOutput(cursor: $cursor, mutes: $mutes)';
+    return 'GetMutesOutput(cursor: $cursor, mutes: $mutes, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +173,17 @@ class _$GetMutesOutputImpl implements _GetMutesOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetMutesOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._mutes, _mutes));
+            const DeepCollectionEquality().equals(other._mutes, _mutes) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_mutes));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_mutes),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +202,10 @@ class _$GetMutesOutputImpl implements _GetMutesOutput {
 
 abstract class _GetMutesOutput implements GetMutesOutput {
   const factory _GetMutesOutput(
-      {final String? cursor,
-      required final List<ProfileView> mutes}) = _$GetMutesOutputImpl;
+          {final String? cursor,
+          required final List<ProfileView> mutes,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetMutesOutputImpl;
 
   factory _GetMutesOutput.fromJson(Map<String, dynamic> json) =
       _$GetMutesOutputImpl.fromJson;
@@ -172,6 +214,11 @@ abstract class _GetMutesOutput implements GetMutesOutput {
   String? get cursor;
   @override
   List<ProfileView> get mutes;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetMutesOutputImplCopyWith<_$GetMutesOutputImpl> get copyWith =>

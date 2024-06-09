@@ -20,6 +20,13 @@ _$GetServicesOutputImpl _$$GetServicesOutputImplFromJson(Map json) =>
                   .map((e) => const UViewConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -29,4 +36,5 @@ Map<String, dynamic> _$$GetServicesOutputImplToJson(
         _$GetServicesOutputImpl instance) =>
     <String, dynamic>{
       'views': instance.views.map(const UViewConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

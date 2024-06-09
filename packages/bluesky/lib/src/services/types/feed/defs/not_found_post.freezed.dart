@@ -29,6 +29,10 @@ mixin _$NotFoundPost {
   AtUri get uri => throw _privateConstructorUsedError;
   bool get notFound => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $NotFoundPostCopyWith<NotFoundPost> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $NotFoundPostCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      bool notFound});
+      bool notFound,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -63,6 +68,7 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
     Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,6 +83,10 @@ class _$NotFoundPostCopyWithImpl<$Res, $Val extends NotFoundPost>
           ? _value.notFound
           : notFound // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -92,7 +102,8 @@ abstract class _$$NotFoundPostImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
-      bool notFound});
+      bool notFound,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -109,6 +120,7 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? uri = null,
     Object? notFound = null,
+    Object? $unknown = null,
   }) {
     return _then(_$NotFoundPostImpl(
       $type: null == $type
@@ -123,6 +135,10 @@ class __$$NotFoundPostImplCopyWithImpl<$Res>
           ? _value.notFound
           : notFound // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -134,7 +150,10 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   const _$NotFoundPostImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsNotFoundPost,
       @AtUriConverter() required this.uri,
-      required this.notFound});
+      required this.notFound,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$NotFoundPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$NotFoundPostImplFromJson(json);
@@ -151,9 +170,21 @@ class _$NotFoundPostImpl implements _NotFoundPost {
   @override
   final bool notFound;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'NotFoundPost(\$type: ${$type}, uri: $uri, notFound: $notFound)';
+    return 'NotFoundPost(\$type: ${$type}, uri: $uri, notFound: $notFound, \$unknown: ${$unknown})';
   }
 
   @override
@@ -164,12 +195,14 @@ class _$NotFoundPostImpl implements _NotFoundPost {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.notFound, notFound) ||
-                other.notFound == notFound));
+                other.notFound == notFound) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, notFound);
+  int get hashCode => Object.hash(runtimeType, $type, uri, notFound,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -187,9 +220,11 @@ class _$NotFoundPostImpl implements _NotFoundPost {
 
 abstract class _NotFoundPost implements NotFoundPost {
   const factory _NotFoundPost(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final bool notFound}) = _$NotFoundPostImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final bool notFound,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$NotFoundPostImpl;
 
   factory _NotFoundPost.fromJson(Map<String, dynamic> json) =
       _$NotFoundPostImpl.fromJson;
@@ -206,6 +241,11 @@ abstract class _NotFoundPost implements NotFoundPost {
   AtUri get uri;
   @override
   bool get notFound;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$NotFoundPostImplCopyWith<_$NotFoundPostImpl> get copyWith =>

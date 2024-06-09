@@ -29,6 +29,10 @@ mixin _$Update {
   String get rkey => throw _privateConstructorUsedError;
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $UpdateCopyWith<Update> get copyWith => throw _privateConstructorUsedError;
@@ -43,7 +47,8 @@ abstract class $UpdateCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String collection,
       String rkey,
-      Map<String, dynamic> value});
+      Map<String, dynamic> value,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -63,6 +68,7 @@ class _$UpdateCopyWithImpl<$Res, $Val extends Update>
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -81,6 +87,10 @@ class _$UpdateCopyWithImpl<$Res, $Val extends Update>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -96,7 +106,8 @@ abstract class _$$UpdateImplCopyWith<$Res> implements $UpdateCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String collection,
       String rkey,
-      Map<String, dynamic> value});
+      Map<String, dynamic> value,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -114,6 +125,7 @@ class __$$UpdateImplCopyWithImpl<$Res>
     Object? collection = null,
     Object? rkey = null,
     Object? value = null,
+    Object? $unknown = null,
   }) {
     return _then(_$UpdateImpl(
       $type: null == $type
@@ -132,6 +144,10 @@ class __$$UpdateImplCopyWithImpl<$Res>
           ? _value._value
           : value // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -144,8 +160,11 @@ class _$UpdateImpl implements _Update {
       {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesUpdate,
       required this.collection,
       required this.rkey,
-      required final Map<String, dynamic> value})
-      : _value = value;
+      required final Map<String, dynamic> value,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _value = value,
+        _$unknown = $unknown;
 
   factory _$UpdateImpl.fromJson(Map<String, dynamic> json) =>
       _$$UpdateImplFromJson(json);
@@ -168,9 +187,21 @@ class _$UpdateImpl implements _Update {
     return EqualUnmodifiableMapView(_value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Update(\$type: ${$type}, collection: $collection, rkey: $rkey, value: $value)';
+    return 'Update(\$type: ${$type}, collection: $collection, rkey: $rkey, value: $value, \$unknown: ${$unknown})';
   }
 
   @override
@@ -182,13 +213,19 @@ class _$UpdateImpl implements _Update {
             (identical(other.collection, collection) ||
                 other.collection == collection) &&
             (identical(other.rkey, rkey) || other.rkey == rkey) &&
-            const DeepCollectionEquality().equals(other._value, _value));
+            const DeepCollectionEquality().equals(other._value, _value) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, collection, rkey,
-      const DeepCollectionEquality().hash(_value));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      collection,
+      rkey,
+      const DeepCollectionEquality().hash(_value),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -206,10 +243,12 @@ class _$UpdateImpl implements _Update {
 
 abstract class _Update implements Update {
   const factory _Update(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String collection,
-      required final String rkey,
-      required final Map<String, dynamic> value}) = _$UpdateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String collection,
+          required final String rkey,
+          required final Map<String, dynamic> value,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$UpdateImpl;
 
   factory _Update.fromJson(Map<String, dynamic> json) = _$UpdateImpl.fromJson;
 
@@ -226,6 +265,11 @@ abstract class _Update implements Update {
   String get rkey;
   @override
   Map<String, dynamic> get value;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$UpdateImplCopyWith<_$UpdateImpl> get copyWith =>

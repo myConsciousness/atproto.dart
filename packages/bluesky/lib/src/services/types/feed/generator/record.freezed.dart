@@ -35,6 +35,10 @@ mixin _$GeneratorRecord {
   ULabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GeneratorRecordCopyWith<GeneratorRecord> get copyWith =>
@@ -55,7 +59,8 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $ULabelCopyWith<$Res>? get labels;
@@ -82,6 +87,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
@@ -116,6 +122,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -160,7 +170,8 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
@@ -187,6 +198,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? acceptsInteractions = null,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GeneratorRecordImpl(
       did: null == did
@@ -221,6 +233,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -237,8 +253,11 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       @BlobConverter() this.avatar,
       this.acceptsInteractions = false,
       @ULabelConverter() this.labels,
-      required this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _descriptionFacets = descriptionFacets,
+        _$unknown = $unknown;
 
   factory _$GeneratorRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorRecordImplFromJson(json);
@@ -276,9 +295,21 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GeneratorRecord(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt)';
+    return 'GeneratorRecord(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -298,7 +329,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
                 other.acceptsInteractions == acceptsInteractions) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -312,7 +344,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       avatar,
       acceptsInteractions,
       labels,
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -331,14 +364,16 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
 
 abstract class _GeneratorRecord implements GeneratorRecord {
   const factory _GeneratorRecord(
-      {required final String did,
-      required final String displayName,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      @BlobConverter() final Blob? avatar,
-      final bool acceptsInteractions,
-      @ULabelConverter() final ULabel? labels,
-      required final DateTime createdAt}) = _$GeneratorRecordImpl;
+          {required final String did,
+          required final String displayName,
+          final String? description,
+          final List<Facet>? descriptionFacets,
+          @BlobConverter() final Blob? avatar,
+          final bool acceptsInteractions,
+          @ULabelConverter() final ULabel? labels,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GeneratorRecordImpl;
 
   factory _GeneratorRecord.fromJson(Map<String, dynamic> json) =
       _$GeneratorRecordImpl.fromJson;
@@ -365,6 +400,11 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   ULabel? get labels;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GeneratorRecordImplCopyWith<_$GeneratorRecordImpl> get copyWith =>

@@ -22,6 +22,10 @@ GetUnreadCountOutput _$GetUnreadCountOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetUnreadCountOutput {
   int get count => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetUnreadCountOutputCopyWith<GetUnreadCountOutput> get copyWith =>
@@ -34,7 +38,8 @@ abstract class $GetUnreadCountOutputCopyWith<$Res> {
           $Res Function(GetUnreadCountOutput) then) =
       _$GetUnreadCountOutputCopyWithImpl<$Res, GetUnreadCountOutput>;
   @useResult
-  $Res call({int count});
+  $Res call(
+      {int count, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -52,12 +57,17 @@ class _$GetUnreadCountOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? count = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -70,7 +80,8 @@ abstract class _$$GetUnreadCountOutputImplCopyWith<$Res>
       __$$GetUnreadCountOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int count});
+  $Res call(
+      {int count, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -85,12 +96,17 @@ class __$$GetUnreadCountOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? count = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetUnreadCountOutputImpl(
       count: null == count
           ? _value.count
           : count // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -99,7 +115,11 @@ class __$$GetUnreadCountOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetUnreadCountOutputImpl implements _GetUnreadCountOutput {
-  const _$GetUnreadCountOutputImpl({required this.count});
+  const _$GetUnreadCountOutputImpl(
+      {required this.count,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetUnreadCountOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetUnreadCountOutputImplFromJson(json);
@@ -107,9 +127,21 @@ class _$GetUnreadCountOutputImpl implements _GetUnreadCountOutput {
   @override
   final int count;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetUnreadCountOutput(count: $count)';
+    return 'GetUnreadCountOutput(count: $count, \$unknown: ${$unknown})';
   }
 
   @override
@@ -117,12 +149,14 @@ class _$GetUnreadCountOutputImpl implements _GetUnreadCountOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetUnreadCountOutputImpl &&
-            (identical(other.count, count) || other.count == count));
+            (identical(other.count, count) || other.count == count) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, count);
+  int get hashCode => Object.hash(
+      runtimeType, count, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -141,7 +175,9 @@ class _$GetUnreadCountOutputImpl implements _GetUnreadCountOutput {
 }
 
 abstract class _GetUnreadCountOutput implements GetUnreadCountOutput {
-  const factory _GetUnreadCountOutput({required final int count}) =
+  const factory _GetUnreadCountOutput(
+          {required final int count,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetUnreadCountOutputImpl;
 
   factory _GetUnreadCountOutput.fromJson(Map<String, dynamic> json) =
@@ -149,6 +185,11 @@ abstract class _GetUnreadCountOutput implements GetUnreadCountOutput {
 
   @override
   int get count;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetUnreadCountOutputImplCopyWith<_$GetUnreadCountOutputImpl>

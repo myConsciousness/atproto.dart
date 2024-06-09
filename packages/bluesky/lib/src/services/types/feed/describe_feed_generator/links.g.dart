@@ -18,6 +18,13 @@ _$LinksImpl _$$LinksImplFromJson(Map json) => $checkedCreate(
           privacyPolicy: $checkedConvert('privacyPolicy', (v) => v as String?),
           termsOfService:
               $checkedConvert('termsOfService', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -36,5 +43,6 @@ Map<String, dynamic> _$$LinksImplToJson(_$LinksImpl instance) {
 
   writeNotNull('privacyPolicy', instance.privacyPolicy);
   writeNotNull('termsOfService', instance.termsOfService);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

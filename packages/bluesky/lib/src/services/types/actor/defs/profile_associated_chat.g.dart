@@ -18,6 +18,13 @@ _$ProfileAssociatedChatImpl _$$ProfileAssociatedChatImplFromJson(Map json) =>
               (v) => v as String? ?? appBskyActorDefsProfileAssociatedChat),
           allowIncoming: $checkedConvert('allowIncoming',
               (v) => const UAllowIncomingConverter().fromJson(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -29,4 +36,5 @@ Map<String, dynamic> _$$ProfileAssociatedChatImplToJson(
       r'$type': instance.$type,
       'allowIncoming':
           const UAllowIncomingConverter().toJson(instance.allowIncoming),
+      r'$unknown': instance.$unknown,
     };

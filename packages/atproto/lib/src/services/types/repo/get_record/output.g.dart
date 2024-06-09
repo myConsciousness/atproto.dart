@@ -19,6 +19,13 @@ _$GetRecordOutputImpl _$$GetRecordOutputImplFromJson(Map json) =>
           cid: $checkedConvert('cid', (v) => v as String?),
           value: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -38,5 +45,6 @@ Map<String, dynamic> _$$GetRecordOutputImplToJson(
 
   writeNotNull('cid', instance.cid);
   val['value'] = instance.value;
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

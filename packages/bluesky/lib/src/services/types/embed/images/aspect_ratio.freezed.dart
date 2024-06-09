@@ -28,6 +28,10 @@ mixin _$ImagesAspectRatio {
   int get width => throw _privateConstructorUsedError;
   int get height => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ImagesAspectRatioCopyWith<ImagesAspectRatio> get copyWith =>
@@ -40,7 +44,11 @@ abstract class $ImagesAspectRatioCopyWith<$Res> {
           ImagesAspectRatio value, $Res Function(ImagesAspectRatio) then) =
       _$ImagesAspectRatioCopyWithImpl<$Res, ImagesAspectRatio>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, int width, int height});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int width,
+      int height,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +67,7 @@ class _$ImagesAspectRatioCopyWithImpl<$Res, $Val extends ImagesAspectRatio>
     Object? $type = null,
     Object? width = null,
     Object? height = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -73,6 +82,10 @@ class _$ImagesAspectRatioCopyWithImpl<$Res, $Val extends ImagesAspectRatio>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -85,7 +98,11 @@ abstract class _$$ImagesAspectRatioImplCopyWith<$Res>
       __$$ImagesAspectRatioImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, int width, int height});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int width,
+      int height,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -102,6 +119,7 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? width = null,
     Object? height = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ImagesAspectRatioImpl(
       $type: null == $type
@@ -116,6 +134,10 @@ class __$$ImagesAspectRatioImplCopyWithImpl<$Res>
           ? _value.height
           : height // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -127,7 +149,10 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
   const _$ImagesAspectRatioImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedImagesAspectRatio,
       required this.width,
-      required this.height});
+      required this.height,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ImagesAspectRatioImpl.fromJson(Map<String, dynamic> json) =>
       _$$ImagesAspectRatioImplFromJson(json);
@@ -143,9 +168,21 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
   @override
   final int height;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ImagesAspectRatio(\$type: ${$type}, width: $width, height: $height)';
+    return 'ImagesAspectRatio(\$type: ${$type}, width: $width, height: $height, \$unknown: ${$unknown})';
   }
 
   @override
@@ -155,12 +192,14 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
             other is _$ImagesAspectRatioImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.width, width) || other.width == width) &&
-            (identical(other.height, height) || other.height == height));
+            (identical(other.height, height) || other.height == height) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, width, height);
+  int get hashCode => Object.hash(runtimeType, $type, width, height,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -179,9 +218,11 @@ class _$ImagesAspectRatioImpl implements _ImagesAspectRatio {
 
 abstract class _ImagesAspectRatio implements ImagesAspectRatio {
   const factory _ImagesAspectRatio(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int width,
-      required final int height}) = _$ImagesAspectRatioImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int width,
+          required final int height,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ImagesAspectRatioImpl;
 
   factory _ImagesAspectRatio.fromJson(Map<String, dynamic> json) =
       _$ImagesAspectRatioImpl.fromJson;
@@ -197,6 +238,11 @@ abstract class _ImagesAspectRatio implements ImagesAspectRatio {
   int get width;
   @override
   int get height;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ImagesAspectRatioImplCopyWith<_$ImagesAspectRatioImpl> get copyWith =>

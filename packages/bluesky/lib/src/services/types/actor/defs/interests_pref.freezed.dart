@@ -29,6 +29,10 @@ mixin _$InterestsPref {
   /// A list of tags which describe the account owner's interests gathered during onboarding.
   List<String> get tags => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InterestsPrefCopyWith<InterestsPref> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $InterestsPrefCopyWith<$Res> {
           InterestsPref value, $Res Function(InterestsPref) then) =
       _$InterestsPrefCopyWithImpl<$Res, InterestsPref>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<String> tags});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<String> tags,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +66,7 @@ class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
   $Res call({
     Object? $type = null,
     Object? tags = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -69,6 +77,10 @@ class _$InterestsPrefCopyWithImpl<$Res, $Val extends InterestsPref>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -81,7 +93,10 @@ abstract class _$$InterestsPrefImplCopyWith<$Res>
       __$$InterestsPrefImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, List<String> tags});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      List<String> tags,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -97,6 +112,7 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? tags = null,
+    Object? $unknown = null,
   }) {
     return _then(_$InterestsPrefImpl(
       $type: null == $type
@@ -107,6 +123,10 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -117,8 +137,11 @@ class __$$InterestsPrefImplCopyWithImpl<$Res>
 class _$InterestsPrefImpl implements _InterestsPref {
   const _$InterestsPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsInterestsPref,
-      required final List<String> tags})
-      : _tags = tags;
+      required final List<String> tags,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _tags = tags,
+        _$unknown = $unknown;
 
   factory _$InterestsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$InterestsPrefImplFromJson(json);
@@ -141,9 +164,21 @@ class _$InterestsPrefImpl implements _InterestsPref {
     return EqualUnmodifiableListView(_tags);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'InterestsPref(\$type: ${$type}, tags: $tags)';
+    return 'InterestsPref(\$type: ${$type}, tags: $tags, \$unknown: ${$unknown})';
   }
 
   @override
@@ -152,13 +187,17 @@ class _$InterestsPrefImpl implements _InterestsPref {
         (other.runtimeType == runtimeType &&
             other is _$InterestsPrefImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            const DeepCollectionEquality().equals(other._tags, _tags));
+            const DeepCollectionEquality().equals(other._tags, _tags) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, $type, const DeepCollectionEquality().hash(_tags));
+      runtimeType,
+      $type,
+      const DeepCollectionEquality().hash(_tags),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -176,8 +215,10 @@ class _$InterestsPrefImpl implements _InterestsPref {
 
 abstract class _InterestsPref implements InterestsPref {
   const factory _InterestsPref(
-      {@JsonKey(name: r'$type') final String $type,
-      required final List<String> tags}) = _$InterestsPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final List<String> tags,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$InterestsPrefImpl;
 
   factory _InterestsPref.fromJson(Map<String, dynamic> json) =
       _$InterestsPrefImpl.fromJson;
@@ -193,6 +234,11 @@ abstract class _InterestsPref implements InterestsPref {
 
   /// A list of tags which describe the account owner's interests gathered during onboarding.
   List<String> get tags;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InterestsPrefImplCopyWith<_$InterestsPrefImpl> get copyWith =>

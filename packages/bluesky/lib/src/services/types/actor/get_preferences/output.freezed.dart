@@ -23,6 +23,10 @@ mixin _$GetPreferencesOutput {
   @UPreferenceConverter()
   List<UPreference> get preferences => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetPreferencesOutputCopyWith<GetPreferencesOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $GetPreferencesOutputCopyWith<$Res> {
           $Res Function(GetPreferencesOutput) then) =
       _$GetPreferencesOutputCopyWithImpl<$Res, GetPreferencesOutput>;
   @useResult
-  $Res call({@UPreferenceConverter() List<UPreference> preferences});
+  $Res call(
+      {@UPreferenceConverter() List<UPreference> preferences,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,12 +59,17 @@ class _$GetPreferencesOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? preferences = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       preferences: null == preferences
           ? _value.preferences
           : preferences // ignore: cast_nullable_to_non_nullable
               as List<UPreference>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -71,7 +82,9 @@ abstract class _$$GetPreferencesOutputImplCopyWith<$Res>
       __$$GetPreferencesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@UPreferenceConverter() List<UPreference> preferences});
+  $Res call(
+      {@UPreferenceConverter() List<UPreference> preferences,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -86,12 +99,17 @@ class __$$GetPreferencesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? preferences = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetPreferencesOutputImpl(
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
               as List<UPreference>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -101,8 +119,11 @@ class __$$GetPreferencesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
   const _$GetPreferencesOutputImpl(
-      {@UPreferenceConverter() required final List<UPreference> preferences})
-      : _preferences = preferences;
+      {@UPreferenceConverter() required final List<UPreference> preferences,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _preferences = preferences,
+        _$unknown = $unknown;
 
   factory _$GetPreferencesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetPreferencesOutputImplFromJson(json);
@@ -116,9 +137,21 @@ class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
     return EqualUnmodifiableListView(_preferences);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetPreferencesOutput(preferences: $preferences)';
+    return 'GetPreferencesOutput(preferences: $preferences, \$unknown: ${$unknown})';
   }
 
   @override
@@ -127,13 +160,16 @@ class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetPreferencesOutputImpl &&
             const DeepCollectionEquality()
-                .equals(other._preferences, _preferences));
+                .equals(other._preferences, _preferences) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_preferences));
+      runtimeType,
+      const DeepCollectionEquality().hash(_preferences),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -153,8 +189,8 @@ class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
 
 abstract class _GetPreferencesOutput implements GetPreferencesOutput {
   const factory _GetPreferencesOutput(
-          {@UPreferenceConverter()
-          required final List<UPreference> preferences}) =
+          {@UPreferenceConverter() required final List<UPreference> preferences,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPreferencesOutputImpl;
 
   factory _GetPreferencesOutput.fromJson(Map<String, dynamic> json) =
@@ -163,6 +199,11 @@ abstract class _GetPreferencesOutput implements GetPreferencesOutput {
   @override
   @UPreferenceConverter()
   List<UPreference> get preferences;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetPreferencesOutputImplCopyWith<_$GetPreferencesOutputImpl>

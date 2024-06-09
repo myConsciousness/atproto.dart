@@ -28,6 +28,10 @@ mixin _$InviteCodeUse {
   String get usedBy => throw _privateConstructorUsedError;
   DateTime get usedAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InviteCodeUseCopyWith<InviteCodeUse> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $InviteCodeUseCopyWith<$Res> {
       _$InviteCodeUseCopyWithImpl<$Res, InviteCodeUse>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, String usedBy, DateTime usedAt});
+      {@JsonKey(name: r'$type') String $type,
+      String usedBy,
+      DateTime usedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -60,6 +67,7 @@ class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
     Object? $type = null,
     Object? usedBy = null,
     Object? usedAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -74,6 +82,10 @@ class _$InviteCodeUseCopyWithImpl<$Res, $Val extends InviteCodeUse>
           ? _value.usedAt
           : usedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -87,7 +99,10 @@ abstract class _$$InviteCodeUseImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, String usedBy, DateTime usedAt});
+      {@JsonKey(name: r'$type') String $type,
+      String usedBy,
+      DateTime usedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -104,6 +119,7 @@ class __$$InviteCodeUseImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? usedBy = null,
     Object? usedAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$InviteCodeUseImpl(
       $type: null == $type
@@ -118,6 +134,10 @@ class __$$InviteCodeUseImplCopyWithImpl<$Res>
           ? _value.usedAt
           : usedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -129,7 +149,10 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
   const _$InviteCodeUseImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoServerDefsInviteCodeUse,
       required this.usedBy,
-      required this.usedAt});
+      required this.usedAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$InviteCodeUseImpl.fromJson(Map<String, dynamic> json) =>
       _$$InviteCodeUseImplFromJson(json);
@@ -145,9 +168,21 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
   @override
   final DateTime usedAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt)';
+    return 'InviteCodeUse(\$type: ${$type}, usedBy: $usedBy, usedAt: $usedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -157,12 +192,14 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
             other is _$InviteCodeUseImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.usedBy, usedBy) || other.usedBy == usedBy) &&
-            (identical(other.usedAt, usedAt) || other.usedAt == usedAt));
+            (identical(other.usedAt, usedAt) || other.usedAt == usedAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, usedBy, usedAt);
+  int get hashCode => Object.hash(runtimeType, $type, usedBy, usedAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -180,9 +217,11 @@ class _$InviteCodeUseImpl implements _InviteCodeUse {
 
 abstract class _InviteCodeUse implements InviteCodeUse {
   const factory _InviteCodeUse(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String usedBy,
-      required final DateTime usedAt}) = _$InviteCodeUseImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String usedBy,
+          required final DateTime usedAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$InviteCodeUseImpl;
 
   factory _InviteCodeUse.fromJson(Map<String, dynamic> json) =
       _$InviteCodeUseImpl.fromJson;
@@ -198,6 +237,11 @@ abstract class _InviteCodeUse implements InviteCodeUse {
   String get usedBy;
   @override
   DateTime get usedAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InviteCodeUseImplCopyWith<_$InviteCodeUseImpl> get copyWith =>

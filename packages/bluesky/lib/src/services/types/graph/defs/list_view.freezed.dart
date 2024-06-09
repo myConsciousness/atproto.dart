@@ -39,6 +39,10 @@ mixin _$ListView {
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime get indexedAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListViewCopyWith<ListView> get copyWith =>
@@ -62,7 +66,8 @@ abstract class $ListViewCopyWith<$Res> {
       String? avatar,
       List<Label>? labels,
       ListViewerState viewer,
-      DateTime indexedAt});
+      DateTime indexedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get creator;
   $UListPurposeCopyWith<$Res> get purpose;
@@ -94,6 +99,7 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -144,6 +150,10 @@ class _$ListViewCopyWithImpl<$Res, $Val extends ListView>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -192,7 +202,8 @@ abstract class _$$ListViewImplCopyWith<$Res>
       String? avatar,
       List<Label>? labels,
       ListViewerState viewer,
-      DateTime indexedAt});
+      DateTime indexedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get creator;
@@ -225,6 +236,7 @@ class __$$ListViewImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListViewImpl(
       $type: null == $type
@@ -275,6 +287,10 @@ class __$$ListViewImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -295,9 +311,12 @@ class _$ListViewImpl implements _ListView {
       this.avatar,
       final List<Label>? labels,
       this.viewer = const ListViewerState(),
-      required this.indexedAt})
+      required this.indexedAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _descriptionFacets = descriptionFacets,
-        _labels = labels;
+        _labels = labels,
+        _$unknown = $unknown;
 
   factory _$ListViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewImplFromJson(json);
@@ -351,9 +370,21 @@ class _$ListViewImpl implements _ListView {
   @override
   final DateTime indexedAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListView(\$type: ${$type}, uri: $uri, cid: $cid, creator: $creator, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListView(\$type: ${$type}, uri: $uri, cid: $cid, creator: $creator, name: $name, purpose: $purpose, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -375,7 +406,8 @@ class _$ListViewImpl implements _ListView {
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
-                other.indexedAt == indexedAt));
+                other.indexedAt == indexedAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -393,7 +425,8 @@ class _$ListViewImpl implements _ListView {
       avatar,
       const DeepCollectionEquality().hash(_labels),
       viewer,
-      indexedAt);
+      indexedAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -411,18 +444,20 @@ class _$ListViewImpl implements _ListView {
 
 abstract class _ListView implements ListView {
   const factory _ListView(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      required final ProfileView creator,
-      required final String name,
-      @UListPurposeConverter() required final UListPurpose purpose,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      final String? avatar,
-      final List<Label>? labels,
-      final ListViewerState viewer,
-      required final DateTime indexedAt}) = _$ListViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final String cid,
+          required final ProfileView creator,
+          required final String name,
+          @UListPurposeConverter() required final UListPurpose purpose,
+          final String? description,
+          final List<Facet>? descriptionFacets,
+          final String? avatar,
+          final List<Label>? labels,
+          final ListViewerState viewer,
+          required final DateTime indexedAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListViewImpl;
 
   factory _ListView.fromJson(Map<String, dynamic> json) =
       _$ListViewImpl.fromJson;
@@ -458,6 +493,11 @@ abstract class _ListView implements ListView {
   ListViewerState get viewer;
   @override
   DateTime get indexedAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListViewImplCopyWith<_$ListViewImpl> get copyWith =>

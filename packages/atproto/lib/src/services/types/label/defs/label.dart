@@ -57,7 +57,67 @@ class Label with _$Label {
 
     /// Signature of dag-cbor encoded label.
     List<int>? sig,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Label;
 
   factory Label.fromJson(Map<String, Object?> json) => _$LabelFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  r'$type',
+  'ver',
+  'src',
+  'uri',
+  'cid',
+  'val',
+  'neg',
+  'cts',
+  'exp',
+  'sig',
+];
+
+final class LabelConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const LabelConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

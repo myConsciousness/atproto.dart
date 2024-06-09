@@ -23,8 +23,59 @@ class ReserveSigningKeyOutput with _$ReserveSigningKeyOutput {
   const factory ReserveSigningKeyOutput({
     /// The public key for the reserved signing key, in did:key serialization.
     required String signingKey,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ReserveSigningKeyOutput;
 
   factory ReserveSigningKeyOutput.fromJson(Map<String, Object?> json) =>
       _$ReserveSigningKeyOutputFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  'signingKey',
+];
+
+final class ReserveSigningKeyOutputConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const ReserveSigningKeyOutputConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

@@ -33,6 +33,13 @@ _$CreateSessionOutputImpl _$$CreateSessionOutputImplFromJson(Map json) =>
               'status',
               (v) => _$JsonConverterFromJson<String, UStatus>(
                   v, const UStatusConverter().fromJson)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -62,6 +69,7 @@ Map<String, dynamic> _$$CreateSessionOutputImplToJson(
       'status',
       _$JsonConverterToJson<String, UStatus>(
           instance.status, const UStatusConverter().toJson));
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

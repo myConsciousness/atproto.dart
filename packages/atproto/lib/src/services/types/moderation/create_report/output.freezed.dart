@@ -29,6 +29,10 @@ mixin _$CreateReportOutput {
   String get reportedBy => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreateReportOutputCopyWith<CreateReportOutput> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $CreateReportOutputCopyWith<$Res> {
       String? reason,
       @USubjectConverter() USubject subject,
       String reportedBy,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UReasonTypeCopyWith<$Res> get reasonType;
   $USubjectCopyWith<$Res> get subject;
@@ -72,6 +77,7 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
     Object? subject = null,
     Object? reportedBy = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -98,6 +104,10 @@ class _$CreateReportOutputCopyWithImpl<$Res, $Val extends CreateReportOutput>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -132,7 +142,8 @@ abstract class _$$CreateReportOutputImplCopyWith<$Res>
       String? reason,
       @USubjectConverter() USubject subject,
       String reportedBy,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UReasonTypeCopyWith<$Res> get reasonType;
@@ -157,6 +168,7 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? reportedBy = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CreateReportOutputImpl(
       id: null == id
@@ -183,6 +195,10 @@ class __$$CreateReportOutputImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -197,7 +213,10 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
       this.reason,
       @USubjectConverter() required this.subject,
       required this.reportedBy,
-      required this.createdAt});
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$CreateReportOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateReportOutputImplFromJson(json);
@@ -217,9 +236,21 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CreateReportOutput(id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, reportedBy: $reportedBy, createdAt: $createdAt)';
+    return 'CreateReportOutput(id: $id, reasonType: $reasonType, reason: $reason, subject: $subject, reportedBy: $reportedBy, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -235,13 +266,14 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
             (identical(other.reportedBy, reportedBy) ||
                 other.reportedBy == reportedBy) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, reasonType, reason, subject, reportedBy, createdAt);
+  int get hashCode => Object.hash(runtimeType, id, reasonType, reason, subject,
+      reportedBy, createdAt, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -260,12 +292,14 @@ class _$CreateReportOutputImpl implements _CreateReportOutput {
 
 abstract class _CreateReportOutput implements CreateReportOutput {
   const factory _CreateReportOutput(
-      {required final int id,
-      @UReasonTypeConverter() required final UReasonType reasonType,
-      final String? reason,
-      @USubjectConverter() required final USubject subject,
-      required final String reportedBy,
-      required final DateTime createdAt}) = _$CreateReportOutputImpl;
+          {required final int id,
+          @UReasonTypeConverter() required final UReasonType reasonType,
+          final String? reason,
+          @USubjectConverter() required final USubject subject,
+          required final String reportedBy,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CreateReportOutputImpl;
 
   factory _CreateReportOutput.fromJson(Map<String, dynamic> json) =
       _$CreateReportOutputImpl.fromJson;
@@ -284,6 +318,11 @@ abstract class _CreateReportOutput implements CreateReportOutput {
   String get reportedBy;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateReportOutputImplCopyWith<_$CreateReportOutputImpl> get copyWith =>

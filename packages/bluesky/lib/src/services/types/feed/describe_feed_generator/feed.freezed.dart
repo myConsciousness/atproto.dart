@@ -28,6 +28,10 @@ mixin _$Feed {
   @AtUriConverter()
   AtUri get uri => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedCopyWith<Feed> get copyWith => throw _privateConstructorUsedError;
@@ -39,7 +43,9 @@ abstract class $FeedCopyWith<$Res> {
       _$FeedCopyWithImpl<$Res, Feed>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -57,6 +63,7 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
   $Res call({
     Object? $type = null,
     Object? uri = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -67,6 +74,10 @@ class _$FeedCopyWithImpl<$Res, $Val extends Feed>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -79,7 +90,9 @@ abstract class _$$FeedImplCopyWith<$Res> implements $FeedCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri uri});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri uri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -94,6 +107,7 @@ class __$$FeedImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? uri = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FeedImpl(
       $type: null == $type
@@ -104,6 +118,10 @@ class __$$FeedImplCopyWithImpl<$Res>
           ? _value.uri
           : uri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -115,7 +133,10 @@ class _$FeedImpl implements _Feed {
   const _$FeedImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyFeedDescribeFeedGeneratorFeed,
-      @AtUriConverter() required this.uri});
+      @AtUriConverter() required this.uri,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedImplFromJson(json);
@@ -130,9 +151,21 @@ class _$FeedImpl implements _Feed {
   @AtUriConverter()
   final AtUri uri;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Feed(\$type: ${$type}, uri: $uri)';
+    return 'Feed(\$type: ${$type}, uri: $uri, \$unknown: ${$unknown})';
   }
 
   @override
@@ -141,12 +174,14 @@ class _$FeedImpl implements _Feed {
         (other.runtimeType == runtimeType &&
             other is _$FeedImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.uri, uri) || other.uri == uri));
+            (identical(other.uri, uri) || other.uri == uri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri);
+  int get hashCode => Object.hash(
+      runtimeType, $type, uri, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -164,8 +199,10 @@ class _$FeedImpl implements _Feed {
 
 abstract class _Feed implements Feed {
   const factory _Feed(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri}) = _$FeedImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FeedImpl;
 
   factory _Feed.fromJson(Map<String, dynamic> json) = _$FeedImpl.fromJson;
 
@@ -179,6 +216,11 @@ abstract class _Feed implements Feed {
   @override
   @AtUriConverter()
   AtUri get uri;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedImplCopyWith<_$FeedImpl> get copyWith =>

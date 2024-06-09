@@ -31,6 +31,10 @@ mixin _$SavedFeedsPref {
   List<AtUri> get saved => throw _privateConstructorUsedError;
   int get timelineIndex => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SavedFeedsPrefCopyWith<SavedFeedsPref> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $SavedFeedsPrefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
-      int timelineIndex});
+      int timelineIndex,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -67,6 +72,7 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -85,6 +91,10 @@ class _$SavedFeedsPrefCopyWithImpl<$Res, $Val extends SavedFeedsPref>
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -101,7 +111,8 @@ abstract class _$$SavedFeedsPrefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() List<AtUri> pinned,
       @AtUriConverter() List<AtUri> saved,
-      int timelineIndex});
+      int timelineIndex,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -119,6 +130,7 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
     Object? pinned = null,
     Object? saved = null,
     Object? timelineIndex = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SavedFeedsPrefImpl(
       $type: null == $type
@@ -137,6 +149,10 @@ class __$$SavedFeedsPrefImplCopyWithImpl<$Res>
           ? _value.timelineIndex
           : timelineIndex // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -149,9 +165,12 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsSavedFeedsPref,
       @AtUriConverter() required final List<AtUri> pinned,
       @AtUriConverter() required final List<AtUri> saved,
-      this.timelineIndex = 0})
+      this.timelineIndex = 0,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _pinned = pinned,
-        _saved = saved;
+        _saved = saved,
+        _$unknown = $unknown;
 
   factory _$SavedFeedsPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$SavedFeedsPrefImplFromJson(json);
@@ -184,9 +203,21 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
   @JsonKey()
   final int timelineIndex;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SavedFeedsPref(\$type: ${$type}, pinned: $pinned, saved: $saved, timelineIndex: $timelineIndex)';
+    return 'SavedFeedsPref(\$type: ${$type}, pinned: $pinned, saved: $saved, timelineIndex: $timelineIndex, \$unknown: ${$unknown})';
   }
 
   @override
@@ -198,7 +229,8 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
             const DeepCollectionEquality().equals(other._pinned, _pinned) &&
             const DeepCollectionEquality().equals(other._saved, _saved) &&
             (identical(other.timelineIndex, timelineIndex) ||
-                other.timelineIndex == timelineIndex));
+                other.timelineIndex == timelineIndex) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -208,7 +240,8 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
       $type,
       const DeepCollectionEquality().hash(_pinned),
       const DeepCollectionEquality().hash(_saved),
-      timelineIndex);
+      timelineIndex,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -227,10 +260,12 @@ class _$SavedFeedsPrefImpl implements _SavedFeedsPref {
 
 abstract class _SavedFeedsPref implements SavedFeedsPref {
   const factory _SavedFeedsPref(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final List<AtUri> pinned,
-      @AtUriConverter() required final List<AtUri> saved,
-      final int timelineIndex}) = _$SavedFeedsPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final List<AtUri> pinned,
+          @AtUriConverter() required final List<AtUri> saved,
+          final int timelineIndex,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SavedFeedsPrefImpl;
 
   factory _SavedFeedsPref.fromJson(Map<String, dynamic> json) =
       _$SavedFeedsPrefImpl.fromJson;
@@ -250,6 +285,11 @@ abstract class _SavedFeedsPref implements SavedFeedsPref {
   List<AtUri> get saved;
   @override
   int get timelineIndex;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedsPrefImplCopyWith<_$SavedFeedsPrefImpl> get copyWith =>

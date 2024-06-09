@@ -18,6 +18,13 @@ _$NotFoundPostImpl _$$NotFoundPostImplFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           notFound: $checkedConvert('notFound', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -28,4 +35,5 @@ Map<String, dynamic> _$$NotFoundPostImplToJson(_$NotFoundPostImpl instance) =>
       r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'notFound': instance.notFound,
+      r'$unknown': instance.$unknown,
     };

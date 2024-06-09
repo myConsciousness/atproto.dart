@@ -30,6 +30,10 @@ mixin _$BlockedPost {
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BlockedPostCopyWith<BlockedPost> get copyWith =>
@@ -46,7 +50,8 @@ abstract class $BlockedPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      BlockedAuthor author,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -68,6 +73,7 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,6 +92,10 @@ class _$BlockedPostCopyWithImpl<$Res, $Val extends BlockedPost>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -110,7 +120,8 @@ abstract class _$$BlockedPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      BlockedAuthor author,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -131,6 +142,7 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
+    Object? $unknown = null,
   }) {
     return _then(_$BlockedPostImpl(
       $type: null == $type
@@ -149,6 +161,10 @@ class __$$BlockedPostImplCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -161,7 +177,10 @@ class _$BlockedPostImpl implements _BlockedPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedPost,
       @AtUriConverter() required this.uri,
       required this.blocked,
-      required this.author});
+      required this.author,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$BlockedPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedPostImplFromJson(json);
@@ -180,9 +199,21 @@ class _$BlockedPostImpl implements _BlockedPost {
   @override
   final BlockedAuthor author;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'BlockedPost(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author)';
+    return 'BlockedPost(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author, \$unknown: ${$unknown})';
   }
 
   @override
@@ -193,12 +224,14 @@ class _$BlockedPostImpl implements _BlockedPost {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
-            (identical(other.author, author) || other.author == author));
+            (identical(other.author, author) || other.author == author) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author);
+  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -216,10 +249,12 @@ class _$BlockedPostImpl implements _BlockedPost {
 
 abstract class _BlockedPost implements BlockedPost {
   const factory _BlockedPost(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final bool blocked,
-      required final BlockedAuthor author}) = _$BlockedPostImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final bool blocked,
+          required final BlockedAuthor author,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$BlockedPostImpl;
 
   factory _BlockedPost.fromJson(Map<String, dynamic> json) =
       _$BlockedPostImpl.fromJson;
@@ -238,6 +273,11 @@ abstract class _BlockedPost implements BlockedPost {
   bool get blocked;
   @override
   BlockedAuthor get author;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$BlockedPostImplCopyWith<_$BlockedPostImpl> get copyWith =>

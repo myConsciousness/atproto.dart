@@ -23,6 +23,10 @@ mixin _$GetServicesOutput {
   @UViewConverter()
   List<UView> get views => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetServicesOutputCopyWith<GetServicesOutput> get copyWith =>
@@ -35,7 +39,9 @@ abstract class $GetServicesOutputCopyWith<$Res> {
           GetServicesOutput value, $Res Function(GetServicesOutput) then) =
       _$GetServicesOutputCopyWithImpl<$Res, GetServicesOutput>;
   @useResult
-  $Res call({@UViewConverter() List<UView> views});
+  $Res call(
+      {@UViewConverter() List<UView> views,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -52,12 +58,17 @@ class _$GetServicesOutputCopyWithImpl<$Res, $Val extends GetServicesOutput>
   @override
   $Res call({
     Object? views = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       views: null == views
           ? _value.views
           : views // ignore: cast_nullable_to_non_nullable
               as List<UView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -70,7 +81,9 @@ abstract class _$$GetServicesOutputImplCopyWith<$Res>
       __$$GetServicesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@UViewConverter() List<UView> views});
+  $Res call(
+      {@UViewConverter() List<UView> views,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -85,12 +98,17 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? views = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetServicesOutputImpl(
       views: null == views
           ? _value._views
           : views // ignore: cast_nullable_to_non_nullable
               as List<UView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -100,8 +118,11 @@ class __$$GetServicesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetServicesOutputImpl implements _GetServicesOutput {
   const _$GetServicesOutputImpl(
-      {@UViewConverter() required final List<UView> views})
-      : _views = views;
+      {@UViewConverter() required final List<UView> views,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _views = views,
+        _$unknown = $unknown;
 
   factory _$GetServicesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetServicesOutputImplFromJson(json);
@@ -115,9 +136,21 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
     return EqualUnmodifiableListView(_views);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetServicesOutput(views: $views)';
+    return 'GetServicesOutput(views: $views, \$unknown: ${$unknown})';
   }
 
   @override
@@ -125,13 +158,16 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetServicesOutputImpl &&
-            const DeepCollectionEquality().equals(other._views, _views));
+            const DeepCollectionEquality().equals(other._views, _views) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_views));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_views),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -150,7 +186,8 @@ class _$GetServicesOutputImpl implements _GetServicesOutput {
 
 abstract class _GetServicesOutput implements GetServicesOutput {
   const factory _GetServicesOutput(
-          {@UViewConverter() required final List<UView> views}) =
+          {@UViewConverter() required final List<UView> views,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetServicesOutputImpl;
 
   factory _GetServicesOutput.fromJson(Map<String, dynamic> json) =
@@ -159,6 +196,11 @@ abstract class _GetServicesOutput implements GetServicesOutput {
   @override
   @UViewConverter()
   List<UView> get views;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetServicesOutputImplCopyWith<_$GetServicesOutputImpl> get copyWith =>

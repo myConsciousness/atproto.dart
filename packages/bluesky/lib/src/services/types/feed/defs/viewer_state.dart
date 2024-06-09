@@ -34,8 +34,62 @@ class ViewerState with _$ViewerState {
     @AtUriConverter() AtUri? repost,
     @AtUriConverter() AtUri? like,
     @Default(false) bool replyDisabled,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ViewerState;
 
   factory ViewerState.fromJson(Map<String, Object?> json) =>
       _$ViewerStateFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  r'$type',
+  'repost',
+  'like',
+  'replyDisabled',
+];
+
+final class ViewerStateConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const ViewerStateConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

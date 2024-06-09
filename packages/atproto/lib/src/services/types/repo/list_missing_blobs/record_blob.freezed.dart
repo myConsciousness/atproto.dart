@@ -29,6 +29,10 @@ mixin _$RecordBlob {
   @AtUriConverter()
   AtUri get recordUri => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordBlobCopyWith<RecordBlob> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $RecordBlobCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String cid,
-      @AtUriConverter() AtUri recordUri});
+      @AtUriConverter() AtUri recordUri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -63,6 +68,7 @@ class _$RecordBlobCopyWithImpl<$Res, $Val extends RecordBlob>
     Object? $type = null,
     Object? cid = null,
     Object? recordUri = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,6 +83,10 @@ class _$RecordBlobCopyWithImpl<$Res, $Val extends RecordBlob>
           ? _value.recordUri
           : recordUri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -92,7 +102,8 @@ abstract class _$$RecordBlobImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       String cid,
-      @AtUriConverter() AtUri recordUri});
+      @AtUriConverter() AtUri recordUri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -109,6 +120,7 @@ class __$$RecordBlobImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? cid = null,
     Object? recordUri = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordBlobImpl(
       $type: null == $type
@@ -123,6 +135,10 @@ class __$$RecordBlobImplCopyWithImpl<$Res>
           ? _value.recordUri
           : recordUri // ignore: cast_nullable_to_non_nullable
               as AtUri,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -135,7 +151,10 @@ class _$RecordBlobImpl implements _RecordBlob {
       {@JsonKey(name: r'$type')
       this.$type = comAtprotoRepoListMissingBlobsRecordBlob,
       required this.cid,
-      @AtUriConverter() required this.recordUri});
+      @AtUriConverter() required this.recordUri,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordBlobImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordBlobImplFromJson(json);
@@ -152,9 +171,21 @@ class _$RecordBlobImpl implements _RecordBlob {
   @AtUriConverter()
   final AtUri recordUri;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RecordBlob(\$type: ${$type}, cid: $cid, recordUri: $recordUri)';
+    return 'RecordBlob(\$type: ${$type}, cid: $cid, recordUri: $recordUri, \$unknown: ${$unknown})';
   }
 
   @override
@@ -165,12 +196,14 @@ class _$RecordBlobImpl implements _RecordBlob {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.recordUri, recordUri) ||
-                other.recordUri == recordUri));
+                other.recordUri == recordUri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, cid, recordUri);
+  int get hashCode => Object.hash(runtimeType, $type, cid, recordUri,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -188,9 +221,11 @@ class _$RecordBlobImpl implements _RecordBlob {
 
 abstract class _RecordBlob implements RecordBlob {
   const factory _RecordBlob(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String cid,
-      @AtUriConverter() required final AtUri recordUri}) = _$RecordBlobImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String cid,
+          @AtUriConverter() required final AtUri recordUri,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RecordBlobImpl;
 
   factory _RecordBlob.fromJson(Map<String, dynamic> json) =
       _$RecordBlobImpl.fromJson;
@@ -207,6 +242,11 @@ abstract class _RecordBlob implements RecordBlob {
   @override
   @AtUriConverter()
   AtUri get recordUri;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordBlobImplCopyWith<_$RecordBlobImpl> get copyWith =>

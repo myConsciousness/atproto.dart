@@ -15,6 +15,13 @@ _$GetUnreadCountOutputImpl _$$GetUnreadCountOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$GetUnreadCountOutputImpl(
           count: $checkedConvert('count', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -24,4 +31,5 @@ Map<String, dynamic> _$$GetUnreadCountOutputImplToJson(
         _$GetUnreadCountOutputImpl instance) =>
     <String, dynamic>{
       'count': instance.count,
+      r'$unknown': instance.$unknown,
     };

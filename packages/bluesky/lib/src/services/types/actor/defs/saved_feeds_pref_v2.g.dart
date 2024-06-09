@@ -22,6 +22,13 @@ _$SavedFeedsPrefV2Impl _$$SavedFeedsPrefV2ImplFromJson(Map json) =>
                   .map((e) =>
                       SavedFeed.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -32,4 +39,5 @@ Map<String, dynamic> _$$SavedFeedsPrefV2ImplToJson(
     <String, dynamic>{
       r'$type': instance.$type,
       'items': instance.items.map((e) => e.toJson()).toList(),
+      r'$unknown': instance.$unknown,
     };

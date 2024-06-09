@@ -21,6 +21,13 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
                   .map((e) => LabelerPrefItem.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -30,4 +37,5 @@ Map<String, dynamic> _$$LabelersPrefImplToJson(_$LabelersPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'labelers': instance.labelers.map((e) => e.toJson()).toList(),
+      r'$unknown': instance.$unknown,
     };

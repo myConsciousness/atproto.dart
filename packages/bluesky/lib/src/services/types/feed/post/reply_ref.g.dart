@@ -19,6 +19,13 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
               (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
           parent: $checkedConvert('parent',
               (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -29,4 +36,5 @@ Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) =>
       r'$type': instance.$type,
       'root': instance.root.toJson(),
       'parent': instance.parent.toJson(),
+      r'$unknown': instance.$unknown,
     };

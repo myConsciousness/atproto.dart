@@ -28,6 +28,10 @@ mixin _$LabelerViewerState {
   @AtUriConverter()
   AtUri? get like => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelerViewerStateCopyWith<LabelerViewerState> get copyWith =>
@@ -41,7 +45,9 @@ abstract class $LabelerViewerStateCopyWith<$Res> {
       _$LabelerViewerStateCopyWithImpl<$Res, LabelerViewerState>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? like,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -59,6 +65,7 @@ class _$LabelerViewerStateCopyWithImpl<$Res, $Val extends LabelerViewerState>
   $Res call({
     Object? $type = null,
     Object? like = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -69,6 +76,10 @@ class _$LabelerViewerStateCopyWithImpl<$Res, $Val extends LabelerViewerState>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -82,7 +93,9 @@ abstract class _$$LabelerViewerStateImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, @AtUriConverter() AtUri? like});
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri? like,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -98,6 +111,7 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? like = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelerViewerStateImpl(
       $type: null == $type
@@ -108,6 +122,10 @@ class __$$LabelerViewerStateImplCopyWithImpl<$Res>
           ? _value.like
           : like // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -119,7 +137,10 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
   const _$LabelerViewerStateImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyLabelerDefsLabelerViewerState,
-      @AtUriConverter() this.like});
+      @AtUriConverter() this.like,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$LabelerViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelerViewerStateImplFromJson(json);
@@ -134,9 +155,21 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
   @AtUriConverter()
   final AtUri? like;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'LabelerViewerState(\$type: ${$type}, like: $like)';
+    return 'LabelerViewerState(\$type: ${$type}, like: $like, \$unknown: ${$unknown})';
   }
 
   @override
@@ -145,12 +178,14 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
         (other.runtimeType == runtimeType &&
             other is _$LabelerViewerStateImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.like, like) || other.like == like));
+            (identical(other.like, like) || other.like == like) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, like);
+  int get hashCode => Object.hash(
+      runtimeType, $type, like, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -169,8 +204,10 @@ class _$LabelerViewerStateImpl implements _LabelerViewerState {
 
 abstract class _LabelerViewerState implements LabelerViewerState {
   const factory _LabelerViewerState(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() final AtUri? like}) = _$LabelerViewerStateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() final AtUri? like,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$LabelerViewerStateImpl;
 
   factory _LabelerViewerState.fromJson(Map<String, dynamic> json) =
       _$LabelerViewerStateImpl.fromJson;
@@ -185,6 +222,11 @@ abstract class _LabelerViewerState implements LabelerViewerState {
   @override
   @AtUriConverter()
   AtUri? get like;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelerViewerStateImplCopyWith<_$LabelerViewerStateImpl> get copyWith =>

@@ -23,6 +23,10 @@ mixin _$GetAuthorFeedOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<FeedViewPost> get feed => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetAuthorFeedOutputCopyWith<GetAuthorFeedOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetAuthorFeedOutputCopyWith<$Res> {
           GetAuthorFeedOutput value, $Res Function(GetAuthorFeedOutput) then) =
       _$GetAuthorFeedOutputCopyWithImpl<$Res, GetAuthorFeedOutput>;
   @useResult
-  $Res call({String? cursor, List<FeedViewPost> feed});
+  $Res call(
+      {String? cursor,
+      List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$GetAuthorFeedOutputCopyWithImpl<$Res, $Val extends GetAuthorFeedOutput>
   $Res call({
     Object? cursor = freezed,
     Object? feed = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$GetAuthorFeedOutputCopyWithImpl<$Res, $Val extends GetAuthorFeedOutput>
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedViewPost>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$GetAuthorFeedOutputImplCopyWith<$Res>
       __$$GetAuthorFeedOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<FeedViewPost> feed});
+  $Res call(
+      {String? cursor,
+      List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$GetAuthorFeedOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? feed = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetAuthorFeedOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$GetAuthorFeedOutputImplCopyWithImpl<$Res>
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedViewPost>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,8 +130,12 @@ class __$$GetAuthorFeedOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
   const _$GetAuthorFeedOutputImpl(
-      {this.cursor, required final List<FeedViewPost> feed})
-      : _feed = feed;
+      {this.cursor,
+      required final List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _feed = feed,
+        _$unknown = $unknown;
 
   factory _$GetAuthorFeedOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetAuthorFeedOutputImplFromJson(json);
@@ -126,9 +150,21 @@ class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
     return EqualUnmodifiableListView(_feed);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetAuthorFeedOutput(cursor: $cursor, feed: $feed)';
+    return 'GetAuthorFeedOutput(cursor: $cursor, feed: $feed, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +173,17 @@ class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetAuthorFeedOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._feed, _feed));
+            const DeepCollectionEquality().equals(other._feed, _feed) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_feed));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_feed),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +202,10 @@ class _$GetAuthorFeedOutputImpl implements _GetAuthorFeedOutput {
 
 abstract class _GetAuthorFeedOutput implements GetAuthorFeedOutput {
   const factory _GetAuthorFeedOutput(
-      {final String? cursor,
-      required final List<FeedViewPost> feed}) = _$GetAuthorFeedOutputImpl;
+          {final String? cursor,
+          required final List<FeedViewPost> feed,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetAuthorFeedOutputImpl;
 
   factory _GetAuthorFeedOutput.fromJson(Map<String, dynamic> json) =
       _$GetAuthorFeedOutputImpl.fromJson;
@@ -172,6 +214,11 @@ abstract class _GetAuthorFeedOutput implements GetAuthorFeedOutput {
   String? get cursor;
   @override
   List<FeedViewPost> get feed;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetAuthorFeedOutputImplCopyWith<_$GetAuthorFeedOutputImpl> get copyWith =>

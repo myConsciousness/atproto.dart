@@ -31,6 +31,10 @@ mixin _$Entity {
   String get type => throw _privateConstructorUsedError;
   String get value => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $EntityCopyWith<Entity> get copyWith => throw _privateConstructorUsedError;
@@ -45,7 +49,8 @@ abstract class $EntityCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       TextSlice index,
       String type,
-      String value});
+      String value,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $TextSliceCopyWith<$Res> get index;
 }
@@ -67,6 +72,7 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
     Object? index = null,
     Object? type = null,
     Object? value = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -85,6 +91,10 @@ class _$EntityCopyWithImpl<$Res, $Val extends Entity>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -108,7 +118,8 @@ abstract class _$$EntityImplCopyWith<$Res> implements $EntityCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       TextSlice index,
       String type,
-      String value});
+      String value,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $TextSliceCopyWith<$Res> get index;
@@ -129,6 +140,7 @@ class __$$EntityImplCopyWithImpl<$Res>
     Object? index = null,
     Object? type = null,
     Object? value = null,
+    Object? $unknown = null,
   }) {
     return _then(_$EntityImpl(
       $type: null == $type
@@ -147,6 +159,10 @@ class __$$EntityImplCopyWithImpl<$Res>
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -159,7 +175,10 @@ class _$EntityImpl implements _Entity {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedPostEntity,
       required this.index,
       required this.type,
-      required this.value});
+      required this.value,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$EntityImpl.fromJson(Map<String, dynamic> json) =>
       _$$EntityImplFromJson(json);
@@ -179,9 +198,21 @@ class _$EntityImpl implements _Entity {
   @override
   final String value;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Entity(\$type: ${$type}, index: $index, type: $type, value: $value)';
+    return 'Entity(\$type: ${$type}, index: $index, type: $type, value: $value, \$unknown: ${$unknown})';
   }
 
   @override
@@ -192,12 +223,14 @@ class _$EntityImpl implements _Entity {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.index, index) || other.index == index) &&
             (identical(other.type, type) || other.type == type) &&
-            (identical(other.value, value) || other.value == value));
+            (identical(other.value, value) || other.value == value) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, index, type, value);
+  int get hashCode => Object.hash(runtimeType, $type, index, type, value,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -215,10 +248,12 @@ class _$EntityImpl implements _Entity {
 
 abstract class _Entity implements Entity {
   const factory _Entity(
-      {@JsonKey(name: r'$type') final String $type,
-      required final TextSlice index,
-      required final String type,
-      required final String value}) = _$EntityImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final TextSlice index,
+          required final String type,
+          required final String value,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$EntityImpl;
 
   factory _Entity.fromJson(Map<String, dynamic> json) = _$EntityImpl.fromJson;
 
@@ -237,6 +272,11 @@ abstract class _Entity implements Entity {
   String get type;
   @override
   String get value;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$EntityImplCopyWith<_$EntityImpl> get copyWith =>

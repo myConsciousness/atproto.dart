@@ -28,6 +28,13 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
                   .map((e) => InviteCodeUse.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -43,4 +50,5 @@ Map<String, dynamic> _$$InviteCodeImplToJson(_$InviteCodeImpl instance) =>
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt.toIso8601String(),
       'uses': instance.uses.map((e) => e.toJson()).toList(),
+      r'$unknown': instance.$unknown,
     };

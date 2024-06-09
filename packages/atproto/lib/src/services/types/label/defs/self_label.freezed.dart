@@ -29,6 +29,10 @@ mixin _$SelfLabel {
   /// The short string name of the value or type of this label.
   String get val => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SelfLabelCopyWith<SelfLabel> get copyWith =>
@@ -40,7 +44,10 @@ abstract class $SelfLabelCopyWith<$Res> {
   factory $SelfLabelCopyWith(SelfLabel value, $Res Function(SelfLabel) then) =
       _$SelfLabelCopyWithImpl<$Res, SelfLabel>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String val});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String val,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +65,7 @@ class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
   $Res call({
     Object? $type = null,
     Object? val = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -68,6 +76,10 @@ class _$SelfLabelCopyWithImpl<$Res, $Val extends SelfLabel>
           ? _value.val
           : val // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -80,7 +92,10 @@ abstract class _$$SelfLabelImplCopyWith<$Res>
       __$$SelfLabelImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String val});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String val,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -96,6 +111,7 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? val = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SelfLabelImpl(
       $type: null == $type
@@ -106,6 +122,10 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
           ? _value.val
           : val // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -116,7 +136,10 @@ class __$$SelfLabelImplCopyWithImpl<$Res>
 class _$SelfLabelImpl implements _SelfLabel {
   const _$SelfLabelImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoLabelDefsSelfLabel,
-      required this.val});
+      required this.val,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SelfLabelImpl.fromJson(Map<String, dynamic> json) =>
       _$$SelfLabelImplFromJson(json);
@@ -132,9 +155,21 @@ class _$SelfLabelImpl implements _SelfLabel {
   @override
   final String val;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SelfLabel(\$type: ${$type}, val: $val)';
+    return 'SelfLabel(\$type: ${$type}, val: $val, \$unknown: ${$unknown})';
   }
 
   @override
@@ -143,12 +178,14 @@ class _$SelfLabelImpl implements _SelfLabel {
         (other.runtimeType == runtimeType &&
             other is _$SelfLabelImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.val, val) || other.val == val));
+            (identical(other.val, val) || other.val == val) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, val);
+  int get hashCode => Object.hash(
+      runtimeType, $type, val, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -166,8 +203,10 @@ class _$SelfLabelImpl implements _SelfLabel {
 
 abstract class _SelfLabel implements SelfLabel {
   const factory _SelfLabel(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String val}) = _$SelfLabelImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String val,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SelfLabelImpl;
 
   factory _SelfLabel.fromJson(Map<String, dynamic> json) =
       _$SelfLabelImpl.fromJson;
@@ -183,6 +222,11 @@ abstract class _SelfLabel implements SelfLabel {
 
   /// The short string name of the value or type of this label.
   String get val;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SelfLabelImplCopyWith<_$SelfLabelImpl> get copyWith =>

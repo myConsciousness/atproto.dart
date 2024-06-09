@@ -22,6 +22,13 @@ _$LabelsImpl _$$LabelsImplFromJson(Map json) => $checkedCreate(
                   .map((e) =>
                       Label.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -32,4 +39,5 @@ Map<String, dynamic> _$$LabelsImplToJson(_$LabelsImpl instance) =>
       r'$type': instance.$type,
       'seq': instance.seq,
       'labels': instance.labels.map((e) => e.toJson()).toList(),
+      r'$unknown': instance.$unknown,
     };

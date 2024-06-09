@@ -30,6 +30,10 @@ mixin _$RecordViewBlocked {
   bool get blocked => throw _privateConstructorUsedError;
   BlockedAuthor get author => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordViewBlockedCopyWith<RecordViewBlocked> get copyWith =>
@@ -46,7 +50,8 @@ abstract class $RecordViewBlockedCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      BlockedAuthor author,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlockedAuthorCopyWith<$Res> get author;
 }
@@ -68,6 +73,7 @@ class _$RecordViewBlockedCopyWithImpl<$Res, $Val extends RecordViewBlocked>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,6 +92,10 @@ class _$RecordViewBlockedCopyWithImpl<$Res, $Val extends RecordViewBlocked>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -110,7 +120,8 @@ abstract class _$$RecordViewBlockedImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @AtUriConverter() AtUri uri,
       bool blocked,
-      BlockedAuthor author});
+      BlockedAuthor author,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $BlockedAuthorCopyWith<$Res> get author;
@@ -131,6 +142,7 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
     Object? uri = null,
     Object? blocked = null,
     Object? author = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordViewBlockedImpl(
       $type: null == $type
@@ -149,6 +161,10 @@ class __$$RecordViewBlockedImplCopyWithImpl<$Res>
           ? _value.author
           : author // ignore: cast_nullable_to_non_nullable
               as BlockedAuthor,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -161,7 +177,10 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordViewBlocked,
       @AtUriConverter() required this.uri,
       required this.blocked,
-      required this.author});
+      required this.author,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordViewBlockedImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordViewBlockedImplFromJson(json);
@@ -180,9 +199,21 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
   @override
   final BlockedAuthor author;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RecordViewBlocked(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author)';
+    return 'RecordViewBlocked(\$type: ${$type}, uri: $uri, blocked: $blocked, author: $author, \$unknown: ${$unknown})';
   }
 
   @override
@@ -193,12 +224,14 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.blocked, blocked) || other.blocked == blocked) &&
-            (identical(other.author, author) || other.author == author));
+            (identical(other.author, author) || other.author == author) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author);
+  int get hashCode => Object.hash(runtimeType, $type, uri, blocked, author,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -217,10 +250,12 @@ class _$RecordViewBlockedImpl implements _RecordViewBlocked {
 
 abstract class _RecordViewBlocked implements RecordViewBlocked {
   const factory _RecordViewBlocked(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final bool blocked,
-      required final BlockedAuthor author}) = _$RecordViewBlockedImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final bool blocked,
+          required final BlockedAuthor author,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RecordViewBlockedImpl;
 
   factory _RecordViewBlocked.fromJson(Map<String, dynamic> json) =
       _$RecordViewBlockedImpl.fromJson;
@@ -239,6 +274,11 @@ abstract class _RecordViewBlocked implements RecordViewBlocked {
   bool get blocked;
   @override
   BlockedAuthor get author;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordViewBlockedImplCopyWith<_$RecordViewBlockedImpl> get copyWith =>

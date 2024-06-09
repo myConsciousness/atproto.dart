@@ -31,6 +31,10 @@ mixin _$ThreadgateView {
   ThreadgateRecord? get record => throw _privateConstructorUsedError;
   List<ListViewBasic>? get lists => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ThreadgateViewCopyWith<ThreadgateView> get copyWith =>
@@ -48,7 +52,8 @@ abstract class $ThreadgateViewCopyWith<$Res> {
       @AtUriConverter() AtUri? uri,
       String? cid,
       ThreadgateRecord? record,
-      List<ListViewBasic>? lists});
+      List<ListViewBasic>? lists,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ThreadgateRecordCopyWith<$Res>? get record;
 }
@@ -71,6 +76,7 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
     Object? cid = freezed,
     Object? record = freezed,
     Object? lists = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -93,6 +99,10 @@ class _$ThreadgateViewCopyWithImpl<$Res, $Val extends ThreadgateView>
           ? _value.lists
           : lists // ignore: cast_nullable_to_non_nullable
               as List<ListViewBasic>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -122,7 +132,8 @@ abstract class _$$ThreadgateViewImplCopyWith<$Res>
       @AtUriConverter() AtUri? uri,
       String? cid,
       ThreadgateRecord? record,
-      List<ListViewBasic>? lists});
+      List<ListViewBasic>? lists,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ThreadgateRecordCopyWith<$Res>? get record;
@@ -144,6 +155,7 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
     Object? cid = freezed,
     Object? record = freezed,
     Object? lists = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ThreadgateViewImpl(
       $type: null == $type
@@ -166,6 +178,10 @@ class __$$ThreadgateViewImplCopyWithImpl<$Res>
           ? _value._lists
           : lists // ignore: cast_nullable_to_non_nullable
               as List<ListViewBasic>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -179,8 +195,11 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
       @AtUriConverter() this.uri,
       this.cid,
       this.record,
-      final List<ListViewBasic>? lists})
-      : _lists = lists;
+      final List<ListViewBasic>? lists,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _lists = lists,
+        _$unknown = $unknown;
 
   factory _$ThreadgateViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateViewImplFromJson(json);
@@ -208,9 +227,21 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ThreadgateView(\$type: ${$type}, uri: $uri, cid: $cid, record: $record, lists: $lists)';
+    return 'ThreadgateView(\$type: ${$type}, uri: $uri, cid: $cid, record: $record, lists: $lists, \$unknown: ${$unknown})';
   }
 
   @override
@@ -222,13 +253,20 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.record, record) || other.record == record) &&
-            const DeepCollectionEquality().equals(other._lists, _lists));
+            const DeepCollectionEquality().equals(other._lists, _lists) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, cid, record,
-      const DeepCollectionEquality().hash(_lists));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      uri,
+      cid,
+      record,
+      const DeepCollectionEquality().hash(_lists),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -247,11 +285,13 @@ class _$ThreadgateViewImpl implements _ThreadgateView {
 
 abstract class _ThreadgateView implements ThreadgateView {
   const factory _ThreadgateView(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() final AtUri? uri,
-      final String? cid,
-      final ThreadgateRecord? record,
-      final List<ListViewBasic>? lists}) = _$ThreadgateViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() final AtUri? uri,
+          final String? cid,
+          final ThreadgateRecord? record,
+          final List<ListViewBasic>? lists,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ThreadgateViewImpl;
 
   factory _ThreadgateView.fromJson(Map<String, dynamic> json) =
       _$ThreadgateViewImpl.fromJson;
@@ -272,6 +312,11 @@ abstract class _ThreadgateView implements ThreadgateView {
   ThreadgateRecord? get record;
   @override
   List<ListViewBasic>? get lists;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ThreadgateViewImplCopyWith<_$ThreadgateViewImpl> get copyWith =>

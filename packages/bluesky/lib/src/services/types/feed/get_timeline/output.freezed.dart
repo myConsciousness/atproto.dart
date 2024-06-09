@@ -23,6 +23,10 @@ mixin _$GetTimelineOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<FeedViewPost> get feed => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetTimelineOutputCopyWith<GetTimelineOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetTimelineOutputCopyWith<$Res> {
           GetTimelineOutput value, $Res Function(GetTimelineOutput) then) =
       _$GetTimelineOutputCopyWithImpl<$Res, GetTimelineOutput>;
   @useResult
-  $Res call({String? cursor, List<FeedViewPost> feed});
+  $Res call(
+      {String? cursor,
+      List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -53,6 +60,7 @@ class _$GetTimelineOutputCopyWithImpl<$Res, $Val extends GetTimelineOutput>
   $Res call({
     Object? cursor = freezed,
     Object? feed = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -63,6 +71,10 @@ class _$GetTimelineOutputCopyWithImpl<$Res, $Val extends GetTimelineOutput>
           ? _value.feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedViewPost>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -75,7 +87,10 @@ abstract class _$$GetTimelineOutputImplCopyWith<$Res>
       __$$GetTimelineOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<FeedViewPost> feed});
+  $Res call(
+      {String? cursor,
+      List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,6 +106,7 @@ class __$$GetTimelineOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? feed = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetTimelineOutputImpl(
       cursor: freezed == cursor
@@ -101,6 +117,10 @@ class __$$GetTimelineOutputImplCopyWithImpl<$Res>
           ? _value._feed
           : feed // ignore: cast_nullable_to_non_nullable
               as List<FeedViewPost>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,8 +130,12 @@ class __$$GetTimelineOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetTimelineOutputImpl implements _GetTimelineOutput {
   const _$GetTimelineOutputImpl(
-      {this.cursor, required final List<FeedViewPost> feed})
-      : _feed = feed;
+      {this.cursor,
+      required final List<FeedViewPost> feed,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _feed = feed,
+        _$unknown = $unknown;
 
   factory _$GetTimelineOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetTimelineOutputImplFromJson(json);
@@ -126,9 +150,21 @@ class _$GetTimelineOutputImpl implements _GetTimelineOutput {
     return EqualUnmodifiableListView(_feed);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetTimelineOutput(cursor: $cursor, feed: $feed)';
+    return 'GetTimelineOutput(cursor: $cursor, feed: $feed, \$unknown: ${$unknown})';
   }
 
   @override
@@ -137,13 +173,17 @@ class _$GetTimelineOutputImpl implements _GetTimelineOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetTimelineOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._feed, _feed));
+            const DeepCollectionEquality().equals(other._feed, _feed) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_feed));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_feed),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -162,8 +202,10 @@ class _$GetTimelineOutputImpl implements _GetTimelineOutput {
 
 abstract class _GetTimelineOutput implements GetTimelineOutput {
   const factory _GetTimelineOutput(
-      {final String? cursor,
-      required final List<FeedViewPost> feed}) = _$GetTimelineOutputImpl;
+          {final String? cursor,
+          required final List<FeedViewPost> feed,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetTimelineOutputImpl;
 
   factory _GetTimelineOutput.fromJson(Map<String, dynamic> json) =
       _$GetTimelineOutputImpl.fromJson;
@@ -172,6 +214,11 @@ abstract class _GetTimelineOutput implements GetTimelineOutput {
   String? get cursor;
   @override
   List<FeedViewPost> get feed;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetTimelineOutputImplCopyWith<_$GetTimelineOutputImpl> get copyWith =>

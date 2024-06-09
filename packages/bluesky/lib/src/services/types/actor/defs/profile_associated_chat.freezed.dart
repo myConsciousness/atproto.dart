@@ -29,6 +29,10 @@ mixin _$ProfileAssociatedChat {
   @UAllowIncomingConverter()
   UAllowIncoming get allowIncoming => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileAssociatedChatCopyWith<ProfileAssociatedChat> get copyWith =>
@@ -43,7 +47,8 @@ abstract class $ProfileAssociatedChatCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UAllowIncomingConverter() UAllowIncoming allowIncoming});
+      @UAllowIncomingConverter() UAllowIncoming allowIncoming,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UAllowIncomingCopyWith<$Res> get allowIncoming;
 }
@@ -64,6 +69,7 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res,
   $Res call({
     Object? $type = null,
     Object? allowIncoming = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -74,6 +80,10 @@ class _$ProfileAssociatedChatCopyWithImpl<$Res,
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
               as UAllowIncoming,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -97,7 +107,8 @@ abstract class _$$ProfileAssociatedChatImplCopyWith<$Res>
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      @UAllowIncomingConverter() UAllowIncoming allowIncoming});
+      @UAllowIncomingConverter() UAllowIncoming allowIncoming,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UAllowIncomingCopyWith<$Res> get allowIncoming;
@@ -117,6 +128,7 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? allowIncoming = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ProfileAssociatedChatImpl(
       $type: null == $type
@@ -127,6 +139,10 @@ class __$$ProfileAssociatedChatImplCopyWithImpl<$Res>
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
               as UAllowIncoming,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -138,7 +154,10 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
   const _$ProfileAssociatedChatImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyActorDefsProfileAssociatedChat,
-      @UAllowIncomingConverter() required this.allowIncoming});
+      @UAllowIncomingConverter() required this.allowIncoming,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ProfileAssociatedChatImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileAssociatedChatImplFromJson(json);
@@ -153,9 +172,21 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
   @UAllowIncomingConverter()
   final UAllowIncoming allowIncoming;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ProfileAssociatedChat(\$type: ${$type}, allowIncoming: $allowIncoming)';
+    return 'ProfileAssociatedChat(\$type: ${$type}, allowIncoming: $allowIncoming, \$unknown: ${$unknown})';
   }
 
   @override
@@ -165,12 +196,14 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
             other is _$ProfileAssociatedChatImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.allowIncoming, allowIncoming) ||
-                other.allowIncoming == allowIncoming));
+                other.allowIncoming == allowIncoming) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, allowIncoming);
+  int get hashCode => Object.hash(runtimeType, $type, allowIncoming,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -189,10 +222,10 @@ class _$ProfileAssociatedChatImpl implements _ProfileAssociatedChat {
 
 abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
   const factory _ProfileAssociatedChat(
-          {@JsonKey(name: r'$type') final String $type,
-          @UAllowIncomingConverter()
-          required final UAllowIncoming allowIncoming}) =
-      _$ProfileAssociatedChatImpl;
+      {@JsonKey(name: r'$type') final String $type,
+      @UAllowIncomingConverter() required final UAllowIncoming allowIncoming,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown}) = _$ProfileAssociatedChatImpl;
 
   factory _ProfileAssociatedChat.fromJson(Map<String, dynamic> json) =
       _$ProfileAssociatedChatImpl.fromJson;
@@ -207,6 +240,11 @@ abstract class _ProfileAssociatedChat implements ProfileAssociatedChat {
   @override
   @UAllowIncomingConverter()
   UAllowIncoming get allowIncoming;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ProfileAssociatedChatImplCopyWith<_$ProfileAssociatedChatImpl>

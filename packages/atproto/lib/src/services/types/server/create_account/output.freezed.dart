@@ -30,6 +30,10 @@ mixin _$CreateAccountOutput {
   /// Complete DID document.
   Map<String, dynamic>? get didDoc => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CreateAccountOutputCopyWith<CreateAccountOutput> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $CreateAccountOutputCopyWith<$Res> {
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic>? didDoc});
+      Map<String, dynamic>? didDoc,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -68,6 +73,7 @@ class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
     Object? handle = null,
     Object? did = null,
     Object? didDoc = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       accessJwt: null == accessJwt
@@ -90,6 +96,10 @@ class _$CreateAccountOutputCopyWithImpl<$Res, $Val extends CreateAccountOutput>
           ? _value.didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -107,7 +117,8 @@ abstract class _$$CreateAccountOutputImplCopyWith<$Res>
       String refreshJwt,
       String handle,
       String did,
-      Map<String, dynamic>? didDoc});
+      Map<String, dynamic>? didDoc,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -126,6 +137,7 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
     Object? handle = null,
     Object? did = null,
     Object? didDoc = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$CreateAccountOutputImpl(
       accessJwt: null == accessJwt
@@ -148,6 +160,10 @@ class __$$CreateAccountOutputImplCopyWithImpl<$Res>
           ? _value._didDoc
           : didDoc // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -161,8 +177,11 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
       required this.refreshJwt,
       required this.handle,
       required this.did,
-      final Map<String, dynamic>? didDoc})
-      : _didDoc = didDoc;
+      final Map<String, dynamic>? didDoc,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _didDoc = didDoc,
+        _$unknown = $unknown;
 
   factory _$CreateAccountOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CreateAccountOutputImplFromJson(json);
@@ -191,9 +210,21 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
     return EqualUnmodifiableMapView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc)';
+    return 'CreateAccountOutput(accessJwt: $accessJwt, refreshJwt: $refreshJwt, handle: $handle, did: $did, didDoc: $didDoc, \$unknown: ${$unknown})';
   }
 
   @override
@@ -207,13 +238,20 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
                 other.refreshJwt == refreshJwt) &&
             (identical(other.handle, handle) || other.handle == handle) &&
             (identical(other.did, did) || other.did == did) &&
-            const DeepCollectionEquality().equals(other._didDoc, _didDoc));
+            const DeepCollectionEquality().equals(other._didDoc, _didDoc) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, accessJwt, refreshJwt, handle,
-      did, const DeepCollectionEquality().hash(_didDoc));
+  int get hashCode => Object.hash(
+      runtimeType,
+      accessJwt,
+      refreshJwt,
+      handle,
+      did,
+      const DeepCollectionEquality().hash(_didDoc),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -232,11 +270,13 @@ class _$CreateAccountOutputImpl implements _CreateAccountOutput {
 
 abstract class _CreateAccountOutput implements CreateAccountOutput {
   const factory _CreateAccountOutput(
-      {required final String accessJwt,
-      required final String refreshJwt,
-      required final String handle,
-      required final String did,
-      final Map<String, dynamic>? didDoc}) = _$CreateAccountOutputImpl;
+          {required final String accessJwt,
+          required final String refreshJwt,
+          required final String handle,
+          required final String did,
+          final Map<String, dynamic>? didDoc,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CreateAccountOutputImpl;
 
   factory _CreateAccountOutput.fromJson(Map<String, dynamic> json) =
       _$CreateAccountOutputImpl.fromJson;
@@ -255,6 +295,11 @@ abstract class _CreateAccountOutput implements CreateAccountOutput {
 
   /// Complete DID document.
   Map<String, dynamic>? get didDoc;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CreateAccountOutputImplCopyWith<_$CreateAccountOutputImpl> get copyWith =>

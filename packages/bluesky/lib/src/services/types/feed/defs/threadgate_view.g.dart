@@ -32,6 +32,13 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
                   ?.map((e) => ListViewBasic.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -56,6 +63,7 @@ Map<String, dynamic> _$$ThreadgateViewImplToJson(
   writeNotNull('cid', instance.cid);
   writeNotNull('record', instance.record?.toJson());
   writeNotNull('lists', instance.lists?.map((e) => e.toJson()).toList());
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

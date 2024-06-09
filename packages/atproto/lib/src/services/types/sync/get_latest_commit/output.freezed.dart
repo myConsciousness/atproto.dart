@@ -24,6 +24,10 @@ mixin _$GetLatestCommitOutput {
   String get cid => throw _privateConstructorUsedError;
   String get rev => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetLatestCommitOutputCopyWith<GetLatestCommitOutput> get copyWith =>
@@ -36,7 +40,10 @@ abstract class $GetLatestCommitOutputCopyWith<$Res> {
           $Res Function(GetLatestCommitOutput) then) =
       _$GetLatestCommitOutputCopyWithImpl<$Res, GetLatestCommitOutput>;
   @useResult
-  $Res call({String cid, String rev});
+  $Res call(
+      {String cid,
+      String rev,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,6 +62,7 @@ class _$GetLatestCommitOutputCopyWithImpl<$Res,
   $Res call({
     Object? cid = null,
     Object? rev = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cid: null == cid
@@ -65,6 +73,10 @@ class _$GetLatestCommitOutputCopyWithImpl<$Res,
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -78,7 +90,10 @@ abstract class _$$GetLatestCommitOutputImplCopyWith<$Res>
       __$$GetLatestCommitOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String cid, String rev});
+  $Res call(
+      {String cid,
+      String rev,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -95,6 +110,7 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cid = null,
     Object? rev = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetLatestCommitOutputImpl(
       cid: null == cid
@@ -105,6 +121,10 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -113,7 +133,12 @@ class __$$GetLatestCommitOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
-  const _$GetLatestCommitOutputImpl({required this.cid, required this.rev});
+  const _$GetLatestCommitOutputImpl(
+      {required this.cid,
+      required this.rev,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetLatestCommitOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetLatestCommitOutputImplFromJson(json);
@@ -123,9 +148,21 @@ class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
   @override
   final String rev;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetLatestCommitOutput(cid: $cid, rev: $rev)';
+    return 'GetLatestCommitOutput(cid: $cid, rev: $rev, \$unknown: ${$unknown})';
   }
 
   @override
@@ -134,12 +171,14 @@ class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetLatestCommitOutputImpl &&
             (identical(other.cid, cid) || other.cid == cid) &&
-            (identical(other.rev, rev) || other.rev == rev));
+            (identical(other.rev, rev) || other.rev == rev) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, cid, rev);
+  int get hashCode => Object.hash(
+      runtimeType, cid, rev, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -158,8 +197,10 @@ class _$GetLatestCommitOutputImpl implements _GetLatestCommitOutput {
 
 abstract class _GetLatestCommitOutput implements GetLatestCommitOutput {
   const factory _GetLatestCommitOutput(
-      {required final String cid,
-      required final String rev}) = _$GetLatestCommitOutputImpl;
+          {required final String cid,
+          required final String rev,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetLatestCommitOutputImpl;
 
   factory _GetLatestCommitOutput.fromJson(Map<String, dynamic> json) =
       _$GetLatestCommitOutputImpl.fromJson;
@@ -168,6 +209,11 @@ abstract class _GetLatestCommitOutput implements GetLatestCommitOutput {
   String get cid;
   @override
   String get rev;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetLatestCommitOutputImplCopyWith<_$GetLatestCommitOutputImpl>

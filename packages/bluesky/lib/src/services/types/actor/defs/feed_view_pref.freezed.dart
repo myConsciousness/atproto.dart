@@ -44,6 +44,10 @@ mixin _$FeedViewPref {
   /// Hide quote posts in the feed.
   bool get hideQuotePosts => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedViewPrefCopyWith<FeedViewPref> get copyWith =>
@@ -63,7 +67,8 @@ abstract class $FeedViewPrefCopyWith<$Res> {
       bool hideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
       bool hideReposts,
-      bool hideQuotePosts});
+      bool hideQuotePosts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -86,6 +91,7 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
     Object? hideRepliesByLikeCount = null,
     Object? hideReposts = null,
     Object? hideQuotePosts = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -116,6 +122,10 @@ class _$FeedViewPrefCopyWithImpl<$Res, $Val extends FeedViewPref>
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -135,7 +145,8 @@ abstract class _$$FeedViewPrefImplCopyWith<$Res>
       bool hideRepliesByUnfollowed,
       int hideRepliesByLikeCount,
       bool hideReposts,
-      bool hideQuotePosts});
+      bool hideQuotePosts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -156,6 +167,7 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
     Object? hideRepliesByLikeCount = null,
     Object? hideReposts = null,
     Object? hideQuotePosts = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FeedViewPrefImpl(
       $type: null == $type
@@ -186,6 +198,10 @@ class __$$FeedViewPrefImplCopyWithImpl<$Res>
           ? _value.hideQuotePosts
           : hideQuotePosts // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -201,7 +217,10 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
       this.hideRepliesByUnfollowed = true,
       this.hideRepliesByLikeCount = 0,
       this.hideReposts = false,
-      this.hideQuotePosts = false});
+      this.hideQuotePosts = false,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FeedViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPrefImplFromJson(json);
@@ -242,9 +261,21 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
   @JsonKey()
   final bool hideQuotePosts;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FeedViewPref(\$type: ${$type}, feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts)';
+    return 'FeedViewPref(\$type: ${$type}, feed: $feed, hideReplies: $hideReplies, hideRepliesByUnfollowed: $hideRepliesByUnfollowed, hideRepliesByLikeCount: $hideRepliesByLikeCount, hideReposts: $hideReposts, hideQuotePosts: $hideQuotePosts, \$unknown: ${$unknown})';
   }
 
   @override
@@ -264,7 +295,8 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
             (identical(other.hideReposts, hideReposts) ||
                 other.hideReposts == hideReposts) &&
             (identical(other.hideQuotePosts, hideQuotePosts) ||
-                other.hideQuotePosts == hideQuotePosts));
+                other.hideQuotePosts == hideQuotePosts) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -277,7 +309,8 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
       hideRepliesByUnfollowed,
       hideRepliesByLikeCount,
       hideReposts,
-      hideQuotePosts);
+      hideQuotePosts,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -295,13 +328,15 @@ class _$FeedViewPrefImpl implements _FeedViewPref {
 
 abstract class _FeedViewPref implements FeedViewPref {
   const factory _FeedViewPref(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String feed,
-      final bool hideReplies,
-      final bool hideRepliesByUnfollowed,
-      final int hideRepliesByLikeCount,
-      final bool hideReposts,
-      final bool hideQuotePosts}) = _$FeedViewPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String feed,
+          final bool hideReplies,
+          final bool hideRepliesByUnfollowed,
+          final int hideRepliesByLikeCount,
+          final bool hideReposts,
+          final bool hideQuotePosts,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FeedViewPrefImpl;
 
   factory _FeedViewPref.fromJson(Map<String, dynamic> json) =
       _$FeedViewPrefImpl.fromJson;
@@ -337,6 +372,11 @@ abstract class _FeedViewPref implements FeedViewPref {
 
   /// Hide quote posts in the feed.
   bool get hideQuotePosts;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewPrefImplCopyWith<_$FeedViewPrefImpl> get copyWith =>

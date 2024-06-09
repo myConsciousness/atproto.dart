@@ -28,6 +28,10 @@ mixin _$TextSlice {
   int get start => throw _privateConstructorUsedError;
   int get end => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TextSliceCopyWith<TextSlice> get copyWith =>
@@ -39,7 +43,11 @@ abstract class $TextSliceCopyWith<$Res> {
   factory $TextSliceCopyWith(TextSlice value, $Res Function(TextSlice) then) =
       _$TextSliceCopyWithImpl<$Res, TextSlice>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, int start, int end});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int start,
+      int end,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +66,7 @@ class _$TextSliceCopyWithImpl<$Res, $Val extends TextSlice>
     Object? $type = null,
     Object? start = null,
     Object? end = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -72,6 +81,10 @@ class _$TextSliceCopyWithImpl<$Res, $Val extends TextSlice>
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -84,7 +97,11 @@ abstract class _$$TextSliceImplCopyWith<$Res>
       __$$TextSliceImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, int start, int end});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      int start,
+      int end,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -101,6 +118,7 @@ class __$$TextSliceImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? start = null,
     Object? end = null,
+    Object? $unknown = null,
   }) {
     return _then(_$TextSliceImpl(
       $type: null == $type
@@ -115,6 +133,10 @@ class __$$TextSliceImplCopyWithImpl<$Res>
           ? _value.end
           : end // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -126,7 +148,10 @@ class _$TextSliceImpl implements _TextSlice {
   const _$TextSliceImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedPostTextSlice,
       required this.start,
-      required this.end});
+      required this.end,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$TextSliceImpl.fromJson(Map<String, dynamic> json) =>
       _$$TextSliceImplFromJson(json);
@@ -142,9 +167,21 @@ class _$TextSliceImpl implements _TextSlice {
   @override
   final int end;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'TextSlice(\$type: ${$type}, start: $start, end: $end)';
+    return 'TextSlice(\$type: ${$type}, start: $start, end: $end, \$unknown: ${$unknown})';
   }
 
   @override
@@ -154,12 +191,14 @@ class _$TextSliceImpl implements _TextSlice {
             other is _$TextSliceImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.start, start) || other.start == start) &&
-            (identical(other.end, end) || other.end == end));
+            (identical(other.end, end) || other.end == end) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, start, end);
+  int get hashCode => Object.hash(runtimeType, $type, start, end,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -177,9 +216,11 @@ class _$TextSliceImpl implements _TextSlice {
 
 abstract class _TextSlice implements TextSlice {
   const factory _TextSlice(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int start,
-      required final int end}) = _$TextSliceImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int start,
+          required final int end,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$TextSliceImpl;
 
   factory _TextSlice.fromJson(Map<String, dynamic> json) =
       _$TextSliceImpl.fromJson;
@@ -195,6 +236,11 @@ abstract class _TextSlice implements TextSlice {
   int get start;
   @override
   int get end;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$TextSliceImplCopyWith<_$TextSliceImpl> get copyWith =>

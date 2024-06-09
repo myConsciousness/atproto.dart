@@ -16,6 +16,13 @@ _$RepoRefImpl _$$RepoRefImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoAdminDefsRepoRef),
           did: $checkedConvert('did', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -25,4 +32,5 @@ Map<String, dynamic> _$$RepoRefImplToJson(_$RepoRefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
+      r'$unknown': instance.$unknown,
     };

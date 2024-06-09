@@ -30,6 +30,10 @@ mixin _$Migrate {
   String get migrateTo => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MigrateCopyWith<Migrate> get copyWith => throw _privateConstructorUsedError;
@@ -45,7 +49,8 @@ abstract class $MigrateCopyWith<$Res> {
       int seq,
       String did,
       String migrateTo,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -66,6 +71,7 @@ class _$MigrateCopyWithImpl<$Res, $Val extends Migrate>
     Object? did = null,
     Object? migrateTo = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -88,6 +94,10 @@ class _$MigrateCopyWithImpl<$Res, $Val extends Migrate>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -104,7 +114,8 @@ abstract class _$$MigrateImplCopyWith<$Res> implements $MigrateCopyWith<$Res> {
       int seq,
       String did,
       String migrateTo,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -123,6 +134,7 @@ class __$$MigrateImplCopyWithImpl<$Res>
     Object? did = null,
     Object? migrateTo = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_$MigrateImpl(
       $type: null == $type
@@ -145,6 +157,10 @@ class __$$MigrateImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -159,7 +175,10 @@ class _$MigrateImpl implements _Migrate {
       required this.seq,
       required this.did,
       required this.migrateTo,
-      required this.time});
+      required this.time,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$MigrateImpl.fromJson(Map<String, dynamic> json) =>
       _$$MigrateImplFromJson(json);
@@ -179,9 +198,21 @@ class _$MigrateImpl implements _Migrate {
   @override
   final DateTime time;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Migrate(\$type: ${$type}, seq: $seq, did: $did, migrateTo: $migrateTo, time: $time)';
+    return 'Migrate(\$type: ${$type}, seq: $seq, did: $did, migrateTo: $migrateTo, time: $time, \$unknown: ${$unknown})';
   }
 
   @override
@@ -194,13 +225,14 @@ class _$MigrateImpl implements _Migrate {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.migrateTo, migrateTo) ||
                 other.migrateTo == migrateTo) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, seq, did, migrateTo, time);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, migrateTo, time,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -218,11 +250,13 @@ class _$MigrateImpl implements _Migrate {
 
 abstract class _Migrate implements Migrate {
   const factory _Migrate(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final String did,
-      required final String migrateTo,
-      required final DateTime time}) = _$MigrateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final String did,
+          required final String migrateTo,
+          required final DateTime time,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$MigrateImpl;
 
   factory _Migrate.fromJson(Map<String, dynamic> json) = _$MigrateImpl.fromJson;
 
@@ -241,6 +275,11 @@ abstract class _Migrate implements Migrate {
   String get migrateTo;
   @override
   DateTime get time;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MigrateImplCopyWith<_$MigrateImpl> get copyWith =>

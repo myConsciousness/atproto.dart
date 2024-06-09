@@ -46,6 +46,10 @@ mixin _$LabelValueDefinition {
   List<LabelValueDefinitionStrings> get locales =>
       throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $LabelValueDefinitionCopyWith<LabelValueDefinition> get copyWith =>
@@ -65,7 +69,8 @@ abstract class $LabelValueDefinitionCopyWith<$Res> {
       @UBlurConverter() UBlur blurs,
       @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
       bool adultOnly,
-      List<LabelValueDefinitionStrings> locales});
+      List<LabelValueDefinitionStrings> locales,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USeverityCopyWith<$Res> get severity;
   $UBlurCopyWith<$Res> get blurs;
@@ -93,6 +98,7 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
     Object? defaultSetting = freezed,
     Object? adultOnly = null,
     Object? locales = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -123,6 +129,10 @@ class _$LabelValueDefinitionCopyWithImpl<$Res,
           ? _value.locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinitionStrings>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -170,7 +180,8 @@ abstract class _$$LabelValueDefinitionImplCopyWith<$Res>
       @UBlurConverter() UBlur blurs,
       @UDefaultSettingConverter() UDefaultSetting? defaultSetting,
       bool adultOnly,
-      List<LabelValueDefinitionStrings> locales});
+      List<LabelValueDefinitionStrings> locales,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $USeverityCopyWith<$Res> get severity;
@@ -198,6 +209,7 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
     Object? defaultSetting = freezed,
     Object? adultOnly = null,
     Object? locales = null,
+    Object? $unknown = null,
   }) {
     return _then(_$LabelValueDefinitionImpl(
       $type: null == $type
@@ -228,6 +240,10 @@ class __$$LabelValueDefinitionImplCopyWithImpl<$Res>
           ? _value._locales
           : locales // ignore: cast_nullable_to_non_nullable
               as List<LabelValueDefinitionStrings>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -244,8 +260,11 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       @UBlurConverter() required this.blurs,
       @UDefaultSettingConverter() this.defaultSetting,
       this.adultOnly = false,
-      required final List<LabelValueDefinitionStrings> locales})
-      : _locales = locales;
+      required final List<LabelValueDefinitionStrings> locales,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _locales = locales,
+        _$unknown = $unknown;
 
   factory _$LabelValueDefinitionImpl.fromJson(Map<String, dynamic> json) =>
       _$$LabelValueDefinitionImplFromJson(json);
@@ -288,9 +307,21 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
     return EqualUnmodifiableListView(_locales);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'LabelValueDefinition(\$type: ${$type}, identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales)';
+    return 'LabelValueDefinition(\$type: ${$type}, identifier: $identifier, severity: $severity, blurs: $blurs, defaultSetting: $defaultSetting, adultOnly: $adultOnly, locales: $locales, \$unknown: ${$unknown})';
   }
 
   @override
@@ -308,7 +339,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
                 other.defaultSetting == defaultSetting) &&
             (identical(other.adultOnly, adultOnly) ||
                 other.adultOnly == adultOnly) &&
-            const DeepCollectionEquality().equals(other._locales, _locales));
+            const DeepCollectionEquality().equals(other._locales, _locales) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -321,7 +353,8 @@ class _$LabelValueDefinitionImpl implements _LabelValueDefinition {
       blurs,
       defaultSetting,
       adultOnly,
-      const DeepCollectionEquality().hash(_locales));
+      const DeepCollectionEquality().hash(_locales),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -347,7 +380,8 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
           @UBlurConverter() required final UBlur blurs,
           @UDefaultSettingConverter() final UDefaultSetting? defaultSetting,
           final bool adultOnly,
-          required final List<LabelValueDefinitionStrings> locales}) =
+          required final List<LabelValueDefinitionStrings> locales,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$LabelValueDefinitionImpl;
 
   factory _LabelValueDefinition.fromJson(Map<String, dynamic> json) =
@@ -385,6 +419,11 @@ abstract class _LabelValueDefinition implements LabelValueDefinition {
   bool get adultOnly;
   @override
   List<LabelValueDefinitionStrings> get locales;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$LabelValueDefinitionImplCopyWith<_$LabelValueDefinitionImpl>

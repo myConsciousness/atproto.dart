@@ -33,6 +33,13 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
                   v, const ULabelConverter().fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -62,6 +69,7 @@ Map<String, dynamic> _$$ListRecordImplToJson(_$ListRecordImpl instance) {
       _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
           instance.labels, const ULabelConverter().toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

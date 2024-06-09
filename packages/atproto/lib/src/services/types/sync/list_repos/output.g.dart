@@ -21,6 +21,13 @@ _$ListReposOutputImpl _$$ListReposOutputImplFromJson(Map json) =>
                   .map(
                       (e) => Repo.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -38,5 +45,6 @@ Map<String, dynamic> _$$ListReposOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   val['repos'] = instance.repos.map((e) => e.toJson()).toList();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

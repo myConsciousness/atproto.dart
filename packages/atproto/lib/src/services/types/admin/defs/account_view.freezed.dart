@@ -38,6 +38,10 @@ mixin _$AccountView {
   String? get inviteNote => throw _privateConstructorUsedError;
   DateTime? get deactivatedAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AccountViewCopyWith<AccountView> get copyWith =>
@@ -62,7 +66,8 @@ abstract class $AccountViewCopyWith<$Res> {
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
-      DateTime? deactivatedAt});
+      DateTime? deactivatedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $InviteCodeCopyWith<$Res>? get invitedBy;
 }
@@ -92,6 +97,7 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
     Object? emailConfirmedAt = freezed,
     Object? inviteNote = freezed,
     Object? deactivatedAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -142,6 +148,10 @@ class _$AccountViewCopyWithImpl<$Res, $Val extends AccountView>
           ? _value.deactivatedAt
           : deactivatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -178,7 +188,8 @@ abstract class _$$AccountViewImplCopyWith<$Res>
       bool invitesDisabled,
       DateTime? emailConfirmedAt,
       String? inviteNote,
-      DateTime? deactivatedAt});
+      DateTime? deactivatedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $InviteCodeCopyWith<$Res>? get invitedBy;
@@ -207,6 +218,7 @@ class __$$AccountViewImplCopyWithImpl<$Res>
     Object? emailConfirmedAt = freezed,
     Object? inviteNote = freezed,
     Object? deactivatedAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$AccountViewImpl(
       $type: null == $type
@@ -257,6 +269,10 @@ class __$$AccountViewImplCopyWithImpl<$Res>
           ? _value.deactivatedAt
           : deactivatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -277,9 +293,12 @@ class _$AccountViewImpl implements _AccountView {
       this.invitesDisabled = false,
       this.emailConfirmedAt,
       this.inviteNote,
-      this.deactivatedAt})
+      this.deactivatedAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _relatedRecords = relatedRecords,
-        _invites = invites;
+        _invites = invites,
+        _$unknown = $unknown;
 
   factory _$AccountViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountViewImplFromJson(json);
@@ -330,9 +349,21 @@ class _$AccountViewImpl implements _AccountView {
   @override
   final DateTime? deactivatedAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'AccountView(\$type: ${$type}, did: $did, handle: $handle, email: $email, relatedRecords: $relatedRecords, indexedAt: $indexedAt, invitedBy: $invitedBy, invites: $invites, invitesDisabled: $invitesDisabled, emailConfirmedAt: $emailConfirmedAt, inviteNote: $inviteNote, deactivatedAt: $deactivatedAt)';
+    return 'AccountView(\$type: ${$type}, did: $did, handle: $handle, email: $email, relatedRecords: $relatedRecords, indexedAt: $indexedAt, invitedBy: $invitedBy, invites: $invites, invitesDisabled: $invitesDisabled, emailConfirmedAt: $emailConfirmedAt, inviteNote: $inviteNote, deactivatedAt: $deactivatedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -358,7 +389,8 @@ class _$AccountViewImpl implements _AccountView {
             (identical(other.inviteNote, inviteNote) ||
                 other.inviteNote == inviteNote) &&
             (identical(other.deactivatedAt, deactivatedAt) ||
-                other.deactivatedAt == deactivatedAt));
+                other.deactivatedAt == deactivatedAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -376,7 +408,8 @@ class _$AccountViewImpl implements _AccountView {
       invitesDisabled,
       emailConfirmedAt,
       inviteNote,
-      deactivatedAt);
+      deactivatedAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -394,18 +427,20 @@ class _$AccountViewImpl implements _AccountView {
 
 abstract class _AccountView implements AccountView {
   const factory _AccountView(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      required final String handle,
-      final String? email,
-      final List<Map<String, dynamic>>? relatedRecords,
-      required final DateTime indexedAt,
-      final InviteCode? invitedBy,
-      final List<InviteCode>? invites,
-      final bool invitesDisabled,
-      final DateTime? emailConfirmedAt,
-      final String? inviteNote,
-      final DateTime? deactivatedAt}) = _$AccountViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          required final String handle,
+          final String? email,
+          final List<Map<String, dynamic>>? relatedRecords,
+          required final DateTime indexedAt,
+          final InviteCode? invitedBy,
+          final List<InviteCode>? invites,
+          final bool invitesDisabled,
+          final DateTime? emailConfirmedAt,
+          final String? inviteNote,
+          final DateTime? deactivatedAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$AccountViewImpl;
 
   factory _AccountView.fromJson(Map<String, dynamic> json) =
       _$AccountViewImpl.fromJson;
@@ -439,6 +474,11 @@ abstract class _AccountView implements AccountView {
   String? get inviteNote;
   @override
   DateTime? get deactivatedAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$AccountViewImplCopyWith<_$AccountViewImpl> get copyWith =>

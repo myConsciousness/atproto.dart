@@ -22,6 +22,13 @@ _$SuggestionImpl _$$SuggestionImplFromJson(Map json) => $checkedCreate(
           subjectType: $checkedConvert('subjectType',
               (v) => const USubjectTypeConverter().fromJson(v as String)),
           subject: $checkedConvert('subject', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -33,4 +40,5 @@ Map<String, dynamic> _$$SuggestionImplToJson(_$SuggestionImpl instance) =>
       'tag': instance.tag,
       'subjectType': const USubjectTypeConverter().toJson(instance.subjectType),
       'subject': instance.subject,
+      r'$unknown': instance.$unknown,
     };

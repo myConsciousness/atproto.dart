@@ -19,6 +19,13 @@ _$EntityImpl _$$EntityImplFromJson(Map json) => $checkedCreate(
               (v) => TextSlice.fromJson(Map<String, Object?>.from(v as Map))),
           type: $checkedConvert('type', (v) => v as String),
           value: $checkedConvert('value', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -30,4 +37,5 @@ Map<String, dynamic> _$$EntityImplToJson(_$EntityImpl instance) =>
       'index': instance.index.toJson(),
       'type': instance.type,
       'value': instance.value,
+      r'$unknown': instance.$unknown,
     };

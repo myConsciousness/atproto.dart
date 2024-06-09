@@ -36,6 +36,10 @@ mixin _$ViewerState {
   @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ViewerStateCopyWith<ViewerState> get copyWith =>
@@ -56,7 +60,8 @@ abstract class $ViewerStateCopyWith<$Res> {
       @AtUriConverter() AtUri? blocking,
       ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   $ListViewBasicCopyWith<$Res>? get blockingByList;
@@ -83,6 +88,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -117,6 +123,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -161,7 +171,8 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
       @AtUriConverter() AtUri? blocking,
       ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ListViewBasicCopyWith<$Res>? get mutedByList;
@@ -188,6 +199,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ViewerStateImpl(
       $type: null == $type
@@ -222,6 +234,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -238,7 +254,10 @@ class _$ViewerStateImpl implements _ViewerState {
       @AtUriConverter() this.blocking,
       this.blockingByList,
       @AtUriConverter() this.following,
-      @AtUriConverter() this.followedBy});
+      @AtUriConverter() this.followedBy,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ViewerStateImpl.fromJson(Map<String, dynamic> json) =>
       _$$ViewerStateImplFromJson(json);
@@ -269,9 +288,21 @@ class _$ViewerStateImpl implements _ViewerState {
   @AtUriConverter()
   final AtUri? followedBy;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy)';
+    return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, \$unknown: ${$unknown})';
   }
 
   @override
@@ -292,13 +323,23 @@ class _$ViewerStateImpl implements _ViewerState {
             (identical(other.following, following) ||
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
-                other.followedBy == followedBy));
+                other.followedBy == followedBy) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, muted, mutedByList,
-      blockedBy, blocking, blockingByList, following, followedBy);
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      muted,
+      mutedByList,
+      blockedBy,
+      blocking,
+      blockingByList,
+      following,
+      followedBy,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -316,14 +357,16 @@ class _$ViewerStateImpl implements _ViewerState {
 
 abstract class _ViewerState implements ViewerState {
   const factory _ViewerState(
-      {@JsonKey(name: r'$type') final String $type,
-      final bool muted,
-      final ListViewBasic? mutedByList,
-      final bool blockedBy,
-      @AtUriConverter() final AtUri? blocking,
-      final ListViewBasic? blockingByList,
-      @AtUriConverter() final AtUri? following,
-      @AtUriConverter() final AtUri? followedBy}) = _$ViewerStateImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          final bool muted,
+          final ListViewBasic? mutedByList,
+          final bool blockedBy,
+          @AtUriConverter() final AtUri? blocking,
+          final ListViewBasic? blockingByList,
+          @AtUriConverter() final AtUri? following,
+          @AtUriConverter() final AtUri? followedBy,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ViewerStateImpl;
 
   factory _ViewerState.fromJson(Map<String, dynamic> json) =
       _$ViewerStateImpl.fromJson;
@@ -352,6 +395,11 @@ abstract class _ViewerState implements ViewerState {
   @override
   @AtUriConverter()
   AtUri? get followedBy;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ViewerStateImplCopyWith<_$ViewerStateImpl> get copyWith =>

@@ -20,6 +20,13 @@ _$GeneratorViewerStateImpl _$$GeneratorViewerStateImplFromJson(Map json) =>
               'like',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, const AtUriConverter().fromJson)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -41,6 +48,7 @@ Map<String, dynamic> _$$GeneratorViewerStateImplToJson(
       'like',
       _$JsonConverterToJson<String, AtUri>(
           instance.like, const AtUriConverter().toJson));
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }
 

@@ -15,6 +15,13 @@ _$SendEmailOutputImpl _$$SendEmailOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$SendEmailOutputImpl(
           sent: $checkedConvert('sent', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -24,4 +31,5 @@ Map<String, dynamic> _$$SendEmailOutputImplToJson(
         _$SendEmailOutputImpl instance) =>
     <String, dynamic>{
       'sent': instance.sent,
+      r'$unknown': instance.$unknown,
     };

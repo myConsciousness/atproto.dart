@@ -27,9 +27,63 @@ class GetRecommendedDidCredentialsOutput
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
+
+    /// Contains unknown objects not defined in Lexicon.
+    @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetRecommendedDidCredentialsOutput;
 
   factory GetRecommendedDidCredentialsOutput.fromJson(
           Map<String, Object?> json) =>
       _$GetRecommendedDidCredentialsOutputFromJson(json);
+}
+
+const _kLexCompatibleProperties = <String>[
+  'rotationKeys',
+  'alsoKnownAs',
+  'verificationMethods',
+  'services',
+];
+
+final class GetRecommendedDidCredentialsOutputConverter
+    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+  const GetRecommendedDidCredentialsOutputConverter();
+
+  @override
+  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+    if (_kLexCompatibleProperties.length == json.length) {
+      return json;
+    }
+
+    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
+      r'$unknown': <String, dynamic>{}
+    };
+    for (final key in json.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatiblePropertiesWithUnknown[key] = json[key];
+      } else {
+        lexCompatiblePropertiesWithUnknown[r'$unknown'][key] = json[key];
+      }
+    }
+
+    return lexCompatiblePropertiesWithUnknown;
+  }
+
+  @override
+  Map<String, dynamic> toJson(Map<String, dynamic> object) {
+    if (object[r'$unknown']?.isEmpty ?? true) {
+      return object;
+    }
+
+    final lexCompatibleProperties = <String, dynamic>{};
+    for (final key in object.keys) {
+      if (_kLexCompatibleProperties.contains(key)) {
+        lexCompatibleProperties[key] = object[key];
+      }
+    }
+
+    return <String, dynamic>{
+      ...lexCompatibleProperties,
+      ...object[r'$unknown'],
+    };
+  }
 }

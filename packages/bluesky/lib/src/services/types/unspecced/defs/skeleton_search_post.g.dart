@@ -18,6 +18,13 @@ _$SkeletonSearchPostImpl _$$SkeletonSearchPostImplFromJson(Map json) =>
               (v) => v as String? ?? appBskyUnspeccedDefsSkeletonSearchPost),
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -28,4 +35,5 @@ Map<String, dynamic> _$$SkeletonSearchPostImplToJson(
     <String, dynamic>{
       r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
+      r'$unknown': instance.$unknown,
     };

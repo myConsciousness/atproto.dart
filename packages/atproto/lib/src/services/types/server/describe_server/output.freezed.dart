@@ -36,6 +36,10 @@ mixin _$DescribeServerOutput {
   Contact get contact => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $DescribeServerOutputCopyWith<DescribeServerOutput> get copyWith =>
@@ -54,7 +58,8 @@ abstract class $DescribeServerOutputCopyWith<$Res> {
       List<String> availableUserDomains,
       Links links,
       Contact contact,
-      String did});
+      String did,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LinksCopyWith<$Res> get links;
   $ContactCopyWith<$Res> get contact;
@@ -80,6 +85,7 @@ class _$DescribeServerOutputCopyWithImpl<$Res,
     Object? links = null,
     Object? contact = null,
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       inviteCodeRequired: null == inviteCodeRequired
@@ -106,6 +112,10 @@ class _$DescribeServerOutputCopyWithImpl<$Res,
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -140,7 +150,8 @@ abstract class _$$DescribeServerOutputImplCopyWith<$Res>
       List<String> availableUserDomains,
       Links links,
       Contact contact,
-      String did});
+      String did,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $LinksCopyWith<$Res> get links;
@@ -165,6 +176,7 @@ class __$$DescribeServerOutputImplCopyWithImpl<$Res>
     Object? links = null,
     Object? contact = null,
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_$DescribeServerOutputImpl(
       inviteCodeRequired: null == inviteCodeRequired
@@ -191,6 +203,10 @@ class __$$DescribeServerOutputImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -205,8 +221,11 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
       required final List<String> availableUserDomains,
       this.links = const Links(),
       this.contact = const Contact(),
-      required this.did})
-      : _availableUserDomains = availableUserDomains;
+      required this.did,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _availableUserDomains = availableUserDomains,
+        _$unknown = $unknown;
 
   factory _$DescribeServerOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$DescribeServerOutputImplFromJson(json);
@@ -245,9 +264,21 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
   @override
   final String did;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'DescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did)';
+    return 'DescribeServerOutput(inviteCodeRequired: $inviteCodeRequired, phoneVerificationRequired: $phoneVerificationRequired, availableUserDomains: $availableUserDomains, links: $links, contact: $contact, did: $did, \$unknown: ${$unknown})';
   }
 
   @override
@@ -264,7 +295,8 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
                 .equals(other._availableUserDomains, _availableUserDomains) &&
             (identical(other.links, links) || other.links == links) &&
             (identical(other.contact, contact) || other.contact == contact) &&
-            (identical(other.did, did) || other.did == did));
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -276,7 +308,8 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
       const DeepCollectionEquality().hash(_availableUserDomains),
       links,
       contact,
-      did);
+      did,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -296,12 +329,14 @@ class _$DescribeServerOutputImpl implements _DescribeServerOutput {
 
 abstract class _DescribeServerOutput implements DescribeServerOutput {
   const factory _DescribeServerOutput(
-      {final bool inviteCodeRequired,
-      final bool phoneVerificationRequired,
-      required final List<String> availableUserDomains,
-      final Links links,
-      final Contact contact,
-      required final String did}) = _$DescribeServerOutputImpl;
+          {final bool inviteCodeRequired,
+          final bool phoneVerificationRequired,
+          required final List<String> availableUserDomains,
+          final Links links,
+          final Contact contact,
+          required final String did,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$DescribeServerOutputImpl;
 
   factory _DescribeServerOutput.fromJson(Map<String, dynamic> json) =
       _$DescribeServerOutputImpl.fromJson;
@@ -328,6 +363,11 @@ abstract class _DescribeServerOutput implements DescribeServerOutput {
   Contact get contact;
   @override
   String get did;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$DescribeServerOutputImplCopyWith<_$DescribeServerOutputImpl>

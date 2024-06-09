@@ -33,6 +33,10 @@ mixin _$InviteCode {
   DateTime get createdAt => throw _privateConstructorUsedError;
   List<InviteCodeUse> get uses => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $InviteCodeCopyWith<InviteCode> get copyWith =>
@@ -53,7 +57,8 @@ abstract class $InviteCodeCopyWith<$Res> {
       String forAccount,
       String createdBy,
       DateTime createdAt,
-      List<InviteCodeUse> uses});
+      List<InviteCodeUse> uses,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -77,6 +82,7 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
     Object? createdBy = null,
     Object? createdAt = null,
     Object? uses = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -111,6 +117,10 @@ class _$InviteCodeCopyWithImpl<$Res, $Val extends InviteCode>
           ? _value.uses
           : uses // ignore: cast_nullable_to_non_nullable
               as List<InviteCodeUse>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -131,7 +141,8 @@ abstract class _$$InviteCodeImplCopyWith<$Res>
       String forAccount,
       String createdBy,
       DateTime createdAt,
-      List<InviteCodeUse> uses});
+      List<InviteCodeUse> uses,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -153,6 +164,7 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
     Object? createdBy = null,
     Object? createdAt = null,
     Object? uses = null,
+    Object? $unknown = null,
   }) {
     return _then(_$InviteCodeImpl(
       $type: null == $type
@@ -187,6 +199,10 @@ class __$$InviteCodeImplCopyWithImpl<$Res>
           ? _value._uses
           : uses // ignore: cast_nullable_to_non_nullable
               as List<InviteCodeUse>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -203,8 +219,11 @@ class _$InviteCodeImpl implements _InviteCode {
       required this.forAccount,
       required this.createdBy,
       required this.createdAt,
-      required final List<InviteCodeUse> uses})
-      : _uses = uses;
+      required final List<InviteCodeUse> uses,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _uses = uses,
+        _$unknown = $unknown;
 
   factory _$InviteCodeImpl.fromJson(Map<String, dynamic> json) =>
       _$$InviteCodeImplFromJson(json);
@@ -235,9 +254,21 @@ class _$InviteCodeImpl implements _InviteCode {
     return EqualUnmodifiableListView(_uses);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'InviteCode(\$type: ${$type}, code: $code, available: $available, disabled: $disabled, forAccount: $forAccount, createdBy: $createdBy, createdAt: $createdAt, uses: $uses)';
+    return 'InviteCode(\$type: ${$type}, code: $code, available: $available, disabled: $disabled, forAccount: $forAccount, createdBy: $createdBy, createdAt: $createdAt, uses: $uses, \$unknown: ${$unknown})';
   }
 
   @override
@@ -257,7 +288,8 @@ class _$InviteCodeImpl implements _InviteCode {
                 other.createdBy == createdBy) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
-            const DeepCollectionEquality().equals(other._uses, _uses));
+            const DeepCollectionEquality().equals(other._uses, _uses) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -271,7 +303,8 @@ class _$InviteCodeImpl implements _InviteCode {
       forAccount,
       createdBy,
       createdAt,
-      const DeepCollectionEquality().hash(_uses));
+      const DeepCollectionEquality().hash(_uses),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -289,14 +322,16 @@ class _$InviteCodeImpl implements _InviteCode {
 
 abstract class _InviteCode implements InviteCode {
   const factory _InviteCode(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String code,
-      required final int available,
-      required final bool disabled,
-      required final String forAccount,
-      required final String createdBy,
-      required final DateTime createdAt,
-      required final List<InviteCodeUse> uses}) = _$InviteCodeImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String code,
+          required final int available,
+          required final bool disabled,
+          required final String forAccount,
+          required final String createdBy,
+          required final DateTime createdAt,
+          required final List<InviteCodeUse> uses,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$InviteCodeImpl;
 
   factory _InviteCode.fromJson(Map<String, dynamic> json) =
       _$InviteCodeImpl.fromJson;
@@ -322,6 +357,11 @@ abstract class _InviteCode implements InviteCode {
   DateTime get createdAt;
   @override
   List<InviteCodeUse> get uses;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$InviteCodeImplCopyWith<_$InviteCodeImpl> get copyWith =>

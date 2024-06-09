@@ -23,6 +23,13 @@ _$CreateAccountOutputImpl _$$CreateAccountOutputImplFromJson(Map json) =>
               (v) => (v as Map?)?.map(
                     (k, e) => MapEntry(k as String, e),
                   )),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -44,5 +51,6 @@ Map<String, dynamic> _$$CreateAccountOutputImplToJson(
   }
 
   writeNotNull('didDoc', instance.didDoc);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

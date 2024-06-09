@@ -28,6 +28,10 @@ mixin _$BlockedAuthor {
   String get did => throw _privateConstructorUsedError;
   ViewerState get viewer => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BlockedAuthorCopyWith<BlockedAuthor> get copyWith =>
@@ -41,7 +45,10 @@ abstract class $BlockedAuthorCopyWith<$Res> {
       _$BlockedAuthorCopyWithImpl<$Res, BlockedAuthor>;
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, String did, ViewerState viewer});
+      {@JsonKey(name: r'$type') String $type,
+      String did,
+      ViewerState viewer,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ViewerStateCopyWith<$Res> get viewer;
 }
@@ -62,6 +69,7 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
     Object? $type = null,
     Object? did = null,
     Object? viewer = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -76,6 +84,10 @@ class _$BlockedAuthorCopyWithImpl<$Res, $Val extends BlockedAuthor>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -97,7 +109,10 @@ abstract class _$$BlockedAuthorImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@JsonKey(name: r'$type') String $type, String did, ViewerState viewer});
+      {@JsonKey(name: r'$type') String $type,
+      String did,
+      ViewerState viewer,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ViewerStateCopyWith<$Res> get viewer;
@@ -117,6 +132,7 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? did = null,
     Object? viewer = null,
+    Object? $unknown = null,
   }) {
     return _then(_$BlockedAuthorImpl(
       $type: null == $type
@@ -131,6 +147,10 @@ class __$$BlockedAuthorImplCopyWithImpl<$Res>
           ? _value.viewer
           : viewer // ignore: cast_nullable_to_non_nullable
               as ViewerState,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -142,7 +162,10 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   const _$BlockedAuthorImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsBlockedAuthor,
       required this.did,
-      this.viewer = const ViewerState()});
+      this.viewer = const ViewerState(),
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$BlockedAuthorImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockedAuthorImplFromJson(json);
@@ -159,9 +182,21 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
   @JsonKey()
   final ViewerState viewer;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'BlockedAuthor(\$type: ${$type}, did: $did, viewer: $viewer)';
+    return 'BlockedAuthor(\$type: ${$type}, did: $did, viewer: $viewer, \$unknown: ${$unknown})';
   }
 
   @override
@@ -171,12 +206,14 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
             other is _$BlockedAuthorImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.viewer, viewer) || other.viewer == viewer));
+            (identical(other.viewer, viewer) || other.viewer == viewer) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, did, viewer);
+  int get hashCode => Object.hash(runtimeType, $type, did, viewer,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -194,9 +231,11 @@ class _$BlockedAuthorImpl implements _BlockedAuthor {
 
 abstract class _BlockedAuthor implements BlockedAuthor {
   const factory _BlockedAuthor(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      final ViewerState viewer}) = _$BlockedAuthorImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          final ViewerState viewer,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$BlockedAuthorImpl;
 
   factory _BlockedAuthor.fromJson(Map<String, dynamic> json) =
       _$BlockedAuthorImpl.fromJson;
@@ -212,6 +251,11 @@ abstract class _BlockedAuthor implements BlockedAuthor {
   String get did;
   @override
   ViewerState get viewer;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$BlockedAuthorImplCopyWith<_$BlockedAuthorImpl> get copyWith =>

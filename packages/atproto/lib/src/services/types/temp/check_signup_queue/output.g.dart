@@ -19,6 +19,13 @@ _$CheckSignupQueueOutputImpl _$$CheckSignupQueueOutputImplFromJson(Map json) =>
               $checkedConvert('placeInQueue', (v) => (v as num?)?.toInt() ?? 0),
           estimatedTimeMs: $checkedConvert(
               'estimatedTimeMs', (v) => (v as num?)?.toInt() ?? 0),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -30,4 +37,5 @@ Map<String, dynamic> _$$CheckSignupQueueOutputImplToJson(
       'activated': instance.activated,
       'placeInQueue': instance.placeInQueue,
       'estimatedTimeMs': instance.estimatedTimeMs,
+      r'$unknown': instance.$unknown,
     };

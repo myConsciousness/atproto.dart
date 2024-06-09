@@ -58,6 +58,10 @@ mixin _$Commit {
   /// Timestamp of when this message was originally broadcast.
   DateTime get time => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CommitCopyWith<Commit> get copyWith => throw _privateConstructorUsedError;
@@ -81,7 +85,8 @@ abstract class $CommitCopyWith<$Res> {
       List<int> blocks,
       List<RepoOp> ops,
       List<String> blobs,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -110,6 +115,7 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
     Object? ops = null,
     Object? blobs = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -164,6 +170,10 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -188,7 +198,8 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
       List<int> blocks,
       List<RepoOp> ops,
       List<String> blobs,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -215,6 +226,7 @@ class __$$CommitImplCopyWithImpl<$Res>
     Object? ops = null,
     Object? blobs = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CommitImpl(
       $type: null == $type
@@ -269,6 +281,10 @@ class __$$CommitImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -290,10 +306,13 @@ class _$CommitImpl implements _Commit {
       required final List<int> blocks,
       required final List<RepoOp> ops,
       required final List<String> blobs,
-      required this.time})
+      required this.time,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _blocks = blocks,
         _ops = ops,
-        _blobs = blobs;
+        _blobs = blobs,
+        _$unknown = $unknown;
 
   factory _$CommitImpl.fromJson(Map<String, dynamic> json) =>
       _$$CommitImplFromJson(json);
@@ -368,9 +387,21 @@ class _$CommitImpl implements _Commit {
   @override
   final DateTime time;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Commit(\$type: ${$type}, seq: $seq, rebase: $rebase, tooBig: $tooBig, repo: $repo, commit: $commit, prev: $prev, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time)';
+    return 'Commit(\$type: ${$type}, seq: $seq, rebase: $rebase, tooBig: $tooBig, repo: $repo, commit: $commit, prev: $prev, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time, \$unknown: ${$unknown})';
   }
 
   @override
@@ -390,7 +421,8 @@ class _$CommitImpl implements _Commit {
             const DeepCollectionEquality().equals(other._blocks, _blocks) &&
             const DeepCollectionEquality().equals(other._ops, _ops) &&
             const DeepCollectionEquality().equals(other._blobs, _blobs) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -409,7 +441,8 @@ class _$CommitImpl implements _Commit {
       const DeepCollectionEquality().hash(_blocks),
       const DeepCollectionEquality().hash(_ops),
       const DeepCollectionEquality().hash(_blobs),
-      time);
+      time,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -427,19 +460,21 @@ class _$CommitImpl implements _Commit {
 
 abstract class _Commit implements Commit {
   const factory _Commit(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final bool rebase,
-      required final bool tooBig,
-      required final String repo,
-      required final String commit,
-      final String? prev,
-      required final String rev,
-      required final String since,
-      required final List<int> blocks,
-      required final List<RepoOp> ops,
-      required final List<String> blobs,
-      required final DateTime time}) = _$CommitImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final bool rebase,
+          required final bool tooBig,
+          required final String repo,
+          required final String commit,
+          final String? prev,
+          required final String rev,
+          required final String since,
+          required final List<int> blocks,
+          required final List<RepoOp> ops,
+          required final List<String> blobs,
+          required final DateTime time,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CommitImpl;
 
   factory _Commit.fromJson(Map<String, dynamic> json) = _$CommitImpl.fromJson;
 
@@ -494,6 +529,11 @@ abstract class _Commit implements Commit {
 
   /// Timestamp of when this message was originally broadcast.
   DateTime get time;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CommitImplCopyWith<_$CommitImpl> get copyWith =>

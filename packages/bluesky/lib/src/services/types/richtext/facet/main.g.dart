@@ -25,6 +25,13 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
                   .map((e) => const UFacetFeatureConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -36,4 +43,5 @@ Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
       'index': instance.index.toJson(),
       'features':
           instance.features.map(const UFacetFeatureConverter().toJson).toList(),
+      r'$unknown': instance.$unknown,
     };

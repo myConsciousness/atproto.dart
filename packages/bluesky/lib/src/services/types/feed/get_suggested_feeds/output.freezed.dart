@@ -24,6 +24,10 @@ mixin _$GetSuggestedFeedsOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<GeneratorView> get feeds => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetSuggestedFeedsOutputCopyWith<GetSuggestedFeedsOutput> get copyWith =>
@@ -36,7 +40,10 @@ abstract class $GetSuggestedFeedsOutputCopyWith<$Res> {
           $Res Function(GetSuggestedFeedsOutput) then) =
       _$GetSuggestedFeedsOutputCopyWithImpl<$Res, GetSuggestedFeedsOutput>;
   @useResult
-  $Res call({String? cursor, List<GeneratorView> feeds});
+  $Res call(
+      {String? cursor,
+      List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,6 +62,7 @@ class _$GetSuggestedFeedsOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? feeds = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -65,6 +73,10 @@ class _$GetSuggestedFeedsOutputCopyWithImpl<$Res,
           ? _value.feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<GeneratorView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -78,7 +90,10 @@ abstract class _$$GetSuggestedFeedsOutputImplCopyWith<$Res>
       __$$GetSuggestedFeedsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<GeneratorView> feeds});
+  $Res call(
+      {String? cursor,
+      List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -96,6 +111,7 @@ class __$$GetSuggestedFeedsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? feeds = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetSuggestedFeedsOutputImpl(
       cursor: freezed == cursor
@@ -106,6 +122,10 @@ class __$$GetSuggestedFeedsOutputImplCopyWithImpl<$Res>
           ? _value._feeds
           : feeds // ignore: cast_nullable_to_non_nullable
               as List<GeneratorView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -115,8 +135,12 @@ class __$$GetSuggestedFeedsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetSuggestedFeedsOutputImpl implements _GetSuggestedFeedsOutput {
   const _$GetSuggestedFeedsOutputImpl(
-      {this.cursor, required final List<GeneratorView> feeds})
-      : _feeds = feeds;
+      {this.cursor,
+      required final List<GeneratorView> feeds,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _feeds = feeds,
+        _$unknown = $unknown;
 
   factory _$GetSuggestedFeedsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetSuggestedFeedsOutputImplFromJson(json);
@@ -131,9 +155,21 @@ class _$GetSuggestedFeedsOutputImpl implements _GetSuggestedFeedsOutput {
     return EqualUnmodifiableListView(_feeds);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetSuggestedFeedsOutput(cursor: $cursor, feeds: $feeds)';
+    return 'GetSuggestedFeedsOutput(cursor: $cursor, feeds: $feeds, \$unknown: ${$unknown})';
   }
 
   @override
@@ -142,13 +178,17 @@ class _$GetSuggestedFeedsOutputImpl implements _GetSuggestedFeedsOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetSuggestedFeedsOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._feeds, _feeds));
+            const DeepCollectionEquality().equals(other._feeds, _feeds) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_feeds));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_feeds),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -167,7 +207,9 @@ class _$GetSuggestedFeedsOutputImpl implements _GetSuggestedFeedsOutput {
 
 abstract class _GetSuggestedFeedsOutput implements GetSuggestedFeedsOutput {
   const factory _GetSuggestedFeedsOutput(
-          {final String? cursor, required final List<GeneratorView> feeds}) =
+          {final String? cursor,
+          required final List<GeneratorView> feeds,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestedFeedsOutputImpl;
 
   factory _GetSuggestedFeedsOutput.fromJson(Map<String, dynamic> json) =
@@ -177,6 +219,11 @@ abstract class _GetSuggestedFeedsOutput implements GetSuggestedFeedsOutput {
   String? get cursor;
   @override
   List<GeneratorView> get feeds;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSuggestedFeedsOutputImplCopyWith<_$GetSuggestedFeedsOutputImpl>

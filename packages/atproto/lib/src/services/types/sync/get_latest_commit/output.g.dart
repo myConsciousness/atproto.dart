@@ -16,6 +16,13 @@ _$GetLatestCommitOutputImpl _$$GetLatestCommitOutputImplFromJson(Map json) =>
         final val = _$GetLatestCommitOutputImpl(
           cid: $checkedConvert('cid', (v) => v as String),
           rev: $checkedConvert('rev', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -26,4 +33,5 @@ Map<String, dynamic> _$$GetLatestCommitOutputImplToJson(
     <String, dynamic>{
       'cid': instance.cid,
       'rev': instance.rev,
+      r'$unknown': instance.$unknown,
     };

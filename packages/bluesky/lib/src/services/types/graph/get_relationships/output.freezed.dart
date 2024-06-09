@@ -25,6 +25,10 @@ mixin _$GetRelationshipsOutput {
   @URelationshipConverter()
   List<URelationship> get relationships => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetRelationshipsOutputCopyWith<GetRelationshipsOutput> get copyWith =>
@@ -39,7 +43,8 @@ abstract class $GetRelationshipsOutputCopyWith<$Res> {
   @useResult
   $Res call(
       {String? actor,
-      @URelationshipConverter() List<URelationship> relationships});
+      @URelationshipConverter() List<URelationship> relationships,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -58,6 +63,7 @@ class _$GetRelationshipsOutputCopyWithImpl<$Res,
   $Res call({
     Object? actor = freezed,
     Object? relationships = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       actor: freezed == actor
@@ -68,6 +74,10 @@ class _$GetRelationshipsOutputCopyWithImpl<$Res,
           ? _value.relationships
           : relationships // ignore: cast_nullable_to_non_nullable
               as List<URelationship>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -83,7 +93,8 @@ abstract class _$$GetRelationshipsOutputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String? actor,
-      @URelationshipConverter() List<URelationship> relationships});
+      @URelationshipConverter() List<URelationship> relationships,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -101,6 +112,7 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? actor = freezed,
     Object? relationships = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetRelationshipsOutputImpl(
       actor: freezed == actor
@@ -111,6 +123,10 @@ class __$$GetRelationshipsOutputImplCopyWithImpl<$Res>
           ? _value._relationships
           : relationships // ignore: cast_nullable_to_non_nullable
               as List<URelationship>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -122,8 +138,11 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
   const _$GetRelationshipsOutputImpl(
       {this.actor,
       @URelationshipConverter()
-      required final List<URelationship> relationships})
-      : _relationships = relationships;
+      required final List<URelationship> relationships,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _relationships = relationships,
+        _$unknown = $unknown;
 
   factory _$GetRelationshipsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetRelationshipsOutputImplFromJson(json);
@@ -139,9 +158,21 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
     return EqualUnmodifiableListView(_relationships);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetRelationshipsOutput(actor: $actor, relationships: $relationships)';
+    return 'GetRelationshipsOutput(actor: $actor, relationships: $relationships, \$unknown: ${$unknown})';
   }
 
   @override
@@ -151,13 +182,17 @@ class _$GetRelationshipsOutputImpl implements _GetRelationshipsOutput {
             other is _$GetRelationshipsOutputImpl &&
             (identical(other.actor, actor) || other.actor == actor) &&
             const DeepCollectionEquality()
-                .equals(other._relationships, _relationships));
+                .equals(other._relationships, _relationships) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, actor, const DeepCollectionEquality().hash(_relationships));
+      runtimeType,
+      actor,
+      const DeepCollectionEquality().hash(_relationships),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -178,7 +213,8 @@ abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   const factory _GetRelationshipsOutput(
           {final String? actor,
           @URelationshipConverter()
-          required final List<URelationship> relationships}) =
+          required final List<URelationship> relationships,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetRelationshipsOutputImpl;
 
   factory _GetRelationshipsOutput.fromJson(Map<String, dynamic> json) =
@@ -189,6 +225,11 @@ abstract class _GetRelationshipsOutput implements GetRelationshipsOutput {
   @override
   @URelationshipConverter()
   List<URelationship> get relationships;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetRelationshipsOutputImplCopyWith<_$GetRelationshipsOutputImpl>

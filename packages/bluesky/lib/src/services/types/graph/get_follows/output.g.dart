@@ -23,6 +23,13 @@ _$GetFollowsOutputImpl _$$GetFollowsOutputImplFromJson(Map json) =>
                   .map((e) =>
                       ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -42,5 +49,6 @@ Map<String, dynamic> _$$GetFollowsOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   val['follows'] = instance.follows.map((e) => e.toJson()).toList();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

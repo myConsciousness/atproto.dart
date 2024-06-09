@@ -26,6 +26,10 @@ mixin _$FollowingRule {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FollowingRuleCopyWith<FollowingRule> get copyWith =>
@@ -38,7 +42,9 @@ abstract class $FollowingRuleCopyWith<$Res> {
           FollowingRule value, $Res Function(FollowingRule) then) =
       _$FollowingRuleCopyWithImpl<$Res, FollowingRule>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,12 +61,17 @@ class _$FollowingRuleCopyWithImpl<$Res, $Val extends FollowingRule>
   @override
   $Res call({
     Object? $type = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -73,7 +84,9 @@ abstract class _$$FollowingRuleImplCopyWith<$Res>
       __$$FollowingRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -88,12 +101,17 @@ class __$$FollowingRuleImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? $type = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FollowingRuleImpl(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -103,8 +121,10 @@ class __$$FollowingRuleImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$FollowingRuleImpl implements _FollowingRule {
   const _$FollowingRuleImpl(
-      {@JsonKey(name: r'$type')
-      this.$type = appBskyFeedThreadgateFollowingRule});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateFollowingRule,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FollowingRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$FollowingRuleImplFromJson(json);
@@ -116,9 +136,21 @@ class _$FollowingRuleImpl implements _FollowingRule {
   @JsonKey(name: r'$type')
   final String $type;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FollowingRule(\$type: ${$type})';
+    return 'FollowingRule(\$type: ${$type}, \$unknown: ${$unknown})';
   }
 
   @override
@@ -126,12 +158,14 @@ class _$FollowingRuleImpl implements _FollowingRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FollowingRuleImpl &&
-            (identical(other.$type, $type) || other.$type == $type));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type);
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +182,9 @@ class _$FollowingRuleImpl implements _FollowingRule {
 }
 
 abstract class _FollowingRule implements FollowingRule {
-  const factory _FollowingRule({@JsonKey(name: r'$type') final String $type}) =
+  const factory _FollowingRule(
+          {@JsonKey(name: r'$type') final String $type,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$FollowingRuleImpl;
 
   factory _FollowingRule.fromJson(Map<String, dynamic> json) =
@@ -161,6 +197,11 @@ abstract class _FollowingRule implements FollowingRule {
   /// `app.bsky.feed.threadgate#followingRule`
   @JsonKey(name: r'$type')
   String get $type;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FollowingRuleImplCopyWith<_$FollowingRuleImpl> get copyWith =>

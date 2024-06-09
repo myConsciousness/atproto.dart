@@ -24,6 +24,10 @@ mixin _$SignPlcOperationOutput {
   /// A signed DID PLC operation.
   Map<String, dynamic> get operation => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SignPlcOperationOutputCopyWith<SignPlcOperationOutput> get copyWith =>
@@ -36,7 +40,9 @@ abstract class $SignPlcOperationOutputCopyWith<$Res> {
           $Res Function(SignPlcOperationOutput) then) =
       _$SignPlcOperationOutputCopyWithImpl<$Res, SignPlcOperationOutput>;
   @useResult
-  $Res call({Map<String, dynamic> operation});
+  $Res call(
+      {Map<String, dynamic> operation,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,11 +60,16 @@ class _$SignPlcOperationOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? operation = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       operation: null == operation
           ? _value.operation
           : operation // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ) as $Val);
   }
@@ -73,7 +84,9 @@ abstract class _$$SignPlcOperationOutputImplCopyWith<$Res>
       __$$SignPlcOperationOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Map<String, dynamic> operation});
+  $Res call(
+      {Map<String, dynamic> operation,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -90,11 +103,16 @@ class __$$SignPlcOperationOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? operation = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SignPlcOperationOutputImpl(
       operation: null == operation
           ? _value._operation
           : operation // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
               as Map<String, dynamic>,
     ));
   }
@@ -105,8 +123,11 @@ class __$$SignPlcOperationOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$SignPlcOperationOutputImpl implements _SignPlcOperationOutput {
   const _$SignPlcOperationOutputImpl(
-      {required final Map<String, dynamic> operation})
-      : _operation = operation;
+      {required final Map<String, dynamic> operation,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _operation = operation,
+        _$unknown = $unknown;
 
   factory _$SignPlcOperationOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$SignPlcOperationOutputImplFromJson(json);
@@ -122,9 +143,21 @@ class _$SignPlcOperationOutputImpl implements _SignPlcOperationOutput {
     return EqualUnmodifiableMapView(_operation);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SignPlcOperationOutput(operation: $operation)';
+    return 'SignPlcOperationOutput(operation: $operation, \$unknown: ${$unknown})';
   }
 
   @override
@@ -133,13 +166,16 @@ class _$SignPlcOperationOutputImpl implements _SignPlcOperationOutput {
         (other.runtimeType == runtimeType &&
             other is _$SignPlcOperationOutputImpl &&
             const DeepCollectionEquality()
-                .equals(other._operation, _operation));
+                .equals(other._operation, _operation) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_operation));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_operation),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -158,7 +194,8 @@ class _$SignPlcOperationOutputImpl implements _SignPlcOperationOutput {
 
 abstract class _SignPlcOperationOutput implements SignPlcOperationOutput {
   const factory _SignPlcOperationOutput(
-          {required final Map<String, dynamic> operation}) =
+          {required final Map<String, dynamic> operation,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SignPlcOperationOutputImpl;
 
   factory _SignPlcOperationOutput.fromJson(Map<String, dynamic> json) =
@@ -168,6 +205,11 @@ abstract class _SignPlcOperationOutput implements SignPlcOperationOutput {
 
   /// A signed DID PLC operation.
   Map<String, dynamic> get operation;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SignPlcOperationOutputImplCopyWith<_$SignPlcOperationOutputImpl>

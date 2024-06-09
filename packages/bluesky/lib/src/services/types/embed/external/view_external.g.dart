@@ -20,6 +20,13 @@ _$ExternalViewExternalImpl _$$ExternalViewExternalImplFromJson(Map json) =>
           title: $checkedConvert('title', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
           thumb: $checkedConvert('thumb', (v) => v as String?),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -41,5 +48,6 @@ Map<String, dynamic> _$$ExternalViewExternalImplToJson(
   }
 
   writeNotNull('thumb', instance.thumb);
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

@@ -29,6 +29,10 @@ mixin _$RecordWithMediaView {
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RecordWithMediaViewCopyWith<RecordWithMediaView> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $RecordWithMediaViewCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       RecordView record,
-      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $RecordViewCopyWith<$Res> get record;
   $URecordWithMediaMediaCopyWith<$Res> get media;
@@ -66,6 +71,7 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -80,6 +86,10 @@ class _$RecordWithMediaViewCopyWithImpl<$Res, $Val extends RecordWithMediaView>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -111,7 +121,8 @@ abstract class _$$RecordWithMediaViewImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       RecordView record,
-      @URecordWithMediaMediaConverter() URecordWithMediaMedia media});
+      @URecordWithMediaMediaConverter() URecordWithMediaMedia media,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $RecordViewCopyWith<$Res> get record;
@@ -133,6 +144,7 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? record = null,
     Object? media = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RecordWithMediaViewImpl(
       $type: null == $type
@@ -147,6 +159,10 @@ class __$$RecordWithMediaViewImplCopyWithImpl<$Res>
           ? _value.media
           : media // ignore: cast_nullable_to_non_nullable
               as URecordWithMediaMedia,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -158,7 +174,10 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   const _$RecordWithMediaViewImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyEmbedRecordWithMediaView,
       required this.record,
-      @URecordWithMediaMediaConverter() required this.media});
+      @URecordWithMediaMediaConverter() required this.media,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RecordWithMediaViewImpl.fromJson(Map<String, dynamic> json) =>
       _$$RecordWithMediaViewImplFromJson(json);
@@ -175,9 +194,21 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
   @URecordWithMediaMediaConverter()
   final URecordWithMediaMedia media;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RecordWithMediaView(\$type: ${$type}, record: $record, media: $media)';
+    return 'RecordWithMediaView(\$type: ${$type}, record: $record, media: $media, \$unknown: ${$unknown})';
   }
 
   @override
@@ -187,12 +218,14 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
             other is _$RecordWithMediaViewImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.record, record) || other.record == record) &&
-            (identical(other.media, media) || other.media == media));
+            (identical(other.media, media) || other.media == media) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, record, media);
+  int get hashCode => Object.hash(runtimeType, $type, record, media,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -211,10 +244,12 @@ class _$RecordWithMediaViewImpl implements _RecordWithMediaView {
 
 abstract class _RecordWithMediaView implements RecordWithMediaView {
   const factory _RecordWithMediaView(
-      {@JsonKey(name: r'$type') final String $type,
-      required final RecordView record,
-      @URecordWithMediaMediaConverter()
-      required final URecordWithMediaMedia media}) = _$RecordWithMediaViewImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final RecordView record,
+          @URecordWithMediaMediaConverter()
+          required final URecordWithMediaMedia media,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RecordWithMediaViewImpl;
 
   factory _RecordWithMediaView.fromJson(Map<String, dynamic> json) =
       _$RecordWithMediaViewImpl.fromJson;
@@ -231,6 +266,11 @@ abstract class _RecordWithMediaView implements RecordWithMediaView {
   @override
   @URecordWithMediaMediaConverter()
   URecordWithMediaMedia get media;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RecordWithMediaViewImplCopyWith<_$RecordWithMediaViewImpl> get copyWith =>

@@ -28,6 +28,13 @@ _$LabelerPoliciesImpl _$$LabelerPoliciesImplFromJson(Map json) =>
                   ?.map((e) => LabelValueDefinition.fromJson(
                       Map<String, Object?>.from(e as Map)))
                   .toList()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -49,5 +56,6 @@ Map<String, dynamic> _$$LabelerPoliciesImplToJson(
 
   writeNotNull('labelValueDefinitions',
       instance.labelValueDefinitions?.map((e) => e.toJson()).toList());
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

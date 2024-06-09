@@ -29,6 +29,10 @@ mixin _$Tombstone {
   String get did => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $TombstoneCopyWith<Tombstone> get copyWith =>
@@ -44,7 +48,8 @@ abstract class $TombstoneCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       int seq,
       String did,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -64,6 +69,7 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
     Object? seq = null,
     Object? did = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -82,6 +88,10 @@ class _$TombstoneCopyWithImpl<$Res, $Val extends Tombstone>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -98,7 +108,8 @@ abstract class _$$TombstoneImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       int seq,
       String did,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -116,6 +127,7 @@ class __$$TombstoneImplCopyWithImpl<$Res>
     Object? seq = null,
     Object? did = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_$TombstoneImpl(
       $type: null == $type
@@ -134,6 +146,10 @@ class __$$TombstoneImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -147,7 +163,10 @@ class _$TombstoneImpl implements _Tombstone {
       this.$type = comAtprotoSyncSubscribeReposTombstone,
       required this.seq,
       required this.did,
-      required this.time});
+      required this.time,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$TombstoneImpl.fromJson(Map<String, dynamic> json) =>
       _$$TombstoneImplFromJson(json);
@@ -165,9 +184,21 @@ class _$TombstoneImpl implements _Tombstone {
   @override
   final DateTime time;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Tombstone(\$type: ${$type}, seq: $seq, did: $did, time: $time)';
+    return 'Tombstone(\$type: ${$type}, seq: $seq, did: $did, time: $time, \$unknown: ${$unknown})';
   }
 
   @override
@@ -178,12 +209,14 @@ class _$TombstoneImpl implements _Tombstone {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, seq, did, time);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, time,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -201,10 +234,12 @@ class _$TombstoneImpl implements _Tombstone {
 
 abstract class _Tombstone implements Tombstone {
   const factory _Tombstone(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final String did,
-      required final DateTime time}) = _$TombstoneImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final String did,
+          required final DateTime time,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$TombstoneImpl;
 
   factory _Tombstone.fromJson(Map<String, dynamic> json) =
       _$TombstoneImpl.fromJson;
@@ -222,6 +257,11 @@ abstract class _Tombstone implements Tombstone {
   String get did;
   @override
   DateTime get time;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$TombstoneImplCopyWith<_$TombstoneImpl> get copyWith =>

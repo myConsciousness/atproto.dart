@@ -39,6 +39,10 @@ mixin _$ProfileViewDetailed {
   ViewerState get viewer => throw _privateConstructorUsedError;
   List<Label>? get labels => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ProfileViewDetailedCopyWith<ProfileViewDetailed> get copyWith =>
@@ -65,7 +69,8 @@ abstract class $ProfileViewDetailedCopyWith<$Res> {
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label>? labels});
+      List<Label>? labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileAssociatedCopyWith<$Res> get associated;
   $ViewerStateCopyWith<$Res> get viewer;
@@ -98,6 +103,7 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
     Object? indexedAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -156,6 +162,10 @@ class _$ProfileViewDetailedCopyWithImpl<$Res, $Val extends ProfileViewDetailed>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -198,7 +208,8 @@ abstract class _$$ProfileViewDetailedImplCopyWith<$Res>
       ProfileAssociated associated,
       DateTime? indexedAt,
       ViewerState viewer,
-      List<Label>? labels});
+      List<Label>? labels,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileAssociatedCopyWith<$Res> get associated;
@@ -231,6 +242,7 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
     Object? indexedAt = freezed,
     Object? viewer = null,
     Object? labels = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ProfileViewDetailedImpl(
       $type: null == $type
@@ -289,6 +301,10 @@ class __$$ProfileViewDetailedImplCopyWithImpl<$Res>
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
               as List<Label>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -312,8 +328,11 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       this.associated = const ProfileAssociated(),
       this.indexedAt,
       this.viewer = const ViewerState(),
-      final List<Label>? labels})
-      : _labels = labels;
+      final List<Label>? labels,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _labels = labels,
+        _$unknown = $unknown;
 
   factory _$ProfileViewDetailedImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileViewDetailedImplFromJson(json);
@@ -363,9 +382,21 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ProfileViewDetailed(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followersCount: $followersCount, followsCount: $followsCount, postsCount: $postsCount, associated: $associated, indexedAt: $indexedAt, viewer: $viewer, labels: $labels)';
+    return 'ProfileViewDetailed(\$type: ${$type}, did: $did, handle: $handle, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, followersCount: $followersCount, followsCount: $followsCount, postsCount: $postsCount, associated: $associated, indexedAt: $indexedAt, viewer: $viewer, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -393,7 +424,8 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
             (identical(other.indexedAt, indexedAt) ||
                 other.indexedAt == indexedAt) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
-            const DeepCollectionEquality().equals(other._labels, _labels));
+            const DeepCollectionEquality().equals(other._labels, _labels) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -413,7 +445,8 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
       associated,
       indexedAt,
       viewer,
-      const DeepCollectionEquality().hash(_labels));
+      const DeepCollectionEquality().hash(_labels),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -432,20 +465,22 @@ class _$ProfileViewDetailedImpl implements _ProfileViewDetailed {
 
 abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   const factory _ProfileViewDetailed(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      required final String handle,
-      final String? displayName,
-      final String? description,
-      final String? avatar,
-      final String? banner,
-      final int followersCount,
-      final int followsCount,
-      final int postsCount,
-      final ProfileAssociated associated,
-      final DateTime? indexedAt,
-      final ViewerState viewer,
-      final List<Label>? labels}) = _$ProfileViewDetailedImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          required final String handle,
+          final String? displayName,
+          final String? description,
+          final String? avatar,
+          final String? banner,
+          final int followersCount,
+          final int followsCount,
+          final int postsCount,
+          final ProfileAssociated associated,
+          final DateTime? indexedAt,
+          final ViewerState viewer,
+          final List<Label>? labels,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ProfileViewDetailedImpl;
 
   factory _ProfileViewDetailed.fromJson(Map<String, dynamic> json) =
       _$ProfileViewDetailedImpl.fromJson;
@@ -483,6 +518,11 @@ abstract class _ProfileViewDetailed implements ProfileViewDetailed {
   ViewerState get viewer;
   @override
   List<Label>? get labels;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ProfileViewDetailedImplCopyWith<_$ProfileViewDetailedImpl> get copyWith =>

@@ -33,6 +33,10 @@ mixin _$FeedViewPost {
   /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FeedViewPostCopyWith<FeedViewPost> get copyWith =>
@@ -50,7 +54,8 @@ abstract class $FeedViewPostCopyWith<$Res> {
       PostView post,
       ReplyRef? reply,
       @UReasonConverter() UReason? reason,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $PostViewCopyWith<$Res> get post;
   $ReplyRefCopyWith<$Res>? get reply;
@@ -75,6 +80,7 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
     Object? reply = freezed,
     Object? reason = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -97,6 +103,10 @@ class _$FeedViewPostCopyWithImpl<$Res, $Val extends FeedViewPost>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -146,7 +156,8 @@ abstract class _$$FeedViewPostImplCopyWith<$Res>
       PostView post,
       ReplyRef? reply,
       @UReasonConverter() UReason? reason,
-      String? feedContext});
+      String? feedContext,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $PostViewCopyWith<$Res> get post;
@@ -172,6 +183,7 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
     Object? reply = freezed,
     Object? reason = freezed,
     Object? feedContext = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$FeedViewPostImpl(
       $type: null == $type
@@ -194,6 +206,10 @@ class __$$FeedViewPostImplCopyWithImpl<$Res>
           ? _value.feedContext
           : feedContext // ignore: cast_nullable_to_non_nullable
               as String?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -207,7 +223,10 @@ class _$FeedViewPostImpl implements _FeedViewPost {
       required this.post,
       this.reply,
       @UReasonConverter() this.reason,
-      this.feedContext});
+      this.feedContext,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$FeedViewPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$FeedViewPostImplFromJson(json);
@@ -230,9 +249,21 @@ class _$FeedViewPostImpl implements _FeedViewPost {
   @override
   final String? feedContext;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, reason: $reason, feedContext: $feedContext)';
+    return 'FeedViewPost(\$type: ${$type}, post: $post, reply: $reply, reason: $reason, feedContext: $feedContext, \$unknown: ${$unknown})';
   }
 
   @override
@@ -245,13 +276,14 @@ class _$FeedViewPostImpl implements _FeedViewPost {
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.reason, reason) || other.reason == reason) &&
             (identical(other.feedContext, feedContext) ||
-                other.feedContext == feedContext));
+                other.feedContext == feedContext) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, post, reply, reason, feedContext);
+  int get hashCode => Object.hash(runtimeType, $type, post, reply, reason,
+      feedContext, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -269,11 +301,13 @@ class _$FeedViewPostImpl implements _FeedViewPost {
 
 abstract class _FeedViewPost implements FeedViewPost {
   const factory _FeedViewPost(
-      {@JsonKey(name: r'$type') final String $type,
-      required final PostView post,
-      final ReplyRef? reply,
-      @UReasonConverter() final UReason? reason,
-      final String? feedContext}) = _$FeedViewPostImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final PostView post,
+          final ReplyRef? reply,
+          @UReasonConverter() final UReason? reason,
+          final String? feedContext,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FeedViewPostImpl;
 
   factory _FeedViewPost.fromJson(Map<String, dynamic> json) =
       _$FeedViewPostImpl.fromJson;
@@ -296,6 +330,11 @@ abstract class _FeedViewPost implements FeedViewPost {
 
   /// Context provided by feed generator that may be passed back alongside interactions.
   String? get feedContext;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FeedViewPostImplCopyWith<_$FeedViewPostImpl> get copyWith =>

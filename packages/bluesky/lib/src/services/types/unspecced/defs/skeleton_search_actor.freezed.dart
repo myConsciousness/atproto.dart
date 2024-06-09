@@ -27,6 +27,10 @@ mixin _$SkeletonSearchActor {
   String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SkeletonSearchActorCopyWith<SkeletonSearchActor> get copyWith =>
@@ -39,7 +43,10 @@ abstract class $SkeletonSearchActorCopyWith<$Res> {
           SkeletonSearchActor value, $Res Function(SkeletonSearchActor) then) =
       _$SkeletonSearchActorCopyWithImpl<$Res, SkeletonSearchActor>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String did});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String did,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -57,6 +64,7 @@ class _$SkeletonSearchActorCopyWithImpl<$Res, $Val extends SkeletonSearchActor>
   $Res call({
     Object? $type = null,
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -67,6 +75,10 @@ class _$SkeletonSearchActorCopyWithImpl<$Res, $Val extends SkeletonSearchActor>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -79,7 +91,10 @@ abstract class _$$SkeletonSearchActorImplCopyWith<$Res>
       __$$SkeletonSearchActorImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type, String did});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      String did,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -95,6 +110,7 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SkeletonSearchActorImpl(
       $type: null == $type
@@ -105,6 +121,10 @@ class __$$SkeletonSearchActorImplCopyWithImpl<$Res>
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -116,7 +136,10 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
   const _$SkeletonSearchActorImpl(
       {@JsonKey(name: r'$type')
       this.$type = appBskyUnspeccedDefsSkeletonSearchActor,
-      required this.did});
+      required this.did,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SkeletonSearchActorImpl.fromJson(Map<String, dynamic> json) =>
       _$$SkeletonSearchActorImplFromJson(json);
@@ -130,9 +153,21 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
   @override
   final String did;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SkeletonSearchActor(\$type: ${$type}, did: $did)';
+    return 'SkeletonSearchActor(\$type: ${$type}, did: $did, \$unknown: ${$unknown})';
   }
 
   @override
@@ -141,12 +176,14 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
         (other.runtimeType == runtimeType &&
             other is _$SkeletonSearchActorImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
-            (identical(other.did, did) || other.did == did));
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, did);
+  int get hashCode => Object.hash(
+      runtimeType, $type, did, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -165,8 +202,10 @@ class _$SkeletonSearchActorImpl implements _SkeletonSearchActor {
 
 abstract class _SkeletonSearchActor implements SkeletonSearchActor {
   const factory _SkeletonSearchActor(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did}) = _$SkeletonSearchActorImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SkeletonSearchActorImpl;
 
   factory _SkeletonSearchActor.fromJson(Map<String, dynamic> json) =
       _$SkeletonSearchActorImpl.fromJson;
@@ -180,6 +219,11 @@ abstract class _SkeletonSearchActor implements SkeletonSearchActor {
   String get $type;
   @override
   String get did;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SkeletonSearchActorImplCopyWith<_$SkeletonSearchActorImpl> get copyWith =>

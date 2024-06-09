@@ -22,6 +22,10 @@ SendEmailOutput _$SendEmailOutputFromJson(Map<String, dynamic> json) {
 mixin _$SendEmailOutput {
   bool get sent => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SendEmailOutputCopyWith<SendEmailOutput> get copyWith =>
@@ -34,7 +38,8 @@ abstract class $SendEmailOutputCopyWith<$Res> {
           SendEmailOutput value, $Res Function(SendEmailOutput) then) =
       _$SendEmailOutputCopyWithImpl<$Res, SendEmailOutput>;
   @useResult
-  $Res call({bool sent});
+  $Res call(
+      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -51,12 +56,17 @@ class _$SendEmailOutputCopyWithImpl<$Res, $Val extends SendEmailOutput>
   @override
   $Res call({
     Object? sent = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       sent: null == sent
           ? _value.sent
           : sent // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -69,7 +79,8 @@ abstract class _$$SendEmailOutputImplCopyWith<$Res>
       __$$SendEmailOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool sent});
+  $Res call(
+      {bool sent, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -84,12 +95,17 @@ class __$$SendEmailOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? sent = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SendEmailOutputImpl(
       sent: null == sent
           ? _value.sent
           : sent // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -98,7 +114,11 @@ class __$$SendEmailOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$SendEmailOutputImpl implements _SendEmailOutput {
-  const _$SendEmailOutputImpl({required this.sent});
+  const _$SendEmailOutputImpl(
+      {required this.sent,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SendEmailOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$SendEmailOutputImplFromJson(json);
@@ -106,9 +126,21 @@ class _$SendEmailOutputImpl implements _SendEmailOutput {
   @override
   final bool sent;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SendEmailOutput(sent: $sent)';
+    return 'SendEmailOutput(sent: $sent, \$unknown: ${$unknown})';
   }
 
   @override
@@ -116,12 +148,14 @@ class _$SendEmailOutputImpl implements _SendEmailOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SendEmailOutputImpl &&
-            (identical(other.sent, sent) || other.sent == sent));
+            (identical(other.sent, sent) || other.sent == sent) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, sent);
+  int get hashCode => Object.hash(
+      runtimeType, sent, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -139,7 +173,9 @@ class _$SendEmailOutputImpl implements _SendEmailOutput {
 }
 
 abstract class _SendEmailOutput implements SendEmailOutput {
-  const factory _SendEmailOutput({required final bool sent}) =
+  const factory _SendEmailOutput(
+          {required final bool sent,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SendEmailOutputImpl;
 
   factory _SendEmailOutput.fromJson(Map<String, dynamic> json) =
@@ -147,6 +183,11 @@ abstract class _SendEmailOutput implements SendEmailOutput {
 
   @override
   bool get sent;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SendEmailOutputImplCopyWith<_$SendEmailOutputImpl> get copyWith =>

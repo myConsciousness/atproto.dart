@@ -22,6 +22,10 @@ GetPostsOutput _$GetPostsOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetPostsOutput {
   List<PostView> get posts => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetPostsOutputCopyWith<GetPostsOutput> get copyWith =>
@@ -34,7 +38,9 @@ abstract class $GetPostsOutputCopyWith<$Res> {
           GetPostsOutput value, $Res Function(GetPostsOutput) then) =
       _$GetPostsOutputCopyWithImpl<$Res, GetPostsOutput>;
   @useResult
-  $Res call({List<PostView> posts});
+  $Res call(
+      {List<PostView> posts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -51,12 +57,17 @@ class _$GetPostsOutputCopyWithImpl<$Res, $Val extends GetPostsOutput>
   @override
   $Res call({
     Object? posts = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       posts: null == posts
           ? _value.posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -69,7 +80,9 @@ abstract class _$$GetPostsOutputImplCopyWith<$Res>
       __$$GetPostsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<PostView> posts});
+  $Res call(
+      {List<PostView> posts,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -84,12 +97,17 @@ class __$$GetPostsOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? posts = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetPostsOutputImpl(
       posts: null == posts
           ? _value._posts
           : posts // ignore: cast_nullable_to_non_nullable
               as List<PostView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -98,8 +116,12 @@ class __$$GetPostsOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetPostsOutputImpl implements _GetPostsOutput {
-  const _$GetPostsOutputImpl({required final List<PostView> posts})
-      : _posts = posts;
+  const _$GetPostsOutputImpl(
+      {required final List<PostView> posts,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _posts = posts,
+        _$unknown = $unknown;
 
   factory _$GetPostsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetPostsOutputImplFromJson(json);
@@ -112,9 +134,21 @@ class _$GetPostsOutputImpl implements _GetPostsOutput {
     return EqualUnmodifiableListView(_posts);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetPostsOutput(posts: $posts)';
+    return 'GetPostsOutput(posts: $posts, \$unknown: ${$unknown})';
   }
 
   @override
@@ -122,13 +156,16 @@ class _$GetPostsOutputImpl implements _GetPostsOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetPostsOutputImpl &&
-            const DeepCollectionEquality().equals(other._posts, _posts));
+            const DeepCollectionEquality().equals(other._posts, _posts) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_posts));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_posts),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -146,7 +183,9 @@ class _$GetPostsOutputImpl implements _GetPostsOutput {
 }
 
 abstract class _GetPostsOutput implements GetPostsOutput {
-  const factory _GetPostsOutput({required final List<PostView> posts}) =
+  const factory _GetPostsOutput(
+          {required final List<PostView> posts,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetPostsOutputImpl;
 
   factory _GetPostsOutput.fromJson(Map<String, dynamic> json) =
@@ -154,6 +193,11 @@ abstract class _GetPostsOutput implements GetPostsOutput {
 
   @override
   List<PostView> get posts;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetPostsOutputImplCopyWith<_$GetPostsOutputImpl> get copyWith =>

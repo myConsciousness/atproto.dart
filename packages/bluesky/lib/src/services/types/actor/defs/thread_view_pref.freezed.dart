@@ -33,6 +33,10 @@ mixin _$ThreadViewPref {
   /// Show followed users at the top of all replies.
   bool get prioritizeFollowedUsers => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ThreadViewPrefCopyWith<ThreadViewPref> get copyWith =>
@@ -48,7 +52,8 @@ abstract class $ThreadViewPrefCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @USortConverter() USort? sort,
-      bool prioritizeFollowedUsers});
+      bool prioritizeFollowedUsers,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $USortCopyWith<$Res>? get sort;
 }
@@ -69,6 +74,7 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
     Object? $type = null,
     Object? sort = freezed,
     Object? prioritizeFollowedUsers = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -83,6 +89,10 @@ class _$ThreadViewPrefCopyWithImpl<$Res, $Val extends ThreadViewPref>
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -110,7 +120,8 @@ abstract class _$$ThreadViewPrefImplCopyWith<$Res>
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       @USortConverter() USort? sort,
-      bool prioritizeFollowedUsers});
+      bool prioritizeFollowedUsers,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $USortCopyWith<$Res>? get sort;
@@ -130,6 +141,7 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? sort = freezed,
     Object? prioritizeFollowedUsers = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ThreadViewPrefImpl(
       $type: null == $type
@@ -144,6 +156,10 @@ class __$$ThreadViewPrefImplCopyWithImpl<$Res>
           ? _value.prioritizeFollowedUsers
           : prioritizeFollowedUsers // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -155,7 +171,10 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
   const _$ThreadViewPrefImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyActorDefsThreadViewPref,
       @USortConverter() this.sort,
-      this.prioritizeFollowedUsers = false});
+      this.prioritizeFollowedUsers = false,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ThreadViewPrefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPrefImplFromJson(json);
@@ -177,9 +196,21 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
   @JsonKey()
   final bool prioritizeFollowedUsers;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ThreadViewPref(\$type: ${$type}, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers)';
+    return 'ThreadViewPref(\$type: ${$type}, sort: $sort, prioritizeFollowedUsers: $prioritizeFollowedUsers, \$unknown: ${$unknown})';
   }
 
   @override
@@ -191,13 +222,14 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
             (identical(other.sort, sort) || other.sort == sort) &&
             (identical(
                     other.prioritizeFollowedUsers, prioritizeFollowedUsers) ||
-                other.prioritizeFollowedUsers == prioritizeFollowedUsers));
+                other.prioritizeFollowedUsers == prioritizeFollowedUsers) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, sort, prioritizeFollowedUsers);
+  int get hashCode => Object.hash(runtimeType, $type, sort,
+      prioritizeFollowedUsers, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -216,9 +248,11 @@ class _$ThreadViewPrefImpl implements _ThreadViewPref {
 
 abstract class _ThreadViewPref implements ThreadViewPref {
   const factory _ThreadViewPref(
-      {@JsonKey(name: r'$type') final String $type,
-      @USortConverter() final USort? sort,
-      final bool prioritizeFollowedUsers}) = _$ThreadViewPrefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @USortConverter() final USort? sort,
+          final bool prioritizeFollowedUsers,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ThreadViewPrefImpl;
 
   factory _ThreadViewPref.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPrefImpl.fromJson;
@@ -239,6 +273,11 @@ abstract class _ThreadViewPref implements ThreadViewPref {
 
   /// Show followed users at the top of all replies.
   bool get prioritizeFollowedUsers;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ThreadViewPrefImplCopyWith<_$ThreadViewPrefImpl> get copyWith =>

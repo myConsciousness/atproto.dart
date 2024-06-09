@@ -36,6 +36,10 @@ mixin _$ListViewBasic {
   ListViewerState get viewer => throw _privateConstructorUsedError;
   DateTime? get indexedAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListViewBasicCopyWith<ListViewBasic> get copyWith =>
@@ -57,7 +61,8 @@ abstract class $ListViewBasicCopyWith<$Res> {
       String? avatar,
       List<Label>? labels,
       ListViewerState viewer,
-      DateTime? indexedAt});
+      DateTime? indexedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UListPurposeCopyWith<$Res> get purpose;
   $ListViewerStateCopyWith<$Res> get viewer;
@@ -85,6 +90,7 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -123,6 +129,10 @@ class _$ListViewBasicCopyWithImpl<$Res, $Val extends ListViewBasic>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -160,7 +170,8 @@ abstract class _$$ListViewBasicImplCopyWith<$Res>
       String? avatar,
       List<Label>? labels,
       ListViewerState viewer,
-      DateTime? indexedAt});
+      DateTime? indexedAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UListPurposeCopyWith<$Res> get purpose;
@@ -188,6 +199,7 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? viewer = null,
     Object? indexedAt = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ListViewBasicImpl(
       $type: null == $type
@@ -226,6 +238,10 @@ class __$$ListViewBasicImplCopyWithImpl<$Res>
           ? _value.indexedAt
           : indexedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -243,8 +259,11 @@ class _$ListViewBasicImpl implements _ListViewBasic {
       this.avatar,
       final List<Label>? labels,
       this.viewer = const ListViewerState(),
-      this.indexedAt})
-      : _labels = labels;
+      this.indexedAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _labels = labels,
+        _$unknown = $unknown;
 
   factory _$ListViewBasicImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListViewBasicImplFromJson(json);
@@ -283,9 +302,21 @@ class _$ListViewBasicImpl implements _ListViewBasic {
   @override
   final DateTime? indexedAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListViewBasic(\$type: ${$type}, uri: $uri, cid: $cid, name: $name, purpose: $purpose, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt)';
+    return 'ListViewBasic(\$type: ${$type}, uri: $uri, cid: $cid, name: $name, purpose: $purpose, avatar: $avatar, labels: $labels, viewer: $viewer, indexedAt: $indexedAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -302,13 +333,24 @@ class _$ListViewBasicImpl implements _ListViewBasic {
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.viewer, viewer) || other.viewer == viewer) &&
             (identical(other.indexedAt, indexedAt) ||
-                other.indexedAt == indexedAt));
+                other.indexedAt == indexedAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, uri, cid, name, purpose,
-      avatar, const DeepCollectionEquality().hash(_labels), viewer, indexedAt);
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      uri,
+      cid,
+      name,
+      purpose,
+      avatar,
+      const DeepCollectionEquality().hash(_labels),
+      viewer,
+      indexedAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -326,15 +368,17 @@ class _$ListViewBasicImpl implements _ListViewBasic {
 
 abstract class _ListViewBasic implements ListViewBasic {
   const factory _ListViewBasic(
-      {@JsonKey(name: r'$type') final String $type,
-      @AtUriConverter() required final AtUri uri,
-      required final String cid,
-      required final String name,
-      @UListPurposeConverter() required final UListPurpose purpose,
-      final String? avatar,
-      final List<Label>? labels,
-      final ListViewerState viewer,
-      final DateTime? indexedAt}) = _$ListViewBasicImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri uri,
+          required final String cid,
+          required final String name,
+          @UListPurposeConverter() required final UListPurpose purpose,
+          final String? avatar,
+          final List<Label>? labels,
+          final ListViewerState viewer,
+          final DateTime? indexedAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListViewBasicImpl;
 
   factory _ListViewBasic.fromJson(Map<String, dynamic> json) =
       _$ListViewBasicImpl.fromJson;
@@ -364,6 +408,11 @@ abstract class _ListViewBasic implements ListViewBasic {
   ListViewerState get viewer;
   @override
   DateTime? get indexedAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListViewBasicImplCopyWith<_$ListViewBasicImpl> get copyWith =>

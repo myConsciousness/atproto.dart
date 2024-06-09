@@ -28,6 +28,13 @@ _$GetSubjectStatusOutputImpl _$$GetSubjectStatusOutputImplFromJson(Map json) =>
               (v) => v == null
                   ? null
                   : StatusAttr.fromJson(Map<String, Object?>.from(v as Map))),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -47,5 +54,6 @@ Map<String, dynamic> _$$GetSubjectStatusOutputImplToJson(
 
   writeNotNull('takedown', instance.takedown?.toJson());
   writeNotNull('deactivated', instance.deactivated?.toJson());
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

@@ -31,6 +31,10 @@ mixin _$SavedFeed {
   String get value => throw _privateConstructorUsedError;
   bool get pinned => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SavedFeedCopyWith<SavedFeed> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $SavedFeedCopyWith<$Res> {
       String id,
       @UTypeConverter() UType type,
       String value,
-      bool pinned});
+      bool pinned,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UTypeCopyWith<$Res> get type;
 }
@@ -70,6 +75,7 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -92,6 +98,10 @@ class _$SavedFeedCopyWithImpl<$Res, $Val extends SavedFeed>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -117,7 +127,8 @@ abstract class _$$SavedFeedImplCopyWith<$Res>
       String id,
       @UTypeConverter() UType type,
       String value,
-      bool pinned});
+      bool pinned,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UTypeCopyWith<$Res> get type;
@@ -139,6 +150,7 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
     Object? type = null,
     Object? value = null,
     Object? pinned = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SavedFeedImpl(
       $type: null == $type
@@ -161,6 +173,10 @@ class __$$SavedFeedImplCopyWithImpl<$Res>
           ? _value.pinned
           : pinned // ignore: cast_nullable_to_non_nullable
               as bool,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -174,7 +190,10 @@ class _$SavedFeedImpl implements _SavedFeed {
       required this.id,
       @UTypeConverter() required this.type,
       required this.value,
-      required this.pinned});
+      required this.pinned,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$SavedFeedImpl.fromJson(Map<String, dynamic> json) =>
       _$$SavedFeedImplFromJson(json);
@@ -195,9 +214,21 @@ class _$SavedFeedImpl implements _SavedFeed {
   @override
   final bool pinned;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SavedFeed(\$type: ${$type}, id: $id, type: $type, value: $value, pinned: $pinned)';
+    return 'SavedFeed(\$type: ${$type}, id: $id, type: $type, value: $value, pinned: $pinned, \$unknown: ${$unknown})';
   }
 
   @override
@@ -209,12 +240,14 @@ class _$SavedFeedImpl implements _SavedFeed {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.type, type) || other.type == type) &&
             (identical(other.value, value) || other.value == value) &&
-            (identical(other.pinned, pinned) || other.pinned == pinned));
+            (identical(other.pinned, pinned) || other.pinned == pinned) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, id, type, value, pinned);
+  int get hashCode => Object.hash(runtimeType, $type, id, type, value, pinned,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -232,11 +265,13 @@ class _$SavedFeedImpl implements _SavedFeed {
 
 abstract class _SavedFeed implements SavedFeed {
   const factory _SavedFeed(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String id,
-      @UTypeConverter() required final UType type,
-      required final String value,
-      required final bool pinned}) = _$SavedFeedImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String id,
+          @UTypeConverter() required final UType type,
+          required final String value,
+          required final bool pinned,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$SavedFeedImpl;
 
   factory _SavedFeed.fromJson(Map<String, dynamic> json) =
       _$SavedFeedImpl.fromJson;
@@ -257,6 +292,11 @@ abstract class _SavedFeed implements SavedFeed {
   String get value;
   @override
   bool get pinned;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SavedFeedImplCopyWith<_$SavedFeedImpl> get copyWith =>

@@ -36,6 +36,10 @@ mixin _$Repo {
   @UStatusConverter()
   UStatus? get status => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepoCopyWith<Repo> get copyWith => throw _privateConstructorUsedError;
@@ -52,7 +56,8 @@ abstract class $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -76,6 +81,7 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
     Object? rev = null,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -102,6 +108,10 @@ class _$RepoCopyWithImpl<$Res, $Val extends Repo>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -131,7 +141,8 @@ abstract class _$$RepoImplCopyWith<$Res> implements $RepoCopyWith<$Res> {
       String head,
       String rev,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -153,6 +164,7 @@ class __$$RepoImplCopyWithImpl<$Res>
     Object? rev = null,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$RepoImpl(
       $type: null == $type
@@ -179,6 +191,10 @@ class __$$RepoImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -193,7 +209,10 @@ class _$RepoImpl implements _Repo {
       required this.head,
       required this.rev,
       this.active = false,
-      @UStatusConverter() this.status});
+      @UStatusConverter() this.status,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RepoImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoImplFromJson(json);
@@ -221,9 +240,21 @@ class _$RepoImpl implements _Repo {
   @UStatusConverter()
   final UStatus? status;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Repo(\$type: ${$type}, did: $did, head: $head, rev: $rev, active: $active, status: $status)';
+    return 'Repo(\$type: ${$type}, did: $did, head: $head, rev: $rev, active: $active, status: $status, \$unknown: ${$unknown})';
   }
 
   @override
@@ -236,13 +267,14 @@ class _$RepoImpl implements _Repo {
             (identical(other.head, head) || other.head == head) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.active, active) || other.active == active) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, did, head, rev, active, status);
+  int get hashCode => Object.hash(runtimeType, $type, did, head, rev, active,
+      status, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -260,12 +292,14 @@ class _$RepoImpl implements _Repo {
 
 abstract class _Repo implements Repo {
   const factory _Repo(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      required final String head,
-      required final String rev,
-      final bool active,
-      @UStatusConverter() final UStatus? status}) = _$RepoImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          required final String head,
+          required final String rev,
+          final bool active,
+          @UStatusConverter() final UStatus? status,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RepoImpl;
 
   factory _Repo.fromJson(Map<String, dynamic> json) = _$RepoImpl.fromJson;
 
@@ -291,6 +325,11 @@ abstract class _Repo implements Repo {
   /// If active=false, this optional field indicates a possible reason for why the account is not active. If active=false and no status is supplied, then the host makes no claim for why the repository is no longer being hosted.
   @UStatusConverter()
   UStatus? get status;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RepoImplCopyWith<_$RepoImpl> get copyWith =>

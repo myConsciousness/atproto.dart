@@ -23,6 +23,10 @@ mixin _$GetInviteCodesOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<InviteCode> get codes => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetInviteCodesOutputCopyWith<GetInviteCodesOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetInviteCodesOutputCopyWith<$Res> {
           $Res Function(GetInviteCodesOutput) then) =
       _$GetInviteCodesOutputCopyWithImpl<$Res, GetInviteCodesOutput>;
   @useResult
-  $Res call({String? cursor, List<InviteCode> codes});
+  $Res call(
+      {String? cursor,
+      List<InviteCode> codes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,6 +61,7 @@ class _$GetInviteCodesOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? codes = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -64,6 +72,10 @@ class _$GetInviteCodesOutputCopyWithImpl<$Res,
           ? _value.codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<InviteCode>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$GetInviteCodesOutputImplCopyWith<$Res>
       __$$GetInviteCodesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<InviteCode> codes});
+  $Res call(
+      {String? cursor,
+      List<InviteCode> codes,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? codes = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetInviteCodesOutputImpl(
       cursor: freezed == cursor
@@ -102,6 +118,10 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
           ? _value._codes
           : codes // ignore: cast_nullable_to_non_nullable
               as List<InviteCode>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -111,8 +131,12 @@ class __$$GetInviteCodesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
   const _$GetInviteCodesOutputImpl(
-      {this.cursor, required final List<InviteCode> codes})
-      : _codes = codes;
+      {this.cursor,
+      required final List<InviteCode> codes,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _codes = codes,
+        _$unknown = $unknown;
 
   factory _$GetInviteCodesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetInviteCodesOutputImplFromJson(json);
@@ -127,9 +151,21 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
     return EqualUnmodifiableListView(_codes);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetInviteCodesOutput(cursor: $cursor, codes: $codes)';
+    return 'GetInviteCodesOutput(cursor: $cursor, codes: $codes, \$unknown: ${$unknown})';
   }
 
   @override
@@ -138,13 +174,17 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetInviteCodesOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._codes, _codes));
+            const DeepCollectionEquality().equals(other._codes, _codes) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_codes));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_codes),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -164,8 +204,10 @@ class _$GetInviteCodesOutputImpl implements _GetInviteCodesOutput {
 
 abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
   const factory _GetInviteCodesOutput(
-      {final String? cursor,
-      required final List<InviteCode> codes}) = _$GetInviteCodesOutputImpl;
+          {final String? cursor,
+          required final List<InviteCode> codes,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetInviteCodesOutputImpl;
 
   factory _GetInviteCodesOutput.fromJson(Map<String, dynamic> json) =
       _$GetInviteCodesOutputImpl.fromJson;
@@ -174,6 +216,11 @@ abstract class _GetInviteCodesOutput implements GetInviteCodesOutput {
   String? get cursor;
   @override
   List<InviteCode> get codes;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetInviteCodesOutputImplCopyWith<_$GetInviteCodesOutputImpl>

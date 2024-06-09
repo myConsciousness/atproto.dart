@@ -22,6 +22,10 @@ GetServiceAuthOutput _$GetServiceAuthOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetServiceAuthOutput {
   String get token => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetServiceAuthOutputCopyWith<GetServiceAuthOutput> get copyWith =>
@@ -34,7 +38,9 @@ abstract class $GetServiceAuthOutputCopyWith<$Res> {
           $Res Function(GetServiceAuthOutput) then) =
       _$GetServiceAuthOutputCopyWithImpl<$Res, GetServiceAuthOutput>;
   @useResult
-  $Res call({String token});
+  $Res call(
+      {String token,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -52,12 +58,17 @@ class _$GetServiceAuthOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? token = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -70,7 +81,9 @@ abstract class _$$GetServiceAuthOutputImplCopyWith<$Res>
       __$$GetServiceAuthOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String token});
+  $Res call(
+      {String token,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -85,12 +98,17 @@ class __$$GetServiceAuthOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? token = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetServiceAuthOutputImpl(
       token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -99,7 +117,11 @@ class __$$GetServiceAuthOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetServiceAuthOutputImpl implements _GetServiceAuthOutput {
-  const _$GetServiceAuthOutputImpl({required this.token});
+  const _$GetServiceAuthOutputImpl(
+      {required this.token,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetServiceAuthOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetServiceAuthOutputImplFromJson(json);
@@ -107,9 +129,21 @@ class _$GetServiceAuthOutputImpl implements _GetServiceAuthOutput {
   @override
   final String token;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetServiceAuthOutput(token: $token)';
+    return 'GetServiceAuthOutput(token: $token, \$unknown: ${$unknown})';
   }
 
   @override
@@ -117,12 +151,14 @@ class _$GetServiceAuthOutputImpl implements _GetServiceAuthOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetServiceAuthOutputImpl &&
-            (identical(other.token, token) || other.token == token));
+            (identical(other.token, token) || other.token == token) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, token);
+  int get hashCode => Object.hash(
+      runtimeType, token, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -141,7 +177,9 @@ class _$GetServiceAuthOutputImpl implements _GetServiceAuthOutput {
 }
 
 abstract class _GetServiceAuthOutput implements GetServiceAuthOutput {
-  const factory _GetServiceAuthOutput({required final String token}) =
+  const factory _GetServiceAuthOutput(
+          {required final String token,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetServiceAuthOutputImpl;
 
   factory _GetServiceAuthOutput.fromJson(Map<String, dynamic> json) =
@@ -149,6 +187,11 @@ abstract class _GetServiceAuthOutput implements GetServiceAuthOutput {
 
   @override
   String get token;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetServiceAuthOutputImplCopyWith<_$GetServiceAuthOutputImpl>

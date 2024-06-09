@@ -30,6 +30,10 @@ mixin _$Handle {
   String get handle => throw _privateConstructorUsedError;
   DateTime get time => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $HandleCopyWith<Handle> get copyWith => throw _privateConstructorUsedError;
@@ -45,7 +49,8 @@ abstract class $HandleCopyWith<$Res> {
       int seq,
       String did,
       String handle,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -66,6 +71,7 @@ class _$HandleCopyWithImpl<$Res, $Val extends Handle>
     Object? did = null,
     Object? handle = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -88,6 +94,10 @@ class _$HandleCopyWithImpl<$Res, $Val extends Handle>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -104,7 +114,8 @@ abstract class _$$HandleImplCopyWith<$Res> implements $HandleCopyWith<$Res> {
       int seq,
       String did,
       String handle,
-      DateTime time});
+      DateTime time,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -123,6 +134,7 @@ class __$$HandleImplCopyWithImpl<$Res>
     Object? did = null,
     Object? handle = null,
     Object? time = null,
+    Object? $unknown = null,
   }) {
     return _then(_$HandleImpl(
       $type: null == $type
@@ -145,6 +157,10 @@ class __$$HandleImplCopyWithImpl<$Res>
           ? _value.time
           : time // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -158,7 +174,10 @@ class _$HandleImpl implements _Handle {
       required this.seq,
       required this.did,
       required this.handle,
-      required this.time});
+      required this.time,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$HandleImpl.fromJson(Map<String, dynamic> json) =>
       _$$HandleImplFromJson(json);
@@ -178,9 +197,21 @@ class _$HandleImpl implements _Handle {
   @override
   final DateTime time;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Handle(\$type: ${$type}, seq: $seq, did: $did, handle: $handle, time: $time)';
+    return 'Handle(\$type: ${$type}, seq: $seq, did: $did, handle: $handle, time: $time, \$unknown: ${$unknown})';
   }
 
   @override
@@ -192,12 +223,14 @@ class _$HandleImpl implements _Handle {
             (identical(other.seq, seq) || other.seq == seq) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.handle, handle) || other.handle == handle) &&
-            (identical(other.time, time) || other.time == time));
+            (identical(other.time, time) || other.time == time) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, seq, did, handle, time);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, handle, time,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -215,11 +248,13 @@ class _$HandleImpl implements _Handle {
 
 abstract class _Handle implements Handle {
   const factory _Handle(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final String did,
-      required final String handle,
-      required final DateTime time}) = _$HandleImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final String did,
+          required final String handle,
+          required final DateTime time,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$HandleImpl;
 
   factory _Handle.fromJson(Map<String, dynamic> json) = _$HandleImpl.fromJson;
 
@@ -238,6 +273,11 @@ abstract class _Handle implements Handle {
   String get handle;
   @override
   DateTime get time;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$HandleImplCopyWith<_$HandleImpl> get copyWith =>

@@ -28,6 +28,13 @@ _$CheckAccountStatusOutputImpl _$$CheckAccountStatusOutputImplFromJson(
               $checkedConvert('expectedBlobs', (v) => (v as num).toInt()),
           importedBlobs:
               $checkedConvert('importedBlobs', (v) => (v as num).toInt()),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -45,4 +52,5 @@ Map<String, dynamic> _$$CheckAccountStatusOutputImplToJson(
       'privateStateValues': instance.privateStateValues,
       'expectedBlobs': instance.expectedBlobs,
       'importedBlobs': instance.importedBlobs,
+      r'$unknown': instance.$unknown,
     };

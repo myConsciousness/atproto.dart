@@ -32,6 +32,10 @@ mixin _$RepoOp {
   /// For creates and updates, the new record CID. For deletions, null.
   String get cid => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepoOpCopyWith<RepoOp> get copyWith => throw _privateConstructorUsedError;
@@ -46,7 +50,8 @@ abstract class $RepoOpCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UActionConverter() UAction action,
       String path,
-      String cid});
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UActionCopyWith<$Res> get action;
 }
@@ -68,6 +73,7 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
     Object? action = null,
     Object? path = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -86,6 +92,10 @@ class _$RepoOpCopyWithImpl<$Res, $Val extends RepoOp>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -109,7 +119,8 @@ abstract class _$$RepoOpImplCopyWith<$Res> implements $RepoOpCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @UActionConverter() UAction action,
       String path,
-      String cid});
+      String cid,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UActionCopyWith<$Res> get action;
@@ -130,6 +141,7 @@ class __$$RepoOpImplCopyWithImpl<$Res>
     Object? action = null,
     Object? path = null,
     Object? cid = null,
+    Object? $unknown = null,
   }) {
     return _then(_$RepoOpImpl(
       $type: null == $type
@@ -148,6 +160,10 @@ class __$$RepoOpImplCopyWithImpl<$Res>
           ? _value.cid
           : cid // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -160,7 +176,10 @@ class _$RepoOpImpl implements _RepoOp {
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposRepoOp,
       @UActionConverter() required this.action,
       required this.path,
-      required this.cid});
+      required this.cid,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RepoOpImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoOpImplFromJson(json);
@@ -181,9 +200,21 @@ class _$RepoOpImpl implements _RepoOp {
   @override
   final String cid;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RepoOp(\$type: ${$type}, action: $action, path: $path, cid: $cid)';
+    return 'RepoOp(\$type: ${$type}, action: $action, path: $path, cid: $cid, \$unknown: ${$unknown})';
   }
 
   @override
@@ -194,12 +225,14 @@ class _$RepoOpImpl implements _RepoOp {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.action, action) || other.action == action) &&
             (identical(other.path, path) || other.path == path) &&
-            (identical(other.cid, cid) || other.cid == cid));
+            (identical(other.cid, cid) || other.cid == cid) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, action, path, cid);
+  int get hashCode => Object.hash(runtimeType, $type, action, path, cid,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -217,10 +250,12 @@ class _$RepoOpImpl implements _RepoOp {
 
 abstract class _RepoOp implements RepoOp {
   const factory _RepoOp(
-      {@JsonKey(name: r'$type') final String $type,
-      @UActionConverter() required final UAction action,
-      required final String path,
-      required final String cid}) = _$RepoOpImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @UActionConverter() required final UAction action,
+          required final String path,
+          required final String cid,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RepoOpImpl;
 
   factory _RepoOp.fromJson(Map<String, dynamic> json) = _$RepoOpImpl.fromJson;
 
@@ -240,6 +275,11 @@ abstract class _RepoOp implements RepoOp {
 
   /// For creates and updates, the new record CID. For deletions, null.
   String get cid;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RepoOpImplCopyWith<_$RepoOpImpl> get copyWith =>

@@ -25,6 +25,13 @@ _$CreateReportOutputImpl _$$CreateReportOutputImplFromJson(Map json) =>
           reportedBy: $checkedConvert('reportedBy', (v) => v as String),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -47,5 +54,6 @@ Map<String, dynamic> _$$CreateReportOutputImplToJson(
   val['subject'] = const USubjectConverter().toJson(instance.subject);
   val['reportedBy'] = instance.reportedBy;
   val['createdAt'] = instance.createdAt.toIso8601String();
+  val[r'$unknown'] = instance.$unknown;
   return val;
 }

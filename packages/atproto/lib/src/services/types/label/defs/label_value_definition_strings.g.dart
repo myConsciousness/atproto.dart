@@ -23,6 +23,13 @@ _$LabelValueDefinitionStringsImpl _$$LabelValueDefinitionStringsImplFromJson(
           lang: $checkedConvert('lang', (v) => v as String),
           name: $checkedConvert('name', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -35,4 +42,5 @@ Map<String, dynamic> _$$LabelValueDefinitionStringsImplToJson(
       'lang': instance.lang,
       'name': instance.name,
       'description': instance.description,
+      r'$unknown': instance.$unknown,
     };

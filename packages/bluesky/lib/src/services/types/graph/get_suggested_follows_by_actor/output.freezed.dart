@@ -23,6 +23,10 @@ GetSuggestedFollowsByActorOutput _$GetSuggestedFollowsByActorOutputFromJson(
 mixin _$GetSuggestedFollowsByActorOutput {
   List<ProfileView> get suggestions => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetSuggestedFollowsByActorOutputCopyWith<GetSuggestedFollowsByActorOutput>
@@ -37,7 +41,9 @@ abstract class $GetSuggestedFollowsByActorOutputCopyWith<$Res> {
       _$GetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
           GetSuggestedFollowsByActorOutput>;
   @useResult
-  $Res call({List<ProfileView> suggestions});
+  $Res call(
+      {List<ProfileView> suggestions,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,12 +61,17 @@ class _$GetSuggestedFollowsByActorOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? suggestions = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       suggestions: null == suggestions
           ? _value.suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -74,7 +85,9 @@ abstract class _$$GetSuggestedFollowsByActorOutputImplCopyWith<$Res>
       __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ProfileView> suggestions});
+  $Res call(
+      {List<ProfileView> suggestions,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,12 +104,17 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? suggestions = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetSuggestedFollowsByActorOutputImpl(
       suggestions: null == suggestions
           ? _value._suggestions
           : suggestions // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -107,8 +125,11 @@ class __$$GetSuggestedFollowsByActorOutputImplCopyWithImpl<$Res>
 class _$GetSuggestedFollowsByActorOutputImpl
     implements _GetSuggestedFollowsByActorOutput {
   const _$GetSuggestedFollowsByActorOutputImpl(
-      {required final List<ProfileView> suggestions})
-      : _suggestions = suggestions;
+      {required final List<ProfileView> suggestions,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _suggestions = suggestions,
+        _$unknown = $unknown;
 
   factory _$GetSuggestedFollowsByActorOutputImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -122,9 +143,21 @@ class _$GetSuggestedFollowsByActorOutputImpl
     return EqualUnmodifiableListView(_suggestions);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetSuggestedFollowsByActorOutput(suggestions: $suggestions)';
+    return 'GetSuggestedFollowsByActorOutput(suggestions: $suggestions, \$unknown: ${$unknown})';
   }
 
   @override
@@ -133,13 +166,16 @@ class _$GetSuggestedFollowsByActorOutputImpl
         (other.runtimeType == runtimeType &&
             other is _$GetSuggestedFollowsByActorOutputImpl &&
             const DeepCollectionEquality()
-                .equals(other._suggestions, _suggestions));
+                .equals(other._suggestions, _suggestions) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, const DeepCollectionEquality().hash(_suggestions));
+      runtimeType,
+      const DeepCollectionEquality().hash(_suggestions),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -160,7 +196,8 @@ class _$GetSuggestedFollowsByActorOutputImpl
 abstract class _GetSuggestedFollowsByActorOutput
     implements GetSuggestedFollowsByActorOutput {
   const factory _GetSuggestedFollowsByActorOutput(
-          {required final List<ProfileView> suggestions}) =
+          {required final List<ProfileView> suggestions,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetSuggestedFollowsByActorOutputImpl;
 
   factory _GetSuggestedFollowsByActorOutput.fromJson(
@@ -169,6 +206,11 @@ abstract class _GetSuggestedFollowsByActorOutput
 
   @override
   List<ProfileView> get suggestions;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSuggestedFollowsByActorOutputImplCopyWith<

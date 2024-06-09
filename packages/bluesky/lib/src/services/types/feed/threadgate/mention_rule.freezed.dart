@@ -26,6 +26,10 @@ mixin _$MentionRule {
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $MentionRuleCopyWith<MentionRule> get copyWith =>
@@ -38,7 +42,9 @@ abstract class $MentionRuleCopyWith<$Res> {
           MentionRule value, $Res Function(MentionRule) then) =
       _$MentionRuleCopyWithImpl<$Res, MentionRule>;
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,12 +61,17 @@ class _$MentionRuleCopyWithImpl<$Res, $Val extends MentionRule>
   @override
   $Res call({
     Object? $type = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -73,7 +84,9 @@ abstract class _$$MentionRuleImplCopyWith<$Res>
       __$$MentionRuleImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({@JsonKey(name: r'$type') String $type});
+  $Res call(
+      {@JsonKey(name: r'$type') String $type,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -88,12 +101,17 @@ class __$$MentionRuleImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? $type = null,
+    Object? $unknown = null,
   }) {
     return _then(_$MentionRuleImpl(
       $type: null == $type
           ? _value.$type
           : $type // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -103,7 +121,10 @@ class __$$MentionRuleImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$MentionRuleImpl implements _MentionRule {
   const _$MentionRuleImpl(
-      {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateMentionRule});
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgateMentionRule,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$MentionRuleImpl.fromJson(Map<String, dynamic> json) =>
       _$$MentionRuleImplFromJson(json);
@@ -115,9 +136,21 @@ class _$MentionRuleImpl implements _MentionRule {
   @JsonKey(name: r'$type')
   final String $type;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'MentionRule(\$type: ${$type})';
+    return 'MentionRule(\$type: ${$type}, \$unknown: ${$unknown})';
   }
 
   @override
@@ -125,12 +158,14 @@ class _$MentionRuleImpl implements _MentionRule {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MentionRuleImpl &&
-            (identical(other.$type, $type) || other.$type == $type));
+            (identical(other.$type, $type) || other.$type == $type) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type);
+  int get hashCode => Object.hash(
+      runtimeType, $type, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -147,7 +182,9 @@ class _$MentionRuleImpl implements _MentionRule {
 }
 
 abstract class _MentionRule implements MentionRule {
-  const factory _MentionRule({@JsonKey(name: r'$type') final String $type}) =
+  const factory _MentionRule(
+          {@JsonKey(name: r'$type') final String $type,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$MentionRuleImpl;
 
   factory _MentionRule.fromJson(Map<String, dynamic> json) =
@@ -160,6 +197,11 @@ abstract class _MentionRule implements MentionRule {
   /// `app.bsky.feed.threadgate#mentionRule`
   @JsonKey(name: r'$type')
   String get $type;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$MentionRuleImplCopyWith<_$MentionRuleImpl> get copyWith =>

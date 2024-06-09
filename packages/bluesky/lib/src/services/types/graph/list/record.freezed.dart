@@ -34,6 +34,10 @@ mixin _$ListRecord {
   ULabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ListRecordCopyWith<ListRecord> get copyWith =>
@@ -53,7 +57,8 @@ abstract class $ListRecordCopyWith<$Res> {
       List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UListPurposeCopyWith<$Res> get purpose;
   $BlobCopyWith<$Res>? get avatar;
@@ -80,6 +85,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       purpose: null == purpose
@@ -110,6 +116,10 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -161,7 +171,8 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @ULabelConverter() ULabel? labels,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UListPurposeCopyWith<$Res> get purpose;
@@ -189,6 +200,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? labels = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ListRecordImpl(
       purpose: null == purpose
@@ -219,6 +231,10 @@ class __$$ListRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -234,8 +250,11 @@ class _$ListRecordImpl implements _ListRecord {
       final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       @ULabelConverter() this.labels,
-      required this.createdAt})
-      : _descriptionFacets = descriptionFacets;
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _descriptionFacets = descriptionFacets,
+        _$unknown = $unknown;
 
   factory _$ListRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRecordImplFromJson(json);
@@ -270,9 +289,21 @@ class _$ListRecordImpl implements _ListRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ListRecord(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt)';
+    return 'ListRecord(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -289,7 +320,8 @@ class _$ListRecordImpl implements _ListRecord {
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.labels, labels) || other.labels == labels) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -302,7 +334,8 @@ class _$ListRecordImpl implements _ListRecord {
       const DeepCollectionEquality().hash(_descriptionFacets),
       avatar,
       labels,
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -320,13 +353,15 @@ class _$ListRecordImpl implements _ListRecord {
 
 abstract class _ListRecord implements ListRecord {
   const factory _ListRecord(
-      {@UListPurposeConverter() required final UListPurpose purpose,
-      required final String name,
-      final String? description,
-      final List<Facet>? descriptionFacets,
-      @BlobConverter() final Blob? avatar,
-      @ULabelConverter() final ULabel? labels,
-      required final DateTime createdAt}) = _$ListRecordImpl;
+          {@UListPurposeConverter() required final UListPurpose purpose,
+          required final String name,
+          final String? description,
+          final List<Facet>? descriptionFacets,
+          @BlobConverter() final Blob? avatar,
+          @ULabelConverter() final ULabel? labels,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ListRecordImpl;
 
   factory _ListRecord.fromJson(Map<String, dynamic> json) =
       _$ListRecordImpl.fromJson;
@@ -352,6 +387,11 @@ abstract class _ListRecord implements ListRecord {
   ULabel? get labels;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ListRecordImplCopyWith<_$ListRecordImpl> get copyWith =>

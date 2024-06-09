@@ -20,6 +20,13 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           value: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -31,4 +38,5 @@ Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) =>
       'uri': const AtUriConverter().toJson(instance.uri),
       'cid': instance.cid,
       'value': instance.value,
+      r'$unknown': instance.$unknown,
     };

@@ -19,6 +19,13 @@ _$ExternalViewImpl _$$ExternalViewImplFromJson(Map json) => $checkedCreate(
               'external',
               (v) => ExternalViewExternal.fromJson(
                   Map<String, Object?>.from(v as Map))),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -28,4 +35,5 @@ Map<String, dynamic> _$$ExternalViewImplToJson(_$ExternalViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'external': instance.external.toJson(),
+      r'$unknown': instance.$unknown,
     };

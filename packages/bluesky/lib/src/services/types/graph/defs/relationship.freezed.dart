@@ -35,6 +35,10 @@ mixin _$Relationship {
   @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RelationshipCopyWith<Relationship> get copyWith =>
@@ -51,7 +55,8 @@ abstract class $RelationshipCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String did,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -71,6 +76,7 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -89,6 +95,10 @@ class _$RelationshipCopyWithImpl<$Res, $Val extends Relationship>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -105,7 +115,8 @@ abstract class _$$RelationshipImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String did,
       @AtUriConverter() AtUri? following,
-      @AtUriConverter() AtUri? followedBy});
+      @AtUriConverter() AtUri? followedBy,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -123,6 +134,7 @@ class __$$RelationshipImplCopyWithImpl<$Res>
     Object? did = null,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$RelationshipImpl(
       $type: null == $type
@@ -141,6 +153,10 @@ class __$$RelationshipImplCopyWithImpl<$Res>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -153,7 +169,10 @@ class _$RelationshipImpl implements _Relationship {
       {@JsonKey(name: r'$type') this.$type = appBskyGraphDefsRelationship,
       required this.did,
       @AtUriConverter() this.following,
-      @AtUriConverter() this.followedBy});
+      @AtUriConverter() this.followedBy,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RelationshipImpl.fromJson(Map<String, dynamic> json) =>
       _$$RelationshipImplFromJson(json);
@@ -177,9 +196,21 @@ class _$RelationshipImpl implements _Relationship {
   @AtUriConverter()
   final AtUri? followedBy;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Relationship(\$type: ${$type}, did: $did, following: $following, followedBy: $followedBy)';
+    return 'Relationship(\$type: ${$type}, did: $did, following: $following, followedBy: $followedBy, \$unknown: ${$unknown})';
   }
 
   @override
@@ -192,13 +223,14 @@ class _$RelationshipImpl implements _Relationship {
             (identical(other.following, following) ||
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
-                other.followedBy == followedBy));
+                other.followedBy == followedBy) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, did, following, followedBy);
+  int get hashCode => Object.hash(runtimeType, $type, did, following,
+      followedBy, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -216,10 +248,12 @@ class _$RelationshipImpl implements _Relationship {
 
 abstract class _Relationship implements Relationship {
   const factory _Relationship(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      @AtUriConverter() final AtUri? following,
-      @AtUriConverter() final AtUri? followedBy}) = _$RelationshipImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          @AtUriConverter() final AtUri? following,
+          @AtUriConverter() final AtUri? followedBy,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RelationshipImpl;
 
   factory _Relationship.fromJson(Map<String, dynamic> json) =
       _$RelationshipImpl.fromJson;
@@ -243,6 +277,11 @@ abstract class _Relationship implements Relationship {
   /// if the actor is followed by this DID, contains the AT-URI of the follow record
   @AtUriConverter()
   AtUri? get followedBy;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RelationshipImplCopyWith<_$RelationshipImpl> get copyWith =>

@@ -26,6 +26,13 @@ _$FeedViewPrefImpl _$$FeedViewPrefImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('hideReposts', (v) => v as bool? ?? false),
           hideQuotePosts:
               $checkedConvert('hideQuotePosts', (v) => v as bool? ?? false),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -40,4 +47,5 @@ Map<String, dynamic> _$$FeedViewPrefImplToJson(_$FeedViewPrefImpl instance) =>
       'hideRepliesByLikeCount': instance.hideRepliesByLikeCount,
       'hideReposts': instance.hideReposts,
       'hideQuotePosts': instance.hideQuotePosts,
+      r'$unknown': instance.$unknown,
     };

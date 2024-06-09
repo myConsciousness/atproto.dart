@@ -22,6 +22,10 @@ GetHeadOutput _$GetHeadOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetHeadOutput {
   String get root => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetHeadOutputCopyWith<GetHeadOutput> get copyWith =>
@@ -34,7 +38,8 @@ abstract class $GetHeadOutputCopyWith<$Res> {
           GetHeadOutput value, $Res Function(GetHeadOutput) then) =
       _$GetHeadOutputCopyWithImpl<$Res, GetHeadOutput>;
   @useResult
-  $Res call({String root});
+  $Res call(
+      {String root, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -51,12 +56,17 @@ class _$GetHeadOutputCopyWithImpl<$Res, $Val extends GetHeadOutput>
   @override
   $Res call({
     Object? root = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -69,7 +79,8 @@ abstract class _$$GetHeadOutputImplCopyWith<$Res>
       __$$GetHeadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String root});
+  $Res call(
+      {String root, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -84,12 +95,17 @@ class __$$GetHeadOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? root = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetHeadOutputImpl(
       root: null == root
           ? _value.root
           : root // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -98,7 +114,11 @@ class __$$GetHeadOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$GetHeadOutputImpl implements _GetHeadOutput {
-  const _$GetHeadOutputImpl({required this.root});
+  const _$GetHeadOutputImpl(
+      {required this.root,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$GetHeadOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetHeadOutputImplFromJson(json);
@@ -106,9 +126,21 @@ class _$GetHeadOutputImpl implements _GetHeadOutput {
   @override
   final String root;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetHeadOutput(root: $root)';
+    return 'GetHeadOutput(root: $root, \$unknown: ${$unknown})';
   }
 
   @override
@@ -116,12 +148,14 @@ class _$GetHeadOutputImpl implements _GetHeadOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetHeadOutputImpl &&
-            (identical(other.root, root) || other.root == root));
+            (identical(other.root, root) || other.root == root) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, root);
+  int get hashCode => Object.hash(
+      runtimeType, root, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -138,7 +172,9 @@ class _$GetHeadOutputImpl implements _GetHeadOutput {
 }
 
 abstract class _GetHeadOutput implements GetHeadOutput {
-  const factory _GetHeadOutput({required final String root}) =
+  const factory _GetHeadOutput(
+          {required final String root,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetHeadOutputImpl;
 
   factory _GetHeadOutput.fromJson(Map<String, dynamic> json) =
@@ -146,6 +182,11 @@ abstract class _GetHeadOutput implements GetHeadOutput {
 
   @override
   String get root;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetHeadOutputImplCopyWith<_$GetHeadOutputImpl> get copyWith =>

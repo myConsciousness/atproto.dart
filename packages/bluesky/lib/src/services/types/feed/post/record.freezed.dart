@@ -45,6 +45,10 @@ mixin _$PostRecord {
   /// Client-declared timestamp when this post was originally created.
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $PostRecordCopyWith<PostRecord> get copyWith =>
@@ -66,7 +70,8 @@ abstract class $PostRecordCopyWith<$Res> {
       List<String>? langs,
       @ULabelConverter() ULabel? labels,
       List<String>? tags,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ReplyRefCopyWith<$Res>? get reply;
   $UEmbedCopyWith<$Res>? get embed;
@@ -95,6 +100,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? labels = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       text: null == text
@@ -133,6 +139,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -190,7 +200,8 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       List<String>? langs,
       @ULabelConverter() ULabel? labels,
       List<String>? tags,
-      DateTime createdAt});
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ReplyRefCopyWith<$Res>? get reply;
@@ -220,6 +231,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
     Object? labels = freezed,
     Object? tags = freezed,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$PostRecordImpl(
       text: null == text
@@ -258,6 +270,10 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -275,11 +291,14 @@ class _$PostRecordImpl implements _PostRecord {
       final List<String>? langs,
       @ULabelConverter() this.labels,
       final List<String>? tags,
-      required this.createdAt})
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
       : _entities = entities,
         _facets = facets,
         _langs = langs,
-        _tags = tags;
+        _tags = tags,
+        _$unknown = $unknown;
 
   factory _$PostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostRecordImplFromJson(json);
@@ -355,9 +374,21 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'PostRecord(text: $text, entities: $entities, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt)';
+    return 'PostRecord(text: $text, entities: $entities, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -374,7 +405,8 @@ class _$PostRecordImpl implements _PostRecord {
             (identical(other.labels, labels) || other.labels == labels) &&
             const DeepCollectionEquality().equals(other._tags, _tags) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -389,7 +421,8 @@ class _$PostRecordImpl implements _PostRecord {
       const DeepCollectionEquality().hash(_langs),
       labels,
       const DeepCollectionEquality().hash(_tags),
-      createdAt);
+      createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -407,15 +440,17 @@ class _$PostRecordImpl implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-      {required final String text,
-      final List<Entity>? entities,
-      final List<Facet>? facets,
-      final ReplyRef? reply,
-      @UEmbedConverter() final UEmbed? embed,
-      final List<String>? langs,
-      @ULabelConverter() final ULabel? labels,
-      final List<String>? tags,
-      required final DateTime createdAt}) = _$PostRecordImpl;
+          {required final String text,
+          final List<Entity>? entities,
+          final List<Facet>? facets,
+          final ReplyRef? reply,
+          @UEmbedConverter() final UEmbed? embed,
+          final List<String>? langs,
+          @ULabelConverter() final ULabel? labels,
+          final List<String>? tags,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$PostRecordImpl;
 
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
       _$PostRecordImpl.fromJson;
@@ -454,6 +489,11 @@ abstract class _PostRecord implements PostRecord {
 
   /// Client-declared timestamp when this post was originally created.
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$PostRecordImplCopyWith<_$PostRecordImpl> get copyWith =>

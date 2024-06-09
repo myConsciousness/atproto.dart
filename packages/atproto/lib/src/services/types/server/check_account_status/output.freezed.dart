@@ -31,6 +31,10 @@ mixin _$CheckAccountStatusOutput {
   int get expectedBlobs => throw _privateConstructorUsedError;
   int get importedBlobs => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $CheckAccountStatusOutputCopyWith<CheckAccountStatusOutput> get copyWith =>
@@ -52,7 +56,8 @@ abstract class $CheckAccountStatusOutputCopyWith<$Res> {
       int indexedRecords,
       int privateStateValues,
       int expectedBlobs,
-      int importedBlobs});
+      int importedBlobs,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -78,6 +83,7 @@ class _$CheckAccountStatusOutputCopyWithImpl<$Res,
     Object? privateStateValues = null,
     Object? expectedBlobs = null,
     Object? importedBlobs = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       activated: null == activated
@@ -116,6 +122,10 @@ class _$CheckAccountStatusOutputCopyWithImpl<$Res,
           ? _value.importedBlobs
           : importedBlobs // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -138,7 +148,8 @@ abstract class _$$CheckAccountStatusOutputImplCopyWith<$Res>
       int indexedRecords,
       int privateStateValues,
       int expectedBlobs,
-      int importedBlobs});
+      int importedBlobs,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -163,6 +174,7 @@ class __$$CheckAccountStatusOutputImplCopyWithImpl<$Res>
     Object? privateStateValues = null,
     Object? expectedBlobs = null,
     Object? importedBlobs = null,
+    Object? $unknown = null,
   }) {
     return _then(_$CheckAccountStatusOutputImpl(
       activated: null == activated
@@ -201,6 +213,10 @@ class __$$CheckAccountStatusOutputImplCopyWithImpl<$Res>
           ? _value.importedBlobs
           : importedBlobs // ignore: cast_nullable_to_non_nullable
               as int,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -218,7 +234,10 @@ class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
       required this.indexedRecords,
       required this.privateStateValues,
       required this.expectedBlobs,
-      required this.importedBlobs});
+      required this.importedBlobs,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$CheckAccountStatusOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$CheckAccountStatusOutputImplFromJson(json);
@@ -242,9 +261,21 @@ class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
   @override
   final int importedBlobs;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'CheckAccountStatusOutput(activated: $activated, validDid: $validDid, repoCommit: $repoCommit, repoRev: $repoRev, repoBlocks: $repoBlocks, indexedRecords: $indexedRecords, privateStateValues: $privateStateValues, expectedBlobs: $expectedBlobs, importedBlobs: $importedBlobs)';
+    return 'CheckAccountStatusOutput(activated: $activated, validDid: $validDid, repoCommit: $repoCommit, repoRev: $repoRev, repoBlocks: $repoBlocks, indexedRecords: $indexedRecords, privateStateValues: $privateStateValues, expectedBlobs: $expectedBlobs, importedBlobs: $importedBlobs, \$unknown: ${$unknown})';
   }
 
   @override
@@ -268,7 +299,8 @@ class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
             (identical(other.expectedBlobs, expectedBlobs) ||
                 other.expectedBlobs == expectedBlobs) &&
             (identical(other.importedBlobs, importedBlobs) ||
-                other.importedBlobs == importedBlobs));
+                other.importedBlobs == importedBlobs) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
@@ -283,7 +315,8 @@ class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
       indexedRecords,
       privateStateValues,
       expectedBlobs,
-      importedBlobs);
+      importedBlobs,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -302,15 +335,17 @@ class _$CheckAccountStatusOutputImpl implements _CheckAccountStatusOutput {
 
 abstract class _CheckAccountStatusOutput implements CheckAccountStatusOutput {
   const factory _CheckAccountStatusOutput(
-      {required final bool activated,
-      required final bool validDid,
-      required final String repoCommit,
-      required final String repoRev,
-      required final int repoBlocks,
-      required final int indexedRecords,
-      required final int privateStateValues,
-      required final int expectedBlobs,
-      required final int importedBlobs}) = _$CheckAccountStatusOutputImpl;
+          {required final bool activated,
+          required final bool validDid,
+          required final String repoCommit,
+          required final String repoRev,
+          required final int repoBlocks,
+          required final int indexedRecords,
+          required final int privateStateValues,
+          required final int expectedBlobs,
+          required final int importedBlobs,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CheckAccountStatusOutputImpl;
 
   factory _CheckAccountStatusOutput.fromJson(Map<String, dynamic> json) =
       _$CheckAccountStatusOutputImpl.fromJson;
@@ -333,6 +368,11 @@ abstract class _CheckAccountStatusOutput implements CheckAccountStatusOutput {
   int get expectedBlobs;
   @override
   int get importedBlobs;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$CheckAccountStatusOutputImplCopyWith<_$CheckAccountStatusOutputImpl>

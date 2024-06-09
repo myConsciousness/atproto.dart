@@ -24,6 +24,10 @@ mixin _$GetFollowsOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get follows => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetFollowsOutputCopyWith<GetFollowsOutput> get copyWith =>
@@ -36,7 +40,11 @@ abstract class $GetFollowsOutputCopyWith<$Res> {
           GetFollowsOutput value, $Res Function(GetFollowsOutput) then) =
       _$GetFollowsOutputCopyWithImpl<$Res, GetFollowsOutput>;
   @useResult
-  $Res call({ProfileView subject, String? cursor, List<ProfileView> follows});
+  $Res call(
+      {ProfileView subject,
+      String? cursor,
+      List<ProfileView> follows,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewCopyWith<$Res> get subject;
 }
@@ -57,6 +65,7 @@ class _$GetFollowsOutputCopyWithImpl<$Res, $Val extends GetFollowsOutput>
     Object? subject = null,
     Object? cursor = freezed,
     Object? follows = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -71,6 +80,10 @@ class _$GetFollowsOutputCopyWithImpl<$Res, $Val extends GetFollowsOutput>
           ? _value.follows
           : follows // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -91,7 +104,11 @@ abstract class _$$GetFollowsOutputImplCopyWith<$Res>
       __$$GetFollowsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({ProfileView subject, String? cursor, List<ProfileView> follows});
+  $Res call(
+      {ProfileView subject,
+      String? cursor,
+      List<ProfileView> follows,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ProfileViewCopyWith<$Res> get subject;
@@ -111,6 +128,7 @@ class __$$GetFollowsOutputImplCopyWithImpl<$Res>
     Object? subject = null,
     Object? cursor = freezed,
     Object? follows = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetFollowsOutputImpl(
       subject: null == subject
@@ -125,6 +143,10 @@ class __$$GetFollowsOutputImplCopyWithImpl<$Res>
           ? _value._follows
           : follows // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -136,8 +158,11 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
   const _$GetFollowsOutputImpl(
       {required this.subject,
       this.cursor,
-      required final List<ProfileView> follows})
-      : _follows = follows;
+      required final List<ProfileView> follows,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _follows = follows,
+        _$unknown = $unknown;
 
   factory _$GetFollowsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetFollowsOutputImplFromJson(json);
@@ -154,9 +179,21 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
     return EqualUnmodifiableListView(_follows);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetFollowsOutput(subject: $subject, cursor: $cursor, follows: $follows)';
+    return 'GetFollowsOutput(subject: $subject, cursor: $cursor, follows: $follows, \$unknown: ${$unknown})';
   }
 
   @override
@@ -166,13 +203,18 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
             other is _$GetFollowsOutputImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._follows, _follows));
+            const DeepCollectionEquality().equals(other._follows, _follows) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, cursor,
-      const DeepCollectionEquality().hash(_follows));
+  int get hashCode => Object.hash(
+      runtimeType,
+      subject,
+      cursor,
+      const DeepCollectionEquality().hash(_follows),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -191,9 +233,11 @@ class _$GetFollowsOutputImpl implements _GetFollowsOutput {
 
 abstract class _GetFollowsOutput implements GetFollowsOutput {
   const factory _GetFollowsOutput(
-      {required final ProfileView subject,
-      final String? cursor,
-      required final List<ProfileView> follows}) = _$GetFollowsOutputImpl;
+          {required final ProfileView subject,
+          final String? cursor,
+          required final List<ProfileView> follows,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetFollowsOutputImpl;
 
   factory _GetFollowsOutput.fromJson(Map<String, dynamic> json) =
       _$GetFollowsOutputImpl.fromJson;
@@ -204,6 +248,11 @@ abstract class _GetFollowsOutput implements GetFollowsOutput {
   String? get cursor;
   @override
   List<ProfileView> get follows;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetFollowsOutputImplCopyWith<_$GetFollowsOutputImpl> get copyWith =>

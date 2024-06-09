@@ -23,6 +23,10 @@ mixin _$GetSuggestionsOutput {
   String? get cursor => throw _privateConstructorUsedError;
   List<ProfileView> get actors => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetSuggestionsOutputCopyWith<GetSuggestionsOutput> get copyWith =>
@@ -35,7 +39,10 @@ abstract class $GetSuggestionsOutputCopyWith<$Res> {
           $Res Function(GetSuggestionsOutput) then) =
       _$GetSuggestionsOutputCopyWithImpl<$Res, GetSuggestionsOutput>;
   @useResult
-  $Res call({String? cursor, List<ProfileView> actors});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,6 +61,7 @@ class _$GetSuggestionsOutputCopyWithImpl<$Res,
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       cursor: freezed == cursor
@@ -64,6 +72,10 @@ class _$GetSuggestionsOutputCopyWithImpl<$Res,
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$GetSuggestionsOutputImplCopyWith<$Res>
       __$$GetSuggestionsOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? cursor, List<ProfileView> actors});
+  $Res call(
+      {String? cursor,
+      List<ProfileView> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$GetSuggestionsOutputImplCopyWithImpl<$Res>
   $Res call({
     Object? cursor = freezed,
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetSuggestionsOutputImpl(
       cursor: freezed == cursor
@@ -102,6 +118,10 @@ class __$$GetSuggestionsOutputImplCopyWithImpl<$Res>
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileView>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -111,8 +131,12 @@ class __$$GetSuggestionsOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
   const _$GetSuggestionsOutputImpl(
-      {this.cursor, required final List<ProfileView> actors})
-      : _actors = actors;
+      {this.cursor,
+      required final List<ProfileView> actors,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _actors = actors,
+        _$unknown = $unknown;
 
   factory _$GetSuggestionsOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetSuggestionsOutputImplFromJson(json);
@@ -127,9 +151,21 @@ class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetSuggestionsOutput(cursor: $cursor, actors: $actors)';
+    return 'GetSuggestionsOutput(cursor: $cursor, actors: $actors, \$unknown: ${$unknown})';
   }
 
   @override
@@ -138,13 +174,17 @@ class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
         (other.runtimeType == runtimeType &&
             other is _$GetSuggestionsOutputImpl &&
             (identical(other.cursor, cursor) || other.cursor == cursor) &&
-            const DeepCollectionEquality().equals(other._actors, _actors));
+            const DeepCollectionEquality().equals(other._actors, _actors) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
-      runtimeType, cursor, const DeepCollectionEquality().hash(_actors));
+      runtimeType,
+      cursor,
+      const DeepCollectionEquality().hash(_actors),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -164,8 +204,10 @@ class _$GetSuggestionsOutputImpl implements _GetSuggestionsOutput {
 
 abstract class _GetSuggestionsOutput implements GetSuggestionsOutput {
   const factory _GetSuggestionsOutput(
-      {final String? cursor,
-      required final List<ProfileView> actors}) = _$GetSuggestionsOutputImpl;
+          {final String? cursor,
+          required final List<ProfileView> actors,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$GetSuggestionsOutputImpl;
 
   factory _GetSuggestionsOutput.fromJson(Map<String, dynamic> json) =
       _$GetSuggestionsOutputImpl.fromJson;
@@ -174,6 +216,11 @@ abstract class _GetSuggestionsOutput implements GetSuggestionsOutput {
   String? get cursor;
   @override
   List<ProfileView> get actors;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetSuggestionsOutputImplCopyWith<_$GetSuggestionsOutputImpl>

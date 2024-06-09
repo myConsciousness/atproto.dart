@@ -15,6 +15,13 @@ _$GetServiceAuthOutputImpl _$$GetServiceAuthOutputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$GetServiceAuthOutputImpl(
           token: $checkedConvert('token', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -24,4 +31,5 @@ Map<String, dynamic> _$$GetServiceAuthOutputImplToJson(
         _$GetServiceAuthOutputImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
+      r'$unknown': instance.$unknown,
     };

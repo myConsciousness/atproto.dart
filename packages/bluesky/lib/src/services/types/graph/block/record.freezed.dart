@@ -24,6 +24,10 @@ mixin _$BlockRecord {
   String get subject => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $BlockRecordCopyWith<BlockRecord> get copyWith =>
@@ -36,7 +40,10 @@ abstract class $BlockRecordCopyWith<$Res> {
           BlockRecord value, $Res Function(BlockRecord) then) =
       _$BlockRecordCopyWithImpl<$Res, BlockRecord>;
   @useResult
-  $Res call({String subject, DateTime createdAt});
+  $Res call(
+      {String subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -54,6 +61,7 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       subject: null == subject
@@ -64,6 +72,10 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -76,7 +88,10 @@ abstract class _$$BlockRecordImplCopyWith<$Res>
       __$$BlockRecordImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String subject, DateTime createdAt});
+  $Res call(
+      {String subject,
+      DateTime createdAt,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -92,6 +107,7 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? subject = null,
     Object? createdAt = null,
+    Object? $unknown = null,
   }) {
     return _then(_$BlockRecordImpl(
       subject: null == subject
@@ -102,6 +118,10 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -110,7 +130,12 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$BlockRecordImpl implements _BlockRecord {
-  const _$BlockRecordImpl({required this.subject, required this.createdAt});
+  const _$BlockRecordImpl(
+      {required this.subject,
+      required this.createdAt,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$BlockRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockRecordImplFromJson(json);
@@ -121,9 +146,21 @@ class _$BlockRecordImpl implements _BlockRecord {
   @override
   final DateTime createdAt;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'BlockRecord(subject: $subject, createdAt: $createdAt)';
+    return 'BlockRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -133,12 +170,14 @@ class _$BlockRecordImpl implements _BlockRecord {
             other is _$BlockRecordImpl &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt));
+                other.createdAt == createdAt) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt);
+  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -156,8 +195,10 @@ class _$BlockRecordImpl implements _BlockRecord {
 
 abstract class _BlockRecord implements BlockRecord {
   const factory _BlockRecord(
-      {required final String subject,
-      required final DateTime createdAt}) = _$BlockRecordImpl;
+          {required final String subject,
+          required final DateTime createdAt,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$BlockRecordImpl;
 
   factory _BlockRecord.fromJson(Map<String, dynamic> json) =
       _$BlockRecordImpl.fromJson;
@@ -168,6 +209,11 @@ abstract class _BlockRecord implements BlockRecord {
   String get subject;
   @override
   DateTime get createdAt;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$BlockRecordImplCopyWith<_$BlockRecordImpl> get copyWith =>

@@ -31,6 +31,10 @@ mixin _$ThreadViewPost {
   @UReplyConverter()
   List<UReply>? get replies => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ThreadViewPostCopyWith<ThreadViewPost> get copyWith =>
@@ -47,7 +51,8 @@ abstract class $ThreadViewPostCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       PostView post,
       @UParentConverter() UParent? parent,
-      @UReplyConverter() List<UReply>? replies});
+      @UReplyConverter() List<UReply>? replies,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $PostViewCopyWith<$Res> get post;
   $UParentCopyWith<$Res>? get parent;
@@ -70,6 +75,7 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
     Object? post = null,
     Object? parent = freezed,
     Object? replies = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -88,6 +94,10 @@ class _$ThreadViewPostCopyWithImpl<$Res, $Val extends ThreadViewPost>
           ? _value.replies
           : replies // ignore: cast_nullable_to_non_nullable
               as List<UReply>?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -124,7 +134,8 @@ abstract class _$$ThreadViewPostImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       PostView post,
       @UParentConverter() UParent? parent,
-      @UReplyConverter() List<UReply>? replies});
+      @UReplyConverter() List<UReply>? replies,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $PostViewCopyWith<$Res> get post;
@@ -147,6 +158,7 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
     Object? post = null,
     Object? parent = freezed,
     Object? replies = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ThreadViewPostImpl(
       $type: null == $type
@@ -165,6 +177,10 @@ class __$$ThreadViewPostImplCopyWithImpl<$Res>
           ? _value._replies
           : replies // ignore: cast_nullable_to_non_nullable
               as List<UReply>?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -177,8 +193,11 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsThreadViewPost,
       required this.post,
       @UParentConverter() this.parent,
-      @UReplyConverter() final List<UReply>? replies})
-      : _replies = replies;
+      @UReplyConverter() final List<UReply>? replies,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _replies = replies,
+        _$unknown = $unknown;
 
   factory _$ThreadViewPostImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadViewPostImplFromJson(json);
@@ -205,9 +224,21 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
     return EqualUnmodifiableListView(value);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ThreadViewPost(\$type: ${$type}, post: $post, parent: $parent, replies: $replies)';
+    return 'ThreadViewPost(\$type: ${$type}, post: $post, parent: $parent, replies: $replies, \$unknown: ${$unknown})';
   }
 
   @override
@@ -218,13 +249,19 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.post, post) || other.post == post) &&
             (identical(other.parent, parent) || other.parent == parent) &&
-            const DeepCollectionEquality().equals(other._replies, _replies));
+            const DeepCollectionEquality().equals(other._replies, _replies) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, post, parent,
-      const DeepCollectionEquality().hash(_replies));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      post,
+      parent,
+      const DeepCollectionEquality().hash(_replies),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -243,10 +280,12 @@ class _$ThreadViewPostImpl implements _ThreadViewPost {
 
 abstract class _ThreadViewPost implements ThreadViewPost {
   const factory _ThreadViewPost(
-      {@JsonKey(name: r'$type') final String $type,
-      required final PostView post,
-      @UParentConverter() final UParent? parent,
-      @UReplyConverter() final List<UReply>? replies}) = _$ThreadViewPostImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final PostView post,
+          @UParentConverter() final UParent? parent,
+          @UReplyConverter() final List<UReply>? replies,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ThreadViewPostImpl;
 
   factory _ThreadViewPost.fromJson(Map<String, dynamic> json) =
       _$ThreadViewPostImpl.fromJson;
@@ -266,6 +305,11 @@ abstract class _ThreadViewPost implements ThreadViewPost {
   @override
   @UReplyConverter()
   List<UReply>? get replies;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ThreadViewPostImplCopyWith<_$ThreadViewPostImpl> get copyWith =>

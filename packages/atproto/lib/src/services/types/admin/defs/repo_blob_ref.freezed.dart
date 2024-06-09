@@ -30,6 +30,10 @@ mixin _$RepoBlobRef {
   @AtUriConverter()
   AtUri? get recordUri => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $RepoBlobRefCopyWith<RepoBlobRef> get copyWith =>
@@ -46,7 +50,8 @@ abstract class $RepoBlobRefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       String did,
       String cid,
-      @AtUriConverter() AtUri? recordUri});
+      @AtUriConverter() AtUri? recordUri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -66,6 +71,7 @@ class _$RepoBlobRefCopyWithImpl<$Res, $Val extends RepoBlobRef>
     Object? did = null,
     Object? cid = null,
     Object? recordUri = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -84,6 +90,10 @@ class _$RepoBlobRefCopyWithImpl<$Res, $Val extends RepoBlobRef>
           ? _value.recordUri
           : recordUri // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -100,7 +110,8 @@ abstract class _$$RepoBlobRefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       String did,
       String cid,
-      @AtUriConverter() AtUri? recordUri});
+      @AtUriConverter() AtUri? recordUri,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -118,6 +129,7 @@ class __$$RepoBlobRefImplCopyWithImpl<$Res>
     Object? did = null,
     Object? cid = null,
     Object? recordUri = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$RepoBlobRefImpl(
       $type: null == $type
@@ -136,6 +148,10 @@ class __$$RepoBlobRefImplCopyWithImpl<$Res>
           ? _value.recordUri
           : recordUri // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -148,7 +164,10 @@ class _$RepoBlobRefImpl implements _RepoBlobRef {
       {@JsonKey(name: r'$type') this.$type = comAtprotoAdminDefsRepoBlobRef,
       required this.did,
       required this.cid,
-      @AtUriConverter() this.recordUri});
+      @AtUriConverter() this.recordUri,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$RepoBlobRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepoBlobRefImplFromJson(json);
@@ -167,9 +186,21 @@ class _$RepoBlobRefImpl implements _RepoBlobRef {
   @AtUriConverter()
   final AtUri? recordUri;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'RepoBlobRef(\$type: ${$type}, did: $did, cid: $cid, recordUri: $recordUri)';
+    return 'RepoBlobRef(\$type: ${$type}, did: $did, cid: $cid, recordUri: $recordUri, \$unknown: ${$unknown})';
   }
 
   @override
@@ -181,12 +212,14 @@ class _$RepoBlobRefImpl implements _RepoBlobRef {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.recordUri, recordUri) ||
-                other.recordUri == recordUri));
+                other.recordUri == recordUri) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, did, cid, recordUri);
+  int get hashCode => Object.hash(runtimeType, $type, did, cid, recordUri,
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -204,10 +237,12 @@ class _$RepoBlobRefImpl implements _RepoBlobRef {
 
 abstract class _RepoBlobRef implements RepoBlobRef {
   const factory _RepoBlobRef(
-      {@JsonKey(name: r'$type') final String $type,
-      required final String did,
-      required final String cid,
-      @AtUriConverter() final AtUri? recordUri}) = _$RepoBlobRefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
+          required final String cid,
+          @AtUriConverter() final AtUri? recordUri,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$RepoBlobRefImpl;
 
   factory _RepoBlobRef.fromJson(Map<String, dynamic> json) =
       _$RepoBlobRefImpl.fromJson;
@@ -226,6 +261,11 @@ abstract class _RepoBlobRef implements RepoBlobRef {
   @override
   @AtUriConverter()
   AtUri? get recordUri;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$RepoBlobRefImplCopyWith<_$RepoBlobRefImpl> get copyWith =>

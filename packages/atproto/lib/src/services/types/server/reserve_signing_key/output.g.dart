@@ -16,6 +16,13 @@ _$ReserveSigningKeyOutputImpl _$$ReserveSigningKeyOutputImplFromJson(
       ($checkedConvert) {
         final val = _$ReserveSigningKeyOutputImpl(
           signingKey: $checkedConvert('signingKey', (v) => v as String),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -25,4 +32,5 @@ Map<String, dynamic> _$$ReserveSigningKeyOutputImplToJson(
         _$ReserveSigningKeyOutputImpl instance) =>
     <String, dynamic>{
       'signingKey': instance.signingKey,
+      r'$unknown': instance.$unknown,
     };

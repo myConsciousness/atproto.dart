@@ -22,6 +22,10 @@ ResolveHandleOutput _$ResolveHandleOutputFromJson(Map<String, dynamic> json) {
 mixin _$ResolveHandleOutput {
   String get did => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ResolveHandleOutputCopyWith<ResolveHandleOutput> get copyWith =>
@@ -34,7 +38,8 @@ abstract class $ResolveHandleOutputCopyWith<$Res> {
           ResolveHandleOutput value, $Res Function(ResolveHandleOutput) then) =
       _$ResolveHandleOutputCopyWithImpl<$Res, ResolveHandleOutput>;
   @useResult
-  $Res call({String did});
+  $Res call(
+      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -51,12 +56,17 @@ class _$ResolveHandleOutputCopyWithImpl<$Res, $Val extends ResolveHandleOutput>
   @override
   $Res call({
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -69,7 +79,8 @@ abstract class _$$ResolveHandleOutputImplCopyWith<$Res>
       __$$ResolveHandleOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String did});
+  $Res call(
+      {String did, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -84,12 +95,17 @@ class __$$ResolveHandleOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? did = null,
+    Object? $unknown = null,
   }) {
     return _then(_$ResolveHandleOutputImpl(
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
               as String,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -98,7 +114,11 @@ class __$$ResolveHandleOutputImplCopyWithImpl<$Res>
 
 @JsonSerializable(includeIfNull: false)
 class _$ResolveHandleOutputImpl implements _ResolveHandleOutput {
-  const _$ResolveHandleOutputImpl({required this.did});
+  const _$ResolveHandleOutputImpl(
+      {required this.did,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ResolveHandleOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$ResolveHandleOutputImplFromJson(json);
@@ -106,9 +126,21 @@ class _$ResolveHandleOutputImpl implements _ResolveHandleOutput {
   @override
   final String did;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ResolveHandleOutput(did: $did)';
+    return 'ResolveHandleOutput(did: $did, \$unknown: ${$unknown})';
   }
 
   @override
@@ -116,12 +148,14 @@ class _$ResolveHandleOutputImpl implements _ResolveHandleOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ResolveHandleOutputImpl &&
-            (identical(other.did, did) || other.did == did));
+            (identical(other.did, did) || other.did == did) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, did);
+  int get hashCode => Object.hash(
+      runtimeType, did, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -139,7 +173,9 @@ class _$ResolveHandleOutputImpl implements _ResolveHandleOutput {
 }
 
 abstract class _ResolveHandleOutput implements ResolveHandleOutput {
-  const factory _ResolveHandleOutput({required final String did}) =
+  const factory _ResolveHandleOutput(
+          {required final String did,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ResolveHandleOutputImpl;
 
   factory _ResolveHandleOutput.fromJson(Map<String, dynamic> json) =
@@ -147,6 +183,11 @@ abstract class _ResolveHandleOutput implements ResolveHandleOutput {
 
   @override
   String get did;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ResolveHandleOutputImplCopyWith<_$ResolveHandleOutputImpl> get copyWith =>

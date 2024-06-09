@@ -29,6 +29,10 @@ mixin _$Facet {
   @UFacetFeatureConverter()
   List<UFacetFeature> get features => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $FacetCopyWith<Facet> get copyWith => throw _privateConstructorUsedError;
@@ -42,7 +46,8 @@ abstract class $FacetCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       FacetByteSlice index,
-      @UFacetFeatureConverter() List<UFacetFeature> features});
+      @UFacetFeatureConverter() List<UFacetFeature> features,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $FacetByteSliceCopyWith<$Res> get index;
 }
@@ -63,6 +68,7 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
     Object? $type = null,
     Object? index = null,
     Object? features = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -77,6 +83,10 @@ class _$FacetCopyWithImpl<$Res, $Val extends Facet>
           ? _value.features
           : features // ignore: cast_nullable_to_non_nullable
               as List<UFacetFeature>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -99,7 +109,8 @@ abstract class _$$FacetImplCopyWith<$Res> implements $FacetCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       FacetByteSlice index,
-      @UFacetFeatureConverter() List<UFacetFeature> features});
+      @UFacetFeatureConverter() List<UFacetFeature> features,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $FacetByteSliceCopyWith<$Res> get index;
@@ -119,6 +130,7 @@ class __$$FacetImplCopyWithImpl<$Res>
     Object? $type = null,
     Object? index = null,
     Object? features = null,
+    Object? $unknown = null,
   }) {
     return _then(_$FacetImpl(
       $type: null == $type
@@ -133,6 +145,10 @@ class __$$FacetImplCopyWithImpl<$Res>
           ? _value._features
           : features // ignore: cast_nullable_to_non_nullable
               as List<UFacetFeature>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -144,8 +160,11 @@ class _$FacetImpl implements _Facet {
   const _$FacetImpl(
       {@JsonKey(name: r'$type') this.$type = appBskyRichtextFacet,
       required this.index,
-      @UFacetFeatureConverter() required final List<UFacetFeature> features})
-      : _features = features;
+      @UFacetFeatureConverter() required final List<UFacetFeature> features,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _features = features,
+        _$unknown = $unknown;
 
   factory _$FacetImpl.fromJson(Map<String, dynamic> json) =>
       _$$FacetImplFromJson(json);
@@ -167,9 +186,21 @@ class _$FacetImpl implements _Facet {
     return EqualUnmodifiableListView(_features);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Facet(\$type: ${$type}, index: $index, features: $features)';
+    return 'Facet(\$type: ${$type}, index: $index, features: $features, \$unknown: ${$unknown})';
   }
 
   @override
@@ -179,13 +210,18 @@ class _$FacetImpl implements _Facet {
             other is _$FacetImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.index, index) || other.index == index) &&
-            const DeepCollectionEquality().equals(other._features, _features));
+            const DeepCollectionEquality().equals(other._features, _features) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, $type, index,
-      const DeepCollectionEquality().hash(_features));
+  int get hashCode => Object.hash(
+      runtimeType,
+      $type,
+      index,
+      const DeepCollectionEquality().hash(_features),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -203,10 +239,11 @@ class _$FacetImpl implements _Facet {
 
 abstract class _Facet implements Facet {
   const factory _Facet(
-      {@JsonKey(name: r'$type') final String $type,
-      required final FacetByteSlice index,
-      @UFacetFeatureConverter()
-      required final List<UFacetFeature> features}) = _$FacetImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final FacetByteSlice index,
+          @UFacetFeatureConverter() required final List<UFacetFeature> features,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$FacetImpl;
 
   factory _Facet.fromJson(Map<String, dynamic> json) = _$FacetImpl.fromJson;
 
@@ -222,6 +259,11 @@ abstract class _Facet implements Facet {
   @override
   @UFacetFeatureConverter()
   List<UFacetFeature> get features;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$FacetImplCopyWith<_$FacetImpl> get copyWith =>

@@ -33,6 +33,10 @@ mixin _$ReplyRef {
   /// When parent is a reply to another post, this is the author of that post.
   ProfileViewBasic? get grandparentAuthor => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $ReplyRefCopyWith<ReplyRef> get copyWith =>
@@ -48,7 +52,8 @@ abstract class $ReplyRefCopyWith<$Res> {
       {@JsonKey(name: r'$type') String $type,
       @URootConverter() URoot root,
       @UParentConverter() UParent parent,
-      ProfileViewBasic? grandparentAuthor});
+      ProfileViewBasic? grandparentAuthor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $URootCopyWith<$Res> get root;
   $UParentCopyWith<$Res> get parent;
@@ -72,6 +77,7 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
     Object? root = null,
     Object? parent = null,
     Object? grandparentAuthor = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -90,6 +96,10 @@ class _$ReplyRefCopyWithImpl<$Res, $Val extends ReplyRef>
           ? _value.grandparentAuthor
           : grandparentAuthor // ignore: cast_nullable_to_non_nullable
               as ProfileViewBasic?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -134,7 +144,8 @@ abstract class _$$ReplyRefImplCopyWith<$Res>
       {@JsonKey(name: r'$type') String $type,
       @URootConverter() URoot root,
       @UParentConverter() UParent parent,
-      ProfileViewBasic? grandparentAuthor});
+      ProfileViewBasic? grandparentAuthor,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $URootCopyWith<$Res> get root;
@@ -159,6 +170,7 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
     Object? root = null,
     Object? parent = null,
     Object? grandparentAuthor = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$ReplyRefImpl(
       $type: null == $type
@@ -177,6 +189,10 @@ class __$$ReplyRefImplCopyWithImpl<$Res>
           ? _value.grandparentAuthor
           : grandparentAuthor // ignore: cast_nullable_to_non_nullable
               as ProfileViewBasic?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -189,7 +205,10 @@ class _$ReplyRefImpl implements _ReplyRef {
       {@JsonKey(name: r'$type') this.$type = appBskyFeedDefsReplyRef,
       @URootConverter() required this.root,
       @UParentConverter() required this.parent,
-      this.grandparentAuthor});
+      this.grandparentAuthor,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$ReplyRefImpl.fromJson(Map<String, dynamic> json) =>
       _$$ReplyRefImplFromJson(json);
@@ -211,9 +230,21 @@ class _$ReplyRefImpl implements _ReplyRef {
   @override
   final ProfileViewBasic? grandparentAuthor;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'ReplyRef(\$type: ${$type}, root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor)';
+    return 'ReplyRef(\$type: ${$type}, root: $root, parent: $parent, grandparentAuthor: $grandparentAuthor, \$unknown: ${$unknown})';
   }
 
   @override
@@ -225,13 +256,14 @@ class _$ReplyRefImpl implements _ReplyRef {
             (identical(other.root, root) || other.root == root) &&
             (identical(other.parent, parent) || other.parent == parent) &&
             (identical(other.grandparentAuthor, grandparentAuthor) ||
-                other.grandparentAuthor == grandparentAuthor));
+                other.grandparentAuthor == grandparentAuthor) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, root, parent, grandparentAuthor);
+  int get hashCode => Object.hash(runtimeType, $type, root, parent,
+      grandparentAuthor, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -249,10 +281,12 @@ class _$ReplyRefImpl implements _ReplyRef {
 
 abstract class _ReplyRef implements ReplyRef {
   const factory _ReplyRef(
-      {@JsonKey(name: r'$type') final String $type,
-      @URootConverter() required final URoot root,
-      @UParentConverter() required final UParent parent,
-      final ProfileViewBasic? grandparentAuthor}) = _$ReplyRefImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          @URootConverter() required final URoot root,
+          @UParentConverter() required final UParent parent,
+          final ProfileViewBasic? grandparentAuthor,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$ReplyRefImpl;
 
   factory _ReplyRef.fromJson(Map<String, dynamic> json) =
       _$ReplyRefImpl.fromJson;
@@ -274,6 +308,11 @@ abstract class _ReplyRef implements ReplyRef {
 
   /// When parent is a reply to another post, this is the author of that post.
   ProfileViewBasic? get grandparentAuthor;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$ReplyRefImplCopyWith<_$ReplyRefImpl> get copyWith =>

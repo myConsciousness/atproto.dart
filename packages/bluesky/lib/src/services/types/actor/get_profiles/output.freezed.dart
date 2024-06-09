@@ -22,6 +22,10 @@ GetProfilesOutput _$GetProfilesOutputFromJson(Map<String, dynamic> json) {
 mixin _$GetProfilesOutput {
   List<ProfileViewDetailed> get profiles => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $GetProfilesOutputCopyWith<GetProfilesOutput> get copyWith =>
@@ -34,7 +38,9 @@ abstract class $GetProfilesOutputCopyWith<$Res> {
           GetProfilesOutput value, $Res Function(GetProfilesOutput) then) =
       _$GetProfilesOutputCopyWithImpl<$Res, GetProfilesOutput>;
   @useResult
-  $Res call({List<ProfileViewDetailed> profiles});
+  $Res call(
+      {List<ProfileViewDetailed> profiles,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -51,12 +57,17 @@ class _$GetProfilesOutputCopyWithImpl<$Res, $Val extends GetProfilesOutput>
   @override
   $Res call({
     Object? profiles = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       profiles: null == profiles
           ? _value.profiles
           : profiles // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewDetailed>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -69,7 +80,9 @@ abstract class _$$GetProfilesOutputImplCopyWith<$Res>
       __$$GetProfilesOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ProfileViewDetailed> profiles});
+  $Res call(
+      {List<ProfileViewDetailed> profiles,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -84,12 +97,17 @@ class __$$GetProfilesOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? profiles = null,
+    Object? $unknown = null,
   }) {
     return _then(_$GetProfilesOutputImpl(
       profiles: null == profiles
           ? _value._profiles
           : profiles // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewDetailed>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -99,8 +117,11 @@ class __$$GetProfilesOutputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetProfilesOutputImpl implements _GetProfilesOutput {
   const _$GetProfilesOutputImpl(
-      {required final List<ProfileViewDetailed> profiles})
-      : _profiles = profiles;
+      {required final List<ProfileViewDetailed> profiles,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _profiles = profiles,
+        _$unknown = $unknown;
 
   factory _$GetProfilesOutputImpl.fromJson(Map<String, dynamic> json) =>
       _$$GetProfilesOutputImplFromJson(json);
@@ -113,9 +134,21 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
     return EqualUnmodifiableListView(_profiles);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'GetProfilesOutput(profiles: $profiles)';
+    return 'GetProfilesOutput(profiles: $profiles, \$unknown: ${$unknown})';
   }
 
   @override
@@ -123,13 +156,16 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GetProfilesOutputImpl &&
-            const DeepCollectionEquality().equals(other._profiles, _profiles));
+            const DeepCollectionEquality().equals(other._profiles, _profiles) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_profiles));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_profiles),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -148,7 +184,8 @@ class _$GetProfilesOutputImpl implements _GetProfilesOutput {
 
 abstract class _GetProfilesOutput implements GetProfilesOutput {
   const factory _GetProfilesOutput(
-          {required final List<ProfileViewDetailed> profiles}) =
+          {required final List<ProfileViewDetailed> profiles,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GetProfilesOutputImpl;
 
   factory _GetProfilesOutput.fromJson(Map<String, dynamic> json) =
@@ -156,6 +193,11 @@ abstract class _GetProfilesOutput implements GetProfilesOutput {
 
   @override
   List<ProfileViewDetailed> get profiles;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$GetProfilesOutputImplCopyWith<_$GetProfilesOutputImpl> get copyWith =>

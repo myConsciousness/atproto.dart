@@ -36,6 +36,10 @@ mixin _$Account {
   @UStatusConverter()
   UStatus? get status => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $AccountCopyWith<Account> get copyWith => throw _privateConstructorUsedError;
@@ -52,7 +56,8 @@ abstract class $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UStatusCopyWith<$Res>? get status;
 }
@@ -76,6 +81,7 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
     Object? time = null,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       $type: null == $type
@@ -102,6 +108,10 @@ class _$AccountCopyWithImpl<$Res, $Val extends Account>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 
@@ -131,7 +141,8 @@ abstract class _$$AccountImplCopyWith<$Res> implements $AccountCopyWith<$Res> {
       String did,
       DateTime time,
       bool active,
-      @UStatusConverter() UStatus? status});
+      @UStatusConverter() UStatus? status,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $UStatusCopyWith<$Res>? get status;
@@ -154,6 +165,7 @@ class __$$AccountImplCopyWithImpl<$Res>
     Object? time = null,
     Object? active = null,
     Object? status = freezed,
+    Object? $unknown = null,
   }) {
     return _then(_$AccountImpl(
       $type: null == $type
@@ -180,6 +192,10 @@ class __$$AccountImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as UStatus?,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -195,7 +211,10 @@ class _$AccountImpl implements _Account {
       required this.did,
       required this.time,
       required this.active,
-      @UStatusConverter() this.status});
+      @UStatusConverter() this.status,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _$unknown = $unknown;
 
   factory _$AccountImpl.fromJson(Map<String, dynamic> json) =>
       _$$AccountImplFromJson(json);
@@ -222,9 +241,21 @@ class _$AccountImpl implements _Account {
   @UStatusConverter()
   final UStatus? status;
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'Account(\$type: ${$type}, seq: $seq, did: $did, time: $time, active: $active, status: $status)';
+    return 'Account(\$type: ${$type}, seq: $seq, did: $did, time: $time, active: $active, status: $status, \$unknown: ${$unknown})';
   }
 
   @override
@@ -237,13 +268,14 @@ class _$AccountImpl implements _Account {
             (identical(other.did, did) || other.did == did) &&
             (identical(other.time, time) || other.time == time) &&
             (identical(other.active, active) || other.active == active) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, $type, seq, did, time, active, status);
+  int get hashCode => Object.hash(runtimeType, $type, seq, did, time, active,
+      status, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -261,12 +293,14 @@ class _$AccountImpl implements _Account {
 
 abstract class _Account implements Account {
   const factory _Account(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      required final String did,
-      required final DateTime time,
-      required final bool active,
-      @UStatusConverter() final UStatus? status}) = _$AccountImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final String did,
+          required final DateTime time,
+          required final bool active,
+          @UStatusConverter() final UStatus? status,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$AccountImpl;
 
   factory _Account.fromJson(Map<String, dynamic> json) = _$AccountImpl.fromJson;
 
@@ -292,6 +326,11 @@ abstract class _Account implements Account {
   /// If active=false, this optional field indicates a reason for why the account is not active.
   @UStatusConverter()
   UStatus? get status;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$AccountImplCopyWith<_$AccountImpl> get copyWith =>

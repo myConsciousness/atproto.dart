@@ -20,6 +20,13 @@ _$SavedFeedImpl _$$SavedFeedImplFromJson(Map json) => $checkedCreate(
               'type', (v) => const UTypeConverter().fromJson(v as String)),
           value: $checkedConvert('value', (v) => v as String),
           pinned: $checkedConvert('pinned', (v) => v as bool),
+          $unknown: $checkedConvert(
+              r'$unknown',
+              (v) =>
+                  (v as Map?)?.map(
+                    (k, e) => MapEntry(k as String, e),
+                  ) ??
+                  const {}),
         );
         return val;
       },
@@ -32,4 +39,5 @@ Map<String, dynamic> _$$SavedFeedImplToJson(_$SavedFeedImpl instance) =>
       'type': const UTypeConverter().toJson(instance.type),
       'value': instance.value,
       'pinned': instance.pinned,
+      r'$unknown': instance.$unknown,
     };

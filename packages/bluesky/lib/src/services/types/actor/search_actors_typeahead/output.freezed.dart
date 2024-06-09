@@ -23,6 +23,10 @@ SearchActorsTypeaheadOutput _$SearchActorsTypeaheadOutputFromJson(
 mixin _$SearchActorsTypeaheadOutput {
   List<ProfileViewBasic> get actors => throw _privateConstructorUsedError;
 
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown => throw _privateConstructorUsedError;
+
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SearchActorsTypeaheadOutputCopyWith<SearchActorsTypeaheadOutput>
@@ -37,7 +41,9 @@ abstract class $SearchActorsTypeaheadOutputCopyWith<$Res> {
       _$SearchActorsTypeaheadOutputCopyWithImpl<$Res,
           SearchActorsTypeaheadOutput>;
   @useResult
-  $Res call({List<ProfileViewBasic> actors});
+  $Res call(
+      {List<ProfileViewBasic> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -55,12 +61,17 @@ class _$SearchActorsTypeaheadOutputCopyWithImpl<$Res,
   @override
   $Res call({
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
       actors: null == actors
           ? _value.actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewBasic>,
+      $unknown: null == $unknown
+          ? _value.$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ) as $Val);
   }
 }
@@ -74,7 +85,9 @@ abstract class _$$SearchActorsTypeaheadOutputImplCopyWith<$Res>
       __$$SearchActorsTypeaheadOutputImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<ProfileViewBasic> actors});
+  $Res call(
+      {List<ProfileViewBasic> actors,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -91,12 +104,17 @@ class __$$SearchActorsTypeaheadOutputImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? actors = null,
+    Object? $unknown = null,
   }) {
     return _then(_$SearchActorsTypeaheadOutputImpl(
       actors: null == actors
           ? _value._actors
           : actors // ignore: cast_nullable_to_non_nullable
               as List<ProfileViewBasic>,
+      $unknown: null == $unknown
+          ? _value._$unknown
+          : $unknown // ignore: cast_nullable_to_non_nullable
+              as Map<String, dynamic>,
     ));
   }
 }
@@ -107,8 +125,11 @@ class __$$SearchActorsTypeaheadOutputImplCopyWithImpl<$Res>
 class _$SearchActorsTypeaheadOutputImpl
     implements _SearchActorsTypeaheadOutput {
   const _$SearchActorsTypeaheadOutputImpl(
-      {required final List<ProfileViewBasic> actors})
-      : _actors = actors;
+      {required final List<ProfileViewBasic> actors,
+      @JsonKey(name: r'$unknown')
+      final Map<String, dynamic> $unknown = const {}})
+      : _actors = actors,
+        _$unknown = $unknown;
 
   factory _$SearchActorsTypeaheadOutputImpl.fromJson(
           Map<String, dynamic> json) =>
@@ -122,9 +143,21 @@ class _$SearchActorsTypeaheadOutputImpl
     return EqualUnmodifiableListView(_actors);
   }
 
+  /// Contains unknown objects not defined in Lexicon.
+  final Map<String, dynamic> _$unknown;
+
+  /// Contains unknown objects not defined in Lexicon.
+  @override
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown {
+    if (_$unknown is EqualUnmodifiableMapView) return _$unknown;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableMapView(_$unknown);
+  }
+
   @override
   String toString() {
-    return 'SearchActorsTypeaheadOutput(actors: $actors)';
+    return 'SearchActorsTypeaheadOutput(actors: $actors, \$unknown: ${$unknown})';
   }
 
   @override
@@ -132,13 +165,16 @@ class _$SearchActorsTypeaheadOutputImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$SearchActorsTypeaheadOutputImpl &&
-            const DeepCollectionEquality().equals(other._actors, _actors));
+            const DeepCollectionEquality().equals(other._actors, _actors) &&
+            const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_actors));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_actors),
+      const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -158,7 +194,8 @@ class _$SearchActorsTypeaheadOutputImpl
 abstract class _SearchActorsTypeaheadOutput
     implements SearchActorsTypeaheadOutput {
   const factory _SearchActorsTypeaheadOutput(
-          {required final List<ProfileViewBasic> actors}) =
+          {required final List<ProfileViewBasic> actors,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$SearchActorsTypeaheadOutputImpl;
 
   factory _SearchActorsTypeaheadOutput.fromJson(Map<String, dynamic> json) =
@@ -166,6 +203,11 @@ abstract class _SearchActorsTypeaheadOutput
 
   @override
   List<ProfileViewBasic> get actors;
+  @override
+
+  /// Contains unknown objects not defined in Lexicon.
+  @JsonKey(name: r'$unknown')
+  Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
   _$$SearchActorsTypeaheadOutputImplCopyWith<_$SearchActorsTypeaheadOutputImpl>
