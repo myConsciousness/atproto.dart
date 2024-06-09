@@ -189,6 +189,7 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
     <tr>
       <td align="center" valign="top" width="20%"><a href="https://gildaswise.com"><img src="https://avatars.githubusercontent.com/u/1339236?v=4?s=100" width="100px;" alt="Gildásio Filho"/><br /><sub><b>Gildásio Filho</b></sub></a><br /><a href="https://github.com/myConsciousness/atproto.dart/commits?author=gildaswise" title="Code">💻</a> <a href="#content-gildaswise" title="Content">🖋</a> <a href="https://github.com/myConsciousness/atproto.dart/commits?author=gildaswise" title="Tests">⚠️</a> <a href="#ideas-gildaswise" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="20%"><a href="https://hidea.hatenablog.com/"><img src="https://avatars.githubusercontent.com/u/196294?v=4?s=100" width="100px;" alt="YU-KI Hidea"/><br /><sub><b>YU-KI Hidea</b></sub></a><br /><a href="https://github.com/myConsciousness/atproto.dart/commits?author=hidea" title="Code">💻</a> <a href="#content-hidea" title="Content">🖋</a> <a href="#platform-hidea" title="Packaging/porting to new platform">📦</a></td>
+      <td align="center" valign="top" width="20%"><a href="https://github.com/lukehmcc"><img src="https://avatars.githubusercontent.com/u/58121030?v=4?s=100" width="100px;" alt="Covalent"/><br /><sub><b>Covalent</b></sub></a><br /><a href="#ideas-lukehmcc" title="Ideas, Planning, & Feedback">🤔</a></td>
     </tr>
   </tbody>
 </table>
