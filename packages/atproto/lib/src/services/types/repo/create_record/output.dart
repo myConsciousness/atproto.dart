@@ -33,6 +33,16 @@ class CreateRecordOutput with _$CreateRecordOutput {
       _$CreateRecordOutputFromJson(json);
 }
 
+extension CreateRecordOutputExtension on CreateRecordOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'uri',
   'cid',

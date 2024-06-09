@@ -43,6 +43,16 @@ class Update with _$Update {
   factory Update.fromJson(Map<String, Object?> json) => _$UpdateFromJson(json);
 }
 
+extension UpdateExtension on Update {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'collection',

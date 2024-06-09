@@ -46,6 +46,16 @@ class FeedViewPost with _$FeedViewPost {
       _$FeedViewPostFromJson(json);
 }
 
+extension FeedViewPostExtension on FeedViewPost {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'post',

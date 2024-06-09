@@ -43,6 +43,16 @@ class MutedWordsPref with _$MutedWordsPref {
       _$MutedWordsPrefFromJson(json);
 }
 
+extension MutedWordsPrefExtension on MutedWordsPref {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'items',

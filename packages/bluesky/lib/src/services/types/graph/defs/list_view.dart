@@ -56,6 +56,16 @@ class ListView with _$ListView {
       _$ListViewFromJson(json);
 }
 
+extension ListViewExtension on ListView {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'uri',

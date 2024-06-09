@@ -33,6 +33,16 @@ class PutRecordOutput with _$PutRecordOutput {
       _$PutRecordOutputFromJson(json);
 }
 
+extension PutRecordOutputExtension on PutRecordOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'uri',
   'cid',

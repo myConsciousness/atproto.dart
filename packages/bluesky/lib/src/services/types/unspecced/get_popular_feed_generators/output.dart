@@ -35,6 +35,17 @@ class GetPopularFeedGeneratorsOutput with _$GetPopularFeedGeneratorsOutput {
       _$GetPopularFeedGeneratorsOutputFromJson(json);
 }
 
+extension GetPopularFeedGeneratorsOutputExtension
+    on GetPopularFeedGeneratorsOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'feeds',

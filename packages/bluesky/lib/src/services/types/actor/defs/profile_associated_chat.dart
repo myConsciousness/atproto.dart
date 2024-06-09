@@ -41,6 +41,16 @@ class ProfileAssociatedChat with _$ProfileAssociatedChat {
       _$ProfileAssociatedChatFromJson(json);
 }
 
+extension ProfileAssociatedChatExtension on ProfileAssociatedChat {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'allowIncoming',

@@ -32,6 +32,16 @@ class FollowRecord with _$FollowRecord {
       _$FollowRecordFromJson(json);
 }
 
+extension FollowRecordExtension on FollowRecord {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'subject',
   'createdAt',

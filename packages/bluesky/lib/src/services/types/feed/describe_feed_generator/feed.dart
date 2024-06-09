@@ -40,6 +40,16 @@ class Feed with _$Feed {
   factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
 }
 
+extension FeedExtension on Feed {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'uri',

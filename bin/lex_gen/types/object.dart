@@ -104,6 +104,19 @@ final class LexGenObject {
     buffer.writeln('      _\$${name}FromJson(json);');
     buffer.writeln('}');
 
+    // Extension
+    buffer.writeln();
+    buffer.writeln('extension ${name}Extension on $name {');
+    buffer.writeln('  /// Returns true if this object has unknown objects,');
+    buffer.writeln('  /// otherwise false.');
+    buffer.writeln('  bool get hasUnknown => \$unknown.isNotEmpty;');
+    buffer.writeln();
+    buffer
+        .writeln('  /// Returns true if this object has not unknown objects,');
+    buffer.writeln('  /// otherwise false.');
+    buffer.writeln('  bool get hasNotUnknown => !hasUnknown;');
+    buffer.writeln('}');
+
     // Converter
     buffer.writeln();
     buffer.writeln('const _kLexCompatibleProperties = <String>[');

@@ -41,6 +41,16 @@ class Info with _$Info {
   factory Info.fromJson(Map<String, Object?> json) => _$InfoFromJson(json);
 }
 
+extension InfoExtension on Info {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'name',

@@ -43,6 +43,16 @@ class HiddenPostsPref with _$HiddenPostsPref {
       _$HiddenPostsPrefFromJson(json);
 }
 
+extension HiddenPostsPrefExtension on HiddenPostsPref {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'items',

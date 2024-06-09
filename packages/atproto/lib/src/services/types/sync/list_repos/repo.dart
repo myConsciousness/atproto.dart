@@ -46,6 +46,16 @@ class Repo with _$Repo {
   factory Repo.fromJson(Map<String, Object?> json) => _$RepoFromJson(json);
 }
 
+extension RepoExtension on Repo {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'did',

@@ -43,6 +43,16 @@ class RecordWithMediaView with _$RecordWithMediaView {
       _$RecordWithMediaViewFromJson(json);
 }
 
+extension RecordWithMediaViewExtension on RecordWithMediaView {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'record',

@@ -45,6 +45,16 @@ class CreateSessionOutput with _$CreateSessionOutput {
       _$CreateSessionOutputFromJson(json);
 }
 
+extension CreateSessionOutputExtension on CreateSessionOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'accessJwt',
   'refreshJwt',

@@ -35,6 +35,17 @@ class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
       _$GetSuggestionsSkeletonOutputFromJson(json);
 }
 
+extension GetSuggestionsSkeletonOutputExtension
+    on GetSuggestionsSkeletonOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'actors',

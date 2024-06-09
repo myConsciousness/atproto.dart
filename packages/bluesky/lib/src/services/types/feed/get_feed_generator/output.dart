@@ -40,6 +40,16 @@ class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
       _$GetFeedGeneratorOutputFromJson(json);
 }
 
+extension GetFeedGeneratorOutputExtension on GetFeedGeneratorOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'view',
   'isOnline',

@@ -42,6 +42,16 @@ class InterestsPref with _$InterestsPref {
       _$InterestsPrefFromJson(json);
 }
 
+extension InterestsPrefExtension on InterestsPref {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'tags',

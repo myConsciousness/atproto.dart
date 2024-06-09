@@ -42,6 +42,16 @@ class Facet with _$Facet {
   factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);
 }
 
+extension FacetExtension on Facet {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'index',

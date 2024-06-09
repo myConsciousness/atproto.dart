@@ -38,6 +38,16 @@ class GetRepostedByOutput with _$GetRepostedByOutput {
       _$GetRepostedByOutputFromJson(json);
 }
 
+extension GetRepostedByOutputExtension on GetRepostedByOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'uri',
   'cid',

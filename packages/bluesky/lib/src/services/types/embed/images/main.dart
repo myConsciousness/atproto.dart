@@ -38,6 +38,16 @@ class Images with _$Images {
   factory Images.fromJson(Map<String, Object?> json) => _$ImagesFromJson(json);
 }
 
+extension ImagesExtension on Images {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'images',

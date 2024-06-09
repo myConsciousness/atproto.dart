@@ -34,6 +34,16 @@ class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
       _$SearchActorsTypeaheadOutputFromJson(json);
 }
 
+extension SearchActorsTypeaheadOutputExtension on SearchActorsTypeaheadOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'actors',
 ];

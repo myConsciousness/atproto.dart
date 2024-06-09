@@ -40,6 +40,16 @@ class NotFoundPost with _$NotFoundPost {
       _$NotFoundPostFromJson(json);
 }
 
+extension NotFoundPostExtension on NotFoundPost {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'uri',

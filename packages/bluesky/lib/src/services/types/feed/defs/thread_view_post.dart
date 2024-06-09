@@ -45,6 +45,16 @@ class ThreadViewPost with _$ThreadViewPost {
       _$ThreadViewPostFromJson(json);
 }
 
+extension ThreadViewPostExtension on ThreadViewPost {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'post',

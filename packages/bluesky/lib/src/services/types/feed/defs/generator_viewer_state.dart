@@ -41,6 +41,16 @@ class GeneratorViewerState with _$GeneratorViewerState {
       _$GeneratorViewerStateFromJson(json);
 }
 
+extension GeneratorViewerStateExtension on GeneratorViewerState {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'like',

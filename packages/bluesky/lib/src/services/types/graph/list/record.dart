@@ -46,6 +46,16 @@ class ListRecord with _$ListRecord {
       _$ListRecordFromJson(json);
 }
 
+extension ListRecordExtension on ListRecord {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'purpose',
   'name',

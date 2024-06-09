@@ -36,6 +36,16 @@ class ListNotificationsOutput with _$ListNotificationsOutput {
       _$ListNotificationsOutputFromJson(json);
 }
 
+extension ListNotificationsOutputExtension on ListNotificationsOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'notifications',

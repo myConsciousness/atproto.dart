@@ -35,6 +35,16 @@ class GetActorFeedsOutput with _$GetActorFeedsOutput {
       _$GetActorFeedsOutputFromJson(json);
 }
 
+extension GetActorFeedsOutputExtension on GetActorFeedsOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'feeds',

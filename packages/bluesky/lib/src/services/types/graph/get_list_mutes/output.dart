@@ -35,6 +35,16 @@ class GetListMutesOutput with _$GetListMutesOutput {
       _$GetListMutesOutputFromJson(json);
 }
 
+extension GetListMutesOutputExtension on GetListMutesOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'cursor',
   'lists',

@@ -37,6 +37,17 @@ class GetRecommendedDidCredentialsOutput
       _$GetRecommendedDidCredentialsOutputFromJson(json);
 }
 
+extension GetRecommendedDidCredentialsOutputExtension
+    on GetRecommendedDidCredentialsOutput {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   'rotationKeys',
   'alsoKnownAs',

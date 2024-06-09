@@ -51,6 +51,16 @@ class ProfileView with _$ProfileView {
       _$ProfileViewFromJson(json);
 }
 
+extension ProfileViewExtension on ProfileView {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'did',

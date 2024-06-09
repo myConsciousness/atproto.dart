@@ -43,6 +43,16 @@ class Suggestion with _$Suggestion {
       _$SuggestionFromJson(json);
 }
 
+extension SuggestionExtension on Suggestion {
+  /// Returns true if this object has unknown objects,
+  /// otherwise false.
+  bool get hasUnknown => $unknown.isNotEmpty;
+
+  /// Returns true if this object has not unknown objects,
+  /// otherwise false.
+  bool get hasNotUnknown => !hasUnknown;
+}
+
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'tag',
