@@ -275,7 +275,7 @@ Future<void> main() async {
   final atproto = atp.ATProto.fromSession(
     session.data,
 
-    // Add this.
+    // Add this, or resolve dynamically based on session.
     service: 'boobee.blue',
   );
 }
