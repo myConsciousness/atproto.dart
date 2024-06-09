@@ -10,6 +10,7 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/params.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/commit.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/identity.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/account.dart';

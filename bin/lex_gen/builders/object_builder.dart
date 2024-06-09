@@ -83,6 +83,12 @@ final class LexGenObjectBuilder {
           ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
         };
       },
+      xrpcSubscription: (data) {
+        return {
+          ObjectType.params:
+              _getObjectPropertiesFromXrpcParameters(data.parameters),
+        };
+      },
       record: (data) => {
         ObjectType.record: _getObjectProperties(
           data.record,
