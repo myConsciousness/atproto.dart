@@ -17,7 +17,7 @@ import 'builders/object_builder.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
 
-const _supportedLexicons = [
+const _kSupportedLexicons = [
   'com.atproto',
   'app.bsky',
   'chat.bsky',
@@ -57,7 +57,7 @@ final class LexGen {
       });
     }
 
-    _writeExports(exports);
+    _generateExports(exports);
   }
 
   void _generateObject(
@@ -164,7 +164,7 @@ final class LexGen {
     }
   }
 
-  void _writeExports(final Map<NSID, List<String>> exports) {
+  void _generateExports(final Map<NSID, List<String>> exports) {
     exports.forEach((docId, exports) {
       final buffer = StringBuffer()
         ..writeln(getFileHeader('Lex Generator'))
@@ -243,7 +243,7 @@ final class LexGen {
   }
 
   bool _isSupportedDoc(final LexiconDoc doc) {
-    for (final lexicon in _supportedLexicons) {
+    for (final lexicon in _kSupportedLexicons) {
       if (doc.id.toString().startsWith(lexicon)) {
         return true;
       }
@@ -253,7 +253,7 @@ final class LexGen {
   }
 
   void _cleanWorkspaces() {
-    for (final lexicon in _supportedLexicons) {
+    for (final lexicon in _kSupportedLexicons) {
       final packageName = getPackageName(lexicon);
 
       final typeDir = Directory('packages/$packageName/lib/$_kTypesPath');
