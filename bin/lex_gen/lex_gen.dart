@@ -43,106 +43,125 @@ final class LexGen {
       final doc = LexiconDoc.fromJson(lexicon);
       if (!_isSupportedDoc(doc)) continue;
 
-      final docId = doc.id;
       doc.defs.forEach((defName, def) {
-        // Subscription Message
-        if (def is ULexUserTypeXrpcSubscription) {
-          final unionRef = def.data.message?.schema
-              ?.whenOrNull(refVariant: (data) => data)
-              ?.whenOrNull(refUnion: (data) => data);
+        final context = LexGenContext(
+          docId: doc.id,
+          defName: defName,
+          def: def,
+          mainRelatedDocIds: mainRelatedDocIds,
+        );
 
-          if (unionRef != null) {
-            final objectName = toFirstUpper(docId.toString().split('.').last);
-
-            final object = LexUnionBuilder(
-              docId: docId,
-              propertyName: '${objectName}Message',
-              refs: unionRef.refs ?? const [],
-              mainRelatedDocIds: mainRelatedDocIds,
-              useOnlyDefNameAsNamespace: true,
-            ).build();
-
-            if (object != null) {
-              _writeFileAsStringSync(
-                _getOutputFilePath(docId, object.filePath),
-                object.toString(),
-              );
-
-              _addExportPath(exports, docId, object.filePath);
-            }
-          }
-        }
-
-        // Known Values
-        if (def is ULexUserTypeString && def.data.knownValues != null) {
-          final object = LexKnownValuesBuilder(
-            description: def.data.description,
-            docId: docId,
-            defName: defName,
-            knownValues: def.data.knownValues ?? const [],
-          ).build();
-
-          if (object != null) {
-            _writeFileAsStringSync(
-              _getOutputFilePath(docId, object.filePath),
-              object.toString(),
-            );
-
-            _addExportPath(exports, docId, object.filePath);
-          }
-        }
-        // Lex Object
-        else {
-          final objects = LexGenObjectBuilder(LexGenContext(
-            docId: docId,
-            defName: defName,
-            def: def,
-            mainRelatedDocIds: mainRelatedDocIds,
-          )).build();
-
-          if (objects != null) {
-            for (final object in objects) {
-              _writeFileAsStringSync(
-                _getOutputFilePath(docId, object.filePath),
-                object.toString(),
-              );
-
-              _addExportPath(exports, docId, object.filePath);
-
-              for (final property in object.properties) {
-                if (property.knownValues != null) {
-                  _writeFileAsStringSync(
-                    _getOutputFilePath(docId, property.knownValues!.filePath),
-                    property.knownValues.toString(),
-                  );
-
-                  _addExportPath(
-                    exports,
-                    docId,
-                    property.knownValues!.filePath,
-                  );
-                }
-
-                if (property.union != null) {
-                  _writeFileAsStringSync(
-                    _getOutputFilePath(docId, property.union!.filePath),
-                    property.union.toString(),
-                  );
-
-                  _addExportPath(
-                    exports,
-                    docId,
-                    property.union!.filePath,
-                  );
-                }
-              }
-            }
-          }
-        }
+        _generateSubscriptionMessage(context, exports);
+        _generateKnownValues(context, exports);
+        _generateObject(context, exports);
       });
     }
 
     _writeExports(exports);
+  }
+
+  void _generateObject(
+    final LexGenContext context,
+    final Map<NSID, List<String>> exports,
+  ) {
+    final objects = LexGenObjectBuilder(context).build();
+
+    if (objects != null) {
+      for (final object in objects) {
+        _writeFileAsStringSync(
+          _getOutputFilePath(context.docId, object.filePath),
+          object.toString(),
+        );
+
+        _addExportPath(exports, context.docId, object.filePath);
+
+        for (final property in object.properties) {
+          if (property.knownValues != null) {
+            _writeFileAsStringSync(
+              _getOutputFilePath(context.docId, property.knownValues!.filePath),
+              property.knownValues.toString(),
+            );
+
+            _addExportPath(
+              exports,
+              context.docId,
+              property.knownValues!.filePath,
+            );
+          }
+
+          if (property.union != null) {
+            _writeFileAsStringSync(
+              _getOutputFilePath(context.docId, property.union!.filePath),
+              property.union.toString(),
+            );
+
+            _addExportPath(
+              exports,
+              context.docId,
+              property.union!.filePath,
+            );
+          }
+        }
+      }
+    }
+  }
+
+  void _generateKnownValues(
+    final LexGenContext context,
+    final Map<NSID, List<String>> exports,
+  ) {
+    final def = context.def;
+    if (def is ULexUserTypeString && def.data.knownValues != null) {
+      final object = LexKnownValuesBuilder(
+        description: def.data.description,
+        docId: context.docId,
+        defName: context.defName,
+        knownValues: def.data.knownValues ?? const [],
+      ).build();
+
+      if (object != null) {
+        _writeFileAsStringSync(
+          _getOutputFilePath(context.docId, object.filePath),
+          object.toString(),
+        );
+
+        _addExportPath(exports, context.docId, object.filePath);
+      }
+    }
+  }
+
+  void _generateSubscriptionMessage(
+    final LexGenContext context,
+    final Map<NSID, List<String>> exports,
+  ) {
+    final def = context.def;
+    if (def is ULexUserTypeXrpcSubscription) {
+      final unionRef = def.data.message?.schema
+          ?.whenOrNull(refVariant: (data) => data)
+          ?.whenOrNull(refUnion: (data) => data);
+
+      if (unionRef != null) {
+        final objectName =
+            toFirstUpper(context.docId.toString().split('.').last);
+
+        final object = LexUnionBuilder(
+          docId: context.docId,
+          propertyName: '${objectName}Message',
+          refs: unionRef.refs ?? const [],
+          mainRelatedDocIds: context.mainRelatedDocIds,
+          useOnlyDefNameAsNamespace: true,
+        ).build();
+
+        if (object != null) {
+          _writeFileAsStringSync(
+            _getOutputFilePath(context.docId, object.filePath),
+            object.toString(),
+          );
+
+          _addExportPath(exports, context.docId, object.filePath);
+        }
+      }
+    }
   }
 
   void _writeExports(final Map<NSID, List<String>> exports) {
