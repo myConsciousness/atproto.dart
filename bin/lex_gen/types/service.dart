@@ -7,7 +7,7 @@ import 'data_type.dart';
 enum LexServiceEndpointMethod {
   get,
   post,
-  stream,
+  wss,
 }
 
 final class LexService {

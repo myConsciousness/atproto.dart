@@ -2,9 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 🎯 Dart imports:
-import 'dart:io';
-
 // 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
@@ -15,6 +12,7 @@ import 'builders/known_values_builder.dart';
 import 'builders/union_builder.dart';
 import 'builders/object_builder.dart';
 import 'rules/utils.dart';
+import 'rules/extensions.dart';
 import 'types/context.dart';
 
 final class LexTypesGen {
@@ -26,7 +24,7 @@ final class LexTypesGen {
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!isSupportedDoc(doc)) continue;
+      if (!doc.isSupported) continue;
 
       doc.defs.forEach((defName, def) {
         final context = LexGenContext(
@@ -53,7 +51,7 @@ final class LexTypesGen {
 
     if (objects != null) {
       for (final object in objects) {
-        _writeFileAsStringSync(
+        writeFileAsStringSync(
           _getOutputFilePath(context.docId, object.filePath),
           object.toString(),
         );
@@ -62,7 +60,7 @@ final class LexTypesGen {
 
         for (final property in object.properties) {
           if (property.knownValues != null) {
-            _writeFileAsStringSync(
+            writeFileAsStringSync(
               _getOutputFilePath(context.docId, property.knownValues!.filePath),
               property.knownValues.toString(),
             );
@@ -75,7 +73,7 @@ final class LexTypesGen {
           }
 
           if (property.union != null) {
-            _writeFileAsStringSync(
+            writeFileAsStringSync(
               _getOutputFilePath(context.docId, property.union!.filePath),
               property.union.toString(),
             );
@@ -105,7 +103,7 @@ final class LexTypesGen {
       ).build();
 
       if (object != null) {
-        _writeFileAsStringSync(
+        writeFileAsStringSync(
           _getOutputFilePath(context.docId, object.filePath),
           object.toString(),
         );
@@ -138,7 +136,7 @@ final class LexTypesGen {
         ).build();
 
         if (object != null) {
-          _writeFileAsStringSync(
+          writeFileAsStringSync(
             _getOutputFilePath(context.docId, object.filePath),
             object.toString(),
           );
@@ -156,14 +154,8 @@ final class LexTypesGen {
         ..writeln()
         ..writeln(exports.join('\n'));
 
-      _writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
+      writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
     });
-  }
-
-  void _writeFileAsStringSync(final String filePath, final String contents) {
-    File(filePath)
-      ..createSync(recursive: true)
-      ..writeAsStringSync(contents);
   }
 
   String _getOutputFilePath(
@@ -203,7 +195,7 @@ final class LexTypesGen {
     final docIds = <String>[];
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!isSupportedDoc(doc)) continue;
+      if (!doc.isSupported) continue;
 
       if (_hasMainObject(doc.defs)) {
         docIds.add(doc.id.toString());

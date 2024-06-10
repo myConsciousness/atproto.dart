@@ -3,6 +3,8 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'dart:io';
+
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
@@ -24,14 +26,10 @@ const kTypesPath = 'src/services/gen_types';
 
 const _kExceptionSingular = ['status'];
 
-bool isSupportedDoc(final LexiconDoc doc) {
-  for (final lexicon in kSupportedLexicons) {
-    if (doc.id.toString().startsWith(lexicon)) {
-      return true;
-    }
-  }
-
-  return false;
+void writeFileAsStringSync(final String filePath, final String contents) {
+  File(filePath)
+    ..createSync(recursive: true)
+    ..writeAsStringSync(contents);
 }
 
 String getSingular(String plural) {
