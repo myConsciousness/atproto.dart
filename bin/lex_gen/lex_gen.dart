@@ -131,6 +131,10 @@ final class LexGen {
       });
     }
 
+    _writeExports(exports);
+  }
+
+  void _writeExports(final Map<NSID, List<String>> exports) {
     exports.forEach((docId, exports) {
       final buffer = StringBuffer()
         ..writeln(getFileHeader('Lex Generator'))
