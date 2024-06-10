@@ -8,6 +8,7 @@ import 'dart:io';
 // 🌎 Project imports:
 import 'rules/utils.dart';
 import 'lex_types_gen.dart';
+import 'lex_services_gen.dart';
 
 void main(List<String> args) => const LexGen().execute();
 
@@ -18,10 +19,8 @@ final class LexGen {
     _cleanWorkspaces();
 
     const LexTypesGen().execute();
-    _generateServices();
+    const LexServicesGen().execute();
   }
-
-  void _generateServices() {}
 
   void _cleanWorkspaces() {
     for (final lexicon in kSupportedLexicons) {
