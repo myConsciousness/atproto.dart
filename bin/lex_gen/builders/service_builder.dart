@@ -2,12 +2,24 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
-import '../types/service_context.dart';
-import '../types/service.dart';
-import '../types/data_type.dart';
+// 🌎 Project imports:
 import '../rules/utils.dart';
+import '../types/data_type.dart';
+import '../types/service.dart';
+import '../types/service_context.dart';
+
+const _kEmptyDataType = DataType(
+    name: 'EmptyData',
+    importPath: "import 'package:atproto_core/atproto_core.dart';");
+
+const _kStrongRefDataType = DataType(
+  name: 'StrongRef',
+  importPath: "import 'package:atproto/com_atproto_repo_strong_ref.dart';",
+  converter: 'StrongRefConverter',
+);
 
 final class ServiceBuilder {
   const ServiceBuilder(this.context);
@@ -25,6 +37,7 @@ final class ServiceBuilder {
     final path = nameSegments.take(2).join('/');
 
     return LexService(
+      namespace: context.name,
       name: '${toFirstUpper(serviceName)}Service',
       endpoints: [],
       fileName: fileName,
@@ -40,7 +53,7 @@ final class ServiceBuilder {
         LexServiceEndpoint(
           args: [],
           name: endpoint.name,
-          type: _getEndpointDataType(endpoint),
+          type: _getResponseType(endpoint),
           method: _getMethod(endpoint.def),
         ),
       );
@@ -49,17 +62,49 @@ final class ServiceBuilder {
     return endpoints;
   }
 
-  DataType _getEndpointDataType(final ServiceEndpointContext context) {
-    return DataType(
-      name: '${toFirstUpper(context.name)}Output',
-      importPath: '',
-    );
+  DataType _getResponseType(final ServiceEndpointContext endpoint) {
+    final def = endpoint.def;
+    if (def is ULexUserTypeXrpcQuery) {
+      if (def.data.output == null) throw Error();
+
+      final methodName = endpoint.docId.name;
+
+      return DataType(
+        name: '${toFirstUpper(methodName)}Output',
+        importPath: _getImportPath(endpoint),
+        converter: '${toFirstUpper(methodName)}OutputConverter',
+      );
+    } else if (def is ULexUserTypeXrpcProcedure) {
+      if (def.data.output == null) return _kEmptyDataType;
+
+      final methodName = endpoint.docId.name;
+
+      return DataType(
+        name: '${toFirstUpper(methodName)}Output',
+        importPath: _getImportPath(endpoint),
+        converter: '${toFirstUpper(methodName)}OutputConverter',
+      );
+    } else if (def is ULexUserTypeXrpcSubscription) {
+      return _kStrongRefDataType;
+    } else if (def is ULexUserTypeRecord) {
+      return _kStrongRefDataType;
+    }
+
+    throw UnsupportedError('Unsupported endpoint: $endpoint');
+  }
+
+  String _getImportPath(final ServiceEndpointContext endpoint) {
+    final path = endpoint.docId.toString().replaceAll('.', '/');
+    final fileName = toLowerCamelCase(endpoint.name);
+
+    return '../../$path/$fileName.dart';
   }
 
   LexServiceEndpointMethod _getMethod(final LexUserType def) => switch (def) {
         ULexUserTypeXrpcQuery() => LexServiceEndpointMethod.get,
         ULexUserTypeXrpcProcedure() => LexServiceEndpointMethod.post,
         ULexUserTypeXrpcSubscription() => LexServiceEndpointMethod.wss,
+        ULexUserTypeRecord() => LexServiceEndpointMethod.post,
         _ => throw UnsupportedError(
             'Not supported method: $def',
           ),

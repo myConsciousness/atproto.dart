@@ -33,7 +33,7 @@ final class LexGenObject {
   String toString() {
     assert(properties.isNotEmpty);
 
-    final importPaths = <String?>[];
+    final importPaths = <String?>{};
     for (final property in properties) {
       if (property.knownValues == null && property.union == null) {
         importPaths.add(property.type.importPath);
@@ -57,7 +57,6 @@ final class LexGenObject {
     }
     for (final importPath in importPaths
         .where((e) => e != null)
-        .toSet()
         .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
         .toList()) {
       buffer

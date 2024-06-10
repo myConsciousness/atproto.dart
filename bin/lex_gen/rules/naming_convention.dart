@@ -6,8 +6,8 @@
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import '../rules/utils.dart';
 import '../rules/object_type.dart';
+import '../rules/utils.dart';
 import '../types/context.dart';
 
 final class LexNamingConvention {

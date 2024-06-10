@@ -6,9 +6,9 @@
 import 'dart:io';
 
 // 🌎 Project imports:
-import 'rules/utils.dart';
-import 'lex_types_gen.dart';
 import 'lex_services_gen.dart';
+import 'lex_types_gen.dart';
+import 'rules/utils.dart';
 
 void main(List<String> args) => const LexGen().execute();
 
@@ -18,8 +18,8 @@ final class LexGen {
   void execute() {
     _cleanWorkspaces();
 
-    const LexTypesGen().execute();
-    const LexServicesGen().execute();
+    final types = const LexTypesGen().execute();
+    LexServicesGen(types).execute();
   }
 
   void _cleanWorkspaces() {

@@ -119,13 +119,3 @@ class Field {
   @override
   String toString() => 'Field(name: $name, value: $value);';
 }
-
-String _toServiceName(final String package) {
-  if (package == 'bluesky') {
-    return 'app.bsky';
-  } else if (package == 'bluesky_chat') {
-    return 'chat.bsky';
-  }
-
-  return 'com.atproto';
-}

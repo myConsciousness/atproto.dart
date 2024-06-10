@@ -2,9 +2,10 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-// 📦 Package imports:
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
@@ -13,8 +14,8 @@ import '../rules/naming_convention.dart';
 import '../rules/object_type.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
-import '../types/union.dart';
 import '../types/ref.dart';
+import '../types/union.dart';
 
 const kSupportedLexicons = [
   'com.atproto',

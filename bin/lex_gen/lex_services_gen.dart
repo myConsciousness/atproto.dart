@@ -2,29 +2,36 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
+
+// 🌎 Project imports:
+import 'builders/service_builder.dart';
 import 'rules/extensions.dart';
 import 'rules/utils.dart';
+import 'types/export.dart';
 import 'types/service_context.dart';
-import 'builders/service_builder.dart';
 
 final class LexServicesGen {
-  const LexServicesGen();
+  const LexServicesGen(this.types);
+
+  final Map<NSID, Set<Export>> types;
 
   void execute() {
     for (final entry in lexiconsPerService.entries) {
       final service = ServiceBuilder(ServiceContext(
         name: entry.key,
         endpoints: entry.value,
+        types: types,
       )).build();
 
-      // if (service != null) {
-      //   writeFileAsStringSync(
-      //     _getOutputFilePath(entry.key, service.filePath),
-      //     service.toString(),
-      //   );
-      // }
+      if (service != null) {
+        writeFileAsStringSync(
+          _getOutputFilePath(entry.key, service.filePath),
+          service.toString(),
+        );
+      }
     }
   }
 
@@ -49,14 +56,16 @@ final class LexServicesGen {
       if (method == null) continue;
 
       final serviceName = doc.serviceName;
+      final context = ServiceEndpointContext(
+        serviceName: serviceName,
+        name: doc.name,
+        def: method,
+      );
+
       if (lexiconsPerService.containsKey(serviceName)) {
-        lexiconsPerService[serviceName]!.add(
-          ServiceEndpointContext(name: doc.name, def: method),
-        );
+        lexiconsPerService[serviceName]!.add(context);
       } else {
-        lexiconsPerService[serviceName] = [
-          ServiceEndpointContext(name: doc.name, def: method),
-        ];
+        lexiconsPerService[serviceName] = [context];
       }
     }
 
