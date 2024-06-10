@@ -11,7 +11,7 @@ import '../rules/naming_convention.dart';
 import '../rules/object_type.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
-import '../types/union_object.dart';
+import '../types/union.dart';
 import '../types/ref.dart';
 
 const _kExceptionSingular = ['status'];
@@ -108,7 +108,7 @@ DataType getDataType(
   required String? format,
   required String? ref,
   required Map<String, dynamic>? items,
-  LexUnionObject? arrayUnion,
+  LexUnion? arrayUnion,
 }) {
   if (type == 'string' && format == 'datetime') {
     return const DataType(name: 'DateTime');

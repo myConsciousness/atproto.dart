@@ -10,10 +10,10 @@ import '../rules/naming_convention.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/data_type.dart';
-import '../types/union_object.dart';
+import '../types/union.dart';
 
-final class LexUnionObjectBuilder {
-  const LexUnionObjectBuilder({
+final class LexUnionBuilder {
+  const LexUnionBuilder({
     this.description,
     required this.docId,
     this.defName,
@@ -32,7 +32,7 @@ final class LexUnionObjectBuilder {
   final List<String> mainRelatedDocIds;
   final bool useOnlyDefNameAsNamespace;
 
-  LexUnionObject? build() {
+  LexUnion? build() {
     if (refs.isEmpty) return null;
 
     final refTypes = _getRefTypes();
@@ -51,7 +51,7 @@ final class LexUnionObjectBuilder {
     final fileName = 'union_${toLowerCamelCase(objectName)}';
     final path = docId.toString().replaceAll('.', '/');
 
-    return LexUnionObject(
+    return LexUnion(
       description: description,
       name: objectName,
       refs: refTypes,

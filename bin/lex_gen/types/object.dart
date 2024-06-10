@@ -9,7 +9,7 @@ import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
 import 'known_values.dart';
-import 'union_object.dart';
+import 'union.dart';
 
 final class LexGenObject {
   const LexGenObject({
@@ -201,7 +201,7 @@ final class LexGenObjectProperty {
   final bool array;
 
   final LexGenKnownValues? knownValues;
-  final LexUnionObject? union;
+  final LexUnion? union;
   final String? defaultValue;
 
   @override

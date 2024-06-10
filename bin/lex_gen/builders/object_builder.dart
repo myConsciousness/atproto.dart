@@ -12,7 +12,7 @@ import '../rules/utils.dart';
 import '../types/context.dart';
 import '../types/object.dart';
 import 'known_values_builder.dart';
-import 'union_object_builder.dart';
+import 'union_builder.dart';
 
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(this.context);
@@ -125,7 +125,7 @@ final class LexGenObjectBuilder {
         final $ref = getRef(context.docId, ref.ref!);
         final refDefJson = $ref!.def.toJson();
 
-        final union = LexUnionObjectBuilder(
+        final union = LexUnionBuilder(
           docId: $ref.docId,
           defName: context.mainRelatedDocIds.contains($ref.docId.toString())
               ? context.docId.toString().split('.').last
@@ -224,7 +224,7 @@ final class LexGenObjectBuilder {
     final ObjectType objectType,
   ) {
     final property = value;
-    final union = LexUnionObjectBuilder(
+    final union = LexUnionBuilder(
       docId: context.docId,
       defName: context.mainRelatedDocIds.contains(context.docId.toString())
           ? context.docId.toString().split('.').last

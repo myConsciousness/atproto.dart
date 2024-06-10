@@ -12,7 +12,7 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../utils.dart';
 import 'builders/known_values_builder.dart';
-import 'builders/union_object_builder.dart';
+import 'builders/union_builder.dart';
 import 'builders/object_builder.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
@@ -58,7 +58,7 @@ final class LexGen {
           if (unionRef != null) {
             final objectName = toFirstUpper(docId.toString().split('.').last);
 
-            final object = LexUnionObjectBuilder(
+            final object = LexUnionBuilder(
               docId: docId,
               propertyName: '${objectName}Message',
               refs: unionRef.refs ?? const [],

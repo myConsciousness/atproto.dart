@@ -9,8 +9,8 @@ import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
 
-final class LexUnionObject {
-  const LexUnionObject({
+final class LexUnion {
+  const LexUnion({
     this.description,
     required this.name,
     required this.refs,
