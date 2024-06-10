@@ -14,7 +14,25 @@ import '../types/data_type.dart';
 import '../types/union.dart';
 import '../types/ref.dart';
 
+const kSupportedLexicons = [
+  'com.atproto',
+  'app.bsky',
+  'chat.bsky',
+];
+
+const kTypesPath = 'src/services/gen_types';
+
 const _kExceptionSingular = ['status'];
+
+bool isSupportedDoc(final LexiconDoc doc) {
+  for (final lexicon in kSupportedLexicons) {
+    if (doc.id.toString().startsWith(lexicon)) {
+      return true;
+    }
+  }
+
+  return false;
+}
 
 String getSingular(String plural) {
   if (_kExceptionSingular.contains(plural)) return plural;
