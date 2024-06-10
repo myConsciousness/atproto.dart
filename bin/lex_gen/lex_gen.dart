@@ -41,11 +41,11 @@ final class LexGen {
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-
       if (!_isSupportedDoc(doc)) continue;
 
       final docId = doc.id;
       doc.defs.forEach((defName, def) {
+        // Subscription Message
         if (def is ULexUserTypeXrpcSubscription) {
           final unionRef = def.data.message?.schema
               ?.whenOrNull(refVariant: (data) => data)
@@ -63,9 +63,10 @@ final class LexGen {
             ).build();
 
             if (object != null) {
-              File(_getOutputFilePath(docId, object.filePath))
-                ..createSync(recursive: true)
-                ..writeAsStringSync(object.toString());
+              _writeFileAsStringSync(
+                _getOutputFilePath(docId, object.filePath),
+                object.toString(),
+              );
 
               _addExportPath(exports, docId, object.filePath);
             }
@@ -82,9 +83,10 @@ final class LexGen {
           ).build();
 
           if (object != null) {
-            File(_getOutputFilePath(docId, object.filePath))
-              ..createSync(recursive: true)
-              ..writeAsStringSync(object.toString());
+            _writeFileAsStringSync(
+              _getOutputFilePath(docId, object.filePath),
+              object.toString(),
+            );
 
             _addExportPath(exports, docId, object.filePath);
           }
@@ -100,29 +102,38 @@ final class LexGen {
 
           if (objects != null) {
             for (final object in objects) {
-              File(_getOutputFilePath(docId, object.filePath))
-                ..createSync(recursive: true)
-                ..writeAsStringSync(object.toString());
+              _writeFileAsStringSync(
+                _getOutputFilePath(docId, object.filePath),
+                object.toString(),
+              );
 
               _addExportPath(exports, docId, object.filePath);
 
               for (final property in object.properties) {
                 if (property.knownValues != null) {
-                  File(
-                      _getOutputFilePath(docId, property.knownValues!.filePath))
-                    ..createSync(recursive: true)
-                    ..writeAsStringSync(property.knownValues.toString());
+                  _writeFileAsStringSync(
+                    _getOutputFilePath(docId, property.knownValues!.filePath),
+                    property.knownValues.toString(),
+                  );
 
                   _addExportPath(
-                      exports, docId, property.knownValues!.filePath);
+                    exports,
+                    docId,
+                    property.knownValues!.filePath,
+                  );
                 }
 
                 if (property.union != null) {
-                  File(_getOutputFilePath(docId, property.union!.filePath))
-                    ..createSync(recursive: true)
-                    ..writeAsStringSync(property.union.toString());
+                  _writeFileAsStringSync(
+                    _getOutputFilePath(docId, property.union!.filePath),
+                    property.union.toString(),
+                  );
 
-                  _addExportPath(exports, docId, property.union!.filePath);
+                  _addExportPath(
+                    exports,
+                    docId,
+                    property.union!.filePath,
+                  );
                 }
               }
             }
@@ -141,10 +152,14 @@ final class LexGen {
         ..writeln()
         ..writeln(exports.join('\n'));
 
-      File(_getExportOutputPath(docId))
-        ..createSync(recursive: true)
-        ..writeAsStringSync(buffer.toString());
+      _writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
     });
+  }
+
+  void _writeFileAsStringSync(final String filePath, final String contents) {
+    File(filePath)
+      ..createSync(recursive: true)
+      ..writeAsStringSync(contents);
   }
 
   String _getOutputFilePath(
