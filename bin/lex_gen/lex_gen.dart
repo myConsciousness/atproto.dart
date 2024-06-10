@@ -32,10 +32,13 @@ final class LexGen {
 
   void execute() {
     _cleanWorkspaces();
+    _generateObjects();
+  }
 
+  void _generateObjects() {
+    final exports = <NSID, List<String>>{};
     final mainRelatedDocIds = _loadMainRelatedDocIds();
 
-    final exports = <NSID, List<String>>{};
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
 
