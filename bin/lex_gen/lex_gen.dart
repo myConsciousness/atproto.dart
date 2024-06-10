@@ -31,14 +31,7 @@ final class LexGen {
   const LexGen();
 
   void execute() {
-    for (final package in _supportedLexicons) {
-      final dir = Directory(
-        'packages/${getPackageName(package)}/lib/$_kTypesPath',
-      );
-      if (dir.existsSync()) {
-        dir.deleteSync(recursive: true);
-      }
-    }
+    _cleanWorkspaces();
 
     final mainRelatedDocIds = _loadMainRelatedDocIds();
 
@@ -216,5 +209,27 @@ final class LexGen {
     }
 
     return false;
+  }
+
+  void _cleanWorkspaces() {
+    for (final lexicon in _supportedLexicons) {
+      final packageName = getPackageName(lexicon);
+
+      final typeDir = Directory('packages/$packageName/lib/$_kTypesPath');
+      if (typeDir.existsSync()) {
+        typeDir.deleteSync(recursive: true);
+      }
+
+      final libDirPath = 'packages/$packageName/lib/';
+      final libDir = Directory(libDirPath);
+      for (final exportFile in libDir.listSync()) {
+        if (exportFile is File &&
+            exportFile.path
+                .substring(libDirPath.length)
+                .startsWith(lexicon.replaceAll('.', '_'))) {
+          exportFile.deleteSync();
+        }
+      }
+    }
   }
 }
