@@ -142,14 +142,14 @@ final class LexTypesGen {
           ?.whenOrNull(refVariant: (data) => data)
           ?.whenOrNull(refUnion: (data) => data);
 
-      if (unionRef != null) {
+      if (unionRef != null && unionRef.refs!.isNotEmpty) {
         final objectName =
             toFirstUpper(context.docId.toString().split('.').last);
 
         final object = LexUnionBuilder(
           docId: context.docId,
           propertyName: '${objectName}Message',
-          refs: unionRef.refs ?? const [],
+          refs: unionRef.refs!,
           mainRelatedDocIds: context.mainRelatedDocIds,
           useOnlyDefNameAsNamespace: true,
         ).build();
