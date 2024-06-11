@@ -29,7 +29,7 @@ class PutRecordOutput with _$PutRecordOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _PutRecordOutput;
 
-  factory PutRecordOutput.fromJson(Map<String, Object?> json) =>
+  factory PutRecordOutput.fromJson(Map<String, dynamic> json) =>
       _$PutRecordOutputFromJson(json);
 }
 
@@ -49,13 +49,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class PutRecordOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<PutRecordOutput, Map<String, dynamic>> {
   const PutRecordOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  PutRecordOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return PutRecordOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -69,25 +69,27 @@ final class PutRecordOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return PutRecordOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(PutRecordOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

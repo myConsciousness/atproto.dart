@@ -10,11 +10,22 @@
 // Lex Generator
 // **************************************************************************
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
+
 // 🌎 Project imports:
+import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../com/atproto/moderation/create_report/output.dart';
 
 final class ModerationService {
   ModerationService(this._ctx);
 
   final ATProtoServiceContext _ctx;
+
+  Future<XRPCResponse<CreateReportOutput>> createReport() async =>
+      await _ctx.post(
+        ns.comAtprotoModerationCreateReport,
+        to: const CreateReportOutputConverter().fromJson,
+      );
 }

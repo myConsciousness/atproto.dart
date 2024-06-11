@@ -19,8 +19,8 @@ _$ListNotificationsOutputImpl _$$ListNotificationsOutputImplFromJson(
           notifications: $checkedConvert(
               'notifications',
               (v) => (v as List<dynamic>)
-                  .map((e) => Notification.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const NotificationConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           seenAt: $checkedConvert(
               'seenAt', (v) => v == null ? null : DateTime.parse(v as String)),
@@ -47,7 +47,8 @@ Map<String, dynamic> _$$ListNotificationsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['notifications'] = instance.notifications.map((e) => e.toJson()).toList();
+  val['notifications'] =
+      instance.notifications.map(const NotificationConverter().toJson).toList();
   writeNotNull('seenAt', instance.seenAt?.toIso8601String());
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -19,8 +19,10 @@ _$LikeImpl _$$LikeImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
-          actor: $checkedConvert('actor',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          actor: $checkedConvert(
+              'actor',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -38,6 +40,6 @@ Map<String, dynamic> _$$LikeImplToJson(_$LikeImpl instance) =>
       r'$type': instance.$type,
       'indexedAt': instance.indexedAt.toIso8601String(),
       'createdAt': instance.createdAt.toIso8601String(),
-      'actor': instance.actor.toJson(),
+      'actor': const ProfileViewConverter().toJson(instance.actor),
       r'$unknown': instance.$unknown,
     };

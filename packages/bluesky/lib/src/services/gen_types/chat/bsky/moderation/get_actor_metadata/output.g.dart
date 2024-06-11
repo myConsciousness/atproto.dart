@@ -14,12 +14,18 @@ _$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetActorMetadataOutputImpl(
-          day: $checkedConvert('day',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
-          month: $checkedConvert('month',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
-          all: $checkedConvert('all',
-              (v) => Metadata.fromJson(Map<String, Object?>.from(v as Map))),
+          day: $checkedConvert(
+              'day',
+              (v) => const MetadataConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          month: $checkedConvert(
+              'month',
+              (v) => const MetadataConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          all: $checkedConvert(
+              'all',
+              (v) => const MetadataConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -35,8 +41,8 @@ _$GetActorMetadataOutputImpl _$$GetActorMetadataOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetActorMetadataOutputImplToJson(
         _$GetActorMetadataOutputImpl instance) =>
     <String, dynamic>{
-      'day': instance.day.toJson(),
-      'month': instance.month.toJson(),
-      'all': instance.all.toJson(),
+      'day': const MetadataConverter().toJson(instance.day),
+      'month': const MetadataConverter().toJson(instance.month),
+      'all': const MetadataConverter().toJson(instance.all),
       r'$unknown': instance.$unknown,
     };

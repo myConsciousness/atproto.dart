@@ -65,44 +65,32 @@ final class URecordRecordConverter
 
       if (type == 'app.bsky.embed.record#viewRecord') {
         return URecordRecord.recordViewRecord(
-          data: RecordViewRecord.fromJson(
-            const RecordViewRecordConverter().fromJson(json),
-          ),
+          data: const RecordViewRecordConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.record#viewNotFound') {
         return URecordRecord.recordViewNotFound(
-          data: RecordViewNotFound.fromJson(
-            const RecordViewNotFoundConverter().fromJson(json),
-          ),
+          data: const RecordViewNotFoundConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.record#viewBlocked') {
         return URecordRecord.recordViewBlocked(
-          data: RecordViewBlocked.fromJson(
-            const RecordViewBlockedConverter().fromJson(json),
-          ),
+          data: const RecordViewBlockedConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.feed.defs#generatorView') {
         return URecordRecord.generatorView(
-          data: GeneratorView.fromJson(
-            const GeneratorViewConverter().fromJson(json),
-          ),
+          data: const GeneratorViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.graph.defs#listView') {
         return URecordRecord.listView(
-          data: ListView.fromJson(
-            const ListViewConverter().fromJson(json),
-          ),
+          data: const ListViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.labeler.defs#labelerView') {
         return URecordRecord.labelerView(
-          data: LabelerView.fromJson(
-            const LabelerViewConverter().fromJson(json),
-          ),
+          data: const LabelerViewConverter().fromJson(json),
         );
       }
 
@@ -114,25 +102,12 @@ final class URecordRecordConverter
 
   @override
   Map<String, dynamic> toJson(URecordRecord object) => object.when(
-        recordViewRecord: (data) => const RecordViewRecordConverter().toJson(
-          data.toJson(),
-        ),
-        recordViewNotFound: (data) =>
-            const RecordViewNotFoundConverter().toJson(
-          data.toJson(),
-        ),
-        recordViewBlocked: (data) => const RecordViewBlockedConverter().toJson(
-          data.toJson(),
-        ),
-        generatorView: (data) => const GeneratorViewConverter().toJson(
-          data.toJson(),
-        ),
-        listView: (data) => const ListViewConverter().toJson(
-          data.toJson(),
-        ),
-        labelerView: (data) => const LabelerViewConverter().toJson(
-          data.toJson(),
-        ),
+        recordViewRecord: const RecordViewRecordConverter().toJson,
+        recordViewNotFound: const RecordViewNotFoundConverter().toJson,
+        recordViewBlocked: const RecordViewBlockedConverter().toJson,
+        generatorView: const GeneratorViewConverter().toJson,
+        listView: const ListViewConverter().toJson,
+        labelerView: const LabelerViewConverter().toJson,
         unknown: (data) => data,
       );
 }

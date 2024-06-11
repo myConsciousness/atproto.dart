@@ -14,8 +14,10 @@ _$UpdateReadOutputImpl _$$UpdateReadOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$UpdateReadOutputImpl(
-          convo: $checkedConvert('convo',
-              (v) => ConvoView.fromJson(Map<String, Object?>.from(v as Map))),
+          convo: $checkedConvert(
+              'convo',
+              (v) => const ConvoViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -31,6 +33,6 @@ _$UpdateReadOutputImpl _$$UpdateReadOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$UpdateReadOutputImplToJson(
         _$UpdateReadOutputImpl instance) =>
     <String, dynamic>{
-      'convo': instance.convo.toJson(),
+      'convo': const ConvoViewConverter().toJson(instance.convo),
       r'$unknown': instance.$unknown,
     };

@@ -35,7 +35,7 @@ class Images with _$Images {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Images;
 
-  factory Images.fromJson(Map<String, Object?> json) => _$ImagesFromJson(json);
+  factory Images.fromJson(Map<String, dynamic> json) => _$ImagesFromJson(json);
 }
 
 extension ImagesExtension on Images {
@@ -54,13 +54,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ImagesConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<Images, Map<String, dynamic>> {
   const ImagesConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Images fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Images.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -74,25 +74,27 @@ final class ImagesConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Images.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Images object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

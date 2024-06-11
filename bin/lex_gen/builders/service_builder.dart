@@ -12,12 +12,13 @@ import '../types/service.dart';
 import '../types/service_context.dart';
 
 const _kEmptyDataType = DataType(
-    name: 'EmptyData',
-    importPath: "import 'package:atproto_core/atproto_core.dart';");
+  name: 'EmptyData',
+  importPath: 'package:atproto_core/atproto_core.dart',
+);
 
 const _kStrongRefDataType = DataType(
   name: 'StrongRef',
-  importPath: "import 'package:atproto/com_atproto_repo_strong_ref.dart';",
+  importPath: 'package:atproto/com_atproto_repo_strong_ref.dart',
   converter: 'StrongRefConverter',
 );
 
@@ -39,7 +40,7 @@ final class ServiceBuilder {
     return LexService(
       namespace: context.name,
       name: '${toFirstUpper(serviceName)}Service',
-      endpoints: [],
+      endpoints: endpoints,
       fileName: fileName,
       filePath: '$path/$fileName.dart',
     );
@@ -52,6 +53,7 @@ final class ServiceBuilder {
       endpoints.add(
         LexServiceEndpoint(
           args: [],
+          serviceName: endpoint.serviceName,
           name: endpoint.name,
           type: _getResponseType(endpoint),
           method: _getMethod(endpoint.def),
@@ -65,9 +67,13 @@ final class ServiceBuilder {
   DataType _getResponseType(final ServiceEndpointContext endpoint) {
     final def = endpoint.def;
     if (def is ULexUserTypeXrpcQuery) {
-      if (def.data.output == null) throw Error();
+      final properties = def.data.output?.schema?.whenOrNull(
+        object: (data) => data.properties,
+      );
 
-      final methodName = endpoint.docId.name;
+      if (properties == null || properties.isEmpty) return _kEmptyDataType;
+
+      final methodName = endpoint.name;
 
       return DataType(
         name: '${toFirstUpper(methodName)}Output',
@@ -75,9 +81,13 @@ final class ServiceBuilder {
         converter: '${toFirstUpper(methodName)}OutputConverter',
       );
     } else if (def is ULexUserTypeXrpcProcedure) {
-      if (def.data.output == null) return _kEmptyDataType;
+      final properties = def.data.output?.schema?.whenOrNull(
+        object: (data) => data.properties,
+      );
 
-      final methodName = endpoint.docId.name;
+      if (properties == null || properties.isEmpty) return _kEmptyDataType;
+
+      final methodName = endpoint.name;
 
       return DataType(
         name: '${toFirstUpper(methodName)}Output',
@@ -85,7 +95,13 @@ final class ServiceBuilder {
         converter: '${toFirstUpper(methodName)}OutputConverter',
       );
     } else if (def is ULexUserTypeXrpcSubscription) {
-      return _kStrongRefDataType;
+      final methodName = endpoint.name;
+
+      return DataType(
+        name: 'U${toFirstUpper(methodName)}Message',
+        importPath: _getImportPath(endpoint),
+        converter: 'U${toFirstUpper(methodName)}MessageConverter',
+      );
     } else if (def is ULexUserTypeRecord) {
       return _kStrongRefDataType;
     }
@@ -94,19 +110,20 @@ final class ServiceBuilder {
   }
 
   String _getImportPath(final ServiceEndpointContext endpoint) {
-    final path = endpoint.docId.toString().replaceAll('.', '/');
-    final fileName = toLowerCamelCase(endpoint.name);
+    final path =
+        endpoint.docId.toString().split('#').first.replaceAll('.', '/');
+    final methodName = toLowerCamelCase(endpoint.name);
 
-    return '../../$path/$fileName.dart';
+    return endpoint.def is ULexUserTypeXrpcSubscription
+        ? '../../$path/$methodName/union_${methodName}_message.dart'
+        : '../../$path/$methodName/output.dart';
   }
 
   LexServiceEndpointMethod _getMethod(final LexUserType def) => switch (def) {
         ULexUserTypeXrpcQuery() => LexServiceEndpointMethod.get,
         ULexUserTypeXrpcProcedure() => LexServiceEndpointMethod.post,
         ULexUserTypeXrpcSubscription() => LexServiceEndpointMethod.wss,
-        ULexUserTypeRecord() => LexServiceEndpointMethod.post,
-        _ => throw UnsupportedError(
-            'Not supported method: $def',
-          ),
+        ULexUserTypeRecord() => LexServiceEndpointMethod.record,
+        _ => throw UnsupportedError('Not supported method: $def'),
       };
 }

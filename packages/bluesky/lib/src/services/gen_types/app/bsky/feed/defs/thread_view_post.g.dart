@@ -15,8 +15,10 @@ _$ThreadViewPostImpl _$$ThreadViewPostImplFromJson(Map json) => $checkedCreate(
         final val = _$ThreadViewPostImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsThreadViewPost),
-          post: $checkedConvert('post',
-              (v) => PostView.fromJson(Map<String, Object?>.from(v as Map))),
+          post: $checkedConvert(
+              'post',
+              (v) => const PostViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           parent: $checkedConvert(
               'parent',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UParent>(
@@ -43,7 +45,7 @@ Map<String, dynamic> _$$ThreadViewPostImplToJson(
     _$ThreadViewPostImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'post': instance.post.toJson(),
+    'post': const PostViewConverter().toJson(instance.post),
   };
 
   void writeNotNull(String key, dynamic value) {

@@ -19,8 +19,8 @@ _$SearchPostsOutputImpl _$$SearchPostsOutputImplFromJson(Map json) =>
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      PostView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const PostViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -46,7 +46,7 @@ Map<String, dynamic> _$$SearchPostsOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   writeNotNull('hitsTotal', instance.hitsTotal);
-  val['posts'] = instance.posts.map((e) => e.toJson()).toList();
+  val['posts'] = instance.posts.map(const PostViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

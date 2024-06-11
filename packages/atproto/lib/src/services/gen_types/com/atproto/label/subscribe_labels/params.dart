@@ -28,7 +28,7 @@ class SubscribeLabelsParams with _$SubscribeLabelsParams {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _SubscribeLabelsParams;
 
-  factory SubscribeLabelsParams.fromJson(Map<String, Object?> json) =>
+  factory SubscribeLabelsParams.fromJson(Map<String, dynamic> json) =>
       _$SubscribeLabelsParamsFromJson(json);
 }
 
@@ -47,13 +47,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class SubscribeLabelsParamsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<SubscribeLabelsParams, Map<String, dynamic>> {
   const SubscribeLabelsParamsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  SubscribeLabelsParams fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return SubscribeLabelsParams.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -67,25 +67,27 @@ final class SubscribeLabelsParamsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return SubscribeLabelsParams.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(SubscribeLabelsParams object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

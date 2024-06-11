@@ -25,15 +25,15 @@ _$ListViewBasicImpl _$$ListViewBasicImplFromJson(Map json) => $checkedCreate(
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const ListViewerState()
-                  : ListViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const ListViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -64,8 +64,9 @@ Map<String, dynamic> _$$ListViewBasicImplToJson(_$ListViewBasicImpl instance) {
   }
 
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
+  val['viewer'] = const ListViewerStateConverter().toJson(instance.viewer);
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
   val[r'$unknown'] = instance.$unknown;
   return val;

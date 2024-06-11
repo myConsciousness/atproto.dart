@@ -10,11 +10,27 @@
 // Lex Generator
 // **************************************************************************
 
+// 📦 Package imports:
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto_core/atproto_core.dart';
+
 // 🌎 Project imports:
+import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../app/bsky/labeler/get_services/output.dart';
 
 final class LabelerService {
   LabelerService(this._ctx);
 
   final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<StrongRef>> service() async => await _ctx.post(
+        ns.appBskyLabelerService,
+        to: const StrongRefConverter().fromJson,
+      );
+
+  Future<XRPCResponse<GetServicesOutput>> getServices() async => await _ctx.get(
+        ns.appBskyLabelerGetServices,
+        to: const GetServicesOutputConverter().fromJson,
+      );
 }

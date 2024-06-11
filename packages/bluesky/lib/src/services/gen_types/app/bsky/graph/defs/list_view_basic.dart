@@ -49,7 +49,7 @@ class ListViewBasic with _$ListViewBasic {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ListViewBasic;
 
-  factory ListViewBasic.fromJson(Map<String, Object?> json) =>
+  factory ListViewBasic.fromJson(Map<String, dynamic> json) =>
       _$ListViewBasicFromJson(json);
 }
 
@@ -76,13 +76,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ListViewBasicConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ListViewBasic, Map<String, dynamic>> {
   const ListViewBasicConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ListViewBasic fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ListViewBasic.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -96,25 +96,27 @@ final class ListViewBasicConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ListViewBasic.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ListViewBasic object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

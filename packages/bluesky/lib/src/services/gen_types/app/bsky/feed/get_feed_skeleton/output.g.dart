@@ -18,8 +18,8 @@ _$GetFeedSkeletonOutputImpl _$$GetFeedSkeletonOutputImplFromJson(Map json) =>
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) => SkeletonFeedPost.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const SkeletonFeedPostConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$GetFeedSkeletonOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['feed'] = instance.feed.map((e) => e.toJson()).toList();
+  val['feed'] =
+      instance.feed.map(const SkeletonFeedPostConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

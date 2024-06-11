@@ -31,7 +31,7 @@ class GetSuggestedFollowsByActorOutput with _$GetSuggestedFollowsByActorOutput {
   }) = _GetSuggestedFollowsByActorOutput;
 
   factory GetSuggestedFollowsByActorOutput.fromJson(
-          Map<String, Object?> json) =>
+          Map<String, dynamic> json) =>
       _$GetSuggestedFollowsByActorOutputFromJson(json);
 }
 
@@ -51,13 +51,14 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetSuggestedFollowsByActorOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements
+        JsonConverter<GetSuggestedFollowsByActorOutput, Map<String, dynamic>> {
   const GetSuggestedFollowsByActorOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetSuggestedFollowsByActorOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetSuggestedFollowsByActorOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -71,25 +72,28 @@ final class GetSuggestedFollowsByActorOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetSuggestedFollowsByActorOutput.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetSuggestedFollowsByActorOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

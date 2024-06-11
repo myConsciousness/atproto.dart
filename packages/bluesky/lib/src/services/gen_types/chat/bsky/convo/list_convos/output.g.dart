@@ -18,8 +18,8 @@ _$ListConvosOutputImpl _$$ListConvosOutputImplFromJson(Map json) =>
           convos: $checkedConvert(
               'convos',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ConvoView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ConvoViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$ListConvosOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['convos'] = instance.convos.map((e) => e.toJson()).toList();
+  val['convos'] =
+      instance.convos.map(const ConvoViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

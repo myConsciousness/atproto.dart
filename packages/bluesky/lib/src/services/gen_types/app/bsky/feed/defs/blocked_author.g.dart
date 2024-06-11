@@ -20,7 +20,8 @@ _$BlockedAuthorImpl _$$BlockedAuthorImplFromJson(Map json) => $checkedCreate(
               'viewer',
               (v) => v == null
                   ? const ViewerState()
-                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
+                  : const ViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -37,6 +38,6 @@ Map<String, dynamic> _$$BlockedAuthorImplToJson(_$BlockedAuthorImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'did': instance.did,
-      'viewer': instance.viewer.toJson(),
+      'viewer': const ViewerStateConverter().toJson(instance.viewer),
       r'$unknown': instance.$unknown,
     };

@@ -18,8 +18,8 @@ _$ListRecordsOutputImpl _$$ListRecordsOutputImplFromJson(Map json) =>
           records: $checkedConvert(
               'records',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Record.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const RecordConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$ListRecordsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['records'] = instance.records.map((e) => e.toJson()).toList();
+  val['records'] =
+      instance.records.map(const RecordConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

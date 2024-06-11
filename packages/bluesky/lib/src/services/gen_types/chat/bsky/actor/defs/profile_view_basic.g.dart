@@ -24,18 +24,19 @@ _$ProfileViewBasicImpl _$$ProfileViewBasicImplFromJson(Map json) =>
               'associated',
               (v) => v == null
                   ? const ProfileAssociated()
-                  : ProfileAssociated.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const ProfileAssociatedConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const ViewerState()
-                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
+                  : const ViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           chatDisabled:
               $checkedConvert('chatDisabled', (v) => v as bool? ?? false),
@@ -67,9 +68,11 @@ Map<String, dynamic> _$$ProfileViewBasicImplToJson(
 
   writeNotNull('displayName', instance.displayName);
   writeNotNull('avatar', instance.avatar);
-  val['associated'] = instance.associated.toJson();
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['associated'] =
+      const ProfileAssociatedConverter().toJson(instance.associated);
+  val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val['chatDisabled'] = instance.chatDisabled;
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -30,7 +30,7 @@ class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _SearchActorsTypeaheadOutput;
 
-  factory SearchActorsTypeaheadOutput.fromJson(Map<String, Object?> json) =>
+  factory SearchActorsTypeaheadOutput.fromJson(Map<String, dynamic> json) =>
       _$SearchActorsTypeaheadOutputFromJson(json);
 }
 
@@ -49,13 +49,14 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class SearchActorsTypeaheadOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements
+        JsonConverter<SearchActorsTypeaheadOutput, Map<String, dynamic>> {
   const SearchActorsTypeaheadOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  SearchActorsTypeaheadOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return SearchActorsTypeaheadOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -69,25 +70,28 @@ final class SearchActorsTypeaheadOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return SearchActorsTypeaheadOutput.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(SearchActorsTypeaheadOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -38,7 +38,7 @@ class Labels with _$Labels {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Labels;
 
-  factory Labels.fromJson(Map<String, Object?> json) => _$LabelsFromJson(json);
+  factory Labels.fromJson(Map<String, dynamic> json) => _$LabelsFromJson(json);
 }
 
 extension LabelsExtension on Labels {
@@ -58,13 +58,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class LabelsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<Labels, Map<String, dynamic>> {
   const LabelsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Labels fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Labels.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -78,25 +78,27 @@ final class LabelsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Labels.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Labels object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

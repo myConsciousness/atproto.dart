@@ -46,7 +46,7 @@ class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _LabelValueDefinitionStrings;
 
-  factory LabelValueDefinitionStrings.fromJson(Map<String, Object?> json) =>
+  factory LabelValueDefinitionStrings.fromJson(Map<String, dynamic> json) =>
       _$LabelValueDefinitionStringsFromJson(json);
 }
 
@@ -68,13 +68,14 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class LabelValueDefinitionStringsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements
+        JsonConverter<LabelValueDefinitionStrings, Map<String, dynamic>> {
   const LabelValueDefinitionStringsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  LabelValueDefinitionStrings fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return LabelValueDefinitionStrings.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -88,25 +89,28 @@ final class LabelValueDefinitionStringsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return LabelValueDefinitionStrings.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(LabelValueDefinitionStrings object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

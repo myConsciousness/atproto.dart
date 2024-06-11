@@ -10,11 +10,33 @@
 // Lex Generator
 // **************************************************************************
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
+
 // 🌎 Project imports:
+import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../chat/bsky/moderation/get_actor_metadata/output.dart';
+import '../../chat/bsky/moderation/get_message_context/output.dart';
 
 final class ModerationService {
   ModerationService(this._ctx);
 
   final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<GetMessageContextOutput>> getMessageContext() async =>
+      await _ctx.get(
+        ns.chatBskyModerationGetMessageContext,
+        to: const GetMessageContextOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<EmptyData>> updateActorAccess() async => await _ctx.post(
+        ns.chatBskyModerationUpdateActorAccess,
+      );
+
+  Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata() async =>
+      await _ctx.get(
+        ns.chatBskyModerationGetActorMetadata,
+        to: const GetActorMetadataOutputConverter().fromJson,
+      );
 }

@@ -37,7 +37,7 @@ class Like with _$Like {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Like;
 
-  factory Like.fromJson(Map<String, Object?> json) => _$LikeFromJson(json);
+  factory Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);
 }
 
 extension LikeExtension on Like {
@@ -57,14 +57,13 @@ const _kLexCompatibleProperties = <String>[
   'actor',
 ];
 
-final class LikeConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+final class LikeConverter implements JsonConverter<Like, Map<String, dynamic>> {
   const LikeConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Like fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Like.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -78,25 +77,27 @@ final class LikeConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Like.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Like object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

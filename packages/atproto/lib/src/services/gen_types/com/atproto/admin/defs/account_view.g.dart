@@ -27,14 +27,13 @@ _$AccountViewImpl _$$AccountViewImplFromJson(Map json) => $checkedCreate(
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           invitedBy: $checkedConvert(
               'invitedBy',
-              (v) => v == null
-                  ? null
-                  : InviteCode.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, InviteCode>(
+                  v, const InviteCodeConverter().fromJson)),
           invites: $checkedConvert(
               'invites',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      InviteCode.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const InviteCodeConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           invitesDisabled:
               $checkedConvert('invitesDisabled', (v) => v as bool? ?? false),
@@ -71,8 +70,12 @@ Map<String, dynamic> _$$AccountViewImplToJson(_$AccountViewImpl instance) {
   writeNotNull('email', instance.email);
   writeNotNull('relatedRecords', instance.relatedRecords);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
-  writeNotNull('invitedBy', instance.invitedBy?.toJson());
-  writeNotNull('invites', instance.invites?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'invitedBy',
+      _$JsonConverterToJson<Map<String, dynamic>, InviteCode>(
+          instance.invitedBy, const InviteCodeConverter().toJson));
+  writeNotNull('invites',
+      instance.invites?.map(const InviteCodeConverter().toJson).toList());
   val['invitesDisabled'] = instance.invitesDisabled;
   writeNotNull(
       'emailConfirmedAt', instance.emailConfirmedAt?.toIso8601String());
@@ -81,3 +84,15 @@ Map<String, dynamic> _$$AccountViewImplToJson(_$AccountViewImpl instance) {
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

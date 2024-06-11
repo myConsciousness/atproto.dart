@@ -45,16 +45,12 @@ final class URecordWithMediaMediaConverter
 
       if (type == 'app.bsky.embed.images#view') {
         return URecordWithMediaMedia.imagesView(
-          data: ImagesView.fromJson(
-            const ImagesViewConverter().fromJson(json),
-          ),
+          data: const ImagesViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.external#view') {
         return URecordWithMediaMedia.externalView(
-          data: ExternalView.fromJson(
-            const ExternalViewConverter().fromJson(json),
-          ),
+          data: const ExternalViewConverter().fromJson(json),
         );
       }
 
@@ -66,12 +62,8 @@ final class URecordWithMediaMediaConverter
 
   @override
   Map<String, dynamic> toJson(URecordWithMediaMedia object) => object.when(
-        imagesView: (data) => const ImagesViewConverter().toJson(
-          data.toJson(),
-        ),
-        externalView: (data) => const ExternalViewConverter().toJson(
-          data.toJson(),
-        ),
+        imagesView: const ImagesViewConverter().toJson,
+        externalView: const ExternalViewConverter().toJson,
         unknown: (data) => data,
       );
 }

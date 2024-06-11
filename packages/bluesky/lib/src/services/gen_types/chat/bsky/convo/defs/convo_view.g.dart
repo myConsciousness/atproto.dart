@@ -20,8 +20,8 @@ _$ConvoViewImpl _$$ConvoViewImplFromJson(Map json) => $checkedCreate(
           members: $checkedConvert(
               'members',
               (v) => (v as List<dynamic>)
-                  .map((e) => ProfileViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           lastMessage: $checkedConvert(
               'lastMessage',
@@ -48,7 +48,8 @@ Map<String, dynamic> _$$ConvoViewImplToJson(_$ConvoViewImpl instance) {
     r'$type': instance.$type,
     'id': instance.id,
     'rev': instance.rev,
-    'members': instance.members.map((e) => e.toJson()).toList(),
+    'members':
+        instance.members.map(const ProfileViewBasicConverter().toJson).toList(),
   };
 
   void writeNotNull(String key, dynamic value) {

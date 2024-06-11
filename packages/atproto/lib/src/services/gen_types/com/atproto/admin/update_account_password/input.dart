@@ -28,7 +28,7 @@ class UpdateAccountPasswordInput with _$UpdateAccountPasswordInput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _UpdateAccountPasswordInput;
 
-  factory UpdateAccountPasswordInput.fromJson(Map<String, Object?> json) =>
+  factory UpdateAccountPasswordInput.fromJson(Map<String, dynamic> json) =>
       _$UpdateAccountPasswordInputFromJson(json);
 }
 
@@ -48,13 +48,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class UpdateAccountPasswordInputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<UpdateAccountPasswordInput, Map<String, dynamic>> {
   const UpdateAccountPasswordInputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  UpdateAccountPasswordInput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return UpdateAccountPasswordInput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -68,25 +68,28 @@ final class UpdateAccountPasswordInputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return UpdateAccountPasswordInput.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(UpdateAccountPasswordInput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

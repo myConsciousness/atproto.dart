@@ -18,8 +18,8 @@ _$SearchActorsTypeaheadOutputImpl _$$SearchActorsTypeaheadOutputImplFromJson(
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) => ProfileViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,8 @@ _$SearchActorsTypeaheadOutputImpl _$$SearchActorsTypeaheadOutputImplFromJson(
 Map<String, dynamic> _$$SearchActorsTypeaheadOutputImplToJson(
         _$SearchActorsTypeaheadOutputImpl instance) =>
     <String, dynamic>{
-      'actors': instance.actors.map((e) => e.toJson()).toList(),
+      'actors': instance.actors
+          .map(const ProfileViewBasicConverter().toJson)
+          .toList(),
       r'$unknown': instance.$unknown,
     };

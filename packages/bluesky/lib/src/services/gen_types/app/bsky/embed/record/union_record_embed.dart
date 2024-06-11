@@ -55,30 +55,22 @@ final class URecordEmbedConverter
 
       if (type == 'app.bsky.embed.images#view') {
         return URecordEmbed.imagesView(
-          data: ImagesView.fromJson(
-            const ImagesViewConverter().fromJson(json),
-          ),
+          data: const ImagesViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.external#view') {
         return URecordEmbed.externalView(
-          data: ExternalView.fromJson(
-            const ExternalViewConverter().fromJson(json),
-          ),
+          data: const ExternalViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.record#view') {
         return URecordEmbed.recordView(
-          data: RecordView.fromJson(
-            const RecordViewConverter().fromJson(json),
-          ),
+          data: const RecordViewConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.recordWithMedia#view') {
         return URecordEmbed.recordWithMediaView(
-          data: RecordWithMediaView.fromJson(
-            const RecordWithMediaViewConverter().fromJson(json),
-          ),
+          data: const RecordWithMediaViewConverter().fromJson(json),
         );
       }
 
@@ -90,19 +82,10 @@ final class URecordEmbedConverter
 
   @override
   Map<String, dynamic> toJson(URecordEmbed object) => object.when(
-        imagesView: (data) => const ImagesViewConverter().toJson(
-          data.toJson(),
-        ),
-        externalView: (data) => const ExternalViewConverter().toJson(
-          data.toJson(),
-        ),
-        recordView: (data) => const RecordViewConverter().toJson(
-          data.toJson(),
-        ),
-        recordWithMediaView: (data) =>
-            const RecordWithMediaViewConverter().toJson(
-          data.toJson(),
-        ),
+        imagesView: const ImagesViewConverter().toJson,
+        externalView: const ExternalViewConverter().toJson,
+        recordView: const RecordViewConverter().toJson,
+        recordWithMediaView: const RecordWithMediaViewConverter().toJson,
         unknown: (data) => data,
       );
 }

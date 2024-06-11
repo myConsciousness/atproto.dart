@@ -31,7 +31,7 @@ class ListConvosOutput with _$ListConvosOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ListConvosOutput;
 
-  factory ListConvosOutput.fromJson(Map<String, Object?> json) =>
+  factory ListConvosOutput.fromJson(Map<String, dynamic> json) =>
       _$ListConvosOutputFromJson(json);
 }
 
@@ -51,13 +51,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ListConvosOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ListConvosOutput, Map<String, dynamic>> {
   const ListConvosOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ListConvosOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ListConvosOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -71,25 +71,27 @@ final class ListConvosOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ListConvosOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ListConvosOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

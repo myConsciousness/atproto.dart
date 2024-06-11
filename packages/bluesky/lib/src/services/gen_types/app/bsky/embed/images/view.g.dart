@@ -18,8 +18,8 @@ _$ImagesViewImpl _$$ImagesViewImplFromJson(Map json) => $checkedCreate(
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)
-                  .map((e) => ImagesViewImage.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ImagesViewImageConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,7 @@ _$ImagesViewImpl _$$ImagesViewImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ImagesViewImplToJson(_$ImagesViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'images': instance.images.map((e) => e.toJson()).toList(),
+      'images':
+          instance.images.map(const ImagesViewImageConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

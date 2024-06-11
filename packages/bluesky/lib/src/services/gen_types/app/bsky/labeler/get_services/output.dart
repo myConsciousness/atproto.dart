@@ -30,7 +30,7 @@ class GetServicesOutput with _$GetServicesOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetServicesOutput;
 
-  factory GetServicesOutput.fromJson(Map<String, Object?> json) =>
+  factory GetServicesOutput.fromJson(Map<String, dynamic> json) =>
       _$GetServicesOutputFromJson(json);
 }
 
@@ -49,13 +49,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetServicesOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<GetServicesOutput, Map<String, dynamic>> {
   const GetServicesOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetServicesOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetServicesOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -69,25 +69,27 @@ final class GetServicesOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetServicesOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetServicesOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -37,7 +37,7 @@ class DescribeRepoOutput with _$DescribeRepoOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _DescribeRepoOutput;
 
-  factory DescribeRepoOutput.fromJson(Map<String, Object?> json) =>
+  factory DescribeRepoOutput.fromJson(Map<String, dynamic> json) =>
       _$DescribeRepoOutputFromJson(json);
 }
 
@@ -60,13 +60,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class DescribeRepoOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<DescribeRepoOutput, Map<String, dynamic>> {
   const DescribeRepoOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  DescribeRepoOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return DescribeRepoOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -80,25 +80,27 @@ final class DescribeRepoOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return DescribeRepoOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(DescribeRepoOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

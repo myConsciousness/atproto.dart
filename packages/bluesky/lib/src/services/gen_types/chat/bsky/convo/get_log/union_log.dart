@@ -54,30 +54,22 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
 
       if (type == 'chat.bsky.convo.defs#logBeginConvo') {
         return ULog.logBeginConvo(
-          data: LogBeginConvo.fromJson(
-            const LogBeginConvoConverter().fromJson(json),
-          ),
+          data: const LogBeginConvoConverter().fromJson(json),
         );
       }
       if (type == 'chat.bsky.convo.defs#logLeaveConvo') {
         return ULog.logLeaveConvo(
-          data: LogLeaveConvo.fromJson(
-            const LogLeaveConvoConverter().fromJson(json),
-          ),
+          data: const LogLeaveConvoConverter().fromJson(json),
         );
       }
       if (type == 'chat.bsky.convo.defs#logCreateMessage') {
         return ULog.logCreateMessage(
-          data: LogCreateMessage.fromJson(
-            const LogCreateMessageConverter().fromJson(json),
-          ),
+          data: const LogCreateMessageConverter().fromJson(json),
         );
       }
       if (type == 'chat.bsky.convo.defs#logDeleteMessage') {
         return ULog.logDeleteMessage(
-          data: LogDeleteMessage.fromJson(
-            const LogDeleteMessageConverter().fromJson(json),
-          ),
+          data: const LogDeleteMessageConverter().fromJson(json),
         );
       }
 
@@ -89,18 +81,10 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
 
   @override
   Map<String, dynamic> toJson(ULog object) => object.when(
-        logBeginConvo: (data) => const LogBeginConvoConverter().toJson(
-          data.toJson(),
-        ),
-        logLeaveConvo: (data) => const LogLeaveConvoConverter().toJson(
-          data.toJson(),
-        ),
-        logCreateMessage: (data) => const LogCreateMessageConverter().toJson(
-          data.toJson(),
-        ),
-        logDeleteMessage: (data) => const LogDeleteMessageConverter().toJson(
-          data.toJson(),
-        ),
+        logBeginConvo: const LogBeginConvoConverter().toJson,
+        logLeaveConvo: const LogLeaveConvoConverter().toJson,
+        logCreateMessage: const LogCreateMessageConverter().toJson,
+        logDeleteMessage: const LogDeleteMessageConverter().toJson,
         unknown: (data) => data,
       );
 }

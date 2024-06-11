@@ -37,7 +37,7 @@ class AccountCodes with _$AccountCodes {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _AccountCodes;
 
-  factory AccountCodes.fromJson(Map<String, Object?> json) =>
+  factory AccountCodes.fromJson(Map<String, dynamic> json) =>
       _$AccountCodesFromJson(json);
 }
 
@@ -58,13 +58,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class AccountCodesConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<AccountCodes, Map<String, dynamic>> {
   const AccountCodesConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  AccountCodes fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return AccountCodes.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -78,25 +78,27 @@ final class AccountCodesConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return AccountCodes.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(AccountCodes object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -30,7 +30,7 @@ class GetConvoForMembersOutput with _$GetConvoForMembersOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetConvoForMembersOutput;
 
-  factory GetConvoForMembersOutput.fromJson(Map<String, Object?> json) =>
+  factory GetConvoForMembersOutput.fromJson(Map<String, dynamic> json) =>
       _$GetConvoForMembersOutputFromJson(json);
 }
 
@@ -49,13 +49,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetConvoForMembersOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<GetConvoForMembersOutput, Map<String, dynamic>> {
   const GetConvoForMembersOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetConvoForMembersOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetConvoForMembersOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -69,25 +69,28 @@ final class GetConvoForMembersOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetConvoForMembersOutput.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetConvoForMembersOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

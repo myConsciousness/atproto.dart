@@ -19,8 +19,8 @@ _$GetSuggestedFeedsOutputImpl _$$GetSuggestedFeedsOutputImplFromJson(
           feeds: $checkedConvert(
               'feeds',
               (v) => (v as List<dynamic>)
-                  .map((e) => GeneratorView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const GeneratorViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -45,7 +45,8 @@ Map<String, dynamic> _$$GetSuggestedFeedsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['feeds'] = instance.feeds.map((e) => e.toJson()).toList();
+  val['feeds'] =
+      instance.feeds.map(const GeneratorViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

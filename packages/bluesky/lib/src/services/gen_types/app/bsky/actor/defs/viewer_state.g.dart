@@ -18,10 +18,9 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
           muted: $checkedConvert('muted', (v) => v as bool? ?? false),
           mutedByList: $checkedConvert(
               'mutedByList',
-              (v) => v == null
-                  ? null
-                  : ListViewBasic.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, ListViewBasic>(
+                      v, const ListViewBasicConverter().fromJson)),
           blockedBy: $checkedConvert('blockedBy', (v) => v as bool? ?? false),
           blocking: $checkedConvert(
               'blocking',
@@ -29,10 +28,9 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
                   v, const AtUriConverter().fromJson)),
           blockingByList: $checkedConvert(
               'blockingByList',
-              (v) => v == null
-                  ? null
-                  : ListViewBasic.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, ListViewBasic>(
+                      v, const ListViewBasicConverter().fromJson)),
           following: $checkedConvert(
               'following',
               (v) => _$JsonConverterFromJson<String, AtUri>(
@@ -65,13 +63,19 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
     }
   }
 
-  writeNotNull('mutedByList', instance.mutedByList?.toJson());
+  writeNotNull(
+      'mutedByList',
+      _$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
+          instance.mutedByList, const ListViewBasicConverter().toJson));
   val['blockedBy'] = instance.blockedBy;
   writeNotNull(
       'blocking',
       _$JsonConverterToJson<String, AtUri>(
           instance.blocking, const AtUriConverter().toJson));
-  writeNotNull('blockingByList', instance.blockingByList?.toJson());
+  writeNotNull(
+      'blockingByList',
+      _$JsonConverterToJson<Map<String, dynamic>, ListViewBasic>(
+          instance.blockingByList, const ListViewBasicConverter().toJson));
   writeNotNull(
       'following',
       _$JsonConverterToJson<String, AtUri>(

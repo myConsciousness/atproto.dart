@@ -22,15 +22,14 @@ _$ThreadgateViewImpl _$$ThreadgateViewImplFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String?),
           record: $checkedConvert(
               'record',
-              (v) => v == null
-                  ? null
-                  : ThreadgateRecord.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      ThreadgateRecord>(
+                  v, const ThreadgateRecordConverter().fromJson)),
           lists: $checkedConvert(
               'lists',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => ListViewBasic.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const ListViewBasicConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -61,8 +60,12 @@ Map<String, dynamic> _$$ThreadgateViewImplToJson(
       _$JsonConverterToJson<String, AtUri>(
           instance.uri, const AtUriConverter().toJson));
   writeNotNull('cid', instance.cid);
-  writeNotNull('record', instance.record?.toJson());
-  writeNotNull('lists', instance.lists?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'record',
+      _$JsonConverterToJson<Map<String, dynamic>, ThreadgateRecord>(
+          instance.record, const ThreadgateRecordConverter().toJson));
+  writeNotNull('lists',
+      instance.lists?.map(const ListViewBasicConverter().toJson).toList());
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

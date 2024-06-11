@@ -29,7 +29,7 @@ class UpdateActorAccessInput with _$UpdateActorAccessInput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _UpdateActorAccessInput;
 
-  factory UpdateActorAccessInput.fromJson(Map<String, Object?> json) =>
+  factory UpdateActorAccessInput.fromJson(Map<String, dynamic> json) =>
       _$UpdateActorAccessInputFromJson(json);
 }
 
@@ -50,13 +50,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class UpdateActorAccessInputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<UpdateActorAccessInput, Map<String, dynamic>> {
   const UpdateActorAccessInputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  UpdateActorAccessInput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return UpdateActorAccessInput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -70,25 +70,27 @@ final class UpdateActorAccessInputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return UpdateActorAccessInput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(UpdateActorAccessInput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

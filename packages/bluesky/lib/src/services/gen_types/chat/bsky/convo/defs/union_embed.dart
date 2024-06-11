@@ -40,9 +40,7 @@ final class UEmbedConverter
 
       if (type == 'app.bsky.embed.record#view') {
         return UEmbed.recordView(
-          data: RecordView.fromJson(
-            const RecordViewConverter().fromJson(json),
-          ),
+          data: const RecordViewConverter().fromJson(json),
         );
       }
 
@@ -54,9 +52,7 @@ final class UEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UEmbed object) => object.when(
-        recordView: (data) => const RecordViewConverter().toJson(
-          data.toJson(),
-        ),
+        recordView: const RecordViewConverter().toJson,
         unknown: (data) => data,
       );
 }

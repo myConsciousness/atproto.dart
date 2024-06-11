@@ -36,7 +36,7 @@ class StrongRef with _$StrongRef {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _StrongRef;
 
-  factory StrongRef.fromJson(Map<String, Object?> json) =>
+  factory StrongRef.fromJson(Map<String, dynamic> json) =>
       _$StrongRefFromJson(json);
 }
 
@@ -57,13 +57,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class StrongRefConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<StrongRef, Map<String, dynamic>> {
   const StrongRefConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  StrongRef fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return StrongRef.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -77,25 +77,27 @@ final class StrongRefConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return StrongRef.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(StrongRef object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

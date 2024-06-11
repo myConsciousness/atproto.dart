@@ -21,8 +21,8 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const FacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           embed: $checkedConvert(
               'embed',
@@ -30,8 +30,8 @@ _$MessageViewImpl _$$MessageViewImplFromJson(Map json) => $checkedCreate(
                   v, const UEmbedConverter().fromJson)),
           sender: $checkedConvert(
               'sender',
-              (v) => MessageViewSender.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const MessageViewSenderConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -59,12 +59,13 @@ Map<String, dynamic> _$$MessageViewImplToJson(_$MessageViewImpl instance) {
     }
   }
 
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'facets', instance.facets?.map(const FacetConverter().toJson).toList());
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
           instance.embed, const UEmbedConverter().toJson));
-  val['sender'] = instance.sender.toJson();
+  val['sender'] = const MessageViewSenderConverter().toJson(instance.sender);
   val['sentAt'] = instance.sentAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

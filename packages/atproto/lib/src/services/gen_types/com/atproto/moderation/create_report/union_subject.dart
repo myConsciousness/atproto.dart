@@ -45,16 +45,12 @@ final class USubjectConverter
 
       if (type == 'com.atproto.admin.defs#repoRef') {
         return USubject.repoRef(
-          data: RepoRef.fromJson(
-            const RepoRefConverter().fromJson(json),
-          ),
+          data: const RepoRefConverter().fromJson(json),
         );
       }
       if (type == 'com.atproto.repo.strongRef') {
         return USubject.strongRef(
-          data: StrongRef.fromJson(
-            const StrongRefConverter().fromJson(json),
-          ),
+          data: const StrongRefConverter().fromJson(json),
         );
       }
 
@@ -66,12 +62,8 @@ final class USubjectConverter
 
   @override
   Map<String, dynamic> toJson(USubject object) => object.when(
-        repoRef: (data) => const RepoRefConverter().toJson(
-          data.toJson(),
-        ),
-        strongRef: (data) => const StrongRefConverter().toJson(
-          data.toJson(),
-        ),
+        repoRef: const RepoRefConverter().toJson,
+        strongRef: const StrongRefConverter().toJson,
         unknown: (data) => data,
       );
 }

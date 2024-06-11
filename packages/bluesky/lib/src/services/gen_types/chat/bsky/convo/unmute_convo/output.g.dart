@@ -14,8 +14,10 @@ _$UnmuteConvoOutputImpl _$$UnmuteConvoOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$UnmuteConvoOutputImpl(
-          convo: $checkedConvert('convo',
-              (v) => ConvoView.fromJson(Map<String, Object?>.from(v as Map))),
+          convo: $checkedConvert(
+              'convo',
+              (v) => const ConvoViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -31,6 +33,6 @@ _$UnmuteConvoOutputImpl _$$UnmuteConvoOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$UnmuteConvoOutputImplToJson(
         _$UnmuteConvoOutputImpl instance) =>
     <String, dynamic>{
-      'convo': instance.convo.toJson(),
+      'convo': const ConvoViewConverter().toJson(instance.convo),
       r'$unknown': instance.$unknown,
     };

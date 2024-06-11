@@ -30,8 +30,8 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
           ops: $checkedConvert(
               'ops',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      RepoOp.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const RepoOpConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           blobs: $checkedConvert('blobs',
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
@@ -68,7 +68,7 @@ Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
   val['rev'] = instance.rev;
   val['since'] = instance.since;
   val['blocks'] = instance.blocks;
-  val['ops'] = instance.ops.map((e) => e.toJson()).toList();
+  val['ops'] = instance.ops.map(const RepoOpConverter().toJson).toList();
   val['blobs'] = instance.blobs;
   val['time'] = instance.time.toIso8601String();
   val[r'$unknown'] = instance.$unknown;

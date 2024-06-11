@@ -22,10 +22,9 @@ _$ProfileAssociatedImpl _$$ProfileAssociatedImplFromJson(Map json) =>
           labeler: $checkedConvert('labeler', (v) => v as bool? ?? false),
           chat: $checkedConvert(
               'chat',
-              (v) => v == null
-                  ? null
-                  : ProfileAssociatedChat.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      ProfileAssociatedChat>(
+                  v, const ProfileAssociatedChatConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -53,7 +52,22 @@ Map<String, dynamic> _$$ProfileAssociatedImplToJson(
     }
   }
 
-  writeNotNull('chat', instance.chat?.toJson());
+  writeNotNull(
+      'chat',
+      _$JsonConverterToJson<Map<String, dynamic>, ProfileAssociatedChat>(
+          instance.chat, const ProfileAssociatedChatConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -39,7 +39,7 @@ class NotFoundActor with _$NotFoundActor {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _NotFoundActor;
 
-  factory NotFoundActor.fromJson(Map<String, Object?> json) =>
+  factory NotFoundActor.fromJson(Map<String, dynamic> json) =>
       _$NotFoundActorFromJson(json);
 }
 
@@ -60,13 +60,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class NotFoundActorConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<NotFoundActor, Map<String, dynamic>> {
   const NotFoundActorConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  NotFoundActor fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return NotFoundActor.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -80,25 +80,27 @@ final class NotFoundActorConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return NotFoundActor.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(NotFoundActor object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -21,8 +21,10 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
-          author: $checkedConvert('author',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          author: $checkedConvert(
+              'author',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           reason: $checkedConvert(
               'reason', (v) => const UReasonConverter().fromJson(v as String)),
           reasonSubject: $checkedConvert(
@@ -37,8 +39,8 @@ _$NotificationImpl _$$NotificationImplFromJson(Map json) => $checkedCreate(
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -57,7 +59,7 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
     r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
-    'author': instance.author.toJson(),
+    'author': const ProfileViewConverter().toJson(instance.author),
     'reason': const UReasonConverter().toJson(instance.reason),
   };
 
@@ -74,7 +76,8 @@ Map<String, dynamic> _$$NotificationImplToJson(_$NotificationImpl instance) {
   val['record'] = instance.record;
   val['isRead'] = instance.isRead;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

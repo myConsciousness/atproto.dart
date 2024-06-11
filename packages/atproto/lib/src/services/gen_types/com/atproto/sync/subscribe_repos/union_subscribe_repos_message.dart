@@ -70,51 +70,37 @@ final class USubscribeReposMessageConverter
 
       if (type == '#commit') {
         return USubscribeReposMessage.commit(
-          data: Commit.fromJson(
-            const CommitConverter().fromJson(json),
-          ),
+          data: const CommitConverter().fromJson(json),
         );
       }
       if (type == '#identity') {
         return USubscribeReposMessage.identity(
-          data: Identity.fromJson(
-            const IdentityConverter().fromJson(json),
-          ),
+          data: const IdentityConverter().fromJson(json),
         );
       }
       if (type == '#account') {
         return USubscribeReposMessage.account(
-          data: Account.fromJson(
-            const AccountConverter().fromJson(json),
-          ),
+          data: const AccountConverter().fromJson(json),
         );
       }
       if (type == '#handle') {
         return USubscribeReposMessage.handle(
-          data: Handle.fromJson(
-            const HandleConverter().fromJson(json),
-          ),
+          data: const HandleConverter().fromJson(json),
         );
       }
       if (type == '#migrate') {
         return USubscribeReposMessage.migrate(
-          data: Migrate.fromJson(
-            const MigrateConverter().fromJson(json),
-          ),
+          data: const MigrateConverter().fromJson(json),
         );
       }
       if (type == '#tombstone') {
         return USubscribeReposMessage.tombstone(
-          data: Tombstone.fromJson(
-            const TombstoneConverter().fromJson(json),
-          ),
+          data: const TombstoneConverter().fromJson(json),
         );
       }
       if (type == '#info') {
         return USubscribeReposMessage.info(
-          data: Info.fromJson(
-            const InfoConverter().fromJson(json),
-          ),
+          data: const InfoConverter().fromJson(json),
         );
       }
 
@@ -126,27 +112,13 @@ final class USubscribeReposMessageConverter
 
   @override
   Map<String, dynamic> toJson(USubscribeReposMessage object) => object.when(
-        commit: (data) => const CommitConverter().toJson(
-          data.toJson(),
-        ),
-        identity: (data) => const IdentityConverter().toJson(
-          data.toJson(),
-        ),
-        account: (data) => const AccountConverter().toJson(
-          data.toJson(),
-        ),
-        handle: (data) => const HandleConverter().toJson(
-          data.toJson(),
-        ),
-        migrate: (data) => const MigrateConverter().toJson(
-          data.toJson(),
-        ),
-        tombstone: (data) => const TombstoneConverter().toJson(
-          data.toJson(),
-        ),
-        info: (data) => const InfoConverter().toJson(
-          data.toJson(),
-        ),
+        commit: const CommitConverter().toJson,
+        identity: const IdentityConverter().toJson,
+        account: const AccountConverter().toJson,
+        handle: const HandleConverter().toJson,
+        migrate: const MigrateConverter().toJson,
+        tombstone: const TombstoneConverter().toJson,
+        info: const InfoConverter().toJson,
         unknown: (data) => data,
       );
 }

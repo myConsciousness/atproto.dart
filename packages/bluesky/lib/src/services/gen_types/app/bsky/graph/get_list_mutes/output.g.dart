@@ -18,8 +18,8 @@ _$GetListMutesOutputImpl _$$GetListMutesOutputImplFromJson(Map json) =>
           lists: $checkedConvert(
               'lists',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ListView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ListViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$GetListMutesOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['lists'] = instance.lists.map((e) => e.toJson()).toList();
+  val['lists'] = instance.lists.map(const ListViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

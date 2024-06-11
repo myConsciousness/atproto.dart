@@ -50,23 +50,17 @@ final class UThreadConverter
 
       if (type == 'app.bsky.feed.defs#threadViewPost') {
         return UThread.threadViewPost(
-          data: ThreadViewPost.fromJson(
-            const ThreadViewPostConverter().fromJson(json),
-          ),
+          data: const ThreadViewPostConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.feed.defs#notFoundPost') {
         return UThread.notFoundPost(
-          data: NotFoundPost.fromJson(
-            const NotFoundPostConverter().fromJson(json),
-          ),
+          data: const NotFoundPostConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.feed.defs#blockedPost') {
         return UThread.blockedPost(
-          data: BlockedPost.fromJson(
-            const BlockedPostConverter().fromJson(json),
-          ),
+          data: const BlockedPostConverter().fromJson(json),
         );
       }
 
@@ -78,15 +72,9 @@ final class UThreadConverter
 
   @override
   Map<String, dynamic> toJson(UThread object) => object.when(
-        threadViewPost: (data) => const ThreadViewPostConverter().toJson(
-          data.toJson(),
-        ),
-        notFoundPost: (data) => const NotFoundPostConverter().toJson(
-          data.toJson(),
-        ),
-        blockedPost: (data) => const BlockedPostConverter().toJson(
-          data.toJson(),
-        ),
+        threadViewPost: const ThreadViewPostConverter().toJson,
+        notFoundPost: const NotFoundPostConverter().toJson,
+        blockedPost: const BlockedPostConverter().toJson,
         unknown: (data) => data,
       );
 }

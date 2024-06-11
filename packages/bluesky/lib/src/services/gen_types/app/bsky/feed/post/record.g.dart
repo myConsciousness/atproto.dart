@@ -17,20 +17,19 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
           entities: $checkedConvert(
               'entities',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Entity.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const EntityConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const FacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           reply: $checkedConvert(
               'reply',
-              (v) => v == null
-                  ? null
-                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ReplyRef>(
+                  v, const ReplyRefConverter().fromJson)),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
@@ -68,9 +67,14 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
     }
   }
 
-  writeNotNull('entities', instance.entities?.map((e) => e.toJson()).toList());
-  writeNotNull('facets', instance.facets?.map((e) => e.toJson()).toList());
-  writeNotNull('reply', instance.reply?.toJson());
+  writeNotNull('entities',
+      instance.entities?.map(const EntityConverter().toJson).toList());
+  writeNotNull(
+      'facets', instance.facets?.map(const FacetConverter().toJson).toList());
+  writeNotNull(
+      'reply',
+      _$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
+          instance.reply, const ReplyRefConverter().toJson));
   writeNotNull(
       'embed',
       _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(

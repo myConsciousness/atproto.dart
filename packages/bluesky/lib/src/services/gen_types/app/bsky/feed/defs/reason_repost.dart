@@ -36,7 +36,7 @@ class ReasonRepost with _$ReasonRepost {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ReasonRepost;
 
-  factory ReasonRepost.fromJson(Map<String, Object?> json) =>
+  factory ReasonRepost.fromJson(Map<String, dynamic> json) =>
       _$ReasonRepostFromJson(json);
 }
 
@@ -57,13 +57,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ReasonRepostConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ReasonRepost, Map<String, dynamic>> {
   const ReasonRepostConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ReasonRepost fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ReasonRepost.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -77,25 +77,27 @@ final class ReasonRepostConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ReasonRepost.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ReasonRepost object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

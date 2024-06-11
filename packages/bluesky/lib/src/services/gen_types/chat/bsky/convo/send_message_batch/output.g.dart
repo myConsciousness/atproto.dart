@@ -17,8 +17,8 @@ _$SendMessageBatchOutputImpl _$$SendMessageBatchOutputImplFromJson(Map json) =>
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      MessageView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const MessageViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -35,6 +35,6 @@ _$SendMessageBatchOutputImpl _$$SendMessageBatchOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$SendMessageBatchOutputImplToJson(
         _$SendMessageBatchOutputImpl instance) =>
     <String, dynamic>{
-      'items': instance.items.map((e) => e.toJson()).toList(),
+      'items': instance.items.map(const MessageViewConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

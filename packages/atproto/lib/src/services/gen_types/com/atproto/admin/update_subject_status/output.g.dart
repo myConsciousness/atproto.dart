@@ -21,9 +21,8 @@ _$UpdateSubjectStatusOutputImpl _$$UpdateSubjectStatusOutputImplFromJson(
                   .fromJson(v as Map<String, dynamic>)),
           takedown: $checkedConvert(
               'takedown',
-              (v) => v == null
-                  ? null
-                  : StatusAttr.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, StatusAttr>(
+                  v, const StatusAttrConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -48,7 +47,22 @@ Map<String, dynamic> _$$UpdateSubjectStatusOutputImplToJson(
     }
   }
 
-  writeNotNull('takedown', instance.takedown?.toJson());
+  writeNotNull(
+      'takedown',
+      _$JsonConverterToJson<Map<String, dynamic>, StatusAttr>(
+          instance.takedown, const StatusAttrConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

@@ -31,7 +31,7 @@ class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ListMissingBlobsOutput;
 
-  factory ListMissingBlobsOutput.fromJson(Map<String, Object?> json) =>
+  factory ListMissingBlobsOutput.fromJson(Map<String, dynamic> json) =>
       _$ListMissingBlobsOutputFromJson(json);
 }
 
@@ -51,13 +51,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ListMissingBlobsOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ListMissingBlobsOutput, Map<String, dynamic>> {
   const ListMissingBlobsOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ListMissingBlobsOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ListMissingBlobsOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -71,25 +71,27 @@ final class ListMissingBlobsOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ListMissingBlobsOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ListMissingBlobsOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

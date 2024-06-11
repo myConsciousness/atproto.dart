@@ -21,8 +21,8 @@ _$RecordViewBlockedImpl _$$RecordViewBlockedImplFromJson(Map json) =>
           blocked: $checkedConvert('blocked', (v) => v as bool),
           author: $checkedConvert(
               'author',
-              (v) =>
-                  BlockedAuthor.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const BlockedAuthorConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -41,6 +41,6 @@ Map<String, dynamic> _$$RecordViewBlockedImplToJson(
       r'$type': instance.$type,
       'uri': const AtUriConverter().toJson(instance.uri),
       'blocked': instance.blocked,
-      'author': instance.author.toJson(),
+      'author': const BlockedAuthorConverter().toJson(instance.author),
       r'$unknown': instance.$unknown,
     };

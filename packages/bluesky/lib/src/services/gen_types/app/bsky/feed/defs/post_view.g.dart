@@ -20,10 +20,12 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert(
               'author',
-              (v) => ProfileViewBasic.fromJson(
-                  Map<String, Object?>.from(v as Map))),
-          record: $checkedConvert('record',
-              (v) => PostRecord.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const ProfileViewBasicConverter()
+                  .fromJson(v as Map<String, dynamic>)),
+          record: $checkedConvert(
+              'record',
+              (v) => const PostRecordConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           embed: $checkedConvert(
               'embed',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
@@ -40,19 +42,20 @@ _$PostViewImpl _$$PostViewImplFromJson(Map json) => $checkedCreate(
               'viewer',
               (v) => v == null
                   ? const ViewerState()
-                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
+                  : const ViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           threadgate: $checkedConvert(
               'threadgate',
               (v) => v == null
                   ? const ThreadgateView()
-                  : ThreadgateView.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const ThreadgateViewConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -70,8 +73,8 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
     r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
-    'author': instance.author.toJson(),
-    'record': instance.record.toJson(),
+    'author': const ProfileViewBasicConverter().toJson(instance.author),
+    'record': const PostRecordConverter().toJson(instance.record),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -88,9 +91,11 @@ Map<String, dynamic> _$$PostViewImplToJson(_$PostViewImpl instance) {
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;
   val['indexedAt'] = instance.indexedAt.toIso8601String();
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['threadgate'] = instance.threadgate.toJson();
+  val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
+  val['threadgate'] =
+      const ThreadgateViewConverter().toJson(instance.threadgate);
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

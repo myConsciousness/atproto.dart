@@ -18,8 +18,8 @@ _$SearchAccountsOutputImpl _$$SearchAccountsOutputImplFromJson(Map json) =>
           accounts: $checkedConvert(
               'accounts',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      AccountView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const AccountViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$SearchAccountsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['accounts'] = instance.accounts.map((e) => e.toJson()).toList();
+  val['accounts'] =
+      instance.accounts.map(const AccountViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

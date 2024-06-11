@@ -18,8 +18,8 @@ _$CreateInviteCodesOutputImpl _$$CreateInviteCodesOutputImplFromJson(
           codes: $checkedConvert(
               'codes',
               (v) => (v as List<dynamic>)
-                  .map((e) => AccountCodes.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const AccountCodesConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,7 @@ _$CreateInviteCodesOutputImpl _$$CreateInviteCodesOutputImplFromJson(
 Map<String, dynamic> _$$CreateInviteCodesOutputImplToJson(
         _$CreateInviteCodesOutputImpl instance) =>
     <String, dynamic>{
-      'codes': instance.codes.map((e) => e.toJson()).toList(),
+      'codes':
+          instance.codes.map(const AccountCodesConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

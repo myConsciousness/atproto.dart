@@ -50,23 +50,17 @@ final class UFacetFeatureConverter
 
       if (type == 'app.bsky.richtext.facet#mention') {
         return UFacetFeature.facetMention(
-          data: FacetMention.fromJson(
-            const FacetMentionConverter().fromJson(json),
-          ),
+          data: const FacetMentionConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.richtext.facet#link') {
         return UFacetFeature.facetLink(
-          data: FacetLink.fromJson(
-            const FacetLinkConverter().fromJson(json),
-          ),
+          data: const FacetLinkConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.richtext.facet#tag') {
         return UFacetFeature.facetTag(
-          data: FacetTag.fromJson(
-            const FacetTagConverter().fromJson(json),
-          ),
+          data: const FacetTagConverter().fromJson(json),
         );
       }
 
@@ -78,15 +72,9 @@ final class UFacetFeatureConverter
 
   @override
   Map<String, dynamic> toJson(UFacetFeature object) => object.when(
-        facetMention: (data) => const FacetMentionConverter().toJson(
-          data.toJson(),
-        ),
-        facetLink: (data) => const FacetLinkConverter().toJson(
-          data.toJson(),
-        ),
-        facetTag: (data) => const FacetTagConverter().toJson(
-          data.toJson(),
-        ),
+        facetMention: const FacetMentionConverter().toJson,
+        facetLink: const FacetLinkConverter().toJson,
+        facetTag: const FacetTagConverter().toJson,
         unknown: (data) => data,
       );
 }

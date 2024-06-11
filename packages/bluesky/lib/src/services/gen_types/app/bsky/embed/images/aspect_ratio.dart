@@ -39,7 +39,7 @@ class ImagesAspectRatio with _$ImagesAspectRatio {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ImagesAspectRatio;
 
-  factory ImagesAspectRatio.fromJson(Map<String, Object?> json) =>
+  factory ImagesAspectRatio.fromJson(Map<String, dynamic> json) =>
       _$ImagesAspectRatioFromJson(json);
 }
 
@@ -60,13 +60,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ImagesAspectRatioConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ImagesAspectRatio, Map<String, dynamic>> {
   const ImagesAspectRatioConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ImagesAspectRatio fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ImagesAspectRatio.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -80,25 +80,27 @@ final class ImagesAspectRatioConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ImagesAspectRatio.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ImagesAspectRatio object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

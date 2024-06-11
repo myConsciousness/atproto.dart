@@ -19,15 +19,17 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
           did: $checkedConvert('did', (v) => v as String),
-          creator: $checkedConvert('creator',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert(
+              'creator',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           displayName: $checkedConvert('displayName', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const FacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           likeCount:
@@ -37,15 +39,15 @@ _$GeneratorViewImpl _$$GeneratorViewImplFromJson(Map json) => $checkedCreate(
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const GeneratorViewerState()
-                  : GeneratorViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const GeneratorViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -66,7 +68,7 @@ Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
     'did': instance.did,
-    'creator': instance.creator.toJson(),
+    'creator': const ProfileViewConverter().toJson(instance.creator),
     'displayName': instance.displayName,
   };
 
@@ -78,12 +80,13 @@ Map<String, dynamic> _$$GeneratorViewImplToJson(_$GeneratorViewImpl instance) {
 
   writeNotNull('description', instance.description);
   writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
+      instance.descriptionFacets?.map(const FacetConverter().toJson).toList());
   writeNotNull('avatar', instance.avatar);
   val['likeCount'] = instance.likeCount;
   val['acceptsInteractions'] = instance.acceptsInteractions;
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
+  val['viewer'] = const GeneratorViewerStateConverter().toJson(instance.viewer);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

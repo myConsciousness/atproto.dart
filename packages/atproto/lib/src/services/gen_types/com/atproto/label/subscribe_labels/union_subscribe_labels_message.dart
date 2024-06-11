@@ -45,16 +45,12 @@ final class USubscribeLabelsMessageConverter
 
       if (type == '#labels') {
         return USubscribeLabelsMessage.labels(
-          data: Labels.fromJson(
-            const LabelsConverter().fromJson(json),
-          ),
+          data: const LabelsConverter().fromJson(json),
         );
       }
       if (type == '#info') {
         return USubscribeLabelsMessage.info(
-          data: Info.fromJson(
-            const InfoConverter().fromJson(json),
-          ),
+          data: const InfoConverter().fromJson(json),
         );
       }
 
@@ -66,12 +62,8 @@ final class USubscribeLabelsMessageConverter
 
   @override
   Map<String, dynamic> toJson(USubscribeLabelsMessage object) => object.when(
-        labels: (data) => const LabelsConverter().toJson(
-          data.toJson(),
-        ),
-        info: (data) => const InfoConverter().toJson(
-          data.toJson(),
-        ),
+        labels: const LabelsConverter().toJson,
+        info: const InfoConverter().toJson,
         unknown: (data) => data,
       );
 }

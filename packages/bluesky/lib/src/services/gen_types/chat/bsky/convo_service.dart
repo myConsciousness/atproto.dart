@@ -10,11 +10,87 @@
 // Lex Generator
 // **************************************************************************
 
+// 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
+
 // 🌎 Project imports:
+import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../chat/bsky/convo/get_convo/output.dart';
+import '../../chat/bsky/convo/get_convo_for_members/output.dart';
+import '../../chat/bsky/convo/get_log/output.dart';
+import '../../chat/bsky/convo/get_messages/output.dart';
+import '../../chat/bsky/convo/leave_convo/output.dart';
+import '../../chat/bsky/convo/list_convos/output.dart';
+import '../../chat/bsky/convo/mute_convo/output.dart';
+import '../../chat/bsky/convo/send_message_batch/output.dart';
+import '../../chat/bsky/convo/unmute_convo/output.dart';
+import '../../chat/bsky/convo/update_read/output.dart';
 
 final class ConvoService {
   ConvoService(this._ctx);
 
   final BlueskyServiceContext _ctx;
+
+  Future<XRPCResponse<MuteConvoOutput>> muteConvo() async => await _ctx.post(
+        ns.chatBskyConvoMuteConvo,
+        to: const MuteConvoOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<GetLogOutput>> getLog() async => await _ctx.get(
+        ns.chatBskyConvoGetLog,
+        to: const GetLogOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<LeaveConvoOutput>> leaveConvo() async => await _ctx.post(
+        ns.chatBskyConvoLeaveConvo,
+        to: const LeaveConvoOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<GetMessagesOutput>> getMessages() async => await _ctx.get(
+        ns.chatBskyConvoGetMessages,
+        to: const GetMessagesOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers() async =>
+      await _ctx.get(
+        ns.chatBskyConvoGetConvoForMembers,
+        to: const GetConvoForMembersOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo() async =>
+      await _ctx.post(
+        ns.chatBskyConvoUnmuteConvo,
+        to: const UnmuteConvoOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<ListConvosOutput>> listConvos() async => await _ctx.get(
+        ns.chatBskyConvoListConvos,
+        to: const ListConvosOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<EmptyData>> deleteMessageForSelf() async =>
+      await _ctx.post(
+        ns.chatBskyConvoDeleteMessageForSelf,
+      );
+
+  Future<XRPCResponse<GetConvoOutput>> getConvo() async => await _ctx.get(
+        ns.chatBskyConvoGetConvo,
+        to: const GetConvoOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch() async =>
+      await _ctx.post(
+        ns.chatBskyConvoSendMessageBatch,
+        to: const SendMessageBatchOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<UpdateReadOutput>> updateRead() async => await _ctx.post(
+        ns.chatBskyConvoUpdateRead,
+        to: const UpdateReadOutputConverter().fromJson,
+      );
+
+  Future<XRPCResponse<EmptyData>> sendMessage() async => await _ctx.post(
+        ns.chatBskyConvoSendMessage,
+      );
 }

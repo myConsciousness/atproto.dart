@@ -18,8 +18,8 @@ _$GetBlocksOutputImpl _$$GetBlocksOutputImplFromJson(Map json) =>
           blocks: $checkedConvert(
               'blocks',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$GetBlocksOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['blocks'] = instance.blocks.map((e) => e.toJson()).toList();
+  val['blocks'] =
+      instance.blocks.map(const ProfileViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

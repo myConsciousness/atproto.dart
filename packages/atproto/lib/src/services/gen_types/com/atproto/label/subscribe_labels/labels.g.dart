@@ -19,8 +19,8 @@ _$LabelsImpl _$$LabelsImplFromJson(Map json) => $checkedCreate(
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -38,6 +38,6 @@ Map<String, dynamic> _$$LabelsImplToJson(_$LabelsImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'seq': instance.seq,
-      'labels': instance.labels.map((e) => e.toJson()).toList(),
+      'labels': instance.labels.map(const LabelConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

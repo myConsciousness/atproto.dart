@@ -38,7 +38,7 @@ class RecordViewNotFound with _$RecordViewNotFound {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _RecordViewNotFound;
 
-  factory RecordViewNotFound.fromJson(Map<String, Object?> json) =>
+  factory RecordViewNotFound.fromJson(Map<String, dynamic> json) =>
       _$RecordViewNotFoundFromJson(json);
 }
 
@@ -59,13 +59,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class RecordViewNotFoundConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<RecordViewNotFound, Map<String, dynamic>> {
   const RecordViewNotFoundConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  RecordViewNotFound fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return RecordViewNotFound.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -79,25 +79,27 @@ final class RecordViewNotFoundConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return RecordViewNotFound.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(RecordViewNotFound object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

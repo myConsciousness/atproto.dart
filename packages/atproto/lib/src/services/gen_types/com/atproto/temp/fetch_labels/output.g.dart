@@ -17,8 +17,8 @@ _$FetchLabelsOutputImpl _$$FetchLabelsOutputImplFromJson(Map json) =>
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -35,6 +35,6 @@ _$FetchLabelsOutputImpl _$$FetchLabelsOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$FetchLabelsOutputImplToJson(
         _$FetchLabelsOutputImpl instance) =>
     <String, dynamic>{
-      'labels': instance.labels.map((e) => e.toJson()).toList(),
+      'labels': instance.labels.map(const LabelConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

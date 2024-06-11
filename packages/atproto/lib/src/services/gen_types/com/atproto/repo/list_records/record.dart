@@ -39,7 +39,7 @@ class Record with _$Record {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Record;
 
-  factory Record.fromJson(Map<String, Object?> json) => _$RecordFromJson(json);
+  factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
 
 extension RecordExtension on Record {
@@ -60,13 +60,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class RecordConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<Record, Map<String, dynamic>> {
   const RecordConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Record fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Record.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -80,25 +80,27 @@ final class RecordConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Record.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Record object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

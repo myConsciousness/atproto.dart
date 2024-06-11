@@ -57,7 +57,7 @@ class PostRecord with _$PostRecord {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _PostRecord;
 
-  factory PostRecord.fromJson(Map<String, Object?> json) =>
+  factory PostRecord.fromJson(Map<String, dynamic> json) =>
       _$PostRecordFromJson(json);
 }
 
@@ -84,13 +84,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class PostRecordConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<PostRecord, Map<String, dynamic>> {
   const PostRecordConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  PostRecord fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return PostRecord.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -104,25 +104,27 @@ final class PostRecordConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return PostRecord.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(PostRecord object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

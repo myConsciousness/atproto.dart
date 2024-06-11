@@ -18,8 +18,8 @@ _$ListReposOutputImpl _$$ListReposOutputImplFromJson(Map json) =>
           repos: $checkedConvert(
               'repos',
               (v) => (v as List<dynamic>)
-                  .map(
-                      (e) => Repo.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      const RepoConverter().fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$ListReposOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['repos'] = instance.repos.map((e) => e.toJson()).toList();
+  val['repos'] = instance.repos.map(const RepoConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

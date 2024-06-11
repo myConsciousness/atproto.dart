@@ -20,8 +20,8 @@ _$DeletedMessageViewImpl _$$DeletedMessageViewImplFromJson(Map json) =>
           rev: $checkedConvert('rev', (v) => v as String),
           sender: $checkedConvert(
               'sender',
-              (v) => MessageViewSender.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const MessageViewSenderConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           sentAt: $checkedConvert('sentAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -41,7 +41,7 @@ Map<String, dynamic> _$$DeletedMessageViewImplToJson(
       r'$type': instance.$type,
       'id': instance.id,
       'rev': instance.rev,
-      'sender': instance.sender.toJson(),
+      'sender': const MessageViewSenderConverter().toJson(instance.sender),
       'sentAt': instance.sentAt.toIso8601String(),
       r'$unknown': instance.$unknown,
     };

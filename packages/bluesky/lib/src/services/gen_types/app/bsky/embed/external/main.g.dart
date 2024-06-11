@@ -17,8 +17,8 @@ _$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyEmbedExternal),
           external: $checkedConvert(
               'external',
-              (v) => ExternalExternal.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const ExternalExternalConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -34,6 +34,6 @@ _$ExternalImpl _$$ExternalImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ExternalImplToJson(_$ExternalImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'external': instance.external.toJson(),
+      'external': const ExternalExternalConverter().toJson(instance.external),
       r'$unknown': instance.$unknown,
     };

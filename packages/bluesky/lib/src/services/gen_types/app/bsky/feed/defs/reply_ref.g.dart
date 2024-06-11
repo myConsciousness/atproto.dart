@@ -25,10 +25,9 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
                   const UParentConverter().fromJson(v as Map<String, dynamic>)),
           grandparentAuthor: $checkedConvert(
               'grandparentAuthor',
-              (v) => v == null
-                  ? null
-                  : ProfileViewBasic.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      ProfileViewBasic>(
+                  v, const ProfileViewBasicConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -54,7 +53,23 @@ Map<String, dynamic> _$$ReplyRefImplToJson(_$ReplyRefImpl instance) {
     }
   }
 
-  writeNotNull('grandparentAuthor', instance.grandparentAuthor?.toJson());
+  writeNotNull(
+      'grandparentAuthor',
+      _$JsonConverterToJson<Map<String, dynamic>, ProfileViewBasic>(
+          instance.grandparentAuthor,
+          const ProfileViewBasicConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

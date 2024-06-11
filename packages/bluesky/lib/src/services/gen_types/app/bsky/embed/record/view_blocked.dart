@@ -40,7 +40,7 @@ class RecordViewBlocked with _$RecordViewBlocked {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _RecordViewBlocked;
 
-  factory RecordViewBlocked.fromJson(Map<String, Object?> json) =>
+  factory RecordViewBlocked.fromJson(Map<String, dynamic> json) =>
       _$RecordViewBlockedFromJson(json);
 }
 
@@ -62,13 +62,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class RecordViewBlockedConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<RecordViewBlocked, Map<String, dynamic>> {
   const RecordViewBlockedConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  RecordViewBlocked fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return RecordViewBlocked.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -82,25 +82,27 @@ final class RecordViewBlockedConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return RecordViewBlocked.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(RecordViewBlocked object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

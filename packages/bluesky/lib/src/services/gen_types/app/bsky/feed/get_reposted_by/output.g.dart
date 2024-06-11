@@ -21,8 +21,8 @@ _$GetRepostedByOutputImpl _$$GetRepostedByOutputImplFromJson(Map json) =>
           repostedBy: $checkedConvert(
               'repostedBy',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -50,7 +50,8 @@ Map<String, dynamic> _$$GetRepostedByOutputImplToJson(
 
   writeNotNull('cid', instance.cid);
   writeNotNull('cursor', instance.cursor);
-  val['repostedBy'] = instance.repostedBy.map((e) => e.toJson()).toList();
+  val['repostedBy'] =
+      instance.repostedBy.map(const ProfileViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

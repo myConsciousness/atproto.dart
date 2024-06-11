@@ -18,8 +18,8 @@ _$GetTaggedSuggestionsOutputImpl _$$GetTaggedSuggestionsOutputImplFromJson(
           suggestions: $checkedConvert(
               'suggestions',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Suggestion.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const SuggestionConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,7 @@ _$GetTaggedSuggestionsOutputImpl _$$GetTaggedSuggestionsOutputImplFromJson(
 Map<String, dynamic> _$$GetTaggedSuggestionsOutputImplToJson(
         _$GetTaggedSuggestionsOutputImpl instance) =>
     <String, dynamic>{
-      'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
+      'suggestions':
+          instance.suggestions.map(const SuggestionConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

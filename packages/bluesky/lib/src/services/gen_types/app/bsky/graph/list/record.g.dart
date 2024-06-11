@@ -20,8 +20,8 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const FacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert(
               'avatar',
@@ -59,7 +59,7 @@ Map<String, dynamic> _$$ListRecordImplToJson(_$ListRecordImpl instance) {
 
   writeNotNull('description', instance.description);
   writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
+      instance.descriptionFacets?.map(const FacetConverter().toJson).toList());
   writeNotNull(
       'avatar',
       _$JsonConverterToJson<Map<String, dynamic>, Blob>(

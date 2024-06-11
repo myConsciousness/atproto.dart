@@ -20,10 +20,9 @@ _$ImagesImageImpl _$$ImagesImageImplFromJson(Map json) => $checkedCreate(
           alt: $checkedConvert('alt', (v) => v as String),
           aspectRatio: $checkedConvert(
               'aspectRatio',
-              (v) => v == null
-                  ? null
-                  : ImagesAspectRatio.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      ImagesAspectRatio>(
+                  v, const ImagesAspectRatioConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -49,7 +48,22 @@ Map<String, dynamic> _$$ImagesImageImplToJson(_$ImagesImageImpl instance) {
     }
   }
 
-  writeNotNull('aspectRatio', instance.aspectRatio?.toJson());
+  writeNotNull(
+      'aspectRatio',
+      _$JsonConverterToJson<Map<String, dynamic>, ImagesAspectRatio>(
+          instance.aspectRatio, const ImagesAspectRatioConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

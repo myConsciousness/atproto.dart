@@ -17,8 +17,8 @@ _$ExternalViewImpl _$$ExternalViewImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyEmbedExternalView),
           external: $checkedConvert(
               'external',
-              (v) => ExternalViewExternal.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const ExternalViewExternalConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -34,6 +34,7 @@ _$ExternalViewImpl _$$ExternalViewImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ExternalViewImplToJson(_$ExternalViewImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'external': instance.external.toJson(),
+      'external':
+          const ExternalViewExternalConverter().toJson(instance.external),
       r'$unknown': instance.$unknown,
     };

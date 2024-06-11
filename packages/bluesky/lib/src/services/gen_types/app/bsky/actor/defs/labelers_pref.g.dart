@@ -18,8 +18,8 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
           labelers: $checkedConvert(
               'labelers',
               (v) => (v as List<dynamic>)
-                  .map((e) => LabelerPrefItem.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const LabelerPrefItemConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,8 @@ _$LabelersPrefImpl _$$LabelersPrefImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$LabelersPrefImplToJson(_$LabelersPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'labelers': instance.labelers.map((e) => e.toJson()).toList(),
+      'labelers': instance.labelers
+          .map(const LabelerPrefItemConverter().toJson)
+          .toList(),
       r'$unknown': instance.$unknown,
     };

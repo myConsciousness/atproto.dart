@@ -18,8 +18,8 @@ _$MutedWordsPrefImpl _$$MutedWordsPrefImplFromJson(Map json) => $checkedCreate(
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      MutedWord.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const MutedWordConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -37,6 +37,6 @@ Map<String, dynamic> _$$MutedWordsPrefImplToJson(
         _$MutedWordsPrefImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'items': instance.items.map((e) => e.toJson()).toList(),
+      'items': instance.items.map(const MutedWordConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

@@ -32,20 +32,21 @@ _$ProfileViewDetailedImpl _$$ProfileViewDetailedImplFromJson(Map json) =>
               'associated',
               (v) => v == null
                   ? const ProfileAssociated()
-                  : ProfileAssociated.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const ProfileAssociatedConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           indexedAt: $checkedConvert('indexedAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const ViewerState()
-                  : ViewerState.fromJson(Map<String, Object?>.from(v as Map))),
+                  : const ViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -80,10 +81,12 @@ Map<String, dynamic> _$$ProfileViewDetailedImplToJson(
   val['followersCount'] = instance.followersCount;
   val['followsCount'] = instance.followsCount;
   val['postsCount'] = instance.postsCount;
-  val['associated'] = instance.associated.toJson();
+  val['associated'] =
+      const ProfileAssociatedConverter().toJson(instance.associated);
   writeNotNull('indexedAt', instance.indexedAt?.toIso8601String());
-  val['viewer'] = instance.viewer.toJson();
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  val['viewer'] = const ViewerStateConverter().toJson(instance.viewer);
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

@@ -17,8 +17,8 @@ _$SendInteractionsInputImpl _$$SendInteractionsInputImplFromJson(Map json) =>
           interactions: $checkedConvert(
               'interactions',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Interaction.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const InteractionConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -35,6 +35,8 @@ _$SendInteractionsInputImpl _$$SendInteractionsInputImplFromJson(Map json) =>
 Map<String, dynamic> _$$SendInteractionsInputImplToJson(
         _$SendInteractionsInputImpl instance) =>
     <String, dynamic>{
-      'interactions': instance.interactions.map((e) => e.toJson()).toList(),
+      'interactions': instance.interactions
+          .map(const InteractionConverter().toJson)
+          .toList(),
       r'$unknown': instance.$unknown,
     };

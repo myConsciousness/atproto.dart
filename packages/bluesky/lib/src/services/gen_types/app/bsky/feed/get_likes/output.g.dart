@@ -20,8 +20,8 @@ _$GetLikesOutputImpl _$$GetLikesOutputImplFromJson(Map json) => $checkedCreate(
           likes: $checkedConvert(
               'likes',
               (v) => (v as List<dynamic>)
-                  .map(
-                      (e) => Like.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) =>
+                      const LikeConverter().fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -49,7 +49,7 @@ Map<String, dynamic> _$$GetLikesOutputImplToJson(
 
   writeNotNull('cid', instance.cid);
   writeNotNull('cursor', instance.cursor);
-  val['likes'] = instance.likes.map((e) => e.toJson()).toList();
+  val['likes'] = instance.likes.map(const LikeConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

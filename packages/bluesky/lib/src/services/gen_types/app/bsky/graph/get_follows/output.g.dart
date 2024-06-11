@@ -14,14 +14,16 @@ _$GetFollowsOutputImpl _$$GetFollowsOutputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetFollowsOutputImpl(
-          subject: $checkedConvert('subject',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert(
+              'subject',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           cursor: $checkedConvert('cursor', (v) => v as String?),
           follows: $checkedConvert(
               'follows',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -38,7 +40,7 @@ _$GetFollowsOutputImpl _$$GetFollowsOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetFollowsOutputImplToJson(
     _$GetFollowsOutputImpl instance) {
   final val = <String, dynamic>{
-    'subject': instance.subject.toJson(),
+    'subject': const ProfileViewConverter().toJson(instance.subject),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -48,7 +50,8 @@ Map<String, dynamic> _$$GetFollowsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['follows'] = instance.follows.map((e) => e.toJson()).toList();
+  val['follows'] =
+      instance.follows.map(const ProfileViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

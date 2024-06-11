@@ -29,8 +29,8 @@ _$LabelValueDefinitionImpl _$$LabelValueDefinitionImplFromJson(Map json) =>
           locales: $checkedConvert(
               'locales',
               (v) => (v as List<dynamic>)
-                  .map((e) => LabelValueDefinitionStrings.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const LabelValueDefinitionStringsConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -64,7 +64,9 @@ Map<String, dynamic> _$$LabelValueDefinitionImplToJson(
       _$JsonConverterToJson<String, UDefaultSetting>(
           instance.defaultSetting, const UDefaultSettingConverter().toJson));
   val['adultOnly'] = instance.adultOnly;
-  val['locales'] = instance.locales.map((e) => e.toJson()).toList();
+  val['locales'] = instance.locales
+      .map(const LabelValueDefinitionStringsConverter().toJson)
+      .toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

@@ -17,8 +17,8 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
               r'$type', (v) => v as String? ?? appBskyRichtextFacet),
           index: $checkedConvert(
               'index',
-              (v) =>
-                  FacetByteSlice.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const FacetByteSliceConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           features: $checkedConvert(
               'features',
               (v) => (v as List<dynamic>)
@@ -40,7 +40,7 @@ _$FacetImpl _$$FacetImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$FacetImplToJson(_$FacetImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'index': instance.index.toJson(),
+      'index': const FacetByteSliceConverter().toJson(instance.index),
       'features':
           instance.features.map(const UFacetFeatureConverter().toJson).toList(),
       r'$unknown': instance.$unknown,

@@ -36,7 +36,7 @@ class LabelerPrefItem with _$LabelerPrefItem {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _LabelerPrefItem;
 
-  factory LabelerPrefItem.fromJson(Map<String, Object?> json) =>
+  factory LabelerPrefItem.fromJson(Map<String, dynamic> json) =>
       _$LabelerPrefItemFromJson(json);
 }
 
@@ -56,13 +56,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class LabelerPrefItemConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<LabelerPrefItem, Map<String, dynamic>> {
   const LabelerPrefItemConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  LabelerPrefItem fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return LabelerPrefItem.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -76,25 +76,27 @@ final class LabelerPrefItemConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return LabelerPrefItem.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(LabelerPrefItem object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

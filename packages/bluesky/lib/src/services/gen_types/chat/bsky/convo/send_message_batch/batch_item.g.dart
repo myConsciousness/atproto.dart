@@ -18,8 +18,8 @@ _$BatchItemImpl _$$BatchItemImplFromJson(Map json) => $checkedCreate(
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
               'message',
-              (v) =>
-                  MessageInput.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const MessageInputConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -36,6 +36,6 @@ Map<String, dynamic> _$$BatchItemImplToJson(_$BatchItemImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
       'convoId': instance.convoId,
-      'message': instance.message.toJson(),
+      'message': const MessageInputConverter().toJson(instance.message),
       r'$unknown': instance.$unknown,
     };

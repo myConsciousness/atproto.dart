@@ -18,8 +18,8 @@ _$GetTimelineOutputImpl _$$GetTimelineOutputImplFromJson(Map json) =>
           feed: $checkedConvert(
               'feed',
               (v) => (v as List<dynamic>)
-                  .map((e) => FeedViewPost.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const FeedViewPostConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$GetTimelineOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['feed'] = instance.feed.map((e) => e.toJson()).toList();
+  val['feed'] =
+      instance.feed.map(const FeedViewPostConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

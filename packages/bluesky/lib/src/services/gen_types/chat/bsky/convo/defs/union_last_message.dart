@@ -45,16 +45,12 @@ final class ULastMessageConverter
 
       if (type == 'chat.bsky.convo.defs#messageView') {
         return ULastMessage.messageView(
-          data: MessageView.fromJson(
-            const MessageViewConverter().fromJson(json),
-          ),
+          data: const MessageViewConverter().fromJson(json),
         );
       }
       if (type == 'chat.bsky.convo.defs#deletedMessageView') {
         return ULastMessage.deletedMessageView(
-          data: DeletedMessageView.fromJson(
-            const DeletedMessageViewConverter().fromJson(json),
-          ),
+          data: const DeletedMessageViewConverter().fromJson(json),
         );
       }
 
@@ -66,13 +62,8 @@ final class ULastMessageConverter
 
   @override
   Map<String, dynamic> toJson(ULastMessage object) => object.when(
-        messageView: (data) => const MessageViewConverter().toJson(
-          data.toJson(),
-        ),
-        deletedMessageView: (data) =>
-            const DeletedMessageViewConverter().toJson(
-          data.toJson(),
-        ),
+        messageView: const MessageViewConverter().toJson,
+        deletedMessageView: const DeletedMessageViewConverter().toJson,
         unknown: (data) => data,
       );
 }

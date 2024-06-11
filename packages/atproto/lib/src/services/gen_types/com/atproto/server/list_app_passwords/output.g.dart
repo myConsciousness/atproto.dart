@@ -17,8 +17,8 @@ _$ListAppPasswordsOutputImpl _$$ListAppPasswordsOutputImplFromJson(Map json) =>
           passwords: $checkedConvert(
               'passwords',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      AppPassword.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const AppPasswordConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -35,6 +35,7 @@ _$ListAppPasswordsOutputImpl _$$ListAppPasswordsOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$ListAppPasswordsOutputImplToJson(
         _$ListAppPasswordsOutputImpl instance) =>
     <String, dynamic>{
-      'passwords': instance.passwords.map((e) => e.toJson()).toList(),
+      'passwords':
+          instance.passwords.map(const AppPasswordConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

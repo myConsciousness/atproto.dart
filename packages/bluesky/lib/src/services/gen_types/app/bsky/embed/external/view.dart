@@ -35,7 +35,7 @@ class ExternalView with _$ExternalView {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ExternalView;
 
-  factory ExternalView.fromJson(Map<String, Object?> json) =>
+  factory ExternalView.fromJson(Map<String, dynamic> json) =>
       _$ExternalViewFromJson(json);
 }
 
@@ -55,13 +55,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ExternalViewConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ExternalView, Map<String, dynamic>> {
   const ExternalViewConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ExternalView fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ExternalView.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -75,25 +75,27 @@ final class ExternalViewConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ExternalView.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ExternalView object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

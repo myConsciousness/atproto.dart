@@ -50,23 +50,17 @@ final class UWriteConverter
 
       if (type == 'com.atproto.repo.applyWrites#create') {
         return UWrite.create(
-          data: Create.fromJson(
-            const CreateConverter().fromJson(json),
-          ),
+          data: const CreateConverter().fromJson(json),
         );
       }
       if (type == 'com.atproto.repo.applyWrites#update') {
         return UWrite.update(
-          data: Update.fromJson(
-            const UpdateConverter().fromJson(json),
-          ),
+          data: const UpdateConverter().fromJson(json),
         );
       }
       if (type == 'com.atproto.repo.applyWrites#delete') {
         return UWrite.delete(
-          data: Delete.fromJson(
-            const DeleteConverter().fromJson(json),
-          ),
+          data: const DeleteConverter().fromJson(json),
         );
       }
 
@@ -78,15 +72,9 @@ final class UWriteConverter
 
   @override
   Map<String, dynamic> toJson(UWrite object) => object.when(
-        create: (data) => const CreateConverter().toJson(
-          data.toJson(),
-        ),
-        update: (data) => const UpdateConverter().toJson(
-          data.toJson(),
-        ),
-        delete: (data) => const DeleteConverter().toJson(
-          data.toJson(),
-        ),
+        create: const CreateConverter().toJson,
+        update: const UpdateConverter().toJson,
+        delete: const DeleteConverter().toJson,
         unknown: (data) => data,
       );
 }

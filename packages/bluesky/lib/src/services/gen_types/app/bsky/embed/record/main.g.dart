@@ -15,8 +15,10 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
         final val = _$RecordImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecord),
-          record: $checkedConvert('record',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          record: $checkedConvert(
+              'record',
+              (v) => const StrongRefConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -32,6 +34,6 @@ _$RecordImpl _$$RecordImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$RecordImplToJson(_$RecordImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'record': instance.record.toJson(),
+      'record': const StrongRefConverter().toJson(instance.record),
       r'$unknown': instance.$unknown,
     };

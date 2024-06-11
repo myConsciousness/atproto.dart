@@ -18,8 +18,10 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
-          creator: $checkedConvert('creator',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert(
+              'creator',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           name: $checkedConvert('name', (v) => v as String),
           purpose: $checkedConvert('purpose',
               (v) => const UListPurposeConverter().fromJson(v as String)),
@@ -27,22 +29,22 @@ _$ListViewImpl _$$ListViewImplFromJson(Map json) => $checkedCreate(
           descriptionFacets: $checkedConvert(
               'descriptionFacets',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Facet.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const FacetConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           avatar: $checkedConvert('avatar', (v) => v as String?),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const ListViewerState()
-                  : ListViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const ListViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -62,7 +64,7 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
     r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
-    'creator': instance.creator.toJson(),
+    'creator': const ProfileViewConverter().toJson(instance.creator),
     'name': instance.name,
     'purpose': const UListPurposeConverter().toJson(instance.purpose),
   };
@@ -75,10 +77,11 @@ Map<String, dynamic> _$$ListViewImplToJson(_$ListViewImpl instance) {
 
   writeNotNull('description', instance.description);
   writeNotNull('descriptionFacets',
-      instance.descriptionFacets?.map((e) => e.toJson()).toList());
+      instance.descriptionFacets?.map(const FacetConverter().toJson).toList());
   writeNotNull('avatar', instance.avatar);
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
-  val['viewer'] = instance.viewer.toJson();
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
+  val['viewer'] = const ListViewerStateConverter().toJson(instance.viewer);
   val['indexedAt'] = instance.indexedAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

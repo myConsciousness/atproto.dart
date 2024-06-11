@@ -20,8 +20,8 @@ _$SearchPostsSkeletonOutputImpl _$$SearchPostsSkeletonOutputImplFromJson(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) => SkeletonSearchPost.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const SkeletonSearchPostConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -47,7 +47,8 @@ Map<String, dynamic> _$$SearchPostsSkeletonOutputImplToJson(
 
   writeNotNull('cursor', instance.cursor);
   writeNotNull('hitsTotal', instance.hitsTotal);
-  val['posts'] = instance.posts.map((e) => e.toJson()).toList();
+  val['posts'] =
+      instance.posts.map(const SkeletonSearchPostConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

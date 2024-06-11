@@ -16,8 +16,8 @@ _$GetFeedGeneratorOutputImpl _$$GetFeedGeneratorOutputImplFromJson(Map json) =>
         final val = _$GetFeedGeneratorOutputImpl(
           view: $checkedConvert(
               'view',
-              (v) =>
-                  GeneratorView.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const GeneratorViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           isOnline: $checkedConvert('isOnline', (v) => v as bool),
           isValid: $checkedConvert('isValid', (v) => v as bool),
           $unknown: $checkedConvert(
@@ -35,7 +35,7 @@ _$GetFeedGeneratorOutputImpl _$$GetFeedGeneratorOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetFeedGeneratorOutputImplToJson(
         _$GetFeedGeneratorOutputImpl instance) =>
     <String, dynamic>{
-      'view': instance.view.toJson(),
+      'view': const GeneratorViewConverter().toJson(instance.view),
       'isOnline': instance.isOnline,
       'isValid': instance.isValid,
       r'$unknown': instance.$unknown,

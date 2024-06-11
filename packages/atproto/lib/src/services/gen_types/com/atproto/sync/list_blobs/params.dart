@@ -33,7 +33,7 @@ class ListBlobsParams with _$ListBlobsParams {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ListBlobsParams;
 
-  factory ListBlobsParams.fromJson(Map<String, Object?> json) =>
+  factory ListBlobsParams.fromJson(Map<String, dynamic> json) =>
       _$ListBlobsParamsFromJson(json);
 }
 
@@ -55,13 +55,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ListBlobsParamsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ListBlobsParams, Map<String, dynamic>> {
   const ListBlobsParamsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ListBlobsParams fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ListBlobsParams.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -75,25 +75,27 @@ final class ListBlobsParamsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ListBlobsParams.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ListBlobsParams object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

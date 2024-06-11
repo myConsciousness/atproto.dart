@@ -31,7 +31,7 @@ class CreateAppPasswordInput with _$CreateAppPasswordInput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _CreateAppPasswordInput;
 
-  factory CreateAppPasswordInput.fromJson(Map<String, Object?> json) =>
+  factory CreateAppPasswordInput.fromJson(Map<String, dynamic> json) =>
       _$CreateAppPasswordInputFromJson(json);
 }
 
@@ -51,13 +51,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class CreateAppPasswordInputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<CreateAppPasswordInput, Map<String, dynamic>> {
   const CreateAppPasswordInputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  CreateAppPasswordInput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return CreateAppPasswordInput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -71,25 +71,27 @@ final class CreateAppPasswordInputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return CreateAppPasswordInput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(CreateAppPasswordInput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

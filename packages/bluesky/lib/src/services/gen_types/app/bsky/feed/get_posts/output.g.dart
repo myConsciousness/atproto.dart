@@ -16,8 +16,8 @@ _$GetPostsOutputImpl _$$GetPostsOutputImplFromJson(Map json) => $checkedCreate(
           posts: $checkedConvert(
               'posts',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      PostView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const PostViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -34,6 +34,6 @@ _$GetPostsOutputImpl _$$GetPostsOutputImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$GetPostsOutputImplToJson(
         _$GetPostsOutputImpl instance) =>
     <String, dynamic>{
-      'posts': instance.posts.map((e) => e.toJson()).toList(),
+      'posts': instance.posts.map(const PostViewConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

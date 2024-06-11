@@ -18,8 +18,8 @@ _$GetFeedGeneratorsOutputImpl _$$GetFeedGeneratorsOutputImplFromJson(
           feeds: $checkedConvert(
               'feeds',
               (v) => (v as List<dynamic>)
-                  .map((e) => GeneratorView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const GeneratorViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,7 @@ _$GetFeedGeneratorsOutputImpl _$$GetFeedGeneratorsOutputImplFromJson(
 Map<String, dynamic> _$$GetFeedGeneratorsOutputImplToJson(
         _$GetFeedGeneratorsOutputImpl instance) =>
     <String, dynamic>{
-      'feeds': instance.feeds.map((e) => e.toJson()).toList(),
+      'feeds':
+          instance.feeds.map(const GeneratorViewConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

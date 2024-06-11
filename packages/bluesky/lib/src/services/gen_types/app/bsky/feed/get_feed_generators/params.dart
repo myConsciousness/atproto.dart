@@ -28,7 +28,7 @@ class GetFeedGeneratorsParams with _$GetFeedGeneratorsParams {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetFeedGeneratorsParams;
 
-  factory GetFeedGeneratorsParams.fromJson(Map<String, Object?> json) =>
+  factory GetFeedGeneratorsParams.fromJson(Map<String, dynamic> json) =>
       _$GetFeedGeneratorsParamsFromJson(json);
 }
 
@@ -47,13 +47,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetFeedGeneratorsParamsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<GetFeedGeneratorsParams, Map<String, dynamic>> {
   const GetFeedGeneratorsParamsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetFeedGeneratorsParams fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetFeedGeneratorsParams.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -67,25 +67,27 @@ final class GetFeedGeneratorsParamsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetFeedGeneratorsParams.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetFeedGeneratorsParams object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -15,8 +15,8 @@ _$ServiceRecordImpl _$$ServiceRecordImplFromJson(Map json) => $checkedCreate(
         final val = _$ServiceRecordImpl(
           policies: $checkedConvert(
               'policies',
-              (v) => LabelerPolicies.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const LabelerPoliciesConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           labels: $checkedConvert(
               'labels',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
@@ -37,7 +37,7 @@ _$ServiceRecordImpl _$$ServiceRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ServiceRecordImplToJson(_$ServiceRecordImpl instance) {
   final val = <String, dynamic>{
-    'policies': instance.policies.toJson(),
+    'policies': const LabelerPoliciesConverter().toJson(instance.policies),
   };
 
   void writeNotNull(String key, dynamic value) {

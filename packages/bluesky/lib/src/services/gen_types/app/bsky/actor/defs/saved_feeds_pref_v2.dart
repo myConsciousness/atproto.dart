@@ -37,7 +37,7 @@ class SavedFeedsPrefV2 with _$SavedFeedsPrefV2 {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _SavedFeedsPrefV2;
 
-  factory SavedFeedsPrefV2.fromJson(Map<String, Object?> json) =>
+  factory SavedFeedsPrefV2.fromJson(Map<String, dynamic> json) =>
       _$SavedFeedsPrefV2FromJson(json);
 }
 
@@ -57,13 +57,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class SavedFeedsPrefV2Converter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<SavedFeedsPrefV2, Map<String, dynamic>> {
   const SavedFeedsPrefV2Converter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  SavedFeedsPrefV2 fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return SavedFeedsPrefV2.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -77,25 +77,27 @@ final class SavedFeedsPrefV2Converter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return SavedFeedsPrefV2.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(SavedFeedsPrefV2 object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

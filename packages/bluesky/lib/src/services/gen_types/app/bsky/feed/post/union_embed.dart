@@ -55,30 +55,22 @@ final class UEmbedConverter
 
       if (type == 'app.bsky.embed.images') {
         return UEmbed.images(
-          data: Images.fromJson(
-            const ImagesConverter().fromJson(json),
-          ),
+          data: const ImagesConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.external') {
         return UEmbed.external(
-          data: External.fromJson(
-            const ExternalConverter().fromJson(json),
-          ),
+          data: const ExternalConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.record') {
         return UEmbed.record(
-          data: Record.fromJson(
-            const RecordConverter().fromJson(json),
-          ),
+          data: const RecordConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.recordWithMedia') {
         return UEmbed.recordWithMedia(
-          data: RecordWithMedia.fromJson(
-            const RecordWithMediaConverter().fromJson(json),
-          ),
+          data: const RecordWithMediaConverter().fromJson(json),
         );
       }
 
@@ -90,18 +82,10 @@ final class UEmbedConverter
 
   @override
   Map<String, dynamic> toJson(UEmbed object) => object.when(
-        images: (data) => const ImagesConverter().toJson(
-          data.toJson(),
-        ),
-        external: (data) => const ExternalConverter().toJson(
-          data.toJson(),
-        ),
-        record: (data) => const RecordConverter().toJson(
-          data.toJson(),
-        ),
-        recordWithMedia: (data) => const RecordWithMediaConverter().toJson(
-          data.toJson(),
-        ),
+        images: const ImagesConverter().toJson,
+        external: const ExternalConverter().toJson,
+        record: const RecordConverter().toJson,
+        recordWithMedia: const RecordWithMediaConverter().toJson,
         unknown: (data) => data,
       );
 }

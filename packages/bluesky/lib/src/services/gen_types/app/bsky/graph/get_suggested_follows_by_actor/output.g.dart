@@ -17,8 +17,8 @@ _$GetSuggestedFollowsByActorOutputImpl
               suggestions: $checkedConvert(
                   'suggestions',
                   (v) => (v as List<dynamic>)
-                      .map((e) => ProfileView.fromJson(
-                          Map<String, Object?>.from(e as Map)))
+                      .map((e) => const ProfileViewConverter()
+                          .fromJson(e as Map<String, dynamic>))
                       .toList()),
               $unknown: $checkedConvert(
                   r'$unknown',
@@ -35,6 +35,8 @@ _$GetSuggestedFollowsByActorOutputImpl
 Map<String, dynamic> _$$GetSuggestedFollowsByActorOutputImplToJson(
         _$GetSuggestedFollowsByActorOutputImpl instance) =>
     <String, dynamic>{
-      'suggestions': instance.suggestions.map((e) => e.toJson()).toList(),
+      'suggestions': instance.suggestions
+          .map(const ProfileViewConverter().toJson)
+          .toList(),
       r'$unknown': instance.$unknown,
     };

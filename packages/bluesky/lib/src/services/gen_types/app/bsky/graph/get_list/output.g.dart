@@ -14,13 +14,15 @@ _$GetListOutputImpl _$$GetListOutputImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$GetListOutputImpl(
           cursor: $checkedConvert('cursor', (v) => v as String?),
-          list: $checkedConvert('list',
-              (v) => ListView.fromJson(Map<String, Object?>.from(v as Map))),
+          list: $checkedConvert(
+              'list',
+              (v) => const ListViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           items: $checkedConvert(
               'items',
               (v) => (v as List<dynamic>)
-                  .map((e) => ListItemView.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ListItemViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,8 +46,9 @@ Map<String, dynamic> _$$GetListOutputImplToJson(_$GetListOutputImpl instance) {
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['list'] = instance.list.toJson();
-  val['items'] = instance.items.map((e) => e.toJson()).toList();
+  val['list'] = const ListViewConverter().toJson(instance.list);
+  val['items'] =
+      instance.items.map(const ListItemViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

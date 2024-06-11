@@ -39,7 +39,7 @@ class MutedWordsPref with _$MutedWordsPref {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _MutedWordsPref;
 
-  factory MutedWordsPref.fromJson(Map<String, Object?> json) =>
+  factory MutedWordsPref.fromJson(Map<String, dynamic> json) =>
       _$MutedWordsPrefFromJson(json);
 }
 
@@ -59,13 +59,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class MutedWordsPrefConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<MutedWordsPref, Map<String, dynamic>> {
   const MutedWordsPrefConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  MutedWordsPref fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return MutedWordsPref.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -79,25 +79,27 @@ final class MutedWordsPrefConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return MutedWordsPref.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(MutedWordsPref object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

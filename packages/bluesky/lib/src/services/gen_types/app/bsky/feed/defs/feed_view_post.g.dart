@@ -15,13 +15,14 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
         final val = _$FeedViewPostImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyFeedDefsFeedViewPost),
-          post: $checkedConvert('post',
-              (v) => PostView.fromJson(Map<String, Object?>.from(v as Map))),
+          post: $checkedConvert(
+              'post',
+              (v) => const PostViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           reply: $checkedConvert(
               'reply',
-              (v) => v == null
-                  ? null
-                  : ReplyRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ReplyRef>(
+                  v, const ReplyRefConverter().fromJson)),
           reason: $checkedConvert(
               'reason',
               (v) => _$JsonConverterFromJson<Map<String, dynamic>, UReason>(
@@ -42,7 +43,7 @@ _$FeedViewPostImpl _$$FeedViewPostImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'post': instance.post.toJson(),
+    'post': const PostViewConverter().toJson(instance.post),
   };
 
   void writeNotNull(String key, dynamic value) {
@@ -51,7 +52,10 @@ Map<String, dynamic> _$$FeedViewPostImplToJson(_$FeedViewPostImpl instance) {
     }
   }
 
-  writeNotNull('reply', instance.reply?.toJson());
+  writeNotNull(
+      'reply',
+      _$JsonConverterToJson<Map<String, dynamic>, ReplyRef>(
+          instance.reply, const ReplyRefConverter().toJson));
   writeNotNull(
       'reason',
       _$JsonConverterToJson<Map<String, dynamic>, UReason>(

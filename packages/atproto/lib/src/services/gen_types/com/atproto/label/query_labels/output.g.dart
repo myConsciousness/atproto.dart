@@ -18,8 +18,8 @@ _$QueryLabelsOutputImpl _$$QueryLabelsOutputImplFromJson(Map json) =>
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,7 @@ Map<String, dynamic> _$$QueryLabelsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['labels'] = instance.labels.map((e) => e.toJson()).toList();
+  val['labels'] = instance.labels.map(const LabelConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

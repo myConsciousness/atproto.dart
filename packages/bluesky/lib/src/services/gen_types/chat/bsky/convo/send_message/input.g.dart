@@ -17,8 +17,8 @@ _$SendMessageInputImpl _$$SendMessageInputImplFromJson(Map json) =>
           convoId: $checkedConvert('convoId', (v) => v as String),
           message: $checkedConvert(
               'message',
-              (v) =>
-                  MessageInput.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => const MessageInputConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -35,6 +35,6 @@ Map<String, dynamic> _$$SendMessageInputImplToJson(
         _$SendMessageInputImpl instance) =>
     <String, dynamic>{
       'convoId': instance.convoId,
-      'message': instance.message.toJson(),
+      'message': const MessageInputConverter().toJson(instance.message),
       r'$unknown': instance.$unknown,
     };

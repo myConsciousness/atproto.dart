@@ -45,7 +45,7 @@ class CreateAccountInput with _$CreateAccountInput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _CreateAccountInput;
 
-  factory CreateAccountInput.fromJson(Map<String, Object?> json) =>
+  factory CreateAccountInput.fromJson(Map<String, dynamic> json) =>
       _$CreateAccountInputFromJson(json);
 }
 
@@ -72,13 +72,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class CreateAccountInputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<CreateAccountInput, Map<String, dynamic>> {
   const CreateAccountInputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  CreateAccountInput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return CreateAccountInput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -92,25 +92,27 @@ final class CreateAccountInputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return CreateAccountInput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(CreateAccountInput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

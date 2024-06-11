@@ -39,7 +39,7 @@ class Facet with _$Facet {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Facet;
 
-  factory Facet.fromJson(Map<String, Object?> json) => _$FacetFromJson(json);
+  factory Facet.fromJson(Map<String, dynamic> json) => _$FacetFromJson(json);
 }
 
 extension FacetExtension on Facet {
@@ -59,13 +59,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class FacetConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<Facet, Map<String, dynamic>> {
   const FacetConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Facet fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Facet.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -79,25 +79,27 @@ final class FacetConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Facet.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Facet object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -18,8 +18,8 @@ _$ImagesImpl _$$ImagesImplFromJson(Map json) => $checkedCreate(
           images: $checkedConvert(
               'images',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ImagesImage.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ImagesImageConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,7 @@ _$ImagesImpl _$$ImagesImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ImagesImplToJson(_$ImagesImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'images': instance.images.map((e) => e.toJson()).toList(),
+      'images':
+          instance.images.map(const ImagesImageConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

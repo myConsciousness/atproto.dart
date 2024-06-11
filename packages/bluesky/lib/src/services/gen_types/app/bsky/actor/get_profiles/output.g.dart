@@ -17,8 +17,8 @@ _$GetProfilesOutputImpl _$$GetProfilesOutputImplFromJson(Map json) =>
           profiles: $checkedConvert(
               'profiles',
               (v) => (v as List<dynamic>)
-                  .map((e) => ProfileViewDetailed.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewDetailedConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -35,6 +35,8 @@ _$GetProfilesOutputImpl _$$GetProfilesOutputImplFromJson(Map json) =>
 Map<String, dynamic> _$$GetProfilesOutputImplToJson(
         _$GetProfilesOutputImpl instance) =>
     <String, dynamic>{
-      'profiles': instance.profiles.map((e) => e.toJson()).toList(),
+      'profiles': instance.profiles
+          .map(const ProfileViewDetailedConverter().toJson)
+          .toList(),
       r'$unknown': instance.$unknown,
     };

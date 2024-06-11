@@ -37,7 +37,7 @@ class Feed with _$Feed {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _Feed;
 
-  factory Feed.fromJson(Map<String, Object?> json) => _$FeedFromJson(json);
+  factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }
 
 extension FeedExtension on Feed {
@@ -55,14 +55,13 @@ const _kLexCompatibleProperties = <String>[
   'uri',
 ];
 
-final class FeedConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+final class FeedConverter implements JsonConverter<Feed, Map<String, dynamic>> {
   const FeedConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  Feed fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return Feed.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -76,25 +75,27 @@ final class FeedConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return Feed.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(Feed object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -18,8 +18,8 @@ _$ListMissingBlobsOutputImpl _$$ListMissingBlobsOutputImplFromJson(Map json) =>
           blobs: $checkedConvert(
               'blobs',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      RecordBlob.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const RecordBlobConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$ListMissingBlobsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['blobs'] = instance.blobs.map((e) => e.toJson()).toList();
+  val['blobs'] =
+      instance.blobs.map(const RecordBlobConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

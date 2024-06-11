@@ -43,7 +43,7 @@ class InviteCode with _$InviteCode {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _InviteCode;
 
-  factory InviteCode.fromJson(Map<String, Object?> json) =>
+  factory InviteCode.fromJson(Map<String, dynamic> json) =>
       _$InviteCodeFromJson(json);
 }
 
@@ -69,13 +69,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class InviteCodeConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<InviteCode, Map<String, dynamic>> {
   const InviteCodeConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  InviteCode fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return InviteCode.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -89,25 +89,27 @@ final class InviteCodeConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return InviteCode.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(InviteCode object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

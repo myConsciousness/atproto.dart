@@ -29,7 +29,7 @@ class GetPopularFeedGeneratorsParams with _$GetPopularFeedGeneratorsParams {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetPopularFeedGeneratorsParams;
 
-  factory GetPopularFeedGeneratorsParams.fromJson(Map<String, Object?> json) =>
+  factory GetPopularFeedGeneratorsParams.fromJson(Map<String, dynamic> json) =>
       _$GetPopularFeedGeneratorsParamsFromJson(json);
 }
 
@@ -51,13 +51,14 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetPopularFeedGeneratorsParamsConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements
+        JsonConverter<GetPopularFeedGeneratorsParams, Map<String, dynamic>> {
   const GetPopularFeedGeneratorsParamsConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetPopularFeedGeneratorsParams fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetPopularFeedGeneratorsParams.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -71,25 +72,28 @@ final class GetPopularFeedGeneratorsParamsConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetPopularFeedGeneratorsParams.fromJson(
+        lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetPopularFeedGeneratorsParams object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

@@ -25,8 +25,8 @@ _$InviteCodeImpl _$$InviteCodeImplFromJson(Map json) => $checkedCreate(
           uses: $checkedConvert(
               'uses',
               (v) => (v as List<dynamic>)
-                  .map((e) => InviteCodeUse.fromJson(
-                      Map<String, Object?>.from(e as Map)))
+                  .map((e) => const InviteCodeUseConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -49,6 +49,6 @@ Map<String, dynamic> _$$InviteCodeImplToJson(_$InviteCodeImpl instance) =>
       'forAccount': instance.forAccount,
       'createdBy': instance.createdBy,
       'createdAt': instance.createdAt.toIso8601String(),
-      'uses': instance.uses.map((e) => e.toJson()).toList(),
+      'uses': instance.uses.map(const InviteCodeUseConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };

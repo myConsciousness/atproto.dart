@@ -38,9 +38,7 @@ final class ULabelConverter
 
       if (type == 'com.atproto.label.defs#selfLabels') {
         return ULabel.selfLabels(
-          data: SelfLabels.fromJson(
-            const SelfLabelsConverter().fromJson(json),
-          ),
+          data: const SelfLabelsConverter().fromJson(json),
         );
       }
 
@@ -52,9 +50,7 @@ final class ULabelConverter
 
   @override
   Map<String, dynamic> toJson(ULabel object) => object.when(
-        selfLabels: (data) => const SelfLabelsConverter().toJson(
-          data.toJson(),
-        ),
+        selfLabels: const SelfLabelsConverter().toJson,
         unknown: (data) => data,
       );
 }

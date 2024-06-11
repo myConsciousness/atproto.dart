@@ -28,7 +28,7 @@ class GetLatestCommitOutput with _$GetLatestCommitOutput {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _GetLatestCommitOutput;
 
-  factory GetLatestCommitOutput.fromJson(Map<String, Object?> json) =>
+  factory GetLatestCommitOutput.fromJson(Map<String, dynamic> json) =>
       _$GetLatestCommitOutputFromJson(json);
 }
 
@@ -48,13 +48,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class GetLatestCommitOutputConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<GetLatestCommitOutput, Map<String, dynamic>> {
   const GetLatestCommitOutputConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  GetLatestCommitOutput fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return GetLatestCommitOutput.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -68,25 +68,27 @@ final class GetLatestCommitOutputConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return GetLatestCommitOutput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(GetLatestCommitOutput object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

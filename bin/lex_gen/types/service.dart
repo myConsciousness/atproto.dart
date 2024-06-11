@@ -2,6 +2,8 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// ignore_for_file: lines_longer_than_80_chars
+
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
@@ -11,6 +13,7 @@ enum LexServiceEndpointMethod {
   get,
   post,
   wss,
+  record,
 }
 
 final class LexService {
@@ -33,20 +36,21 @@ final class LexService {
   String toString() {
     final buffer = StringBuffer();
 
-    final importPaths = endpoints
-        .map((e) => e.type.importPath)
-        .where((e) => e != null)
-        .map((e) => e!)
-        .toSet();
+    final importPaths = {
+      'package:atproto_core/atproto_core.dart',
+      ...endpoints
+          .map((e) => e.type.importPath)
+          .where((e) => e != null)
+          .map((e) => e!)
+    };
 
     buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
+    buffer.writeln("import '../../../../nsids.g.dart' as ns;");
     for (final importPath in importPaths
         .map((e) => e.split('/').map(toLowerCamelCase).join('/'))
         .toList()) {
-      buffer
-        ..writeln()
-        ..write("import '$importPath';");
+      buffer.writeln("import '$importPath';");
     }
     buffer.writeln("import '../../../service_context.dart';");
     buffer.writeln();
@@ -62,6 +66,10 @@ final class LexService {
       throw UnsupportedError('Unsupported service: $name');
     }
     buffer.writeln();
+    for (final endpoint in endpoints) {
+      buffer.writeln(endpoint.toString());
+      buffer.writeln();
+    }
     buffer.writeln('}');
 
     return buffer.toString();
@@ -71,12 +79,14 @@ final class LexService {
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
     required this.args,
+    required this.serviceName,
     required this.name,
     required this.type,
     required this.method,
   });
 
   final List<LexServiceEndpointArgs> args;
+  final String serviceName;
   final String name;
   final DataType type;
   final LexServiceEndpointMethod method;
@@ -85,12 +95,43 @@ final class LexServiceEndpoint {
   String toString() {
     final buffer = StringBuffer();
 
-    buffer.writeln();
-    buffer.writeln('Future<core.XRPCResponse<atp.StrongRef>> $name() async =>');
-    buffer.writeln();
-    buffer.writeln();
-    buffer.writeln();
-    buffer.writeln();
+    final namespace =
+        toFirstLower('$serviceName.$name'.split('.').map(toFirstUpper).join());
+
+    if (method == LexServiceEndpointMethod.get) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+      buffer.writeln('    await _ctx.get(');
+      buffer.writeln('        ns.$namespace,');
+      if (type.converter != null) {
+        buffer.writeln('        to: const ${type.converter}().fromJson,');
+      }
+      buffer.writeln('      );');
+    } else if (method == LexServiceEndpointMethod.post) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+      buffer.writeln('    await _ctx.post(');
+      buffer.writeln('        ns.$namespace,');
+      if (type.converter != null) {
+        buffer.writeln('        to: const ${type.converter}().fromJson,');
+      }
+      buffer.writeln('      );');
+    } else if (method == LexServiceEndpointMethod.record) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+      buffer.writeln('    await _ctx.post(');
+      buffer.writeln('        ns.$namespace,');
+      if (type.converter != null) {
+        buffer.writeln('        to: const ${type.converter}().fromJson,');
+      }
+      buffer.writeln('      );');
+    } else if (method == LexServiceEndpointMethod.wss) {
+      buffer.writeln(
+          '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
+      buffer.writeln('    await _ctx.stream(');
+      buffer.writeln('        ns.$namespace,');
+      if (type.converter != null) {
+        buffer.writeln('        to: const ${type.converter}().fromJson,');
+      }
+      buffer.writeln('      );');
+    }
 
     return buffer.toString();
   }

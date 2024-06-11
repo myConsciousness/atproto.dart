@@ -13,8 +13,10 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LikeRecordImpl(
-          subject: $checkedConvert('subject',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+          subject: $checkedConvert(
+              'subject',
+              (v) => const StrongRefConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -31,7 +33,7 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) =>
     <String, dynamic>{
-      'subject': instance.subject.toJson(),
+      'subject': const StrongRefConverter().toJson(instance.subject),
       'createdAt': instance.createdAt.toIso8601String(),
       r'$unknown': instance.$unknown,
     };

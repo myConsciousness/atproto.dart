@@ -79,7 +79,7 @@ final class LexUnion {
       buffer.writeln("      if (type == '${ref.namespace}') {");
       buffer.writeln('        return U$name.${toFirstLower(ref.name!)}(');
       buffer.writeln(
-          '          data: ${ref.name}.fromJson(const ${ref.name}Converter().fromJson(json),),');
+          '          data: const ${ref.name}Converter().fromJson(json),');
       buffer.writeln('        );');
       buffer.writeln('      }');
     }
@@ -95,7 +95,7 @@ final class LexUnion {
         '  Map<String, dynamic> toJson(U$name object) => object.when(');
     for (final ref in refs) {
       buffer.writeln(
-          '    ${toFirstLower(ref.name!)}: (data) => const ${ref.name}Converter().toJson(data.toJson(),),');
+          '    ${toFirstLower(ref.name!)}: const ${ref.name}Converter().toJson,');
     }
     buffer.writeln('    unknown: (data) => data,');
     buffer.writeln('  );');

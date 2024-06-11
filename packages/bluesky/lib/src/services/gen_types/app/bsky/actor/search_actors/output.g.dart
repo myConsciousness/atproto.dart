@@ -18,8 +18,8 @@ _$SearchActorsOutputImpl _$$SearchActorsOutputImplFromJson(Map json) =>
           actors: $checkedConvert(
               'actors',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      ProfileView.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const ProfileViewConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -44,7 +44,8 @@ Map<String, dynamic> _$$SearchActorsOutputImplToJson(
   }
 
   writeNotNull('cursor', instance.cursor);
-  val['actors'] = instance.actors.map((e) => e.toJson()).toList();
+  val['actors'] =
+      instance.actors.map(const ProfileViewConverter().toJson).toList();
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

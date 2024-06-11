@@ -18,23 +18,25 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
           uri: $checkedConvert(
               'uri', (v) => const AtUriConverter().fromJson(v as String)),
           cid: $checkedConvert('cid', (v) => v as String),
-          creator: $checkedConvert('creator',
-              (v) => ProfileView.fromJson(Map<String, Object?>.from(v as Map))),
+          creator: $checkedConvert(
+              'creator',
+              (v) => const ProfileViewConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           likeCount:
               $checkedConvert('likeCount', (v) => (v as num?)?.toInt() ?? 0),
           viewer: $checkedConvert(
               'viewer',
               (v) => v == null
                   ? const LabelerViewerState()
-                  : LabelerViewerState.fromJson(
-                      Map<String, Object?>.from(v as Map))),
+                  : const LabelerViewerStateConverter()
+                      .fromJson(v as Map<String, dynamic>)),
           indexedAt:
               $checkedConvert('indexedAt', (v) => DateTime.parse(v as String)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -53,9 +55,9 @@ Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) {
     r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
-    'creator': instance.creator.toJson(),
+    'creator': const ProfileViewConverter().toJson(instance.creator),
     'likeCount': instance.likeCount,
-    'viewer': instance.viewer.toJson(),
+    'viewer': const LabelerViewerStateConverter().toJson(instance.viewer),
     'indexedAt': instance.indexedAt.toIso8601String(),
   };
 
@@ -65,7 +67,8 @@ Map<String, dynamic> _$$LabelerViewImplToJson(_$LabelerViewImpl instance) {
     }
   }
 
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

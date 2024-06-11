@@ -34,7 +34,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
   }) = _ThreadgateRecord;
 
-  factory ThreadgateRecord.fromJson(Map<String, Object?> json) =>
+  factory ThreadgateRecord.fromJson(Map<String, dynamic> json) =>
       _$ThreadgateRecordFromJson(json);
 }
 
@@ -55,13 +55,13 @@ const _kLexCompatibleProperties = <String>[
 ];
 
 final class ThreadgateRecordConverter
-    implements JsonConverter<Map<String, dynamic>, Map<String, dynamic>> {
+    implements JsonConverter<ThreadgateRecord, Map<String, dynamic>> {
   const ThreadgateRecordConverter();
 
   @override
-  Map<String, dynamic> fromJson(Map<String, dynamic> json) {
+  ThreadgateRecord fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return json;
+      return ThreadgateRecord.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -75,25 +75,27 @@ final class ThreadgateRecordConverter
       }
     }
 
-    return lexCompatiblePropertiesWithUnknown;
+    return ThreadgateRecord.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(Map<String, dynamic> object) {
-    if (object[r'$unknown']?.isEmpty ?? true) {
-      return object;
+  Map<String, dynamic> toJson(ThreadgateRecord object) {
+    if (object.$unknown.isEmpty) {
+      return object.toJson();
     }
 
+    final json = object.toJson();
+
     final lexCompatibleProperties = <String, dynamic>{};
-    for (final key in object.keys) {
+    for (final key in json.keys) {
       if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = object[key];
+        lexCompatibleProperties[key] = json[key];
       }
     }
 
     return <String, dynamic>{
       ...lexCompatibleProperties,
-      ...object[r'$unknown'],
+      ...json[r'$unknown'],
     };
   }
 }

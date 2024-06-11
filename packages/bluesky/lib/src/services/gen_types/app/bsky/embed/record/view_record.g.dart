@@ -21,15 +21,15 @@ _$RecordViewRecordImpl _$$RecordViewRecordImplFromJson(Map json) =>
           cid: $checkedConvert('cid', (v) => v as String),
           author: $checkedConvert(
               'author',
-              (v) => ProfileViewBasic.fromJson(
-                  Map<String, Object?>.from(v as Map))),
+              (v) => const ProfileViewBasicConverter()
+                  .fromJson(v as Map<String, dynamic>)),
           value: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
           labels: $checkedConvert(
               'labels',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                  ?.map((e) => const LabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           replyCount:
               $checkedConvert('replyCount', (v) => (v as num?)?.toInt() ?? 0),
@@ -63,7 +63,7 @@ Map<String, dynamic> _$$RecordViewRecordImplToJson(
     r'$type': instance.$type,
     'uri': const AtUriConverter().toJson(instance.uri),
     'cid': instance.cid,
-    'author': instance.author.toJson(),
+    'author': const ProfileViewBasicConverter().toJson(instance.author),
     'value': instance.value,
   };
 
@@ -73,7 +73,8 @@ Map<String, dynamic> _$$RecordViewRecordImplToJson(
     }
   }
 
-  writeNotNull('labels', instance.labels?.map((e) => e.toJson()).toList());
+  writeNotNull(
+      'labels', instance.labels?.map(const LabelConverter().toJson).toList());
   val['replyCount'] = instance.replyCount;
   val['repostCount'] = instance.repostCount;
   val['likeCount'] = instance.likeCount;

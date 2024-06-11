@@ -22,14 +22,12 @@ _$DescribeServerOutputImpl _$$DescribeServerOutputImplFromJson(Map json) =>
               (v) => (v as List<dynamic>).map((e) => e as String).toList()),
           links: $checkedConvert(
               'links',
-              (v) => v == null
-                  ? null
-                  : Links.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Links>(
+                  v, const LinksConverter().fromJson)),
           contact: $checkedConvert(
               'contact',
-              (v) => v == null
-                  ? null
-                  : Contact.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, Contact>(
+                  v, const ContactConverter().fromJson)),
           did: $checkedConvert('did', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -56,9 +54,27 @@ Map<String, dynamic> _$$DescribeServerOutputImplToJson(
   writeNotNull('inviteCodeRequired', instance.inviteCodeRequired);
   writeNotNull('phoneVerificationRequired', instance.phoneVerificationRequired);
   val['availableUserDomains'] = instance.availableUserDomains;
-  writeNotNull('links', instance.links?.toJson());
-  writeNotNull('contact', instance.contact?.toJson());
+  writeNotNull(
+      'links',
+      _$JsonConverterToJson<Map<String, dynamic>, Links>(
+          instance.links, const LinksConverter().toJson));
+  writeNotNull(
+      'contact',
+      _$JsonConverterToJson<Map<String, dynamic>, Contact>(
+          instance.contact, const ContactConverter().toJson));
   val['did'] = instance.did;
   val[r'$unknown'] = instance.$unknown;
   return val;
 }
+
+Value? _$JsonConverterFromJson<Json, Value>(
+  Object? json,
+  Value? Function(Json json) fromJson,
+) =>
+    json == null ? null : fromJson(json as Json);
+
+Json? _$JsonConverterToJson<Json, Value>(
+  Value? value,
+  Json? Function(Value value) toJson,
+) =>
+    value == null ? null : toJson(value);

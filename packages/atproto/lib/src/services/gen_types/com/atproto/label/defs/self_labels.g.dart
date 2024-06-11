@@ -18,8 +18,8 @@ _$SelfLabelsImpl _$$SelfLabelsImplFromJson(Map json) => $checkedCreate(
           values: $checkedConvert(
               'values',
               (v) => (v as List<dynamic>)
-                  .map((e) =>
-                      SelfLabel.fromJson(Map<String, Object?>.from(e as Map)))
+                  .map((e) => const SelfLabelConverter()
+                      .fromJson(e as Map<String, dynamic>))
                   .toList()),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -36,6 +36,6 @@ _$SelfLabelsImpl _$$SelfLabelsImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$SelfLabelsImplToJson(_$SelfLabelsImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'values': instance.values.map((e) => e.toJson()).toList(),
+      'values': instance.values.map(const SelfLabelConverter().toJson).toList(),
       r'$unknown': instance.$unknown,
     };
