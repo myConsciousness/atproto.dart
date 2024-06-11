@@ -28,6 +28,9 @@ const appBskyActorDefsHiddenPostsPref = 'app.bsky.actor.defs#hiddenPostsPref';
 /// `app.bsky.actor.defs#interestsPref`
 const appBskyActorDefsInterestsPref = 'app.bsky.actor.defs#interestsPref';
 
+/// `app.bsky.actor.defs#knownFollowers`
+const appBskyActorDefsKnownFollowers = 'app.bsky.actor.defs#knownFollowers';
+
 /// `app.bsky.actor.defs#labelerPrefItem`
 const appBskyActorDefsLabelerPrefItem = 'app.bsky.actor.defs#labelerPrefItem';
 
@@ -384,6 +387,9 @@ const appBskyGraphGetFollowers = 'app.bsky.graph.getFollowers';
 
 /// `app.bsky.graph.getFollows`
 const appBskyGraphGetFollows = 'app.bsky.graph.getFollows';
+
+/// `app.bsky.graph.getKnownFollowers`
+const appBskyGraphGetKnownFollowers = 'app.bsky.graph.getKnownFollowers';
 
 /// `app.bsky.graph.getList`
 const appBskyGraphGetList = 'app.bsky.graph.getList';

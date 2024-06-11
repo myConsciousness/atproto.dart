@@ -77,6 +77,16 @@ Metadata about the requesting account's relationship with the subject account. O
 | **blockingByList** | [app.bsky.graph.defs#listViewBasic](../../../../lexicons/app/bsky/graph/defs.md#listviewbasic) | - | ❌ | - |
 | **following** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **followedBy** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **knownFollowers** | [#knownFollowers](#knownfollowers) | - | ❌ | - |
+
+## #knownFollowers
+
+The subject's followers whom you also follow
+
+| Property | Type | Known Values | Required | Description |
+| --- | --- | --- | :---: | --- |
+| **count** | integer | - | ✅ | - |
+| **followers** | array of [#profileViewBasic](#profileviewbasic) | - | ✅ | - |
 
 ## #preferences
 
