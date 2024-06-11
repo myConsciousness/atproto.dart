@@ -210,7 +210,7 @@ final class LexServiceEndpointArg {
   }
 
   bool get isArray {
-    if (knownValues != null && array) return true;
+    if (knownValues != null && array) return false;
     if (union != null && array) return false;
 
     return type.name!.startsWith('List<');
@@ -260,10 +260,39 @@ final class Payload {
 
   @override
   String toString() {
-    final buffer = StringBuffer();
-
     if (arg.isRecord && arg.name == 'createdAt') {
-      buffer.writeln("'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),");
+      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+    }
+
+    final buffer = StringBuffer();
+    if (!arg.isRequired) {
+      buffer.write('if (${arg.name} != null)');
+    }
+
+    if (arg.knownValues != null || arg.union != null) {
+      if (arg.array) {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toJson()).toList(),",
+        );
+      } else {
+        buffer.writeln("'${arg.name}': ${arg.name}.toJson(),");
+      }
+    } else if (arg.array) {
+      if (arg.type.name == 'List<String>') {
+        buffer.writeln("'${arg.name}': ${arg.name},");
+      } else if (arg.type.name == 'List<AtUri>') {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toString()).toList(),",
+        );
+      } else {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toJson()).toList(),",
+        );
+      }
+    } else if (arg.type.name == 'AtUri' || arg.type.name == 'NSID') {
+      buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
+    } else if (arg.type.name == 'Blob') {
+      buffer.writeln("'${arg.name}': ${arg.name}.toJson(),");
     } else {
       buffer.writeln("'${arg.name}': ${arg.name},");
     }

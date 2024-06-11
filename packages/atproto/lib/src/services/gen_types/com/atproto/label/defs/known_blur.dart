@@ -100,6 +100,9 @@ final class UBlurConverter implements JsonConverter<UBlur, String> {
 }
 
 extension UBlurExtension on UBlur {
+  /// Returns string value.
+  String toJson() => const UBlurConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UBlurKnownValue;
 

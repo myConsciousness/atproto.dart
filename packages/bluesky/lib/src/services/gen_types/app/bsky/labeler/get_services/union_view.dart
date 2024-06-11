@@ -69,7 +69,7 @@ final class UViewConverter
 }
 
 extension UViewExtension on UView {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UViewConverter().toJson(this);
 
   /// Returns true if this data is [LabelerView], otherwise false.

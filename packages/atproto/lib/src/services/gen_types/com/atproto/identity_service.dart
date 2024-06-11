@@ -78,11 +78,12 @@ final class IdentityService {
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
         parameters: {
-          'token': token,
-          'rotationKeys': rotationKeys,
-          'alsoKnownAs': alsoKnownAs,
-          'verificationMethods': verificationMethods,
-          'services': services,
+          if (token != null) 'token': token,
+          if (rotationKeys != null) 'rotationKeys': rotationKeys,
+          if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
+          if (verificationMethods != null)
+            'verificationMethods': verificationMethods,
+          if (services != null) 'services': services,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
       );

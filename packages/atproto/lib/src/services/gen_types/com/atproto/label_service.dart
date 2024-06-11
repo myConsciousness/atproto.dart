@@ -46,9 +46,9 @@ final class LabelService {
         ns.comAtprotoLabelQueryLabels,
         parameters: {
           'uriPatterns': uriPatterns,
-          'sources': sources,
-          'limit': limit,
-          'cursor': cursor,
+          if (sources != null) 'sources': sources,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const QueryLabelsOutputConverter().fromJson,
       );

@@ -100,6 +100,9 @@ final class UActionConverter implements JsonConverter<UAction, String> {
 }
 
 extension UActionExtension on UAction {
+  /// Returns string value.
+  String toJson() => const UActionConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UActionKnownValue;
 

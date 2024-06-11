@@ -80,7 +80,7 @@ final class UWriteConverter
 }
 
 extension UWriteExtension on UWrite {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UWriteConverter().toJson(this);
 
   /// Returns true if this data is [Create], otherwise false.

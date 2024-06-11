@@ -42,9 +42,9 @@ final class RepoService {
         ns.comAtprotoRepoGetRecord,
         parameters: {
           'repo': repo,
-          'collection': collection,
+          'collection': collection.toString(),
           'rkey': rkey,
-          'cid': cid,
+          if (cid != null) 'cid': cid,
         },
         to: const GetRecordOutputConverter().fromJson,
       );
@@ -72,12 +72,12 @@ final class RepoService {
         ns.comAtprotoRepoListRecords,
         parameters: {
           'repo': repo,
-          'collection': collection,
-          'limit': limit,
-          'cursor': cursor,
-          'rkeyStart': rkeyStart,
-          'rkeyEnd': rkeyEnd,
-          'reverse': reverse,
+          'collection': collection.toString(),
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+          if (rkeyStart != null) 'rkeyStart': rkeyStart,
+          if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
+          if (reverse != null) 'reverse': reverse,
         },
         to: const ListRecordsOutputConverter().fromJson,
       );
@@ -92,8 +92,8 @@ final class RepoService {
       await _ctx.get(
         ns.comAtprotoRepoListMissingBlobs,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const ListMissingBlobsOutputConverter().fromJson,
       );
@@ -111,9 +111,9 @@ final class RepoService {
         ns.comAtprotoRepoApplyWrites,
         parameters: {
           'repo': repo,
-          'validate': validate,
-          'writes': writes,
-          'swapCommit': swapCommit,
+          if (validate != null) 'validate': validate,
+          'writes': writes.map((e) => e.toJson()).toList(),
+          if (swapCommit != null) 'swapCommit': swapCommit,
         },
       );
 
@@ -139,10 +139,10 @@ final class RepoService {
         ns.comAtprotoRepoDeleteRecord,
         parameters: {
           'repo': repo,
-          'collection': collection,
+          'collection': collection.toString(),
           'rkey': rkey,
-          'swapRecord': swapRecord,
-          'swapCommit': swapCommit,
+          if (swapRecord != null) 'swapRecord': swapRecord,
+          if (swapCommit != null) 'swapCommit': swapCommit,
         },
       );
 
@@ -162,12 +162,12 @@ final class RepoService {
         ns.comAtprotoRepoPutRecord,
         parameters: {
           'repo': repo,
-          'collection': collection,
+          'collection': collection.toString(),
           'rkey': rkey,
-          'validate': validate,
+          if (validate != null) 'validate': validate,
           'record': record,
-          'swapRecord': swapRecord,
-          'swapCommit': swapCommit,
+          if (swapRecord != null) 'swapRecord': swapRecord,
+          if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
       );
@@ -201,11 +201,11 @@ final class RepoService {
         ns.comAtprotoRepoCreateRecord,
         parameters: {
           'repo': repo,
-          'collection': collection,
-          'rkey': rkey,
-          'validate': validate,
+          'collection': collection.toString(),
+          if (rkey != null) 'rkey': rkey,
+          if (validate != null) 'validate': validate,
           'record': record,
-          'swapCommit': swapCommit,
+          if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
       );

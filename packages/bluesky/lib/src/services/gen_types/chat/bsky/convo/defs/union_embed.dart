@@ -58,7 +58,7 @@ final class UEmbedConverter
 }
 
 extension UEmbedExtension on UEmbed {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UEmbedConverter().toJson(this);
 
   /// Returns true if this data is [RecordView], otherwise false.

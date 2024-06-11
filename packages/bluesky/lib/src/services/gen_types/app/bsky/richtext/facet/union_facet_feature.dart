@@ -80,7 +80,7 @@ final class UFacetFeatureConverter
 }
 
 extension UFacetFeatureExtension on UFacetFeature {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UFacetFeatureConverter().toJson(this);
 
   /// Returns true if this data is [FacetMention], otherwise false.

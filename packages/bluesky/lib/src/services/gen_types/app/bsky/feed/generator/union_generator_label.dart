@@ -56,7 +56,7 @@ final class UGeneratorLabelConverter
 }
 
 extension UGeneratorLabelExtension on UGeneratorLabel {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const UGeneratorLabelConverter().toJson(this);
 

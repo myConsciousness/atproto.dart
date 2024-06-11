@@ -116,6 +116,9 @@ final class ULabelValueConverter implements JsonConverter<ULabelValue, String> {
 }
 
 extension ULabelValueExtension on ULabelValue {
+  /// Returns string value.
+  String toJson() => const ULabelValueConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is ULabelValueKnownValue;
 

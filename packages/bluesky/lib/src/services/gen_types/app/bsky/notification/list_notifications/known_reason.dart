@@ -106,6 +106,9 @@ final class UReasonConverter implements JsonConverter<UReason, String> {
 }
 
 extension UReasonExtension on UReason {
+  /// Returns string value.
+  String toJson() => const UReasonConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UReasonKnownValue;
 

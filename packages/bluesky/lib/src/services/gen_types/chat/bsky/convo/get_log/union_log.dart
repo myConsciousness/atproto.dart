@@ -90,7 +90,7 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
 }
 
 extension ULogExtension on ULog {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const ULogConverter().toJson(this);
 
   /// Returns true if this data is [LogBeginConvo], otherwise false.

@@ -100,6 +100,9 @@ final class UTypeConverter implements JsonConverter<UType, String> {
 }
 
 extension UTypeExtension on UType {
+  /// Returns string value.
+  String toJson() => const UTypeConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UTypeKnownValue;
 

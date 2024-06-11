@@ -99,6 +99,9 @@ final class USubjectTypeConverter
 }
 
 extension USubjectTypeExtension on USubjectType {
+  /// Returns string value.
+  String toJson() => const USubjectTypeConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is USubjectTypeKnownValue;
 

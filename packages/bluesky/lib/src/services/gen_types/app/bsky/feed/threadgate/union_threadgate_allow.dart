@@ -80,7 +80,7 @@ final class UThreadgateAllowConverter
 }
 
 extension UThreadgateAllowExtension on UThreadgateAllow {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const UThreadgateAllowConverter().toJson(this);
 

@@ -101,6 +101,9 @@ final class UDefaultSettingConverter
 }
 
 extension UDefaultSettingExtension on UDefaultSetting {
+  /// Returns string value.
+  String toJson() => const UDefaultSettingConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UDefaultSettingKnownValue;
 

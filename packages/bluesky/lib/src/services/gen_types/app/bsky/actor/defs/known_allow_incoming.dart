@@ -101,6 +101,9 @@ final class UAllowIncomingConverter
 }
 
 extension UAllowIncomingExtension on UAllowIncoming {
+  /// Returns string value.
+  String toJson() => const UAllowIncomingConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UAllowIncomingKnownValue;
 

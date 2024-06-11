@@ -69,7 +69,7 @@ final class ULastMessageConverter
 }
 
 extension ULastMessageExtension on ULastMessage {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const ULastMessageConverter().toJson(this);
 
   /// Returns true if this data is [MessageView], otherwise false.

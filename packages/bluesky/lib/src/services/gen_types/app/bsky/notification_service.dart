@@ -52,7 +52,7 @@ final class NotificationService {
         parameters: {
           'serviceDid': serviceDid,
           'token': token,
-          'platform': platform,
+          'platform': platform.toJson(),
           'appId': appId,
         },
       );
@@ -68,9 +68,9 @@ final class NotificationService {
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
-          'seenAt': seenAt,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+          if (seenAt != null) 'seenAt': seenAt,
         },
         to: const ListNotificationsOutputConverter().fromJson,
       );
@@ -84,7 +84,7 @@ final class NotificationService {
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
         parameters: {
-          'seenAt': seenAt,
+          if (seenAt != null) 'seenAt': seenAt,
         },
         to: const GetUnreadCountOutputConverter().fromJson,
       );

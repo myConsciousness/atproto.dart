@@ -141,6 +141,9 @@ final class UEventConverter implements JsonConverter<UEvent, String> {
 }
 
 extension UEventExtension on UEvent {
+  /// Returns string value.
+  String toJson() => const UEventConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UEventKnownValue;
 

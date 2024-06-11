@@ -40,7 +40,7 @@ final class LabelerService {
         record: {
           r'$type': 'app.bsky.labeler.service',
           'policies': policies,
-          'labels': labels,
+          if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
@@ -56,7 +56,7 @@ final class LabelerService {
         ns.appBskyLabelerGetServices,
         parameters: {
           'dids': dids,
-          'detailed': detailed,
+          if (detailed != null) 'detailed': detailed,
         },
         to: const GetServicesOutputConverter().fromJson,
       );

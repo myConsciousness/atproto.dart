@@ -69,7 +69,7 @@ final class USubscribeLabelsMessageConverter
 }
 
 extension USubscribeLabelsMessageExtension on USubscribeLabelsMessage {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const USubscribeLabelsMessageConverter().toJson(this);
 

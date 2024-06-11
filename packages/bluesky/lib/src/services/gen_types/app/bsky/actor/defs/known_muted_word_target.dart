@@ -99,6 +99,9 @@ final class UMutedWordTargetConverter
 }
 
 extension UMutedWordTargetExtension on UMutedWordTarget {
+  /// Returns string value.
+  String toJson() => const UMutedWordTargetConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UMutedWordTargetKnownValue;
 

@@ -69,7 +69,7 @@ final class UMessageConverter
 }
 
 extension UMessageExtension on UMessage {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UMessageConverter().toJson(this);
 
   /// Returns true if this data is [MessageView], otherwise false.

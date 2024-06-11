@@ -102,6 +102,9 @@ final class UFilterConverter implements JsonConverter<UFilter, String> {
 }
 
 extension UFilterExtension on UFilter {
+  /// Returns string value.
+  String toJson() => const UFilterConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UFilterKnownValue;
 

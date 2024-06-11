@@ -102,6 +102,9 @@ final class UListPurposeConverter
 }
 
 extension UListPurposeExtension on UListPurpose {
+  /// Returns string value.
+  String toJson() => const UListPurposeConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UListPurposeKnownValue;
 

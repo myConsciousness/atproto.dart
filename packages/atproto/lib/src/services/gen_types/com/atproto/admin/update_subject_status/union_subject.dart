@@ -80,7 +80,7 @@ final class USubjectConverter
 }
 
 extension USubjectExtension on USubject {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const USubjectConverter().toJson(this);
 
   /// Returns true if this data is [RepoRef], otherwise false.

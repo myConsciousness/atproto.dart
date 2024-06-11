@@ -56,7 +56,7 @@ final class UServiceLabelConverter
 }
 
 extension UServiceLabelExtension on UServiceLabel {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UServiceLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.

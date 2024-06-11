@@ -100,6 +100,9 @@ final class UPlatformConverter implements JsonConverter<UPlatform, String> {
 }
 
 extension UPlatformExtension on UPlatform {
+  /// Returns string value.
+  String toJson() => const UPlatformConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UPlatformKnownValue;
 

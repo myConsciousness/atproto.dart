@@ -80,7 +80,7 @@ final class UReplyConverter
 }
 
 extension UReplyExtension on UReply {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UReplyConverter().toJson(this);
 
   /// Returns true if this data is [ThreadViewPost], otherwise false.

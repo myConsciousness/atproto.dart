@@ -100,6 +100,9 @@ final class UStatusConverter implements JsonConverter<UStatus, String> {
 }
 
 extension UStatusExtension on UStatus {
+  /// Returns string value.
+  String toJson() => const UStatusConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UStatusKnownValue;
 

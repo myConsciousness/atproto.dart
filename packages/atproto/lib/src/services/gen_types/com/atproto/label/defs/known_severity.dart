@@ -100,6 +100,9 @@ final class USeverityConverter implements JsonConverter<USeverity, String> {
 }
 
 extension USeverityExtension on USeverity {
+  /// Returns string value.
+  String toJson() => const USeverityConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is USeverityKnownValue;
 

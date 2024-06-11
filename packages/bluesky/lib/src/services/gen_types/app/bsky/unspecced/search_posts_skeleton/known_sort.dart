@@ -98,6 +98,9 @@ final class USortConverter implements JsonConverter<USort, String> {
 }
 
 extension USortExtension on USort {
+  /// Returns string value.
+  String toJson() => const USortConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is USortKnownValue;
 

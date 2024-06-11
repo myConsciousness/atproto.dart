@@ -42,9 +42,9 @@ final class AdminService {
       await _ctx.get(
         ns.comAtprotoAdminGetSubjectStatus,
         parameters: {
-          'did': did,
-          'uri': uri,
-          'blob': blob,
+          if (did != null) 'did': did,
+          if (uri != null) 'uri': uri.toString(),
+          if (blob != null) 'blob': blob,
         },
         to: const GetSubjectStatusOutputConverter().fromJson,
       );
@@ -75,9 +75,9 @@ final class AdminService {
       await _ctx.get(
         ns.comAtprotoAdminGetInviteCodes,
         parameters: {
-          'sort': sort,
-          'limit': limit,
-          'cursor': cursor,
+          if (sort != null) 'sort': sort.toJson(),
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetInviteCodesOutputConverter().fromJson,
       );
@@ -93,9 +93,9 @@ final class AdminService {
       await _ctx.get(
         ns.comAtprotoAdminSearchAccounts,
         parameters: {
-          'email': email,
-          'cursor': cursor,
-          'limit': limit,
+          if (email != null) 'email': email,
+          if (cursor != null) 'cursor': cursor,
+          if (limit != null) 'limit': limit,
         },
         to: const SearchAccountsOutputConverter().fromJson,
       );
@@ -139,7 +139,7 @@ final class AdminService {
         ns.comAtprotoAdminDisableAccountInvites,
         parameters: {
           'account': account,
-          'note': note,
+          if (note != null) 'note': note,
         },
       );
 
@@ -167,9 +167,9 @@ final class AdminService {
       await _ctx.post(
         ns.comAtprotoAdminUpdateSubjectStatus,
         parameters: {
-          'subject': subject,
-          'takedown': takedown,
-          'deactivated': deactivated,
+          'subject': subject.toJson(),
+          if (takedown != null) 'takedown': takedown,
+          if (deactivated != null) 'deactivated': deactivated,
         },
         to: const UpdateSubjectStatusOutputConverter().fromJson,
       );
@@ -185,7 +185,7 @@ final class AdminService {
         ns.comAtprotoAdminEnableAccountInvites,
         parameters: {
           'account': account,
-          'note': note,
+          if (note != null) 'note': note,
         },
       );
 
@@ -199,8 +199,8 @@ final class AdminService {
       await _ctx.post(
         ns.comAtprotoAdminDisableInviteCodes,
         parameters: {
-          'codes': codes,
-          'accounts': accounts,
+          if (codes != null) 'codes': codes,
+          if (accounts != null) 'accounts': accounts,
         },
       );
 
@@ -219,9 +219,9 @@ final class AdminService {
         parameters: {
           'recipientDid': recipientDid,
           'content': content,
-          'subject': subject,
+          if (subject != null) 'subject': subject,
           'senderDid': senderDid,
-          'comment': comment,
+          if (comment != null) 'comment': comment,
         },
         to: const SendEmailOutputConverter().fromJson,
       );

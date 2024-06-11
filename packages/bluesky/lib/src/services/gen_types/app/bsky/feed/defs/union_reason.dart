@@ -58,7 +58,7 @@ final class UReasonConverter
 }
 
 extension UReasonExtension on UReason {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UReasonConverter().toJson(this);
 
   /// Returns true if this data is [SkeletonReasonRepost], otherwise false.

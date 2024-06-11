@@ -96,6 +96,9 @@ final class UNameConverter implements JsonConverter<UName, String> {
 }
 
 extension UNameExtension on UName {
+  /// Returns string value.
+  String toJson() => const UNameConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UNameKnownValue;
 

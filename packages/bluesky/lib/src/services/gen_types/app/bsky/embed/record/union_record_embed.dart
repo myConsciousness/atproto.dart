@@ -91,7 +91,7 @@ final class URecordEmbedConverter
 }
 
 extension URecordEmbedExtension on URecordEmbed {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const URecordEmbedConverter().toJson(this);
 
   /// Returns true if this data is [ImagesView], otherwise false.

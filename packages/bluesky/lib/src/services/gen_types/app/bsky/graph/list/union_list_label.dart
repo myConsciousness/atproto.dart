@@ -56,7 +56,7 @@ final class UListLabelConverter
 }
 
 extension UListLabelExtension on UListLabel {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UListLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.

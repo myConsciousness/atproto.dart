@@ -51,10 +51,10 @@ final class UnspeccedService {
         ns.appBskyUnspeccedSearchActorsSkeleton,
         parameters: {
           'q': q,
-          'viewer': viewer,
-          'typeahead': typeahead,
-          'limit': limit,
-          'cursor': cursor,
+          if (viewer != null) 'viewer': viewer,
+          if (typeahead != null) 'typeahead': typeahead,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const SearchActorsSkeletonOutputConverter().fromJson,
       );
@@ -81,18 +81,18 @@ final class UnspeccedService {
         ns.appBskyUnspeccedSearchPostsSkeleton,
         parameters: {
           'q': q,
-          'sort': sort,
-          'since': since,
-          'until': until,
-          'mentions': mentions,
-          'author': author,
-          'lang': lang,
-          'domain': domain,
-          'url': url,
-          'tag': tag,
-          'viewer': viewer,
-          'limit': limit,
-          'cursor': cursor,
+          if (sort != null) 'sort': sort.toJson(),
+          if (since != null) 'since': since,
+          if (until != null) 'until': until,
+          if (mentions != null) 'mentions': mentions,
+          if (author != null) 'author': author,
+          if (lang != null) 'lang': lang,
+          if (domain != null) 'domain': domain,
+          if (url != null) 'url': url,
+          if (tag != null) 'tag': tag,
+          if (viewer != null) 'viewer': viewer,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const SearchPostsSkeletonOutputConverter().fromJson,
       );
@@ -108,9 +108,9 @@ final class UnspeccedService {
       await _ctx.get(
         ns.appBskyUnspeccedGetSuggestionsSkeleton,
         parameters: {
-          'viewer': viewer,
-          'limit': limit,
-          'cursor': cursor,
+          if (viewer != null) 'viewer': viewer,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestionsSkeletonOutputConverter().fromJson,
       );
@@ -127,9 +127,9 @@ final class UnspeccedService {
           await _ctx.get(
             ns.appBskyUnspeccedGetPopularFeedGenerators,
             parameters: {
-              'limit': limit,
-              'cursor': cursor,
-              'query': query,
+              if (limit != null) 'limit': limit,
+              if (cursor != null) 'cursor': cursor,
+              if (query != null) 'query': query,
             },
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
           );

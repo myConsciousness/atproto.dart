@@ -47,8 +47,8 @@ final class ServerService {
         ns.comAtprotoServerUpdateEmail,
         parameters: {
           'email': email,
-          'emailAuthFactor': emailAuthFactor,
-          'token': token,
+          if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
+          if (token != null) 'token': token,
         },
       );
 
@@ -62,8 +62,8 @@ final class ServerService {
       await _ctx.get(
         ns.comAtprotoServerGetAccountInviteCodes,
         parameters: {
-          'includeUsed': includeUsed,
-          'createAvailable': createAvailable,
+          if (includeUsed != null) 'includeUsed': includeUsed,
+          if (createAvailable != null) 'createAvailable': createAvailable,
         },
         to: const GetAccountInviteCodesOutputConverter().fromJson,
       );
@@ -151,7 +151,7 @@ final class ServerService {
       await _ctx.post(
         ns.comAtprotoServerReserveSigningKey,
         parameters: {
-          'did': did,
+          if (did != null) 'did': did,
         },
         to: const ReserveSigningKeyOutputConverter().fromJson,
       );
@@ -173,15 +173,15 @@ final class ServerService {
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
         parameters: {
-          'email': email,
+          if (email != null) 'email': email,
           'handle': handle,
-          'did': did,
-          'inviteCode': inviteCode,
-          'verificationCode': verificationCode,
-          'verificationPhone': verificationPhone,
-          'password': password,
-          'recoveryKey': recoveryKey,
-          'plcOp': plcOp,
+          if (did != null) 'did': did,
+          if (inviteCode != null) 'inviteCode': inviteCode,
+          if (verificationCode != null) 'verificationCode': verificationCode,
+          if (verificationPhone != null) 'verificationPhone': verificationPhone,
+          if (password != null) 'password': password,
+          if (recoveryKey != null) 'recoveryKey': recoveryKey,
+          if (plcOp != null) 'plcOp': plcOp,
         },
         to: const CreateAccountOutputConverter().fromJson,
       );
@@ -199,7 +199,7 @@ final class ServerService {
         parameters: {
           'codeCount': codeCount,
           'useCount': useCount,
-          'forAccounts': forAccounts,
+          if (forAccounts != null) 'forAccounts': forAccounts,
         },
         to: const CreateInviteCodesOutputConverter().fromJson,
       );
@@ -248,7 +248,7 @@ final class ServerService {
         ns.comAtprotoServerCreateInviteCode,
         parameters: {
           'useCount': useCount,
-          'forAccount': forAccount,
+          if (forAccount != null) 'forAccount': forAccount,
         },
         to: const CreateInviteCodeOutputConverter().fromJson,
       );
@@ -314,7 +314,7 @@ final class ServerService {
         ns.comAtprotoServerCreateAppPassword,
         parameters: {
           'name': name,
-          'privileged': privileged,
+          if (privileged != null) 'privileged': privileged,
         },
       );
 
@@ -331,7 +331,7 @@ final class ServerService {
         parameters: {
           'identifier': identifier,
           'password': password,
-          'authFactorToken': authFactorToken,
+          if (authFactorToken != null) 'authFactorToken': authFactorToken,
         },
         to: const CreateSessionOutputConverter().fromJson,
       );
@@ -345,7 +345,7 @@ final class ServerService {
       await _ctx.post(
         ns.comAtprotoServerDeactivateAccount,
         parameters: {
-          'deleteAfter': deleteAfter,
+          if (deleteAfter != null) 'deleteAfter': deleteAfter,
         },
       );
 

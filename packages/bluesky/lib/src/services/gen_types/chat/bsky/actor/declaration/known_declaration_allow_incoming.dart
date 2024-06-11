@@ -101,6 +101,9 @@ final class UDeclarationAllowIncomingConverter
 }
 
 extension UDeclarationAllowIncomingExtension on UDeclarationAllowIncoming {
+  /// Returns string value.
+  String toJson() => const UDeclarationAllowIncomingConverter().toJson(this);
+
   /// Returns true if this is known value, otherwise false.
   bool get isKnownValue => this is UDeclarationAllowIncomingKnownValue;
 

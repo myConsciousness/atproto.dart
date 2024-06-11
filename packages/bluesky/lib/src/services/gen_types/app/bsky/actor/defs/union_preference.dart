@@ -157,7 +157,7 @@ final class UPreferenceConverter
 }
 
 extension UPreferenceExtension on UPreference {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPreferenceConverter().toJson(this);
 
   /// Returns true if this data is [AdultContentPref], otherwise false.

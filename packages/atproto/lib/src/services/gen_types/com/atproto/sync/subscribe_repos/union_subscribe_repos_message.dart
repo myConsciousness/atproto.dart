@@ -124,7 +124,7 @@ final class USubscribeReposMessageConverter
 }
 
 extension USubscribeReposMessageExtension on USubscribeReposMessage {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const USubscribeReposMessageConverter().toJson(this);
 

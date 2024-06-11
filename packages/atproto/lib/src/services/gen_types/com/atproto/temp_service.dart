@@ -36,8 +36,8 @@ final class TempService {
       await _ctx.get(
         ns.comAtprotoTempFetchLabels,
         parameters: {
-          'since': since,
-          'limit': limit,
+          if (since != null) 'since': since,
+          if (limit != null) 'limit': limit,
         },
         to: const FetchLabelsOutputConverter().fromJson,
       );

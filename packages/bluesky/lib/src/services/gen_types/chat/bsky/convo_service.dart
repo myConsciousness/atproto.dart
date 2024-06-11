@@ -53,7 +53,7 @@ final class ConvoService {
       await _ctx.get(
         ns.chatBskyConvoGetLog,
         parameters: {
-          'cursor': cursor,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetLogOutputConverter().fromJson,
       );
@@ -80,8 +80,8 @@ final class ConvoService {
         ns.chatBskyConvoGetMessages,
         parameters: {
           'convoId': convoId,
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetMessagesOutputConverter().fromJson,
       );
@@ -118,8 +118,8 @@ final class ConvoService {
       await _ctx.get(
         ns.chatBskyConvoListConvos,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const ListConvosOutputConverter().fromJson,
       );
@@ -156,7 +156,7 @@ final class ConvoService {
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
         parameters: {
-          'items': items,
+          'items': items.map((e) => e.toJson()).toList(),
         },
         to: const SendMessageBatchOutputConverter().fromJson,
       );
@@ -170,7 +170,7 @@ final class ConvoService {
         ns.chatBskyConvoUpdateRead,
         parameters: {
           'convoId': convoId,
-          'messageId': messageId,
+          if (messageId != null) 'messageId': messageId,
         },
         to: const UpdateReadOutputConverter().fromJson,
       );

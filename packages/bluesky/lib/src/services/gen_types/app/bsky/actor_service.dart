@@ -56,10 +56,10 @@ final class ActorService {
       await _ctx.get(
         ns.appBskyActorSearchActors,
         parameters: {
-          'term': term,
-          'q': q,
-          'limit': limit,
-          'cursor': cursor,
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const SearchActorsOutputConverter().fromJson,
       );
@@ -75,9 +75,9 @@ final class ActorService {
       await _ctx.get(
         ns.appBskyActorSearchActorsTypeahead,
         parameters: {
-          'term': term,
-          'q': q,
-          'limit': limit,
+          if (term != null) 'term': term,
+          if (q != null) 'q': q,
+          if (limit != null) 'limit': limit,
         },
         to: const SearchActorsTypeaheadOutputConverter().fromJson,
       );
@@ -106,8 +106,8 @@ final class ActorService {
       await _ctx.get(
         ns.appBskyActorGetSuggestions,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestionsOutputConverter().fromJson,
       );
@@ -121,7 +121,7 @@ final class ActorService {
       await _ctx.post(
         ns.appBskyActorPutPreferences,
         parameters: {
-          'preferences': preferences,
+          'preferences': preferences.map((e) => e.toJson()).toList(),
         },
       );
 
@@ -140,11 +140,11 @@ final class ActorService {
         collection: ns.appBskyActorProfile,
         record: {
           r'$type': 'app.bsky.actor.profile',
-          'displayName': displayName,
-          'description': description,
-          'avatar': avatar,
-          'banner': banner,
-          'labels': labels,
+          if (displayName != null) 'displayName': displayName,
+          if (description != null) 'description': description,
+          if (avatar != null) 'avatar': avatar.toJson(),
+          if (banner != null) 'banner': banner.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
         },
       );
 

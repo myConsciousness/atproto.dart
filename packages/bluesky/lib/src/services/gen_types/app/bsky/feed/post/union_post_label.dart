@@ -56,7 +56,7 @@ final class UPostLabelConverter
 }
 
 extension UPostLabelExtension on UPostLabel {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPostLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.

@@ -46,8 +46,8 @@ final class GraphService {
       await _ctx.get(
         ns.appBskyGraphGetBlocks,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetBlocksOutputConverter().fromJson,
       );
@@ -81,7 +81,7 @@ final class GraphService {
         record: {
           r'$type': 'app.bsky.graph.listitem',
           'subject': subject,
-          'list': list,
+          'list': list.toString(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
@@ -98,7 +98,7 @@ final class GraphService {
         collection: ns.appBskyGraphListblock,
         record: {
           r'$type': 'app.bsky.graph.listblock',
-          'subject': subject,
+          'subject': subject.toString(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
@@ -115,8 +115,8 @@ final class GraphService {
         ns.appBskyGraphGetFollows,
         parameters: {
           'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowsOutputConverter().fromJson,
       );
@@ -132,7 +132,7 @@ final class GraphService {
         ns.appBskyGraphGetRelationships,
         parameters: {
           'actor': actor,
-          'others': others,
+          if (others != null) 'others': others,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
       );
@@ -148,9 +148,9 @@ final class GraphService {
       await _ctx.get(
         ns.appBskyGraphGetList,
         parameters: {
-          'list': list,
-          'limit': limit,
-          'cursor': cursor,
+          'list': list.toString(),
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetListOutputConverter().fromJson,
       );
@@ -167,8 +167,8 @@ final class GraphService {
         ns.appBskyGraphGetFollowers,
         parameters: {
           'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowersOutputConverter().fromJson,
       );
@@ -183,8 +183,8 @@ final class GraphService {
       await _ctx.get(
         ns.appBskyGraphGetListMutes,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetListMutesOutputConverter().fromJson,
       );
@@ -245,7 +245,7 @@ final class GraphService {
       await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
         parameters: {
-          'list': list,
+          'list': list.toString(),
         },
       );
 
@@ -258,7 +258,7 @@ final class GraphService {
       await _ctx.post(
         ns.appBskyGraphMuteActorList,
         parameters: {
-          'list': list,
+          'list': list.toString(),
         },
       );
 
@@ -272,8 +272,8 @@ final class GraphService {
       await _ctx.get(
         ns.appBskyGraphGetListBlocks,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetListBlocksOutputConverter().fromJson,
       );
@@ -290,8 +290,8 @@ final class GraphService {
         ns.appBskyGraphGetLists,
         parameters: {
           'actor': actor,
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetListsOutputConverter().fromJson,
       );
@@ -315,10 +315,12 @@ final class GraphService {
           r'$type': 'app.bsky.graph.list',
           'purpose': purpose,
           'name': name,
-          'description': description,
-          'descriptionFacets': descriptionFacets,
-          'avatar': avatar,
-          'labels': labels,
+          if (description != null) 'description': description,
+          if (descriptionFacets != null)
+            'descriptionFacets':
+                descriptionFacets.map((e) => e.toJson()).toList(),
+          if (avatar != null) 'avatar': avatar.toJson(),
+          if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
@@ -346,8 +348,8 @@ final class GraphService {
       await _ctx.get(
         ns.appBskyGraphGetMutes,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const GetMutesOutputConverter().fromJson,
       );

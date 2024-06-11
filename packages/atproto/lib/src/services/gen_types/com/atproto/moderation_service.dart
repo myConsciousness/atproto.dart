@@ -37,8 +37,8 @@ final class ModerationService {
         ns.comAtprotoModerationCreateReport,
         parameters: {
           'reasonType': reasonType,
-          'reason': reason,
-          'subject': subject,
+          if (reason != null) 'reason': reason,
+          'subject': subject.toJson(),
         },
         to: const CreateReportOutputConverter().fromJson,
       );

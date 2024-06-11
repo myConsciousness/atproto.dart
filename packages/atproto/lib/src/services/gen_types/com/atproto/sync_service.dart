@@ -41,9 +41,9 @@ final class SyncService {
         ns.comAtprotoSyncGetRecord,
         parameters: {
           'did': did,
-          'collection': collection,
+          'collection': collection.toString(),
           'rkey': rkey,
-          'commit': commit,
+          if (commit != null) 'commit': commit,
         },
       );
 
@@ -87,7 +87,7 @@ final class SyncService {
         ns.comAtprotoSyncGetRepo,
         parameters: {
           'did': did,
-          'since': since,
+          if (since != null) 'since': since,
         },
       );
 
@@ -158,9 +158,9 @@ final class SyncService {
         ns.comAtprotoSyncListBlobs,
         parameters: {
           'did': did,
-          'since': since,
-          'limit': limit,
-          'cursor': cursor,
+          if (since != null) 'since': since,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const ListBlobsOutputConverter().fromJson,
       );
@@ -201,8 +201,8 @@ final class SyncService {
       await _ctx.get(
         ns.comAtprotoSyncListRepos,
         parameters: {
-          'limit': limit,
-          'cursor': cursor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
         },
         to: const ListReposOutputConverter().fromJson,
       );

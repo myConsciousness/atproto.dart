@@ -133,6 +133,10 @@ final class LexGenKnownValues {
     buffer
       ..writeln()
       ..writeln('extension U${name}Extension on U$name {')
+      ..writeln('  /// Returns string value.')
+      ..writeln('  String toJson() =>')
+      ..writeln('   const U${name}Converter().toJson(this);')
+      ..writeln()
       ..writeln('  /// Returns true if this is known value, otherwise false.')
       ..writeln('  bool get isKnownValue => this is U${name}KnownValue;')
       ..writeln()

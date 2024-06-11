@@ -56,7 +56,7 @@ final class UProfileLabelConverter
 }
 
 extension UProfileLabelExtension on UProfileLabel {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UProfileLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.

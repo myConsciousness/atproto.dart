@@ -34,10 +34,10 @@ final class ModerationService {
       await _ctx.get(
         ns.chatBskyModerationGetMessageContext,
         parameters: {
-          'convoId': convoId,
+          if (convoId != null) 'convoId': convoId,
           'messageId': messageId,
-          'before': before,
-          'after': after,
+          if (before != null) 'before': before,
+          if (after != null) 'after': after,
         },
         to: const GetMessageContextOutputConverter().fromJson,
       );
@@ -53,7 +53,7 @@ final class ModerationService {
         parameters: {
           'actor': actor,
           'allowAccess': allowAccess,
-          'ref': ref,
+          if (ref != null) 'ref': ref,
         },
       );
 

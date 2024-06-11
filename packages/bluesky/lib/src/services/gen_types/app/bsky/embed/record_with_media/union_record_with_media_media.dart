@@ -69,7 +69,7 @@ final class URecordWithMediaMediaConverter
 }
 
 extension URecordWithMediaMediaExtension on URecordWithMediaMedia {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const URecordWithMediaMediaConverter().toJson(this);
 

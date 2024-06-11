@@ -91,7 +91,7 @@ final class UPostEmbedConverter
 }
 
 extension UPostEmbedExtension on UPostEmbed {
-  /// Returns JSON representation
+  /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPostEmbedConverter().toJson(this);
 
   /// Returns true if this data is [Images], otherwise false.
