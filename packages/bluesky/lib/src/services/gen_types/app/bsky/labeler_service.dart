@@ -32,7 +32,7 @@ final class LabelerService {
   Future<XRPCResponse<StrongRef>> service({
     required LabelerPolicies policies,
     UServiceLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,

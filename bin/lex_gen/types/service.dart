@@ -172,6 +172,7 @@ final class LexServiceEndpoint {
 
 final class LexServiceEndpointArg {
   const LexServiceEndpointArg({
+    required this.isRecord,
     required this.isRequired,
     required this.type,
     required this.name,
@@ -179,6 +180,8 @@ final class LexServiceEndpointArg {
     required this.knownValues,
     required this.union,
   });
+
+  final bool isRecord;
 
   final bool isRequired;
   final DataType type;
@@ -206,17 +209,21 @@ final class LexServiceEndpointArg {
     return _toString(type.name!);
   }
 
-  String _toString(final String name) {
+  String _toString(final String typeName) {
     final buffer = StringBuffer();
 
     if (isRequired) {
-      buffer.write('required $name');
+      if (isRecord && name == 'createdAt') {
+        buffer.write('$typeName?');
+      } else {
+        buffer.write('required $typeName');
+      }
     } else {
-      buffer.write('$name?');
+      buffer.write('$typeName?');
     }
 
     buffer.write(' ');
-    buffer.write(this.name);
+    buffer.write(name);
 
     return buffer.toString();
   }

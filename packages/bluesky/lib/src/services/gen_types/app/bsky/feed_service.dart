@@ -92,7 +92,7 @@ final class FeedService {
     Blob? avatar,
     bool? acceptsInteractions,
     UGeneratorLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -141,7 +141,7 @@ final class FeedService {
   Future<XRPCResponse<StrongRef>> threadgate({
     required AtUri post,
     List<UThreadgateAllow>? allow,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -197,7 +197,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/repost
   Future<XRPCResponse<StrongRef>> repost({
     required StrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -212,7 +212,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/like
   Future<XRPCResponse<StrongRef>> like({
     required StrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -334,7 +334,7 @@ final class FeedService {
     List<String>? langs,
     UPostLabel? labels,
     List<String>? tags,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,

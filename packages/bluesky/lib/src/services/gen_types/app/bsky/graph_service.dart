@@ -66,7 +66,7 @@ final class GraphService {
   Future<XRPCResponse<StrongRef>> listitem({
     required String subject,
     required AtUri list,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -81,7 +81,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
   Future<XRPCResponse<StrongRef>> listblock({
     required AtUri subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -159,7 +159,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
   Future<XRPCResponse<StrongRef>> block({
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -174,7 +174,7 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<XRPCResponse<StrongRef>> follow({
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -249,7 +249,7 @@ final class GraphService {
     List<Facet>? descriptionFacets,
     Blob? avatar,
     UListLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
