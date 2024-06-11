@@ -55,7 +55,7 @@ final class LexTypesGen {
 
     if (objects != null) {
       for (final object in objects) {
-        if (!object.isStrongRef) {
+        if (!object.isStrongRef && !object.isBytes) {
           writeFileAsStringSync(
             _getOutputFilePath(context.docId, object.filePath),
             object.toString(),
@@ -182,7 +182,9 @@ final class LexTypesGen {
         ..writeln(getFileHeader('Lex Generator'))
         ..writeln()
         ..writeln(exports
-            .where((e) => !(e.object?.isStrongRef ?? false))
+            .where((e) =>
+                !(e.object?.isStrongRef ?? false) &&
+                !(e.object?.isBytes ?? false))
             .map((e) => e.toString())
             .toSet()
             .join('\n'));

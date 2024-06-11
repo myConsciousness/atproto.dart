@@ -35,7 +35,7 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoModerationCreateReport,
-        parameters: {
+        body: {
           'reasonType': reasonType,
           if (reason != null) 'reason': reason,
           'subject': subject.toJson(),

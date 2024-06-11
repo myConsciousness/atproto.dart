@@ -33,7 +33,7 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
-        parameters: {
+        body: {
           'seenAt': seenAt,
         },
       );
@@ -49,7 +49,7 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationRegisterPush,
-        parameters: {
+        body: {
           'serviceDid': serviceDid,
           'token': token,
           'platform': platform.toJson(),

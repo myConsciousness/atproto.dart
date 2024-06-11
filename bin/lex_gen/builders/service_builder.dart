@@ -25,6 +25,11 @@ const _kStrongRefDataType = DataType(
   converter: 'StrongRefConverter',
 );
 
+const _kBytesDataType = DataType(
+  name: 'Uint8List',
+  importPath: 'dart:typed_data',
+);
+
 final class ServiceBuilder {
   const ServiceBuilder(this.context);
 
@@ -85,6 +90,7 @@ final class ServiceBuilder {
 
         for (final property in properties) {
           args.add(LexServiceEndpointArg(
+            isBytes: export.object?.isBytes ?? false,
             isRecord: endpoint.def is ULexUserTypeRecord,
             isRequired: property.isRequired,
             type: property.type,
@@ -143,6 +149,10 @@ final class ServiceBuilder {
         converter: '${toFirstUpper(methodName)}OutputConverter',
       );
     } else if (def is ULexUserTypeXrpcProcedure) {
+      if (def.data.output?.encoding == '*/*') {
+        return _kBytesDataType;
+      }
+
       final properties = def.data.output?.schema?.whenOrNull(
         object: (data) => data.properties,
       );

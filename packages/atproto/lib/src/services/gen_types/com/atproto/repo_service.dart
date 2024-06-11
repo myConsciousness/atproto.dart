@@ -10,6 +10,9 @@
 // Lex Generator
 // **************************************************************************
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
@@ -109,7 +112,7 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
-        parameters: {
+        body: {
           'repo': repo,
           if (validate != null) 'validate': validate,
           'writes': writes.map((e) => e.toJson()).toList(),
@@ -120,8 +123,12 @@ final class RepoService {
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
-  Future<XRPCResponse<UploadBlobOutput>> uploadBlob() async => await _ctx.post(
+  Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
+    required Uint8List bytes,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
+        body: bytes,
         to: const UploadBlobOutputConverter().fromJson,
       );
 
@@ -137,7 +144,7 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoDeleteRecord,
-        parameters: {
+        body: {
           'repo': repo,
           'collection': collection.toString(),
           'rkey': rkey,
@@ -160,7 +167,7 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoPutRecord,
-        parameters: {
+        body: {
           'repo': repo,
           'collection': collection.toString(),
           'rkey': rkey,
@@ -199,7 +206,7 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
-        parameters: {
+        body: {
           'repo': repo,
           'collection': collection.toString(),
           if (rkey != null) 'rkey': rkey,

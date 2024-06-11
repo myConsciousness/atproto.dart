@@ -40,7 +40,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoMuteConvo,
-        parameters: {
+        body: {
           'convoId': convoId,
         },
         to: const MuteConvoOutputConverter().fromJson,
@@ -64,7 +64,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
-        parameters: {
+        body: {
           'convoId': convoId,
         },
         to: const LeaveConvoOutputConverter().fromJson,
@@ -104,7 +104,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUnmuteConvo,
-        parameters: {
+        body: {
           'convoId': convoId,
         },
         to: const UnmuteConvoOutputConverter().fromJson,
@@ -131,7 +131,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoDeleteMessageForSelf,
-        parameters: {
+        body: {
           'convoId': convoId,
           'messageId': messageId,
         },
@@ -155,7 +155,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
-        parameters: {
+        body: {
           'items': items.map((e) => e.toJson()).toList(),
         },
         to: const SendMessageBatchOutputConverter().fromJson,
@@ -168,7 +168,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUpdateRead,
-        parameters: {
+        body: {
           'convoId': convoId,
           if (messageId != null) 'messageId': messageId,
         },
@@ -182,7 +182,7 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
-        parameters: {
+        body: {
           'convoId': convoId,
           'message': message,
         },

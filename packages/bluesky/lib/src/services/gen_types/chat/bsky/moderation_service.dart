@@ -50,7 +50,7 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
-        parameters: {
+        body: {
           'actor': actor,
           'allowAccess': allowAccess,
           if (ref != null) 'ref': ref,

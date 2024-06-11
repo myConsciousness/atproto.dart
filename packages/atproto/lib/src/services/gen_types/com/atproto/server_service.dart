@@ -45,7 +45,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
-        parameters: {
+        body: {
           'email': email,
           if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
           if (token != null) 'token': token,
@@ -77,7 +77,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerConfirmEmail,
-        parameters: {
+        body: {
           'email': email,
           'token': token,
         },
@@ -122,7 +122,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
-        parameters: {
+        body: {
           'did': did,
           'password': password,
           'token': token,
@@ -137,7 +137,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRevokeAppPassword,
-        parameters: {
+        body: {
           'name': name,
         },
       );
@@ -150,7 +150,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerReserveSigningKey,
-        parameters: {
+        body: {
           if (did != null) 'did': did,
         },
         to: const ReserveSigningKeyOutputConverter().fromJson,
@@ -172,7 +172,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
-        parameters: {
+        body: {
           if (email != null) 'email': email,
           'handle': handle,
           if (did != null) 'did': did,
@@ -196,7 +196,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCodes,
-        parameters: {
+        body: {
           'codeCount': codeCount,
           'useCount': useCount,
           if (forAccounts != null) 'forAccounts': forAccounts,
@@ -246,7 +246,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCode,
-        parameters: {
+        body: {
           'useCount': useCount,
           if (forAccount != null) 'forAccount': forAccount,
         },
@@ -280,7 +280,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerResetPassword,
-        parameters: {
+        body: {
           'token': token,
           'password': password,
         },
@@ -312,7 +312,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAppPassword,
-        parameters: {
+        body: {
           'name': name,
           if (privileged != null) 'privileged': privileged,
         },
@@ -328,7 +328,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateSession,
-        parameters: {
+        body: {
           'identifier': identifier,
           'password': password,
           if (authFactorToken != null) 'authFactorToken': authFactorToken,
@@ -344,7 +344,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeactivateAccount,
-        parameters: {
+        body: {
           if (deleteAfter != null) 'deleteAfter': deleteAfter,
         },
       );
@@ -357,7 +357,7 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestPasswordReset,
-        parameters: {
+        body: {
           'email': email,
         },
       );

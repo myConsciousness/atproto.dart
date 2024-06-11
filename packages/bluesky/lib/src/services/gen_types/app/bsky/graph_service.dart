@@ -231,7 +231,7 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActor,
-        parameters: {
+        body: {
           'actor': actor,
         },
       );
@@ -244,7 +244,7 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
-        parameters: {
+        body: {
           'list': list.toString(),
         },
       );
@@ -257,7 +257,7 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActorList,
-        parameters: {
+        body: {
           'list': list.toString(),
         },
       );
@@ -333,7 +333,7 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActor,
-        parameters: {
+        body: {
           'actor': actor,
         },
       );

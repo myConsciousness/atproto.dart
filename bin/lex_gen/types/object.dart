@@ -38,6 +38,13 @@ final class LexGenObject {
 
   final String filePath;
 
+  bool get isBytes {
+    if (properties.isEmpty) return false;
+    if (properties.length > 1) return false;
+
+    return properties.first.type.name == 'Uint8List';
+  }
+
   @override
   String toString() {
     assert(properties.isNotEmpty);

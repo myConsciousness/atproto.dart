@@ -46,8 +46,9 @@ final class LexService {
       ...endpoints.expand((e) => e.args).map((e) => e.union?.filePath),
     ]
         .where((e) => e != null)
-        .map((e) =>
-            e!.startsWith('package:') ? e : '../../${e.replaceAll('../', '')}')
+        .map((e) => e!.startsWith('package:') || e.startsWith('dart:')
+            ? e
+            : '../../${e.replaceAll('../', '')}')
         .toSet();
 
     buffer.writeln(getFileHeader('Lex Generator'));
@@ -135,11 +136,24 @@ final class LexServiceEndpoint {
       buffer.writeln('    await _ctx.${method.name}(');
       buffer.writeln('        ns.$namespace,');
       if (args.isNotEmpty) {
-        buffer.writeln('    parameters: {');
-        for (final arg in args) {
-          buffer.writeln(Payload(arg).toString());
+        if (method == LexServiceEndpointMethod.get) {
+          buffer.writeln('    parameters: {');
+
+          for (final arg in args) {
+            buffer.writeln(Payload(arg).toString());
+          }
+          buffer.writeln('    },');
+        } else {
+          if (args.first.isBytes) {
+            buffer.writeln('    body: ${args.first.name},');
+          } else {
+            buffer.writeln('    body: {');
+            for (final arg in args) {
+              buffer.writeln(Payload(arg).toString());
+            }
+            buffer.writeln('    },');
+          }
         }
-        buffer.writeln('    },');
       }
       if (type.converter != null) {
         buffer.writeln('        to: const ${type.converter}().fromJson,');
@@ -182,6 +196,7 @@ final class LexServiceEndpoint {
 
 final class LexServiceEndpointArg {
   const LexServiceEndpointArg({
+    required this.isBytes,
     required this.isRecord,
     required this.isRequired,
     required this.type,
@@ -191,6 +206,7 @@ final class LexServiceEndpointArg {
     required this.union,
   });
 
+  final bool isBytes;
   final bool isRecord;
 
   final bool isRequired;

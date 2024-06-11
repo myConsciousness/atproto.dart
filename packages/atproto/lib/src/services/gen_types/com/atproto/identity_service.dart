@@ -33,7 +33,7 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
-        parameters: {
+        body: {
           'handle': handle,
         },
       );
@@ -46,7 +46,7 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
-        parameters: {
+        body: {
           'operation': operation,
         },
       );
@@ -77,7 +77,7 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
-        parameters: {
+        body: {
           if (token != null) 'token': token,
           if (rotationKeys != null) 'rotationKeys': rotationKeys,
           if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,

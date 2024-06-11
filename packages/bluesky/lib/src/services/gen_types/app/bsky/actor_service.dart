@@ -120,7 +120,7 @@ final class ActorService {
   }) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,
-        parameters: {
+        body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
         },
       );

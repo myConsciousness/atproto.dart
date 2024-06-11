@@ -59,7 +59,7 @@ final class TempService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,
-        parameters: {
+        body: {
           'phoneNumber': phoneNumber,
         },
       );

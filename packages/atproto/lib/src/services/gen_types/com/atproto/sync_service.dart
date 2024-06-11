@@ -173,7 +173,7 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncRequestCrawl,
-        parameters: {
+        body: {
           'hostname': hostname,
         },
       );
@@ -186,7 +186,7 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
-        parameters: {
+        body: {
           'hostname': hostname,
         },
       );

@@ -57,7 +57,7 @@ final class FeedService {
   }) async =>
       await _ctx.post(
         ns.appBskyFeedSendInteractions,
-        parameters: {
+        body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
         },
       );

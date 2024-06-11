@@ -10,6 +10,7 @@ import '../rules/naming_convention.dart';
 import '../rules/object_type.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
+import '../types/data_type.dart';
 import '../types/object.dart';
 import 'known_values_builder.dart';
 import 'union_builder.dart';
@@ -111,6 +112,16 @@ final class LexGenObjectBuilder {
     final LexXrpcBody? body,
     final ObjectType objectType,
   ) {
+    if (objectType == ObjectType.input && body?.encoding == '*/*') {
+      return <LexGenObjectProperty>[
+        LexGenObjectProperty(
+          isRequired: true,
+          type: DataType(name: 'Uint8List', importPath: 'dart:typed_data'),
+          name: 'bytes',
+        ),
+      ];
+    }
+
     final object = body?.schema?.whenOrNull(object: (data) => data);
     if (object == null) {
       return null; // RefVariant

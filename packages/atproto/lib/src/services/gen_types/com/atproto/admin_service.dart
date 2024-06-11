@@ -58,7 +58,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountPassword,
-        parameters: {
+        body: {
           'did': did,
           'password': password,
         },
@@ -109,7 +109,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountHandle,
-        parameters: {
+        body: {
           'did': did,
           'handle': handle,
         },
@@ -123,7 +123,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDeleteAccount,
-        parameters: {
+        body: {
           'did': did,
         },
       );
@@ -137,7 +137,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableAccountInvites,
-        parameters: {
+        body: {
           'account': account,
           if (note != null) 'note': note,
         },
@@ -166,7 +166,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateSubjectStatus,
-        parameters: {
+        body: {
           'subject': subject.toJson(),
           if (takedown != null) 'takedown': takedown,
           if (deactivated != null) 'deactivated': deactivated,
@@ -183,7 +183,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminEnableAccountInvites,
-        parameters: {
+        body: {
           'account': account,
           if (note != null) 'note': note,
         },
@@ -198,7 +198,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableInviteCodes,
-        parameters: {
+        body: {
           if (codes != null) 'codes': codes,
           if (accounts != null) 'accounts': accounts,
         },
@@ -216,7 +216,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminSendEmail,
-        parameters: {
+        body: {
           'recipientDid': recipientDid,
           'content': content,
           if (subject != null) 'subject': subject,
@@ -235,7 +235,7 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountEmail,
-        parameters: {
+        body: {
           'account': account,
           'email': email,
         },
