@@ -95,9 +95,11 @@ final class FeedService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyFeedGenerator,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.feed.generator',
+        },
       );
 
   /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
@@ -142,9 +144,11 @@ final class FeedService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyFeedThreadgate,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.feed.threadgate',
+        },
       );
 
   /// Get like records which reference a subject (by AT-URI and CID).
@@ -196,9 +200,11 @@ final class FeedService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyFeedRepost,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.feed.repost',
+        },
       );
 
   /// Record declaring a 'like' of a piece of subject content.
@@ -209,9 +215,11 @@ final class FeedService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyFeedLike,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.feed.like',
+        },
       );
 
   /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
@@ -329,9 +337,11 @@ final class FeedService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyFeedPost,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.feed.post',
+        },
       );
 
   /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).

@@ -44,7 +44,7 @@ Future<void> main() async {
     );
 
     //! Create a record to specific service.
-    final createdRecord = await atproto.repo.createRecord(
+    final record = await atproto.repo.createRecord(
       repo: atproto.session!.did,
       collection: NSID.create(
         'feed.bsky.app',
@@ -58,8 +58,9 @@ Future<void> main() async {
 
     //! And delete it.
     await atproto.repo.deleteRecord(
-      repo: atproto.session!.did,
-      uri: createdRecord.data.uri,
+      repo: record.data.uri.hostname,
+      collection: record.data.uri.collection,
+      rkey: record.data.uri.rkey,
     );
 
     //! You can use Stream API easily.

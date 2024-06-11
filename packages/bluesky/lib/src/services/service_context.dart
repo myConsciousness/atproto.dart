@@ -7,7 +7,6 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../bluesky.dart';
 import '../ids.g.dart' as ids;
 
 final class BlueskyServiceContext extends core.ServiceContext {
@@ -26,13 +25,16 @@ final class BlueskyServiceContext extends core.ServiceContext {
 
   final atp.ATProto atproto;
 
+  /// Authenticated repo.
+  String get repo => session?.did ?? '';
+
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
     core.ResponseDataBuilder<T>? to,
   ]) async {
     final record = await atproto.repo.getRecord(
       repo: uri.hostname,
-      collection: NSID(uri.collection),
+      collection: uri.collection,
       rkey: uri.rkey,
     );
 

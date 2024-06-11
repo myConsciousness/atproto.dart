@@ -149,9 +149,11 @@ final class LexServiceEndpoint {
         buffer.writeln('  }) async =>');
       }
       buffer.writeln('    await _ctx.atproto.repo.createRecord(');
-      buffer.writeln('        repo: "",');
+      buffer.writeln('        repo: _ctx.repo,');
       buffer.writeln('        collection: ns.$namespace,');
-      buffer.writeln('        record: {},');
+      buffer.writeln('        record: {');
+      buffer.writeln("          r'\$type': '$serviceName.$name',");
+      buffer.writeln('        },');
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.stream) {
       buffer.writeln(

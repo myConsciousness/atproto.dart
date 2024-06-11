@@ -16,7 +16,6 @@ final class LexGenObject {
   const LexGenObject({
     required this.type,
     required this.isStrongRef,
-    required this.hasAtUri,
     this.description,
     required this.referencePath,
     this.namespace,
@@ -28,7 +27,6 @@ final class LexGenObject {
 
   final ObjectType type;
   final bool isStrongRef;
-  final bool hasAtUri;
 
   final String? description;
   final String referencePath;

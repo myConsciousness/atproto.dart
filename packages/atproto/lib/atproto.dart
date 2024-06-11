@@ -71,14 +71,17 @@ export 'package:atproto/src/services/entities/label_value.dart';
 export 'package:atproto/src/services/entities/label_value_definition.dart';
 export 'package:atproto/src/services/entities/label_value_definition_strings.dart';
 export 'package:atproto/src/services/entities/server_info_contact.dart';
-export 'package:atproto/src/services/identity_service.dart';
 export 'package:atproto/src/services/constants/moderation_reason_type.dart';
-export 'package:atproto/src/services/moderation_service.dart';
-export 'package:atproto/src/services/repo_service.dart';
-export 'package:atproto/src/services/server_service.dart';
-export 'package:atproto/src/services/sync_service.dart';
-export 'package:atproto/src/services/label_service.dart';
-export 'package:atproto/src/services/temp_service.dart';
+
+export 'package:atproto/src/services/gen_types/com/atproto/admin_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/identity_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/moderation_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/repo_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/server_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/sync_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/label_service.dart';
+export 'package:atproto/src/services/gen_types/com/atproto/temp_service.dart';
+
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

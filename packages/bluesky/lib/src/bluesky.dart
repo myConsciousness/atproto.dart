@@ -7,13 +7,13 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'services/actor_service.dart';
-import 'services/feed_service.dart';
-import 'services/graph_service.dart';
-import 'services/labeler_service.dart';
-import 'services/notification_service.dart';
+import 'services/gen_types/app/bsky/actor_service.dart';
+import 'services/gen_types/app/bsky/feed_service.dart';
+import 'services/gen_types/app/bsky/graph_service.dart';
+import 'services/gen_types/app/bsky/labeler_service.dart';
+import 'services/gen_types/app/bsky/notification_service.dart';
+import 'services/gen_types/app/bsky/unspecced_service.dart';
 import 'services/service_context.dart';
-import 'services/unspecced_service.dart';
 
 /// Provides `app.bsky.*` services.
 sealed class Bluesky {

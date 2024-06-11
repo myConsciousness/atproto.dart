@@ -1,5 +1,9 @@
 # Release Note
 
+## v0.4.0
+
+- Make `.collection` to `NSID`.
+
 ## v0.3.2
 
 - Merge AT URI regex. ([#1300](https://github.com/myConsciousness/atproto.dart/issues/1300))

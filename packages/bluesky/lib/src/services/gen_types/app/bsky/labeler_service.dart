@@ -35,9 +35,11 @@ final class LabelerService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyLabelerService,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.labeler.service',
+        },
       );
 
   /// Get information about a list of labeler services.

@@ -69,9 +69,11 @@ final class GraphService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyGraphListitem,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.graph.listitem',
+        },
       );
 
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
@@ -82,9 +84,11 @@ final class GraphService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyGraphListblock,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.graph.listblock',
+        },
       );
 
   /// Enumerates accounts which a specified account (actor) follows.
@@ -158,9 +162,11 @@ final class GraphService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyGraphBlock,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.graph.block',
+        },
       );
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
@@ -171,9 +177,11 @@ final class GraphService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyGraphFollow,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.graph.follow',
+        },
       );
 
   /// Unmutes the specified account. Requires auth.
@@ -244,9 +252,11 @@ final class GraphService {
     required DateTime createdAt,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyGraphList,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.graph.list',
+        },
       );
 
   /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.

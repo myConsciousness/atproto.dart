@@ -30,13 +30,6 @@ final class LexGenObjectBuilder {
           : '${context.docId.toString()}#${context.defName}';
     }
 
-    final procedureInput = context.def?.whenOrNull(
-      xrpcProcedure: (data) => data.input?.schema
-          ?.whenOrNull(object: (data) => data)
-          ?.properties
-          ?.map((key, value) => MapEntry(key, value.toJson())),
-    );
-
     final procedureOutput = context.def?.whenOrNull(
       xrpcProcedure: (data) => data.output?.schema
           ?.whenOrNull(object: (data) => data)
@@ -54,9 +47,6 @@ final class LexGenObjectBuilder {
           type: e.key,
           isStrongRef:
               e.key == ObjectType.output && isStrongRef(procedureOutput),
-          hasAtUri: e.key == ObjectType.input &&
-              hasAtUri(procedureInput) &&
-              context.docId.toString() != 'com.atproto.repo.createRecord',
           description: _getDescription(),
           referencePath:
               getReferencePath(context.docId.toString(), context.defName),

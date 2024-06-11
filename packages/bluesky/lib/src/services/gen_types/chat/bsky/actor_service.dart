@@ -41,8 +41,10 @@ final class ActorService {
     required UDeclarationAllowIncoming allowIncoming,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.chatBskyActorDeclaration,
-        record: {},
+        record: {
+          r'$type': 'chat.bsky.actor.declaration',
+        },
       );
 }

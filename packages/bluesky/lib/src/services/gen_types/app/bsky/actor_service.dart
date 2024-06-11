@@ -112,9 +112,11 @@ final class ActorService {
     UProfileLabel? labels,
   }) async =>
       await _ctx.atproto.repo.createRecord(
-        repo: "",
+        repo: _ctx.repo,
         collection: ns.appBskyActorProfile,
-        record: {},
+        record: {
+          r'$type': 'app.bsky.actor.profile',
+        },
       );
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
