@@ -26,7 +26,7 @@ final class LabelerService {
 
   /// A declaration of the existence of labeler service.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service
   Future<XRPCResponse<StrongRef>> service() async => await _ctx.post(
         ns.appBskyLabelerService,
         to: const StrongRefConverter().fromJson,
@@ -34,7 +34,7 @@ final class LabelerService {
 
   /// Get information about a list of labeler services.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices
   Future<XRPCResponse<GetServicesOutput>> getServices() async => await _ctx.get(
         ns.appBskyLabelerGetServices,
         to: const GetServicesOutputConverter().fromJson,

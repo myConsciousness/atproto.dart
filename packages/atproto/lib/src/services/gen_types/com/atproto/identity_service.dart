@@ -27,21 +27,21 @@ final class IdentityService {
 
   /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<XRPCResponse<EmptyData>> updateHandle() async => await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
       );
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
   Future<XRPCResponse<EmptyData>> submitPlcOperation() async => await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
       );
 
   /// Resolves a handle (domain name) to a DID.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<XRPCResponse<ResolveHandleOutput>> resolveHandle() async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
@@ -50,7 +50,7 @@ final class IdentityService {
 
   /// Signs a PLC operation to update some value(s) in the requesting DID's document.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
   Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation() async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
@@ -59,7 +59,7 @@ final class IdentityService {
 
   /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
       getRecommendedDidCredentials() async => await _ctx.get(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
@@ -68,7 +68,7 @@ final class IdentityService {
 
   /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature() async =>
       await _ctx.post(
         ns.comAtprotoIdentityRequestPlcOperationSignature,

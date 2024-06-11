@@ -31,7 +31,7 @@ final class RepoService {
 
   /// Get a single record from a repository. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
   Future<XRPCResponse<GetRecordOutput>> getRecord() async => await _ctx.get(
         ns.comAtprotoRepoGetRecord,
         to: const GetRecordOutputConverter().fromJson,
@@ -39,14 +39,14 @@ final class RepoService {
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
   Future<XRPCResponse<EmptyData>> importRepo() async => await _ctx.post(
         ns.comAtprotoRepoImportRepo,
       );
 
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
   Future<XRPCResponse<ListRecordsOutput>> listRecords() async => await _ctx.get(
         ns.comAtprotoRepoListRecords,
         to: const ListRecordsOutputConverter().fromJson,
@@ -54,7 +54,7 @@ final class RepoService {
 
   /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
   Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs() async =>
       await _ctx.get(
         ns.comAtprotoRepoListMissingBlobs,
@@ -63,14 +63,14 @@ final class RepoService {
 
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
   Future<XRPCResponse<EmptyData>> applyWrites() async => await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
       );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<XRPCResponse<UploadBlobOutput>> uploadBlob() async => await _ctx.post(
         ns.comAtprotoRepoUploadBlob,
         to: const UploadBlobOutputConverter().fromJson,
@@ -78,14 +78,14 @@ final class RepoService {
 
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/deleteRecord#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/deleteRecord
   Future<XRPCResponse<EmptyData>> deleteRecord() async => await _ctx.post(
         ns.comAtprotoRepoDeleteRecord,
       );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
   Future<XRPCResponse<PutRecordOutput>> putRecord() async => await _ctx.post(
         ns.comAtprotoRepoPutRecord,
         to: const PutRecordOutputConverter().fromJson,
@@ -93,7 +93,7 @@ final class RepoService {
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo() async =>
       await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,
@@ -102,7 +102,7 @@ final class RepoService {
 
   /// Create a single new repository record. Requires auth, implemented by PDS.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
   Future<XRPCResponse<CreateRecordOutput>> createRecord() async =>
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,

@@ -35,7 +35,7 @@ final class GraphService {
 
   /// Enumerates which accounts the requesting account is currently blocking. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getBlocks
   Future<XRPCResponse<GetBlocksOutput>> getBlocks() async => await _ctx.get(
         ns.appBskyGraphGetBlocks,
         to: const GetBlocksOutputConverter().fromJson,
@@ -43,7 +43,7 @@ final class GraphService {
 
   /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getSuggestedFollowsByActor
   Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
       getSuggestedFollowsByActor() async => await _ctx.get(
             ns.appBskyGraphGetSuggestedFollowsByActor,
@@ -52,7 +52,7 @@ final class GraphService {
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
   Future<XRPCResponse<StrongRef>> listitem() async => await _ctx.post(
         ns.appBskyGraphListitem,
         to: const StrongRefConverter().fromJson,
@@ -60,7 +60,7 @@ final class GraphService {
 
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listblock
   Future<XRPCResponse<StrongRef>> listblock() async => await _ctx.post(
         ns.appBskyGraphListblock,
         to: const StrongRefConverter().fromJson,
@@ -68,7 +68,7 @@ final class GraphService {
 
   /// Enumerates accounts which a specified account (actor) follows.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollows
   Future<XRPCResponse<GetFollowsOutput>> getFollows() async => await _ctx.get(
         ns.appBskyGraphGetFollows,
         to: const GetFollowsOutputConverter().fromJson,
@@ -76,7 +76,7 @@ final class GraphService {
 
   /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getRelationships
   Future<XRPCResponse<GetRelationshipsOutput>> getRelationships() async =>
       await _ctx.get(
         ns.appBskyGraphGetRelationships,
@@ -85,7 +85,7 @@ final class GraphService {
 
   /// Gets a 'view' (with additional context) of a specified list.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getList
   Future<XRPCResponse<GetListOutput>> getList() async => await _ctx.get(
         ns.appBskyGraphGetList,
         to: const GetListOutputConverter().fromJson,
@@ -93,7 +93,7 @@ final class GraphService {
 
   /// Enumerates accounts which follow a specified account (actor).
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getFollowers
   Future<XRPCResponse<GetFollowersOutput>> getFollowers() async =>
       await _ctx.get(
         ns.appBskyGraphGetFollowers,
@@ -102,7 +102,7 @@ final class GraphService {
 
   /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListMutes
   Future<XRPCResponse<GetListMutesOutput>> getListMutes() async =>
       await _ctx.get(
         ns.appBskyGraphGetListMutes,
@@ -111,7 +111,7 @@ final class GraphService {
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/block
   Future<XRPCResponse<StrongRef>> block() async => await _ctx.post(
         ns.appBskyGraphBlock,
         to: const StrongRefConverter().fromJson,
@@ -119,7 +119,7 @@ final class GraphService {
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/follow
   Future<XRPCResponse<StrongRef>> follow() async => await _ctx.post(
         ns.appBskyGraphFollow,
         to: const StrongRefConverter().fromJson,
@@ -127,28 +127,28 @@ final class GraphService {
 
   /// Unmutes the specified account. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
   Future<XRPCResponse<EmptyData>> unmuteActor() async => await _ctx.post(
         ns.appBskyGraphUnmuteActor,
       );
 
   /// Unmutes the specified list of accounts. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
   Future<XRPCResponse<EmptyData>> unmuteActorList() async => await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
       );
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<XRPCResponse<EmptyData>> muteActorList() async => await _ctx.post(
         ns.appBskyGraphMuteActorList,
       );
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getListBlocks
   Future<XRPCResponse<GetListBlocksOutput>> getListBlocks() async =>
       await _ctx.get(
         ns.appBskyGraphGetListBlocks,
@@ -157,7 +157,7 @@ final class GraphService {
 
   /// Enumerates the lists created by a specified account (actor).
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getLists
   Future<XRPCResponse<GetListsOutput>> getLists() async => await _ctx.get(
         ns.appBskyGraphGetLists,
         to: const GetListsOutputConverter().fromJson,
@@ -165,7 +165,7 @@ final class GraphService {
 
   /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/list
   Future<XRPCResponse<StrongRef>> list() async => await _ctx.post(
         ns.appBskyGraphList,
         to: const StrongRefConverter().fromJson,
@@ -173,14 +173,14 @@ final class GraphService {
 
   /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<XRPCResponse<EmptyData>> muteActor() async => await _ctx.post(
         ns.appBskyGraphMuteActor,
       );
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getMutes
   Future<XRPCResponse<GetMutesOutput>> getMutes() async => await _ctx.get(
         ns.appBskyGraphGetMutes,
         to: const GetMutesOutputConverter().fromJson,

@@ -55,7 +55,7 @@ final class ServiceBuilder {
       endpoints.add(
         LexServiceEndpoint(
           description: _getEndpointDescription(endpoint),
-          referencePath: getReferencePath(docId, 'main'),
+          referencePath: getReferencePath(docId),
           args: [],
           serviceName: endpoint.serviceName,
           name: endpoint.name,

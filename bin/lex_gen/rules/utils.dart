@@ -90,10 +90,12 @@ String getPackageName(final String lexicon) {
   throw UnimplementedError(lexicon);
 }
 
-String getReferencePath(final String docId, final String defName) {
+String getReferencePath(final String docId, [final String? defName]) {
   final service = docId.replaceAll('.', '/');
 
-  return 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}';
+  return defName != null
+      ? 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}'
+      : 'https://atprotodart.com/docs/lexicons/$service';
 }
 
 Ref? getRef(final NSID docId, final String ref) {

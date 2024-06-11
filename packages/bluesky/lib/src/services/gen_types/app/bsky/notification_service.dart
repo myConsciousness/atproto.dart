@@ -26,21 +26,21 @@ final class NotificationService {
 
   /// Notify server that the requesting account has seen notifications. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen() async => await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
       );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
   Future<XRPCResponse<EmptyData>> registerPush() async => await _ctx.post(
         ns.appBskyNotificationRegisterPush,
       );
 
   /// Enumerate notifications for the requesting account. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
   Future<XRPCResponse<ListNotificationsOutput>> listNotifications() async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
@@ -49,7 +49,7 @@ final class NotificationService {
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount() async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,

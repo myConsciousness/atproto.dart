@@ -30,14 +30,14 @@ final class ActorService {
 
   /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<XRPCResponse<EmptyData>> getProfile() async => await _ctx.get(
         ns.appBskyActorGetProfile,
       );
 
   /// Find actors (profiles) matching search criteria. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActors
   Future<XRPCResponse<SearchActorsOutput>> searchActors() async =>
       await _ctx.get(
         ns.appBskyActorSearchActors,
@@ -46,7 +46,7 @@ final class ActorService {
 
   /// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/searchActorsTypeahead
   Future<XRPCResponse<SearchActorsTypeaheadOutput>>
       searchActorsTypeahead() async => await _ctx.get(
             ns.appBskyActorSearchActorsTypeahead,
@@ -55,7 +55,7 @@ final class ActorService {
 
   /// Get detailed profile views of multiple actors.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
   Future<XRPCResponse<GetProfilesOutput>> getProfiles() async => await _ctx.get(
         ns.appBskyActorGetProfiles,
         to: const GetProfilesOutputConverter().fromJson,
@@ -63,7 +63,7 @@ final class ActorService {
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getSuggestions
   Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions() async =>
       await _ctx.get(
         ns.appBskyActorGetSuggestions,
@@ -72,14 +72,14 @@ final class ActorService {
 
   /// Set the private preferences attached to the account.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<XRPCResponse<EmptyData>> putPreferences() async => await _ctx.post(
         ns.appBskyActorPutPreferences,
       );
 
   /// A declaration of a Bluesky account profile.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/profile
   Future<XRPCResponse<StrongRef>> profile() async => await _ctx.post(
         ns.appBskyActorProfile,
         to: const StrongRefConverter().fromJson,
@@ -87,7 +87,7 @@ final class ActorService {
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
   Future<XRPCResponse<GetPreferencesOutput>> getPreferences() async =>
       await _ctx.get(
         ns.appBskyActorGetPreferences,

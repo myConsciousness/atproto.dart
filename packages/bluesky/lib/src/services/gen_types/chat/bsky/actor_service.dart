@@ -23,19 +23,19 @@ final class ActorService {
 
   final BlueskyServiceContext _ctx;
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount#main
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount() async => await _ctx.post(
         ns.chatBskyActorDeleteAccount,
       );
 
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData#main
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
   Future<XRPCResponse<EmptyData>> exportAccountData() async => await _ctx.get(
         ns.chatBskyActorExportAccountData,
       );
 
   /// A declaration of a Bluesky chat account.
   ///
-  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration#main
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
   Future<XRPCResponse<StrongRef>> declaration() async => await _ctx.post(
         ns.chatBskyActorDeclaration,
         to: const StrongRefConverter().fromJson,

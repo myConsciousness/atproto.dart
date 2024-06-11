@@ -29,7 +29,7 @@ final class UnspeccedService {
 
   /// Get a list of suggestions (feeds and users) tagged with categories
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
   Future<XRPCResponse<GetTaggedSuggestionsOutput>>
       getTaggedSuggestions() async => await _ctx.get(
             ns.appBskyUnspeccedGetTaggedSuggestions,
@@ -38,7 +38,7 @@ final class UnspeccedService {
 
   /// Backend Actors (profile) search, returns only skeleton.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
   Future<XRPCResponse<SearchActorsSkeletonOutput>>
       searchActorsSkeleton() async => await _ctx.get(
             ns.appBskyUnspeccedSearchActorsSkeleton,
@@ -47,7 +47,7 @@ final class UnspeccedService {
 
   /// Backend Posts search, returns only skeleton
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
   Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton() async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
@@ -56,7 +56,7 @@ final class UnspeccedService {
 
   /// Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
   Future<XRPCResponse<GetSuggestionsSkeletonOutput>>
       getSuggestionsSkeleton() async => await _ctx.get(
             ns.appBskyUnspeccedGetSuggestionsSkeleton,
@@ -65,7 +65,7 @@ final class UnspeccedService {
 
   /// An unspecced view of globally popular feed generators.
   ///
-  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators#main
+  /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
   Future<XRPCResponse<GetPopularFeedGeneratorsOutput>>
       getPopularFeedGenerators() async => await _ctx.get(
             ns.appBskyUnspeccedGetPopularFeedGenerators,

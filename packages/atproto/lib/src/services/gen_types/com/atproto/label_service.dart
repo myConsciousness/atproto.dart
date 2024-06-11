@@ -26,7 +26,7 @@ final class LabelService {
 
   /// Subscribe to stream of labels (and negations). Public endpoint implemented by mod services. Uses same sequencing scheme as repo event stream.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/subscribeLabels
   Future<XRPCResponse<Subscription<USubscribeLabelsMessage>>>
       subscribeLabels() async => await _ctx.stream(
             ns.comAtprotoLabelSubscribeLabels,
@@ -35,7 +35,7 @@ final class LabelService {
 
   /// Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
   ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels#main
+  /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
   Future<XRPCResponse<QueryLabelsOutput>> queryLabels() async => await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
         to: const QueryLabelsOutputConverter().fromJson,
