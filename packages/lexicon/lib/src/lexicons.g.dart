@@ -4127,6 +4127,51 @@ const appBskyGraphGetListMutes = <String, dynamic>{
   }
 };
 
+/// `app.bsky.graph.getKnownFollowers`
+const appBskyGraphGetKnownFollowers = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.getKnownFollowers",
+  "defs": {
+    "main": {
+      "type": "query",
+      "description":
+          "Enumerates accounts which follow a specified account (actor) and are followed by the viewer.",
+      "parameters": {
+        "type": "params",
+        "required": ["actor"],
+        "properties": {
+          "actor": {"type": "string", "format": "at-identifier"},
+          "limit": {
+            "type": "integer",
+            "default": 50,
+            "minimum": 1,
+            "maximum": 100
+          },
+          "cursor": {"type": "string"}
+        }
+      },
+      "output": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["subject", "followers"],
+          "properties": {
+            "subject": {
+              "type": "ref",
+              "ref": "app.bsky.actor.defs#profileView"
+            },
+            "cursor": {"type": "string"},
+            "followers": {
+              "type": "array",
+              "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
+            }
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.graph.block`
 const appBskyGraphBlock = <String, dynamic>{
   "lexicon": 1,
@@ -5181,7 +5226,22 @@ const appBskyActorDefs = <String, dynamic>{
           "ref": "app.bsky.graph.defs#listViewBasic"
         },
         "following": {"type": "string", "format": "at-uri"},
-        "followedBy": {"type": "string", "format": "at-uri"}
+        "followedBy": {"type": "string", "format": "at-uri"},
+        "knownFollowers": {"type": "ref", "ref": "#knownFollowers"}
+      }
+    },
+    "knownFollowers": {
+      "type": "object",
+      "description": "The subject's followers whom you also follow",
+      "required": ["count", "followers"],
+      "properties": {
+        "count": {"type": "integer"},
+        "followers": {
+          "type": "array",
+          "items": {"type": "ref", "ref": "#profileViewBasic"},
+          "minLength": 0,
+          "maxLength": 5
+        }
       }
     },
     "preferences": {
@@ -9150,6 +9210,7 @@ const lexicons = <Map<String, dynamic>>[
   appBskyGraphGetList,
   appBskyGraphGetFollowers,
   appBskyGraphGetListMutes,
+  appBskyGraphGetKnownFollowers,
   appBskyGraphBlock,
   appBskyGraphFollow,
   appBskyGraphUnmuteActor,
