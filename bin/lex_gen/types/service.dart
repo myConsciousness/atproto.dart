@@ -134,6 +134,13 @@ final class LexServiceEndpoint {
       }
       buffer.writeln('    await _ctx.${method.name}(');
       buffer.writeln('        ns.$namespace,');
+      if (args.isNotEmpty) {
+        buffer.writeln('    parameters: {');
+        for (final arg in args) {
+          buffer.writeln(Payload(arg).toString());
+        }
+        buffer.writeln('    },');
+      }
       if (type.converter != null) {
         buffer.writeln('        to: const ${type.converter}().fromJson,');
       }
@@ -153,6 +160,9 @@ final class LexServiceEndpoint {
       buffer.writeln('        collection: ns.$namespace,');
       buffer.writeln('        record: {');
       buffer.writeln("          r'\$type': '$serviceName.$name',");
+      for (final arg in args) {
+        buffer.writeln(Payload(arg).toString());
+      }
       buffer.writeln('        },');
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.stream) {
@@ -192,6 +202,20 @@ final class LexServiceEndpointArg {
   final LexGenKnownValues? knownValues;
   final LexUnion? union;
 
+  bool get isPrimitive {
+    if (knownValues != null) return false;
+    if (union != null) return false;
+
+    return const ['String', 'int', 'bool'].contains(type.name);
+  }
+
+  bool get isArray {
+    if (knownValues != null && array) return true;
+    if (union != null && array) return false;
+
+    return type.name!.startsWith('List<');
+  }
+
   @override
   String toString() {
     if (knownValues != null) {
@@ -224,6 +248,25 @@ final class LexServiceEndpointArg {
 
     buffer.write(' ');
     buffer.write(name);
+
+    return buffer.toString();
+  }
+}
+
+final class Payload {
+  const Payload(this.arg);
+
+  final LexServiceEndpointArg arg;
+
+  @override
+  String toString() {
+    final buffer = StringBuffer();
+
+    if (arg.isRecord && arg.name == 'createdAt') {
+      buffer.writeln("'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),");
+    } else {
+      buffer.writeln("'${arg.name}': ${arg.name},");
+    }
 
     return buffer.toString();
   }

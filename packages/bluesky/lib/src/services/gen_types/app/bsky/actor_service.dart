@@ -39,6 +39,9 @@ final class ActorService {
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfile,
+        parameters: {
+          'actor': actor,
+        },
       );
 
   /// Find actors (profiles) matching search criteria. Does not require auth.
@@ -52,6 +55,12 @@ final class ActorService {
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActors,
+        parameters: {
+          'term': term,
+          'q': q,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const SearchActorsOutputConverter().fromJson,
       );
 
@@ -65,6 +74,11 @@ final class ActorService {
   }) async =>
       await _ctx.get(
         ns.appBskyActorSearchActorsTypeahead,
+        parameters: {
+          'term': term,
+          'q': q,
+          'limit': limit,
+        },
         to: const SearchActorsTypeaheadOutputConverter().fromJson,
       );
 
@@ -76,6 +90,9 @@ final class ActorService {
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetProfiles,
+        parameters: {
+          'actors': actors,
+        },
         to: const GetProfilesOutputConverter().fromJson,
       );
 
@@ -88,6 +105,10 @@ final class ActorService {
   }) async =>
       await _ctx.get(
         ns.appBskyActorGetSuggestions,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetSuggestionsOutputConverter().fromJson,
       );
 
@@ -99,6 +120,9 @@ final class ActorService {
   }) async =>
       await _ctx.post(
         ns.appBskyActorPutPreferences,
+        parameters: {
+          'preferences': preferences,
+        },
       );
 
   /// A declaration of a Bluesky account profile.
@@ -116,6 +140,11 @@ final class ActorService {
         collection: ns.appBskyActorProfile,
         record: {
           r'$type': 'app.bsky.actor.profile',
+          'displayName': displayName,
+          'description': description,
+          'avatar': avatar,
+          'banner': banner,
+          'labels': labels,
         },
       );
 

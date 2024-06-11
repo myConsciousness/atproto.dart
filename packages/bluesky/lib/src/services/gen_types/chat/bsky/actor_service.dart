@@ -45,6 +45,7 @@ final class ActorService {
         collection: ns.chatBskyActorDeclaration,
         record: {
           r'$type': 'chat.bsky.actor.declaration',
+          'allowIncoming': allowIncoming,
         },
       );
 }

@@ -40,6 +40,9 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoMuteConvo,
+        parameters: {
+          'convoId': convoId,
+        },
         to: const MuteConvoOutputConverter().fromJson,
       );
 
@@ -49,6 +52,9 @@ final class ConvoService {
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoGetLog,
+        parameters: {
+          'cursor': cursor,
+        },
         to: const GetLogOutputConverter().fromJson,
       );
 
@@ -58,6 +64,9 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
+        parameters: {
+          'convoId': convoId,
+        },
         to: const LeaveConvoOutputConverter().fromJson,
       );
 
@@ -69,6 +78,11 @@ final class ConvoService {
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoGetMessages,
+        parameters: {
+          'convoId': convoId,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetMessagesOutputConverter().fromJson,
       );
 
@@ -78,6 +92,9 @@ final class ConvoService {
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoGetConvoForMembers,
+        parameters: {
+          'members': members,
+        },
         to: const GetConvoForMembersOutputConverter().fromJson,
       );
 
@@ -87,6 +104,9 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUnmuteConvo,
+        parameters: {
+          'convoId': convoId,
+        },
         to: const UnmuteConvoOutputConverter().fromJson,
       );
 
@@ -97,6 +117,10 @@ final class ConvoService {
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoListConvos,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const ListConvosOutputConverter().fromJson,
       );
 
@@ -107,6 +131,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoDeleteMessageForSelf,
+        parameters: {
+          'convoId': convoId,
+          'messageId': messageId,
+        },
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
@@ -115,6 +143,9 @@ final class ConvoService {
   }) async =>
       await _ctx.get(
         ns.chatBskyConvoGetConvo,
+        parameters: {
+          'convoId': convoId,
+        },
         to: const GetConvoOutputConverter().fromJson,
       );
 
@@ -124,6 +155,9 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
+        parameters: {
+          'items': items,
+        },
         to: const SendMessageBatchOutputConverter().fromJson,
       );
 
@@ -134,6 +168,10 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoUpdateRead,
+        parameters: {
+          'convoId': convoId,
+          'messageId': messageId,
+        },
         to: const UpdateReadOutputConverter().fromJson,
       );
 
@@ -144,5 +182,9 @@ final class ConvoService {
   }) async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessage,
+        parameters: {
+          'convoId': convoId,
+          'message': message,
+        },
       );
 }

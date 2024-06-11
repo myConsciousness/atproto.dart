@@ -39,6 +39,9 @@ final class LabelerService {
         collection: ns.appBskyLabelerService,
         record: {
           r'$type': 'app.bsky.labeler.service',
+          'policies': policies,
+          'labels': labels,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -51,6 +54,10 @@ final class LabelerService {
   }) async =>
       await _ctx.get(
         ns.appBskyLabelerGetServices,
+        parameters: {
+          'dids': dids,
+          'detailed': detailed,
+        },
         to: const GetServicesOutputConverter().fromJson,
       );
 }

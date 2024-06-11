@@ -39,6 +39,12 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRecord,
+        parameters: {
+          'did': did,
+          'collection': collection,
+          'rkey': rkey,
+          'commit': commit,
+        },
       );
 
   /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
@@ -50,6 +56,10 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetBlocks,
+        parameters: {
+          'did': did,
+          'cids': cids,
+        },
       );
 
   /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
@@ -60,6 +70,9 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRepoStatus,
+        parameters: {
+          'did': did,
+        },
         to: const GetRepoStatusOutputConverter().fromJson,
       );
 
@@ -72,6 +85,10 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetRepo,
+        parameters: {
+          'did': did,
+          'since': since,
+        },
       );
 
   /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
@@ -84,6 +101,9 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetHead,
+        parameters: {
+          'did': did,
+        },
         to: const GetHeadOutputConverter().fromJson,
       );
 
@@ -96,6 +116,10 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetBlob,
+        parameters: {
+          'did': did,
+          'cid': cid,
+        },
       );
 
   /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
@@ -116,6 +140,9 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetCheckout,
+        parameters: {
+          'did': did,
+        },
       );
 
   /// List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
@@ -129,6 +156,12 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListBlobs,
+        parameters: {
+          'did': did,
+          'since': since,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const ListBlobsOutputConverter().fromJson,
       );
 
@@ -140,6 +173,9 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncRequestCrawl,
+        parameters: {
+          'hostname': hostname,
+        },
       );
 
   /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
@@ -150,6 +186,9 @@ final class SyncService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoSyncNotifyOfUpdate,
+        parameters: {
+          'hostname': hostname,
+        },
       );
 
   /// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
@@ -161,6 +200,10 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncListRepos,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const ListReposOutputConverter().fromJson,
       );
 
@@ -172,6 +215,9 @@ final class SyncService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoSyncGetLatestCommit,
+        parameters: {
+          'did': did,
+        },
         to: const GetLatestCommitOutputConverter().fromJson,
       );
 }

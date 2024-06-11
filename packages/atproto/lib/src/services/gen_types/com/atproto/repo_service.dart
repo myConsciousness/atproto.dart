@@ -40,6 +40,12 @@ final class RepoService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoGetRecord,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          'cid': cid,
+        },
         to: const GetRecordOutputConverter().fromJson,
       );
 
@@ -64,6 +70,15 @@ final class RepoService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListRecords,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'limit': limit,
+          'cursor': cursor,
+          'rkeyStart': rkeyStart,
+          'rkeyEnd': rkeyEnd,
+          'reverse': reverse,
+        },
         to: const ListRecordsOutputConverter().fromJson,
       );
 
@@ -76,6 +91,10 @@ final class RepoService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListMissingBlobs,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const ListMissingBlobsOutputConverter().fromJson,
       );
 
@@ -90,6 +109,12 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
+        parameters: {
+          'repo': repo,
+          'validate': validate,
+          'writes': writes,
+          'swapCommit': swapCommit,
+        },
       );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
@@ -112,6 +137,13 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoDeleteRecord,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          'swapRecord': swapRecord,
+          'swapCommit': swapCommit,
+        },
       );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
@@ -128,6 +160,15 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoPutRecord,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          'validate': validate,
+          'record': record,
+          'swapRecord': swapRecord,
+          'swapCommit': swapCommit,
+        },
         to: const StrongRefConverter().fromJson,
       );
 
@@ -139,6 +180,9 @@ final class RepoService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,
+        parameters: {
+          'repo': repo,
+        },
         to: const DescribeRepoOutputConverter().fromJson,
       );
 
@@ -155,6 +199,14 @@ final class RepoService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
+        parameters: {
+          'repo': repo,
+          'collection': collection,
+          'rkey': rkey,
+          'validate': validate,
+          'record': record,
+          'swapCommit': swapCommit,
+        },
         to: const StrongRefConverter().fromJson,
       );
 }

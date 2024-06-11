@@ -181,7 +181,11 @@ final class LexTypesGen {
       final buffer = StringBuffer()
         ..writeln(getFileHeader('Lex Generator'))
         ..writeln()
-        ..writeln(exports.map((e) => e.toString()).toSet().join('\n'));
+        ..writeln(exports
+            .where((e) => !(e.object?.isStrongRef ?? false))
+            .map((e) => e.toString())
+            .toSet()
+            .join('\n'));
 
       writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
     });

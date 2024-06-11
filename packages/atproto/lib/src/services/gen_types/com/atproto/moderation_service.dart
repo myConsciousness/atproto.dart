@@ -35,6 +35,11 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoModerationCreateReport,
+        parameters: {
+          'reasonType': reasonType,
+          'reason': reason,
+          'subject': subject,
+        },
         to: const CreateReportOutputConverter().fromJson,
       );
 }

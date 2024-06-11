@@ -49,6 +49,13 @@ final class UnspeccedService {
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchActorsSkeleton,
+        parameters: {
+          'q': q,
+          'viewer': viewer,
+          'typeahead': typeahead,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const SearchActorsSkeletonOutputConverter().fromJson,
       );
 
@@ -72,6 +79,21 @@ final class UnspeccedService {
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
+        parameters: {
+          'q': q,
+          'sort': sort,
+          'since': since,
+          'until': until,
+          'mentions': mentions,
+          'author': author,
+          'lang': lang,
+          'domain': domain,
+          'url': url,
+          'tag': tag,
+          'viewer': viewer,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const SearchPostsSkeletonOutputConverter().fromJson,
       );
 
@@ -85,6 +107,11 @@ final class UnspeccedService {
   }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        parameters: {
+          'viewer': viewer,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetSuggestionsSkeletonOutputConverter().fromJson,
       );
 
@@ -99,6 +126,11 @@ final class UnspeccedService {
   }) async =>
           await _ctx.get(
             ns.appBskyUnspeccedGetPopularFeedGenerators,
+            parameters: {
+              'limit': limit,
+              'cursor': cursor,
+              'query': query,
+            },
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
           );
 }

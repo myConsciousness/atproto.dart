@@ -44,6 +44,12 @@ final class LabelService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
+        parameters: {
+          'uriPatterns': uriPatterns,
+          'sources': sources,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const QueryLabelsOutputConverter().fromJson,
       );
 }

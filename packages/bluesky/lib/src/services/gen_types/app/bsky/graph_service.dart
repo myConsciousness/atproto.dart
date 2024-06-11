@@ -45,6 +45,10 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetBlocks,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetBlocksOutputConverter().fromJson,
       );
 
@@ -57,6 +61,9 @@ final class GraphService {
   }) async =>
           await _ctx.get(
             ns.appBskyGraphGetSuggestedFollowsByActor,
+            parameters: {
+              'actor': actor,
+            },
             to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
           );
 
@@ -73,6 +80,9 @@ final class GraphService {
         collection: ns.appBskyGraphListitem,
         record: {
           r'$type': 'app.bsky.graph.listitem',
+          'subject': subject,
+          'list': list,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -88,6 +98,8 @@ final class GraphService {
         collection: ns.appBskyGraphListblock,
         record: {
           r'$type': 'app.bsky.graph.listblock',
+          'subject': subject,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -101,6 +113,11 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollows,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetFollowsOutputConverter().fromJson,
       );
 
@@ -113,6 +130,10 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetRelationships,
+        parameters: {
+          'actor': actor,
+          'others': others,
+        },
         to: const GetRelationshipsOutputConverter().fromJson,
       );
 
@@ -126,6 +147,11 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetList,
+        parameters: {
+          'list': list,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetListOutputConverter().fromJson,
       );
 
@@ -139,6 +165,11 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetFollowers,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetFollowersOutputConverter().fromJson,
       );
 
@@ -151,6 +182,10 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListMutes,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetListMutesOutputConverter().fromJson,
       );
 
@@ -166,6 +201,8 @@ final class GraphService {
         collection: ns.appBskyGraphBlock,
         record: {
           r'$type': 'app.bsky.graph.block',
+          'subject': subject,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -181,6 +218,8 @@ final class GraphService {
         collection: ns.appBskyGraphFollow,
         record: {
           r'$type': 'app.bsky.graph.follow',
+          'subject': subject,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -192,6 +231,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActor,
+        parameters: {
+          'actor': actor,
+        },
       );
 
   /// Unmutes the specified list of accounts. Requires auth.
@@ -202,6 +244,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphUnmuteActorList,
+        parameters: {
+          'list': list,
+        },
       );
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
@@ -212,6 +257,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActorList,
+        parameters: {
+          'list': list,
+        },
       );
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
@@ -223,6 +271,10 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetListBlocks,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetListBlocksOutputConverter().fromJson,
       );
 
@@ -236,6 +288,11 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetLists,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetListsOutputConverter().fromJson,
       );
 
@@ -256,6 +313,13 @@ final class GraphService {
         collection: ns.appBskyGraphList,
         record: {
           r'$type': 'app.bsky.graph.list',
+          'purpose': purpose,
+          'name': name,
+          'description': description,
+          'descriptionFacets': descriptionFacets,
+          'avatar': avatar,
+          'labels': labels,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -267,6 +331,9 @@ final class GraphService {
   }) async =>
       await _ctx.post(
         ns.appBskyGraphMuteActor,
+        parameters: {
+          'actor': actor,
+        },
       );
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
@@ -278,6 +345,10 @@ final class GraphService {
   }) async =>
       await _ctx.get(
         ns.appBskyGraphGetMutes,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetMutesOutputConverter().fromJson,
       );
 }

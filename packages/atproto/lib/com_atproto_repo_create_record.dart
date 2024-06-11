@@ -11,4 +11,3 @@
 // **************************************************************************
 
 export 'package:atproto/src/services/gen_types/com/atproto/repo/create_record/input.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/repo/create_record/output.dart';

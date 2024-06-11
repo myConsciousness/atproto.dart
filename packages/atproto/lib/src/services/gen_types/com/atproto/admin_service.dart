@@ -41,6 +41,11 @@ final class AdminService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetSubjectStatus,
+        parameters: {
+          'did': did,
+          'uri': uri,
+          'blob': blob,
+        },
         to: const GetSubjectStatusOutputConverter().fromJson,
       );
 
@@ -53,6 +58,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountPassword,
+        parameters: {
+          'did': did,
+          'password': password,
+        },
       );
 
   /// Get an admin view of invite codes.
@@ -65,6 +74,11 @@ final class AdminService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetInviteCodes,
+        parameters: {
+          'sort': sort,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetInviteCodesOutputConverter().fromJson,
       );
 
@@ -78,6 +92,11 @@ final class AdminService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoAdminSearchAccounts,
+        parameters: {
+          'email': email,
+          'cursor': cursor,
+          'limit': limit,
+        },
         to: const SearchAccountsOutputConverter().fromJson,
       );
 
@@ -90,6 +109,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountHandle,
+        parameters: {
+          'did': did,
+          'handle': handle,
+        },
       );
 
   /// Delete a user account as an administrator.
@@ -100,6 +123,9 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDeleteAccount,
+        parameters: {
+          'did': did,
+        },
       );
 
   /// Disable an account from receiving new invite codes, but does not invalidate existing codes.
@@ -111,6 +137,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableAccountInvites,
+        parameters: {
+          'account': account,
+          'note': note,
+        },
       );
 
   /// Get details about an account.
@@ -121,6 +151,9 @@ final class AdminService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetAccountInfo,
+        parameters: {
+          'did': did,
+        },
       );
 
   /// Update the service-specific admin status of a subject (account, record, or blob).
@@ -133,6 +166,11 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateSubjectStatus,
+        parameters: {
+          'subject': subject,
+          'takedown': takedown,
+          'deactivated': deactivated,
+        },
         to: const UpdateSubjectStatusOutputConverter().fromJson,
       );
 
@@ -145,6 +183,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminEnableAccountInvites,
+        parameters: {
+          'account': account,
+          'note': note,
+        },
       );
 
   /// Disable some set of codes and/or all codes associated with a set of users.
@@ -156,6 +198,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableInviteCodes,
+        parameters: {
+          'codes': codes,
+          'accounts': accounts,
+        },
       );
 
   /// Send email to a user's account email address.
@@ -170,6 +216,13 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminSendEmail,
+        parameters: {
+          'recipientDid': recipientDid,
+          'content': content,
+          'subject': subject,
+          'senderDid': senderDid,
+          'comment': comment,
+        },
         to: const SendEmailOutputConverter().fromJson,
       );
 
@@ -182,6 +235,10 @@ final class AdminService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountEmail,
+        parameters: {
+          'account': account,
+          'email': email,
+        },
       );
 
   /// Get details about some accounts.
@@ -192,6 +249,9 @@ final class AdminService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetAccountInfos,
+        parameters: {
+          'dids': dids,
+        },
         to: const GetAccountInfosOutputConverter().fromJson,
       );
 }

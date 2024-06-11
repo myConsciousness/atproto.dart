@@ -33,6 +33,9 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
+        parameters: {
+          'handle': handle,
+        },
       );
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
@@ -43,6 +46,9 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
+        parameters: {
+          'operation': operation,
+        },
       );
 
   /// Resolves a handle (domain name) to a DID.
@@ -53,6 +59,9 @@ final class IdentityService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
+        parameters: {
+          'handle': handle,
+        },
         to: const ResolveHandleOutputConverter().fromJson,
       );
 
@@ -68,6 +77,13 @@ final class IdentityService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
+        parameters: {
+          'token': token,
+          'rotationKeys': rotationKeys,
+          'alsoKnownAs': alsoKnownAs,
+          'verificationMethods': verificationMethods,
+          'services': services,
+        },
         to: const SignPlcOperationOutputConverter().fromJson,
       );
 

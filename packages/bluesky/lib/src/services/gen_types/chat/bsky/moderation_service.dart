@@ -33,6 +33,12 @@ final class ModerationService {
   }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetMessageContext,
+        parameters: {
+          'convoId': convoId,
+          'messageId': messageId,
+          'before': before,
+          'after': after,
+        },
         to: const GetMessageContextOutputConverter().fromJson,
       );
 
@@ -44,6 +50,11 @@ final class ModerationService {
   }) async =>
       await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
+        parameters: {
+          'actor': actor,
+          'allowAccess': allowAccess,
+          'ref': ref,
+        },
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
@@ -52,6 +63,9 @@ final class ModerationService {
   }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetActorMetadata,
+        parameters: {
+          'actor': actor,
+        },
         to: const GetActorMetadataOutputConverter().fromJson,
       );
 }

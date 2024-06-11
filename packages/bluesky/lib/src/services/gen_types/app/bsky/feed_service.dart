@@ -57,6 +57,9 @@ final class FeedService {
   }) async =>
       await _ctx.post(
         ns.appBskyFeedSendInteractions,
+        parameters: {
+          'interactions': interactions,
+        },
       );
 
   /// Find posts matching search criteria, returning views of those posts.
@@ -78,6 +81,20 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedSearchPosts,
+        parameters: {
+          'q': q,
+          'sort': sort,
+          'since': since,
+          'until': until,
+          'mentions': mentions,
+          'author': author,
+          'lang': lang,
+          'domain': domain,
+          'url': url,
+          'tag': tag,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const SearchPostsOutputConverter().fromJson,
       );
 
@@ -99,6 +116,14 @@ final class FeedService {
         collection: ns.appBskyFeedGenerator,
         record: {
           r'$type': 'app.bsky.feed.generator',
+          'did': did,
+          'displayName': displayName,
+          'description': description,
+          'descriptionFacets': descriptionFacets,
+          'avatar': avatar,
+          'acceptsInteractions': acceptsInteractions,
+          'labels': labels,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -119,6 +144,9 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerator,
+        parameters: {
+          'feed': feed,
+        },
         to: const GetFeedGeneratorOutputConverter().fromJson,
       );
 
@@ -132,6 +160,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetListFeed,
+        parameters: {
+          'list': list,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetListFeedOutputConverter().fromJson,
       );
 
@@ -148,6 +181,9 @@ final class FeedService {
         collection: ns.appBskyFeedThreadgate,
         record: {
           r'$type': 'app.bsky.feed.threadgate',
+          'post': post,
+          'allow': allow,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -162,6 +198,12 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetLikes,
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetLikesOutputConverter().fromJson,
       );
 
@@ -175,6 +217,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeed,
+        parameters: {
+          'feed': feed,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetFeedOutputConverter().fromJson,
       );
 
@@ -189,6 +236,12 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetRepostedBy,
+        parameters: {
+          'uri': uri,
+          'cid': cid,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetRepostedByOutputConverter().fromJson,
       );
 
@@ -204,6 +257,8 @@ final class FeedService {
         collection: ns.appBskyFeedRepost,
         record: {
           r'$type': 'app.bsky.feed.repost',
+          'subject': subject,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -219,6 +274,8 @@ final class FeedService {
         collection: ns.appBskyFeedLike,
         record: {
           r'$type': 'app.bsky.feed.like',
+          'subject': subject,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -230,6 +287,9 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPosts,
+        parameters: {
+          'uris': uris,
+        },
         to: const GetPostsOutputConverter().fromJson,
       );
 
@@ -241,6 +301,9 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedGenerators,
+        parameters: {
+          'feeds': feeds,
+        },
         to: const GetFeedGeneratorsOutputConverter().fromJson,
       );
 
@@ -253,6 +316,10 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetSuggestedFeeds,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetSuggestedFeedsOutputConverter().fromJson,
       );
 
@@ -266,6 +333,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetPostThread,
+        parameters: {
+          'uri': uri,
+          'depth': depth,
+          'parentHeight': parentHeight,
+        },
         to: const GetPostThreadOutputConverter().fromJson,
       );
 
@@ -279,6 +351,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorLikes,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetActorLikesOutputConverter().fromJson,
       );
 
@@ -293,6 +370,12 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetAuthorFeed,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+          'filter': filter,
+        },
         to: const GetAuthorFeedOutputConverter().fromJson,
       );
 
@@ -306,6 +389,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetFeedSkeleton,
+        parameters: {
+          'feed': feed,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetFeedSkeletonOutputConverter().fromJson,
       );
 
@@ -319,6 +407,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetTimeline,
+        parameters: {
+          'algorithm': algorithm,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetTimelineOutputConverter().fromJson,
       );
 
@@ -341,6 +434,15 @@ final class FeedService {
         collection: ns.appBskyFeedPost,
         record: {
           r'$type': 'app.bsky.feed.post',
+          'text': text,
+          'entities': entities,
+          'facets': facets,
+          'reply': reply,
+          'embed': embed,
+          'langs': langs,
+          'labels': labels,
+          'tags': tags,
+          'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
       );
 
@@ -354,6 +456,11 @@ final class FeedService {
   }) async =>
       await _ctx.get(
         ns.appBskyFeedGetActorFeeds,
+        parameters: {
+          'actor': actor,
+          'limit': limit,
+          'cursor': cursor,
+        },
         to: const GetActorFeedsOutputConverter().fromJson,
       );
 }

@@ -33,6 +33,9 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
+        parameters: {
+          'seenAt': seenAt,
+        },
       );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
@@ -46,6 +49,12 @@ final class NotificationService {
   }) async =>
       await _ctx.post(
         ns.appBskyNotificationRegisterPush,
+        parameters: {
+          'serviceDid': serviceDid,
+          'token': token,
+          'platform': platform,
+          'appId': appId,
+        },
       );
 
   /// Enumerate notifications for the requesting account. Requires auth.
@@ -58,6 +67,11 @@ final class NotificationService {
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
+        parameters: {
+          'limit': limit,
+          'cursor': cursor,
+          'seenAt': seenAt,
+        },
         to: const ListNotificationsOutputConverter().fromJson,
       );
 
@@ -69,6 +83,9 @@ final class NotificationService {
   }) async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
+        parameters: {
+          'seenAt': seenAt,
+        },
         to: const GetUnreadCountOutputConverter().fromJson,
       );
 }

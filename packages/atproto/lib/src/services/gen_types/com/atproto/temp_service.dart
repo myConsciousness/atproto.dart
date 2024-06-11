@@ -35,6 +35,10 @@ final class TempService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoTempFetchLabels,
+        parameters: {
+          'since': since,
+          'limit': limit,
+        },
         to: const FetchLabelsOutputConverter().fromJson,
       );
 
@@ -55,5 +59,8 @@ final class TempService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,
+        parameters: {
+          'phoneNumber': phoneNumber,
+        },
       );
 }

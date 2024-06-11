@@ -45,6 +45,11 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerUpdateEmail,
+        parameters: {
+          'email': email,
+          'emailAuthFactor': emailAuthFactor,
+          'token': token,
+        },
       );
 
   /// Get all invite codes for the current account. Requires auth.
@@ -56,6 +61,10 @@ final class ServerService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetAccountInviteCodes,
+        parameters: {
+          'includeUsed': includeUsed,
+          'createAvailable': createAvailable,
+        },
         to: const GetAccountInviteCodesOutputConverter().fromJson,
       );
 
@@ -68,6 +77,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerConfirmEmail,
+        parameters: {
+          'email': email,
+          'token': token,
+        },
       );
 
   /// Request an email with a code to confirm ownership of email.
@@ -93,6 +106,9 @@ final class ServerService {
   }) async =>
       await _ctx.get(
         ns.comAtprotoServerGetServiceAuth,
+        parameters: {
+          'aud': aud,
+        },
         to: const GetServiceAuthOutputConverter().fromJson,
       );
 
@@ -106,6 +122,11 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeleteAccount,
+        parameters: {
+          'did': did,
+          'password': password,
+          'token': token,
+        },
       );
 
   /// Revoke an App Password by name.
@@ -116,6 +137,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRevokeAppPassword,
+        parameters: {
+          'name': name,
+        },
       );
 
   /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
@@ -126,6 +150,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerReserveSigningKey,
+        parameters: {
+          'did': did,
+        },
         to: const ReserveSigningKeyOutputConverter().fromJson,
       );
 
@@ -145,6 +172,17 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAccount,
+        parameters: {
+          'email': email,
+          'handle': handle,
+          'did': did,
+          'inviteCode': inviteCode,
+          'verificationCode': verificationCode,
+          'verificationPhone': verificationPhone,
+          'password': password,
+          'recoveryKey': recoveryKey,
+          'plcOp': plcOp,
+        },
         to: const CreateAccountOutputConverter().fromJson,
       );
 
@@ -158,6 +196,11 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCodes,
+        parameters: {
+          'codeCount': codeCount,
+          'useCount': useCount,
+          'forAccounts': forAccounts,
+        },
         to: const CreateInviteCodesOutputConverter().fromJson,
       );
 
@@ -203,6 +246,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateInviteCode,
+        parameters: {
+          'useCount': useCount,
+          'forAccount': forAccount,
+        },
         to: const CreateInviteCodeOutputConverter().fromJson,
       );
 
@@ -233,6 +280,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerResetPassword,
+        parameters: {
+          'token': token,
+          'password': password,
+        },
       );
 
   /// Get information about the current auth session. Requires auth.
@@ -261,6 +312,10 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateAppPassword,
+        parameters: {
+          'name': name,
+          'privileged': privileged,
+        },
       );
 
   /// Create an authentication session.
@@ -273,6 +328,11 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerCreateSession,
+        parameters: {
+          'identifier': identifier,
+          'password': password,
+          'authFactorToken': authFactorToken,
+        },
         to: const CreateSessionOutputConverter().fromJson,
       );
 
@@ -284,6 +344,9 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerDeactivateAccount,
+        parameters: {
+          'deleteAfter': deleteAfter,
+        },
       );
 
   /// Initiate a user account password reset via email.
@@ -294,5 +357,8 @@ final class ServerService {
   }) async =>
       await _ctx.post(
         ns.comAtprotoServerRequestPasswordReset,
+        parameters: {
+          'email': email,
+        },
       );
 }
