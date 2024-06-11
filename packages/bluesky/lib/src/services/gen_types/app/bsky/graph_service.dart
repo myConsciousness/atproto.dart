@@ -21,6 +21,7 @@ import '../../app/bsky/graph/defs/known_list_purpose.dart';
 import '../../app/bsky/graph/get_blocks/output.dart';
 import '../../app/bsky/graph/get_followers/output.dart';
 import '../../app/bsky/graph/get_follows/output.dart';
+import '../../app/bsky/graph/get_known_followers/output.dart';
 import '../../app/bsky/graph/get_list/output.dart';
 import '../../app/bsky/graph/get_list_blocks/output.dart';
 import '../../app/bsky/graph/get_list_mutes/output.dart';
@@ -187,6 +188,24 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListMutesOutputConverter().fromJson,
+      );
+
+  /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/getKnownFollowers
+  Future<XRPCResponse<GetKnownFollowersOutput>> getKnownFollowers({
+    required String actor,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyGraphGetKnownFollowers,
+        parameters: {
+          'actor': actor,
+          if (limit != null) 'limit': limit,
+          if (cursor != null) 'cursor': cursor,
+        },
+        to: const GetKnownFollowersOutputConverter().fromJson,
       );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.

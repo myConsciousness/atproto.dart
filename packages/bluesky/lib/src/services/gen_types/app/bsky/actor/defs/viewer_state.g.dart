@@ -39,6 +39,11 @@ _$ViewerStateImpl _$$ViewerStateImplFromJson(Map json) => $checkedCreate(
               'followedBy',
               (v) => _$JsonConverterFromJson<String, AtUri>(
                   v, const AtUriConverter().fromJson)),
+          knownFollowers: $checkedConvert(
+              'knownFollowers',
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, KnownFollowers>(
+                      v, const KnownFollowersConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -84,6 +89,10 @@ Map<String, dynamic> _$$ViewerStateImplToJson(_$ViewerStateImpl instance) {
       'followedBy',
       _$JsonConverterToJson<String, AtUri>(
           instance.followedBy, const AtUriConverter().toJson));
+  writeNotNull(
+      'knownFollowers',
+      _$JsonConverterToJson<Map<String, dynamic>, KnownFollowers>(
+          instance.knownFollowers, const KnownFollowersConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

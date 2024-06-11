@@ -11,46 +11,29 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../../../../../ids.g.dart';
-import '../../../../app/bsky/actor/defs/known_followers.dart';
-import '../../../../app/bsky/graph/defs/list_view_basic.dart';
+part 'params.freezed.dart';
+part 'params.g.dart';
 
-part 'viewer_state.freezed.dart';
-part 'viewer_state.g.dart';
-
-/// Metadata about the requesting account's relationship with the subject account. Only has meaningful content for authed requests.
-///
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#viewerstate
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/getKnownFollowers#main
 @freezed
-class ViewerState with _$ViewerState {
+class GetKnownFollowersParams with _$GetKnownFollowersParams {
   @JsonSerializable(includeIfNull: false)
-  const factory ViewerState({
-    /// The unique namespace for this lex object.
-    ///
-    /// `app.bsky.actor.defs#viewerState`
-    @Default(appBskyActorDefsViewerState) @JsonKey(name: r'$type') String $type,
-    @Default(false) bool muted,
-    @ListViewBasicConverter() ListViewBasic? mutedByList,
-    @Default(false) bool blockedBy,
-    @AtUriConverter() AtUri? blocking,
-    @ListViewBasicConverter() ListViewBasic? blockingByList,
-    @AtUriConverter() AtUri? following,
-    @AtUriConverter() AtUri? followedBy,
-    @KnownFollowersConverter() KnownFollowers? knownFollowers,
+  const factory GetKnownFollowersParams({
+    required String actor,
+    int? limit,
+    String? cursor,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
-  }) = _ViewerState;
+  }) = _GetKnownFollowersParams;
 
-  factory ViewerState.fromJson(Map<String, dynamic> json) =>
-      _$ViewerStateFromJson(json);
+  factory GetKnownFollowersParams.fromJson(Map<String, dynamic> json) =>
+      _$GetKnownFollowersParamsFromJson(json);
 }
 
-extension ViewerStateExtension on ViewerState {
+extension GetKnownFollowersParamsExtension on GetKnownFollowersParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;
@@ -61,25 +44,19 @@ extension ViewerStateExtension on ViewerState {
 }
 
 const _kLexCompatibleProperties = <String>[
-  r'$type',
-  'muted',
-  'mutedByList',
-  'blockedBy',
-  'blocking',
-  'blockingByList',
-  'following',
-  'followedBy',
-  'knownFollowers',
+  'actor',
+  'limit',
+  'cursor',
 ];
 
-final class ViewerStateConverter
-    implements JsonConverter<ViewerState, Map<String, dynamic>> {
-  const ViewerStateConverter();
+final class GetKnownFollowersParamsConverter
+    implements JsonConverter<GetKnownFollowersParams, Map<String, dynamic>> {
+  const GetKnownFollowersParamsConverter();
 
   @override
-  ViewerState fromJson(Map<String, dynamic> json) {
+  GetKnownFollowersParams fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return ViewerState.fromJson(json);
+      return GetKnownFollowersParams.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -93,11 +70,11 @@ final class ViewerStateConverter
       }
     }
 
-    return ViewerState.fromJson(lexCompatiblePropertiesWithUnknown);
+    return GetKnownFollowersParams.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(ViewerState object) {
+  Map<String, dynamic> toJson(GetKnownFollowersParams object) {
     if (object.$unknown.isEmpty) {
       return object.toJson();
     }

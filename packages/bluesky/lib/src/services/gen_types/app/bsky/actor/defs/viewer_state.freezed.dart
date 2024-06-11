@@ -37,6 +37,8 @@ mixin _$ViewerState {
   AtUri? get following => throw _privateConstructorUsedError;
   @AtUriConverter()
   AtUri? get followedBy => throw _privateConstructorUsedError;
+  @KnownFollowersConverter()
+  KnownFollowers? get knownFollowers => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -63,10 +65,12 @@ abstract class $ViewerStateCopyWith<$Res> {
       @ListViewBasicConverter() ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
+      @KnownFollowersConverter() KnownFollowers? knownFollowers,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   $ListViewBasicCopyWith<$Res>? get blockingByList;
+  $KnownFollowersCopyWith<$Res>? get knownFollowers;
 }
 
 /// @nodoc
@@ -90,6 +94,7 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? knownFollowers = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -125,6 +130,10 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      knownFollowers: freezed == knownFollowers
+          ? _value.knownFollowers
+          : knownFollowers // ignore: cast_nullable_to_non_nullable
+              as KnownFollowers?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -155,6 +164,18 @@ class _$ViewerStateCopyWithImpl<$Res, $Val extends ViewerState>
       return _then(_value.copyWith(blockingByList: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $KnownFollowersCopyWith<$Res>? get knownFollowers {
+    if (_value.knownFollowers == null) {
+      return null;
+    }
+
+    return $KnownFollowersCopyWith<$Res>(_value.knownFollowers!, (value) {
+      return _then(_value.copyWith(knownFollowers: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -174,12 +195,15 @@ abstract class _$$ViewerStateImplCopyWith<$Res>
       @ListViewBasicConverter() ListViewBasic? blockingByList,
       @AtUriConverter() AtUri? following,
       @AtUriConverter() AtUri? followedBy,
+      @KnownFollowersConverter() KnownFollowers? knownFollowers,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $ListViewBasicCopyWith<$Res>? get mutedByList;
   @override
   $ListViewBasicCopyWith<$Res>? get blockingByList;
+  @override
+  $KnownFollowersCopyWith<$Res>? get knownFollowers;
 }
 
 /// @nodoc
@@ -201,6 +225,7 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
     Object? blockingByList = freezed,
     Object? following = freezed,
     Object? followedBy = freezed,
+    Object? knownFollowers = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ViewerStateImpl(
@@ -236,6 +261,10 @@ class __$$ViewerStateImplCopyWithImpl<$Res>
           ? _value.followedBy
           : followedBy // ignore: cast_nullable_to_non_nullable
               as AtUri?,
+      knownFollowers: freezed == knownFollowers
+          ? _value.knownFollowers
+          : knownFollowers // ignore: cast_nullable_to_non_nullable
+              as KnownFollowers?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -257,6 +286,7 @@ class _$ViewerStateImpl implements _ViewerState {
       @ListViewBasicConverter() this.blockingByList,
       @AtUriConverter() this.following,
       @AtUriConverter() this.followedBy,
+      @KnownFollowersConverter() this.knownFollowers,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -291,6 +321,9 @@ class _$ViewerStateImpl implements _ViewerState {
   @override
   @AtUriConverter()
   final AtUri? followedBy;
+  @override
+  @KnownFollowersConverter()
+  final KnownFollowers? knownFollowers;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -306,7 +339,7 @@ class _$ViewerStateImpl implements _ViewerState {
 
   @override
   String toString() {
-    return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, \$unknown: ${$unknown})';
+    return 'ViewerState(\$type: ${$type}, muted: $muted, mutedByList: $mutedByList, blockedBy: $blockedBy, blocking: $blocking, blockingByList: $blockingByList, following: $following, followedBy: $followedBy, knownFollowers: $knownFollowers, \$unknown: ${$unknown})';
   }
 
   @override
@@ -328,6 +361,8 @@ class _$ViewerStateImpl implements _ViewerState {
                 other.following == following) &&
             (identical(other.followedBy, followedBy) ||
                 other.followedBy == followedBy) &&
+            (identical(other.knownFollowers, knownFollowers) ||
+                other.knownFollowers == knownFollowers) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
   }
 
@@ -343,6 +378,7 @@ class _$ViewerStateImpl implements _ViewerState {
       blockingByList,
       following,
       followedBy,
+      knownFollowers,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -369,6 +405,7 @@ abstract class _ViewerState implements ViewerState {
           @ListViewBasicConverter() final ListViewBasic? blockingByList,
           @AtUriConverter() final AtUri? following,
           @AtUriConverter() final AtUri? followedBy,
+          @KnownFollowersConverter() final KnownFollowers? knownFollowers,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ViewerStateImpl;
 
@@ -401,6 +438,9 @@ abstract class _ViewerState implements ViewerState {
   @override
   @AtUriConverter()
   AtUri? get followedBy;
+  @override
+  @KnownFollowersConverter()
+  KnownFollowers? get knownFollowers;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

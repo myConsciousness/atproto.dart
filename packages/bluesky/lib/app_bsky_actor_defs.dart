@@ -17,6 +17,7 @@ export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_assoc
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_associated_chat.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_allow_incoming.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/viewer_state.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_followers.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/adult_content_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/known_visibility.dart';
