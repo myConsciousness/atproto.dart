@@ -24,7 +24,8 @@ mixin _$DeleteRecordInput {
   String get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// The Record Key.
   String get rkey => throw _privateConstructorUsedError;
@@ -53,7 +54,7 @@ abstract class $DeleteRecordInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       String? swapRecord,
       String? swapCommit,
@@ -88,7 +89,7 @@ class _$DeleteRecordInputCopyWithImpl<$Res, $Val extends DeleteRecordInput>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -119,7 +120,7 @@ abstract class _$$DeleteRecordInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       String? swapRecord,
       String? swapCommit,
@@ -152,7 +153,7 @@ class __$$DeleteRecordInputImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -179,7 +180,7 @@ class __$$DeleteRecordInputImplCopyWithImpl<$Res>
 class _$DeleteRecordInputImpl implements _DeleteRecordInput {
   const _$DeleteRecordInputImpl(
       {required this.repo,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       required this.rkey,
       this.swapRecord,
       this.swapCommit,
@@ -196,7 +197,8 @@ class _$DeleteRecordInputImpl implements _DeleteRecordInput {
 
   /// The NSID of the record collection.
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// The Record Key.
   @override
@@ -266,7 +268,7 @@ class _$DeleteRecordInputImpl implements _DeleteRecordInput {
 abstract class _DeleteRecordInput implements DeleteRecordInput {
   const factory _DeleteRecordInput(
           {required final String repo,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           required final String rkey,
           final String? swapRecord,
           final String? swapCommit,
@@ -283,7 +285,8 @@ abstract class _DeleteRecordInput implements DeleteRecordInput {
   @override
 
   /// The NSID of the record collection.
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// The Record Key.

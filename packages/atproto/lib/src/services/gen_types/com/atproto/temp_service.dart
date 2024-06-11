@@ -29,7 +29,11 @@ final class TempService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels
   @Deprecated(
       'DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.')
-  Future<XRPCResponse<FetchLabelsOutput>> fetchLabels() async => await _ctx.get(
+  Future<XRPCResponse<FetchLabelsOutput>> fetchLabels({
+    int? since,
+    int? limit,
+  }) async =>
+      await _ctx.get(
         ns.comAtprotoTempFetchLabels,
         to: const FetchLabelsOutputConverter().fromJson,
       );
@@ -46,7 +50,9 @@ final class TempService {
   /// Request a verification code to be sent to the supplied phone number
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/requestPhoneVerification
-  Future<XRPCResponse<EmptyData>> requestPhoneVerification() async =>
+  Future<XRPCResponse<EmptyData>> requestPhoneVerification({
+    required String phoneNumber,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,
       );

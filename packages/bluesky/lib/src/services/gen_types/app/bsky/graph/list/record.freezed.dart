@@ -31,8 +31,8 @@ mixin _$ListRecord {
   List<Facet>? get descriptionFacets => throw _privateConstructorUsedError;
   @BlobConverter()
   Blob? get avatar => throw _privateConstructorUsedError;
-  @ULabelConverter()
-  ULabel? get labels => throw _privateConstructorUsedError;
+  @UListLabelConverter()
+  UListLabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -57,13 +57,13 @@ abstract class $ListRecordCopyWith<$Res> {
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
-      @ULabelConverter() ULabel? labels,
+      @UListLabelConverter() UListLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UListPurposeCopyWith<$Res> get purpose;
   $BlobCopyWith<$Res>? get avatar;
-  $ULabelCopyWith<$Res>? get labels;
+  $UListLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -112,7 +112,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UListLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -146,12 +146,12 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $ULabelCopyWith<$Res>? get labels {
+  $UListLabelCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $ULabelCopyWith<$Res>(_value.labels!, (value) {
+    return $UListLabelCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -171,7 +171,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
-      @ULabelConverter() ULabel? labels,
+      @UListLabelConverter() UListLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
@@ -180,7 +180,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $ULabelCopyWith<$Res>? get labels;
+  $UListLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -227,7 +227,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UListLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -250,7 +250,7 @@ class _$ListRecordImpl implements _ListRecord {
       this.description,
       @FacetConverter() final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
-      @ULabelConverter() this.labels,
+      @UListLabelConverter() this.labels,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -286,8 +286,8 @@ class _$ListRecordImpl implements _ListRecord {
   @BlobConverter()
   final Blob? avatar;
   @override
-  @ULabelConverter()
-  final ULabel? labels;
+  @UListLabelConverter()
+  final UListLabel? labels;
   @override
   final DateTime createdAt;
 
@@ -360,7 +360,7 @@ abstract class _ListRecord implements ListRecord {
           final String? description,
           @FacetConverter() final List<Facet>? descriptionFacets,
           @BlobConverter() final Blob? avatar,
-          @ULabelConverter() final ULabel? labels,
+          @UListLabelConverter() final UListLabel? labels,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListRecordImpl;
@@ -386,8 +386,8 @@ abstract class _ListRecord implements ListRecord {
   @BlobConverter()
   Blob? get avatar;
   @override
-  @ULabelConverter()
-  ULabel? get labels;
+  @UListLabelConverter()
+  UListLabel? get labels;
   @override
   DateTime get createdAt;
   @override

@@ -7,6 +7,7 @@ import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import '../../bluesky.dart';
 import '../ids.g.dart' as ids;
 
 final class BlueskyServiceContext extends core.ServiceContext {
@@ -23,14 +24,17 @@ final class BlueskyServiceContext extends core.ServiceContext {
     super.mockedPostClient,
   });
 
-  /// The client of AT Protocol.
   final atp.ATProto atproto;
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
     core.ResponseDataBuilder<T>? to,
   ]) async {
-    final record = await atproto.repo.getRecord(uri: uri);
+    final record = await atproto.repo.getRecord(
+      repo: uri.hostname,
+      collection: NSID(uri.collection),
+      rkey: uri.rkey,
+    );
 
     return core.XRPCResponse(
       headers: record.headers,

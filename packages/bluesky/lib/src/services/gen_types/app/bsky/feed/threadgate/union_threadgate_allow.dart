@@ -18,60 +18,60 @@ import '../../../../app/bsky/feed/threadgate/following_rule.dart';
 import '../../../../app/bsky/feed/threadgate/list_rule.dart';
 import '../../../../app/bsky/feed/threadgate/mention_rule.dart';
 
-part 'union_allow.freezed.dart';
+part 'union_threadgate_allow.freezed.dart';
 
 @freezed
-class UAllow with _$UAllow {
-  const factory UAllow.mentionRule({
+class UThreadgateAllow with _$UThreadgateAllow {
+  const factory UThreadgateAllow.mentionRule({
     required MentionRule data,
-  }) = UAllowMentionRule;
+  }) = UThreadgateAllowMentionRule;
 
-  const factory UAllow.followingRule({
+  const factory UThreadgateAllow.followingRule({
     required FollowingRule data,
-  }) = UAllowFollowingRule;
+  }) = UThreadgateAllowFollowingRule;
 
-  const factory UAllow.listRule({
+  const factory UThreadgateAllow.listRule({
     required ListRule data,
-  }) = UAllowListRule;
+  }) = UThreadgateAllowListRule;
 
-  const factory UAllow.unknown({
+  const factory UThreadgateAllow.unknown({
     required Map<String, dynamic> data,
-  }) = UAllowUnknown;
+  }) = UThreadgateAllowUnknown;
 }
 
-final class UAllowConverter
-    implements JsonConverter<UAllow, Map<String, dynamic>> {
-  const UAllowConverter();
+final class UThreadgateAllowConverter
+    implements JsonConverter<UThreadgateAllow, Map<String, dynamic>> {
+  const UThreadgateAllowConverter();
 
   @override
-  UAllow fromJson(Map<String, dynamic> json) {
+  UThreadgateAllow fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == 'app.bsky.feed.threadgate#mentionRule') {
-        return UAllow.mentionRule(
+        return UThreadgateAllow.mentionRule(
           data: const MentionRuleConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.feed.threadgate#followingRule') {
-        return UAllow.followingRule(
+        return UThreadgateAllow.followingRule(
           data: const FollowingRuleConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.feed.threadgate#listRule') {
-        return UAllow.listRule(
+        return UThreadgateAllow.listRule(
           data: const ListRuleConverter().fromJson(json),
         );
       }
 
-      return UAllow.unknown(data: json);
+      return UThreadgateAllow.unknown(data: json);
     } catch (_) {
-      return UAllow.unknown(data: json);
+      return UThreadgateAllow.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UAllow object) => object.when(
+  Map<String, dynamic> toJson(UThreadgateAllow object) => object.when(
         mentionRule: const MentionRuleConverter().toJson,
         followingRule: const FollowingRuleConverter().toJson,
         listRule: const ListRuleConverter().toJson,
@@ -79,30 +79,31 @@ final class UAllowConverter
       );
 }
 
-extension UAllowExtension on UAllow {
+extension UThreadgateAllowExtension on UThreadgateAllow {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const UAllowConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UThreadgateAllowConverter().toJson(this);
 
   /// Returns true if this data is [MentionRule], otherwise false.
-  bool get isMentionRule => this is UAllowMentionRule;
+  bool get isMentionRule => this is UThreadgateAllowMentionRule;
 
   /// Returns true if this data is not [MentionRule], otherwise false.
   bool get isNotMentionRule => !isMentionRule;
 
   /// Returns true if this data is [FollowingRule], otherwise false.
-  bool get isFollowingRule => this is UAllowFollowingRule;
+  bool get isFollowingRule => this is UThreadgateAllowFollowingRule;
 
   /// Returns true if this data is not [FollowingRule], otherwise false.
   bool get isNotFollowingRule => !isFollowingRule;
 
   /// Returns true if this data is [ListRule], otherwise false.
-  bool get isListRule => this is UAllowListRule;
+  bool get isListRule => this is UThreadgateAllowListRule;
 
   /// Returns true if this data is not [ListRule], otherwise false.
   bool get isNotListRule => !isListRule;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UAllowUnknown;
+  bool get isUnknown => this is UThreadgateAllowUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

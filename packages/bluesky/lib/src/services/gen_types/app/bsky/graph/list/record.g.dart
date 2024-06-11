@@ -29,8 +29,8 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
                   v, const BlobConverter().fromJson)),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
-                  v, const ULabelConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UListLabel>(
+                  v, const UListLabelConverter().fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -66,8 +66,8 @@ Map<String, dynamic> _$$ListRecordImplToJson(_$ListRecordImpl instance) {
           instance.avatar, const BlobConverter().toJson));
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
-          instance.labels, const ULabelConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UListLabel>(
+          instance.labels, const UListLabelConverter().toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -15,6 +15,7 @@ import 'rules/extensions.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
 import 'types/export.dart';
+import 'types/object.dart';
 
 final class LexTypesGen {
   const LexTypesGen();
@@ -54,10 +55,12 @@ final class LexTypesGen {
 
     if (objects != null) {
       for (final object in objects) {
-        writeFileAsStringSync(
-          _getOutputFilePath(context.docId, object.filePath),
-          object.toString(),
-        );
+        if (!object.isStrongRef) {
+          writeFileAsStringSync(
+            _getOutputFilePath(context.docId, object.filePath),
+            object.toString(),
+          );
+        }
 
         _export(
           exports,
@@ -65,6 +68,7 @@ final class LexTypesGen {
           object.name,
           context.defName,
           object.filePath,
+          object,
         );
 
         for (final property in object.properties) {
@@ -199,12 +203,14 @@ final class LexTypesGen {
     final NSID docId,
     final String defName,
     final String objectName,
-    final String filePath,
-  ) {
+    final String filePath, [
+    LexGenObject? object,
+  ]) {
     final export = Export(
       docId: docId,
       defName: defName,
       objectName: objectName,
+      object: object,
       filePath: filePath,
     );
 

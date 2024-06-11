@@ -19,69 +19,69 @@ import '../../../../app/bsky/embed/images/main.dart';
 import '../../../../app/bsky/embed/record/main.dart';
 import '../../../../app/bsky/embed/record_with_media/main.dart';
 
-part 'union_embed.freezed.dart';
+part 'union_post_embed.freezed.dart';
 
 @freezed
-class UEmbed with _$UEmbed {
-  const factory UEmbed.images({
+class UPostEmbed with _$UPostEmbed {
+  const factory UPostEmbed.images({
     required Images data,
-  }) = UEmbedImages;
+  }) = UPostEmbedImages;
 
-  const factory UEmbed.external({
+  const factory UPostEmbed.external({
     required External data,
-  }) = UEmbedExternal;
+  }) = UPostEmbedExternal;
 
-  const factory UEmbed.record({
+  const factory UPostEmbed.record({
     required Record data,
-  }) = UEmbedRecord;
+  }) = UPostEmbedRecord;
 
-  const factory UEmbed.recordWithMedia({
+  const factory UPostEmbed.recordWithMedia({
     required RecordWithMedia data,
-  }) = UEmbedRecordWithMedia;
+  }) = UPostEmbedRecordWithMedia;
 
-  const factory UEmbed.unknown({
+  const factory UPostEmbed.unknown({
     required Map<String, dynamic> data,
-  }) = UEmbedUnknown;
+  }) = UPostEmbedUnknown;
 }
 
-final class UEmbedConverter
-    implements JsonConverter<UEmbed, Map<String, dynamic>> {
-  const UEmbedConverter();
+final class UPostEmbedConverter
+    implements JsonConverter<UPostEmbed, Map<String, dynamic>> {
+  const UPostEmbedConverter();
 
   @override
-  UEmbed fromJson(Map<String, dynamic> json) {
+  UPostEmbed fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == 'app.bsky.embed.images') {
-        return UEmbed.images(
+        return UPostEmbed.images(
           data: const ImagesConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.external') {
-        return UEmbed.external(
+        return UPostEmbed.external(
           data: const ExternalConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.record') {
-        return UEmbed.record(
+        return UPostEmbed.record(
           data: const RecordConverter().fromJson(json),
         );
       }
       if (type == 'app.bsky.embed.recordWithMedia') {
-        return UEmbed.recordWithMedia(
+        return UPostEmbed.recordWithMedia(
           data: const RecordWithMediaConverter().fromJson(json),
         );
       }
 
-      return UEmbed.unknown(data: json);
+      return UPostEmbed.unknown(data: json);
     } catch (_) {
-      return UEmbed.unknown(data: json);
+      return UPostEmbed.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(UEmbed object) => object.when(
+  Map<String, dynamic> toJson(UPostEmbed object) => object.when(
         images: const ImagesConverter().toJson,
         external: const ExternalConverter().toJson,
         record: const RecordConverter().toJson,
@@ -90,36 +90,36 @@ final class UEmbedConverter
       );
 }
 
-extension UEmbedExtension on UEmbed {
+extension UPostEmbedExtension on UPostEmbed {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const UEmbedConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UPostEmbedConverter().toJson(this);
 
   /// Returns true if this data is [Images], otherwise false.
-  bool get isImages => this is UEmbedImages;
+  bool get isImages => this is UPostEmbedImages;
 
   /// Returns true if this data is not [Images], otherwise false.
   bool get isNotImages => !isImages;
 
   /// Returns true if this data is [External], otherwise false.
-  bool get isExternal => this is UEmbedExternal;
+  bool get isExternal => this is UPostEmbedExternal;
 
   /// Returns true if this data is not [External], otherwise false.
   bool get isNotExternal => !isExternal;
 
   /// Returns true if this data is [Record], otherwise false.
-  bool get isRecord => this is UEmbedRecord;
+  bool get isRecord => this is UPostEmbedRecord;
 
   /// Returns true if this data is not [Record], otherwise false.
   bool get isNotRecord => !isRecord;
 
   /// Returns true if this data is [RecordWithMedia], otherwise false.
-  bool get isRecordWithMedia => this is UEmbedRecordWithMedia;
+  bool get isRecordWithMedia => this is UPostEmbedRecordWithMedia;
 
   /// Returns true if this data is not [RecordWithMedia], otherwise false.
   bool get isNotRecordWithMedia => !isRecordWithMedia;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is UEmbedUnknown;
+  bool get isUnknown => this is UPostEmbedUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

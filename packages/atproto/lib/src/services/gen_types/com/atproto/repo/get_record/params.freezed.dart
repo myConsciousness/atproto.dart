@@ -24,7 +24,8 @@ mixin _$GetRecordParams {
   String get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// The Record Key.
   String get rkey => throw _privateConstructorUsedError;
@@ -50,7 +51,7 @@ abstract class $GetRecordParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -83,7 +84,7 @@ class _$GetRecordParamsCopyWithImpl<$Res, $Val extends GetRecordParams>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -110,7 +111,7 @@ abstract class _$$GetRecordParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       String? cid,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -141,7 +142,7 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -164,7 +165,7 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
 class _$GetRecordParamsImpl implements _GetRecordParams {
   const _$GetRecordParamsImpl(
       {required this.repo,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       required this.rkey,
       this.cid,
       @JsonKey(name: r'$unknown')
@@ -180,7 +181,8 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 
   /// The NSID of the record collection.
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// The Record Key.
   @override
@@ -243,7 +245,7 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 abstract class _GetRecordParams implements GetRecordParams {
   const factory _GetRecordParams(
           {required final String repo,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           required final String rkey,
           final String? cid,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -259,7 +261,8 @@ abstract class _GetRecordParams implements GetRecordParams {
   @override
 
   /// The NSID of the record collection.
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// The Record Key.

@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'union_allow.dart';
+part of 'union_threadgate_allow.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -15,7 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$UAllow {
+mixin _$UThreadgateAllow {
   Object get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
@@ -44,41 +44,43 @@ mixin _$UAllow {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowMentionRule value) mentionRule,
-    required TResult Function(UAllowFollowingRule value) followingRule,
-    required TResult Function(UAllowListRule value) listRule,
-    required TResult Function(UAllowUnknown value) unknown,
+    required TResult Function(UThreadgateAllowMentionRule value) mentionRule,
+    required TResult Function(UThreadgateAllowFollowingRule value)
+        followingRule,
+    required TResult Function(UThreadgateAllowListRule value) listRule,
+    required TResult Function(UThreadgateAllowUnknown value) unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowMentionRule value)? mentionRule,
-    TResult? Function(UAllowFollowingRule value)? followingRule,
-    TResult? Function(UAllowListRule value)? listRule,
-    TResult? Function(UAllowUnknown value)? unknown,
+    TResult? Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult? Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult? Function(UThreadgateAllowListRule value)? listRule,
+    TResult? Function(UThreadgateAllowUnknown value)? unknown,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowMentionRule value)? mentionRule,
-    TResult Function(UAllowFollowingRule value)? followingRule,
-    TResult Function(UAllowListRule value)? listRule,
-    TResult Function(UAllowUnknown value)? unknown,
+    TResult Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult Function(UThreadgateAllowListRule value)? listRule,
+    TResult Function(UThreadgateAllowUnknown value)? unknown,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $UAllowCopyWith<$Res> {
-  factory $UAllowCopyWith(UAllow value, $Res Function(UAllow) then) =
-      _$UAllowCopyWithImpl<$Res, UAllow>;
+abstract class $UThreadgateAllowCopyWith<$Res> {
+  factory $UThreadgateAllowCopyWith(
+          UThreadgateAllow value, $Res Function(UThreadgateAllow) then) =
+      _$UThreadgateAllowCopyWithImpl<$Res, UThreadgateAllow>;
 }
 
 /// @nodoc
-class _$UAllowCopyWithImpl<$Res, $Val extends UAllow>
-    implements $UAllowCopyWith<$Res> {
-  _$UAllowCopyWithImpl(this._value, this._then);
+class _$UThreadgateAllowCopyWithImpl<$Res, $Val extends UThreadgateAllow>
+    implements $UThreadgateAllowCopyWith<$Res> {
+  _$UThreadgateAllowCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -87,10 +89,11 @@ class _$UAllowCopyWithImpl<$Res, $Val extends UAllow>
 }
 
 /// @nodoc
-abstract class _$$UAllowMentionRuleImplCopyWith<$Res> {
-  factory _$$UAllowMentionRuleImplCopyWith(_$UAllowMentionRuleImpl value,
-          $Res Function(_$UAllowMentionRuleImpl) then) =
-      __$$UAllowMentionRuleImplCopyWithImpl<$Res>;
+abstract class _$$UThreadgateAllowMentionRuleImplCopyWith<$Res> {
+  factory _$$UThreadgateAllowMentionRuleImplCopyWith(
+          _$UThreadgateAllowMentionRuleImpl value,
+          $Res Function(_$UThreadgateAllowMentionRuleImpl) then) =
+      __$$UThreadgateAllowMentionRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({MentionRule data});
 
@@ -98,11 +101,13 @@ abstract class _$$UAllowMentionRuleImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UAllowMentionRuleImplCopyWithImpl<$Res>
-    extends _$UAllowCopyWithImpl<$Res, _$UAllowMentionRuleImpl>
-    implements _$$UAllowMentionRuleImplCopyWith<$Res> {
-  __$$UAllowMentionRuleImplCopyWithImpl(_$UAllowMentionRuleImpl _value,
-      $Res Function(_$UAllowMentionRuleImpl) _then)
+class __$$UThreadgateAllowMentionRuleImplCopyWithImpl<$Res>
+    extends _$UThreadgateAllowCopyWithImpl<$Res,
+        _$UThreadgateAllowMentionRuleImpl>
+    implements _$$UThreadgateAllowMentionRuleImplCopyWith<$Res> {
+  __$$UThreadgateAllowMentionRuleImplCopyWithImpl(
+      _$UThreadgateAllowMentionRuleImpl _value,
+      $Res Function(_$UThreadgateAllowMentionRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -110,7 +115,7 @@ class __$$UAllowMentionRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowMentionRuleImpl(
+    return _then(_$UThreadgateAllowMentionRuleImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -129,22 +134,22 @@ class __$$UAllowMentionRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAllowMentionRuleImpl implements UAllowMentionRule {
-  const _$UAllowMentionRuleImpl({required this.data});
+class _$UThreadgateAllowMentionRuleImpl implements UThreadgateAllowMentionRule {
+  const _$UThreadgateAllowMentionRuleImpl({required this.data});
 
   @override
   final MentionRule data;
 
   @override
   String toString() {
-    return 'UAllow.mentionRule(data: $data)';
+    return 'UThreadgateAllow.mentionRule(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowMentionRuleImpl &&
+            other is _$UThreadgateAllowMentionRuleImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -154,9 +159,9 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowMentionRuleImplCopyWith<_$UAllowMentionRuleImpl> get copyWith =>
-      __$$UAllowMentionRuleImplCopyWithImpl<_$UAllowMentionRuleImpl>(
-          this, _$identity);
+  _$$UThreadgateAllowMentionRuleImplCopyWith<_$UThreadgateAllowMentionRuleImpl>
+      get copyWith => __$$UThreadgateAllowMentionRuleImplCopyWithImpl<
+          _$UThreadgateAllowMentionRuleImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -198,10 +203,11 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowMentionRule value) mentionRule,
-    required TResult Function(UAllowFollowingRule value) followingRule,
-    required TResult Function(UAllowListRule value) listRule,
-    required TResult Function(UAllowUnknown value) unknown,
+    required TResult Function(UThreadgateAllowMentionRule value) mentionRule,
+    required TResult Function(UThreadgateAllowFollowingRule value)
+        followingRule,
+    required TResult Function(UThreadgateAllowListRule value) listRule,
+    required TResult Function(UThreadgateAllowUnknown value) unknown,
   }) {
     return mentionRule(this);
   }
@@ -209,10 +215,10 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowMentionRule value)? mentionRule,
-    TResult? Function(UAllowFollowingRule value)? followingRule,
-    TResult? Function(UAllowListRule value)? listRule,
-    TResult? Function(UAllowUnknown value)? unknown,
+    TResult? Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult? Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult? Function(UThreadgateAllowListRule value)? listRule,
+    TResult? Function(UThreadgateAllowUnknown value)? unknown,
   }) {
     return mentionRule?.call(this);
   }
@@ -220,10 +226,10 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowMentionRule value)? mentionRule,
-    TResult Function(UAllowFollowingRule value)? followingRule,
-    TResult Function(UAllowListRule value)? listRule,
-    TResult Function(UAllowUnknown value)? unknown,
+    TResult Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult Function(UThreadgateAllowListRule value)? listRule,
+    TResult Function(UThreadgateAllowUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (mentionRule != null) {
@@ -233,22 +239,23 @@ class _$UAllowMentionRuleImpl implements UAllowMentionRule {
   }
 }
 
-abstract class UAllowMentionRule implements UAllow {
-  const factory UAllowMentionRule({required final MentionRule data}) =
-      _$UAllowMentionRuleImpl;
+abstract class UThreadgateAllowMentionRule implements UThreadgateAllow {
+  const factory UThreadgateAllowMentionRule({required final MentionRule data}) =
+      _$UThreadgateAllowMentionRuleImpl;
 
   @override
   MentionRule get data;
   @JsonKey(ignore: true)
-  _$$UAllowMentionRuleImplCopyWith<_$UAllowMentionRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UThreadgateAllowMentionRuleImplCopyWith<_$UThreadgateAllowMentionRuleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UAllowFollowingRuleImplCopyWith<$Res> {
-  factory _$$UAllowFollowingRuleImplCopyWith(_$UAllowFollowingRuleImpl value,
-          $Res Function(_$UAllowFollowingRuleImpl) then) =
-      __$$UAllowFollowingRuleImplCopyWithImpl<$Res>;
+abstract class _$$UThreadgateAllowFollowingRuleImplCopyWith<$Res> {
+  factory _$$UThreadgateAllowFollowingRuleImplCopyWith(
+          _$UThreadgateAllowFollowingRuleImpl value,
+          $Res Function(_$UThreadgateAllowFollowingRuleImpl) then) =
+      __$$UThreadgateAllowFollowingRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({FollowingRule data});
 
@@ -256,11 +263,13 @@ abstract class _$$UAllowFollowingRuleImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UAllowFollowingRuleImplCopyWithImpl<$Res>
-    extends _$UAllowCopyWithImpl<$Res, _$UAllowFollowingRuleImpl>
-    implements _$$UAllowFollowingRuleImplCopyWith<$Res> {
-  __$$UAllowFollowingRuleImplCopyWithImpl(_$UAllowFollowingRuleImpl _value,
-      $Res Function(_$UAllowFollowingRuleImpl) _then)
+class __$$UThreadgateAllowFollowingRuleImplCopyWithImpl<$Res>
+    extends _$UThreadgateAllowCopyWithImpl<$Res,
+        _$UThreadgateAllowFollowingRuleImpl>
+    implements _$$UThreadgateAllowFollowingRuleImplCopyWith<$Res> {
+  __$$UThreadgateAllowFollowingRuleImplCopyWithImpl(
+      _$UThreadgateAllowFollowingRuleImpl _value,
+      $Res Function(_$UThreadgateAllowFollowingRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -268,7 +277,7 @@ class __$$UAllowFollowingRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowFollowingRuleImpl(
+    return _then(_$UThreadgateAllowFollowingRuleImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -287,22 +296,23 @@ class __$$UAllowFollowingRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
-  const _$UAllowFollowingRuleImpl({required this.data});
+class _$UThreadgateAllowFollowingRuleImpl
+    implements UThreadgateAllowFollowingRule {
+  const _$UThreadgateAllowFollowingRuleImpl({required this.data});
 
   @override
   final FollowingRule data;
 
   @override
   String toString() {
-    return 'UAllow.followingRule(data: $data)';
+    return 'UThreadgateAllow.followingRule(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowFollowingRuleImpl &&
+            other is _$UThreadgateAllowFollowingRuleImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -312,9 +322,10 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowFollowingRuleImplCopyWith<_$UAllowFollowingRuleImpl> get copyWith =>
-      __$$UAllowFollowingRuleImplCopyWithImpl<_$UAllowFollowingRuleImpl>(
-          this, _$identity);
+  _$$UThreadgateAllowFollowingRuleImplCopyWith<
+          _$UThreadgateAllowFollowingRuleImpl>
+      get copyWith => __$$UThreadgateAllowFollowingRuleImplCopyWithImpl<
+          _$UThreadgateAllowFollowingRuleImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -356,10 +367,11 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowMentionRule value) mentionRule,
-    required TResult Function(UAllowFollowingRule value) followingRule,
-    required TResult Function(UAllowListRule value) listRule,
-    required TResult Function(UAllowUnknown value) unknown,
+    required TResult Function(UThreadgateAllowMentionRule value) mentionRule,
+    required TResult Function(UThreadgateAllowFollowingRule value)
+        followingRule,
+    required TResult Function(UThreadgateAllowListRule value) listRule,
+    required TResult Function(UThreadgateAllowUnknown value) unknown,
   }) {
     return followingRule(this);
   }
@@ -367,10 +379,10 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowMentionRule value)? mentionRule,
-    TResult? Function(UAllowFollowingRule value)? followingRule,
-    TResult? Function(UAllowListRule value)? listRule,
-    TResult? Function(UAllowUnknown value)? unknown,
+    TResult? Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult? Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult? Function(UThreadgateAllowListRule value)? listRule,
+    TResult? Function(UThreadgateAllowUnknown value)? unknown,
   }) {
     return followingRule?.call(this);
   }
@@ -378,10 +390,10 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowMentionRule value)? mentionRule,
-    TResult Function(UAllowFollowingRule value)? followingRule,
-    TResult Function(UAllowListRule value)? listRule,
-    TResult Function(UAllowUnknown value)? unknown,
+    TResult Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult Function(UThreadgateAllowListRule value)? listRule,
+    TResult Function(UThreadgateAllowUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (followingRule != null) {
@@ -391,22 +403,25 @@ class _$UAllowFollowingRuleImpl implements UAllowFollowingRule {
   }
 }
 
-abstract class UAllowFollowingRule implements UAllow {
-  const factory UAllowFollowingRule({required final FollowingRule data}) =
-      _$UAllowFollowingRuleImpl;
+abstract class UThreadgateAllowFollowingRule implements UThreadgateAllow {
+  const factory UThreadgateAllowFollowingRule(
+          {required final FollowingRule data}) =
+      _$UThreadgateAllowFollowingRuleImpl;
 
   @override
   FollowingRule get data;
   @JsonKey(ignore: true)
-  _$$UAllowFollowingRuleImplCopyWith<_$UAllowFollowingRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UThreadgateAllowFollowingRuleImplCopyWith<
+          _$UThreadgateAllowFollowingRuleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UAllowListRuleImplCopyWith<$Res> {
-  factory _$$UAllowListRuleImplCopyWith(_$UAllowListRuleImpl value,
-          $Res Function(_$UAllowListRuleImpl) then) =
-      __$$UAllowListRuleImplCopyWithImpl<$Res>;
+abstract class _$$UThreadgateAllowListRuleImplCopyWith<$Res> {
+  factory _$$UThreadgateAllowListRuleImplCopyWith(
+          _$UThreadgateAllowListRuleImpl value,
+          $Res Function(_$UThreadgateAllowListRuleImpl) then) =
+      __$$UThreadgateAllowListRuleImplCopyWithImpl<$Res>;
   @useResult
   $Res call({ListRule data});
 
@@ -414,11 +429,12 @@ abstract class _$$UAllowListRuleImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$UAllowListRuleImplCopyWithImpl<$Res>
-    extends _$UAllowCopyWithImpl<$Res, _$UAllowListRuleImpl>
-    implements _$$UAllowListRuleImplCopyWith<$Res> {
-  __$$UAllowListRuleImplCopyWithImpl(
-      _$UAllowListRuleImpl _value, $Res Function(_$UAllowListRuleImpl) _then)
+class __$$UThreadgateAllowListRuleImplCopyWithImpl<$Res>
+    extends _$UThreadgateAllowCopyWithImpl<$Res, _$UThreadgateAllowListRuleImpl>
+    implements _$$UThreadgateAllowListRuleImplCopyWith<$Res> {
+  __$$UThreadgateAllowListRuleImplCopyWithImpl(
+      _$UThreadgateAllowListRuleImpl _value,
+      $Res Function(_$UThreadgateAllowListRuleImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -426,7 +442,7 @@ class __$$UAllowListRuleImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowListRuleImpl(
+    return _then(_$UThreadgateAllowListRuleImpl(
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
@@ -445,22 +461,22 @@ class __$$UAllowListRuleImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAllowListRuleImpl implements UAllowListRule {
-  const _$UAllowListRuleImpl({required this.data});
+class _$UThreadgateAllowListRuleImpl implements UThreadgateAllowListRule {
+  const _$UThreadgateAllowListRuleImpl({required this.data});
 
   @override
   final ListRule data;
 
   @override
   String toString() {
-    return 'UAllow.listRule(data: $data)';
+    return 'UThreadgateAllow.listRule(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowListRuleImpl &&
+            other is _$UThreadgateAllowListRuleImpl &&
             (identical(other.data, data) || other.data == data));
   }
 
@@ -470,9 +486,9 @@ class _$UAllowListRuleImpl implements UAllowListRule {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowListRuleImplCopyWith<_$UAllowListRuleImpl> get copyWith =>
-      __$$UAllowListRuleImplCopyWithImpl<_$UAllowListRuleImpl>(
-          this, _$identity);
+  _$$UThreadgateAllowListRuleImplCopyWith<_$UThreadgateAllowListRuleImpl>
+      get copyWith => __$$UThreadgateAllowListRuleImplCopyWithImpl<
+          _$UThreadgateAllowListRuleImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -514,10 +530,11 @@ class _$UAllowListRuleImpl implements UAllowListRule {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowMentionRule value) mentionRule,
-    required TResult Function(UAllowFollowingRule value) followingRule,
-    required TResult Function(UAllowListRule value) listRule,
-    required TResult Function(UAllowUnknown value) unknown,
+    required TResult Function(UThreadgateAllowMentionRule value) mentionRule,
+    required TResult Function(UThreadgateAllowFollowingRule value)
+        followingRule,
+    required TResult Function(UThreadgateAllowListRule value) listRule,
+    required TResult Function(UThreadgateAllowUnknown value) unknown,
   }) {
     return listRule(this);
   }
@@ -525,10 +542,10 @@ class _$UAllowListRuleImpl implements UAllowListRule {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowMentionRule value)? mentionRule,
-    TResult? Function(UAllowFollowingRule value)? followingRule,
-    TResult? Function(UAllowListRule value)? listRule,
-    TResult? Function(UAllowUnknown value)? unknown,
+    TResult? Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult? Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult? Function(UThreadgateAllowListRule value)? listRule,
+    TResult? Function(UThreadgateAllowUnknown value)? unknown,
   }) {
     return listRule?.call(this);
   }
@@ -536,10 +553,10 @@ class _$UAllowListRuleImpl implements UAllowListRule {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowMentionRule value)? mentionRule,
-    TResult Function(UAllowFollowingRule value)? followingRule,
-    TResult Function(UAllowListRule value)? listRule,
-    TResult Function(UAllowUnknown value)? unknown,
+    TResult Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult Function(UThreadgateAllowListRule value)? listRule,
+    TResult Function(UThreadgateAllowUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (listRule != null) {
@@ -549,32 +566,34 @@ class _$UAllowListRuleImpl implements UAllowListRule {
   }
 }
 
-abstract class UAllowListRule implements UAllow {
-  const factory UAllowListRule({required final ListRule data}) =
-      _$UAllowListRuleImpl;
+abstract class UThreadgateAllowListRule implements UThreadgateAllow {
+  const factory UThreadgateAllowListRule({required final ListRule data}) =
+      _$UThreadgateAllowListRuleImpl;
 
   @override
   ListRule get data;
   @JsonKey(ignore: true)
-  _$$UAllowListRuleImplCopyWith<_$UAllowListRuleImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UThreadgateAllowListRuleImplCopyWith<_$UThreadgateAllowListRuleImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UAllowUnknownImplCopyWith<$Res> {
-  factory _$$UAllowUnknownImplCopyWith(
-          _$UAllowUnknownImpl value, $Res Function(_$UAllowUnknownImpl) then) =
-      __$$UAllowUnknownImplCopyWithImpl<$Res>;
+abstract class _$$UThreadgateAllowUnknownImplCopyWith<$Res> {
+  factory _$$UThreadgateAllowUnknownImplCopyWith(
+          _$UThreadgateAllowUnknownImpl value,
+          $Res Function(_$UThreadgateAllowUnknownImpl) then) =
+      __$$UThreadgateAllowUnknownImplCopyWithImpl<$Res>;
   @useResult
   $Res call({Map<String, dynamic> data});
 }
 
 /// @nodoc
-class __$$UAllowUnknownImplCopyWithImpl<$Res>
-    extends _$UAllowCopyWithImpl<$Res, _$UAllowUnknownImpl>
-    implements _$$UAllowUnknownImplCopyWith<$Res> {
-  __$$UAllowUnknownImplCopyWithImpl(
-      _$UAllowUnknownImpl _value, $Res Function(_$UAllowUnknownImpl) _then)
+class __$$UThreadgateAllowUnknownImplCopyWithImpl<$Res>
+    extends _$UThreadgateAllowCopyWithImpl<$Res, _$UThreadgateAllowUnknownImpl>
+    implements _$$UThreadgateAllowUnknownImplCopyWith<$Res> {
+  __$$UThreadgateAllowUnknownImplCopyWithImpl(
+      _$UThreadgateAllowUnknownImpl _value,
+      $Res Function(_$UThreadgateAllowUnknownImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -582,7 +601,7 @@ class __$$UAllowUnknownImplCopyWithImpl<$Res>
   $Res call({
     Object? data = null,
   }) {
-    return _then(_$UAllowUnknownImpl(
+    return _then(_$UThreadgateAllowUnknownImpl(
       data: null == data
           ? _value._data
           : data // ignore: cast_nullable_to_non_nullable
@@ -593,8 +612,9 @@ class __$$UAllowUnknownImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UAllowUnknownImpl implements UAllowUnknown {
-  const _$UAllowUnknownImpl({required final Map<String, dynamic> data})
+class _$UThreadgateAllowUnknownImpl implements UThreadgateAllowUnknown {
+  const _$UThreadgateAllowUnknownImpl(
+      {required final Map<String, dynamic> data})
       : _data = data;
 
   final Map<String, dynamic> _data;
@@ -607,14 +627,14 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
 
   @override
   String toString() {
-    return 'UAllow.unknown(data: $data)';
+    return 'UThreadgateAllow.unknown(data: $data)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UAllowUnknownImpl &&
+            other is _$UThreadgateAllowUnknownImpl &&
             const DeepCollectionEquality().equals(other._data, _data));
   }
 
@@ -625,8 +645,9 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$UAllowUnknownImplCopyWith<_$UAllowUnknownImpl> get copyWith =>
-      __$$UAllowUnknownImplCopyWithImpl<_$UAllowUnknownImpl>(this, _$identity);
+  _$$UThreadgateAllowUnknownImplCopyWith<_$UThreadgateAllowUnknownImpl>
+      get copyWith => __$$UThreadgateAllowUnknownImplCopyWithImpl<
+          _$UThreadgateAllowUnknownImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -668,10 +689,11 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(UAllowMentionRule value) mentionRule,
-    required TResult Function(UAllowFollowingRule value) followingRule,
-    required TResult Function(UAllowListRule value) listRule,
-    required TResult Function(UAllowUnknown value) unknown,
+    required TResult Function(UThreadgateAllowMentionRule value) mentionRule,
+    required TResult Function(UThreadgateAllowFollowingRule value)
+        followingRule,
+    required TResult Function(UThreadgateAllowListRule value) listRule,
+    required TResult Function(UThreadgateAllowUnknown value) unknown,
   }) {
     return unknown(this);
   }
@@ -679,10 +701,10 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(UAllowMentionRule value)? mentionRule,
-    TResult? Function(UAllowFollowingRule value)? followingRule,
-    TResult? Function(UAllowListRule value)? listRule,
-    TResult? Function(UAllowUnknown value)? unknown,
+    TResult? Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult? Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult? Function(UThreadgateAllowListRule value)? listRule,
+    TResult? Function(UThreadgateAllowUnknown value)? unknown,
   }) {
     return unknown?.call(this);
   }
@@ -690,10 +712,10 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(UAllowMentionRule value)? mentionRule,
-    TResult Function(UAllowFollowingRule value)? followingRule,
-    TResult Function(UAllowListRule value)? listRule,
-    TResult Function(UAllowUnknown value)? unknown,
+    TResult Function(UThreadgateAllowMentionRule value)? mentionRule,
+    TResult Function(UThreadgateAllowFollowingRule value)? followingRule,
+    TResult Function(UThreadgateAllowListRule value)? listRule,
+    TResult Function(UThreadgateAllowUnknown value)? unknown,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -703,13 +725,14 @@ class _$UAllowUnknownImpl implements UAllowUnknown {
   }
 }
 
-abstract class UAllowUnknown implements UAllow {
-  const factory UAllowUnknown({required final Map<String, dynamic> data}) =
-      _$UAllowUnknownImpl;
+abstract class UThreadgateAllowUnknown implements UThreadgateAllow {
+  const factory UThreadgateAllowUnknown(
+          {required final Map<String, dynamic> data}) =
+      _$UThreadgateAllowUnknownImpl;
 
   @override
   Map<String, dynamic> get data;
   @JsonKey(ignore: true)
-  _$$UAllowUnknownImplCopyWith<_$UAllowUnknownImpl> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$UThreadgateAllowUnknownImplCopyWith<_$UThreadgateAllowUnknownImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

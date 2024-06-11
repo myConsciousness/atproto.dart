@@ -17,6 +17,7 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 
 final class ActorService {
   ActorService(this._ctx);
@@ -36,8 +37,12 @@ final class ActorService {
   /// A declaration of a Bluesky chat account.
   ///
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
-  Future<XRPCResponse<StrongRef>> declaration() async => await _ctx.post(
-        ns.chatBskyActorDeclaration,
-        to: const StrongRefConverter().fromJson,
+  Future<XRPCResponse<StrongRef>> declaration({
+    required UDeclarationAllowIncoming allowIncoming,
+  }) async =>
+      await _ctx.atproto.repo.createRecord(
+        repo: "",
+        collection: ns.chatBskyActorDeclaration,
+        record: {},
       );
 }

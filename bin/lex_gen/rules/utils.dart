@@ -120,6 +120,48 @@ Ref? getRef(final NSID docId, final String ref) {
   return null;
 }
 
+bool isStrongRef(final Map<String, dynamic>? properties) {
+  if (properties == null || properties.isEmpty) return false;
+  if (properties.length != 2) return false;
+
+  if (properties['uri'] == null || properties['cid'] == null) return false;
+
+  if (properties['uri']['type'] != 'string') return false;
+  if (properties['cid']['type'] != 'string') return false;
+
+  if (properties['uri']['format'] != 'at-uri') {
+    return false;
+  }
+  if (properties['cid']['format'] != 'cid') {
+    return false;
+  }
+
+  return true;
+}
+
+bool hasAtUri(final Map<String, dynamic>? properties) {
+  if (properties == null || properties.isEmpty) return false;
+
+  if (properties['repo'] == null ||
+      properties['collection'] == null ||
+      properties['rkey'] == null) {
+    return false;
+  }
+
+  if (properties['repo']['type'] != 'string') return false;
+  if (properties['collection']['type'] != 'string') return false;
+  if (properties['rkey']['type'] != 'string') return false;
+
+  if (properties['repo']['format'] != 'at-identifier') {
+    return false;
+  }
+  if ((properties['collection']['format'] != 'nsid')) {
+    return false;
+  }
+
+  return true;
+}
+
 DataType getDataType(
   final LexGenContext context, {
   required String propertyName,
@@ -129,18 +171,27 @@ DataType getDataType(
   required Map<String, dynamic>? items,
   LexUnion? arrayUnion,
 }) {
-  if (type == 'string' && format == 'datetime') {
-    return const DataType(name: 'DateTime');
-  }
-  if (type == 'string' && format == 'at-uri') {
-    return const DataType(
-      name: 'AtUri',
-      importPath: 'package:atproto_core/atproto_core.dart',
-      converter: 'AtUriConverter',
-    );
-  }
+  if (type == 'string') {
+    if (format == 'datetime') {
+      return const DataType(name: 'DateTime');
+    }
+    if (format == 'at-uri') {
+      return const DataType(
+        name: 'AtUri',
+        importPath: 'package:atproto_core/atproto_core.dart',
+        converter: 'AtUriConverter',
+      );
+    }
+    if (format == 'nsid') {
+      return const DataType(
+        name: 'NSID',
+        importPath: 'package:atproto_core/atproto_core.dart',
+        converter: 'NSIDConverter',
+      );
+    }
 
-  if (type == 'string') return const DataType(name: 'String');
+    return const DataType(name: 'String');
+  }
   if (type == 'integer') return const DataType(name: 'int');
   if (type == 'boolean') return const DataType(name: 'bool');
 

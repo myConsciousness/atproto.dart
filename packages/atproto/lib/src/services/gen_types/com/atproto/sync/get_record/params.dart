@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'params.freezed.dart';
@@ -23,7 +24,7 @@ class GetRecordParams with _$GetRecordParams {
   const factory GetRecordParams({
     /// The DID of the repo.
     required String did,
-    required String collection,
+    @NSIDConverter() required NSID collection,
 
     /// Record Key
     required String rkey,

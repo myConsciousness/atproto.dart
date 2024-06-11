@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/actor/profile/union_label.dart';
+import '../../../../app/bsky/actor/profile/union_profile_label.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -37,7 +37,7 @@ class ProfileRecord with _$ProfileRecord {
     @BlobConverter() Blob? banner,
 
     /// Self-label values, specific to the Bluesky application, on the overall account.
-    @ULabelConverter() ULabel? labels,
+    @UProfileLabelConverter() UProfileLabel? labels,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

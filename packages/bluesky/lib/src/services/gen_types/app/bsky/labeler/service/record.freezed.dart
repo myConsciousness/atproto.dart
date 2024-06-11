@@ -22,8 +22,8 @@ ServiceRecord _$ServiceRecordFromJson(Map<String, dynamic> json) {
 mixin _$ServiceRecord {
   @LabelerPoliciesConverter()
   LabelerPolicies get policies => throw _privateConstructorUsedError;
-  @ULabelConverter()
-  ULabel? get labels => throw _privateConstructorUsedError;
+  @UServiceLabelConverter()
+  UServiceLabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,12 +44,12 @@ abstract class $ServiceRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@LabelerPoliciesConverter() LabelerPolicies policies,
-      @ULabelConverter() ULabel? labels,
+      @UServiceLabelConverter() UServiceLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LabelerPoliciesCopyWith<$Res> get policies;
-  $ULabelCopyWith<$Res>? get labels;
+  $UServiceLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -78,7 +78,7 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UServiceLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -100,12 +100,12 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $ULabelCopyWith<$Res>? get labels {
+  $UServiceLabelCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $ULabelCopyWith<$Res>(_value.labels!, (value) {
+    return $UServiceLabelCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -121,14 +121,14 @@ abstract class _$$ServiceRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@LabelerPoliciesConverter() LabelerPolicies policies,
-      @ULabelConverter() ULabel? labels,
+      @UServiceLabelConverter() UServiceLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $LabelerPoliciesCopyWith<$Res> get policies;
   @override
-  $ULabelCopyWith<$Res>? get labels;
+  $UServiceLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -155,7 +155,7 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UServiceLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -174,7 +174,7 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
 class _$ServiceRecordImpl implements _ServiceRecord {
   const _$ServiceRecordImpl(
       {@LabelerPoliciesConverter() required this.policies,
-      @ULabelConverter() this.labels,
+      @UServiceLabelConverter() this.labels,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -187,8 +187,8 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   @LabelerPoliciesConverter()
   final LabelerPolicies policies;
   @override
-  @ULabelConverter()
-  final ULabel? labels;
+  @UServiceLabelConverter()
+  final UServiceLabel? labels;
   @override
   final DateTime createdAt;
 
@@ -244,7 +244,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 abstract class _ServiceRecord implements ServiceRecord {
   const factory _ServiceRecord(
           {@LabelerPoliciesConverter() required final LabelerPolicies policies,
-          @ULabelConverter() final ULabel? labels,
+          @UServiceLabelConverter() final UServiceLabel? labels,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ServiceRecordImpl;
@@ -256,8 +256,8 @@ abstract class _ServiceRecord implements ServiceRecord {
   @LabelerPoliciesConverter()
   LabelerPolicies get policies;
   @override
-  @ULabelConverter()
-  ULabel? get labels;
+  @UServiceLabelConverter()
+  UServiceLabel? get labels;
   @override
   DateTime get createdAt;
   @override

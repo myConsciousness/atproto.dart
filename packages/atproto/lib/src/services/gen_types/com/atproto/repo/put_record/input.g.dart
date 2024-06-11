@@ -14,7 +14,8 @@ _$PutRecordInputImpl _$$PutRecordInputImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$PutRecordInputImpl(
           repo: $checkedConvert('repo', (v) => v as String),
-          collection: $checkedConvert('collection', (v) => v as String),
+          collection: $checkedConvert(
+              'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
           validate: $checkedConvert('validate', (v) => v as bool?),
           record: $checkedConvert(
@@ -37,7 +38,7 @@ Map<String, dynamic> _$$PutRecordInputImplToJson(
     _$PutRecordInputImpl instance) {
   final val = <String, dynamic>{
     'repo': instance.repo,
-    'collection': instance.collection,
+    'collection': const NSIDConverter().toJson(instance.collection),
     'rkey': instance.rkey,
   };
 

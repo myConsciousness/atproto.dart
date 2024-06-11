@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'input.freezed.dart';
@@ -25,7 +26,7 @@ class CreateRecordInput with _$CreateRecordInput {
     required String repo,
 
     /// The NSID of the record collection.
-    required String collection,
+    @NSIDConverter() required NSID collection,
 
     /// The Record Key.
     String? rkey,

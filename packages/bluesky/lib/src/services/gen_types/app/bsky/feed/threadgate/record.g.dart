@@ -19,7 +19,7 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
           allow: $checkedConvert(
               'allow',
               (v) => (v as List<dynamic>?)
-                  ?.map((e) => const UAllowConverter()
+                  ?.map((e) => const UThreadgateAllowConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
           createdAt:
@@ -48,8 +48,8 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
     }
   }
 
-  writeNotNull(
-      'allow', instance.allow?.map(const UAllowConverter().toJson).toList());
+  writeNotNull('allow',
+      instance.allow?.map(const UThreadgateAllowConverter().toJson).toList());
   val['createdAt'] = instance.createdAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -20,6 +20,7 @@ import '../../app/bsky/unspecced/get_popular_feed_generators/output.dart';
 import '../../app/bsky/unspecced/get_suggestions_skeleton/output.dart';
 import '../../app/bsky/unspecced/get_tagged_suggestions/output.dart';
 import '../../app/bsky/unspecced/search_actors_skeleton/output.dart';
+import '../../app/bsky/unspecced/search_posts_skeleton/known_sort.dart';
 import '../../app/bsky/unspecced/search_posts_skeleton/output.dart';
 
 final class UnspeccedService {
@@ -39,16 +40,36 @@ final class UnspeccedService {
   /// Backend Actors (profile) search, returns only skeleton.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchActorsSkeleton
-  Future<XRPCResponse<SearchActorsSkeletonOutput>>
-      searchActorsSkeleton() async => await _ctx.get(
-            ns.appBskyUnspeccedSearchActorsSkeleton,
-            to: const SearchActorsSkeletonOutputConverter().fromJson,
-          );
+  Future<XRPCResponse<SearchActorsSkeletonOutput>> searchActorsSkeleton({
+    required String q,
+    String? viewer,
+    bool? typeahead,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyUnspeccedSearchActorsSkeleton,
+        to: const SearchActorsSkeletonOutputConverter().fromJson,
+      );
 
   /// Backend Posts search, returns only skeleton
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/searchPostsSkeleton
-  Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton() async =>
+  Future<XRPCResponse<SearchPostsSkeletonOutput>> searchPostsSkeleton({
+    required String q,
+    USort? sort,
+    String? since,
+    String? until,
+    String? mentions,
+    String? author,
+    String? lang,
+    String? domain,
+    String? url,
+    List<String>? tag,
+    String? viewer,
+    int? limit,
+    String? cursor,
+  }) async =>
       await _ctx.get(
         ns.appBskyUnspeccedSearchPostsSkeleton,
         to: const SearchPostsSkeletonOutputConverter().fromJson,
@@ -57,17 +78,26 @@ final class UnspeccedService {
   /// Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getSuggestionsSkeleton
-  Future<XRPCResponse<GetSuggestionsSkeletonOutput>>
-      getSuggestionsSkeleton() async => await _ctx.get(
-            ns.appBskyUnspeccedGetSuggestionsSkeleton,
-            to: const GetSuggestionsSkeletonOutputConverter().fromJson,
-          );
+  Future<XRPCResponse<GetSuggestionsSkeletonOutput>> getSuggestionsSkeleton({
+    String? viewer,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
+        ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        to: const GetSuggestionsSkeletonOutputConverter().fromJson,
+      );
 
   /// An unspecced view of globally popular feed generators.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getPopularFeedGenerators
   Future<XRPCResponse<GetPopularFeedGeneratorsOutput>>
-      getPopularFeedGenerators() async => await _ctx.get(
+      getPopularFeedGenerators({
+    int? limit,
+    String? cursor,
+    String? query,
+  }) async =>
+          await _ctx.get(
             ns.appBskyUnspeccedGetPopularFeedGenerators,
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
           );

@@ -14,7 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../chat/bsky/actor/declaration/known_allow_incoming.dart';
+import '../../../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -24,7 +24,8 @@ part 'record.g.dart';
 class DeclarationRecord with _$DeclarationRecord {
   @JsonSerializable(includeIfNull: false)
   const factory DeclarationRecord({
-    @UAllowIncomingConverter() required UAllowIncoming allowIncoming,
+    @UDeclarationAllowIncomingConverter()
+    required UDeclarationAllowIncoming allowIncoming,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

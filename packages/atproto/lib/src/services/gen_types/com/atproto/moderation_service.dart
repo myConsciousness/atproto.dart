@@ -17,6 +17,8 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../com/atproto/moderation/create_report/output.dart';
+import '../../com/atproto/moderation/create_report/union_subject.dart';
+import '../../com/atproto/moderation/defs/known_reason_type.dart';
 
 final class ModerationService {
   ModerationService(this._ctx);
@@ -26,7 +28,11 @@ final class ModerationService {
   /// Submit a moderation report regarding an atproto account or record. Implemented by moderation services (with PDS proxying), and requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/moderation/createReport
-  Future<XRPCResponse<CreateReportOutput>> createReport() async =>
+  Future<XRPCResponse<CreateReportOutput>> createReport({
+    required UReasonType reasonType,
+    String? reason,
+    required USubject subject,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoModerationCreateReport,
         to: const CreateReportOutputConverter().fromJson,

@@ -14,59 +14,59 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'union_label.freezed.dart';
+part 'union_post_label.freezed.dart';
 
 @freezed
-class ULabel with _$ULabel {
-  const factory ULabel.selfLabels({
+class UPostLabel with _$UPostLabel {
+  const factory UPostLabel.selfLabels({
     required SelfLabels data,
-  }) = ULabelSelfLabels;
+  }) = UPostLabelSelfLabels;
 
-  const factory ULabel.unknown({
+  const factory UPostLabel.unknown({
     required Map<String, dynamic> data,
-  }) = ULabelUnknown;
+  }) = UPostLabelUnknown;
 }
 
-final class ULabelConverter
-    implements JsonConverter<ULabel, Map<String, dynamic>> {
-  const ULabelConverter();
+final class UPostLabelConverter
+    implements JsonConverter<UPostLabel, Map<String, dynamic>> {
+  const UPostLabelConverter();
 
   @override
-  ULabel fromJson(Map<String, dynamic> json) {
+  UPostLabel fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == 'com.atproto.label.defs#selfLabels') {
-        return ULabel.selfLabels(
+        return UPostLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );
       }
 
-      return ULabel.unknown(data: json);
+      return UPostLabel.unknown(data: json);
     } catch (_) {
-      return ULabel.unknown(data: json);
+      return UPostLabel.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULabel object) => object.when(
+  Map<String, dynamic> toJson(UPostLabel object) => object.when(
         selfLabels: const SelfLabelsConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension ULabelExtension on ULabel {
+extension UPostLabelExtension on UPostLabel {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const ULabelConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UPostLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.
-  bool get isSelfLabels => this is ULabelSelfLabels;
+  bool get isSelfLabels => this is UPostLabelSelfLabels;
 
   /// Returns true if this data is not [SelfLabels], otherwise false.
   bool get isNotSelfLabels => !isSelfLabels;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is ULabelUnknown;
+  bool get isUnknown => this is UPostLabelUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

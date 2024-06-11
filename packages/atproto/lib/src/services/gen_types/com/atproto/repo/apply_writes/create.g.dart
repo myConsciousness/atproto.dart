@@ -15,7 +15,8 @@ _$CreateImpl _$$CreateImplFromJson(Map json) => $checkedCreate(
         final val = _$CreateImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesCreate),
-          collection: $checkedConvert('collection', (v) => v as String),
+          collection: $checkedConvert(
+              'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String?),
           value: $checkedConvert(
               'value', (v) => Map<String, dynamic>.from(v as Map)),
@@ -34,7 +35,7 @@ _$CreateImpl _$$CreateImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$CreateImplToJson(_$CreateImpl instance) {
   final val = <String, dynamic>{
     r'$type': instance.$type,
-    'collection': instance.collection,
+    'collection': const NSIDConverter().toJson(instance.collection),
   };
 
   void writeNotNull(String key, dynamic value) {

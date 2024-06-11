@@ -28,21 +28,29 @@ final class IdentityService {
   /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
-  Future<XRPCResponse<EmptyData>> updateHandle() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> updateHandle({
+    required String handle,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
       );
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
-  Future<XRPCResponse<EmptyData>> submitPlcOperation() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> submitPlcOperation({
+    required Map<String, dynamic> operation,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
       );
 
   /// Resolves a handle (domain name) to a DID.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
-  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle() async =>
+  Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
+    required String handle,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
         to: const ResolveHandleOutputConverter().fromJson,
@@ -51,7 +59,13 @@ final class IdentityService {
   /// Signs a PLC operation to update some value(s) in the requesting DID's document.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation
-  Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation() async =>
+  Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation({
+    String? token,
+    List<String>? rotationKeys,
+    List<String>? alsoKnownAs,
+    Map<String, dynamic>? verificationMethods,
+    Map<String, dynamic>? services,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
         to: const SignPlcOperationOutputConverter().fromJson,

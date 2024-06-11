@@ -14,8 +14,10 @@ _$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$DeclarationRecordImpl(
-          allowIncoming: $checkedConvert('allowIncoming',
-              (v) => const UAllowIncomingConverter().fromJson(v as String)),
+          allowIncoming: $checkedConvert(
+              'allowIncoming',
+              (v) => const UDeclarationAllowIncomingConverter()
+                  .fromJson(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -31,7 +33,7 @@ _$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$DeclarationRecordImplToJson(
         _$DeclarationRecordImpl instance) =>
     <String, dynamic>{
-      'allowIncoming':
-          const UAllowIncomingConverter().toJson(instance.allowIncoming),
+      'allowIncoming': const UDeclarationAllowIncomingConverter()
+          .toJson(instance.allowIncoming),
       r'$unknown': instance.$unknown,
     };

@@ -13,9 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'known_allow_incoming.freezed.dart';
+part 'known_declaration_allow_incoming.freezed.dart';
 
-enum KnownAllowIncoming {
+enum KnownDeclarationAllowIncoming {
   @JsonValue('all')
   all('all'),
   @JsonValue('none')
@@ -27,10 +27,10 @@ enum KnownAllowIncoming {
   /// JSON value based on lexicon.
   final String value;
 
-  const KnownAllowIncoming(this.value);
+  const KnownDeclarationAllowIncoming(this.value);
 
-  /// Returns [KnownAllowIncoming] associated with [value], otherwise null.
-  static KnownAllowIncoming? valueOf(final String value) {
+  /// Returns [KnownDeclarationAllowIncoming] associated with [value], otherwise null.
+  static KnownDeclarationAllowIncoming? valueOf(final String value) {
     for (final $value in values) {
       if ($value.value == value) {
         return $value;
@@ -58,57 +58,57 @@ enum KnownAllowIncoming {
 /// ```dart
 /// // use when syntax.
 /// final value = object.when(
-///   knownValue: (data) => data, // => KnownAllowIncoming
+///   knownValue: (data) => data, // => KnownDeclarationAllowIncoming
 ///   unknownValue: (data) => data, // => String
 /// );
 ///
 /// // or simpler way.
 /// if (object.isKnownValue) {
-///   print(object.knownValue); // => KnownAllowIncoming or null
+///   print(object.knownValue); // => KnownDeclarationAllowIncoming or null
 /// } else if (object.isUnknownValue) {
 ///   print(object.unknownValue); // => String or null
 /// }
 /// ```
 @freezed
-class UAllowIncoming with _$UAllowIncoming {
-  const factory UAllowIncoming.knownValue({
-    required KnownAllowIncoming data,
-  }) = UAllowIncomingKnownValue;
+class UDeclarationAllowIncoming with _$UDeclarationAllowIncoming {
+  const factory UDeclarationAllowIncoming.knownValue({
+    required KnownDeclarationAllowIncoming data,
+  }) = UDeclarationAllowIncomingKnownValue;
 
-  const factory UAllowIncoming.unknownValue({
+  const factory UDeclarationAllowIncoming.unknownValue({
     required String data,
-  }) = UAllowIncomingUnknownValue;
+  }) = UDeclarationAllowIncomingUnknownValue;
 }
 
-final class UAllowIncomingConverter
-    implements JsonConverter<UAllowIncoming, String> {
-  const UAllowIncomingConverter();
+final class UDeclarationAllowIncomingConverter
+    implements JsonConverter<UDeclarationAllowIncoming, String> {
+  const UDeclarationAllowIncomingConverter();
 
   @override
-  UAllowIncoming fromJson(String json) {
-    final knownValue = KnownAllowIncoming.valueOf(json);
+  UDeclarationAllowIncoming fromJson(String json) {
+    final knownValue = KnownDeclarationAllowIncoming.valueOf(json);
 
     return knownValue != null
-        ? UAllowIncoming.knownValue(data: knownValue)
-        : UAllowIncoming.unknownValue(data: json);
+        ? UDeclarationAllowIncoming.knownValue(data: knownValue)
+        : UDeclarationAllowIncoming.unknownValue(data: json);
   }
 
   @override
-  String toJson(UAllowIncoming object) => object.when(
+  String toJson(UDeclarationAllowIncoming object) => object.when(
         knownValue: (data) => data.value,
         unknownValue: (data) => data,
       );
 }
 
-extension UAllowIncomingExtension on UAllowIncoming {
+extension UDeclarationAllowIncomingExtension on UDeclarationAllowIncoming {
   /// Returns true if this is known value, otherwise false.
-  bool get isKnownValue => this is UAllowIncomingKnownValue;
+  bool get isKnownValue => this is UDeclarationAllowIncomingKnownValue;
 
   /// Returns true if this is not known value, otherwise false.
   bool get isNotKnownValue => !isKnownValue;
 
   /// Returns true if this is unknown value, otherwise false.
-  bool get isUnknownValue => this is UAllowIncomingUnknownValue;
+  bool get isUnknownValue => this is UDeclarationAllowIncomingUnknownValue;
 
   /// Returns true if this is not unknown value, otherwise false.
   bool get isNotUnknownValue => !isUnknownValue;
@@ -116,10 +116,12 @@ extension UAllowIncomingExtension on UAllowIncoming {
   /// Returns known value.
   ///
   /// Make sure to check if this object is known value with [isKnownValue].
-  KnownAllowIncoming get knownValue => this.data as KnownAllowIncoming;
+  KnownDeclarationAllowIncoming get knownValue =>
+      this.data as KnownDeclarationAllowIncoming;
 
   /// Returns known value if this data is known, otherwise null.
-  KnownAllowIncoming? get knownValueOrNull => isKnownValue ? knownValue : null;
+  KnownDeclarationAllowIncoming? get knownValueOrNull =>
+      isKnownValue ? knownValue : null;
 
   /// Returns unknown value.
   ///

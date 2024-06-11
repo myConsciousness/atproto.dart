@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/chat/bsky/actor/declaration/record.dart';
-export 'package:bluesky/src/services/gen_types/chat/bsky/actor/declaration/known_allow_incoming.dart';
+export 'package:bluesky/src/services/gen_types/chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';

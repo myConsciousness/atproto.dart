@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
@@ -32,7 +33,7 @@ class Update with _$Update {
     @Default(comAtprotoRepoApplyWritesUpdate)
     @JsonKey(name: r'$type')
     String $type,
-    required String collection,
+    @NSIDConverter() required NSID collection,
     required String rkey,
     required Map<String, dynamic> value,
 

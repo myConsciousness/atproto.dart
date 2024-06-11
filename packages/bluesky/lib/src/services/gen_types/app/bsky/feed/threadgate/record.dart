@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/feed/threadgate/union_allow.dart';
+import '../../../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -27,7 +27,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
   const factory ThreadgateRecord({
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
-    @UAllowConverter() List<UAllow>? allow,
+    @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.

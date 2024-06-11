@@ -7,12 +7,14 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../rules/utils.dart';
+import 'object.dart';
 
 final class Export {
   const Export({
     required this.docId,
     required this.defName,
     required this.objectName,
+    this.object,
     required this.filePath,
   });
 
@@ -20,6 +22,7 @@ final class Export {
   final String defName;
   final String objectName;
 
+  final LexGenObject? object;
   final String filePath;
 
   @override

@@ -14,59 +14,59 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'union_label.freezed.dart';
+part 'union_service_label.freezed.dart';
 
 @freezed
-class ULabel with _$ULabel {
-  const factory ULabel.selfLabels({
+class UServiceLabel with _$UServiceLabel {
+  const factory UServiceLabel.selfLabels({
     required SelfLabels data,
-  }) = ULabelSelfLabels;
+  }) = UServiceLabelSelfLabels;
 
-  const factory ULabel.unknown({
+  const factory UServiceLabel.unknown({
     required Map<String, dynamic> data,
-  }) = ULabelUnknown;
+  }) = UServiceLabelUnknown;
 }
 
-final class ULabelConverter
-    implements JsonConverter<ULabel, Map<String, dynamic>> {
-  const ULabelConverter();
+final class UServiceLabelConverter
+    implements JsonConverter<UServiceLabel, Map<String, dynamic>> {
+  const UServiceLabelConverter();
 
   @override
-  ULabel fromJson(Map<String, dynamic> json) {
+  UServiceLabel fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == 'com.atproto.label.defs#selfLabels') {
-        return ULabel.selfLabels(
+        return UServiceLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );
       }
 
-      return ULabel.unknown(data: json);
+      return UServiceLabel.unknown(data: json);
     } catch (_) {
-      return ULabel.unknown(data: json);
+      return UServiceLabel.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULabel object) => object.when(
+  Map<String, dynamic> toJson(UServiceLabel object) => object.when(
         selfLabels: const SelfLabelsConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension ULabelExtension on ULabel {
+extension UServiceLabelExtension on UServiceLabel {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const ULabelConverter().toJson(this);
+  Map<String, dynamic> toJson() => const UServiceLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.
-  bool get isSelfLabels => this is ULabelSelfLabels;
+  bool get isSelfLabels => this is UServiceLabelSelfLabels;
 
   /// Returns true if this data is not [SelfLabels], otherwise false.
   bool get isNotSelfLabels => !isSelfLabels;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is ULabelUnknown;
+  bool get isUnknown => this is UServiceLabelUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

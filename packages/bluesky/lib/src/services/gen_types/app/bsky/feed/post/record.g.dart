@@ -32,14 +32,14 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
                   v, const ReplyRefConverter().fromJson)),
           embed: $checkedConvert(
               'embed',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UEmbed>(
-                  v, const UEmbedConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UPostEmbed>(
+                  v, const UPostEmbedConverter().fromJson)),
           langs: $checkedConvert('langs',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
-                  v, const ULabelConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>, UPostLabel>(
+                  v, const UPostLabelConverter().fromJson)),
           tags: $checkedConvert('tags',
               (v) => (v as List<dynamic>?)?.map((e) => e as String).toList()),
           createdAt:
@@ -77,13 +77,13 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
           instance.reply, const ReplyRefConverter().toJson));
   writeNotNull(
       'embed',
-      _$JsonConverterToJson<Map<String, dynamic>, UEmbed>(
-          instance.embed, const UEmbedConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UPostEmbed>(
+          instance.embed, const UPostEmbedConverter().toJson));
   writeNotNull('langs', instance.langs);
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
-          instance.labels, const ULabelConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UPostLabel>(
+          instance.labels, const UPostLabelConverter().toJson));
   writeNotNull('tags', instance.tags);
   val['createdAt'] = instance.createdAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;

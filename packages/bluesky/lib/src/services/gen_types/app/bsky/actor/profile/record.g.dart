@@ -25,8 +25,9 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
                   v, const BlobConverter().fromJson)),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
-                  v, const ULabelConverter().fromJson)),
+              (v) =>
+                  _$JsonConverterFromJson<Map<String, dynamic>, UProfileLabel>(
+                      v, const UProfileLabelConverter().fromJson)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -60,8 +61,8 @@ Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
           instance.banner, const BlobConverter().toJson));
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
-          instance.labels, const ULabelConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UProfileLabel>(
+          instance.labels, const UProfileLabelConverter().toJson));
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

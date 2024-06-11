@@ -23,8 +23,8 @@ mixin _$ThreadgateRecord {
   /// Reference (AT-URI) to the post record.
   @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
-  @UAllowConverter()
-  List<UAllow>? get allow => throw _privateConstructorUsedError;
+  @UThreadgateAllowConverter()
+  List<UThreadgateAllow>? get allow => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -45,7 +45,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {@AtUriConverter() AtUri post,
-      @UAllowConverter() List<UAllow>? allow,
+      @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -76,7 +76,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
       allow: freezed == allow
           ? _value.allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<UAllow>?,
+              as List<UThreadgateAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -99,7 +99,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {@AtUriConverter() AtUri post,
-      @UAllowConverter() List<UAllow>? allow,
+      @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -128,7 +128,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
       allow: freezed == allow
           ? _value._allow
           : allow // ignore: cast_nullable_to_non_nullable
-              as List<UAllow>?,
+              as List<UThreadgateAllow>?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -147,7 +147,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
 class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   const _$ThreadgateRecordImpl(
       {@AtUriConverter() required this.post,
-      @UAllowConverter() final List<UAllow>? allow,
+      @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -161,10 +161,10 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   @override
   @AtUriConverter()
   final AtUri post;
-  final List<UAllow>? _allow;
+  final List<UThreadgateAllow>? _allow;
   @override
-  @UAllowConverter()
-  List<UAllow>? get allow {
+  @UThreadgateAllowConverter()
+  List<UThreadgateAllow>? get allow {
     final value = _allow;
     if (value == null) return null;
     if (_allow is EqualUnmodifiableListView) return _allow;
@@ -231,7 +231,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
           {@AtUriConverter() required final AtUri post,
-          @UAllowConverter() final List<UAllow>? allow,
+          @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ThreadgateRecordImpl;
@@ -245,8 +245,8 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   @AtUriConverter()
   AtUri get post;
   @override
-  @UAllowConverter()
-  List<UAllow>? get allow;
+  @UThreadgateAllowConverter()
+  List<UThreadgateAllow>? get allow;
   @override
   DateTime get createdAt;
   @override

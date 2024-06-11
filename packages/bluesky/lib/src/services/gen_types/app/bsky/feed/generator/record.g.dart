@@ -31,8 +31,9 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
               'acceptsInteractions', (v) => v as bool? ?? false),
           labels: $checkedConvert(
               'labels',
-              (v) => _$JsonConverterFromJson<Map<String, dynamic>, ULabel>(
-                  v, const ULabelConverter().fromJson)),
+              (v) => _$JsonConverterFromJson<Map<String, dynamic>,
+                      UGeneratorLabel>(
+                  v, const UGeneratorLabelConverter().fromJson)),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
           $unknown: $checkedConvert(
@@ -70,8 +71,8 @@ Map<String, dynamic> _$$GeneratorRecordImplToJson(
   val['acceptsInteractions'] = instance.acceptsInteractions;
   writeNotNull(
       'labels',
-      _$JsonConverterToJson<Map<String, dynamic>, ULabel>(
-          instance.labels, const ULabelConverter().toJson));
+      _$JsonConverterToJson<Map<String, dynamic>, UGeneratorLabel>(
+          instance.labels, const UGeneratorLabelConverter().toJson));
   val['createdAt'] = instance.createdAt.toIso8601String();
   val[r'$unknown'] = instance.$unknown;
   return val;

@@ -15,7 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/feed/generator/union_label.dart';
+import '../../../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
 
 part 'record.freezed.dart';
@@ -36,7 +36,7 @@ class GeneratorRecord with _$GeneratorRecord {
     @Default(false) bool acceptsInteractions,
 
     /// Self-label values
-    @ULabelConverter() ULabel? labels,
+    @UGeneratorLabelConverter() UGeneratorLabel? labels,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.

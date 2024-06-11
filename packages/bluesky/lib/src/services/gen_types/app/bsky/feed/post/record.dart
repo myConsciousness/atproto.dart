@@ -16,8 +16,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../app/bsky/feed/post/entity.dart';
 import '../../../../app/bsky/feed/post/reply_ref.dart';
-import '../../../../app/bsky/feed/post/union_embed.dart';
-import '../../../../app/bsky/feed/post/union_label.dart';
+import '../../../../app/bsky/feed/post/union_post_embed.dart';
+import '../../../../app/bsky/feed/post/union_post_label.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
 
 part 'record.freezed.dart';
@@ -39,13 +39,13 @@ class PostRecord with _$PostRecord {
     /// Annotations of text (mentions, URLs, hashtags, etc)
     @FacetConverter() List<Facet>? facets,
     @ReplyRefConverter() ReplyRef? reply,
-    @UEmbedConverter() UEmbed? embed,
+    @UPostEmbedConverter() UPostEmbed? embed,
 
     /// Indicates human language of post primary text content.
     List<String>? langs,
 
     /// Self-label values for this post. Effectively content warnings.
-    @ULabelConverter() ULabel? labels,
+    @UPostLabelConverter() UPostLabel? labels,
 
     /// Additional hashtags, in addition to any included in post text and facets.
     List<String>? tags,

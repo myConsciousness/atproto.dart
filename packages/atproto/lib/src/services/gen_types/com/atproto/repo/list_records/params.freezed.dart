@@ -24,7 +24,8 @@ mixin _$ListRecordsParams {
   String get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record type.
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// The number of records to return.
   int? get limit => throw _privateConstructorUsedError;
@@ -61,7 +62,7 @@ abstract class $ListRecordsParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
       @Deprecated(
@@ -104,7 +105,7 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -143,7 +144,7 @@ abstract class _$$ListRecordsParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
       @Deprecated(
@@ -184,7 +185,7 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       limit: freezed == limit
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
@@ -219,7 +220,7 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
 class _$ListRecordsParamsImpl implements _ListRecordsParams {
   const _$ListRecordsParamsImpl(
       {required this.repo,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       this.limit,
       this.cursor,
       @Deprecated(
@@ -242,7 +243,8 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
   /// The NSID of the record type.
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// The number of records to return.
   @override
@@ -331,7 +333,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 abstract class _ListRecordsParams implements ListRecordsParams {
   const factory _ListRecordsParams(
       {required final String repo,
-      required final String collection,
+      @NSIDConverter() required final NSID collection,
       final int? limit,
       final String? cursor,
       @Deprecated(
@@ -354,7 +356,8 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   @override
 
   /// The NSID of the record type.
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// The number of records to return.

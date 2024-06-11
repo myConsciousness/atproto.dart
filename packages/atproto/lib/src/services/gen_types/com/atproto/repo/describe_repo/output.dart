@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'output.freezed.dart';
@@ -28,7 +29,7 @@ class DescribeRepoOutput with _$DescribeRepoOutput {
     required Map<String, dynamic> didDoc,
 
     /// List of all the collections (NSIDs) for which this repo contains at least one record.
-    required List<String> collections,
+    @NSIDConverter() required List<NSID> collections,
 
     /// Indicates if handle is currently valid (resolves bi-directionally)
     required bool handleIsCorrect,

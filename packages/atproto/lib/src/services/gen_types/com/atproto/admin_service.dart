@@ -16,12 +16,15 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../com/atproto/admin/defs/status_attr.dart';
 import '../../com/atproto/admin/get_account_infos/output.dart';
+import '../../com/atproto/admin/get_invite_codes/known_sort.dart';
 import '../../com/atproto/admin/get_invite_codes/output.dart';
 import '../../com/atproto/admin/get_subject_status/output.dart';
 import '../../com/atproto/admin/search_accounts/output.dart';
 import '../../com/atproto/admin/send_email/output.dart';
 import '../../com/atproto/admin/update_subject_status/output.dart';
+import '../../com/atproto/admin/update_subject_status/union_subject.dart';
 
 final class AdminService {
   AdminService(this._ctx);
@@ -31,7 +34,11 @@ final class AdminService {
   /// Get the service-specific admin status of a subject (account, record, or blob).
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getSubjectStatus
-  Future<XRPCResponse<GetSubjectStatusOutput>> getSubjectStatus() async =>
+  Future<XRPCResponse<GetSubjectStatusOutput>> getSubjectStatus({
+    String? did,
+    AtUri? uri,
+    String? blob,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetSubjectStatus,
         to: const GetSubjectStatusOutputConverter().fromJson,
@@ -40,7 +47,10 @@ final class AdminService {
   /// Update the password for a user account as an administrator.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountPassword
-  Future<XRPCResponse<EmptyData>> updateAccountPassword() async =>
+  Future<XRPCResponse<EmptyData>> updateAccountPassword({
+    required String did,
+    required String password,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountPassword,
       );
@@ -48,7 +58,11 @@ final class AdminService {
   /// Get an admin view of invite codes.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getInviteCodes
-  Future<XRPCResponse<GetInviteCodesOutput>> getInviteCodes() async =>
+  Future<XRPCResponse<GetInviteCodesOutput>> getInviteCodes({
+    USort? sort,
+    int? limit,
+    String? cursor,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetInviteCodes,
         to: const GetInviteCodesOutputConverter().fromJson,
@@ -57,7 +71,11 @@ final class AdminService {
   /// Get list of accounts that matches your search query.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/searchAccounts
-  Future<XRPCResponse<SearchAccountsOutput>> searchAccounts() async =>
+  Future<XRPCResponse<SearchAccountsOutput>> searchAccounts({
+    String? email,
+    String? cursor,
+    int? limit,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoAdminSearchAccounts,
         to: const SearchAccountsOutputConverter().fromJson,
@@ -66,7 +84,10 @@ final class AdminService {
   /// Administrative action to update an account's handle.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountHandle
-  Future<XRPCResponse<EmptyData>> updateAccountHandle() async =>
+  Future<XRPCResponse<EmptyData>> updateAccountHandle({
+    required String did,
+    required String handle,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateAccountHandle,
       );
@@ -74,14 +95,20 @@ final class AdminService {
   /// Delete a user account as an administrator.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/deleteAccount
-  Future<XRPCResponse<EmptyData>> deleteAccount() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    required String did,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoAdminDeleteAccount,
       );
 
   /// Disable an account from receiving new invite codes, but does not invalidate existing codes.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableAccountInvites
-  Future<XRPCResponse<EmptyData>> disableAccountInvites() async =>
+  Future<XRPCResponse<EmptyData>> disableAccountInvites({
+    required String account,
+    String? note,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoAdminDisableAccountInvites,
       );
@@ -89,14 +116,21 @@ final class AdminService {
   /// Get details about an account.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfo
-  Future<XRPCResponse<EmptyData>> getAccountInfo() async => await _ctx.get(
+  Future<XRPCResponse<EmptyData>> getAccountInfo({
+    required String did,
+  }) async =>
+      await _ctx.get(
         ns.comAtprotoAdminGetAccountInfo,
       );
 
   /// Update the service-specific admin status of a subject (account, record, or blob).
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateSubjectStatus
-  Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus() async =>
+  Future<XRPCResponse<UpdateSubjectStatusOutput>> updateSubjectStatus({
+    required USubject subject,
+    StatusAttr? takedown,
+    StatusAttr? deactivated,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoAdminUpdateSubjectStatus,
         to: const UpdateSubjectStatusOutputConverter().fromJson,
@@ -105,7 +139,10 @@ final class AdminService {
   /// Re-enable an account's ability to receive invite codes.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/enableAccountInvites
-  Future<XRPCResponse<EmptyData>> enableAccountInvites() async =>
+  Future<XRPCResponse<EmptyData>> enableAccountInvites({
+    required String account,
+    String? note,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoAdminEnableAccountInvites,
       );
@@ -113,14 +150,25 @@ final class AdminService {
   /// Disable some set of codes and/or all codes associated with a set of users.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/disableInviteCodes
-  Future<XRPCResponse<EmptyData>> disableInviteCodes() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> disableInviteCodes({
+    List<String>? codes,
+    List<String>? accounts,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoAdminDisableInviteCodes,
       );
 
   /// Send email to a user's account email address.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/sendEmail
-  Future<XRPCResponse<SendEmailOutput>> sendEmail() async => await _ctx.post(
+  Future<XRPCResponse<SendEmailOutput>> sendEmail({
+    required String recipientDid,
+    required String content,
+    String? subject,
+    required String senderDid,
+    String? comment,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoAdminSendEmail,
         to: const SendEmailOutputConverter().fromJson,
       );
@@ -128,14 +176,20 @@ final class AdminService {
   /// Administrative action to update an account's email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/updateAccountEmail
-  Future<XRPCResponse<EmptyData>> updateAccountEmail() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> updateAccountEmail({
+    required String account,
+    required String email,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoAdminUpdateAccountEmail,
       );
 
   /// Get details about some accounts.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos
-  Future<XRPCResponse<GetAccountInfosOutput>> getAccountInfos() async =>
+  Future<XRPCResponse<GetAccountInfosOutput>> getAccountInfos({
+    required List<String> dids,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoAdminGetAccountInfos,
         to: const GetAccountInfosOutputConverter().fromJson,

@@ -36,7 +36,13 @@ final class LabelService {
   /// Find labels relevant to the provided AT-URI patterns. Public endpoint for moderation services, though may return different or additional results with auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/label/queryLabels
-  Future<XRPCResponse<QueryLabelsOutput>> queryLabels() async => await _ctx.get(
+  Future<XRPCResponse<QueryLabelsOutput>> queryLabels({
+    required List<String> uriPatterns,
+    List<String>? sources,
+    int? limit,
+    String? cursor,
+  }) async =>
+      await _ctx.get(
         ns.comAtprotoLabelQueryLabels,
         to: const QueryLabelsOutputConverter().fromJson,
       );

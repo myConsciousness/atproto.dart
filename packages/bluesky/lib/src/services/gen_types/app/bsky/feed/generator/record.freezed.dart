@@ -32,8 +32,8 @@ mixin _$GeneratorRecord {
   bool get acceptsInteractions => throw _privateConstructorUsedError;
 
   /// Self-label values
-  @ULabelConverter()
-  ULabel? get labels => throw _privateConstructorUsedError;
+  @UGeneratorLabelConverter()
+  UGeneratorLabel? get labels => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -59,12 +59,12 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
-      @ULabelConverter() ULabel? labels,
+      @UGeneratorLabelConverter() UGeneratorLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
-  $ULabelCopyWith<$Res>? get labels;
+  $UGeneratorLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -118,7 +118,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UGeneratorLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -144,12 +144,12 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $ULabelCopyWith<$Res>? get labels {
+  $UGeneratorLabelCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $ULabelCopyWith<$Res>(_value.labels!, (value) {
+    return $UGeneratorLabelCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -170,14 +170,14 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
-      @ULabelConverter() ULabel? labels,
+      @UGeneratorLabelConverter() UGeneratorLabel? labels,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
   $BlobCopyWith<$Res>? get avatar;
   @override
-  $ULabelCopyWith<$Res>? get labels;
+  $UGeneratorLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -229,7 +229,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UGeneratorLabel?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -253,7 +253,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       @FacetConverter() final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       this.acceptsInteractions = false,
-      @ULabelConverter() this.labels,
+      @UGeneratorLabelConverter() this.labels,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -292,8 +292,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
 
   /// Self-label values
   @override
-  @ULabelConverter()
-  final ULabel? labels;
+  @UGeneratorLabelConverter()
+  final UGeneratorLabel? labels;
   @override
   final DateTime createdAt;
 
@@ -372,7 +372,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
           @FacetConverter() final List<Facet>? descriptionFacets,
           @BlobConverter() final Blob? avatar,
           final bool acceptsInteractions,
-          @ULabelConverter() final ULabel? labels,
+          @UGeneratorLabelConverter() final UGeneratorLabel? labels,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GeneratorRecordImpl;
@@ -399,8 +399,8 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @override
 
   /// Self-label values
-  @ULabelConverter()
-  ULabel? get labels;
+  @UGeneratorLabelConverter()
+  UGeneratorLabel? get labels;
   @override
   DateTime get createdAt;
   @override

@@ -30,6 +30,20 @@ final class LexGenObjectBuilder {
           : '${context.docId.toString()}#${context.defName}';
     }
 
+    final procedureInput = context.def?.whenOrNull(
+      xrpcProcedure: (data) => data.input?.schema
+          ?.whenOrNull(object: (data) => data)
+          ?.properties
+          ?.map((key, value) => MapEntry(key, value.toJson())),
+    );
+
+    final procedureOutput = context.def?.whenOrNull(
+      xrpcProcedure: (data) => data.output?.schema
+          ?.whenOrNull(object: (data) => data)
+          ?.properties
+          ?.map((key, value) => MapEntry(key, value.toJson())),
+    );
+
     return properties.entries.expand((e) {
       if (e.value == null) return const <LexGenObject>[];
 
@@ -37,6 +51,12 @@ final class LexGenObjectBuilder {
 
       return [
         LexGenObject(
+          type: e.key,
+          isStrongRef:
+              e.key == ObjectType.output && isStrongRef(procedureOutput),
+          hasAtUri: e.key == ObjectType.input &&
+              hasAtUri(procedureInput) &&
+              context.docId.toString() != 'com.atproto.repo.createRecord',
           description: _getDescription(),
           referencePath:
               getReferencePath(context.docId.toString(), context.defName),
@@ -66,15 +86,18 @@ final class LexGenObjectBuilder {
         return {
           ObjectType.params:
               _getObjectPropertiesFromXrpcParameters(data.parameters),
-          ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
+          ObjectType.output:
+              _getObjectPropertiesFromXrpcBody(data.output, ObjectType.output),
         };
       },
       xrpcProcedure: (data) {
         return {
           ObjectType.params:
               _getObjectPropertiesFromXrpcParameters(data.parameters),
-          ObjectType.input: _getObjectPropertiesFromXrpcBody(data.input),
-          ObjectType.output: _getObjectPropertiesFromXrpcBody(data.output),
+          ObjectType.input:
+              _getObjectPropertiesFromXrpcBody(data.input, ObjectType.input),
+          ObjectType.output:
+              _getObjectPropertiesFromXrpcBody(data.output, ObjectType.output),
         };
       },
       xrpcSubscription: (data) {
@@ -96,6 +119,7 @@ final class LexGenObjectBuilder {
 
   List<LexGenObjectProperty>? _getObjectPropertiesFromXrpcBody(
     final LexXrpcBody? body,
+    final ObjectType objectType,
   ) {
     final object = body?.schema?.whenOrNull(object: (data) => data);
     if (object == null) {
@@ -153,7 +177,7 @@ final class LexGenObjectBuilder {
               dataType,
               context.docId,
               propertyJson['ref'],
-              ObjectType.output,
+              objectType,
             ),
           )
         ];
@@ -162,7 +186,7 @@ final class LexGenObjectBuilder {
 
     return _getObjectProperties(
       object,
-      ObjectType.output,
+      objectType,
     );
   }
 
@@ -220,7 +244,8 @@ final class LexGenObjectBuilder {
     final property = value;
     final union = LexUnionBuilder(
       docId: context.docId,
-      defName: context.mainRelatedDocIds.contains(context.docId.toString())
+      defName: context.mainRelatedDocIds.contains(context.docId.toString()) ||
+              objectType == ObjectType.record
           ? context.docId.toString().split('.').last
           : null,
       propertyName: name,
@@ -246,7 +271,8 @@ final class LexGenObjectBuilder {
       array: property['items'] != null,
       knownValues: LexKnownValuesBuilder(
         docId: context.docId,
-        defName: context.mainRelatedDocIds.contains(context.docId.toString())
+        defName: context.mainRelatedDocIds.contains(context.docId.toString()) ||
+                objectType == ObjectType.record
             ? context.docId.toString().split('.').last
             : null,
         propertyName: name,

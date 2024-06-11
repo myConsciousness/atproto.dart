@@ -33,15 +33,15 @@ mixin _$PostRecord {
   List<Facet>? get facets => throw _privateConstructorUsedError;
   @ReplyRefConverter()
   ReplyRef? get reply => throw _privateConstructorUsedError;
-  @UEmbedConverter()
-  UEmbed? get embed => throw _privateConstructorUsedError;
+  @UPostEmbedConverter()
+  UPostEmbed? get embed => throw _privateConstructorUsedError;
 
   /// Indicates human language of post primary text content.
   List<String>? get langs => throw _privateConstructorUsedError;
 
   /// Self-label values for this post. Effectively content warnings.
-  @ULabelConverter()
-  ULabel? get labels => throw _privateConstructorUsedError;
+  @UPostLabelConverter()
+  UPostLabel? get labels => throw _privateConstructorUsedError;
 
   /// Additional hashtags, in addition to any included in post text and facets.
   List<String>? get tags => throw _privateConstructorUsedError;
@@ -72,16 +72,16 @@ abstract class $PostRecordCopyWith<$Res> {
       List<Entity>? entities,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
-      @UEmbedConverter() UEmbed? embed,
+      @UPostEmbedConverter() UPostEmbed? embed,
       List<String>? langs,
-      @ULabelConverter() ULabel? labels,
+      @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ReplyRefCopyWith<$Res>? get reply;
-  $UEmbedCopyWith<$Res>? get embed;
-  $ULabelCopyWith<$Res>? get labels;
+  $UPostEmbedCopyWith<$Res>? get embed;
+  $UPostLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -128,7 +128,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UPostEmbed?,
       langs: freezed == langs
           ? _value.langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -136,7 +136,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UPostLabel?,
       tags: freezed == tags
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -166,24 +166,24 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $UEmbedCopyWith<$Res>? get embed {
+  $UPostEmbedCopyWith<$Res>? get embed {
     if (_value.embed == null) {
       return null;
     }
 
-    return $UEmbedCopyWith<$Res>(_value.embed!, (value) {
+    return $UPostEmbedCopyWith<$Res>(_value.embed!, (value) {
       return _then(_value.copyWith(embed: value) as $Val);
     });
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $ULabelCopyWith<$Res>? get labels {
+  $UPostLabelCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $ULabelCopyWith<$Res>(_value.labels!, (value) {
+    return $UPostLabelCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -204,9 +204,9 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       List<Entity>? entities,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
-      @UEmbedConverter() UEmbed? embed,
+      @UPostEmbedConverter() UPostEmbed? embed,
       List<String>? langs,
-      @ULabelConverter() ULabel? labels,
+      @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
       DateTime createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -214,9 +214,9 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @override
   $ReplyRefCopyWith<$Res>? get reply;
   @override
-  $UEmbedCopyWith<$Res>? get embed;
+  $UPostEmbedCopyWith<$Res>? get embed;
   @override
-  $ULabelCopyWith<$Res>? get labels;
+  $UPostLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -261,7 +261,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       embed: freezed == embed
           ? _value.embed
           : embed // ignore: cast_nullable_to_non_nullable
-              as UEmbed?,
+              as UPostEmbed?,
       langs: freezed == langs
           ? _value._langs
           : langs // ignore: cast_nullable_to_non_nullable
@@ -269,7 +269,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UPostLabel?,
       tags: freezed == tags
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
@@ -297,9 +297,9 @@ class _$PostRecordImpl implements _PostRecord {
       final List<Entity>? entities,
       @FacetConverter() final List<Facet>? facets,
       @ReplyRefConverter() this.reply,
-      @UEmbedConverter() this.embed,
+      @UPostEmbedConverter() this.embed,
       final List<String>? langs,
-      @ULabelConverter() this.labels,
+      @UPostLabelConverter() this.labels,
       final List<String>? tags,
       required this.createdAt,
       @JsonKey(name: r'$unknown')
@@ -350,8 +350,8 @@ class _$PostRecordImpl implements _PostRecord {
   @ReplyRefConverter()
   final ReplyRef? reply;
   @override
-  @UEmbedConverter()
-  final UEmbed? embed;
+  @UPostEmbedConverter()
+  final UPostEmbed? embed;
 
   /// Indicates human language of post primary text content.
   final List<String>? _langs;
@@ -368,8 +368,8 @@ class _$PostRecordImpl implements _PostRecord {
 
   /// Self-label values for this post. Effectively content warnings.
   @override
-  @ULabelConverter()
-  final ULabel? labels;
+  @UPostLabelConverter()
+  final UPostLabel? labels;
 
   /// Additional hashtags, in addition to any included in post text and facets.
   final List<String>? _tags;
@@ -460,9 +460,9 @@ abstract class _PostRecord implements PostRecord {
           final List<Entity>? entities,
           @FacetConverter() final List<Facet>? facets,
           @ReplyRefConverter() final ReplyRef? reply,
-          @UEmbedConverter() final UEmbed? embed,
+          @UPostEmbedConverter() final UPostEmbed? embed,
           final List<String>? langs,
-          @ULabelConverter() final ULabel? labels,
+          @UPostLabelConverter() final UPostLabel? labels,
           final List<String>? tags,
           required final DateTime createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -490,8 +490,8 @@ abstract class _PostRecord implements PostRecord {
   @ReplyRefConverter()
   ReplyRef? get reply;
   @override
-  @UEmbedConverter()
-  UEmbed? get embed;
+  @UPostEmbedConverter()
+  UPostEmbed? get embed;
   @override
 
   /// Indicates human language of post primary text content.
@@ -499,8 +499,8 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// Self-label values for this post. Effectively content warnings.
-  @ULabelConverter()
-  ULabel? get labels;
+  @UPostLabelConverter()
+  UPostLabel? get labels;
   @override
 
   /// Additional hashtags, in addition to any included in post text and facets.

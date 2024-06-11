@@ -11,7 +11,7 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/record.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/union_allow.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/union_threadgate_allow.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/mention_rule.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/following_rule.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/threadgate/list_rule.dart';

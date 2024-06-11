@@ -24,7 +24,8 @@ mixin _$CreateRecordInput {
   String get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// The Record Key.
   String? get rkey => throw _privateConstructorUsedError;
@@ -56,7 +57,7 @@ abstract class $CreateRecordInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String? rkey,
       bool? validate,
       Map<String, dynamic> record,
@@ -93,7 +94,7 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: freezed == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -128,7 +129,7 @@ abstract class _$$CreateRecordInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String? rkey,
       bool? validate,
       Map<String, dynamic> record,
@@ -163,7 +164,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: freezed == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -194,7 +195,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
 class _$CreateRecordInputImpl implements _CreateRecordInput {
   const _$CreateRecordInputImpl(
       {required this.repo,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       this.rkey,
       this.validate,
       required final Map<String, dynamic> record,
@@ -213,7 +214,8 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
 
   /// The NSID of the record collection.
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// The Record Key.
   @override
@@ -302,7 +304,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
 abstract class _CreateRecordInput implements CreateRecordInput {
   const factory _CreateRecordInput(
           {required final String repo,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           final String? rkey,
           final bool? validate,
           required final Map<String, dynamic> record,
@@ -320,7 +322,8 @@ abstract class _CreateRecordInput implements CreateRecordInput {
   @override
 
   /// The NSID of the record collection.
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// The Record Key.

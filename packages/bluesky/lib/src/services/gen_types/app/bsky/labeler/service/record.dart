@@ -15,7 +15,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../app/bsky/labeler/defs/labeler_policies.dart';
-import '../../../../app/bsky/labeler/service/union_label.dart';
+import '../../../../app/bsky/labeler/service/union_service_label.dart';
 
 part 'record.freezed.dart';
 part 'record.g.dart';
@@ -26,7 +26,7 @@ class ServiceRecord with _$ServiceRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ServiceRecord({
     @LabelerPoliciesConverter() required LabelerPolicies policies,
-    @ULabelConverter() ULabel? labels,
+    @UServiceLabelConverter() UServiceLabel? labels,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.

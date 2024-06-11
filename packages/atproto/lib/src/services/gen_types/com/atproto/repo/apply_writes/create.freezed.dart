@@ -25,7 +25,8 @@ mixin _$Create {
   /// `com.atproto.repo.applyWrites#create`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
   String? get rkey => throw _privateConstructorUsedError;
   Map<String, dynamic> get value => throw _privateConstructorUsedError;
 
@@ -45,7 +46,7 @@ abstract class $CreateCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String collection,
+      @NSIDConverter() NSID collection,
       String? rkey,
       Map<String, dynamic> value,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -78,7 +79,7 @@ class _$CreateCopyWithImpl<$Res, $Val extends Create>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: freezed == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -104,7 +105,7 @@ abstract class _$$CreateImplCopyWith<$Res> implements $CreateCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String collection,
+      @NSIDConverter() NSID collection,
       String? rkey,
       Map<String, dynamic> value,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
@@ -135,7 +136,7 @@ class __$$CreateImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: freezed == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -158,7 +159,7 @@ class __$$CreateImplCopyWithImpl<$Res>
 class _$CreateImpl implements _Create {
   const _$CreateImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesCreate,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       this.rkey,
       required final Map<String, dynamic> value,
       @JsonKey(name: r'$unknown')
@@ -176,7 +177,8 @@ class _$CreateImpl implements _Create {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
   @override
   final String? rkey;
   final Map<String, dynamic> _value;
@@ -244,7 +246,7 @@ class _$CreateImpl implements _Create {
 abstract class _Create implements Create {
   const factory _Create(
           {@JsonKey(name: r'$type') final String $type,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           final String? rkey,
           required final Map<String, dynamic> value,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
@@ -260,7 +262,8 @@ abstract class _Create implements Create {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
   String? get rkey;
   @override

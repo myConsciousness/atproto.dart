@@ -24,7 +24,8 @@ mixin _$PutRecordInput {
   String get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// The Record Key.
   String get rkey => throw _privateConstructorUsedError;
@@ -59,7 +60,7 @@ abstract class $PutRecordInputCopyWith<$Res> {
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       bool? validate,
       Map<String, dynamic> record,
@@ -98,7 +99,7 @@ class _$PutRecordInputCopyWithImpl<$Res, $Val extends PutRecordInput>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -137,7 +138,7 @@ abstract class _$$PutRecordInputImplCopyWith<$Res>
   @useResult
   $Res call(
       {String repo,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       bool? validate,
       Map<String, dynamic> record,
@@ -174,7 +175,7 @@ class __$$PutRecordInputImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -209,7 +210,7 @@ class __$$PutRecordInputImplCopyWithImpl<$Res>
 class _$PutRecordInputImpl implements _PutRecordInput {
   const _$PutRecordInputImpl(
       {required this.repo,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       required this.rkey,
       this.validate,
       required final Map<String, dynamic> record,
@@ -229,7 +230,8 @@ class _$PutRecordInputImpl implements _PutRecordInput {
 
   /// The NSID of the record collection.
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// The Record Key.
   @override
@@ -325,7 +327,7 @@ class _$PutRecordInputImpl implements _PutRecordInput {
 abstract class _PutRecordInput implements PutRecordInput {
   const factory _PutRecordInput(
           {required final String repo,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           required final String rkey,
           final bool? validate,
           required final Map<String, dynamic> record,
@@ -344,7 +346,8 @@ abstract class _PutRecordInput implements PutRecordInput {
   @override
 
   /// The NSID of the record collection.
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// The Record Key.

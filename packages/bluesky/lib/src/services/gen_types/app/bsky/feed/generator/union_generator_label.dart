@@ -14,59 +14,60 @@
 import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'union_label.freezed.dart';
+part 'union_generator_label.freezed.dart';
 
 @freezed
-class ULabel with _$ULabel {
-  const factory ULabel.selfLabels({
+class UGeneratorLabel with _$UGeneratorLabel {
+  const factory UGeneratorLabel.selfLabels({
     required SelfLabels data,
-  }) = ULabelSelfLabels;
+  }) = UGeneratorLabelSelfLabels;
 
-  const factory ULabel.unknown({
+  const factory UGeneratorLabel.unknown({
     required Map<String, dynamic> data,
-  }) = ULabelUnknown;
+  }) = UGeneratorLabelUnknown;
 }
 
-final class ULabelConverter
-    implements JsonConverter<ULabel, Map<String, dynamic>> {
-  const ULabelConverter();
+final class UGeneratorLabelConverter
+    implements JsonConverter<UGeneratorLabel, Map<String, dynamic>> {
+  const UGeneratorLabelConverter();
 
   @override
-  ULabel fromJson(Map<String, dynamic> json) {
+  UGeneratorLabel fromJson(Map<String, dynamic> json) {
     try {
       final type = json[r'$type'];
 
       if (type == 'com.atproto.label.defs#selfLabels') {
-        return ULabel.selfLabels(
+        return UGeneratorLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );
       }
 
-      return ULabel.unknown(data: json);
+      return UGeneratorLabel.unknown(data: json);
     } catch (_) {
-      return ULabel.unknown(data: json);
+      return UGeneratorLabel.unknown(data: json);
     }
   }
 
   @override
-  Map<String, dynamic> toJson(ULabel object) => object.when(
+  Map<String, dynamic> toJson(UGeneratorLabel object) => object.when(
         selfLabels: const SelfLabelsConverter().toJson,
         unknown: (data) => data,
       );
 }
 
-extension ULabelExtension on ULabel {
+extension UGeneratorLabelExtension on UGeneratorLabel {
   /// Returns JSON representation
-  Map<String, dynamic> toJson() => const ULabelConverter().toJson(this);
+  Map<String, dynamic> toJson() =>
+      const UGeneratorLabelConverter().toJson(this);
 
   /// Returns true if this data is [SelfLabels], otherwise false.
-  bool get isSelfLabels => this is ULabelSelfLabels;
+  bool get isSelfLabels => this is UGeneratorLabelSelfLabels;
 
   /// Returns true if this data is not [SelfLabels], otherwise false.
   bool get isNotSelfLabels => !isSelfLabels;
 
   /// Returns true if this data is unknown object, otherwise false.
-  bool get isUnknown => this is ULabelUnknown;
+  bool get isUnknown => this is UGeneratorLabelUnknown;
 
   /// Returns true if this data is not unknown object, otherwise false.
   bool get isNotUnknown => !isUnknown;

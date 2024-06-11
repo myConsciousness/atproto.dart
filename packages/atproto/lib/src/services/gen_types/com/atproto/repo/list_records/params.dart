@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'params.freezed.dart';
@@ -25,7 +26,7 @@ class ListRecordsParams with _$ListRecordsParams {
     required String repo,
 
     /// The NSID of the record type.
-    required String collection,
+    @NSIDConverter() required NSID collection,
 
     /// The number of records to return.
     int? limit,

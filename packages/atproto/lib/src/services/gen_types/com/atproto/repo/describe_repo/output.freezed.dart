@@ -27,7 +27,8 @@ mixin _$DescribeRepoOutput {
   Map<String, dynamic> get didDoc => throw _privateConstructorUsedError;
 
   /// List of all the collections (NSIDs) for which this repo contains at least one record.
-  List<String> get collections => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  List<NSID> get collections => throw _privateConstructorUsedError;
 
   /// Indicates if handle is currently valid (resolves bi-directionally)
   bool get handleIsCorrect => throw _privateConstructorUsedError;
@@ -52,7 +53,7 @@ abstract class $DescribeRepoOutputCopyWith<$Res> {
       {String handle,
       String did,
       Map<String, dynamic> didDoc,
-      List<String> collections,
+      @NSIDConverter() List<NSID> collections,
       bool handleIsCorrect,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -93,7 +94,7 @@ class _$DescribeRepoOutputCopyWithImpl<$Res, $Val extends DescribeRepoOutput>
       collections: null == collections
           ? _value.collections
           : collections // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<NSID>,
       handleIsCorrect: null == handleIsCorrect
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
@@ -118,7 +119,7 @@ abstract class _$$DescribeRepoOutputImplCopyWith<$Res>
       {String handle,
       String did,
       Map<String, dynamic> didDoc,
-      List<String> collections,
+      @NSIDConverter() List<NSID> collections,
       bool handleIsCorrect,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -157,7 +158,7 @@ class __$$DescribeRepoOutputImplCopyWithImpl<$Res>
       collections: null == collections
           ? _value._collections
           : collections // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as List<NSID>,
       handleIsCorrect: null == handleIsCorrect
           ? _value.handleIsCorrect
           : handleIsCorrect // ignore: cast_nullable_to_non_nullable
@@ -178,7 +179,7 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
       {required this.handle,
       required this.did,
       required final Map<String, dynamic> didDoc,
-      required final List<String> collections,
+      @NSIDConverter() required final List<NSID> collections,
       required this.handleIsCorrect,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -206,11 +207,12 @@ class _$DescribeRepoOutputImpl implements _DescribeRepoOutput {
   }
 
   /// List of all the collections (NSIDs) for which this repo contains at least one record.
-  final List<String> _collections;
+  final List<NSID> _collections;
 
   /// List of all the collections (NSIDs) for which this repo contains at least one record.
   @override
-  List<String> get collections {
+  @NSIDConverter()
+  List<NSID> get collections {
     if (_collections is EqualUnmodifiableListView) return _collections;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_collections);
@@ -283,7 +285,7 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
           {required final String handle,
           required final String did,
           required final Map<String, dynamic> didDoc,
-          required final List<String> collections,
+          @NSIDConverter() required final List<NSID> collections,
           required final bool handleIsCorrect,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$DescribeRepoOutputImpl;
@@ -302,7 +304,8 @@ abstract class _DescribeRepoOutput implements DescribeRepoOutput {
   @override
 
   /// List of all the collections (NSIDs) for which this repo contains at least one record.
-  List<String> get collections;
+  @NSIDConverter()
+  List<NSID> get collections;
   @override
 
   /// Indicates if handle is currently valid (resolves bi-directionally)

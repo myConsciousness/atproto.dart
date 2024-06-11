@@ -20,8 +20,9 @@ DeclarationRecord _$DeclarationRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeclarationRecord {
-  @UAllowIncomingConverter()
-  UAllowIncoming get allowIncoming => throw _privateConstructorUsedError;
+  @UDeclarationAllowIncomingConverter()
+  UDeclarationAllowIncoming get allowIncoming =>
+      throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -40,10 +41,11 @@ abstract class $DeclarationRecordCopyWith<$Res> {
       _$DeclarationRecordCopyWithImpl<$Res, DeclarationRecord>;
   @useResult
   $Res call(
-      {@UAllowIncomingConverter() UAllowIncoming allowIncoming,
+      {@UDeclarationAllowIncomingConverter()
+      UDeclarationAllowIncoming allowIncoming,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
-  $UAllowIncomingCopyWith<$Res> get allowIncoming;
+  $UDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -66,7 +68,7 @@ class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as UAllowIncoming,
+              as UDeclarationAllowIncoming,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -76,8 +78,9 @@ class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $UAllowIncomingCopyWith<$Res> get allowIncoming {
-    return $UAllowIncomingCopyWith<$Res>(_value.allowIncoming, (value) {
+  $UDeclarationAllowIncomingCopyWith<$Res> get allowIncoming {
+    return $UDeclarationAllowIncomingCopyWith<$Res>(_value.allowIncoming,
+        (value) {
       return _then(_value.copyWith(allowIncoming: value) as $Val);
     });
   }
@@ -92,11 +95,12 @@ abstract class _$$DeclarationRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UAllowIncomingConverter() UAllowIncoming allowIncoming,
+      {@UDeclarationAllowIncomingConverter()
+      UDeclarationAllowIncoming allowIncoming,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
-  $UAllowIncomingCopyWith<$Res> get allowIncoming;
+  $UDeclarationAllowIncomingCopyWith<$Res> get allowIncoming;
 }
 
 /// @nodoc
@@ -117,7 +121,7 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
-              as UAllowIncoming,
+              as UDeclarationAllowIncoming,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -131,7 +135,7 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$DeclarationRecordImpl implements _DeclarationRecord {
   const _$DeclarationRecordImpl(
-      {@UAllowIncomingConverter() required this.allowIncoming,
+      {@UDeclarationAllowIncomingConverter() required this.allowIncoming,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -140,8 +144,8 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
       _$$DeclarationRecordImplFromJson(json);
 
   @override
-  @UAllowIncomingConverter()
-  final UAllowIncoming allowIncoming;
+  @UDeclarationAllowIncomingConverter()
+  final UDeclarationAllowIncoming allowIncoming;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -192,16 +196,17 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
 
 abstract class _DeclarationRecord implements DeclarationRecord {
   const factory _DeclarationRecord(
-      {@UAllowIncomingConverter() required final UAllowIncoming allowIncoming,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$DeclarationRecordImpl;
+          {@UDeclarationAllowIncomingConverter()
+          required final UDeclarationAllowIncoming allowIncoming,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$DeclarationRecordImpl;
 
   factory _DeclarationRecord.fromJson(Map<String, dynamic> json) =
       _$DeclarationRecordImpl.fromJson;
 
   @override
-  @UAllowIncomingConverter()
-  UAllowIncoming get allowIncoming;
+  @UDeclarationAllowIncomingConverter()
+  UDeclarationAllowIncoming get allowIncoming;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

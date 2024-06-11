@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/profile/record.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/actor/profile/union_label.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/profile/union_profile_label.dart';

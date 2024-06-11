@@ -15,7 +15,8 @@ _$DeleteRecordInputImpl _$$DeleteRecordInputImplFromJson(Map json) =>
       ($checkedConvert) {
         final val = _$DeleteRecordInputImpl(
           repo: $checkedConvert('repo', (v) => v as String),
-          collection: $checkedConvert('collection', (v) => v as String),
+          collection: $checkedConvert(
+              'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
           swapRecord: $checkedConvert('swapRecord', (v) => v as String?),
           swapCommit: $checkedConvert('swapCommit', (v) => v as String?),
@@ -35,7 +36,7 @@ Map<String, dynamic> _$$DeleteRecordInputImplToJson(
     _$DeleteRecordInputImpl instance) {
   final val = <String, dynamic>{
     'repo': instance.repo,
-    'collection': instance.collection,
+    'collection': const NSIDConverter().toJson(instance.collection),
     'rkey': instance.rkey,
   };
 

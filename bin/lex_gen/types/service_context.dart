@@ -32,5 +32,5 @@ final class ServiceEndpointContext {
   final String name;
   final LexUserType def;
 
-  NSID get docId => NSID('$serviceName#$name');
+  NSID get docId => NSID('$serviceName.$name');
 }

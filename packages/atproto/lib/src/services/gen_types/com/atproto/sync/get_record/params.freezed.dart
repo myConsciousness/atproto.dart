@@ -22,7 +22,8 @@ GetRecordParams _$GetRecordParamsFromJson(Map<String, dynamic> json) {
 mixin _$GetRecordParams {
   /// The DID of the repo.
   String get did => throw _privateConstructorUsedError;
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
 
   /// Record Key
   String get rkey => throw _privateConstructorUsedError;
@@ -50,7 +51,7 @@ abstract class $GetRecordParamsCopyWith<$Res> {
   @useResult
   $Res call(
       {String did,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       @Deprecated(
           'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
@@ -85,7 +86,7 @@ class _$GetRecordParamsCopyWithImpl<$Res, $Val extends GetRecordParams>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -112,7 +113,7 @@ abstract class _$$GetRecordParamsImplCopyWith<$Res>
   @useResult
   $Res call(
       {String did,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       @Deprecated(
           'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
@@ -145,7 +146,7 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -168,7 +169,7 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
 class _$GetRecordParamsImpl implements _GetRecordParams {
   const _$GetRecordParamsImpl(
       {required this.did,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       required this.rkey,
       @Deprecated(
           'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
@@ -184,7 +185,8 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
   @override
   final String did;
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
 
   /// Record Key
   @override
@@ -249,7 +251,7 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 abstract class _GetRecordParams implements GetRecordParams {
   const factory _GetRecordParams(
       {required final String did,
-      required final String collection,
+      @NSIDConverter() required final NSID collection,
       required final String rkey,
       @Deprecated(
           'DEPRECATED: referenced a repo commit by CID, and retrieved record as of that commit')
@@ -265,7 +267,8 @@ abstract class _GetRecordParams implements GetRecordParams {
   /// The DID of the repo.
   String get did;
   @override
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
 
   /// Record Key

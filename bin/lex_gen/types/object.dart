@@ -7,12 +7,16 @@
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
+import '../rules/object_type.dart';
 import 'data_type.dart';
 import 'known_values.dart';
 import 'union.dart';
 
 final class LexGenObject {
   const LexGenObject({
+    required this.type,
+    required this.isStrongRef,
+    required this.hasAtUri,
     this.description,
     required this.referencePath,
     this.namespace,
@@ -21,6 +25,10 @@ final class LexGenObject {
     required this.properties,
     required this.filePath,
   });
+
+  final ObjectType type;
+  final bool isStrongRef;
+  final bool hasAtUri;
 
   final String? description;
   final String referencePath;

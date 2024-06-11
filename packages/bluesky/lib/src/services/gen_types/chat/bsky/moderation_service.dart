@@ -25,19 +25,31 @@ final class ModerationService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext
-  Future<XRPCResponse<GetMessageContextOutput>> getMessageContext() async =>
+  Future<XRPCResponse<GetMessageContextOutput>> getMessageContext({
+    String? convoId,
+    required String messageId,
+    int? before,
+    int? after,
+  }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetMessageContext,
         to: const GetMessageContextOutputConverter().fromJson,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
-  Future<XRPCResponse<EmptyData>> updateActorAccess() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> updateActorAccess({
+    required String actor,
+    required bool allowAccess,
+    String? ref,
+  }) async =>
+      await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
-  Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata() async =>
+  Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
+    required String actor,
+  }) async =>
       await _ctx.get(
         ns.chatBskyModerationGetActorMetadata,
         to: const GetActorMetadataOutputConverter().fromJson,

@@ -8,11 +8,13 @@
 import '../../utils.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
+import 'union.dart';
+import 'known_values.dart';
 
 enum LexServiceEndpointMethod {
   get,
   post,
-  wss,
+  stream,
   record,
 }
 
@@ -36,13 +38,17 @@ final class LexService {
   String toString() {
     final buffer = StringBuffer();
 
-    final importPaths = {
+    final importPaths = [
       'package:atproto_core/atproto_core.dart',
-      ...endpoints
-          .map((e) => e.type.importPath)
-          .where((e) => e != null)
-          .map((e) => e!)
-    };
+      ...endpoints.map((e) => e.type.importPath),
+      ...endpoints.expand((e) => e.args).map((e) => e.type.importPath),
+      ...endpoints.expand((e) => e.args).map((e) => e.knownValues?.filePath),
+      ...endpoints.expand((e) => e.args).map((e) => e.union?.filePath),
+    ]
+        .where((e) => e != null)
+        .map((e) =>
+            e!.startsWith('package:') ? e : '../../${e.replaceAll('../', '')}')
+        .toSet();
 
     buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
@@ -90,7 +96,7 @@ final class LexServiceEndpoint {
   final String? description;
   final String referencePath;
 
-  final List<LexServiceEndpointArgs> args;
+  final List<LexServiceEndpointArg> args;
   final String serviceName;
   final String name;
   final DataType type;
@@ -115,31 +121,39 @@ final class LexServiceEndpoint {
       buffer.writeln("  @Deprecated('$description')");
     }
 
-    if (method == LexServiceEndpointMethod.get) {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
-      buffer.writeln('    await _ctx.get(');
-      buffer.writeln('        ns.$namespace,');
-      if (type.converter != null) {
-        buffer.writeln('        to: const ${type.converter}().fromJson,');
+    if (method == LexServiceEndpointMethod.get ||
+        method == LexServiceEndpointMethod.post) {
+      if (args.isEmpty) {
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+      } else {
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+        for (final arg in args) {
+          buffer.writeln('    ${arg.toString()},');
+        }
+        buffer.writeln('  }) async =>');
       }
-      buffer.writeln('      );');
-    } else if (method == LexServiceEndpointMethod.post) {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
-      buffer.writeln('    await _ctx.post(');
+      buffer.writeln('    await _ctx.${method.name}(');
       buffer.writeln('        ns.$namespace,');
       if (type.converter != null) {
         buffer.writeln('        to: const ${type.converter}().fromJson,');
       }
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.record) {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
-      buffer.writeln('    await _ctx.post(');
-      buffer.writeln('        ns.$namespace,');
-      if (type.converter != null) {
-        buffer.writeln('        to: const ${type.converter}().fromJson,');
+      if (args.isEmpty) {
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+      } else {
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+        for (final arg in args) {
+          buffer.writeln('    ${arg.toString()},');
+        }
+        buffer.writeln('  }) async =>');
       }
+      buffer.writeln('    await _ctx.atproto.repo.createRecord(');
+      buffer.writeln('        repo: "",');
+      buffer.writeln('        collection: ns.$namespace,');
+      buffer.writeln('        record: {},');
       buffer.writeln('      );');
-    } else if (method == LexServiceEndpointMethod.wss) {
+    } else if (method == LexServiceEndpointMethod.stream) {
       buffer.writeln(
           '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
       buffer.writeln('    await _ctx.stream(');
@@ -154,12 +168,54 @@ final class LexServiceEndpoint {
   }
 }
 
-final class LexServiceEndpointArgs {
-  const LexServiceEndpointArgs({
-    required this.name,
+final class LexServiceEndpointArg {
+  const LexServiceEndpointArg({
+    required this.isRequired,
     required this.type,
+    required this.name,
+    required this.array,
+    required this.knownValues,
+    required this.union,
   });
 
-  final String name;
+  final bool isRequired;
   final DataType type;
+  final String name;
+
+  final bool array;
+
+  final LexGenKnownValues? knownValues;
+  final LexUnion? union;
+
+  @override
+  String toString() {
+    if (knownValues != null) {
+      return _toString(
+        array ? 'List<U${knownValues!.name}>' : 'U${knownValues!.name}',
+      );
+    }
+
+    if (union != null) {
+      return _toString(
+        array ? 'List<U${union!.name}>' : 'U${union!.name}',
+      );
+    }
+
+    return _toString(type.name!);
+  }
+
+  String _toString(final String name) {
+    final buffer = StringBuffer();
+
+    if (isRequired) {
+      buffer.write('required $name');
+    } else {
+      buffer.write('$name?');
+    }
+
+    buffer.write(' ');
+    buffer.write(this.name);
+
+    return buffer.toString();
+  }
 }

@@ -18,6 +18,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/notification/get_unread_count/output.dart';
 import '../../app/bsky/notification/list_notifications/output.dart';
+import '../../app/bsky/notification/register_push/known_platform.dart';
 
 final class NotificationService {
   NotificationService(this._ctx);
@@ -27,21 +28,34 @@ final class NotificationService {
   /// Notify server that the requesting account has seen notifications. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
-  Future<XRPCResponse<EmptyData>> updateSeen() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> updateSeen({
+    required DateTime seenAt,
+  }) async =>
+      await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
       );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush
-  Future<XRPCResponse<EmptyData>> registerPush() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> registerPush({
+    required String serviceDid,
+    required String token,
+    required UPlatform platform,
+    required String appId,
+  }) async =>
+      await _ctx.post(
         ns.appBskyNotificationRegisterPush,
       );
 
   /// Enumerate notifications for the requesting account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications
-  Future<XRPCResponse<ListNotificationsOutput>> listNotifications() async =>
+  Future<XRPCResponse<ListNotificationsOutput>> listNotifications({
+    int? limit,
+    String? cursor,
+    DateTime? seenAt,
+  }) async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
         to: const ListNotificationsOutputConverter().fromJson,
@@ -50,7 +64,9 @@ final class NotificationService {
   /// Count the number of unread notifications for the requesting account. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
-  Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount() async =>
+  Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
+    DateTime? seenAt,
+  }) async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,
         to: const GetUnreadCountOutputConverter().fromJson,

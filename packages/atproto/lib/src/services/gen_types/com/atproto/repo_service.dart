@@ -14,14 +14,14 @@
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
-import '../../com/atproto/repo/create_record/output.dart';
+import '../../com/atproto/repo/apply_writes/union_write.dart';
 import '../../com/atproto/repo/describe_repo/output.dart';
 import '../../com/atproto/repo/get_record/output.dart';
 import '../../com/atproto/repo/list_missing_blobs/output.dart';
 import '../../com/atproto/repo/list_records/output.dart';
-import '../../com/atproto/repo/put_record/output.dart';
 import '../../com/atproto/repo/upload_blob/output.dart';
 
 final class RepoService {
@@ -32,7 +32,13 @@ final class RepoService {
   /// Get a single record from a repository. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
-  Future<XRPCResponse<GetRecordOutput>> getRecord() async => await _ctx.get(
+  Future<XRPCResponse<GetRecordOutput>> getRecord({
+    required String repo,
+    required NSID collection,
+    required String rkey,
+    String? cid,
+  }) async =>
+      await _ctx.get(
         ns.comAtprotoRepoGetRecord,
         to: const GetRecordOutputConverter().fromJson,
       );
@@ -47,7 +53,16 @@ final class RepoService {
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
-  Future<XRPCResponse<ListRecordsOutput>> listRecords() async => await _ctx.get(
+  Future<XRPCResponse<ListRecordsOutput>> listRecords({
+    required String repo,
+    required NSID collection,
+    int? limit,
+    String? cursor,
+    String? rkeyStart,
+    String? rkeyEnd,
+    bool? reverse,
+  }) async =>
+      await _ctx.get(
         ns.comAtprotoRepoListRecords,
         to: const ListRecordsOutputConverter().fromJson,
       );
@@ -55,7 +70,10 @@ final class RepoService {
   /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listMissingBlobs
-  Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs() async =>
+  Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs({
+    int? limit,
+    String? cursor,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoRepoListMissingBlobs,
         to: const ListMissingBlobsOutputConverter().fromJson,
@@ -64,7 +82,13 @@ final class RepoService {
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
-  Future<XRPCResponse<EmptyData>> applyWrites() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> applyWrites({
+    required String repo,
+    bool? validate,
+    required List<UWrite> writes,
+    String? swapCommit,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoRepoApplyWrites,
       );
 
@@ -79,22 +103,40 @@ final class RepoService {
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/deleteRecord
-  Future<XRPCResponse<EmptyData>> deleteRecord() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> deleteRecord({
+    required String repo,
+    required NSID collection,
+    required String rkey,
+    String? swapRecord,
+    String? swapCommit,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoRepoDeleteRecord,
       );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
-  Future<XRPCResponse<PutRecordOutput>> putRecord() async => await _ctx.post(
+  Future<XRPCResponse<StrongRef>> putRecord({
+    required String repo,
+    required NSID collection,
+    required String rkey,
+    bool? validate,
+    required Map<String, dynamic> record,
+    String? swapRecord,
+    String? swapCommit,
+  }) async =>
+      await _ctx.post(
         ns.comAtprotoRepoPutRecord,
-        to: const PutRecordOutputConverter().fromJson,
+        to: const StrongRefConverter().fromJson,
       );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
-  Future<XRPCResponse<DescribeRepoOutput>> describeRepo() async =>
+  Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
+    required String repo,
+  }) async =>
       await _ctx.get(
         ns.comAtprotoRepoDescribeRepo,
         to: const DescribeRepoOutputConverter().fromJson,
@@ -103,9 +145,16 @@ final class RepoService {
   /// Create a single new repository record. Requires auth, implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
-  Future<XRPCResponse<CreateRecordOutput>> createRecord() async =>
+  Future<XRPCResponse<StrongRef>> createRecord({
+    required String repo,
+    required NSID collection,
+    String? rkey,
+    bool? validate,
+    required Map<String, dynamic> record,
+    String? swapCommit,
+  }) async =>
       await _ctx.post(
         ns.comAtprotoRepoCreateRecord,
-        to: const CreateRecordOutputConverter().fromJson,
+        to: const StrongRefConverter().fromJson,
       );
 }

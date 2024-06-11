@@ -11,8 +11,8 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/union_embed.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/union_label.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/union_post_embed.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/union_post_label.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/reply_ref.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/entity.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/feed/post/text_slice.dart';

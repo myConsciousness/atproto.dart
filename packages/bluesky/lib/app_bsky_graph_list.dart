@@ -11,4 +11,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
-export 'package:bluesky/src/services/gen_types/app/bsky/graph/list/union_label.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/graph/list/union_list_label.dart';

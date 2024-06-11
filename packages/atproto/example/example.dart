@@ -45,6 +45,7 @@ Future<void> main() async {
 
     //! Create a record to specific service.
     final createdRecord = await atproto.repo.createRecord(
+      repo: atproto.session!.did,
       collection: NSID.create(
         'feed.bsky.app',
         'post',
@@ -57,6 +58,7 @@ Future<void> main() async {
 
     //! And delete it.
     await atproto.repo.deleteRecord(
+      repo: atproto.session!.did,
       uri: createdRecord.data.uri,
     );
 

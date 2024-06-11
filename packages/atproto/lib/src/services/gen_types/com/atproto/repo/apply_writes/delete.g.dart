@@ -15,7 +15,8 @@ _$DeleteImpl _$$DeleteImplFromJson(Map json) => $checkedCreate(
         final val = _$DeleteImpl(
           $type: $checkedConvert(
               r'$type', (v) => v as String? ?? comAtprotoRepoApplyWritesDelete),
-          collection: $checkedConvert('collection', (v) => v as String),
+          collection: $checkedConvert(
+              'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
           $unknown: $checkedConvert(
               r'$unknown',
@@ -32,7 +33,7 @@ _$DeleteImpl _$$DeleteImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$DeleteImplToJson(_$DeleteImpl instance) =>
     <String, dynamic>{
       r'$type': instance.$type,
-      'collection': instance.collection,
+      'collection': const NSIDConverter().toJson(instance.collection),
       'rkey': instance.rkey,
       r'$unknown': instance.$unknown,
     };

@@ -34,8 +34,8 @@ mixin _$ProfileRecord {
   Blob? get banner => throw _privateConstructorUsedError;
 
   /// Self-label values, specific to the Bluesky application, on the overall account.
-  @ULabelConverter()
-  ULabel? get labels => throw _privateConstructorUsedError;
+  @UProfileLabelConverter()
+  UProfileLabel? get labels => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -58,12 +58,12 @@ abstract class $ProfileRecordCopyWith<$Res> {
       String? description,
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
-      @ULabelConverter() ULabel? labels,
+      @UProfileLabelConverter() UProfileLabel? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
   $BlobCopyWith<$Res>? get banner;
-  $ULabelCopyWith<$Res>? get labels;
+  $UProfileLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -106,7 +106,7 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UProfileLabel?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -140,12 +140,12 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
 
   @override
   @pragma('vm:prefer-inline')
-  $ULabelCopyWith<$Res>? get labels {
+  $UProfileLabelCopyWith<$Res>? get labels {
     if (_value.labels == null) {
       return null;
     }
 
-    return $ULabelCopyWith<$Res>(_value.labels!, (value) {
+    return $UProfileLabelCopyWith<$Res>(_value.labels!, (value) {
       return _then(_value.copyWith(labels: value) as $Val);
     });
   }
@@ -164,7 +164,7 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
       String? description,
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
-      @ULabelConverter() ULabel? labels,
+      @UProfileLabelConverter() UProfileLabel? labels,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -172,7 +172,7 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
   @override
   $BlobCopyWith<$Res>? get banner;
   @override
-  $ULabelCopyWith<$Res>? get labels;
+  $UProfileLabelCopyWith<$Res>? get labels;
 }
 
 /// @nodoc
@@ -213,7 +213,7 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
-              as ULabel?,
+              as UProfileLabel?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -231,7 +231,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
       this.description,
       @BlobConverter() this.avatar,
       @BlobConverter() this.banner,
-      @ULabelConverter() this.labels,
+      @UProfileLabelConverter() this.labels,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -258,8 +258,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
 
   /// Self-label values, specific to the Bluesky application, on the overall account.
   @override
-  @ULabelConverter()
-  final ULabel? labels;
+  @UProfileLabelConverter()
+  final UProfileLabel? labels;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -318,7 +318,7 @@ abstract class _ProfileRecord implements ProfileRecord {
           final String? description,
           @BlobConverter() final Blob? avatar,
           @BlobConverter() final Blob? banner,
-          @ULabelConverter() final ULabel? labels,
+          @UProfileLabelConverter() final UProfileLabel? labels,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ProfileRecordImpl;
 
@@ -344,8 +344,8 @@ abstract class _ProfileRecord implements ProfileRecord {
   @override
 
   /// Self-label values, specific to the Bluesky application, on the overall account.
-  @ULabelConverter()
-  ULabel? get labels;
+  @UProfileLabelConverter()
+  UProfileLabel? get labels;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

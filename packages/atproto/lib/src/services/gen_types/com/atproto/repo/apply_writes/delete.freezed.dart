@@ -25,7 +25,8 @@ mixin _$Delete {
   /// `com.atproto.repo.applyWrites#delete`
   @JsonKey(name: r'$type')
   String get $type => throw _privateConstructorUsedError;
-  String get collection => throw _privateConstructorUsedError;
+  @NSIDConverter()
+  NSID get collection => throw _privateConstructorUsedError;
   String get rkey => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
@@ -44,7 +45,7 @@ abstract class $DeleteCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -75,7 +76,7 @@ class _$DeleteCopyWithImpl<$Res, $Val extends Delete>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -97,7 +98,7 @@ abstract class _$$DeleteImplCopyWith<$Res> implements $DeleteCopyWith<$Res> {
   @useResult
   $Res call(
       {@JsonKey(name: r'$type') String $type,
-      String collection,
+      @NSIDConverter() NSID collection,
       String rkey,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
@@ -126,7 +127,7 @@ class __$$DeleteImplCopyWithImpl<$Res>
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
-              as String,
+              as NSID,
       rkey: null == rkey
           ? _value.rkey
           : rkey // ignore: cast_nullable_to_non_nullable
@@ -145,7 +146,7 @@ class __$$DeleteImplCopyWithImpl<$Res>
 class _$DeleteImpl implements _Delete {
   const _$DeleteImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoRepoApplyWritesDelete,
-      required this.collection,
+      @NSIDConverter() required this.collection,
       required this.rkey,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
@@ -161,7 +162,8 @@ class _$DeleteImpl implements _Delete {
   @JsonKey(name: r'$type')
   final String $type;
   @override
-  final String collection;
+  @NSIDConverter()
+  final NSID collection;
   @override
   final String rkey;
 
@@ -216,7 +218,7 @@ class _$DeleteImpl implements _Delete {
 abstract class _Delete implements Delete {
   const factory _Delete(
           {@JsonKey(name: r'$type') final String $type,
-          required final String collection,
+          @NSIDConverter() required final NSID collection,
           required final String rkey,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$DeleteImpl;
@@ -231,7 +233,8 @@ abstract class _Delete implements Delete {
   @JsonKey(name: r'$type')
   String get $type;
   @override
-  String get collection;
+  @NSIDConverter()
+  NSID get collection;
   @override
   String get rkey;
   @override

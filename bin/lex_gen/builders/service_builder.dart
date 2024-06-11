@@ -7,9 +7,12 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../rules/utils.dart';
+import '../rules/object_type.dart';
 import '../types/data_type.dart';
 import '../types/service.dart';
 import '../types/service_context.dart';
+import '../types/export.dart';
+import '../types/object.dart';
 
 const _kEmptyDataType = DataType(
   name: 'EmptyData',
@@ -50,13 +53,11 @@ final class ServiceBuilder {
     final endpoints = <LexServiceEndpoint>[];
 
     for (final endpoint in context.endpoints) {
-      final docId = '${endpoint.serviceName}.${endpoint.name}';
-
       endpoints.add(
         LexServiceEndpoint(
           description: _getEndpointDescription(endpoint),
-          referencePath: getReferencePath(docId),
-          args: [],
+          referencePath: getReferencePath(endpoint.docId.toString()),
+          args: _getServiceEndpointArgs(endpoint),
           serviceName: endpoint.serviceName,
           name: endpoint.name,
           type: _getResponseType(endpoint),
@@ -68,8 +69,48 @@ final class ServiceBuilder {
     return endpoints;
   }
 
-  String? _getEndpointDescription(final ServiceEndpointContext context) {
-    return context.def.whenOrNull(
+  List<LexServiceEndpointArg> _getServiceEndpointArgs(
+    final ServiceEndpointContext endpoint,
+  ) {
+    final exports = _getExports(endpoint);
+    if (exports.isEmpty) return const [];
+
+    final args = <LexServiceEndpointArg>[];
+    for (final export in exports) {
+      if (export.object?.type == ObjectType.params ||
+          export.object?.type == ObjectType.input ||
+          export.object?.type == ObjectType.record) {
+        final properties =
+            export.object?.properties ?? const <LexGenObjectProperty>[];
+
+        for (final property in properties) {
+          args.add(LexServiceEndpointArg(
+            isRequired: property.isRequired,
+            type: property.type,
+            name: property.name,
+            array: property.array,
+            knownValues: property.knownValues,
+            union: property.union,
+          ));
+        }
+      }
+    }
+
+    return args;
+  }
+
+  List<Export> _getExports(final ServiceEndpointContext endpoint) {
+    for (final type in context.types.entries) {
+      if (type.key == endpoint.docId) {
+        return type.value.toList();
+      }
+    }
+
+    return const [];
+  }
+
+  String? _getEndpointDescription(final ServiceEndpointContext endpoint) {
+    return endpoint.def.whenOrNull(
       xrpcQuery: (data) => data.description,
       xrpcProcedure: (data) => data.description,
       xrpcSubscription: (data) => data.description,
@@ -78,6 +119,13 @@ final class ServiceBuilder {
   }
 
   DataType _getResponseType(final ServiceEndpointContext endpoint) {
+    final output = _getExports(endpoint)
+        .where((e) => e.object?.type == ObjectType.output)
+        .firstOrNull;
+    if (output != null && output.object!.isStrongRef) {
+      return _kStrongRefDataType;
+    }
+
     final def = endpoint.def;
     if (def is ULexUserTypeXrpcQuery) {
       final properties = def.data.output?.schema?.whenOrNull(
@@ -123,8 +171,7 @@ final class ServiceBuilder {
   }
 
   String _getImportPath(final ServiceEndpointContext endpoint) {
-    final path =
-        endpoint.docId.toString().split('#').first.replaceAll('.', '/');
+    final path = endpoint.serviceName.toString().replaceAll('.', '/');
     final methodName = toLowerCamelCase(endpoint.name);
 
     return endpoint.def is ULexUserTypeXrpcSubscription
@@ -135,7 +182,7 @@ final class ServiceBuilder {
   LexServiceEndpointMethod _getMethod(final LexUserType def) => switch (def) {
         ULexUserTypeXrpcQuery() => LexServiceEndpointMethod.get,
         ULexUserTypeXrpcProcedure() => LexServiceEndpointMethod.post,
-        ULexUserTypeXrpcSubscription() => LexServiceEndpointMethod.wss,
+        ULexUserTypeXrpcSubscription() => LexServiceEndpointMethod.stream,
         ULexUserTypeRecord() => LexServiceEndpointMethod.record,
         _ => throw UnsupportedError('Not supported method: $def'),
       };

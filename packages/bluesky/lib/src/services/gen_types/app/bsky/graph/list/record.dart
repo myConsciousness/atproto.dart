@@ -16,7 +16,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../../../../app/bsky/graph/defs/known_list_purpose.dart';
-import '../../../../app/bsky/graph/list/union_label.dart';
+import '../../../../app/bsky/graph/list/union_list_label.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
 
 part 'record.freezed.dart';
@@ -35,7 +35,7 @@ class ListRecord with _$ListRecord {
     String? description,
     @FacetConverter() List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
-    @ULabelConverter() ULabel? labels,
+    @UListLabelConverter() UListLabel? labels,
     required DateTime createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
