@@ -38,6 +38,8 @@ final class LexGenObjectBuilder {
       return [
         LexGenObject(
           description: _getDescription(),
+          referencePath:
+              getReferencePath(context.docId.toString(), context.defName),
           namespace: namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),
@@ -48,19 +50,11 @@ final class LexGenObjectBuilder {
     }).toList();
   }
 
-  String _getDescription() {
-    final buffer = StringBuffer();
-
+  String? _getDescription() {
     final def = context.def;
-    if (def is ULexUserTypeObject && def.data.description != null) {
-      buffer
-        ..writeln('/// ${def.data.description}')
-        ..writeln('///');
-    }
-
-    buffer.write('/// ${getReferencePath(context)}');
-
-    return buffer.toString();
+    return def is ULexUserTypeObject && def.data.description != null
+        ? def.data.description
+        : null;
   }
 
   Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties() {

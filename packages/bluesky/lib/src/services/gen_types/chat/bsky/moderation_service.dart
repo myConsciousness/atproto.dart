@@ -24,16 +24,19 @@ final class ModerationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getMessageContext#main
   Future<XRPCResponse<GetMessageContextOutput>> getMessageContext() async =>
       await _ctx.get(
         ns.chatBskyModerationGetMessageContext,
         to: const GetMessageContextOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess#main
   Future<XRPCResponse<EmptyData>> updateActorAccess() async => await _ctx.post(
         ns.chatBskyModerationUpdateActorAccess,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata#main
   Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata() async =>
       await _ctx.get(
         ns.chatBskyModerationGetActorMetadata,

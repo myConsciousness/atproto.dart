@@ -32,64 +32,76 @@ final class ConvoService {
 
   final BlueskyServiceContext _ctx;
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo#main
   Future<XRPCResponse<MuteConvoOutput>> muteConvo() async => await _ctx.post(
         ns.chatBskyConvoMuteConvo,
         to: const MuteConvoOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog#main
   Future<XRPCResponse<GetLogOutput>> getLog() async => await _ctx.get(
         ns.chatBskyConvoGetLog,
         to: const GetLogOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo#main
   Future<XRPCResponse<LeaveConvoOutput>> leaveConvo() async => await _ctx.post(
         ns.chatBskyConvoLeaveConvo,
         to: const LeaveConvoOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages#main
   Future<XRPCResponse<GetMessagesOutput>> getMessages() async => await _ctx.get(
         ns.chatBskyConvoGetMessages,
         to: const GetMessagesOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers#main
   Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers() async =>
       await _ctx.get(
         ns.chatBskyConvoGetConvoForMembers,
         to: const GetConvoForMembersOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo#main
   Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo() async =>
       await _ctx.post(
         ns.chatBskyConvoUnmuteConvo,
         to: const UnmuteConvoOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos#main
   Future<XRPCResponse<ListConvosOutput>> listConvos() async => await _ctx.get(
         ns.chatBskyConvoListConvos,
         to: const ListConvosOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf#main
   Future<XRPCResponse<EmptyData>> deleteMessageForSelf() async =>
       await _ctx.post(
         ns.chatBskyConvoDeleteMessageForSelf,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo#main
   Future<XRPCResponse<GetConvoOutput>> getConvo() async => await _ctx.get(
         ns.chatBskyConvoGetConvo,
         to: const GetConvoOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch#main
   Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch() async =>
       await _ctx.post(
         ns.chatBskyConvoSendMessageBatch,
         to: const SendMessageBatchOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead#main
   Future<XRPCResponse<UpdateReadOutput>> updateRead() async => await _ctx.post(
         ns.chatBskyConvoUpdateRead,
         to: const UpdateReadOutputConverter().fromJson,
       );
 
+  /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage#main
   Future<XRPCResponse<EmptyData>> sendMessage() async => await _ctx.post(
         ns.chatBskyConvoSendMessage,
       );

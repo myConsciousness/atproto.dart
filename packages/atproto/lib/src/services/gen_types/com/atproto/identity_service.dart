@@ -25,32 +25,50 @@ final class IdentityService {
 
   final ATProtoServiceContext _ctx;
 
+  /// Updates the current account's handle. Verifies handle validity, and updates did:plc document if necessary. Implemented by PDS, and requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle#main
   Future<XRPCResponse<EmptyData>> updateHandle() async => await _ctx.post(
         ns.comAtprotoIdentityUpdateHandle,
       );
 
+  /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation#main
   Future<XRPCResponse<EmptyData>> submitPlcOperation() async => await _ctx.post(
         ns.comAtprotoIdentitySubmitPlcOperation,
       );
 
+  /// Resolves a handle (domain name) to a DID.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle#main
   Future<XRPCResponse<ResolveHandleOutput>> resolveHandle() async =>
       await _ctx.get(
         ns.comAtprotoIdentityResolveHandle,
         to: const ResolveHandleOutputConverter().fromJson,
       );
 
+  /// Signs a PLC operation to update some value(s) in the requesting DID's document.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/signPlcOperation#main
   Future<XRPCResponse<SignPlcOperationOutput>> signPlcOperation() async =>
       await _ctx.post(
         ns.comAtprotoIdentitySignPlcOperation,
         to: const SignPlcOperationOutputConverter().fromJson,
       );
 
+  /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials#main
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
       getRecommendedDidCredentials() async => await _ctx.get(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
             to: const GetRecommendedDidCredentialsOutputConverter().fromJson,
           );
 
+  /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature#main
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature() async =>
       await _ctx.post(
         ns.comAtprotoIdentityRequestPlcOperationSignature,

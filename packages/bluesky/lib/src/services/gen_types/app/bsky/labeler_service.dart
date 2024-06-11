@@ -24,11 +24,17 @@ final class LabelerService {
 
   final BlueskyServiceContext _ctx;
 
+  /// A declaration of the existence of labeler service.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/service#main
   Future<XRPCResponse<StrongRef>> service() async => await _ctx.post(
         ns.appBskyLabelerService,
         to: const StrongRefConverter().fromJson,
       );
 
+  /// Get information about a list of labeler services.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/labeler/getServices#main
   Future<XRPCResponse<GetServicesOutput>> getServices() async => await _ctx.get(
         ns.appBskyLabelerGetServices,
         to: const GetServicesOutputConverter().fromJson,

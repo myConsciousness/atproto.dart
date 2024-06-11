@@ -24,20 +24,32 @@ final class NotificationService {
 
   final BlueskyServiceContext _ctx;
 
+  /// Notify server that the requesting account has seen notifications. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen#main
   Future<XRPCResponse<EmptyData>> updateSeen() async => await _ctx.post(
         ns.appBskyNotificationUpdateSeen,
       );
 
+  /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/registerPush#main
   Future<XRPCResponse<EmptyData>> registerPush() async => await _ctx.post(
         ns.appBskyNotificationRegisterPush,
       );
 
+  /// Enumerate notifications for the requesting account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/listNotifications#main
   Future<XRPCResponse<ListNotificationsOutput>> listNotifications() async =>
       await _ctx.get(
         ns.appBskyNotificationListNotifications,
         to: const ListNotificationsOutputConverter().fromJson,
       );
 
+  /// Count the number of unread notifications for the requesting account. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount#main
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount() async =>
       await _ctx.get(
         ns.appBskyNotificationGetUnreadCount,

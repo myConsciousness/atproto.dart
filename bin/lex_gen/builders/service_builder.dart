@@ -50,8 +50,12 @@ final class ServiceBuilder {
     final endpoints = <LexServiceEndpoint>[];
 
     for (final endpoint in context.endpoints) {
+      final docId = '${endpoint.serviceName}.${endpoint.name}';
+
       endpoints.add(
         LexServiceEndpoint(
+          description: _getEndpointDescription(endpoint),
+          referencePath: getReferencePath(docId, 'main'),
           args: [],
           serviceName: endpoint.serviceName,
           name: endpoint.name,
@@ -62,6 +66,15 @@ final class ServiceBuilder {
     }
 
     return endpoints;
+  }
+
+  String? _getEndpointDescription(final ServiceEndpointContext context) {
+    return context.def.whenOrNull(
+      xrpcQuery: (data) => data.description,
+      xrpcProcedure: (data) => data.description,
+      xrpcSubscription: (data) => data.description,
+      record: (data) => data.description,
+    );
   }
 
   DataType _getResponseType(final ServiceEndpointContext endpoint) {

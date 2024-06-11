@@ -90,10 +90,10 @@ String getPackageName(final String lexicon) {
   throw UnimplementedError(lexicon);
 }
 
-String getReferencePath(final LexGenContext context) {
-  final service = context.docId.toString().replaceAll('.', '/');
+String getReferencePath(final String docId, final String defName) {
+  final service = docId.replaceAll('.', '/');
 
-  return 'https://atprotodart.com/docs/lexicons/$service#${context.defName.toLowerCase()}';
+  return 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}';
 }
 
 Ref? getRef(final NSID docId, final String ref) {

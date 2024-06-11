@@ -24,17 +24,28 @@ final class TempService {
 
   final ATProtoServiceContext _ctx;
 
+  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels#main
+  @Deprecated(
+      'DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.')
   Future<XRPCResponse<FetchLabelsOutput>> fetchLabels() async => await _ctx.get(
         ns.comAtprotoTempFetchLabels,
         to: const FetchLabelsOutputConverter().fromJson,
       );
 
+  /// Check accounts location in signup queue.
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue#main
   Future<XRPCResponse<CheckSignupQueueOutput>> checkSignupQueue() async =>
       await _ctx.get(
         ns.comAtprotoTempCheckSignupQueue,
         to: const CheckSignupQueueOutputConverter().fromJson,
       );
 
+  /// Request a verification code to be sent to the supplied phone number
+  ///
+  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/requestPhoneVerification#main
   Future<XRPCResponse<EmptyData>> requestPhoneVerification() async =>
       await _ctx.post(
         ns.comAtprotoTempRequestPhoneVerification,

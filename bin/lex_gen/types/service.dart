@@ -78,12 +78,17 @@ final class LexService {
 
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
+    required this.description,
+    required this.referencePath,
     required this.args,
     required this.serviceName,
     required this.name,
     required this.type,
     required this.method,
   });
+
+  final String? description;
+  final String referencePath;
 
   final List<LexServiceEndpointArgs> args;
   final String serviceName;
@@ -97,6 +102,18 @@ final class LexServiceEndpoint {
 
     final namespace =
         toFirstLower('$serviceName.$name'.split('.').map(toFirstUpper).join());
+
+    if (description != null) {
+      buffer.writeln('  /// $description');
+      buffer.writeln('  ///');
+    }
+
+    buffer.writeln('  /// $referencePath');
+
+    if (description != null &&
+        description!.toLowerCase().contains('deprecated')) {
+      buffer.writeln("  @Deprecated('$description')");
+    }
 
     if (method == LexServiceEndpointMethod.get) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');

@@ -14,6 +14,7 @@ import 'union.dart';
 final class LexGenObject {
   const LexGenObject({
     this.description,
+    required this.referencePath,
     this.namespace,
     required this.name,
     required this.fileName,
@@ -22,6 +23,8 @@ final class LexGenObject {
   });
 
   final String? description;
+  final String referencePath;
+
   final String? namespace;
   final String name;
   final String fileName;
@@ -70,8 +73,11 @@ final class LexGenObject {
 
     // Object
     if (description != null && description!.isNotEmpty) {
-      buffer.writeln(description);
+      buffer.writeln('/// $description');
+      buffer.writeln('///');
     }
+    buffer.writeln('/// $referencePath');
+
     buffer.writeln('@freezed');
     buffer.writeln('class $name with _\$$name {');
     buffer.writeln('  @JsonSerializable(includeIfNull: false)');
