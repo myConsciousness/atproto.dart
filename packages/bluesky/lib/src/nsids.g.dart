@@ -204,6 +204,9 @@ const appBskyGraphGetFollowers = NSID(ids.appBskyGraphGetFollowers);
 /// `app.bsky.graph.getFollows`
 const appBskyGraphGetFollows = NSID(ids.appBskyGraphGetFollows);
 
+/// `app.bsky.graph.getKnownFollowers`
+const appBskyGraphGetKnownFollowers = NSID(ids.appBskyGraphGetKnownFollowers);
+
 /// `app.bsky.graph.getList`
 const appBskyGraphGetList = NSID(ids.appBskyGraphGetList);
 
