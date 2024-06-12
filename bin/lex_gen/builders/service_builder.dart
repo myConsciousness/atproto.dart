@@ -137,6 +137,19 @@ final class ServiceBuilder {
       return _kBytesDataType;
     }
 
+    if (output != null && output.object!.refVariant != null) {
+      final importPath =
+          '${output.object!.refVariant!.docId.toString().split('.').join('/')}/'
+          '${toLowerCamelCase(output.object!.refVariant!.defName)}';
+
+      return DataType(
+        importPath: '../../$importPath.dart',
+        name: toFirstUpper(output.object!.refVariant!.defName),
+        converter:
+            '${toFirstUpper(output.object!.refVariant!.defName)}Converter',
+      );
+    }
+
     final def = endpoint.def;
     if (def is ULexUserTypeXrpcQuery) {
       final properties = def.data.output?.schema?.whenOrNull(

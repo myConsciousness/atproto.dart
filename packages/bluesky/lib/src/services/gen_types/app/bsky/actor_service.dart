@@ -19,7 +19,6 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/actor/defs/preferences.dart';
 import '../../app/bsky/actor/defs/union_preference.dart';
-import '../../app/bsky/actor/get_preferences/output.dart';
 import '../../app/bsky/actor/get_profiles/output.dart';
 import '../../app/bsky/actor/get_suggestions/output.dart';
 import '../../app/bsky/actor/profile/union_profile_label.dart';
@@ -180,14 +179,14 @@ final class ActorService {
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<XRPCResponse<GetPreferencesOutput>> getPreferences({
+  Future<XRPCResponse<Preferences>> getPreferences({
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<GetPreferencesOutput>(
+      await _ctx.get<Preferences>(
         ns.appBskyActorGetPreferences,
         headers: headers,
-        to: const GetPreferencesOutputConverter().fromJson,
+        to: const PreferencesConverter().fromJson,
         client: client,
       );
 }
