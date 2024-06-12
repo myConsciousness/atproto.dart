@@ -8,6 +8,8 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
+import 'package:bluesky/src/services/extensions/graph_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/known_list_purpose.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_blocks/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_followers/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_follows/output.dart';
@@ -68,7 +70,10 @@ void main() {
   );
 
   testGraph<StrongRef>(
-    (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
+    (m, s) => s.list(
+      purpose: KnownListPurpose.curatelist.toUnion(),
+      name: m.name,
+    ),
     bulk: (m, s) => s.listInBulk([
       ListParam(
         purpose: appBskyGraphDefsModlist,
