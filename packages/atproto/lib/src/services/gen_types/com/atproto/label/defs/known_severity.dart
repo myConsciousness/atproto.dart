@@ -30,7 +30,9 @@ enum KnownSeverity {
   const KnownSeverity(this.value);
 
   /// Returns [KnownSeverity] associated with [value], otherwise null.
-  static KnownSeverity? valueOf(final String value) {
+  static KnownSeverity? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

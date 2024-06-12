@@ -71,7 +71,9 @@ enum KnownEvent {
   const KnownEvent(this.value);
 
   /// Returns [KnownEvent] associated with [value], otherwise null.
-  static KnownEvent? valueOf(final String value) {
+  static KnownEvent? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

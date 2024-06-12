@@ -13,7 +13,9 @@ enum LabelPreference {
   warn,
   hide;
 
-  static LabelPreference? valueOf(final String value) {
+  static LabelPreference? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.name == value) {
         return $value;

@@ -46,7 +46,9 @@ enum KnownLabelValue {
   const KnownLabelValue(this.value);
 
   /// Returns [KnownLabelValue] associated with [value], otherwise null.
-  static KnownLabelValue? valueOf(final String value) {
+  static KnownLabelValue? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

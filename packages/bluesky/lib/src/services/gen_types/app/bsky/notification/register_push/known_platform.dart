@@ -30,7 +30,9 @@ enum KnownPlatform {
   const KnownPlatform(this.value);
 
   /// Returns [KnownPlatform] associated with [value], otherwise null.
-  static KnownPlatform? valueOf(final String value) {
+  static KnownPlatform? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

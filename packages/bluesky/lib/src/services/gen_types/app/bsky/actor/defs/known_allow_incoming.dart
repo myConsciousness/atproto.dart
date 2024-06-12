@@ -30,7 +30,9 @@ enum KnownAllowIncoming {
   const KnownAllowIncoming(this.value);
 
   /// Returns [KnownAllowIncoming] associated with [value], otherwise null.
-  static KnownAllowIncoming? valueOf(final String value) {
+  static KnownAllowIncoming? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

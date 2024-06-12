@@ -30,7 +30,9 @@ enum KnownType {
   const KnownType(this.value);
 
   /// Returns [KnownType] associated with [value], otherwise null.
-  static KnownType? valueOf(final String value) {
+  static KnownType? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

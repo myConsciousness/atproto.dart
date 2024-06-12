@@ -31,7 +31,9 @@ enum KnownListPurpose {
   const KnownListPurpose(this.value);
 
   /// Returns [KnownListPurpose] associated with [value], otherwise null.
-  static KnownListPurpose? valueOf(final String value) {
+  static KnownListPurpose? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

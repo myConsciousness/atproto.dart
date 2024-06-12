@@ -32,7 +32,9 @@ enum KnownFilter {
   const KnownFilter(this.value);
 
   /// Returns [KnownFilter] associated with [value], otherwise null.
-  static KnownFilter? valueOf(final String value) {
+  static KnownFilter? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

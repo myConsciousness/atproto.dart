@@ -32,7 +32,9 @@ enum KnownStatus {
   const KnownStatus(this.value);
 
   /// Returns [KnownStatus] associated with [value], otherwise null.
-  static KnownStatus? valueOf(final String value) {
+  static KnownStatus? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

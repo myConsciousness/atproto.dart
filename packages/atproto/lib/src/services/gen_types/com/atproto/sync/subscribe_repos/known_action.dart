@@ -30,7 +30,9 @@ enum KnownAction {
   const KnownAction(this.value);
 
   /// Returns [KnownAction] associated with [value], otherwise null.
-  static KnownAction? valueOf(final String value) {
+  static KnownAction? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

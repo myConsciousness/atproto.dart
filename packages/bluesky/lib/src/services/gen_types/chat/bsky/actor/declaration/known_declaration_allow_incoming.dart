@@ -30,7 +30,9 @@ enum KnownDeclarationAllowIncoming {
   const KnownDeclarationAllowIncoming(this.value);
 
   /// Returns [KnownDeclarationAllowIncoming] associated with [value], otherwise null.
-  static KnownDeclarationAllowIncoming? valueOf(final String value) {
+  static KnownDeclarationAllowIncoming? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

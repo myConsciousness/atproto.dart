@@ -32,7 +32,9 @@ enum KnownVisibility {
   const KnownVisibility(this.value);
 
   /// Returns [KnownVisibility] associated with [value], otherwise null.
-  static KnownVisibility? valueOf(final String value) {
+  static KnownVisibility? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

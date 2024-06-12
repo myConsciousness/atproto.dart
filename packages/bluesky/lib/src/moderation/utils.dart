@@ -3,16 +3,17 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../services/constants/content_label_visibility.dart';
 import '../services/entities/content_label_preference.dart';
-import '../services/entities/labeler_service_view.dart';
-import '../services/entities/labeler_view_detailed.dart';
 import '../services/entities/muted_word.dart';
 import '../services/entities/preference.dart';
 import '../services/entities/preferences.dart';
+import '../services/gen_types/app/bsky/labeler/defs/labeler_view_detailed.dart';
+import '../services/gen_types/app/bsky/labeler/get_services/union_view.dart';
 import '../services/gen_types/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';
@@ -116,10 +117,11 @@ List<InterpretedLabelValueDefinition> getInterpretedLabelValueDefinitions(
   return labelerView.policies.labelValueDefinitions
           ?.map((e) => getInterpretedLabelValueDefinition(
                 identifier: e.identifier,
-                defaultSetting: LabelPreference.valueOf(e.defaultSetting) ??
-                    LabelPreference.warn,
-                severity: e.severity,
-                blurs: e.blurs,
+                defaultSetting:
+                    LabelPreference.valueOf(e.defaultSetting?.toJson()) ??
+                        LabelPreference.warn,
+                severity: e.severity.toJson(),
+                blurs: e.blurs.toJson(),
                 adultOnly: e.adultOnly,
                 definedBy: labelerView.creator.did,
               ))
@@ -143,11 +145,12 @@ extension LabelerServiceExtension on LabelerService {
 
     final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};
     for (final labeler in labelers.data.views) {
-      if (labeler is! ULabelerServiceViewLabelerViewDetailed) continue;
+      if (labeler.isLabelerViewDetailed) {
+        final data = labeler.labelerViewDetailed;
+        final did = data.creator.did;
 
-      labelDefs[labeler.data.creator.did] = getInterpretedLabelValueDefinitions(
-        labeler.data,
-      );
+        labelDefs[did] = getInterpretedLabelValueDefinitions(data);
+      }
     }
 
     return labelDefs;

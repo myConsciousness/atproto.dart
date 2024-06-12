@@ -28,7 +28,9 @@ enum KnownMutedWordTarget {
   const KnownMutedWordTarget(this.value);
 
   /// Returns [KnownMutedWordTarget] associated with [value], otherwise null.
-  static KnownMutedWordTarget? valueOf(final String value) {
+  static KnownMutedWordTarget? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

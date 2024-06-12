@@ -26,7 +26,9 @@ enum KnownName {
   const KnownName(this.value);
 
   /// Returns [KnownName] associated with [value], otherwise null.
-  static KnownName? valueOf(final String value) {
+  static KnownName? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

@@ -28,7 +28,9 @@ enum KnownSubjectType {
   const KnownSubjectType(this.value);
 
   /// Returns [KnownSubjectType] associated with [value], otherwise null.
-  static KnownSubjectType? valueOf(final String value) {
+  static KnownSubjectType? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

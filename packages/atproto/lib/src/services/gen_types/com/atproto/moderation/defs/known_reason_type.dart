@@ -51,7 +51,9 @@ enum KnownReasonType {
   const KnownReasonType(this.value);
 
   /// Returns [KnownReasonType] associated with [value], otherwise null.
-  static KnownReasonType? valueOf(final String value) {
+  static KnownReasonType? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

@@ -28,7 +28,9 @@ enum KnownSort {
   const KnownSort(this.value);
 
   /// Returns [KnownSort] associated with [value], otherwise null.
-  static KnownSort? valueOf(final String value) {
+  static KnownSort? valueOf(final String? value) {
+    if (value == null) return null;
+
     for (final $value in values) {
       if ($value.value == value) {
         return $value;

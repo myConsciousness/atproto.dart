@@ -80,7 +80,9 @@ final class LexGenKnownValues {
     buffer.writeln();
     buffer.writeln(
         '  /// Returns [Known$name] associated with [value], otherwise null.');
-    buffer.writeln('  static Known$name? valueOf(final String value) {');
+    buffer.writeln('  static Known$name? valueOf(final String? value) {');
+    buffer.writeln('    if (value == null) return null;');
+    buffer.writeln();
     buffer.writeln('    for (final \$value in values) {');
     buffer.writeln('      if (\$value.value == value) {');
     buffer.writeln('        return \$value;');
