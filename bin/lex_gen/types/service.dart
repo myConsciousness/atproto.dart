@@ -109,126 +109,169 @@ final class LexServiceEndpoint {
   String toString() {
     final buffer = StringBuffer();
 
-    final namespace =
-        toFirstLower('$serviceName.$name'.split('.').map(toFirstUpper).join());
+    final namespace = toFirstLower(
+      '$serviceName.$name'.split('.').map(toFirstUpper).join(),
+    );
 
     if (description != null) {
       buffer.writeln('  /// $description');
       buffer.writeln('  ///');
     }
-
     buffer.writeln('  /// $referencePath');
-
     if (description != null &&
         description!.toLowerCase().contains('deprecated')) {
       buffer.writeln("  @Deprecated('$description')");
     }
 
-    if (method == LexServiceEndpointMethod.get ||
-        method == LexServiceEndpointMethod.post) {
-      if (args.isEmpty) {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-        buffer.writeln('    Map<String, String>? headers,');
-        if (method == LexServiceEndpointMethod.get) {
-          buffer.writeln('    GetClient? client,');
-        } else {
-          buffer.writeln('    PostClient? client,');
-        }
-        buffer.writeln('  }) async =>');
-      } else {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-        for (final arg in args) {
-          buffer.writeln('    ${arg.toString()},');
-        }
-        buffer.writeln('    Map<String, String>? headers,');
-        if (method == LexServiceEndpointMethod.get) {
-          buffer.writeln('    GetClient? client,');
-        } else {
-          buffer.writeln('    PostClient? client,');
-        }
-        buffer.writeln('  }) async =>');
-      }
-      buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
-      buffer.writeln('        ns.$namespace,');
-      buffer.writeln('        headers: headers,');
-      if (args.isNotEmpty) {
-        if (method == LexServiceEndpointMethod.get) {
-          buffer.writeln('    parameters: {');
-
-          for (final arg in args) {
-            buffer.writeln(Payload(arg).toString());
-          }
-          buffer.writeln('    },');
-        } else {
-          if (args.first.isBytes) {
-            buffer.writeln('    body: ${args.first.name},');
-          } else {
-            buffer.writeln('    body: {');
-            for (final arg in args) {
-              buffer.writeln(Payload(arg).toString());
-            }
-            buffer.writeln('    },');
-          }
-        }
-      }
-      if (type.converter != null) {
-        buffer.writeln('        to: const ${type.converter}().fromJson,');
-      }
-      buffer.writeln('        client: client,');
-      buffer.writeln('      );');
+    if (method == LexServiceEndpointMethod.get) {
+      buffer.write(_getGetEndpoint(namespace));
+    } else if (method == LexServiceEndpointMethod.post) {
+      buffer.write(_getPostEndpoint(namespace));
     } else if (method == LexServiceEndpointMethod.record) {
-      if (args.isEmpty) {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-        buffer.writeln('    Map<String, String>? headers,');
-        buffer.writeln('    PostClient? client,');
-        buffer.writeln('  }) async =>');
-      } else {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-        for (final arg in args) {
-          buffer.writeln('    ${arg.toString()},');
-        }
-        buffer.writeln('    Map<String, String>? headers,');
-        buffer.writeln('    PostClient? client,');
-        buffer.writeln('  }) async =>');
+      buffer.write(_getRecordEndpoint(namespace));
+    } else if (method == LexServiceEndpointMethod.stream) {
+      buffer.write(_getSubscriptionEndpoint(namespace));
+    }
+
+    return buffer.toString();
+  }
+
+  String _getGetEndpoint(final String namespace) {
+    final buffer = StringBuffer();
+
+    if (args.isEmpty) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    GetClient? client,');
+      buffer.writeln('  }) async =>');
+    } else {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
       }
-      buffer.writeln('    await _ctx.atproto.repo.createRecord(');
-      buffer.writeln('        repo: _ctx.repo,');
-      buffer.writeln('        collection: ns.$namespace,');
-      buffer.writeln('        record: {');
-      buffer.writeln("          r'\$type': '$serviceName.$name',");
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    GetClient? client,');
+      buffer.writeln('  }) async =>');
+    }
+    buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
+    buffer.writeln('        ns.$namespace,');
+    buffer.writeln('        headers: headers,');
+    if (args.isNotEmpty) {
+      buffer.writeln('    parameters: {');
       for (final arg in args) {
         buffer.writeln(Payload(arg).toString());
       }
-      buffer.writeln('        },');
-      buffer.writeln('        headers: headers,');
-      buffer.writeln('        client: client,');
-      buffer.writeln('      );');
-    } else if (method == LexServiceEndpointMethod.stream) {
-      if (args.isEmpty) {
-        buffer.writeln(
-            '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
-      } else {
-        buffer.writeln(
-            '  Future<XRPCResponse<Subscription<${type.name}>>> $name({');
-        for (final arg in args) {
-          buffer.writeln('    ${arg.toString()},');
-        }
-        buffer.writeln('  }) async =>');
+      buffer.writeln('    },');
+    }
+    if (type.converter != null) {
+      buffer.writeln('        to: const ${type.converter}().fromJson,');
+    }
+    buffer.writeln('        client: client,');
+    buffer.writeln('      );');
+
+    return buffer.toString();
+  }
+
+  String _getPostEndpoint(final String namespace) {
+    final buffer = StringBuffer();
+
+    if (args.isEmpty) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    PostClient? client,');
+      buffer.writeln('  }) async =>');
+    } else {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
       }
-      buffer.writeln('    await _ctx.stream(');
-      buffer.writeln('        ns.$namespace,');
-      if (args.isNotEmpty) {
-        buffer.writeln('    parameters: {');
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    PostClient? client,');
+      buffer.writeln('  }) async =>');
+    }
+    buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
+    buffer.writeln('        ns.$namespace,');
+    buffer.writeln('        headers: headers,');
+    if (args.isNotEmpty) {
+      if (args.first.isBytes) {
+        buffer.writeln('    body: ${args.first.name},');
+      } else {
+        buffer.writeln('    body: {');
         for (final arg in args) {
           buffer.writeln(Payload(arg).toString());
         }
         buffer.writeln('    },');
       }
-      if (type.converter != null) {
-        buffer.writeln('        to: const ${type.converter}().fromJson,');
-      }
-      buffer.writeln('      );');
     }
+    if (type.converter != null) {
+      buffer.writeln('        to: const ${type.converter}().fromJson,');
+    }
+    buffer.writeln('        client: client,');
+    buffer.writeln('      );');
+
+    return buffer.toString();
+  }
+
+  String _getRecordEndpoint(final String namespace) {
+    final buffer = StringBuffer();
+
+    if (args.isEmpty) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    PostClient? client,');
+      buffer.writeln('  }) async =>');
+    } else {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
+      }
+      buffer.writeln('    Map<String, String>? headers,');
+      buffer.writeln('    PostClient? client,');
+      buffer.writeln('  }) async =>');
+    }
+    buffer.writeln('    await _ctx.atproto.repo.createRecord(');
+    buffer.writeln('        repo: _ctx.repo,');
+    buffer.writeln('        collection: ns.$namespace,');
+    buffer.writeln('        record: {');
+    buffer.writeln("          r'\$type': '$serviceName.$name',");
+    for (final arg in args) {
+      buffer.writeln(Payload(arg).toString());
+    }
+    buffer.writeln('        },');
+    buffer.writeln('        headers: headers,');
+    buffer.writeln('        client: client,');
+    buffer.writeln('      );');
+
+    return buffer.toString();
+  }
+
+  String _getSubscriptionEndpoint(final String namespace) {
+    final buffer = StringBuffer();
+
+    if (args.isEmpty) {
+      buffer.writeln(
+          '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
+    } else {
+      buffer.writeln(
+          '  Future<XRPCResponse<Subscription<${type.name}>>> $name({');
+      for (final arg in args) {
+        buffer.writeln('    ${arg.toString()},');
+      }
+      buffer.writeln('  }) async =>');
+    }
+    buffer.writeln('    await _ctx.stream(');
+    buffer.writeln('        ns.$namespace,');
+    if (args.isNotEmpty) {
+      buffer.writeln('    parameters: {');
+      for (final arg in args) {
+        buffer.writeln(Payload(arg).toString());
+      }
+      buffer.writeln('    },');
+    }
+    if (type.converter != null) {
+      buffer.writeln('        to: const ${type.converter}().fromJson,');
+    }
+    buffer.writeln('      );');
 
     return buffer.toString();
   }
