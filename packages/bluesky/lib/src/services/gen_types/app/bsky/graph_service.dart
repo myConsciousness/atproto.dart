@@ -44,18 +44,18 @@ final class GraphService {
   Future<XRPCResponse<GetBlocksOutput>> getBlocks({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetBlocksOutput>(
         ns.appBskyGraphGetBlocks,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetBlocksOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
@@ -64,17 +64,17 @@ final class GraphService {
   Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
       getSuggestedFollowsByActor({
     required String actor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
           await _ctx.get<GetSuggestedFollowsByActorOutput>(
             ns.appBskyGraphGetSuggestedFollowsByActor,
-            headers: headers,
+            headers: $headers,
             parameters: {
               'actor': actor,
             },
             to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
-            client: client,
+            client: $client,
           );
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
@@ -84,8 +84,8 @@ final class GraphService {
     required String subject,
     required AtUri list,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -96,8 +96,8 @@ final class GraphService {
           'list': list.toString(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Record representing a block relationship against an entire an entire list of accounts (actors).
@@ -106,8 +106,8 @@ final class GraphService {
   Future<XRPCResponse<StrongRef>> listblock({
     required AtUri subject,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -117,8 +117,8 @@ final class GraphService {
           'subject': subject.toString(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Enumerates accounts which a specified account (actor) follows.
@@ -128,19 +128,19 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFollowsOutput>(
         ns.appBskyGraphGetFollows,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
@@ -149,18 +149,18 @@ final class GraphService {
   Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
     required String actor,
     List<String>? others,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetRelationshipsOutput>(
         ns.appBskyGraphGetRelationships,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (others != null) 'others': others,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Gets a 'view' (with additional context) of a specified list.
@@ -170,19 +170,19 @@ final class GraphService {
     required AtUri list,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetListOutput>(
         ns.appBskyGraphGetList,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'list': list.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates accounts which follow a specified account (actor).
@@ -192,19 +192,19 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFollowersOutput>(
         ns.appBskyGraphGetFollowers,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowersOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
@@ -213,18 +213,18 @@ final class GraphService {
   Future<XRPCResponse<GetListMutesOutput>> getListMutes({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetListMutesOutput>(
         ns.appBskyGraphGetListMutes,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListMutesOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
@@ -234,19 +234,19 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetKnownFollowersOutput>(
         ns.appBskyGraphGetKnownFollowers,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetKnownFollowersOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
@@ -255,8 +255,8 @@ final class GraphService {
   Future<XRPCResponse<StrongRef>> block({
     required String subject,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -266,8 +266,8 @@ final class GraphService {
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Record declaring a social 'follow' relationship of another account. Duplicate follows will be ignored by the AppView.
@@ -276,8 +276,8 @@ final class GraphService {
   Future<XRPCResponse<StrongRef>> follow({
     required String subject,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -287,8 +287,8 @@ final class GraphService {
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Unmutes the specified account. Requires auth.
@@ -296,16 +296,16 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
   Future<XRPCResponse<EmptyData>> unmuteActor({
     required String actor,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyGraphUnmuteActor,
-        headers: headers,
+        headers: $headers,
         body: {
           'actor': actor,
         },
-        client: client,
+        client: $client,
       );
 
   /// Unmutes the specified list of accounts. Requires auth.
@@ -313,16 +313,16 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
   Future<XRPCResponse<EmptyData>> unmuteActorList({
     required AtUri list,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyGraphUnmuteActorList,
-        headers: headers,
+        headers: $headers,
         body: {
           'list': list.toString(),
         },
-        client: client,
+        client: $client,
       );
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
@@ -330,16 +330,16 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<XRPCResponse<EmptyData>> muteActorList({
     required AtUri list,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyGraphMuteActorList,
-        headers: headers,
+        headers: $headers,
         body: {
           'list': list.toString(),
         },
-        client: client,
+        client: $client,
       );
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
@@ -348,18 +348,18 @@ final class GraphService {
   Future<XRPCResponse<GetListBlocksOutput>> getListBlocks({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetListBlocksOutput>(
         ns.appBskyGraphGetListBlocks,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListBlocksOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Enumerates the lists created by a specified account (actor).
@@ -369,19 +369,19 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetListsOutput>(
         ns.appBskyGraphGetLists,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
@@ -395,8 +395,8 @@ final class GraphService {
     Blob? avatar,
     UListLabel? labels,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -413,8 +413,8 @@ final class GraphService {
           if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Creates a mute relationship for the specified account. Mutes are private in Bluesky. Requires auth.
@@ -422,16 +422,16 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<XRPCResponse<EmptyData>> muteActor({
     required String actor,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyGraphMuteActor,
-        headers: headers,
+        headers: $headers,
         body: {
           'actor': actor,
         },
-        client: client,
+        client: $client,
       );
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
@@ -440,17 +440,17 @@ final class GraphService {
   Future<XRPCResponse<GetMutesOutput>> getMutes({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetMutesOutput>(
         ns.appBskyGraphGetMutes,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetMutesOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

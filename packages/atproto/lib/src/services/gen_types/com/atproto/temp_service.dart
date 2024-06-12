@@ -33,32 +33,32 @@ final class TempService {
   Future<XRPCResponse<FetchLabelsOutput>> fetchLabels({
     int? since,
     int? limit,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<FetchLabelsOutput>(
         ns.comAtprotoTempFetchLabels,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (since != null) 'since': since,
           if (limit != null) 'limit': limit,
         },
         to: const FetchLabelsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Check accounts location in signup queue.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue
   Future<XRPCResponse<CheckSignupQueueOutput>> checkSignupQueue({
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<CheckSignupQueueOutput>(
         ns.comAtprotoTempCheckSignupQueue,
-        headers: headers,
+        headers: $headers,
         to: const CheckSignupQueueOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Request a verification code to be sent to the supplied phone number
@@ -66,15 +66,15 @@ final class TempService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/requestPhoneVerification
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({
     required String phoneNumber,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoTempRequestPhoneVerification,
-        headers: headers,
+        headers: $headers,
         body: {
           'phoneNumber': phoneNumber,
         },
-        client: client,
+        client: $client,
       );
 }

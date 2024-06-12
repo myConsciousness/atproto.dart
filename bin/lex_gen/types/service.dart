@@ -141,21 +141,21 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    GetClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    GetClient? \$client,');
       buffer.writeln('  }) async =>');
     } else {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    GetClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    GetClient? \$client,');
       buffer.writeln('  }) async =>');
     }
     buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
     buffer.writeln('        ns.$namespace,');
-    buffer.writeln('        headers: headers,');
+    buffer.writeln('        headers: \$headers,');
     if (args.isNotEmpty) {
       buffer.writeln('    parameters: {');
       for (final arg in args) {
@@ -166,7 +166,7 @@ final class LexServiceEndpoint {
     if (type.converter != null) {
       buffer.writeln('        to: const ${type.converter}().fromJson,');
     }
-    buffer.writeln('        client: client,');
+    buffer.writeln('        client: \$client,');
     buffer.writeln('      );');
 
     return buffer.toString();
@@ -177,21 +177,21 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    PostClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
     } else {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    PostClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
     }
     buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
     buffer.writeln('        ns.$namespace,');
-    buffer.writeln('        headers: headers,');
+    buffer.writeln('        headers: \$headers,');
     if (args.isNotEmpty) {
       if (args.first.isBytes) {
         buffer.writeln('    body: ${args.first.name},');
@@ -206,7 +206,7 @@ final class LexServiceEndpoint {
     if (type.converter != null) {
       buffer.writeln('        to: const ${type.converter}().fromJson,');
     }
-    buffer.writeln('        client: client,');
+    buffer.writeln('        client: \$client,');
     buffer.writeln('      );');
 
     return buffer.toString();
@@ -217,29 +217,32 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    PostClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
     } else {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
-      buffer.writeln('    Map<String, String>? headers,');
-      buffer.writeln('    PostClient? client,');
+      buffer.writeln('    Map<String, String>? \$headers,');
+      buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
     }
     buffer.writeln('    await _ctx.atproto.repo.createRecord(');
     buffer.writeln('        repo: _ctx.repo,');
     buffer.writeln('        collection: ns.$namespace,');
+    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') {
+      buffer.writeln('        rkey: post.rkey,');
+    }
     buffer.writeln('        record: {');
     buffer.writeln("          r'\$type': '$serviceName.$name',");
     for (final arg in args) {
       buffer.writeln(Payload(arg).toString());
     }
     buffer.writeln('        },');
-    buffer.writeln('        headers: headers,');
-    buffer.writeln('        client: client,');
+    buffer.writeln('        \$headers: \$headers,');
+    buffer.writeln('        \$client: \$client,');
     buffer.writeln('      );');
 
     return buffer.toString();

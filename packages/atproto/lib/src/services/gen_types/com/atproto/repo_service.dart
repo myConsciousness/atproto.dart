@@ -41,12 +41,12 @@ final class RepoService {
     required NSID collection,
     required String rkey,
     String? cid,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetRecordOutput>(
         ns.comAtprotoRepoGetRecord,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
@@ -54,7 +54,7 @@ final class RepoService {
           if (cid != null) 'cid': cid,
         },
         to: const GetRecordOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
@@ -62,14 +62,14 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
   Future<XRPCResponse<EmptyData>> importRepo({
     required Uint8List bytes,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoRepoImportRepo,
-        headers: headers,
+        headers: $headers,
         body: bytes,
-        client: client,
+        client: $client,
       );
 
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
@@ -83,12 +83,12 @@ final class RepoService {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<ListRecordsOutput>(
         ns.comAtprotoRepoListRecords,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
@@ -99,7 +99,7 @@ final class RepoService {
           if (reverse != null) 'reverse': reverse,
         },
         to: const ListRecordsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
@@ -108,18 +108,18 @@ final class RepoService {
   Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<ListMissingBlobsOutput>(
         ns.comAtprotoRepoListMissingBlobs,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const ListMissingBlobsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
@@ -130,19 +130,19 @@ final class RepoService {
     bool? validate,
     required List<UWrite> writes,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoRepoApplyWrites,
-        headers: headers,
+        headers: $headers,
         body: {
           'repo': repo ?? _ctx.repo,
           if (validate != null) 'validate': validate,
           'writes': writes.map((e) => e.toJson()).toList(),
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
-        client: client,
+        client: $client,
       );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
@@ -150,15 +150,15 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
     required Uint8List bytes,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<UploadBlobOutput>(
         ns.comAtprotoRepoUploadBlob,
-        headers: headers,
+        headers: $headers,
         body: bytes,
         to: const UploadBlobOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
@@ -170,12 +170,12 @@ final class RepoService {
     required String rkey,
     String? swapRecord,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoRepoDeleteRecord,
-        headers: headers,
+        headers: $headers,
         body: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
@@ -183,7 +183,7 @@ final class RepoService {
           if (swapRecord != null) 'swapRecord': swapRecord,
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
-        client: client,
+        client: $client,
       );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
@@ -197,12 +197,12 @@ final class RepoService {
     required Map<String, dynamic> record,
     String? swapRecord,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<StrongRef>(
         ns.comAtprotoRepoPutRecord,
-        headers: headers,
+        headers: $headers,
         body: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
@@ -213,7 +213,7 @@ final class RepoService {
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
@@ -221,17 +221,17 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
     String? repo,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<DescribeRepoOutput>(
         ns.comAtprotoRepoDescribeRepo,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
         },
         to: const DescribeRepoOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Create a single new repository record. Requires auth, implemented by PDS.
@@ -244,12 +244,12 @@ final class RepoService {
     bool? validate,
     required Map<String, dynamic> record,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<StrongRef>(
         ns.comAtprotoRepoCreateRecord,
-        headers: headers,
+        headers: $headers,
         body: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
@@ -259,6 +259,6 @@ final class RepoService {
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

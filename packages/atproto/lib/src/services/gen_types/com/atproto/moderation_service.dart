@@ -33,18 +33,18 @@ final class ModerationService {
     required UReasonType reasonType,
     String? reason,
     required USubject subject,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<CreateReportOutput>(
         ns.comAtprotoModerationCreateReport,
-        headers: headers,
+        headers: $headers,
         body: {
           'reasonType': reasonType,
           if (reason != null) 'reason': reason,
           'subject': subject.toJson(),
         },
         to: const CreateReportOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

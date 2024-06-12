@@ -55,16 +55,16 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
   Future<XRPCResponse<EmptyData>> sendInteractions({
     required List<Interaction> interactions,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyFeedSendInteractions,
-        headers: headers,
+        headers: $headers,
         body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
         },
-        client: client,
+        client: $client,
       );
 
   /// Find posts matching search criteria, returning views of those posts.
@@ -83,12 +83,12 @@ final class FeedService {
     List<String>? tag,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<SearchPostsOutput>(
         ns.appBskyFeedSearchPosts,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'q': q,
           if (sort != null) 'sort': sort.toJson(),
@@ -104,7 +104,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchPostsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
@@ -119,8 +119,8 @@ final class FeedService {
     bool? acceptsInteractions,
     UGeneratorLabel? labels,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -139,22 +139,22 @@ final class FeedService {
           if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Get information about a feed generator, including policies and offered feed URIs. Does not require auth; implemented by Feed Generator services (not App View).
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
   Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<DescribeFeedGeneratorOutput>(
         ns.appBskyFeedDescribeFeedGenerator,
-        headers: headers,
+        headers: $headers,
         to: const DescribeFeedGeneratorOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get information about a feed generator. Implemented by AppView.
@@ -162,17 +162,17 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
   Future<XRPCResponse<GetFeedGeneratorOutput>> getFeedGenerator({
     required AtUri feed,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFeedGeneratorOutput>(
         ns.appBskyFeedGetFeedGenerator,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'feed': feed.toString(),
         },
         to: const GetFeedGeneratorOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
@@ -182,19 +182,19 @@ final class FeedService {
     required AtUri list,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetListFeedOutput>(
         ns.appBskyFeedGetListFeed,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'list': list.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListFeedOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..
@@ -204,20 +204,21 @@ final class FeedService {
     required AtUri post,
     List<UThreadgateAllow>? allow,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
         collection: ns.appBskyFeedThreadgate,
+        rkey: post.rkey,
         record: {
           r'$type': 'app.bsky.feed.threadgate',
           'post': post.toString(),
           if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Get like records which reference a subject (by AT-URI and CID).
@@ -228,12 +229,12 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetLikesOutput>(
         ns.appBskyFeedGetLikes,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'uri': uri.toString(),
           if (cid != null) 'cid': cid,
@@ -241,7 +242,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetLikesOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
@@ -251,19 +252,19 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFeedOutput>(
         ns.appBskyFeedGetFeed,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFeedOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a list of reposts for a given post.
@@ -274,12 +275,12 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetRepostedByOutput>(
         ns.appBskyFeedGetRepostedBy,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'uri': uri.toString(),
           if (cid != null) 'cid': cid,
@@ -287,7 +288,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetRepostedByOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record representing a 'repost' of an existing Bluesky post.
@@ -296,8 +297,8 @@ final class FeedService {
   Future<XRPCResponse<StrongRef>> repost({
     required StrongRef subject,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -307,8 +308,8 @@ final class FeedService {
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Record declaring a 'like' of a piece of subject content.
@@ -317,8 +318,8 @@ final class FeedService {
   Future<XRPCResponse<StrongRef>> like({
     required StrongRef subject,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -328,8 +329,8 @@ final class FeedService {
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Gets post views for a specified list of posts (by AT-URI). This is sometimes referred to as 'hydrating' a 'feed skeleton'.
@@ -337,17 +338,17 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
   Future<XRPCResponse<GetPostsOutput>> getPosts({
     required List<AtUri> uris,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetPostsOutput>(
         ns.appBskyFeedGetPosts,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
         },
         to: const GetPostsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get information about a list of feed generators.
@@ -355,17 +356,17 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
   Future<XRPCResponse<GetFeedGeneratorsOutput>> getFeedGenerators({
     required List<AtUri> feeds,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFeedGeneratorsOutput>(
         ns.appBskyFeedGetFeedGenerators,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'feeds': feeds.map((e) => e.toString()).toList(),
         },
         to: const GetFeedGeneratorsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a list of suggested feeds (feed generators) for the requesting account.
@@ -374,18 +375,18 @@ final class FeedService {
   Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetSuggestedFeedsOutput>(
         ns.appBskyFeedGetSuggestedFeeds,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestedFeedsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
@@ -395,19 +396,19 @@ final class FeedService {
     required AtUri uri,
     int? depth,
     int? parentHeight,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetPostThreadOutput>(
         ns.appBskyFeedGetPostThread,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'uri': uri.toString(),
           if (depth != null) 'depth': depth,
           if (parentHeight != null) 'parentHeight': parentHeight,
         },
         to: const GetPostThreadOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a list of posts liked by an actor. Does not require auth.
@@ -417,19 +418,19 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetActorLikesOutput>(
         ns.appBskyFeedGetActorLikes,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetActorLikesOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
@@ -440,12 +441,12 @@ final class FeedService {
     int? limit,
     String? cursor,
     UFilter? filter,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetAuthorFeedOutput>(
         ns.appBskyFeedGetAuthorFeed,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
@@ -453,7 +454,7 @@ final class FeedService {
           if (filter != null) 'filter': filter.toJson(),
         },
         to: const GetAuthorFeedOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
@@ -463,19 +464,19 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetFeedSkeletonOutput>(
         ns.appBskyFeedGetFeedSkeleton,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFeedSkeletonOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
@@ -485,19 +486,19 @@ final class FeedService {
     String? algorithm,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetTimelineOutput>(
         ns.appBskyFeedGetTimeline,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (algorithm != null) 'algorithm': algorithm,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetTimelineOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Record containing a Bluesky post.
@@ -513,8 +514,8 @@ final class FeedService {
     UPostLabel? labels,
     List<String>? tags,
     DateTime? createdAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -532,8 +533,8 @@ final class FeedService {
           if (tags != null) 'tags': tags,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   /// Get a list of feeds (feed generator records) created by the actor (in the actor's repo).
@@ -543,18 +544,18 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetActorFeedsOutput>(
         ns.appBskyFeedGetActorFeeds,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetActorFeedsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

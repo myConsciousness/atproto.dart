@@ -31,16 +31,16 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<XRPCResponse<EmptyData>> updateHandle({
     required String handle,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityUpdateHandle,
-        headers: headers,
+        headers: $headers,
         body: {
           'handle': handle,
         },
-        client: client,
+        client: $client,
       );
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
@@ -48,16 +48,16 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
   Future<XRPCResponse<EmptyData>> submitPlcOperation({
     required Map<String, dynamic> operation,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoIdentitySubmitPlcOperation,
-        headers: headers,
+        headers: $headers,
         body: {
           'operation': operation,
         },
-        client: client,
+        client: $client,
       );
 
   /// Resolves a handle (domain name) to a DID.
@@ -65,17 +65,17 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
     required String handle,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<ResolveHandleOutput>(
         ns.comAtprotoIdentityResolveHandle,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'handle': handle,
         },
         to: const ResolveHandleOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Signs a PLC operation to update some value(s) in the requesting DID's document.
@@ -87,12 +87,12 @@ final class IdentityService {
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<SignPlcOperationOutput>(
         ns.comAtprotoIdentitySignPlcOperation,
-        headers: headers,
+        headers: $headers,
         body: {
           if (token != null) 'token': token,
           if (rotationKeys != null) 'rotationKeys': rotationKeys,
@@ -102,7 +102,7 @@ final class IdentityService {
           if (services != null) 'services': services,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
@@ -110,26 +110,26 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
       getRecommendedDidCredentials({
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
           await _ctx.get<GetRecommendedDidCredentialsOutput>(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
-            headers: headers,
+            headers: $headers,
             to: const GetRecommendedDidCredentialsOutputConverter().fromJson,
-            client: client,
+            client: $client,
           );
 
   /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityRequestPlcOperationSignature,
-        headers: headers,
-        client: client,
+        headers: $headers,
+        client: $client,
       );
 }

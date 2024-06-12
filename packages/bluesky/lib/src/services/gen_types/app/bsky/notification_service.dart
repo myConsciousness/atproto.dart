@@ -31,16 +31,16 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
     DateTime? seenAt,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyNotificationUpdateSeen,
-        headers: headers,
+        headers: $headers,
         body: {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
-        client: client,
+        client: $client,
       );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
@@ -51,19 +51,19 @@ final class NotificationService {
     required String token,
     required UPlatform platform,
     required String appId,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.appBskyNotificationRegisterPush,
-        headers: headers,
+        headers: $headers,
         body: {
           'serviceDid': serviceDid,
           'token': token,
           'platform': platform.toJson(),
           'appId': appId,
         },
-        client: client,
+        client: $client,
       );
 
   /// Enumerate notifications for the requesting account. Requires auth.
@@ -73,19 +73,19 @@ final class NotificationService {
     int? limit,
     String? cursor,
     DateTime? seenAt,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<ListNotificationsOutput>(
         ns.appBskyNotificationListNotifications,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const ListNotificationsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
@@ -93,16 +93,16 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
     DateTime? seenAt,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetUnreadCountOutput>(
         ns.appBskyNotificationGetUnreadCount,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const GetUnreadCountOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

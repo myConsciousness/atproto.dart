@@ -33,14 +33,14 @@ final class UnspeccedService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
   Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetTaggedSuggestionsOutput>(
         ns.appBskyUnspeccedGetTaggedSuggestions,
-        headers: headers,
+        headers: $headers,
         to: const GetTaggedSuggestionsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Backend Actors (profile) search, returns only skeleton.
@@ -52,12 +52,12 @@ final class UnspeccedService {
     bool? typeahead,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<SearchActorsSkeletonOutput>(
         ns.appBskyUnspeccedSearchActorsSkeleton,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'q': q,
           if (viewer != null) 'viewer': viewer,
@@ -66,7 +66,7 @@ final class UnspeccedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchActorsSkeletonOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Backend Posts search, returns only skeleton
@@ -86,12 +86,12 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<SearchPostsSkeletonOutput>(
         ns.appBskyUnspeccedSearchPostsSkeleton,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'q': q,
           if (sort != null) 'sort': sort.toJson(),
@@ -108,7 +108,7 @@ final class UnspeccedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchPostsSkeletonOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions
@@ -118,19 +118,19 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetSuggestionsSkeletonOutput>(
         ns.appBskyUnspeccedGetSuggestionsSkeleton,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (viewer != null) 'viewer': viewer,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestionsSkeletonOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// An unspecced view of globally popular feed generators.
@@ -141,18 +141,18 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
     String? query,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
           await _ctx.get<GetPopularFeedGeneratorsOutput>(
             ns.appBskyUnspeccedGetPopularFeedGenerators,
-            headers: headers,
+            headers: $headers,
             parameters: {
               if (limit != null) 'limit': limit,
               if (cursor != null) 'cursor': cursor,
               if (query != null) 'query': query,
             },
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
-            client: client,
+            client: $client,
           );
 }

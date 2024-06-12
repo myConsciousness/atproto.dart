@@ -47,12 +47,12 @@ final class LabelService {
     List<String>? sources,
     int? limit,
     String? cursor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<QueryLabelsOutput>(
         ns.comAtprotoLabelQueryLabels,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'uriPatterns': uriPatterns,
           if (sources != null) 'sources': sources,
@@ -60,6 +60,6 @@ final class LabelService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const QueryLabelsOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }

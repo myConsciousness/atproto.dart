@@ -31,12 +31,12 @@ final class ModerationService {
     required String messageId,
     int? before,
     int? after,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetMessageContextOutput>(
         ns.chatBskyModerationGetMessageContext,
-        headers: headers,
+        headers: $headers,
         parameters: {
           if (convoId != null) 'convoId': convoId,
           'messageId': messageId,
@@ -44,7 +44,7 @@ final class ModerationService {
           if (after != null) 'after': after,
         },
         to: const GetMessageContextOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
@@ -52,33 +52,33 @@ final class ModerationService {
     required String actor,
     required bool allowAccess,
     String? ref,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.chatBskyModerationUpdateActorAccess,
-        headers: headers,
+        headers: $headers,
         body: {
           'actor': actor,
           'allowAccess': allowAccess,
           if (ref != null) 'ref': ref,
         },
-        client: client,
+        client: $client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
   Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
     required String actor,
-    Map<String, String>? headers,
-    GetClient? client,
+    Map<String, String>? $headers,
+    GetClient? $client,
   }) async =>
       await _ctx.get<GetActorMetadataOutput>(
         ns.chatBskyModerationGetActorMetadata,
-        headers: headers,
+        headers: $headers,
         parameters: {
           'actor': actor,
         },
         to: const GetActorMetadataOutputConverter().fromJson,
-        client: client,
+        client: $client,
       );
 }
