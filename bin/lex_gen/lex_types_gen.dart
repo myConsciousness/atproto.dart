@@ -190,6 +190,17 @@ final class LexTypesGen {
             .join('\n'));
 
       writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
+
+      if (docId.toString().startsWith('com.atproto')) {
+        for (final package in kSupportedLexicons) {
+          if (package == 'com.atproto') continue;
+
+          writeFileAsStringSync(
+            _getExportOutputPath(docId, package),
+            buffer.toString(),
+          );
+        }
+      }
     });
   }
 
@@ -200,8 +211,12 @@ final class LexTypesGen {
     return 'packages/${getPackageName(docId.toString())}/lib/$kTypesPath/${filePath.split('/').map(toLowerCamelCase).join('/')}';
   }
 
-  String _getExportOutputPath(final NSID docId) {
-    return 'packages/${getPackageName(docId.toString())}/lib/${docId.toString().split('.').map(toLowerCamelCase).join('_')}.dart';
+  String _getExportOutputPath(final NSID docId, [final String? package]) {
+    final packageName = package != null
+        ? getPackageName(package)
+        : getPackageName(docId.toString());
+
+    return 'packages/$packageName/lib/${docId.toString().split('.').map(toLowerCamelCase).join('_')}.dart';
   }
 
   void _export(
