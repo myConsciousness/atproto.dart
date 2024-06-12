@@ -20,6 +20,7 @@ import '../../app/bsky/notification/get_unread_count/output.dart';
 import '../../app/bsky/notification/list_notifications/output.dart';
 import '../../app/bsky/notification/register_push/known_platform.dart';
 
+/// Contains `app.bsky.notification.*` endpoints.
 final class NotificationService {
   NotificationService(this._ctx);
 

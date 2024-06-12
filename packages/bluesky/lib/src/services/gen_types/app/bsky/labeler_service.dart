@@ -21,6 +21,7 @@ import '../../app/bsky/labeler/defs/labeler_policies.dart';
 import '../../app/bsky/labeler/get_services/output.dart';
 import '../../app/bsky/labeler/service/union_service_label.dart';
 
+/// Contains `app.bsky.labeler.*` endpoints.
 final class LabelerService {
   LabelerService(this._ctx);
 

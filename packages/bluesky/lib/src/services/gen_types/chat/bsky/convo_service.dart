@@ -29,6 +29,7 @@ import '../../chat/bsky/convo/send_message_batch/output.dart';
 import '../../chat/bsky/convo/unmute_convo/output.dart';
 import '../../chat/bsky/convo/update_read/output.dart';
 
+/// Contains `chat.bsky.convo.*` endpoints.
 final class ConvoService {
   ConvoService(this._ctx);
 

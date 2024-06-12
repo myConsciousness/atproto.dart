@@ -23,6 +23,7 @@ import '../../com/atproto/sync/list_blobs/output.dart';
 import '../../com/atproto/sync/list_repos/output.dart';
 import '../../com/atproto/sync/subscribe_repos/union_subscribe_repos_message.dart';
 
+/// Contains `com.atproto.sync.*` endpoints.
 final class SyncService {
   SyncService(this._ctx);
 

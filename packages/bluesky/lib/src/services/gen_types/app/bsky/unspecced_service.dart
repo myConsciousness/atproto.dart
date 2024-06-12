@@ -23,6 +23,7 @@ import '../../app/bsky/unspecced/search_actors_skeleton/output.dart';
 import '../../app/bsky/unspecced/search_posts_skeleton/known_sort.dart';
 import '../../app/bsky/unspecced/search_posts_skeleton/output.dart';
 
+/// Contains `app.bsky.unspecced.*` endpoints.
 final class UnspeccedService {
   UnspeccedService(this._ctx);
 

@@ -61,6 +61,7 @@ final class LexService {
     }
     buffer.writeln("import '../../../service_context.dart';");
     buffer.writeln();
+    buffer.writeln('/// Contains `$namespace.*` endpoints.');
     buffer.writeln('final class $name {');
     buffer.writeln('  $name(this._ctx);');
     buffer.writeln();

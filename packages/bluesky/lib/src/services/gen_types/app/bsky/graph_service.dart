@@ -32,6 +32,7 @@ import '../../app/bsky/graph/get_suggested_follows_by_actor/output.dart';
 import '../../app/bsky/graph/list/union_list_label.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
+/// Contains `app.bsky.graph.*` endpoints.
 final class GraphService {
   GraphService(this._ctx);
 

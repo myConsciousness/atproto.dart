@@ -20,6 +20,7 @@ import '../../com/atproto/identity/get_recommended_did_credentials/output.dart';
 import '../../com/atproto/identity/resolve_handle/output.dart';
 import '../../com/atproto/identity/sign_plc_operation/output.dart';
 
+/// Contains `com.atproto.identity.*` endpoints.
 final class IdentityService {
   IdentityService(this._ctx);
 

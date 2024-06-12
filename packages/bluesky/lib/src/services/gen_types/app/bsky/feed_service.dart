@@ -44,6 +44,7 @@ import '../../app/bsky/feed/search_posts/output.dart';
 import '../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
+/// Contains `app.bsky.feed.*` endpoints.
 final class FeedService {
   FeedService(this._ctx);
 

@@ -26,6 +26,7 @@ import '../../com/atproto/admin/send_email/output.dart';
 import '../../com/atproto/admin/update_subject_status/output.dart';
 import '../../com/atproto/admin/update_subject_status/union_subject.dart';
 
+/// Contains `com.atproto.admin.*` endpoints.
 final class AdminService {
   AdminService(this._ctx);
 

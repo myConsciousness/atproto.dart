@@ -30,6 +30,7 @@ import '../../com/atproto/server/refresh_session/output.dart';
 import '../../com/atproto/server/request_email_update/output.dart';
 import '../../com/atproto/server/reserve_signing_key/output.dart';
 
+/// Contains `com.atproto.server.*` endpoints.
 final class ServerService {
   ServerService(this._ctx);
 

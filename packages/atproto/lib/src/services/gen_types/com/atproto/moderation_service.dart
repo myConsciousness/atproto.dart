@@ -20,6 +20,7 @@ import '../../com/atproto/moderation/create_report/output.dart';
 import '../../com/atproto/moderation/create_report/union_subject.dart';
 import '../../com/atproto/moderation/defs/known_reason_type.dart';
 
+/// Contains `com.atproto.moderation.*` endpoints.
 final class ModerationService {
   ModerationService(this._ctx);
 

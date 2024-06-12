@@ -19,6 +19,7 @@ import '../../../service_context.dart';
 import '../../com/atproto/temp/check_signup_queue/output.dart';
 import '../../com/atproto/temp/fetch_labels/output.dart';
 
+/// Contains `com.atproto.temp.*` endpoints.
 final class TempService {
   TempService(this._ctx);
 
