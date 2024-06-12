@@ -11,4 +11,3 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_convo_for_members/params.dart';
-export 'package:bluesky/src/services/gen_types/chat/bsky/convo/get_convo_for_members/output.dart';

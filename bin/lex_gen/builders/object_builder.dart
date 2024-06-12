@@ -35,7 +35,10 @@ final class LexGenObjectBuilder {
       if (e.value == null) return const <LexGenObject>[];
 
       LexGenObject? refObject;
+      bool arrayVariant = false;
       if (e.value?.length == 1 && e.value?.first.refVariant != null) {
+        arrayVariant = e.value?.first.array ?? false;
+
         final refVariant = e.value?.first.refVariant!;
         final convention = LexNamingConvention(
           LexGenContext(
@@ -47,9 +50,8 @@ final class LexGenObjectBuilder {
           objectType: ObjectType.object,
         );
 
-        final namespace = refVariant.defName == 'main'
-            ? refVariant.docId.toString()
-            : '${refVariant.docId.toString()}#${refVariant.defName}';
+        final namespace =
+            '${refVariant.docId.toString()}#${refVariant.defName}';
 
         refObject = LexGenObject(
           type: ObjectType.object,
@@ -76,7 +78,7 @@ final class LexGenObjectBuilder {
       }
 
       return [
-        if (refObject != null) refObject,
+        if (refObject != null && arrayVariant) refObject,
         LexGenObject(
           type: e.key,
           isStrongRef:
