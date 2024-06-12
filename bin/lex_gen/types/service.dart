@@ -204,10 +204,26 @@ final class LexServiceEndpoint {
       buffer.writeln('        client: client,');
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.stream) {
-      buffer.writeln(
-          '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
+      if (args.isEmpty) {
+        buffer.writeln(
+            '  Future<XRPCResponse<Subscription<${type.name}>>> $name() async =>');
+      } else {
+        buffer.writeln(
+            '  Future<XRPCResponse<Subscription<${type.name}>>> $name({');
+        for (final arg in args) {
+          buffer.writeln('    ${arg.toString()},');
+        }
+        buffer.writeln('  }) async =>');
+      }
       buffer.writeln('    await _ctx.stream(');
       buffer.writeln('        ns.$namespace,');
+      if (args.isNotEmpty) {
+        buffer.writeln('    body: {');
+        for (final arg in args) {
+          buffer.writeln(Payload(arg).toString());
+        }
+        buffer.writeln('    },');
+      }
       if (type.converter != null) {
         buffer.writeln('        to: const ${type.converter}().fromJson,');
       }

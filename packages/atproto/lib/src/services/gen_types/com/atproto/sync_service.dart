@@ -153,11 +153,16 @@ final class SyncService {
   /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/subscribeRepos
-  Future<XRPCResponse<Subscription<USubscribeReposMessage>>>
-      subscribeRepos() async => await _ctx.stream(
-            ns.comAtprotoSyncSubscribeRepos,
-            to: const USubscribeReposMessageConverter().fromJson,
-          );
+  Future<XRPCResponse<Subscription<USubscribeReposMessage>>> subscribeRepos({
+    int? cursor,
+  }) async =>
+      await _ctx.stream(
+        ns.comAtprotoSyncSubscribeRepos,
+        body: {
+          if (cursor != null) 'cursor': cursor,
+        },
+        to: const USubscribeReposMessageConverter().fromJson,
+      );
 
   /// DEPRECATED - please use com.atproto.sync.getRepo instead
   ///
