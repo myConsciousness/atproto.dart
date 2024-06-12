@@ -51,6 +51,7 @@ final class AdminService {
           if (blob != null) 'blob': blob,
         },
         to: const GetSubjectStatusOutputConverter().fromJson,
+        client: client,
       );
 
   /// Update the password for a user account as an administrator.
@@ -69,6 +70,7 @@ final class AdminService {
           'did': did,
           'password': password,
         },
+        client: client,
       );
 
   /// Get an admin view of invite codes.
@@ -90,6 +92,7 @@ final class AdminService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetInviteCodesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get list of accounts that matches your search query.
@@ -111,6 +114,7 @@ final class AdminService {
           if (limit != null) 'limit': limit,
         },
         to: const SearchAccountsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Administrative action to update an account's handle.
@@ -129,6 +133,7 @@ final class AdminService {
           'did': did,
           'handle': handle,
         },
+        client: client,
       );
 
   /// Delete a user account as an administrator.
@@ -145,6 +150,7 @@ final class AdminService {
         body: {
           'did': did,
         },
+        client: client,
       );
 
   /// Disable an account from receiving new invite codes, but does not invalidate existing codes.
@@ -163,6 +169,7 @@ final class AdminService {
           'account': account,
           if (note != null) 'note': note,
         },
+        client: client,
       );
 
   /// Get details about an account.
@@ -179,6 +186,7 @@ final class AdminService {
         parameters: {
           'did': did,
         },
+        client: client,
       );
 
   /// Update the service-specific admin status of a subject (account, record, or blob).
@@ -200,6 +208,7 @@ final class AdminService {
           if (deactivated != null) 'deactivated': deactivated,
         },
         to: const UpdateSubjectStatusOutputConverter().fromJson,
+        client: client,
       );
 
   /// Re-enable an account's ability to receive invite codes.
@@ -218,6 +227,7 @@ final class AdminService {
           'account': account,
           if (note != null) 'note': note,
         },
+        client: client,
       );
 
   /// Disable some set of codes and/or all codes associated with a set of users.
@@ -236,6 +246,7 @@ final class AdminService {
           if (codes != null) 'codes': codes,
           if (accounts != null) 'accounts': accounts,
         },
+        client: client,
       );
 
   /// Send email to a user's account email address.
@@ -261,6 +272,7 @@ final class AdminService {
           if (comment != null) 'comment': comment,
         },
         to: const SendEmailOutputConverter().fromJson,
+        client: client,
       );
 
   /// Administrative action to update an account's email.
@@ -279,6 +291,7 @@ final class AdminService {
           'account': account,
           'email': email,
         },
+        client: client,
       );
 
   /// Get details about some accounts.
@@ -296,5 +309,6 @@ final class AdminService {
           'dids': dids,
         },
         to: const GetAccountInfosOutputConverter().fromJson,
+        client: client,
       );
 }

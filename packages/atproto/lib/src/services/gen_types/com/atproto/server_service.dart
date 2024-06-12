@@ -54,6 +54,7 @@ final class ServerService {
           if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
           if (token != null) 'token': token,
         },
+        client: client,
       );
 
   /// Get all invite codes for the current account. Requires auth.
@@ -73,6 +74,7 @@ final class ServerService {
           if (createAvailable != null) 'createAvailable': createAvailable,
         },
         to: const GetAccountInviteCodesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Confirm an email using a token from com.atproto.server.requestEmailConfirmation.
@@ -91,6 +93,7 @@ final class ServerService {
           'email': email,
           'token': token,
         },
+        client: client,
       );
 
   /// Request an email with a code to confirm ownership of email.
@@ -103,6 +106,7 @@ final class ServerService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoServerRequestEmailConfirmation,
         headers: headers,
+        client: client,
       );
 
   /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
@@ -115,6 +119,7 @@ final class ServerService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoServerActivateAccount,
         headers: headers,
+        client: client,
       );
 
   /// Get a signed token on behalf of the requesting DID for the requested service.
@@ -132,6 +137,7 @@ final class ServerService {
           'aud': aud,
         },
         to: const GetServiceAuthOutputConverter().fromJson,
+        client: client,
       );
 
   /// Delete an actor's account with a token and password. Can only be called after requesting a deletion token. Requires auth.
@@ -152,6 +158,7 @@ final class ServerService {
           'password': password,
           'token': token,
         },
+        client: client,
       );
 
   /// Revoke an App Password by name.
@@ -168,6 +175,7 @@ final class ServerService {
         body: {
           'name': name,
         },
+        client: client,
       );
 
   /// Reserve a repo signing key, for use with account creation. Necessary so that a DID PLC update operation can be constructed during an account migraiton. Public and does not require auth; implemented by PDS. NOTE: this endpoint may change when full account migration is implemented.
@@ -185,6 +193,7 @@ final class ServerService {
           if (did != null) 'did': did,
         },
         to: const ReserveSigningKeyOutputConverter().fromJson,
+        client: client,
       );
 
   /// Create an account. Implemented by PDS.
@@ -218,6 +227,7 @@ final class ServerService {
           if (plcOp != null) 'plcOp': plcOp,
         },
         to: const CreateAccountOutputConverter().fromJson,
+        client: client,
       );
 
   /// Create invite codes.
@@ -239,6 +249,7 @@ final class ServerService {
           if (forAccounts != null) 'forAccounts': forAccounts,
         },
         to: const CreateInviteCodesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
@@ -252,6 +263,7 @@ final class ServerService {
         ns.comAtprotoServerCheckAccountStatus,
         headers: headers,
         to: const CheckAccountStatusOutputConverter().fromJson,
+        client: client,
       );
 
   /// Delete the current session. Requires auth.
@@ -264,6 +276,7 @@ final class ServerService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoServerDeleteSession,
         headers: headers,
+        client: client,
       );
 
   /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
@@ -277,6 +290,7 @@ final class ServerService {
         ns.comAtprotoServerRefreshSession,
         headers: headers,
         to: const RefreshSessionOutputConverter().fromJson,
+        client: client,
       );
 
   /// Initiate a user account deletion via email.
@@ -289,6 +303,7 @@ final class ServerService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoServerRequestAccountDelete,
         headers: headers,
+        client: client,
       );
 
   /// Create an invite code.
@@ -308,6 +323,7 @@ final class ServerService {
           if (forAccount != null) 'forAccount': forAccount,
         },
         to: const CreateInviteCodeOutputConverter().fromJson,
+        client: client,
       );
 
   /// List all App Passwords.
@@ -321,6 +337,7 @@ final class ServerService {
         ns.comAtprotoServerListAppPasswords,
         headers: headers,
         to: const ListAppPasswordsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
@@ -334,6 +351,7 @@ final class ServerService {
         ns.comAtprotoServerDescribeServer,
         headers: headers,
         to: const DescribeServerOutputConverter().fromJson,
+        client: client,
       );
 
   /// Reset a user account password using a token.
@@ -352,6 +370,7 @@ final class ServerService {
           'token': token,
           'password': password,
         },
+        client: client,
       );
 
   /// Get information about the current auth session. Requires auth.
@@ -365,6 +384,7 @@ final class ServerService {
         ns.comAtprotoServerGetSession,
         headers: headers,
         to: const GetSessionOutputConverter().fromJson,
+        client: client,
       );
 
   /// Request a token in order to update email.
@@ -378,6 +398,7 @@ final class ServerService {
         ns.comAtprotoServerRequestEmailUpdate,
         headers: headers,
         to: const RequestEmailUpdateOutputConverter().fromJson,
+        client: client,
       );
 
   /// Create an App Password.
@@ -396,6 +417,7 @@ final class ServerService {
           'name': name,
           if (privileged != null) 'privileged': privileged,
         },
+        client: client,
       );
 
   /// Create an authentication session.
@@ -417,6 +439,7 @@ final class ServerService {
           if (authFactorToken != null) 'authFactorToken': authFactorToken,
         },
         to: const CreateSessionOutputConverter().fromJson,
+        client: client,
       );
 
   /// Deactivates a currently active account. Stops serving of repo, and future writes to repo until reactivated. Used to finalize account migration with the old host after the account has been activated on the new host.
@@ -433,6 +456,7 @@ final class ServerService {
         body: {
           if (deleteAfter != null) 'deleteAfter': deleteAfter,
         },
+        client: client,
       );
 
   /// Initiate a user account password reset via email.
@@ -449,5 +473,6 @@ final class ServerService {
         body: {
           'email': email,
         },
+        client: client,
       );
 }

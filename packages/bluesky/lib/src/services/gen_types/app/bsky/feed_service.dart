@@ -64,6 +64,7 @@ final class FeedService {
         body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
         },
+        client: client,
       );
 
   /// Find posts matching search criteria, returning views of those posts.
@@ -103,6 +104,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchPostsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record declaring of the existence of a feed generator, and containing metadata about it. The record can exist in any repository.
@@ -152,6 +154,7 @@ final class FeedService {
         ns.appBskyFeedDescribeFeedGenerator,
         headers: headers,
         to: const DescribeFeedGeneratorOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get information about a feed generator. Implemented by AppView.
@@ -169,6 +172,7 @@ final class FeedService {
           'feed': feed.toString(),
         },
         to: const GetFeedGeneratorOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a feed of recent posts from a list (posts and reposts from any actors on the list). Does not require auth.
@@ -190,6 +194,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListFeedOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record defining interaction gating rules for a thread (aka, reply controls). The record key (rkey) of the threadgate record must match the record key of the thread's root post, and that record must be in the same repository..
@@ -236,6 +241,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetLikesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a hydrated feed from an actor's selected feed generator. Implemented by App View.
@@ -257,6 +263,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFeedOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a list of reposts for a given post.
@@ -280,6 +287,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetRepostedByOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record representing a 'repost' of an existing Bluesky post.
@@ -339,6 +347,7 @@ final class FeedService {
           'uris': uris.map((e) => e.toString()).toList(),
         },
         to: const GetPostsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get information about a list of feed generators.
@@ -356,6 +365,7 @@ final class FeedService {
           'feeds': feeds.map((e) => e.toString()).toList(),
         },
         to: const GetFeedGeneratorsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a list of suggested feeds (feed generators) for the requesting account.
@@ -375,6 +385,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestedFeedsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get posts in a thread. Does not require auth, but additional metadata and filtering will be applied for authed requests.
@@ -396,6 +407,7 @@ final class FeedService {
           if (parentHeight != null) 'parentHeight': parentHeight,
         },
         to: const GetPostThreadOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a list of posts liked by an actor. Does not require auth.
@@ -417,6 +429,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetActorLikesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a view of an actor's 'author feed' (post and reposts by the author). Does not require auth.
@@ -440,6 +453,7 @@ final class FeedService {
           if (filter != null) 'filter': filter.toJson(),
         },
         to: const GetAuthorFeedOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a skeleton of a feed provided by a feed generator. Auth is optional, depending on provider requirements, and provides the DID of the requester. Implemented by Feed Generator Service.
@@ -461,6 +475,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFeedSkeletonOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a view of the requesting account's home timeline. This is expected to be some form of reverse-chronological feed.
@@ -482,6 +497,7 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetTimelineOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record containing a Bluesky post.
@@ -539,5 +555,6 @@ final class FeedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetActorFeedsOutputConverter().fromJson,
+        client: client,
       );
 }

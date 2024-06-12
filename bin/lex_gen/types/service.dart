@@ -173,6 +173,7 @@ final class LexServiceEndpoint {
       if (type.converter != null) {
         buffer.writeln('        to: const ${type.converter}().fromJson,');
       }
+      buffer.writeln('        client: client,');
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.record) {
       if (args.isEmpty) {

@@ -55,6 +55,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetBlocksOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates follows similar to a given account (actor). Expected use is to recommend additional accounts immediately after following one account.
@@ -73,6 +74,7 @@ final class GraphService {
               'actor': actor,
             },
             to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
+            client: client,
           );
 
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
@@ -138,6 +140,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates public relationships between one account, and a list of other accounts. Does not require auth.
@@ -157,6 +160,7 @@ final class GraphService {
           if (others != null) 'others': others,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Gets a 'view' (with additional context) of a specified list.
@@ -178,6 +182,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates accounts which follow a specified account (actor).
@@ -199,6 +204,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowersOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates mod lists that the requesting account (actor) currently has muted. Requires auth.
@@ -218,6 +224,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListMutesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates accounts which follow a specified account (actor) and are followed by the viewer.
@@ -239,6 +246,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetKnownFollowersOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record declaring a 'block' relationship against another account. NOTE: blocks are public in Bluesky; see blog posts for details.
@@ -297,6 +305,7 @@ final class GraphService {
         body: {
           'actor': actor,
         },
+        client: client,
       );
 
   /// Unmutes the specified list of accounts. Requires auth.
@@ -313,6 +322,7 @@ final class GraphService {
         body: {
           'list': list.toString(),
         },
+        client: client,
       );
 
   /// Creates a mute relationship for the specified list of accounts. Mutes are private in Bluesky. Requires auth.
@@ -329,6 +339,7 @@ final class GraphService {
         body: {
           'list': list.toString(),
         },
+        client: client,
       );
 
   /// Get mod lists that the requesting account (actor) is blocking. Requires auth.
@@ -348,6 +359,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListBlocksOutputConverter().fromJson,
+        client: client,
       );
 
   /// Enumerates the lists created by a specified account (actor).
@@ -369,6 +381,7 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetListsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Record representing a list of accounts (actors). Scope includes both moderation-oriented lists and curration-oriented lists.
@@ -418,6 +431,7 @@ final class GraphService {
         body: {
           'actor': actor,
         },
+        client: client,
       );
 
   /// Enumerates accounts that the requesting account (actor) currently has muted. Requires auth.
@@ -437,5 +451,6 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetMutesOutputConverter().fromJson,
+        client: client,
       );
 }

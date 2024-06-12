@@ -44,6 +44,7 @@ final class TempService {
           if (limit != null) 'limit': limit,
         },
         to: const FetchLabelsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Check accounts location in signup queue.
@@ -57,6 +58,7 @@ final class TempService {
         ns.comAtprotoTempCheckSignupQueue,
         headers: headers,
         to: const CheckSignupQueueOutputConverter().fromJson,
+        client: client,
       );
 
   /// Request a verification code to be sent to the supplied phone number
@@ -73,5 +75,6 @@ final class TempService {
         body: {
           'phoneNumber': phoneNumber,
         },
+        client: client,
       );
 }

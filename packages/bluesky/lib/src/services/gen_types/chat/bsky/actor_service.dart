@@ -33,6 +33,7 @@ final class ActorService {
       await _ctx.post<EmptyData>(
         ns.chatBskyActorDeleteAccount,
         headers: headers,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
@@ -43,6 +44,7 @@ final class ActorService {
       await _ctx.get<EmptyData>(
         ns.chatBskyActorExportAccountData,
         headers: headers,
+        client: client,
       );
 
   /// A declaration of a Bluesky chat account.

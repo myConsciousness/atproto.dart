@@ -40,6 +40,7 @@ final class NotificationService {
         body: {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
+        client: client,
       );
 
   /// Register to receive push notifications, via a specified service, for the requesting account. Requires auth.
@@ -62,6 +63,7 @@ final class NotificationService {
           'platform': platform.toJson(),
           'appId': appId,
         },
+        client: client,
       );
 
   /// Enumerate notifications for the requesting account. Requires auth.
@@ -83,6 +85,7 @@ final class NotificationService {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const ListNotificationsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Count the number of unread notifications for the requesting account. Requires auth.
@@ -100,5 +103,6 @@ final class NotificationService {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const GetUnreadCountOutputConverter().fromJson,
+        client: client,
       );
 }

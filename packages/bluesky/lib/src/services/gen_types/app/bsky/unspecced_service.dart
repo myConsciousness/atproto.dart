@@ -40,6 +40,7 @@ final class UnspeccedService {
         ns.appBskyUnspeccedGetTaggedSuggestions,
         headers: headers,
         to: const GetTaggedSuggestionsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Backend Actors (profile) search, returns only skeleton.
@@ -65,6 +66,7 @@ final class UnspeccedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchActorsSkeletonOutputConverter().fromJson,
+        client: client,
       );
 
   /// Backend Posts search, returns only skeleton
@@ -106,6 +108,7 @@ final class UnspeccedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchPostsSkeletonOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a skeleton of suggested actors. Intended to be called and then hydrated through app.bsky.actor.getSuggestions
@@ -127,6 +130,7 @@ final class UnspeccedService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestionsSkeletonOutputConverter().fromJson,
+        client: client,
       );
 
   /// An unspecced view of globally popular feed generators.
@@ -149,5 +153,6 @@ final class UnspeccedService {
               if (query != null) 'query': query,
             },
             to: const GetPopularFeedGeneratorsOutputConverter().fromJson,
+            client: client,
           );
 }

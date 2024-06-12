@@ -44,6 +44,7 @@ final class ModerationService {
           if (after != null) 'after': after,
         },
         to: const GetMessageContextOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/updateActorAccess
@@ -62,6 +63,7 @@ final class ModerationService {
           'allowAccess': allowAccess,
           if (ref != null) 'ref': ref,
         },
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
@@ -77,5 +79,6 @@ final class ModerationService {
           'actor': actor,
         },
         to: const GetActorMetadataOutputConverter().fromJson,
+        client: client,
       );
 }

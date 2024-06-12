@@ -45,5 +45,6 @@ final class ModerationService {
           'subject': subject.toJson(),
         },
         to: const CreateReportOutputConverter().fromJson,
+        client: client,
       );
 }

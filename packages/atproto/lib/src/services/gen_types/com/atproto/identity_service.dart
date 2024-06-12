@@ -40,6 +40,7 @@ final class IdentityService {
         body: {
           'handle': handle,
         },
+        client: client,
       );
 
   /// Validates a PLC operation to ensure that it doesn't violate a service's constraints or get the identity into a bad state, then submits it to the PLC registry
@@ -56,6 +57,7 @@ final class IdentityService {
         body: {
           'operation': operation,
         },
+        client: client,
       );
 
   /// Resolves a handle (domain name) to a DID.
@@ -73,6 +75,7 @@ final class IdentityService {
           'handle': handle,
         },
         to: const ResolveHandleOutputConverter().fromJson,
+        client: client,
       );
 
   /// Signs a PLC operation to update some value(s) in the requesting DID's document.
@@ -99,6 +102,7 @@ final class IdentityService {
           if (services != null) 'services': services,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
+        client: client,
       );
 
   /// Describe the credentials that should be included in the DID doc of an account that is migrating to this service.
@@ -113,6 +117,7 @@ final class IdentityService {
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
             headers: headers,
             to: const GetRecommendedDidCredentialsOutputConverter().fromJson,
+            client: client,
           );
 
   /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
@@ -125,5 +130,6 @@ final class IdentityService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityRequestPlcOperationSignature,
         headers: headers,
+        client: client,
       );
 }

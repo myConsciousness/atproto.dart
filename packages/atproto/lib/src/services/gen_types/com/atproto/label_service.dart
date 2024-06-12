@@ -55,5 +55,6 @@ final class LabelService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const QueryLabelsOutputConverter().fromJson,
+        client: client,
       );
 }

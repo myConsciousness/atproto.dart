@@ -48,6 +48,7 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: const MuteConvoOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
@@ -63,6 +64,7 @@ final class ConvoService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetLogOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
@@ -78,6 +80,7 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: const LeaveConvoOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getMessages
@@ -97,6 +100,7 @@ final class ConvoService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetMessagesOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
@@ -112,6 +116,7 @@ final class ConvoService {
           'members': members,
         },
         to: const GetConvoForMembersOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
@@ -127,6 +132,7 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: const UnmuteConvoOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/listConvos
@@ -144,6 +150,7 @@ final class ConvoService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const ListConvosOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
@@ -160,6 +167,7 @@ final class ConvoService {
           'convoId': convoId,
           'messageId': messageId,
         },
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
@@ -175,6 +183,7 @@ final class ConvoService {
           'convoId': convoId,
         },
         to: const GetConvoOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
@@ -190,6 +199,7 @@ final class ConvoService {
           'items': items.map((e) => e.toJson()).toList(),
         },
         to: const SendMessageBatchOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead
@@ -207,6 +217,7 @@ final class ConvoService {
           if (messageId != null) 'messageId': messageId,
         },
         to: const UpdateReadOutputConverter().fromJson,
+        client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
@@ -223,5 +234,6 @@ final class ConvoService {
           'convoId': convoId,
           'message': message,
         },
+        client: client,
       );
 }

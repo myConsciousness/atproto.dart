@@ -54,6 +54,7 @@ final class RepoService {
           if (cid != null) 'cid': cid,
         },
         to: const GetRecordOutputConverter().fromJson,
+        client: client,
       );
 
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
@@ -66,6 +67,7 @@ final class RepoService {
       await _ctx.post<EmptyData>(
         ns.comAtprotoRepoImportRepo,
         headers: headers,
+        client: client,
       );
 
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
@@ -95,6 +97,7 @@ final class RepoService {
           if (reverse != null) 'reverse': reverse,
         },
         to: const ListRecordsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Returns a list of missing blobs for the requesting account. Intended to be used in the account migration flow.
@@ -114,6 +117,7 @@ final class RepoService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const ListMissingBlobsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Apply a batch transaction of repository creates, updates, and deletes. Requires auth, implemented by PDS.
@@ -136,6 +140,7 @@ final class RepoService {
           'writes': writes.map((e) => e.toJson()).toList(),
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
+        client: client,
       );
 
   /// Upload a new blob, to be referenced from a repository record. The blob will be deleted if it is not referenced within a time window (eg, minutes). Blob restrictions (mimetype, size, etc) are enforced when the reference is created. Requires auth, implemented by PDS.
@@ -151,6 +156,7 @@ final class RepoService {
         headers: headers,
         body: bytes,
         to: const UploadBlobOutputConverter().fromJson,
+        client: client,
       );
 
   /// Delete a repository record, or ensure it doesn't exist. Requires auth, implemented by PDS.
@@ -175,6 +181,7 @@ final class RepoService {
           if (swapRecord != null) 'swapRecord': swapRecord,
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
+        client: client,
       );
 
   /// Write a repository record, creating or updating it as needed. Requires auth, implemented by PDS.
@@ -204,6 +211,7 @@ final class RepoService {
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
+        client: client,
       );
 
   /// Get information about an account and repository, including the list of collections. Does not require auth.
@@ -221,6 +229,7 @@ final class RepoService {
           'repo': repo,
         },
         to: const DescribeRepoOutputConverter().fromJson,
+        client: client,
       );
 
   /// Create a single new repository record. Requires auth, implemented by PDS.
@@ -248,5 +257,6 @@ final class RepoService {
           if (swapCommit != null) 'swapCommit': swapCommit,
         },
         to: const StrongRefConverter().fromJson,
+        client: client,
       );
 }

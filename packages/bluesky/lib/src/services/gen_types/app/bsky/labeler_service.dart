@@ -67,5 +67,6 @@ final class LabelerService {
           if (detailed != null) 'detailed': detailed,
         },
         to: const GetServicesOutputConverter().fromJson,
+        client: client,
       );
 }

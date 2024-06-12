@@ -52,6 +52,7 @@ final class SyncService {
           'rkey': rkey,
           if (commit != null) 'commit': commit,
         },
+        client: client,
       );
 
   /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
@@ -70,6 +71,7 @@ final class SyncService {
           'did': did,
           'cids': cids,
         },
+        client: client,
       );
 
   /// Get the hosting status for a repository, on this server. Expected to be implemented by PDS and Relay.
@@ -87,6 +89,7 @@ final class SyncService {
           'did': did,
         },
         to: const GetRepoStatusOutputConverter().fromJson,
+        client: client,
       );
 
   /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
@@ -105,6 +108,7 @@ final class SyncService {
           'did': did,
           if (since != null) 'since': since,
         },
+        client: client,
       );
 
   /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
@@ -124,6 +128,7 @@ final class SyncService {
           'did': did,
         },
         to: const GetHeadOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
@@ -142,6 +147,7 @@ final class SyncService {
           'did': did,
           'cid': cid,
         },
+        client: client,
       );
 
   /// Repository event stream, aka Firehose endpoint. Outputs repo commits with diff data, and identity update events, for all repositories on the current server. See the atproto specifications for details around stream sequencing, repo versioning, CAR diff format, and more. Public and does not require auth; implemented by PDS and Relay.
@@ -168,6 +174,7 @@ final class SyncService {
         parameters: {
           'did': did,
         },
+        client: client,
       );
 
   /// List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.
@@ -191,6 +198,7 @@ final class SyncService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const ListBlobsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Request a service to persistently crawl hosted repos. Expected use is new PDS instances declaring their existence to Relays. Does not require auth.
@@ -207,6 +215,7 @@ final class SyncService {
         body: {
           'hostname': hostname,
         },
+        client: client,
       );
 
   /// Notify a crawling service of a recent update, and that crawling should resume. Intended use is after a gap between repo stream events caused the crawling service to disconnect. Does not require auth; implemented by Relay.
@@ -223,6 +232,7 @@ final class SyncService {
         body: {
           'hostname': hostname,
         },
+        client: client,
       );
 
   /// Enumerates all the DID, rev, and commit CID for all repos hosted by this service. Does not require auth; implemented by PDS and Relay.
@@ -242,6 +252,7 @@ final class SyncService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const ListReposOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get the current commit CID & revision of the specified repo. Does not require auth.
@@ -259,5 +270,6 @@ final class SyncService {
           'did': did,
         },
         to: const GetLatestCommitOutputConverter().fromJson,
+        client: client,
       );
 }

@@ -46,6 +46,7 @@ final class ActorService {
         parameters: {
           'actor': actor,
         },
+        client: client,
       );
 
   /// Find actors (profiles) matching search criteria. Does not require auth.
@@ -69,6 +70,7 @@ final class ActorService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const SearchActorsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Find actor suggestions for a prefix search term. Expected use is for auto-completion during text field entry. Does not require auth.
@@ -90,6 +92,7 @@ final class ActorService {
           if (limit != null) 'limit': limit,
         },
         to: const SearchActorsTypeaheadOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get detailed profile views of multiple actors.
@@ -107,6 +110,7 @@ final class ActorService {
           'actors': actors,
         },
         to: const GetProfilesOutputConverter().fromJson,
+        client: client,
       );
 
   /// Get a list of suggested actors. Expected use is discovery of accounts to follow during new account onboarding.
@@ -126,6 +130,7 @@ final class ActorService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetSuggestionsOutputConverter().fromJson,
+        client: client,
       );
 
   /// Set the private preferences attached to the account.
@@ -142,6 +147,7 @@ final class ActorService {
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
         },
+        client: client,
       );
 
   /// A declaration of a Bluesky account profile.
@@ -182,5 +188,6 @@ final class ActorService {
         ns.appBskyActorGetPreferences,
         headers: headers,
         to: const GetPreferencesOutputConverter().fromJson,
+        client: client,
       );
 }
