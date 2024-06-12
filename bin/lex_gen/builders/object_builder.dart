@@ -112,7 +112,8 @@ final class LexGenObjectBuilder {
     final LexXrpcBody? body,
     final ObjectType objectType,
   ) {
-    if (objectType == ObjectType.input && body?.encoding == '*/*') {
+    if ((objectType == ObjectType.input || objectType == ObjectType.output) &&
+        body?.encoding == '*/*') {
       return <LexGenObjectProperty>[
         LexGenObjectProperty(
           isRequired: true,

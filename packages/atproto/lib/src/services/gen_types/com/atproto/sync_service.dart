@@ -10,6 +10,9 @@
 // Lex Generator
 // **************************************************************************
 
+// 🎯 Dart imports:
+import 'dart:typed_data';
+
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart';
 
@@ -111,7 +114,7 @@ final class SyncService {
   /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlob
-  Future<XRPCResponse<EmptyData>> getBlob({
+  Future<XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
   }) async =>

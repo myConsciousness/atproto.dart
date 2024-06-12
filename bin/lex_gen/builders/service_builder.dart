@@ -133,6 +133,10 @@ final class ServiceBuilder {
       return _kStrongRefDataType;
     }
 
+    if (output != null && output.object!.isBytes) {
+      return _kBytesDataType;
+    }
+
     final def = endpoint.def;
     if (def is ULexUserTypeXrpcQuery) {
       final properties = def.data.output?.schema?.whenOrNull(
