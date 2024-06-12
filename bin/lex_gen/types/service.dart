@@ -218,7 +218,7 @@ final class LexServiceEndpoint {
       buffer.writeln('    await _ctx.stream(');
       buffer.writeln('        ns.$namespace,');
       if (args.isNotEmpty) {
-        buffer.writeln('    body: {');
+        buffer.writeln('    parameters: {');
         for (final arg in args) {
           buffer.writeln(Payload(arg).toString());
         }

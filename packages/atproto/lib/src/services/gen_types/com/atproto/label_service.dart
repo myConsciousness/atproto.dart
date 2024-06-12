@@ -33,7 +33,7 @@ final class LabelService {
   }) async =>
       await _ctx.stream(
         ns.comAtprotoLabelSubscribeLabels,
-        body: {
+        parameters: {
           if (cursor != null) 'cursor': cursor,
         },
         to: const USubscribeLabelsMessageConverter().fromJson,

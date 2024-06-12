@@ -158,7 +158,7 @@ final class SyncService {
   }) async =>
       await _ctx.stream(
         ns.comAtprotoSyncSubscribeRepos,
-        body: {
+        parameters: {
           if (cursor != null) 'cursor': cursor,
         },
         to: const USubscribeReposMessageConverter().fromJson,
