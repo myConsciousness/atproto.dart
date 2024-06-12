@@ -26,13 +26,23 @@ final class ActorService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
-  Future<XRPCResponse<EmptyData>> deleteAccount() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.chatBskyActorDeleteAccount,
+        headers: headers,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
-  Future<XRPCResponse<EmptyData>> exportAccountData() async => await _ctx.get(
+  Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<EmptyData>(
         ns.chatBskyActorExportAccountData,
+        headers: headers,
       );
 
   /// A declaration of a Bluesky chat account.
@@ -40,6 +50,8 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
   Future<XRPCResponse<StrongRef>> declaration({
     required UDeclarationAllowIncoming allowIncoming,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -48,5 +60,7 @@ final class ActorService {
           r'$type': 'chat.bsky.actor.declaration',
           'allowIncoming': allowIncoming.toJson(),
         },
+        headers: headers,
+        client: client,
       );
 }

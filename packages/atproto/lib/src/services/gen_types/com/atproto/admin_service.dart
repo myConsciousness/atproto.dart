@@ -39,9 +39,12 @@ final class AdminService {
     String? did,
     AtUri? uri,
     String? blob,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetSubjectStatusOutput>(
         ns.comAtprotoAdminGetSubjectStatus,
+        headers: headers,
         parameters: {
           if (did != null) 'did': did,
           if (uri != null) 'uri': uri.toString(),
@@ -56,9 +59,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountPassword({
     required String did,
     required String password,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminUpdateAccountPassword,
+        headers: headers,
         body: {
           'did': did,
           'password': password,
@@ -72,9 +78,12 @@ final class AdminService {
     USort? sort,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetInviteCodesOutput>(
         ns.comAtprotoAdminGetInviteCodes,
+        headers: headers,
         parameters: {
           if (sort != null) 'sort': sort.toJson(),
           if (limit != null) 'limit': limit,
@@ -90,9 +99,12 @@ final class AdminService {
     String? email,
     String? cursor,
     int? limit,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<SearchAccountsOutput>(
         ns.comAtprotoAdminSearchAccounts,
+        headers: headers,
         parameters: {
           if (email != null) 'email': email,
           if (cursor != null) 'cursor': cursor,
@@ -107,9 +119,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountHandle({
     required String did,
     required String handle,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminUpdateAccountHandle,
+        headers: headers,
         body: {
           'did': did,
           'handle': handle,
@@ -121,9 +136,12 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
     required String did,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminDeleteAccount,
+        headers: headers,
         body: {
           'did': did,
         },
@@ -135,9 +153,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> disableAccountInvites({
     required String account,
     String? note,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminDisableAccountInvites,
+        headers: headers,
         body: {
           'account': account,
           if (note != null) 'note': note,
@@ -149,9 +170,12 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfo
   Future<XRPCResponse<EmptyData>> getAccountInfo({
     required String did,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.comAtprotoAdminGetAccountInfo,
+        headers: headers,
         parameters: {
           'did': did,
         },
@@ -164,9 +188,12 @@ final class AdminService {
     required USubject subject,
     StatusAttr? takedown,
     StatusAttr? deactivated,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<UpdateSubjectStatusOutput>(
         ns.comAtprotoAdminUpdateSubjectStatus,
+        headers: headers,
         body: {
           'subject': subject.toJson(),
           if (takedown != null) 'takedown': takedown,
@@ -181,9 +208,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> enableAccountInvites({
     required String account,
     String? note,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminEnableAccountInvites,
+        headers: headers,
         body: {
           'account': account,
           if (note != null) 'note': note,
@@ -196,9 +226,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> disableInviteCodes({
     List<String>? codes,
     List<String>? accounts,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminDisableInviteCodes,
+        headers: headers,
         body: {
           if (codes != null) 'codes': codes,
           if (accounts != null) 'accounts': accounts,
@@ -214,9 +247,12 @@ final class AdminService {
     String? subject,
     required String senderDid,
     String? comment,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<SendEmailOutput>(
         ns.comAtprotoAdminSendEmail,
+        headers: headers,
         body: {
           'recipientDid': recipientDid,
           'content': content,
@@ -233,9 +269,12 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountEmail({
     required String account,
     required String email,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoAdminUpdateAccountEmail,
+        headers: headers,
         body: {
           'account': account,
           'email': email,
@@ -247,9 +286,12 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos
   Future<XRPCResponse<GetAccountInfosOutput>> getAccountInfos({
     required List<String> dids,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetAccountInfosOutput>(
         ns.comAtprotoAdminGetAccountInfos,
+        headers: headers,
         parameters: {
           'dids': dids,
         },

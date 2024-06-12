@@ -13,7 +13,7 @@ import '../services/entities/labeler_view_detailed.dart';
 import '../services/entities/muted_word.dart';
 import '../services/entities/preference.dart';
 import '../services/entities/preferences.dart';
-import '../services/labeler_service.dart';
+import '../services/gen_types/app/bsky/labeler_service.dart';
 import 'types/behaviors/moderation_prefs.dart';
 import 'types/behaviors/moderation_prefs_labeler.dart';
 import 'types/const/labels.dart';

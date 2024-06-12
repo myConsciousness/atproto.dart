@@ -34,6 +34,8 @@ final class LabelerService {
     required LabelerPolicies policies,
     UServiceLabel? labels,
     DateTime? createdAt,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -44,6 +46,8 @@ final class LabelerService {
           if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
         },
+        headers: headers,
+        client: client,
       );
 
   /// Get information about a list of labeler services.
@@ -52,9 +56,12 @@ final class LabelerService {
   Future<XRPCResponse<GetServicesOutput>> getServices({
     required List<String> dids,
     bool? detailed,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetServicesOutput>(
         ns.appBskyLabelerGetServices,
+        headers: headers,
         parameters: {
           'dids': dids,
           if (detailed != null) 'detailed': detailed,

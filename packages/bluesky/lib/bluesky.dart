@@ -210,7 +210,6 @@ export 'package:atproto_core/atproto_core.dart'
         refreshSession,
         deleteSession,
         isValidAppPassword;
-export 'package:bluesky/src/services/actor_service.dart';
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/services/entities/actor.dart';
 export 'package:bluesky/src/services/entities/actor_basic.dart';
@@ -360,13 +359,11 @@ export 'package:bluesky/src/services/extensions/grouped_notification.dart';
 export 'package:bluesky/src/services/extensions/at_uri.dart';
 export 'package:bluesky/src/services/extensions/blob.dart';
 export 'package:bluesky/src/services/extensions/strong_ref.dart';
-export 'package:bluesky/src/services/feed_service.dart';
-export 'package:bluesky/src/services/graph_service.dart';
 export 'package:bluesky/src/services/constants/notification_reason.dart';
 export 'package:bluesky/src/services/utils/notification_reason_filter.dart'
     show NotificationReasonFilter;
 export 'package:bluesky/src/services/constants/grouped_notification_reason.dart';
-export 'package:bluesky/src/services/notification_service.dart';
+
 export 'package:bluesky/src/services/params/generator_param.dart';
 export 'package:bluesky/src/services/params/list_item_param.dart';
 export 'package:bluesky/src/services/params/list_param.dart';
@@ -374,5 +371,10 @@ export 'package:bluesky/src/services/params/post_param.dart';
 export 'package:bluesky/src/services/params/repo_param.dart';
 export 'package:bluesky/src/services/params/strong_ref_param.dart';
 export 'package:bluesky/src/services/params/thread_param.dart';
-export 'package:bluesky/src/services/unspecced_service.dart';
-export 'package:bluesky/src/services/labeler_service.dart';
+
+export 'package:bluesky/src/services/gen_types/app/bsky/actor_service.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/unspecced_service.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/labeler_service.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/notification_service.dart';

@@ -126,16 +126,30 @@ final class LexServiceEndpoint {
     if (method == LexServiceEndpointMethod.get ||
         method == LexServiceEndpointMethod.post) {
       if (args.isEmpty) {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+        buffer.writeln('    Map<String, String>? headers,');
+        if (method == LexServiceEndpointMethod.get) {
+          buffer.writeln('    GetClient? client,');
+        } else {
+          buffer.writeln('    PostClient? client,');
+        }
+        buffer.writeln('  }) async =>');
       } else {
         buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
         for (final arg in args) {
           buffer.writeln('    ${arg.toString()},');
         }
+        buffer.writeln('    Map<String, String>? headers,');
+        if (method == LexServiceEndpointMethod.get) {
+          buffer.writeln('    GetClient? client,');
+        } else {
+          buffer.writeln('    PostClient? client,');
+        }
         buffer.writeln('  }) async =>');
       }
-      buffer.writeln('    await _ctx.${method.name}(');
+      buffer.writeln('    await _ctx.${method.name}<${type.name}>(');
       buffer.writeln('        ns.$namespace,');
+      buffer.writeln('        headers: headers,');
       if (args.isNotEmpty) {
         if (method == LexServiceEndpointMethod.get) {
           buffer.writeln('    parameters: {');
@@ -162,12 +176,17 @@ final class LexServiceEndpoint {
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.record) {
       if (args.isEmpty) {
-        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name() async =>');
+        buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+        buffer.writeln('    Map<String, String>? headers,');
+        buffer.writeln('    PostClient? client,');
+        buffer.writeln('  }) async =>');
       } else {
         buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
         for (final arg in args) {
           buffer.writeln('    ${arg.toString()},');
         }
+        buffer.writeln('    Map<String, String>? headers,');
+        buffer.writeln('    PostClient? client,');
         buffer.writeln('  }) async =>');
       }
       buffer.writeln('    await _ctx.atproto.repo.createRecord(');
@@ -179,6 +198,8 @@ final class LexServiceEndpoint {
         buffer.writeln(Payload(arg).toString());
       }
       buffer.writeln('        },');
+      buffer.writeln('        headers: headers,');
+      buffer.writeln('        client: client,');
       buffer.writeln('      );');
     } else if (method == LexServiceEndpointMethod.stream) {
       buffer.writeln(

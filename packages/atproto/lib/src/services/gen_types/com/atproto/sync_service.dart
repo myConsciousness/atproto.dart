@@ -40,9 +40,12 @@ final class SyncService {
     required NSID collection,
     required String rkey,
     String? commit,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.comAtprotoSyncGetRecord,
+        headers: headers,
         parameters: {
           'did': did,
           'collection': collection.toString(),
@@ -57,9 +60,12 @@ final class SyncService {
   Future<XRPCResponse<EmptyData>> getBlocks({
     required String did,
     required List<String> cids,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.comAtprotoSyncGetBlocks,
+        headers: headers,
         parameters: {
           'did': did,
           'cids': cids,
@@ -71,9 +77,12 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus
   Future<XRPCResponse<GetRepoStatusOutput>> getRepoStatus({
     required String did,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetRepoStatusOutput>(
         ns.comAtprotoSyncGetRepoStatus,
+        headers: headers,
         parameters: {
           'did': did,
         },
@@ -86,9 +95,12 @@ final class SyncService {
   Future<XRPCResponse<EmptyData>> getRepo({
     required String did,
     String? since,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.comAtprotoSyncGetRepo,
+        headers: headers,
         parameters: {
           'did': did,
           if (since != null) 'since': since,
@@ -102,9 +114,12 @@ final class SyncService {
       'DEPRECATED - please use com.atproto.sync.getLatestCommit instead')
   Future<XRPCResponse<GetHeadOutput>> getHead({
     required String did,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetHeadOutput>(
         ns.comAtprotoSyncGetHead,
+        headers: headers,
         parameters: {
           'did': did,
         },
@@ -117,9 +132,12 @@ final class SyncService {
   Future<XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlob,
+        headers: headers,
         parameters: {
           'did': did,
           'cid': cid,
@@ -141,9 +159,12 @@ final class SyncService {
   @Deprecated('DEPRECATED - please use com.atproto.sync.getRepo instead')
   Future<XRPCResponse<EmptyData>> getCheckout({
     required String did,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.comAtprotoSyncGetCheckout,
+        headers: headers,
         parameters: {
           'did': did,
         },
@@ -157,9 +178,12 @@ final class SyncService {
     String? since,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListBlobsOutput>(
         ns.comAtprotoSyncListBlobs,
+        headers: headers,
         parameters: {
           'did': did,
           if (since != null) 'since': since,
@@ -174,9 +198,12 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
   Future<XRPCResponse<EmptyData>> requestCrawl({
     required String hostname,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoSyncRequestCrawl,
+        headers: headers,
         body: {
           'hostname': hostname,
         },
@@ -187,9 +214,12 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
   Future<XRPCResponse<EmptyData>> notifyOfUpdate({
     required String hostname,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoSyncNotifyOfUpdate,
+        headers: headers,
         body: {
           'hostname': hostname,
         },
@@ -201,9 +231,12 @@ final class SyncService {
   Future<XRPCResponse<ListReposOutput>> listRepos({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListReposOutput>(
         ns.comAtprotoSyncListRepos,
+        headers: headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -216,9 +249,12 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
   Future<XRPCResponse<GetLatestCommitOutput>> getLatestCommit({
     required String did,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetLatestCommitOutput>(
         ns.comAtprotoSyncGetLatestCommit,
+        headers: headers,
         parameters: {
           'did': did,
         },

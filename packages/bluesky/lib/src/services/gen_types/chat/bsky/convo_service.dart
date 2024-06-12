@@ -38,9 +38,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
   Future<XRPCResponse<MuteConvoOutput>> muteConvo({
     required String convoId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<MuteConvoOutput>(
         ns.chatBskyConvoMuteConvo,
+        headers: headers,
         body: {
           'convoId': convoId,
         },
@@ -50,9 +53,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getLog
   Future<XRPCResponse<GetLogOutput>> getLog({
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetLogOutput>(
         ns.chatBskyConvoGetLog,
+        headers: headers,
         parameters: {
           if (cursor != null) 'cursor': cursor,
         },
@@ -62,9 +68,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/leaveConvo
   Future<XRPCResponse<LeaveConvoOutput>> leaveConvo({
     required String convoId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<LeaveConvoOutput>(
         ns.chatBskyConvoLeaveConvo,
+        headers: headers,
         body: {
           'convoId': convoId,
         },
@@ -76,9 +85,12 @@ final class ConvoService {
     required String convoId,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetMessagesOutput>(
         ns.chatBskyConvoGetMessages,
+        headers: headers,
         parameters: {
           'convoId': convoId,
           if (limit != null) 'limit': limit,
@@ -90,9 +102,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
   Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
     required List<String> members,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetConvoForMembersOutput>(
         ns.chatBskyConvoGetConvoForMembers,
+        headers: headers,
         parameters: {
           'members': members,
         },
@@ -102,9 +117,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
   Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
     required String convoId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<UnmuteConvoOutput>(
         ns.chatBskyConvoUnmuteConvo,
+        headers: headers,
         body: {
           'convoId': convoId,
         },
@@ -115,9 +133,12 @@ final class ConvoService {
   Future<XRPCResponse<ListConvosOutput>> listConvos({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListConvosOutput>(
         ns.chatBskyConvoListConvos,
+        headers: headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -129,9 +150,12 @@ final class ConvoService {
   Future<XRPCResponse<EmptyData>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.chatBskyConvoDeleteMessageForSelf,
+        headers: headers,
         body: {
           'convoId': convoId,
           'messageId': messageId,
@@ -141,9 +165,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
   Future<XRPCResponse<GetConvoOutput>> getConvo({
     required String convoId,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetConvoOutput>(
         ns.chatBskyConvoGetConvo,
+        headers: headers,
         parameters: {
           'convoId': convoId,
         },
@@ -153,9 +180,12 @@ final class ConvoService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessageBatch
   Future<XRPCResponse<SendMessageBatchOutput>> sendMessageBatch({
     required List<BatchItem> items,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<SendMessageBatchOutput>(
         ns.chatBskyConvoSendMessageBatch,
+        headers: headers,
         body: {
           'items': items.map((e) => e.toJson()).toList(),
         },
@@ -166,9 +196,12 @@ final class ConvoService {
   Future<XRPCResponse<UpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<UpdateReadOutput>(
         ns.chatBskyConvoUpdateRead,
+        headers: headers,
         body: {
           'convoId': convoId,
           if (messageId != null) 'messageId': messageId,
@@ -180,9 +213,12 @@ final class ConvoService {
   Future<XRPCResponse<EmptyData>> sendMessage({
     required String convoId,
     required MessageInput message,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.chatBskyConvoSendMessage,
+        headers: headers,
         body: {
           'convoId': convoId,
           'message': message,

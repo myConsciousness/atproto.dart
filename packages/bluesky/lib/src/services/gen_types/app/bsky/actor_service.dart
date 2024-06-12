@@ -37,9 +37,12 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<XRPCResponse<EmptyData>> getProfile({
     required String actor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<EmptyData>(
         ns.appBskyActorGetProfile,
+        headers: headers,
         parameters: {
           'actor': actor,
         },
@@ -53,9 +56,12 @@ final class ActorService {
     String? q,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<SearchActorsOutput>(
         ns.appBskyActorSearchActors,
+        headers: headers,
         parameters: {
           if (term != null) 'term': term,
           if (q != null) 'q': q,
@@ -72,9 +78,12 @@ final class ActorService {
     String? term,
     String? q,
     int? limit,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<SearchActorsTypeaheadOutput>(
         ns.appBskyActorSearchActorsTypeahead,
+        headers: headers,
         parameters: {
           if (term != null) 'term': term,
           if (q != null) 'q': q,
@@ -88,9 +97,12 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
   Future<XRPCResponse<GetProfilesOutput>> getProfiles({
     required List<String> actors,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetProfilesOutput>(
         ns.appBskyActorGetProfiles,
+        headers: headers,
         parameters: {
           'actors': actors,
         },
@@ -103,9 +115,12 @@ final class ActorService {
   Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetSuggestionsOutput>(
         ns.appBskyActorGetSuggestions,
+        headers: headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -118,9 +133,12 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<XRPCResponse<EmptyData>> putPreferences({
     required List<UPreference> preferences,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.appBskyActorPutPreferences,
+        headers: headers,
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
         },
@@ -135,6 +153,8 @@ final class ActorService {
     Blob? avatar,
     Blob? banner,
     UProfileLabel? labels,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
       await _ctx.atproto.repo.createRecord(
         repo: _ctx.repo,
@@ -147,14 +167,20 @@ final class ActorService {
           if (banner != null) 'banner': banner.toJson(),
           if (labels != null) 'labels': labels.toJson(),
         },
+        headers: headers,
+        client: client,
       );
 
   /// Get private preferences attached to the current account. Expected use is synchronization between multiple devices, and import/export during account migration. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
-  Future<XRPCResponse<GetPreferencesOutput>> getPreferences() async =>
-      await _ctx.get(
+  Future<XRPCResponse<GetPreferencesOutput>> getPreferences({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<GetPreferencesOutput>(
         ns.appBskyActorGetPreferences,
+        headers: headers,
         to: const GetPreferencesOutputConverter().fromJson,
       );
 }

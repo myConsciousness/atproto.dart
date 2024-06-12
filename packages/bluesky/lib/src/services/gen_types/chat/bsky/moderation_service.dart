@@ -31,9 +31,12 @@ final class ModerationService {
     required String messageId,
     int? before,
     int? after,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetMessageContextOutput>(
         ns.chatBskyModerationGetMessageContext,
+        headers: headers,
         parameters: {
           if (convoId != null) 'convoId': convoId,
           'messageId': messageId,
@@ -48,9 +51,12 @@ final class ModerationService {
     required String actor,
     required bool allowAccess,
     String? ref,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.chatBskyModerationUpdateActorAccess,
+        headers: headers,
         body: {
           'actor': actor,
           'allowAccess': allowAccess,
@@ -61,9 +67,12 @@ final class ModerationService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
   Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
     required String actor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetActorMetadataOutput>(
         ns.chatBskyModerationGetActorMetadata,
+        headers: headers,
         parameters: {
           'actor': actor,
         },

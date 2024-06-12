@@ -32,11 +32,15 @@ final class UnspeccedService {
   /// Get a list of suggestions (feeds and users) tagged with categories
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/unspecced/getTaggedSuggestions
-  Future<XRPCResponse<GetTaggedSuggestionsOutput>>
-      getTaggedSuggestions() async => await _ctx.get(
-            ns.appBskyUnspeccedGetTaggedSuggestions,
-            to: const GetTaggedSuggestionsOutputConverter().fromJson,
-          );
+  Future<XRPCResponse<GetTaggedSuggestionsOutput>> getTaggedSuggestions({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<GetTaggedSuggestionsOutput>(
+        ns.appBskyUnspeccedGetTaggedSuggestions,
+        headers: headers,
+        to: const GetTaggedSuggestionsOutputConverter().fromJson,
+      );
 
   /// Backend Actors (profile) search, returns only skeleton.
   ///
@@ -47,9 +51,12 @@ final class UnspeccedService {
     bool? typeahead,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<SearchActorsSkeletonOutput>(
         ns.appBskyUnspeccedSearchActorsSkeleton,
+        headers: headers,
         parameters: {
           'q': q,
           if (viewer != null) 'viewer': viewer,
@@ -77,9 +84,12 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<SearchPostsSkeletonOutput>(
         ns.appBskyUnspeccedSearchPostsSkeleton,
+        headers: headers,
         parameters: {
           'q': q,
           if (sort != null) 'sort': sort.toJson(),
@@ -105,9 +115,12 @@ final class UnspeccedService {
     String? viewer,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetSuggestionsSkeletonOutput>(
         ns.appBskyUnspeccedGetSuggestionsSkeleton,
+        headers: headers,
         parameters: {
           if (viewer != null) 'viewer': viewer,
           if (limit != null) 'limit': limit,
@@ -124,9 +137,12 @@ final class UnspeccedService {
     int? limit,
     String? cursor,
     String? query,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-          await _ctx.get(
+          await _ctx.get<GetPopularFeedGeneratorsOutput>(
             ns.appBskyUnspeccedGetPopularFeedGenerators,
+            headers: headers,
             parameters: {
               if (limit != null) 'limit': limit,
               if (cursor != null) 'cursor': cursor,

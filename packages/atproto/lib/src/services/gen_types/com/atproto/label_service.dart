@@ -42,9 +42,12 @@ final class LabelService {
     List<String>? sources,
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<QueryLabelsOutput>(
         ns.comAtprotoLabelQueryLabels,
+        headers: headers,
         parameters: {
           'uriPatterns': uriPatterns,
           if (sources != null) 'sources': sources,

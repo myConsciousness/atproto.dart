@@ -41,9 +41,12 @@ final class RepoService {
     required NSID collection,
     required String rkey,
     String? cid,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetRecordOutput>(
         ns.comAtprotoRepoGetRecord,
+        headers: headers,
         parameters: {
           'repo': repo,
           'collection': collection.toString(),
@@ -56,8 +59,13 @@ final class RepoService {
   /// Import a repo in the form of a CAR file. Requires Content-Length HTTP header to be set.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
-  Future<XRPCResponse<EmptyData>> importRepo() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> importRepo({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoRepoImportRepo,
+        headers: headers,
       );
 
   /// List a range of records in a repository, matching a specific collection. Does not require auth.
@@ -71,9 +79,12 @@ final class RepoService {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListRecordsOutput>(
         ns.comAtprotoRepoListRecords,
+        headers: headers,
         parameters: {
           'repo': repo,
           'collection': collection.toString(),
@@ -92,9 +103,12 @@ final class RepoService {
   Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListMissingBlobsOutput>(
         ns.comAtprotoRepoListMissingBlobs,
+        headers: headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -110,9 +124,12 @@ final class RepoService {
     bool? validate,
     required List<UWrite> writes,
     String? swapCommit,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoRepoApplyWrites,
+        headers: headers,
         body: {
           'repo': repo,
           if (validate != null) 'validate': validate,
@@ -126,9 +143,12 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/uploadBlob
   Future<XRPCResponse<UploadBlobOutput>> uploadBlob({
     required Uint8List bytes,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<UploadBlobOutput>(
         ns.comAtprotoRepoUploadBlob,
+        headers: headers,
         body: bytes,
         to: const UploadBlobOutputConverter().fromJson,
       );
@@ -142,9 +162,12 @@ final class RepoService {
     required String rkey,
     String? swapRecord,
     String? swapCommit,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoRepoDeleteRecord,
+        headers: headers,
         body: {
           'repo': repo,
           'collection': collection.toString(),
@@ -165,9 +188,12 @@ final class RepoService {
     required Map<String, dynamic> record,
     String? swapRecord,
     String? swapCommit,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<StrongRef>(
         ns.comAtprotoRepoPutRecord,
+        headers: headers,
         body: {
           'repo': repo,
           'collection': collection.toString(),
@@ -185,9 +211,12 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
     required String repo,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<DescribeRepoOutput>(
         ns.comAtprotoRepoDescribeRepo,
+        headers: headers,
         parameters: {
           'repo': repo,
         },
@@ -204,9 +233,12 @@ final class RepoService {
     bool? validate,
     required Map<String, dynamic> record,
     String? swapCommit,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<StrongRef>(
         ns.comAtprotoRepoCreateRecord,
+        headers: headers,
         body: {
           'repo': repo,
           'collection': collection.toString(),

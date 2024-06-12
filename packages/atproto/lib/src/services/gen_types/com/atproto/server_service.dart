@@ -43,9 +43,12 @@ final class ServerService {
     required String email,
     bool? emailAuthFactor,
     String? token,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerUpdateEmail,
+        headers: headers,
         body: {
           'email': email,
           if (emailAuthFactor != null) 'emailAuthFactor': emailAuthFactor,
@@ -59,9 +62,12 @@ final class ServerService {
   Future<XRPCResponse<GetAccountInviteCodesOutput>> getAccountInviteCodes({
     bool? includeUsed,
     bool? createAvailable,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetAccountInviteCodesOutput>(
         ns.comAtprotoServerGetAccountInviteCodes,
+        headers: headers,
         parameters: {
           if (includeUsed != null) 'includeUsed': includeUsed,
           if (createAvailable != null) 'createAvailable': createAvailable,
@@ -75,9 +81,12 @@ final class ServerService {
   Future<XRPCResponse<EmptyData>> confirmEmail({
     required String email,
     required String token,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerConfirmEmail,
+        headers: headers,
         body: {
           'email': email,
           'token': token,
@@ -87,16 +96,25 @@ final class ServerService {
   /// Request an email with a code to confirm ownership of email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailConfirmation
-  Future<XRPCResponse<EmptyData>> requestEmailConfirmation() async =>
-      await _ctx.post(
+  Future<XRPCResponse<EmptyData>> requestEmailConfirmation({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerRequestEmailConfirmation,
+        headers: headers,
       );
 
   /// Activates a currently deactivated account. Used to finalize account migration after the account's repo is imported and identity is setup.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/activateAccount
-  Future<XRPCResponse<EmptyData>> activateAccount() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> activateAccount({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerActivateAccount,
+        headers: headers,
       );
 
   /// Get a signed token on behalf of the requesting DID for the requested service.
@@ -104,9 +122,12 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getServiceAuth
   Future<XRPCResponse<GetServiceAuthOutput>> getServiceAuth({
     required String aud,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetServiceAuthOutput>(
         ns.comAtprotoServerGetServiceAuth,
+        headers: headers,
         parameters: {
           'aud': aud,
         },
@@ -120,9 +141,12 @@ final class ServerService {
     required String did,
     required String password,
     required String token,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerDeleteAccount,
+        headers: headers,
         body: {
           'did': did,
           'password': password,
@@ -135,9 +159,12 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/revokeAppPassword
   Future<XRPCResponse<EmptyData>> revokeAppPassword({
     required String name,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerRevokeAppPassword,
+        headers: headers,
         body: {
           'name': name,
         },
@@ -148,9 +175,12 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/reserveSigningKey
   Future<XRPCResponse<ReserveSigningKeyOutput>> reserveSigningKey({
     String? did,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<ReserveSigningKeyOutput>(
         ns.comAtprotoServerReserveSigningKey,
+        headers: headers,
         body: {
           if (did != null) 'did': did,
         },
@@ -170,9 +200,12 @@ final class ServerService {
     String? password,
     String? recoveryKey,
     Map<String, dynamic>? plcOp,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<CreateAccountOutput>(
         ns.comAtprotoServerCreateAccount,
+        headers: headers,
         body: {
           if (email != null) 'email': email,
           'handle': handle,
@@ -194,9 +227,12 @@ final class ServerService {
     required int codeCount,
     required int useCount,
     List<String>? forAccounts,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<CreateInviteCodesOutput>(
         ns.comAtprotoServerCreateInviteCodes,
+        headers: headers,
         body: {
           'codeCount': codeCount,
           'useCount': useCount,
@@ -208,34 +244,51 @@ final class ServerService {
   /// Returns the status of an account, especially as pertaining to import or recovery. Can be called many times over the course of an account migration. Requires auth and can only be called pertaining to oneself.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/checkAccountStatus
-  Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus() async =>
-      await _ctx.get(
+  Future<XRPCResponse<CheckAccountStatusOutput>> checkAccountStatus({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<CheckAccountStatusOutput>(
         ns.comAtprotoServerCheckAccountStatus,
+        headers: headers,
         to: const CheckAccountStatusOutputConverter().fromJson,
       );
 
   /// Delete the current session. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deleteSession
-  Future<XRPCResponse<EmptyData>> deleteSession() async => await _ctx.post(
+  Future<XRPCResponse<EmptyData>> deleteSession({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerDeleteSession,
+        headers: headers,
       );
 
   /// Refresh an authentication session. Requires auth using the 'refreshJwt' (not the 'accessJwt').
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/refreshSession
-  Future<XRPCResponse<RefreshSessionOutput>> refreshSession() async =>
-      await _ctx.post(
+  Future<XRPCResponse<RefreshSessionOutput>> refreshSession({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<RefreshSessionOutput>(
         ns.comAtprotoServerRefreshSession,
+        headers: headers,
         to: const RefreshSessionOutputConverter().fromJson,
       );
 
   /// Initiate a user account deletion via email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestAccountDelete
-  Future<XRPCResponse<EmptyData>> requestAccountDelete() async =>
-      await _ctx.post(
+  Future<XRPCResponse<EmptyData>> requestAccountDelete({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerRequestAccountDelete,
+        headers: headers,
       );
 
   /// Create an invite code.
@@ -244,9 +297,12 @@ final class ServerService {
   Future<XRPCResponse<CreateInviteCodeOutput>> createInviteCode({
     required int useCount,
     String? forAccount,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<CreateInviteCodeOutput>(
         ns.comAtprotoServerCreateInviteCode,
+        headers: headers,
         body: {
           'useCount': useCount,
           if (forAccount != null) 'forAccount': forAccount,
@@ -257,18 +313,26 @@ final class ServerService {
   /// List all App Passwords.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/listAppPasswords
-  Future<XRPCResponse<ListAppPasswordsOutput>> listAppPasswords() async =>
-      await _ctx.get(
+  Future<XRPCResponse<ListAppPasswordsOutput>> listAppPasswords({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<ListAppPasswordsOutput>(
         ns.comAtprotoServerListAppPasswords,
+        headers: headers,
         to: const ListAppPasswordsOutputConverter().fromJson,
       );
 
   /// Describes the server's account creation requirements and capabilities. Implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/describeServer
-  Future<XRPCResponse<DescribeServerOutput>> describeServer() async =>
-      await _ctx.get(
+  Future<XRPCResponse<DescribeServerOutput>> describeServer({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<DescribeServerOutput>(
         ns.comAtprotoServerDescribeServer,
+        headers: headers,
         to: const DescribeServerOutputConverter().fromJson,
       );
 
@@ -278,9 +342,12 @@ final class ServerService {
   Future<XRPCResponse<EmptyData>> resetPassword({
     required String token,
     required String password,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerResetPassword,
+        headers: headers,
         body: {
           'token': token,
           'password': password,
@@ -290,17 +357,26 @@ final class ServerService {
   /// Get information about the current auth session. Requires auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/getSession
-  Future<XRPCResponse<GetSessionOutput>> getSession() async => await _ctx.get(
+  Future<XRPCResponse<GetSessionOutput>> getSession({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+      await _ctx.get<GetSessionOutput>(
         ns.comAtprotoServerGetSession,
+        headers: headers,
         to: const GetSessionOutputConverter().fromJson,
       );
 
   /// Request a token in order to update email.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestEmailUpdate
-  Future<XRPCResponse<RequestEmailUpdateOutput>> requestEmailUpdate() async =>
-      await _ctx.post(
+  Future<XRPCResponse<RequestEmailUpdateOutput>> requestEmailUpdate({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<RequestEmailUpdateOutput>(
         ns.comAtprotoServerRequestEmailUpdate,
+        headers: headers,
         to: const RequestEmailUpdateOutputConverter().fromJson,
       );
 
@@ -310,9 +386,12 @@ final class ServerService {
   Future<XRPCResponse<EmptyData>> createAppPassword({
     required String name,
     bool? privileged,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerCreateAppPassword,
+        headers: headers,
         body: {
           'name': name,
           if (privileged != null) 'privileged': privileged,
@@ -326,9 +405,12 @@ final class ServerService {
     required String identifier,
     required String password,
     String? authFactorToken,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<CreateSessionOutput>(
         ns.comAtprotoServerCreateSession,
+        headers: headers,
         body: {
           'identifier': identifier,
           'password': password,
@@ -342,9 +424,12 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/deactivateAccount
   Future<XRPCResponse<EmptyData>> deactivateAccount({
     DateTime? deleteAfter,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerDeactivateAccount,
+        headers: headers,
         body: {
           if (deleteAfter != null) 'deleteAfter': deleteAfter,
         },
@@ -355,9 +440,12 @@ final class ServerService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/requestPasswordReset
   Future<XRPCResponse<EmptyData>> requestPasswordReset({
     required String email,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoServerRequestPasswordReset,
+        headers: headers,
         body: {
           'email': email,
         },

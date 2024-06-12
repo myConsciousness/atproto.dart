@@ -31,9 +31,12 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<XRPCResponse<EmptyData>> updateHandle({
     required String handle,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityUpdateHandle,
+        headers: headers,
         body: {
           'handle': handle,
         },
@@ -44,9 +47,12 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
   Future<XRPCResponse<EmptyData>> submitPlcOperation({
     required Map<String, dynamic> operation,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.comAtprotoIdentitySubmitPlcOperation,
+        headers: headers,
         body: {
           'operation': operation,
         },
@@ -57,9 +63,12 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
     required String handle,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ResolveHandleOutput>(
         ns.comAtprotoIdentityResolveHandle,
+        headers: headers,
         parameters: {
           'handle': handle,
         },
@@ -75,9 +84,12 @@ final class IdentityService {
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<SignPlcOperationOutput>(
         ns.comAtprotoIdentitySignPlcOperation,
+        headers: headers,
         body: {
           if (token != null) 'token': token,
           if (rotationKeys != null) 'rotationKeys': rotationKeys,
@@ -93,16 +105,25 @@ final class IdentityService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
-      getRecommendedDidCredentials() async => await _ctx.get(
+      getRecommendedDidCredentials({
+    Map<String, String>? headers,
+    GetClient? client,
+  }) async =>
+          await _ctx.get<GetRecommendedDidCredentialsOutput>(
             ns.comAtprotoIdentityGetRecommendedDidCredentials,
+            headers: headers,
             to: const GetRecommendedDidCredentialsOutputConverter().fromJson,
           );
 
   /// Request an email with a code to in order to request a signed PLC operation. Requires Auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
-  Future<XRPCResponse<EmptyData>> requestPlcOperationSignature() async =>
-      await _ctx.post(
+  Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
+    Map<String, String>? headers,
+    PostClient? client,
+  }) async =>
+      await _ctx.post<EmptyData>(
         ns.comAtprotoIdentityRequestPlcOperationSignature,
+        headers: headers,
       );
 }

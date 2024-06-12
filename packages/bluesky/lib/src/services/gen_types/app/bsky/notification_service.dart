@@ -31,9 +31,12 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
     required DateTime seenAt,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.appBskyNotificationUpdateSeen,
+        headers: headers,
         body: {
           'seenAt': seenAt,
         },
@@ -47,9 +50,12 @@ final class NotificationService {
     required String token,
     required UPlatform platform,
     required String appId,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<EmptyData>(
         ns.appBskyNotificationRegisterPush,
+        headers: headers,
         body: {
           'serviceDid': serviceDid,
           'token': token,
@@ -65,9 +71,12 @@ final class NotificationService {
     int? limit,
     String? cursor,
     DateTime? seenAt,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<ListNotificationsOutput>(
         ns.appBskyNotificationListNotifications,
+        headers: headers,
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -81,9 +90,12 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
     DateTime? seenAt,
+    Map<String, String>? headers,
+    GetClient? client,
   }) async =>
-      await _ctx.get(
+      await _ctx.get<GetUnreadCountOutput>(
         ns.appBskyNotificationGetUnreadCount,
+        headers: headers,
         parameters: {
           if (seenAt != null) 'seenAt': seenAt,
         },

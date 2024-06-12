@@ -33,9 +33,12 @@ final class ModerationService {
     required UReasonType reasonType,
     String? reason,
     required USubject subject,
+    Map<String, String>? headers,
+    PostClient? client,
   }) async =>
-      await _ctx.post(
+      await _ctx.post<CreateReportOutput>(
         ns.comAtprotoModerationCreateReport,
+        headers: headers,
         body: {
           'reasonType': reasonType,
           if (reason != null) 'reason': reason,
