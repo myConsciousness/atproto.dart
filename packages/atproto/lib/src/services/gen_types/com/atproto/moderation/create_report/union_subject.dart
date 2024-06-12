@@ -68,7 +68,7 @@ final class USubjectConverter
       );
 }
 
-extension USubjectExtension on USubject {
+extension $USubjectExtension on USubject {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const USubjectConverter().toJson(this);
 

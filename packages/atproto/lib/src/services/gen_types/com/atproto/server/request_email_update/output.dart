@@ -31,7 +31,7 @@ class RequestEmailUpdateOutput with _$RequestEmailUpdateOutput {
       _$RequestEmailUpdateOutputFromJson(json);
 }
 
-extension RequestEmailUpdateOutputExtension on RequestEmailUpdateOutput {
+extension $RequestEmailUpdateOutputExtension on RequestEmailUpdateOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

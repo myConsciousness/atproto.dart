@@ -40,7 +40,7 @@ class SkeletonSearchActor with _$SkeletonSearchActor {
       _$SkeletonSearchActorFromJson(json);
 }
 
-extension SkeletonSearchActorExtension on SkeletonSearchActor {
+extension $SkeletonSearchActorExtension on SkeletonSearchActor {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

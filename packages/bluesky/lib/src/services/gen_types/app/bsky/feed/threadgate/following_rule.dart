@@ -41,7 +41,7 @@ class FollowingRule with _$FollowingRule {
       _$FollowingRuleFromJson(json);
 }
 
-extension FollowingRuleExtension on FollowingRule {
+extension $FollowingRuleExtension on FollowingRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

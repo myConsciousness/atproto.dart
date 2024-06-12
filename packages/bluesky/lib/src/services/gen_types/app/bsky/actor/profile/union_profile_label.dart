@@ -55,7 +55,7 @@ final class UProfileLabelConverter
       );
 }
 
-extension UProfileLabelExtension on UProfileLabel {
+extension $UProfileLabelExtension on UProfileLabel {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UProfileLabelConverter().toJson(this);
 

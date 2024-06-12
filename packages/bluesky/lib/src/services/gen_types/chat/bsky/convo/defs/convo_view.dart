@@ -45,7 +45,7 @@ class ConvoView with _$ConvoView {
       _$ConvoViewFromJson(json);
 }
 
-extension ConvoViewExtension on ConvoView {
+extension $ConvoViewExtension on ConvoView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

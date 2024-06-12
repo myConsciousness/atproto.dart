@@ -43,7 +43,7 @@ class MutedWordsPref with _$MutedWordsPref {
       _$MutedWordsPrefFromJson(json);
 }
 
-extension MutedWordsPrefExtension on MutedWordsPref {
+extension $MutedWordsPrefExtension on MutedWordsPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

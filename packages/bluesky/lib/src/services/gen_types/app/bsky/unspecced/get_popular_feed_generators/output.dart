@@ -35,7 +35,7 @@ class GetPopularFeedGeneratorsOutput with _$GetPopularFeedGeneratorsOutput {
       _$GetPopularFeedGeneratorsOutputFromJson(json);
 }
 
-extension GetPopularFeedGeneratorsOutputExtension
+extension $GetPopularFeedGeneratorsOutputExtension
     on GetPopularFeedGeneratorsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

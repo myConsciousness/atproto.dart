@@ -156,7 +156,7 @@ final class UPreferenceConverter
       );
 }
 
-extension UPreferenceExtension on UPreference {
+extension $UPreferenceExtension on UPreference {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPreferenceConverter().toJson(this);
 

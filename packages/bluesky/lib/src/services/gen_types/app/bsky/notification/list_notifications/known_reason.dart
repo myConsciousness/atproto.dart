@@ -49,7 +49,7 @@ enum KnownReason {
   }
 }
 
-extension KnownReasonExtension on KnownReason {
+extension $KnownReasonExtension on KnownReason {
   /// Returns this value as [UReason].
   UReason toUnion() => UReason.knownValue(data: this);
 
@@ -148,7 +148,7 @@ final class UReasonConverter implements JsonConverter<UReason, String> {
       );
 }
 
-extension UReasonExtension on UReason {
+extension $UReasonExtension on UReason {
   /// Returns string value.
   String toJson() => const UReasonConverter().toJson(this);
 

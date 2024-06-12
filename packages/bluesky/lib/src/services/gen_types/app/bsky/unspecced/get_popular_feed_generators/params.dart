@@ -33,7 +33,7 @@ class GetPopularFeedGeneratorsParams with _$GetPopularFeedGeneratorsParams {
       _$GetPopularFeedGeneratorsParamsFromJson(json);
 }
 
-extension GetPopularFeedGeneratorsParamsExtension
+extension $GetPopularFeedGeneratorsParamsExtension
     on GetPopularFeedGeneratorsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

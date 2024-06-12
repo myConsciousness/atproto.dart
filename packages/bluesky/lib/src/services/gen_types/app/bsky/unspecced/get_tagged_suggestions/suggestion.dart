@@ -43,7 +43,7 @@ class Suggestion with _$Suggestion {
       _$SuggestionFromJson(json);
 }
 
-extension SuggestionExtension on Suggestion {
+extension $SuggestionExtension on Suggestion {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

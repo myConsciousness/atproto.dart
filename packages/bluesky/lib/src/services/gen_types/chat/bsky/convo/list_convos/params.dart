@@ -32,7 +32,7 @@ class ListConvosParams with _$ListConvosParams {
       _$ListConvosParamsFromJson(json);
 }
 
-extension ListConvosParamsExtension on ListConvosParams {
+extension $ListConvosParamsExtension on ListConvosParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

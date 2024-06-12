@@ -59,7 +59,7 @@ class GeneratorView with _$GeneratorView {
       _$GeneratorViewFromJson(json);
 }
 
-extension GeneratorViewExtension on GeneratorView {
+extension $GeneratorViewExtension on GeneratorView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

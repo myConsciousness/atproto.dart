@@ -31,7 +31,7 @@ class DeleteAccountInput with _$DeleteAccountInput {
       _$DeleteAccountInputFromJson(json);
 }
 
-extension DeleteAccountInputExtension on DeleteAccountInput {
+extension $DeleteAccountInputExtension on DeleteAccountInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

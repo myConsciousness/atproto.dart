@@ -36,7 +36,7 @@ class GetInviteCodesParams with _$GetInviteCodesParams {
       _$GetInviteCodesParamsFromJson(json);
 }
 
-extension GetInviteCodesParamsExtension on GetInviteCodesParams {
+extension $GetInviteCodesParamsExtension on GetInviteCodesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

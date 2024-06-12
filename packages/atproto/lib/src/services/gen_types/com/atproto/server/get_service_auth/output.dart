@@ -31,7 +31,7 @@ class GetServiceAuthOutput with _$GetServiceAuthOutput {
       _$GetServiceAuthOutputFromJson(json);
 }
 
-extension GetServiceAuthOutputExtension on GetServiceAuthOutput {
+extension $GetServiceAuthOutputExtension on GetServiceAuthOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

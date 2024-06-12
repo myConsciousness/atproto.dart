@@ -40,7 +40,7 @@ class FacetMention with _$FacetMention {
       _$FacetMentionFromJson(json);
 }
 
-extension FacetMentionExtension on FacetMention {
+extension $FacetMentionExtension on FacetMention {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

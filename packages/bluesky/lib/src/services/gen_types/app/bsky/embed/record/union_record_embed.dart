@@ -90,7 +90,7 @@ final class URecordEmbedConverter
       );
 }
 
-extension URecordEmbedExtension on URecordEmbed {
+extension $URecordEmbedExtension on URecordEmbed {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const URecordEmbedConverter().toJson(this);
 

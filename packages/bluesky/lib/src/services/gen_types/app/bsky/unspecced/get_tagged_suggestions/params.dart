@@ -29,7 +29,7 @@ class GetTaggedSuggestionsParams with _$GetTaggedSuggestionsParams {
       _$GetTaggedSuggestionsParamsFromJson(json);
 }
 
-extension GetTaggedSuggestionsParamsExtension on GetTaggedSuggestionsParams {
+extension $GetTaggedSuggestionsParamsExtension on GetTaggedSuggestionsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

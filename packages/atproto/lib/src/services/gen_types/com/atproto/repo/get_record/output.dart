@@ -34,7 +34,7 @@ class GetRecordOutput with _$GetRecordOutput {
       _$GetRecordOutputFromJson(json);
 }
 
-extension GetRecordOutputExtension on GetRecordOutput {
+extension $GetRecordOutputExtension on GetRecordOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

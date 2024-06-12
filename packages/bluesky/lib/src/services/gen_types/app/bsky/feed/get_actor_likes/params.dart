@@ -33,7 +33,7 @@ class GetActorLikesParams with _$GetActorLikesParams {
       _$GetActorLikesParamsFromJson(json);
 }
 
-extension GetActorLikesParamsExtension on GetActorLikesParams {
+extension $GetActorLikesParamsExtension on GetActorLikesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

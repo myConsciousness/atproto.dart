@@ -44,7 +44,7 @@ class ExternalExternal with _$ExternalExternal {
       _$ExternalExternalFromJson(json);
 }
 
-extension ExternalExternalExtension on ExternalExternal {
+extension $ExternalExternalExtension on ExternalExternal {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class DisableInviteCodesInput with _$DisableInviteCodesInput {
       _$DisableInviteCodesInputFromJson(json);
 }
 
-extension DisableInviteCodesInputExtension on DisableInviteCodesInput {
+extension $DisableInviteCodesInputExtension on DisableInviteCodesInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

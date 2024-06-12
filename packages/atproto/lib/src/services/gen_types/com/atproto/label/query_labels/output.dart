@@ -35,7 +35,7 @@ class QueryLabelsOutput with _$QueryLabelsOutput {
       _$QueryLabelsOutputFromJson(json);
 }
 
-extension QueryLabelsOutputExtension on QueryLabelsOutput {
+extension $QueryLabelsOutputExtension on QueryLabelsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

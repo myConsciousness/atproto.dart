@@ -36,7 +36,7 @@ class SignPlcOperationInput with _$SignPlcOperationInput {
       _$SignPlcOperationInputFromJson(json);
 }
 
-extension SignPlcOperationInputExtension on SignPlcOperationInput {
+extension $SignPlcOperationInputExtension on SignPlcOperationInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

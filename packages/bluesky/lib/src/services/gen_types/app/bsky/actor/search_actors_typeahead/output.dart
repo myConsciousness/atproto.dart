@@ -34,7 +34,7 @@ class SearchActorsTypeaheadOutput with _$SearchActorsTypeaheadOutput {
       _$SearchActorsTypeaheadOutputFromJson(json);
 }
 
-extension SearchActorsTypeaheadOutputExtension on SearchActorsTypeaheadOutput {
+extension $SearchActorsTypeaheadOutputExtension on SearchActorsTypeaheadOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

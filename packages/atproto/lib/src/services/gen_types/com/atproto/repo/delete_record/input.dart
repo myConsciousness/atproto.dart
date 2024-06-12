@@ -45,7 +45,7 @@ class DeleteRecordInput with _$DeleteRecordInput {
       _$DeleteRecordInputFromJson(json);
 }
 
-extension DeleteRecordInputExtension on DeleteRecordInput {
+extension $DeleteRecordInputExtension on DeleteRecordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

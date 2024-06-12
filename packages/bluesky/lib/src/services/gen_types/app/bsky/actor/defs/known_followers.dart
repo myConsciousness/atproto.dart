@@ -44,7 +44,7 @@ class KnownFollowers with _$KnownFollowers {
       _$KnownFollowersFromJson(json);
 }
 
-extension KnownFollowersExtension on KnownFollowers {
+extension $KnownFollowersExtension on KnownFollowers {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

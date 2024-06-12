@@ -35,7 +35,7 @@ class ListRecordsOutput with _$ListRecordsOutput {
       _$ListRecordsOutputFromJson(json);
 }
 
-extension ListRecordsOutputExtension on ListRecordsOutput {
+extension $ListRecordsOutputExtension on ListRecordsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

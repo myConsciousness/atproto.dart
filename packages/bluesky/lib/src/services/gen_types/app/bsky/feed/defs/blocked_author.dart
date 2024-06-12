@@ -42,7 +42,7 @@ class BlockedAuthor with _$BlockedAuthor {
       _$BlockedAuthorFromJson(json);
 }
 
-extension BlockedAuthorExtension on BlockedAuthor {
+extension $BlockedAuthorExtension on BlockedAuthor {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

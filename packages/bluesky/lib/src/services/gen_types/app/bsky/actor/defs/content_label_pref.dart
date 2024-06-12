@@ -45,7 +45,7 @@ class ContentLabelPref with _$ContentLabelPref {
       _$ContentLabelPrefFromJson(json);
 }
 
-extension ContentLabelPrefExtension on ContentLabelPref {
+extension $ContentLabelPrefExtension on ContentLabelPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

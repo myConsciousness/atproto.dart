@@ -41,7 +41,7 @@ class ProfileAssociatedChat with _$ProfileAssociatedChat {
       _$ProfileAssociatedChatFromJson(json);
 }
 
-extension ProfileAssociatedChatExtension on ProfileAssociatedChat {
+extension $ProfileAssociatedChatExtension on ProfileAssociatedChat {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -35,7 +35,7 @@ class GetAuthorFeedOutput with _$GetAuthorFeedOutput {
       _$GetAuthorFeedOutputFromJson(json);
 }
 
-extension GetAuthorFeedOutputExtension on GetAuthorFeedOutput {
+extension $GetAuthorFeedOutputExtension on GetAuthorFeedOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

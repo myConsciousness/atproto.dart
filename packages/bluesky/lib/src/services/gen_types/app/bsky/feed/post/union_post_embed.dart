@@ -90,7 +90,7 @@ final class UPostEmbedConverter
       );
 }
 
-extension UPostEmbedExtension on UPostEmbed {
+extension $UPostEmbedExtension on UPostEmbed {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPostEmbedConverter().toJson(this);
 

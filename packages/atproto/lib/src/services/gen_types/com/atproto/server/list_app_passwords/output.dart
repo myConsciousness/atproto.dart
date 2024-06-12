@@ -34,7 +34,7 @@ class ListAppPasswordsOutput with _$ListAppPasswordsOutput {
       _$ListAppPasswordsOutputFromJson(json);
 }
 
-extension ListAppPasswordsOutputExtension on ListAppPasswordsOutput {
+extension $ListAppPasswordsOutputExtension on ListAppPasswordsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

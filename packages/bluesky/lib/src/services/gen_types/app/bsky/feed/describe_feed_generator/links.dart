@@ -40,7 +40,7 @@ class Links with _$Links {
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 }
 
-extension LinksExtension on Links {
+extension $LinksExtension on Links {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

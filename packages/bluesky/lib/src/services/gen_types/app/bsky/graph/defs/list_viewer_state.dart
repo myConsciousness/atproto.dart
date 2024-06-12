@@ -42,7 +42,7 @@ class ListViewerState with _$ListViewerState {
       _$ListViewerStateFromJson(json);
 }
 
-extension ListViewerStateExtension on ListViewerState {
+extension $ListViewerStateExtension on ListViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

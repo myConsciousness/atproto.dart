@@ -41,7 +41,7 @@ class LogLeaveConvo with _$LogLeaveConvo {
       _$LogLeaveConvoFromJson(json);
 }
 
-extension LogLeaveConvoExtension on LogLeaveConvo {
+extension $LogLeaveConvoExtension on LogLeaveConvo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

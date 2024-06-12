@@ -40,7 +40,7 @@ class NotFoundPost with _$NotFoundPost {
       _$NotFoundPostFromJson(json);
 }
 
-extension NotFoundPostExtension on NotFoundPost {
+extension $NotFoundPostExtension on NotFoundPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -43,7 +43,7 @@ enum KnownType {
   }
 }
 
-extension KnownTypeExtension on KnownType {
+extension $KnownTypeExtension on KnownType {
   /// Returns this value as [UType].
   UType toUnion() => UType.knownValue(data: this);
 
@@ -124,7 +124,7 @@ final class UTypeConverter implements JsonConverter<UType, String> {
       );
 }
 
-extension UTypeExtension on UType {
+extension $UTypeExtension on UType {
   /// Returns string value.
   String toJson() => const UTypeConverter().toJson(this);
 

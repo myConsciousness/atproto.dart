@@ -37,7 +37,7 @@ class DescribeFeedGeneratorOutput with _$DescribeFeedGeneratorOutput {
       _$DescribeFeedGeneratorOutputFromJson(json);
 }
 
-extension DescribeFeedGeneratorOutputExtension on DescribeFeedGeneratorOutput {
+extension $DescribeFeedGeneratorOutputExtension on DescribeFeedGeneratorOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

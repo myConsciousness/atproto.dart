@@ -41,7 +41,7 @@ class Labels with _$Labels {
   factory Labels.fromJson(Map<String, dynamic> json) => _$LabelsFromJson(json);
 }
 
-extension LabelsExtension on Labels {
+extension $LabelsExtension on Labels {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

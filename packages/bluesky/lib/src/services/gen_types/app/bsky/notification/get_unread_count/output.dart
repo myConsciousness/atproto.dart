@@ -31,7 +31,7 @@ class GetUnreadCountOutput with _$GetUnreadCountOutput {
       _$GetUnreadCountOutputFromJson(json);
 }
 
-extension GetUnreadCountOutputExtension on GetUnreadCountOutput {
+extension $GetUnreadCountOutputExtension on GetUnreadCountOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

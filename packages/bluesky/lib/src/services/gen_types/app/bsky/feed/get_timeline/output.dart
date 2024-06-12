@@ -35,7 +35,7 @@ class GetTimelineOutput with _$GetTimelineOutput {
       _$GetTimelineOutputFromJson(json);
 }
 
-extension GetTimelineOutputExtension on GetTimelineOutput {
+extension $GetTimelineOutputExtension on GetTimelineOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

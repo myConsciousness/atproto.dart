@@ -42,7 +42,7 @@ class PersonalDetailsPref with _$PersonalDetailsPref {
       _$PersonalDetailsPrefFromJson(json);
 }
 
-extension PersonalDetailsPrefExtension on PersonalDetailsPref {
+extension $PersonalDetailsPrefExtension on PersonalDetailsPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

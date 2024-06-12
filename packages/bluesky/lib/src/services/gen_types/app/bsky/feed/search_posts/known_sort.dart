@@ -41,7 +41,7 @@ enum KnownSort {
   }
 }
 
-extension KnownSortExtension on KnownSort {
+extension $KnownSortExtension on KnownSort {
   /// Returns this value as [USort].
   USort toUnion() => USort.knownValue(data: this);
 
@@ -116,7 +116,7 @@ final class USortConverter implements JsonConverter<USort, String> {
       );
 }
 
-extension USortExtension on USort {
+extension $USortExtension on USort {
   /// Returns string value.
   String toJson() => const USortConverter().toJson(this);
 

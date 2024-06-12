@@ -34,7 +34,7 @@ class UnmuteConvoOutput with _$UnmuteConvoOutput {
       _$UnmuteConvoOutputFromJson(json);
 }
 
-extension UnmuteConvoOutputExtension on UnmuteConvoOutput {
+extension $UnmuteConvoOutputExtension on UnmuteConvoOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

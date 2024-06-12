@@ -41,7 +41,7 @@ class Info with _$Info {
   factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 }
 
-extension InfoExtension on Info {
+extension $InfoExtension on Info {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

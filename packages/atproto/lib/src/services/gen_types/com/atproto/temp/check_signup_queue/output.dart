@@ -33,7 +33,7 @@ class CheckSignupQueueOutput with _$CheckSignupQueueOutput {
       _$CheckSignupQueueOutputFromJson(json);
 }
 
-extension CheckSignupQueueOutputExtension on CheckSignupQueueOutput {
+extension $CheckSignupQueueOutputExtension on CheckSignupQueueOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

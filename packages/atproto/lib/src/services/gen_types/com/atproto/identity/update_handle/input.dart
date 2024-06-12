@@ -32,7 +32,7 @@ class UpdateHandleInput with _$UpdateHandleInput {
       _$UpdateHandleInputFromJson(json);
 }
 
-extension UpdateHandleInputExtension on UpdateHandleInput {
+extension $UpdateHandleInputExtension on UpdateHandleInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

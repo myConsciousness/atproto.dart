@@ -61,7 +61,7 @@ class PostRecord with _$PostRecord {
       _$PostRecordFromJson(json);
 }
 
-extension PostRecordExtension on PostRecord {
+extension $PostRecordExtension on PostRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

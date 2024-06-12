@@ -34,7 +34,7 @@ class GetSuggestionsSkeletonParams with _$GetSuggestionsSkeletonParams {
       _$GetSuggestionsSkeletonParamsFromJson(json);
 }
 
-extension GetSuggestionsSkeletonParamsExtension
+extension $GetSuggestionsSkeletonParamsExtension
     on GetSuggestionsSkeletonParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

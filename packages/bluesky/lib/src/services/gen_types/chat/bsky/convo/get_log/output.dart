@@ -35,7 +35,7 @@ class GetLogOutput with _$GetLogOutput {
       _$GetLogOutputFromJson(json);
 }
 
-extension GetLogOutputExtension on GetLogOutput {
+extension $GetLogOutputExtension on GetLogOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

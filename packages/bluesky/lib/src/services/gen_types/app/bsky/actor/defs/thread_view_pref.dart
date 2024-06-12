@@ -46,7 +46,7 @@ class ThreadViewPref with _$ThreadViewPref {
       _$ThreadViewPrefFromJson(json);
 }
 
-extension ThreadViewPrefExtension on ThreadViewPref {
+extension $ThreadViewPrefExtension on ThreadViewPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

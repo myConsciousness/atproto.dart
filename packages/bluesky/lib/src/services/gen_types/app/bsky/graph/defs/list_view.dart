@@ -56,7 +56,7 @@ class ListView with _$ListView {
       _$ListViewFromJson(json);
 }
 
-extension ListViewExtension on ListView {
+extension $ListViewExtension on ListView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

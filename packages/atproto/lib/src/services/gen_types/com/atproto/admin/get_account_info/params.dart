@@ -31,7 +31,7 @@ class GetAccountInfoParams with _$GetAccountInfoParams {
       _$GetAccountInfoParamsFromJson(json);
 }
 
-extension GetAccountInfoParamsExtension on GetAccountInfoParams {
+extension $GetAccountInfoParamsExtension on GetAccountInfoParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

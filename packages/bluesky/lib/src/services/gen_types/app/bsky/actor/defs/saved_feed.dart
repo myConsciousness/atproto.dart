@@ -42,7 +42,7 @@ class SavedFeed with _$SavedFeed {
       _$SavedFeedFromJson(json);
 }
 
-extension SavedFeedExtension on SavedFeed {
+extension $SavedFeedExtension on SavedFeed {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

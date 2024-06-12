@@ -41,7 +41,7 @@ class GeneratorViewerState with _$GeneratorViewerState {
       _$GeneratorViewerStateFromJson(json);
 }
 
-extension GeneratorViewerStateExtension on GeneratorViewerState {
+extension $GeneratorViewerStateExtension on GeneratorViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

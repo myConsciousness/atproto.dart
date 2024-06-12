@@ -37,7 +37,7 @@ class UpdateSubjectStatusInput with _$UpdateSubjectStatusInput {
       _$UpdateSubjectStatusInputFromJson(json);
 }
 
-extension UpdateSubjectStatusInputExtension on UpdateSubjectStatusInput {
+extension $UpdateSubjectStatusInputExtension on UpdateSubjectStatusInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

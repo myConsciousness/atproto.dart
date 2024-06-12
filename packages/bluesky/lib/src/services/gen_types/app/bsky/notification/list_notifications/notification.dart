@@ -54,7 +54,7 @@ class Notification with _$Notification {
       _$NotificationFromJson(json);
 }
 
-extension NotificationExtension on Notification {
+extension $NotificationExtension on Notification {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

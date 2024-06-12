@@ -34,7 +34,7 @@ class GetMessageContextOutput with _$GetMessageContextOutput {
       _$GetMessageContextOutputFromJson(json);
 }
 
-extension GetMessageContextOutputExtension on GetMessageContextOutput {
+extension $GetMessageContextOutputExtension on GetMessageContextOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

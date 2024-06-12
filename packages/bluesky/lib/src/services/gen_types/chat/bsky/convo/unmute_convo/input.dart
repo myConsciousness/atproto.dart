@@ -31,7 +31,7 @@ class UnmuteConvoInput with _$UnmuteConvoInput {
       _$UnmuteConvoInputFromJson(json);
 }
 
-extension UnmuteConvoInputExtension on UnmuteConvoInput {
+extension $UnmuteConvoInputExtension on UnmuteConvoInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

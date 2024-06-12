@@ -37,7 +37,7 @@ class RegisterPushInput with _$RegisterPushInput {
       _$RegisterPushInputFromJson(json);
 }
 
-extension RegisterPushInputExtension on RegisterPushInput {
+extension $RegisterPushInputExtension on RegisterPushInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

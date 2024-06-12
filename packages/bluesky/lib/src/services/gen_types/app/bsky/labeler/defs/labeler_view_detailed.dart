@@ -54,7 +54,7 @@ class LabelerViewDetailed with _$LabelerViewDetailed {
       _$LabelerViewDetailedFromJson(json);
 }
 
-extension LabelerViewDetailedExtension on LabelerViewDetailed {
+extension $LabelerViewDetailedExtension on LabelerViewDetailed {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

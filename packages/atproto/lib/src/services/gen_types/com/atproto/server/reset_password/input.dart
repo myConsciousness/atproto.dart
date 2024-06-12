@@ -32,7 +32,7 @@ class ResetPasswordInput with _$ResetPasswordInput {
       _$ResetPasswordInputFromJson(json);
 }
 
-extension ResetPasswordInputExtension on ResetPasswordInput {
+extension $ResetPasswordInputExtension on ResetPasswordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

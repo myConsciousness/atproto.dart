@@ -84,7 +84,7 @@ enum KnownEvent {
   }
 }
 
-extension KnownEventExtension on KnownEvent {
+extension $KnownEventExtension on KnownEvent {
   /// Returns this value as [UEvent].
   UEvent toUnion() => UEvent.knownValue(data: this);
 
@@ -219,7 +219,7 @@ final class UEventConverter implements JsonConverter<UEvent, String> {
       );
 }
 
-extension UEventExtension on UEvent {
+extension $UEventExtension on UEvent {
   /// Returns string value.
   String toJson() => const UEventConverter().toJson(this);
 

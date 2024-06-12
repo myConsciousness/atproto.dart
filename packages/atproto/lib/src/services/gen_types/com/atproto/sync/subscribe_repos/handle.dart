@@ -44,7 +44,7 @@ class Handle with _$Handle {
   factory Handle.fromJson(Map<String, dynamic> json) => _$HandleFromJson(json);
 }
 
-extension HandleExtension on Handle {
+extension $HandleExtension on Handle {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

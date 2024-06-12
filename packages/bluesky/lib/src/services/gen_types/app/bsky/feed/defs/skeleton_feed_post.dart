@@ -46,7 +46,7 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
       _$SkeletonFeedPostFromJson(json);
 }
 
-extension SkeletonFeedPostExtension on SkeletonFeedPost {
+extension $SkeletonFeedPostExtension on SkeletonFeedPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

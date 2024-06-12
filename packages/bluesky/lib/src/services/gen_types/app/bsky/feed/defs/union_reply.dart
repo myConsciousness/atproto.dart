@@ -79,7 +79,7 @@ final class UReplyConverter
       );
 }
 
-extension UReplyExtension on UReply {
+extension $UReplyExtension on UReply {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UReplyConverter().toJson(this);
 

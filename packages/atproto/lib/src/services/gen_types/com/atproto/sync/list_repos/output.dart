@@ -35,7 +35,7 @@ class ListReposOutput with _$ListReposOutput {
       _$ListReposOutputFromJson(json);
 }
 
-extension ListReposOutputExtension on ListReposOutput {
+extension $ListReposOutputExtension on ListReposOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

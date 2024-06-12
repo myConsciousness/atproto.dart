@@ -58,7 +58,7 @@ class PostView with _$PostView {
       _$PostViewFromJson(json);
 }
 
-extension PostViewExtension on PostView {
+extension $PostViewExtension on PostView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

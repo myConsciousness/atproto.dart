@@ -32,7 +32,7 @@ class ReserveSigningKeyInput with _$ReserveSigningKeyInput {
       _$ReserveSigningKeyInputFromJson(json);
 }
 
-extension ReserveSigningKeyInputExtension on ReserveSigningKeyInput {
+extension $ReserveSigningKeyInputExtension on ReserveSigningKeyInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

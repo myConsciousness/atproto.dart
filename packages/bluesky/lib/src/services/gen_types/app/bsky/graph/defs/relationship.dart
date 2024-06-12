@@ -49,7 +49,7 @@ class Relationship with _$Relationship {
       _$RelationshipFromJson(json);
 }
 
-extension RelationshipExtension on Relationship {
+extension $RelationshipExtension on Relationship {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

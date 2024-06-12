@@ -34,7 +34,7 @@ class CreateSessionInput with _$CreateSessionInput {
       _$CreateSessionInputFromJson(json);
 }
 
-extension CreateSessionInputExtension on CreateSessionInput {
+extension $CreateSessionInputExtension on CreateSessionInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -33,7 +33,7 @@ class BlockRecord with _$BlockRecord {
       _$BlockRecordFromJson(json);
 }
 
-extension BlockRecordExtension on BlockRecord {
+extension $BlockRecordExtension on BlockRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

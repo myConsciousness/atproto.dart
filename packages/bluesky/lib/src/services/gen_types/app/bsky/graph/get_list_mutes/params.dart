@@ -32,7 +32,7 @@ class GetListMutesParams with _$GetListMutesParams {
       _$GetListMutesParamsFromJson(json);
 }
 
-extension GetListMutesParamsExtension on GetListMutesParams {
+extension $GetListMutesParamsExtension on GetListMutesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

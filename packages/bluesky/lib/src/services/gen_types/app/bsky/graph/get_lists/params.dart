@@ -34,7 +34,7 @@ class GetListsParams with _$GetListsParams {
       _$GetListsParamsFromJson(json);
 }
 
-extension GetListsParamsExtension on GetListsParams {
+extension $GetListsParamsExtension on GetListsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

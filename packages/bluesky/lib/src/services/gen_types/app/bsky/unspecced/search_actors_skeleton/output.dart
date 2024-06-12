@@ -38,7 +38,7 @@ class SearchActorsSkeletonOutput with _$SearchActorsSkeletonOutput {
       _$SearchActorsSkeletonOutputFromJson(json);
 }
 
-extension SearchActorsSkeletonOutputExtension on SearchActorsSkeletonOutput {
+extension $SearchActorsSkeletonOutputExtension on SearchActorsSkeletonOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

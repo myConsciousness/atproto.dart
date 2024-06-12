@@ -43,7 +43,7 @@ enum KnownAction {
   }
 }
 
-extension KnownActionExtension on KnownAction {
+extension $KnownActionExtension on KnownAction {
   /// Returns this value as [UAction].
   UAction toUnion() => UAction.knownValue(data: this);
 
@@ -124,7 +124,7 @@ final class UActionConverter implements JsonConverter<UAction, String> {
       );
 }
 
-extension UActionExtension on UAction {
+extension $UActionExtension on UAction {
   /// Returns string value.
   String toJson() => const UActionConverter().toJson(this);
 

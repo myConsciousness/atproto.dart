@@ -55,7 +55,7 @@ final class UPostLabelConverter
       );
 }
 
-extension UPostLabelExtension on UPostLabel {
+extension $UPostLabelExtension on UPostLabel {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UPostLabelConverter().toJson(this);
 

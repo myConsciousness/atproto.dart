@@ -35,7 +35,7 @@ class GetActorFeedsOutput with _$GetActorFeedsOutput {
       _$GetActorFeedsOutputFromJson(json);
 }
 
-extension GetActorFeedsOutputExtension on GetActorFeedsOutput {
+extension $GetActorFeedsOutputExtension on GetActorFeedsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -38,7 +38,7 @@ class Images with _$Images {
   factory Images.fromJson(Map<String, dynamic> json) => _$ImagesFromJson(json);
 }
 
-extension ImagesExtension on Images {
+extension $ImagesExtension on Images {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

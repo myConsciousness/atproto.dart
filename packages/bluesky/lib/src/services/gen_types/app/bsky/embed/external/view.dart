@@ -39,7 +39,7 @@ class ExternalView with _$ExternalView {
       _$ExternalViewFromJson(json);
 }
 
-extension ExternalViewExtension on ExternalView {
+extension $ExternalViewExtension on ExternalView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -42,7 +42,7 @@ class BatchItem with _$BatchItem {
       _$BatchItemFromJson(json);
 }
 
-extension BatchItemExtension on BatchItem {
+extension $BatchItemExtension on BatchItem {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

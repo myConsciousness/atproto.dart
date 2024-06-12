@@ -33,7 +33,7 @@ class ListNotificationsParams with _$ListNotificationsParams {
       _$ListNotificationsParamsFromJson(json);
 }
 
-extension ListNotificationsParamsExtension on ListNotificationsParams {
+extension $ListNotificationsParamsExtension on ListNotificationsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

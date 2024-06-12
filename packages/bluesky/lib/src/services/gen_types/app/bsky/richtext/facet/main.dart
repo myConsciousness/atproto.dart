@@ -42,7 +42,7 @@ class Facet with _$Facet {
   factory Facet.fromJson(Map<String, dynamic> json) => _$FacetFromJson(json);
 }
 
-extension FacetExtension on Facet {
+extension $FacetExtension on Facet {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

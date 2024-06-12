@@ -42,7 +42,7 @@ class SearchActorsSkeletonParams with _$SearchActorsSkeletonParams {
       _$SearchActorsSkeletonParamsFromJson(json);
 }
 
-extension SearchActorsSkeletonParamsExtension on SearchActorsSkeletonParams {
+extension $SearchActorsSkeletonParamsExtension on SearchActorsSkeletonParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

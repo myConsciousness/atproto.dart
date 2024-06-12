@@ -97,7 +97,7 @@ final class LexGenKnownValues {
     // Extension for union
     buffer
       ..writeln()
-      ..writeln('extension Known${name}Extension on Known$name {')
+      ..writeln('extension \$Known${name}Extension on Known$name {')
       ..writeln('  /// Returns this value as [U$name].')
       ..writeln('  U$name toUnion() => U$name.knownValue(data: this);')
       ..writeln();
@@ -156,7 +156,7 @@ final class LexGenKnownValues {
     // Extension for union
     buffer
       ..writeln()
-      ..writeln('extension U${name}Extension on U$name {')
+      ..writeln('extension \$U${name}Extension on U$name {')
       ..writeln('  /// Returns string value.')
       ..writeln('  String toJson() =>')
       ..writeln('   const U${name}Converter().toJson(this);')

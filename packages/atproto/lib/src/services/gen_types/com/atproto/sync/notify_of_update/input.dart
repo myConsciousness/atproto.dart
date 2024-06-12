@@ -32,7 +32,7 @@ class NotifyOfUpdateInput with _$NotifyOfUpdateInput {
       _$NotifyOfUpdateInputFromJson(json);
 }
 
-extension NotifyOfUpdateInputExtension on NotifyOfUpdateInput {
+extension $NotifyOfUpdateInputExtension on NotifyOfUpdateInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -31,7 +31,7 @@ class RevokeAppPasswordInput with _$RevokeAppPasswordInput {
       _$RevokeAppPasswordInputFromJson(json);
 }
 
-extension RevokeAppPasswordInputExtension on RevokeAppPasswordInput {
+extension $RevokeAppPasswordInputExtension on RevokeAppPasswordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

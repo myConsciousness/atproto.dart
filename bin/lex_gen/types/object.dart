@@ -124,7 +124,7 @@ final class LexGenObject {
 
     // Extension
     buffer.writeln();
-    buffer.writeln('extension ${name}Extension on $name {');
+    buffer.writeln('extension \$${name}Extension on $name {');
     buffer.writeln('  /// Returns true if this object has unknown objects,');
     buffer.writeln('  /// otherwise false.');
     buffer.writeln('  bool get hasUnknown => \$unknown.isNotEmpty;');

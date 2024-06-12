@@ -33,7 +33,7 @@ class GetFeedGeneratorParams with _$GetFeedGeneratorParams {
       _$GetFeedGeneratorParamsFromJson(json);
 }
 
-extension GetFeedGeneratorParamsExtension on GetFeedGeneratorParams {
+extension $GetFeedGeneratorParamsExtension on GetFeedGeneratorParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

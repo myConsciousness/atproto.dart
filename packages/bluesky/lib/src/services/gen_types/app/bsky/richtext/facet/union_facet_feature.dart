@@ -79,7 +79,7 @@ final class UFacetFeatureConverter
       );
 }
 
-extension UFacetFeatureExtension on UFacetFeature {
+extension $UFacetFeatureExtension on UFacetFeature {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UFacetFeatureConverter().toJson(this);
 

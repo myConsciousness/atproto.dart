@@ -37,7 +37,7 @@ class ListBlobsParams with _$ListBlobsParams {
       _$ListBlobsParamsFromJson(json);
 }
 
-extension ListBlobsParamsExtension on ListBlobsParams {
+extension $ListBlobsParamsExtension on ListBlobsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

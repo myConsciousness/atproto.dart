@@ -35,7 +35,7 @@ class GetFeedSkeletonOutput with _$GetFeedSkeletonOutput {
       _$GetFeedSkeletonOutputFromJson(json);
 }
 
-extension GetFeedSkeletonOutputExtension on GetFeedSkeletonOutput {
+extension $GetFeedSkeletonOutputExtension on GetFeedSkeletonOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

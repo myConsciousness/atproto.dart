@@ -33,7 +33,7 @@ class SearchAccountsParams with _$SearchAccountsParams {
       _$SearchAccountsParamsFromJson(json);
 }
 
-extension SearchAccountsParamsExtension on SearchAccountsParams {
+extension $SearchAccountsParamsExtension on SearchAccountsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -41,7 +41,7 @@ class LabelersPref with _$LabelersPref {
       _$LabelersPrefFromJson(json);
 }
 
-extension LabelersPrefExtension on LabelersPref {
+extension $LabelersPrefExtension on LabelersPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

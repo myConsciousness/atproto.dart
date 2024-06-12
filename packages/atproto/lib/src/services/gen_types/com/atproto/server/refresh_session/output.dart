@@ -42,7 +42,7 @@ class RefreshSessionOutput with _$RefreshSessionOutput {
       _$RefreshSessionOutputFromJson(json);
 }
 
-extension RefreshSessionOutputExtension on RefreshSessionOutput {
+extension $RefreshSessionOutputExtension on RefreshSessionOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

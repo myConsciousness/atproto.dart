@@ -31,7 +31,7 @@ class GetProfilesParams with _$GetProfilesParams {
       _$GetProfilesParamsFromJson(json);
 }
 
-extension GetProfilesParamsExtension on GetProfilesParams {
+extension $GetProfilesParamsExtension on GetProfilesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

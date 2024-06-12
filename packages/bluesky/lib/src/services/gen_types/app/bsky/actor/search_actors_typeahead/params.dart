@@ -36,7 +36,7 @@ class SearchActorsTypeaheadParams with _$SearchActorsTypeaheadParams {
       _$SearchActorsTypeaheadParamsFromJson(json);
 }
 
-extension SearchActorsTypeaheadParamsExtension on SearchActorsTypeaheadParams {
+extension $SearchActorsTypeaheadParamsExtension on SearchActorsTypeaheadParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

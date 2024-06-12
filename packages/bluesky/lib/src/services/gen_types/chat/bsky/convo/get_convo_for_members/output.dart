@@ -34,7 +34,7 @@ class GetConvoForMembersOutput with _$GetConvoForMembersOutput {
       _$GetConvoForMembersOutputFromJson(json);
 }
 
-extension GetConvoForMembersOutputExtension on GetConvoForMembersOutput {
+extension $GetConvoForMembersOutputExtension on GetConvoForMembersOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

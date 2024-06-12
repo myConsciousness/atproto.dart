@@ -41,7 +41,7 @@ class LogBeginConvo with _$LogBeginConvo {
       _$LogBeginConvoFromJson(json);
 }
 
-extension LogBeginConvoExtension on LogBeginConvo {
+extension $LogBeginConvoExtension on LogBeginConvo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

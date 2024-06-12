@@ -40,7 +40,7 @@ class ReasonRepost with _$ReasonRepost {
       _$ReasonRepostFromJson(json);
 }
 
-extension ReasonRepostExtension on ReasonRepost {
+extension $ReasonRepostExtension on ReasonRepost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

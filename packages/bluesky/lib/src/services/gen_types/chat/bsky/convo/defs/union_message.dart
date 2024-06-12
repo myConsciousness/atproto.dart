@@ -68,7 +68,7 @@ final class UMessageConverter
       );
 }
 
-extension UMessageExtension on UMessage {
+extension $UMessageExtension on UMessage {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UMessageConverter().toJson(this);
 

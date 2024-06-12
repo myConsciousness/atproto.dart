@@ -35,7 +35,7 @@ class UpdateEmailInput with _$UpdateEmailInput {
       _$UpdateEmailInputFromJson(json);
 }
 
-extension UpdateEmailInputExtension on UpdateEmailInput {
+extension $UpdateEmailInputExtension on UpdateEmailInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

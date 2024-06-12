@@ -43,7 +43,7 @@ class LogCreateMessage with _$LogCreateMessage {
       _$LogCreateMessageFromJson(json);
 }
 
-extension LogCreateMessageExtension on LogCreateMessage {
+extension $LogCreateMessageExtension on LogCreateMessage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

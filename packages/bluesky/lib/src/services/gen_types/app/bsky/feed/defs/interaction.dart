@@ -44,7 +44,7 @@ class Interaction with _$Interaction {
       _$InteractionFromJson(json);
 }
 
-extension InteractionExtension on Interaction {
+extension $InteractionExtension on Interaction {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

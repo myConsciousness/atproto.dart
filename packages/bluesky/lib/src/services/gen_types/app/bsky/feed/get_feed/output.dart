@@ -35,7 +35,7 @@ class GetFeedOutput with _$GetFeedOutput {
       _$GetFeedOutputFromJson(json);
 }
 
-extension GetFeedOutputExtension on GetFeedOutput {
+extension $GetFeedOutputExtension on GetFeedOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

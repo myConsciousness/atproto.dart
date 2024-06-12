@@ -32,7 +32,7 @@ class CreateInviteCodeInput with _$CreateInviteCodeInput {
       _$CreateInviteCodeInputFromJson(json);
 }
 
-extension CreateInviteCodeInputExtension on CreateInviteCodeInput {
+extension $CreateInviteCodeInputExtension on CreateInviteCodeInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class ListMissingBlobsParams with _$ListMissingBlobsParams {
       _$ListMissingBlobsParamsFromJson(json);
 }
 
-extension ListMissingBlobsParamsExtension on ListMissingBlobsParams {
+extension $ListMissingBlobsParamsExtension on ListMissingBlobsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

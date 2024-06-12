@@ -37,7 +37,7 @@ class ListitemRecord with _$ListitemRecord {
       _$ListitemRecordFromJson(json);
 }
 
-extension ListitemRecordExtension on ListitemRecord {
+extension $ListitemRecordExtension on ListitemRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

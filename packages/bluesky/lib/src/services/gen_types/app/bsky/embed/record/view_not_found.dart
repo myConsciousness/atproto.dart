@@ -42,7 +42,7 @@ class RecordViewNotFound with _$RecordViewNotFound {
       _$RecordViewNotFoundFromJson(json);
 }
 
-extension RecordViewNotFoundExtension on RecordViewNotFound {
+extension $RecordViewNotFoundExtension on RecordViewNotFound {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class GetCheckoutParams with _$GetCheckoutParams {
       _$GetCheckoutParamsFromJson(json);
 }
 
-extension GetCheckoutParamsExtension on GetCheckoutParams {
+extension $GetCheckoutParamsExtension on GetCheckoutParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

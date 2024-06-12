@@ -32,7 +32,7 @@ class GetListBlocksParams with _$GetListBlocksParams {
       _$GetListBlocksParamsFromJson(json);
 }
 
-extension GetListBlocksParamsExtension on GetListBlocksParams {
+extension $GetListBlocksParamsExtension on GetListBlocksParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

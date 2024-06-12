@@ -33,7 +33,7 @@ class GetFollowsParams with _$GetFollowsParams {
       _$GetFollowsParamsFromJson(json);
 }
 
-extension GetFollowsParamsExtension on GetFollowsParams {
+extension $GetFollowsParamsExtension on GetFollowsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

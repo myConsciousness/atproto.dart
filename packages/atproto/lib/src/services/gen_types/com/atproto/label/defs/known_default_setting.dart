@@ -43,7 +43,7 @@ enum KnownDefaultSetting {
   }
 }
 
-extension KnownDefaultSettingExtension on KnownDefaultSetting {
+extension $KnownDefaultSettingExtension on KnownDefaultSetting {
   /// Returns this value as [UDefaultSetting].
   UDefaultSetting toUnion() => UDefaultSetting.knownValue(data: this);
 
@@ -125,7 +125,7 @@ final class UDefaultSettingConverter
       );
 }
 
-extension UDefaultSettingExtension on UDefaultSetting {
+extension $UDefaultSettingExtension on UDefaultSetting {
   /// Returns string value.
   String toJson() => const UDefaultSettingConverter().toJson(this);
 

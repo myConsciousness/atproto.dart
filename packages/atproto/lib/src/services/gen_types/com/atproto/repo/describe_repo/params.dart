@@ -32,7 +32,7 @@ class DescribeRepoParams with _$DescribeRepoParams {
       _$DescribeRepoParamsFromJson(json);
 }
 
-extension DescribeRepoParamsExtension on DescribeRepoParams {
+extension $DescribeRepoParamsExtension on DescribeRepoParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

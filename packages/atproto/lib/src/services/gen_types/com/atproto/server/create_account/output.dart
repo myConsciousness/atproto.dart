@@ -39,7 +39,7 @@ class CreateAccountOutput with _$CreateAccountOutput {
       _$CreateAccountOutputFromJson(json);
 }
 
-extension CreateAccountOutputExtension on CreateAccountOutput {
+extension $CreateAccountOutputExtension on CreateAccountOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

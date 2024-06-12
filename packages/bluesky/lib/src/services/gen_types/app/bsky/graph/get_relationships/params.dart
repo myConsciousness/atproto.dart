@@ -35,7 +35,7 @@ class GetRelationshipsParams with _$GetRelationshipsParams {
       _$GetRelationshipsParamsFromJson(json);
 }
 
-extension GetRelationshipsParamsExtension on GetRelationshipsParams {
+extension $GetRelationshipsParamsExtension on GetRelationshipsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

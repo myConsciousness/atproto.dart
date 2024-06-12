@@ -68,7 +68,7 @@ final class USubscribeLabelsMessageConverter
       );
 }
 
-extension USubscribeLabelsMessageExtension on USubscribeLabelsMessage {
+extension $USubscribeLabelsMessageExtension on USubscribeLabelsMessage {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() =>
       const USubscribeLabelsMessageConverter().toJson(this);

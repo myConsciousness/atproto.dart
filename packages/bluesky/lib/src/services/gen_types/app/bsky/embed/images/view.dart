@@ -39,7 +39,7 @@ class ImagesView with _$ImagesView {
       _$ImagesViewFromJson(json);
 }
 
-extension ImagesViewExtension on ImagesView {
+extension $ImagesViewExtension on ImagesView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

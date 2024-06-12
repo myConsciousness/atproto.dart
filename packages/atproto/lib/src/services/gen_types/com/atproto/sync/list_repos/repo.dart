@@ -46,7 +46,7 @@ class Repo with _$Repo {
   factory Repo.fromJson(Map<String, dynamic> json) => _$RepoFromJson(json);
 }
 
-extension RepoExtension on Repo {
+extension $RepoExtension on Repo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

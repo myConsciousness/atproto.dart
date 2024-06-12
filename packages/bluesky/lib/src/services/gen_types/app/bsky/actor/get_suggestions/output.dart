@@ -35,7 +35,7 @@ class GetSuggestionsOutput with _$GetSuggestionsOutput {
       _$GetSuggestionsOutputFromJson(json);
 }
 
-extension GetSuggestionsOutputExtension on GetSuggestionsOutput {
+extension $GetSuggestionsOutputExtension on GetSuggestionsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

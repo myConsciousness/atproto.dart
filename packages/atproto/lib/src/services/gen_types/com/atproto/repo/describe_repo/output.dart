@@ -42,7 +42,7 @@ class DescribeRepoOutput with _$DescribeRepoOutput {
       _$DescribeRepoOutputFromJson(json);
 }
 
-extension DescribeRepoOutputExtension on DescribeRepoOutput {
+extension $DescribeRepoOutputExtension on DescribeRepoOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

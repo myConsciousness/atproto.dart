@@ -40,7 +40,7 @@ class Feed with _$Feed {
   factory Feed.fromJson(Map<String, dynamic> json) => _$FeedFromJson(json);
 }
 
-extension FeedExtension on Feed {
+extension $FeedExtension on Feed {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

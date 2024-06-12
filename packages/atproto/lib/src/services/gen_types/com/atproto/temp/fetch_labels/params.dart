@@ -32,7 +32,7 @@ class FetchLabelsParams with _$FetchLabelsParams {
       _$FetchLabelsParamsFromJson(json);
 }
 
-extension FetchLabelsParamsExtension on FetchLabelsParams {
+extension $FetchLabelsParamsExtension on FetchLabelsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -40,7 +40,7 @@ class FacetLink with _$FacetLink {
       _$FacetLinkFromJson(json);
 }
 
-extension FacetLinkExtension on FacetLink {
+extension $FacetLinkExtension on FacetLink {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

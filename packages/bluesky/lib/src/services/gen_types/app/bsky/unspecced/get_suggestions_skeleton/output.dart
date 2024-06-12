@@ -35,7 +35,7 @@ class GetSuggestionsSkeletonOutput with _$GetSuggestionsSkeletonOutput {
       _$GetSuggestionsSkeletonOutputFromJson(json);
 }
 
-extension GetSuggestionsSkeletonOutputExtension
+extension $GetSuggestionsSkeletonOutputExtension
     on GetSuggestionsSkeletonOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -43,7 +43,7 @@ enum KnownSeverity {
   }
 }
 
-extension KnownSeverityExtension on KnownSeverity {
+extension $KnownSeverityExtension on KnownSeverity {
   /// Returns this value as [USeverity].
   USeverity toUnion() => USeverity.knownValue(data: this);
 
@@ -124,7 +124,7 @@ final class USeverityConverter implements JsonConverter<USeverity, String> {
       );
 }
 
-extension USeverityExtension on USeverity {
+extension $USeverityExtension on USeverity {
   /// Returns string value.
   String toJson() => const USeverityConverter().toJson(this);
 

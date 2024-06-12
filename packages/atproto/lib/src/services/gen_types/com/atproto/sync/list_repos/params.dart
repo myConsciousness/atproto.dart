@@ -32,7 +32,7 @@ class ListReposParams with _$ListReposParams {
       _$ListReposParamsFromJson(json);
 }
 
-extension ListReposParamsExtension on ListReposParams {
+extension $ListReposParamsExtension on ListReposParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

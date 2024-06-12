@@ -37,7 +37,7 @@ class QueryLabelsParams with _$QueryLabelsParams {
       _$QueryLabelsParamsFromJson(json);
 }
 
-extension QueryLabelsParamsExtension on QueryLabelsParams {
+extension $QueryLabelsParamsExtension on QueryLabelsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

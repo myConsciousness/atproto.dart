@@ -45,7 +45,7 @@ enum KnownVisibility {
   }
 }
 
-extension KnownVisibilityExtension on KnownVisibility {
+extension $KnownVisibilityExtension on KnownVisibility {
   /// Returns this value as [UVisibility].
   UVisibility toUnion() => UVisibility.knownValue(data: this);
 
@@ -132,7 +132,7 @@ final class UVisibilityConverter implements JsonConverter<UVisibility, String> {
       );
 }
 
-extension UVisibilityExtension on UVisibility {
+extension $UVisibilityExtension on UVisibility {
   /// Returns string value.
   String toJson() => const UVisibilityConverter().toJson(this);
 

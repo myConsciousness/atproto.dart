@@ -33,7 +33,7 @@ class RepostRecord with _$RepostRecord {
       _$RepostRecordFromJson(json);
 }
 
-extension RepostRecordExtension on RepostRecord {
+extension $RepostRecordExtension on RepostRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

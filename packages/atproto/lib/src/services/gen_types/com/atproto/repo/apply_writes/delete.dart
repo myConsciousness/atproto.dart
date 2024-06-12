@@ -43,7 +43,7 @@ class Delete with _$Delete {
   factory Delete.fromJson(Map<String, dynamic> json) => _$DeleteFromJson(json);
 }
 
-extension DeleteExtension on Delete {
+extension $DeleteExtension on Delete {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

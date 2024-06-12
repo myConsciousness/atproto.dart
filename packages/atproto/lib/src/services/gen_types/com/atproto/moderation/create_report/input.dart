@@ -40,7 +40,7 @@ class CreateReportInput with _$CreateReportInput {
       _$CreateReportInputFromJson(json);
 }
 
-extension CreateReportInputExtension on CreateReportInput {
+extension $CreateReportInputExtension on CreateReportInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

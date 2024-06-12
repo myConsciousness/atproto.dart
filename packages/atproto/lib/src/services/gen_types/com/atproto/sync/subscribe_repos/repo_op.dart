@@ -46,7 +46,7 @@ class RepoOp with _$RepoOp {
   factory RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 }
 
-extension RepoOpExtension on RepoOp {
+extension $RepoOpExtension on RepoOp {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

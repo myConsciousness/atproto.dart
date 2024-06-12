@@ -44,7 +44,7 @@ class RecordViewBlocked with _$RecordViewBlocked {
       _$RecordViewBlockedFromJson(json);
 }
 
-extension RecordViewBlockedExtension on RecordViewBlocked {
+extension $RecordViewBlockedExtension on RecordViewBlocked {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

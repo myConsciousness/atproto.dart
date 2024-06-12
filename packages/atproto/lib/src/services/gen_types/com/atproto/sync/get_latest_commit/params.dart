@@ -32,7 +32,7 @@ class GetLatestCommitParams with _$GetLatestCommitParams {
       _$GetLatestCommitParamsFromJson(json);
 }
 
-extension GetLatestCommitParamsExtension on GetLatestCommitParams {
+extension $GetLatestCommitParamsExtension on GetLatestCommitParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

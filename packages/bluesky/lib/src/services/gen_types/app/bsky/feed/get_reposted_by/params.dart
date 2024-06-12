@@ -38,7 +38,7 @@ class GetRepostedByParams with _$GetRepostedByParams {
       _$GetRepostedByParamsFromJson(json);
 }
 
-extension GetRepostedByParamsExtension on GetRepostedByParams {
+extension $GetRepostedByParamsExtension on GetRepostedByParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

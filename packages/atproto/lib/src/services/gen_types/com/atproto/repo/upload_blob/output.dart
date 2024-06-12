@@ -32,7 +32,7 @@ class UploadBlobOutput with _$UploadBlobOutput {
       _$UploadBlobOutputFromJson(json);
 }
 
-extension UploadBlobOutputExtension on UploadBlobOutput {
+extension $UploadBlobOutputExtension on UploadBlobOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

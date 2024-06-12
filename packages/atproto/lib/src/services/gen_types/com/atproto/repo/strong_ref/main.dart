@@ -40,7 +40,7 @@ class StrongRef with _$StrongRef {
       _$StrongRefFromJson(json);
 }
 
-extension StrongRefExtension on StrongRef {
+extension $StrongRefExtension on StrongRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

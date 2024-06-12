@@ -33,7 +33,7 @@ class GetPostsParams with _$GetPostsParams {
       _$GetPostsParamsFromJson(json);
 }
 
-extension GetPostsParamsExtension on GetPostsParams {
+extension $GetPostsParamsExtension on GetPostsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

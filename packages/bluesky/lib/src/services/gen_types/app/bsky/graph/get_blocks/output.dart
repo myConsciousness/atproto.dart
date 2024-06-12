@@ -35,7 +35,7 @@ class GetBlocksOutput with _$GetBlocksOutput {
       _$GetBlocksOutputFromJson(json);
 }
 
-extension GetBlocksOutputExtension on GetBlocksOutput {
+extension $GetBlocksOutputExtension on GetBlocksOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

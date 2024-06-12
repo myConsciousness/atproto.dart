@@ -43,7 +43,7 @@ enum KnownAllowIncoming {
   }
 }
 
-extension KnownAllowIncomingExtension on KnownAllowIncoming {
+extension $KnownAllowIncomingExtension on KnownAllowIncoming {
   /// Returns this value as [UAllowIncoming].
   UAllowIncoming toUnion() => UAllowIncoming.knownValue(data: this);
 
@@ -125,7 +125,7 @@ final class UAllowIncomingConverter
       );
 }
 
-extension UAllowIncomingExtension on UAllowIncoming {
+extension $UAllowIncomingExtension on UAllowIncoming {
   /// Returns string value.
   String toJson() => const UAllowIncomingConverter().toJson(this);
 

@@ -57,7 +57,7 @@ class FeedViewPref with _$FeedViewPref {
       _$FeedViewPrefFromJson(json);
 }
 
-extension FeedViewPrefExtension on FeedViewPref {
+extension $FeedViewPrefExtension on FeedViewPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

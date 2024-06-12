@@ -35,7 +35,7 @@ class GetListFeedOutput with _$GetListFeedOutput {
       _$GetListFeedOutputFromJson(json);
 }
 
-extension GetListFeedOutputExtension on GetListFeedOutput {
+extension $GetListFeedOutputExtension on GetListFeedOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

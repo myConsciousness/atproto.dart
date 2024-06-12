@@ -68,7 +68,7 @@ final class UViewConverter
       );
 }
 
-extension UViewExtension on UView {
+extension $UViewExtension on UView {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UViewConverter().toJson(this);
 

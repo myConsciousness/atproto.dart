@@ -32,7 +32,7 @@ class UnmuteActorListInput with _$UnmuteActorListInput {
       _$UnmuteActorListInputFromJson(json);
 }
 
-extension UnmuteActorListInputExtension on UnmuteActorListInput {
+extension $UnmuteActorListInputExtension on UnmuteActorListInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -31,7 +31,7 @@ class SendEmailOutput with _$SendEmailOutput {
       _$SendEmailOutputFromJson(json);
 }
 
-extension SendEmailOutputExtension on SendEmailOutput {
+extension $SendEmailOutputExtension on SendEmailOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

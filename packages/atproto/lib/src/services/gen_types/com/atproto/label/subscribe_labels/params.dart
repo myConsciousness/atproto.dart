@@ -32,7 +32,7 @@ class SubscribeLabelsParams with _$SubscribeLabelsParams {
       _$SubscribeLabelsParamsFromJson(json);
 }
 
-extension SubscribeLabelsParamsExtension on SubscribeLabelsParams {
+extension $SubscribeLabelsParamsExtension on SubscribeLabelsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

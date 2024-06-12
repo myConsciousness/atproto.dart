@@ -47,7 +47,7 @@ class ProfileRecord with _$ProfileRecord {
       _$ProfileRecordFromJson(json);
 }
 
-extension ProfileRecordExtension on ProfileRecord {
+extension $ProfileRecordExtension on ProfileRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

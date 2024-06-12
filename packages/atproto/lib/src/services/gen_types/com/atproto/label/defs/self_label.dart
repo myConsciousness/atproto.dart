@@ -44,7 +44,7 @@ class SelfLabel with _$SelfLabel {
       _$SelfLabelFromJson(json);
 }
 
-extension SelfLabelExtension on SelfLabel {
+extension $SelfLabelExtension on SelfLabel {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

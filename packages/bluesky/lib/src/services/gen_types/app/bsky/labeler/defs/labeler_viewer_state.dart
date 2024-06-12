@@ -41,7 +41,7 @@ class LabelerViewerState with _$LabelerViewerState {
       _$LabelerViewerStateFromJson(json);
 }
 
-extension LabelerViewerStateExtension on LabelerViewerState {
+extension $LabelerViewerStateExtension on LabelerViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -33,7 +33,7 @@ class UpdateActorAccessInput with _$UpdateActorAccessInput {
       _$UpdateActorAccessInputFromJson(json);
 }
 
-extension UpdateActorAccessInputExtension on UpdateActorAccessInput {
+extension $UpdateActorAccessInputExtension on UpdateActorAccessInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

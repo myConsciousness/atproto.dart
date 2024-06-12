@@ -47,7 +47,7 @@ class Identity with _$Identity {
       _$IdentityFromJson(json);
 }
 
-extension IdentityExtension on Identity {
+extension $IdentityExtension on Identity {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

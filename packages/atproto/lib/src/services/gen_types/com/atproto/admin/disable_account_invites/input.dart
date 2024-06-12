@@ -34,7 +34,7 @@ class DisableAccountInvitesInput with _$DisableAccountInvitesInput {
       _$DisableAccountInvitesInputFromJson(json);
 }
 
-extension DisableAccountInvitesInputExtension on DisableAccountInvitesInput {
+extension $DisableAccountInvitesInputExtension on DisableAccountInvitesInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

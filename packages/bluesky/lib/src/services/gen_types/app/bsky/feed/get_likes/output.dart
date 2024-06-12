@@ -38,7 +38,7 @@ class GetLikesOutput with _$GetLikesOutput {
       _$GetLikesOutputFromJson(json);
 }
 
-extension GetLikesOutputExtension on GetLikesOutput {
+extension $GetLikesOutputExtension on GetLikesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

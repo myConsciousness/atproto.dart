@@ -37,7 +37,7 @@ class GetRecommendedDidCredentialsOutput
       _$GetRecommendedDidCredentialsOutputFromJson(json);
 }
 
-extension GetRecommendedDidCredentialsOutputExtension
+extension $GetRecommendedDidCredentialsOutputExtension
     on GetRecommendedDidCredentialsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

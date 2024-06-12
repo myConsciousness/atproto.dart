@@ -36,7 +36,7 @@ class GetKnownFollowersOutput with _$GetKnownFollowersOutput {
       _$GetKnownFollowersOutputFromJson(json);
 }
 
-extension GetKnownFollowersOutputExtension on GetKnownFollowersOutput {
+extension $GetKnownFollowersOutputExtension on GetKnownFollowersOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -40,7 +40,7 @@ class Contact with _$Contact {
       _$ContactFromJson(json);
 }
 
-extension ContactExtension on Contact {
+extension $ContactExtension on Contact {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class DeleteMessageForSelfInput with _$DeleteMessageForSelfInput {
       _$DeleteMessageForSelfInputFromJson(json);
 }
 
-extension DeleteMessageForSelfInputExtension on DeleteMessageForSelfInput {
+extension $DeleteMessageForSelfInputExtension on DeleteMessageForSelfInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class UpdateAccountPasswordInput with _$UpdateAccountPasswordInput {
       _$UpdateAccountPasswordInputFromJson(json);
 }
 
-extension UpdateAccountPasswordInputExtension on UpdateAccountPasswordInput {
+extension $UpdateAccountPasswordInputExtension on UpdateAccountPasswordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

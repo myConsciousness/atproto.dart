@@ -79,7 +79,7 @@ final class URootConverter
       );
 }
 
-extension URootExtension on URoot {
+extension $URootExtension on URoot {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const URootConverter().toJson(this);
 

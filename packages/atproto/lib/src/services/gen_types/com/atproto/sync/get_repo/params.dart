@@ -35,7 +35,7 @@ class GetRepoParams with _$GetRepoParams {
       _$GetRepoParamsFromJson(json);
 }
 
-extension GetRepoParamsExtension on GetRepoParams {
+extension $GetRepoParamsExtension on GetRepoParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

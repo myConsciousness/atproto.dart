@@ -39,7 +39,7 @@ class RecordView with _$RecordView {
       _$RecordViewFromJson(json);
 }
 
-extension RecordViewExtension on RecordView {
+extension $RecordViewExtension on RecordView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -43,7 +43,7 @@ class LogDeleteMessage with _$LogDeleteMessage {
       _$LogDeleteMessageFromJson(json);
 }
 
-extension LogDeleteMessageExtension on LogDeleteMessage {
+extension $LogDeleteMessageExtension on LogDeleteMessage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

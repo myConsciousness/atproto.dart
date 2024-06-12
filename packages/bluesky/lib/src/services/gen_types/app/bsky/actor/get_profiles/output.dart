@@ -34,7 +34,7 @@ class GetProfilesOutput with _$GetProfilesOutput {
       _$GetProfilesOutputFromJson(json);
 }
 
-extension GetProfilesOutputExtension on GetProfilesOutput {
+extension $GetProfilesOutputExtension on GetProfilesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

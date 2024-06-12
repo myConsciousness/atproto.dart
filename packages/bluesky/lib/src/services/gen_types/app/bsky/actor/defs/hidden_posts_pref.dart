@@ -43,7 +43,7 @@ class HiddenPostsPref with _$HiddenPostsPref {
       _$HiddenPostsPrefFromJson(json);
 }
 
-extension HiddenPostsPrefExtension on HiddenPostsPref {
+extension $HiddenPostsPrefExtension on HiddenPostsPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

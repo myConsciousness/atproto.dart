@@ -33,7 +33,7 @@ class GetActorFeedsParams with _$GetActorFeedsParams {
       _$GetActorFeedsParamsFromJson(json);
 }
 
-extension GetActorFeedsParamsExtension on GetActorFeedsParams {
+extension $GetActorFeedsParamsExtension on GetActorFeedsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

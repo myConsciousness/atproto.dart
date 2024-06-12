@@ -45,7 +45,7 @@ enum KnownFilter {
   }
 }
 
-extension KnownFilterExtension on KnownFilter {
+extension $KnownFilterExtension on KnownFilter {
   /// Returns this value as [UFilter].
   UFilter toUnion() => UFilter.knownValue(data: this);
 
@@ -133,7 +133,7 @@ final class UFilterConverter implements JsonConverter<UFilter, String> {
       );
 }
 
-extension UFilterExtension on UFilter {
+extension $UFilterExtension on UFilter {
   /// Returns string value.
   String toJson() => const UFilterConverter().toJson(this);
 

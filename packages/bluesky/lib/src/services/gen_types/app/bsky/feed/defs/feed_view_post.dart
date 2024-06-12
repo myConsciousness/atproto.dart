@@ -46,7 +46,7 @@ class FeedViewPost with _$FeedViewPost {
       _$FeedViewPostFromJson(json);
 }
 
-extension FeedViewPostExtension on FeedViewPost {
+extension $FeedViewPostExtension on FeedViewPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

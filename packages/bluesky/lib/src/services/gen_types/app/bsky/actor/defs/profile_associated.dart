@@ -44,7 +44,7 @@ class ProfileAssociated with _$ProfileAssociated {
       _$ProfileAssociatedFromJson(json);
 }
 
-extension ProfileAssociatedExtension on ProfileAssociated {
+extension $ProfileAssociatedExtension on ProfileAssociated {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

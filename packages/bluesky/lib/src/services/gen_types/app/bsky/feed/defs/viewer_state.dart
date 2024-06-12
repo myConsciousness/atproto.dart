@@ -43,7 +43,7 @@ class ViewerState with _$ViewerState {
       _$ViewerStateFromJson(json);
 }
 
-extension ViewerStateExtension on ViewerState {
+extension $ViewerStateExtension on ViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

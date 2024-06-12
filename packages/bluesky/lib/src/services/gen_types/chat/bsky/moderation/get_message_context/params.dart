@@ -35,7 +35,7 @@ class GetMessageContextParams with _$GetMessageContextParams {
       _$GetMessageContextParamsFromJson(json);
 }
 
-extension GetMessageContextParamsExtension on GetMessageContextParams {
+extension $GetMessageContextParamsExtension on GetMessageContextParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

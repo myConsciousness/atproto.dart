@@ -90,7 +90,7 @@ final class UEmbedConverter
       );
 }
 
-extension UEmbedExtension on UEmbed {
+extension $UEmbedExtension on UEmbed {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UEmbedConverter().toJson(this);
 

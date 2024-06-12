@@ -31,7 +31,7 @@ class GetUnreadCountParams with _$GetUnreadCountParams {
       _$GetUnreadCountParamsFromJson(json);
 }
 
-extension GetUnreadCountParamsExtension on GetUnreadCountParams {
+extension $GetUnreadCountParamsExtension on GetUnreadCountParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

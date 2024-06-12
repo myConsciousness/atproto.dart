@@ -40,7 +40,7 @@ class Like with _$Like {
   factory Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);
 }
 
-extension LikeExtension on Like {
+extension $LikeExtension on Like {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

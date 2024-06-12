@@ -34,7 +34,7 @@ class GetPostsOutput with _$GetPostsOutput {
       _$GetPostsOutputFromJson(json);
 }
 
-extension GetPostsOutputExtension on GetPostsOutput {
+extension $GetPostsOutputExtension on GetPostsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

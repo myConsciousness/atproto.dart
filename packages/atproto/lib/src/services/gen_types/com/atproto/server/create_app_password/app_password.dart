@@ -43,7 +43,7 @@ class AppPassword with _$AppPassword {
       _$AppPasswordFromJson(json);
 }
 
-extension AppPasswordExtension on AppPassword {
+extension $AppPasswordExtension on AppPassword {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

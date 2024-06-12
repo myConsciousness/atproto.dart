@@ -47,7 +47,7 @@ class GeneratorRecord with _$GeneratorRecord {
       _$GeneratorRecordFromJson(json);
 }
 
-extension GeneratorRecordExtension on GeneratorRecord {
+extension $GeneratorRecordExtension on GeneratorRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

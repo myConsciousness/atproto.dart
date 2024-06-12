@@ -37,7 +37,7 @@ class SendEmailInput with _$SendEmailInput {
       _$SendEmailInputFromJson(json);
 }
 
-extension SendEmailInputExtension on SendEmailInput {
+extension $SendEmailInputExtension on SendEmailInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -79,7 +79,7 @@ final class UParentConverter
       );
 }
 
-extension UParentExtension on UParent {
+extension $UParentExtension on UParent {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UParentConverter().toJson(this);
 

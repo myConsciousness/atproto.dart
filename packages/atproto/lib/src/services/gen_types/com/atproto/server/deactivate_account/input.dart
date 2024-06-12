@@ -32,7 +32,7 @@ class DeactivateAccountInput with _$DeactivateAccountInput {
       _$DeactivateAccountInputFromJson(json);
 }
 
-extension DeactivateAccountInputExtension on DeactivateAccountInput {
+extension $DeactivateAccountInputExtension on DeactivateAccountInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

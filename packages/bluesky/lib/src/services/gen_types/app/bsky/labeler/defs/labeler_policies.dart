@@ -47,7 +47,7 @@ class LabelerPolicies with _$LabelerPolicies {
       _$LabelerPoliciesFromJson(json);
 }
 
-extension LabelerPoliciesExtension on LabelerPolicies {
+extension $LabelerPoliciesExtension on LabelerPolicies {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

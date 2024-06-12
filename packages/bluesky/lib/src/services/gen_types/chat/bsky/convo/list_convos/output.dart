@@ -35,7 +35,7 @@ class ListConvosOutput with _$ListConvosOutput {
       _$ListConvosOutputFromJson(json);
 }
 
-extension ListConvosOutputExtension on ListConvosOutput {
+extension $ListConvosOutputExtension on ListConvosOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

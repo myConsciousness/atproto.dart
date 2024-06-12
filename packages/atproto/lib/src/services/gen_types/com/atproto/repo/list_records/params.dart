@@ -53,7 +53,7 @@ class ListRecordsParams with _$ListRecordsParams {
       _$ListRecordsParamsFromJson(json);
 }
 
-extension ListRecordsParamsExtension on ListRecordsParams {
+extension $ListRecordsParamsExtension on ListRecordsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

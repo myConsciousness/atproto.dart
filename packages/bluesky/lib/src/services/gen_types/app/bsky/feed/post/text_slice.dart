@@ -41,7 +41,7 @@ class TextSlice with _$TextSlice {
       _$TextSliceFromJson(json);
 }
 
-extension TextSliceExtension on TextSlice {
+extension $TextSliceExtension on TextSlice {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

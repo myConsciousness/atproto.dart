@@ -35,7 +35,7 @@ class GetListFeedParams with _$GetListFeedParams {
       _$GetListFeedParamsFromJson(json);
 }
 
-extension GetListFeedParamsExtension on GetListFeedParams {
+extension $GetListFeedParamsExtension on GetListFeedParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

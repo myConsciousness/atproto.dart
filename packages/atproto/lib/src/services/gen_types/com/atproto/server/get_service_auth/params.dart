@@ -32,7 +32,7 @@ class GetServiceAuthParams with _$GetServiceAuthParams {
       _$GetServiceAuthParamsFromJson(json);
 }
 
-extension GetServiceAuthParamsExtension on GetServiceAuthParams {
+extension $GetServiceAuthParamsExtension on GetServiceAuthParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

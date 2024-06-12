@@ -35,7 +35,7 @@ class ListMissingBlobsOutput with _$ListMissingBlobsOutput {
       _$ListMissingBlobsOutputFromJson(json);
 }
 
-extension ListMissingBlobsOutputExtension on ListMissingBlobsOutput {
+extension $ListMissingBlobsOutputExtension on ListMissingBlobsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

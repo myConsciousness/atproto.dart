@@ -31,7 +31,7 @@ class LeaveConvoInput with _$LeaveConvoInput {
       _$LeaveConvoInputFromJson(json);
 }
 
-extension LeaveConvoInputExtension on LeaveConvoInput {
+extension $LeaveConvoInputExtension on LeaveConvoInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -48,7 +48,7 @@ class CreateRecordInput with _$CreateRecordInput {
       _$CreateRecordInputFromJson(json);
 }
 
-extension CreateRecordInputExtension on CreateRecordInput {
+extension $CreateRecordInputExtension on CreateRecordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

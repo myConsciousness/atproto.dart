@@ -35,7 +35,7 @@ class GetBlobParams with _$GetBlobParams {
       _$GetBlobParamsFromJson(json);
 }
 
-extension GetBlobParamsExtension on GetBlobParams {
+extension $GetBlobParamsExtension on GetBlobParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

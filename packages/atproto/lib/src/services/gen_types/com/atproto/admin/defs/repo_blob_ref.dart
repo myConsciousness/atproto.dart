@@ -43,7 +43,7 @@ class RepoBlobRef with _$RepoBlobRef {
       _$RepoBlobRefFromJson(json);
 }
 
-extension RepoBlobRefExtension on RepoBlobRef {
+extension $RepoBlobRefExtension on RepoBlobRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

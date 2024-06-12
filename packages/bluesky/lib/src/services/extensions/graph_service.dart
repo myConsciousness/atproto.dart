@@ -2,9 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
+// 🌎 Project imports:
 import '../gen_types/app/bsky/graph/defs/known_list_purpose.dart';
 import '../gen_types/app/bsky/graph/list/union_list_label.dart';
 import '../gen_types/app/bsky/graph_service.dart';

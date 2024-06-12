@@ -41,7 +41,7 @@ enum KnownSubjectType {
   }
 }
 
-extension KnownSubjectTypeExtension on KnownSubjectType {
+extension $KnownSubjectTypeExtension on KnownSubjectType {
   /// Returns this value as [USubjectType].
   USubjectType toUnion() => USubjectType.knownValue(data: this);
 
@@ -117,7 +117,7 @@ final class USubjectTypeConverter
       );
 }
 
-extension USubjectTypeExtension on USubjectType {
+extension $USubjectTypeExtension on USubjectType {
   /// Returns string value.
   String toJson() => const USubjectTypeConverter().toJson(this);
 

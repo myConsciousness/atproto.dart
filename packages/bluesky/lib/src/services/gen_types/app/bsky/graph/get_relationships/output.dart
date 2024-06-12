@@ -35,7 +35,7 @@ class GetRelationshipsOutput with _$GetRelationshipsOutput {
       _$GetRelationshipsOutputFromJson(json);
 }
 
-extension GetRelationshipsOutputExtension on GetRelationshipsOutput {
+extension $GetRelationshipsOutputExtension on GetRelationshipsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

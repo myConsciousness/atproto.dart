@@ -42,7 +42,7 @@ class ApplyWritesInput with _$ApplyWritesInput {
       _$ApplyWritesInputFromJson(json);
 }
 
-extension ApplyWritesInputExtension on ApplyWritesInput {
+extension $ApplyWritesInputExtension on ApplyWritesInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

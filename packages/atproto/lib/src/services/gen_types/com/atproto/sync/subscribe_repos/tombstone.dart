@@ -44,7 +44,7 @@ class Tombstone with _$Tombstone {
       _$TombstoneFromJson(json);
 }
 
-extension TombstoneExtension on Tombstone {
+extension $TombstoneExtension on Tombstone {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

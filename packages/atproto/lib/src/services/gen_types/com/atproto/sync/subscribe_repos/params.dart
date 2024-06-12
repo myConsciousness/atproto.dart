@@ -32,7 +32,7 @@ class SubscribeReposParams with _$SubscribeReposParams {
       _$SubscribeReposParamsFromJson(json);
 }
 
-extension SubscribeReposParamsExtension on SubscribeReposParams {
+extension $SubscribeReposParamsExtension on SubscribeReposParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

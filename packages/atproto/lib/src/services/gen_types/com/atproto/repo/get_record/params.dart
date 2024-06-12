@@ -42,7 +42,7 @@ class GetRecordParams with _$GetRecordParams {
       _$GetRecordParamsFromJson(json);
 }
 
-extension GetRecordParamsExtension on GetRecordParams {
+extension $GetRecordParamsExtension on GetRecordParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

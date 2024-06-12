@@ -40,7 +40,7 @@ class CreateReportOutput with _$CreateReportOutput {
       _$CreateReportOutputFromJson(json);
 }
 
-extension CreateReportOutputExtension on CreateReportOutput {
+extension $CreateReportOutputExtension on CreateReportOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

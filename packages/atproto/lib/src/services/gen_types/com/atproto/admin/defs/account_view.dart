@@ -51,7 +51,7 @@ class AccountView with _$AccountView {
       _$AccountViewFromJson(json);
 }
 
-extension AccountViewExtension on AccountView {
+extension $AccountViewExtension on AccountView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

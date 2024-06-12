@@ -49,7 +49,7 @@ class CreateAccountInput with _$CreateAccountInput {
       _$CreateAccountInputFromJson(json);
 }
 
-extension CreateAccountInputExtension on CreateAccountInput {
+extension $CreateAccountInputExtension on CreateAccountInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

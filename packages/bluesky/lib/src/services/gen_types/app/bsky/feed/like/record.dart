@@ -33,7 +33,7 @@ class LikeRecord with _$LikeRecord {
       _$LikeRecordFromJson(json);
 }
 
-extension LikeRecordExtension on LikeRecord {
+extension $LikeRecordExtension on LikeRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

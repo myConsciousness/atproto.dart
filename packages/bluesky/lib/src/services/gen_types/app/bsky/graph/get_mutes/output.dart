@@ -35,7 +35,7 @@ class GetMutesOutput with _$GetMutesOutput {
       _$GetMutesOutputFromJson(json);
 }
 
-extension GetMutesOutputExtension on GetMutesOutput {
+extension $GetMutesOutputExtension on GetMutesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

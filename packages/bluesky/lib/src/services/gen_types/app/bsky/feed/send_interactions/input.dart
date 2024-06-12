@@ -34,7 +34,7 @@ class SendInteractionsInput with _$SendInteractionsInput {
       _$SendInteractionsInputFromJson(json);
 }
 
-extension SendInteractionsInputExtension on SendInteractionsInput {
+extension $SendInteractionsInputExtension on SendInteractionsInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

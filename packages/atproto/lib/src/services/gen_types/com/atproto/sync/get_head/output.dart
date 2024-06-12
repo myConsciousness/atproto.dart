@@ -31,7 +31,7 @@ class GetHeadOutput with _$GetHeadOutput {
       _$GetHeadOutputFromJson(json);
 }
 
-extension GetHeadOutputExtension on GetHeadOutput {
+extension $GetHeadOutputExtension on GetHeadOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

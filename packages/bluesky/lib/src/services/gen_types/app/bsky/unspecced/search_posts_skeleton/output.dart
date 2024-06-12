@@ -38,7 +38,7 @@ class SearchPostsSkeletonOutput with _$SearchPostsSkeletonOutput {
       _$SearchPostsSkeletonOutputFromJson(json);
 }
 
-extension SearchPostsSkeletonOutputExtension on SearchPostsSkeletonOutput {
+extension $SearchPostsSkeletonOutputExtension on SearchPostsSkeletonOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

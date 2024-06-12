@@ -44,7 +44,7 @@ class Entity with _$Entity {
   factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
 }
 
-extension EntityExtension on Entity {
+extension $EntityExtension on Entity {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

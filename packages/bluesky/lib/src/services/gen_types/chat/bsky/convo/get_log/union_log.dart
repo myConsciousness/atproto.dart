@@ -89,7 +89,7 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
       );
 }
 
-extension ULogExtension on ULog {
+extension $ULogExtension on ULog {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const ULogConverter().toJson(this);
 

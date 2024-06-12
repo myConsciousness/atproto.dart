@@ -34,7 +34,7 @@ class ListblockRecord with _$ListblockRecord {
       _$ListblockRecordFromJson(json);
 }
 
-extension ListblockRecordExtension on ListblockRecord {
+extension $ListblockRecordExtension on ListblockRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

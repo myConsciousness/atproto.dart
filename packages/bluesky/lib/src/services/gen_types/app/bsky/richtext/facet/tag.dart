@@ -40,7 +40,7 @@ class FacetTag with _$FacetTag {
       _$FacetTagFromJson(json);
 }
 
-extension FacetTagExtension on FacetTag {
+extension $FacetTagExtension on FacetTag {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

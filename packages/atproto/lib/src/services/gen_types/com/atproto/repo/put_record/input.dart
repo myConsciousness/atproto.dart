@@ -51,7 +51,7 @@ class PutRecordInput with _$PutRecordInput {
       _$PutRecordInputFromJson(json);
 }
 
-extension PutRecordInputExtension on PutRecordInput {
+extension $PutRecordInputExtension on PutRecordInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

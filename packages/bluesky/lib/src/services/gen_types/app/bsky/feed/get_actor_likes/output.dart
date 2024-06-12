@@ -35,7 +35,7 @@ class GetActorLikesOutput with _$GetActorLikesOutput {
       _$GetActorLikesOutputFromJson(json);
 }
 
-extension GetActorLikesOutputExtension on GetActorLikesOutput {
+extension $GetActorLikesOutputExtension on GetActorLikesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

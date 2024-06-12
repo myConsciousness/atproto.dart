@@ -32,7 +32,7 @@ class FollowRecord with _$FollowRecord {
       _$FollowRecordFromJson(json);
 }
 
-extension FollowRecordExtension on FollowRecord {
+extension $FollowRecordExtension on FollowRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

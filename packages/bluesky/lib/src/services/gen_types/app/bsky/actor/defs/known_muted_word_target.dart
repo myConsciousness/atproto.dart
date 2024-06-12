@@ -41,7 +41,7 @@ enum KnownMutedWordTarget {
   }
 }
 
-extension KnownMutedWordTargetExtension on KnownMutedWordTarget {
+extension $KnownMutedWordTargetExtension on KnownMutedWordTarget {
   /// Returns this value as [UMutedWordTarget].
   UMutedWordTarget toUnion() => UMutedWordTarget.knownValue(data: this);
 
@@ -117,7 +117,7 @@ final class UMutedWordTargetConverter
       );
 }
 
-extension UMutedWordTargetExtension on UMutedWordTarget {
+extension $UMutedWordTargetExtension on UMutedWordTarget {
   /// Returns string value.
   String toJson() => const UMutedWordTargetConverter().toJson(this);
 

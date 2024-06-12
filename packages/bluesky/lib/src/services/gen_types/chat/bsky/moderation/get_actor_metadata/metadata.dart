@@ -43,7 +43,7 @@ class Metadata with _$Metadata {
       _$MetadataFromJson(json);
 }
 
-extension MetadataExtension on Metadata {
+extension $MetadataExtension on Metadata {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

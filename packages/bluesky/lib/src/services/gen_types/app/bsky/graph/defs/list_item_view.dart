@@ -43,7 +43,7 @@ class ListItemView with _$ListItemView {
       _$ListItemViewFromJson(json);
 }
 
-extension ListItemViewExtension on ListItemView {
+extension $ListItemViewExtension on ListItemView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -40,7 +40,7 @@ class GetFeedGeneratorOutput with _$GetFeedGeneratorOutput {
       _$GetFeedGeneratorOutputFromJson(json);
 }
 
-extension GetFeedGeneratorOutputExtension on GetFeedGeneratorOutput {
+extension $GetFeedGeneratorOutputExtension on GetFeedGeneratorOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

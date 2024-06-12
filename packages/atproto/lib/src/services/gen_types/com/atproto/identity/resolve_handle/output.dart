@@ -31,7 +31,7 @@ class ResolveHandleOutput with _$ResolveHandleOutput {
       _$ResolveHandleOutputFromJson(json);
 }
 
-extension ResolveHandleOutputExtension on ResolveHandleOutput {
+extension $ResolveHandleOutputExtension on ResolveHandleOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

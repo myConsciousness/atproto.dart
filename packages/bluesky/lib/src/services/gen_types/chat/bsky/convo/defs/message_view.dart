@@ -51,7 +51,7 @@ class MessageView with _$MessageView {
       _$MessageViewFromJson(json);
 }
 
-extension MessageViewExtension on MessageView {
+extension $MessageViewExtension on MessageView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

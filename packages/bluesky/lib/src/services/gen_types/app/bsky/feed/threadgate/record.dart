@@ -38,7 +38,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
       _$ThreadgateRecordFromJson(json);
 }
 
-extension ThreadgateRecordExtension on ThreadgateRecord {
+extension $ThreadgateRecordExtension on ThreadgateRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

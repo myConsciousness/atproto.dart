@@ -38,7 +38,7 @@ class SearchPostsOutput with _$SearchPostsOutput {
       _$SearchPostsOutputFromJson(json);
 }
 
-extension SearchPostsOutputExtension on SearchPostsOutput {
+extension $SearchPostsOutputExtension on SearchPostsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

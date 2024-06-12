@@ -43,7 +43,7 @@ enum KnownBlur {
   }
 }
 
-extension KnownBlurExtension on KnownBlur {
+extension $KnownBlurExtension on KnownBlur {
   /// Returns this value as [UBlur].
   UBlur toUnion() => UBlur.knownValue(data: this);
 
@@ -124,7 +124,7 @@ final class UBlurConverter implements JsonConverter<UBlur, String> {
       );
 }
 
-extension UBlurExtension on UBlur {
+extension $UBlurExtension on UBlur {
   /// Returns string value.
   String toJson() => const UBlurConverter().toJson(this);
 

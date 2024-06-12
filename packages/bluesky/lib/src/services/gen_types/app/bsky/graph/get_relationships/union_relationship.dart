@@ -68,7 +68,7 @@ final class URelationshipConverter
       );
 }
 
-extension URelationshipExtension on URelationship {
+extension $URelationshipExtension on URelationship {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const URelationshipConverter().toJson(this);
 

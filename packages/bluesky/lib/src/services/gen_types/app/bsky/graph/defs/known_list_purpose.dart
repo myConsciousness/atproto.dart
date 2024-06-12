@@ -44,7 +44,7 @@ enum KnownListPurpose {
   }
 }
 
-extension KnownListPurposeExtension on KnownListPurpose {
+extension $KnownListPurposeExtension on KnownListPurpose {
   /// Returns this value as [UListPurpose].
   UListPurpose toUnion() => UListPurpose.knownValue(data: this);
 
@@ -120,7 +120,7 @@ final class UListPurposeConverter
       );
 }
 
-extension UListPurposeExtension on UListPurpose {
+extension $UListPurposeExtension on UListPurpose {
   /// Returns string value.
   String toJson() => const UListPurposeConverter().toJson(this);
 

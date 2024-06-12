@@ -34,7 +34,7 @@ class GetPostThreadOutput with _$GetPostThreadOutput {
       _$GetPostThreadOutputFromJson(json);
 }
 
-extension GetPostThreadOutputExtension on GetPostThreadOutput {
+extension $GetPostThreadOutputExtension on GetPostThreadOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

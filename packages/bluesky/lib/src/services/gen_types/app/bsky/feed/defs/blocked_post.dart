@@ -42,7 +42,7 @@ class BlockedPost with _$BlockedPost {
       _$BlockedPostFromJson(json);
 }
 
-extension BlockedPostExtension on BlockedPost {
+extension $BlockedPostExtension on BlockedPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

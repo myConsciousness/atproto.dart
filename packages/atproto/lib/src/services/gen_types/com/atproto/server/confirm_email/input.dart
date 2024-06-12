@@ -32,7 +32,7 @@ class ConfirmEmailInput with _$ConfirmEmailInput {
       _$ConfirmEmailInputFromJson(json);
 }
 
-extension ConfirmEmailInputExtension on ConfirmEmailInput {
+extension $ConfirmEmailInputExtension on ConfirmEmailInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

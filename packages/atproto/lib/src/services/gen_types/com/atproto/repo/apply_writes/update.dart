@@ -44,7 +44,7 @@ class Update with _$Update {
   factory Update.fromJson(Map<String, dynamic> json) => _$UpdateFromJson(json);
 }
 
-extension UpdateExtension on Update {
+extension $UpdateExtension on Update {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

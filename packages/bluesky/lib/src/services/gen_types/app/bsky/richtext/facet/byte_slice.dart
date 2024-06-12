@@ -43,7 +43,7 @@ class FacetByteSlice with _$FacetByteSlice {
       _$FacetByteSliceFromJson(json);
 }
 
-extension FacetByteSliceExtension on FacetByteSlice {
+extension $FacetByteSliceExtension on FacetByteSlice {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

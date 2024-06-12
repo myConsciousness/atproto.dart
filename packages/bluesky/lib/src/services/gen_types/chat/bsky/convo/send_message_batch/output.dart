@@ -34,7 +34,7 @@ class SendMessageBatchOutput with _$SendMessageBatchOutput {
       _$SendMessageBatchOutputFromJson(json);
 }
 
-extension SendMessageBatchOutputExtension on SendMessageBatchOutput {
+extension $SendMessageBatchOutputExtension on SendMessageBatchOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

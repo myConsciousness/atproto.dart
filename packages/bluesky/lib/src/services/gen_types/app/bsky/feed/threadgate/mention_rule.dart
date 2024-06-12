@@ -41,7 +41,7 @@ class MentionRule with _$MentionRule {
       _$MentionRuleFromJson(json);
 }
 
-extension MentionRuleExtension on MentionRule {
+extension $MentionRuleExtension on MentionRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

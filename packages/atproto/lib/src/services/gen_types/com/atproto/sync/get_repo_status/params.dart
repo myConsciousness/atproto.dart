@@ -32,7 +32,7 @@ class GetRepoStatusParams with _$GetRepoStatusParams {
       _$GetRepoStatusParamsFromJson(json);
 }
 
-extension GetRepoStatusParamsExtension on GetRepoStatusParams {
+extension $GetRepoStatusParamsExtension on GetRepoStatusParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

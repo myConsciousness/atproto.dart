@@ -37,7 +37,7 @@ class GetSubjectStatusOutput with _$GetSubjectStatusOutput {
       _$GetSubjectStatusOutputFromJson(json);
 }
 
-extension GetSubjectStatusOutputExtension on GetSubjectStatusOutput {
+extension $GetSubjectStatusOutputExtension on GetSubjectStatusOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

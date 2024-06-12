@@ -32,7 +32,7 @@ class UpdateReadInput with _$UpdateReadInput {
       _$UpdateReadInputFromJson(json);
 }
 
-extension UpdateReadInputExtension on UpdateReadInput {
+extension $UpdateReadInputExtension on UpdateReadInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -31,7 +31,7 @@ class RequestPhoneVerificationInput with _$RequestPhoneVerificationInput {
       _$RequestPhoneVerificationInputFromJson(json);
 }
 
-extension RequestPhoneVerificationInputExtension
+extension $RequestPhoneVerificationInputExtension
     on RequestPhoneVerificationInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

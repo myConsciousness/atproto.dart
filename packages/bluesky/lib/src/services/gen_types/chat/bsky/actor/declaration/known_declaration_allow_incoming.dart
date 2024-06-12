@@ -43,7 +43,7 @@ enum KnownDeclarationAllowIncoming {
   }
 }
 
-extension KnownDeclarationAllowIncomingExtension
+extension $KnownDeclarationAllowIncomingExtension
     on KnownDeclarationAllowIncoming {
   /// Returns this value as [UDeclarationAllowIncoming].
   UDeclarationAllowIncoming toUnion() =>
@@ -127,7 +127,7 @@ final class UDeclarationAllowIncomingConverter
       );
 }
 
-extension UDeclarationAllowIncomingExtension on UDeclarationAllowIncoming {
+extension $UDeclarationAllowIncomingExtension on UDeclarationAllowIncoming {
   /// Returns string value.
   String toJson() => const UDeclarationAllowIncomingConverter().toJson(this);
 

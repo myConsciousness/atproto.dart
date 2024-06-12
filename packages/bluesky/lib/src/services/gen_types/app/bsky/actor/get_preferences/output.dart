@@ -34,7 +34,7 @@ class GetPreferencesOutput with _$GetPreferencesOutput {
       _$GetPreferencesOutputFromJson(json);
 }
 
-extension GetPreferencesOutputExtension on GetPreferencesOutput {
+extension $GetPreferencesOutputExtension on GetPreferencesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

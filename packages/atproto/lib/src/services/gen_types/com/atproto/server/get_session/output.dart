@@ -43,7 +43,7 @@ class GetSessionOutput with _$GetSessionOutput {
       _$GetSessionOutputFromJson(json);
 }
 
-extension GetSessionOutputExtension on GetSessionOutput {
+extension $GetSessionOutputExtension on GetSessionOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

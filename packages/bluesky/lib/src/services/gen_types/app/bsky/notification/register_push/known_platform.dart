@@ -43,7 +43,7 @@ enum KnownPlatform {
   }
 }
 
-extension KnownPlatformExtension on KnownPlatform {
+extension $KnownPlatformExtension on KnownPlatform {
   /// Returns this value as [UPlatform].
   UPlatform toUnion() => UPlatform.knownValue(data: this);
 
@@ -124,7 +124,7 @@ final class UPlatformConverter implements JsonConverter<UPlatform, String> {
       );
 }
 
-extension UPlatformExtension on UPlatform {
+extension $UPlatformExtension on UPlatform {
   /// Returns string value.
   String toJson() => const UPlatformConverter().toJson(this);
 

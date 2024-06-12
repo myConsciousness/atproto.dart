@@ -44,7 +44,7 @@ class ImagesImage with _$ImagesImage {
       _$ImagesImageFromJson(json);
 }
 
-extension ImagesImageExtension on ImagesImage {
+extension $ImagesImageExtension on ImagesImage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

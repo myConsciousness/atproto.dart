@@ -31,7 +31,7 @@ class CreateInviteCodeOutput with _$CreateInviteCodeOutput {
       _$CreateInviteCodeOutputFromJson(json);
 }
 
-extension CreateInviteCodeOutputExtension on CreateInviteCodeOutput {
+extension $CreateInviteCodeOutputExtension on CreateInviteCodeOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

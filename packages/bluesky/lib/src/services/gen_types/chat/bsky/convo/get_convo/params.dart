@@ -31,7 +31,7 @@ class GetConvoParams with _$GetConvoParams {
       _$GetConvoParamsFromJson(json);
 }
 
-extension GetConvoParamsExtension on GetConvoParams {
+extension $GetConvoParamsExtension on GetConvoParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -55,7 +55,7 @@ final class UServiceLabelConverter
       );
 }
 
-extension UServiceLabelExtension on UServiceLabel {
+extension $UServiceLabelExtension on UServiceLabel {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UServiceLabelConverter().toJson(this);
 

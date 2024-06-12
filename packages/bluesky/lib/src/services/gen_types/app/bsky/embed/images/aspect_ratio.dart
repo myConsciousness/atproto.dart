@@ -43,7 +43,7 @@ class ImagesAspectRatio with _$ImagesAspectRatio {
       _$ImagesAspectRatioFromJson(json);
 }
 
-extension ImagesAspectRatioExtension on ImagesAspectRatio {
+extension $ImagesAspectRatioExtension on ImagesAspectRatio {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

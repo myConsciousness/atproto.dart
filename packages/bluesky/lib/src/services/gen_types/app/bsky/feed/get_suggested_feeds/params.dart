@@ -32,7 +32,7 @@ class GetSuggestedFeedsParams with _$GetSuggestedFeedsParams {
       _$GetSuggestedFeedsParamsFromJson(json);
 }
 
-extension GetSuggestedFeedsParamsExtension on GetSuggestedFeedsParams {
+extension $GetSuggestedFeedsParamsExtension on GetSuggestedFeedsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

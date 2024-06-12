@@ -46,7 +46,7 @@ class MessageInput with _$MessageInput {
       _$MessageInputFromJson(json);
 }
 
-extension MessageInputExtension on MessageInput {
+extension $MessageInputExtension on MessageInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

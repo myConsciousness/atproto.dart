@@ -34,7 +34,7 @@ class GetServicesOutput with _$GetServicesOutput {
       _$GetServicesOutputFromJson(json);
 }
 
-extension GetServicesOutputExtension on GetServicesOutput {
+extension $GetServicesOutputExtension on GetServicesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

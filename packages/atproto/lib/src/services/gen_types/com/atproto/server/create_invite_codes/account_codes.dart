@@ -41,7 +41,7 @@ class AccountCodes with _$AccountCodes {
       _$AccountCodesFromJson(json);
 }
 
-extension AccountCodesExtension on AccountCodes {
+extension $AccountCodesExtension on AccountCodes {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

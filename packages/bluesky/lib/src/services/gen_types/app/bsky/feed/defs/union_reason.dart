@@ -57,7 +57,7 @@ final class UReasonConverter
       );
 }
 
-extension UReasonExtension on UReason {
+extension $UReasonExtension on UReason {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UReasonConverter().toJson(this);
 

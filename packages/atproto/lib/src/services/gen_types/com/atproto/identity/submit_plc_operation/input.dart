@@ -31,7 +31,7 @@ class SubmitPlcOperationInput with _$SubmitPlcOperationInput {
       _$SubmitPlcOperationInputFromJson(json);
 }
 
-extension SubmitPlcOperationInputExtension on SubmitPlcOperationInput {
+extension $SubmitPlcOperationInputExtension on SubmitPlcOperationInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

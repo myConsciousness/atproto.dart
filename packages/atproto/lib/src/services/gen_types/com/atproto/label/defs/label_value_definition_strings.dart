@@ -50,7 +50,7 @@ class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
       _$LabelValueDefinitionStringsFromJson(json);
 }
 
-extension LabelValueDefinitionStringsExtension on LabelValueDefinitionStrings {
+extension $LabelValueDefinitionStringsExtension on LabelValueDefinitionStrings {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

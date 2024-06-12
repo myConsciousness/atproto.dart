@@ -32,7 +32,7 @@ class RequestCrawlInput with _$RequestCrawlInput {
       _$RequestCrawlInputFromJson(json);
 }
 
-extension RequestCrawlInputExtension on RequestCrawlInput {
+extension $RequestCrawlInputExtension on RequestCrawlInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

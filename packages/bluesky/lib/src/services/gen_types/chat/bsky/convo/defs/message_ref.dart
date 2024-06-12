@@ -40,7 +40,7 @@ class MessageRef with _$MessageRef {
       _$MessageRefFromJson(json);
 }
 
-extension MessageRefExtension on MessageRef {
+extension $MessageRefExtension on MessageRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

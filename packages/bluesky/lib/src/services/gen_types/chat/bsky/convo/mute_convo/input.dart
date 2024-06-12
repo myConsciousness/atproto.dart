@@ -31,7 +31,7 @@ class MuteConvoInput with _$MuteConvoInput {
       _$MuteConvoInputFromJson(json);
 }
 
-extension MuteConvoInputExtension on MuteConvoInput {
+extension $MuteConvoInputExtension on MuteConvoInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

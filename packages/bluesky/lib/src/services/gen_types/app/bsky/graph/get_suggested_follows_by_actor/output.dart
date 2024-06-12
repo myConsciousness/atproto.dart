@@ -35,7 +35,7 @@ class GetSuggestedFollowsByActorOutput with _$GetSuggestedFollowsByActorOutput {
       _$GetSuggestedFollowsByActorOutputFromJson(json);
 }
 
-extension GetSuggestedFollowsByActorOutputExtension
+extension $GetSuggestedFollowsByActorOutputExtension
     on GetSuggestedFollowsByActorOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

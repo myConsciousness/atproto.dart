@@ -43,7 +43,7 @@ class ListRule with _$ListRule {
       _$ListRuleFromJson(json);
 }
 
-extension ListRuleExtension on ListRule {
+extension $ListRuleExtension on ListRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

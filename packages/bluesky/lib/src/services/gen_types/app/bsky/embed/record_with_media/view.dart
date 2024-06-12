@@ -43,7 +43,7 @@ class RecordWithMediaView with _$RecordWithMediaView {
       _$RecordWithMediaViewFromJson(json);
 }
 
-extension RecordWithMediaViewExtension on RecordWithMediaView {
+extension $RecordWithMediaViewExtension on RecordWithMediaView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

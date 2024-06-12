@@ -31,7 +31,7 @@ class UpdateSeenInput with _$UpdateSeenInput {
       _$UpdateSeenInputFromJson(json);
 }
 
-extension UpdateSeenInputExtension on UpdateSeenInput {
+extension $UpdateSeenInputExtension on UpdateSeenInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -36,7 +36,7 @@ class GetActorMetadataOutput with _$GetActorMetadataOutput {
       _$GetActorMetadataOutputFromJson(json);
 }
 
-extension GetActorMetadataOutputExtension on GetActorMetadataOutput {
+extension $GetActorMetadataOutputExtension on GetActorMetadataOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

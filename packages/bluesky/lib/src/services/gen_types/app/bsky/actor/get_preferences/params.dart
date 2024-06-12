@@ -29,7 +29,7 @@ class GetPreferencesParams with _$GetPreferencesParams {
       _$GetPreferencesParamsFromJson(json);
 }
 
-extension GetPreferencesParamsExtension on GetPreferencesParams {
+extension $GetPreferencesParamsExtension on GetPreferencesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

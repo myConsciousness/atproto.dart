@@ -39,7 +39,7 @@ class GetPostThreadParams with _$GetPostThreadParams {
       _$GetPostThreadParamsFromJson(json);
 }
 
-extension GetPostThreadParamsExtension on GetPostThreadParams {
+extension $GetPostThreadParamsExtension on GetPostThreadParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

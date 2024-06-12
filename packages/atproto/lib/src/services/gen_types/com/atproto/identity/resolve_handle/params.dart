@@ -32,7 +32,7 @@ class ResolveHandleParams with _$ResolveHandleParams {
       _$ResolveHandleParamsFromJson(json);
 }
 
-extension ResolveHandleParamsExtension on ResolveHandleParams {
+extension $ResolveHandleParamsExtension on ResolveHandleParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

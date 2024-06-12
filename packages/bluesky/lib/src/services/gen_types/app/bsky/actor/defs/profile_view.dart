@@ -51,7 +51,7 @@ class ProfileView with _$ProfileView {
       _$ProfileViewFromJson(json);
 }
 
-extension ProfileViewExtension on ProfileView {
+extension $ProfileViewExtension on ProfileView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

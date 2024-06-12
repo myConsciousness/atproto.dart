@@ -39,7 +39,7 @@ class CheckAccountStatusOutput with _$CheckAccountStatusOutput {
       _$CheckAccountStatusOutputFromJson(json);
 }
 
-extension CheckAccountStatusOutputExtension on CheckAccountStatusOutput {
+extension $CheckAccountStatusOutputExtension on CheckAccountStatusOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

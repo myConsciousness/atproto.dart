@@ -32,7 +32,7 @@ class ListBlobsOutput with _$ListBlobsOutput {
       _$ListBlobsOutputFromJson(json);
 }
 
-extension ListBlobsOutputExtension on ListBlobsOutput {
+extension $ListBlobsOutputExtension on ListBlobsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

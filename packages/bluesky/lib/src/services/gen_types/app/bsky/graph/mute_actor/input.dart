@@ -31,7 +31,7 @@ class MuteActorInput with _$MuteActorInput {
       _$MuteActorInputFromJson(json);
 }
 
-extension MuteActorInputExtension on MuteActorInput {
+extension $MuteActorInputExtension on MuteActorInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

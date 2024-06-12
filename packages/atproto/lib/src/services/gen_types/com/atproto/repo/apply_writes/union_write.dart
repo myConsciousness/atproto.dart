@@ -79,7 +79,7 @@ final class UWriteConverter
       );
 }
 
-extension UWriteExtension on UWrite {
+extension $UWriteExtension on UWrite {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UWriteConverter().toJson(this);
 

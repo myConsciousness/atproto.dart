@@ -75,7 +75,7 @@ class Commit with _$Commit {
   factory Commit.fromJson(Map<String, dynamic> json) => _$CommitFromJson(json);
 }
 
-extension CommitExtension on Commit {
+extension $CommitExtension on Commit {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

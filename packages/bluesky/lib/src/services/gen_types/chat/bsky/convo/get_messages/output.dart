@@ -35,7 +35,7 @@ class GetMessagesOutput with _$GetMessagesOutput {
       _$GetMessagesOutputFromJson(json);
 }
 
-extension GetMessagesOutputExtension on GetMessagesOutput {
+extension $GetMessagesOutputExtension on GetMessagesOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

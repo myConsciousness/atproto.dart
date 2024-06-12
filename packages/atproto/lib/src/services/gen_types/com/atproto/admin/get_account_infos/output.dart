@@ -34,7 +34,7 @@ class GetAccountInfosOutput with _$GetAccountInfosOutput {
       _$GetAccountInfosOutputFromJson(json);
 }
 
-extension GetAccountInfosOutputExtension on GetAccountInfosOutput {
+extension $GetAccountInfosOutputExtension on GetAccountInfosOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

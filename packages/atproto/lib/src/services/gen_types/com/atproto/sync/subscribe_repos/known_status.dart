@@ -45,7 +45,7 @@ enum KnownStatus {
   }
 }
 
-extension KnownStatusExtension on KnownStatus {
+extension $KnownStatusExtension on KnownStatus {
   /// Returns this value as [UStatus].
   UStatus toUnion() => UStatus.knownValue(data: this);
 
@@ -132,7 +132,7 @@ final class UStatusConverter implements JsonConverter<UStatus, String> {
       );
 }
 
-extension UStatusExtension on UStatus {
+extension $UStatusExtension on UStatus {
   /// Returns string value.
   String toJson() => const UStatusConverter().toJson(this);
 

@@ -44,7 +44,7 @@ class DeletedMessageView with _$DeletedMessageView {
       _$DeletedMessageViewFromJson(json);
 }
 
-extension DeletedMessageViewExtension on DeletedMessageView {
+extension $DeletedMessageViewExtension on DeletedMessageView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

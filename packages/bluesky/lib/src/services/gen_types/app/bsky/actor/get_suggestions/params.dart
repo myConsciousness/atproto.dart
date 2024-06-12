@@ -32,7 +32,7 @@ class GetSuggestionsParams with _$GetSuggestionsParams {
       _$GetSuggestionsParamsFromJson(json);
 }
 
-extension GetSuggestionsParamsExtension on GetSuggestionsParams {
+extension $GetSuggestionsParamsExtension on GetSuggestionsParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -32,7 +32,7 @@ class GetHeadParams with _$GetHeadParams {
       _$GetHeadParamsFromJson(json);
 }
 
-extension GetHeadParamsExtension on GetHeadParams {
+extension $GetHeadParamsExtension on GetHeadParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

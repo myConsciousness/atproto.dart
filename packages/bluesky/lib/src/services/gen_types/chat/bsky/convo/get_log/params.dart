@@ -31,7 +31,7 @@ class GetLogParams with _$GetLogParams {
       _$GetLogParamsFromJson(json);
 }
 
-extension GetLogParamsExtension on GetLogParams {
+extension $GetLogParamsExtension on GetLogParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

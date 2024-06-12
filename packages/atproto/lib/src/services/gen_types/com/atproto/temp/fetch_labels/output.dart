@@ -34,7 +34,7 @@ class FetchLabelsOutput with _$FetchLabelsOutput {
       _$FetchLabelsOutputFromJson(json);
 }
 
-extension FetchLabelsOutputExtension on FetchLabelsOutput {
+extension $FetchLabelsOutputExtension on FetchLabelsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

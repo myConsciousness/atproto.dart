@@ -32,7 +32,7 @@ class UpdateAccountHandleInput with _$UpdateAccountHandleInput {
       _$UpdateAccountHandleInputFromJson(json);
 }
 
-extension UpdateAccountHandleInputExtension on UpdateAccountHandleInput {
+extension $UpdateAccountHandleInputExtension on UpdateAccountHandleInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

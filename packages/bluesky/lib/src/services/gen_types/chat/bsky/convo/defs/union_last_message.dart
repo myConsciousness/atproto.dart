@@ -68,7 +68,7 @@ final class ULastMessageConverter
       );
 }
 
-extension ULastMessageExtension on ULastMessage {
+extension $ULastMessageExtension on ULastMessage {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const ULastMessageConverter().toJson(this);
 

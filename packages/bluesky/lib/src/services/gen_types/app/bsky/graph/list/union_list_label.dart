@@ -55,7 +55,7 @@ final class UListLabelConverter
       );
 }
 
-extension UListLabelExtension on UListLabel {
+extension $UListLabelExtension on UListLabel {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const UListLabelConverter().toJson(this);
 

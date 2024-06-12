@@ -51,7 +51,7 @@ class Account with _$Account {
       _$AccountFromJson(json);
 }
 
-extension AccountExtension on Account {
+extension $AccountExtension on Account {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -59,7 +59,7 @@ enum KnownLabelValue {
   }
 }
 
-extension KnownLabelValueExtension on KnownLabelValue {
+extension $KnownLabelValueExtension on KnownLabelValue {
   /// Returns this value as [ULabelValue].
   ULabelValue toUnion() => ULabelValue.knownValue(data: this);
 
@@ -188,7 +188,7 @@ final class ULabelValueConverter implements JsonConverter<ULabelValue, String> {
       );
 }
 
-extension ULabelValueExtension on ULabelValue {
+extension $ULabelValueExtension on ULabelValue {
   /// Returns string value.
   String toJson() => const ULabelValueConverter().toJson(this);
 

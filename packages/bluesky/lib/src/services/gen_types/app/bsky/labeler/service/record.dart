@@ -37,7 +37,7 @@ class ServiceRecord with _$ServiceRecord {
       _$ServiceRecordFromJson(json);
 }
 
-extension ServiceRecordExtension on ServiceRecord {
+extension $ServiceRecordExtension on ServiceRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

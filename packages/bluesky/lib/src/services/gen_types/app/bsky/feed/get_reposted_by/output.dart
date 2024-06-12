@@ -38,7 +38,7 @@ class GetRepostedByOutput with _$GetRepostedByOutput {
       _$GetRepostedByOutputFromJson(json);
 }
 
-extension GetRepostedByOutputExtension on GetRepostedByOutput {
+extension $GetRepostedByOutputExtension on GetRepostedByOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

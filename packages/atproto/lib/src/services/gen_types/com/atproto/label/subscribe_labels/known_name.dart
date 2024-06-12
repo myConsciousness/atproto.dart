@@ -39,7 +39,7 @@ enum KnownName {
   }
 }
 
-extension KnownNameExtension on KnownName {
+extension $KnownNameExtension on KnownName {
   /// Returns this value as [UName].
   UName toUnion() => UName.knownValue(data: this);
 
@@ -108,7 +108,7 @@ final class UNameConverter implements JsonConverter<UName, String> {
       );
 }
 
-extension UNameExtension on UName {
+extension $UNameExtension on UName {
   /// Returns string value.
   String toJson() => const UNameConverter().toJson(this);
 

@@ -35,7 +35,7 @@ class GetSuggestedFeedsOutput with _$GetSuggestedFeedsOutput {
       _$GetSuggestedFeedsOutputFromJson(json);
 }
 
-extension GetSuggestedFeedsOutputExtension on GetSuggestedFeedsOutput {
+extension $GetSuggestedFeedsOutputExtension on GetSuggestedFeedsOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

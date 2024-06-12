@@ -104,7 +104,7 @@ final class LexUnion {
     // Extension
     buffer
       ..writeln()
-      ..writeln('extension U${name}Extension on U$name {')
+      ..writeln('extension \$U${name}Extension on U$name {')
       ..writeln('  /// Returns JSON representation.')
       ..writeln('  Map<String, dynamic> toJson() =>')
       ..writeln('   const U${name}Converter().toJson(this);');

@@ -34,7 +34,7 @@ class GetTimelineParams with _$GetTimelineParams {
       _$GetTimelineParamsFromJson(json);
 }
 
-extension GetTimelineParamsExtension on GetTimelineParams {
+extension $GetTimelineParamsExtension on GetTimelineParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

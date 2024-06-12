@@ -69,7 +69,7 @@ class SearchPostsSkeletonParams with _$SearchPostsSkeletonParams {
       _$SearchPostsSkeletonParamsFromJson(json);
 }
 
-extension SearchPostsSkeletonParamsExtension on SearchPostsSkeletonParams {
+extension $SearchPostsSkeletonParamsExtension on SearchPostsSkeletonParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

@@ -40,7 +40,7 @@ class LabelerPrefItem with _$LabelerPrefItem {
       _$LabelerPrefItemFromJson(json);
 }
 
-extension LabelerPrefItemExtension on LabelerPrefItem {
+extension $LabelerPrefItemExtension on LabelerPrefItem {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

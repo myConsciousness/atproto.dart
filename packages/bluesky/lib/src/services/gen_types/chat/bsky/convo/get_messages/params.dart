@@ -33,7 +33,7 @@ class GetMessagesParams with _$GetMessagesParams {
       _$GetMessagesParamsFromJson(json);
 }
 
-extension GetMessagesParamsExtension on GetMessagesParams {
+extension $GetMessagesParamsExtension on GetMessagesParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

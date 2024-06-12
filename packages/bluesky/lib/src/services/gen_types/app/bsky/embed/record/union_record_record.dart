@@ -112,7 +112,7 @@ final class URecordRecordConverter
       );
 }
 
-extension URecordRecordExtension on URecordRecord {
+extension $URecordRecordExtension on URecordRecord {
   /// Returns JSON representation.
   Map<String, dynamic> toJson() => const URecordRecordConverter().toJson(this);
 

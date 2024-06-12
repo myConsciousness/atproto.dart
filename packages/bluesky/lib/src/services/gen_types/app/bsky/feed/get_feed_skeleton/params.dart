@@ -35,7 +35,7 @@ class GetFeedSkeletonParams with _$GetFeedSkeletonParams {
       _$GetFeedSkeletonParamsFromJson(json);
 }
 
-extension GetFeedSkeletonParamsExtension on GetFeedSkeletonParams {
+extension $GetFeedSkeletonParamsExtension on GetFeedSkeletonParams {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

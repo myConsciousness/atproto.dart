@@ -49,7 +49,7 @@ class DescribeServerOutput with _$DescribeServerOutput {
       _$DescribeServerOutputFromJson(json);
 }
 
-extension DescribeServerOutputExtension on DescribeServerOutput {
+extension $DescribeServerOutputExtension on DescribeServerOutput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;

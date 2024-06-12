@@ -40,7 +40,7 @@ class MessageViewSender with _$MessageViewSender {
       _$MessageViewSenderFromJson(json);
 }
 
-extension MessageViewSenderExtension on MessageViewSender {
+extension $MessageViewSenderExtension on MessageViewSender {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;
