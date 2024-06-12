@@ -15,16 +15,16 @@ extension RepoServiceExtension on RepoService {
     required List<Create> actions,
     bool? validate,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await applyWrites(
         repo: repo,
         writes: actions.map((e) => UWrite.create(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   Future<XRPCResponse<EmptyData>> updateRecordInBulk({
@@ -32,16 +32,16 @@ extension RepoServiceExtension on RepoService {
     required List<Update> actions,
     bool? validate,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await applyWrites(
         repo: repo,
         writes: actions.map((e) => UWrite.update(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 
   Future<XRPCResponse<EmptyData>> deleteRecordInBulk({
@@ -49,23 +49,21 @@ extension RepoServiceExtension on RepoService {
     required List<AtUri> uris,
     bool? validate,
     String? swapCommit,
-    Map<String, String>? headers,
-    PostClient? client,
+    Map<String, String>? $headers,
+    PostClient? $client,
   }) async =>
       await applyWrites(
         repo: repo,
         writes: uris
-            .map(
-              (e) => UWrite.delete(
-                  data: Delete(
-                collection: e.collection,
-                rkey: e.rkey,
-              )),
-            )
+            .map((e) => UWrite.delete(
+                    data: Delete(
+                  collection: e.collection,
+                  rkey: e.rkey,
+                )))
             .toList(),
         validate: validate,
         swapCommit: swapCommit,
-        headers: headers,
-        client: client,
+        $headers: $headers,
+        $client: $client,
       );
 }
