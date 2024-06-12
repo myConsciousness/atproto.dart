@@ -4,15 +4,17 @@
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/repo_ref.dart';
-import 'package:atproto/src/services/entities/report.dart';
-import 'package:atproto/src/services/entities/report_subject.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/admin/defs/repo_ref.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/moderation/create_report/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/moderation/create_report/union_subject.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/moderation/defs/known_reason_type.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testModeration<Report>(
+  testModeration<CreateReportOutput>(
     (m, s) => s.createReport(
-      subject: ReportSubject.repoRef(
+      reasonType: KnownReasonType.reasonSpam.toUnion(),
+      subject: USubject.repoRef(
         data: RepoRef(did: m.did),
       ),
     ),

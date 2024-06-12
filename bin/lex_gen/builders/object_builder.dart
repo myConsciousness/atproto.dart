@@ -113,7 +113,8 @@ final class LexGenObjectBuilder {
     final ObjectType objectType,
   ) {
     if ((objectType == ObjectType.input || objectType == ObjectType.output) &&
-        body?.encoding == '*/*') {
+            body?.encoding == '*/*' ||
+        body?.encoding == 'application/vnd.ipld.car') {
       return <LexGenObjectProperty>[
         LexGenObjectProperty(
           isRequired: true,

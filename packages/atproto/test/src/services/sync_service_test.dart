@@ -11,49 +11,50 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/blob_refs.dart';
-import 'package:atproto/src/services/entities/get_repo_status_output.dart';
-import 'package:atproto/src/services/entities/repo_blocks.dart';
-import 'package:atproto/src/services/entities/repo_commit.dart';
-import 'package:atproto/src/services/entities/repo_commits.dart';
-import 'package:atproto/src/services/entities/repo_latest_commit.dart';
-import 'package:atproto/src/services/entities/repos.dart';
-import 'package:atproto/src/services/entities/subscribed_repo.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/sync/get_latest_commit/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/sync/get_repo_status/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/sync/list_blobs/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/sync/list_repos/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/union_subscribe_repos_message.dart';
 import 'suite/data/com/atproto/sync/get_blocks.dart';
 import 'suite/data/com/atproto/sync/get_record.dart';
 import 'suite/data/com/atproto/sync/get_repo.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testSyncSubscription<SubscribedRepo>(
+  testSyncSubscription<USubscribeReposMessage>(
     (m, s) => s.subscribeRepos(),
     id: comAtprotoSyncSubscribeRepos,
   );
 
-  testSync<RepoCommits>(
+  testSync<Uint8List>(
     (m, s) => s.getRepo(did: m.did),
     id: comAtprotoSyncGetRepo,
     bytes: getRepoBytes,
   );
 
-  testSync<RepoBlocks>(
-    (m, s) => s.getBlocks(did: m.did, commitCids: [m.cid]),
+  testSync<Uint8List>(
+    (m, s) => s.getBlocks(did: m.did, cids: [m.cid]),
     id: comAtprotoSyncGetBlocks,
     bytes: getBlocksBytes,
   );
 
-  testSync<RepoLatestCommit>(
+  testSync<GetLatestCommitOutput>(
     (m, s) => s.getLatestCommit(did: m.did),
     id: comAtprotoSyncGetLatestCommit,
   );
 
-  testSync<RepoCommit>(
-    (m, s) => s.getRecord(uri: m.uri),
+  testSync<Uint8List>(
+    (m, s) => s.getRecord(
+      did: m.uri.hostname,
+      collection: m.uri.collection,
+      rkey: m.uri.rkey,
+    ),
     id: comAtprotoSyncGetRecord,
     bytes: getRecordBytes,
   );
 
-  testSync<Repos>(
+  testSync<ListReposOutput>(
     (m, s) => s.listRepos(),
     id: comAtprotoSyncListRepos,
   );
@@ -75,7 +76,7 @@ void main() {
         .readAsBytesSync(),
   );
 
-  testSync<BlobRefs>(
+  testSync<ListBlobsOutput>(
     (m, s) => s.listBlobs(did: m.did),
     id: comAtprotoSyncListBlobs,
   );

@@ -178,16 +178,15 @@ final class LexTypesGen {
 
   void _generateExports(final Map<NSID, Set<Export>> exports) {
     exports.forEach((docId, exports) {
+      final writable = exports.where((e) =>
+          !(e.object?.isStrongRef ?? false) && !(e.object?.isBytes ?? false));
+
+      if (writable.isEmpty) return;
+
       final buffer = StringBuffer()
         ..writeln(getFileHeader('Lex Generator'))
         ..writeln()
-        ..writeln(exports
-            .where((e) =>
-                !(e.object?.isStrongRef ?? false) &&
-                !(e.object?.isBytes ?? false))
-            .map((e) => e.toString())
-            .toSet()
-            .join('\n'));
+        ..writeln(writable.map((e) => e.toString()).toSet().join('\n'));
 
       writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
 

@@ -61,12 +61,14 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/importRepo
   Future<XRPCResponse<EmptyData>> importRepo({
+    required Uint8List bytes,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
       await _ctx.post<EmptyData>(
         ns.comAtprotoRepoImportRepo,
         headers: headers,
+        body: bytes,
         client: client,
       );
 

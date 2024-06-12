@@ -35,7 +35,7 @@ final class SyncService {
   /// Get data blocks needed to prove the existence or non-existence of record in the current version of repo. Does not require auth.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRecord
-  Future<XRPCResponse<EmptyData>> getRecord({
+  Future<XRPCResponse<Uint8List>> getRecord({
     required String did,
     required NSID collection,
     required String rkey,
@@ -43,7 +43,7 @@ final class SyncService {
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetRecord,
         headers: headers,
         parameters: {
@@ -58,13 +58,13 @@ final class SyncService {
   /// Get data blocks from a given repo, by CID. For example, intermediate MST nodes, or records. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlocks
-  Future<XRPCResponse<EmptyData>> getBlocks({
+  Future<XRPCResponse<Uint8List>> getBlocks({
     required String did,
     required List<String> cids,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetBlocks,
         headers: headers,
         parameters: {
@@ -95,13 +95,13 @@ final class SyncService {
   /// Download a repository export as CAR file. Optionally only a 'diff' since a previous revision. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepo
-  Future<XRPCResponse<EmptyData>> getRepo({
+  Future<XRPCResponse<Uint8List>> getRepo({
     required String did,
     String? since,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetRepo,
         headers: headers,
         parameters: {
@@ -163,12 +163,12 @@ final class SyncService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getCheckout
   @Deprecated('DEPRECATED - please use com.atproto.sync.getRepo instead')
-  Future<XRPCResponse<EmptyData>> getCheckout({
+  Future<XRPCResponse<Uint8List>> getCheckout({
     required String did,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<Uint8List>(
         ns.comAtprotoSyncGetCheckout,
         headers: headers,
         parameters: {

@@ -46,7 +46,7 @@ extension RepoServiceExtension on RepoService {
 
   Future<XRPCResponse<EmptyData>> deleteRecordInBulk({
     String? repo,
-    required List<Delete> actions,
+    required List<AtUri> uris,
     bool? validate,
     String? swapCommit,
     Map<String, String>? headers,
@@ -54,7 +54,15 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         repo: repo,
-        writes: actions.map((e) => UWrite.delete(data: e)).toList(),
+        writes: uris
+            .map(
+              (e) => UWrite.delete(
+                  data: Delete(
+                collection: e.collection,
+                rkey: e.rkey,
+              )),
+            )
+            .toList(),
         validate: validate,
         swapCommit: swapCommit,
         headers: headers,
