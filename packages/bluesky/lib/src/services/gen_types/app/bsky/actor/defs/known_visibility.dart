@@ -45,6 +45,35 @@ enum KnownVisibility {
   }
 }
 
+extension KnownVisibilityExtension on KnownVisibility {
+  /// Returns this value as [UVisibility].
+  UVisibility toUnion() => UVisibility.knownValue(data: this);
+
+  /// Returns true if this value is [ignore], otherwise false.
+  bool get isIgnore => this == KnownVisibility.ignore;
+
+  /// Returns true if this value is not [ignore], otherwise false.
+  bool get isNotIgnore => !isIgnore;
+
+  /// Returns true if this value is [show], otherwise false.
+  bool get isShow => this == KnownVisibility.show;
+
+  /// Returns true if this value is not [show], otherwise false.
+  bool get isNotShow => !isShow;
+
+  /// Returns true if this value is [warn], otherwise false.
+  bool get isWarn => this == KnownVisibility.warn;
+
+  /// Returns true if this value is not [warn], otherwise false.
+  bool get isNotWarn => !isWarn;
+
+  /// Returns true if this value is [hide], otherwise false.
+  bool get isHide => this == KnownVisibility.hide;
+
+  /// Returns true if this value is not [hide], otherwise false.
+  bool get isNotHide => !isHide;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

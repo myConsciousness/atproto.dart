@@ -43,6 +43,29 @@ enum KnownType {
   }
 }
 
+extension KnownTypeExtension on KnownType {
+  /// Returns this value as [UType].
+  UType toUnion() => UType.knownValue(data: this);
+
+  /// Returns true if this value is [feed], otherwise false.
+  bool get isFeed => this == KnownType.feed;
+
+  /// Returns true if this value is not [feed], otherwise false.
+  bool get isNotFeed => !isFeed;
+
+  /// Returns true if this value is [list], otherwise false.
+  bool get isList => this == KnownType.list;
+
+  /// Returns true if this value is not [list], otherwise false.
+  bool get isNotList => !isList;
+
+  /// Returns true if this value is [timeline], otherwise false.
+  bool get isTimeline => this == KnownType.timeline;
+
+  /// Returns true if this value is not [timeline], otherwise false.
+  bool get isNotTimeline => !isTimeline;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

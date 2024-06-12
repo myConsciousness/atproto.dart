@@ -59,6 +59,77 @@ enum KnownLabelValue {
   }
 }
 
+extension KnownLabelValueExtension on KnownLabelValue {
+  /// Returns this value as [ULabelValue].
+  ULabelValue toUnion() => ULabelValue.knownValue(data: this);
+
+  /// Returns true if this value is [hide], otherwise false.
+  bool get isHide => this == KnownLabelValue.hide;
+
+  /// Returns true if this value is not [hide], otherwise false.
+  bool get isNotHide => !isHide;
+
+  /// Returns true if this value is [noPromote], otherwise false.
+  bool get isNoPromote => this == KnownLabelValue.noPromote;
+
+  /// Returns true if this value is not [noPromote], otherwise false.
+  bool get isNotNoPromote => !isNoPromote;
+
+  /// Returns true if this value is [warn], otherwise false.
+  bool get isWarn => this == KnownLabelValue.warn;
+
+  /// Returns true if this value is not [warn], otherwise false.
+  bool get isNotWarn => !isWarn;
+
+  /// Returns true if this value is [noUnauthenticated], otherwise false.
+  bool get isNoUnauthenticated => this == KnownLabelValue.noUnauthenticated;
+
+  /// Returns true if this value is not [noUnauthenticated], otherwise false.
+  bool get isNotNoUnauthenticated => !isNoUnauthenticated;
+
+  /// Returns true if this value is [dmcaViolation], otherwise false.
+  bool get isDmcaViolation => this == KnownLabelValue.dmcaViolation;
+
+  /// Returns true if this value is not [dmcaViolation], otherwise false.
+  bool get isNotDmcaViolation => !isDmcaViolation;
+
+  /// Returns true if this value is [doxxing], otherwise false.
+  bool get isDoxxing => this == KnownLabelValue.doxxing;
+
+  /// Returns true if this value is not [doxxing], otherwise false.
+  bool get isNotDoxxing => !isDoxxing;
+
+  /// Returns true if this value is [porn], otherwise false.
+  bool get isPorn => this == KnownLabelValue.porn;
+
+  /// Returns true if this value is not [porn], otherwise false.
+  bool get isNotPorn => !isPorn;
+
+  /// Returns true if this value is [sexual], otherwise false.
+  bool get isSexual => this == KnownLabelValue.sexual;
+
+  /// Returns true if this value is not [sexual], otherwise false.
+  bool get isNotSexual => !isSexual;
+
+  /// Returns true if this value is [nudity], otherwise false.
+  bool get isNudity => this == KnownLabelValue.nudity;
+
+  /// Returns true if this value is not [nudity], otherwise false.
+  bool get isNotNudity => !isNudity;
+
+  /// Returns true if this value is [nsfl], otherwise false.
+  bool get isNsfl => this == KnownLabelValue.nsfl;
+
+  /// Returns true if this value is not [nsfl], otherwise false.
+  bool get isNotNsfl => !isNsfl;
+
+  /// Returns true if this value is [gore], otherwise false.
+  bool get isGore => this == KnownLabelValue.gore;
+
+  /// Returns true if this value is not [gore], otherwise false.
+  bool get isNotGore => !isGore;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

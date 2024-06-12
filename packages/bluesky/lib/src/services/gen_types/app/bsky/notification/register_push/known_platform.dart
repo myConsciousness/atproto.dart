@@ -43,6 +43,29 @@ enum KnownPlatform {
   }
 }
 
+extension KnownPlatformExtension on KnownPlatform {
+  /// Returns this value as [UPlatform].
+  UPlatform toUnion() => UPlatform.knownValue(data: this);
+
+  /// Returns true if this value is [ios], otherwise false.
+  bool get isIos => this == KnownPlatform.ios;
+
+  /// Returns true if this value is not [ios], otherwise false.
+  bool get isNotIos => !isIos;
+
+  /// Returns true if this value is [android], otherwise false.
+  bool get isAndroid => this == KnownPlatform.android;
+
+  /// Returns true if this value is not [android], otherwise false.
+  bool get isNotAndroid => !isAndroid;
+
+  /// Returns true if this value is [web], otherwise false.
+  bool get isWeb => this == KnownPlatform.web;
+
+  /// Returns true if this value is not [web], otherwise false.
+  bool get isNotWeb => !isWeb;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

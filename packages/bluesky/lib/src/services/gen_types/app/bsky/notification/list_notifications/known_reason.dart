@@ -49,6 +49,47 @@ enum KnownReason {
   }
 }
 
+extension KnownReasonExtension on KnownReason {
+  /// Returns this value as [UReason].
+  UReason toUnion() => UReason.knownValue(data: this);
+
+  /// Returns true if this value is [like], otherwise false.
+  bool get isLike => this == KnownReason.like;
+
+  /// Returns true if this value is not [like], otherwise false.
+  bool get isNotLike => !isLike;
+
+  /// Returns true if this value is [repost], otherwise false.
+  bool get isRepost => this == KnownReason.repost;
+
+  /// Returns true if this value is not [repost], otherwise false.
+  bool get isNotRepost => !isRepost;
+
+  /// Returns true if this value is [follow], otherwise false.
+  bool get isFollow => this == KnownReason.follow;
+
+  /// Returns true if this value is not [follow], otherwise false.
+  bool get isNotFollow => !isFollow;
+
+  /// Returns true if this value is [mention], otherwise false.
+  bool get isMention => this == KnownReason.mention;
+
+  /// Returns true if this value is not [mention], otherwise false.
+  bool get isNotMention => !isMention;
+
+  /// Returns true if this value is [reply], otherwise false.
+  bool get isReply => this == KnownReason.reply;
+
+  /// Returns true if this value is not [reply], otherwise false.
+  bool get isNotReply => !isReply;
+
+  /// Returns true if this value is [quote], otherwise false.
+  bool get isQuote => this == KnownReason.quote;
+
+  /// Returns true if this value is not [quote], otherwise false.
+  bool get isNotQuote => !isQuote;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

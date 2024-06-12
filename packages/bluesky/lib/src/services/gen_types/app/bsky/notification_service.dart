@@ -30,7 +30,7 @@ final class NotificationService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
-    required DateTime seenAt,
+    DateTime? seenAt,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
@@ -38,7 +38,7 @@ final class NotificationService {
         ns.appBskyNotificationUpdateSeen,
         headers: headers,
         body: {
-          'seenAt': seenAt,
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
       );
 
@@ -80,7 +80,7 @@ final class NotificationService {
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
-          if (seenAt != null) 'seenAt': seenAt,
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const ListNotificationsOutputConverter().fromJson,
       );
@@ -97,7 +97,7 @@ final class NotificationService {
         ns.appBskyNotificationGetUnreadCount,
         headers: headers,
         parameters: {
-          if (seenAt != null) 'seenAt': seenAt,
+          'seenAt': _ctx.toUtcIso8601String(seenAt),
         },
         to: const GetUnreadCountOutputConverter().fromJson,
       );

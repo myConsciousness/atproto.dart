@@ -4,6 +4,7 @@
 
 // 🌎 Project imports:
 import '../../utils.dart';
+import '../rules/utils.dart';
 
 const _kFreezedAnnotationPackage =
     "import 'package:freezed_annotation/freezed_annotation.dart';";
@@ -93,6 +94,27 @@ final class LexGenKnownValues {
     buffer.writeln('  }');
     buffer.writeln('}');
 
+    // Extension for union
+    buffer
+      ..writeln()
+      ..writeln('extension Known${name}Extension on Known$name {')
+      ..writeln('  /// Returns this value as [U$name].')
+      ..writeln('  U$name toUnion() => U$name.knownValue(data: this);')
+      ..writeln();
+    for (final element in elements) {
+      buffer.writeln(
+          '  /// Returns true if this value is [${element.name}], otherwise false.');
+      buffer.writeln('  bool get is${toFirstUpper(element.name)} '
+          '=> this == Known$name.${element.name};');
+      buffer.writeln();
+      buffer.writeln();
+      buffer.writeln(
+          '  /// Returns true if this value is not [${element.name}], otherwise false.');
+      buffer.writeln('  bool get isNot${toFirstUpper(element.name)} '
+          '=> !is${toFirstUpper(element.name)};');
+    }
+    buffer.writeln('}');
+
     // Union object
     buffer
       ..writeln()
@@ -131,7 +153,7 @@ final class LexGenKnownValues {
       ..writeln('     );')
       ..writeln('}');
 
-    // Extension
+    // Extension for union
     buffer
       ..writeln()
       ..writeln('extension U${name}Extension on U$name {')

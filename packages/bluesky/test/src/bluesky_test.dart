@@ -8,11 +8,11 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/bluesky.dart';
-import 'package:bluesky/src/services/actor_service.dart';
-import 'package:bluesky/src/services/feed_service.dart';
-import 'package:bluesky/src/services/graph_service.dart';
-import 'package:bluesky/src/services/notification_service.dart';
-import 'package:bluesky/src/services/unspecced_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced_service.dart';
 
 void main() {
   group('.session', () {

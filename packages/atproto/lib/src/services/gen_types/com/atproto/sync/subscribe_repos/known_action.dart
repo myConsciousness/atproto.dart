@@ -43,6 +43,29 @@ enum KnownAction {
   }
 }
 
+extension KnownActionExtension on KnownAction {
+  /// Returns this value as [UAction].
+  UAction toUnion() => UAction.knownValue(data: this);
+
+  /// Returns true if this value is [create], otherwise false.
+  bool get isCreate => this == KnownAction.create;
+
+  /// Returns true if this value is not [create], otherwise false.
+  bool get isNotCreate => !isCreate;
+
+  /// Returns true if this value is [update], otherwise false.
+  bool get isUpdate => this == KnownAction.update;
+
+  /// Returns true if this value is not [update], otherwise false.
+  bool get isNotUpdate => !isUpdate;
+
+  /// Returns true if this value is [delete], otherwise false.
+  bool get isDelete => this == KnownAction.delete;
+
+  /// Returns true if this value is not [delete], otherwise false.
+  bool get isNotDelete => !isDelete;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

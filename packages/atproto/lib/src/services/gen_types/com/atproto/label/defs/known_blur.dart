@@ -43,6 +43,29 @@ enum KnownBlur {
   }
 }
 
+extension KnownBlurExtension on KnownBlur {
+  /// Returns this value as [UBlur].
+  UBlur toUnion() => UBlur.knownValue(data: this);
+
+  /// Returns true if this value is [content], otherwise false.
+  bool get isContent => this == KnownBlur.content;
+
+  /// Returns true if this value is not [content], otherwise false.
+  bool get isNotContent => !isContent;
+
+  /// Returns true if this value is [media], otherwise false.
+  bool get isMedia => this == KnownBlur.media;
+
+  /// Returns true if this value is not [media], otherwise false.
+  bool get isNotMedia => !isMedia;
+
+  /// Returns true if this value is [none], otherwise false.
+  bool get isNone => this == KnownBlur.none;
+
+  /// Returns true if this value is not [none], otherwise false.
+  bool get isNotNone => !isNone;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

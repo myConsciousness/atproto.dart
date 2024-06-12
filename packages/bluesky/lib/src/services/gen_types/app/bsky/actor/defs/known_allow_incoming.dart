@@ -43,6 +43,29 @@ enum KnownAllowIncoming {
   }
 }
 
+extension KnownAllowIncomingExtension on KnownAllowIncoming {
+  /// Returns this value as [UAllowIncoming].
+  UAllowIncoming toUnion() => UAllowIncoming.knownValue(data: this);
+
+  /// Returns true if this value is [all], otherwise false.
+  bool get isAll => this == KnownAllowIncoming.all;
+
+  /// Returns true if this value is not [all], otherwise false.
+  bool get isNotAll => !isAll;
+
+  /// Returns true if this value is [none], otherwise false.
+  bool get isNone => this == KnownAllowIncoming.none;
+
+  /// Returns true if this value is not [none], otherwise false.
+  bool get isNotNone => !isNone;
+
+  /// Returns true if this value is [following], otherwise false.
+  bool get isFollowing => this == KnownAllowIncoming.following;
+
+  /// Returns true if this value is not [following], otherwise false.
+  bool get isNotFollowing => !isFollowing;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

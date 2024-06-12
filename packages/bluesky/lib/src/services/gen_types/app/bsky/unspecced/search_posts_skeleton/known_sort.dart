@@ -41,6 +41,23 @@ enum KnownSort {
   }
 }
 
+extension KnownSortExtension on KnownSort {
+  /// Returns this value as [USort].
+  USort toUnion() => USort.knownValue(data: this);
+
+  /// Returns true if this value is [top], otherwise false.
+  bool get isTop => this == KnownSort.top;
+
+  /// Returns true if this value is not [top], otherwise false.
+  bool get isNotTop => !isTop;
+
+  /// Returns true if this value is [latest], otherwise false.
+  bool get isLatest => this == KnownSort.latest;
+
+  /// Returns true if this value is not [latest], otherwise false.
+  bool get isNotLatest => !isLatest;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

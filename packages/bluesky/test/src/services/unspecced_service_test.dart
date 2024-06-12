@@ -4,38 +4,38 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/feed_generators.dart';
-import 'package:bluesky/src/services/entities/skeleton_actors_by_query.dart';
-import 'package:bluesky/src/services/entities/skeleton_posts_by_query.dart';
-import 'package:bluesky/src/services/entities/suggestions_skeleton.dart';
-import 'package:bluesky/src/services/entities/tagged_suggestions.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_popular_feed_generators/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_suggestions_skeleton/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_actors_skeleton/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/output.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testUnspecced<FeedGenerators>(
+  testUnspecced<GetPopularFeedGeneratorsOutput>(
     (m, s) => s.getPopularFeedGenerators(),
     id: appBskyUnspeccedGetPopularFeedGenerators,
   );
 
-  testUnspecced<SkeletonPostsByQuery>(
-    (m, s) => s.searchPostsSkeleton(m.query),
+  testUnspecced<SearchPostsSkeletonOutput>(
+    (m, s) => s.searchPostsSkeleton(q: m.query),
     id: appBskyUnspeccedSearchPostsSkeleton,
   );
 
-  testUnspecced<SkeletonActorsByQuery>(
+  testUnspecced<SearchActorsSkeletonOutput>(
     (m, s) => s.searchActorsSkeleton(
-      m.query,
+      q: m.query,
       viewer: m.did,
     ),
     id: appBskyUnspeccedSearchActorsSkeleton,
   );
 
-  testUnspecced<TaggedSuggestions>(
+  testUnspecced<GetTaggedSuggestionsOutput>(
     (m, s) => s.getTaggedSuggestions(),
     id: appBskyUnspeccedGetTaggedSuggestions,
   );
 
-  testUnspecced<SuggestionsSkeleton>(
+  testUnspecced<GetSuggestionsSkeletonOutput>(
     (m, s) => s.getSuggestionsSkeleton(
       viewer: m.did,
       limit: m.limit,

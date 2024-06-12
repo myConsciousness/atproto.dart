@@ -41,6 +41,23 @@ enum KnownMutedWordTarget {
   }
 }
 
+extension KnownMutedWordTargetExtension on KnownMutedWordTarget {
+  /// Returns this value as [UMutedWordTarget].
+  UMutedWordTarget toUnion() => UMutedWordTarget.knownValue(data: this);
+
+  /// Returns true if this value is [content], otherwise false.
+  bool get isContent => this == KnownMutedWordTarget.content;
+
+  /// Returns true if this value is not [content], otherwise false.
+  bool get isNotContent => !isContent;
+
+  /// Returns true if this value is [tag], otherwise false.
+  bool get isTag => this == KnownMutedWordTarget.tag;
+
+  /// Returns true if this value is not [tag], otherwise false.
+  bool get isNotTag => !isTag;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

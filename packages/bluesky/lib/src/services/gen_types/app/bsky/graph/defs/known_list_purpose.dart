@@ -44,6 +44,23 @@ enum KnownListPurpose {
   }
 }
 
+extension KnownListPurposeExtension on KnownListPurpose {
+  /// Returns this value as [UListPurpose].
+  UListPurpose toUnion() => UListPurpose.knownValue(data: this);
+
+  /// Returns true if this value is [modlist], otherwise false.
+  bool get isModlist => this == KnownListPurpose.modlist;
+
+  /// Returns true if this value is not [modlist], otherwise false.
+  bool get isNotModlist => !isModlist;
+
+  /// Returns true if this value is [curatelist], otherwise false.
+  bool get isCuratelist => this == KnownListPurpose.curatelist;
+
+  /// Returns true if this value is not [curatelist], otherwise false.
+  bool get isNotCuratelist => !isCuratelist;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

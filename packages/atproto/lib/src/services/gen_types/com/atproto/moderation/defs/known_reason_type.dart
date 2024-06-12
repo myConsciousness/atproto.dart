@@ -64,6 +64,53 @@ enum KnownReasonType {
   }
 }
 
+extension KnownReasonTypeExtension on KnownReasonType {
+  /// Returns this value as [UReasonType].
+  UReasonType toUnion() => UReasonType.knownValue(data: this);
+
+  /// Returns true if this value is [reasonSpam], otherwise false.
+  bool get isReasonSpam => this == KnownReasonType.reasonSpam;
+
+  /// Returns true if this value is not [reasonSpam], otherwise false.
+  bool get isNotReasonSpam => !isReasonSpam;
+
+  /// Returns true if this value is [reasonViolation], otherwise false.
+  bool get isReasonViolation => this == KnownReasonType.reasonViolation;
+
+  /// Returns true if this value is not [reasonViolation], otherwise false.
+  bool get isNotReasonViolation => !isReasonViolation;
+
+  /// Returns true if this value is [reasonMisleading], otherwise false.
+  bool get isReasonMisleading => this == KnownReasonType.reasonMisleading;
+
+  /// Returns true if this value is not [reasonMisleading], otherwise false.
+  bool get isNotReasonMisleading => !isReasonMisleading;
+
+  /// Returns true if this value is [reasonSexual], otherwise false.
+  bool get isReasonSexual => this == KnownReasonType.reasonSexual;
+
+  /// Returns true if this value is not [reasonSexual], otherwise false.
+  bool get isNotReasonSexual => !isReasonSexual;
+
+  /// Returns true if this value is [reasonRude], otherwise false.
+  bool get isReasonRude => this == KnownReasonType.reasonRude;
+
+  /// Returns true if this value is not [reasonRude], otherwise false.
+  bool get isNotReasonRude => !isReasonRude;
+
+  /// Returns true if this value is [reasonOther], otherwise false.
+  bool get isReasonOther => this == KnownReasonType.reasonOther;
+
+  /// Returns true if this value is not [reasonOther], otherwise false.
+  bool get isNotReasonOther => !isReasonOther;
+
+  /// Returns true if this value is [reasonAppeal], otherwise false.
+  bool get isReasonAppeal => this == KnownReasonType.reasonAppeal;
+
+  /// Returns true if this value is not [reasonAppeal], otherwise false.
+  bool get isNotReasonAppeal => !isReasonAppeal;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

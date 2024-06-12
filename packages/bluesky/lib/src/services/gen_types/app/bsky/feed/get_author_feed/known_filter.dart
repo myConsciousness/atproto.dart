@@ -45,6 +45,36 @@ enum KnownFilter {
   }
 }
 
+extension KnownFilterExtension on KnownFilter {
+  /// Returns this value as [UFilter].
+  UFilter toUnion() => UFilter.knownValue(data: this);
+
+  /// Returns true if this value is [posts_with_replies], otherwise false.
+  bool get isPosts_with_replies => this == KnownFilter.posts_with_replies;
+
+  /// Returns true if this value is not [posts_with_replies], otherwise false.
+  bool get isNotPosts_with_replies => !isPosts_with_replies;
+
+  /// Returns true if this value is [posts_no_replies], otherwise false.
+  bool get isPosts_no_replies => this == KnownFilter.posts_no_replies;
+
+  /// Returns true if this value is not [posts_no_replies], otherwise false.
+  bool get isNotPosts_no_replies => !isPosts_no_replies;
+
+  /// Returns true if this value is [posts_with_media], otherwise false.
+  bool get isPosts_with_media => this == KnownFilter.posts_with_media;
+
+  /// Returns true if this value is not [posts_with_media], otherwise false.
+  bool get isNotPosts_with_media => !isPosts_with_media;
+
+  /// Returns true if this value is [posts_and_author_threads], otherwise false.
+  bool get isPosts_and_author_threads =>
+      this == KnownFilter.posts_and_author_threads;
+
+  /// Returns true if this value is not [posts_and_author_threads], otherwise false.
+  bool get isNotPosts_and_author_threads => !isPosts_and_author_threads;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

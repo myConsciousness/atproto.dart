@@ -43,6 +43,29 @@ enum KnownStatus {
   }
 }
 
+extension KnownStatusExtension on KnownStatus {
+  /// Returns this value as [UStatus].
+  UStatus toUnion() => UStatus.knownValue(data: this);
+
+  /// Returns true if this value is [takendown], otherwise false.
+  bool get isTakendown => this == KnownStatus.takendown;
+
+  /// Returns true if this value is not [takendown], otherwise false.
+  bool get isNotTakendown => !isTakendown;
+
+  /// Returns true if this value is [suspended], otherwise false.
+  bool get isSuspended => this == KnownStatus.suspended;
+
+  /// Returns true if this value is not [suspended], otherwise false.
+  bool get isNotSuspended => !isSuspended;
+
+  /// Returns true if this value is [deactivated], otherwise false.
+  bool get isDeactivated => this == KnownStatus.deactivated;
+
+  /// Returns true if this value is not [deactivated], otherwise false.
+  bool get isNotDeactivated => !isDeactivated;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

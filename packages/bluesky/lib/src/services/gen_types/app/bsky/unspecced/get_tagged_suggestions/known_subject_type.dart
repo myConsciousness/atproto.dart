@@ -41,6 +41,23 @@ enum KnownSubjectType {
   }
 }
 
+extension KnownSubjectTypeExtension on KnownSubjectType {
+  /// Returns this value as [USubjectType].
+  USubjectType toUnion() => USubjectType.knownValue(data: this);
+
+  /// Returns true if this value is [actor], otherwise false.
+  bool get isActor => this == KnownSubjectType.actor;
+
+  /// Returns true if this value is not [actor], otherwise false.
+  bool get isNotActor => !isActor;
+
+  /// Returns true if this value is [feed], otherwise false.
+  bool get isFeed => this == KnownSubjectType.feed;
+
+  /// Returns true if this value is not [feed], otherwise false.
+  bool get isNotFeed => !isFeed;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

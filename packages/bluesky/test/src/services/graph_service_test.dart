@@ -3,8 +3,9 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart' as atp;
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto/com_atproto_repo_strong_ref.dart';
+import 'package:atproto_core/atproto_core.dart';
+import 'package:atproto_core/atproto_dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
@@ -16,6 +17,16 @@ import 'package:bluesky/src/services/entities/lists.dart';
 import 'package:bluesky/src/services/entities/mutes.dart';
 import 'package:bluesky/src/services/entities/relationships.dart';
 import 'package:bluesky/src/services/entities/suggested_follows.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_blocks/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_followers/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_follows/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_list/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_list_blocks/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_list_mutes/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_lists/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_mutes/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_suggested_follows_by_actor/output.dart';
 import 'package:bluesky/src/services/graph_service.dart';
 import 'package:bluesky/src/services/params/list_item_param.dart';
 import 'package:bluesky/src/services/params/list_param.dart';
@@ -23,49 +34,49 @@ import 'package:bluesky/src/services/params/repo_param.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testGraph<atp.StrongRef>(
+  testGraph<StrongRef>(
     (m, s) => s.follow(did: m.did),
     bulk: (m, s) => s.followInBulk([RepoParam(did: m.did)]),
     id: appBskyGraphFollow,
   );
 
-  testGraph<Follows>(
+  testGraph<GetFollowsOutput>(
     (m, s) => s.getFollows(actor: m.actor),
     id: appBskyGraphGetFollows,
   );
 
-  testGraph<Followers>(
+  testGraph<GetFollowersOutput>(
     (m, s) => s.getFollowers(actor: m.actor),
     id: appBskyGraphGetFollowers,
   );
 
-  testGraph<core.EmptyData>(
+  testGraph<EmptyData>(
     (m, s) => s.muteActor(actor: m.actor),
     id: appBskyGraphMuteActor,
   );
 
-  testGraph<core.EmptyData>(
+  testGraph<EmptyData>(
     (m, s) => s.unmuteActor(actor: m.actor),
     id: appBskyGraphUnmuteActor,
   );
 
-  testGraph<Mutes>(
+  testGraph<GetMutesOutput>(
     (m, s) => s.getMutes(),
     id: appBskyGraphGetMutes,
   );
 
-  testGraph<Blocks>(
+  testGraph<GetBlocksOutput>(
     (m, s) => s.getBlocks(),
     id: appBskyGraphGetBlocks,
   );
 
-  testGraph<atp.StrongRef>(
-    (m, s) => s.block(did: m.did),
+  testGraph<StrongRef>(
+    (m, s) => s.block(subject: m.did),
     bulk: (m, s) => s.blockInBulk([RepoParam(did: m.did)]),
     id: appBskyGraphBlock,
   );
 
-  testGraph<atp.StrongRef>(
+  testGraph<StrongRef>(
     (m, s) => s.list(purpose: appBskyGraphDefsModlist, name: m.name),
     bulk: (m, s) => s.listInBulk([
       ListParam(
@@ -76,34 +87,34 @@ void main() {
     id: appBskyGraphList,
   );
 
-  testGraph<atp.StrongRef>(
+  testGraph<StrongRef>(
     (m, s) => s.modlist(name: m.name),
     id: appBskyGraphList,
     label: 'Moderation',
   );
 
-  testGraph<atp.StrongRef>(
+  testGraph<StrongRef>(
     (m, s) => s.curatelist(name: m.name),
     id: appBskyGraphList,
     label: 'Curation',
   );
 
-  testGraph<Lists>(
+  testGraph<GetListsOutput>(
     (m, s) => s.getLists(actor: m.actor),
     id: appBskyGraphGetLists,
   );
 
-  testGraph<Lists>(
+  testGraph<GetListBlocksOutput>(
     (m, s) => s.getListBlocks(),
     id: appBskyGraphGetListBlocks,
   );
 
-  testGraph<ListItems>(
+  testGraph<GetListOutput>(
     (m, s) => s.getList(list: m.uri),
     id: appBskyGraphGetList,
   );
 
-  testGraph<atp.StrongRef>(
+  testGraph<StrongRef>(
     (m, s) => s.listitem(subject: m.did, list: m.uri),
     bulk: (m, s) => s.listitemInBulk([
       ListItemParam(
@@ -114,32 +125,32 @@ void main() {
     id: appBskyGraphListitem,
   );
 
-  testGraph<Lists>(
+  testGraph<GetListMutesOutput>(
     (m, s) => s.getListMutes(),
     id: appBskyGraphGetListMutes,
   );
 
-  testGraph<core.EmptyData>(
+  testGraph<EmptyData>(
     (m, s) => s.muteActorList(list: m.uri),
     id: appBskyGraphMuteActorList,
   );
 
-  testGraph<core.EmptyData>(
+  testGraph<EmptyData>(
     (m, s) => s.unmuteActorList(list: m.uri),
     id: appBskyGraphUnmuteActorList,
   );
 
-  testGraph<SuggestedFollows>(
+  testGraph<GetSuggestedFollowsByActorOutput>(
     (m, s) => s.getSuggestedFollowsByActor(actor: m.actor),
     id: appBskyGraphGetSuggestedFollowsByActor,
   );
 
-  testGraph<atp.StrongRef>(
-    (m, s) => s.listblock(listUri: m.uri),
+  testGraph<StrongRef>(
+    (m, s) => s.listblock(subject: m.uri),
     id: appBskyGraphListblock,
   );
 
-  testGraph<Relationships>(
+  testGraph<GetRelationshipsOutput>(
     (m, s) => s.getRelationships(actor: m.did, others: [m.did]),
     id: appBskyGraphGetRelationships,
   );

@@ -43,6 +43,29 @@ enum KnownSeverity {
   }
 }
 
+extension KnownSeverityExtension on KnownSeverity {
+  /// Returns this value as [USeverity].
+  USeverity toUnion() => USeverity.knownValue(data: this);
+
+  /// Returns true if this value is [inform], otherwise false.
+  bool get isInform => this == KnownSeverity.inform;
+
+  /// Returns true if this value is not [inform], otherwise false.
+  bool get isNotInform => !isInform;
+
+  /// Returns true if this value is [alert], otherwise false.
+  bool get isAlert => this == KnownSeverity.alert;
+
+  /// Returns true if this value is not [alert], otherwise false.
+  bool get isNotAlert => !isAlert;
+
+  /// Returns true if this value is [none], otherwise false.
+  bool get isNone => this == KnownSeverity.none;
+
+  /// Returns true if this value is not [none], otherwise false.
+  bool get isNotNone => !isNone;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

@@ -84,6 +84,83 @@ enum KnownEvent {
   }
 }
 
+extension KnownEventExtension on KnownEvent {
+  /// Returns this value as [UEvent].
+  UEvent toUnion() => UEvent.knownValue(data: this);
+
+  /// Returns true if this value is [requestLess], otherwise false.
+  bool get isRequestLess => this == KnownEvent.requestLess;
+
+  /// Returns true if this value is not [requestLess], otherwise false.
+  bool get isNotRequestLess => !isRequestLess;
+
+  /// Returns true if this value is [requestMore], otherwise false.
+  bool get isRequestMore => this == KnownEvent.requestMore;
+
+  /// Returns true if this value is not [requestMore], otherwise false.
+  bool get isNotRequestMore => !isRequestMore;
+
+  /// Returns true if this value is [clickthroughItem], otherwise false.
+  bool get isClickthroughItem => this == KnownEvent.clickthroughItem;
+
+  /// Returns true if this value is not [clickthroughItem], otherwise false.
+  bool get isNotClickthroughItem => !isClickthroughItem;
+
+  /// Returns true if this value is [clickthroughAuthor], otherwise false.
+  bool get isClickthroughAuthor => this == KnownEvent.clickthroughAuthor;
+
+  /// Returns true if this value is not [clickthroughAuthor], otherwise false.
+  bool get isNotClickthroughAuthor => !isClickthroughAuthor;
+
+  /// Returns true if this value is [clickthroughReposter], otherwise false.
+  bool get isClickthroughReposter => this == KnownEvent.clickthroughReposter;
+
+  /// Returns true if this value is not [clickthroughReposter], otherwise false.
+  bool get isNotClickthroughReposter => !isClickthroughReposter;
+
+  /// Returns true if this value is [clickthroughEmbed], otherwise false.
+  bool get isClickthroughEmbed => this == KnownEvent.clickthroughEmbed;
+
+  /// Returns true if this value is not [clickthroughEmbed], otherwise false.
+  bool get isNotClickthroughEmbed => !isClickthroughEmbed;
+
+  /// Returns true if this value is [interactionSeen], otherwise false.
+  bool get isInteractionSeen => this == KnownEvent.interactionSeen;
+
+  /// Returns true if this value is not [interactionSeen], otherwise false.
+  bool get isNotInteractionSeen => !isInteractionSeen;
+
+  /// Returns true if this value is [interactionLike], otherwise false.
+  bool get isInteractionLike => this == KnownEvent.interactionLike;
+
+  /// Returns true if this value is not [interactionLike], otherwise false.
+  bool get isNotInteractionLike => !isInteractionLike;
+
+  /// Returns true if this value is [interactionRepost], otherwise false.
+  bool get isInteractionRepost => this == KnownEvent.interactionRepost;
+
+  /// Returns true if this value is not [interactionRepost], otherwise false.
+  bool get isNotInteractionRepost => !isInteractionRepost;
+
+  /// Returns true if this value is [interactionReply], otherwise false.
+  bool get isInteractionReply => this == KnownEvent.interactionReply;
+
+  /// Returns true if this value is not [interactionReply], otherwise false.
+  bool get isNotInteractionReply => !isInteractionReply;
+
+  /// Returns true if this value is [interactionQuote], otherwise false.
+  bool get isInteractionQuote => this == KnownEvent.interactionQuote;
+
+  /// Returns true if this value is not [interactionQuote], otherwise false.
+  bool get isNotInteractionQuote => !isInteractionQuote;
+
+  /// Returns true if this value is [interactionShare], otherwise false.
+  bool get isInteractionShare => this == KnownEvent.interactionShare;
+
+  /// Returns true if this value is not [interactionShare], otherwise false.
+  bool get isNotInteractionShare => !isInteractionShare;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

@@ -277,6 +277,8 @@ final class LexServiceEndpointArg {
     if (isRequired) {
       if (isRecord && name == 'createdAt') {
         buffer.write('$typeName?');
+      } else if (name == 'seenAt') {
+        buffer.write('$typeName?');
       } else {
         buffer.write('required $typeName');
       }
@@ -299,6 +301,8 @@ final class Payload {
   @override
   String toString() {
     if (arg.isRecord && arg.name == 'createdAt') {
+      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+    } else if (arg.name == 'seenAt') {
       return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
     }
 

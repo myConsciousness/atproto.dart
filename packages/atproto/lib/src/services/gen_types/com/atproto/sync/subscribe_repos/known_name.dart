@@ -39,6 +39,17 @@ enum KnownName {
   }
 }
 
+extension KnownNameExtension on KnownName {
+  /// Returns this value as [UName].
+  UName toUnion() => UName.knownValue(data: this);
+
+  /// Returns true if this value is [outdatedCursor], otherwise false.
+  bool get isOutdatedCursor => this == KnownName.outdatedCursor;
+
+  /// Returns true if this value is not [outdatedCursor], otherwise false.
+  bool get isNotOutdatedCursor => !isOutdatedCursor;
+}
+
 /// This is an union object to improve safety and convenience of objects
 /// using Enum.
 ///

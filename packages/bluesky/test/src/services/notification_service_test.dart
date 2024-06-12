@@ -3,35 +3,36 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:atproto_core/atproto_core.dart' as core;
+import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/count.dart';
-import 'package:bluesky/src/services/entities/notifications.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/get_unread_count/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/list_notifications/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/notification/register_push/known_platform.dart';
 import 'suite/service_suite.dart';
 
 void main() {
-  testNotification<Notifications>(
+  testNotification<ListNotificationsOutput>(
     (m, s) => s.listNotifications(),
     id: appBskyNotificationListNotifications,
   );
 
-  testNotification<Count>(
+  testNotification<GetUnreadCountOutput>(
     (m, s) => s.getUnreadCount(),
     id: appBskyNotificationGetUnreadCount,
   );
 
-  testNotification<core.EmptyData>(
+  testNotification<EmptyData>(
     (m, s) => s.updateSeen(),
     id: appBskyNotificationUpdateSeen,
   );
 
-  testNotification<core.EmptyData>(
+  testNotification<EmptyData>(
     (m, s) => s.registerPush(
       serviceDid: 'did:web:bob.test',
       token: 'fake',
-      platform: core.Platform.web,
+      platform: KnownPlatform.web.toUnion(),
       appId: 'fake id',
     ),
     id: appBskyNotificationRegisterPush,
