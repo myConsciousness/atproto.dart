@@ -16,6 +16,7 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../com/atproto/admin/defs/account_view.dart';
 import '../../com/atproto/admin/defs/status_attr.dart';
 import '../../com/atproto/admin/get_account_infos/output.dart';
 import '../../com/atproto/admin/get_invite_codes/known_sort.dart';
@@ -175,17 +176,18 @@ final class AdminService {
   /// Get details about an account.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfo
-  Future<XRPCResponse<EmptyData>> getAccountInfo({
+  Future<XRPCResponse<AccountView>> getAccountInfo({
     required String did,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<AccountView>(
         ns.comAtprotoAdminGetAccountInfo,
         headers: headers,
         parameters: {
           'did': did,
         },
+        to: const AccountViewConverter().fromJson,
         client: client,
       );
 

@@ -16,7 +16,9 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../chat/bsky/convo/defs/deleted_message_view.dart';
 import '../../chat/bsky/convo/defs/message_input.dart';
+import '../../chat/bsky/convo/defs/message_view.dart';
 import '../../chat/bsky/convo/get_convo/output.dart';
 import '../../chat/bsky/convo/get_convo_for_members/output.dart';
 import '../../chat/bsky/convo/get_log/output.dart';
@@ -154,19 +156,20 @@ final class ConvoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/deleteMessageForSelf
-  Future<XRPCResponse<EmptyData>> deleteMessageForSelf({
+  Future<XRPCResponse<DeletedMessageView>> deleteMessageForSelf({
     required String convoId,
     required String messageId,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<EmptyData>(
+      await _ctx.post<DeletedMessageView>(
         ns.chatBskyConvoDeleteMessageForSelf,
         headers: headers,
         body: {
           'convoId': convoId,
           'messageId': messageId,
         },
+        to: const DeletedMessageViewConverter().fromJson,
         client: client,
       );
 
@@ -221,19 +224,20 @@ final class ConvoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/sendMessage
-  Future<XRPCResponse<EmptyData>> sendMessage({
+  Future<XRPCResponse<MessageView>> sendMessage({
     required String convoId,
     required MessageInput message,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<EmptyData>(
+      await _ctx.post<MessageView>(
         ns.chatBskyConvoSendMessage,
         headers: headers,
         body: {
           'convoId': convoId,
           'message': message,
         },
+        to: const MessageViewConverter().fromJson,
         client: client,
       );
 }

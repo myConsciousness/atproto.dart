@@ -18,6 +18,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/actor/defs/preferences.dart';
+import '../../app/bsky/actor/defs/profile_view_detailed.dart';
 import '../../app/bsky/actor/defs/union_preference.dart';
 import '../../app/bsky/actor/get_profiles/output.dart';
 import '../../app/bsky/actor/get_suggestions/output.dart';
@@ -34,17 +35,18 @@ final class ActorService {
   /// Get detailed profile view of an actor. Does not require auth, but contains relevant metadata with auth.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
-  Future<XRPCResponse<EmptyData>> getProfile({
+  Future<XRPCResponse<ProfileViewDetailed>> getProfile({
     required String actor,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<EmptyData>(
+      await _ctx.get<ProfileViewDetailed>(
         ns.appBskyActorGetProfile,
         headers: headers,
         parameters: {
           'actor': actor,
         },
+        to: const ProfileViewDetailedConverter().fromJson,
         client: client,
       );
 

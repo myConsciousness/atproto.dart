@@ -18,6 +18,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../com/atproto/server/check_account_status/output.dart';
 import '../../com/atproto/server/create_account/output.dart';
+import '../../com/atproto/server/create_app_password/app_password.dart';
 import '../../com/atproto/server/create_invite_code/output.dart';
 import '../../com/atproto/server/create_invite_codes/output.dart';
 import '../../com/atproto/server/create_session/output.dart';
@@ -404,19 +405,20 @@ final class ServerService {
   /// Create an App Password.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/server/createAppPassword
-  Future<XRPCResponse<EmptyData>> createAppPassword({
+  Future<XRPCResponse<AppPassword>> createAppPassword({
     required String name,
     bool? privileged,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<EmptyData>(
+      await _ctx.post<AppPassword>(
         ns.comAtprotoServerCreateAppPassword,
         headers: headers,
         body: {
           'name': name,
           if (privileged != null) 'privileged': privileged,
         },
+        to: const AppPasswordConverter().fromJson,
         client: client,
       );
 

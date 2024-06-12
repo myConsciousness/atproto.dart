@@ -8,10 +8,8 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
-import 'package:bluesky/src/services/entities/actor_profile.dart';
-import 'package:bluesky/src/services/entities/actors_typeahead.dart';
-import 'package:bluesky/src/services/entities/preferences.dart';
-import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_preferences/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_detailed.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_profiles/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_suggestions/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/search_actors/output.dart';
@@ -24,7 +22,7 @@ void main() {
     id: appBskyActorSearchActors,
   );
 
-  testActor<ActorProfile>(
+  testActor<ProfileViewDetailed>(
     (m, s) => s.getProfile(actor: m.actor),
     id: appBskyActorGetProfile,
   );
@@ -52,7 +50,7 @@ void main() {
     id: appBskyActorProfile,
   );
 
-  testActor<GetPreferencesOutput>(
+  testActor<Preferences>(
     (m, s) => s.getPreferences(),
     id: appBskyActorGetPreferences,
   );

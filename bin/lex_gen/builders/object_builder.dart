@@ -22,7 +22,7 @@ final class LexGenObjectBuilder {
 
   List<LexGenObject>? build() {
     final properties = _getProperties();
-    if (properties == null) return null; // RefVariant, no need to create.
+    if (properties == null) return null;
 
     final procedureOutput = context.def?.whenOrNull(
       xrpcProcedure: (data) => data.output?.schema
@@ -162,7 +162,22 @@ final class LexGenObjectBuilder {
 
     final object = body?.schema?.whenOrNull(object: (data) => data);
     if (object == null) {
-      return null; // RefVariant
+      final refVariant = body?.schema?.whenOrNull(refVariant: (data) => data);
+      final ref = refVariant?.whenOrNull(ref: (data) => data);
+
+      if (ref != null && ref.ref != null) {
+        final $ref = getRef(context.docId, ref.ref!);
+
+        return <LexGenObjectProperty>[
+          LexGenObjectProperty(
+            type: DataType(name: toFirstUpper($ref!.defName)),
+            name: 'ref',
+            refVariant: $ref,
+          )
+        ];
+      }
+
+      return null;
     }
 
     if (object.properties?.isEmpty ?? true) {

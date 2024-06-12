@@ -7,9 +7,9 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import 'package:atproto/src/ids.g.dart';
-import 'package:atproto/src/services/entities/app_password.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/server/check_account_status/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/server/create_account/output.dart';
+import 'package:atproto/src/services/gen_types/com/atproto/server/create_app_password/app_password.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/server/create_invite_code/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/server/create_invite_codes/output.dart';
 import 'package:atproto/src/services/gen_types/com/atproto/server/describe_server/output.dart';
