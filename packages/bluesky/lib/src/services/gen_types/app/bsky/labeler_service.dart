@@ -34,6 +34,7 @@ final class LabelerService {
     required LabelerPolicies policies,
     UServiceLabel? labels,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -45,6 +46,7 @@ final class LabelerService {
           'policies': policies,
           if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -56,6 +58,7 @@ final class LabelerService {
   Future<XRPCResponse<GetServicesOutput>> getServices({
     required List<String> dids,
     bool? detailed,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -65,6 +68,7 @@ final class LabelerService {
         parameters: {
           'dids': dids,
           if (detailed != null) 'detailed': detailed,
+          ...?$unknown,
         },
         to: const GetServicesOutputConverter().fromJson,
         client: $client,

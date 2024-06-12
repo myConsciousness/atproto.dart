@@ -27,6 +27,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -38,6 +39,7 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
   Future<XRPCResponse<EmptyData>> exportAccountData({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -52,6 +54,7 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/declaration
   Future<XRPCResponse<StrongRef>> declaration({
     required UDeclarationAllowIncoming allowIncoming,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -61,6 +64,7 @@ final class ActorService {
         record: {
           r'$type': 'chat.bsky.actor.declaration',
           'allowIncoming': allowIncoming.toJson(),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,

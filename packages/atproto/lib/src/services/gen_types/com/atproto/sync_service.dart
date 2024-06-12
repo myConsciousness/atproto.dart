@@ -40,6 +40,7 @@ final class SyncService {
     required NSID collection,
     required String rkey,
     String? commit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -51,6 +52,7 @@ final class SyncService {
           'collection': collection.toString(),
           'rkey': rkey,
           if (commit != null) 'commit': commit,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -61,6 +63,7 @@ final class SyncService {
   Future<XRPCResponse<Uint8List>> getBlocks({
     required String did,
     required List<String> cids,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -70,6 +73,7 @@ final class SyncService {
         parameters: {
           'did': did,
           'cids': cids,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -79,6 +83,7 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getRepoStatus
   Future<XRPCResponse<GetRepoStatusOutput>> getRepoStatus({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -87,6 +92,7 @@ final class SyncService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         to: const GetRepoStatusOutputConverter().fromJson,
         client: $client,
@@ -98,6 +104,7 @@ final class SyncService {
   Future<XRPCResponse<Uint8List>> getRepo({
     required String did,
     String? since,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -107,6 +114,7 @@ final class SyncService {
         parameters: {
           'did': did,
           if (since != null) 'since': since,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -118,6 +126,7 @@ final class SyncService {
       'DEPRECATED - please use com.atproto.sync.getLatestCommit instead')
   Future<XRPCResponse<GetHeadOutput>> getHead({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -126,6 +135,7 @@ final class SyncService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         to: const GetHeadOutputConverter().fromJson,
         client: $client,
@@ -137,6 +147,7 @@ final class SyncService {
   Future<XRPCResponse<Uint8List>> getBlob({
     required String did,
     required String cid,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -146,6 +157,7 @@ final class SyncService {
         parameters: {
           'did': did,
           'cid': cid,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -170,6 +182,7 @@ final class SyncService {
   @Deprecated('DEPRECATED - please use com.atproto.sync.getRepo instead')
   Future<XRPCResponse<Uint8List>> getCheckout({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -178,6 +191,7 @@ final class SyncService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -190,6 +204,7 @@ final class SyncService {
     String? since,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -201,6 +216,7 @@ final class SyncService {
           if (since != null) 'since': since,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const ListBlobsOutputConverter().fromJson,
         client: $client,
@@ -211,6 +227,7 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/requestCrawl
   Future<XRPCResponse<EmptyData>> requestCrawl({
     required String hostname,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -219,6 +236,7 @@ final class SyncService {
         headers: $headers,
         body: {
           'hostname': hostname,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -228,6 +246,7 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/notifyOfUpdate
   Future<XRPCResponse<EmptyData>> notifyOfUpdate({
     required String hostname,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -236,6 +255,7 @@ final class SyncService {
         headers: $headers,
         body: {
           'hostname': hostname,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -246,6 +266,7 @@ final class SyncService {
   Future<XRPCResponse<ListReposOutput>> listRepos({
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -255,6 +276,7 @@ final class SyncService {
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const ListReposOutputConverter().fromJson,
         client: $client,
@@ -265,6 +287,7 @@ final class SyncService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getLatestCommit
   Future<XRPCResponse<GetLatestCommitOutput>> getLatestCommit({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -273,6 +296,7 @@ final class SyncService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         to: const GetLatestCommitOutputConverter().fromJson,
         client: $client,

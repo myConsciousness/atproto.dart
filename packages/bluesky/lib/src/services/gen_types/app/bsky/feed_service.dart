@@ -55,6 +55,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/sendInteractions
   Future<XRPCResponse<EmptyData>> sendInteractions({
     required List<Interaction> interactions,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -63,6 +64,7 @@ final class FeedService {
         headers: $headers,
         body: {
           'interactions': interactions.map((e) => e.toJson()).toList(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -83,6 +85,7 @@ final class FeedService {
     List<String>? tag,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -102,6 +105,7 @@ final class FeedService {
           if (tag != null) 'tag': tag,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchPostsOutputConverter().fromJson,
         client: $client,
@@ -119,6 +123,7 @@ final class FeedService {
     bool? acceptsInteractions,
     UGeneratorLabel? labels,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -138,6 +143,7 @@ final class FeedService {
             'acceptsInteractions': acceptsInteractions,
           if (labels != null) 'labels': labels.toJson(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -147,6 +153,7 @@ final class FeedService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/describeFeedGenerator
   Future<XRPCResponse<DescribeFeedGeneratorOutput>> describeFeedGenerator({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -162,6 +169,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerator
   Future<XRPCResponse<GetFeedGeneratorOutput>> getFeedGenerator({
     required AtUri feed,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -170,6 +178,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feed': feed.toString(),
+          ...?$unknown,
         },
         to: const GetFeedGeneratorOutputConverter().fromJson,
         client: $client,
@@ -182,6 +191,7 @@ final class FeedService {
     required AtUri list,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -192,6 +202,7 @@ final class FeedService {
           'list': list.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetListFeedOutputConverter().fromJson,
         client: $client,
@@ -204,6 +215,7 @@ final class FeedService {
     required AtUri post,
     List<UThreadgateAllow>? allow,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -216,6 +228,7 @@ final class FeedService {
           'post': post.toString(),
           if (allow != null) 'allow': allow.map((e) => e.toJson()).toList(),
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -229,6 +242,7 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -240,6 +254,7 @@ final class FeedService {
           if (cid != null) 'cid': cid,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetLikesOutputConverter().fromJson,
         client: $client,
@@ -252,6 +267,7 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -262,6 +278,7 @@ final class FeedService {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFeedOutputConverter().fromJson,
         client: $client,
@@ -275,6 +292,7 @@ final class FeedService {
     String? cid,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -286,6 +304,7 @@ final class FeedService {
           if (cid != null) 'cid': cid,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetRepostedByOutputConverter().fromJson,
         client: $client,
@@ -297,6 +316,7 @@ final class FeedService {
   Future<XRPCResponse<StrongRef>> repost({
     required StrongRef subject,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -307,6 +327,7 @@ final class FeedService {
           r'$type': 'app.bsky.feed.repost',
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -318,6 +339,7 @@ final class FeedService {
   Future<XRPCResponse<StrongRef>> like({
     required StrongRef subject,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -328,6 +350,7 @@ final class FeedService {
           r'$type': 'app.bsky.feed.like',
           'subject': subject,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -338,6 +361,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getPosts
   Future<XRPCResponse<GetPostsOutput>> getPosts({
     required List<AtUri> uris,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -346,6 +370,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'uris': uris.map((e) => e.toString()).toList(),
+          ...?$unknown,
         },
         to: const GetPostsOutputConverter().fromJson,
         client: $client,
@@ -356,6 +381,7 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/getFeedGenerators
   Future<XRPCResponse<GetFeedGeneratorsOutput>> getFeedGenerators({
     required List<AtUri> feeds,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -364,6 +390,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feeds': feeds.map((e) => e.toString()).toList(),
+          ...?$unknown,
         },
         to: const GetFeedGeneratorsOutputConverter().fromJson,
         client: $client,
@@ -375,6 +402,7 @@ final class FeedService {
   Future<XRPCResponse<GetSuggestedFeedsOutput>> getSuggestedFeeds({
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -384,6 +412,7 @@ final class FeedService {
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetSuggestedFeedsOutputConverter().fromJson,
         client: $client,
@@ -396,6 +425,7 @@ final class FeedService {
     required AtUri uri,
     int? depth,
     int? parentHeight,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -406,6 +436,7 @@ final class FeedService {
           'uri': uri.toString(),
           if (depth != null) 'depth': depth,
           if (parentHeight != null) 'parentHeight': parentHeight,
+          ...?$unknown,
         },
         to: const GetPostThreadOutputConverter().fromJson,
         client: $client,
@@ -418,6 +449,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -428,6 +460,7 @@ final class FeedService {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetActorLikesOutputConverter().fromJson,
         client: $client,
@@ -441,6 +474,7 @@ final class FeedService {
     int? limit,
     String? cursor,
     UFilter? filter,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -452,6 +486,7 @@ final class FeedService {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
           if (filter != null) 'filter': filter.toJson(),
+          ...?$unknown,
         },
         to: const GetAuthorFeedOutputConverter().fromJson,
         client: $client,
@@ -464,6 +499,7 @@ final class FeedService {
     required AtUri feed,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -474,6 +510,7 @@ final class FeedService {
           'feed': feed.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetFeedSkeletonOutputConverter().fromJson,
         client: $client,
@@ -486,6 +523,7 @@ final class FeedService {
     String? algorithm,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -496,6 +534,7 @@ final class FeedService {
           if (algorithm != null) 'algorithm': algorithm,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetTimelineOutputConverter().fromJson,
         client: $client,
@@ -514,6 +553,7 @@ final class FeedService {
     UPostLabel? labels,
     List<String>? tags,
     DateTime? createdAt,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -532,6 +572,7 @@ final class FeedService {
           if (labels != null) 'labels': labels.toJson(),
           if (tags != null) 'tags': tags,
           'createdAt': _ctx.toUtcIso8601String(createdAt),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -544,6 +585,7 @@ final class FeedService {
     required String actor,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -554,6 +596,7 @@ final class FeedService {
           'actor': actor,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetActorFeedsOutputConverter().fromJson,
         client: $client,

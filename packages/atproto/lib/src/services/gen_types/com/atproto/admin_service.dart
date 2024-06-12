@@ -40,6 +40,7 @@ final class AdminService {
     String? did,
     AtUri? uri,
     String? blob,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -50,6 +51,7 @@ final class AdminService {
           if (did != null) 'did': did,
           if (uri != null) 'uri': uri.toString(),
           if (blob != null) 'blob': blob,
+          ...?$unknown,
         },
         to: const GetSubjectStatusOutputConverter().fromJson,
         client: $client,
@@ -61,6 +63,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountPassword({
     required String did,
     required String password,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -70,6 +73,7 @@ final class AdminService {
         body: {
           'did': did,
           'password': password,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -81,6 +85,7 @@ final class AdminService {
     USort? sort,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -91,6 +96,7 @@ final class AdminService {
           if (sort != null) 'sort': sort.toJson(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetInviteCodesOutputConverter().fromJson,
         client: $client,
@@ -103,6 +109,7 @@ final class AdminService {
     String? email,
     String? cursor,
     int? limit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -113,6 +120,7 @@ final class AdminService {
           if (email != null) 'email': email,
           if (cursor != null) 'cursor': cursor,
           if (limit != null) 'limit': limit,
+          ...?$unknown,
         },
         to: const SearchAccountsOutputConverter().fromJson,
         client: $client,
@@ -124,6 +132,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountHandle({
     required String did,
     required String handle,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -133,6 +142,7 @@ final class AdminService {
         body: {
           'did': did,
           'handle': handle,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -142,6 +152,7 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -150,6 +161,7 @@ final class AdminService {
         headers: $headers,
         body: {
           'did': did,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -160,6 +172,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> disableAccountInvites({
     required String account,
     String? note,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -169,6 +182,7 @@ final class AdminService {
         body: {
           'account': account,
           if (note != null) 'note': note,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -178,6 +192,7 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfo
   Future<XRPCResponse<AccountView>> getAccountInfo({
     required String did,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -186,6 +201,7 @@ final class AdminService {
         headers: $headers,
         parameters: {
           'did': did,
+          ...?$unknown,
         },
         to: const AccountViewConverter().fromJson,
         client: $client,
@@ -198,6 +214,7 @@ final class AdminService {
     required USubject subject,
     StatusAttr? takedown,
     StatusAttr? deactivated,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -208,6 +225,7 @@ final class AdminService {
           'subject': subject.toJson(),
           if (takedown != null) 'takedown': takedown,
           if (deactivated != null) 'deactivated': deactivated,
+          ...?$unknown,
         },
         to: const UpdateSubjectStatusOutputConverter().fromJson,
         client: $client,
@@ -219,6 +237,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> enableAccountInvites({
     required String account,
     String? note,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -228,6 +247,7 @@ final class AdminService {
         body: {
           'account': account,
           if (note != null) 'note': note,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -238,6 +258,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> disableInviteCodes({
     List<String>? codes,
     List<String>? accounts,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -247,6 +268,7 @@ final class AdminService {
         body: {
           if (codes != null) 'codes': codes,
           if (accounts != null) 'accounts': accounts,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -260,6 +282,7 @@ final class AdminService {
     String? subject,
     required String senderDid,
     String? comment,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -272,6 +295,7 @@ final class AdminService {
           if (subject != null) 'subject': subject,
           'senderDid': senderDid,
           if (comment != null) 'comment': comment,
+          ...?$unknown,
         },
         to: const SendEmailOutputConverter().fromJson,
         client: $client,
@@ -283,6 +307,7 @@ final class AdminService {
   Future<XRPCResponse<EmptyData>> updateAccountEmail({
     required String account,
     required String email,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -292,6 +317,7 @@ final class AdminService {
         body: {
           'account': account,
           'email': email,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -301,6 +327,7 @@ final class AdminService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/admin/getAccountInfos
   Future<XRPCResponse<GetAccountInfosOutput>> getAccountInfos({
     required List<String> dids,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -309,6 +336,7 @@ final class AdminService {
         headers: $headers,
         parameters: {
           'dids': dids,
+          ...?$unknown,
         },
         to: const GetAccountInfosOutputConverter().fromJson,
         client: $client,

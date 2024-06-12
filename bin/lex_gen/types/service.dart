@@ -141,6 +141,7 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    GetClient? \$client,');
       buffer.writeln('  }) async =>');
@@ -149,6 +150,7 @@ final class LexServiceEndpoint {
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    GetClient? \$client,');
       buffer.writeln('  }) async =>');
@@ -161,6 +163,7 @@ final class LexServiceEndpoint {
       for (final arg in args) {
         buffer.writeln(Payload(arg).toString());
       }
+      buffer.writeln('          ...?\$unknown,');
       buffer.writeln('    },');
     }
     if (type.converter != null) {
@@ -177,6 +180,7 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
@@ -184,6 +188,9 @@ final class LexServiceEndpoint {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
+      }
+      if (!args.first.isBytes) {
+        buffer.writeln('    Map<String, dynamic>? \$unknown,');
       }
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    PostClient? \$client,');
@@ -200,6 +207,7 @@ final class LexServiceEndpoint {
         for (final arg in args) {
           buffer.writeln(Payload(arg).toString());
         }
+        buffer.writeln('          ...?\$unknown,');
         buffer.writeln('    },');
       }
     }
@@ -217,6 +225,7 @@ final class LexServiceEndpoint {
 
     if (args.isEmpty) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
@@ -225,6 +234,7 @@ final class LexServiceEndpoint {
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
+      buffer.writeln('    Map<String, dynamic>? \$unknown,');
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
@@ -240,6 +250,7 @@ final class LexServiceEndpoint {
     for (final arg in args) {
       buffer.writeln(Payload(arg).toString());
     }
+    buffer.writeln('          ...?\$unknown,');
     buffer.writeln('        },');
     buffer.writeln('        \$headers: \$headers,');
     buffer.writeln('        \$client: \$client,');

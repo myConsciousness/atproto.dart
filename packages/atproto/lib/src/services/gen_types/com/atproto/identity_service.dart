@@ -31,6 +31,7 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/updateHandle
   Future<XRPCResponse<EmptyData>> updateHandle({
     required String handle,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -39,6 +40,7 @@ final class IdentityService {
         headers: $headers,
         body: {
           'handle': handle,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -48,6 +50,7 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/submitPlcOperation
   Future<XRPCResponse<EmptyData>> submitPlcOperation({
     required Map<String, dynamic> operation,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -56,6 +59,7 @@ final class IdentityService {
         headers: $headers,
         body: {
           'operation': operation,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -65,6 +69,7 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/resolveHandle
   Future<XRPCResponse<ResolveHandleOutput>> resolveHandle({
     required String handle,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -73,6 +78,7 @@ final class IdentityService {
         headers: $headers,
         parameters: {
           'handle': handle,
+          ...?$unknown,
         },
         to: const ResolveHandleOutputConverter().fromJson,
         client: $client,
@@ -87,6 +93,7 @@ final class IdentityService {
     List<String>? alsoKnownAs,
     Map<String, dynamic>? verificationMethods,
     Map<String, dynamic>? services,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -100,6 +107,7 @@ final class IdentityService {
           if (verificationMethods != null)
             'verificationMethods': verificationMethods,
           if (services != null) 'services': services,
+          ...?$unknown,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
         client: $client,
@@ -110,6 +118,7 @@ final class IdentityService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/getRecommendedDidCredentials
   Future<XRPCResponse<GetRecommendedDidCredentialsOutput>>
       getRecommendedDidCredentials({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -124,6 +133,7 @@ final class IdentityService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/identity/requestPlcOperationSignature
   Future<XRPCResponse<EmptyData>> requestPlcOperationSignature({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>

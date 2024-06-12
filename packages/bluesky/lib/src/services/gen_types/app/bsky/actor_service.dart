@@ -37,6 +37,7 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfile
   Future<XRPCResponse<ProfileViewDetailed>> getProfile({
     required String actor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -45,6 +46,7 @@ final class ActorService {
         headers: $headers,
         parameters: {
           'actor': actor,
+          ...?$unknown,
         },
         to: const ProfileViewDetailedConverter().fromJson,
         client: $client,
@@ -58,6 +60,7 @@ final class ActorService {
     String? q,
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -69,6 +72,7 @@ final class ActorService {
           if (q != null) 'q': q,
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const SearchActorsOutputConverter().fromJson,
         client: $client,
@@ -81,6 +85,7 @@ final class ActorService {
     String? term,
     String? q,
     int? limit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -91,6 +96,7 @@ final class ActorService {
           if (term != null) 'term': term,
           if (q != null) 'q': q,
           if (limit != null) 'limit': limit,
+          ...?$unknown,
         },
         to: const SearchActorsTypeaheadOutputConverter().fromJson,
         client: $client,
@@ -101,6 +107,7 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getProfiles
   Future<XRPCResponse<GetProfilesOutput>> getProfiles({
     required List<String> actors,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -109,6 +116,7 @@ final class ActorService {
         headers: $headers,
         parameters: {
           'actors': actors,
+          ...?$unknown,
         },
         to: const GetProfilesOutputConverter().fromJson,
         client: $client,
@@ -120,6 +128,7 @@ final class ActorService {
   Future<XRPCResponse<GetSuggestionsOutput>> getSuggestions({
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -129,6 +138,7 @@ final class ActorService {
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const GetSuggestionsOutputConverter().fromJson,
         client: $client,
@@ -139,6 +149,7 @@ final class ActorService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/putPreferences
   Future<XRPCResponse<EmptyData>> putPreferences({
     required List<UPreference> preferences,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -147,6 +158,7 @@ final class ActorService {
         headers: $headers,
         body: {
           'preferences': preferences.map((e) => e.toJson()).toList(),
+          ...?$unknown,
         },
         client: $client,
       );
@@ -160,6 +172,7 @@ final class ActorService {
     Blob? avatar,
     Blob? banner,
     UProfileLabel? labels,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -173,6 +186,7 @@ final class ActorService {
           if (avatar != null) 'avatar': avatar.toJson(),
           if (banner != null) 'banner': banner.toJson(),
           if (labels != null) 'labels': labels.toJson(),
+          ...?$unknown,
         },
         $headers: $headers,
         $client: $client,
@@ -182,6 +196,7 @@ final class ActorService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences
   Future<XRPCResponse<Preferences>> getPreferences({
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>

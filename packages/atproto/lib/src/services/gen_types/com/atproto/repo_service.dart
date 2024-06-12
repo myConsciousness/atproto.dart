@@ -41,6 +41,7 @@ final class RepoService {
     required NSID collection,
     required String rkey,
     String? cid,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -52,6 +53,7 @@ final class RepoService {
           'collection': collection.toString(),
           'rkey': rkey,
           if (cid != null) 'cid': cid,
+          ...?$unknown,
         },
         to: const GetRecordOutputConverter().fromJson,
         client: $client,
@@ -83,6 +85,7 @@ final class RepoService {
     String? rkeyStart,
     String? rkeyEnd,
     bool? reverse,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -97,6 +100,7 @@ final class RepoService {
           if (rkeyStart != null) 'rkeyStart': rkeyStart,
           if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
           if (reverse != null) 'reverse': reverse,
+          ...?$unknown,
         },
         to: const ListRecordsOutputConverter().fromJson,
         client: $client,
@@ -108,6 +112,7 @@ final class RepoService {
   Future<XRPCResponse<ListMissingBlobsOutput>> listMissingBlobs({
     int? limit,
     String? cursor,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -117,6 +122,7 @@ final class RepoService {
         parameters: {
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
+          ...?$unknown,
         },
         to: const ListMissingBlobsOutputConverter().fromJson,
         client: $client,
@@ -130,6 +136,7 @@ final class RepoService {
     bool? validate,
     required List<UWrite> writes,
     String? swapCommit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -141,6 +148,7 @@ final class RepoService {
           if (validate != null) 'validate': validate,
           'writes': writes.map((e) => e.toJson()).toList(),
           if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -170,6 +178,7 @@ final class RepoService {
     required String rkey,
     String? swapRecord,
     String? swapCommit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -182,6 +191,7 @@ final class RepoService {
           'rkey': rkey,
           if (swapRecord != null) 'swapRecord': swapRecord,
           if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
         },
         client: $client,
       );
@@ -197,6 +207,7 @@ final class RepoService {
     required Map<String, dynamic> record,
     String? swapRecord,
     String? swapCommit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -211,6 +222,7 @@ final class RepoService {
           'record': record,
           if (swapRecord != null) 'swapRecord': swapRecord,
           if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
         },
         to: const StrongRefConverter().fromJson,
         client: $client,
@@ -221,6 +233,7 @@ final class RepoService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
     String? repo,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -229,6 +242,7 @@ final class RepoService {
         headers: $headers,
         parameters: {
           'repo': repo ?? _ctx.repo,
+          ...?$unknown,
         },
         to: const DescribeRepoOutputConverter().fromJson,
         client: $client,
@@ -244,6 +258,7 @@ final class RepoService {
     bool? validate,
     required Map<String, dynamic> record,
     String? swapCommit,
+    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -257,6 +272,7 @@ final class RepoService {
           if (validate != null) 'validate': validate,
           'record': record,
           if (swapCommit != null) 'swapCommit': swapCommit,
+          ...?$unknown,
         },
         to: const StrongRefConverter().fromJson,
         client: $client,
