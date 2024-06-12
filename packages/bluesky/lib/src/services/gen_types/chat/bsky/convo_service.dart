@@ -16,14 +16,18 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
-import '../../chat/bsky/convo/defs/convo_view.dart';
 import '../../chat/bsky/convo/defs/message_input.dart';
+import '../../chat/bsky/convo/get_convo/output.dart';
+import '../../chat/bsky/convo/get_convo_for_members/output.dart';
 import '../../chat/bsky/convo/get_log/output.dart';
 import '../../chat/bsky/convo/get_messages/output.dart';
 import '../../chat/bsky/convo/leave_convo/output.dart';
 import '../../chat/bsky/convo/list_convos/output.dart';
+import '../../chat/bsky/convo/mute_convo/output.dart';
 import '../../chat/bsky/convo/send_message_batch/batch_item.dart';
 import '../../chat/bsky/convo/send_message_batch/output.dart';
+import '../../chat/bsky/convo/unmute_convo/output.dart';
+import '../../chat/bsky/convo/update_read/output.dart';
 
 /// Contains `chat.bsky.convo.*` endpoints.
 final class ConvoService {
@@ -32,18 +36,18 @@ final class ConvoService {
   final BlueskyServiceContext _ctx;
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/muteConvo
-  Future<XRPCResponse<ConvoView>> muteConvo({
+  Future<XRPCResponse<MuteConvoOutput>> muteConvo({
     required String convoId,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<ConvoView>(
+      await _ctx.post<MuteConvoOutput>(
         ns.chatBskyConvoMuteConvo,
         headers: headers,
         body: {
           'convoId': convoId,
         },
-        to: const ConvoViewConverter().fromJson,
+        to: const MuteConvoOutputConverter().fromJson,
         client: client,
       );
 
@@ -100,34 +104,34 @@ final class ConvoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvoForMembers
-  Future<XRPCResponse<ConvoView>> getConvoForMembers({
+  Future<XRPCResponse<GetConvoForMembersOutput>> getConvoForMembers({
     required List<String> members,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<ConvoView>(
+      await _ctx.get<GetConvoForMembersOutput>(
         ns.chatBskyConvoGetConvoForMembers,
         headers: headers,
         parameters: {
           'members': members,
         },
-        to: const ConvoViewConverter().fromJson,
+        to: const GetConvoForMembersOutputConverter().fromJson,
         client: client,
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/unmuteConvo
-  Future<XRPCResponse<ConvoView>> unmuteConvo({
+  Future<XRPCResponse<UnmuteConvoOutput>> unmuteConvo({
     required String convoId,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<ConvoView>(
+      await _ctx.post<UnmuteConvoOutput>(
         ns.chatBskyConvoUnmuteConvo,
         headers: headers,
         body: {
           'convoId': convoId,
         },
-        to: const ConvoViewConverter().fromJson,
+        to: const UnmuteConvoOutputConverter().fromJson,
         client: client,
       );
 
@@ -167,18 +171,18 @@ final class ConvoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/getConvo
-  Future<XRPCResponse<ConvoView>> getConvo({
+  Future<XRPCResponse<GetConvoOutput>> getConvo({
     required String convoId,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
-      await _ctx.get<ConvoView>(
+      await _ctx.get<GetConvoOutput>(
         ns.chatBskyConvoGetConvo,
         headers: headers,
         parameters: {
           'convoId': convoId,
         },
-        to: const ConvoViewConverter().fromJson,
+        to: const GetConvoOutputConverter().fromJson,
         client: client,
       );
 
@@ -199,20 +203,20 @@ final class ConvoService {
       );
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/convo/updateRead
-  Future<XRPCResponse<ConvoView>> updateRead({
+  Future<XRPCResponse<UpdateReadOutput>> updateRead({
     required String convoId,
     String? messageId,
     Map<String, String>? headers,
     PostClient? client,
   }) async =>
-      await _ctx.post<ConvoView>(
+      await _ctx.post<UpdateReadOutput>(
         ns.chatBskyConvoUpdateRead,
         headers: headers,
         body: {
           'convoId': convoId,
           if (messageId != null) 'messageId': messageId,
         },
-        to: const ConvoViewConverter().fromJson,
+        to: const UpdateReadOutputConverter().fromJson,
         client: client,
       );
 

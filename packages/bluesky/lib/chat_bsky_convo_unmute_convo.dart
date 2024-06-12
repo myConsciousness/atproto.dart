@@ -11,3 +11,4 @@
 // **************************************************************************
 
 export 'package:bluesky/src/services/gen_types/chat/bsky/convo/unmute_convo/input.dart';
+export 'package:bluesky/src/services/gen_types/chat/bsky/convo/unmute_convo/output.dart';

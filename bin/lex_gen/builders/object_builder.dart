@@ -211,7 +211,7 @@ final class LexGenObjectBuilder {
             name: propertyName,
             array: refDefJson['items'] != null,
             union: union,
-            refVariant: $ref,
+            refVariant: refDefJson['items'] != null ? $ref : null,
           )
         ];
       }
