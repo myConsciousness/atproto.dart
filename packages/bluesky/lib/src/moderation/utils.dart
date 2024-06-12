@@ -11,8 +11,8 @@ import '../services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
 import '../services/gen_types/app/bsky/actor/defs/known_visibility.dart';
 import '../services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
 import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
+import '../services/gen_types/app/bsky/actor/defs/preferences.dart';
 import '../services/gen_types/app/bsky/actor/defs/union_preference.dart';
-import '../services/gen_types/app/bsky/actor/get_preferences/output.dart';
 import '../services/gen_types/app/bsky/labeler/defs/labeler_view_detailed.dart';
 import '../services/gen_types/app/bsky/labeler/get_services/union_view.dart';
 import '../services/gen_types/app/bsky/labeler_service.dart';
@@ -158,7 +158,7 @@ extension LabelerServiceExtension on LabelerService {
   }
 }
 
-extension PreferencesExtension on GetPreferencesOutput {
+extension PreferencesExtension on Preferences {
   ModerationPrefs getModerationPrefs({
     List<String> appLabelers = const [_kBskyLabelerDid],
   }) {

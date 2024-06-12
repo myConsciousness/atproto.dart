@@ -14,27 +14,40 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/union_preference.dart';
 
-part 'output.freezed.dart';
-part 'output.g.dart';
+part 'preferences.freezed.dart';
+part 'preferences.g.dart';
 
-/// https://atprotodart.com/docs/lexicons/app/bsky/actor/getPreferences#main
+/// https://atprotodart.com/docs/lexicons/app/bsky/actor/defs#preferences
 @freezed
-class GetPreferencesOutput with _$GetPreferencesOutput {
+class Preferences with _$Preferences {
   @JsonSerializable(includeIfNull: false)
-  const factory GetPreferencesOutput({
+  const factory Preferences({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.defs#preferences`
+    @Default(appBskyActorDefsPreferences) @JsonKey(name: r'$type') String $type,
     @UPreferenceConverter() required List<UPreference> preferences,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
-  }) = _GetPreferencesOutput;
+  }) = _Preferences;
 
-  factory GetPreferencesOutput.fromJson(Map<String, dynamic> json) =>
-      _$GetPreferencesOutputFromJson(json);
+  factory Preferences.fromJson(Map<String, dynamic> json) =>
+      _$PreferencesFromJson(json);
 }
 
-extension $GetPreferencesOutputExtension on GetPreferencesOutput {
+/// Returns true if [object] is [Preferences], otherwise false.
+bool isPreferences(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#preferences';
+}
+
+extension $PreferencesExtension on Preferences {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;
@@ -45,17 +58,18 @@ extension $GetPreferencesOutputExtension on GetPreferencesOutput {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'preferences',
 ];
 
-final class GetPreferencesOutputConverter
-    implements JsonConverter<GetPreferencesOutput, Map<String, dynamic>> {
-  const GetPreferencesOutputConverter();
+final class PreferencesConverter
+    implements JsonConverter<Preferences, Map<String, dynamic>> {
+  const PreferencesConverter();
 
   @override
-  GetPreferencesOutput fromJson(Map<String, dynamic> json) {
+  Preferences fromJson(Map<String, dynamic> json) {
     if (_kLexCompatibleProperties.length == json.length) {
-      return GetPreferencesOutput.fromJson(json);
+      return Preferences.fromJson(json);
     }
 
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
@@ -69,11 +83,11 @@ final class GetPreferencesOutputConverter
       }
     }
 
-    return GetPreferencesOutput.fromJson(lexCompatiblePropertiesWithUnknown);
+    return Preferences.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(GetPreferencesOutput object) {
+  Map<String, dynamic> toJson(Preferences object) {
     if (object.$unknown.isEmpty) {
       return object.toJson();
     }

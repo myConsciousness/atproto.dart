@@ -24,13 +24,6 @@ final class LexGenObjectBuilder {
     final properties = _getProperties();
     if (properties == null) return null; // RefVariant, no need to create.
 
-    String? namespace;
-    if (context.def is ULexUserTypeObject) {
-      namespace = context.defName == 'main'
-          ? context.docId.toString()
-          : '${context.docId.toString()}#${context.defName}';
-    }
-
     final procedureOutput = context.def?.whenOrNull(
       xrpcProcedure: (data) => data.output?.schema
           ?.whenOrNull(object: (data) => data)
@@ -41,9 +34,49 @@ final class LexGenObjectBuilder {
     return properties.entries.expand((e) {
       if (e.value == null) return const <LexGenObject>[];
 
+      LexGenObject? refObject;
+      if (e.value?.length == 1 && e.value?.first.refVariant != null) {
+        final refVariant = e.value?.first.refVariant!;
+        final convention = LexNamingConvention(
+          LexGenContext(
+            docId: refVariant!.docId,
+            defName: refVariant.defName,
+            def: refVariant.def,
+            mainRelatedDocIds: context.mainRelatedDocIds,
+          ),
+          objectType: ObjectType.object,
+        );
+
+        final namespace = refVariant.defName == 'main'
+            ? refVariant.docId.toString()
+            : '${refVariant.docId.toString()}#${refVariant.defName}';
+
+        refObject = LexGenObject(
+          type: ObjectType.object,
+          description: _getDescription(),
+          referencePath: getReferencePath(
+            refVariant.docId.toString(),
+            refVariant.defName,
+          ),
+          namespace: namespace,
+          name: convention.getObjectName(),
+          fileName: convention.getFileName(),
+          properties: e.value!,
+          filePath: convention.getFilePath(),
+        );
+      }
+
       final convention = LexNamingConvention(context, objectType: e.key);
 
+      String? namespace;
+      if (context.def is ULexUserTypeObject) {
+        namespace = context.defName == 'main'
+            ? context.docId.toString()
+            : '${context.docId.toString()}#${context.defName}';
+      }
+
       return [
+        if (refObject != null) refObject,
         LexGenObject(
           type: e.key,
           isStrongRef:
@@ -56,6 +89,7 @@ final class LexGenObjectBuilder {
           fileName: convention.getFileName(),
           properties: e.value!,
           filePath: convention.getFilePath(),
+          ignore: refObject != null,
         )
       ];
     }).toList();
@@ -175,13 +209,7 @@ final class LexGenObjectBuilder {
             name: propertyName,
             array: refDefJson['items'] != null,
             union: union,
-            defaultValue: getDefaultValue(
-              propertyJson['default'],
-              dataType,
-              context.docId,
-              propertyJson['ref'],
-              objectType,
-            ),
+            refVariant: $ref,
           )
         ];
       }

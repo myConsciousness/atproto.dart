@@ -11,11 +11,13 @@ import '../rules/object_type.dart';
 import 'data_type.dart';
 import 'known_values.dart';
 import 'union.dart';
+import 'ref.dart';
 
 final class LexGenObject {
   const LexGenObject({
     required this.type,
-    required this.isStrongRef,
+    this.isStrongRef = false,
+    this.ignore = false,
     this.description,
     required this.referencePath,
     this.namespace,
@@ -27,6 +29,7 @@ final class LexGenObject {
 
   final ObjectType type;
   final bool isStrongRef;
+  final bool ignore;
 
   final String? description;
   final String referencePath;
@@ -43,6 +46,12 @@ final class LexGenObject {
     if (properties.length > 1) return false;
 
     return properties.first.type.name == 'Uint8List';
+  }
+
+  Ref? get refVariant {
+    if (properties.length != 1) return null;
+
+    return properties.first.refVariant;
   }
 
   @override
@@ -222,6 +231,7 @@ final class LexGenObjectProperty {
     this.knownValues,
     this.union,
     this.defaultValue,
+    this.refVariant,
   });
 
   final String? description;
@@ -233,7 +243,10 @@ final class LexGenObjectProperty {
 
   final LexGenKnownValues? knownValues;
   final LexUnion? union;
+
   final String? defaultValue;
+
+  final Ref? refVariant;
 
   String build(final ObjectType objectType) {
     if (knownValues != null) {

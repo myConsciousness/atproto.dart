@@ -2,18 +2,19 @@
 
 // ignore_for_file: non_constant_identifier_names
 
-part of 'input.dart';
+part of 'preferences.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PutPreferencesInputImpl _$$PutPreferencesInputImplFromJson(Map json) =>
-    $checkedCreate(
-      r'_$PutPreferencesInputImpl',
+_$PreferencesImpl _$$PreferencesImplFromJson(Map json) => $checkedCreate(
+      r'_$PreferencesImpl',
       json,
       ($checkedConvert) {
-        final val = _$PutPreferencesInputImpl(
+        final val = _$PreferencesImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorDefsPreferences),
           preferences: $checkedConvert(
               'preferences',
               (v) => (v as List<dynamic>)
@@ -32,9 +33,9 @@ _$PutPreferencesInputImpl _$$PutPreferencesInputImplFromJson(Map json) =>
       },
     );
 
-Map<String, dynamic> _$$PutPreferencesInputImplToJson(
-        _$PutPreferencesInputImpl instance) =>
+Map<String, dynamic> _$$PreferencesImplToJson(_$PreferencesImpl instance) =>
     <String, dynamic>{
+      r'$type': instance.$type,
       'preferences': instance.preferences
           .map(const UPreferenceConverter().toJson)
           .toList(),

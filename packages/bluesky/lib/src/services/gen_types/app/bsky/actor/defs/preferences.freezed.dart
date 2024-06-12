@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'output.dart';
+part of 'preferences.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,12 +14,17 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-GetPreferencesOutput _$GetPreferencesOutputFromJson(Map<String, dynamic> json) {
-  return _GetPreferencesOutput.fromJson(json);
+Preferences _$PreferencesFromJson(Map<String, dynamic> json) {
+  return _Preferences.fromJson(json);
 }
 
 /// @nodoc
-mixin _$GetPreferencesOutput {
+mixin _$Preferences {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#preferences`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @UPreferenceConverter()
   List<UPreference> get preferences => throw _privateConstructorUsedError;
 
@@ -29,26 +34,26 @@ mixin _$GetPreferencesOutput {
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $GetPreferencesOutputCopyWith<GetPreferencesOutput> get copyWith =>
+  $PreferencesCopyWith<Preferences> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $GetPreferencesOutputCopyWith<$Res> {
-  factory $GetPreferencesOutputCopyWith(GetPreferencesOutput value,
-          $Res Function(GetPreferencesOutput) then) =
-      _$GetPreferencesOutputCopyWithImpl<$Res, GetPreferencesOutput>;
+abstract class $PreferencesCopyWith<$Res> {
+  factory $PreferencesCopyWith(
+          Preferences value, $Res Function(Preferences) then) =
+      _$PreferencesCopyWithImpl<$Res, Preferences>;
   @useResult
   $Res call(
-      {@UPreferenceConverter() List<UPreference> preferences,
+      {@JsonKey(name: r'$type') String $type,
+      @UPreferenceConverter() List<UPreference> preferences,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
-class _$GetPreferencesOutputCopyWithImpl<$Res,
-        $Val extends GetPreferencesOutput>
-    implements $GetPreferencesOutputCopyWith<$Res> {
-  _$GetPreferencesOutputCopyWithImpl(this._value, this._then);
+class _$PreferencesCopyWithImpl<$Res, $Val extends Preferences>
+    implements $PreferencesCopyWith<$Res> {
+  _$PreferencesCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,10 +63,15 @@ class _$GetPreferencesOutputCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? preferences = null,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       preferences: null == preferences
           ? _value.preferences
           : preferences // ignore: cast_nullable_to_non_nullable
@@ -75,33 +85,39 @@ class _$GetPreferencesOutputCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$GetPreferencesOutputImplCopyWith<$Res>
-    implements $GetPreferencesOutputCopyWith<$Res> {
-  factory _$$GetPreferencesOutputImplCopyWith(_$GetPreferencesOutputImpl value,
-          $Res Function(_$GetPreferencesOutputImpl) then) =
-      __$$GetPreferencesOutputImplCopyWithImpl<$Res>;
+abstract class _$$PreferencesImplCopyWith<$Res>
+    implements $PreferencesCopyWith<$Res> {
+  factory _$$PreferencesImplCopyWith(
+          _$PreferencesImpl value, $Res Function(_$PreferencesImpl) then) =
+      __$$PreferencesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
-      {@UPreferenceConverter() List<UPreference> preferences,
+      {@JsonKey(name: r'$type') String $type,
+      @UPreferenceConverter() List<UPreference> preferences,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
-class __$$GetPreferencesOutputImplCopyWithImpl<$Res>
-    extends _$GetPreferencesOutputCopyWithImpl<$Res, _$GetPreferencesOutputImpl>
-    implements _$$GetPreferencesOutputImplCopyWith<$Res> {
-  __$$GetPreferencesOutputImplCopyWithImpl(_$GetPreferencesOutputImpl _value,
-      $Res Function(_$GetPreferencesOutputImpl) _then)
+class __$$PreferencesImplCopyWithImpl<$Res>
+    extends _$PreferencesCopyWithImpl<$Res, _$PreferencesImpl>
+    implements _$$PreferencesImplCopyWith<$Res> {
+  __$$PreferencesImplCopyWithImpl(
+      _$PreferencesImpl _value, $Res Function(_$PreferencesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? preferences = null,
     Object? $unknown = null,
   }) {
-    return _then(_$GetPreferencesOutputImpl(
+    return _then(_$PreferencesImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       preferences: null == preferences
           ? _value._preferences
           : preferences // ignore: cast_nullable_to_non_nullable
@@ -117,17 +133,24 @@ class __$$GetPreferencesOutputImplCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(includeIfNull: false)
-class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
-  const _$GetPreferencesOutputImpl(
-      {@UPreferenceConverter() required final List<UPreference> preferences,
+class _$PreferencesImpl implements _Preferences {
+  const _$PreferencesImpl(
+      {@JsonKey(name: r'$type') this.$type = appBskyActorDefsPreferences,
+      @UPreferenceConverter() required final List<UPreference> preferences,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _preferences = preferences,
         _$unknown = $unknown;
 
-  factory _$GetPreferencesOutputImpl.fromJson(Map<String, dynamic> json) =>
-      _$$GetPreferencesOutputImplFromJson(json);
+  factory _$PreferencesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PreferencesImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#preferences`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   final List<UPreference> _preferences;
   @override
   @UPreferenceConverter()
@@ -151,14 +174,15 @@ class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
 
   @override
   String toString() {
-    return 'GetPreferencesOutput(preferences: $preferences, \$unknown: ${$unknown})';
+    return 'Preferences(\$type: ${$type}, preferences: $preferences, \$unknown: ${$unknown})';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GetPreferencesOutputImpl &&
+            other is _$PreferencesImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             const DeepCollectionEquality()
                 .equals(other._preferences, _preferences) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -168,34 +192,41 @@ class _$GetPreferencesOutputImpl implements _GetPreferencesOutput {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       const DeepCollectionEquality().hash(_preferences),
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GetPreferencesOutputImplCopyWith<_$GetPreferencesOutputImpl>
-      get copyWith =>
-          __$$GetPreferencesOutputImplCopyWithImpl<_$GetPreferencesOutputImpl>(
-              this, _$identity);
+  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
+      __$$PreferencesImplCopyWithImpl<_$PreferencesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$GetPreferencesOutputImplToJson(
+    return _$$PreferencesImplToJson(
       this,
     );
   }
 }
 
-abstract class _GetPreferencesOutput implements GetPreferencesOutput {
-  const factory _GetPreferencesOutput(
-          {@UPreferenceConverter() required final List<UPreference> preferences,
+abstract class _Preferences implements Preferences {
+  const factory _Preferences(
+          {@JsonKey(name: r'$type') final String $type,
+          @UPreferenceConverter() required final List<UPreference> preferences,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
-      _$GetPreferencesOutputImpl;
+      _$PreferencesImpl;
 
-  factory _GetPreferencesOutput.fromJson(Map<String, dynamic> json) =
-      _$GetPreferencesOutputImpl.fromJson;
+  factory _Preferences.fromJson(Map<String, dynamic> json) =
+      _$PreferencesImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.defs#preferences`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @UPreferenceConverter()
   List<UPreference> get preferences;
@@ -206,6 +237,6 @@ abstract class _GetPreferencesOutput implements GetPreferencesOutput {
   Map<String, dynamic> get $unknown;
   @override
   @JsonKey(ignore: true)
-  _$$GetPreferencesOutputImplCopyWith<_$GetPreferencesOutputImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  _$$PreferencesImplCopyWith<_$PreferencesImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

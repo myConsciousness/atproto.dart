@@ -10,6 +10,8 @@
 // Lex Generator
 // **************************************************************************
 
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/preferences.dart';
+export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/union_preference.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_basic.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view.dart';
 export 'package:bluesky/src/services/gen_types/app/bsky/actor/defs/profile_view_detailed.dart';

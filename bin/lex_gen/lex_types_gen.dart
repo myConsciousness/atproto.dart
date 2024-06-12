@@ -55,21 +55,24 @@ final class LexTypesGen {
 
     if (objects != null) {
       for (final object in objects) {
-        if (!object.isStrongRef && !object.isBytes) {
+        if (!object.isStrongRef && !object.isBytes && !object.ignore) {
           writeFileAsStringSync(
-            _getOutputFilePath(context.docId, object.filePath),
+            _getOutputFilePath(
+              object.refVariant?.docId ?? context.docId,
+              object.filePath,
+            ),
             object.toString(),
           );
         }
 
-        _export(
-          exports,
-          context.docId,
-          object.name,
-          context.defName,
-          object.filePath,
-          object,
-        );
+        final docId = object.ignore
+            ? context.docId
+            : object.refVariant?.docId ?? context.docId;
+        final defName = object.ignore
+            ? context.defName
+            : object.refVariant?.defName ?? context.defName;
+
+        _export(exports, docId, object.name, defName, object.filePath, object);
 
         for (final property in object.properties) {
           if (property.knownValues != null) {
@@ -80,9 +83,9 @@ final class LexTypesGen {
 
             _export(
               exports,
-              context.docId,
+              docId,
               'U${property.knownValues!.name}',
-              context.defName,
+              defName,
               property.knownValues!.filePath,
             );
           }
@@ -95,9 +98,9 @@ final class LexTypesGen {
 
             _export(
               exports,
-              context.docId,
+              docId,
               'U${property.union!.name}',
-              context.defName,
+              defName,
               property.union!.filePath,
             );
           }
@@ -179,7 +182,9 @@ final class LexTypesGen {
   void _generateExports(final Map<NSID, Set<Export>> exports) {
     exports.forEach((docId, exports) {
       final writable = exports.where((e) =>
-          !(e.object?.isStrongRef ?? false) && !(e.object?.isBytes ?? false));
+          !(e.object?.isStrongRef ?? false) &&
+          !(e.object?.isBytes ?? false) &&
+          !(e.object?.ignore ?? false));
 
       if (writable.isEmpty) return;
 
