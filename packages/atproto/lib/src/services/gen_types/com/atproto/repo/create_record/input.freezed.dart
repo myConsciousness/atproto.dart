@@ -21,7 +21,7 @@ CreateRecordInput _$CreateRecordInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$CreateRecordInput {
   /// The handle or DID of the repo (aka, current account).
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
   @NSIDConverter()
@@ -56,7 +56,7 @@ abstract class $CreateRecordInputCopyWith<$Res> {
       _$CreateRecordInputCopyWithImpl<$Res, CreateRecordInput>;
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String? rkey,
       bool? validate,
@@ -78,7 +78,7 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = freezed,
     Object? validate = freezed,
@@ -87,10 +87,10 @@ class _$CreateRecordInputCopyWithImpl<$Res, $Val extends CreateRecordInput>
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -128,7 +128,7 @@ abstract class _$$CreateRecordInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String? rkey,
       bool? validate,
@@ -148,7 +148,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = freezed,
     Object? validate = freezed,
@@ -157,10 +157,10 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
     Object? $unknown = null,
   }) {
     return _then(_$CreateRecordInputImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -194,7 +194,7 @@ class __$$CreateRecordInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$CreateRecordInputImpl implements _CreateRecordInput {
   const _$CreateRecordInputImpl(
-      {required this.repo,
+      {this.repo,
       @NSIDConverter() required this.collection,
       this.rkey,
       this.validate,
@@ -210,7 +210,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
 
   /// The handle or DID of the repo (aka, current account).
   @override
-  final String repo;
+  final String? repo;
 
   /// The NSID of the record collection.
   @override
@@ -303,7 +303,7 @@ class _$CreateRecordInputImpl implements _CreateRecordInput {
 
 abstract class _CreateRecordInput implements CreateRecordInput {
   const factory _CreateRecordInput(
-          {required final String repo,
+          {final String? repo,
           @NSIDConverter() required final NSID collection,
           final String? rkey,
           final bool? validate,
@@ -318,7 +318,7 @@ abstract class _CreateRecordInput implements CreateRecordInput {
   @override
 
   /// The handle or DID of the repo (aka, current account).
-  String get repo;
+  String? get repo;
   @override
 
   /// The NSID of the record collection.

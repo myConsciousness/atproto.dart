@@ -21,7 +21,7 @@ ApplyWritesInput _$ApplyWritesInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ApplyWritesInput {
   /// The handle or DID of the repo (aka, current account).
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   bool? get validate => throw _privateConstructorUsedError;
@@ -48,7 +48,7 @@ abstract class $ApplyWritesInputCopyWith<$Res> {
       _$ApplyWritesInputCopyWithImpl<$Res, ApplyWritesInput>;
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       bool? validate,
       @UWriteConverter() List<UWrite> writes,
       String? swapCommit,
@@ -68,17 +68,17 @@ class _$ApplyWritesInputCopyWithImpl<$Res, $Val extends ApplyWritesInput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? validate = freezed,
     Object? writes = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
@@ -108,7 +108,7 @@ abstract class _$$ApplyWritesInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       bool? validate,
       @UWriteConverter() List<UWrite> writes,
       String? swapCommit,
@@ -126,17 +126,17 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? validate = freezed,
     Object? writes = null,
     Object? swapCommit = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ApplyWritesInputImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       validate: freezed == validate
           ? _value.validate
           : validate // ignore: cast_nullable_to_non_nullable
@@ -162,7 +162,7 @@ class __$$ApplyWritesInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ApplyWritesInputImpl implements _ApplyWritesInput {
   const _$ApplyWritesInputImpl(
-      {required this.repo,
+      {this.repo,
       this.validate,
       @UWriteConverter() required final List<UWrite> writes,
       this.swapCommit,
@@ -176,7 +176,7 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
 
   /// The handle or DID of the repo (aka, current account).
   @override
-  final String repo;
+  final String? repo;
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
   @override
@@ -252,7 +252,7 @@ class _$ApplyWritesInputImpl implements _ApplyWritesInput {
 
 abstract class _ApplyWritesInput implements ApplyWritesInput {
   const factory _ApplyWritesInput(
-          {required final String repo,
+          {final String? repo,
           final bool? validate,
           @UWriteConverter() required final List<UWrite> writes,
           final String? swapCommit,
@@ -265,7 +265,7 @@ abstract class _ApplyWritesInput implements ApplyWritesInput {
   @override
 
   /// The handle or DID of the repo (aka, current account).
-  String get repo;
+  String? get repo;
   @override
 
   /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.

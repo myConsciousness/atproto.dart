@@ -37,7 +37,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/getRecord
   Future<XRPCResponse<GetRecordOutput>> getRecord({
-    required String repo,
+    String? repo,
     required NSID collection,
     required String rkey,
     String? cid,
@@ -48,7 +48,7 @@ final class RepoService {
         ns.comAtprotoRepoGetRecord,
         headers: headers,
         parameters: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
           'rkey': rkey,
           if (cid != null) 'cid': cid,
@@ -74,7 +74,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/listRecords
   Future<XRPCResponse<ListRecordsOutput>> listRecords({
-    required String repo,
+    String? repo,
     required NSID collection,
     int? limit,
     String? cursor,
@@ -88,7 +88,7 @@ final class RepoService {
         ns.comAtprotoRepoListRecords,
         headers: headers,
         parameters: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
           if (limit != null) 'limit': limit,
           if (cursor != null) 'cursor': cursor,
@@ -124,7 +124,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/applyWrites
   Future<XRPCResponse<EmptyData>> applyWrites({
-    required String repo,
+    String? repo,
     bool? validate,
     required List<UWrite> writes,
     String? swapCommit,
@@ -135,7 +135,7 @@ final class RepoService {
         ns.comAtprotoRepoApplyWrites,
         headers: headers,
         body: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           if (validate != null) 'validate': validate,
           'writes': writes.map((e) => e.toJson()).toList(),
           if (swapCommit != null) 'swapCommit': swapCommit,
@@ -163,7 +163,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/deleteRecord
   Future<XRPCResponse<EmptyData>> deleteRecord({
-    required String repo,
+    String? repo,
     required NSID collection,
     required String rkey,
     String? swapRecord,
@@ -175,7 +175,7 @@ final class RepoService {
         ns.comAtprotoRepoDeleteRecord,
         headers: headers,
         body: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
           'rkey': rkey,
           if (swapRecord != null) 'swapRecord': swapRecord,
@@ -188,7 +188,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/putRecord
   Future<XRPCResponse<StrongRef>> putRecord({
-    required String repo,
+    String? repo,
     required NSID collection,
     required String rkey,
     bool? validate,
@@ -202,7 +202,7 @@ final class RepoService {
         ns.comAtprotoRepoPutRecord,
         headers: headers,
         body: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
           'rkey': rkey,
           if (validate != null) 'validate': validate,
@@ -218,7 +218,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/describeRepo
   Future<XRPCResponse<DescribeRepoOutput>> describeRepo({
-    required String repo,
+    String? repo,
     Map<String, String>? headers,
     GetClient? client,
   }) async =>
@@ -226,7 +226,7 @@ final class RepoService {
         ns.comAtprotoRepoDescribeRepo,
         headers: headers,
         parameters: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
         },
         to: const DescribeRepoOutputConverter().fromJson,
         client: client,
@@ -236,7 +236,7 @@ final class RepoService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/repo/createRecord
   Future<XRPCResponse<StrongRef>> createRecord({
-    required String repo,
+    String? repo,
     required NSID collection,
     String? rkey,
     bool? validate,
@@ -249,7 +249,7 @@ final class RepoService {
         ns.comAtprotoRepoCreateRecord,
         headers: headers,
         body: {
-          'repo': repo,
+          'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
           if (rkey != null) 'rkey': rkey,
           if (validate != null) 'validate': validate,

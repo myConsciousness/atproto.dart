@@ -111,7 +111,7 @@ final class LexGenObject {
           "    @Default($id) @JsonKey(name: r'\$type') String \$type,");
     }
     for (final property in properties) {
-      buffer.writeln(property.toString());
+      buffer.writeln(property.build(type));
     }
     buffer.writeln('    /// Contains unknown objects not defined in Lexicon.');
     buffer.writeln("    @Default({}) @JsonKey(name: r'\$unknown') "
@@ -222,10 +222,10 @@ final class LexGenObjectProperty {
   final LexUnion? union;
   final String? defaultValue;
 
-  @override
-  String toString() {
+  String build(final ObjectType objectType) {
     if (knownValues != null) {
       return _toString(
+        objectType,
         'U${knownValues!.name}Converter',
         array ? 'List<U${knownValues!.name}>' : 'U${knownValues!.name}',
       );
@@ -233,15 +233,17 @@ final class LexGenObjectProperty {
 
     if (union != null) {
       return _toString(
+        objectType,
         'U${union!.name}Converter',
         array ? 'List<U${union!.name}>' : 'U${union!.name}',
       );
     }
 
-    return _toString(type.converter, type.name!);
+    return _toString(objectType, type.converter, type.name!);
   }
 
   String _toString(
+    final ObjectType objectType,
     String? converter,
     String typeName,
   ) {
@@ -262,7 +264,7 @@ final class LexGenObjectProperty {
       buffer.write(' ');
     }
 
-    if (isRequired) {
+    if (isRequired && !(objectType == ObjectType.input && name == 'repo')) {
       buffer.write('required');
       buffer.write(' ');
       buffer.write(typeName);

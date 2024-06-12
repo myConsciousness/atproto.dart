@@ -25,7 +25,7 @@ class ApplyWritesInput with _$ApplyWritesInput {
   @JsonSerializable(includeIfNull: false)
   const factory ApplyWritesInput({
     /// The handle or DID of the repo (aka, current account).
-    required String repo,
+    String? repo,
 
     /// Can be set to 'false' to skip Lexicon schema validation of record data, for all operations.
     bool? validate,

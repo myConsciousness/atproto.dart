@@ -14,7 +14,7 @@ _$ApplyWritesInputImpl _$$ApplyWritesInputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ApplyWritesInputImpl(
-          repo: $checkedConvert('repo', (v) => v as String),
+          repo: $checkedConvert('repo', (v) => v as String?),
           validate: $checkedConvert('validate', (v) => v as bool?),
           writes: $checkedConvert(
               'writes',
@@ -37,9 +37,7 @@ _$ApplyWritesInputImpl _$$ApplyWritesInputImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$ApplyWritesInputImplToJson(
     _$ApplyWritesInputImpl instance) {
-  final val = <String, dynamic>{
-    'repo': instance.repo,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -47,6 +45,7 @@ Map<String, dynamic> _$$ApplyWritesInputImplToJson(
     }
   }
 
+  writeNotNull('repo', instance.repo);
   writeNotNull('validate', instance.validate);
   val['writes'] = instance.writes.map(const UWriteConverter().toJson).toList();
   writeNotNull('swapCommit', instance.swapCommit);

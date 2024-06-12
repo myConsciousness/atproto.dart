@@ -14,7 +14,7 @@ _$DeleteRecordInputImpl _$$DeleteRecordInputImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$DeleteRecordInputImpl(
-          repo: $checkedConvert('repo', (v) => v as String),
+          repo: $checkedConvert('repo', (v) => v as String?),
           collection: $checkedConvert(
               'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
@@ -34,11 +34,7 @@ _$DeleteRecordInputImpl _$$DeleteRecordInputImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$DeleteRecordInputImplToJson(
     _$DeleteRecordInputImpl instance) {
-  final val = <String, dynamic>{
-    'repo': instance.repo,
-    'collection': const NSIDConverter().toJson(instance.collection),
-    'rkey': instance.rkey,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -46,6 +42,9 @@ Map<String, dynamic> _$$DeleteRecordInputImplToJson(
     }
   }
 
+  writeNotNull('repo', instance.repo);
+  val['collection'] = const NSIDConverter().toJson(instance.collection);
+  val['rkey'] = instance.rkey;
   writeNotNull('swapRecord', instance.swapRecord);
   writeNotNull('swapCommit', instance.swapCommit);
   val[r'$unknown'] = instance.$unknown;

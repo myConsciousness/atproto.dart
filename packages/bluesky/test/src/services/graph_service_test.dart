@@ -5,18 +5,9 @@
 // 📦 Package imports:
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
-import 'package:atproto_core/atproto_dart';
 
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
-import 'package:bluesky/src/services/entities/blocks.dart';
-import 'package:bluesky/src/services/entities/followers.dart';
-import 'package:bluesky/src/services/entities/follows.dart';
-import 'package:bluesky/src/services/entities/list_items.dart';
-import 'package:bluesky/src/services/entities/lists.dart';
-import 'package:bluesky/src/services/entities/mutes.dart';
-import 'package:bluesky/src/services/entities/relationships.dart';
-import 'package:bluesky/src/services/entities/suggested_follows.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_blocks/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_followers/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_follows/output.dart';
@@ -35,7 +26,7 @@ import 'suite/service_suite.dart';
 
 void main() {
   testGraph<StrongRef>(
-    (m, s) => s.follow(did: m.did),
+    (m, s) => s.follow(subject: m.did),
     bulk: (m, s) => s.followInBulk([RepoParam(did: m.did)]),
     id: appBskyGraphFollow,
   );

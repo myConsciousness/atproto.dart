@@ -23,7 +23,7 @@ class PutRecordInput with _$PutRecordInput {
   @JsonSerializable(includeIfNull: false)
   const factory PutRecordInput({
     /// The handle or DID of the repo (aka, current account).
-    required String repo,
+    String? repo,
 
     /// The NSID of the record collection.
     @NSIDConverter() required NSID collection,

@@ -17,4 +17,7 @@ final class ATProtoServiceContext extends core.ServiceContext {
     super.mockedGetClient,
     super.mockedPostClient,
   });
+
+  /// Authenticated repo.
+  String? get repo => session?.did;
 }

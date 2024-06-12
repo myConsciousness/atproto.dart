@@ -23,7 +23,7 @@ class CreateRecordInput with _$CreateRecordInput {
   @JsonSerializable(includeIfNull: false)
   const factory CreateRecordInput({
     /// The handle or DID of the repo (aka, current account).
-    required String repo,
+    String? repo,
 
     /// The NSID of the record collection.
     @NSIDConverter() required NSID collection,

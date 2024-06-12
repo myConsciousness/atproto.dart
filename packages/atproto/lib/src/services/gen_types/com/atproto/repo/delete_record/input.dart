@@ -23,7 +23,7 @@ class DeleteRecordInput with _$DeleteRecordInput {
   @JsonSerializable(includeIfNull: false)
   const factory DeleteRecordInput({
     /// The handle or DID of the repo (aka, current account).
-    required String repo,
+    String? repo,
 
     /// The NSID of the record collection.
     @NSIDConverter() required NSID collection,

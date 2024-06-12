@@ -21,7 +21,7 @@ DeleteRecordInput _$DeleteRecordInputFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DeleteRecordInput {
   /// The handle or DID of the repo (aka, current account).
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
   @NSIDConverter()
@@ -53,7 +53,7 @@ abstract class $DeleteRecordInputCopyWith<$Res> {
       _$DeleteRecordInputCopyWithImpl<$Res, DeleteRecordInput>;
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String rkey,
       String? swapRecord,
@@ -74,7 +74,7 @@ class _$DeleteRecordInputCopyWithImpl<$Res, $Val extends DeleteRecordInput>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = null,
     Object? swapRecord = freezed,
@@ -82,10 +82,10 @@ class _$DeleteRecordInputCopyWithImpl<$Res, $Val extends DeleteRecordInput>
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -119,7 +119,7 @@ abstract class _$$DeleteRecordInputImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String rkey,
       String? swapRecord,
@@ -138,7 +138,7 @@ class __$$DeleteRecordInputImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = null,
     Object? swapRecord = freezed,
@@ -146,10 +146,10 @@ class __$$DeleteRecordInputImplCopyWithImpl<$Res>
     Object? $unknown = null,
   }) {
     return _then(_$DeleteRecordInputImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -179,7 +179,7 @@ class __$$DeleteRecordInputImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$DeleteRecordInputImpl implements _DeleteRecordInput {
   const _$DeleteRecordInputImpl(
-      {required this.repo,
+      {this.repo,
       @NSIDConverter() required this.collection,
       required this.rkey,
       this.swapRecord,
@@ -193,7 +193,7 @@ class _$DeleteRecordInputImpl implements _DeleteRecordInput {
 
   /// The handle or DID of the repo (aka, current account).
   @override
-  final String repo;
+  final String? repo;
 
   /// The NSID of the record collection.
   @override
@@ -267,7 +267,7 @@ class _$DeleteRecordInputImpl implements _DeleteRecordInput {
 
 abstract class _DeleteRecordInput implements DeleteRecordInput {
   const factory _DeleteRecordInput(
-          {required final String repo,
+          {final String? repo,
           @NSIDConverter() required final NSID collection,
           required final String rkey,
           final String? swapRecord,
@@ -281,7 +281,7 @@ abstract class _DeleteRecordInput implements DeleteRecordInput {
   @override
 
   /// The handle or DID of the repo (aka, current account).
-  String get repo;
+  String? get repo;
   @override
 
   /// The NSID of the record collection.

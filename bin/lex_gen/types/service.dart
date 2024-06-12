@@ -7,6 +7,7 @@
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
+
 import 'data_type.dart';
 import 'union.dart';
 import 'known_values.dart';
@@ -278,7 +279,7 @@ final class LexServiceEndpointArg {
     if (isRequired) {
       if (isRecord && name == 'createdAt') {
         buffer.write('$typeName?');
-      } else if (name == 'seenAt') {
+      } else if (name == 'repo' || name == 'seenAt') {
         buffer.write('$typeName?');
       } else {
         buffer.write('required $typeName');
@@ -305,6 +306,8 @@ final class Payload {
       return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
     } else if (arg.name == 'seenAt') {
       return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+    } else if (arg.name == 'repo') {
+      return "'${arg.name}': repo ?? _ctx.repo,";
     }
 
     final buffer = StringBuffer();

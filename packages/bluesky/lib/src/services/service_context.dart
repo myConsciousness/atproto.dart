@@ -26,7 +26,7 @@ final class BlueskyServiceContext extends core.ServiceContext {
   final atp.ATProto atproto;
 
   /// Authenticated repo.
-  String get repo => session?.did ?? '';
+  String? get repo => session?.did;
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [
