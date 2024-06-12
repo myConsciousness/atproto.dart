@@ -46,6 +46,14 @@ class ThreadViewPref with _$ThreadViewPref {
       _$ThreadViewPrefFromJson(json);
 }
 
+/// Returns true if [object] is [ThreadViewPref], otherwise false.
+bool isThreadViewPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#threadViewPref';
+}
+
 extension $ThreadViewPrefExtension on ThreadViewPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

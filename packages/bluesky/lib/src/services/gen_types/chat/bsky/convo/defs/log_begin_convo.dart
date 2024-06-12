@@ -41,6 +41,14 @@ class LogBeginConvo with _$LogBeginConvo {
       _$LogBeginConvoFromJson(json);
 }
 
+/// Returns true if [object] is [LogBeginConvo], otherwise false.
+bool isLogBeginConvo(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#logBeginConvo';
+}
+
 extension $LogBeginConvoExtension on LogBeginConvo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

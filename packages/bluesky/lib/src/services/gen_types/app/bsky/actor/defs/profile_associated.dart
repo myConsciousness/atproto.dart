@@ -44,6 +44,14 @@ class ProfileAssociated with _$ProfileAssociated {
       _$ProfileAssociatedFromJson(json);
 }
 
+/// Returns true if [object] is [ProfileAssociated], otherwise false.
+bool isProfileAssociated(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#profileAssociated';
+}
+
 extension $ProfileAssociatedExtension on ProfileAssociated {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

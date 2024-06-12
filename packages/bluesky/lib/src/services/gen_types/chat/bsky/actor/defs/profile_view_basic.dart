@@ -53,6 +53,14 @@ class ProfileViewBasic with _$ProfileViewBasic {
       _$ProfileViewBasicFromJson(json);
 }
 
+/// Returns true if [object] is [ProfileViewBasic], otherwise false.
+bool isProfileViewBasic(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.actor.defs#profileViewBasic';
+}
+
 extension $ProfileViewBasicExtension on ProfileViewBasic {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

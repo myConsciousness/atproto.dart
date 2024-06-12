@@ -42,6 +42,14 @@ class BatchItem with _$BatchItem {
       _$BatchItemFromJson(json);
 }
 
+/// Returns true if [object] is [BatchItem], otherwise false.
+bool isBatchItem(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.sendMessageBatch#batchItem';
+}
+
 extension $BatchItemExtension on BatchItem {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

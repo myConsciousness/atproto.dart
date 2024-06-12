@@ -40,6 +40,14 @@ class FacetTag with _$FacetTag {
       _$FacetTagFromJson(json);
 }
 
+/// Returns true if [object] is [FacetTag], otherwise false.
+bool isFacetTag(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.richtext.facet#tag';
+}
+
 extension $FacetTagExtension on FacetTag {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

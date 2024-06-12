@@ -38,6 +38,14 @@ class Images with _$Images {
   factory Images.fromJson(Map<String, dynamic> json) => _$ImagesFromJson(json);
 }
 
+/// Returns true if [object] is [Images], otherwise false.
+bool isImages(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.images';
+}
+
 extension $ImagesExtension on Images {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

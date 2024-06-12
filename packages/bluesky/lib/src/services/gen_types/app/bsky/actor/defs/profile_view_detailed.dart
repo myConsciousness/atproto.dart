@@ -57,6 +57,14 @@ class ProfileViewDetailed with _$ProfileViewDetailed {
       _$ProfileViewDetailedFromJson(json);
 }
 
+/// Returns true if [object] is [ProfileViewDetailed], otherwise false.
+bool isProfileViewDetailed(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#profileViewDetailed';
+}
+
 extension $ProfileViewDetailedExtension on ProfileViewDetailed {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

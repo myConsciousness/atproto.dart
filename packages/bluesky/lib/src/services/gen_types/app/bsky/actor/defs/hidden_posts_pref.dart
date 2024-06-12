@@ -43,6 +43,14 @@ class HiddenPostsPref with _$HiddenPostsPref {
       _$HiddenPostsPrefFromJson(json);
 }
 
+/// Returns true if [object] is [HiddenPostsPref], otherwise false.
+bool isHiddenPostsPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#hiddenPostsPref';
+}
+
 extension $HiddenPostsPrefExtension on HiddenPostsPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

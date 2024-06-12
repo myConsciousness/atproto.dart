@@ -40,6 +40,14 @@ class AdultContentPref with _$AdultContentPref {
       _$AdultContentPrefFromJson(json);
 }
 
+/// Returns true if [object] is [AdultContentPref], otherwise false.
+bool isAdultContentPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#adultContentPref';
+}
+
 extension $AdultContentPrefExtension on AdultContentPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

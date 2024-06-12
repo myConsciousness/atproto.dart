@@ -44,6 +44,14 @@ class Handle with _$Handle {
   factory Handle.fromJson(Map<String, dynamic> json) => _$HandleFromJson(json);
 }
 
+/// Returns true if [object] is [Handle], otherwise false.
+bool isHandle(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#handle';
+}
+
 extension $HandleExtension on Handle {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

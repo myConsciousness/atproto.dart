@@ -122,6 +122,19 @@ final class LexGenObject {
     buffer.writeln('      _\$${name}FromJson(json);');
     buffer.writeln('}');
 
+    if (namespace != null) {
+      // Helper
+      buffer.writeln();
+      buffer
+          .writeln('/// Returns true if [object] is [$name], otherwise false.');
+      buffer.writeln('bool is$name(final Map<String, dynamic>? object) {');
+      buffer.writeln('  if (object == null) return false;');
+      buffer.writeln("  if (object[r'\$type'] == null) return false;");
+      buffer.writeln();
+      buffer.writeln("  return object[r'\$type'] == '$namespace';");
+      buffer.writeln('}');
+    }
+
     // Extension
     buffer.writeln();
     buffer.writeln('extension \$${name}Extension on $name {');

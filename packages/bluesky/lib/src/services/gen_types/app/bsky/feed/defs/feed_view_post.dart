@@ -46,6 +46,14 @@ class FeedViewPost with _$FeedViewPost {
       _$FeedViewPostFromJson(json);
 }
 
+/// Returns true if [object] is [FeedViewPost], otherwise false.
+bool isFeedViewPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#feedViewPost';
+}
+
 extension $FeedViewPostExtension on FeedViewPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

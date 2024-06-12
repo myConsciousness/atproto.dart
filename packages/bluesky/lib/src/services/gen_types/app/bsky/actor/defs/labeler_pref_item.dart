@@ -40,6 +40,14 @@ class LabelerPrefItem with _$LabelerPrefItem {
       _$LabelerPrefItemFromJson(json);
 }
 
+/// Returns true if [object] is [LabelerPrefItem], otherwise false.
+bool isLabelerPrefItem(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#labelerPrefItem';
+}
+
 extension $LabelerPrefItemExtension on LabelerPrefItem {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

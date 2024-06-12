@@ -43,6 +43,14 @@ class Metadata with _$Metadata {
       _$MetadataFromJson(json);
 }
 
+/// Returns true if [object] is [Metadata], otherwise false.
+bool isMetadata(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.moderation.getActorMetadata#metadata';
+}
+
 extension $MetadataExtension on Metadata {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

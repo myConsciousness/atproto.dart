@@ -43,6 +43,14 @@ class LogDeleteMessage with _$LogDeleteMessage {
       _$LogDeleteMessageFromJson(json);
 }
 
+/// Returns true if [object] is [LogDeleteMessage], otherwise false.
+bool isLogDeleteMessage(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#logDeleteMessage';
+}
+
 extension $LogDeleteMessageExtension on LogDeleteMessage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -43,6 +43,14 @@ class LogCreateMessage with _$LogCreateMessage {
       _$LogCreateMessageFromJson(json);
 }
 
+/// Returns true if [object] is [LogCreateMessage], otherwise false.
+bool isLogCreateMessage(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#logCreateMessage';
+}
+
 extension $LogCreateMessageExtension on LogCreateMessage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

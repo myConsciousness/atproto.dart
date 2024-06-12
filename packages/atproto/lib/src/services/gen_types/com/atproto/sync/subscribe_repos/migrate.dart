@@ -45,6 +45,14 @@ class Migrate with _$Migrate {
       _$MigrateFromJson(json);
 }
 
+/// Returns true if [object] is [Migrate], otherwise false.
+bool isMigrate(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#migrate';
+}
+
 extension $MigrateExtension on Migrate {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

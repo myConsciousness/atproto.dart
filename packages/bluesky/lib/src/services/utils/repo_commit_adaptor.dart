@@ -6,28 +6,27 @@
 import 'dart:async';
 
 // 📦 Package imports:
-import 'package:atproto/atproto.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
+import 'package:bluesky/com_atproto_sync_subscribe_repos.dart';
 import '../../ids.g.dart' as ids;
 import '../entities/adaptor/repo_commit_create.dart';
 import '../entities/adaptor/repo_commit_delete.dart';
 import '../entities/adaptor/repo_commit_update.dart';
-import '../entities/block_list_record.dart';
-import '../entities/block_record.dart';
-import '../entities/converter/post_record_converter.dart';
-import '../entities/follow_record.dart';
-import '../entities/generator_record.dart';
-import '../entities/labeler_service_record.dart';
-import '../entities/like_record.dart';
-import '../entities/list_item_record.dart';
-import '../entities/list_record.dart';
-import '../entities/post_record.dart';
-import '../entities/profile_record.dart';
-import '../entities/repost_record.dart';
-import '../entities/threadgate_record.dart';
 import '../extensions/at_uri.dart';
+import '../gen_types/app/bsky/actor/profile/record.dart';
+import '../gen_types/app/bsky/feed/generator/record.dart';
+import '../gen_types/app/bsky/feed/like/record.dart';
+import '../gen_types/app/bsky/feed/post/record.dart';
+import '../gen_types/app/bsky/feed/repost/record.dart';
+import '../gen_types/app/bsky/feed/threadgate/record.dart';
+import '../gen_types/app/bsky/graph/block/record.dart';
+import '../gen_types/app/bsky/graph/follow/record.dart';
+import '../gen_types/app/bsky/graph/list/record.dart';
+import '../gen_types/app/bsky/graph/listblock/record.dart';
+import '../gen_types/app/bsky/graph/listitem/record.dart';
+import '../gen_types/app/bsky/labeler/service/record.dart';
 
 /// Action on create records.
 typedef RepoCommitOnCreate<T> = FutureOr<void> Function(
@@ -51,9 +50,9 @@ final class RepoCommitAdaptor {
     final RepoCommitOnCreate<FollowRecord>? onCreateFollow,
     final RepoCommitOnCreate<BlockRecord>? onCreateBlock,
     final RepoCommitOnCreate<ListRecord>? onCreateList,
-    final RepoCommitOnCreate<ListItemRecord>? onCreateListItem,
-    final RepoCommitOnCreate<BlockListRecord>? onCreateBlockList,
-    final RepoCommitOnCreate<LabelerServiceRecord>? onCreateLabelerService,
+    final RepoCommitOnCreate<ListitemRecord>? onCreateListItem,
+    final RepoCommitOnCreate<ListblockRecord>? onCreateBlockList,
+    final RepoCommitOnCreate<ServiceRecord>? onCreateLabelerService,
     final RepoCommitOnCreate<Map<String, dynamic>>? onCreateUnknown,
     final RepoCommitOnUpdate<ProfileRecord>? onUpdateProfile,
     final RepoCommitOnUpdate<Map<String, dynamic>>? onUpdateUnknown,
@@ -104,9 +103,9 @@ final class RepoCommitAdaptor {
   final RepoCommitOnCreate<FollowRecord>? _onCreateFollow;
   final RepoCommitOnCreate<BlockRecord>? _onCreateBlock;
   final RepoCommitOnCreate<ListRecord>? _onCreateList;
-  final RepoCommitOnCreate<ListItemRecord>? _onCreateListItem;
-  final RepoCommitOnCreate<BlockListRecord>? _onCreateBlockList;
-  final RepoCommitOnCreate<LabelerServiceRecord>? _onCreateLabelerService;
+  final RepoCommitOnCreate<ListitemRecord>? _onCreateListItem;
+  final RepoCommitOnCreate<ListblockRecord>? _onCreateBlockList;
+  final RepoCommitOnCreate<ServiceRecord>? _onCreateLabelerService;
   final RepoCommitOnCreate<Map<String, dynamic>>? _onCreateUnknown;
 
   final RepoCommitOnUpdate<ProfileRecord>? _onUpdateProfile;
@@ -128,14 +127,16 @@ final class RepoCommitAdaptor {
   /// Performs actions based on [data].
   FutureOr<void> execute(final Commit data) async {
     for (final op in data.ops) {
-      switch (op.action) {
-        case RepoAction.create:
+      if (op.action.isUnknownValue) continue;
+
+      switch (op.action.knownValue) {
+        case KnownAction.create:
           await _onCreate(data, op);
           break;
-        case RepoAction.update:
+        case KnownAction.update:
           await _onUpdate(data, op);
           break;
-        case RepoAction.delete:
+        case KnownAction.delete:
           await _onDelete(data, op);
           break;
       }
@@ -150,7 +151,7 @@ final class RepoCommitAdaptor {
     if (op.uri.isFeedPost && _isFeedPost(op.record!)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
-          record: postRecordConverter.fromJson(
+          record: const PostRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -162,7 +163,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedRepost && _isFeedRepost(op.record!)) {
       await _onCreateRepost?.call(
         RepoCommitCreate<RepostRecord>(
-          record: RepostRecord.fromJson(
+          record: const RepostRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -174,7 +175,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedLike && _isFeedLike(op.record!)) {
       await _onCreateLike?.call(
         RepoCommitCreate<LikeRecord>(
-          record: LikeRecord.fromJson(
+          record: const LikeRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -186,7 +187,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedGenerator && _isFeedGenerator(op.record!)) {
       await _onCreateGenerator?.call(
         RepoCommitCreate<GeneratorRecord>(
-          record: GeneratorRecord.fromJson(
+          record: const GeneratorRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -198,7 +199,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isFeedThreadgate && _isFeedThreadgate(op.record!)) {
       await _onCreateThreadgate?.call(
         RepoCommitCreate<ThreadgateRecord>(
-          record: ThreadgateRecord.fromJson(
+          record: const ThreadgateRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -210,7 +211,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphFollow && _isGraphFollow(op.record!)) {
       await _onCreateFollow?.call(
         RepoCommitCreate<FollowRecord>(
-          record: FollowRecord.fromJson(op.record!),
+          record: const FollowRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,
@@ -220,7 +221,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphBlock && _isGraphBlock(op.record!)) {
       await _onCreateBlock?.call(
         RepoCommitCreate<BlockRecord>(
-          record: BlockRecord.fromJson(
+          record: const BlockRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -232,7 +233,7 @@ final class RepoCommitAdaptor {
     } else if (op.uri.isGraphList && _isGraphList(op.record!)) {
       await _onCreateList?.call(
         RepoCommitCreate<ListRecord>(
-          record: ListRecord.fromJson(
+          record: const ListRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -243,8 +244,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isGraphListItem && _isGraphListItem(op.record!)) {
       await _onCreateListItem?.call(
-        RepoCommitCreate<ListItemRecord>(
-          record: ListItemRecord.fromJson(
+        RepoCommitCreate<ListitemRecord>(
+          record: const ListitemRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -255,8 +256,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isGraphBlockList && _isGraphBlockList(op.record!)) {
       await _onCreateBlockList?.call(
-        RepoCommitCreate<BlockListRecord>(
-          record: BlockListRecord.fromJson(
+        RepoCommitCreate<ListblockRecord>(
+          record: const ListblockRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -267,8 +268,8 @@ final class RepoCommitAdaptor {
       );
     } else if (op.uri.isLabelerService && _isLabelerService(op.record!)) {
       await _onCreateLabelerService?.call(
-        RepoCommitCreate<LabelerServiceRecord>(
-          record: LabelerServiceRecord.fromJson(
+        RepoCommitCreate<ServiceRecord>(
+          record: const ServiceRecordConverter().fromJson(
             op.record!,
           ),
           uri: op.uri,
@@ -298,7 +299,7 @@ final class RepoCommitAdaptor {
     if (op.uri.isActorProfile && _isActorProfile(op.record!)) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
-          record: ProfileRecord.fromJson(op.record!),
+          record: const ProfileRecordConverter().fromJson(op.record!),
           uri: op.uri,
           cid: op.cid!,
           author: data.did,

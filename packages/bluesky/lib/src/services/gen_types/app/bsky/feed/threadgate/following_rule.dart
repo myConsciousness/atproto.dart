@@ -41,6 +41,14 @@ class FollowingRule with _$FollowingRule {
       _$FollowingRuleFromJson(json);
 }
 
+/// Returns true if [object] is [FollowingRule], otherwise false.
+bool isFollowingRule(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.threadgate#followingRule';
+}
+
 extension $FollowingRuleExtension on FollowingRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

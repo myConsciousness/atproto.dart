@@ -42,6 +42,14 @@ class Facet with _$Facet {
   factory Facet.fromJson(Map<String, dynamic> json) => _$FacetFromJson(json);
 }
 
+/// Returns true if [object] is [Facet], otherwise false.
+bool isFacet(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.richtext.facet';
+}
+
 extension $FacetExtension on Facet {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

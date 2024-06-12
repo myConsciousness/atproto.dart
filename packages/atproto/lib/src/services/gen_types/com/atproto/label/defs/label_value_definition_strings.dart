@@ -50,6 +50,15 @@ class LabelValueDefinitionStrings with _$LabelValueDefinitionStrings {
       _$LabelValueDefinitionStringsFromJson(json);
 }
 
+/// Returns true if [object] is [LabelValueDefinitionStrings], otherwise false.
+bool isLabelValueDefinitionStrings(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] ==
+      'com.atproto.label.defs#labelValueDefinitionStrings';
+}
+
 extension $LabelValueDefinitionStringsExtension on LabelValueDefinitionStrings {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

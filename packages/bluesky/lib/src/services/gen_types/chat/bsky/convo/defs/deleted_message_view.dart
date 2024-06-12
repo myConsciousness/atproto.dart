@@ -44,6 +44,14 @@ class DeletedMessageView with _$DeletedMessageView {
       _$DeletedMessageViewFromJson(json);
 }
 
+/// Returns true if [object] is [DeletedMessageView], otherwise false.
+bool isDeletedMessageView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#deletedMessageView';
+}
+
 extension $DeletedMessageViewExtension on DeletedMessageView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -43,6 +43,14 @@ class RecordWithMediaView with _$RecordWithMediaView {
       _$RecordWithMediaViewFromJson(json);
 }
 
+/// Returns true if [object] is [RecordWithMediaView], otherwise false.
+bool isRecordWithMediaView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.recordWithMedia#view';
+}
+
 extension $RecordWithMediaViewExtension on RecordWithMediaView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

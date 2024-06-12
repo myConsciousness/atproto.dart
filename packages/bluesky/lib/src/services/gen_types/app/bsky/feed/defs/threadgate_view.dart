@@ -46,6 +46,14 @@ class ThreadgateView with _$ThreadgateView {
       _$ThreadgateViewFromJson(json);
 }
 
+/// Returns true if [object] is [ThreadgateView], otherwise false.
+bool isThreadgateView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#threadgateView';
+}
+
 extension $ThreadgateViewExtension on ThreadgateView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

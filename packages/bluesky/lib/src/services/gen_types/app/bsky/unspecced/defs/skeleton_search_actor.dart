@@ -40,6 +40,14 @@ class SkeletonSearchActor with _$SkeletonSearchActor {
       _$SkeletonSearchActorFromJson(json);
 }
 
+/// Returns true if [object] is [SkeletonSearchActor], otherwise false.
+bool isSkeletonSearchActor(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.unspecced.defs#skeletonSearchActor';
+}
+
 extension $SkeletonSearchActorExtension on SkeletonSearchActor {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

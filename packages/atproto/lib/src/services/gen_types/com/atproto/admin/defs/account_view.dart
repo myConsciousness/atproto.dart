@@ -51,6 +51,14 @@ class AccountView with _$AccountView {
       _$AccountViewFromJson(json);
 }
 
+/// Returns true if [object] is [AccountView], otherwise false.
+bool isAccountView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.admin.defs#accountView';
+}
+
 extension $AccountViewExtension on AccountView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

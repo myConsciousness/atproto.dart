@@ -44,6 +44,14 @@ class Create with _$Create {
   factory Create.fromJson(Map<String, dynamic> json) => _$CreateFromJson(json);
 }
 
+/// Returns true if [object] is [Create], otherwise false.
+bool isCreate(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.repo.applyWrites#create';
+}
+
 extension $CreateExtension on Create {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

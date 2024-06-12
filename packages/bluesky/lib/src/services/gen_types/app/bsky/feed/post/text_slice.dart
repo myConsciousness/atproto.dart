@@ -41,6 +41,14 @@ class TextSlice with _$TextSlice {
       _$TextSliceFromJson(json);
 }
 
+/// Returns true if [object] is [TextSlice], otherwise false.
+bool isTextSlice(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.post#textSlice';
+}
+
 extension $TextSliceExtension on TextSlice {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

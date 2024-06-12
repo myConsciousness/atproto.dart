@@ -40,6 +40,14 @@ class FacetLink with _$FacetLink {
       _$FacetLinkFromJson(json);
 }
 
+/// Returns true if [object] is [FacetLink], otherwise false.
+bool isFacetLink(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.richtext.facet#link';
+}
+
 extension $FacetLinkExtension on FacetLink {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

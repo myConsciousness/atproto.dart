@@ -43,6 +43,14 @@ class ListRule with _$ListRule {
       _$ListRuleFromJson(json);
 }
 
+/// Returns true if [object] is [ListRule], otherwise false.
+bool isListRule(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.threadgate#listRule';
+}
+
 extension $ListRuleExtension on ListRule {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

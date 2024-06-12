@@ -44,6 +44,14 @@ class Entity with _$Entity {
   factory Entity.fromJson(Map<String, dynamic> json) => _$EntityFromJson(json);
 }
 
+/// Returns true if [object] is [Entity], otherwise false.
+bool isEntity(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.post#entity';
+}
+
 extension $EntityExtension on Entity {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -40,6 +40,14 @@ class Contact with _$Contact {
       _$ContactFromJson(json);
 }
 
+/// Returns true if [object] is [Contact], otherwise false.
+bool isContact(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.server.describeServer#contact';
+}
+
 extension $ContactExtension on Contact {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

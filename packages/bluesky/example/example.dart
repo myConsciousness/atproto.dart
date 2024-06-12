@@ -66,15 +66,16 @@ Future<void> main() async {
     print(feeds);
 
     //! Let's post cool stuff!
-    final createdRecord = await bsky.feed.post(
+    final record = await bsky.feed.post(
       text: 'Hello, Bluesky!',
     );
 
-    print(createdRecord);
+    print(record);
 
     //! And delete it.
     await bsky.repo.deleteRecord(
-      uri: createdRecord.data.uri,
+      collection: record.data.uri.collection,
+      rkey: record.data.uri.rkey,
     );
 
     //! You can use Stream API easily.

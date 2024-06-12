@@ -7,11 +7,12 @@ import 'package:atproto/com_atproto_label_defs.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
-import '../services/constants/content_label_visibility.dart';
-import '../services/entities/content_label_preference.dart';
-import '../services/entities/muted_word.dart';
-import '../services/entities/preference.dart';
-import '../services/entities/preferences.dart';
+import '../services/gen_types/app/bsky/actor/defs/content_label_pref.dart';
+import '../services/gen_types/app/bsky/actor/defs/known_visibility.dart';
+import '../services/gen_types/app/bsky/actor/defs/labelers_pref.dart';
+import '../services/gen_types/app/bsky/actor/defs/muted_word.dart';
+import '../services/gen_types/app/bsky/actor/defs/union_preference.dart';
+import '../services/gen_types/app/bsky/actor/get_preferences/output.dart';
 import '../services/gen_types/app/bsky/labeler/defs/labeler_view_detailed.dart';
 import '../services/gen_types/app/bsky/labeler/get_services/union_view.dart';
 import '../services/gen_types/app/bsky/labeler_service.dart';
@@ -157,7 +158,7 @@ extension LabelerServiceExtension on LabelerService {
   }
 }
 
-extension PreferencesExtension on Preferences {
+extension PreferencesExtension on GetPreferencesOutput {
   ModerationPrefs getModerationPrefs({
     List<String> appLabelers = const [_kBskyLabelerDid],
   }) {
@@ -167,26 +168,23 @@ extension PreferencesExtension on Preferences {
     final hiddenPosts = <AtUri>[];
 
     final labelers = <Map<String, dynamic>>[];
-    final labelPrefs = <ContentLabelPreference>[];
-    for (final preference in preferences) {
-      switch (preference) {
-        case UPreferenceAdultContent():
-          adultContentEnabled = preference.data.isEnabled;
-          break;
-        case UPreferenceLabelersPref():
-          labelers.addAll(preference.data.labelers.map(
-            (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
-          ));
-          break;
-        case UPreferenceMutedWords():
-          mutedWords.addAll(preference.data.items);
-          break;
-        case UPreferenceHiddenPosts():
-          hiddenPosts.addAll(preference.data.items);
-          break;
-        case UPreferenceContentLabel():
-          labelPrefs.add(preference.data);
-          break;
+    final labelPrefs = <ContentLabelPref>[];
+    for (final pref in preferences) {
+      if (pref.isAdultContentPref) {
+        adultContentEnabled = pref.adultContentPref.enabled;
+      } else if (pref.isMutedWordsPref) {
+        mutedWords.addAll(pref.mutedWordsPref.items);
+      } else if (pref.isHiddenPostsPref) {
+        hiddenPosts.addAll(pref.hiddenPostsPref.items);
+      } else if (pref.isContentLabelPref) {
+        labelPrefs.add(pref.contentLabelPref);
+      } else if (pref.isUnknown) {
+        final unknown = pref.unknown;
+        if (isLabelersPref(unknown)) {
+          labelers.addAll(LabelersPref.fromJson(unknown).labelers.map(
+                (e) => {'did': e.did, 'labels': <String, LabelPreference>{}},
+              ));
+        }
       }
     }
 
@@ -229,13 +227,16 @@ extension PreferencesExtension on Preferences {
   }
 
   LabelPreference _getModerationLabelPreference(
-    final ContentLabelVisibility visibility,
+    final UVisibility visibility,
   ) {
-    if (visibility == ContentLabelVisibility.show) {
+    if (visibility.isUnknownValue) return LabelPreference.warn;
+
+    final knownVisibility = visibility.knownValue;
+    if (knownVisibility == KnownVisibility.show) {
       return LabelPreference.ignore;
     }
 
-    final preference = LabelPreference.valueOf(visibility.name);
+    final preference = LabelPreference.valueOf(knownVisibility.value);
 
     return preference ?? LabelPreference.warn;
   }

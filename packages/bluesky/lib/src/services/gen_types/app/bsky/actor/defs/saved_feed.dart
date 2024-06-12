@@ -42,6 +42,14 @@ class SavedFeed with _$SavedFeed {
       _$SavedFeedFromJson(json);
 }
 
+/// Returns true if [object] is [SavedFeed], otherwise false.
+bool isSavedFeed(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#savedFeed';
+}
+
 extension $SavedFeedExtension on SavedFeed {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

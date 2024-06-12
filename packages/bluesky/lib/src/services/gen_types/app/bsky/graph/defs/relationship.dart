@@ -49,6 +49,14 @@ class Relationship with _$Relationship {
       _$RelationshipFromJson(json);
 }
 
+/// Returns true if [object] is [Relationship], otherwise false.
+bool isRelationship(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.defs#relationship';
+}
+
 extension $RelationshipExtension on Relationship {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

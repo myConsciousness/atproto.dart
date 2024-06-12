@@ -55,6 +55,14 @@ class RecordViewRecord with _$RecordViewRecord {
       _$RecordViewRecordFromJson(json);
 }
 
+/// Returns true if [object] is [RecordViewRecord], otherwise false.
+bool isRecordViewRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.record#viewRecord';
+}
+
 extension $RecordViewRecordExtension on RecordViewRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

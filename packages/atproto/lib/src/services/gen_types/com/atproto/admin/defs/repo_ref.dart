@@ -38,6 +38,14 @@ class RepoRef with _$RepoRef {
       _$RepoRefFromJson(json);
 }
 
+/// Returns true if [object] is [RepoRef], otherwise false.
+bool isRepoRef(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.admin.defs#repoRef';
+}
+
 extension $RepoRefExtension on RepoRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

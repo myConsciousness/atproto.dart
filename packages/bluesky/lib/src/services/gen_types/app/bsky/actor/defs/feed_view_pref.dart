@@ -57,6 +57,14 @@ class FeedViewPref with _$FeedViewPref {
       _$FeedViewPrefFromJson(json);
 }
 
+/// Returns true if [object] is [FeedViewPref], otherwise false.
+bool isFeedViewPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#feedViewPref';
+}
+
 extension $FeedViewPrefExtension on FeedViewPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

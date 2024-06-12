@@ -45,6 +45,14 @@ class ConvoView with _$ConvoView {
       _$ConvoViewFromJson(json);
 }
 
+/// Returns true if [object] is [ConvoView], otherwise false.
+bool isConvoView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#convoView';
+}
+
 extension $ConvoViewExtension on ConvoView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

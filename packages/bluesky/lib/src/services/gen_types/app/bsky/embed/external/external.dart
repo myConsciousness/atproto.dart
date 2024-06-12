@@ -44,6 +44,14 @@ class ExternalExternal with _$ExternalExternal {
       _$ExternalExternalFromJson(json);
 }
 
+/// Returns true if [object] is [ExternalExternal], otherwise false.
+bool isExternalExternal(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.external#external';
+}
+
 extension $ExternalExternalExtension on ExternalExternal {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

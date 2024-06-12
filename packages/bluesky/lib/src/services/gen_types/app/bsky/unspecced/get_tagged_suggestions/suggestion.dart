@@ -43,6 +43,15 @@ class Suggestion with _$Suggestion {
       _$SuggestionFromJson(json);
 }
 
+/// Returns true if [object] is [Suggestion], otherwise false.
+bool isSuggestion(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] ==
+      'app.bsky.unspecced.getTaggedSuggestions#suggestion';
+}
+
 extension $SuggestionExtension on Suggestion {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

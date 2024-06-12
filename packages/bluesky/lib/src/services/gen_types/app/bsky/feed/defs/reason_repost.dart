@@ -40,6 +40,14 @@ class ReasonRepost with _$ReasonRepost {
       _$ReasonRepostFromJson(json);
 }
 
+/// Returns true if [object] is [ReasonRepost], otherwise false.
+bool isReasonRepost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#reasonRepost';
+}
+
 extension $ReasonRepostExtension on ReasonRepost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

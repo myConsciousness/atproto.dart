@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../services/entities/muted_word.dart';
+import '../../../services/gen_types/app/bsky/actor/defs/muted_word.dart';
 import '../labels.dart';
 import '../mod_object.dart';
 import 'moderation_prefs_labeler.dart';

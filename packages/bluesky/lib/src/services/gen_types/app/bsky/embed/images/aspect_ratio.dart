@@ -43,6 +43,14 @@ class ImagesAspectRatio with _$ImagesAspectRatio {
       _$ImagesAspectRatioFromJson(json);
 }
 
+/// Returns true if [object] is [ImagesAspectRatio], otherwise false.
+bool isImagesAspectRatio(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.images#aspectRatio';
+}
+
 extension $ImagesAspectRatioExtension on ImagesAspectRatio {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -42,6 +42,14 @@ class RecordViewNotFound with _$RecordViewNotFound {
       _$RecordViewNotFoundFromJson(json);
 }
 
+/// Returns true if [object] is [RecordViewNotFound], otherwise false.
+bool isRecordViewNotFound(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.record#viewNotFound';
+}
+
 extension $RecordViewNotFoundExtension on RecordViewNotFound {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

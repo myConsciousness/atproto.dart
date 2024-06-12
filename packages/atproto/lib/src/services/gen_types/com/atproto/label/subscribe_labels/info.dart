@@ -41,6 +41,14 @@ class Info with _$Info {
   factory Info.fromJson(Map<String, dynamic> json) => _$InfoFromJson(json);
 }
 
+/// Returns true if [object] is [Info], otherwise false.
+bool isInfo(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.label.subscribeLabels#info';
+}
+
 extension $InfoExtension on Info {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

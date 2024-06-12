@@ -43,6 +43,14 @@ class Delete with _$Delete {
   factory Delete.fromJson(Map<String, dynamic> json) => _$DeleteFromJson(json);
 }
 
+/// Returns true if [object] is [Delete], otherwise false.
+bool isDelete(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.repo.applyWrites#delete';
+}
+
 extension $DeleteExtension on Delete {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

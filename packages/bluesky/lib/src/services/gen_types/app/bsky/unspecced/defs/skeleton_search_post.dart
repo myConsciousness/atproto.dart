@@ -41,6 +41,14 @@ class SkeletonSearchPost with _$SkeletonSearchPost {
       _$SkeletonSearchPostFromJson(json);
 }
 
+/// Returns true if [object] is [SkeletonSearchPost], otherwise false.
+bool isSkeletonSearchPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.unspecced.defs#skeletonSearchPost';
+}
+
 extension $SkeletonSearchPostExtension on SkeletonSearchPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

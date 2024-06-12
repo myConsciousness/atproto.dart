@@ -42,6 +42,14 @@ class BlockedPost with _$BlockedPost {
       _$BlockedPostFromJson(json);
 }
 
+/// Returns true if [object] is [BlockedPost], otherwise false.
+bool isBlockedPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#blockedPost';
+}
+
 extension $BlockedPostExtension on BlockedPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

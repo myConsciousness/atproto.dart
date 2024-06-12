@@ -51,6 +51,14 @@ class MessageView with _$MessageView {
       _$MessageViewFromJson(json);
 }
 
+/// Returns true if [object] is [MessageView], otherwise false.
+bool isMessageView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#messageView';
+}
+
 extension $MessageViewExtension on MessageView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

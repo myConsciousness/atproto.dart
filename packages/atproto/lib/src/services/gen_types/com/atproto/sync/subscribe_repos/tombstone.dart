@@ -44,6 +44,14 @@ class Tombstone with _$Tombstone {
       _$TombstoneFromJson(json);
 }
 
+/// Returns true if [object] is [Tombstone], otherwise false.
+bool isTombstone(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#tombstone';
+}
+
 extension $TombstoneExtension on Tombstone {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -53,6 +53,14 @@ class ListViewBasic with _$ListViewBasic {
       _$ListViewBasicFromJson(json);
 }
 
+/// Returns true if [object] is [ListViewBasic], otherwise false.
+bool isListViewBasic(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.defs#listViewBasic';
+}
+
 extension $ListViewBasicExtension on ListViewBasic {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

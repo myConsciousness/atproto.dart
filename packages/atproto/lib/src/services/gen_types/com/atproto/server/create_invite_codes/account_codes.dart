@@ -41,6 +41,15 @@ class AccountCodes with _$AccountCodes {
       _$AccountCodesFromJson(json);
 }
 
+/// Returns true if [object] is [AccountCodes], otherwise false.
+bool isAccountCodes(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] ==
+      'com.atproto.server.createInviteCodes#accountCodes';
+}
+
 extension $AccountCodesExtension on AccountCodes {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

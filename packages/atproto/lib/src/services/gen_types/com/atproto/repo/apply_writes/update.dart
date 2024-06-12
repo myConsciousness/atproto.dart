@@ -44,6 +44,14 @@ class Update with _$Update {
   factory Update.fromJson(Map<String, dynamic> json) => _$UpdateFromJson(json);
 }
 
+/// Returns true if [object] is [Update], otherwise false.
+bool isUpdate(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.repo.applyWrites#update';
+}
+
 extension $UpdateExtension on Update {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

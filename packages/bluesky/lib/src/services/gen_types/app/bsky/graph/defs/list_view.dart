@@ -56,6 +56,14 @@ class ListView with _$ListView {
       _$ListViewFromJson(json);
 }
 
+/// Returns true if [object] is [ListView], otherwise false.
+bool isListView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.defs#listView';
+}
+
 extension $ListViewExtension on ListView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

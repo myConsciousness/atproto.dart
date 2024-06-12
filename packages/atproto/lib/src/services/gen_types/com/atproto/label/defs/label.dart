@@ -65,6 +65,14 @@ class Label with _$Label {
   factory Label.fromJson(Map<String, dynamic> json) => _$LabelFromJson(json);
 }
 
+/// Returns true if [object] is [Label], otherwise false.
+bool isLabel(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.label.defs#label';
+}
+
 extension $LabelExtension on Label {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

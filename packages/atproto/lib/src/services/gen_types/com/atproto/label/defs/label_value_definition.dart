@@ -62,6 +62,14 @@ class LabelValueDefinition with _$LabelValueDefinition {
       _$LabelValueDefinitionFromJson(json);
 }
 
+/// Returns true if [object] is [LabelValueDefinition], otherwise false.
+bool isLabelValueDefinition(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.label.defs#labelValueDefinition';
+}
+
 extension $LabelValueDefinitionExtension on LabelValueDefinition {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

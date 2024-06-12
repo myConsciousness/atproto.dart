@@ -39,6 +39,14 @@ class ExternalView with _$ExternalView {
       _$ExternalViewFromJson(json);
 }
 
+/// Returns true if [object] is [ExternalView], otherwise false.
+bool isExternalView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.external#view';
+}
+
 extension $ExternalViewExtension on ExternalView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -46,6 +46,14 @@ class MutedWord with _$MutedWord {
       _$MutedWordFromJson(json);
 }
 
+/// Returns true if [object] is [MutedWord], otherwise false.
+bool isMutedWord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#mutedWord';
+}
+
 extension $MutedWordExtension on MutedWord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

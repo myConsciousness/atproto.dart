@@ -41,6 +41,14 @@ class SkeletonReasonRepost with _$SkeletonReasonRepost {
       _$SkeletonReasonRepostFromJson(json);
 }
 
+/// Returns true if [object] is [SkeletonReasonRepost], otherwise false.
+bool isSkeletonReasonRepost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#skeletonReasonRepost';
+}
+
 extension $SkeletonReasonRepostExtension on SkeletonReasonRepost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -43,6 +43,14 @@ class NotFoundActor with _$NotFoundActor {
       _$NotFoundActorFromJson(json);
 }
 
+/// Returns true if [object] is [NotFoundActor], otherwise false.
+bool isNotFoundActor(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.defs#notFoundActor';
+}
+
 extension $NotFoundActorExtension on NotFoundActor {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

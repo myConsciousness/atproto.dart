@@ -51,6 +51,14 @@ class ProfileView with _$ProfileView {
       _$ProfileViewFromJson(json);
 }
 
+/// Returns true if [object] is [ProfileView], otherwise false.
+bool isProfileView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#profileView';
+}
+
 extension $ProfileViewExtension on ProfileView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

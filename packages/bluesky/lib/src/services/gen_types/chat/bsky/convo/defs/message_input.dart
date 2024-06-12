@@ -46,6 +46,14 @@ class MessageInput with _$MessageInput {
       _$MessageInputFromJson(json);
 }
 
+/// Returns true if [object] is [MessageInput], otherwise false.
+bool isMessageInput(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#messageInput';
+}
+
 extension $MessageInputExtension on MessageInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

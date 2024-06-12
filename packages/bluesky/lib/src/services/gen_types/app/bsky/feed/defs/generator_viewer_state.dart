@@ -41,6 +41,14 @@ class GeneratorViewerState with _$GeneratorViewerState {
       _$GeneratorViewerStateFromJson(json);
 }
 
+/// Returns true if [object] is [GeneratorViewerState], otherwise false.
+bool isGeneratorViewerState(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#generatorViewerState';
+}
+
 extension $GeneratorViewerStateExtension on GeneratorViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

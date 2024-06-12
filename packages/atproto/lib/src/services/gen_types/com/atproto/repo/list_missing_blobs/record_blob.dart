@@ -42,6 +42,14 @@ class RecordBlob with _$RecordBlob {
       _$RecordBlobFromJson(json);
 }
 
+/// Returns true if [object] is [RecordBlob], otherwise false.
+bool isRecordBlob(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.repo.listMissingBlobs#recordBlob';
+}
+
 extension $RecordBlobExtension on RecordBlob {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

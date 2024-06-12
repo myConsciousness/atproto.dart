@@ -40,6 +40,14 @@ class MessageRef with _$MessageRef {
       _$MessageRefFromJson(json);
 }
 
+/// Returns true if [object] is [MessageRef], otherwise false.
+bool isMessageRef(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#messageRef';
+}
+
 extension $MessageRefExtension on MessageRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

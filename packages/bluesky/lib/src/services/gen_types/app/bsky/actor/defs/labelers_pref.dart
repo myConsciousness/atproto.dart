@@ -41,6 +41,14 @@ class LabelersPref with _$LabelersPref {
       _$LabelersPrefFromJson(json);
 }
 
+/// Returns true if [object] is [LabelersPref], otherwise false.
+bool isLabelersPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#labelersPref';
+}
+
 extension $LabelersPrefExtension on LabelersPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -40,6 +40,14 @@ class StrongRef with _$StrongRef {
       _$StrongRefFromJson(json);
 }
 
+/// Returns true if [object] is [StrongRef], otherwise false.
+bool isStrongRef(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.repo.strongRef';
+}
+
 extension $StrongRefExtension on StrongRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

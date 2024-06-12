@@ -52,6 +52,14 @@ class LabelerView with _$LabelerView {
       _$LabelerViewFromJson(json);
 }
 
+/// Returns true if [object] is [LabelerView], otherwise false.
+bool isLabelerView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.labeler.defs#labelerView';
+}
+
 extension $LabelerViewExtension on LabelerView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

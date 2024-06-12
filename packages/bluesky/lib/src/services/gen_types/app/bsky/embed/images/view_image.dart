@@ -48,6 +48,14 @@ class ImagesViewImage with _$ImagesViewImage {
       _$ImagesViewImageFromJson(json);
 }
 
+/// Returns true if [object] is [ImagesViewImage], otherwise false.
+bool isImagesViewImage(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.images#viewImage';
+}
+
 extension $ImagesViewImageExtension on ImagesViewImage {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

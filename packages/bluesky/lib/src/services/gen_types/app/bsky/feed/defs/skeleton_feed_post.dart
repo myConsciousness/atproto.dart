@@ -46,6 +46,14 @@ class SkeletonFeedPost with _$SkeletonFeedPost {
       _$SkeletonFeedPostFromJson(json);
 }
 
+/// Returns true if [object] is [SkeletonFeedPost], otherwise false.
+bool isSkeletonFeedPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#skeletonFeedPost';
+}
+
 extension $SkeletonFeedPostExtension on SkeletonFeedPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

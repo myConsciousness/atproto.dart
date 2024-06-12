@@ -43,6 +43,14 @@ class SelfLabels with _$SelfLabels {
       _$SelfLabelsFromJson(json);
 }
 
+/// Returns true if [object] is [SelfLabels], otherwise false.
+bool isSelfLabels(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.label.defs#selfLabels';
+}
+
 extension $SelfLabelsExtension on SelfLabels {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

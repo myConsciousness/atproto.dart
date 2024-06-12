@@ -47,6 +47,14 @@ class LabelerPolicies with _$LabelerPolicies {
       _$LabelerPoliciesFromJson(json);
 }
 
+/// Returns true if [object] is [LabelerPolicies], otherwise false.
+bool isLabelerPolicies(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.labeler.defs#labelerPolicies';
+}
+
 extension $LabelerPoliciesExtension on LabelerPolicies {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

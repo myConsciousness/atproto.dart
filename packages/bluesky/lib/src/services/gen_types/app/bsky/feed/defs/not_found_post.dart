@@ -40,6 +40,14 @@ class NotFoundPost with _$NotFoundPost {
       _$NotFoundPostFromJson(json);
 }
 
+/// Returns true if [object] is [NotFoundPost], otherwise false.
+bool isNotFoundPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#notFoundPost';
+}
+
 extension $NotFoundPostExtension on NotFoundPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

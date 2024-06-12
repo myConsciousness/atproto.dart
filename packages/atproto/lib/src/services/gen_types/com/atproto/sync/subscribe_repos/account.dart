@@ -51,6 +51,14 @@ class Account with _$Account {
       _$AccountFromJson(json);
 }
 
+/// Returns true if [object] is [Account], otherwise false.
+bool isAccount(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#account';
+}
+
 extension $AccountExtension on Account {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

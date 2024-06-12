@@ -42,6 +42,14 @@ class PersonalDetailsPref with _$PersonalDetailsPref {
       _$PersonalDetailsPrefFromJson(json);
 }
 
+/// Returns true if [object] is [PersonalDetailsPref], otherwise false.
+bool isPersonalDetailsPref(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.defs#personalDetailsPref';
+}
+
 extension $PersonalDetailsPrefExtension on PersonalDetailsPref {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

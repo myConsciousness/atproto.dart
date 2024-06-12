@@ -46,6 +46,14 @@ class RepoOp with _$RepoOp {
   factory RepoOp.fromJson(Map<String, dynamic> json) => _$RepoOpFromJson(json);
 }
 
+/// Returns true if [object] is [RepoOp], otherwise false.
+bool isRepoOp(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#repoOp';
+}
+
 extension $RepoOpExtension on RepoOp {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

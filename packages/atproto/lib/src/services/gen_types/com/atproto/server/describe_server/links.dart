@@ -40,6 +40,14 @@ class Links with _$Links {
   factory Links.fromJson(Map<String, dynamic> json) => _$LinksFromJson(json);
 }
 
+/// Returns true if [object] is [Links], otherwise false.
+bool isLinks(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.server.describeServer#links';
+}
+
 extension $LinksExtension on Links {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

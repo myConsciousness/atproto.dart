@@ -38,6 +38,14 @@ class Record with _$Record {
   factory Record.fromJson(Map<String, dynamic> json) => _$RecordFromJson(json);
 }
 
+/// Returns true if [object] is [Record], otherwise false.
+bool isRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.embed.record';
+}
+
 extension $RecordExtension on Record {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

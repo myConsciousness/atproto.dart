@@ -41,6 +41,14 @@ class LabelerViewerState with _$LabelerViewerState {
       _$LabelerViewerStateFromJson(json);
 }
 
+/// Returns true if [object] is [LabelerViewerState], otherwise false.
+bool isLabelerViewerState(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.labeler.defs#labelerViewerState';
+}
+
 extension $LabelerViewerStateExtension on LabelerViewerState {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

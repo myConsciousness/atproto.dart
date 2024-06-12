@@ -40,6 +40,14 @@ class Like with _$Like {
   factory Like.fromJson(Map<String, dynamic> json) => _$LikeFromJson(json);
 }
 
+/// Returns true if [object] is [Like], otherwise false.
+bool isLike(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.getLikes#like';
+}
+
 extension $LikeExtension on Like {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

@@ -43,6 +43,14 @@ class RepoBlobRef with _$RepoBlobRef {
       _$RepoBlobRefFromJson(json);
 }
 
+/// Returns true if [object] is [RepoBlobRef], otherwise false.
+bool isRepoBlobRef(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.admin.defs#repoBlobRef';
+}
+
 extension $RepoBlobRefExtension on RepoBlobRef {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

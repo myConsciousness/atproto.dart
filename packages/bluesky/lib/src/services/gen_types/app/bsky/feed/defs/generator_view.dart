@@ -59,6 +59,14 @@ class GeneratorView with _$GeneratorView {
       _$GeneratorViewFromJson(json);
 }
 
+/// Returns true if [object] is [GeneratorView], otherwise false.
+bool isGeneratorView(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#generatorView';
+}
+
 extension $GeneratorViewExtension on GeneratorView {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

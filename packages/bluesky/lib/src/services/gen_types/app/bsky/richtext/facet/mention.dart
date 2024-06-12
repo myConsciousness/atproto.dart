@@ -40,6 +40,14 @@ class FacetMention with _$FacetMention {
       _$FacetMentionFromJson(json);
 }
 
+/// Returns true if [object] is [FacetMention], otherwise false.
+bool isFacetMention(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.richtext.facet#mention';
+}
+
 extension $FacetMentionExtension on FacetMention {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

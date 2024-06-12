@@ -41,6 +41,14 @@ class StatusAttr with _$StatusAttr {
       _$StatusAttrFromJson(json);
 }
 
+/// Returns true if [object] is [StatusAttr], otherwise false.
+bool isStatusAttr(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.admin.defs#statusAttr';
+}
+
 extension $StatusAttrExtension on StatusAttr {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

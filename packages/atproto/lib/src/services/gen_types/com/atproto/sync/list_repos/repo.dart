@@ -46,6 +46,14 @@ class Repo with _$Repo {
   factory Repo.fromJson(Map<String, dynamic> json) => _$RepoFromJson(json);
 }
 
+/// Returns true if [object] is [Repo], otherwise false.
+bool isRepo(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.sync.listRepos#repo';
+}
+
 extension $RepoExtension on Repo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

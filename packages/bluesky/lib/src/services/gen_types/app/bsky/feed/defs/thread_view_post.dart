@@ -45,6 +45,14 @@ class ThreadViewPost with _$ThreadViewPost {
       _$ThreadViewPostFromJson(json);
 }
 
+/// Returns true if [object] is [ThreadViewPost], otherwise false.
+bool isThreadViewPost(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.defs#threadViewPost';
+}
+
 extension $ThreadViewPostExtension on ThreadViewPost {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

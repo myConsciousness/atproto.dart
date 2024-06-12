@@ -54,6 +54,15 @@ class Notification with _$Notification {
       _$NotificationFromJson(json);
 }
 
+/// Returns true if [object] is [Notification], otherwise false.
+bool isNotification(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] ==
+      'app.bsky.notification.listNotifications#notification';
+}
+
 extension $NotificationExtension on Notification {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

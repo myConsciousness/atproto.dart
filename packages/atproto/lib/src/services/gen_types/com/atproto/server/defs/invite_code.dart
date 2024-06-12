@@ -47,6 +47,14 @@ class InviteCode with _$InviteCode {
       _$InviteCodeFromJson(json);
 }
 
+/// Returns true if [object] is [InviteCode], otherwise false.
+bool isInviteCode(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'com.atproto.server.defs#inviteCode';
+}
+
 extension $InviteCodeExtension on InviteCode {
   /// Returns true if this object has unknown objects,
   /// otherwise false.

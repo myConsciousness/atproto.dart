@@ -41,6 +41,14 @@ class LogLeaveConvo with _$LogLeaveConvo {
       _$LogLeaveConvoFromJson(json);
 }
 
+/// Returns true if [object] is [LogLeaveConvo], otherwise false.
+bool isLogLeaveConvo(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.convo.defs#logLeaveConvo';
+}
+
 extension $LogLeaveConvoExtension on LogLeaveConvo {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
