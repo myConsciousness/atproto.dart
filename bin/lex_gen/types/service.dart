@@ -306,6 +306,8 @@ final class Payload {
       return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
     } else if (arg.name == 'seenAt') {
       return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+    } else if (arg.isRequired && arg.type.name == 'DateTime') {
+      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
     } else if (arg.name == 'repo') {
       return "'${arg.name}': repo ?? _ctx.repo,";
     }
