@@ -49,7 +49,7 @@ Future<void> main() async {
 
     //! Let's get home timeline!
     final feeds = await bsky.feed.getTimeline(
-      headers: getLabelerHeaders(moderationPrefs),
+      $headers: getLabelerHeaders(moderationPrefs),
     );
 
     for (final feed in feeds.data.feed) {
@@ -98,9 +98,6 @@ Future<void> main() async {
         ).execute,
         identity: print,
         account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
         info: print,
         unknown: print,
       );

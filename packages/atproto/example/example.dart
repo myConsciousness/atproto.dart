@@ -70,9 +70,6 @@ Future<void> main() async {
         commit: print,
         identity: print,
         account: print,
-        handle: print,
-        migrate: print,
-        tombstone: print,
         info: print,
         unknown: print,
       );
