@@ -229,15 +229,19 @@ final class LexServiceEndpoint {
     buffer.writeln('        ns.$namespace,');
     buffer.writeln('        headers: \$headers,');
     if (args.isNotEmpty) {
-      if (args.first.isBytes) {
-        buffer.writeln('    body: ${args.first.name},');
-      } else {
-        buffer.writeln('    body: {');
-        for (final arg in args) {
-          buffer.writeln(Payload(arg).toString());
+      final inputs = args.where((e) => e.objectType == ObjectType.input);
+
+      if (inputs.isNotEmpty) {
+        if (inputs.first.isBytes) {
+          buffer.writeln('    body: ${args.first.name},');
+        } else {
+          buffer.writeln('    body: {');
+          for (final input in inputs) {
+            buffer.writeln(Payload(input).toString());
+          }
+          buffer.writeln('          ...?\$unknown,');
+          buffer.writeln('    },');
         }
-        buffer.writeln('          ...?\$unknown,');
-        buffer.writeln('    },');
       }
     }
     if (type.converter != null) {
