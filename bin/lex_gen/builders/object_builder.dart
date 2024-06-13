@@ -21,6 +21,8 @@ final class LexGenObjectBuilder {
   final LexGenContext context;
 
   List<LexGenObject>? build() {
+    if (isDeprecated(context.def?.toJson()['description'])) return null;
+
     final properties = _getProperties();
     if (properties == null) return null;
 
@@ -273,6 +275,10 @@ final class LexGenObjectBuilder {
     final requiredProperties = object.requiredProperties ?? const [];
 
     for (final entry in object.properties!.entries) {
+      if (isDeprecated(entry.value.toJson()['description'])) {
+        continue;
+      }
+
       properties.add(
         _getObjectProperty(
           entry.key,

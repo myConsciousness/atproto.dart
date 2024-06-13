@@ -23,11 +23,6 @@ mixin _$PostRecord {
   /// The primary post content. May be an empty string, if there are embeds.
   String get text => throw _privateConstructorUsedError;
 
-  /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-  @EntityConverter()
-  List<Entity>? get entities => throw _privateConstructorUsedError;
-
   /// Annotations of text (mentions, URLs, hashtags, etc)
   @FacetConverter()
   List<Facet>? get facets => throw _privateConstructorUsedError;
@@ -67,9 +62,6 @@ abstract class $PostRecordCopyWith<$Res> {
   @useResult
   $Res call(
       {String text,
-      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-      @EntityConverter()
-      List<Entity>? entities,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
       @UPostEmbedConverter() UPostEmbed? embed,
@@ -98,7 +90,6 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
   @override
   $Res call({
     Object? text = null,
-    Object? entities = freezed,
     Object? facets = freezed,
     Object? reply = freezed,
     Object? embed = freezed,
@@ -113,10 +104,6 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      entities: freezed == entities
-          ? _value.entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>?,
       facets: freezed == facets
           ? _value.facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -199,9 +186,6 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @useResult
   $Res call(
       {String text,
-      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-      @EntityConverter()
-      List<Entity>? entities,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
       @UPostEmbedConverter() UPostEmbed? embed,
@@ -231,7 +215,6 @@ class __$$PostRecordImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
-    Object? entities = freezed,
     Object? facets = freezed,
     Object? reply = freezed,
     Object? embed = freezed,
@@ -246,10 +229,6 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      entities: freezed == entities
-          ? _value._entities
-          : entities // ignore: cast_nullable_to_non_nullable
-              as List<Entity>?,
       facets: freezed == facets
           ? _value._facets
           : facets // ignore: cast_nullable_to_non_nullable
@@ -292,9 +271,6 @@ class __$$PostRecordImplCopyWithImpl<$Res>
 class _$PostRecordImpl implements _PostRecord {
   const _$PostRecordImpl(
       {required this.text,
-      @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-      @EntityConverter()
-      final List<Entity>? entities,
       @FacetConverter() final List<Facet>? facets,
       @ReplyRefConverter() this.reply,
       @UPostEmbedConverter() this.embed,
@@ -304,8 +280,7 @@ class _$PostRecordImpl implements _PostRecord {
       this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
-      : _entities = entities,
-        _facets = facets,
+      : _facets = facets,
         _langs = langs,
         _tags = tags,
         _$unknown = $unknown;
@@ -316,21 +291,6 @@ class _$PostRecordImpl implements _PostRecord {
   /// The primary post content. May be an empty string, if there are embeds.
   @override
   final String text;
-
-  /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  final List<Entity>? _entities;
-
-  /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  @override
-  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-  @EntityConverter()
-  List<Entity>? get entities {
-    final value = _entities;
-    if (value == null) return null;
-    if (_entities is EqualUnmodifiableListView) return _entities;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(value);
-  }
 
   /// Annotations of text (mentions, URLs, hashtags, etc)
   final List<Facet>? _facets;
@@ -402,7 +362,7 @@ class _$PostRecordImpl implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(text: $text, entities: $entities, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'PostRecord(text: $text, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -411,7 +371,6 @@ class _$PostRecordImpl implements _PostRecord {
         (other.runtimeType == runtimeType &&
             other is _$PostRecordImpl &&
             (identical(other.text, text) || other.text == text) &&
-            const DeepCollectionEquality().equals(other._entities, _entities) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.reply, reply) || other.reply == reply) &&
             (identical(other.embed, embed) || other.embed == embed) &&
@@ -428,7 +387,6 @@ class _$PostRecordImpl implements _PostRecord {
   int get hashCode => Object.hash(
       runtimeType,
       text,
-      const DeepCollectionEquality().hash(_entities),
       const DeepCollectionEquality().hash(_facets),
       reply,
       embed,
@@ -455,9 +413,6 @@ class _$PostRecordImpl implements _PostRecord {
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
           {required final String text,
-          @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-          @EntityConverter()
-          final List<Entity>? entities,
           @FacetConverter() final List<Facet>? facets,
           @ReplyRefConverter() final ReplyRef? reply,
           @UPostEmbedConverter() final UPostEmbed? embed,
@@ -475,12 +430,6 @@ abstract class _PostRecord implements PostRecord {
 
   /// The primary post content. May be an empty string, if there are embeds.
   String get text;
-  @override
-
-  /// DEPRECATED: replaced by app.bsky.richtext.facet.
-  @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-  @EntityConverter()
-  List<Entity>? get entities;
   @override
 
   /// Annotations of text (mentions, URLs, hashtags, etc)

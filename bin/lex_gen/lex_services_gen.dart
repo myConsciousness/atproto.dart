@@ -55,6 +55,8 @@ final class LexServicesGen {
       final method = doc.methodOrNull;
       if (method == null) continue;
 
+      if (isDeprecated(method.toJson()['description'])) continue;
+
       final serviceName = doc.serviceName;
       final context = ServiceEndpointContext(
         serviceName: serviceName,

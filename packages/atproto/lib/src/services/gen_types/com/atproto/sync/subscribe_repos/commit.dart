@@ -37,9 +37,6 @@ class Commit with _$Commit {
     /// The stream sequence number of this message.
     required int seq,
 
-    /// DEPRECATED -- unused
-    @Deprecated('DEPRECATED -- unused') required bool rebase,
-
     /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
     required bool tooBig,
 
@@ -48,11 +45,6 @@ class Commit with _$Commit {
 
     /// Repo commit object CID.
     required String commit,
-
-    /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
-    @Deprecated(
-        'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-    String? prev,
 
     /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
     required String rev,
@@ -97,11 +89,9 @@ extension $CommitExtension on Commit {
 const _kLexCompatibleProperties = <String>[
   r'$type',
   'seq',
-  'rebase',
   'tooBig',
   'repo',
   'commit',
-  'prev',
   'rev',
   'since',
   'blocks',

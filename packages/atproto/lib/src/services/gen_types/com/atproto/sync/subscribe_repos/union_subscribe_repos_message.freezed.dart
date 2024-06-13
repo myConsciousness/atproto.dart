@@ -22,9 +22,6 @@ mixin _$USubscribeReposMessage {
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) =>
@@ -34,9 +31,6 @@ mixin _$USubscribeReposMessage {
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) =>
@@ -46,9 +40,6 @@ mixin _$USubscribeReposMessage {
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -59,9 +50,6 @@ mixin _$USubscribeReposMessage {
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) =>
@@ -71,9 +59,6 @@ mixin _$USubscribeReposMessage {
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) =>
@@ -83,9 +68,6 @@ mixin _$USubscribeReposMessage {
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),
@@ -195,9 +177,6 @@ class _$USubscribeReposMessageCommitImpl
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -210,9 +189,6 @@ class _$USubscribeReposMessageCommitImpl
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -225,9 +201,6 @@ class _$USubscribeReposMessageCommitImpl
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -244,9 +217,6 @@ class _$USubscribeReposMessageCommitImpl
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) {
@@ -259,9 +229,6 @@ class _$USubscribeReposMessageCommitImpl
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) {
@@ -274,9 +241,6 @@ class _$USubscribeReposMessageCommitImpl
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),
@@ -383,9 +347,6 @@ class _$USubscribeReposMessageIdentityImpl
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -398,9 +359,6 @@ class _$USubscribeReposMessageIdentityImpl
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -413,9 +371,6 @@ class _$USubscribeReposMessageIdentityImpl
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -432,9 +387,6 @@ class _$USubscribeReposMessageIdentityImpl
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) {
@@ -447,9 +399,6 @@ class _$USubscribeReposMessageIdentityImpl
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) {
@@ -462,9 +411,6 @@ class _$USubscribeReposMessageIdentityImpl
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),
@@ -572,9 +518,6 @@ class _$USubscribeReposMessageAccountImpl
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -587,9 +530,6 @@ class _$USubscribeReposMessageAccountImpl
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -602,9 +542,6 @@ class _$USubscribeReposMessageAccountImpl
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -621,9 +558,6 @@ class _$USubscribeReposMessageAccountImpl
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) {
@@ -636,9 +570,6 @@ class _$USubscribeReposMessageAccountImpl
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) {
@@ -651,9 +582,6 @@ class _$USubscribeReposMessageAccountImpl
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),
@@ -674,571 +602,6 @@ abstract class USubscribeReposMessageAccount implements USubscribeReposMessage {
   @JsonKey(ignore: true)
   _$$USubscribeReposMessageAccountImplCopyWith<
           _$USubscribeReposMessageAccountImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$USubscribeReposMessageHandleImplCopyWith<$Res> {
-  factory _$$USubscribeReposMessageHandleImplCopyWith(
-          _$USubscribeReposMessageHandleImpl value,
-          $Res Function(_$USubscribeReposMessageHandleImpl) then) =
-      __$$USubscribeReposMessageHandleImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Handle data});
-
-  $HandleCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$USubscribeReposMessageHandleImplCopyWithImpl<$Res>
-    extends _$USubscribeReposMessageCopyWithImpl<$Res,
-        _$USubscribeReposMessageHandleImpl>
-    implements _$$USubscribeReposMessageHandleImplCopyWith<$Res> {
-  __$$USubscribeReposMessageHandleImplCopyWithImpl(
-      _$USubscribeReposMessageHandleImpl _value,
-      $Res Function(_$USubscribeReposMessageHandleImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$USubscribeReposMessageHandleImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Handle,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $HandleCopyWith<$Res> get data {
-    return $HandleCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$USubscribeReposMessageHandleImpl
-    implements USubscribeReposMessageHandle {
-  const _$USubscribeReposMessageHandleImpl({required this.data});
-
-  @override
-  final Handle data;
-
-  @override
-  String toString() {
-    return 'USubscribeReposMessage.handle(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$USubscribeReposMessageHandleImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$USubscribeReposMessageHandleImplCopyWith<
-          _$USubscribeReposMessageHandleImpl>
-      get copyWith => __$$USubscribeReposMessageHandleImplCopyWithImpl<
-          _$USubscribeReposMessageHandleImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Commit data) commit,
-    required TResult Function(Identity data) identity,
-    required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
-    required TResult Function(Info data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return handle(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Commit data)? commit,
-    TResult? Function(Identity data)? identity,
-    TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
-    TResult? Function(Info data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return handle?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Commit data)? commit,
-    TResult Function(Identity data)? identity,
-    TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
-    TResult Function(Info data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (handle != null) {
-      return handle(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribeReposMessageCommit value) commit,
-    required TResult Function(USubscribeReposMessageIdentity value) identity,
-    required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
-    required TResult Function(USubscribeReposMessageInfo value) info,
-    required TResult Function(USubscribeReposMessageUnknown value) unknown,
-  }) {
-    return handle(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribeReposMessageCommit value)? commit,
-    TResult? Function(USubscribeReposMessageIdentity value)? identity,
-    TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult? Function(USubscribeReposMessageInfo value)? info,
-    TResult? Function(USubscribeReposMessageUnknown value)? unknown,
-  }) {
-    return handle?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribeReposMessageCommit value)? commit,
-    TResult Function(USubscribeReposMessageIdentity value)? identity,
-    TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult Function(USubscribeReposMessageInfo value)? info,
-    TResult Function(USubscribeReposMessageUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (handle != null) {
-      return handle(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class USubscribeReposMessageHandle implements USubscribeReposMessage {
-  const factory USubscribeReposMessageHandle({required final Handle data}) =
-      _$USubscribeReposMessageHandleImpl;
-
-  @override
-  Handle get data;
-  @JsonKey(ignore: true)
-  _$$USubscribeReposMessageHandleImplCopyWith<
-          _$USubscribeReposMessageHandleImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$USubscribeReposMessageMigrateImplCopyWith<$Res> {
-  factory _$$USubscribeReposMessageMigrateImplCopyWith(
-          _$USubscribeReposMessageMigrateImpl value,
-          $Res Function(_$USubscribeReposMessageMigrateImpl) then) =
-      __$$USubscribeReposMessageMigrateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Migrate data});
-
-  $MigrateCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$USubscribeReposMessageMigrateImplCopyWithImpl<$Res>
-    extends _$USubscribeReposMessageCopyWithImpl<$Res,
-        _$USubscribeReposMessageMigrateImpl>
-    implements _$$USubscribeReposMessageMigrateImplCopyWith<$Res> {
-  __$$USubscribeReposMessageMigrateImplCopyWithImpl(
-      _$USubscribeReposMessageMigrateImpl _value,
-      $Res Function(_$USubscribeReposMessageMigrateImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$USubscribeReposMessageMigrateImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Migrate,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $MigrateCopyWith<$Res> get data {
-    return $MigrateCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$USubscribeReposMessageMigrateImpl
-    implements USubscribeReposMessageMigrate {
-  const _$USubscribeReposMessageMigrateImpl({required this.data});
-
-  @override
-  final Migrate data;
-
-  @override
-  String toString() {
-    return 'USubscribeReposMessage.migrate(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$USubscribeReposMessageMigrateImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$USubscribeReposMessageMigrateImplCopyWith<
-          _$USubscribeReposMessageMigrateImpl>
-      get copyWith => __$$USubscribeReposMessageMigrateImplCopyWithImpl<
-          _$USubscribeReposMessageMigrateImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Commit data) commit,
-    required TResult Function(Identity data) identity,
-    required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
-    required TResult Function(Info data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return migrate(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Commit data)? commit,
-    TResult? Function(Identity data)? identity,
-    TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
-    TResult? Function(Info data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return migrate?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Commit data)? commit,
-    TResult Function(Identity data)? identity,
-    TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
-    TResult Function(Info data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (migrate != null) {
-      return migrate(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribeReposMessageCommit value) commit,
-    required TResult Function(USubscribeReposMessageIdentity value) identity,
-    required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
-    required TResult Function(USubscribeReposMessageInfo value) info,
-    required TResult Function(USubscribeReposMessageUnknown value) unknown,
-  }) {
-    return migrate(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribeReposMessageCommit value)? commit,
-    TResult? Function(USubscribeReposMessageIdentity value)? identity,
-    TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult? Function(USubscribeReposMessageInfo value)? info,
-    TResult? Function(USubscribeReposMessageUnknown value)? unknown,
-  }) {
-    return migrate?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribeReposMessageCommit value)? commit,
-    TResult Function(USubscribeReposMessageIdentity value)? identity,
-    TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult Function(USubscribeReposMessageInfo value)? info,
-    TResult Function(USubscribeReposMessageUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (migrate != null) {
-      return migrate(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class USubscribeReposMessageMigrate implements USubscribeReposMessage {
-  const factory USubscribeReposMessageMigrate({required final Migrate data}) =
-      _$USubscribeReposMessageMigrateImpl;
-
-  @override
-  Migrate get data;
-  @JsonKey(ignore: true)
-  _$$USubscribeReposMessageMigrateImplCopyWith<
-          _$USubscribeReposMessageMigrateImpl>
-      get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$USubscribeReposMessageTombstoneImplCopyWith<$Res> {
-  factory _$$USubscribeReposMessageTombstoneImplCopyWith(
-          _$USubscribeReposMessageTombstoneImpl value,
-          $Res Function(_$USubscribeReposMessageTombstoneImpl) then) =
-      __$$USubscribeReposMessageTombstoneImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Tombstone data});
-
-  $TombstoneCopyWith<$Res> get data;
-}
-
-/// @nodoc
-class __$$USubscribeReposMessageTombstoneImplCopyWithImpl<$Res>
-    extends _$USubscribeReposMessageCopyWithImpl<$Res,
-        _$USubscribeReposMessageTombstoneImpl>
-    implements _$$USubscribeReposMessageTombstoneImplCopyWith<$Res> {
-  __$$USubscribeReposMessageTombstoneImplCopyWithImpl(
-      _$USubscribeReposMessageTombstoneImpl _value,
-      $Res Function(_$USubscribeReposMessageTombstoneImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? data = null,
-  }) {
-    return _then(_$USubscribeReposMessageTombstoneImpl(
-      data: null == data
-          ? _value.data
-          : data // ignore: cast_nullable_to_non_nullable
-              as Tombstone,
-    ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $TombstoneCopyWith<$Res> get data {
-    return $TombstoneCopyWith<$Res>(_value.data, (value) {
-      return _then(_value.copyWith(data: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$USubscribeReposMessageTombstoneImpl
-    implements USubscribeReposMessageTombstone {
-  const _$USubscribeReposMessageTombstoneImpl({required this.data});
-
-  @override
-  final Tombstone data;
-
-  @override
-  String toString() {
-    return 'USubscribeReposMessage.tombstone(data: $data)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$USubscribeReposMessageTombstoneImpl &&
-            (identical(other.data, data) || other.data == data));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, data);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$USubscribeReposMessageTombstoneImplCopyWith<
-          _$USubscribeReposMessageTombstoneImpl>
-      get copyWith => __$$USubscribeReposMessageTombstoneImplCopyWithImpl<
-          _$USubscribeReposMessageTombstoneImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(Commit data) commit,
-    required TResult Function(Identity data) identity,
-    required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
-    required TResult Function(Info data) info,
-    required TResult Function(Map<String, dynamic> data) unknown,
-  }) {
-    return tombstone(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Commit data)? commit,
-    TResult? Function(Identity data)? identity,
-    TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
-    TResult? Function(Info data)? info,
-    TResult? Function(Map<String, dynamic> data)? unknown,
-  }) {
-    return tombstone?.call(data);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Commit data)? commit,
-    TResult Function(Identity data)? identity,
-    TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
-    TResult Function(Info data)? info,
-    TResult Function(Map<String, dynamic> data)? unknown,
-    required TResult orElse(),
-  }) {
-    if (tombstone != null) {
-      return tombstone(data);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(USubscribeReposMessageCommit value) commit,
-    required TResult Function(USubscribeReposMessageIdentity value) identity,
-    required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
-    required TResult Function(USubscribeReposMessageInfo value) info,
-    required TResult Function(USubscribeReposMessageUnknown value) unknown,
-  }) {
-    return tombstone(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(USubscribeReposMessageCommit value)? commit,
-    TResult? Function(USubscribeReposMessageIdentity value)? identity,
-    TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult? Function(USubscribeReposMessageInfo value)? info,
-    TResult? Function(USubscribeReposMessageUnknown value)? unknown,
-  }) {
-    return tombstone?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(USubscribeReposMessageCommit value)? commit,
-    TResult Function(USubscribeReposMessageIdentity value)? identity,
-    TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
-    TResult Function(USubscribeReposMessageInfo value)? info,
-    TResult Function(USubscribeReposMessageUnknown value)? unknown,
-    required TResult orElse(),
-  }) {
-    if (tombstone != null) {
-      return tombstone(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class USubscribeReposMessageTombstone
-    implements USubscribeReposMessage {
-  const factory USubscribeReposMessageTombstone(
-      {required final Tombstone data}) = _$USubscribeReposMessageTombstoneImpl;
-
-  @override
-  Tombstone get data;
-  @JsonKey(ignore: true)
-  _$$USubscribeReposMessageTombstoneImplCopyWith<
-          _$USubscribeReposMessageTombstoneImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -1323,9 +686,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -1338,9 +698,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -1353,9 +710,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -1372,9 +726,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) {
@@ -1387,9 +738,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) {
@@ -1402,9 +750,6 @@ class _$USubscribeReposMessageInfoImpl implements USubscribeReposMessageInfo {
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),
@@ -1508,9 +853,6 @@ class _$USubscribeReposMessageUnknownImpl
     required TResult Function(Commit data) commit,
     required TResult Function(Identity data) identity,
     required TResult Function(Account data) account,
-    required TResult Function(Handle data) handle,
-    required TResult Function(Migrate data) migrate,
-    required TResult Function(Tombstone data) tombstone,
     required TResult Function(Info data) info,
     required TResult Function(Map<String, dynamic> data) unknown,
   }) {
@@ -1523,9 +865,6 @@ class _$USubscribeReposMessageUnknownImpl
     TResult? Function(Commit data)? commit,
     TResult? Function(Identity data)? identity,
     TResult? Function(Account data)? account,
-    TResult? Function(Handle data)? handle,
-    TResult? Function(Migrate data)? migrate,
-    TResult? Function(Tombstone data)? tombstone,
     TResult? Function(Info data)? info,
     TResult? Function(Map<String, dynamic> data)? unknown,
   }) {
@@ -1538,9 +877,6 @@ class _$USubscribeReposMessageUnknownImpl
     TResult Function(Commit data)? commit,
     TResult Function(Identity data)? identity,
     TResult Function(Account data)? account,
-    TResult Function(Handle data)? handle,
-    TResult Function(Migrate data)? migrate,
-    TResult Function(Tombstone data)? tombstone,
     TResult Function(Info data)? info,
     TResult Function(Map<String, dynamic> data)? unknown,
     required TResult orElse(),
@@ -1557,9 +893,6 @@ class _$USubscribeReposMessageUnknownImpl
     required TResult Function(USubscribeReposMessageCommit value) commit,
     required TResult Function(USubscribeReposMessageIdentity value) identity,
     required TResult Function(USubscribeReposMessageAccount value) account,
-    required TResult Function(USubscribeReposMessageHandle value) handle,
-    required TResult Function(USubscribeReposMessageMigrate value) migrate,
-    required TResult Function(USubscribeReposMessageTombstone value) tombstone,
     required TResult Function(USubscribeReposMessageInfo value) info,
     required TResult Function(USubscribeReposMessageUnknown value) unknown,
   }) {
@@ -1572,9 +905,6 @@ class _$USubscribeReposMessageUnknownImpl
     TResult? Function(USubscribeReposMessageCommit value)? commit,
     TResult? Function(USubscribeReposMessageIdentity value)? identity,
     TResult? Function(USubscribeReposMessageAccount value)? account,
-    TResult? Function(USubscribeReposMessageHandle value)? handle,
-    TResult? Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult? Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult? Function(USubscribeReposMessageInfo value)? info,
     TResult? Function(USubscribeReposMessageUnknown value)? unknown,
   }) {
@@ -1587,9 +917,6 @@ class _$USubscribeReposMessageUnknownImpl
     TResult Function(USubscribeReposMessageCommit value)? commit,
     TResult Function(USubscribeReposMessageIdentity value)? identity,
     TResult Function(USubscribeReposMessageAccount value)? account,
-    TResult Function(USubscribeReposMessageHandle value)? handle,
-    TResult Function(USubscribeReposMessageMigrate value)? migrate,
-    TResult Function(USubscribeReposMessageTombstone value)? tombstone,
     TResult Function(USubscribeReposMessageInfo value)? info,
     TResult Function(USubscribeReposMessageUnknown value)? unknown,
     required TResult orElse(),

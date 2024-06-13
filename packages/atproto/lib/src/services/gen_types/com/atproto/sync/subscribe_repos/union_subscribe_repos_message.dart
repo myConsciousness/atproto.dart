@@ -16,11 +16,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 // 🌎 Project imports:
 import '../../../../com/atproto/sync/subscribe_repos/account.dart';
 import '../../../../com/atproto/sync/subscribe_repos/commit.dart';
-import '../../../../com/atproto/sync/subscribe_repos/handle.dart';
 import '../../../../com/atproto/sync/subscribe_repos/identity.dart';
 import '../../../../com/atproto/sync/subscribe_repos/info.dart';
-import '../../../../com/atproto/sync/subscribe_repos/migrate.dart';
-import '../../../../com/atproto/sync/subscribe_repos/tombstone.dart';
 
 part 'union_subscribe_repos_message.freezed.dart';
 
@@ -37,18 +34,6 @@ class USubscribeReposMessage with _$USubscribeReposMessage {
   const factory USubscribeReposMessage.account({
     required Account data,
   }) = USubscribeReposMessageAccount;
-
-  const factory USubscribeReposMessage.handle({
-    required Handle data,
-  }) = USubscribeReposMessageHandle;
-
-  const factory USubscribeReposMessage.migrate({
-    required Migrate data,
-  }) = USubscribeReposMessageMigrate;
-
-  const factory USubscribeReposMessage.tombstone({
-    required Tombstone data,
-  }) = USubscribeReposMessageTombstone;
 
   const factory USubscribeReposMessage.info({
     required Info data,
@@ -81,21 +66,6 @@ final class USubscribeReposMessageConverter
           data: const AccountConverter().fromJson(json),
         );
       }
-      if (isHandle(json)) {
-        return USubscribeReposMessage.handle(
-          data: const HandleConverter().fromJson(json),
-        );
-      }
-      if (isMigrate(json)) {
-        return USubscribeReposMessage.migrate(
-          data: const MigrateConverter().fromJson(json),
-        );
-      }
-      if (isTombstone(json)) {
-        return USubscribeReposMessage.tombstone(
-          data: const TombstoneConverter().fromJson(json),
-        );
-      }
       if (isInfo(json)) {
         return USubscribeReposMessage.info(
           data: const InfoConverter().fromJson(json),
@@ -113,9 +83,6 @@ final class USubscribeReposMessageConverter
         commit: const CommitConverter().toJson,
         identity: const IdentityConverter().toJson,
         account: const AccountConverter().toJson,
-        handle: const HandleConverter().toJson,
-        migrate: const MigrateConverter().toJson,
-        tombstone: const TombstoneConverter().toJson,
         info: const InfoConverter().toJson,
         unknown: (data) => data,
       );
@@ -143,24 +110,6 @@ extension $USubscribeReposMessageExtension on USubscribeReposMessage {
 
   /// Returns true if this data is not [Account], otherwise false.
   bool get isNotAccount => !isAccount;
-
-  /// Returns true if this data is [Handle], otherwise false.
-  bool get isHandle => this is USubscribeReposMessageHandle;
-
-  /// Returns true if this data is not [Handle], otherwise false.
-  bool get isNotHandle => !isHandle;
-
-  /// Returns true if this data is [Migrate], otherwise false.
-  bool get isMigrate => this is USubscribeReposMessageMigrate;
-
-  /// Returns true if this data is not [Migrate], otherwise false.
-  bool get isNotMigrate => !isMigrate;
-
-  /// Returns true if this data is [Tombstone], otherwise false.
-  bool get isTombstone => this is USubscribeReposMessageTombstone;
-
-  /// Returns true if this data is not [Tombstone], otherwise false.
-  bool get isNotTombstone => !isTombstone;
 
   /// Returns true if this data is [Info], otherwise false.
   bool get isInfo => this is USubscribeReposMessageInfo;
@@ -197,30 +146,6 @@ extension $USubscribeReposMessageExtension on USubscribeReposMessage {
 
   /// Returns [Account] if this data is [Account], otherwise null.
   Account? get accountOrNull => isAccount ? account : null;
-
-  /// Returns this data as [Handle].
-  ///
-  /// Make sure to check if this object is [Handle] with [isHandle].
-  Handle get handle => this.data as Handle;
-
-  /// Returns [Handle] if this data is [Handle], otherwise null.
-  Handle? get handleOrNull => isHandle ? handle : null;
-
-  /// Returns this data as [Migrate].
-  ///
-  /// Make sure to check if this object is [Migrate] with [isMigrate].
-  Migrate get migrate => this.data as Migrate;
-
-  /// Returns [Migrate] if this data is [Migrate], otherwise null.
-  Migrate? get migrateOrNull => isMigrate ? migrate : null;
-
-  /// Returns this data as [Tombstone].
-  ///
-  /// Make sure to check if this object is [Tombstone] with [isTombstone].
-  Tombstone get tombstone => this.data as Tombstone;
-
-  /// Returns [Tombstone] if this data is [Tombstone], otherwise null.
-  Tombstone? get tombstoneOrNull => isTombstone ? tombstone : null;
 
   /// Returns this data as [Info].
   ///

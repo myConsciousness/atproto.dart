@@ -37,7 +37,6 @@ import '../../app/bsky/feed/get_reposted_by/output.dart';
 import '../../app/bsky/feed/get_suggested_feeds/output.dart';
 import '../../app/bsky/feed/get_timeline/output.dart';
 import '../../app/bsky/feed/like/record.dart';
-import '../../app/bsky/feed/post/entity.dart';
 import '../../app/bsky/feed/post/record.dart';
 import '../../app/bsky/feed/post/reply_ref.dart';
 import '../../app/bsky/feed/post/union_post_embed.dart';
@@ -549,7 +548,6 @@ final class FeedService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/feed/post
   Future<XRPCResponse<StrongRef>> post({
     required String text,
-    List<Entity>? entities,
     List<Facet>? facets,
     ReplyRef? reply,
     UPostEmbed? embed,
@@ -567,8 +565,6 @@ final class FeedService {
         record: {
           r'$type': 'app.bsky.feed.post',
           'text': text,
-          if (entities != null)
-            'entities': entities.map((e) => e.toJson()).toList(),
           if (facets != null) 'facets': facets.map((e) => e.toJson()).toList(),
           if (reply != null) 'reply': reply,
           if (embed != null) 'embed': embed.toJson(),
@@ -667,8 +663,6 @@ extension FeedServiceExtension on FeedService {
                 collection: ns.appBskyFeedPost,
                 value: {
                   'text': e.text,
-                  if (e.entities != null)
-                    'entities': e.entities!.map((e) => e.toJson()).toList(),
                   if (e.facets != null)
                     'facets': e.facets!.map((e) => e.toJson()).toList(),
                   if (e.reply != null) 'reply': e.reply!,

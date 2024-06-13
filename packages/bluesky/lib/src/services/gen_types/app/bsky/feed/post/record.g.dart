@@ -14,12 +14,6 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$PostRecordImpl(
           text: $checkedConvert('text', (v) => v as String),
-          entities: $checkedConvert(
-              'entities',
-              (v) => (v as List<dynamic>?)
-                  ?.map((e) => const EntityConverter()
-                      .fromJson(e as Map<String, dynamic>))
-                  .toList()),
           facets: $checkedConvert(
               'facets',
               (v) => (v as List<dynamic>?)
@@ -67,8 +61,6 @@ Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
     }
   }
 
-  writeNotNull('entities',
-      instance.entities?.map(const EntityConverter().toJson).toList());
   writeNotNull(
       'facets', instance.facets?.map(const FacetConverter().toJson).toList());
   writeNotNull(

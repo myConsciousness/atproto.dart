@@ -16,9 +16,6 @@ export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/identity.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/account.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_status.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/handle.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/migrate.dart';
-export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/tombstone.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/info.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/known_name.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/sync/subscribe_repos/repo_op.dart';

@@ -19,7 +19,6 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
-import '../../com/atproto/sync/get_head/output.dart';
 import '../../com/atproto/sync/get_latest_commit/output.dart';
 import '../../com/atproto/sync/get_repo_status/output.dart';
 import '../../com/atproto/sync/list_blobs/output.dart';
@@ -119,28 +118,6 @@ final class SyncService {
         client: $client,
       );
 
-  /// DEPRECATED - please use com.atproto.sync.getLatestCommit instead
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getHead
-  @Deprecated(
-      'DEPRECATED - please use com.atproto.sync.getLatestCommit instead')
-  Future<XRPCResponse<GetHeadOutput>> getHead({
-    required String did,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<GetHeadOutput>(
-        ns.comAtprotoSyncGetHead,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          ...?$unknown,
-        },
-        to: const GetHeadOutputConverter().fromJson,
-        client: $client,
-      );
-
   /// Get a blob associated with a given account. Returns the full blob as originally uploaded. Does not require auth; implemented by PDS.
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getBlob
@@ -174,26 +151,6 @@ final class SyncService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const USubscribeReposMessageConverter().fromJson,
-      );
-
-  /// DEPRECATED - please use com.atproto.sync.getRepo instead
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/sync/getCheckout
-  @Deprecated('DEPRECATED - please use com.atproto.sync.getRepo instead')
-  Future<XRPCResponse<Uint8List>> getCheckout({
-    required String did,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<Uint8List>(
-        ns.comAtprotoSyncGetCheckout,
-        headers: $headers,
-        parameters: {
-          'did': did,
-          ...?$unknown,
-        },
-        client: $client,
       );
 
   /// List blob CIDso for an account, since some repo revision. Does not require auth; implemented by PDS.

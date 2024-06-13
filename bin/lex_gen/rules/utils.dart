@@ -27,6 +27,12 @@ const kTypesPath = 'src/services/gen_types';
 
 const _kExceptionSingular = ['status'];
 
+bool isDeprecated(final String? description) {
+  if (description == null) return false;
+
+  return description.toLowerCase().contains('deprecated');
+}
+
 void writeFileAsStringSync(final String filePath, final String contents) {
   File(filePath)
     ..createSync(recursive: true)

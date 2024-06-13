@@ -17,37 +17,12 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../com/atproto/temp/check_signup_queue/output.dart';
-import '../../com/atproto/temp/fetch_labels/output.dart';
 
 /// Contains `com.atproto.temp.*` endpoints.
 final class TempService {
   TempService(this._ctx);
 
   final ATProtoServiceContext _ctx;
-
-  /// DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.
-  ///
-  /// https://atprotodart.com/docs/lexicons/com/atproto/temp/fetchLabels
-  @Deprecated(
-      'DEPRECATED: use queryLabels or subscribeLabels instead -- Fetch all labels from a labeler created after a certain date.')
-  Future<XRPCResponse<FetchLabelsOutput>> fetchLabels({
-    int? since,
-    int? limit,
-    Map<String, dynamic>? $unknown,
-    Map<String, String>? $headers,
-    GetClient? $client,
-  }) async =>
-      await _ctx.get<FetchLabelsOutput>(
-        ns.comAtprotoTempFetchLabels,
-        headers: $headers,
-        parameters: {
-          if (since != null) 'since': since.toString(),
-          if (limit != null) 'limit': limit.toString(),
-          ...?$unknown,
-        },
-        to: const FetchLabelsOutputConverter().fromJson,
-        client: $client,
-      );
 
   /// Check accounts location in signup queue.
   ///

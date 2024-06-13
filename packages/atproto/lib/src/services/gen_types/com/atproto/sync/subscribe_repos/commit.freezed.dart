@@ -29,10 +29,6 @@ mixin _$Commit {
   /// The stream sequence number of this message.
   int get seq => throw _privateConstructorUsedError;
 
-  /// DEPRECATED -- unused
-  @Deprecated('DEPRECATED -- unused')
-  bool get rebase => throw _privateConstructorUsedError;
-
   /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
   bool get tooBig => throw _privateConstructorUsedError;
 
@@ -41,11 +37,6 @@ mixin _$Commit {
 
   /// Repo commit object CID.
   String get commit => throw _privateConstructorUsedError;
-
-  /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
-  @Deprecated(
-      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-  String? get prev => throw _privateConstructorUsedError;
 
   /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
   String get rev => throw _privateConstructorUsedError;
@@ -79,13 +70,9 @@ abstract class $CommitCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      @Deprecated('DEPRECATED -- unused') bool rebase,
       bool tooBig,
       String repo,
       String commit,
-      @Deprecated(
-          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-      String? prev,
       String rev,
       String since,
       List<int> blocks,
@@ -110,11 +97,9 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
   $Res call({
     Object? $type = null,
     Object? seq = null,
-    Object? rebase = null,
     Object? tooBig = null,
     Object? repo = null,
     Object? commit = null,
-    Object? prev = freezed,
     Object? rev = null,
     Object? since = null,
     Object? blocks = null,
@@ -132,10 +117,6 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
               as int,
-      rebase: null == rebase
-          ? _value.rebase
-          : rebase // ignore: cast_nullable_to_non_nullable
-              as bool,
       tooBig: null == tooBig
           ? _value.tooBig
           : tooBig // ignore: cast_nullable_to_non_nullable
@@ -148,10 +129,6 @@ class _$CommitCopyWithImpl<$Res, $Val extends Commit>
           ? _value.commit
           : commit // ignore: cast_nullable_to_non_nullable
               as String,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -194,13 +171,9 @@ abstract class _$$CommitImplCopyWith<$Res> implements $CommitCopyWith<$Res> {
   $Res call(
       {@JsonKey(name: r'$type') String $type,
       int seq,
-      @Deprecated('DEPRECATED -- unused') bool rebase,
       bool tooBig,
       String repo,
       String commit,
-      @Deprecated(
-          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-      String? prev,
       String rev,
       String since,
       List<int> blocks,
@@ -223,11 +196,9 @@ class __$$CommitImplCopyWithImpl<$Res>
   $Res call({
     Object? $type = null,
     Object? seq = null,
-    Object? rebase = null,
     Object? tooBig = null,
     Object? repo = null,
     Object? commit = null,
-    Object? prev = freezed,
     Object? rev = null,
     Object? since = null,
     Object? blocks = null,
@@ -245,10 +216,6 @@ class __$$CommitImplCopyWithImpl<$Res>
           ? _value.seq
           : seq // ignore: cast_nullable_to_non_nullable
               as int,
-      rebase: null == rebase
-          ? _value.rebase
-          : rebase // ignore: cast_nullable_to_non_nullable
-              as bool,
       tooBig: null == tooBig
           ? _value.tooBig
           : tooBig // ignore: cast_nullable_to_non_nullable
@@ -261,10 +228,6 @@ class __$$CommitImplCopyWithImpl<$Res>
           ? _value.commit
           : commit // ignore: cast_nullable_to_non_nullable
               as String,
-      prev: freezed == prev
-          ? _value.prev
-          : prev // ignore: cast_nullable_to_non_nullable
-              as String?,
       rev: null == rev
           ? _value.rev
           : rev // ignore: cast_nullable_to_non_nullable
@@ -304,13 +267,9 @@ class _$CommitImpl implements _Commit {
   const _$CommitImpl(
       {@JsonKey(name: r'$type') this.$type = comAtprotoSyncSubscribeReposCommit,
       required this.seq,
-      @Deprecated('DEPRECATED -- unused') required this.rebase,
       required this.tooBig,
       required this.repo,
       required this.commit,
-      @Deprecated(
-          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-      this.prev,
       required this.rev,
       required this.since,
       required final List<int> blocks,
@@ -338,11 +297,6 @@ class _$CommitImpl implements _Commit {
   @override
   final int seq;
 
-  /// DEPRECATED -- unused
-  @override
-  @Deprecated('DEPRECATED -- unused')
-  final bool rebase;
-
   /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
   @override
   final bool tooBig;
@@ -354,12 +308,6 @@ class _$CommitImpl implements _Commit {
   /// Repo commit object CID.
   @override
   final String commit;
-
-  /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
-  @override
-  @Deprecated(
-      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-  final String? prev;
 
   /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.
   @override
@@ -415,7 +363,7 @@ class _$CommitImpl implements _Commit {
 
   @override
   String toString() {
-    return 'Commit(\$type: ${$type}, seq: $seq, rebase: $rebase, tooBig: $tooBig, repo: $repo, commit: $commit, prev: $prev, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time, \$unknown: ${$unknown})';
+    return 'Commit(\$type: ${$type}, seq: $seq, tooBig: $tooBig, repo: $repo, commit: $commit, rev: $rev, since: $since, blocks: $blocks, ops: $ops, blobs: $blobs, time: $time, \$unknown: ${$unknown})';
   }
 
   @override
@@ -425,11 +373,9 @@ class _$CommitImpl implements _Commit {
             other is _$CommitImpl &&
             (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.seq, seq) || other.seq == seq) &&
-            (identical(other.rebase, rebase) || other.rebase == rebase) &&
             (identical(other.tooBig, tooBig) || other.tooBig == tooBig) &&
             (identical(other.repo, repo) || other.repo == repo) &&
             (identical(other.commit, commit) || other.commit == commit) &&
-            (identical(other.prev, prev) || other.prev == prev) &&
             (identical(other.rev, rev) || other.rev == rev) &&
             (identical(other.since, since) || other.since == since) &&
             const DeepCollectionEquality().equals(other._blocks, _blocks) &&
@@ -445,11 +391,9 @@ class _$CommitImpl implements _Commit {
       runtimeType,
       $type,
       seq,
-      rebase,
       tooBig,
       repo,
       commit,
-      prev,
       rev,
       since,
       const DeepCollectionEquality().hash(_blocks),
@@ -474,23 +418,19 @@ class _$CommitImpl implements _Commit {
 
 abstract class _Commit implements Commit {
   const factory _Commit(
-      {@JsonKey(name: r'$type') final String $type,
-      required final int seq,
-      @Deprecated('DEPRECATED -- unused') required final bool rebase,
-      required final bool tooBig,
-      required final String repo,
-      required final String commit,
-      @Deprecated(
-          'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-      final String? prev,
-      required final String rev,
-      required final String since,
-      required final List<int> blocks,
-      @RepoOpConverter() required final List<RepoOp> ops,
-      required final List<String> blobs,
-      required final DateTime time,
-      @JsonKey(name: r'$unknown')
-      final Map<String, dynamic> $unknown}) = _$CommitImpl;
+          {@JsonKey(name: r'$type') final String $type,
+          required final int seq,
+          required final bool tooBig,
+          required final String repo,
+          required final String commit,
+          required final String rev,
+          required final String since,
+          required final List<int> blocks,
+          @RepoOpConverter() required final List<RepoOp> ops,
+          required final List<String> blobs,
+          required final DateTime time,
+          @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
+      _$CommitImpl;
 
   factory _Commit.fromJson(Map<String, dynamic> json) = _$CommitImpl.fromJson;
 
@@ -507,11 +447,6 @@ abstract class _Commit implements Commit {
   int get seq;
   @override
 
-  /// DEPRECATED -- unused
-  @Deprecated('DEPRECATED -- unused')
-  bool get rebase;
-  @override
-
   /// Indicates that this commit contained too many ops, or data size was too large. Consumers will need to make a separate request to get missing data.
   bool get tooBig;
   @override
@@ -522,12 +457,6 @@ abstract class _Commit implements Commit {
 
   /// Repo commit object CID.
   String get commit;
-  @override
-
-  /// DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.
-  @Deprecated(
-      'DEPRECATED -- unused. WARNING -- nullable and optional; stick with optional to ensure golang interoperability.')
-  String? get prev;
   @override
 
   /// The rev of the emitted commit. Note that this information is also in the commit object included in blocks, unless this is a tooBig event.

@@ -16,11 +16,9 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
           $type: $checkedConvert(r'$type',
               (v) => v as String? ?? comAtprotoSyncSubscribeReposCommit),
           seq: $checkedConvert('seq', (v) => (v as num).toInt()),
-          rebase: $checkedConvert('rebase', (v) => v as bool),
           tooBig: $checkedConvert('tooBig', (v) => v as bool),
           repo: $checkedConvert('repo', (v) => v as String),
           commit: $checkedConvert('commit', (v) => v as String),
-          prev: $checkedConvert('prev', (v) => v as String?),
           rev: $checkedConvert('rev', (v) => v as String),
           since: $checkedConvert('since', (v) => v as String),
           blocks: $checkedConvert(
@@ -48,29 +46,18 @@ _$CommitImpl _$$CommitImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) {
-  final val = <String, dynamic>{
-    r'$type': instance.$type,
-    'seq': instance.seq,
-    'rebase': instance.rebase,
-    'tooBig': instance.tooBig,
-    'repo': instance.repo,
-    'commit': instance.commit,
-  };
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('prev', instance.prev);
-  val['rev'] = instance.rev;
-  val['since'] = instance.since;
-  val['blocks'] = instance.blocks;
-  val['ops'] = instance.ops.map(const RepoOpConverter().toJson).toList();
-  val['blobs'] = instance.blobs;
-  val['time'] = instance.time.toIso8601String();
-  val[r'$unknown'] = instance.$unknown;
-  return val;
-}
+Map<String, dynamic> _$$CommitImplToJson(_$CommitImpl instance) =>
+    <String, dynamic>{
+      r'$type': instance.$type,
+      'seq': instance.seq,
+      'tooBig': instance.tooBig,
+      'repo': instance.repo,
+      'commit': instance.commit,
+      'rev': instance.rev,
+      'since': instance.since,
+      'blocks': instance.blocks,
+      'ops': instance.ops.map(const RepoOpConverter().toJson).toList(),
+      'blobs': instance.blobs,
+      'time': instance.time.toIso8601String(),
+      r'$unknown': instance.$unknown,
+    };

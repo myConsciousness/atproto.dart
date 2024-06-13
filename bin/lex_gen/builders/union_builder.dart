@@ -68,6 +68,8 @@ final class LexUnionBuilder {
 
       final refDef = getRef(docId, ref);
 
+      if (isDeprecated(refDef?.def.toJson()['description'])) continue;
+
       if (ref.contains('#')) {
         if (ref.startsWith('#')) {
           refContext = LexGenContext(

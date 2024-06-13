@@ -14,7 +14,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import '../../../../app/bsky/feed/post/entity.dart';
 import '../../../../app/bsky/feed/post/reply_ref.dart';
 import '../../../../app/bsky/feed/post/union_post_embed.dart';
 import '../../../../app/bsky/feed/post/union_post_label.dart';
@@ -30,11 +29,6 @@ class PostRecord with _$PostRecord {
   const factory PostRecord({
     /// The primary post content. May be an empty string, if there are embeds.
     required String text,
-
-    /// DEPRECATED: replaced by app.bsky.richtext.facet.
-    @Deprecated('DEPRECATED: replaced by app.bsky.richtext.facet.')
-    @EntityConverter()
-    List<Entity>? entities,
 
     /// Annotations of text (mentions, URLs, hashtags, etc)
     @FacetConverter() List<Facet>? facets,
@@ -73,7 +67,6 @@ extension $PostRecordExtension on PostRecord {
 
 const _kLexCompatibleProperties = <String>[
   'text',
-  'entities',
   'facets',
   'reply',
   'embed',
