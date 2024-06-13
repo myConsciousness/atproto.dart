@@ -39,15 +39,19 @@ final class LexService {
   String toString() {
     final buffer = StringBuffer();
 
-    final records = endpoints.where(
-      (e) => e.isRecord && e.recordKey != 'literal:self',
+    final inBulkRecords = endpoints.where(
+      (e) =>
+          e.isRecord &&
+          e.recordKey != 'literal:self' &&
+          !('${e.serviceName}.${e.name}' == 'app.bsky.feed.threadgate' ||
+              '${e.serviceName}.${e.name}' == 'app.bsky.feed.generator'),
     );
-    final recordPaths = records.map((e) =>
+    final recordPaths = inBulkRecords.map((e) =>
         "../../${'${e.serviceName}.${e.name}'.replaceAll('.', '/')}/record.dart");
 
     final importPaths = [
       'package:atproto_core/atproto_core.dart',
-      if (records.isNotEmpty)
+      if (inBulkRecords.isNotEmpty)
         'package:atproto/com_atproto_repo_apply_writes.dart',
       if (recordPaths.isNotEmpty) ...recordPaths,
       ...endpoints.map((e) => e.type.importPath),
@@ -90,10 +94,10 @@ final class LexService {
     }
     buffer.writeln('}');
 
-    if (records.isNotEmpty) {
+    if (inBulkRecords.isNotEmpty) {
       buffer.writeln();
       buffer.writeln('extension ${name}Extension on $name {');
-      for (final record in records) {
+      for (final record in inBulkRecords) {
         buffer.writeln(record.getRecordInBulkEndpoint());
         buffer.writeln();
       }
@@ -276,9 +280,6 @@ final class LexServiceEndpoint {
   }
 
   String getRecordInBulkEndpoint() {
-    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') return '';
-    if ('$serviceName.$name' == 'app.bsky.feed.generator') return '';
-
     final buffer = StringBuffer();
 
     buffer.writeln(

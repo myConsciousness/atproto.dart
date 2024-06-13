@@ -20,7 +20,6 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/feed/defs/interaction.dart';
 import '../../app/bsky/feed/describe_feed_generator/output.dart';
-import '../../app/bsky/feed/generator/record.dart';
 import '../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../app/bsky/feed/get_actor_feeds/output.dart';
 import '../../app/bsky/feed/get_actor_likes/output.dart';
@@ -46,7 +45,6 @@ import '../../app/bsky/feed/post/union_post_label.dart';
 import '../../app/bsky/feed/repost/record.dart';
 import '../../app/bsky/feed/search_posts/known_sort.dart';
 import '../../app/bsky/feed/search_posts/output.dart';
-import '../../app/bsky/feed/threadgate/record.dart';
 import '../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
