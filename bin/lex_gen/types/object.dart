@@ -174,10 +174,6 @@ final class LexGenObject {
     buffer.writeln();
     buffer.writeln('  @override');
     buffer.writeln('  $name fromJson(Map<String, dynamic> json) {');
-    buffer
-        .writeln('    if (_kLexCompatibleProperties.length == json.length) {');
-    buffer.writeln('    return $name.fromJson(json);');
-    buffer.writeln('  }');
     buffer.writeln();
     buffer.writeln(
         "    final lexCompatiblePropertiesWithUnknown = <String, dynamic>{r'\$unknown': <String, dynamic>{}};");
@@ -205,9 +201,7 @@ final class LexGenObject {
     buffer.writeln();
     buffer.writeln('    final lexCompatibleProperties = <String, dynamic>{};');
     buffer.writeln('    for (final key in json.keys) {');
-    buffer.writeln('      if (_kLexCompatibleProperties.contains(key)) {');
-    buffer.writeln('        lexCompatibleProperties[key] = json[key];');
-    buffer.writeln('      }');
+    buffer.writeln('      lexCompatibleProperties[key] = json[key];');
     buffer.writeln('    }');
     buffer.writeln();
     buffer.writeln('    return <String, dynamic>{');

@@ -96,10 +96,6 @@ final class LabelValueDefinitionConverter
 
   @override
   LabelValueDefinition fromJson(Map<String, dynamic> json) {
-    if (_kLexCompatibleProperties.length == json.length) {
-      return LabelValueDefinition.fromJson(json);
-    }
-
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -124,9 +120,7 @@ final class LabelValueDefinitionConverter
 
     final lexCompatibleProperties = <String, dynamic>{};
     for (final key in json.keys) {
-      if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = json[key];
-      }
+      lexCompatibleProperties[key] = json[key];
     }
 
     return <String, dynamic>{

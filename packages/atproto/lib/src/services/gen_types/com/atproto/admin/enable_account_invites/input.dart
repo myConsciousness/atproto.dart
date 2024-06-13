@@ -55,10 +55,6 @@ final class EnableAccountInvitesInputConverter
 
   @override
   EnableAccountInvitesInput fromJson(Map<String, dynamic> json) {
-    if (_kLexCompatibleProperties.length == json.length) {
-      return EnableAccountInvitesInput.fromJson(json);
-    }
-
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -84,9 +80,7 @@ final class EnableAccountInvitesInputConverter
 
     final lexCompatibleProperties = <String, dynamic>{};
     for (final key in json.keys) {
-      if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = json[key];
-      }
+      lexCompatibleProperties[key] = json[key];
     }
 
     return <String, dynamic>{

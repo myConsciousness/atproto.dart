@@ -56,10 +56,6 @@ final class GetMutesOutputConverter
 
   @override
   GetMutesOutput fromJson(Map<String, dynamic> json) {
-    if (_kLexCompatibleProperties.length == json.length) {
-      return GetMutesOutput.fromJson(json);
-    }
-
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -84,9 +80,7 @@ final class GetMutesOutputConverter
 
     final lexCompatibleProperties = <String, dynamic>{};
     for (final key in json.keys) {
-      if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = json[key];
-      }
+      lexCompatibleProperties[key] = json[key];
     }
 
     return <String, dynamic>{

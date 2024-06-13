@@ -70,10 +70,6 @@ final class InfoConverter implements JsonConverter<Info, Map<String, dynamic>> {
 
   @override
   Info fromJson(Map<String, dynamic> json) {
-    if (_kLexCompatibleProperties.length == json.length) {
-      return Info.fromJson(json);
-    }
-
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -98,9 +94,7 @@ final class InfoConverter implements JsonConverter<Info, Map<String, dynamic>> {
 
     final lexCompatibleProperties = <String, dynamic>{};
     for (final key in json.keys) {
-      if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = json[key];
-      }
+      lexCompatibleProperties[key] = json[key];
     }
 
     return <String, dynamic>{

@@ -74,10 +74,6 @@ final class SavedFeedConverter
 
   @override
   SavedFeed fromJson(Map<String, dynamic> json) {
-    if (_kLexCompatibleProperties.length == json.length) {
-      return SavedFeed.fromJson(json);
-    }
-
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -102,9 +98,7 @@ final class SavedFeedConverter
 
     final lexCompatibleProperties = <String, dynamic>{};
     for (final key in json.keys) {
-      if (_kLexCompatibleProperties.contains(key)) {
-        lexCompatibleProperties[key] = json[key];
-      }
+      lexCompatibleProperties[key] = json[key];
     }
 
     return <String, dynamic>{
