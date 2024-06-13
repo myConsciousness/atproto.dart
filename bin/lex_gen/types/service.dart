@@ -39,7 +39,9 @@ final class LexService {
   String toString() {
     final buffer = StringBuffer();
 
-    final records = endpoints.where((e) => e.isRecord);
+    final records = endpoints.where(
+      (e) => e.isRecord && e.recordKey != 'literal:self',
+    );
     final recordPaths = records.map((e) =>
         "../../${'${e.serviceName}.${e.name}'.replaceAll('.', '/')}/record.dart");
 
@@ -105,6 +107,7 @@ final class LexService {
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
     required this.isRecord,
+    required this.recordKey,
     required this.description,
     required this.referencePath,
     required this.args,
@@ -115,6 +118,7 @@ final class LexServiceEndpoint {
   });
 
   final bool isRecord;
+  final String? recordKey;
 
   final String? description;
   final String referencePath;

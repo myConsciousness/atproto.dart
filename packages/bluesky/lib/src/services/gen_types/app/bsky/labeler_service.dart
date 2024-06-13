@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -20,7 +19,6 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/labeler/defs/labeler_policies.dart';
 import '../../app/bsky/labeler/get_services/output.dart';
-import '../../app/bsky/labeler/service/record.dart';
 import '../../app/bsky/labeler/service/union_service_label.dart';
 
 /// Contains `app.bsky.labeler.*` endpoints.
@@ -74,31 +72,5 @@ final class LabelerService {
         },
         to: const GetServicesOutputConverter().fromJson,
         client: $client,
-      );
-}
-
-extension LabelerServiceExtension on LabelerService {
-  /// The batch process to create [ServiceRecord] records.
-  Future<XRPCResponse<EmptyData>> serviceInBulk(
-    final List<ServiceRecord> records, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyLabelerService,
-                value: {
-                  'policies': e.policies,
-                  if (e.labels != null) 'labels': e.labels!.toJson(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
       );
 }

@@ -11,7 +11,6 @@
 // **************************************************************************
 
 // 📦 Package imports:
-import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -23,7 +22,6 @@ import '../../app/bsky/actor/defs/profile_view_detailed.dart';
 import '../../app/bsky/actor/defs/union_preference.dart';
 import '../../app/bsky/actor/get_profiles/output.dart';
 import '../../app/bsky/actor/get_suggestions/output.dart';
-import '../../app/bsky/actor/profile/record.dart';
 import '../../app/bsky/actor/profile/union_profile_label.dart';
 import '../../app/bsky/actor/search_actors/output.dart';
 import '../../app/bsky/actor/search_actors_typeahead/output.dart';
@@ -207,33 +205,5 @@ final class ActorService {
         headers: $headers,
         to: const PreferencesConverter().fromJson,
         client: $client,
-      );
-}
-
-extension ActorServiceExtension on ActorService {
-  /// The batch process to create [ProfileRecord] records.
-  Future<XRPCResponse<EmptyData>> profileInBulk(
-    final List<ProfileRecord> records, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyActorProfile,
-                value: {
-                  if (e.displayName != null) 'displayName': e.displayName!,
-                  if (e.description != null) 'description': e.description!,
-                  if (e.avatar != null) 'avatar': e.avatar!.toJson(),
-                  if (e.banner != null) 'banner': e.banner!.toJson(),
-                  if (e.labels != null) 'labels': e.labels!.toJson(),
-                  ...e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
       );
 }

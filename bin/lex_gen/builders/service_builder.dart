@@ -58,9 +58,12 @@ final class ServiceBuilder {
     final endpoints = <LexServiceEndpoint>[];
 
     for (final endpoint in context.endpoints) {
+      final def = endpoint.def;
+
       endpoints.add(
         LexServiceEndpoint(
-          isRecord: endpoint.def is ULexUserTypeRecord,
+          isRecord: def is ULexUserTypeRecord,
+          recordKey: def is ULexUserTypeRecord ? def.data.key : null,
           description: _getEndpointDescription(endpoint),
           referencePath: getReferencePath(endpoint.docId.toString()),
           args: _getServiceEndpointArgs(endpoint),
