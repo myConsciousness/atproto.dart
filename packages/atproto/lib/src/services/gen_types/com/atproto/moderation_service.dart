@@ -33,7 +33,6 @@ final class ModerationService {
     required UReasonType reasonType,
     String? reason,
     required USubject subject,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -44,7 +43,6 @@ final class ModerationService {
           'reasonType': reasonType,
           if (reason != null) 'reason': reason,
           'subject': subject.toJson(),
-          ...?$unknown,
         },
         to: const CreateReportOutputConverter().fromJson,
         client: $client,

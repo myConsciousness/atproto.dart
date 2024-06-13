@@ -47,7 +47,6 @@ final class LabelService {
     List<String>? sources,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -59,7 +58,6 @@ final class LabelService {
           if (sources != null) 'sources': sources,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const QueryLabelsOutputConverter().fromJson,
         client: $client,

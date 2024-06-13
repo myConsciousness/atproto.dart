@@ -31,7 +31,6 @@ final class ModerationService {
     required String messageId,
     int? before,
     int? after,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -43,7 +42,6 @@ final class ModerationService {
           'messageId': messageId,
           if (before != null) 'before': before.toString(),
           if (after != null) 'after': after.toString(),
-          ...?$unknown,
         },
         to: const GetMessageContextOutputConverter().fromJson,
         client: $client,
@@ -54,7 +52,6 @@ final class ModerationService {
     required String actor,
     required bool allowAccess,
     String? ref,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -65,7 +62,6 @@ final class ModerationService {
           'actor': actor,
           'allowAccess': allowAccess,
           if (ref != null) 'ref': ref,
-          ...?$unknown,
         },
         client: $client,
       );
@@ -73,7 +69,6 @@ final class ModerationService {
   /// https://atprotodart.com/docs/lexicons/chat/bsky/moderation/getActorMetadata
   Future<XRPCResponse<GetActorMetadataOutput>> getActorMetadata({
     required String actor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -82,7 +77,6 @@ final class ModerationService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          ...?$unknown,
         },
         to: const GetActorMetadataOutputConverter().fromJson,
         client: $client,

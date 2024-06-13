@@ -31,7 +31,6 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
     required DateTime seenAt,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -40,7 +39,6 @@ final class NotificationService {
         headers: $headers,
         body: {
           'seenAt': _ctx.toUtcIso8601String(seenAt),
-          ...?$unknown,
         },
         client: $client,
       );
@@ -53,7 +51,6 @@ final class NotificationService {
     required String token,
     required UPlatform platform,
     required String appId,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -65,7 +62,6 @@ final class NotificationService {
           'token': token,
           'platform': platform.toJson(),
           'appId': appId,
-          ...?$unknown,
         },
         client: $client,
       );
@@ -77,7 +73,6 @@ final class NotificationService {
     int? limit,
     String? cursor,
     DateTime? seenAt,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -88,7 +83,6 @@ final class NotificationService {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
-          ...?$unknown,
         },
         to: const ListNotificationsOutputConverter().fromJson,
         client: $client,
@@ -99,7 +93,6 @@ final class NotificationService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/getUnreadCount
   Future<XRPCResponse<GetUnreadCountOutput>> getUnreadCount({
     DateTime? seenAt,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -108,7 +101,6 @@ final class NotificationService {
         headers: $headers,
         parameters: {
           if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
-          ...?$unknown,
         },
         to: const GetUnreadCountOutputConverter().fromJson,
         client: $client,

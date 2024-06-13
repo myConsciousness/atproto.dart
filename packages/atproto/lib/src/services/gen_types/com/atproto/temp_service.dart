@@ -28,7 +28,6 @@ final class TempService {
   ///
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/checkSignupQueue
   Future<XRPCResponse<CheckSignupQueueOutput>> checkSignupQueue({
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -44,7 +43,6 @@ final class TempService {
   /// https://atprotodart.com/docs/lexicons/com/atproto/temp/requestPhoneVerification
   Future<XRPCResponse<EmptyData>> requestPhoneVerification({
     required String phoneNumber,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -53,7 +51,6 @@ final class TempService {
         headers: $headers,
         body: {
           'phoneNumber': phoneNumber,
-          ...?$unknown,
         },
         client: $client,
       );

@@ -50,7 +50,6 @@ final class GraphService {
   Future<XRPCResponse<GetBlocksOutput>> getBlocks({
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -60,7 +59,6 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetBlocksOutputConverter().fromJson,
         client: $client,
@@ -72,7 +70,6 @@ final class GraphService {
   Future<XRPCResponse<GetSuggestedFollowsByActorOutput>>
       getSuggestedFollowsByActor({
     required String actor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -81,7 +78,6 @@ final class GraphService {
             headers: $headers,
             parameters: {
               'actor': actor,
-              ...?$unknown,
             },
             to: const GetSuggestedFollowsByActorOutputConverter().fromJson,
             client: $client,
@@ -142,7 +138,6 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -153,7 +148,6 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetFollowsOutputConverter().fromJson,
         client: $client,
@@ -165,7 +159,6 @@ final class GraphService {
   Future<XRPCResponse<GetRelationshipsOutput>> getRelationships({
     required String actor,
     List<String>? others,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -175,7 +168,6 @@ final class GraphService {
         parameters: {
           'actor': actor,
           if (others != null) 'others': others,
-          ...?$unknown,
         },
         to: const GetRelationshipsOutputConverter().fromJson,
         client: $client,
@@ -188,7 +180,6 @@ final class GraphService {
     required AtUri list,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -199,7 +190,6 @@ final class GraphService {
           'list': list.toString(),
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetListOutputConverter().fromJson,
         client: $client,
@@ -212,7 +202,6 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -223,7 +212,6 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetFollowersOutputConverter().fromJson,
         client: $client,
@@ -235,7 +223,6 @@ final class GraphService {
   Future<XRPCResponse<GetListMutesOutput>> getListMutes({
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -245,7 +232,6 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetListMutesOutputConverter().fromJson,
         client: $client,
@@ -258,7 +244,6 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -269,7 +254,6 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetKnownFollowersOutputConverter().fromJson,
         client: $client,
@@ -326,7 +310,6 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActor
   Future<XRPCResponse<EmptyData>> unmuteActor({
     required String actor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -335,7 +318,6 @@ final class GraphService {
         headers: $headers,
         body: {
           'actor': actor,
-          ...?$unknown,
         },
         client: $client,
       );
@@ -345,7 +327,6 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteActorList
   Future<XRPCResponse<EmptyData>> unmuteActorList({
     required AtUri list,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -354,7 +335,6 @@ final class GraphService {
         headers: $headers,
         body: {
           'list': list.toString(),
-          ...?$unknown,
         },
         client: $client,
       );
@@ -364,7 +344,6 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActorList
   Future<XRPCResponse<EmptyData>> muteActorList({
     required AtUri list,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -373,7 +352,6 @@ final class GraphService {
         headers: $headers,
         body: {
           'list': list.toString(),
-          ...?$unknown,
         },
         client: $client,
       );
@@ -384,7 +362,6 @@ final class GraphService {
   Future<XRPCResponse<GetListBlocksOutput>> getListBlocks({
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -394,7 +371,6 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetListBlocksOutputConverter().fromJson,
         client: $client,
@@ -407,7 +383,6 @@ final class GraphService {
     required String actor,
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -418,7 +393,6 @@ final class GraphService {
           'actor': actor,
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetListsOutputConverter().fromJson,
         client: $client,
@@ -464,7 +438,6 @@ final class GraphService {
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteActor
   Future<XRPCResponse<EmptyData>> muteActor({
     required String actor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -473,7 +446,6 @@ final class GraphService {
         headers: $headers,
         body: {
           'actor': actor,
-          ...?$unknown,
         },
         client: $client,
       );
@@ -484,7 +456,6 @@ final class GraphService {
   Future<XRPCResponse<GetMutesOutput>> getMutes({
     int? limit,
     String? cursor,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -494,7 +465,6 @@ final class GraphService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          ...?$unknown,
         },
         to: const GetMutesOutputConverter().fromJson,
         client: $client,

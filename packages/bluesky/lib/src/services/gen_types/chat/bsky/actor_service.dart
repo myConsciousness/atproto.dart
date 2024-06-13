@@ -27,7 +27,6 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/deleteAccount
   Future<XRPCResponse<EmptyData>> deleteAccount({
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
   }) async =>
@@ -39,7 +38,6 @@ final class ActorService {
 
   /// https://atprotodart.com/docs/lexicons/chat/bsky/actor/exportAccountData
   Future<XRPCResponse<EmptyData>> exportAccountData({
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>

@@ -58,7 +58,6 @@ final class LabelerService {
   Future<XRPCResponse<GetServicesOutput>> getServices({
     required List<String> dids,
     bool? detailed,
-    Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     GetClient? $client,
   }) async =>
@@ -68,7 +67,6 @@ final class LabelerService {
         parameters: {
           'dids': dids,
           if (detailed != null) 'detailed': detailed.toString(),
-          ...?$unknown,
         },
         to: const GetServicesOutputConverter().fromJson,
         client: $client,
