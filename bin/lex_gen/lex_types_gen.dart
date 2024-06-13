@@ -57,7 +57,10 @@ final class LexTypesGen {
 
     if (objects != null) {
       for (final object in objects) {
-        if (!object.isStrongRef && !object.isBytes && !object.ignore) {
+        if (!object.isStrongRef &&
+            !object.isBlob &&
+            !object.isIpldCar &&
+            !object.ignore) {
           writeFileAsStringSync(
             _getOutputFilePath(
               object.refVariant?.docId ?? context.docId,
@@ -185,7 +188,8 @@ final class LexTypesGen {
     exports.forEach((docId, exports) {
       final writable = exports.where((e) =>
           !(e.object?.isStrongRef ?? false) &&
-          !(e.object?.isBytes ?? false) &&
+          !(e.object?.isBlob ?? false) &&
+          !(e.object?.isIpldCar ?? false) &&
           !(e.object?.ignore ?? false));
 
       if (writable.isEmpty) return;

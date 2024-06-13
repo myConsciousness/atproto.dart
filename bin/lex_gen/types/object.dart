@@ -43,11 +43,18 @@ final class LexGenObject {
 
   final String filePath;
 
-  bool get isBytes {
+  bool get isBlob {
     if (properties.isEmpty) return false;
     if (properties.length > 1) return false;
 
-    return properties.first.type.name == 'Uint8List';
+    return properties.first.isBlob;
+  }
+
+  bool get isIpldCar {
+    if (properties.isEmpty) return false;
+    if (properties.length > 1) return false;
+
+    return properties.first.isIpldCar;
   }
 
   Ref? get refVariant {
@@ -236,6 +243,7 @@ final class LexGenObjectProperty {
     required this.type,
     required this.name,
     this.array = false,
+    this.encoding,
     this.knownValues,
     this.union,
     this.defaultValue,
@@ -248,6 +256,7 @@ final class LexGenObjectProperty {
   final String name;
 
   final bool array;
+  final String? encoding;
 
   final LexGenKnownValues? knownValues;
   final LexUnion? union;
@@ -255,6 +264,9 @@ final class LexGenObjectProperty {
   final String? defaultValue;
 
   final Ref? refVariant;
+
+  bool get isBlob => encoding == '*/*';
+  bool get isIpldCar => encoding == 'application/vnd.ipld.car';
 
   String build(final ObjectType objectType) {
     if (knownValues != null) {

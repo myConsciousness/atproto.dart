@@ -168,13 +168,17 @@ final class LexServiceEndpoint {
   String _getGetEndpoint() {
     final buffer = StringBuffer();
 
-    if (args.isEmpty) {
+    if (type.isIpldCar) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> \$$name({');
+    } else {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+    }
+
+    if (args.isEmpty) {
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    GetClient? \$client,');
       buffer.writeln('  }) async =>');
     } else {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
@@ -204,13 +208,17 @@ final class LexServiceEndpoint {
   String _getPostEndpoint() {
     final buffer = StringBuffer();
 
-    if (args.isEmpty) {
+    if (type.isIpldCar) {
+      buffer.writeln('  Future<XRPCResponse<${type.name}>> \$$name({');
+    } else {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+    }
+
+    if (args.isEmpty) {
       buffer.writeln('    Map<String, String>? \$headers,');
       buffer.writeln('    PostClient? \$client,');
       buffer.writeln('  }) async =>');
     } else {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
       for (final arg in args) {
         buffer.writeln('    ${arg.toString()},');
       }
@@ -225,7 +233,7 @@ final class LexServiceEndpoint {
       final inputs = args.where((e) => e.objectType == ObjectType.input);
 
       if (inputs.isNotEmpty) {
-        if (inputs.first.isBytes) {
+        if (inputs.first.isBlob || inputs.first.isIpldCar) {
           buffer.writeln('    body: ${args.first.name},');
         } else {
           buffer.writeln('    body: {');
@@ -342,7 +350,8 @@ final class LexServiceEndpoint {
 final class LexServiceEndpointArg {
   const LexServiceEndpointArg({
     required this.objectType,
-    required this.isBytes,
+    required this.isBlob,
+    required this.isIpldCar,
     required this.isRecord,
     required this.isRequired,
     required this.type,
@@ -353,7 +362,8 @@ final class LexServiceEndpointArg {
   });
 
   final ObjectType objectType;
-  final bool isBytes;
+  final bool isBlob;
+  final bool isIpldCar;
   final bool isRecord;
 
   final bool isRequired;

@@ -159,8 +159,13 @@ final class LexGenObjectBuilder {
       return <LexGenObjectProperty>[
         LexGenObjectProperty(
           isRequired: true,
-          type: DataType(name: 'Uint8List', importPath: 'dart:typed_data'),
+          type: DataType(
+            name: 'Uint8List',
+            importPath: 'dart:typed_data',
+            encoding: body?.encoding,
+          ),
           name: 'bytes',
+          encoding: body?.encoding,
         ),
       ];
     }
