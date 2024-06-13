@@ -3834,6 +3834,28 @@ const appBskyGraphGetSuggestedFollowsByActor = <String, dynamic>{
   }
 };
 
+/// `app.bsky.graph.unmuteThread`
+const appBskyGraphUnmuteThread = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.unmuteThread",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description": "Unmutes the specified thread. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["root"],
+          "properties": {
+            "root": {"type": "string", "format": "at-uri"}
+          }
+        }
+      }
+    }
+  }
+};
+
 /// `app.bsky.graph.listitem`
 const appBskyGraphListitem = <String, dynamic>{
   "lexicon": 1,
@@ -4081,6 +4103,29 @@ const appBskyGraphGetFollowers = <String, dynamic>{
               "type": "array",
               "items": {"type": "ref", "ref": "app.bsky.actor.defs#profileView"}
             }
+          }
+        }
+      }
+    }
+  }
+};
+
+/// `app.bsky.graph.muteThread`
+const appBskyGraphMuteThread = <String, dynamic>{
+  "lexicon": 1,
+  "id": "app.bsky.graph.muteThread",
+  "defs": {
+    "main": {
+      "type": "procedure",
+      "description":
+          "Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.",
+      "input": {
+        "encoding": "application/json",
+        "schema": {
+          "type": "object",
+          "required": ["root"],
+          "properties": {
+            "root": {"type": "string", "format": "at-uri"}
           }
         }
       }
@@ -6645,6 +6690,7 @@ const appBskyFeedDefs = <String, dynamic>{
       "properties": {
         "repost": {"type": "string", "format": "at-uri"},
         "like": {"type": "string", "format": "at-uri"},
+        "threadMuted": {"type": "boolean"},
         "replyDisabled": {"type": "boolean"}
       }
     },
@@ -9203,12 +9249,14 @@ const lexicons = <Map<String, dynamic>>[
   appBskyUnspeccedDefs,
   appBskyGraphGetBlocks,
   appBskyGraphGetSuggestedFollowsByActor,
+  appBskyGraphUnmuteThread,
   appBskyGraphListitem,
   appBskyGraphListblock,
   appBskyGraphGetFollows,
   appBskyGraphGetRelationships,
   appBskyGraphGetList,
   appBskyGraphGetFollowers,
+  appBskyGraphMuteThread,
   appBskyGraphGetListMutes,
   appBskyGraphGetKnownFollowers,
   appBskyGraphBlock,

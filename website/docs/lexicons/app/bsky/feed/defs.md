@@ -30,6 +30,7 @@ Metadata about the requesting account's relationship with the subject content. O
 | --- | --- | --- | :---: | --- |
 | **repost** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
 | **like** | string ([at-uri](https://atproto.com/specs/at-uri-scheme)) | - | ❌ | - |
+| **threadMuted** | boolean | - | ❌ | - |
 | **replyDisabled** | boolean | - | ❌ | - |
 
 ## #feedViewPost
