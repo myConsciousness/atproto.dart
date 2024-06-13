@@ -214,7 +214,7 @@ final class SyncService {
         parameters: {
           'did': did,
           if (since != null) 'since': since,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -274,7 +274,7 @@ final class SyncService {
         ns.comAtprotoSyncListRepos,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

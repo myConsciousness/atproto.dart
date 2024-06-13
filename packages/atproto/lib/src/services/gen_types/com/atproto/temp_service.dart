@@ -41,8 +41,8 @@ final class TempService {
         ns.comAtprotoTempFetchLabels,
         headers: $headers,
         parameters: {
-          if (since != null) 'since': since,
-          if (limit != null) 'limit': limit,
+          if (since != null) 'since': since.toString(),
+          if (limit != null) 'limit': limit.toString(),
           ...?$unknown,
         },
         to: const FetchLabelsOutputConverter().fromJson,

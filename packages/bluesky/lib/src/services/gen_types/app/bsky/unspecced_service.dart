@@ -63,8 +63,8 @@ final class UnspeccedService {
         parameters: {
           'q': q,
           if (viewer != null) 'viewer': viewer,
-          if (typeahead != null) 'typeahead': typeahead,
-          if (limit != null) 'limit': limit,
+          if (typeahead != null) 'typeahead': typeahead.toString(),
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -108,7 +108,7 @@ final class UnspeccedService {
           if (url != null) 'url': url,
           if (tag != null) 'tag': tag,
           if (viewer != null) 'viewer': viewer,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -132,7 +132,7 @@ final class UnspeccedService {
         headers: $headers,
         parameters: {
           if (viewer != null) 'viewer': viewer,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -156,7 +156,7 @@ final class UnspeccedService {
             ns.appBskyUnspeccedGetPopularFeedGenerators,
             headers: $headers,
             parameters: {
-              if (limit != null) 'limit': limit,
+              if (limit != null) 'limit': limit.toString(),
               if (cursor != null) 'cursor': cursor,
               if (query != null) 'query': query,
               ...?$unknown,

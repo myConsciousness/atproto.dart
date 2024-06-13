@@ -107,7 +107,7 @@ final class FeedService {
           if (domain != null) 'domain': domain,
           if (url != null) 'url': url,
           if (tag != null) 'tag': tag,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -204,7 +204,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'list': list.toString(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -256,7 +256,7 @@ final class FeedService {
         parameters: {
           'uri': uri.toString(),
           if (cid != null) 'cid': cid,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -280,7 +280,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feed': feed.toString(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -306,7 +306,7 @@ final class FeedService {
         parameters: {
           'uri': uri.toString(),
           if (cid != null) 'cid': cid,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -414,7 +414,7 @@ final class FeedService {
         ns.appBskyFeedGetSuggestedFeeds,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -438,8 +438,8 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'uri': uri.toString(),
-          if (depth != null) 'depth': depth,
-          if (parentHeight != null) 'parentHeight': parentHeight,
+          if (depth != null) 'depth': depth.toString(),
+          if (parentHeight != null) 'parentHeight': parentHeight.toString(),
           ...?$unknown,
         },
         to: const GetPostThreadOutputConverter().fromJson,
@@ -462,7 +462,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -487,7 +487,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           if (filter != null) 'filter': filter.toJson(),
           ...?$unknown,
@@ -512,7 +512,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'feed': feed.toString(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -536,7 +536,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           if (algorithm != null) 'algorithm': algorithm,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -598,7 +598,7 @@ final class FeedService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

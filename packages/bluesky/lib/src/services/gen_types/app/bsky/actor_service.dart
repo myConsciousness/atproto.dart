@@ -70,7 +70,7 @@ final class ActorService {
         parameters: {
           if (term != null) 'term': term,
           if (q != null) 'q': q,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -95,7 +95,7 @@ final class ActorService {
         parameters: {
           if (term != null) 'term': term,
           if (q != null) 'q': q,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           ...?$unknown,
         },
         to: const SearchActorsTypeaheadOutputConverter().fromJson,
@@ -136,7 +136,7 @@ final class ActorService {
         ns.appBskyActorGetSuggestions,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

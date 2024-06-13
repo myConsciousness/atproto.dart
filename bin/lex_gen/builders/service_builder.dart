@@ -94,6 +94,7 @@ final class ServiceBuilder {
 
         for (final property in properties) {
           args.add(LexServiceEndpointArg(
+            objectType: export.object!.type,
             isBytes: export.object?.isBytes ?? false,
             isRecord: endpoint.def is ULexUserTypeRecord,
             isRequired: property.isRequired,

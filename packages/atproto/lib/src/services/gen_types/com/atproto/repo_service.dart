@@ -95,11 +95,11 @@ final class RepoService {
         parameters: {
           'repo': repo ?? _ctx.repo,
           'collection': collection.toString(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           if (rkeyStart != null) 'rkeyStart': rkeyStart,
           if (rkeyEnd != null) 'rkeyEnd': rkeyEnd,
-          if (reverse != null) 'reverse': reverse,
+          if (reverse != null) 'reverse': reverse.toString(),
           ...?$unknown,
         },
         to: const ListRecordsOutputConverter().fromJson,
@@ -120,7 +120,7 @@ final class RepoService {
         ns.comAtprotoRepoListMissingBlobs,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

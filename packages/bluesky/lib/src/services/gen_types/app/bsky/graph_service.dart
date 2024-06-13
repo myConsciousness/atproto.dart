@@ -58,7 +58,7 @@ final class GraphService {
         ns.appBskyGraphGetBlocks,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -151,7 +151,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -197,7 +197,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'list': list.toString(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -221,7 +221,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -243,7 +243,7 @@ final class GraphService {
         ns.appBskyGraphGetListMutes,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -267,7 +267,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -392,7 +392,7 @@ final class GraphService {
         ns.appBskyGraphGetListBlocks,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -416,7 +416,7 @@ final class GraphService {
         headers: $headers,
         parameters: {
           'actor': actor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -492,7 +492,7 @@ final class GraphService {
         ns.appBskyGraphGetMutes,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

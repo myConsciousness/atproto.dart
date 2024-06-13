@@ -74,8 +74,9 @@ final class ServerService {
         ns.comAtprotoServerGetAccountInviteCodes,
         headers: $headers,
         parameters: {
-          if (includeUsed != null) 'includeUsed': includeUsed,
-          if (createAvailable != null) 'createAvailable': createAvailable,
+          if (includeUsed != null) 'includeUsed': includeUsed.toString(),
+          if (createAvailable != null)
+            'createAvailable': createAvailable.toString(),
           ...?$unknown,
         },
         to: const GetAccountInviteCodesOutputConverter().fromJson,

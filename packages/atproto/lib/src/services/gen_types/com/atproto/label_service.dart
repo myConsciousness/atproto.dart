@@ -57,7 +57,7 @@ final class LabelService {
         parameters: {
           'uriPatterns': uriPatterns,
           if (sources != null) 'sources': sources,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

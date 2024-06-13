@@ -67,7 +67,7 @@ final class LabelerService {
         headers: $headers,
         parameters: {
           'dids': dids,
-          if (detailed != null) 'detailed': detailed,
+          if (detailed != null) 'detailed': detailed.toString(),
           ...?$unknown,
         },
         to: const GetServicesOutputConverter().fromJson,

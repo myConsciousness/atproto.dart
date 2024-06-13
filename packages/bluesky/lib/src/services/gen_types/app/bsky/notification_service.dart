@@ -30,7 +30,7 @@ final class NotificationService {
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/notification/updateSeen
   Future<XRPCResponse<EmptyData>> updateSeen({
-    DateTime? seenAt,
+    required DateTime seenAt,
     Map<String, dynamic>? $unknown,
     Map<String, String>? $headers,
     PostClient? $client,
@@ -85,7 +85,7 @@ final class NotificationService {
         ns.appBskyNotificationListNotifications,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           'seenAt': _ctx.toUtcIso8601String(seenAt),
           ...?$unknown,

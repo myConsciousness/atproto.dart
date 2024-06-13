@@ -105,7 +105,7 @@ final class ConvoService {
         headers: $headers,
         parameters: {
           'convoId': convoId,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -161,7 +161,7 @@ final class ConvoService {
         ns.chatBskyConvoListConvos,
         headers: $headers,
         parameters: {
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },

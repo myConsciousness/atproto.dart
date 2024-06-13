@@ -7,6 +7,7 @@
 // 🌎 Project imports:
 import '../../utils.dart';
 import '../rules/utils.dart';
+import '../rules/object_type.dart';
 
 import 'data_type.dart';
 import 'union.dart';
@@ -189,7 +190,7 @@ final class LexServiceEndpoint {
     if (args.isNotEmpty) {
       buffer.writeln('    parameters: {');
       for (final arg in args) {
-        buffer.writeln(Payload(arg).toString());
+        buffer.writeln(Parameter(arg).toString());
       }
       buffer.writeln('          ...?\$unknown,');
       buffer.writeln('    },');
@@ -344,6 +345,7 @@ final class LexServiceEndpoint {
 
 final class LexServiceEndpointArg {
   const LexServiceEndpointArg({
+    required this.objectType,
     required this.isBytes,
     required this.isRecord,
     required this.isRequired,
@@ -354,6 +356,7 @@ final class LexServiceEndpointArg {
     required this.union,
   });
 
+  final ObjectType objectType;
   final bool isBytes;
   final bool isRecord;
 
@@ -403,7 +406,7 @@ final class LexServiceEndpointArg {
     if (isRequired) {
       if (isRecord && name == 'createdAt') {
         buffer.write('$typeName?');
-      } else if (name == 'repo' || name == 'seenAt') {
+      } else if (name == 'repo') {
         buffer.write('$typeName?');
       } else {
         buffer.write('required $typeName');
@@ -414,6 +417,57 @@ final class LexServiceEndpointArg {
 
     buffer.write(' ');
     buffer.write(name);
+
+    return buffer.toString();
+  }
+}
+
+final class Parameter {
+  const Parameter(this.arg);
+
+  final LexServiceEndpointArg arg;
+
+  @override
+  String toString() {
+    final buffer = StringBuffer();
+
+    if (arg.type.name == 'DateTime') {
+      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+    } else if (arg.name == 'repo') {
+      return "'${arg.name}': repo ?? _ctx.repo,";
+    }
+
+    if (!arg.isRequired) {
+      buffer.write('if (${arg.name} != null)');
+    }
+
+    if (arg.knownValues != null) {
+      if (arg.array) {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toJson()).toList(),",
+        );
+      } else {
+        buffer.writeln("'${arg.name}': ${arg.name}.toJson(),");
+      }
+    } else if (arg.array) {
+      if (arg.type.name == 'List<String>') {
+        buffer.writeln("'${arg.name}': ${arg.name},");
+      } else if (arg.type.name == 'List<AtUri>') {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toString()).toList(),",
+        );
+      } else {
+        buffer.writeln(
+          "'${arg.name}': ${arg.name}.map((e) => e.toString()).toList(),",
+        );
+      }
+    } else if (arg.type.name == 'AtUri' || arg.type.name == 'NSID') {
+      buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
+    } else if (arg.type.name == 'String') {
+      buffer.writeln("'${arg.name}': ${arg.name},");
+    } else {
+      buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
+    }
 
     return buffer.toString();
   }

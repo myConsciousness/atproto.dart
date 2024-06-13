@@ -94,7 +94,7 @@ final class AdminService {
         headers: $headers,
         parameters: {
           if (sort != null) 'sort': sort.toJson(),
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
           ...?$unknown,
         },
@@ -119,7 +119,7 @@ final class AdminService {
         parameters: {
           if (email != null) 'email': email,
           if (cursor != null) 'cursor': cursor,
-          if (limit != null) 'limit': limit,
+          if (limit != null) 'limit': limit.toString(),
           ...?$unknown,
         },
         to: const SearchAccountsOutputConverter().fromJson,

@@ -41,8 +41,8 @@ final class ModerationService {
         parameters: {
           if (convoId != null) 'convoId': convoId,
           'messageId': messageId,
-          if (before != null) 'before': before,
-          if (after != null) 'after': after,
+          if (before != null) 'before': before.toString(),
+          if (after != null) 'after': after.toString(),
           ...?$unknown,
         },
         to: const GetMessageContextOutputConverter().fromJson,
