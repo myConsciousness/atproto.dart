@@ -276,6 +276,9 @@ final class LexServiceEndpoint {
   }
 
   String getRecordInBulkEndpoint() {
+    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') return '';
+    if ('$serviceName.$name' == 'app.bsky.feed.generator') return '';
+
     final buffer = StringBuffer();
 
     buffer.writeln(
@@ -290,9 +293,6 @@ final class LexServiceEndpoint {
     buffer.writeln('            .map<Create>(');
     buffer.writeln('              (e) => Create(');
     buffer.writeln('                collection: ns.$namespace,');
-    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') {
-      buffer.writeln('                rkey: e.post.rkey,');
-    }
     buffer.writeln('                value: {');
     for (final arg in args) {
       buffer.writeln(Payload(arg, prefix: 'e.').toString());

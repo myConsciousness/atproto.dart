@@ -610,63 +610,6 @@ final class FeedService {
 }
 
 extension FeedServiceExtension on FeedService {
-  /// The batch process to create [GeneratorRecord] records.
-  Future<XRPCResponse<EmptyData>> generatorInBulk(
-    final List<GeneratorRecord> records, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyFeedGenerator,
-                value: {
-                  'did': e.did,
-                  'displayName': e.displayName,
-                  if (e.description != null) 'description': e.description!,
-                  if (e.descriptionFacets != null)
-                    'descriptionFacets':
-                        e.descriptionFacets!.map((e) => e.toJson()).toList(),
-                  if (e.avatar != null) 'avatar': e.avatar!.toJson(),
-                  'acceptsInteractions': e.acceptsInteractions,
-                  if (e.labels != null) 'labels': e.labels!.toJson(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
-  /// The batch process to create [ThreadgateRecord] records.
-  Future<XRPCResponse<EmptyData>> threadgateInBulk(
-    final List<ThreadgateRecord> records, {
-    Map<String, String>? $headers,
-    PostClient? $client,
-  }) async =>
-      await _ctx.createRecordInBulk(
-        writes: records
-            .map<Create>(
-              (e) => Create(
-                collection: ns.appBskyFeedThreadgate,
-                rkey: e.post.rkey,
-                value: {
-                  'post': e.post.toString(),
-                  if (e.allow != null)
-                    'allow': e.allow!.map((e) => e.toJson()).toList(),
-                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
-                  ...e.$unknown,
-                },
-              ),
-            )
-            .toList(),
-        $headers: $headers,
-        $client: $client,
-      );
-
   /// The batch process to create [RepostRecord] records.
   Future<XRPCResponse<EmptyData>> repostInBulk(
     final List<RepostRecord> records, {
