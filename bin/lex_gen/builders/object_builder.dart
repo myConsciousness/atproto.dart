@@ -46,6 +46,7 @@ final class LexGenObjectBuilder {
             defName: refVariant.defName,
             def: refVariant.def,
             mainRelatedDocIds: context.mainRelatedDocIds,
+            subscriptionRelatedDocIds: context.subscriptionRelatedDocIds,
           ),
           objectType: ObjectType.object,
         );
@@ -83,6 +84,8 @@ final class LexGenObjectBuilder {
           type: e.key,
           isStrongRef:
               e.key == ObjectType.output && isStrongRef(procedureOutput),
+          isSubscriptionRelated:
+              context.subscriptionRelatedDocIds.contains(namespace),
           description: _getDescription(),
           referencePath:
               getReferencePath(context.docId.toString(), context.defName),

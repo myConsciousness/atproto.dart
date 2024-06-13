@@ -46,7 +46,8 @@ bool isInfo(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'com.atproto.label.subscribeLabels#info';
+  return object[r'$type'] == '#info' ||
+      object[r'$type'] == 'com.atproto.label.subscribeLabels#info';
 }
 
 extension $InfoExtension on Info {

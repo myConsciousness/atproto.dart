@@ -22,7 +22,8 @@ final class LexTypesGen {
 
   Map<NSID, Set<Export>> execute() {
     final exports = <NSID, Set<Export>>{};
-    final mainRelatedDocIds = _loadMainRelatedDocIds();
+    final mainRelatedDocIds = _getMainRelatedDocIds();
+    final subscriptionRelatedDocIds = _getSubscriptionRelatedDocIds();
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
@@ -34,6 +35,7 @@ final class LexTypesGen {
           defName: defName,
           def: def,
           mainRelatedDocIds: mainRelatedDocIds,
+          subscriptionRelatedDocIds: subscriptionRelatedDocIds,
         );
 
         _generateSubscriptionMessage(context, exports);
@@ -246,7 +248,7 @@ final class LexTypesGen {
     }
   }
 
-  List<String> _loadMainRelatedDocIds() {
+  List<String> _getMainRelatedDocIds() {
     final docIds = <String>[];
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
@@ -254,6 +256,28 @@ final class LexTypesGen {
 
       if (_hasMainObject(doc.defs)) {
         docIds.add(doc.id.toString());
+      }
+    }
+
+    return docIds;
+  }
+
+  List<String> _getSubscriptionRelatedDocIds() {
+    final docIds = <String>[];
+    for (final lexicon in lexicons) {
+      final doc = LexiconDoc.fromJson(lexicon);
+      if (!doc.isSupported) continue;
+
+      bool subscriptionRelated = false;
+      for (final entry in doc.defs.entries) {
+        if (entry.value is ULexUserTypeXrpcSubscription) {
+          subscriptionRelated = true;
+          continue;
+        }
+
+        if (subscriptionRelated) {
+          docIds.add('${doc.id}#${entry.key}');
+        }
       }
     }
 

@@ -52,7 +52,8 @@ bool isIdentity(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#identity';
+  return object[r'$type'] == '#identity' ||
+      object[r'$type'] == 'com.atproto.sync.subscribeRepos#identity';
 }
 
 extension $IdentityExtension on Identity {

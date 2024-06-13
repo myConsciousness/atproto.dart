@@ -11,6 +11,7 @@ final class LexGenContext {
     required this.defName,
     this.def,
     required this.mainRelatedDocIds,
+    required this.subscriptionRelatedDocIds,
   });
 
   final NSID docId;
@@ -18,4 +19,5 @@ final class LexGenContext {
   final LexUserType? def;
 
   final List<String> mainRelatedDocIds;
+  final List<String> subscriptionRelatedDocIds;
 }

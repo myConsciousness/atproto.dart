@@ -257,6 +257,7 @@ DataType getDataType(
           defName: ref.substring(1),
           def: refDef,
           mainRelatedDocIds: context.mainRelatedDocIds,
+          subscriptionRelatedDocIds: context.subscriptionRelatedDocIds,
         );
       } // In the another def file
       else {
@@ -269,6 +270,7 @@ DataType getDataType(
           defName: defName,
           def: refDef,
           mainRelatedDocIds: context.mainRelatedDocIds,
+          subscriptionRelatedDocIds: context.subscriptionRelatedDocIds,
         );
       }
     } // main def
@@ -278,6 +280,7 @@ DataType getDataType(
         defName: 'main',
         def: refDef,
         mainRelatedDocIds: context.mainRelatedDocIds,
+        subscriptionRelatedDocIds: context.subscriptionRelatedDocIds,
       );
     }
 

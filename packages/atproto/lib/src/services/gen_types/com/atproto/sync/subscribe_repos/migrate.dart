@@ -50,7 +50,8 @@ bool isMigrate(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#migrate';
+  return object[r'$type'] == '#migrate' ||
+      object[r'$type'] == 'com.atproto.sync.subscribeRepos#migrate';
 }
 
 extension $MigrateExtension on Migrate {

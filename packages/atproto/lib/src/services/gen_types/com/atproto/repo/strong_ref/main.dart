@@ -45,8 +45,8 @@ bool isStrongRef(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'com.atproto.repo.strongRef' ||
-      object[r'$type'] == 'com.atproto.repo.strongRef#main';
+  return object[r'$type'] == 'com.atproto.repo.strongRef#main' ||
+      object[r'$type'] == 'com.atproto.repo.strongRef';
 }
 
 extension $StrongRefExtension on StrongRef {

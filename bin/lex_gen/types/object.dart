@@ -18,6 +18,7 @@ final class LexGenObject {
     required this.type,
     this.isStrongRef = false,
     this.ignore = false,
+    this.isSubscriptionRelated = false,
     this.description,
     required this.referencePath,
     this.namespace,
@@ -30,6 +31,7 @@ final class LexGenObject {
   final ObjectType type;
   final bool isStrongRef;
   final bool ignore;
+  final bool isSubscriptionRelated;
 
   final String? description;
   final String referencePath;
@@ -141,10 +143,17 @@ final class LexGenObject {
       buffer.writeln("  if (object[r'\$type'] == null) return false;");
       buffer.writeln();
       if (namespace!.contains('#')) {
-        buffer.writeln("  return object[r'\$type'] == '$namespace';");
+        if (isSubscriptionRelated) {
+          final name = namespace!.split('#').last;
+
+          buffer.writeln("  return object[r'\$type'] == '#$name'"
+              " || object[r'\$type'] == '$namespace';");
+        } else {
+          buffer.writeln("  return object[r'\$type'] == '$namespace';");
+        }
       } else {
-        buffer.writeln("  return object[r'\$type'] == '$namespace'"
-            " || object[r'\$type'] == '$namespace#main';");
+        buffer.writeln("  return object[r'\$type'] == '$namespace#main'"
+            " || object[r'\$type'] == '$namespace';");
       }
       buffer.writeln('}');
     }

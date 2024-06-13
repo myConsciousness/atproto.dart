@@ -49,7 +49,8 @@ bool isTombstone(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'com.atproto.sync.subscribeRepos#tombstone';
+  return object[r'$type'] == '#tombstone' ||
+      object[r'$type'] == 'com.atproto.sync.subscribeRepos#tombstone';
 }
 
 extension $TombstoneExtension on Tombstone {

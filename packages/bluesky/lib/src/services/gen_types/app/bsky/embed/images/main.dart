@@ -43,8 +43,8 @@ bool isImages(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.embed.images' ||
-      object[r'$type'] == 'app.bsky.embed.images#main';
+  return object[r'$type'] == 'app.bsky.embed.images#main' ||
+      object[r'$type'] == 'app.bsky.embed.images';
 }
 
 extension $ImagesExtension on Images {
