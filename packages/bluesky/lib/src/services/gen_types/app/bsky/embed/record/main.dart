@@ -43,7 +43,8 @@ bool isRecord(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.embed.record';
+  return object[r'$type'] == 'app.bsky.embed.record' ||
+      object[r'$type'] == 'app.bsky.embed.record#main';
 }
 
 extension $RecordExtension on Record {

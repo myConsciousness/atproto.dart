@@ -47,7 +47,8 @@ bool isFacet(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.richtext.facet';
+  return object[r'$type'] == 'app.bsky.richtext.facet' ||
+      object[r'$type'] == 'app.bsky.richtext.facet#main';
 }
 
 extension $FacetExtension on Facet {

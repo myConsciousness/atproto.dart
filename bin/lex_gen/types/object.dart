@@ -140,7 +140,12 @@ final class LexGenObject {
       buffer.writeln('  if (object == null) return false;');
       buffer.writeln("  if (object[r'\$type'] == null) return false;");
       buffer.writeln();
-      buffer.writeln("  return object[r'\$type'] == '$namespace';");
+      if (namespace!.contains('#')) {
+        buffer.writeln("  return object[r'\$type'] == '$namespace';");
+      } else {
+        buffer.writeln("  return object[r'\$type'] == '$namespace'"
+            " || object[r'\$type'] == '$namespace#main';");
+      }
       buffer.writeln('}');
     }
 

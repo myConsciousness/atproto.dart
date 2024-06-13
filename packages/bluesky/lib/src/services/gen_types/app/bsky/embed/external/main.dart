@@ -46,7 +46,8 @@ bool isExternal(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.embed.external';
+  return object[r'$type'] == 'app.bsky.embed.external' ||
+      object[r'$type'] == 'app.bsky.embed.external#main';
 }
 
 extension $ExternalExtension on External {

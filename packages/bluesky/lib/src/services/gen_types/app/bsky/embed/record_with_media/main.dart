@@ -46,7 +46,8 @@ bool isRecordWithMedia(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == 'app.bsky.embed.recordWithMedia';
+  return object[r'$type'] == 'app.bsky.embed.recordWithMedia' ||
+      object[r'$type'] == 'app.bsky.embed.recordWithMedia#main';
 }
 
 extension $RecordWithMediaExtension on RecordWithMedia {
