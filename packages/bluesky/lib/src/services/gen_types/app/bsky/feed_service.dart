@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -19,6 +20,7 @@ import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../app/bsky/feed/defs/interaction.dart';
 import '../../app/bsky/feed/describe_feed_generator/output.dart';
+import '../../app/bsky/feed/generator/record.dart';
 import '../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../app/bsky/feed/get_actor_feeds/output.dart';
 import '../../app/bsky/feed/get_actor_likes/output.dart';
@@ -35,12 +37,16 @@ import '../../app/bsky/feed/get_posts/output.dart';
 import '../../app/bsky/feed/get_reposted_by/output.dart';
 import '../../app/bsky/feed/get_suggested_feeds/output.dart';
 import '../../app/bsky/feed/get_timeline/output.dart';
+import '../../app/bsky/feed/like/record.dart';
 import '../../app/bsky/feed/post/entity.dart';
+import '../../app/bsky/feed/post/record.dart';
 import '../../app/bsky/feed/post/reply_ref.dart';
 import '../../app/bsky/feed/post/union_post_embed.dart';
 import '../../app/bsky/feed/post/union_post_label.dart';
+import '../../app/bsky/feed/repost/record.dart';
 import '../../app/bsky/feed/search_posts/known_sort.dart';
 import '../../app/bsky/feed/search_posts/output.dart';
+import '../../app/bsky/feed/threadgate/record.dart';
 import '../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
@@ -600,5 +606,142 @@ final class FeedService {
         },
         to: const GetActorFeedsOutputConverter().fromJson,
         client: $client,
+      );
+}
+
+extension FeedServiceExtension on FeedService {
+  /// The batch process to create [GeneratorRecord] records.
+  Future<XRPCResponse<EmptyData>> generatorInBulk(
+    final List<GeneratorRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedGenerator,
+                value: {
+                  'did': e.did,
+                  'displayName': e.displayName,
+                  if (e.description != null) 'description': e.description!,
+                  if (e.descriptionFacets != null)
+                    'descriptionFacets':
+                        e.descriptionFacets!.map((e) => e.toJson()).toList(),
+                  if (e.avatar != null) 'avatar': e.avatar!.toJson(),
+                  'acceptsInteractions': e.acceptsInteractions,
+                  if (e.labels != null) 'labels': e.labels!.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [ThreadgateRecord] records.
+  Future<XRPCResponse<EmptyData>> threadgateInBulk(
+    final List<ThreadgateRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedThreadgate,
+                rkey: e.post.rkey,
+                value: {
+                  'post': e.post.toString(),
+                  if (e.allow != null)
+                    'allow': e.allow!.map((e) => e.toJson()).toList(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [RepostRecord] records.
+  Future<XRPCResponse<EmptyData>> repostInBulk(
+    final List<RepostRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedRepost,
+                value: {
+                  'subject': e.subject,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [LikeRecord] records.
+  Future<XRPCResponse<EmptyData>> likeInBulk(
+    final List<LikeRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedLike,
+                value: {
+                  'subject': e.subject,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [PostRecord] records.
+  Future<XRPCResponse<EmptyData>> postInBulk(
+    final List<PostRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyFeedPost,
+                value: {
+                  'text': e.text,
+                  if (e.entities != null)
+                    'entities': e.entities!.map((e) => e.toJson()).toList(),
+                  if (e.facets != null)
+                    'facets': e.facets!.map((e) => e.toJson()).toList(),
+                  if (e.reply != null) 'reply': e.reply!,
+                  if (e.embed != null) 'embed': e.embed!.toJson(),
+                  if (e.langs != null) 'langs': e.langs!,
+                  if (e.labels != null) 'labels': e.labels!.toJson(),
+                  if (e.tags != null) 'tags': e.tags!,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
       );
 }

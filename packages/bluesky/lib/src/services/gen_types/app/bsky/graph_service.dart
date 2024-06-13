@@ -11,13 +11,16 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
+import '../../app/bsky/graph/block/record.dart';
 import '../../app/bsky/graph/defs/known_list_purpose.dart';
+import '../../app/bsky/graph/follow/record.dart';
 import '../../app/bsky/graph/get_blocks/output.dart';
 import '../../app/bsky/graph/get_followers/output.dart';
 import '../../app/bsky/graph/get_follows/output.dart';
@@ -29,7 +32,10 @@ import '../../app/bsky/graph/get_lists/output.dart';
 import '../../app/bsky/graph/get_mutes/output.dart';
 import '../../app/bsky/graph/get_relationships/output.dart';
 import '../../app/bsky/graph/get_suggested_follows_by_actor/output.dart';
+import '../../app/bsky/graph/list/record.dart';
 import '../../app/bsky/graph/list/union_list_label.dart';
+import '../../app/bsky/graph/listblock/record.dart';
+import '../../app/bsky/graph/listitem/record.dart';
 import '../../app/bsky/richtext/facet/main.dart';
 
 /// Contains `app.bsky.graph.*` endpoints.
@@ -492,5 +498,130 @@ final class GraphService {
         },
         to: const GetMutesOutputConverter().fromJson,
         client: $client,
+      );
+}
+
+extension GraphServiceExtension on GraphService {
+  /// The batch process to create [ListitemRecord] records.
+  Future<XRPCResponse<EmptyData>> listitemInBulk(
+    final List<ListitemRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphListitem,
+                value: {
+                  'subject': e.subject,
+                  'list': e.list.toString(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [ListblockRecord] records.
+  Future<XRPCResponse<EmptyData>> listblockInBulk(
+    final List<ListblockRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphListblock,
+                value: {
+                  'subject': e.subject.toString(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [BlockRecord] records.
+  Future<XRPCResponse<EmptyData>> blockInBulk(
+    final List<BlockRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphBlock,
+                value: {
+                  'subject': e.subject,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [FollowRecord] records.
+  Future<XRPCResponse<EmptyData>> followInBulk(
+    final List<FollowRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphFollow,
+                value: {
+                  'subject': e.subject,
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
+      );
+
+  /// The batch process to create [ListRecord] records.
+  Future<XRPCResponse<EmptyData>> listInBulk(
+    final List<ListRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.appBskyGraphList,
+                value: {
+                  'purpose': e.purpose,
+                  'name': e.name,
+                  if (e.description != null) 'description': e.description!,
+                  if (e.descriptionFacets != null)
+                    'descriptionFacets':
+                        e.descriptionFacets!.map((e) => e.toJson()).toList(),
+                  if (e.avatar != null) 'avatar': e.avatar!.toJson(),
+                  if (e.labels != null) 'labels': e.labels!.toJson(),
+                  'createdAt': _ctx.toUtcIso8601String(e.createdAt),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
+        $headers: $headers,
+        $client: $client,
       );
 }

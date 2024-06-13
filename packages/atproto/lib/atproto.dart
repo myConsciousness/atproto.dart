@@ -82,6 +82,8 @@ export 'package:atproto/src/services/gen_types/com/atproto/sync_service.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/label_service.dart';
 export 'package:atproto/src/services/gen_types/com/atproto/temp_service.dart';
 
+export 'package:atproto/src/services/extensions/repo_service.dart';
+
 export 'package:atproto_core/atproto_core.dart'
     show
         XRPCResponse,

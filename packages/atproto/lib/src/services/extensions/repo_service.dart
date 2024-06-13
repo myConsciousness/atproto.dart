@@ -12,7 +12,7 @@ import '../gen_types/com/atproto/repo_service.dart';
 extension RepoServiceExtension on RepoService {
   Future<XRPCResponse<EmptyData>> createRecordInBulk({
     String? repo,
-    required List<Create> actions,
+    required List<Create> writes,
     bool? validate,
     String? swapCommit,
     Map<String, String>? $headers,
@@ -20,7 +20,7 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         repo: repo,
-        writes: actions.map((e) => UWrite.create(data: e)).toList(),
+        writes: writes.map((e) => UWrite.create(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
         $headers: $headers,
@@ -29,7 +29,7 @@ extension RepoServiceExtension on RepoService {
 
   Future<XRPCResponse<EmptyData>> updateRecordInBulk({
     String? repo,
-    required List<Update> actions,
+    required List<Update> writes,
     bool? validate,
     String? swapCommit,
     Map<String, String>? $headers,
@@ -37,7 +37,7 @@ extension RepoServiceExtension on RepoService {
   }) async =>
       await applyWrites(
         repo: repo,
-        writes: actions.map((e) => UWrite.update(data: e)).toList(),
+        writes: writes.map((e) => UWrite.update(data: e)).toList(),
         validate: validate,
         swapCommit: swapCommit,
         $headers: $headers,

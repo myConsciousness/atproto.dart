@@ -4,6 +4,7 @@
 
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
+import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
@@ -27,6 +28,23 @@ final class BlueskyServiceContext extends core.ServiceContext {
 
   /// Authenticated repo.
   String? get repo => session?.did;
+
+  Future<core.XRPCResponse<core.EmptyData>> createRecordInBulk({
+    String? repo,
+    required List<Create> writes,
+    bool? validate,
+    String? swapCommit,
+    Map<String, String>? $headers,
+    core.PostClient? $client,
+  }) async =>
+      await atproto.repo.createRecordInBulk(
+        repo: repo,
+        writes: writes,
+        validate: validate,
+        swapCommit: swapCommit,
+        $headers: $headers,
+        $client: $client,
+      );
 
   Future<core.XRPCResponse<T>> findRecord<T>(
     final core.AtUri uri, [

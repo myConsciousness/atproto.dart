@@ -39,8 +39,15 @@ final class LexService {
   String toString() {
     final buffer = StringBuffer();
 
+    final records = endpoints.where((e) => e.isRecord);
+    final recordPaths = records.map((e) =>
+        "../../${'${e.serviceName}.${e.name}'.replaceAll('.', '/')}/record.dart");
+
     final importPaths = [
       'package:atproto_core/atproto_core.dart',
+      if (records.isNotEmpty)
+        'package:atproto/com_atproto_repo_apply_writes.dart',
+      if (recordPaths.isNotEmpty) ...recordPaths,
       ...endpoints.map((e) => e.type.importPath),
       ...endpoints.expand((e) => e.args).map((e) => e.type.importPath),
       ...endpoints.expand((e) => e.args).map((e) => e.knownValues?.filePath),
@@ -81,12 +88,23 @@ final class LexService {
     }
     buffer.writeln('}');
 
+    if (records.isNotEmpty) {
+      buffer.writeln();
+      buffer.writeln('extension ${name}Extension on $name {');
+      for (final record in records) {
+        buffer.writeln(record.getRecordInBulkEndpoint());
+        buffer.writeln();
+      }
+      buffer.writeln('}');
+    }
+
     return buffer.toString();
   }
 }
 
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
+    required this.isRecord,
     required this.description,
     required this.referencePath,
     required this.args,
@@ -95,6 +113,8 @@ final class LexServiceEndpoint {
     required this.type,
     required this.method,
   });
+
+  final bool isRecord;
 
   final String? description;
   final String referencePath;
@@ -105,13 +125,13 @@ final class LexServiceEndpoint {
   final DataType type;
   final LexServiceEndpointMethod method;
 
+  String get namespace => toFirstLower(
+        '$serviceName.$name'.split('.').map(toFirstUpper).join(),
+      );
+
   @override
   String toString() {
     final buffer = StringBuffer();
-
-    final namespace = toFirstLower(
-      '$serviceName.$name'.split('.').map(toFirstUpper).join(),
-    );
 
     if (description != null) {
       buffer.writeln('  /// $description');
@@ -124,19 +144,19 @@ final class LexServiceEndpoint {
     }
 
     if (method == LexServiceEndpointMethod.get) {
-      buffer.write(_getGetEndpoint(namespace));
+      buffer.write(_getGetEndpoint());
     } else if (method == LexServiceEndpointMethod.post) {
-      buffer.write(_getPostEndpoint(namespace));
+      buffer.write(_getPostEndpoint());
     } else if (method == LexServiceEndpointMethod.record) {
-      buffer.write(_getRecordEndpoint(namespace));
+      buffer.write(_getRecordEndpoint());
     } else if (method == LexServiceEndpointMethod.stream) {
-      buffer.write(_getSubscriptionEndpoint(namespace));
+      buffer.write(_getSubscriptionEndpoint());
     }
 
     return buffer.toString();
   }
 
-  String _getGetEndpoint(final String namespace) {
+  String _getGetEndpoint() {
     final buffer = StringBuffer();
 
     if (args.isEmpty) {
@@ -175,7 +195,7 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getPostEndpoint(final String namespace) {
+  String _getPostEndpoint() {
     final buffer = StringBuffer();
 
     if (args.isEmpty) {
@@ -220,25 +240,17 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getRecordEndpoint(final String namespace) {
+  String _getRecordEndpoint() {
     final buffer = StringBuffer();
 
-    if (args.isEmpty) {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-      buffer.writeln('    Map<String, dynamic>? \$unknown,');
-      buffer.writeln('    Map<String, String>? \$headers,');
-      buffer.writeln('    PostClient? \$client,');
-      buffer.writeln('  }) async =>');
-    } else {
-      buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
-      for (final arg in args) {
-        buffer.writeln('    ${arg.toString()},');
-      }
-      buffer.writeln('    Map<String, dynamic>? \$unknown,');
-      buffer.writeln('    Map<String, String>? \$headers,');
-      buffer.writeln('    PostClient? \$client,');
-      buffer.writeln('  }) async =>');
+    buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
+    for (final arg in args) {
+      buffer.writeln('    ${arg.toString()},');
     }
+    buffer.writeln('    Map<String, dynamic>? \$unknown,');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
     buffer.writeln('    await _ctx.atproto.repo.createRecord(');
     buffer.writeln('        repo: _ctx.repo,');
     buffer.writeln('        collection: ns.$namespace,');
@@ -259,7 +271,41 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getSubscriptionEndpoint(final String namespace) {
+  String getRecordInBulkEndpoint() {
+    final buffer = StringBuffer();
+
+    buffer.writeln(
+        '/// The batch process to create [${toFirstUpper(name)}Record] records.');
+    buffer.writeln(
+        '  Future<XRPCResponse<EmptyData>> ${name}InBulk(final List<${toFirstUpper(name)}Record> records, {');
+    buffer.writeln('    Map<String, String>? \$headers,');
+    buffer.writeln('    PostClient? \$client,');
+    buffer.writeln('  }) async =>');
+    buffer.writeln('    await _ctx.createRecordInBulk(');
+    buffer.writeln('        writes: records');
+    buffer.writeln('            .map<Create>(');
+    buffer.writeln('              (e) => Create(');
+    buffer.writeln('                collection: ns.$namespace,');
+    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') {
+      buffer.writeln('                rkey: e.post.rkey,');
+    }
+    buffer.writeln('                value: {');
+    for (final arg in args) {
+      buffer.writeln(Payload(arg, prefix: 'e.').toString());
+    }
+    buffer.writeln('                  ...e.\$unknown,');
+    buffer.writeln('                },');
+    buffer.writeln('              ),');
+    buffer.writeln('            )');
+    buffer.writeln('            .toList(),');
+    buffer.writeln('       \$headers: \$headers,');
+    buffer.writeln('       \$client: \$client,');
+    buffer.writeln('      );');
+
+    return buffer.toString();
+  }
+
+  String _getSubscriptionEndpoint() {
     final buffer = StringBuffer();
 
     if (args.isEmpty) {
@@ -369,53 +415,68 @@ final class LexServiceEndpointArg {
 }
 
 final class Payload {
-  const Payload(this.arg);
+  const Payload(this.arg, {this.prefix = ''});
 
   final LexServiceEndpointArg arg;
+  final String prefix;
 
   @override
   String toString() {
+    final nullCheck = prefix.isNotEmpty &&
+            !arg.isRequired &&
+            !(arg.type.name == 'bool' || arg.type.name == 'int')
+        ? '!'
+        : '';
+
     if (arg.isRecord && arg.name == 'createdAt') {
-      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
     } else if (arg.name == 'seenAt') {
-      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
     } else if (arg.isRequired && arg.type.name == 'DateTime') {
-      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
+      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
     } else if (arg.name == 'repo') {
-      return "'${arg.name}': repo ?? _ctx.repo,";
+      return "'${arg.name}': ${prefix}repo ?? _ctx.repo,";
     }
 
     final buffer = StringBuffer();
-    if (!arg.isRequired) {
-      buffer.write('if (${arg.name} != null)');
+    if (prefix.isEmpty) {
+      if (!arg.isRequired) {
+        buffer.write('if ($prefix${arg.name} != null)');
+      }
+    } else {
+      if (!arg.isRequired) {
+        if (!(arg.type.name == 'bool' || arg.type.name == 'int')) {
+          buffer.write('if ($prefix${arg.name} != null)');
+        }
+      }
     }
 
     if (arg.knownValues != null || arg.union != null) {
       if (arg.array) {
         buffer.writeln(
-          "'${arg.name}': ${arg.name}.map((e) => e.toJson()).toList(),",
+          "'${arg.name}': $prefix${arg.name}$nullCheck.map((e) => e.toJson()).toList(),",
         );
       } else {
-        buffer.writeln("'${arg.name}': ${arg.name}.toJson(),");
+        buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
       }
     } else if (arg.array) {
       if (arg.type.name == 'List<String>') {
-        buffer.writeln("'${arg.name}': ${arg.name},");
+        buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck,");
       } else if (arg.type.name == 'List<AtUri>') {
         buffer.writeln(
-          "'${arg.name}': ${arg.name}.map((e) => e.toString()).toList(),",
+          "'${arg.name}': $prefix${arg.name}$nullCheck.map((e) => e.toString()).toList(),",
         );
       } else {
         buffer.writeln(
-          "'${arg.name}': ${arg.name}.map((e) => e.toJson()).toList(),",
+          "'${arg.name}': $prefix${arg.name}$nullCheck.map((e) => e.toJson()).toList(),",
         );
       }
     } else if (arg.type.name == 'AtUri' || arg.type.name == 'NSID') {
-      buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
+      buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toString(),");
     } else if (arg.type.name == 'Blob') {
-      buffer.writeln("'${arg.name}': ${arg.name}.toJson(),");
+      buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
     } else {
-      buffer.writeln("'${arg.name}': ${arg.name},");
+      buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck,");
     }
 
     return buffer.toString();

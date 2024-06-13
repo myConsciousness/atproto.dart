@@ -11,6 +11,7 @@
 // **************************************************************************
 
 // 📦 Package imports:
+import 'package:atproto/com_atproto_repo_apply_writes.dart';
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:atproto_core/atproto_core.dart';
 
@@ -18,6 +19,7 @@ import 'package:atproto_core/atproto_core.dart';
 import '../../../../nsids.g.dart' as ns;
 import '../../../service_context.dart';
 import '../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
+import '../../chat/bsky/actor/declaration/record.dart';
 
 /// Contains `chat.bsky.actor.*` endpoints.
 final class ActorService {
@@ -66,6 +68,30 @@ final class ActorService {
           'allowIncoming': allowIncoming.toJson(),
           ...?$unknown,
         },
+        $headers: $headers,
+        $client: $client,
+      );
+}
+
+extension ActorServiceExtension on ActorService {
+  /// The batch process to create [DeclarationRecord] records.
+  Future<XRPCResponse<EmptyData>> declarationInBulk(
+    final List<DeclarationRecord> records, {
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.createRecordInBulk(
+        writes: records
+            .map<Create>(
+              (e) => Create(
+                collection: ns.chatBskyActorDeclaration,
+                value: {
+                  'allowIncoming': e.allowIncoming.toJson(),
+                  ...e.$unknown,
+                },
+              ),
+            )
+            .toList(),
         $headers: $headers,
         $client: $client,
       );
