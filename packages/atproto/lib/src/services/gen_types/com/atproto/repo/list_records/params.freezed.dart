@@ -21,7 +21,7 @@ ListRecordsParams _$ListRecordsParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$ListRecordsParams {
   /// The handle or DID of the repo.
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record type.
   @NSIDConverter()
@@ -61,7 +61,7 @@ abstract class $ListRecordsParamsCopyWith<$Res> {
       _$ListRecordsParamsCopyWithImpl<$Res, ListRecordsParams>;
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
@@ -88,7 +88,7 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? limit = freezed,
     Object? cursor = freezed,
@@ -98,10 +98,10 @@ class _$ListRecordsParamsCopyWithImpl<$Res, $Val extends ListRecordsParams>
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -143,7 +143,7 @@ abstract class _$$ListRecordsParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       int? limit,
       String? cursor,
@@ -168,7 +168,7 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? limit = freezed,
     Object? cursor = freezed,
@@ -178,10 +178,10 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
     Object? $unknown = null,
   }) {
     return _then(_$ListRecordsParamsImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -219,7 +219,7 @@ class __$$ListRecordsParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListRecordsParamsImpl implements _ListRecordsParams {
   const _$ListRecordsParamsImpl(
-      {required this.repo,
+      {this.repo,
       @NSIDConverter() required this.collection,
       this.limit,
       this.cursor,
@@ -239,7 +239,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
   /// The handle or DID of the repo.
   @override
-  final String repo;
+  final String? repo;
 
   /// The NSID of the record type.
   @override
@@ -332,7 +332,7 @@ class _$ListRecordsParamsImpl implements _ListRecordsParams {
 
 abstract class _ListRecordsParams implements ListRecordsParams {
   const factory _ListRecordsParams(
-      {required final String repo,
+      {final String? repo,
       @NSIDConverter() required final NSID collection,
       final int? limit,
       final String? cursor,
@@ -352,7 +352,7 @@ abstract class _ListRecordsParams implements ListRecordsParams {
   @override
 
   /// The handle or DID of the repo.
-  String get repo;
+  String? get repo;
   @override
 
   /// The NSID of the record type.

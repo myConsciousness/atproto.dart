@@ -22,8 +22,8 @@ _$ThreadgateRecordImpl _$$ThreadgateRecordImplFromJson(Map json) =>
                   ?.map((e) => const UThreadgateAllowConverter()
                       .fromJson(e as Map<String, dynamic>))
                   .toList()),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -50,7 +50,7 @@ Map<String, dynamic> _$$ThreadgateRecordImplToJson(
 
   writeNotNull('allow',
       instance.allow?.map(const UThreadgateAllowConverter().toJson).toList());
-  val['createdAt'] = instance.createdAt.toIso8601String();
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
   val[r'$unknown'] = instance.$unknown;
   return val;
 }

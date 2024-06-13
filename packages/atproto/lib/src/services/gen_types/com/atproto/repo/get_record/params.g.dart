@@ -14,7 +14,7 @@ _$GetRecordParamsImpl _$$GetRecordParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GetRecordParamsImpl(
-          repo: $checkedConvert('repo', (v) => v as String),
+          repo: $checkedConvert('repo', (v) => v as String?),
           collection: $checkedConvert(
               'collection', (v) => const NSIDConverter().fromJson(v as String)),
           rkey: $checkedConvert('rkey', (v) => v as String),
@@ -33,11 +33,7 @@ _$GetRecordParamsImpl _$$GetRecordParamsImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$GetRecordParamsImplToJson(
     _$GetRecordParamsImpl instance) {
-  final val = <String, dynamic>{
-    'repo': instance.repo,
-    'collection': const NSIDConverter().toJson(instance.collection),
-    'rkey': instance.rkey,
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -45,6 +41,9 @@ Map<String, dynamic> _$$GetRecordParamsImplToJson(
     }
   }
 
+  writeNotNull('repo', instance.repo);
+  val['collection'] = const NSIDConverter().toJson(instance.collection);
+  val['rkey'] = instance.rkey;
   writeNotNull('cid', instance.cid);
   val[r'$unknown'] = instance.$unknown;
   return val;

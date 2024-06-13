@@ -17,8 +17,8 @@ _$RepostRecordImpl _$$RepostRecordImplFromJson(Map json) => $checkedCreate(
               'subject',
               (v) => const StrongRefConverter()
                   .fromJson(v as Map<String, dynamic>)),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -31,9 +31,18 @@ _$RepostRecordImpl _$$RepostRecordImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$RepostRecordImplToJson(_$RepostRecordImpl instance) =>
-    <String, dynamic>{
-      'subject': const StrongRefConverter().toJson(instance.subject),
-      'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$RepostRecordImplToJson(_$RepostRecordImpl instance) {
+  final val = <String, dynamic>{
+    'subject': const StrongRefConverter().toJson(instance.subject),
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

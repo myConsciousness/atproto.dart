@@ -23,7 +23,7 @@ class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
     @StrongRefConverter() required StrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

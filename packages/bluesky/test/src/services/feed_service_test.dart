@@ -24,23 +24,27 @@ import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_posts/output.da
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_reposted_by/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_suggested_feeds/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/get_timeline/output.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/like/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
-import 'package:bluesky/src/services/params/generator_param.dart';
-import 'package:bluesky/src/services/params/post_param.dart';
-import 'package:bluesky/src/services/params/strong_ref_param.dart';
 import 'suite/service_suite.dart';
 
 void main() {
   testFeed<StrongRef>(
     (m, s) => s.post(text: m.text),
-    bulk: (m, s) => s.postInBulk([PostParam(text: m.text)]),
+    bulk: (m, s) => s.postInBulk([PostRecord(text: m.text)]),
     id: appBskyFeedPost,
   );
 
   testFeed<StrongRef>(
     (m, s) => s.repost(subject: StrongRef(uri: m.uri, cid: m.cid)),
-    bulk: (m, s) => s.repostInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    bulk: (m, s) => s.repostInBulk([
+      RepostRecord(
+        subject: StrongRef(cid: m.cid, uri: m.uri),
+      ),
+    ]),
     id: appBskyFeedPost,
   );
 
@@ -76,7 +80,11 @@ void main() {
 
   testFeed<GetLikesOutput>(
     (m, s) => s.getLikes(uri: m.uri),
-    bulk: (m, s) => s.likeInBulk([StrongRefParam(cid: m.cid, uri: m.uri)]),
+    bulk: (m, s) => s.likeInBulk([
+      LikeRecord(
+        subject: StrongRef(cid: m.cid, uri: m.uri),
+      )
+    ]),
     id: appBskyFeedGetLikes,
   );
 
@@ -97,12 +105,6 @@ void main() {
 
   testFeed<StrongRef>(
     (m, s) => s.generator(did: m.did, displayName: m.displayName),
-    bulk: (m, s) => s.generatorInBulk([
-      GeneratorParam(
-        did: m.did,
-        displayName: m.displayName,
-      )
-    ]),
     id: appBskyFeedGenerator,
   );
 

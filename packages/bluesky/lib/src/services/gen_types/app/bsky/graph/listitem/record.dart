@@ -27,7 +27,7 @@ class ListitemRecord with _$ListitemRecord {
 
     /// Reference (AT-URI) to the list record (app.bsky.graph.list).
     @AtUriConverter() required AtUri list,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

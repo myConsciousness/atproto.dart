@@ -24,7 +24,7 @@ void main() {
   );
 
   testNotification<EmptyData>(
-    (m, s) => s.updateSeen(),
+    (m, s) => s.updateSeen(seenAt: DateTime.now()),
     id: appBskyNotificationUpdateSeen,
   );
 

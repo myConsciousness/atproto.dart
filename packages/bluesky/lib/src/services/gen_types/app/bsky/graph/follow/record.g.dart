@@ -14,8 +14,8 @@ _$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$FollowRecordImpl(
           subject: $checkedConvert('subject', (v) => v as String),
-          createdAt:
-              $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
+          createdAt: $checkedConvert('createdAt',
+              (v) => v == null ? null : DateTime.parse(v as String)),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -28,9 +28,18 @@ _$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
       },
     );
 
-Map<String, dynamic> _$$FollowRecordImplToJson(_$FollowRecordImpl instance) =>
-    <String, dynamic>{
-      'subject': instance.subject,
-      'createdAt': instance.createdAt.toIso8601String(),
-      r'$unknown': instance.$unknown,
-    };
+Map<String, dynamic> _$$FollowRecordImplToJson(_$FollowRecordImpl instance) {
+  final val = <String, dynamic>{
+    'subject': instance.subject,
+  };
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('createdAt', instance.createdAt?.toIso8601String());
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

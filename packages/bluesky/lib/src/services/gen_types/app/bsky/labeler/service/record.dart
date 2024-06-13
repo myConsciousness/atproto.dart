@@ -27,7 +27,7 @@ class ServiceRecord with _$ServiceRecord {
   const factory ServiceRecord({
     @LabelerPoliciesConverter() required LabelerPolicies policies,
     @UServiceLabelConverter() UServiceLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

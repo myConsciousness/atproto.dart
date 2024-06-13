@@ -28,7 +28,7 @@ class ThreadgateRecord with _$ThreadgateRecord {
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
     @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

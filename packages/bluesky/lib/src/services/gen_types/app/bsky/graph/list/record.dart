@@ -36,7 +36,7 @@ class ListRecord with _$ListRecord {
     @FacetConverter() List<Facet>? descriptionFacets,
     @BlobConverter() Blob? avatar,
     @UListLabelConverter() UListLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

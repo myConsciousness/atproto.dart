@@ -23,7 +23,7 @@ class BlockRecord with _$BlockRecord {
   const factory BlockRecord({
     /// DID of the account to be blocked.
     required String subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

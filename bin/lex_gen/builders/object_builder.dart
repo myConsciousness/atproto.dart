@@ -314,9 +314,16 @@ final class LexGenObjectBuilder {
       arrayUnion: union,
     );
 
+    bool isRequired = _isRequired(
+      objectType,
+      name,
+      dataType.name ?? '',
+      requiredProperties,
+    );
+
     return LexGenObjectProperty(
       description: property['description'],
-      isRequired: requiredProperties.contains(name),
+      isRequired: isRequired,
       type: dataType,
       name: name,
       array: property['items'] != null,
@@ -330,13 +337,40 @@ final class LexGenObjectBuilder {
         knownValues: property['knownValues'] ?? const [],
       ).build(),
       union: union,
-      defaultValue: getDefaultValue(
-        property['default'],
-        dataType,
-        context.docId,
-        property['ref'],
-        objectType,
-      ),
+      defaultValue: !isRequired
+          ? getDefaultValue(
+              property['default'],
+              dataType,
+              context.docId,
+              property['ref'],
+              objectType,
+            )
+          : null,
     );
+  }
+
+  bool _isRequired(
+    final ObjectType objectType,
+    final String propertyName,
+    final String typeName,
+    final List<String> requiredProperties,
+  ) {
+    if (propertyName == 'repo') {
+      if (objectType == ObjectType.object ||
+          objectType == ObjectType.output ||
+          objectType == ObjectType.message) {
+        return requiredProperties.contains(propertyName);
+      }
+
+      return false;
+    }
+
+    if (typeName == 'DateTime') {
+      if (objectType == ObjectType.record) {
+        return false;
+      }
+    }
+
+    return requiredProperties.contains(propertyName);
   }
 }

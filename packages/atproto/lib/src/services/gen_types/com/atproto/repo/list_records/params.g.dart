@@ -14,7 +14,7 @@ _$ListRecordsParamsImpl _$$ListRecordsParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListRecordsParamsImpl(
-          repo: $checkedConvert('repo', (v) => v as String),
+          repo: $checkedConvert('repo', (v) => v as String?),
           collection: $checkedConvert(
               'collection', (v) => const NSIDConverter().fromJson(v as String)),
           limit: $checkedConvert('limit', (v) => (v as num?)?.toInt()),
@@ -36,10 +36,7 @@ _$ListRecordsParamsImpl _$$ListRecordsParamsImplFromJson(Map json) =>
 
 Map<String, dynamic> _$$ListRecordsParamsImplToJson(
     _$ListRecordsParamsImpl instance) {
-  final val = <String, dynamic>{
-    'repo': instance.repo,
-    'collection': const NSIDConverter().toJson(instance.collection),
-  };
+  final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {
@@ -47,6 +44,8 @@ Map<String, dynamic> _$$ListRecordsParamsImplToJson(
     }
   }
 
+  writeNotNull('repo', instance.repo);
+  val['collection'] = const NSIDConverter().toJson(instance.collection);
   writeNotNull('limit', instance.limit);
   writeNotNull('cursor', instance.cursor);
   writeNotNull('rkeyStart', instance.rkeyStart);

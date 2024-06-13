@@ -14,7 +14,7 @@ _$DescribeRepoParamsImpl _$$DescribeRepoParamsImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$DescribeRepoParamsImpl(
-          repo: $checkedConvert('repo', (v) => v as String),
+          repo: $checkedConvert('repo', (v) => v as String?),
           $unknown: $checkedConvert(
               r'$unknown',
               (v) =>
@@ -28,8 +28,16 @@ _$DescribeRepoParamsImpl _$$DescribeRepoParamsImplFromJson(Map json) =>
     );
 
 Map<String, dynamic> _$$DescribeRepoParamsImplToJson(
-        _$DescribeRepoParamsImpl instance) =>
-    <String, dynamic>{
-      'repo': instance.repo,
-      r'$unknown': instance.$unknown,
-    };
+    _$DescribeRepoParamsImpl instance) {
+  final val = <String, dynamic>{};
+
+  void writeNotNull(String key, dynamic value) {
+    if (value != null) {
+      val[key] = value;
+    }
+  }
+
+  writeNotNull('repo', instance.repo);
+  val[r'$unknown'] = instance.$unknown;
+  return val;
+}

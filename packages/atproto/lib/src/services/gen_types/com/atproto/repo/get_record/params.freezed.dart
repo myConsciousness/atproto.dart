@@ -21,7 +21,7 @@ GetRecordParams _$GetRecordParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$GetRecordParams {
   /// The handle or DID of the repo.
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// The NSID of the record collection.
   @NSIDConverter()
@@ -50,7 +50,7 @@ abstract class $GetRecordParamsCopyWith<$Res> {
       _$GetRecordParamsCopyWithImpl<$Res, GetRecordParams>;
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String rkey,
       String? cid,
@@ -70,17 +70,17 @@ class _$GetRecordParamsCopyWithImpl<$Res, $Val extends GetRecordParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = null,
     Object? cid = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -110,7 +110,7 @@ abstract class _$$GetRecordParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo,
+      {String? repo,
       @NSIDConverter() NSID collection,
       String rkey,
       String? cid,
@@ -128,17 +128,17 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? collection = null,
     Object? rkey = null,
     Object? cid = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GetRecordParamsImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       collection: null == collection
           ? _value.collection
           : collection // ignore: cast_nullable_to_non_nullable
@@ -164,7 +164,7 @@ class __$$GetRecordParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GetRecordParamsImpl implements _GetRecordParams {
   const _$GetRecordParamsImpl(
-      {required this.repo,
+      {this.repo,
       @NSIDConverter() required this.collection,
       required this.rkey,
       this.cid,
@@ -177,7 +177,7 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 
   /// The handle or DID of the repo.
   @override
-  final String repo;
+  final String? repo;
 
   /// The NSID of the record collection.
   @override
@@ -244,7 +244,7 @@ class _$GetRecordParamsImpl implements _GetRecordParams {
 
 abstract class _GetRecordParams implements GetRecordParams {
   const factory _GetRecordParams(
-          {required final String repo,
+          {final String? repo,
           @NSIDConverter() required final NSID collection,
           required final String rkey,
           final String? cid,
@@ -257,7 +257,7 @@ abstract class _GetRecordParams implements GetRecordParams {
   @override
 
   /// The handle or DID of the repo.
-  String get repo;
+  String? get repo;
   @override
 
   /// The NSID of the record collection.

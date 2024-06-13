@@ -23,7 +23,7 @@ class ListRecordsParams with _$ListRecordsParams {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecordsParams({
     /// The handle or DID of the repo.
-    required String repo,
+    String? repo,
 
     /// The NSID of the record type.
     @NSIDConverter() required NSID collection,

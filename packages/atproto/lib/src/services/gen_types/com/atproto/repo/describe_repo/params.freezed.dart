@@ -21,7 +21,7 @@ DescribeRepoParams _$DescribeRepoParamsFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$DescribeRepoParams {
   /// The handle or DID of the repo.
-  String get repo => throw _privateConstructorUsedError;
+  String? get repo => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -40,7 +40,8 @@ abstract class $DescribeRepoParamsCopyWith<$Res> {
       _$DescribeRepoParamsCopyWithImpl<$Res, DescribeRepoParams>;
   @useResult
   $Res call(
-      {String repo, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {String? repo,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -56,14 +57,14 @@ class _$DescribeRepoParamsCopyWithImpl<$Res, $Val extends DescribeRepoParams>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -81,7 +82,8 @@ abstract class _$$DescribeRepoParamsImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String repo, @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
+      {String? repo,
+      @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
 /// @nodoc
@@ -95,14 +97,14 @@ class __$$DescribeRepoParamsImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? repo = null,
+    Object? repo = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$DescribeRepoParamsImpl(
-      repo: null == repo
+      repo: freezed == repo
           ? _value.repo
           : repo // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -116,7 +118,7 @@ class __$$DescribeRepoParamsImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$DescribeRepoParamsImpl implements _DescribeRepoParams {
   const _$DescribeRepoParamsImpl(
-      {required this.repo,
+      {this.repo,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -126,7 +128,7 @@ class _$DescribeRepoParamsImpl implements _DescribeRepoParams {
 
   /// The handle or DID of the repo.
   @override
-  final String repo;
+  final String? repo;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -176,7 +178,7 @@ class _$DescribeRepoParamsImpl implements _DescribeRepoParams {
 
 abstract class _DescribeRepoParams implements DescribeRepoParams {
   const factory _DescribeRepoParams(
-          {required final String repo,
+          {final String? repo,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$DescribeRepoParamsImpl;
 
@@ -186,7 +188,7 @@ abstract class _DescribeRepoParams implements DescribeRepoParams {
   @override
 
   /// The handle or DID of the repo.
-  String get repo;
+  String? get repo;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

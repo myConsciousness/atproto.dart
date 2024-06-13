@@ -404,13 +404,7 @@ final class LexServiceEndpointArg {
     final buffer = StringBuffer();
 
     if (isRequired) {
-      if (isRecord && name == 'createdAt') {
-        buffer.write('$typeName?');
-      } else if (name == 'repo') {
-        buffer.write('$typeName?');
-      } else {
-        buffer.write('required $typeName');
-      }
+      buffer.write('required $typeName');
     } else {
       buffer.write('$typeName?');
     }
@@ -429,14 +423,11 @@ final class Parameter {
 
   @override
   String toString() {
-    final buffer = StringBuffer();
-
-    if (arg.type.name == 'DateTime') {
-      return "'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),";
-    } else if (arg.name == 'repo') {
+    if (arg.name == 'repo') {
       return "'${arg.name}': repo ?? _ctx.repo,";
     }
 
+    final buffer = StringBuffer();
     if (!arg.isRequired) {
       buffer.write('if (${arg.name} != null)');
     }
@@ -465,6 +456,8 @@ final class Parameter {
       buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
     } else if (arg.type.name == 'String') {
       buffer.writeln("'${arg.name}': ${arg.name},");
+    } else if (arg.type.name == 'DateTime') {
+      buffer.writeln("'${arg.name}': _ctx.toUtcIso8601String(${arg.name}),");
     } else {
       buffer.writeln("'${arg.name}': ${arg.name}.toString(),");
     }
@@ -488,11 +481,7 @@ final class Payload {
         : '';
 
     if (arg.isRecord && arg.name == 'createdAt') {
-      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
-    } else if (arg.name == 'seenAt') {
-      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
-    } else if (arg.isRequired && arg.type.name == 'DateTime') {
-      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}$nullCheck),";
+      return "'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}),";
     } else if (arg.name == 'repo') {
       return "'${arg.name}': ${prefix}repo ?? _ctx.repo,";
     }
@@ -534,6 +523,9 @@ final class Payload {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toString(),");
     } else if (arg.type.name == 'Blob') {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck.toJson(),");
+    } else if (arg.type.name == 'DateTime') {
+      buffer
+          .write("'${arg.name}': _ctx.toUtcIso8601String($prefix${arg.name}),");
     } else {
       buffer.writeln("'${arg.name}': $prefix${arg.name}$nullCheck,");
     }

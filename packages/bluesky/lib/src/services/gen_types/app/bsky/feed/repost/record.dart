@@ -23,7 +23,7 @@ class RepostRecord with _$RepostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
     @StrongRefConverter() required StrongRef subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

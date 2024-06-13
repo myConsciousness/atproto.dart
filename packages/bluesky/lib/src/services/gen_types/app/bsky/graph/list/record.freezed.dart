@@ -33,7 +33,7 @@ mixin _$ListRecord {
   Blob? get avatar => throw _privateConstructorUsedError;
   @UListLabelConverter()
   UListLabel? get labels => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -58,7 +58,7 @@ abstract class $ListRecordCopyWith<$Res> {
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @UListLabelConverter() UListLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $UListPurposeCopyWith<$Res> get purpose;
@@ -85,7 +85,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -113,10 +113,10 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UListLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -172,7 +172,7 @@ abstract class _$$ListRecordImplCopyWith<$Res>
       @FacetConverter() List<Facet>? descriptionFacets,
       @BlobConverter() Blob? avatar,
       @UListLabelConverter() UListLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -200,7 +200,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
     Object? descriptionFacets = freezed,
     Object? avatar = freezed,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ListRecordImpl(
@@ -228,10 +228,10 @@ class __$$ListRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UListLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -251,7 +251,7 @@ class _$ListRecordImpl implements _ListRecord {
       @FacetConverter() final List<Facet>? descriptionFacets,
       @BlobConverter() this.avatar,
       @UListLabelConverter() this.labels,
-      required this.createdAt,
+      this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _descriptionFacets = descriptionFacets,
@@ -289,7 +289,7 @@ class _$ListRecordImpl implements _ListRecord {
   @UListLabelConverter()
   final UListLabel? labels;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -361,7 +361,7 @@ abstract class _ListRecord implements ListRecord {
           @FacetConverter() final List<Facet>? descriptionFacets,
           @BlobConverter() final Blob? avatar,
           @UListLabelConverter() final UListLabel? labels,
-          required final DateTime createdAt,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ListRecordImpl;
 
@@ -389,7 +389,7 @@ abstract class _ListRecord implements ListRecord {
   @UListLabelConverter()
   UListLabel? get labels;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

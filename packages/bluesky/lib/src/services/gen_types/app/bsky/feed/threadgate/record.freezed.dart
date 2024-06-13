@@ -25,7 +25,7 @@ mixin _$ThreadgateRecord {
   AtUri get post => throw _privateConstructorUsedError;
   @UThreadgateAllowConverter()
   List<UThreadgateAllow>? get allow => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -46,7 +46,7 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
   $Res call(
       {@AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -65,7 +65,7 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
   $Res call({
     Object? post = null,
     Object? allow = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -77,10 +77,10 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
           ? _value.allow
           : allow // ignore: cast_nullable_to_non_nullable
               as List<UThreadgateAllow>?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -100,7 +100,7 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
   $Res call(
       {@AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 }
 
@@ -117,7 +117,7 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? post = null,
     Object? allow = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ThreadgateRecordImpl(
@@ -129,10 +129,10 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
           ? _value._allow
           : allow // ignore: cast_nullable_to_non_nullable
               as List<UThreadgateAllow>?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -148,7 +148,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   const _$ThreadgateRecordImpl(
       {@AtUriConverter() required this.post,
       @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
-      required this.createdAt,
+      this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _allow = allow,
@@ -173,7 +173,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   }
 
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -232,7 +232,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
           {@AtUriConverter() required final AtUri post,
           @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
-          required final DateTime createdAt,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ThreadgateRecordImpl;
 
@@ -248,7 +248,7 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   @UThreadgateAllowConverter()
   List<UThreadgateAllow>? get allow;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

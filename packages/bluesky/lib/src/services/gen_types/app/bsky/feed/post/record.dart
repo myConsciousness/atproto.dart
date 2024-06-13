@@ -51,7 +51,7 @@ class PostRecord with _$PostRecord {
     List<String>? tags,
 
     /// Client-declared timestamp when this post was originally created.
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

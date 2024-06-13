@@ -494,7 +494,8 @@ final class ServerService {
         ns.comAtprotoServerDeactivateAccount,
         headers: $headers,
         body: {
-          if (deleteAfter != null) 'deleteAfter': deleteAfter,
+          if (deleteAfter != null)
+            'deleteAfter': _ctx.toUtcIso8601String(deleteAfter),
           ...?$unknown,
         },
         client: $client,

@@ -37,7 +37,7 @@ class GeneratorRecord with _$GeneratorRecord {
 
     /// Self-label values
     @UGeneratorLabelConverter() UGeneratorLabel? labels,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

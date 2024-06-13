@@ -34,7 +34,7 @@ mixin _$GeneratorRecord {
   /// Self-label values
   @UGeneratorLabelConverter()
   UGeneratorLabel? get labels => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -60,7 +60,7 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @UGeneratorLabelConverter() UGeneratorLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $BlobCopyWith<$Res>? get avatar;
@@ -87,7 +87,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -119,10 +119,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UGeneratorLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -171,7 +171,7 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
       @BlobConverter() Blob? avatar,
       bool acceptsInteractions,
       @UGeneratorLabelConverter() UGeneratorLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -198,7 +198,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? avatar = freezed,
     Object? acceptsInteractions = null,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$GeneratorRecordImpl(
@@ -230,10 +230,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UGeneratorLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -254,7 +254,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
       @BlobConverter() this.avatar,
       this.acceptsInteractions = false,
       @UGeneratorLabelConverter() this.labels,
-      required this.createdAt,
+      this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _descriptionFacets = descriptionFacets,
@@ -295,7 +295,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @UGeneratorLabelConverter()
   final UGeneratorLabel? labels;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -373,7 +373,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
           @BlobConverter() final Blob? avatar,
           final bool acceptsInteractions,
           @UGeneratorLabelConverter() final UGeneratorLabel? labels,
-          required final DateTime createdAt,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$GeneratorRecordImpl;
 
@@ -402,7 +402,7 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   @UGeneratorLabelConverter()
   UGeneratorLabel? get labels;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

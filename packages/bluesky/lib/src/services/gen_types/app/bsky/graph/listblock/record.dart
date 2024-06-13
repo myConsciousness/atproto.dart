@@ -24,7 +24,7 @@ class ListblockRecord with _$ListblockRecord {
   const factory ListblockRecord({
     /// Reference (AT-URI) to the mod list record.
     @AtUriConverter() required AtUri subject,
-    required DateTime createdAt,
+    DateTime? createdAt,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

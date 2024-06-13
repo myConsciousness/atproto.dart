@@ -87,7 +87,7 @@ final class NotificationService {
         parameters: {
           if (limit != null) 'limit': limit.toString(),
           if (cursor != null) 'cursor': cursor,
-          'seenAt': _ctx.toUtcIso8601String(seenAt),
+          if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
           ...?$unknown,
         },
         to: const ListNotificationsOutputConverter().fromJson,
@@ -107,7 +107,7 @@ final class NotificationService {
         ns.appBskyNotificationGetUnreadCount,
         headers: $headers,
         parameters: {
-          'seenAt': _ctx.toUtcIso8601String(seenAt),
+          if (seenAt != null) 'seenAt': _ctx.toUtcIso8601String(seenAt),
           ...?$unknown,
         },
         to: const GetUnreadCountOutputConverter().fromJson,

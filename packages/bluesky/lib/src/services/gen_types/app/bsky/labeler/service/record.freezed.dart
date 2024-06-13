@@ -24,7 +24,7 @@ mixin _$ServiceRecord {
   LabelerPolicies get policies => throw _privateConstructorUsedError;
   @UServiceLabelConverter()
   UServiceLabel? get labels => throw _privateConstructorUsedError;
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -45,7 +45,7 @@ abstract class $ServiceRecordCopyWith<$Res> {
   $Res call(
       {@LabelerPoliciesConverter() LabelerPolicies policies,
       @UServiceLabelConverter() UServiceLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $LabelerPoliciesCopyWith<$Res> get policies;
@@ -67,7 +67,7 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
   $Res call({
     Object? policies = null,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -79,10 +79,10 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UServiceLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -122,7 +122,7 @@ abstract class _$$ServiceRecordImplCopyWith<$Res>
   $Res call(
       {@LabelerPoliciesConverter() LabelerPolicies policies,
       @UServiceLabelConverter() UServiceLabel? labels,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -144,7 +144,7 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
   $Res call({
     Object? policies = null,
     Object? labels = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$ServiceRecordImpl(
@@ -156,10 +156,10 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
               as UServiceLabel?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -175,7 +175,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   const _$ServiceRecordImpl(
       {@LabelerPoliciesConverter() required this.policies,
       @UServiceLabelConverter() this.labels,
-      required this.createdAt,
+      this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _$unknown = $unknown;
@@ -190,7 +190,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   @UServiceLabelConverter()
   final UServiceLabel? labels;
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -245,7 +245,7 @@ abstract class _ServiceRecord implements ServiceRecord {
   const factory _ServiceRecord(
           {@LabelerPoliciesConverter() required final LabelerPolicies policies,
           @UServiceLabelConverter() final UServiceLabel? labels,
-          required final DateTime createdAt,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$ServiceRecordImpl;
 
@@ -259,7 +259,7 @@ abstract class _ServiceRecord implements ServiceRecord {
   @UServiceLabelConverter()
   UServiceLabel? get labels;
   @override
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.

@@ -9,7 +9,9 @@ import 'package:atproto_core/atproto_core.dart';
 // 🌎 Project imports:
 import 'package:bluesky/ids.dart';
 import 'package:bluesky/src/services/extensions/graph_service.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/block/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/defs/known_list_purpose.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/follow/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_blocks/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_followers/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_follows/output.dart';
@@ -20,16 +22,15 @@ import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_lists/output.d
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_mutes/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_relationships/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/graph/get_suggested_follows_by_actor/output.dart';
-import 'package:bluesky/src/services/graph_service.dart';
-import 'package:bluesky/src/services/params/list_item_param.dart';
-import 'package:bluesky/src/services/params/list_param.dart';
-import 'package:bluesky/src/services/params/repo_param.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/list/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph/listitem/record.dart';
+import 'package:bluesky/src/services/gen_types/app/bsky/graph_service.dart';
 import 'suite/service_suite.dart';
 
 void main() {
   testGraph<StrongRef>(
     (m, s) => s.follow(subject: m.did),
-    bulk: (m, s) => s.followInBulk([RepoParam(did: m.did)]),
+    bulk: (m, s) => s.followInBulk([FollowRecord(subject: m.did)]),
     id: appBskyGraphFollow,
   );
 
@@ -65,7 +66,7 @@ void main() {
 
   testGraph<StrongRef>(
     (m, s) => s.block(subject: m.did),
-    bulk: (m, s) => s.blockInBulk([RepoParam(did: m.did)]),
+    bulk: (m, s) => s.blockInBulk([BlockRecord(subject: m.did)]),
     id: appBskyGraphBlock,
   );
 
@@ -75,8 +76,8 @@ void main() {
       name: m.name,
     ),
     bulk: (m, s) => s.listInBulk([
-      ListParam(
-        purpose: appBskyGraphDefsModlist,
+      ListRecord(
+        purpose: KnownListPurpose.modlist.toUnion(),
         name: m.name,
       )
     ]),
@@ -113,7 +114,7 @@ void main() {
   testGraph<StrongRef>(
     (m, s) => s.listitem(subject: m.did, list: m.uri),
     bulk: (m, s) => s.listitemInBulk([
-      ListItemParam(
+      ListitemRecord(
         subject: m.did,
         list: m.uri,
       )

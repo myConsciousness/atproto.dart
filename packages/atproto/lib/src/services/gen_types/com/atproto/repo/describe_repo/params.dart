@@ -22,7 +22,7 @@ class DescribeRepoParams with _$DescribeRepoParams {
   @JsonSerializable(includeIfNull: false)
   const factory DescribeRepoParams({
     /// The handle or DID of the repo.
-    required String repo,
+    String? repo,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,

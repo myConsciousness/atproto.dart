@@ -47,7 +47,7 @@ mixin _$PostRecord {
   List<String>? get tags => throw _privateConstructorUsedError;
 
   /// Client-declared timestamp when this post was originally created.
-  DateTime get createdAt => throw _privateConstructorUsedError;
+  DateTime? get createdAt => throw _privateConstructorUsedError;
 
   /// Contains unknown objects not defined in Lexicon.
   @JsonKey(name: r'$unknown')
@@ -76,7 +76,7 @@ abstract class $PostRecordCopyWith<$Res> {
       List<String>? langs,
       @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ReplyRefCopyWith<$Res>? get reply;
@@ -105,7 +105,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? langs = freezed,
     Object? labels = freezed,
     Object? tags = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_value.copyWith(
@@ -141,10 +141,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
           ? _value.tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value.$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -208,7 +208,7 @@ abstract class _$$PostRecordImplCopyWith<$Res>
       List<String>? langs,
       @UPostLabelConverter() UPostLabel? labels,
       List<String>? tags,
-      DateTime createdAt,
+      DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   @override
@@ -238,7 +238,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
     Object? langs = freezed,
     Object? labels = freezed,
     Object? tags = freezed,
-    Object? createdAt = null,
+    Object? createdAt = freezed,
     Object? $unknown = null,
   }) {
     return _then(_$PostRecordImpl(
@@ -274,10 +274,10 @@ class __$$PostRecordImplCopyWithImpl<$Res>
           ? _value._tags
           : tags // ignore: cast_nullable_to_non_nullable
               as List<String>?,
-      createdAt: null == createdAt
+      createdAt: freezed == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
+              as DateTime?,
       $unknown: null == $unknown
           ? _value._$unknown
           : $unknown // ignore: cast_nullable_to_non_nullable
@@ -301,7 +301,7 @@ class _$PostRecordImpl implements _PostRecord {
       final List<String>? langs,
       @UPostLabelConverter() this.labels,
       final List<String>? tags,
-      required this.createdAt,
+      this.createdAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
       : _entities = entities,
@@ -386,7 +386,7 @@ class _$PostRecordImpl implements _PostRecord {
 
   /// Client-declared timestamp when this post was originally created.
   @override
-  final DateTime createdAt;
+  final DateTime? createdAt;
 
   /// Contains unknown objects not defined in Lexicon.
   final Map<String, dynamic> _$unknown;
@@ -464,7 +464,7 @@ abstract class _PostRecord implements PostRecord {
           final List<String>? langs,
           @UPostLabelConverter() final UPostLabel? labels,
           final List<String>? tags,
-          required final DateTime createdAt,
+          final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic> $unknown}) =
       _$PostRecordImpl;
 
@@ -508,7 +508,7 @@ abstract class _PostRecord implements PostRecord {
   @override
 
   /// Client-declared timestamp when this post was originally created.
-  DateTime get createdAt;
+  DateTime? get createdAt;
   @override
 
   /// Contains unknown objects not defined in Lexicon.
