@@ -81,54 +81,52 @@ final class UPreferenceConverter
   @override
   UPreference fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.actor.defs#adultContentPref') {
+      if (isAdultContentPref(json)) {
         return UPreference.adultContentPref(
           data: const AdultContentPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#contentLabelPref') {
+      if (isContentLabelPref(json)) {
         return UPreference.contentLabelPref(
           data: const ContentLabelPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#savedFeedsPref') {
+      if (isSavedFeedsPref(json)) {
         return UPreference.savedFeedsPref(
           data: const SavedFeedsPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#savedFeedsPrefV2') {
+      if (isSavedFeedsPrefV2(json)) {
         return UPreference.savedFeedsPrefV2(
           data: const SavedFeedsPrefV2Converter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#personalDetailsPref') {
+      if (isPersonalDetailsPref(json)) {
         return UPreference.personalDetailsPref(
           data: const PersonalDetailsPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#feedViewPref') {
+      if (isFeedViewPref(json)) {
         return UPreference.feedViewPref(
           data: const FeedViewPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#threadViewPref') {
+      if (isThreadViewPref(json)) {
         return UPreference.threadViewPref(
           data: const ThreadViewPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#interestsPref') {
+      if (isInterestsPref(json)) {
         return UPreference.interestsPref(
           data: const InterestsPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#mutedWordsPref') {
+      if (isMutedWordsPref(json)) {
         return UPreference.mutedWordsPref(
           data: const MutedWordsPrefConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.actor.defs#hiddenPostsPref') {
+      if (isHiddenPostsPref(json)) {
         return UPreference.hiddenPostsPref(
           data: const HiddenPostsPrefConverter().fromJson(json),
         );

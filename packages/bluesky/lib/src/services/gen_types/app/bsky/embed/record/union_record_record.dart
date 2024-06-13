@@ -61,34 +61,32 @@ final class URecordRecordConverter
   @override
   URecordRecord fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.embed.record#viewRecord') {
+      if (isRecordViewRecord(json)) {
         return URecordRecord.recordViewRecord(
           data: const RecordViewRecordConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.record#viewNotFound') {
+      if (isRecordViewNotFound(json)) {
         return URecordRecord.recordViewNotFound(
           data: const RecordViewNotFoundConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.record#viewBlocked') {
+      if (isRecordViewBlocked(json)) {
         return URecordRecord.recordViewBlocked(
           data: const RecordViewBlockedConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.defs#generatorView') {
+      if (isGeneratorView(json)) {
         return URecordRecord.generatorView(
           data: const GeneratorViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.graph.defs#listView') {
+      if (isListView(json)) {
         return URecordRecord.listView(
           data: const ListViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.labeler.defs#labelerView') {
+      if (isLabelerView(json)) {
         return URecordRecord.labelerView(
           data: const LabelerViewConverter().fromJson(json),
         );

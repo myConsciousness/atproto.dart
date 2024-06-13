@@ -46,19 +46,17 @@ final class URootConverter
   @override
   URoot fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.feed.defs#postView') {
+      if (isPostView(json)) {
         return URoot.postView(
           data: const PostViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.defs#notFoundPost') {
+      if (isNotFoundPost(json)) {
         return URoot.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.defs#blockedPost') {
+      if (isBlockedPost(json)) {
         return URoot.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );

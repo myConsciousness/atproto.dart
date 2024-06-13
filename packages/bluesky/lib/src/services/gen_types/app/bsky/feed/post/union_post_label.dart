@@ -34,9 +34,7 @@ final class UPostLabelConverter
   @override
   UPostLabel fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'com.atproto.label.defs#selfLabels') {
+      if (isSelfLabels(json)) {
         return UPostLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );

@@ -46,19 +46,17 @@ final class UFacetFeatureConverter
   @override
   UFacetFeature fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.richtext.facet#mention') {
+      if (isFacetMention(json)) {
         return UFacetFeature.facetMention(
           data: const FacetMentionConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.richtext.facet#link') {
+      if (isFacetLink(json)) {
         return UFacetFeature.facetLink(
           data: const FacetLinkConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.richtext.facet#tag') {
+      if (isFacetTag(json)) {
         return UFacetFeature.facetTag(
           data: const FacetTagConverter().fromJson(json),
         );

@@ -41,14 +41,12 @@ final class URelationshipConverter
   @override
   URelationship fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.graph.defs#relationship') {
+      if (isRelationship(json)) {
         return URelationship.relationship(
           data: const RelationshipConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.graph.defs#notFoundActor') {
+      if (isNotFoundActor(json)) {
         return URelationship.notFoundActor(
           data: const NotFoundActorConverter().fromJson(json),
         );

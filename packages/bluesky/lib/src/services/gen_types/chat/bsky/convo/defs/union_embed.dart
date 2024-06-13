@@ -36,9 +36,7 @@ final class UEmbedConverter
   @override
   UEmbed fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.embed.record#view') {
+      if (isRecordView(json)) {
         return UEmbed.recordView(
           data: const RecordViewConverter().fromJson(json),
         );

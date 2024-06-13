@@ -46,19 +46,17 @@ final class UWriteConverter
   @override
   UWrite fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'com.atproto.repo.applyWrites#create') {
+      if (isCreate(json)) {
         return UWrite.create(
           data: const CreateConverter().fromJson(json),
         );
       }
-      if (type == 'com.atproto.repo.applyWrites#update') {
+      if (isUpdate(json)) {
         return UWrite.update(
           data: const UpdateConverter().fromJson(json),
         );
       }
-      if (type == 'com.atproto.repo.applyWrites#delete') {
+      if (isDelete(json)) {
         return UWrite.delete(
           data: const DeleteConverter().fromJson(json),
         );

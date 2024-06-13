@@ -73,10 +73,8 @@ final class LexUnion {
     buffer.writeln('  @override');
     buffer.writeln('  U$name fromJson(Map<String, dynamic> json) {');
     buffer.writeln('    try {');
-    buffer.writeln("      final type = json[r'\$type'];");
-    buffer.writeln();
     for (final ref in refs) {
-      buffer.writeln("      if (type == '${ref.namespace}') {");
+      buffer.writeln("      if (is${ref.name}(json)) {");
       buffer.writeln('        return U$name.${toFirstLower(ref.name!)}(');
       buffer.writeln(
           '          data: const ${ref.name}Converter().fromJson(json),');

@@ -46,19 +46,17 @@ final class UThreadConverter
   @override
   UThread fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.feed.defs#threadViewPost') {
+      if (isThreadViewPost(json)) {
         return UThread.threadViewPost(
           data: const ThreadViewPostConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.defs#notFoundPost') {
+      if (isNotFoundPost(json)) {
         return UThread.notFoundPost(
           data: const NotFoundPostConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.defs#blockedPost') {
+      if (isBlockedPost(json)) {
         return UThread.blockedPost(
           data: const BlockedPostConverter().fromJson(json),
         );

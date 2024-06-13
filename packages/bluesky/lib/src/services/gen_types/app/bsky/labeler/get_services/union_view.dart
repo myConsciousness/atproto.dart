@@ -41,14 +41,12 @@ final class UViewConverter
   @override
   UView fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.labeler.defs#labelerView') {
+      if (isLabelerView(json)) {
         return UView.labelerView(
           data: const LabelerViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.labeler.defs#labelerViewDetailed') {
+      if (isLabelerViewDetailed(json)) {
         return UView.labelerViewDetailed(
           data: const LabelerViewDetailedConverter().fromJson(json),
         );

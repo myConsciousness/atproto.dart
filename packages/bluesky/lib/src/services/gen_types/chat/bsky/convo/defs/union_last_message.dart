@@ -41,14 +41,12 @@ final class ULastMessageConverter
   @override
   ULastMessage fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'chat.bsky.convo.defs#messageView') {
+      if (isMessageView(json)) {
         return ULastMessage.messageView(
           data: const MessageViewConverter().fromJson(json),
         );
       }
-      if (type == 'chat.bsky.convo.defs#deletedMessageView') {
+      if (isDeletedMessageView(json)) {
         return ULastMessage.deletedMessageView(
           data: const DeletedMessageViewConverter().fromJson(json),
         );

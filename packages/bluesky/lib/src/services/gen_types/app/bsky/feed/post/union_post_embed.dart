@@ -51,24 +51,22 @@ final class UPostEmbedConverter
   @override
   UPostEmbed fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.embed.images') {
+      if (isImages(json)) {
         return UPostEmbed.images(
           data: const ImagesConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.external') {
+      if (isExternal(json)) {
         return UPostEmbed.external(
           data: const ExternalConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.record') {
+      if (isRecord(json)) {
         return UPostEmbed.record(
           data: const RecordConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.recordWithMedia') {
+      if (isRecordWithMedia(json)) {
         return UPostEmbed.recordWithMedia(
           data: const RecordWithMediaConverter().fromJson(json),
         );

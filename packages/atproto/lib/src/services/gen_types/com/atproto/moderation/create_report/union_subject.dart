@@ -41,14 +41,12 @@ final class USubjectConverter
   @override
   USubject fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'com.atproto.admin.defs#repoRef') {
+      if (isRepoRef(json)) {
         return USubject.repoRef(
           data: const RepoRefConverter().fromJson(json),
         );
       }
-      if (type == 'com.atproto.repo.strongRef') {
+      if (isStrongRef(json)) {
         return USubject.strongRef(
           data: const StrongRefConverter().fromJson(json),
         );

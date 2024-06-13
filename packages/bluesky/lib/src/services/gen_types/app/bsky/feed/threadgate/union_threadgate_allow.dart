@@ -46,19 +46,17 @@ final class UThreadgateAllowConverter
   @override
   UThreadgateAllow fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.feed.threadgate#mentionRule') {
+      if (isMentionRule(json)) {
         return UThreadgateAllow.mentionRule(
           data: const MentionRuleConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.threadgate#followingRule') {
+      if (isFollowingRule(json)) {
         return UThreadgateAllow.followingRule(
           data: const FollowingRuleConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.feed.threadgate#listRule') {
+      if (isListRule(json)) {
         return UThreadgateAllow.listRule(
           data: const ListRuleConverter().fromJson(json),
         );

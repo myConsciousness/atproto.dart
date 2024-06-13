@@ -41,14 +41,12 @@ final class UMessageConverter
   @override
   UMessage fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'chat.bsky.convo.defs#messageView') {
+      if (isMessageView(json)) {
         return UMessage.messageView(
           data: const MessageViewConverter().fromJson(json),
         );
       }
-      if (type == 'chat.bsky.convo.defs#deletedMessageView') {
+      if (isDeletedMessageView(json)) {
         return UMessage.deletedMessageView(
           data: const DeletedMessageViewConverter().fromJson(json),
         );

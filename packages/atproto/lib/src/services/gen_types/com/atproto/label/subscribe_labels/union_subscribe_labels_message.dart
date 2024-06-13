@@ -41,14 +41,12 @@ final class USubscribeLabelsMessageConverter
   @override
   USubscribeLabelsMessage fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == '#labels') {
+      if (isLabels(json)) {
         return USubscribeLabelsMessage.labels(
           data: const LabelsConverter().fromJson(json),
         );
       }
-      if (type == '#info') {
+      if (isInfo(json)) {
         return USubscribeLabelsMessage.info(
           data: const InfoConverter().fromJson(json),
         );

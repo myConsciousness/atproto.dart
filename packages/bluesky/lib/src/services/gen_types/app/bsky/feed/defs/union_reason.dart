@@ -36,9 +36,7 @@ final class UReasonConverter
   @override
   UReason fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.feed.defs#skeletonReasonRepost') {
+      if (isSkeletonReasonRepost(json)) {
         return UReason.skeletonReasonRepost(
           data: const SkeletonReasonRepostConverter().fromJson(json),
         );

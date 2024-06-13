@@ -34,9 +34,7 @@ final class UGeneratorLabelConverter
   @override
   UGeneratorLabel fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'com.atproto.label.defs#selfLabels') {
+      if (isSelfLabels(json)) {
         return UGeneratorLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );

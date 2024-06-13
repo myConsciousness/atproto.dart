@@ -41,14 +41,12 @@ final class URecordWithMediaMediaConverter
   @override
   URecordWithMediaMedia fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.embed.images#view') {
+      if (isImagesView(json)) {
         return URecordWithMediaMedia.imagesView(
           data: const ImagesViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.external#view') {
+      if (isExternalView(json)) {
         return URecordWithMediaMedia.externalView(
           data: const ExternalViewConverter().fromJson(json),
         );

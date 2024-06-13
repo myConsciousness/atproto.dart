@@ -34,9 +34,7 @@ final class UServiceLabelConverter
   @override
   UServiceLabel fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'com.atproto.label.defs#selfLabels') {
+      if (isSelfLabels(json)) {
         return UServiceLabel.selfLabels(
           data: const SelfLabelsConverter().fromJson(json),
         );

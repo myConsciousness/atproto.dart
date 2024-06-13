@@ -50,24 +50,22 @@ final class ULogConverter implements JsonConverter<ULog, Map<String, dynamic>> {
   @override
   ULog fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'chat.bsky.convo.defs#logBeginConvo') {
+      if (isLogBeginConvo(json)) {
         return ULog.logBeginConvo(
           data: const LogBeginConvoConverter().fromJson(json),
         );
       }
-      if (type == 'chat.bsky.convo.defs#logLeaveConvo') {
+      if (isLogLeaveConvo(json)) {
         return ULog.logLeaveConvo(
           data: const LogLeaveConvoConverter().fromJson(json),
         );
       }
-      if (type == 'chat.bsky.convo.defs#logCreateMessage') {
+      if (isLogCreateMessage(json)) {
         return ULog.logCreateMessage(
           data: const LogCreateMessageConverter().fromJson(json),
         );
       }
-      if (type == 'chat.bsky.convo.defs#logDeleteMessage') {
+      if (isLogDeleteMessage(json)) {
         return ULog.logDeleteMessage(
           data: const LogDeleteMessageConverter().fromJson(json),
         );

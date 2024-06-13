@@ -66,39 +66,37 @@ final class USubscribeReposMessageConverter
   @override
   USubscribeReposMessage fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == '#commit') {
+      if (isCommit(json)) {
         return USubscribeReposMessage.commit(
           data: const CommitConverter().fromJson(json),
         );
       }
-      if (type == '#identity') {
+      if (isIdentity(json)) {
         return USubscribeReposMessage.identity(
           data: const IdentityConverter().fromJson(json),
         );
       }
-      if (type == '#account') {
+      if (isAccount(json)) {
         return USubscribeReposMessage.account(
           data: const AccountConverter().fromJson(json),
         );
       }
-      if (type == '#handle') {
+      if (isHandle(json)) {
         return USubscribeReposMessage.handle(
           data: const HandleConverter().fromJson(json),
         );
       }
-      if (type == '#migrate') {
+      if (isMigrate(json)) {
         return USubscribeReposMessage.migrate(
           data: const MigrateConverter().fromJson(json),
         );
       }
-      if (type == '#tombstone') {
+      if (isTombstone(json)) {
         return USubscribeReposMessage.tombstone(
           data: const TombstoneConverter().fromJson(json),
         );
       }
-      if (type == '#info') {
+      if (isInfo(json)) {
         return USubscribeReposMessage.info(
           data: const InfoConverter().fromJson(json),
         );

@@ -51,24 +51,22 @@ final class UEmbedConverter
   @override
   UEmbed fromJson(Map<String, dynamic> json) {
     try {
-      final type = json[r'$type'];
-
-      if (type == 'app.bsky.embed.images#view') {
+      if (isImagesView(json)) {
         return UEmbed.imagesView(
           data: const ImagesViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.external#view') {
+      if (isExternalView(json)) {
         return UEmbed.externalView(
           data: const ExternalViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.record#view') {
+      if (isRecordView(json)) {
         return UEmbed.recordView(
           data: const RecordViewConverter().fromJson(json),
         );
       }
-      if (type == 'app.bsky.embed.recordWithMedia#view') {
+      if (isRecordWithMediaView(json)) {
         return UEmbed.recordWithMediaView(
           data: const RecordWithMediaViewConverter().fromJson(json),
         );
