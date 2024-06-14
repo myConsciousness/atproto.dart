@@ -428,11 +428,17 @@ const appBskyGraphMuteActor = 'app.bsky.graph.muteActor';
 /// `app.bsky.graph.muteActorList`
 const appBskyGraphMuteActorList = 'app.bsky.graph.muteActorList';
 
+/// `app.bsky.graph.muteThread`
+const appBskyGraphMuteThread = 'app.bsky.graph.muteThread';
+
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = 'app.bsky.graph.unmuteActor';
 
 /// `app.bsky.graph.unmuteActorList`
 const appBskyGraphUnmuteActorList = 'app.bsky.graph.unmuteActorList';
+
+/// `app.bsky.graph.unmuteThread`
+const appBskyGraphUnmuteThread = 'app.bsky.graph.unmuteThread';
 
 /// `app.bsky.labeler.defs`
 const appBskyLabelerDefs = 'app.bsky.labeler.defs';
