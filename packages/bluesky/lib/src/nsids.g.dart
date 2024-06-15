@@ -244,11 +244,17 @@ const appBskyGraphMuteActor = NSID(ids.appBskyGraphMuteActor);
 /// `app.bsky.graph.muteActorList`
 const appBskyGraphMuteActorList = NSID(ids.appBskyGraphMuteActorList);
 
+/// `app.bsky.graph.muteThread`
+const appBskyGraphMuteThread = NSID(ids.appBskyGraphMuteThread);
+
 /// `app.bsky.graph.unmuteActor`
 const appBskyGraphUnmuteActor = NSID(ids.appBskyGraphUnmuteActor);
 
 /// `app.bsky.graph.unmuteActorList`
 const appBskyGraphUnmuteActorList = NSID(ids.appBskyGraphUnmuteActorList);
+
+/// `app.bsky.graph.unmuteThread`
+const appBskyGraphUnmuteThread = NSID(ids.appBskyGraphUnmuteThread);
 
 /// `app.bsky.labeler.getServices`
 const appBskyLabelerGetServices = NSID(ids.appBskyLabelerGetServices);
