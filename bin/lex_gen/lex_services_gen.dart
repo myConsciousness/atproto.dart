@@ -7,6 +7,7 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
+import 'lex_gen.dart';
 import 'builders/service_builder.dart';
 import 'rules/extensions.dart';
 import 'rules/utils.dart';
@@ -14,8 +15,9 @@ import 'types/export.dart';
 import 'types/service_context.dart';
 
 final class LexServicesGen {
-  const LexServicesGen(this.types);
+  const LexServicesGen(this._ctx, this.types);
 
+  final LexGenContext _ctx;
   final Map<NSID, Set<Export>> types;
 
   void execute() {
@@ -50,7 +52,7 @@ final class LexServicesGen {
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!doc.isSupported) continue;
+      if (!_ctx.isSupportedDoc(doc)) continue;
 
       final method = doc.methodOrNull;
       if (method == null) continue;

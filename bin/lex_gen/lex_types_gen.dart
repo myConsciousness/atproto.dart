@@ -8,17 +8,20 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import '../utils.dart';
+import 'lex_gen.dart';
 import 'builders/known_values_builder.dart';
 import 'builders/object_builder.dart';
 import 'builders/union_builder.dart';
-import 'rules/extensions.dart';
+
 import 'rules/utils.dart';
 import 'types/context.dart';
 import 'types/export.dart';
 import 'types/object.dart';
 
 final class LexTypesGen {
-  const LexTypesGen();
+  const LexTypesGen(this._ctx);
+
+  final LexGenContext _ctx;
 
   Map<NSID, Set<Export>> execute() {
     final exports = <NSID, Set<Export>>{};
@@ -27,10 +30,10 @@ final class LexTypesGen {
 
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!doc.isSupported) continue;
+      if (!_ctx.isSupportedDoc(doc)) continue;
 
       doc.defs.forEach((defName, def) {
-        final context = LexGenContext(
+        final context = ObjectContext(
           docId: doc.id,
           defName: defName,
           def: def,
@@ -50,7 +53,7 @@ final class LexTypesGen {
   }
 
   void _generateObject(
-    final LexGenContext context,
+    final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
     final objects = LexGenObjectBuilder(context).build();
@@ -115,7 +118,7 @@ final class LexTypesGen {
   }
 
   void _generateKnownValues(
-    final LexGenContext context,
+    final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
     final def = context.def;
@@ -145,7 +148,7 @@ final class LexTypesGen {
   }
 
   void _generateSubscriptionMessage(
-    final LexGenContext context,
+    final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
     final def = context.def;
@@ -202,7 +205,7 @@ final class LexTypesGen {
       writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
 
       if (docId.toString().startsWith('com.atproto')) {
-        for (final package in kSupportedLexicons) {
+        for (final package in _ctx.supportedLexiconRoots) {
           if (package == 'com.atproto') continue;
 
           writeFileAsStringSync(
@@ -256,7 +259,7 @@ final class LexTypesGen {
     final docIds = <String>[];
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!doc.isSupported) continue;
+      if (!_ctx.isSupportedDoc(doc)) continue;
 
       if (_hasMainObject(doc.defs)) {
         docIds.add(doc.id.toString());
@@ -270,7 +273,7 @@ final class LexTypesGen {
     final docIds = <String>[];
     for (final lexicon in lexicons) {
       final doc = LexiconDoc.fromJson(lexicon);
-      if (!doc.isSupported) continue;
+      if (!_ctx.isSupportedDoc(doc)) continue;
 
       bool subscriptionRelated = false;
       for (final entry in doc.defs.entries) {

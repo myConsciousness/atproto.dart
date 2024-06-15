@@ -17,7 +17,7 @@ final class LexNamingConvention {
     this.isKnownValue = false,
   });
 
-  final LexGenContext context;
+  final ObjectContext context;
   final bool isKnownValue;
   final ObjectType? objectType;
 

@@ -5,22 +5,9 @@
 // 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
-// 🌎 Project imports:
-import 'utils.dart';
-
 extension LexiconDocExtension on LexiconDoc {
   String get name => id.toString().split('.').last;
   String get serviceName => id.toString().split('.').take(3).join('.');
-
-  bool get isSupported {
-    for (final lexicon in kSupportedLexicons) {
-      if (id.toString().startsWith(lexicon)) {
-        return true;
-      }
-    }
-
-    return false;
-  }
 
   LexUserType? get methodOrNull {
     for (final entry in defs.entries) {

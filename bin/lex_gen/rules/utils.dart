@@ -17,12 +17,6 @@ import '../types/data_type.dart';
 import '../types/ref.dart';
 import '../types/union.dart';
 
-const kSupportedLexicons = [
-  'com.atproto',
-  'app.bsky',
-  'chat.bsky',
-];
-
 const kTypesPath = 'src/services/gen_types';
 
 const _kExceptionSingular = ['status'];
@@ -169,7 +163,7 @@ bool hasAtUri(final Map<String, dynamic>? properties) {
 }
 
 DataType getDataType(
-  final LexGenContext context, {
+  final ObjectContext context, {
   required String propertyName,
   required String? type,
   required String? format,
@@ -254,11 +248,11 @@ DataType getDataType(
     final isKnownValues =
         refDef is ULexUserTypeString && refDef.data.knownValues != null;
 
-    LexGenContext refContext;
+    ObjectContext refContext;
     if (ref.contains('#')) {
       // In the same def file
       if (ref.startsWith('#')) {
-        refContext = LexGenContext(
+        refContext = ObjectContext(
           docId: context.docId,
           defName: ref.substring(1),
           def: refDef,
@@ -271,7 +265,7 @@ DataType getDataType(
         final refDocId = segments.first;
         final defName = segments.last;
 
-        refContext = LexGenContext(
+        refContext = ObjectContext(
           docId: NSID(refDocId),
           defName: defName,
           def: refDef,
@@ -281,7 +275,7 @@ DataType getDataType(
       }
     } // main def
     else {
-      refContext = LexGenContext(
+      refContext = ObjectContext(
         docId: NSID(ref),
         defName: 'main',
         def: refDef,

@@ -18,7 +18,7 @@ import 'union_builder.dart';
 final class LexGenObjectBuilder {
   const LexGenObjectBuilder(this.context);
 
-  final LexGenContext context;
+  final ObjectContext context;
 
   List<LexGenObject>? build() {
     if (isDeprecated(context.def?.toJson()['description'])) return null;
@@ -43,7 +43,7 @@ final class LexGenObjectBuilder {
 
         final refVariant = e.value?.first.refVariant!;
         final convention = LexNamingConvention(
-          LexGenContext(
+          ObjectContext(
             docId: refVariant!.docId,
             defName: refVariant.defName,
             def: refVariant.def,

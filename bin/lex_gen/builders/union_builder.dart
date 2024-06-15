@@ -64,7 +64,7 @@ final class LexUnionBuilder {
     final types = <DataType>[];
 
     for (final ref in refs) {
-      LexGenContext refContext;
+      ObjectContext refContext;
 
       final refDef = getRef(docId, ref);
 
@@ -72,7 +72,7 @@ final class LexUnionBuilder {
 
       if (ref.contains('#')) {
         if (ref.startsWith('#')) {
-          refContext = LexGenContext(
+          refContext = ObjectContext(
             docId: docId,
             defName: ref.substring(1),
             def: refDef?.def,
@@ -85,7 +85,7 @@ final class LexUnionBuilder {
           final refDocId = segments.first;
           final defName = segments.last;
 
-          refContext = LexGenContext(
+          refContext = ObjectContext(
             docId: NSID(refDocId),
             defName: defName,
             def: refDef?.def,
@@ -94,7 +94,7 @@ final class LexUnionBuilder {
           );
         }
       } else {
-        refContext = LexGenContext(
+        refContext = ObjectContext(
           docId: NSID(ref),
           defName: 'main',
           def: refDef?.def,

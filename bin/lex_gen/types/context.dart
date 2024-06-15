@@ -5,8 +5,8 @@
 // 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
-final class LexGenContext {
-  const LexGenContext({
+final class ObjectContext {
+  const ObjectContext({
     required this.docId,
     required this.defName,
     this.def,
