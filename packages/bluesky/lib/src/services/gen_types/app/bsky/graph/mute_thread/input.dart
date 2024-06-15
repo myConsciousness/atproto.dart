@@ -14,45 +14,25 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-// 🌎 Project imports:
-import '../../../../../../ids.g.dart';
+part 'input.freezed.dart';
+part 'input.g.dart';
 
-part 'viewer_state.freezed.dart';
-part 'viewer_state.g.dart';
-
-/// Metadata about the requesting account's relationship with the subject content. Only has meaningful content for authed requests.
-///
-/// https://atprotodart.com/docs/lexicons/app/bsky/feed/defs#viewerstate
+/// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread#main
 @freezed
-class ViewerState with _$ViewerState {
+class MuteThreadInput with _$MuteThreadInput {
   @JsonSerializable(includeIfNull: false)
-  const factory ViewerState({
-    /// The unique namespace for this lex object.
-    ///
-    /// `app.bsky.feed.defs#viewerState`
-    @Default(appBskyFeedDefsViewerState) @JsonKey(name: r'$type') String $type,
-    @AtUriConverter() AtUri? repost,
-    @AtUriConverter() AtUri? like,
-    @Default(false) bool threadMuted,
-    @Default(false) bool replyDisabled,
+  const factory MuteThreadInput({
+    @AtUriConverter() required AtUri root,
 
     /// Contains unknown objects not defined in Lexicon.
     @Default({}) @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown,
-  }) = _ViewerState;
+  }) = _MuteThreadInput;
 
-  factory ViewerState.fromJson(Map<String, dynamic> json) =>
-      _$ViewerStateFromJson(json);
+  factory MuteThreadInput.fromJson(Map<String, dynamic> json) =>
+      _$MuteThreadInputFromJson(json);
 }
 
-/// Returns true if [object] is [ViewerState], otherwise false.
-bool isViewerState(final Map<String, dynamic>? object) {
-  if (object == null) return false;
-  if (object[r'$type'] == null) return false;
-
-  return object[r'$type'] == 'app.bsky.feed.defs#viewerState';
-}
-
-extension $ViewerStateExtension on ViewerState {
+extension $MuteThreadInputExtension on MuteThreadInput {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
   bool get hasUnknown => $unknown.isNotEmpty;
@@ -63,19 +43,15 @@ extension $ViewerStateExtension on ViewerState {
 }
 
 const _kLexCompatibleProperties = <String>[
-  r'$type',
-  'repost',
-  'like',
-  'threadMuted',
-  'replyDisabled',
+  'root',
 ];
 
-final class ViewerStateConverter
-    implements JsonConverter<ViewerState, Map<String, dynamic>> {
-  const ViewerStateConverter();
+final class MuteThreadInputConverter
+    implements JsonConverter<MuteThreadInput, Map<String, dynamic>> {
+  const MuteThreadInputConverter();
 
   @override
-  ViewerState fromJson(Map<String, dynamic> json) {
+  MuteThreadInput fromJson(Map<String, dynamic> json) {
     final lexCompatiblePropertiesWithUnknown = <String, dynamic>{
       r'$unknown': <String, dynamic>{}
     };
@@ -87,11 +63,11 @@ final class ViewerStateConverter
       }
     }
 
-    return ViewerState.fromJson(lexCompatiblePropertiesWithUnknown);
+    return MuteThreadInput.fromJson(lexCompatiblePropertiesWithUnknown);
   }
 
   @override
-  Map<String, dynamic> toJson(ViewerState object) {
+  Map<String, dynamic> toJson(MuteThreadInput object) {
     if (object.$unknown.isEmpty) {
       return object.toJson();
     }

@@ -83,6 +83,23 @@ final class GraphService {
             client: $client,
           );
 
+  /// Unmutes the specified thread. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/unmuteThread
+  Future<XRPCResponse<EmptyData>> unmuteThread({
+    required AtUri root,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphUnmuteThread,
+        headers: $headers,
+        body: {
+          'root': root.toString(),
+        },
+        client: $client,
+      );
+
   /// Record representing an account's inclusion on a specific list. The AppView will ignore duplicate listitem records.
   ///
   /// https://atprotodart.com/docs/lexicons/app/bsky/graph/listitem
@@ -214,6 +231,23 @@ final class GraphService {
           if (cursor != null) 'cursor': cursor,
         },
         to: const GetFollowersOutputConverter().fromJson,
+        client: $client,
+      );
+
+  /// Mutes a thread preventing notifications from the thread and any of its children. Mutes are private in Bluesky. Requires auth.
+  ///
+  /// https://atprotodart.com/docs/lexicons/app/bsky/graph/muteThread
+  Future<XRPCResponse<EmptyData>> muteThread({
+    required AtUri root,
+    Map<String, String>? $headers,
+    PostClient? $client,
+  }) async =>
+      await _ctx.post<EmptyData>(
+        ns.appBskyGraphMuteThread,
+        headers: $headers,
+        body: {
+          'root': root.toString(),
+        },
         client: $client,
       );
 
