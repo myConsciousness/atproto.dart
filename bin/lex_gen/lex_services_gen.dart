@@ -41,7 +41,7 @@ final class LexServicesGen {
     final String serviceName,
     final String filePath,
   ) {
-    final packageName = getPackageName(serviceName);
+    final packageName = _ctx.getPackageName(serviceName);
     final path = filePath.split('/').map(toLowerCamelCase).join('/');
 
     return 'packages/$packageName/lib/$kTypesPath/$path';

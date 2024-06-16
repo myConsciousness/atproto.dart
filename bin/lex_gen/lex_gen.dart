@@ -6,6 +6,7 @@
 import 'dart:io';
 
 // 🌎 Project imports:
+import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 import 'lex_services_gen.dart';
@@ -13,8 +14,8 @@ import 'lex_types_gen.dart';
 import 'rules/utils.dart';
 
 const _kPackages = [
-  Package(name: 'atproto', lexiconRoots: ['com.atproto']),
-  Package(name: 'bluesky', lexiconRoots: ['app.bsky', 'chat.bsky'])
+  Package(name: 'atproto', domains: ['com.atproto'], isBase: true),
+  Package(name: 'bluesky', domains: ['app.bsky', 'chat.bsky'])
 ];
 
 void main(List<String> args) => const LexGen(packages: _kPackages).execute();
@@ -22,11 +23,27 @@ void main(List<String> args) => const LexGen(packages: _kPackages).execute();
 final class Package {
   const Package({
     required this.name,
-    required this.lexiconRoots,
+    required this.domains,
+    this.isBase = false,
   });
 
   final String name;
-  final List<String> lexiconRoots;
+  final List<String> domains;
+  final bool isBase;
+
+  bool isSupportedDoc(final LexiconDoc doc) {
+    for (final domain in domains) {
+      if (doc.id.toString().startsWith(domain)) {
+        return true;
+      }
+    }
+
+    return false;
+  }
+
+  /// Returns supported lexicon docs based on [domains].
+  List<LexiconDoc> get lexiconDocs =>
+      lexicons.map(LexiconDoc.fromJson).where(isSupportedDoc).toList();
 }
 
 final class LexGenContext {
@@ -38,12 +55,30 @@ final class LexGenContext {
   final List<Package> packages;
   final List<LexiconDoc>? overrideDocs;
 
-  Set<String> get supportedLexiconRoots =>
-      packages.expand((e) => e.lexiconRoots).toSet();
+  /// Returns supported lexicon docs based on [packages].
+  List<LexiconDoc> get lexiconDocs =>
+      packages.expand((e) => e.lexiconDocs).toList();
 
+  /// Returns unique domain names from [packages].
+  Set<String> get domains => packages.expand((e) => e.domains).toSet();
+
+  /// Returns a package name from [packages] associated with [domain].
+  String getPackageName(final String domain) {
+    for (final package in packages) {
+      for (final $domain in package.domains) {
+        if (domain.startsWith($domain)) {
+          return package.name;
+        }
+      }
+    }
+
+    throw UnsupportedError('Unsupported domain: $domain');
+  }
+
+  /// Returns true if [doc] is supported based on [packages].
   bool isSupportedDoc(final LexiconDoc doc) {
-    for (final lexiconRoot in supportedLexiconRoots) {
-      if (doc.id.toString().startsWith(lexiconRoot)) {
+    for (final package in packages) {
+      if (package.isSupportedDoc(doc)) {
         return true;
       }
     }
@@ -74,8 +109,8 @@ final class LexGen {
   }
 
   void _cleanWorkspaces(final LexGenContext ctx) {
-    for (final lexiconRoot in ctx.supportedLexiconRoots) {
-      final packageName = getPackageName(lexiconRoot);
+    for (final domain in ctx.domains) {
+      final packageName = ctx.getPackageName(domain);
 
       final typeDir = Directory('packages/$packageName/lib/$kTypesPath');
       if (typeDir.existsSync()) {
@@ -88,7 +123,7 @@ final class LexGen {
         if (exportFile is File &&
             exportFile.path
                 .substring(libDirPath.length)
-                .startsWith(lexiconRoot.replaceAll('.', '_'))) {
+                .startsWith(domain.replaceAll('.', '_'))) {
           exportFile.deleteSync();
         }
       }

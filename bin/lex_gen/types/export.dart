@@ -8,15 +8,19 @@ import 'package:lexicon/lexicon.dart';
 // 🌎 Project imports:
 import '../rules/utils.dart';
 import 'object.dart';
+import '../lex_gen.dart';
 
 final class Export {
   const Export({
+    required this.package,
     required this.docId,
     required this.defName,
     required this.objectName,
     this.object,
     required this.filePath,
   });
+
+  final Package package;
 
   final NSID docId;
   final String defName;
@@ -27,10 +31,9 @@ final class Export {
 
   @override
   String toString() {
-    final packageName = getPackageName(docId.toString());
     final path = filePath.split('/').map(toLowerCamelCase).join('/');
 
-    return "export 'package:$packageName/$kTypesPath/$path';";
+    return "export 'package:${package.name}/$kTypesPath/$path';";
   }
 
   @override

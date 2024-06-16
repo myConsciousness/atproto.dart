@@ -7,8 +7,8 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import '../utils.dart';
 import 'lex_gen.dart';
+import 'file.dart';
 import 'builders/known_values_builder.dart';
 import 'builders/object_builder.dart';
 import 'builders/union_builder.dart';
@@ -25,34 +25,35 @@ final class LexTypesGen {
 
   Map<NSID, Set<Export>> execute() {
     final exports = <NSID, Set<Export>>{};
+
     final mainRelatedDocIds = _getMainRelatedDocIds();
     final subscriptionRelatedDocIds = _getSubscriptionRelatedDocIds();
 
-    for (final lexicon in lexicons) {
-      final doc = LexiconDoc.fromJson(lexicon);
-      if (!_ctx.isSupportedDoc(doc)) continue;
+    for (final package in _ctx.packages) {
+      for (final lexiconDoc in package.lexiconDocs) {
+        lexiconDoc.defs.forEach((defName, def) {
+          final context = ObjectContext(
+            docId: lexiconDoc.id,
+            defName: defName,
+            def: def,
+            mainRelatedDocIds: mainRelatedDocIds,
+            subscriptionRelatedDocIds: subscriptionRelatedDocIds,
+          );
 
-      doc.defs.forEach((defName, def) {
-        final context = ObjectContext(
-          docId: doc.id,
-          defName: defName,
-          def: def,
-          mainRelatedDocIds: mainRelatedDocIds,
-          subscriptionRelatedDocIds: subscriptionRelatedDocIds,
-        );
+          _generateSubscriptionMessage(package, context, exports);
+          _generateKnownValues(package, context, exports);
+          _generateObject(package, context, exports);
+        });
+      }
 
-        _generateSubscriptionMessage(context, exports);
-        _generateKnownValues(context, exports);
-        _generateObject(context, exports);
-      });
+      LexGenFile(_ctx, package).writeExports(exports);
     }
-
-    _generateExports(exports);
 
     return exports;
   }
 
   void _generateObject(
+    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -80,7 +81,15 @@ final class LexTypesGen {
             ? context.defName
             : object.refVariant?.defName ?? context.defName;
 
-        _export(exports, docId, object.name, defName, object.filePath, object);
+        _export(
+          package,
+          exports,
+          docId,
+          object.name,
+          defName,
+          object.filePath,
+          object,
+        );
 
         for (final property in object.properties) {
           if (property.knownValues != null) {
@@ -90,6 +99,7 @@ final class LexTypesGen {
             );
 
             _export(
+              package,
               exports,
               docId,
               'U${property.knownValues!.name}',
@@ -105,6 +115,7 @@ final class LexTypesGen {
             );
 
             _export(
+              package,
               exports,
               docId,
               'U${property.union!.name}',
@@ -118,6 +129,7 @@ final class LexTypesGen {
   }
 
   void _generateKnownValues(
+    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -137,6 +149,7 @@ final class LexTypesGen {
         );
 
         _export(
+          package,
           exports,
           context.docId,
           'U${object.name}',
@@ -148,6 +161,7 @@ final class LexTypesGen {
   }
 
   void _generateSubscriptionMessage(
+    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -176,6 +190,7 @@ final class LexTypesGen {
           );
 
           _export(
+            package,
             exports,
             context.docId,
             'U${object.name}',
@@ -187,52 +202,15 @@ final class LexTypesGen {
     }
   }
 
-  void _generateExports(final Map<NSID, Set<Export>> exports) {
-    exports.forEach((docId, exports) {
-      final writable = exports.where((e) =>
-          !(e.object?.isStrongRef ?? false) &&
-          !(e.object?.isBlob ?? false) &&
-          !(e.object?.isIpldCar ?? false) &&
-          !(e.object?.ignore ?? false));
-
-      if (writable.isEmpty) return;
-
-      final buffer = StringBuffer()
-        ..writeln(getFileHeader('Lex Generator'))
-        ..writeln()
-        ..writeln(writable.map((e) => e.toString()).toSet().join('\n'));
-
-      writeFileAsStringSync(_getExportOutputPath(docId), buffer.toString());
-
-      if (docId.toString().startsWith('com.atproto')) {
-        for (final package in _ctx.supportedLexiconRoots) {
-          if (package == 'com.atproto') continue;
-
-          writeFileAsStringSync(
-            _getExportOutputPath(docId, package),
-            buffer.toString(),
-          );
-        }
-      }
-    });
-  }
-
   String _getOutputFilePath(
     final NSID docId,
     final String filePath,
   ) {
-    return 'packages/${getPackageName(docId.toString())}/lib/$kTypesPath/${filePath.split('/').map(toLowerCamelCase).join('/')}';
-  }
-
-  String _getExportOutputPath(final NSID docId, [final String? package]) {
-    final packageName = package != null
-        ? getPackageName(package)
-        : getPackageName(docId.toString());
-
-    return 'packages/$packageName/lib/${docId.toString().split('.').map(toLowerCamelCase).join('_')}.dart';
+    return 'packages/${_ctx.getPackageName(docId.toString())}/lib/$kTypesPath/${filePath.split('/').map(toLowerCamelCase).join('/')}';
   }
 
   void _export(
+    final Package package,
     final Map<NSID, Set<Export>> exports,
     final NSID docId,
     final String defName,
@@ -241,6 +219,7 @@ final class LexTypesGen {
     LexGenObject? object,
   ]) {
     final export = Export(
+      package: package,
       docId: docId,
       defName: defName,
       objectName: objectName,
@@ -275,15 +254,18 @@ final class LexTypesGen {
       final doc = LexiconDoc.fromJson(lexicon);
       if (!_ctx.isSupportedDoc(doc)) continue;
 
-      bool subscriptionRelated = false;
       for (final entry in doc.defs.entries) {
-        if (entry.value is ULexUserTypeXrpcSubscription) {
-          subscriptionRelated = true;
-          continue;
-        }
+        final value = entry.value;
+        if (value is ULexUserTypeXrpcSubscription) {
+          final union = value.data.message?.schema
+              ?.whenOrNull(refVariant: (data) => data)
+              ?.whenOrNull(refUnion: (data) => data);
 
-        if (subscriptionRelated) {
-          docIds.add('${doc.id}#${entry.key}');
+          if (union == null || union.refs == null) continue;
+
+          for (final ref in union.refs!) {
+            docIds.add('${doc.id}$ref');
+          }
         }
       }
     }
