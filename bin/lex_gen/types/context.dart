@@ -11,7 +11,7 @@ final class ObjectContext {
     required this.defName,
     this.def,
     required this.mainRelatedDocIds,
-    required this.subscriptionRelatedDocIds,
+    required this.subscriptionUnionRefs,
   });
 
   final NSID docId;
@@ -19,5 +19,19 @@ final class ObjectContext {
   final LexUserType? def;
 
   final List<String> mainRelatedDocIds;
-  final List<String> subscriptionRelatedDocIds;
+  final Set<String> subscriptionUnionRefs;
+
+  String? get namespace {
+    if (def is! ULexUserTypeObject) return null;
+
+    return defName == 'main'
+        ? docId.toString()
+        : '${docId.toString()}#$defName';
+  }
+
+  String? get description {
+    final object = def?.whenOrNull(object: (data) => data);
+
+    return object?.description != null ? object!.description : null;
+  }
 }

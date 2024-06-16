@@ -27,9 +27,10 @@ final class LexTypesGen {
     final exports = <NSID, Set<Export>>{};
 
     final mainRelatedDocIds = _getMainRelatedDocIds();
-    final subscriptionRelatedDocIds = _getSubscriptionRelatedDocIds();
 
     for (final package in _ctx.packages) {
+      final subscriptionUnionRefs = _getSubscriptionUnionRefs(package);
+
       for (final lexiconDoc in package.lexiconDocs) {
         lexiconDoc.defs.forEach((defName, def) {
           final context = ObjectContext(
@@ -37,7 +38,7 @@ final class LexTypesGen {
             defName: defName,
             def: def,
             mainRelatedDocIds: mainRelatedDocIds,
-            subscriptionRelatedDocIds: subscriptionRelatedDocIds,
+            subscriptionUnionRefs: subscriptionUnionRefs,
           );
 
           _generateSubscriptionMessage(package, context, exports);
@@ -248,31 +249,6 @@ final class LexTypesGen {
     return docIds;
   }
 
-  List<String> _getSubscriptionRelatedDocIds() {
-    final docIds = <String>[];
-    for (final lexicon in lexicons) {
-      final doc = LexiconDoc.fromJson(lexicon);
-      if (!_ctx.isSupportedDoc(doc)) continue;
-
-      for (final entry in doc.defs.entries) {
-        final value = entry.value;
-        if (value is ULexUserTypeXrpcSubscription) {
-          final union = value.data.message?.schema
-              ?.whenOrNull(refVariant: (data) => data)
-              ?.whenOrNull(refUnion: (data) => data);
-
-          if (union == null || union.refs == null) continue;
-
-          for (final ref in union.refs!) {
-            docIds.add('${doc.id}$ref');
-          }
-        }
-      }
-    }
-
-    return docIds;
-  }
-
   bool _hasMainObject(final Map<String, LexUserType> defs) {
     for (final entry in defs.entries) {
       if (entry.key == 'main') {
@@ -285,5 +261,28 @@ final class LexTypesGen {
     }
 
     return false;
+  }
+
+  Set<String> _getSubscriptionUnionRefs(final Package package) {
+    final docIds = <String>{};
+
+    for (final doc in package.lexiconDocs) {
+      for (final entry in doc.defs.entries) {
+        final value = entry.value;
+        if (value is ULexUserTypeXrpcSubscription) {
+          final unionRefs = value.data.message?.schema
+                  ?.whenOrNull(refVariant: (data) => data)
+                  ?.whenOrNull(refUnion: (data) => data)
+                  ?.refs ??
+              const [];
+
+          for (final ref in unionRefs) {
+            docIds.add('${doc.id}$ref');
+          }
+        }
+      }
+    }
+
+    return docIds;
   }
 }

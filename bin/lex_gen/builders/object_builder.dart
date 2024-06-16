@@ -16,17 +16,17 @@ import 'known_values_builder.dart';
 import 'union_builder.dart';
 
 final class LexGenObjectBuilder {
-  const LexGenObjectBuilder(this.context);
+  const LexGenObjectBuilder(this.ctx);
 
-  final ObjectContext context;
+  final ObjectContext ctx;
 
   List<LexGenObject>? build() {
-    if (isDeprecated(context.def?.toJson()['description'])) return null;
+    if (isDeprecated(ctx.def?.toJson()['description'])) return null;
 
     final properties = _getProperties();
     if (properties == null) return null;
 
-    final procedureOutput = context.def?.whenOrNull(
+    final procedureOutput = ctx.def?.whenOrNull(
       xrpcProcedure: (data) => data.output?.schema
           ?.whenOrNull(object: (data) => data)
           ?.properties
@@ -47,8 +47,8 @@ final class LexGenObjectBuilder {
             docId: refVariant!.docId,
             defName: refVariant.defName,
             def: refVariant.def,
-            mainRelatedDocIds: context.mainRelatedDocIds,
-            subscriptionRelatedDocIds: context.subscriptionRelatedDocIds,
+            mainRelatedDocIds: ctx.mainRelatedDocIds,
+            subscriptionUnionRefs: ctx.subscriptionUnionRefs,
           ),
           objectType: ObjectType.object,
         );
@@ -58,7 +58,7 @@ final class LexGenObjectBuilder {
 
         refObject = LexGenObject(
           type: ObjectType.object,
-          description: _getDescription(),
+          description: ctx.description,
           referencePath: getReferencePath(
             refVariant.docId.toString(),
             refVariant.defName,
@@ -71,14 +71,7 @@ final class LexGenObjectBuilder {
         );
       }
 
-      final convention = LexNamingConvention(context, objectType: e.key);
-
-      String? namespace;
-      if (context.def is ULexUserTypeObject) {
-        namespace = context.defName == 'main'
-            ? context.docId.toString()
-            : '${context.docId.toString()}#${context.defName}';
-      }
+      final convention = LexNamingConvention(ctx, objectType: e.key);
 
       return [
         if (refObject != null && arrayVariant) refObject,
@@ -87,11 +80,10 @@ final class LexGenObjectBuilder {
           isStrongRef:
               e.key == ObjectType.output && isStrongRef(procedureOutput),
           isSubscriptionRelated:
-              context.subscriptionRelatedDocIds.contains(namespace),
-          description: _getDescription(),
-          referencePath:
-              getReferencePath(context.docId.toString(), context.defName),
-          namespace: namespace,
+              ctx.subscriptionUnionRefs.contains(ctx.namespace),
+          description: ctx.description,
+          referencePath: getReferencePath(ctx.docId.toString(), ctx.defName),
+          namespace: ctx.namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),
           properties: e.value!,
@@ -102,15 +94,8 @@ final class LexGenObjectBuilder {
     }).toList();
   }
 
-  String? _getDescription() {
-    final def = context.def;
-    return def is ULexUserTypeObject && def.data.description != null
-        ? def.data.description
-        : null;
-  }
-
   Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties() {
-    final properties = context.def!.whenOrNull(
+    final properties = ctx.def!.whenOrNull(
       object: (data) => {
         ObjectType.object: _getObjectProperties(data, ObjectType.object),
       },
@@ -176,7 +161,7 @@ final class LexGenObjectBuilder {
       final ref = refVariant?.whenOrNull(ref: (data) => data);
 
       if (ref != null && ref.ref != null) {
-        final $ref = getRef(context.docId, ref.ref!);
+        final $ref = getRef(ctx.docId, ref.ref!);
 
         return <LexGenObjectProperty>[
           LexGenObjectProperty(
@@ -204,21 +189,21 @@ final class LexGenObjectBuilder {
           ?.whenOrNull(ref: (data) => data);
 
       if (ref != null && ref.ref != null) {
-        final $ref = getRef(context.docId, ref.ref!);
+        final $ref = getRef(ctx.docId, ref.ref!);
         final refDefJson = $ref!.def.toJson();
 
         final union = LexUnionBuilder(
           docId: $ref.docId,
-          defName: context.mainRelatedDocIds.contains($ref.docId.toString())
-              ? context.docId.toString().split('.').last
+          defName: ctx.mainRelatedDocIds.contains($ref.docId.toString())
+              ? ctx.docId.toString().split('.').last
               : null,
           propertyName: $ref.defName,
           refs: refDefJson['refs'] ?? refDefJson['items']?['refs'] ?? const [],
-          mainRelatedDocIds: context.mainRelatedDocIds,
+          mainRelatedDocIds: ctx.mainRelatedDocIds,
         ).build();
 
         final dataType = getDataType(
-          context,
+          ctx,
           propertyName: propertyName,
           type: propertyJson['type'],
           format: propertyJson['format'],
@@ -305,18 +290,18 @@ final class LexGenObjectBuilder {
   ) {
     final property = value;
     final union = LexUnionBuilder(
-      docId: context.docId,
-      defName: context.mainRelatedDocIds.contains(context.docId.toString()) ||
+      docId: ctx.docId,
+      defName: ctx.mainRelatedDocIds.contains(ctx.docId.toString()) ||
               objectType == ObjectType.record
-          ? context.docId.toString().split('.').last
+          ? ctx.docId.toString().split('.').last
           : null,
       propertyName: name,
       refs: property['refs'] ?? property['items']?['refs'] ?? const [],
-      mainRelatedDocIds: context.mainRelatedDocIds,
+      mainRelatedDocIds: ctx.mainRelatedDocIds,
     ).build();
 
     final dataType = getDataType(
-      context,
+      ctx,
       propertyName: name,
       type: property['type'],
       format: property['format'],
@@ -339,10 +324,10 @@ final class LexGenObjectBuilder {
       name: name,
       array: property['items'] != null,
       knownValues: LexKnownValuesBuilder(
-        docId: context.docId,
-        defName: context.mainRelatedDocIds.contains(context.docId.toString()) ||
+        docId: ctx.docId,
+        defName: ctx.mainRelatedDocIds.contains(ctx.docId.toString()) ||
                 objectType == ObjectType.record
-            ? context.docId.toString().split('.').last
+            ? ctx.docId.toString().split('.').last
             : null,
         propertyName: name,
         knownValues: property['knownValues'] ?? const [],
@@ -352,7 +337,7 @@ final class LexGenObjectBuilder {
           ? getDefaultValue(
               property['default'],
               dataType,
-              context.docId,
+              ctx.docId,
               property['ref'],
               objectType,
             )

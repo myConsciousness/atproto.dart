@@ -77,7 +77,7 @@ final class LexUnionBuilder {
             defName: ref.substring(1),
             def: refDef?.def,
             mainRelatedDocIds: mainRelatedDocIds,
-            subscriptionRelatedDocIds: const [],
+            subscriptionUnionRefs: const {},
           );
         } // In the another def file
         else {
@@ -90,7 +90,7 @@ final class LexUnionBuilder {
             defName: defName,
             def: refDef?.def,
             mainRelatedDocIds: mainRelatedDocIds,
-            subscriptionRelatedDocIds: const [],
+            subscriptionUnionRefs: const {},
           );
         }
       } else {
@@ -99,7 +99,7 @@ final class LexUnionBuilder {
           defName: 'main',
           def: refDef?.def,
           mainRelatedDocIds: mainRelatedDocIds,
-          subscriptionRelatedDocIds: const [],
+          subscriptionUnionRefs: const {},
         );
       }
 

@@ -42,8 +42,8 @@ final class Package {
   }
 
   /// Returns supported lexicon docs based on [domains].
-  List<LexiconDoc> get lexiconDocs =>
-      lexicons.map(LexiconDoc.fromJson).where(isSupportedDoc).toList();
+  Set<LexiconDoc> get lexiconDocs =>
+      lexicons.map(LexiconDoc.fromJson).where(isSupportedDoc).toSet();
 }
 
 final class LexGenContext {
