@@ -42,26 +42,28 @@ final class LexGenObjectBuilder {
         arrayVariant = e.value?.first.array ?? false;
 
         final refVariant = e.value?.first.refVariant!;
-        final convention = LexNamingConvention(
-          ctx.copyWith(
-            docId: refVariant!.docId,
-            defName: refVariant.defName,
-            def: refVariant.def,
-          ),
-          objectType: ObjectType.object,
+        final refCtx = ctx.copyWith(
+          docId: refVariant!.docId,
+          defName: refVariant.defName,
+          def: refVariant.def,
         );
 
-        final namespace =
-            '${refVariant.docId.toString()}#${refVariant.defName}';
+        final convention = LexNamingConvention(
+          refCtx,
+          objectType: ObjectType.object,
+        );
 
         refObject = LexGenObject(
           type: ObjectType.object,
           description: ctx.description,
-          referencePath: getReferencePath(
-            refVariant.docId.toString(),
-            refVariant.defName,
-          ),
-          namespace: namespace,
+          referencePath: ctx
+              .copyWith(
+                docId: refVariant.docId,
+                defName: refVariant.defName,
+                def: refVariant.def,
+              )
+              .referencePath,
+          namespace: refCtx.namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),
           properties: e.value!,
@@ -80,7 +82,7 @@ final class LexGenObjectBuilder {
           isSubscriptionRelated:
               ctx.subscriptionUnionRefs.contains(ctx.namespace),
           description: ctx.description,
-          referencePath: getReferencePath(ctx.docId.toString(), ctx.defName),
+          referencePath: ctx.referencePath,
           namespace: ctx.namespace,
           name: convention.getObjectName(),
           fileName: convention.getFileName(),

@@ -33,4 +33,10 @@ final class ServiceEndpointContext {
   final LexUserType def;
 
   NSID get docId => NSID('$serviceName.$name');
+
+  String get referencePath {
+    final service = docId.toString().replaceAll('.', '/');
+
+    return 'https://atprotodart.com/docs/lexicons/$service';
+  }
 }

@@ -28,7 +28,9 @@ final class ObjectContext {
   final Set<String> subscriptionUnionRefs;
 
   String? get namespace {
-    if (def is! ULexUserTypeObject) return null;
+    if (def is! ULexUserTypeObject && def is! ULexUserTypeArray) {
+      return null;
+    }
 
     return defName == 'main'
         ? docId.toString()
@@ -39,6 +41,12 @@ final class ObjectContext {
     final object = def?.whenOrNull(object: (data) => data);
 
     return object?.description != null ? object!.description : null;
+  }
+
+  String get referencePath {
+    final service = docId.toString().replaceAll('.', '/');
+
+    return 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}';
   }
 
   ObjectContext copyWith({

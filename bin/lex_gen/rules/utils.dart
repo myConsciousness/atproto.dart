@@ -79,14 +79,6 @@ String toFirstLower(final String input) {
   return input.substring(0, 1).toLowerCase() + input.substring(1);
 }
 
-String getReferencePath(final String docId, [final String? defName]) {
-  final service = docId.replaceAll('.', '/');
-
-  return defName != null
-      ? 'https://atprotodart.com/docs/lexicons/$service#${defName.toLowerCase()}'
-      : 'https://atprotodart.com/docs/lexicons/$service';
-}
-
 Ref? getRef(final NSID docId, final String ref) {
   final baseLexiconId = _getLexiconId(docId, ref);
 

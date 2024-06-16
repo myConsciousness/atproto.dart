@@ -5,6 +5,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 // 🌎 Project imports:
+import 'package:lexicon/lexicon.dart';
+
 import '../../utils.dart';
 import '../rules/object_type.dart';
 import '../rules/utils.dart';
@@ -110,8 +112,7 @@ final class LexService {
 
 final class LexServiceEndpoint {
   const LexServiceEndpoint({
-    required this.isRecord,
-    required this.recordKey,
+    required this.def,
     required this.description,
     required this.referencePath,
     required this.args,
@@ -121,8 +122,7 @@ final class LexServiceEndpoint {
     required this.method,
   });
 
-  final bool isRecord;
-  final String? recordKey;
+  final LexUserType def;
 
   final String? description;
   final String referencePath;
@@ -132,6 +132,9 @@ final class LexServiceEndpoint {
   final String name;
   final DataType type;
   final LexServiceEndpointMethod method;
+
+  bool get isRecord => def is ULexUserTypeRecord;
+  String? get recordKey => isRecord ? (def.data as LexRecord).key : null;
 
   String get namespace => toFirstLower(
         '$serviceName.$name'.split('.').map(toFirstUpper).join(),
