@@ -152,7 +152,7 @@ bool hasAtUri(final Map<String, dynamic>? properties) {
 }
 
 DataType getDataType(
-  final ObjectContext context, {
+  final ObjectContext ctx, {
   required String propertyName,
   required String? type,
   required String? format,
@@ -188,9 +188,9 @@ DataType getDataType(
   if (type == 'cid-link') return const DataType(name: 'String');
 
   if (type == 'unknown') {
-    if (propertyName == 'record' && context.defName.endsWith('View')) {
-      final objectName = context.defName.split('View').first;
-      final path = context.docId.toString().split('.').sublist(2, 3).first;
+    if (propertyName == 'record' && ctx.defName.endsWith('View')) {
+      final objectName = ctx.defName.split('View').first;
+      final path = ctx.docId.toString().split('.').sublist(2, 3).first;
 
       return DataType(
         name: '${toFirstUpper(objectName)}Record',
@@ -214,7 +214,7 @@ DataType getDataType(
     if (items == null) throw ArgumentError.notNull('items');
 
     final type = getDataType(
-      context,
+      ctx,
       propertyName: propertyName,
       type: items['type'],
       format: items['format'],
@@ -233,7 +233,7 @@ DataType getDataType(
   if (type == 'ref') {
     if (ref == null) throw ArgumentError.notNull('ref');
 
-    final refDef = getRef(context.docId, ref)?.def;
+    final refDef = getRef(ctx.docId, ref)?.def;
     final isKnownValues =
         refDef is ULexUserTypeString && refDef.data.knownValues != null;
 
@@ -241,12 +241,9 @@ DataType getDataType(
     if (ref.contains('#')) {
       // In the same def file
       if (ref.startsWith('#')) {
-        refContext = ObjectContext(
-          docId: context.docId,
+        refContext = ctx.copyWith(
           defName: ref.substring(1),
           def: refDef,
-          mainRelatedDocIds: context.mainRelatedDocIds,
-          subscriptionUnionRefs: context.subscriptionUnionRefs,
         );
       } // In the another def file
       else {
@@ -254,22 +251,18 @@ DataType getDataType(
         final refDocId = segments.first;
         final defName = segments.last;
 
-        refContext = ObjectContext(
+        refContext = ctx.copyWith(
           docId: NSID(refDocId),
           defName: defName,
           def: refDef,
-          mainRelatedDocIds: context.mainRelatedDocIds,
-          subscriptionUnionRefs: context.subscriptionUnionRefs,
         );
       }
     } // main def
     else {
-      refContext = ObjectContext(
+      refContext = ctx.copyWith(
         docId: NSID(ref),
         defName: 'main',
         def: refDef,
-        mainRelatedDocIds: context.mainRelatedDocIds,
-        subscriptionUnionRefs: context.subscriptionUnionRefs,
       );
     }
 
@@ -281,7 +274,7 @@ DataType getDataType(
 
     return DataType(
       name: objectName,
-      importPath: convention.getRelativeImportPath(context.docId),
+      importPath: convention.getRelativeImportPath(ctx.docId),
       converter: '${objectName}Converter',
     );
   }

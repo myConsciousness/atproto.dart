@@ -43,12 +43,10 @@ final class LexGenObjectBuilder {
 
         final refVariant = e.value?.first.refVariant!;
         final convention = LexNamingConvention(
-          ObjectContext(
+          ctx.copyWith(
             docId: refVariant!.docId,
             defName: refVariant.defName,
             def: refVariant.def,
-            mainRelatedDocIds: ctx.mainRelatedDocIds,
-            subscriptionUnionRefs: ctx.subscriptionUnionRefs,
           ),
           objectType: ObjectType.object,
         );
@@ -193,13 +191,14 @@ final class LexGenObjectBuilder {
         final refDefJson = $ref!.def.toJson();
 
         final union = LexUnionBuilder(
+          package: ctx.package,
           docId: $ref.docId,
-          defName: ctx.mainRelatedDocIds.contains($ref.docId.toString())
+          defName: ctx.mainDocIds.contains($ref.docId.toString())
               ? ctx.docId.toString().split('.').last
               : null,
           propertyName: $ref.defName,
           refs: refDefJson['refs'] ?? refDefJson['items']?['refs'] ?? const [],
-          mainRelatedDocIds: ctx.mainRelatedDocIds,
+          mainDocIds: ctx.mainDocIds,
         ).build();
 
         final dataType = getDataType(
@@ -290,14 +289,15 @@ final class LexGenObjectBuilder {
   ) {
     final property = value;
     final union = LexUnionBuilder(
+      package: ctx.package,
       docId: ctx.docId,
-      defName: ctx.mainRelatedDocIds.contains(ctx.docId.toString()) ||
+      defName: ctx.mainDocIds.contains(ctx.docId.toString()) ||
               objectType == ObjectType.record
           ? ctx.docId.toString().split('.').last
           : null,
       propertyName: name,
       refs: property['refs'] ?? property['items']?['refs'] ?? const [],
-      mainRelatedDocIds: ctx.mainRelatedDocIds,
+      mainDocIds: ctx.mainDocIds,
     ).build();
 
     final dataType = getDataType(
@@ -325,7 +325,7 @@ final class LexGenObjectBuilder {
       array: property['items'] != null,
       knownValues: LexKnownValuesBuilder(
         docId: ctx.docId,
-        defName: ctx.mainRelatedDocIds.contains(ctx.docId.toString()) ||
+        defName: ctx.mainDocIds.contains(ctx.docId.toString()) ||
                 objectType == ObjectType.record
             ? ctx.docId.toString().split('.').last
             : null,

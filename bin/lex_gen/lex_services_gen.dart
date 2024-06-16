@@ -7,8 +7,8 @@ import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import 'lex_gen.dart';
 import 'builders/service_builder.dart';
+import 'lex_gen.dart';
 import 'rules/extensions.dart';
 import 'rules/utils.dart';
 import 'types/export.dart';

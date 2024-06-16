@@ -6,6 +6,7 @@
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
+import '../lex_gen.dart';
 import '../rules/naming_convention.dart';
 import '../rules/utils.dart';
 import '../types/context.dart';
@@ -14,14 +15,17 @@ import '../types/union.dart';
 
 final class LexUnionBuilder {
   const LexUnionBuilder({
+    required this.package,
     this.description,
     required this.docId,
     this.defName,
     this.propertyName,
     required this.refs,
-    required this.mainRelatedDocIds,
+    required this.mainDocIds,
     this.useOnlyDefNameAsNamespace = false,
   });
+
+  final Package package;
 
   final String? description;
   final NSID docId;
@@ -29,7 +33,7 @@ final class LexUnionBuilder {
   final String? propertyName;
   final List<String> refs;
 
-  final List<String> mainRelatedDocIds;
+  final Set<String> mainDocIds;
   final bool useOnlyDefNameAsNamespace;
 
   LexUnion? build() {
@@ -73,10 +77,11 @@ final class LexUnionBuilder {
       if (ref.contains('#')) {
         if (ref.startsWith('#')) {
           refContext = ObjectContext(
+            package: package,
             docId: docId,
             defName: ref.substring(1),
             def: refDef?.def,
-            mainRelatedDocIds: mainRelatedDocIds,
+            mainDocIds: mainDocIds,
             subscriptionUnionRefs: const {},
           );
         } // In the another def file
@@ -86,19 +91,21 @@ final class LexUnionBuilder {
           final defName = segments.last;
 
           refContext = ObjectContext(
+            package: package,
             docId: NSID(refDocId),
             defName: defName,
             def: refDef?.def,
-            mainRelatedDocIds: mainRelatedDocIds,
+            mainDocIds: mainDocIds,
             subscriptionUnionRefs: const {},
           );
         }
       } else {
         refContext = ObjectContext(
+          package: package,
           docId: NSID(ref),
           defName: 'main',
           def: refDef?.def,
-          mainRelatedDocIds: mainRelatedDocIds,
+          mainDocIds: mainDocIds,
           subscriptionUnionRefs: const {},
         );
       }

@@ -5,20 +5,26 @@
 // 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
+import '../lex_gen.dart';
+
 final class ObjectContext {
   const ObjectContext({
+    required this.package,
     required this.docId,
     required this.defName,
     this.def,
-    required this.mainRelatedDocIds,
+    required this.mainDocIds,
     required this.subscriptionUnionRefs,
   });
+
+  final Package package;
 
   final NSID docId;
   final String defName;
   final LexUserType? def;
 
-  final List<String> mainRelatedDocIds;
+  final Set<String> mainDocIds;
   final Set<String> subscriptionUnionRefs;
 
   String? get namespace {
@@ -34,4 +40,22 @@ final class ObjectContext {
 
     return object?.description != null ? object!.description : null;
   }
+
+  ObjectContext copyWith({
+    Package? package,
+    NSID? docId,
+    String? defName,
+    LexUserType? def,
+    Set<String>? mainDocIds,
+    Set<String>? subscriptionUnionRefs,
+  }) =>
+      ObjectContext(
+        package: package ?? this.package,
+        docId: docId ?? this.docId,
+        defName: defName ?? this.defName,
+        def: def ?? this.def,
+        mainDocIds: mainDocIds ?? this.mainDocIds,
+        subscriptionUnionRefs:
+            subscriptionUnionRefs ?? this.subscriptionUnionRefs,
+      );
 }

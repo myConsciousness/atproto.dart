@@ -6,13 +6,13 @@
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import '../rules/utils.dart';
 import '../rules/object_type.dart';
+import '../rules/utils.dart';
 import '../types/data_type.dart';
-import '../types/service.dart';
-import '../types/service_context.dart';
 import '../types/export.dart';
 import '../types/object.dart';
+import '../types/service.dart';
+import '../types/service_context.dart';
 
 const _kEmptyDataType = DataType(
   name: 'EmptyData',

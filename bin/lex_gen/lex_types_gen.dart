@@ -3,16 +3,14 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
-import 'lex_gen.dart';
-import 'file.dart';
 import 'builders/known_values_builder.dart';
 import 'builders/object_builder.dart';
 import 'builders/union_builder.dart';
-
+import 'file.dart';
+import 'lex_gen.dart';
 import 'rules/utils.dart';
 import 'types/context.dart';
 import 'types/export.dart';
@@ -26,24 +24,21 @@ final class LexTypesGen {
   Map<NSID, Set<Export>> execute() {
     final exports = <NSID, Set<Export>>{};
 
-    final mainRelatedDocIds = _getMainRelatedDocIds();
-
     for (final package in _ctx.packages) {
-      final subscriptionUnionRefs = _getSubscriptionUnionRefs(package);
-
-      for (final lexiconDoc in package.lexiconDocs) {
-        lexiconDoc.defs.forEach((defName, def) {
-          final context = ObjectContext(
-            docId: lexiconDoc.id,
+      for (final doc in package.lexiconDocs) {
+        doc.defs.forEach((defName, def) {
+          final ctx = ObjectContext(
+            package: package,
+            docId: doc.id,
             defName: defName,
             def: def,
-            mainRelatedDocIds: mainRelatedDocIds,
-            subscriptionUnionRefs: subscriptionUnionRefs,
+            mainDocIds: package.mainDocIds,
+            subscriptionUnionRefs: package.subscriptionUnionRefs,
           );
 
-          _generateSubscriptionMessage(package, context, exports);
-          _generateKnownValues(package, context, exports);
-          _generateObject(package, context, exports);
+          _generateSubscriptionMessage(ctx, exports);
+          _generateKnownValues(ctx, exports);
+          _generateObject(ctx, exports);
         });
       }
 
@@ -54,7 +49,6 @@ final class LexTypesGen {
   }
 
   void _generateObject(
-    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -83,7 +77,7 @@ final class LexTypesGen {
             : object.refVariant?.defName ?? context.defName;
 
         _export(
-          package,
+          context.package,
           exports,
           docId,
           object.name,
@@ -100,7 +94,7 @@ final class LexTypesGen {
             );
 
             _export(
-              package,
+              context.package,
               exports,
               docId,
               'U${property.knownValues!.name}',
@@ -116,7 +110,7 @@ final class LexTypesGen {
             );
 
             _export(
-              package,
+              context.package,
               exports,
               docId,
               'U${property.union!.name}',
@@ -130,7 +124,6 @@ final class LexTypesGen {
   }
 
   void _generateKnownValues(
-    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -150,7 +143,7 @@ final class LexTypesGen {
         );
 
         _export(
-          package,
+          context.package,
           exports,
           context.docId,
           'U${object.name}',
@@ -162,7 +155,6 @@ final class LexTypesGen {
   }
 
   void _generateSubscriptionMessage(
-    final Package package,
     final ObjectContext context,
     final Map<NSID, Set<Export>> exports,
   ) {
@@ -177,10 +169,11 @@ final class LexTypesGen {
             toFirstUpper(context.docId.toString().split('.').last);
 
         final object = LexUnionBuilder(
+          package: context.package,
           docId: context.docId,
           propertyName: '${objectName}Message',
           refs: unionRef.refs!,
-          mainRelatedDocIds: context.mainRelatedDocIds,
+          mainDocIds: context.mainDocIds,
           useOnlyDefNameAsNamespace: true,
         ).build();
 
@@ -191,7 +184,7 @@ final class LexTypesGen {
           );
 
           _export(
-            package,
+            context.package,
             exports,
             context.docId,
             'U${object.name}',
@@ -233,56 +226,5 @@ final class LexTypesGen {
     } else {
       exports[docId] = {export};
     }
-  }
-
-  List<String> _getMainRelatedDocIds() {
-    final docIds = <String>[];
-    for (final lexicon in lexicons) {
-      final doc = LexiconDoc.fromJson(lexicon);
-      if (!_ctx.isSupportedDoc(doc)) continue;
-
-      if (_hasMainObject(doc.defs)) {
-        docIds.add(doc.id.toString());
-      }
-    }
-
-    return docIds;
-  }
-
-  bool _hasMainObject(final Map<String, LexUserType> defs) {
-    for (final entry in defs.entries) {
-      if (entry.key == 'main') {
-        if (entry.value.toJson()['type'] == 'object') {
-          return true;
-        }
-
-        return false;
-      }
-    }
-
-    return false;
-  }
-
-  Set<String> _getSubscriptionUnionRefs(final Package package) {
-    final docIds = <String>{};
-
-    for (final doc in package.lexiconDocs) {
-      for (final entry in doc.defs.entries) {
-        final value = entry.value;
-        if (value is ULexUserTypeXrpcSubscription) {
-          final unionRefs = value.data.message?.schema
-                  ?.whenOrNull(refVariant: (data) => data)
-                  ?.whenOrNull(refUnion: (data) => data)
-                  ?.refs ??
-              const [];
-
-          for (final ref in unionRefs) {
-            docIds.add('${doc.id}$ref');
-          }
-        }
-      }
-    }
-
-    return docIds;
   }
 }

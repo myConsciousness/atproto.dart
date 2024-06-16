@@ -6,9 +6,9 @@
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
+import '../lex_gen.dart';
 import '../rules/utils.dart';
 import 'object.dart';
-import '../lex_gen.dart';
 
 final class Export {
   const Export({

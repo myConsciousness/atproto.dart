@@ -2,12 +2,15 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 🎯 Dart imports:
 import 'dart:io';
 
+// 📦 Package imports:
 import 'package:lexicon/lexicon.dart';
 
-import 'lex_gen.dart';
+// 🌎 Project imports:
 import '../utils.dart';
+import 'lex_gen.dart';
 import 'rules/utils.dart';
 import 'types/export.dart';
 

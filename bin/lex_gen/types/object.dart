@@ -6,12 +6,12 @@
 
 // 🌎 Project imports:
 import '../../utils.dart';
-import '../rules/utils.dart';
 import '../rules/object_type.dart';
+import '../rules/utils.dart';
 import 'data_type.dart';
 import 'known_values.dart';
-import 'union.dart';
 import 'ref.dart';
+import 'union.dart';
 
 final class LexGenObject {
   const LexGenObject({

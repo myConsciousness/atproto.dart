@@ -5,10 +5,11 @@
 // 🎯 Dart imports:
 import 'dart:io';
 
-// 🌎 Project imports:
+// 📦 Package imports:
 import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
+// 🌎 Project imports:
 import 'lex_services_gen.dart';
 import 'lex_types_gen.dart';
 import 'rules/utils.dart';
@@ -44,6 +45,45 @@ final class Package {
   /// Returns supported lexicon docs based on [domains].
   Set<LexiconDoc> get lexiconDocs =>
       lexicons.map(LexiconDoc.fromJson).where(isSupportedDoc).toSet();
+
+  Set<String> get mainDocIds {
+    final docIds = <String>{};
+
+    for (final doc in lexiconDocs) {
+      for (final entry in doc.defs.entries) {
+        if (entry.key == 'main') {
+          if (entry.value is ULexUserTypeObject) {
+            docIds.add(doc.id.toString());
+          }
+        }
+      }
+    }
+
+    return docIds;
+  }
+
+  Set<String> get subscriptionUnionRefs {
+    final refs = <String>{};
+
+    for (final doc in lexiconDocs) {
+      for (final entry in doc.defs.entries) {
+        final value = entry.value;
+        if (value is ULexUserTypeXrpcSubscription) {
+          final unionRefs = value.data.message?.schema
+                  ?.whenOrNull(refVariant: (data) => data)
+                  ?.whenOrNull(refUnion: (data) => data)
+                  ?.refs ??
+              const [];
+
+          for (final ref in unionRefs) {
+            refs.add('${doc.id}$ref');
+          }
+        }
+      }
+    }
+
+    return refs;
+  }
 }
 
 final class LexGenContext {
