@@ -180,6 +180,15 @@ DataType getDataType(
   if (type == 'cid-link') return const DataType(name: 'String');
 
   if (type == 'unknown') {
+    if (ctx.docId == NSID('app.bsky.embed.record') &&
+        ctx.defName == 'viewRecord') {
+      return DataType(
+        name: 'PostRecord',
+        importPath: '../../../../app/bsky/feed/post/record.dart',
+        converter: 'PostRecordConverter',
+      );
+    }
+
     if (propertyName == 'record' && ctx.defName.endsWith('View')) {
       final objectName = ctx.defName.split('View').first;
       final path = ctx.docId.toString().split('.').sublist(2, 3).first;

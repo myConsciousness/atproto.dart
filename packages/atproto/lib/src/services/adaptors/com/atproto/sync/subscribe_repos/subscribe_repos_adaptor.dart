@@ -29,7 +29,7 @@ Map<String, dynamic> subscribeReposAdaptor(final dynamic data) {
     op['uri'] = 'at://${json['repo']}/${op['path']}';
 
     if (op['cid'] == null || op['cid'] == 22) {
-      op['cid'] = null;
+      op['cid'] = '';
 
       continue;
     }

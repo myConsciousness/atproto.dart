@@ -11,8 +11,8 @@ Map<String, dynamic> getBlocksAdaptor(final dynamic data) {
     final record = core.cbor.decode(value) as Map;
 
     blocks.add({
-      'commitCid': cid.toString(),
-      'cid': core.CID.fromList(record['data']).toString()
+      'cid': cid.toString(),
+      'value': core.CID.fromList(record['data']).toString()
     });
   });
 

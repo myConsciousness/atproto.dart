@@ -141,7 +141,7 @@ extension LabelerServiceExtension on LabelerService {
     final labelers = await getServices(
       dids: dids,
       detailed: true,
-      headers: getLabelerHeaders(prefs),
+      $headers: getLabelerHeaders(prefs),
     );
 
     final labelDefs = <String, List<InterpretedLabelValueDefinition>>{};

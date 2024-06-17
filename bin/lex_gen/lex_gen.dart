@@ -17,11 +17,92 @@ import 'rules/utils.dart';
 const _kAtproto = Package(
   name: 'atproto',
   domains: ['com.atproto'],
-  isBase: true,
+  base: true,
   adaptors: [
-    ObjectAdaptor(subject: NSID('com.atproto.sync.getRecord')),
-    ObjectAdaptor(subject: NSID('com.atproto.sync.getBlocks')),
-    ObjectAdaptor(subject: NSID('com.atproto.sync.getRepo')),
+    ObjectAdaptor(
+      subject: NSID('com.atproto.sync.getBlocks'),
+      override: DefOverride(
+        defs: {
+          'block': {
+            'type': 'object',
+            'required': ['cid', 'value'],
+            'properties': {
+              'cid': {'type': 'string', 'format': 'cid-link'},
+              'value': {'type': 'string', 'format': 'cid-link'},
+            }
+          },
+        },
+        outputSchema: {
+          'encoding': 'application/json',
+          'schema': {
+            'type': 'object',
+            'required': ['blocks'],
+            'properties': {
+              'blocks': {
+                'type': 'array',
+                'items': {
+                  'type': 'ref',
+                  'ref': '#block',
+                }
+              },
+            }
+          }
+        },
+      ),
+    ),
+    ObjectAdaptor(
+      subject: NSID('com.atproto.sync.getRecord'),
+      override: DefOverride(
+        defs: {
+          'record': {
+            'type': 'object',
+            'required': ['cid', 'value'],
+            'properties': {
+              'cid': {'type': 'string', 'format': 'cid-link'},
+              'value': {'type': 'unknown'},
+            }
+          },
+        },
+        outputSchema: {
+          'encoding': 'application/json',
+          'schema': {
+            'type': 'ref',
+            'ref': '#record',
+          }
+        },
+      ),
+    ),
+    ObjectAdaptor(
+      subject: NSID('com.atproto.sync.getRepo'),
+      override: DefOverride(
+        defs: {
+          'record': {
+            'type': 'object',
+            'required': ['cid', 'value'],
+            'properties': {
+              'cid': {'type': 'string', 'format': 'cid-link'},
+              'value': {'type': 'unknown'},
+            }
+          },
+        },
+        outputSchema: {
+          'encoding': 'application/json',
+          'schema': {
+            'type': 'object',
+            'required': ['repo'],
+            'properties': {
+              'repo': {
+                'type': 'array',
+                'items': {
+                  'type': 'ref',
+                  'ref': '#record',
+                }
+              },
+            }
+          }
+        },
+      ),
+    ),
     ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
     ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
   ],
@@ -66,17 +147,19 @@ final class Package {
   const Package({
     required this.name,
     required this.domains,
-    this.isBase = false,
+    this.base = false,
     this.recordConfigs,
     this.adaptors,
   });
 
   final String name;
   final List<String> domains;
-  final bool isBase;
+  final bool base;
 
   final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
+
+  bool get isBase => base;
 
   bool isSupportedDoc(final LexiconDoc doc) {
     for (final domain in domains) {
@@ -181,13 +264,9 @@ final class RecordConfig {
 }
 
 final class LexGenContext {
-  const LexGenContext({
-    required this.packages,
-    required this.overrideDocs,
-  });
+  const LexGenContext({required this.packages});
 
   final List<Package> packages;
-  final List<LexiconDoc>? overrideDocs;
 
   /// Returns supported lexicon docs based on [packages].
   List<LexiconDoc> get lexiconDocs =>
@@ -226,11 +305,24 @@ final class ObjectAdaptor {
     required this.subject,
     this.resourcePath,
     this.functionName,
+    this.override,
   });
 
   final NSID subject;
   final String? resourcePath;
   final String? functionName;
+
+  final DefOverride? override;
+}
+
+final class DefOverride {
+  const DefOverride({
+    this.defs,
+    this.outputSchema,
+  });
+
+  final Map<String, Map<String, dynamic>>? defs;
+  final Map<String, dynamic>? outputSchema;
 }
 
 final class LexGen {
@@ -243,10 +335,7 @@ final class LexGen {
   final List<LexiconDoc>? overrideDocs;
 
   void execute() {
-    final ctx = LexGenContext(
-      packages: packages,
-      overrideDocs: overrideDocs,
-    );
+    final ctx = LexGenContext(packages: packages);
 
     _cleanWorkspaces(ctx);
 

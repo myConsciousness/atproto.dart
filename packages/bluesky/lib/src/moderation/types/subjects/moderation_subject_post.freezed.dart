@@ -16,20 +16,20 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$ModerationSubjectPost {
-  Post get data => throw _privateConstructorUsedError;
+  PostView get data => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Post data) postView,
+    required TResult Function(PostView data) postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? postView,
+    TResult? Function(PostView data)? postView,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? postView,
+    TResult Function(PostView data)? postView,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -61,9 +61,9 @@ abstract class $ModerationSubjectPostCopyWith<$Res> {
           $Res Function(ModerationSubjectPost) then) =
       _$ModerationSubjectPostCopyWithImpl<$Res, ModerationSubjectPost>;
   @useResult
-  $Res call({Post data});
+  $Res call({PostView data});
 
-  $PostCopyWith<$Res> get data;
+  $PostViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -86,14 +86,14 @@ class _$ModerationSubjectPostCopyWithImpl<$Res,
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as PostView,
     ) as $Val);
   }
 
   @override
   @pragma('vm:prefer-inline')
-  $PostCopyWith<$Res> get data {
-    return $PostCopyWith<$Res>(_value.data, (value) {
+  $PostViewCopyWith<$Res> get data {
+    return $PostViewCopyWith<$Res>(_value.data, (value) {
       return _then(_value.copyWith(data: value) as $Val);
     });
   }
@@ -108,10 +108,10 @@ abstract class _$$UModerationSubjectPostPostViewImplCopyWith<$Res>
       __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({Post data});
+  $Res call({PostView data});
 
   @override
-  $PostCopyWith<$Res> get data;
+  $PostViewCopyWith<$Res> get data;
 }
 
 /// @nodoc
@@ -133,7 +133,7 @@ class __$$UModerationSubjectPostPostViewImplCopyWithImpl<$Res>
       data: null == data
           ? _value.data
           : data // ignore: cast_nullable_to_non_nullable
-              as Post,
+              as PostView,
     ));
   }
 }
@@ -145,7 +145,7 @@ class _$UModerationSubjectPostPostViewImpl
   const _$UModerationSubjectPostPostViewImpl({required this.data});
 
   @override
-  final Post data;
+  final PostView data;
 
   @override
   String toString() {
@@ -174,7 +174,7 @@ class _$UModerationSubjectPostPostViewImpl
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(Post data) postView,
+    required TResult Function(PostView data) postView,
   }) {
     return postView(data);
   }
@@ -182,7 +182,7 @@ class _$UModerationSubjectPostPostViewImpl
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(Post data)? postView,
+    TResult? Function(PostView data)? postView,
   }) {
     return postView?.call(data);
   }
@@ -190,7 +190,7 @@ class _$UModerationSubjectPostPostViewImpl
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(Post data)? postView,
+    TResult Function(PostView data)? postView,
     required TResult orElse(),
   }) {
     if (postView != null) {
@@ -229,11 +229,11 @@ class _$UModerationSubjectPostPostViewImpl
 }
 
 abstract class UModerationSubjectPostPostView implements ModerationSubjectPost {
-  const factory UModerationSubjectPostPostView({required final Post data}) =
+  const factory UModerationSubjectPostPostView({required final PostView data}) =
       _$UModerationSubjectPostPostViewImpl;
 
   @override
-  Post get data;
+  PostView get data;
   @override
   @JsonKey(ignore: true)
   _$$UModerationSubjectPostPostViewImplCopyWith<

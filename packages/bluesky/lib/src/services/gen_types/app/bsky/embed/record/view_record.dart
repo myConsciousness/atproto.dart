@@ -19,6 +19,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/defs/profile_view_basic.dart';
 import '../../../../app/bsky/embed/record/union_record_embed.dart';
+import '../../../../app/bsky/feed/post/record.dart';
 
 part 'view_record.freezed.dart';
 part 'view_record.g.dart';
@@ -39,7 +40,7 @@ class RecordViewRecord with _$RecordViewRecord {
     @ProfileViewBasicConverter() required ProfileViewBasic author,
 
     /// The record data itself.
-    required Map<String, dynamic> value,
+    @PostRecordConverter() required PostRecord value,
     @LabelConverter() List<Label>? labels,
     @Default(0) int replyCount,
     @Default(0) int repostCount,

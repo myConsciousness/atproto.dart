@@ -6,9 +6,10 @@
 import 'package:characters/characters.dart';
 
 // 🌎 Project imports:
-import '../../services/entities/facet.dart';
-import '../../services/entities/facet_feature.dart';
-import '../../services/entities/muted_word.dart';
+import '../../services/gen_types/app/bsky/actor/defs/known_muted_word_target.dart';
+import '../../services/gen_types/app/bsky/actor/defs/muted_word.dart';
+import '../../services/gen_types/app/bsky/richtext/facet/main.dart';
+import '../../services/gen_types/app/bsky/richtext/facet/union_facet_feature.dart';
 
 /// List of 2-letter lang codes for languages that either don't use spaces, or
 /// don't use spaces in a way conducive to word-based filtering.
@@ -41,7 +42,7 @@ bool hasMutedWord({
     if (outlineTags != null) ...outlineTags.map((e) => e.toLowerCase()),
     if (facets != null)
       ...facets
-          .map((e) => e.features.whereType<UFacetFeatureTag>())
+          .map((e) => e.features.whereType<UFacetFeatureFacetTag>())
           .where((e) => e.isNotEmpty)
           .map((e) => e.first.data.tag.toLowerCase())
   }.toList();
@@ -51,7 +52,9 @@ bool hasMutedWord({
     final postText = text.toLowerCase();
 
     if (tags.contains(mutedWord)) return true;
-    if (!mute.targets.contains('content')) continue;
+    if (!mute.targets.contains(KnownMutedWordTarget.content.toUnion())) {
+      continue;
+    }
     if ((mutedWord.characters.length == 1 || hasExceptionLanguage) &&
         postText.contains(mutedWord)) {
       return true;

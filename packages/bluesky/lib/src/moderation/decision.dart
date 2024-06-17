@@ -2,8 +2,11 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
+// 📦 Package imports:
+import 'package:atproto/com_atproto_label_defs.dart';
+
 // 🌎 Project imports:
-import '../../bluesky.dart';
+import '../services/gen_types/app/bsky/graph/defs/list_view_basic.dart';
 import 'types/behaviors/moderation_cause.dart';
 import 'types/behaviors/moderation_cause_block_other.dart';
 import 'types/behaviors/moderation_cause_blocked_by.dart';
@@ -17,7 +20,7 @@ import 'types/behaviors/moderation_cause_source_labeler.dart';
 import 'types/behaviors/moderation_cause_source_list.dart';
 import 'types/behaviors/moderation_cause_source_user.dart';
 import 'types/behaviors/moderation_opts.dart';
-import 'types/const/labels.dart';
+import 'types/const/labels.dart' as c;
 import 'types/interpreted_label_value_definition.dart';
 import 'types/labels.dart';
 import 'types/moderation_behavior.dart';
@@ -160,13 +163,13 @@ final class ModerationDecision {
     required ModerationOpts opts,
   }) {
     InterpretedLabelValueDefinition? labelDef;
-    if (customLabelValueRegex.hasMatch(label.value)) {
+    if (customLabelValueRegex.hasMatch(label.val)) {
       labelDef = opts.labelDefs[label.src]
-              ?.where((e) => e.identifier == label.value)
+              ?.where((e) => e.identifier == label.val)
               .firstOrNull ??
-          kLabels[KnownLabelValue.valueOf(label.value)];
+          c.kLabels[c.KnownLabelValue.valueOf(label.val)];
     } else {
-      labelDef = kLabels[KnownLabelValue.valueOf(label.value)];
+      labelDef = c.kLabels[c.KnownLabelValue.valueOf(label.val)];
     }
 
     if (labelDef == null) {

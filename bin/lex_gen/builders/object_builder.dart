@@ -23,7 +23,7 @@ final class LexGenObjectBuilder {
   List<LexGenObject>? build() {
     if (isDeprecated(ctx.def?.toJson()['description'])) return null;
 
-    final properties = _getProperties();
+    final properties = _getProperties(ctx.def!);
     if (properties == null) return null;
 
     return properties.entries.expand((e) {
@@ -85,8 +85,10 @@ final class LexGenObjectBuilder {
     }).toList();
   }
 
-  Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties() {
-    final properties = ctx.def!.whenOrNull(
+  Map<ObjectType, List<LexGenObjectProperty>?>? _getProperties(
+    final LexUserType def,
+  ) {
+    final properties = def.whenOrNull(
       object: (data) => {
         ObjectType.object: _getObjectProperties(data, ObjectType.object),
       },

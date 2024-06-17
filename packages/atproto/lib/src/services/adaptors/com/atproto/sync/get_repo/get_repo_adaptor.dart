@@ -23,7 +23,7 @@ Map<String, dynamic> getRepoAdaptor(final dynamic data) {
     if (record.containsKey(r'$type')) {
       repo.add({
         'cid': key.toString(),
-        'commit': convertCidLinks(record),
+        'value': convertCidLinks(record),
       });
     }
   });

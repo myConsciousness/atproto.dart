@@ -32,7 +32,8 @@ mixin _$RecordViewRecord {
   ProfileViewBasic get author => throw _privateConstructorUsedError;
 
   /// The record data itself.
-  Map<String, dynamic> get value => throw _privateConstructorUsedError;
+  @PostRecordConverter()
+  PostRecord get value => throw _privateConstructorUsedError;
   @LabelConverter()
   List<Label>? get labels => throw _privateConstructorUsedError;
   int get replyCount => throw _privateConstructorUsedError;
@@ -63,7 +64,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       @AtUriConverter() AtUri uri,
       String cid,
       @ProfileViewBasicConverter() ProfileViewBasic author,
-      Map<String, dynamic> value,
+      @PostRecordConverter() PostRecord value,
       @LabelConverter() List<Label>? labels,
       int replyCount,
       int repostCount,
@@ -73,6 +74,7 @@ abstract class $RecordViewRecordCopyWith<$Res> {
       @JsonKey(name: r'$unknown') Map<String, dynamic> $unknown});
 
   $ProfileViewBasicCopyWith<$Res> get author;
+  $PostRecordCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -121,7 +123,7 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
       value: null == value
           ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as PostRecord,
       labels: freezed == labels
           ? _value.labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -160,6 +162,14 @@ class _$RecordViewRecordCopyWithImpl<$Res, $Val extends RecordViewRecord>
       return _then(_value.copyWith(author: value) as $Val);
     });
   }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PostRecordCopyWith<$Res> get value {
+    return $PostRecordCopyWith<$Res>(_value.value, (value) {
+      return _then(_value.copyWith(value: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -175,7 +185,7 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
       @AtUriConverter() AtUri uri,
       String cid,
       @ProfileViewBasicConverter() ProfileViewBasic author,
-      Map<String, dynamic> value,
+      @PostRecordConverter() PostRecord value,
       @LabelConverter() List<Label>? labels,
       int replyCount,
       int repostCount,
@@ -186,6 +196,8 @@ abstract class _$$RecordViewRecordImplCopyWith<$Res>
 
   @override
   $ProfileViewBasicCopyWith<$Res> get author;
+  @override
+  $PostRecordCopyWith<$Res> get value;
 }
 
 /// @nodoc
@@ -230,9 +242,9 @@ class __$$RecordViewRecordImplCopyWithImpl<$Res>
           : author // ignore: cast_nullable_to_non_nullable
               as ProfileViewBasic,
       value: null == value
-          ? _value._value
+          ? _value.value
           : value // ignore: cast_nullable_to_non_nullable
-              as Map<String, dynamic>,
+              as PostRecord,
       labels: freezed == labels
           ? _value._labels
           : labels // ignore: cast_nullable_to_non_nullable
@@ -274,7 +286,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       @AtUriConverter() required this.uri,
       required this.cid,
       @ProfileViewBasicConverter() required this.author,
-      required final Map<String, dynamic> value,
+      @PostRecordConverter() required this.value,
       @LabelConverter() final List<Label>? labels,
       this.replyCount = 0,
       this.repostCount = 0,
@@ -283,8 +295,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       required this.indexedAt,
       @JsonKey(name: r'$unknown')
       final Map<String, dynamic> $unknown = const {}})
-      : _value = value,
-        _labels = labels,
+      : _labels = labels,
         _embeds = embeds,
         _$unknown = $unknown;
 
@@ -307,16 +318,9 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
   final ProfileViewBasic author;
 
   /// The record data itself.
-  final Map<String, dynamic> _value;
-
-  /// The record data itself.
   @override
-  Map<String, dynamic> get value {
-    if (_value is EqualUnmodifiableMapView) return _value;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableMapView(_value);
-  }
-
+  @PostRecordConverter()
+  final PostRecord value;
   final List<Label>? _labels;
   @override
   @LabelConverter()
@@ -377,7 +381,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
             (identical(other.uri, uri) || other.uri == uri) &&
             (identical(other.cid, cid) || other.cid == cid) &&
             (identical(other.author, author) || other.author == author) &&
-            const DeepCollectionEquality().equals(other._value, _value) &&
+            (identical(other.value, value) || other.value == value) &&
             const DeepCollectionEquality().equals(other._labels, _labels) &&
             (identical(other.replyCount, replyCount) ||
                 other.replyCount == replyCount) &&
@@ -399,7 +403,7 @@ class _$RecordViewRecordImpl implements _RecordViewRecord {
       uri,
       cid,
       author,
-      const DeepCollectionEquality().hash(_value),
+      value,
       const DeepCollectionEquality().hash(_labels),
       replyCount,
       repostCount,
@@ -429,7 +433,7 @@ abstract class _RecordViewRecord implements RecordViewRecord {
           @AtUriConverter() required final AtUri uri,
           required final String cid,
           @ProfileViewBasicConverter() required final ProfileViewBasic author,
-          required final Map<String, dynamic> value,
+          @PostRecordConverter() required final PostRecord value,
           @LabelConverter() final List<Label>? labels,
           final int replyCount,
           final int repostCount,
@@ -460,7 +464,8 @@ abstract class _RecordViewRecord implements RecordViewRecord {
   @override
 
   /// The record data itself.
-  Map<String, dynamic> get value;
+  @PostRecordConverter()
+  PostRecord get value;
   @override
   @LabelConverter()
   List<Label>? get labels;
