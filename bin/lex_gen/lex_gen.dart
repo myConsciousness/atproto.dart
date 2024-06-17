@@ -54,7 +54,7 @@ const _kBsky = Package(
     ),
   ],
   adaptors: [
-    ObjectAdaptor(subject: NSID('app.bsky.feed.post')),
+    ObjectAdaptor(subject: NSID('app.bsky.feed.post#main')),
   ],
 );
 

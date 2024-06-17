@@ -26,13 +26,6 @@ final class LexGenObjectBuilder {
     final properties = _getProperties();
     if (properties == null) return null;
 
-    final procedureOutput = ctx.def?.whenOrNull(
-      xrpcProcedure: (data) => data.output?.schema
-          ?.whenOrNull(object: (data) => data)
-          ?.properties
-          ?.map((key, value) => MapEntry(key, value.toJson())),
-    );
-
     return properties.entries.expand((e) {
       if (e.value == null) return const <LexGenObject>[];
 
@@ -55,6 +48,7 @@ final class LexGenObjectBuilder {
 
         refObject = LexGenObject(
           type: ObjectType.object,
+          ctx: ctx,
           description: ctx.description,
           referencePath: ctx
               .copyWith(
@@ -77,10 +71,7 @@ final class LexGenObjectBuilder {
         if (refObject != null && arrayVariant) refObject,
         LexGenObject(
           type: e.key,
-          isStrongRef:
-              e.key == ObjectType.output && isStrongRef(procedureOutput),
-          isSubscriptionRelated:
-              ctx.subscriptionUnionRefs.contains(NSID(ctx.namespace ?? '')),
+          ctx: ctx,
           description: ctx.description,
           referencePath: ctx.referencePath,
           namespace: ctx.namespace,

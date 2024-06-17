@@ -5,20 +5,22 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 // 🌎 Project imports:
+import 'package:lexicon/lexicon.dart';
+
 import '../../utils.dart';
 import '../rules/object_type.dart';
-import '../rules/utils.dart';
+import '../rules/utils.dart' as utils;
 import 'data_type.dart';
 import 'known_values.dart';
 import 'ref.dart';
 import 'union.dart';
+import 'context.dart';
 
 final class LexGenObject {
   const LexGenObject({
     required this.type,
-    this.isStrongRef = false,
     this.ignore = false,
-    this.isSubscriptionRelated = false,
+    required this.ctx,
     this.description,
     required this.referencePath,
     this.namespace,
@@ -29,9 +31,9 @@ final class LexGenObject {
   });
 
   final ObjectType type;
-  final bool isStrongRef;
   final bool ignore;
-  final bool isSubscriptionRelated;
+
+  final ObjectContext ctx;
 
   final String? description;
   final String referencePath;
@@ -63,9 +65,26 @@ final class LexGenObject {
     return properties.first.refVariant;
   }
 
+  bool get isStrongRef {
+    final procedureOutput = ctx.def?.whenOrNull(
+      xrpcProcedure: (data) => data.output?.schema
+          ?.whenOrNull(object: (data) => data)
+          ?.properties
+          ?.map((key, value) => MapEntry(key, value.toJson())),
+    );
+
+    return type == ObjectType.output && utils.isStrongRef(procedureOutput);
+  }
+
+  bool get isSubscriptionRelated =>
+      ctx.subscriptionUnionRefs.contains(NSID(ctx.namespace ?? ''));
+
   @override
   String toString() {
     assert(properties.isNotEmpty);
+
+    final adaptor =
+        ctx.package.getObjectAdaptor(NSID('${ctx.docId}#${ctx.defName}'));
 
     final importPaths = <String?>{};
     for (final property in properties) {
@@ -80,6 +99,13 @@ final class LexGenObject {
       }
     }
 
+    if (adaptor != null) {
+      final path =
+          ctx.docId.toString().split('.').map(utils.toLowerCamelCase).join('/');
+
+      importPaths.add('../../../../../adaptors/$path/${fileName}_adaptor.dart');
+    }
+
     final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
@@ -91,7 +117,7 @@ final class LexGenObject {
     }
     for (final importPath in importPaths
         .where((e) => e != null)
-        .map((e) => e!.split('/').map(toLowerCamelCase).join('/'))
+        .map((e) => e!.split('/').map(utils.toLowerCamelCase).join('/'))
         .toList()) {
       buffer
         ..writeln()
@@ -114,12 +140,12 @@ final class LexGenObject {
     buffer.writeln('  @JsonSerializable(includeIfNull: false)');
     buffer.writeln('  const factory $name({');
     if (namespace != null) {
-      final id = toFirstLower(namespace!
+      final id = utils.toFirstLower(namespace!
           .split('.')
-          .map(toFirstUpper)
+          .map(utils.toFirstUpper)
           .join()
           .split('#')
-          .map(toFirstUpper)
+          .map(utils.toFirstUpper)
           .join());
 
       buffer.writeln('    /// The unique namespace for this lex object.');
@@ -137,7 +163,13 @@ final class LexGenObject {
     buffer.writeln('  }) = _$name;');
     buffer.writeln();
     buffer.writeln('  factory $name.fromJson(Map<String, dynamic> json) =>');
-    buffer.writeln('      _\$${name}FromJson(json);');
+    if (adaptor != null) {
+      buffer.write('      _\$${name}FromJson(');
+      buffer.write('${utils.toFirstLower(name)}Adaptor(json)');
+      buffer.writeln(');');
+    } else {
+      buffer.writeln('      _\$${name}FromJson(json);');
+    }
     buffer.writeln('}');
 
     if (namespace != null) {

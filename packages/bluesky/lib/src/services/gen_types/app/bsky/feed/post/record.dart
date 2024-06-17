@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../adaptors/app/bsky/feed/post/record_adaptor.dart';
 import '../../../../app/bsky/feed/post/reply_ref.dart';
 import '../../../../app/bsky/feed/post/union_post_embed.dart';
 import '../../../../app/bsky/feed/post/union_post_label.dart';
@@ -52,7 +53,7 @@ class PostRecord with _$PostRecord {
   }) = _PostRecord;
 
   factory PostRecord.fromJson(Map<String, dynamic> json) =>
-      _$PostRecordFromJson(json);
+      _$PostRecordFromJson(postRecordAdaptor(json));
 }
 
 extension $PostRecordExtension on PostRecord {
