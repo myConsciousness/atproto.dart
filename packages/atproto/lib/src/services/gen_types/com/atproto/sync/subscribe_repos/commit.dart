@@ -72,8 +72,7 @@ bool isCommit(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == '#commit' ||
-      object[r'$type'] == 'com.atproto.sync.subscribeRepos#commit';
+  return object['t'] == '#commit';
 }
 
 extension $CommitExtension on Commit {

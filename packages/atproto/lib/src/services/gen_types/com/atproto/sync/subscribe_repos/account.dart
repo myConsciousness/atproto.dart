@@ -56,8 +56,7 @@ bool isAccount(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == '#account' ||
-      object[r'$type'] == 'com.atproto.sync.subscribeRepos#account';
+  return object['t'] == '#account';
 }
 
 extension $AccountExtension on Account {

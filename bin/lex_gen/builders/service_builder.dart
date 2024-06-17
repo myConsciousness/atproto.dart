@@ -78,26 +78,25 @@ final class ServiceBuilder {
 
     final args = <LexServiceEndpointArg>[];
     for (final export in exports) {
-      if (export.object?.type == ObjectType.params ||
-          export.object?.type == ObjectType.input ||
-          export.object?.type == ObjectType.record) {
-        final properties =
-            export.object?.properties ?? const <LexGenObjectProperty>[];
+      if (export.object == null) continue;
+      if (!export.object!.type.isArgSubject) continue;
 
-        for (final property in properties) {
-          args.add(LexServiceEndpointArg(
-            objectType: export.object!.type,
-            isBlob: export.object?.isBlob ?? false,
-            isIpldCar: export.object?.isIpldCar ?? false,
-            isRecord: endpoint.def is ULexUserTypeRecord,
-            isRequired: property.isRequired,
-            type: property.type,
-            name: property.name,
-            array: property.array,
-            knownValues: property.knownValues,
-            union: property.union,
-          ));
-        }
+      final properties =
+          export.object?.properties ?? const <LexGenObjectProperty>[];
+
+      for (final property in properties) {
+        args.add(LexServiceEndpointArg(
+          objectType: export.object!.type,
+          isBlob: export.object?.isBlob ?? false,
+          isIpldCar: export.object?.isIpldCar ?? false,
+          isRecord: endpoint.def is ULexUserTypeRecord,
+          isRequired: property.isRequired,
+          type: property.type,
+          name: property.name,
+          array: property.array,
+          knownValues: property.knownValues,
+          union: property.union,
+        ));
       }
     }
 

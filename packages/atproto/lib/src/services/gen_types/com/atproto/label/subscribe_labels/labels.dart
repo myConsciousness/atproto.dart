@@ -46,8 +46,7 @@ bool isLabels(final Map<String, dynamic>? object) {
   if (object == null) return false;
   if (object[r'$type'] == null) return false;
 
-  return object[r'$type'] == '#labels' ||
-      object[r'$type'] == 'com.atproto.label.subscribeLabels#labels';
+  return object['t'] == '#labels';
 }
 
 extension $LabelsExtension on Labels {

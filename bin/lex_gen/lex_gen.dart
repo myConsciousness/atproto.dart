@@ -15,8 +15,25 @@ import 'lex_types_gen.dart';
 import 'rules/utils.dart';
 
 const _kPackages = [
-  Package(name: 'atproto', domains: ['com.atproto'], isBase: true),
-  Package(name: 'bluesky', domains: ['app.bsky', 'chat.bsky'])
+  Package(
+    name: 'atproto',
+    domains: ['com.atproto'],
+    isBase: true,
+    adaptors: [
+      ObjectAdaptor(subject: NSID('com.atproto.sync.getRecord')),
+      ObjectAdaptor(subject: NSID('com.atproto.sync.getBlocks')),
+      ObjectAdaptor(subject: NSID('com.atproto.sync.getRepo')),
+      ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
+      ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
+    ],
+  ),
+  Package(
+    name: 'bluesky',
+    domains: ['app.bsky', 'chat.bsky'],
+    adaptors: [
+      ObjectAdaptor(subject: NSID('app.bsky.feed.post')),
+    ],
+  ),
 ];
 
 void main(List<String> args) => const LexGen(packages: _kPackages).execute();
@@ -26,11 +43,14 @@ final class Package {
     required this.name,
     required this.domains,
     this.isBase = false,
+    this.adaptors,
   });
 
   final String name;
   final List<String> domains;
   final bool isBase;
+
+  final List<ObjectAdaptor>? adaptors;
 
   bool isSupportedDoc(final LexiconDoc doc) {
     for (final domain in domains) {
@@ -84,6 +104,18 @@ final class Package {
 
     return refs;
   }
+
+  ObjectAdaptor? getObjectAdaptor(final NSID subject) {
+    if (adaptors == null) return null;
+
+    for (final adaptor in adaptors!) {
+      if (adaptor.subject == subject) {
+        return adaptor;
+      }
+    }
+
+    return null;
+  }
 }
 
 final class LexGenContext {
@@ -125,6 +157,18 @@ final class LexGenContext {
 
     return false;
   }
+}
+
+final class ObjectAdaptor {
+  const ObjectAdaptor({
+    required this.subject,
+    this.resourcePath,
+    this.functionName,
+  });
+
+  final NSID subject;
+  final String? resourcePath;
+  final String? functionName;
 }
 
 final class LexGen {

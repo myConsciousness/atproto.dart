@@ -153,8 +153,7 @@ final class LexGenObject {
         if (isSubscriptionRelated) {
           final name = namespace!.split('#').last;
 
-          buffer.writeln("  return object[r'\$type'] == '#$name'"
-              " || object[r'\$type'] == '$namespace';");
+          buffer.writeln("  return object['t'] == '#$name';");
         } else {
           buffer.writeln("  return object[r'\$type'] == '$namespace';");
         }
