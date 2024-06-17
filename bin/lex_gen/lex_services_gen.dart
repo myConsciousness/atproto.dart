@@ -3,7 +3,6 @@
 // modification, are permitted provided the conditions.
 
 // 📦 Package imports:
-import 'package:lexicon/docs.dart';
 import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
@@ -21,18 +20,20 @@ final class LexServicesGen {
   final Map<NSID, Set<Export>> types;
 
   void execute() {
-    for (final entry in lexiconsPerService.entries) {
-      final service = ServiceBuilder(ServiceContext(
-        name: entry.key,
-        endpoints: entry.value,
-        types: types,
-      )).build();
+    for (final package in _ctx.packages) {
+      for (final entry in _getLexiconsPerService(package).entries) {
+        final service = ServiceBuilder(ServiceContext(
+          name: entry.key,
+          endpoints: entry.value,
+          types: types,
+        )).build();
 
-      if (service != null) {
-        writeFileAsStringSync(
-          _getOutputFilePath(entry.key, service.filePath),
-          service.toString(),
-        );
+        if (service != null) {
+          writeFileAsStringSync(
+            _getOutputFilePath(entry.key, service.filePath),
+            service.toString(),
+          );
+        }
       }
     }
   }
@@ -47,13 +48,12 @@ final class LexServicesGen {
     return 'packages/$packageName/lib/$kTypesPath/$path';
   }
 
-  Map<String, List<ServiceEndpointContext>> get lexiconsPerService {
+  Map<String, List<ServiceEndpointContext>> _getLexiconsPerService(
+    final Package package,
+  ) {
     final lexiconsPerService = <String, List<ServiceEndpointContext>>{};
 
-    for (final lexicon in lexicons) {
-      final doc = LexiconDoc.fromJson(lexicon);
-      if (!_ctx.isSupportedDoc(doc)) continue;
-
+    for (final doc in package.lexiconDocs) {
       final method = doc.methodOrNull;
       if (method == null) continue;
 

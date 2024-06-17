@@ -14,27 +14,43 @@ import 'lex_services_gen.dart';
 import 'lex_types_gen.dart';
 import 'rules/utils.dart';
 
-const _kPackages = [
-  Package(
-    name: 'atproto',
-    domains: ['com.atproto'],
-    isBase: true,
-    adaptors: [
-      ObjectAdaptor(subject: NSID('com.atproto.sync.getRecord')),
-      ObjectAdaptor(subject: NSID('com.atproto.sync.getBlocks')),
-      ObjectAdaptor(subject: NSID('com.atproto.sync.getRepo')),
-      ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
-      ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
-    ],
-  ),
-  Package(
-    name: 'bluesky',
-    domains: ['app.bsky', 'chat.bsky'],
-    adaptors: [
-      ObjectAdaptor(subject: NSID('app.bsky.feed.post')),
-    ],
-  ),
-];
+const _kAtproto = Package(
+  name: 'atproto',
+  domains: ['com.atproto'],
+  isBase: true,
+  adaptors: [
+    ObjectAdaptor(subject: NSID('com.atproto.sync.getRecord')),
+    ObjectAdaptor(subject: NSID('com.atproto.sync.getBlocks')),
+    ObjectAdaptor(subject: NSID('com.atproto.sync.getRepo')),
+    ObjectAdaptor(subject: NSID('com.atproto.sync.subscribeRepos')),
+    ObjectAdaptor(subject: NSID('com.atproto.label.subscribeLabels')),
+  ],
+);
+
+const _kBsky = Package(
+  name: 'bluesky',
+  domains: ['app.bsky', 'chat.bsky'],
+  recordConfigs: [
+    RecordConfig(
+      subject: NSID('app.bsky.actor.profile'),
+      disableInBulk: true,
+    ),
+    RecordConfig(
+      subject: NSID('app.bsky.feed.threadgate'),
+      disableInBulk: true,
+      rkey: 'post',
+    ),
+    RecordConfig(
+      subject: NSID('chat.bsky.actor.declaration'),
+      disableInBulk: true,
+    ),
+  ],
+  adaptors: [
+    ObjectAdaptor(subject: NSID('app.bsky.feed.post')),
+  ],
+);
+
+const _kPackages = [_kAtproto, _kBsky];
 
 void main(List<String> args) => const LexGen(packages: _kPackages).execute();
 
@@ -43,6 +59,7 @@ final class Package {
     required this.name,
     required this.domains,
     this.isBase = false,
+    this.recordConfigs,
     this.adaptors,
   });
 
@@ -50,6 +67,7 @@ final class Package {
   final List<String> domains;
   final bool isBase;
 
+  final List<RecordConfig>? recordConfigs;
   final List<ObjectAdaptor>? adaptors;
 
   bool isSupportedDoc(final LexiconDoc doc) {
@@ -105,6 +123,18 @@ final class Package {
     return refs;
   }
 
+  RecordConfig? getRecordConfig(final NSID subject) {
+    if (recordConfigs == null) return null;
+
+    for (final config in recordConfigs!) {
+      if (config.subject == subject) {
+        return config;
+      }
+    }
+
+    return null;
+  }
+
   ObjectAdaptor? getObjectAdaptor(final NSID subject) {
     if (adaptors == null) return null;
 
@@ -116,6 +146,18 @@ final class Package {
 
     return null;
   }
+}
+
+final class RecordConfig {
+  const RecordConfig({
+    required this.subject,
+    this.disableInBulk = false,
+    this.rkey,
+  });
+
+  final NSID subject;
+  final bool disableInBulk;
+  final String? rkey;
 }
 
 final class LexGenContext {
