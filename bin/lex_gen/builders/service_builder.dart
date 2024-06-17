@@ -41,7 +41,7 @@ final class ServiceBuilder {
     final path = nameSegments.take(2).join('/');
 
     return LexService(
-      namespace: ctx.name,
+      ctx: ctx,
       name: '${toFirstUpper(serviceName)}Service',
       endpoints: endpoints,
       fileName: fileName,

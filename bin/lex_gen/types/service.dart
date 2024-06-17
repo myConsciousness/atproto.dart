@@ -11,6 +11,7 @@ import '../../utils.dart';
 import '../rules/object_type.dart';
 import '../rules/utils.dart';
 import 'data_type.dart';
+import 'service_context.dart';
 import 'known_values.dart';
 import 'union.dart';
 
@@ -23,33 +24,38 @@ enum LexServiceEndpointMethod {
 
 final class LexService {
   const LexService({
-    required this.namespace,
+    required this.ctx,
     required this.name,
     required this.endpoints,
     required this.fileName,
     required this.filePath,
   });
 
-  final String namespace;
+  final ServiceContext ctx;
+
   final String name;
   final List<LexServiceEndpoint> endpoints;
 
   final String fileName;
   final String filePath;
 
+  String get namespace => ctx.name;
+
   @override
   String toString() {
     final buffer = StringBuffer();
 
-    final inBulkRecords = endpoints.where(
-      (e) =>
-          e.isRecord &&
-          e.recordKey != 'literal:self' &&
-          !('${e.serviceName}.${e.name}' == 'app.bsky.feed.threadgate' ||
-              '${e.serviceName}.${e.name}' == 'app.bsky.feed.generator'),
-    );
-    final recordPaths = inBulkRecords.map((e) =>
-        "../../${'${e.serviceName}.${e.name}'.replaceAll('.', '/')}/record.dart");
+    final inBulkRecords = endpoints.where((e) {
+      if (!e.isRecord) return false;
+
+      final config = ctx.package.getRecordConfig(e.docId);
+      if (config == null) return true;
+
+      return !config.disableInBulk;
+    });
+
+    final recordPaths = inBulkRecords.map(
+        (e) => "../../${e.docId.toString().replaceAll('.', '/')}/record.dart");
 
     final importPaths = [
       'package:atproto_core/atproto_core.dart',
@@ -91,7 +97,7 @@ final class LexService {
     }
     buffer.writeln();
     for (final endpoint in endpoints) {
-      buffer.writeln(endpoint.toString());
+      buffer.writeln(endpoint.build(ctx));
       buffer.writeln();
     }
     buffer.writeln('}');
@@ -136,12 +142,13 @@ final class LexServiceEndpoint {
   bool get isRecord => def is ULexUserTypeRecord;
   String? get recordKey => isRecord ? (def.data as LexRecord).key : null;
 
+  NSID get docId => NSID('$serviceName.$name');
+
   String get namespace => toFirstLower(
-        '$serviceName.$name'.split('.').map(toFirstUpper).join(),
+        docId.toString().split('.').map(toFirstUpper).join(),
       );
 
-  @override
-  String toString() {
+  String build(final ServiceContext ctx) {
     final buffer = StringBuffer();
 
     if (description != null) {
@@ -159,7 +166,7 @@ final class LexServiceEndpoint {
     } else if (method == LexServiceEndpointMethod.post) {
       buffer.write(_getPostEndpoint());
     } else if (method == LexServiceEndpointMethod.record) {
-      buffer.write(_getRecordEndpoint());
+      buffer.write(_getRecordEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.stream) {
       buffer.write(_getSubscriptionEndpoint());
     }
@@ -255,8 +262,10 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getRecordEndpoint() {
+  String _getRecordEndpoint(final ServiceContext ctx) {
     final buffer = StringBuffer();
+
+    final config = ctx.package.getRecordConfig(docId);
 
     buffer.writeln('  Future<XRPCResponse<${type.name}>> $name({');
     for (final arg in args) {
@@ -269,8 +278,8 @@ final class LexServiceEndpoint {
     buffer.writeln('    await _ctx.atproto.repo.createRecord(');
     buffer.writeln('        repo: _ctx.repo,');
     buffer.writeln('        collection: ns.$namespace,');
-    if ('$serviceName.$name' == 'app.bsky.feed.threadgate') {
-      buffer.writeln('        rkey: post.rkey,');
+    if (config != null && config.rkey != null) {
+      buffer.writeln('        rkey: ${config.rkey}.rkey,');
     }
     buffer.writeln('        record: {');
     buffer.writeln("          r'\$type': '$serviceName.$name',");

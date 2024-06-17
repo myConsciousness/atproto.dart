@@ -41,6 +41,14 @@ const _kBsky = Package(
       rkey: 'post',
     ),
     RecordConfig(
+      subject: NSID('app.bsky.feed.generator'),
+      disableInBulk: true,
+    ),
+    RecordConfig(
+      subject: NSID('app.bsky.labeler.service'),
+      disableInBulk: true,
+    ),
+    RecordConfig(
       subject: NSID('chat.bsky.actor.declaration'),
       disableInBulk: true,
     ),
@@ -84,14 +92,14 @@ final class Package {
   Set<LexiconDoc> get lexiconDocs =>
       lexicons.map(LexiconDoc.fromJson).where(isSupportedDoc).toSet();
 
-  Set<String> get mainDocIds {
-    final docIds = <String>{};
+  Set<NSID> get mainDocIds {
+    final docIds = <NSID>{};
 
     for (final doc in lexiconDocs) {
       for (final entry in doc.defs.entries) {
         if (entry.key == 'main') {
           if (entry.value is ULexUserTypeObject) {
-            docIds.add(doc.id.toString());
+            docIds.add(doc.id);
           }
         }
       }
@@ -100,8 +108,8 @@ final class Package {
     return docIds;
   }
 
-  Set<String> get subscriptionUnionRefs {
-    final refs = <String>{};
+  Set<NSID> get subscriptionUnionRefs {
+    final refs = <NSID>{};
 
     for (final doc in lexiconDocs) {
       for (final entry in doc.defs.entries) {
@@ -114,7 +122,7 @@ final class Package {
               const [];
 
           for (final ref in unionRefs) {
-            refs.add('${doc.id}$ref');
+            refs.add(NSID('${doc.id}$ref'));
           }
         }
       }

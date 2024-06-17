@@ -33,7 +33,7 @@ final class LexUnionBuilder {
   final String? propertyName;
   final List<String> refs;
 
-  final Set<String> mainDocIds;
+  final Set<NSID> mainDocIds;
   final bool useOnlyDefNameAsNamespace;
 
   LexUnion? build() {

@@ -24,8 +24,8 @@ final class ObjectContext {
   final String defName;
   final LexUserType? def;
 
-  final Set<String> mainDocIds;
-  final Set<String> subscriptionUnionRefs;
+  final Set<NSID> mainDocIds;
+  final Set<NSID> subscriptionUnionRefs;
 
   String? get namespace {
     if (def is! ULexUserTypeObject && def is! ULexUserTypeArray) {
@@ -54,8 +54,8 @@ final class ObjectContext {
     NSID? docId,
     String? defName,
     LexUserType? def,
-    Set<String>? mainDocIds,
-    Set<String>? subscriptionUnionRefs,
+    Set<NSID>? mainDocIds,
+    Set<NSID>? subscriptionUnionRefs,
   }) =>
       ObjectContext(
         package: package ?? this.package,

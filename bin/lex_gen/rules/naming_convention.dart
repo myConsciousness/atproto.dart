@@ -118,7 +118,7 @@ final class LexNamingConvention {
       return context.docId.toString();
     }
 
-    if (context.mainDocIds.contains(context.docId.toString())) {
+    if (context.mainDocIds.contains(context.docId)) {
       final defName = context.docId.toString().split('.').last +
           context.defName.substring(0, 1).toUpperCase() +
           context.defName.substring(1);

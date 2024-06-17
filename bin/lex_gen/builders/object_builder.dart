@@ -80,7 +80,7 @@ final class LexGenObjectBuilder {
           isStrongRef:
               e.key == ObjectType.output && isStrongRef(procedureOutput),
           isSubscriptionRelated:
-              ctx.subscriptionUnionRefs.contains(ctx.namespace),
+              ctx.subscriptionUnionRefs.contains(NSID(ctx.namespace ?? '')),
           description: ctx.description,
           referencePath: ctx.referencePath,
           namespace: ctx.namespace,
@@ -195,7 +195,7 @@ final class LexGenObjectBuilder {
         final union = LexUnionBuilder(
           package: ctx.package,
           docId: $ref.docId,
-          defName: ctx.mainDocIds.contains($ref.docId.toString())
+          defName: ctx.mainDocIds.contains($ref.docId)
               ? ctx.docId.toString().split('.').last
               : null,
           propertyName: $ref.defName,
@@ -293,10 +293,10 @@ final class LexGenObjectBuilder {
     final union = LexUnionBuilder(
       package: ctx.package,
       docId: ctx.docId,
-      defName: ctx.mainDocIds.contains(ctx.docId.toString()) ||
-              objectType == ObjectType.record
-          ? ctx.docId.toString().split('.').last
-          : null,
+      defName:
+          ctx.mainDocIds.contains(ctx.docId) || objectType == ObjectType.record
+              ? ctx.docId.toString().split('.').last
+              : null,
       propertyName: name,
       refs: property['refs'] ?? property['items']?['refs'] ?? const [],
       mainDocIds: ctx.mainDocIds,
@@ -327,7 +327,7 @@ final class LexGenObjectBuilder {
       array: property['items'] != null,
       knownValues: LexKnownValuesBuilder(
         docId: ctx.docId,
-        defName: ctx.mainDocIds.contains(ctx.docId.toString()) ||
+        defName: ctx.mainDocIds.contains(ctx.docId) ||
                 objectType == ObjectType.record
             ? ctx.docId.toString().split('.').last
             : null,
