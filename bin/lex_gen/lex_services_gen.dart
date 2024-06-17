@@ -23,6 +23,7 @@ final class LexServicesGen {
     for (final package in _ctx.packages) {
       for (final entry in _getLexiconsPerService(package).entries) {
         final service = ServiceBuilder(ServiceContext(
+          package: package,
           name: entry.key,
           endpoints: entry.value,
           types: types,

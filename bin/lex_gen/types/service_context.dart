@@ -7,13 +7,17 @@ import 'package:lexicon/lexicon.dart';
 
 // 🌎 Project imports:
 import 'export.dart';
+import '../lex_gen.dart';
 
 final class ServiceContext {
   const ServiceContext({
+    required this.package,
     required this.name,
     required this.endpoints,
     required this.types,
   });
+
+  final Package package;
 
   final String name;
   final List<ServiceEndpointContext> endpoints;

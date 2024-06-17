@@ -26,22 +26,22 @@ const _kStrongRefDataType = DataType(
 );
 
 final class ServiceBuilder {
-  const ServiceBuilder(this.context);
+  const ServiceBuilder(this.ctx);
 
-  final ServiceContext context;
+  final ServiceContext ctx;
 
   LexService? build() {
     final endpoints = _getEndpoints();
     if (endpoints.isEmpty) return null;
 
-    final nameSegments = context.name.split('.');
+    final nameSegments = ctx.name.split('.');
 
     final serviceName = nameSegments.last;
     final fileName = '${serviceName.toLowerCase()}_service';
     final path = nameSegments.take(2).join('/');
 
     return LexService(
-      namespace: context.name,
+      namespace: ctx.name,
       name: '${toFirstUpper(serviceName)}Service',
       endpoints: endpoints,
       fileName: fileName,
@@ -52,7 +52,7 @@ final class ServiceBuilder {
   List<LexServiceEndpoint> _getEndpoints() {
     final endpoints = <LexServiceEndpoint>[];
 
-    for (final endpoint in context.endpoints) {
+    for (final endpoint in ctx.endpoints) {
       endpoints.add(
         LexServiceEndpoint(
           def: endpoint.def,
@@ -104,7 +104,7 @@ final class ServiceBuilder {
   }
 
   List<Export> _getExports(final ServiceEndpointContext endpoint) {
-    for (final type in context.types.entries) {
+    for (final type in ctx.types.entries) {
       if (type.key == endpoint.docId) {
         return type.value.toList();
       }
