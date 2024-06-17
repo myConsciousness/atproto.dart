@@ -88,7 +88,7 @@ void main() {
   );
 
   testRepo<EmptyData>(
-    (m, s) => s.createRecordInBulk(actions: [
+    (m, s) => s.createRecordInBulk(writes: [
       Create(
         collection: m.collection,
         value: {},
@@ -99,7 +99,7 @@ void main() {
   );
 
   testRepo<EmptyData>(
-    (m, s) => s.updateRecordInBulk(actions: [
+    (m, s) => s.updateRecordInBulk(writes: [
       Update(
         collection: m.collection,
         rkey: m.uri.rkey,

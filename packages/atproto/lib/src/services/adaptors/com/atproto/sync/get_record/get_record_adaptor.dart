@@ -3,7 +3,7 @@
 // modification, are permitted provided the conditions.
 
 // 🌎 Project imports:
-import 'get_repo_adaptor.dart';
+import '../get_repo/get_repo_adaptor.dart';
 
-Map<String, dynamic> toGetRecord(final dynamic data) =>
-    toGetRepo(data)['repo'].first;
+Map<String, dynamic> getRecordAdaptor(final dynamic data) =>
+    getRepoAdaptor(data)['repo'].first;

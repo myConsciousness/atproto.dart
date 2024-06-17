@@ -6,13 +6,13 @@
 import 'dart:convert';
 
 // 🌎 Project imports:
-import '../../../../../ids.g.dart';
+import '../../../../../../ids.g.dart';
 
-Map<String, dynamic> toPostRecord(final Map<String, dynamic> data) {
-  return _orderFacetsByByteStart(_toPostRecord(data));
+Map<String, dynamic> postRecordAdaptor(final Map<String, dynamic> data) {
+  return _orderFacetsByByteStart(_postRecordAdaptor(data));
 }
 
-Map<String, dynamic> _toPostRecord(Map<String, dynamic> data) {
+Map<String, dynamic> _postRecordAdaptor(Map<String, dynamic> data) {
   if (!data.containsKey('entities')) return data;
   if (!data.containsKey('entities') && !data.containsKey('facets')) {
     return data;

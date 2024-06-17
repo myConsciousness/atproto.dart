@@ -41,44 +41,68 @@ final class LexService {
 
   String get namespace => ctx.name;
 
-  @override
-  String toString() {
-    final buffer = StringBuffer();
-
-    final inBulkRecords = endpoints.where((e) {
+  Set<LexServiceEndpoint> _getInBulkRecords() {
+    return endpoints.where((e) {
       if (!e.isRecord) return false;
 
       final config = ctx.package.getRecordConfig(e.docId);
       if (config == null) return true;
 
       return !config.disableInBulk;
+    }).toSet();
+  }
+
+  Set<LexServiceEndpoint> _getAdaptors() {
+    return endpoints.where((e) {
+      if (!ctx.package.hasObjectAdaptor(e.docId)) return false;
+
+      return e.type.isIpldCar || e.isSubscription;
+    }).toSet();
+  }
+
+  Set<String> _getImportPaths(
+    final Set<LexServiceEndpoint> inBulkRecords,
+    final Set<LexServiceEndpoint> adaptors,
+  ) {
+    final recordPaths = inBulkRecords.map((e) {
+      final path = e.docId.toString().replaceAll('.', '/');
+      return "../../$path/record.dart";
+    });
+    final adaptorPaths = adaptors.map((e) {
+      final path = e.docId.toString().replaceAll('.', '/');
+      final fileName = toLowerCamelCase(e.name);
+
+      return '../../../adaptors/$path/${fileName}_adaptor.dart';
     });
 
-    final recordPaths = inBulkRecords.map(
-        (e) => "../../${e.docId.toString().replaceAll('.', '/')}/record.dart");
-
-    final importPaths = [
+    return {
       'package:atproto_core/atproto_core.dart',
       if (inBulkRecords.isNotEmpty)
         'package:atproto/com_atproto_repo_apply_writes.dart',
       if (recordPaths.isNotEmpty) ...recordPaths,
-      ...endpoints.map((e) => e.type.importPath),
-      ...endpoints.expand((e) => e.args).map((e) => e.type.importPath),
-      ...endpoints.expand((e) => e.args).map((e) => e.knownValues?.filePath),
-      ...endpoints.expand((e) => e.args).map((e) => e.union?.filePath),
-    ]
-        .where((e) => e != null)
-        .map((e) => e!.startsWith('package:') || e.startsWith('dart:')
-            ? e
-            : '../../${e.replaceAll('../', '')}')
-        .toSet();
+      if (adaptorPaths.isNotEmpty) ...adaptorPaths,
+      ...[
+        ...endpoints.map((e) => e.type.importPath),
+        ...endpoints.expand((e) => e.args).map((e) => e.type.importPath),
+        ...endpoints.expand((e) => e.args).map((e) => e.knownValues?.filePath),
+        ...endpoints.expand((e) => e.args).map((e) => e.union?.filePath),
+      ].where((e) => e != null).map((e) =>
+          e!.startsWith('package:') || e.startsWith('dart:')
+              ? e
+              : '../../${e.replaceAll('../', '')}')
+    }.map((e) => e.split('/').map(toLowerCamelCase).join('/')).toSet();
+  }
 
+  @override
+  String toString() {
+    final inBulkRecords = _getInBulkRecords();
+    final adaptors = _getAdaptors();
+
+    final buffer = StringBuffer();
     buffer.writeln(getFileHeader('Lex Generator'));
     buffer.writeln();
     buffer.writeln("import '../../../../nsids.g.dart' as ns;");
-    for (final importPath in importPaths
-        .map((e) => e.split('/').map(toLowerCamelCase).join('/'))
-        .toList()) {
+    for (final importPath in _getImportPaths(inBulkRecords, adaptors)) {
       buffer.writeln("import '$importPath';");
     }
     buffer.writeln("import '../../../service_context.dart';");
@@ -140,6 +164,8 @@ final class LexServiceEndpoint {
   final LexServiceEndpointMethod method;
 
   bool get isRecord => def is ULexUserTypeRecord;
+  bool get isSubscription => def is ULexUserTypeXrpcSubscription;
+
   String? get recordKey => isRecord ? (def.data as LexRecord).key : null;
 
   NSID get docId => NSID('$serviceName.$name');
@@ -162,20 +188,22 @@ final class LexServiceEndpoint {
     }
 
     if (method == LexServiceEndpointMethod.get) {
-      buffer.write(_getGetEndpoint());
+      buffer.write(_getGetEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.post) {
       buffer.write(_getPostEndpoint());
     } else if (method == LexServiceEndpointMethod.record) {
       buffer.write(_getRecordEndpoint(ctx));
     } else if (method == LexServiceEndpointMethod.stream) {
-      buffer.write(_getSubscriptionEndpoint());
+      buffer.write(_getSubscriptionEndpoint(ctx));
     }
 
     return buffer.toString();
   }
 
-  String _getGetEndpoint() {
+  String _getGetEndpoint(final ServiceContext ctx) {
     final buffer = StringBuffer();
+
+    final adaptor = ctx.package.getObjectAdaptor(docId);
 
     if (type.isIpldCar) {
       buffer.writeln('  Future<XRPCResponse<${type.name}>> \$$name({');
@@ -204,6 +232,9 @@ final class LexServiceEndpoint {
         buffer.writeln(Parameter(arg).toString());
       }
       buffer.writeln('    },');
+    }
+    if (adaptor != null) {
+      buffer.writeln('        adaptor: ${name}Adaptor,');
     }
     if (type.converter != null) {
       buffer.writeln('        to: const ${type.converter}().fromJson,');
@@ -326,8 +357,10 @@ final class LexServiceEndpoint {
     return buffer.toString();
   }
 
-  String _getSubscriptionEndpoint() {
+  String _getSubscriptionEndpoint(final ServiceContext ctx) {
     final buffer = StringBuffer();
+
+    final adaptor = ctx.package.getObjectAdaptor(docId);
 
     if (args.isEmpty) {
       buffer.writeln(
@@ -348,6 +381,9 @@ final class LexServiceEndpoint {
         buffer.writeln(Payload(arg).toString());
       }
       buffer.writeln('    },');
+    }
+    if (adaptor != null) {
+      buffer.writeln('        adaptor: ${name}Adaptor,');
     }
     if (type.converter != null) {
       buffer.writeln('        to: const ${type.converter}().fromJson,');

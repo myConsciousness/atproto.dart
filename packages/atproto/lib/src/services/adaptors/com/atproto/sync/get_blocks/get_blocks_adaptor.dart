@@ -5,7 +5,7 @@
 // 📦 Package imports:
 import 'package:atproto_core/atproto_core.dart' as core;
 
-Map<String, dynamic> toGetBlocks(final dynamic data) {
+Map<String, dynamic> getBlocksAdaptor(final dynamic data) {
   final blocks = <Map<String, dynamic>>[];
   core.decodeCar(data).forEach((cid, value) {
     final record = core.cbor.decode(value) as Map;

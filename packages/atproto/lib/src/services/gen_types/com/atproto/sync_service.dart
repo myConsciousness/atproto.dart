@@ -18,6 +18,10 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
+import '../../../adaptors/com/atproto/sync/get_blocks/get_blocks_adaptor.dart';
+import '../../../adaptors/com/atproto/sync/get_record/get_record_adaptor.dart';
+import '../../../adaptors/com/atproto/sync/get_repo/get_repo_adaptor.dart';
+import '../../../adaptors/com/atproto/sync/subscribe_repos/subscribe_repos_adaptor.dart';
 import '../../../service_context.dart';
 import '../../com/atproto/sync/get_latest_commit/output.dart';
 import '../../com/atproto/sync/get_repo_status/output.dart';
@@ -51,6 +55,7 @@ final class SyncService {
           'rkey': rkey,
           if (commit != null) 'commit': commit,
         },
+        adaptor: getRecordAdaptor,
         client: $client,
       );
 
@@ -70,6 +75,7 @@ final class SyncService {
           'did': did,
           'cids': cids,
         },
+        adaptor: getBlocksAdaptor,
         client: $client,
       );
 
@@ -107,6 +113,7 @@ final class SyncService {
           'did': did,
           if (since != null) 'since': since,
         },
+        adaptor: getRepoAdaptor,
         client: $client,
       );
 
@@ -140,6 +147,7 @@ final class SyncService {
         parameters: {
           if (cursor != null) 'cursor': cursor,
         },
+        adaptor: subscribeReposAdaptor,
         to: const USubscribeReposMessageConverter().fromJson,
       );
 

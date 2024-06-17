@@ -9,13 +9,10 @@ import 'dart:convert';
 import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import 'cid_links.dart';
+import '../cid_links.dart';
 
-Map<String, dynamic> toGetRepo(
-  final dynamic data, [
-  core.ProgressStatus? progress,
-]) {
-  final blocks = core.decodeCar(data, progress);
+Map<String, dynamic> getRepoAdaptor(final dynamic data) {
+  final blocks = core.decodeCar(data);
   final repo = <Map<String, dynamic>>[];
 
   blocks.forEach((key, value) {

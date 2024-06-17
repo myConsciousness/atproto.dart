@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 
 // 🌎 Project imports:
 import '../../../../nsids.g.dart' as ns;
+import '../../../adaptors/com/atproto/label/subscribe_labels/subscribe_labels_adaptor.dart';
 import '../../../service_context.dart';
 import '../../com/atproto/label/query_labels/output.dart';
 import '../../com/atproto/label/subscribe_labels/union_subscribe_labels_message.dart';
@@ -36,6 +37,7 @@ final class LabelService {
         parameters: {
           if (cursor != null) 'cursor': cursor,
         },
+        adaptor: subscribeLabelsAdaptor,
         to: const USubscribeLabelsMessageConverter().fromJson,
       );
 

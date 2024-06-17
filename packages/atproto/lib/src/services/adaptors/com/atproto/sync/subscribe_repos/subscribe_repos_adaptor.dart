@@ -11,9 +11,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import '../../../../../gen_types/com/atproto/sync/subscribe_repos/commit.dart';
-import 'cid_links.dart';
+import '../cid_links.dart';
 
-Map<String, dynamic> toSubscribedRepo(final dynamic data) {
+Map<String, dynamic> subscribeReposAdaptor(final dynamic data) {
   final cborData = core.cbor.decode([0x82] + data) as List;
 
   if (!isCommit(cborData.first)) {

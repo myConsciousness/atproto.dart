@@ -154,6 +154,18 @@ final class Package {
 
     return null;
   }
+
+  bool hasObjectAdaptor(final NSID subject) {
+    if (adaptors == null) return false;
+
+    for (final adaptor in adaptors!) {
+      if (adaptor.subject == subject) {
+        return true;
+      }
+    }
+
+    return false;
+  }
 }
 
 final class RecordConfig {
