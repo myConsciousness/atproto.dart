@@ -7,7 +7,7 @@
 /* SNIPPET START */
 
 import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/core.dart';
+import 'package:bluesky/atproto.dart';
 
 Future<void> main(List<String> args) async {
   final session = await createSession(
