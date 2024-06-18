@@ -13,9 +13,11 @@ import 'package:bluesky/app_bsky_embed_images.dart';
 import 'package:bluesky/app_bsky_feed_post.dart';
 import 'package:bluesky/app_bsky_richtext_facet.dart';
 import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
 import 'package:bluesky/cardyb.dart' as cardyb;
 import 'package:bluesky/com_atproto_label_defs.dart';
 import 'package:bluesky/com_atproto_repo_upload_blob.dart';
+import 'package:bluesky/core.dart';
 import 'package:bluesky_text/bluesky_text.dart';
 import 'package:http/http.dart' as http;
 
@@ -95,11 +97,11 @@ Future<UPostEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
   }
 }
 
-Future<bsky.Session> _getSession(
+Future<Session> _getSession(
   final String service,
-  final bsky.RetryConfig retryConfig,
+  final RetryConfig retryConfig,
 ) async {
-  final session = await bsky.createSession(
+  final session = await createSession(
     service: service,
     identifier: core.getInput(
       name: 'identifier',
@@ -121,15 +123,15 @@ Future<bsky.Session> _getSession(
   return session.data;
 }
 
-Future<bsky.Bluesky> get _bluesky async {
+Future<Bluesky> get _bluesky async {
   final service = _service;
   final retryCount = core.getInput(name: 'retry-count');
 
-  final retryConfig = bsky.RetryConfig(
+  final retryConfig = RetryConfig(
     maxAttempts: retryCount.isEmpty ? 5 : int.parse(retryCount),
   );
 
-  return bsky.Bluesky.fromSession(
+  return Bluesky.fromSession(
     await _getSession(service, retryConfig),
     service: service,
     retryConfig: retryConfig,
@@ -142,7 +144,7 @@ String get _service {
     options: core.InputOptions(trimWhitespace: true),
   );
 
-  return service.isEmpty ? 'bsky.social' : service;
+  return service.isEmpty ? 'social' : service;
 }
 
 Future<UploadBlobOutput?> _uploadMedia(final bsky.Bluesky bluesky) async {

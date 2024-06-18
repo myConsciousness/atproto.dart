@@ -29,7 +29,7 @@ import 'package:bluesky/src/services/gen_types/app/bsky/feed/post/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/repost/record.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed/search_posts/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/feed_service.dart';
-import '../../service_suite.dart';
+import 'service_suite.dart';
 
 void main() {
   testFeed<StrongRef>(

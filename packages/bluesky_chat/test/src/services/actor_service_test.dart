@@ -8,7 +8,7 @@ import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
 import 'package:bluesky_chat/src/ids.g.dart';
-import 'package:bluesky_chat/src/services/types/actor/declaration/allow_incoming.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/actor/declaration/allow_incoming.dart';
 import 'suite/service_suite.dart';
 
 void main() {

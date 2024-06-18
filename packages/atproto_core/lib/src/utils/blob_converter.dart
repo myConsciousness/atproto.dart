@@ -6,7 +6,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'blob.dart';
+import '../types/blob.dart';
 import 'ids.dart';
 
 final class BlobConverter implements JsonConverter<Blob, Map<String, dynamic>> {

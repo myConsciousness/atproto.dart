@@ -14,7 +14,7 @@ import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_profiles/outpu
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/get_suggestions/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/search_actors/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/actor/search_actors_typeahead/output.dart';
-import '../../service_suite.dart';
+import 'service_suite.dart';
 
 void main() {
   testActor<SearchActorsOutput>(

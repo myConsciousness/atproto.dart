@@ -2,57 +2,6 @@
 // Redistribution and use in source and binary forms, with or without
 // modification, are permitted provided the conditions.
 
-export 'package:atproto/atproto.dart';
-
-export 'package:atproto_core/atproto_core.dart'
-    show
-        XRPCResponse,
-        XRPCRequest,
-        XRPCError,
-        $XRPCErrorCopyWith,
-        RateLimit,
-        RateLimitPolicy,
-        Protocol,
-        Subscription,
-        EmptyData,
-        HttpMethod,
-        HttpStatus,
-        Serializable,
-        Platform,
-        ResponseDataBuilder,
-        ResponseDataAdaptor,
-        AtUri,
-        NSID,
-        CID,
-        Blob,
-        $BlobCopyWith,
-        BlobRef,
-        $BlobRefCopyWith,
-        ProgressStatus,
-        ProgressStatusEvent,
-        InvalidCidError,
-        Multicodec,
-        XRPCException,
-        InternalServerErrorException,
-        InvalidRequestException,
-        XRPCNotSupportedException,
-        UnauthorizedException,
-        RateLimitExceededException,
-        RetryConfig,
-        RetryEvent,
-        Jitter,
-        GetClient,
-        PostClient,
-        Session,
-        $SessionCopyWith,
-        AuthToken,
-        $AuthTokenCopyWith,
-        AuthScope,
-        decodeJwt,
-        createSession,
-        refreshSession,
-        deleteSession,
-        isValidAppPassword;
 export 'package:bluesky/src/bluesky.dart';
 export 'package:bluesky/src/services/entities/actor.dart';
 export 'package:bluesky/src/services/entities/actor_basic.dart';

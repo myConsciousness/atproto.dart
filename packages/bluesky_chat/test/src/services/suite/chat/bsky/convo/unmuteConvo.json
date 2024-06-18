@@ -1,0 +1,35 @@
+{
+  "convo": {
+    "id": "1234",
+    "rev": "0",
+    "members": [
+      {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c",
+        "handle": "shinyakato.dev",
+        "displayName": "Shinya Kato 🤯",
+        "avatar": "https://cdn.bsky.social/imgproxy/JF97YphLyIEWfq4KJNO_ZCYm9v_zNcRj7sSB8UZrRBw/rs:fill:1000:1000:1:0/plain/bafkreidqn4z6ocv5snxuqguarboozqdusam2tehccnu23yab7g2sgv64dq@jpeg",
+        "associated": {
+          "$type": "app.bsky.actor.defs#profileAssociated",
+          "lists": 3,
+          "feedgens": 0,
+          "labeler": false
+        },
+        "viewer": { "muted": false, "blockedBy": false },
+        "labels": [],
+        "chatDisabled": false
+      }
+    ],
+    "lastMessage": {
+      "$type": "chat.bsky.convo.defs#messageView",
+      "id": "1234",
+      "rev": "0",
+      "text": "Hi",
+      "sender": {
+        "did": "did:plc:iijrtk7ocored6zuziwmqq3c"
+      },
+      "sentAt": "2023-05-21T00:48:01.666Z"
+    },
+    "muted": true,
+    "unreadCount": 1
+  }
+}

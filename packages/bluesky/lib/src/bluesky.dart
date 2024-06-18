@@ -19,7 +19,7 @@ import 'services/service_context.dart';
 sealed class Bluesky {
   /// Returns the new instance of [Bluesky].
   factory Bluesky.fromSession(
-    final atp.Session session, {
+    final core.Session session, {
     final Map<String, String>? headers,
     final core.Protocol? protocol,
     final String? service,
@@ -105,6 +105,9 @@ sealed class Bluesky {
   /// Defaults to `bsky.network`.
   String get relayService;
 
+  /// Returns atproto features.
+  atp.ATProto get atproto;
+
   /// Returns the actor service.
   /// This service represents `app.bsky.actor.*`.
   ActorService get actor;
@@ -131,30 +134,37 @@ sealed class Bluesky {
 
   /// Returns the server service.
   /// This service represents `com.atproto.server.*`.
+  @Deprecated('Use .atproto.server instead. Will be removed')
   atp.ServerService get server;
 
   /// Returns the identity service.
   /// This service represents `com.atproto.identity.*`.
+  @Deprecated('Use .atproto.identity instead. Will be removed')
   atp.IdentityService get identity;
 
   /// Returns the repo service.
   /// This service represents `com.atproto.repo.*`.
+  @Deprecated('Use .atproto.repo instead. Will be removed')
   atp.RepoService get repo;
 
   /// Returns the moderation service.
   /// This service represents `com.atproto.moderation.*`.
+  @Deprecated('Use .atproto.moderation instead. Will be removed')
   atp.ModerationService get moderation;
 
   /// Returns the sync service.
   /// This service represents `com.atproto.sync.*`.
+  @Deprecated('Use .atproto.sync instead. Will be removed')
   atp.SyncService get sync;
 
   /// Returns the label service.
   /// This service represents `com.atproto.label.*`.
+  @Deprecated('Use .atproto.label instead. Will be removed')
   atp.LabelService get label;
 
   /// Returns the temp service.
   /// This service represents `com.atproto.temp.*`.
+  @Deprecated('Use .atproto.temp instead. Will be removed')
   atp.TempService get temp;
 
   /// Returns the result of executing [methodId] as GET communication.
@@ -170,6 +180,7 @@ sealed class Bluesky {
   ///         object.
   /// - [adaptor]: optional adapters to convert response bodies to a specific
   ///              structure.
+  @Deprecated('Use .atproto.get instead. Will be removed')
   Future<core.XRPCResponse<T>> get<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
@@ -190,6 +201,7 @@ sealed class Bluesky {
   /// - [body]: data passed to [methodId].
   /// - [to]: optional builder to convert the body of the response to a specific
   ///         object.
+  @Deprecated('Use .atproto.post instead. Will be removed')
   Future<core.XRPCResponse<T>> post<T>(
     final core.NSID methodId, {
     final Map<String, String>? headers,
@@ -216,6 +228,8 @@ final class _Bluesky implements Bluesky {
         temp = ctx.atproto.temp,
         _ctx = ctx;
 
+  final BlueskyServiceContext _ctx;
+
   @override
   Map<String, String> get headers => _ctx.headers;
 
@@ -227,6 +241,9 @@ final class _Bluesky implements Bluesky {
 
   @override
   String get relayService => _ctx.relayService;
+
+  @override
+  atp.ATProto get atproto => _ctx.atproto;
 
   @override
   final ActorService actor;
@@ -266,8 +283,6 @@ final class _Bluesky implements Bluesky {
 
   @override
   final atp.TempService temp;
-
-  final BlueskyServiceContext _ctx;
 
   @override
   Future<core.XRPCResponse<T>> get<T>(

@@ -11,19 +11,17 @@ export 'package:atproto_core/src/clients/challenge.dart';
 export 'package:atproto_core/src/clients/service_context.dart';
 export 'package:atproto_core/src/clients/jitter.dart';
 export 'package:atproto_core/src/clients/retry_event.dart';
-export 'package:atproto_core/src/sessions/auth_scope.dart';
-export 'package:atproto_core/src/sessions/auth_token.dart';
-export 'package:atproto_core/src/sessions/jwt_decoder.dart' show decodeJwt;
-export 'package:atproto_core/src/sessions/session.dart';
-export 'package:atproto_core/src/sessions/sessions.dart'
-    show createSession, refreshSession, deleteSession;
+export 'package:atproto_core/src/utils/auth_scope.dart';
+export 'package:atproto_core/src/utils/auth_token.dart';
+export 'package:atproto_core/src/utils/jwt_decoder.dart' show decodeJwt;
+export 'package:atproto_core/src/types/session.dart';
 export 'package:atproto_core/src/utils/ids.dart';
 export 'package:atproto_core/src/const.dart';
 export 'package:atproto_core/src/clients/retry_config.dart';
 export 'package:atproto_core/src/utils/annotations.dart';
 export 'package:atproto_core/src/utils/blob_converter.dart';
-export 'package:atproto_core/src/utils/blob.dart';
-export 'package:atproto_core/src/utils/blob_ref.dart';
+export 'package:atproto_core/src/types/blob.dart';
+export 'package:atproto_core/src/types/blob_ref.dart';
 export 'package:atproto_core/src/utils/at_uri_converter.dart';
 export 'package:atproto_core/src/utils/nsid_converter.dart';
 export 'package:atproto_core/src/progress_status.dart'

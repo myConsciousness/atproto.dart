@@ -4,12 +4,13 @@
 
 // 🌎 Project imports:
 import 'package:bluesky/src/ids.g.dart';
+
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_popular_feed_generators/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_suggestions_skeleton/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/get_tagged_suggestions/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_actors_skeleton/output.dart';
 import 'package:bluesky/src/services/gen_types/app/bsky/unspecced/search_posts_skeleton/output.dart';
-import '../../service_suite.dart';
+import 'service_suite.dart';
 
 void main() {
   testUnspecced<GetPopularFeedGeneratorsOutput>(

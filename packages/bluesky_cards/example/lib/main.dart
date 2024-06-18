@@ -6,7 +6,8 @@
 import 'package:flutter/material.dart';
 
 // 📦 Package imports:
-import 'package:bluesky/bluesky.dart' as bsky;
+import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/core.dart';
 import 'package:bluesky_cards/bluesky_cards.dart' as bskyc;
 
 void main() {
@@ -25,7 +26,7 @@ class BlueskyCards extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FutureBuilder(
-        future: bsky.createSession(
+        future: createSession(
           identifier: 'YOUR_HANDLE_OR_EMAIL',
           password: 'YOUR_PASSWORD',
         ),
@@ -34,8 +35,8 @@ class BlueskyCards extends StatelessWidget {
             return const CircularProgressIndicator();
           }
 
-          final bsky.Session session = snapshot.data.data;
-          final bluesky = bsky.Bluesky.fromSession(session);
+          final Session session = snapshot.data.data;
+          final bluesky = Bluesky.fromSession(session);
 
           return FutureBuilder(
             future: bluesky.feed.getAuthorFeed(
@@ -47,7 +48,7 @@ class BlueskyCards extends StatelessWidget {
                 return const CircularProgressIndicator();
               }
 
-              final List<bsky.FeedView> feed = snapshot.data.data.feed;
+              final List<FeedView> feed = snapshot.data.data.feed;
 
               return ListView.builder(
                 itemCount: feed.length,

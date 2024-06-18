@@ -8,9 +8,9 @@ import 'package:test/test.dart';
 
 // 🌎 Project imports:
 import 'package:bluesky_chat/src/bluesky_chat.dart';
-import 'package:bluesky_chat/src/services/actor_service.dart';
-import 'package:bluesky_chat/src/services/convo_service.dart';
-import 'package:bluesky_chat/src/services/moderation_service.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/actor_service.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/convo_service.dart';
+import 'package:bluesky_chat/src/services/types/chat/bsky/moderation_service.dart';
 
 void main() {
   test('.actor', () {
