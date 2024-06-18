@@ -70,6 +70,9 @@ sealed class BlueskyChat {
   /// [BlueskyChat.fromSession], otherwise null.
   core.Session? get session;
 
+  /// Returns atproto features.
+  atp.ATProto get atproto;
+
   /// Returns the current service.
   /// Defaults to `bsky.social`.
   String get service;
@@ -98,6 +101,8 @@ final class _BlueskyChat implements BlueskyChat {
         moderation = ModerationService(ctx),
         _ctx = ctx;
 
+  final BlueskyServiceContext _ctx;
+
   @override
   Map<String, String> get headers => _ctx.headers;
 
@@ -111,6 +116,9 @@ final class _BlueskyChat implements BlueskyChat {
   String get relayService => _ctx.relayService;
 
   @override
+  atp.ATProto get atproto => _ctx.atproto;
+
+  @override
   final ActorService actor;
 
   @override
@@ -118,6 +126,4 @@ final class _BlueskyChat implements BlueskyChat {
 
   @override
   final ModerationService moderation;
-
-  final BlueskyServiceContext _ctx;
 }

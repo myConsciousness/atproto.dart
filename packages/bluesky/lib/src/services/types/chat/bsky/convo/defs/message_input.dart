@@ -7,7 +7,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/bluesky.dart';
+import '../../../../../entities/facet.dart';
 import 'union/message_embed.dart';
 
 part 'message_input.freezed.dart';

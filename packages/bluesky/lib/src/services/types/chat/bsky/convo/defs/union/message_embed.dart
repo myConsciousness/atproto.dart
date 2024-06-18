@@ -7,8 +7,9 @@ import 'package:atproto_core/atproto_core.dart' as core;
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'package:bluesky/bluesky.dart';
-import 'package:bluesky/ids.dart' as bsky_ids;
+import '../../../../../../../ids.g.dart';
+import '../../../../../../entities/converter/embed_view_record_view_converter.dart';
+import '../../../../../../entities/embed_view_record_view.dart';
 
 part 'message_embed.freezed.dart';
 
@@ -39,7 +40,7 @@ final class _UConvoMessageEmbedConverter
     try {
       final type = json[core.objectType];
 
-      if (type == bsky_ids.appBskyEmbedRecord) {
+      if (type == appBskyEmbedRecord) {
         return UConvoMessageEmbed.recordView(
           data: embedViewRecordViewConverter.fromJson(json),
         );

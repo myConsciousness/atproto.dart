@@ -8,7 +8,7 @@ Future<void> main(List<String> args) async {
   /* SNIPPET START */
 
   final bsky = Bluesky.anonymous();
-  final subscription = await bsky.sync.subscribeRepos();
+  final subscription = await bsky.atproto.sync.subscribeRepos();
 
   final repoCommitAdaptor = RepoCommitAdaptor(
     onCreatePost: (data) {

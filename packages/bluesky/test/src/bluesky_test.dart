@@ -93,47 +93,6 @@ void main() {
     expect(service, isA<UnspeccedService>());
   });
 
-  test('.server', () {
-    final service = Bluesky.anonymous().server;
-
-    expect(service, isA<ServerService>());
-  });
-
-  test('.identity', () {
-    final service = Bluesky.anonymous().identity;
-
-    expect(service, isA<IdentityService>());
-  });
-
-  test('.repo', () {
-    final service = Bluesky.anonymous().repo;
-
-    expect(service, isA<RepoService>());
-  });
-
-  test('.moderation', () {
-    final service = Bluesky.fromSession(Session(
-      did: 'aaaa',
-      handle: 'shinyakato.dev',
-      accessJwt: 'test',
-      refreshJwt: 'test',
-    )).moderation;
-
-    expect(service, isA<ModerationService>());
-  });
-
-  test('.sync', () {
-    final service = Bluesky.anonymous().sync;
-
-    expect(service, isA<SyncService>());
-  });
-
-  test('.label', () {
-    final service = Bluesky.anonymous().label;
-
-    expect(service, isA<LabelService>());
-  });
-
   group('.service', () {
     test('case1', () {
       final atproto = ATProto.anonymous();

@@ -87,12 +87,12 @@ Future<void> main() async {
     print(createdRecord);
 
     //! And delete it.
-    await bsky.repo.deleteRecord(
+    await bsky.atproto.repo.deleteRecord(
       uri: createdRecord.data.uri,
     );
 
     //! You can use Stream API easily.
-    final subscription = await bsky.sync.subscribeRepos();
+    final subscription = await bsky.atproto.sync.subscribeRepos();
 
     subscription.data.stream.listen((event) {
       event.when(
