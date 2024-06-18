@@ -104,7 +104,7 @@ final class RepoService {
         ns.comAtprotoRepoDeleteRecord,
         body: {
           'repo': _ctx.session?.did,
-          'collection': uri.collection,
+          'collection': uri.toString(),
           'rkey': uri.rkey,
           'swapRecord': swapRecordCid,
           'swapCommit': swapCommitCid
@@ -171,7 +171,7 @@ final class RepoService {
                     update: (data) => data.toJson(),
                     delete: (data) => {
                       core.objectType: data.type,
-                      'collection': data.uri.collection,
+                      'collection': data.uri.collection.toString(),
                       'rkey': data.uri.rkey,
                     },
                   ))
