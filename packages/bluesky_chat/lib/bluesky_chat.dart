@@ -51,21 +51,12 @@ export 'package:atproto_core/atproto_core.dart'
         isValidAppPassword;
 
 export 'package:atproto/atproto.dart'
-    show
-        StrongRef,
-        $StrongRefCopyWith,
-        Label,
-        $LabelCopyWith,
-        createSession,
-        refreshSession,
-        deleteSession;
+    show Label, $LabelCopyWith, createSession, refreshSession, deleteSession;
 
 export 'package:bluesky/bluesky.dart'
     show
         ActorViewer,
         $ActorViewerCopyWith,
-        Facet,
-        $FacetCopyWith,
         FacetFeature,
         $FacetFeatureCopyWith,
         UFacetFeatureMention,

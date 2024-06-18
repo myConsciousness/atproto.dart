@@ -25,9 +25,6 @@ Future<void> main(List<String> args) async {
       commit: repoCommitAdaptor.execute,
       identity: print,
       account: print,
-      handle: print,
-      migrate: print,
-      tombstone: print,
       info: print,
       unknown: print,
     );

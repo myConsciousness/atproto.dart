@@ -14,9 +14,9 @@ _$ReplyRefImpl _$$ReplyRefImplFromJson(Map json) => $checkedCreate(
       ($checkedConvert) {
         final val = _$ReplyRefImpl(
           root: $checkedConvert('root',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, dynamic>.from(v as Map))),
           parent: $checkedConvert('parent',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },

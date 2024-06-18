@@ -24,7 +24,7 @@ _$LabelerServiceRecordImpl _$$LabelerServiceRecordImplFromJson(Map json) =>
               'labels',
               (v) => v == null
                   ? null
-                  : SelfLabels.fromJson(Map<String, Object?>.from(v as Map))),
+                  : SelfLabels.fromJson(Map<String, dynamic>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );

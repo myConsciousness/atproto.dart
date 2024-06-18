@@ -24,7 +24,7 @@ _$LabelerViewImpl _$$LabelerViewImplFromJson(Map json) => $checkedCreate(
               'labels',
               (v) => (v as List<dynamic>?)
                   ?.map((e) =>
-                      Label.fromJson(Map<String, Object?>.from(e as Map)))
+                      Label.fromJson(Map<String, dynamic>.from(e as Map)))
                   .toList()),
           viewer: $checkedConvert(
               'viewer',

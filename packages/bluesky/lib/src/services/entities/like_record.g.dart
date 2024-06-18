@@ -16,7 +16,7 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
           type:
               $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedLike),
           ref: $checkedConvert('subject',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, dynamic>.from(v as Map))),
           createdAt:
               $checkedConvert('createdAt', (v) => DateTime.parse(v as String)),
         );

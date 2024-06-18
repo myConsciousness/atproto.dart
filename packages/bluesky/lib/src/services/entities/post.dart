@@ -10,6 +10,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../com_atproto_repo_strong_ref.dart';
 import '../../ids.g.dart';
 import 'actor_basic.dart';
 import 'converter/embed_view_converter.dart';

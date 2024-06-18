@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 
 // 📦 Package imports:
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/atproto.dart';
 import 'package:bluesky/core.dart';
 import 'package:bluesky_cards/bluesky_cards.dart' as bskyc;
 

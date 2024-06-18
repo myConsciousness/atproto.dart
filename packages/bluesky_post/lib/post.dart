@@ -12,8 +12,8 @@ import 'package:bluesky/app_bsky_embed_external.dart';
 import 'package:bluesky/app_bsky_embed_images.dart';
 import 'package:bluesky/app_bsky_feed_post.dart';
 import 'package:bluesky/app_bsky_richtext_facet.dart';
-import 'package:bluesky/bluesky.dart' as bsky;
 import 'package:bluesky/bluesky.dart';
+import 'package:bluesky/atproto.dart';
 import 'package:bluesky/cardyb.dart' as cardyb;
 import 'package:bluesky/com_atproto_label_defs.dart';
 import 'package:bluesky/com_atproto_repo_upload_blob.dart';
@@ -53,7 +53,7 @@ Future<void> post() async {
   core.info(message: 'uri = [${createdPost.data.uri}]');
 }
 
-Future<UPostEmbed?> _getEmbed(final bsky.Bluesky bluesky) async {
+Future<UPostEmbed?> _getEmbed(final Bluesky bluesky) async {
   try {
     final uploadedMedia = await _uploadMedia(bluesky);
     if (uploadedMedia != null) {
@@ -147,7 +147,7 @@ String get _service {
   return service.isEmpty ? 'social' : service;
 }
 
-Future<UploadBlobOutput?> _uploadMedia(final bsky.Bluesky bluesky) async {
+Future<UploadBlobOutput?> _uploadMedia(final Bluesky bluesky) async {
   final mediaPath = core.getInput(
     name: 'media',
     options: core.InputOptions(trimWhitespace: true),
@@ -157,7 +157,7 @@ Future<UploadBlobOutput?> _uploadMedia(final bsky.Bluesky bluesky) async {
     return null;
   }
 
-  final uploaded = await bluesky.repo.uploadBlob(
+  final uploaded = await bluesky.atproto.repo.uploadBlob(
     bytes: File(mediaPath).readAsBytesSync(),
   );
 
@@ -165,7 +165,7 @@ Future<UploadBlobOutput?> _uploadMedia(final bsky.Bluesky bluesky) async {
 }
 
 Future<UploadBlobOutput?> _uploadLinkPreview(
-  final bsky.Bluesky bluesky,
+  final Bluesky bluesky,
   final String previewImage,
 ) async {
   if (previewImage.isEmpty) {
@@ -175,7 +175,8 @@ Future<UploadBlobOutput?> _uploadLinkPreview(
   final image = await http.get(Uri.parse(previewImage));
   if (image.statusCode != 200) return null;
 
-  final uploaded = await bluesky.repo.uploadBlob(bytes: image.bodyBytes);
+  final uploaded =
+      await bluesky.atproto.repo.uploadBlob(bytes: image.bodyBytes);
 
   return uploaded.data;
 }

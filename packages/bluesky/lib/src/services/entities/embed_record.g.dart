@@ -16,7 +16,7 @@ _$EmbedRecordImpl _$$EmbedRecordImplFromJson(Map json) => $checkedCreate(
           type: $checkedConvert(
               r'$type', (v) => v as String? ?? appBskyEmbedRecord),
           ref: $checkedConvert('record',
-              (v) => StrongRef.fromJson(Map<String, Object?>.from(v as Map))),
+              (v) => StrongRef.fromJson(Map<String, dynamic>.from(v as Map))),
         );
         return val;
       },
