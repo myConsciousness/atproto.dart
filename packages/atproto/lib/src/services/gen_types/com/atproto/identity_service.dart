@@ -66,7 +66,7 @@ final class IdentityService {
         ns.comAtprotoIdentitySubmitPlcOperation,
         headers: $headers,
         body: {
-          'operation': operation.toJson(),
+          'operation': operation,
         },
         client: $client,
       );
@@ -126,8 +126,8 @@ final class IdentityService {
           if (rotationKeys != null) 'rotationKeys': rotationKeys,
           if (alsoKnownAs != null) 'alsoKnownAs': alsoKnownAs,
           if (verificationMethods != null)
-            'verificationMethods': verificationMethods.toJson(),
-          if (services != null) 'services': services.toJson(),
+            'verificationMethods': verificationMethods,
+          if (services != null) 'services': services,
         },
         to: const SignPlcOperationOutputConverter().fromJson,
         client: $client,

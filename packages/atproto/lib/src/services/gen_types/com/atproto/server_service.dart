@@ -223,7 +223,7 @@ final class ServerService {
           if (verificationPhone != null) 'verificationPhone': verificationPhone,
           if (password != null) 'password': password,
           if (recoveryKey != null) 'recoveryKey': recoveryKey,
-          if (plcOp != null) 'plcOp': plcOp.toJson(),
+          if (plcOp != null) 'plcOp': plcOp,
         },
         to: const CreateAccountOutputConverter().fromJson,
         client: $client,
