@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../chat/bsky/actor/declaration/known_declaration_allow_incoming.dart';
 
 part 'record.freezed.dart';
@@ -24,6 +25,10 @@ part 'record.g.dart';
 class DeclarationRecord with _$DeclarationRecord {
   @JsonSerializable(includeIfNull: false)
   const factory DeclarationRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `chat.bsky.actor.declaration`
+    @Default(chatBskyActorDeclaration) @JsonKey(name: r'$type') String $type,
     @UDeclarationAllowIncomingConverter()
     required UDeclarationAllowIncoming allowIncoming,
 
@@ -33,6 +38,15 @@ class DeclarationRecord with _$DeclarationRecord {
 
   factory DeclarationRecord.fromJson(Map<String, dynamic> json) =>
       _$DeclarationRecordFromJson(json);
+}
+
+/// Returns true if [object] is [DeclarationRecord], otherwise false.
+bool isDeclarationRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'chat.bsky.actor.declaration#main' ||
+      object[r'$type'] == 'chat.bsky.actor.declaration';
 }
 
 extension $DeclarationRecordExtension on DeclarationRecord {
@@ -46,6 +60,7 @@ extension $DeclarationRecordExtension on DeclarationRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'allowIncoming',
 ];
 

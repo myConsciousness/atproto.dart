@@ -20,6 +20,12 @@ ListitemRecord _$ListitemRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListitemRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listitem`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The account which is included on the list.
   String get subject => throw _privateConstructorUsedError;
 
@@ -45,7 +51,8 @@ abstract class $ListitemRecordCopyWith<$Res> {
       _$ListitemRecordCopyWithImpl<$Res, ListitemRecord>;
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       @AtUriConverter() AtUri list,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -64,12 +71,17 @@ class _$ListitemRecordCopyWithImpl<$Res, $Val extends ListitemRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? list = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -99,7 +111,8 @@ abstract class _$$ListitemRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       @AtUriConverter() AtUri list,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -116,12 +129,17 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? list = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ListitemRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -147,7 +165,8 @@ class __$$ListitemRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListitemRecordImpl implements _ListitemRecord {
   const _$ListitemRecordImpl(
-      {required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphListitem,
+      required this.subject,
       @AtUriConverter() required this.list,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -155,6 +174,13 @@ class _$ListitemRecordImpl implements _ListitemRecord {
 
   factory _$ListitemRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListitemRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listitem`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The account which is included on the list.
   @override
@@ -183,7 +209,7 @@ class _$ListitemRecordImpl implements _ListitemRecord {
 
   @override
   String toString() {
-    return 'ListitemRecord(subject: $subject, list: $list, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ListitemRecord(\$type: ${$type}, subject: $subject, list: $list, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -191,6 +217,7 @@ class _$ListitemRecordImpl implements _ListitemRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListitemRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.list, list) || other.list == list) &&
             (identical(other.createdAt, createdAt) ||
@@ -200,7 +227,7 @@ class _$ListitemRecordImpl implements _ListitemRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, list, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, list, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -220,7 +247,8 @@ class _$ListitemRecordImpl implements _ListitemRecord {
 
 abstract class _ListitemRecord implements ListitemRecord {
   const factory _ListitemRecord(
-          {required final String subject,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String subject,
           @AtUriConverter() required final AtUri list,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -229,6 +257,13 @@ abstract class _ListitemRecord implements ListitemRecord {
   factory _ListitemRecord.fromJson(Map<String, dynamic> json) =
       _$ListitemRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listitem`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The account which is included on the list.

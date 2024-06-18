@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/graph/defs/known_list_purpose.dart';
 import '../../../../app/bsky/graph/list/union_list_label.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
@@ -27,6 +28,11 @@ part 'record.g.dart';
 class ListRecord with _$ListRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.list`
+    @Default(appBskyGraphList) @JsonKey(name: r'$type') String $type,
+
     /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
     @UListPurposeConverter() required UListPurpose purpose,
 
@@ -46,6 +52,15 @@ class ListRecord with _$ListRecord {
       _$ListRecordFromJson(json);
 }
 
+/// Returns true if [object] is [ListRecord], otherwise false.
+bool isListRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.list#main' ||
+      object[r'$type'] == 'app.bsky.graph.list';
+}
+
 extension $ListRecordExtension on ListRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -57,6 +72,7 @@ extension $ListRecordExtension on ListRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'purpose',
   'name',
   'description',

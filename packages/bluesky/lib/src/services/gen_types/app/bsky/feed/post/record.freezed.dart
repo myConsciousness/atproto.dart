@@ -20,6 +20,12 @@ PostRecord _$PostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$PostRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// The primary post content. May be an empty string, if there are embeds.
   String get text => throw _privateConstructorUsedError;
 
@@ -61,7 +67,8 @@ abstract class $PostRecordCopyWith<$Res> {
       _$PostRecordCopyWithImpl<$Res, PostRecord>;
   @useResult
   $Res call(
-      {String text,
+      {@JsonKey(name: r'$type') String $type,
+      String text,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
       @UPostEmbedConverter() UPostEmbed? embed,
@@ -89,6 +96,7 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? text = null,
     Object? facets = freezed,
     Object? reply = freezed,
@@ -100,6 +108,10 @@ class _$PostRecordCopyWithImpl<$Res, $Val extends PostRecord>
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -185,7 +197,8 @@ abstract class _$$PostRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String text,
+      {@JsonKey(name: r'$type') String $type,
+      String text,
       @FacetConverter() List<Facet>? facets,
       @ReplyRefConverter() ReplyRef? reply,
       @UPostEmbedConverter() UPostEmbed? embed,
@@ -214,6 +227,7 @@ class __$$PostRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? text = null,
     Object? facets = freezed,
     Object? reply = freezed,
@@ -225,6 +239,10 @@ class __$$PostRecordImplCopyWithImpl<$Res>
     Object? $unknown = freezed,
   }) {
     return _then(_$PostRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
@@ -270,7 +288,8 @@ class __$$PostRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$PostRecordImpl implements _PostRecord {
   const _$PostRecordImpl(
-      {required this.text,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedPost,
+      required this.text,
       @FacetConverter() final List<Facet>? facets,
       @ReplyRefConverter() this.reply,
       @UPostEmbedConverter() this.embed,
@@ -286,6 +305,13 @@ class _$PostRecordImpl implements _PostRecord {
 
   factory _$PostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$PostRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// The primary post content. May be an empty string, if there are embeds.
   @override
@@ -363,7 +389,7 @@ class _$PostRecordImpl implements _PostRecord {
 
   @override
   String toString() {
-    return 'PostRecord(text: $text, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'PostRecord(\$type: ${$type}, text: $text, facets: $facets, reply: $reply, embed: $embed, langs: $langs, labels: $labels, tags: $tags, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -371,6 +397,7 @@ class _$PostRecordImpl implements _PostRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PostRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.text, text) || other.text == text) &&
             const DeepCollectionEquality().equals(other._facets, _facets) &&
             (identical(other.reply, reply) || other.reply == reply) &&
@@ -387,6 +414,7 @@ class _$PostRecordImpl implements _PostRecord {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       text,
       const DeepCollectionEquality().hash(_facets),
       reply,
@@ -413,7 +441,8 @@ class _$PostRecordImpl implements _PostRecord {
 
 abstract class _PostRecord implements PostRecord {
   const factory _PostRecord(
-          {required final String text,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String text,
           @FacetConverter() final List<Facet>? facets,
           @ReplyRefConverter() final ReplyRef? reply,
           @UPostEmbedConverter() final UPostEmbed? embed,
@@ -427,6 +456,13 @@ abstract class _PostRecord implements PostRecord {
   factory _PostRecord.fromJson(Map<String, dynamic> json) =
       _$PostRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.post`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// The primary post content. May be an empty string, if there are embeds.

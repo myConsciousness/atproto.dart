@@ -13,6 +13,8 @@ _$RepostRecordImpl _$$RepostRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$RepostRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedRepost),
           subject: $checkedConvert(
               'subject',
               (v) => const StrongRefConverter()
@@ -31,6 +33,7 @@ _$RepostRecordImpl _$$RepostRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$RepostRecordImplToJson(_$RepostRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': const StrongRefConverter().toJson(instance.subject),
   };
 

@@ -20,6 +20,12 @@ ListRecord _$ListRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.list`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
   @UListPurposeConverter()
   UListPurpose get purpose => throw _privateConstructorUsedError;
@@ -52,7 +58,8 @@ abstract class $ListRecordCopyWith<$Res> {
       _$ListRecordCopyWithImpl<$Res, ListRecord>;
   @useResult
   $Res call(
-      {@UListPurposeConverter() UListPurpose purpose,
+      {@JsonKey(name: r'$type') String $type,
+      @UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
@@ -79,6 +86,7 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? purpose = null,
     Object? name = null,
     Object? description = freezed,
@@ -89,6 +97,10 @@ class _$ListRecordCopyWithImpl<$Res, $Val extends ListRecord>
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -166,7 +178,8 @@ abstract class _$$ListRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UListPurposeConverter() UListPurpose purpose,
+      {@JsonKey(name: r'$type') String $type,
+      @UListPurposeConverter() UListPurpose purpose,
       String name,
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
@@ -194,6 +207,7 @@ class __$$ListRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? purpose = null,
     Object? name = null,
     Object? description = freezed,
@@ -204,6 +218,10 @@ class __$$ListRecordImplCopyWithImpl<$Res>
     Object? $unknown = freezed,
   }) {
     return _then(_$ListRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       purpose: null == purpose
           ? _value.purpose
           : purpose // ignore: cast_nullable_to_non_nullable
@@ -245,7 +263,8 @@ class __$$ListRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListRecordImpl implements _ListRecord {
   const _$ListRecordImpl(
-      {@UListPurposeConverter() required this.purpose,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphList,
+      @UListPurposeConverter() required this.purpose,
       required this.name,
       this.description,
       @FacetConverter() final List<Facet>? descriptionFacets,
@@ -258,6 +277,13 @@ class _$ListRecordImpl implements _ListRecord {
 
   factory _$ListRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.list`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)
   @override
@@ -306,7 +332,7 @@ class _$ListRecordImpl implements _ListRecord {
 
   @override
   String toString() {
-    return 'ListRecord(purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ListRecord(\$type: ${$type}, purpose: $purpose, name: $name, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -314,6 +340,7 @@ class _$ListRecordImpl implements _ListRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.purpose, purpose) || other.purpose == purpose) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.description, description) ||
@@ -331,6 +358,7 @@ class _$ListRecordImpl implements _ListRecord {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       purpose,
       name,
       description,
@@ -356,7 +384,8 @@ class _$ListRecordImpl implements _ListRecord {
 
 abstract class _ListRecord implements ListRecord {
   const factory _ListRecord(
-          {@UListPurposeConverter() required final UListPurpose purpose,
+          {@JsonKey(name: r'$type') final String $type,
+          @UListPurposeConverter() required final UListPurpose purpose,
           required final String name,
           final String? description,
           @FacetConverter() final List<Facet>? descriptionFacets,
@@ -369,6 +398,13 @@ abstract class _ListRecord implements ListRecord {
   factory _ListRecord.fromJson(Map<String, dynamic> json) =
       _$ListRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.list`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Defines the purpose of the list (aka, moderation-oriented or curration-oriented)

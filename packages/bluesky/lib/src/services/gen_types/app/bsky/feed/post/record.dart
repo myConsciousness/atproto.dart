@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../../adaptors/app/bsky/feed/post/record_adaptor.dart';
 import '../../../../app/bsky/feed/post/reply_ref.dart';
 import '../../../../app/bsky/feed/post/union_post_embed.dart';
@@ -28,6 +29,11 @@ part 'record.g.dart';
 class PostRecord with _$PostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory PostRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.post`
+    @Default(appBskyFeedPost) @JsonKey(name: r'$type') String $type,
+
     /// The primary post content. May be an empty string, if there are embeds.
     required String text,
 
@@ -56,6 +62,15 @@ class PostRecord with _$PostRecord {
       _$PostRecordFromJson(postRecordAdaptor(json));
 }
 
+/// Returns true if [object] is [PostRecord], otherwise false.
+bool isPostRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.post#main' ||
+      object[r'$type'] == 'app.bsky.feed.post';
+}
+
 extension $PostRecordExtension on PostRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -67,6 +82,7 @@ extension $PostRecordExtension on PostRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'text',
   'facets',
   'reply',

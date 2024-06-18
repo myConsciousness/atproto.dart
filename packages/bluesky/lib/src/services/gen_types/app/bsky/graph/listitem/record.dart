@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -22,6 +25,11 @@ part 'record.g.dart';
 class ListitemRecord with _$ListitemRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListitemRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.listitem`
+    @Default(appBskyGraphListitem) @JsonKey(name: r'$type') String $type,
+
     /// The account which is included on the list.
     required String subject,
 
@@ -37,6 +45,15 @@ class ListitemRecord with _$ListitemRecord {
       _$ListitemRecordFromJson(json);
 }
 
+/// Returns true if [object] is [ListitemRecord], otherwise false.
+bool isListitemRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.listitem#main' ||
+      object[r'$type'] == 'app.bsky.graph.listitem';
+}
+
 extension $ListitemRecordExtension on ListitemRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -48,6 +65,7 @@ extension $ListitemRecordExtension on ListitemRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'list',
   'createdAt',

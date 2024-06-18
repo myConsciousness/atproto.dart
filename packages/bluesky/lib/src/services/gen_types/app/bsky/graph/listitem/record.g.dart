@@ -13,6 +13,8 @@ _$ListitemRecordImpl _$$ListitemRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ListitemRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphListitem),
           subject: $checkedConvert('subject', (v) => v as String),
           list: $checkedConvert(
               'list', (v) => const AtUriConverter().fromJson(v as String)),
@@ -31,6 +33,7 @@ _$ListitemRecordImpl _$$ListitemRecordImplFromJson(Map json) => $checkedCreate(
 Map<String, dynamic> _$$ListitemRecordImplToJson(
     _$ListitemRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': instance.subject,
     'list': const AtUriConverter().toJson(instance.list),
   };

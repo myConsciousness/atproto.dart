@@ -14,6 +14,8 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$GeneratorRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyFeedGenerator),
           did: $checkedConvert('did', (v) => v as String),
           displayName: $checkedConvert('displayName', (v) => v as String),
           description: $checkedConvert('description', (v) => v as String?),
@@ -49,6 +51,7 @@ _$GeneratorRecordImpl _$$GeneratorRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$GeneratorRecordImplToJson(
     _$GeneratorRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'did': instance.did,
     'displayName': instance.displayName,
   };

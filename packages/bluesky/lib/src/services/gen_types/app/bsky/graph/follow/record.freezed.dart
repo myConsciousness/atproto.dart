@@ -20,6 +20,11 @@ FollowRecord _$FollowRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$FollowRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.follow`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get subject => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
 
@@ -40,7 +45,8 @@ abstract class $FollowRecordCopyWith<$Res> {
       _$FollowRecordCopyWithImpl<$Res, FollowRecord>;
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -58,11 +64,16 @@ class _$FollowRecordCopyWithImpl<$Res, $Val extends FollowRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -88,7 +99,8 @@ abstract class _$$FollowRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -104,11 +116,16 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$FollowRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -130,7 +147,8 @@ class __$$FollowRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$FollowRecordImpl implements _FollowRecord {
   const _$FollowRecordImpl(
-      {required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphFollow,
+      required this.subject,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -138,6 +156,12 @@ class _$FollowRecordImpl implements _FollowRecord {
   factory _$FollowRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$FollowRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.follow`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String subject;
   @override
@@ -159,7 +183,7 @@ class _$FollowRecordImpl implements _FollowRecord {
 
   @override
   String toString() {
-    return 'FollowRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'FollowRecord(\$type: ${$type}, subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -167,6 +191,7 @@ class _$FollowRecordImpl implements _FollowRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FollowRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -175,7 +200,7 @@ class _$FollowRecordImpl implements _FollowRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -194,7 +219,8 @@ class _$FollowRecordImpl implements _FollowRecord {
 
 abstract class _FollowRecord implements FollowRecord {
   const factory _FollowRecord(
-          {required final String subject,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String subject,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$FollowRecordImpl;
@@ -202,6 +228,13 @@ abstract class _FollowRecord implements FollowRecord {
   factory _FollowRecord.fromJson(Map<String, dynamic> json) =
       _$FollowRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.follow`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get subject;
   @override

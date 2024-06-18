@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/generator/union_generator_label.dart';
 import '../../../../app/bsky/richtext/facet/main.dart';
 
@@ -26,6 +27,10 @@ part 'record.g.dart';
 class GeneratorRecord with _$GeneratorRecord {
   @JsonSerializable(includeIfNull: false)
   const factory GeneratorRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.generator`
+    @Default(appBskyFeedGenerator) @JsonKey(name: r'$type') String $type,
     required String did,
     required String displayName,
     String? description,
@@ -47,6 +52,15 @@ class GeneratorRecord with _$GeneratorRecord {
       _$GeneratorRecordFromJson(json);
 }
 
+/// Returns true if [object] is [GeneratorRecord], otherwise false.
+bool isGeneratorRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.generator#main' ||
+      object[r'$type'] == 'app.bsky.feed.generator';
+}
+
 extension $GeneratorRecordExtension on GeneratorRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -58,6 +72,7 @@ extension $GeneratorRecordExtension on GeneratorRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'did',
   'displayName',
   'description',

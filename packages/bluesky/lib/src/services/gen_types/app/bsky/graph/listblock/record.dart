@@ -14,6 +14,9 @@
 import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -22,6 +25,11 @@ part 'record.g.dart';
 class ListblockRecord with _$ListblockRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ListblockRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.listblock`
+    @Default(appBskyGraphListblock) @JsonKey(name: r'$type') String $type,
+
     /// Reference (AT-URI) to the mod list record.
     @AtUriConverter() required AtUri subject,
     DateTime? createdAt,
@@ -32,6 +40,15 @@ class ListblockRecord with _$ListblockRecord {
 
   factory ListblockRecord.fromJson(Map<String, dynamic> json) =>
       _$ListblockRecordFromJson(json);
+}
+
+/// Returns true if [object] is [ListblockRecord], otherwise false.
+bool isListblockRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.listblock#main' ||
+      object[r'$type'] == 'app.bsky.graph.listblock';
 }
 
 extension $ListblockRecordExtension on ListblockRecord {
@@ -45,6 +62,7 @@ extension $ListblockRecordExtension on ListblockRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'createdAt',
 ];

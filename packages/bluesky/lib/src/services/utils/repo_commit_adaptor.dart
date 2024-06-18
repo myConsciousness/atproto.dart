@@ -8,10 +8,8 @@ import 'dart:async';
 // 📦 Package imports:
 import 'package:atproto/atproto.dart' as atp;
 import 'package:atproto/com_atproto_sync_subscribe_repos.dart';
-import 'package:atproto_core/atproto_core.dart' as core;
 
 // 🌎 Project imports:
-import '../../ids.g.dart' as ids;
 import '../entities/adaptor/repo_commit_create.dart';
 import '../entities/adaptor/repo_commit_delete.dart';
 import '../entities/adaptor/repo_commit_update.dart';
@@ -155,7 +153,7 @@ final class RepoCommitAdaptor {
     final uri = op.uri;
     if (uri == null) return;
 
-    if (uri.isFeedPost && _isFeedPost(record)) {
+    if (uri.isFeedPost && isPostRecord(record)) {
       await _onCreatePost?.call(
         RepoCommitCreate<PostRecord>(
           record: const PostRecordConverter().fromJson(
@@ -167,7 +165,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isFeedRepost && _isFeedRepost(record)) {
+    } else if (uri.isFeedRepost && isRepostRecord(record)) {
       await _onCreateRepost?.call(
         RepoCommitCreate<RepostRecord>(
           record: const RepostRecordConverter().fromJson(
@@ -179,7 +177,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isFeedLike && _isFeedLike(record)) {
+    } else if (uri.isFeedLike && isLikeRecord(record)) {
       await _onCreateLike?.call(
         RepoCommitCreate<LikeRecord>(
           record: const LikeRecordConverter().fromJson(
@@ -191,7 +189,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isFeedGenerator && _isFeedGenerator(record)) {
+    } else if (uri.isFeedGenerator && isGeneratorRecord(record)) {
       await _onCreateGenerator?.call(
         RepoCommitCreate<GeneratorRecord>(
           record: const GeneratorRecordConverter().fromJson(
@@ -203,7 +201,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isFeedThreadgate && _isFeedThreadgate(record)) {
+    } else if (uri.isFeedThreadgate && isThreadgateRecord(record)) {
       await _onCreateThreadgate?.call(
         RepoCommitCreate<ThreadgateRecord>(
           record: const ThreadgateRecordConverter().fromJson(
@@ -215,7 +213,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphFollow && _isGraphFollow(record)) {
+    } else if (uri.isGraphFollow && isFollowRecord(record)) {
       await _onCreateFollow?.call(
         RepoCommitCreate<FollowRecord>(
           record: const FollowRecordConverter().fromJson(record),
@@ -225,7 +223,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphBlock && _isGraphBlock(record)) {
+    } else if (uri.isGraphBlock && isBlockRecord(record)) {
       await _onCreateBlock?.call(
         RepoCommitCreate<BlockRecord>(
           record: const BlockRecordConverter().fromJson(
@@ -237,7 +235,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphList && _isGraphList(record)) {
+    } else if (uri.isGraphList && isListRecord(record)) {
       await _onCreateList?.call(
         RepoCommitCreate<ListRecord>(
           record: const ListRecordConverter().fromJson(
@@ -249,7 +247,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphListItem && _isGraphListItem(record)) {
+    } else if (uri.isGraphListItem && isListitemRecord(record)) {
       await _onCreateListItem?.call(
         RepoCommitCreate<ListitemRecord>(
           record: const ListitemRecordConverter().fromJson(
@@ -261,7 +259,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isGraphBlockList && _isGraphBlockList(record)) {
+    } else if (uri.isGraphBlockList && isListblockRecord(record)) {
       await _onCreateBlockList?.call(
         RepoCommitCreate<ListblockRecord>(
           record: const ListblockRecordConverter().fromJson(
@@ -273,7 +271,7 @@ final class RepoCommitAdaptor {
           cursor: data.seq,
         ),
       );
-    } else if (uri.isLabelerService && _isLabelerService(record)) {
+    } else if (uri.isLabelerService && isServiceRecord(record)) {
       await _onCreateLabelerService?.call(
         RepoCommitCreate<ServiceRecord>(
           record: const ServiceRecordConverter().fromJson(
@@ -309,7 +307,7 @@ final class RepoCommitAdaptor {
     final uri = op.uri;
     if (uri == null) return;
 
-    if (uri.isActorProfile && _isActorProfile(record)) {
+    if (uri.isActorProfile && isProfileRecord(record)) {
       await _onUpdateProfile?.call(
         RepoCommitUpdate<ProfileRecord>(
           record: const ProfileRecordConverter().fromJson(record),
@@ -452,52 +450,4 @@ final class RepoCommitAdaptor {
       );
     }
   }
-
-  /// Returns true if [record] is actor profile, otherwise false.
-  bool _isActorProfile(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyActorProfile;
-
-  /// Returns true if [record] is feed post, otherwise false.
-  bool _isFeedPost(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyFeedPost;
-
-  /// Returns true if [record] is feed repost, otherwise false.
-  bool _isFeedRepost(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyFeedRepost;
-
-  /// Returns true if [record] is feed like, otherwise false.
-  bool _isFeedLike(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyFeedLike;
-
-  /// Returns true if [record] is feed generator, otherwise false.
-  bool _isFeedGenerator(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyFeedGenerator;
-
-  /// Returns true if [record] is feed threadgate, otherwise false.
-  bool _isFeedThreadgate(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyFeedThreadgate;
-
-  /// Returns true if [record] is graph follow, otherwise false.
-  bool _isGraphFollow(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyGraphFollow;
-
-  /// Returns true if [record] is graph block, otherwise false.
-  bool _isGraphBlock(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyGraphBlock;
-
-  /// Returns true if [record] is graph list, otherwise false.
-  bool _isGraphList(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyGraphList;
-
-  /// Returns true if [record] is graph list item, otherwise false.
-  bool _isGraphListItem(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyGraphListitem;
-
-  /// Returns true if [record] is graph block list, otherwise false.
-  bool _isGraphBlockList(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyGraphListblock;
-
-  /// Returns true if [record] is labeler service, otherwise false.
-  bool _isLabelerService(final Map<String, dynamic> record) =>
-      record[core.objectType] == ids.appBskyLabelerService;
 }

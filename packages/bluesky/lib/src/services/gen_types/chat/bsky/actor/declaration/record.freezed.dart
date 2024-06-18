@@ -20,6 +20,11 @@ DeclarationRecord _$DeclarationRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$DeclarationRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `chat.bsky.actor.declaration`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @UDeclarationAllowIncomingConverter()
   UDeclarationAllowIncoming get allowIncoming =>
       throw _privateConstructorUsedError;
@@ -41,7 +46,8 @@ abstract class $DeclarationRecordCopyWith<$Res> {
       _$DeclarationRecordCopyWithImpl<$Res, DeclarationRecord>;
   @useResult
   $Res call(
-      {@UDeclarationAllowIncomingConverter()
+      {@JsonKey(name: r'$type') String $type,
+      @UDeclarationAllowIncomingConverter()
       UDeclarationAllowIncoming allowIncoming,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -61,10 +67,15 @@ class _$DeclarationRecordCopyWithImpl<$Res, $Val extends DeclarationRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? allowIncoming = null,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
@@ -95,7 +106,8 @@ abstract class _$$DeclarationRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@UDeclarationAllowIncomingConverter()
+      {@JsonKey(name: r'$type') String $type,
+      @UDeclarationAllowIncomingConverter()
       UDeclarationAllowIncoming allowIncoming,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -114,10 +126,15 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? allowIncoming = null,
     Object? $unknown = freezed,
   }) {
     return _then(_$DeclarationRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       allowIncoming: null == allowIncoming
           ? _value.allowIncoming
           : allowIncoming // ignore: cast_nullable_to_non_nullable
@@ -135,13 +152,20 @@ class __$$DeclarationRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$DeclarationRecordImpl implements _DeclarationRecord {
   const _$DeclarationRecordImpl(
-      {@UDeclarationAllowIncomingConverter() required this.allowIncoming,
+      {@JsonKey(name: r'$type') this.$type = chatBskyActorDeclaration,
+      @UDeclarationAllowIncomingConverter() required this.allowIncoming,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$DeclarationRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$DeclarationRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `chat.bsky.actor.declaration`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @UDeclarationAllowIncomingConverter()
   final UDeclarationAllowIncoming allowIncoming;
@@ -162,7 +186,7 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
 
   @override
   String toString() {
-    return 'DeclarationRecord(allowIncoming: $allowIncoming, \$unknown: ${$unknown})';
+    return 'DeclarationRecord(\$type: ${$type}, allowIncoming: $allowIncoming, \$unknown: ${$unknown})';
   }
 
   @override
@@ -170,6 +194,7 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$DeclarationRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.allowIncoming, allowIncoming) ||
                 other.allowIncoming == allowIncoming) &&
             const DeepCollectionEquality().equals(other._$unknown, _$unknown));
@@ -177,7 +202,7 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, allowIncoming,
+  int get hashCode => Object.hash(runtimeType, $type, allowIncoming,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -197,7 +222,8 @@ class _$DeclarationRecordImpl implements _DeclarationRecord {
 
 abstract class _DeclarationRecord implements DeclarationRecord {
   const factory _DeclarationRecord(
-          {@UDeclarationAllowIncomingConverter()
+          {@JsonKey(name: r'$type') final String $type,
+          @UDeclarationAllowIncomingConverter()
           required final UDeclarationAllowIncoming allowIncoming,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$DeclarationRecordImpl;
@@ -205,6 +231,13 @@ abstract class _DeclarationRecord implements DeclarationRecord {
   factory _DeclarationRecord.fromJson(Map<String, dynamic> json) =
       _$DeclarationRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `chat.bsky.actor.declaration`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @UDeclarationAllowIncomingConverter()
   UDeclarationAllowIncoming get allowIncoming;

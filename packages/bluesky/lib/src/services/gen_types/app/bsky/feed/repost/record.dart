@@ -14,6 +14,9 @@
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -22,6 +25,10 @@ part 'record.g.dart';
 class RepostRecord with _$RepostRecord {
   @JsonSerializable(includeIfNull: false)
   const factory RepostRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.repost`
+    @Default(appBskyFeedRepost) @JsonKey(name: r'$type') String $type,
     @StrongRefConverter() required StrongRef subject,
     DateTime? createdAt,
 
@@ -31,6 +38,15 @@ class RepostRecord with _$RepostRecord {
 
   factory RepostRecord.fromJson(Map<String, dynamic> json) =>
       _$RepostRecordFromJson(json);
+}
+
+/// Returns true if [object] is [RepostRecord], otherwise false.
+bool isRepostRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.repost#main' ||
+      object[r'$type'] == 'app.bsky.feed.repost';
 }
 
 extension $RepostRecordExtension on RepostRecord {
@@ -44,6 +60,7 @@ extension $RepostRecordExtension on RepostRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'createdAt',
 ];

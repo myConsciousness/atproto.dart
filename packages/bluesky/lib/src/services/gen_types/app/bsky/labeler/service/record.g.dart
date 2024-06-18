@@ -13,6 +13,8 @@ _$ServiceRecordImpl _$$ServiceRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ServiceRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyLabelerService),
           policies: $checkedConvert(
               'policies',
               (v) => const LabelerPoliciesConverter()
@@ -36,6 +38,7 @@ _$ServiceRecordImpl _$$ServiceRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ServiceRecordImplToJson(_$ServiceRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'policies': const LabelerPoliciesConverter().toJson(instance.policies),
   };
 

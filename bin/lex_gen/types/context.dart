@@ -28,7 +28,9 @@ final class ObjectContext {
   final Set<NSID> subscriptionUnionRefs;
 
   String? get namespace {
-    if (def is! ULexUserTypeObject && def is! ULexUserTypeArray) {
+    if (def is! ULexUserTypeObject &&
+        def is! ULexUserTypeArray &&
+        def is! ULexUserTypeRecord) {
       return null;
     }
 

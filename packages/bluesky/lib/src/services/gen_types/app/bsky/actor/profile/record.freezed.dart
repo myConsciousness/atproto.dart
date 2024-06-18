@@ -20,6 +20,11 @@ ProfileRecord _$ProfileRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProfileRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.profile`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String? get displayName => throw _privateConstructorUsedError;
 
   /// Free-form profile description text.
@@ -54,7 +59,8 @@ abstract class $ProfileRecordCopyWith<$Res> {
       _$ProfileRecordCopyWithImpl<$Res, ProfileRecord>;
   @useResult
   $Res call(
-      {String? displayName,
+      {@JsonKey(name: r'$type') String $type,
+      String? displayName,
       String? description,
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
@@ -79,6 +85,7 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
@@ -87,6 +94,10 @@ class _$ProfileRecordCopyWithImpl<$Res, $Val extends ProfileRecord>
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -160,7 +171,8 @@ abstract class _$$ProfileRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? displayName,
+      {@JsonKey(name: r'$type') String $type,
+      String? displayName,
       String? description,
       @BlobConverter() Blob? avatar,
       @BlobConverter() Blob? banner,
@@ -186,6 +198,7 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? displayName = freezed,
     Object? description = freezed,
     Object? avatar = freezed,
@@ -194,6 +207,10 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
     Object? $unknown = freezed,
   }) {
     return _then(_$ProfileRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       displayName: freezed == displayName
           ? _value.displayName
           : displayName // ignore: cast_nullable_to_non_nullable
@@ -227,7 +244,8 @@ class __$$ProfileRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ProfileRecordImpl implements _ProfileRecord {
   const _$ProfileRecordImpl(
-      {this.displayName,
+      {@JsonKey(name: r'$type') this.$type = appBskyActorProfile,
+      this.displayName,
       this.description,
       @BlobConverter() this.avatar,
       @BlobConverter() this.banner,
@@ -238,6 +256,12 @@ class _$ProfileRecordImpl implements _ProfileRecord {
   factory _$ProfileRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ProfileRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.profile`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String? displayName;
 
@@ -276,7 +300,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
 
   @override
   String toString() {
-    return 'ProfileRecord(displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, \$unknown: ${$unknown})';
+    return 'ProfileRecord(\$type: ${$type}, displayName: $displayName, description: $description, avatar: $avatar, banner: $banner, labels: $labels, \$unknown: ${$unknown})';
   }
 
   @override
@@ -284,6 +308,7 @@ class _$ProfileRecordImpl implements _ProfileRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ProfileRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
             (identical(other.description, description) ||
@@ -296,8 +321,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, displayName, description, avatar,
-      banner, labels, const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(runtimeType, $type, displayName, description,
+      avatar, banner, labels, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -315,7 +340,8 @@ class _$ProfileRecordImpl implements _ProfileRecord {
 
 abstract class _ProfileRecord implements ProfileRecord {
   const factory _ProfileRecord(
-          {final String? displayName,
+          {@JsonKey(name: r'$type') final String $type,
+          final String? displayName,
           final String? description,
           @BlobConverter() final Blob? avatar,
           @BlobConverter() final Blob? banner,
@@ -326,6 +352,13 @@ abstract class _ProfileRecord implements ProfileRecord {
   factory _ProfileRecord.fromJson(Map<String, dynamic> json) =
       _$ProfileRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.actor.profile`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String? get displayName;
   @override

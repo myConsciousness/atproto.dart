@@ -20,6 +20,12 @@ ThreadgateRecord _$ThreadgateRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ThreadgateRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Reference (AT-URI) to the post record.
   @AtUriConverter()
   AtUri get post => throw _privateConstructorUsedError;
@@ -44,7 +50,8 @@ abstract class $ThreadgateRecordCopyWith<$Res> {
       _$ThreadgateRecordCopyWithImpl<$Res, ThreadgateRecord>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -63,12 +70,17 @@ class _$ThreadgateRecordCopyWithImpl<$Res, $Val extends ThreadgateRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -98,7 +110,8 @@ abstract class _$$ThreadgateRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri post,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri post,
       @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -115,12 +128,17 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? post = null,
     Object? allow = freezed,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ThreadgateRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       post: null == post
           ? _value.post
           : post // ignore: cast_nullable_to_non_nullable
@@ -146,7 +164,8 @@ class __$$ThreadgateRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   const _$ThreadgateRecordImpl(
-      {@AtUriConverter() required this.post,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedThreadgate,
+      @AtUriConverter() required this.post,
       @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -155,6 +174,13 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
   factory _$ThreadgateRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ThreadgateRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Reference (AT-URI) to the post record.
   @override
@@ -190,7 +216,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
   @override
   String toString() {
-    return 'ThreadgateRecord(post: $post, allow: $allow, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ThreadgateRecord(\$type: ${$type}, post: $post, allow: $allow, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -198,6 +224,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ThreadgateRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.post, post) || other.post == post) &&
             const DeepCollectionEquality().equals(other._allow, _allow) &&
             (identical(other.createdAt, createdAt) ||
@@ -209,6 +236,7 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       post,
       const DeepCollectionEquality().hash(_allow),
       createdAt,
@@ -231,7 +259,8 @@ class _$ThreadgateRecordImpl implements _ThreadgateRecord {
 
 abstract class _ThreadgateRecord implements ThreadgateRecord {
   const factory _ThreadgateRecord(
-          {@AtUriConverter() required final AtUri post,
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri post,
           @UThreadgateAllowConverter() final List<UThreadgateAllow>? allow,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -240,6 +269,13 @@ abstract class _ThreadgateRecord implements ThreadgateRecord {
   factory _ThreadgateRecord.fromJson(Map<String, dynamic> json) =
       _$ThreadgateRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.threadgate`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Reference (AT-URI) to the post record.

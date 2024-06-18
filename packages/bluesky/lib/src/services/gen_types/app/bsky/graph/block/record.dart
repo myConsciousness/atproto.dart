@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -21,6 +24,11 @@ part 'record.g.dart';
 class BlockRecord with _$BlockRecord {
   @JsonSerializable(includeIfNull: false)
   const factory BlockRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.block`
+    @Default(appBskyGraphBlock) @JsonKey(name: r'$type') String $type,
+
     /// DID of the account to be blocked.
     required String subject,
     DateTime? createdAt,
@@ -31,6 +39,15 @@ class BlockRecord with _$BlockRecord {
 
   factory BlockRecord.fromJson(Map<String, dynamic> json) =>
       _$BlockRecordFromJson(json);
+}
+
+/// Returns true if [object] is [BlockRecord], otherwise false.
+bool isBlockRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.block#main' ||
+      object[r'$type'] == 'app.bsky.graph.block';
 }
 
 extension $BlockRecordExtension on BlockRecord {
@@ -44,6 +61,7 @@ extension $BlockRecordExtension on BlockRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'createdAt',
 ];

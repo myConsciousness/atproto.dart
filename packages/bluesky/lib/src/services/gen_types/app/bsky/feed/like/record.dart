@@ -14,6 +14,9 @@
 import 'package:atproto/com_atproto_repo_strong_ref.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -22,6 +25,10 @@ part 'record.g.dart';
 class LikeRecord with _$LikeRecord {
   @JsonSerializable(includeIfNull: false)
   const factory LikeRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.like`
+    @Default(appBskyFeedLike) @JsonKey(name: r'$type') String $type,
     @StrongRefConverter() required StrongRef subject,
     DateTime? createdAt,
 
@@ -31,6 +38,15 @@ class LikeRecord with _$LikeRecord {
 
   factory LikeRecord.fromJson(Map<String, dynamic> json) =>
       _$LikeRecordFromJson(json);
+}
+
+/// Returns true if [object] is [LikeRecord], otherwise false.
+bool isLikeRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.like#main' ||
+      object[r'$type'] == 'app.bsky.feed.like';
 }
 
 extension $LikeRecordExtension on LikeRecord {
@@ -44,6 +60,7 @@ extension $LikeRecordExtension on LikeRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'createdAt',
 ];

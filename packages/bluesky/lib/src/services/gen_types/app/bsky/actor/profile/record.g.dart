@@ -13,6 +13,8 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ProfileRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyActorProfile),
           displayName: $checkedConvert('displayName', (v) => v as String?),
           description: $checkedConvert('description', (v) => v as String?),
           avatar: $checkedConvert(
@@ -39,7 +41,9 @@ _$ProfileRecordImpl _$$ProfileRecordImplFromJson(Map json) => $checkedCreate(
     );
 
 Map<String, dynamic> _$$ProfileRecordImplToJson(_$ProfileRecordImpl instance) {
-  final val = <String, dynamic>{};
+  final val = <String, dynamic>{
+    r'$type': instance.$type,
+  };
 
   void writeNotNull(String key, dynamic value) {
     if (value != null) {

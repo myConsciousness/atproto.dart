@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/actor/profile/union_profile_label.dart';
 
 part 'record.freezed.dart';
@@ -25,6 +26,10 @@ part 'record.g.dart';
 class ProfileRecord with _$ProfileRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ProfileRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.actor.profile`
+    @Default(appBskyActorProfile) @JsonKey(name: r'$type') String $type,
     String? displayName,
 
     /// Free-form profile description text.
@@ -47,6 +52,15 @@ class ProfileRecord with _$ProfileRecord {
       _$ProfileRecordFromJson(json);
 }
 
+/// Returns true if [object] is [ProfileRecord], otherwise false.
+bool isProfileRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.actor.profile#main' ||
+      object[r'$type'] == 'app.bsky.actor.profile';
+}
+
 extension $ProfileRecordExtension on ProfileRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -58,6 +72,7 @@ extension $ProfileRecordExtension on ProfileRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'displayName',
   'description',
   'avatar',

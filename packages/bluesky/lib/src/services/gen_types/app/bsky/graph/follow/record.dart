@@ -13,6 +13,9 @@
 // 📦 Package imports:
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+// 🌎 Project imports:
+import '../../../../../../ids.g.dart';
+
 part 'record.freezed.dart';
 part 'record.g.dart';
 
@@ -21,6 +24,10 @@ part 'record.g.dart';
 class FollowRecord with _$FollowRecord {
   @JsonSerializable(includeIfNull: false)
   const factory FollowRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.graph.follow`
+    @Default(appBskyGraphFollow) @JsonKey(name: r'$type') String $type,
     required String subject,
     DateTime? createdAt,
 
@@ -30,6 +37,15 @@ class FollowRecord with _$FollowRecord {
 
   factory FollowRecord.fromJson(Map<String, dynamic> json) =>
       _$FollowRecordFromJson(json);
+}
+
+/// Returns true if [object] is [FollowRecord], otherwise false.
+bool isFollowRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.graph.follow#main' ||
+      object[r'$type'] == 'app.bsky.graph.follow';
 }
 
 extension $FollowRecordExtension on FollowRecord {
@@ -43,6 +59,7 @@ extension $FollowRecordExtension on FollowRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'subject',
   'createdAt',
 ];

@@ -13,6 +13,8 @@ _$BlockRecordImpl _$$BlockRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$BlockRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphBlock),
           subject: $checkedConvert('subject', (v) => v as String),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
@@ -28,6 +30,7 @@ _$BlockRecordImpl _$$BlockRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$BlockRecordImplToJson(_$BlockRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': instance.subject,
   };
 

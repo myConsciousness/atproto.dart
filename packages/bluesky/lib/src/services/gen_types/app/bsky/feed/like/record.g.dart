@@ -13,6 +13,8 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$LikeRecordImpl(
+          $type:
+              $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedLike),
           subject: $checkedConvert(
               'subject',
               (v) => const StrongRefConverter()
@@ -31,6 +33,7 @@ _$LikeRecordImpl _$$LikeRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$LikeRecordImplToJson(_$LikeRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': const StrongRefConverter().toJson(instance.subject),
   };
 

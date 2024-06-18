@@ -15,6 +15,7 @@ import 'package:atproto_core/atproto_core.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/feed/threadgate/union_threadgate_allow.dart';
 
 part 'record.freezed.dart';
@@ -25,6 +26,11 @@ part 'record.g.dart';
 class ThreadgateRecord with _$ThreadgateRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ThreadgateRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.feed.threadgate`
+    @Default(appBskyFeedThreadgate) @JsonKey(name: r'$type') String $type,
+
     /// Reference (AT-URI) to the post record.
     @AtUriConverter() required AtUri post,
     @UThreadgateAllowConverter() List<UThreadgateAllow>? allow,
@@ -38,6 +44,15 @@ class ThreadgateRecord with _$ThreadgateRecord {
       _$ThreadgateRecordFromJson(json);
 }
 
+/// Returns true if [object] is [ThreadgateRecord], otherwise false.
+bool isThreadgateRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.feed.threadgate#main' ||
+      object[r'$type'] == 'app.bsky.feed.threadgate';
+}
+
 extension $ThreadgateRecordExtension on ThreadgateRecord {
   /// Returns true if this object has unknown objects,
   /// otherwise false.
@@ -49,6 +64,7 @@ extension $ThreadgateRecordExtension on ThreadgateRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'post',
   'allow',
   'createdAt',

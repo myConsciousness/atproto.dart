@@ -20,6 +20,11 @@ RepostRecord _$RepostRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$RepostRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.repost`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @StrongRefConverter()
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -41,7 +46,8 @@ abstract class $RepostRecordCopyWith<$Res> {
       _$RepostRecordCopyWithImpl<$Res, RepostRecord>;
   @useResult
   $Res call(
-      {@StrongRefConverter() StrongRef subject,
+      {@JsonKey(name: r'$type') String $type,
+      @StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -61,11 +67,16 @@ class _$RepostRecordCopyWithImpl<$Res, $Val extends RepostRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -99,7 +110,8 @@ abstract class _$$RepostRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@StrongRefConverter() StrongRef subject,
+      {@JsonKey(name: r'$type') String $type,
+      @StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -118,11 +130,16 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$RepostRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -144,7 +161,8 @@ class __$$RepostRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$RepostRecordImpl implements _RepostRecord {
   const _$RepostRecordImpl(
-      {@StrongRefConverter() required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedRepost,
+      @StrongRefConverter() required this.subject,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -152,6 +170,12 @@ class _$RepostRecordImpl implements _RepostRecord {
   factory _$RepostRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$RepostRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.repost`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @StrongRefConverter()
   final StrongRef subject;
@@ -174,7 +198,7 @@ class _$RepostRecordImpl implements _RepostRecord {
 
   @override
   String toString() {
-    return 'RepostRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'RepostRecord(\$type: ${$type}, subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -182,6 +206,7 @@ class _$RepostRecordImpl implements _RepostRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$RepostRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -190,7 +215,7 @@ class _$RepostRecordImpl implements _RepostRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -209,7 +234,8 @@ class _$RepostRecordImpl implements _RepostRecord {
 
 abstract class _RepostRecord implements RepostRecord {
   const factory _RepostRecord(
-          {@StrongRefConverter() required final StrongRef subject,
+          {@JsonKey(name: r'$type') final String $type,
+          @StrongRefConverter() required final StrongRef subject,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$RepostRecordImpl;
@@ -217,6 +243,13 @@ abstract class _RepostRecord implements RepostRecord {
   factory _RepostRecord.fromJson(Map<String, dynamic> json) =
       _$RepostRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.repost`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @StrongRefConverter()
   StrongRef get subject;

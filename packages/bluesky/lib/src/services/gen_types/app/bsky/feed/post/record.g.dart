@@ -13,6 +13,8 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$PostRecordImpl(
+          $type:
+              $checkedConvert(r'$type', (v) => v as String? ?? appBskyFeedPost),
           text: $checkedConvert('text', (v) => v as String),
           facets: $checkedConvert(
               'facets',
@@ -50,6 +52,7 @@ _$PostRecordImpl _$$PostRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$PostRecordImplToJson(_$PostRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'text': instance.text,
   };
 

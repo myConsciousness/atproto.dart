@@ -14,6 +14,8 @@ _$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$DeclarationRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? chatBskyActorDeclaration),
           allowIncoming: $checkedConvert(
               'allowIncoming',
               (v) => const UDeclarationAllowIncomingConverter()
@@ -31,6 +33,7 @@ _$DeclarationRecordImpl _$$DeclarationRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$DeclarationRecordImplToJson(
     _$DeclarationRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'allowIncoming': const UDeclarationAllowIncomingConverter()
         .toJson(instance.allowIncoming),
   };

@@ -20,6 +20,12 @@ ListblockRecord _$ListblockRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ListblockRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listblock`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// Reference (AT-URI) to the mod list record.
   @AtUriConverter()
   AtUri get subject => throw _privateConstructorUsedError;
@@ -42,7 +48,8 @@ abstract class $ListblockRecordCopyWith<$Res> {
       _$ListblockRecordCopyWithImpl<$Res, ListblockRecord>;
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri subject,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -60,11 +67,16 @@ class _$ListblockRecordCopyWithImpl<$Res, $Val extends ListblockRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -90,7 +102,8 @@ abstract class _$$ListblockRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@AtUriConverter() AtUri subject,
+      {@JsonKey(name: r'$type') String $type,
+      @AtUriConverter() AtUri subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -106,11 +119,16 @@ class __$$ListblockRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ListblockRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -132,13 +150,21 @@ class __$$ListblockRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ListblockRecordImpl implements _ListblockRecord {
   const _$ListblockRecordImpl(
-      {@AtUriConverter() required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphListblock,
+      @AtUriConverter() required this.subject,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$ListblockRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ListblockRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listblock`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// Reference (AT-URI) to the mod list record.
   @override
@@ -163,7 +189,7 @@ class _$ListblockRecordImpl implements _ListblockRecord {
 
   @override
   String toString() {
-    return 'ListblockRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ListblockRecord(\$type: ${$type}, subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -171,6 +197,7 @@ class _$ListblockRecordImpl implements _ListblockRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ListblockRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -179,7 +206,7 @@ class _$ListblockRecordImpl implements _ListblockRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -199,7 +226,8 @@ class _$ListblockRecordImpl implements _ListblockRecord {
 
 abstract class _ListblockRecord implements ListblockRecord {
   const factory _ListblockRecord(
-          {@AtUriConverter() required final AtUri subject,
+          {@JsonKey(name: r'$type') final String $type,
+          @AtUriConverter() required final AtUri subject,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$ListblockRecordImpl;
@@ -207,6 +235,13 @@ abstract class _ListblockRecord implements ListblockRecord {
   factory _ListblockRecord.fromJson(Map<String, dynamic> json) =
       _$ListblockRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.listblock`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// Reference (AT-URI) to the mod list record.

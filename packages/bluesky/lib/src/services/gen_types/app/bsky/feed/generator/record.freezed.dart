@@ -20,6 +20,11 @@ GeneratorRecord _$GeneratorRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$GeneratorRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.generator`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   String get did => throw _privateConstructorUsedError;
   String get displayName => throw _privateConstructorUsedError;
   String? get description => throw _privateConstructorUsedError;
@@ -53,7 +58,8 @@ abstract class $GeneratorRecordCopyWith<$Res> {
       _$GeneratorRecordCopyWithImpl<$Res, GeneratorRecord>;
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String displayName,
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
@@ -80,6 +86,7 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? displayName = null,
     Object? description = freezed,
@@ -91,6 +98,10 @@ class _$GeneratorRecordCopyWithImpl<$Res, $Val extends GeneratorRecord>
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -164,7 +175,8 @@ abstract class _$$GeneratorRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String did,
+      {@JsonKey(name: r'$type') String $type,
+      String did,
       String displayName,
       String? description,
       @FacetConverter() List<Facet>? descriptionFacets,
@@ -191,6 +203,7 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? did = null,
     Object? displayName = null,
     Object? description = freezed,
@@ -202,6 +215,10 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
     Object? $unknown = freezed,
   }) {
     return _then(_$GeneratorRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       did: null == did
           ? _value.did
           : did // ignore: cast_nullable_to_non_nullable
@@ -247,7 +264,8 @@ class __$$GeneratorRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$GeneratorRecordImpl implements _GeneratorRecord {
   const _$GeneratorRecordImpl(
-      {required this.did,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedGenerator,
+      required this.did,
       required this.displayName,
       this.description,
       @FacetConverter() final List<Facet>? descriptionFacets,
@@ -262,6 +280,12 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   factory _$GeneratorRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$GeneratorRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.generator`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   final String did;
   @override
@@ -312,7 +336,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
 
   @override
   String toString() {
-    return 'GeneratorRecord(did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'GeneratorRecord(\$type: ${$type}, did: $did, displayName: $displayName, description: $description, descriptionFacets: $descriptionFacets, avatar: $avatar, acceptsInteractions: $acceptsInteractions, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -320,6 +344,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$GeneratorRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.did, did) || other.did == did) &&
             (identical(other.displayName, displayName) ||
                 other.displayName == displayName) &&
@@ -340,6 +365,7 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      $type,
       did,
       displayName,
       description,
@@ -367,7 +393,8 @@ class _$GeneratorRecordImpl implements _GeneratorRecord {
 
 abstract class _GeneratorRecord implements GeneratorRecord {
   const factory _GeneratorRecord(
-          {required final String did,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String did,
           required final String displayName,
           final String? description,
           @FacetConverter() final List<Facet>? descriptionFacets,
@@ -381,6 +408,13 @@ abstract class _GeneratorRecord implements GeneratorRecord {
   factory _GeneratorRecord.fromJson(Map<String, dynamic> json) =
       _$GeneratorRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.generator`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   String get did;
   @override

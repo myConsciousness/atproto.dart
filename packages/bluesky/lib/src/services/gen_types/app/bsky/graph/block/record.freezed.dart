@@ -20,6 +20,12 @@ BlockRecord _$BlockRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$BlockRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.block`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
+
   /// DID of the account to be blocked.
   String get subject => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -41,7 +47,8 @@ abstract class $BlockRecordCopyWith<$Res> {
       _$BlockRecordCopyWithImpl<$Res, BlockRecord>;
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -59,11 +66,16 @@ class _$BlockRecordCopyWithImpl<$Res, $Val extends BlockRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -89,7 +101,8 @@ abstract class _$$BlockRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String subject,
+      {@JsonKey(name: r'$type') String $type,
+      String subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 }
@@ -105,11 +118,16 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$BlockRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -131,13 +149,21 @@ class __$$BlockRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$BlockRecordImpl implements _BlockRecord {
   const _$BlockRecordImpl(
-      {required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyGraphBlock,
+      required this.subject,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
 
   factory _$BlockRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$BlockRecordImplFromJson(json);
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.block`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
 
   /// DID of the account to be blocked.
   @override
@@ -161,7 +187,7 @@ class _$BlockRecordImpl implements _BlockRecord {
 
   @override
   String toString() {
-    return 'BlockRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'BlockRecord(\$type: ${$type}, subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -169,6 +195,7 @@ class _$BlockRecordImpl implements _BlockRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$BlockRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -177,7 +204,7 @@ class _$BlockRecordImpl implements _BlockRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -196,7 +223,8 @@ class _$BlockRecordImpl implements _BlockRecord {
 
 abstract class _BlockRecord implements BlockRecord {
   const factory _BlockRecord(
-          {required final String subject,
+          {@JsonKey(name: r'$type') final String $type,
+          required final String subject,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$BlockRecordImpl;
@@ -204,6 +232,13 @@ abstract class _BlockRecord implements BlockRecord {
   factory _BlockRecord.fromJson(Map<String, dynamic> json) =
       _$BlockRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.graph.block`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
 
   /// DID of the account to be blocked.

@@ -14,6 +14,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
+import '../../../../../../ids.g.dart';
 import '../../../../app/bsky/labeler/defs/labeler_policies.dart';
 import '../../../../app/bsky/labeler/service/union_service_label.dart';
 
@@ -25,6 +26,10 @@ part 'record.g.dart';
 class ServiceRecord with _$ServiceRecord {
   @JsonSerializable(includeIfNull: false)
   const factory ServiceRecord({
+    /// The unique namespace for this lex object.
+    ///
+    /// `app.bsky.labeler.service`
+    @Default(appBskyLabelerService) @JsonKey(name: r'$type') String $type,
     @LabelerPoliciesConverter() required LabelerPolicies policies,
     @UServiceLabelConverter() UServiceLabel? labels,
     DateTime? createdAt,
@@ -35,6 +40,15 @@ class ServiceRecord with _$ServiceRecord {
 
   factory ServiceRecord.fromJson(Map<String, dynamic> json) =>
       _$ServiceRecordFromJson(json);
+}
+
+/// Returns true if [object] is [ServiceRecord], otherwise false.
+bool isServiceRecord(final Map<String, dynamic>? object) {
+  if (object == null) return false;
+  if (object[r'$type'] == null) return false;
+
+  return object[r'$type'] == 'app.bsky.labeler.service#main' ||
+      object[r'$type'] == 'app.bsky.labeler.service';
 }
 
 extension $ServiceRecordExtension on ServiceRecord {
@@ -48,6 +62,7 @@ extension $ServiceRecordExtension on ServiceRecord {
 }
 
 const _kLexCompatibleProperties = <String>[
+  r'$type',
   'policies',
   'labels',
   'createdAt',

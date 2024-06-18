@@ -14,6 +14,8 @@ _$ListblockRecordImpl _$$ListblockRecordImplFromJson(Map json) =>
       json,
       ($checkedConvert) {
         final val = _$ListblockRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphListblock),
           subject: $checkedConvert(
               'subject', (v) => const AtUriConverter().fromJson(v as String)),
           createdAt: $checkedConvert('createdAt',
@@ -31,6 +33,7 @@ _$ListblockRecordImpl _$$ListblockRecordImplFromJson(Map json) =>
 Map<String, dynamic> _$$ListblockRecordImplToJson(
     _$ListblockRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': const AtUriConverter().toJson(instance.subject),
   };
 

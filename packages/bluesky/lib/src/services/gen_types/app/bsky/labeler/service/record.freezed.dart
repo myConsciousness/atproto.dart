@@ -20,6 +20,11 @@ ServiceRecord _$ServiceRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ServiceRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.service`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @LabelerPoliciesConverter()
   LabelerPolicies get policies => throw _privateConstructorUsedError;
   @UServiceLabelConverter()
@@ -43,7 +48,8 @@ abstract class $ServiceRecordCopyWith<$Res> {
       _$ServiceRecordCopyWithImpl<$Res, ServiceRecord>;
   @useResult
   $Res call(
-      {@LabelerPoliciesConverter() LabelerPolicies policies,
+      {@JsonKey(name: r'$type') String $type,
+      @LabelerPoliciesConverter() LabelerPolicies policies,
       @UServiceLabelConverter() UServiceLabel? labels,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -65,12 +71,17 @@ class _$ServiceRecordCopyWithImpl<$Res, $Val extends ServiceRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? policies = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       policies: null == policies
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
@@ -120,7 +131,8 @@ abstract class _$$ServiceRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@LabelerPoliciesConverter() LabelerPolicies policies,
+      {@JsonKey(name: r'$type') String $type,
+      @LabelerPoliciesConverter() LabelerPolicies policies,
       @UServiceLabelConverter() UServiceLabel? labels,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
@@ -142,12 +154,17 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? policies = null,
     Object? labels = freezed,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$ServiceRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       policies: null == policies
           ? _value.policies
           : policies // ignore: cast_nullable_to_non_nullable
@@ -173,7 +190,8 @@ class __$$ServiceRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$ServiceRecordImpl implements _ServiceRecord {
   const _$ServiceRecordImpl(
-      {@LabelerPoliciesConverter() required this.policies,
+      {@JsonKey(name: r'$type') this.$type = appBskyLabelerService,
+      @LabelerPoliciesConverter() required this.policies,
       @UServiceLabelConverter() this.labels,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
@@ -182,6 +200,12 @@ class _$ServiceRecordImpl implements _ServiceRecord {
   factory _$ServiceRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$ServiceRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.service`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @LabelerPoliciesConverter()
   final LabelerPolicies policies;
@@ -207,7 +231,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 
   @override
   String toString() {
-    return 'ServiceRecord(policies: $policies, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'ServiceRecord(\$type: ${$type}, policies: $policies, labels: $labels, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -215,6 +239,7 @@ class _$ServiceRecordImpl implements _ServiceRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$ServiceRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.policies, policies) ||
                 other.policies == policies) &&
             (identical(other.labels, labels) || other.labels == labels) &&
@@ -225,8 +250,8 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, policies, labels, createdAt,
-      const DeepCollectionEquality().hash(_$unknown));
+  int get hashCode => Object.hash(runtimeType, $type, policies, labels,
+      createdAt, const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
   @override
@@ -244,7 +269,8 @@ class _$ServiceRecordImpl implements _ServiceRecord {
 
 abstract class _ServiceRecord implements ServiceRecord {
   const factory _ServiceRecord(
-          {@LabelerPoliciesConverter() required final LabelerPolicies policies,
+          {@JsonKey(name: r'$type') final String $type,
+          @LabelerPoliciesConverter() required final LabelerPolicies policies,
           @UServiceLabelConverter() final UServiceLabel? labels,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
@@ -253,6 +279,13 @@ abstract class _ServiceRecord implements ServiceRecord {
   factory _ServiceRecord.fromJson(Map<String, dynamic> json) =
       _$ServiceRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.labeler.service`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @LabelerPoliciesConverter()
   LabelerPolicies get policies;

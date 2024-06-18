@@ -13,6 +13,8 @@ _$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$FollowRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphFollow),
           subject: $checkedConvert('subject', (v) => v as String),
           createdAt: $checkedConvert('createdAt',
               (v) => v == null ? null : DateTime.parse(v as String)),
@@ -28,6 +30,7 @@ _$FollowRecordImpl _$$FollowRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$FollowRecordImplToJson(_$FollowRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'subject': instance.subject,
   };
 

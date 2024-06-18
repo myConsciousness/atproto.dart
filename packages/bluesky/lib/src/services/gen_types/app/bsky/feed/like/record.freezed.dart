@@ -20,6 +20,11 @@ LikeRecord _$LikeRecordFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$LikeRecord {
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.like`
+  @JsonKey(name: r'$type')
+  String get $type => throw _privateConstructorUsedError;
   @StrongRefConverter()
   StrongRef get subject => throw _privateConstructorUsedError;
   DateTime? get createdAt => throw _privateConstructorUsedError;
@@ -41,7 +46,8 @@ abstract class $LikeRecordCopyWith<$Res> {
       _$LikeRecordCopyWithImpl<$Res, LikeRecord>;
   @useResult
   $Res call(
-      {@StrongRefConverter() StrongRef subject,
+      {@JsonKey(name: r'$type') String $type,
+      @StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -61,11 +67,16 @@ class _$LikeRecordCopyWithImpl<$Res, $Val extends LikeRecord>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_value.copyWith(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -99,7 +110,8 @@ abstract class _$$LikeRecordImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {@StrongRefConverter() StrongRef subject,
+      {@JsonKey(name: r'$type') String $type,
+      @StrongRefConverter() StrongRef subject,
       DateTime? createdAt,
       @JsonKey(name: r'$unknown') Map<String, dynamic>? $unknown});
 
@@ -118,11 +130,16 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? $type = null,
     Object? subject = null,
     Object? createdAt = freezed,
     Object? $unknown = freezed,
   }) {
     return _then(_$LikeRecordImpl(
+      $type: null == $type
+          ? _value.$type
+          : $type // ignore: cast_nullable_to_non_nullable
+              as String,
       subject: null == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
@@ -144,7 +161,8 @@ class __$$LikeRecordImplCopyWithImpl<$Res>
 @JsonSerializable(includeIfNull: false)
 class _$LikeRecordImpl implements _LikeRecord {
   const _$LikeRecordImpl(
-      {@StrongRefConverter() required this.subject,
+      {@JsonKey(name: r'$type') this.$type = appBskyFeedLike,
+      @StrongRefConverter() required this.subject,
       this.createdAt,
       @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown})
       : _$unknown = $unknown;
@@ -152,6 +170,12 @@ class _$LikeRecordImpl implements _LikeRecord {
   factory _$LikeRecordImpl.fromJson(Map<String, dynamic> json) =>
       _$$LikeRecordImplFromJson(json);
 
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.like`
+  @override
+  @JsonKey(name: r'$type')
+  final String $type;
   @override
   @StrongRefConverter()
   final StrongRef subject;
@@ -174,7 +198,7 @@ class _$LikeRecordImpl implements _LikeRecord {
 
   @override
   String toString() {
-    return 'LikeRecord(subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
+    return 'LikeRecord(\$type: ${$type}, subject: $subject, createdAt: $createdAt, \$unknown: ${$unknown})';
   }
 
   @override
@@ -182,6 +206,7 @@ class _$LikeRecordImpl implements _LikeRecord {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$LikeRecordImpl &&
+            (identical(other.$type, $type) || other.$type == $type) &&
             (identical(other.subject, subject) || other.subject == subject) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
@@ -190,7 +215,7 @@ class _$LikeRecordImpl implements _LikeRecord {
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, subject, createdAt,
+  int get hashCode => Object.hash(runtimeType, $type, subject, createdAt,
       const DeepCollectionEquality().hash(_$unknown));
 
   @JsonKey(ignore: true)
@@ -209,7 +234,8 @@ class _$LikeRecordImpl implements _LikeRecord {
 
 abstract class _LikeRecord implements LikeRecord {
   const factory _LikeRecord(
-          {@StrongRefConverter() required final StrongRef subject,
+          {@JsonKey(name: r'$type') final String $type,
+          @StrongRefConverter() required final StrongRef subject,
           final DateTime? createdAt,
           @JsonKey(name: r'$unknown') final Map<String, dynamic>? $unknown}) =
       _$LikeRecordImpl;
@@ -217,6 +243,13 @@ abstract class _LikeRecord implements LikeRecord {
   factory _LikeRecord.fromJson(Map<String, dynamic> json) =
       _$LikeRecordImpl.fromJson;
 
+  @override
+
+  /// The unique namespace for this lex object.
+  ///
+  /// `app.bsky.feed.like`
+  @JsonKey(name: r'$type')
+  String get $type;
   @override
   @StrongRefConverter()
   StrongRef get subject;

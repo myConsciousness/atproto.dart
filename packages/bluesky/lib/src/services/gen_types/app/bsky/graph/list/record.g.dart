@@ -13,6 +13,8 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
       json,
       ($checkedConvert) {
         final val = _$ListRecordImpl(
+          $type: $checkedConvert(
+              r'$type', (v) => v as String? ?? appBskyGraphList),
           purpose: $checkedConvert('purpose',
               (v) => const UListPurposeConverter().fromJson(v as String)),
           name: $checkedConvert('name', (v) => v as String),
@@ -45,6 +47,7 @@ _$ListRecordImpl _$$ListRecordImplFromJson(Map json) => $checkedCreate(
 
 Map<String, dynamic> _$$ListRecordImplToJson(_$ListRecordImpl instance) {
   final val = <String, dynamic>{
+    r'$type': instance.$type,
     'purpose': const UListPurposeConverter().toJson(instance.purpose),
     'name': instance.name,
   };
