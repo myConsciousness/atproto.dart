@@ -19,10 +19,10 @@ import 'package:atproto/src/services/entities/repo_commits.dart';
 import 'package:atproto/src/services/entities/repo_latest_commit.dart';
 import 'package:atproto/src/services/entities/repos.dart';
 import 'package:atproto/src/services/entities/subscribed_repo.dart';
-import 'suite/data/com/atproto/sync/get_blocks.dart';
-import 'suite/data/com/atproto/sync/get_record.dart';
-import 'suite/data/com/atproto/sync/get_repo.dart';
-import 'suite/service_suite.dart';
+import 'service_suite.dart';
+import 'sync/get_blocks.dart';
+import 'sync/get_record.dart';
+import 'sync/get_repo.dart';
 
 void main() {
   testSyncSubscription<SubscribedRepo>(
@@ -71,7 +71,7 @@ void main() {
   testSync<Uint8List>(
     (m, s) => s.getBlob(did: m.did, cid: m.cid),
     id: comAtprotoSyncGetBlob,
-    bytes: File('test/src/services/suite/data/com/atproto/sync/getBlob.txt')
+    bytes: File('test/src/services/suite/com/atproto/sync/getBlob.txt')
         .readAsBytesSync(),
   );
 

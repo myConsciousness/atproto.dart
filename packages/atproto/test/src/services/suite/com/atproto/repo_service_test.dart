@@ -20,7 +20,7 @@ import 'package:atproto/src/services/entities/repo_info.dart';
 import 'package:atproto/src/services/entities/strong_ref.dart';
 import 'package:atproto/src/services/entities/update_action.dart';
 import 'package:atproto/src/services/repo_service.dart';
-import 'suite/service_suite.dart';
+import 'service_suite.dart';
 
 void main() {
   testRepo<StrongRef>(
@@ -53,7 +53,7 @@ void main() {
 
   testRepo<BlobData>(
     (m, s) => s.uploadBlob(File(
-      'test/src/services/suite/data/com/atproto/repo/dash.png',
+      'test/src/services/suite/com/atproto/repo/dash.png',
     ).readAsBytesSync()),
     id: comAtprotoRepoUploadBlob,
   );

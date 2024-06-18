@@ -7,7 +7,7 @@ import 'package:atproto/src/ids.g.dart';
 import 'package:atproto/src/services/entities/repo_ref.dart';
 import 'package:atproto/src/services/entities/report.dart';
 import 'package:atproto/src/services/entities/report_subject.dart';
-import 'suite/service_suite.dart';
+import 'service_suite.dart';
 
 void main() {
   testModeration<Report>(
