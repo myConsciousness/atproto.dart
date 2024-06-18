@@ -123,7 +123,7 @@ final class RepoService {
         ns.comAtprotoRepoPutRecord,
         body: {
           'repo': _ctx.session?.did,
-          'collection': uri.collection,
+          'collection': uri.collection.toString(),
           'rkey': uri.rkey,
           'record': record,
           'validate': validate,
