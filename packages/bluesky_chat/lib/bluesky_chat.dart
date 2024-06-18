@@ -48,13 +48,17 @@ export 'package:atproto_core/atproto_core.dart'
         $AuthTokenCopyWith,
         AuthScope,
         decodeJwt,
-        createSession,
-        refreshSession,
-        deleteSession,
         isValidAppPassword;
 
 export 'package:atproto/atproto.dart'
-    show StrongRef, $StrongRefCopyWith, Label, $LabelCopyWith;
+    show
+        StrongRef,
+        $StrongRefCopyWith,
+        Label,
+        $LabelCopyWith,
+        createSession,
+        refreshSession,
+        deleteSession;
 
 export 'package:bluesky/bluesky.dart'
     show

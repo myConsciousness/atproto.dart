@@ -7,8 +7,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
 import '../utils/annotations.dart';
-import 'auth_token.dart';
-import 'jwt_decoder.dart';
+import '../utils/auth_token.dart';
+import '../utils/jwt_decoder.dart';
 
 part 'session.freezed.dart';
 part 'session.g.dart';
@@ -19,10 +19,6 @@ part 'session.g.dart';
 /// handle, email, and the access and refresh JSON Web Tokens (JWT).
 @freezed
 class Session with _$Session {
-  // ignore: unused_element
-  const Session._();
-
-  /// Creates a new instance of [Session].
   @jsonSerializable
   const factory Session({
     /// Decentralized Identifier for the user.
@@ -35,7 +31,7 @@ class Session with _$Session {
     String? email,
 
     /// A flag indicating whether the email address is confirmed.
-    @JsonKey(name: 'emailConfirmed') @Default(false) bool isEmailConfirmed,
+    @Default(false) bool emailConfirmed,
     @Default(false) bool emailAuthFactor,
 
     /// Access JSON Web Token.
@@ -50,12 +46,12 @@ class Session with _$Session {
     String? status,
   }) = _Session;
 
-  /// Creates a new instance of [Session] from a JSON object.
-  ///
-  /// The [json] parameter must be a map with keys and values that can be used
-  /// to populate an instance of [Session].
   factory Session.fromJson(Map<String, Object?> json) =>
       _$SessionFromJson(json);
+}
+
+extension SessionExtension on Session {
+  bool get isEmailConfirmed => emailConfirmed;
 
   /// Returns decoded [accessJwt].
   AuthToken get accessToken => decodeJwt(accessJwt);

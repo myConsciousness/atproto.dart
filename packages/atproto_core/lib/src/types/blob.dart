@@ -8,7 +8,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 // 🌎 Project imports:
-import 'annotations.dart';
+import '../utils/annotations.dart';
 import 'blob_ref.dart';
 
 part 'blob.freezed.dart';
